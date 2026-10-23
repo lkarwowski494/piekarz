@@ -7,13 +7,14 @@
 
 import type { SessionStep } from './bake-steps';
 import type { PlanStarter } from './notification-plan';
-import { nextFixedFeeding, punktOdniesieniaKarmienia, stalyDzienKarmienia, terminKarmienia, type TekstKarmienia } from './notification-feeding';
+import { nextFixedFeeding, punktOdniesieniaKarmienia, stalyDzienKarmienia, terminKarmienia, zakwasyDoPrzypomnien, type TekstKarmienia } from './notification-feeding';
 import { pominietoKarmienieAt, type Pominiecie } from './pominiecia';
 import { addCalendarDays, localDateKey, startOfLocalDay } from './dzien-lokalny';
 import { setupDay } from './starter-log';
 import { kolejneKarmieniaBudzace } from './karmienia-budzace';
+import { kolizjePiekarnika } from './piekarnik';
 
-export type RodzajZdarzenia = 'wypiek-krok' | 'wypiek-gotowe' | 'karmienie-zrobione' | 'karmienie-nastepne' | 'zakladanie' | 'wpis-dziennika';
+export type RodzajZdarzenia = 'wypiek-krok' | 'wypiek-gotowe' | 'karmienie-zrobione' | 'karmienie-nastepne' | 'zakladanie' | 'wpis-dziennika' | 'piekarnik-zajety';
 /** Stan zdarzenia: zrobione (przeszłość), trwa (bieżący krok, dzień zakładania dziś), zaplanowane (przyszłe albo zaległe). */
 export type StanZdarzenia = 'zrobione' | 'trwa' | 'zaplanowane';
 export type ZrodloZdarzenia = { typ: 'wypiek' | 'zakwas' | 'dziennik'; id: string };
@@ -46,9 +47,12 @@ export interface ZdarzenieKalendarza {
   karmienie?: TekstKarmienia;
   /** Kolejne karmienie budzące z dopiskiem „jeśli zakwas nie podwoił objętości” (RD-33, D-052) [M3 D5]. */
   warunkowe?: boolean;
+  /** Piekarnik zajęty (RD-34): `nazwa` = pierwszy wypiek, `drugi` = drugi, `doAt` = koniec części wspólnej okien [M3 D6]. */
+  piekarnik?: { drugi: string; doAt: number };
 }
 
-type KrokPlanu = Pick<SessionStep, 'id' | 'name' | 'plannedStart' | 'plannedEnd'>;
+/** Krok planu; kategoria (nagrzewanie, pieczenie) do okna piekarnika — brak w starym zapisie (RD-34) [M3 D6]. */
+type KrokPlanu = Pick<SessionStep, 'id' | 'name' | 'plannedStart' | 'plannedEnd'> & { category?: SessionStep['category'] };
 
 /** Trwający wypiek (wiersz `active`). */
 export interface KalendarzWypiek {
@@ -98,6 +102,11 @@ export interface KalendarzWpisDziennika {
 export interface DostepKalendarza {
   terminyKarmienia: boolean;
   przyszleWypieki: boolean;
+  /**
+   * Przypomnienia o dokarmianiu poza zakładaniem (Pro, D-113): false = terminy karmienia tylko zakwasów w trakcie
+   * zakładania i bez karmień budzących (Basic), jak plan powiadomień (zakwasyDoPrzypomnien); brak = wszystkie.
+   */
+  karmieniePro?: boolean;
 }
 
 export interface DaneKalendarza {
@@ -231,19 +240,33 @@ function terminyZakwasu(s: PlanStarter, pominiecia: DaneKalendarza['pominiecia']
 /** Wszystkie zdarzenia kalendarza w kolejności czasu. Wpis bez czytelnej chwili jest pomijany (RD-29-W6). */
 export function zdarzeniaKalendarza(dane: DaneKalendarza, now: number, zakres?: ZakresKalendarza): ZdarzenieKalendarza[] {
   const { dostep } = dane;
+  // Piekarnik zajęty (BR-KAL-016, RD-34): przed krokami, więc przy tej samej godzinie wiersz kolizji jest pierwszy;
+  // tylko wypieki, których przyszłość kalendarz pokazuje (BR-KAL-006) [M3 D6]
+  const widoczne = [...dane.wypieki.filter((w) => dostep.przyszleWypieki || w.zaczetyZDostepem), ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
   const out: ZdarzenieKalendarza[] = [
+    ...kolizjePiekarnika(widoczne.map((w) => ({ id: w.id, nazwa: w.recipeName, kroki: w.steps }))).map((k) =>
+      zd({
+        id: `piekarnik:${k.pierwszy.id}:${k.drugi.id}`, rodzaj: 'piekarnik-zajety', at: k.od, zrodlo: { typ: 'wypiek', id: k.drugi.id },
+        nazwa: k.pierwszy.nazwa, stan: 'zaplanowane', piekarnik: { drugi: k.drugi.nazwa, doAt: k.do },
+        // Drugi wypiek (ten do przesunięcia) to plan: wiersz otwiera plan, nie Stolnicę
+        ...(dane.zaplanowane.some((p) => p.id === k.drugi.id) ? { zaplanowany: true } : {}),
+      })
+    ),
     ...dane.wypieki.flatMap((w) => zdarzeniaWypieku(w, now, dostep.przyszleWypieki)),
     ...(dostep.przyszleWypieki ? dane.zaplanowane.flatMap((p) => zdarzeniaPlanu(p, now)) : []),
   ];
   const zakwasy = new Map(dane.zakwasy.map((s) => [s.id, s]));
+  const karmieniePro = dostep.karmieniePro !== false;
+  const zTerminem = new Set(zakwasyDoPrzypomnien(dane.zakwasy, karmieniePro).map((s) => s.id));
   for (const s of dane.zakwasy) {
     out.push(...dniZakladania(s, now, zakres));
-    // Bez terminów karmienia, gdy przypomnienia są wyłączone albo nie ma dostępu (BR-KAL-006, jak plan powiadomień)
-    if (dostep.terminyKarmienia) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
+    // Bez terminów karmienia, gdy przypomnienia są wyłączone, a w Basic poza zakładaniem (BR-KAL-006, D-113, jak plan powiadomień)
+    if (dostep.terminyKarmienia && zTerminem.has(s.id)) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
   }
-  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5]
+  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5];
+  // trwającego wypieku zawsze (wypiek zaczęty z Pro prowadzi się do końca), planu niezaczętego tylko z Pro [M3 P-a-fix P2-3]
   if (dostep.terminyKarmienia) {
-    const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
+    const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki && karmieniePro ? dane.zaplanowane : [])];
     for (const k of kolejneKarmieniaBudzace(wypieki, dane.zakwasy, dane.wpisyZakwasow, now)) {
       out.push(zd({
         id: `zakwas:${k.starterId}:budzenie:${k.wypiekId}`, rodzaj: 'karmienie-nastepne', at: k.at, zrodlo: { typ: 'zakwas', id: k.starterId },

@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — lista receptur, ekran główny zakładki „Receptury” (design-spec §11c „106”, stan `lista-receptur`
-// w docs/design/ekrany/kalkulator.html): filtr rodzaju jako zawijane chipy 44 pt bez licznika, grupa
+// w docs/design/ekrany/kalkulator.html): filtr rodzaju jako zawijane chipy 44 pt bez licznika (od D10 na pasie), grupa
 // „Moje receptury” nad „Receptury bazowe”, wiersz z nazwą, podpisem i szewronem; pusty filtr z „Pokaż wszystkie”.
 // Usuwanie własnej receptury bez zmian (z pytaniem; zmiana to osobne znalezisko 04-studio-projektowe-038).
 // [M1-audytor-generalny-106; 04-studio-projektowe-022]
@@ -17,10 +17,11 @@ import { opisReceptury } from './nazwy-receptur';
 import { s } from './style-receptur';
 
 import { typografia } from '../../ui/tokeny';
-/** Filtr rodzaju na liście receptur bazowych (chipy niżej). */
+/** Filtr rodzaju na liście receptur bazowych. */
 export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
-const FILTRY: { id: CategoryFilterType; testID: string; etykieta: string }[] = [
+/** Filtry rodzaju (etykieta = klucz PL do t()); na pasie listy receptur (D10). */
+export const FILTRY_RECEPTUR: readonly { id: CategoryFilterType; testID: string; etykieta: string }[] = [
   { id: 'all', testID: 'category-filter-all', etykieta: 'Wszystkie' },
   { id: 'sourdough', testID: 'category-filter-sourdough', etykieta: 'Na zakwasie' },
   { id: 'rye', testID: 'category-filter-rye', etykieta: 'Żytnie' },
@@ -29,7 +30,7 @@ const FILTRY: { id: CategoryFilterType; testID: string; etykieta: string }[] = [
 ];
 
 export interface ListaRecepturProps {
-  filtr: CategoryFilterType;
+  /** „Pokaż wszystkie” przy pustym filtrze (filtr rodzaju jest na pasie ekranu). */
   onFiltr: (f: CategoryFilterType) => void;
   bazowe: RecipePreset[];
   moje: StoredRecipe[];
@@ -57,27 +58,10 @@ function Wiersz({ id, nazwa, opis, ostatni, onPress }: { id: string; nazwa: stri
   );
 }
 
-export function ListaReceptur({ filtr, onFiltr, bazowe, moje, onOtworzBazowa, onOtworzMoja, onUsunMoja }: ListaRecepturProps) {
+export function ListaReceptur({ onFiltr, bazowe, moje, onOtworzBazowa, onOtworzMoja, onUsunMoja }: ListaRecepturProps) {
   return (
     <View testID="recipe-list">
-      <View style={s.chipy} accessibilityRole="radiogroup" accessibilityLabel={t('Rodzaj receptur')}>
-        {FILTRY.map((f) => {
-          const wyb = filtr === f.id;
-          return (
-            <Pressable
-              key={f.id}
-              accessibilityRole="button"
-              accessibilityState={{ selected: wyb }}
-              testID={f.testID}
-              style={[s.chip, styles.chipCel, wyb && s.chipWybrany]}
-              onPress={() => onFiltr(f.id)}
-            >
-              <Text style={[s.chipTekst, wyb && s.chipTekstWybrany]}>{t(f.etykieta)}</Text>
-            </Pressable>
-          );
-        })}
-      </View>
-
+      {/* Filtr rodzaju na pasie ekranu (D10 opcja A): FILTRY_RECEPTUR w app/(tabs)/receptury/index.tsx [M3 D10] */}
       {moje.length > 0 && (
         <>
           <Text style={s.naglowekGrupy} accessibilityRole="header">
@@ -134,9 +118,6 @@ const styles = StyleSheet.create({
   wiersz: {
     flexWrap: 'nowrap',
     minHeight: theme.cele.glownyPrzeplyw,
-  },
-  chipCel: {
-    minHeight: theme.cele.pozostale,
   },
   mojaRzad: {
     flexDirection: 'row',

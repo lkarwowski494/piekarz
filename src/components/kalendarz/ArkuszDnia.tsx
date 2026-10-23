@@ -18,7 +18,10 @@ import { opisZdarzenia, tekstyNastepne, type OpcjeTekstu } from '../../lib/kalen
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { CloseButton } from '../CloseButton';
+import { OznaczeniePro } from '../OznaczeniePro';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
 import { WierszZaleglego, type AkcjeZaleglego } from './LiniaNastepne';
+import { GlifPiekarnika } from './GlifZdarzenia';
 
 /** Co pokazuje arkusz: jeden dzień (klucz „RRRR-MM-DD” i jego północ) albo najbliższe dni z „+N”. */
 export type TrybArkusza = { dzien: string; ms: number } | { najblizsze: true };
@@ -35,19 +38,26 @@ export interface ArkuszDniaProps {
   liczbaPlanow?: number;
   /** Skrót do planu na ten dzień (BR-KAL-015, D-108): północ dnia z arkusza. */
   onZaplanuj?: (dzienMs: number) => void;
+  /** Plany na przyszłe dni wymagają Pro (bez dostępu): skrót z oznaczeniem „Pro” (BR-KAL-015, P2-4) [M3 P-b]. */
+  zaplanujPro?: boolean;
+  /** Arkusz zniknął z ekranu (iOS): ekran Pro po zamknięciu arkusza, nie nad nim (D-117) [04-studio-projektowe-005]. */
+  onDismiss?: () => void;
 }
 
 function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; onPrzejdz: (z: ZdarzenieKalendarza) => void }) {
   const tekst = t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) });
+  // Piekarnik zajęty: glif i słowa, tło ostrzeżenia jako trzeci sygnał (makieta `piekarnik-2-arkusz-dnia`) [M3 D6]
+  const piec = z.rodzaj === 'piekarnik-zajety';
   return (
-    <Pressable testID={`arkusz-zdarzenie-${z.id}`} accessibilityRole="button" accessibilityLabel={tekst} style={styles.wiersz} onPress={() => onPrzejdz(z)}>
-      <Text style={styles.godzina}>{formatTime(z.at)}</Text>
-      <Text style={styles.opis}>{opisZdarzenia(z, o)}</Text>
+    <Pressable testID={`arkusz-zdarzenie-${z.id}`} accessibilityRole="button" accessibilityLabel={tekst} style={[styles.wiersz, piec && styles.wierszPiec]} onPress={() => onPrzejdz(z)}>
+      {piec && <GlifPiekarnika tlo={theme.colors.ostrzTlo} znak={theme.colors.ostrzTusz} rozmiar={18} />}
+      <Text style={[styles.godzina, piec && styles.tekstPiec]}>{formatTime(z.at)}</Text>
+      <Text style={[styles.opis, piec && styles.tekstPiec]}>{opisZdarzenia(z, o)}</Text>
     </Pressable>
   );
 }
 
-export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj }: ArkuszDniaProps) {
+export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj, zaplanujPro = false, onDismiss }: ArkuszDniaProps) {
   const zalegleTeksty = (z: readonly ZdarzenieKalendarza[]) =>
     tekstyNastepne({ zalegle: [...z], przyszle: [], wiecej: 0, wszystkiePrzyszle: [] }, o).zalegle;
   const zalegle = (lista: readonly ZdarzenieKalendarza[]) => {
@@ -64,8 +74,9 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, licz
     // Skrót „Zaplanuj wypiek na ten dzień” (BR-KAL-015): dzień w zasięgu planu, bez minionego i bez limitu planów;
     // trwający wypiek go nie blokuje (D-092, D-108). Element spoza makiety a2 (na liście tekstów roli 04) [M3 D5]
     const skrot = onZaplanuj && skrotZaplanuj(ms, o.now, liczbaPlanow) === 'pokaz' ? (
-      <Pressable testID="arkusz-zaplanuj-btn" accessibilityRole="button" accessibilityLabel={t('Zaplanuj wypiek na ten dzień')} style={styles.skrot} onPress={() => onZaplanuj(ms)}>
+      <Pressable testID="arkusz-zaplanuj-btn" accessibilityRole="button" accessibilityLabel={etykietaPro(t('Zaplanuj wypiek na ten dzień'), !zaplanujPro)} style={styles.skrot} onPress={() => onZaplanuj(ms)}>
         <Text style={styles.skrotTekst}>{t('Zaplanuj wypiek na ten dzień')}</Text>
+        {zaplanujPro && <OznaczeniePro />}
       </Pressable>
     ) : null;
     tresc = (
@@ -98,7 +109,7 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, licz
   }
 
   return (
-    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
       <SafeAreaView style={styles.arkusz} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.naglowek}>
           <Text style={styles.tytul} accessibilityRole="header" testID="arkusz-dnia-tytul">{tytul}</Text>
@@ -121,8 +132,10 @@ const styles = StyleSheet.create({
   grupa: { gap: odstepy.xs },
   naglowekDnia: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz2, marginTop: odstepy.s },
   wiersz: { flexDirection: 'row', flexWrap: 'wrap', columnGap: odstepy.m, minHeight: theme.cele.pozostale, alignItems: 'center', paddingVertical: odstepy.s, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.colors.linia },
+  wierszPiec: { backgroundColor: theme.colors.ostrzTlo, borderRadius: promienie.przycisk, paddingHorizontal: odstepy.s, borderBottomWidth: 0 },
+  tekstPiec: { color: theme.colors.ostrzTusz },
   godzina: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz2, fontVariant: ['tabular-nums'] },
   opis: { flexShrink: 1, flexBasis: 160, flexGrow: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
-  skrot: { minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
+  skrot: { minHeight: theme.cele.pozostale, flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
   skrotTekst: { fontSize: typografia.style.naglowek.pt, color: theme.colors.tusz, textAlign: 'center' },
 });

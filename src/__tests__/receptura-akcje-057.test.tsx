@@ -22,7 +22,7 @@ jest.setTimeout(20000);
 
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
-  useRouter: () => ({ push: mockPush, navigate: jest.fn() }),
+  /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: mockPush, navigate: jest.fn() }),
   useLocalSearchParams: () => ({}),
 }));
 jest.mock('react-native-safe-area-context', () => {

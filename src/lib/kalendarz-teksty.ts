@@ -44,6 +44,9 @@ function opisBezDopisku(z: ZdarzenieKalendarza, o: OpcjeTekstu): string {
         : t('Zakładanie zakwasu: dzień {n} zapisany', { n: z.dzienZakladania ?? 1 });
     case 'wpis-dziennika':
       return z.ocena !== undefined ? t('{wypiek}: ocena {ocena} z 5', { wypiek: z.nazwa, ocena: z.ocena }) : z.nazwa;
+    case 'piekarnik-zajety':
+      // Wiersz kolizji w arkuszu dnia (tekst roli 04 a2 `piekarnik-2-arkusz-dnia`; BR-KAL-016) [M3 D6]
+      return t('Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie', { r1: z.nazwa, r2: z.piekarnik?.drugi ?? '' });
   }
 }
 
@@ -93,33 +96,65 @@ export function tekstyNastepne(linia: LiniaNastepne, o: OpcjeTekstu): TekstyNast
   };
 }
 
-/** Etykiety VoiceOver przycisków przy zaległym: „{co} z {h}: zrobione” i „Pomiń {co} z {h}”. */
+/**
+ * Zaległy krok wypieku: przycisk otwiera Stolnicę albo arkusz planu, kroku nie odhacza, więc mówi „Otwórz”
+ * (04-studio-projektowe-007 opcja b, W-fix2); karmienie zakwasu „Zrobione” zapisuje dokarmienie.
+ */
+const otwiera = (z?: ZdarzenieKalendarza) => z?.zrodlo.typ === 'wypiek';
+
+/** Etykiety VoiceOver przycisków przy zaległym: „{co} z {h}: zrobione” (wypiek: „{co} z {h}: otwórz”) i „Pomiń {co} z {h}”. */
 export function etykietyZaleglego(z: ZdarzenieKalendarza, o: OpcjeTekstu): { zrobione: string; pomin: string } {
   const p = { co: opisZdarzenia(z, o), h: godzinaZaleglego(z.at, o.now) };
-  return { zrobione: t('{co} z {h}: zrobione', p), pomin: t('Pomiń {co} z {h}', p) };
+  return { zrobione: otwiera(z) ? t('{co} z {h}: otwórz', p) : t('{co} z {h}: zrobione', p), pomin: t('Pomiń {co} z {h}', p) };
 }
 
 /** Ile zdarzeń czyta etykieta dnia przed „i jeszcze N” (makieta roli 04 a2, tabela (g)). */
 const ZDARZEN_W_ETYKIECIE_DNIA = 3;
 
-/**
- * Etykieta VoiceOver dnia paska (BR-KAL-001 „Etykieta dla czytnika ekranu”, tabela (g) roli 04): pełna data, „dziś”
- * przy dzisiejszym, zdarzenia słowami w kolejności godzin (zaległe ze słowem „Zaległe”), ponad 3 — „i jeszcze N,
- * szczegóły w arkuszu dnia”; dzień pusty „Nic w planach”. Glif nie jest czytany.
- */
-export function etykietaDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: { ms: number; dzis: boolean }, o: OpcjeTekstu): string {
-  const pelna = formatDate(dzien.ms, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
-  const data = dzien.dzis ? t('{data}, dziś', { data: pelna }) : pelna;
-  if (zdarzenia.length === 0) return `${data}. ${t('Nic w planach')}`;
-  const pozycje = [...zdarzenia]
-    .sort((a, b) => a.at - b.at)
-    .map((z) => (z.zalegle ? pozycjaZalegla(z, o) : t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) })));
-  const reszta = pozycje.length - ZDARZEN_W_ETYKIECIE_DNIA;
-  const czytane = reszta > 0 ? [...pozycje.slice(0, ZDARZEN_W_ETYKIECIE_DNIA), t('i jeszcze {n}, szczegóły w arkuszu dnia', { n: reszta })] : pozycje;
-  return [data, ...czytane].join('. ');
+/** Części dnia paska: data, najwyżej 3 zdarzenia (każde z własnym tekstem) i „i jeszcze N”; dzień pusty ma tekst „Nic w planach”. */
+export interface CzesciDnia {
+  data: string;
+  pozycje: { z: ZdarzenieKalendarza; tekst: string }[];
+  reszta: string | null;
+  pusto: string | null;
 }
 
-/** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” i „Pomiń”. */
-export function napisyZaleglego(): { zrobione: string; pomin: string } {
-  return { zrobione: t('Zrobione'), pomin: t('Pomiń') };
+/**
+ * Części dnia (BR-KAL-001, tabela (g) roli 04): pełna data, „dziś” przy dzisiejszym, zdarzenia słowami w kolejności
+ * godzin (zaległe ze słowem „Zaległe”, piekarnik zajęty na początku, makieta `piekarnik-3-kalendarz`, BR-KAL-016
+ * [M3 D6]), ponad 3 — „i jeszcze N, szczegóły w arkuszu dnia”. Z tego składa się etykieta VoiceOver i wiersz dnia
+ * przy dużym tekście (data jako nagłówek, zdarzenia w osobnych liniach, PRZ-08).
+ */
+export function czesciDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: { ms: number; dzis: boolean }, o: OpcjeTekstu): CzesciDnia {
+  const pelna = formatDate(dzien.ms, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
+  const data = dzien.dzis ? t('{data}, dziś', { data: pelna }) : pelna;
+  if (zdarzenia.length === 0) return { data, pozycje: [], reszta: null, pusto: t('Nic w planach') };
+  const piec = (z: ZdarzenieKalendarza) => (z.rodzaj === 'piekarnik-zajety' ? 0 : 1);
+  const wszystkie = [...zdarzenia]
+    .sort((a, b) => piec(a) - piec(b) || a.at - b.at)
+    .map((z) => ({
+      z,
+      tekst: z.rodzaj === 'piekarnik-zajety'
+        ? t('Piekarnik zajęty o {h}', { h: formatTime(z.at) })
+        : z.zalegle ? pozycjaZalegla(z, o) : t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) }),
+    }));
+  const reszta = wszystkie.length - ZDARZEN_W_ETYKIECIE_DNIA;
+  return {
+    data,
+    pozycje: wszystkie.slice(0, ZDARZEN_W_ETYKIECIE_DNIA),
+    reszta: reszta > 0 ? t('i jeszcze {n}, szczegóły w arkuszu dnia', { n: reszta }) : null,
+    pusto: null,
+  };
+}
+
+/** Etykieta VoiceOver dnia paska (BR-KAL-001 „Etykieta dla czytnika ekranu”): części dnia w jednym zdaniu. Glif nie jest czytany. */
+export function etykietaDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: { ms: number; dzis: boolean }, o: OpcjeTekstu): string {
+  const c = czesciDnia(zdarzenia, dzien, o);
+  if (c.pusto !== null) return `${c.data}. ${c.pusto}`;
+  return [c.data, ...c.pozycje.map((p) => p.tekst), ...(c.reszta ? [c.reszta] : [])].join('. ');
+}
+
+/** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” (krok wypieku: „Otwórz”, 007 b) i „Pomiń”. */
+export function napisyZaleglego(z?: ZdarzenieKalendarza): { zrobione: string; pomin: string } {
+  return { zrobione: otwiera(z) ? t('Otwórz') : t('Zrobione'), pomin: t('Pomiń') };
 }

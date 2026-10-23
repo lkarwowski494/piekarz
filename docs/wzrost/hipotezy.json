@@ -4,17 +4,18 @@
   "hipotezy": [
     {
       "id": "H-01",
-      "pytanie": "Czy model DEC-01 d osiąga próg opłacalności 500 USD netto/rok na iOS? (decyzja: rozwój dalej albo zamrożenie, D-040)",
+      "pytanie": "Czy model Basic/Pro (D-112, D-113) osiąga próg opłacalności 500 USD netto/rok na iOS? (decyzja po 90 dniach: dalszy rozwój albo przegląd widoczności, cen i zakresu Pro)",
       "metryka": "nowi płacący iOS ÷ pobrania pierwszorazowe iOS, dni 30–90 od wydania",
-      "zrodlo": "App Store Connect: zdarzenia „Paid Subscription from Introductory Price” i zakupy dożywotniego (Sales and Trends), pobrania pierwszorazowe (App Analytics); bez telemetrii",
+      "zrodlo": "App Store Connect: raport zdarzeń subskrypcji (pierwsze zakupy subskrypcji) i Sales and Trends (zakupy dożywotniego), pobrania pierwszorazowe (App Analytics); MS-24; bez telemetrii (ZAL-038)",
       "kryterium": {
-        "tekst": "po 90 dniach od wydania: w dniach 30–90 średnio ≥ 7 nowych płacących/mies. na iOS (płatność po ofercie wprowadzającej + zakupy dożywotniego) albo wpływ ≥ 42 USD/mies.; ≤ 3,5 płacących albo ≤ 21 USD/mies. → zamrożenie rozwoju",
-        "zrodlo": "docs/monetyzacja.md roli 02, „Kryterium eksperymentu dla DEC-01 d” (eksperyment.kryterium_do_przeliczenia), D-038",
+        "tekst": "po 90 dniach od wydania: w dniach 30–90 średnio ≥ 7 nowych płacących/mies. na iOS (pierwsze zakupy subskrypcji i dożywotniego) albo wpływ ≥ 42 USD/mies.; poniżej połowy (≤ 3,5 płacących albo ≤ 21 USD/mies.) → przegląd widoczności, cen i zakresu Pro",
+        "zrodlo": "docs/monetyzacja.md, „Kryterium po 90 dniach od wydania” (kontrakt Basic/Pro, zastępuje kryterium D-038), D-112, D-113",
         "okno_dni": [30, 90],
         "prog": { "nowi_placacy_mies": 7, "wplyw_usd_mies": 42 },
-        "zamrozenie": { "nowi_placacy_mies": 3.5, "wplyw_usd_mies": 21 }
+        "przeglad": { "nowi_placacy_mies": 3.5, "wplyw_usd_mies": 21 }
       },
-      "prog": { "wartosc": 0.085, "kierunek": ">=", "decyzja": "D-038 (kryterium roli 02: ok. 8,5% przy ok. 83 pobraniach iOS/mies.), DEC-13 a" },
+      "miara_pomocnicza": "zakupy Pro ÷ pierwsze pobrania (App Store Connect)",
+      "prog": { "wartosc": 0.085, "kierunek": ">=", "decyzja": "D-112, D-113 (kryterium po 90 dniach z docs/monetyzacja.md: ok. 8,5% przy ok. 83 pobraniach iOS/mies.; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku), DEC-13 a" },
       "min_proba": 100,
       "mierzalnosc": {
         "oczekiwane_n": 166,

@@ -18,7 +18,7 @@ jest.mock('expo-router', () => {
   const ReactMod = jest.requireActual('react');
   const Stack = ({ children }: { children: React.ReactNode }) => ReactMod.createElement(ReactMod.Fragment, null, children);
   Stack.Screen = () => null;
-  return { Stack, useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), setParams: jest.fn() }), useLocalSearchParams: () => ({}) };
+  return { Stack, /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), setParams: jest.fn() }), useLocalSearchParams: () => ({}) };
 });
 jest.mock('react-native-safe-area-context', () => {
   const ReactMod = require('react');

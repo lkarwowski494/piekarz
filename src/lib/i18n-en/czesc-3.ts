@@ -12,7 +12,6 @@ export const EN_3: Record<string, string> = {
 
   // Apps4Brew Pass & Monetization
   'Roczny': 'Yearly',
-  'rok': 'year',
   'Miesięczny': 'Monthly',
   'Przetwarzanie...': 'Processing...',
   'Przywróć zakupy': 'Restore Purchases',
@@ -86,13 +85,9 @@ export const EN_3: Record<string, string> = {
     '{n} days ago',
   '{n} dnia temu':
     '{n} days ago',
-  'Dokarmiono zakwas': 'Starter fed',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Logged feeding for starter "{name}".',
   'Zapisano zaktualizowany profil': 'Updated profile saved',
   'Dodano zakwas': 'Starter added',
   'Kultura „{name}” została utworzona.': 'Culture "{name}" has been created.',
-  'Nie można usunąć': 'Cannot delete',
-  'Musisz posiadać co najmniej jeden profil zakwasu.': 'You must keep at least one starter profile.',
   'Skopiowano proporcje dokarmiania do schowka': 'Feeding ratio copied to clipboard',
   'Wykryto uszkodzony stan bazy danych': 'Corrupted database state detected',
   'Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:': 'The app safely secured raw data in a recovery file:',

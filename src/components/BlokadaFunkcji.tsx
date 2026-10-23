@@ -1,10 +1,10 @@
 // ============================================================================
-// Piekarz — blokada obszaru funkcji bez uprawnienia [M1-audytor-generalny-027, -108]
-// Dane użytkownika zostają do odczytu, także dla VoiceOver, i nic ich nie zasłania (D-039, DEC-01 d).
-// Zablokowane są akcje: dotknięcie w treści (palcem albo aktywacją VoiceOver) trafia w obszar treści
-// (pointerEvents „box-only”) i otwiera ekran zakupu przez jedynego strażnika (useAppAccess().requireActionAccess).
-// Nad treścią, we własnym wierszu, kłódka z „wymaga Piekarz Pro” i „Odblokuj pełny dostęp” — jak w stanie
-// `tylko-historia` Startu (design-spec §6, start/WyborCzynnosci.tsx).
+// Piekarz — obszar funkcji Pro bez Piekarz Pro [M1-audytor-generalny-027, -108; D-116; M3 P-b, D-117]
+// Kontrakt (docs/monetyzacja.md „Reguły dostępu”): funkcja Pro jest widoczna z oznaczeniem „Pro”, stuknięcie otwiera ekran
+// Pro przez jedynego strażnika (useAppAccess().requireActionAccess). Zamiast kłódki wiersz z nazwą funkcji i słowem
+// „Pro” (VoiceOver: „{funkcja}, Pro”, podpowiedź „wymaga Piekarz Pro”). Treść funkcji Pro nie jest pokazywana, bo
+// zdradzałaby jej wynik bez zakupu (gotowość, proporcje, statystyki); `podglad` zostawia treść do odczytu tam, gdzie
+// obszar pokazuje też część Basic (plan od teraz w Planie wypieku): wtedy dotknięcie w treści też otwiera ekran Pro.
 // ============================================================================
 
 import React from 'react';
@@ -13,17 +13,21 @@ import { theme } from '../ui/theme';
 import { odstepy, typografia } from '../ui/tokeny';
 import { t } from '../lib/i18n';
 import type { Funkcja } from '../lib/platnosci/konfiguracja';
-import { IkonaStartu } from './start/IkonaStartu';
+import { etykietaPro, nazwaBlokady } from '../lib/platnosci/nazwy-pro';
+import { OznaczeniePro } from './OznaczeniePro';
 
 export interface BlokadaFunkcjiProps {
   funkcja: Funkcja;
   odblokowane: boolean;
   onZablokowane: () => void;
+  /** Treść widoczna do odczytu także bez Pro (obszar z częścią Basic); domyślnie bez treści. */
+  podglad?: boolean;
   children: React.ReactNode;
 }
 
-export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, children }: BlokadaFunkcjiProps) {
+export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, podglad = false, children }: BlokadaFunkcjiProps) {
   if (odblokowane) return <>{children}</>;
+  const nazwa = nazwaBlokady(funkcja);
   return (
     <View>
       <Pressable
@@ -31,21 +35,22 @@ export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, children }
         style={styles.wiersz}
         onPress={onZablokowane}
         accessibilityRole="button"
-        accessibilityLabel={t('Odblokuj pełny dostęp')}
+        accessibilityLabel={etykietaPro(nazwa, false)}
         accessibilityHint={t('wymaga Piekarz Pro')}
       >
-        <IkonaStartu nazwa="zamek" kolor={theme.colors.zablokowane} rozmiar={20} />
-        <Text style={styles.wymaga}>{t('wymaga Piekarz Pro')}</Text>
-        <Text style={styles.odblokuj}>{t('Odblokuj pełny dostęp')}</Text>
+        <Text style={styles.nazwa}>{nazwa}</Text>
+        <OznaczeniePro />
       </Pressable>
-      <View
-        testID={`blokada-${funkcja}-tresc`}
-        pointerEvents="box-only"
-        onStartShouldSetResponder={() => true}
-        onResponderRelease={onZablokowane}
-      >
-        {children}
-      </View>
+      {podglad && (
+        <View
+          testID={`blokada-${funkcja}-tresc`}
+          pointerEvents="box-only"
+          onStartShouldSetResponder={() => true}
+          onResponderRelease={onZablokowane}
+        >
+          {children}
+        </View>
+      )}
     </View>
   );
 }
@@ -61,6 +66,5 @@ const styles = StyleSheet.create({
     paddingVertical: odstepy.s,
     marginBottom: odstepy.s,
   },
-  wymaga: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.zablokowane },
-  odblokuj: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.akcentTekst },
+  nazwa: { flexShrink: 1, fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
 });

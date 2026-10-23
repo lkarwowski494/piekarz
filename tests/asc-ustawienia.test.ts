@@ -5,7 +5,7 @@
  * - przebieg na sucho wysyła wyłącznie GET i wypisuje listę „utworzy / zmieni / bez zmian” ze skrótem planu;
  * - zapis tylko ze zgodą (docs/wydanie/asc-zgoda.json, "zapis": true) i ze skrótem identycznym z planem w chwili zapisu;
  * - po zapisie stan = docs/wydanie/ceny.json (DEC-01 d, D-038), D-057 (174 storefronty bez CHN), D-058 (ankieta wieku),
- *   Free Trial 2 Weeks na obu subskrypcjach, Family Sharing (D-039); drugi przebieg na sucho: 0 różnic;
+ *   bez oferty wprowadzającej (D-112; istniejąca = „ręcznie”, Z-1), Family Sharing (D-039); drugi przebieg na sucho: 0 różnic;
  * - brak punktu cenowego z ceny.json = stop bez zapisu ceny; 403 = komunikat o roli klucza; w wyjściu nie ma klucza ani tokenu.
  * Dlaczego test: produkty i ceny ustawiane ręcznie w 175 storefrontach rozjeżdżają się z decyzjami, a zapis w App Store Connect
  * jest działaniem zewnętrznym, więc każdy błąd skryptu trzeba złapać tutaj, nie na koncie właściciela.
@@ -152,13 +152,10 @@ describe('scripts/asc-ustawienia.mjs na atrapie App Store Connect API (M1-audyto
       expect(h.reczne.map((x) => x.terytorium).sort()).toEqual(Object.keys(ceny.reczne).sort());
       for (const x of h.reczne) expect(Number(kwota(x.punkt))).toBe(Number(ceny.reczne[x.terytorium].lifetime));
 
-      // Oferta wprowadzająca: Free Trial 2 Weeks na obu subskrypcjach w każdym dostępnym storefroncie
-      for (const plan of ['monthly', 'yearly'] as const) {
-        const o = a.oferty.filter((x) => x.sub === sub(plan).id);
-        expect(o.map((x) => x.terytorium).sort()).toEqual(DOSTEPNE);
-        for (const x of o) expect(x.attributes).toMatchObject({ offerMode: 'FREE_TRIAL', duration: 'TWO_WEEKS', numberOfPeriods: 1 });
-      }
-      expect(a.oferty.some((x) => a.subskrypcje.every((s) => s.id !== x.sub))).toBe(false);
+      // Przepisane z kontraktu D-038 (Free Trial 2 Weeks) [M3 P-a-fix, P1-5]: bez oferty wprowadzającej (D-112) skrypt
+      // nie tworzy żadnej oferty
+      expect(ceny.ofertaWprowadzajaca).toBeUndefined();
+      expect(a.oferty).toEqual([]);
 
       // Ankieta wieku (D-058)
       expect(a.wiek.attributes).toEqual(ustawienia.ankietaWieku.odpowiedzi);
@@ -170,6 +167,25 @@ describe('scripts/asc-ustawienia.mjs na atrapie App Store Connect API (M1-audyto
       const ponownie = await uruchom(a.adres, ['--zgoda', z]);
       expect(ponownie.kod).toBe(0);
       expect(a.zapisy().length).toBe(zapisyPrzed);
+    });
+  });
+
+  // M3 P-a-fix (P1-5, Z-1): oferta „Free Trial 2 Weeks” z D-038 została w App Store Connect — skrypt jej nie tworzy na nowo
+  // ani nie usuwa sam; wypisuje ją jako „ręcznie” do usunięcia, a zapis ze zgodą nic przy ofercie nie robi
+  it('oferta wprowadzająca w ASC (stan sprzed Z-1): „ręcznie” do usunięcia, zapis jej nie tworzy ani nie usuwa', async () => {
+    await zAtrapa({}, async (a) => {
+      const sucho = await uruchom(a.adres);
+      await uruchom(a.adres, ['--zgoda', zgoda('ok2.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-10-22: test' })]);
+      const roczna = a.subskrypcje.find((s) => s.attributes?.productId === PRODUKTY.yearly)!;
+      a.oferty.push({ type: 'subscriptionIntroductoryOffers', id: 'stara_oferta', attributes: { offerMode: 'FREE_TRIAL', duration: 'TWO_WEEKS', numberOfPeriods: 1 }, sub: roczna.id, terytorium: 'POL', relationships: { territory: { data: { type: 'territories', id: 'POL' } } } } as never);
+      const w = await uruchom(a.adres);
+      expect(w.kod).toBe(0);
+      expect(w.wyjscie).toMatch(/ręcznie · .*oferta .*POL.*bez oferty wprowadzającej \(D-112\)/);
+      expect(w.wyjscie).not.toMatch(/utworzy · .*oferta/);
+      const zapisyPrzed = a.zapisy().length;
+      await uruchom(a.adres, ['--zgoda', zgoda('ok3.json', { zapis: true, skrot: skrot(w), zgoda: '2026-10-22: test' })]);
+      expect(a.zapisy().length).toBe(zapisyPrzed);
+      expect(a.oferty).toHaveLength(1);
     });
   });
 

@@ -26,7 +26,8 @@ jest.mock('expo-router', () => {
 });
 
 import React from 'react';
-import { Text } from 'react-native';
+import { Alert, Text } from 'react-native';
+import { nazwaDniaTygodnia } from '../lib/kalendarz-widok';
 import renderer, { act } from 'react-test-renderer';
 import StartScreen from '../../app/(tabs)/(dzis)/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
@@ -104,6 +105,31 @@ describe('D4b: „Zrobione” przy zaległym karmieniu (SQLite)', () => {
     expect(await getStarterEntries('zyt')).toHaveLength(przed);
     expect(teksty(tree.root)).toContain('Zaległe:');
     expect(userVersion()).toBe(wersja);
+    act(() => tree.unmount());
+  });
+
+  it('BR-KAL-010 Karmienie w inny dzień z „Dziś”: „Zrobione” przy zaległym stałym dniu pyta „Zostaw / Licz od”, „Licz od” zapisuje dzień dokarmienia [M3 D7]', async () => {
+    const isoDzis = new Date().getDay() || 7;
+    const wczoraj = ((isoDzis + 5) % 7) + 1;
+    await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: Date.now() - 9 * 24 * H, fridgeFeedDay: { weekday: wczoraj, minuteOfDay: 600 } });
+    const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    let tree!: renderer.ReactTestRenderer;
+    await act(async () => {
+      tree = renderer.create(<AppAccessProvider><StartScreen /></AppAccessProvider>);
+    });
+    await flush();
+    const [zrobione] = przycisk(tree.root, (id) => id.startsWith('zalegle-zrobione-'));
+    expect(zrobione).toBeDefined();
+    await act(async () => zrobione.props.onPress());
+    await flush();
+    const pytanie = alertSpy.mock.calls.find((c) => c[0] === 'Stały dzień karmienia');
+    expect(pytanie).toBeDefined();
+    const przyciski = (pytanie?.[2] ?? []) as Array<{ text: string; onPress?: () => void }>;
+    expect(przyciski.map((p) => p.text)).toEqual([`Zostaw: ${nazwaDniaTygodnia(wczoraj)}`, `Licz od: ${nazwaDniaTygodnia(isoDzis)}`]);
+    await act(async () => przyciski[1].onPress?.());
+    await flush();
+    expect((await getStarters()).find((s) => s.id === 'zyt')?.fridgeFeedDay).toEqual({ weekday: isoDzis, minuteOfDay: 600 });
+    alertSpy.mockRestore();
     act(() => tree.unmount());
   });
 });

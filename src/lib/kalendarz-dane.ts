@@ -13,9 +13,9 @@ import { przypomnieniaZDostepem } from './notifications';
 import { czyPrzypomnieniaKarmienia } from './przypomnienia-karmienia';
 
 /**
- * Dane kalendarza do zdarzeniaKalendarza; niczego nie zapisuje. Terminy karmienia tak jak plan powiadomień (dostęp
- * i przełącznik przypomnień, BR-KAL-006 „Bez terminów karmienia”), przyszłe wypieki tylko z dostępem albo dla wypieku
- * zaczętego z dostępem (D-039 pkt 3).
+ * Dane kalendarza do zdarzeniaKalendarza; niczego nie zapisuje. Terminy karmienia tak jak plan powiadomień (przełącznik
+ * przypomnień; w Basic tylko zakładanie, D-113). Kroki trwających wypieków i zapisane plany zawsze: widok kalendarza
+ * jest w Basic, a plan zapisany z Pro da się zacząć bez niego (kontrakt Basic/Pro, D-116); nowe plany tworzy tylko Pro.
  */
 export async function wczytajDaneKalendarza(now: number): Promise<DaneKalendarza> {
   const [sesje, zaplanowane, kopia, pominiecia, przypomnienia] = await Promise.all([
@@ -25,7 +25,7 @@ export async function wczytajDaneKalendarza(now: number): Promise<DaneKalendarza
     wczytajPominiecia(now),
     czyPrzypomnieniaKarmienia(),
   ]);
-  const dostep = przypomnieniaZDostepem(pobierzStan());
+  const pro = przypomnieniaZDostepem(pobierzStan());
   return {
     wypieki: sesje.map((s) => ({
       id: idSesji(s),
@@ -43,6 +43,6 @@ export async function wczytajDaneKalendarza(now: number): Promise<DaneKalendarza
     wpisyZakwasow: kopia.starterEntries ?? [],
     dziennik: kopia.bakes,
     pominiecia,
-    dostep: { terminyKarmienia: dostep && przypomnienia, przyszleWypieki: dostep },
+    dostep: { terminyKarmienia: przypomnienia, przyszleWypieki: true, karmieniePro: pro },
   };
 }

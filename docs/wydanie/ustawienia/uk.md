@@ -44,7 +44,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 Вкажіть час, коли хліб має бути готовий: Пекар порахує кількості, складе зворотний план і повідомить про завершення кожного кроку. Без акаунта, інтернету й реклами.
 ```
 
-### Opis (Description) · 3255 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3136 / 4000 znaków · wersja 1.0
 
 ```text
 Пекар проводить вас через випічку хліба на заквасці від рецептури до хлібини: рахує кількості, складає план і стежить за часом, коли телефон спить. Працює без акаунта й без інтернету, без реклами й без стеження. Ваші рецептури, закваски та журнал залишаються лише у вашому телефоні.
@@ -74,7 +74,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 Пекар працює на iPhone і не синхронізує дані між пристроями; дані переносяться файлом резервної копії. Без дозволу на сповіщення Пекар покаже завершення кроку лише на відкритому екрані.
 
 ДОСТУП І ПОКУПКА
-Повний доступ дає місячна чи річна підписка або одноразова довічна покупка в App Store. Підписка може починатися з безплатного пробного періоду (вступна пропозиція App Store для тих, хто має на неї право). Без покупки ви можете переглядати історію випічки, імпортувати файл, а також експортувати й видаляти свої дані.
+Basic безплатний назавжди, без пробного періоду. Pro додає планування, догляд за закваскою, більше заквасок і рецептур. Pro — це місячна чи річна підписка або одноразова довічна покупка в App Store.
 Умови використання (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Мови: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (2): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

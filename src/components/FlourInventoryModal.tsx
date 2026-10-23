@@ -84,7 +84,7 @@ export function FlourInventoryModal({
   }, [recipeFlours, inventory]);
 
   const handleAdjustStock = async (item: StoredFlourInventoryItem, deltaGrams: number) => {
-    requireActionAccess(guardSave(async () => {
+    requireActionAccess('spizarnia', guardSave(async () => {
       const newStock = Math.max(0, Math.round(item.stockGrams + deltaGrams));
       const updated: StoredFlourInventoryItem = {
         ...item,
@@ -105,7 +105,7 @@ export function FlourInventoryModal({
   });
 
   const handleAddNewFlour = async () => {
-    requireActionAccess(guardSave(async () => {
+    requireActionAccess('spizarnia', guardSave(async () => {
       const trimmed = newFlourName.trim();
       if (!trimmed) {
         Alert.alert(t('Błąd'), t('Podaj nazwę mąki'));
@@ -129,7 +129,7 @@ export function FlourInventoryModal({
   };
 
   const handleDeductRecipeStocks = async () => {
-    requireActionAccess(guardSave(async () => {
+    requireActionAccess('spizarnia', guardSave(async () => {
       if (!recipeFlours || recipeFlours.length === 0) return;
       const updatedList = deductFlourStocks(recipeFlours, inventory);
       for (const item of updatedList) {

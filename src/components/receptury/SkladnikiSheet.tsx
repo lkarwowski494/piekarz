@@ -23,6 +23,8 @@ import { HeaderButton } from '../DraftHeader';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import { nazwaZaczynu, ZACZYNY_W_MENU, PROCENTY_MAKI_W_ZACZYNIE } from './nazwy-receptur';
 import { pokazMenuWyboru } from './stos-receptur';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
+import { OznaczeniePro } from '../OznaczeniePro';
 import { s } from './style-receptur';
 import { ocenaSoli } from '../../core/sol';
 import { formatNumber } from '../../lib/format';
@@ -48,6 +50,8 @@ export interface SkladnikiSheetProps {
   onYeastPctChange: (n: number) => void;
   prefermentType: PrefermentType;
   onPrefermentTypeChange: (p: PrefermentType) => void;
+  /** Zaczyny (poolish, biga, stare ciasto, levain) wymagają Pro: oznaczenie „Pro” w wierszu i w menu (BR-KALK-010, P2-4) [M3 P-b]. */
+  zaczynPro?: boolean;
   prefermentFlourPct: number;
   onPrefermentFlourPctChange: (n: number) => void;
   prefermentBreakdown: PrefermentBreakdownResult | null;
@@ -56,6 +60,8 @@ export interface SkladnikiSheetProps {
   /** Wejścia PÓŹNIEJ (F-30 spiżarnia, F-46 odpowiedniki mąk): widoczne tylko, gdy wróci ich wejście (wejscia-pozniej.ts). */
   onOpenInventory?: () => void;
   onOpenEquivalents?: () => void;
+  /** Arkusz zniknął z ekranu (iOS): ekran Pro po zamknięciu arkusza, nie nad nim (D-117, N2). */
+  onDismiss?: () => void;
 }
 
 function PoleProcentu({ id, etykieta, wartosc, min, max, onChange, ostatnie }: { id: string; etykieta: string; wartosc: number; min: number; max: number; onChange: (n: number) => void; ostatnie?: boolean }) {
@@ -81,10 +87,11 @@ function infoSoli(saltPct: number): string | null {
     : t('Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', { procent });
 }
 
-function WierszMenu({ id, etykieta, wartosc, onPress, akcja }: { id: string; etykieta: string; wartosc?: string; onPress: () => void; akcja?: boolean }) {
+function WierszMenu({ id, etykieta, wartosc, onPress, akcja, pro }: { id: string; etykieta: string; wartosc?: string; onPress: () => void; akcja?: boolean; pro?: boolean }) {
   return (
-    <Pressable testID={id} accessibilityRole="button" accessibilityLabel={wartosc ? `${etykieta}: ${wartosc}` : etykieta} style={[s.kom, styles.wiersz]} onPress={onPress}>
+    <Pressable testID={id} accessibilityRole="button" accessibilityLabel={wartosc ? `${etykieta}: ${wartosc}` : etykieta} accessibilityHint={pro ? t('wymaga Piekarz Pro') : undefined} style={[s.kom, styles.wiersz]} onPress={onPress}>
       <Text style={[akcja ? s.akcja : s.etykieta, s.roz]}>{etykieta}</Text>
+      {pro && <OznaczeniePro />}
       {wartosc !== undefined && <Text style={s.wartosc}>{wartosc}</Text>}
       <Text style={s.szewron} accessible={false}>›</Text>
     </Pressable>
@@ -126,7 +133,11 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
     );
 
   const wybierzZaczyn = () =>
-    pokazMenuWyboru(t('Zaczyn'), ZACZYNY_W_MENU.map(nazwaZaczynu), (i) => p.onPrefermentTypeChange(ZACZYNY_W_MENU[i]));
+    pokazMenuWyboru(
+      t('Zaczyn'),
+      ZACZYNY_W_MENU.map(nazwaZaczynu).map((n, i) => etykietaPro(n, ZACZYNY_W_MENU[i] === 'direct' || !p.zaczynPro)),
+      (i) => p.onPrefermentTypeChange(ZACZYNY_W_MENU[i])
+    );
 
   const wybierzMakeZaczynu = () =>
     pokazMenuWyboru(t('Mąka w zaczynie'), PROCENTY_MAKI_W_ZACZYNIE.map((n) => `${n} %`), (i) => p.onPrefermentFlourPctChange(PROCENTY_MAKI_W_ZACZYNIE[i]));
@@ -150,7 +161,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   };
 
   return (
-    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose}>
+    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose} onDismiss={p.onDismiss}>
       <SafeAreaView style={s.ekran} edges={['top', 'bottom', 'left', 'right']}>
         <View style={s.ekran} testID="ingredients-sheet">
           <View style={styles.pasek}>
@@ -211,7 +222,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
 
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Zaczyn')}</Text>
             <View style={s.grupa}>
-              <WierszMenu id="preferment-type-btn" etykieta={t('Rodzaj')} wartosc={nazwaZaczynu(p.prefermentType)} onPress={wybierzZaczyn} />
+              <WierszMenu id="preferment-type-btn" etykieta={t('Rodzaj')} wartosc={nazwaZaczynu(p.prefermentType)} onPress={wybierzZaczyn} pro={p.zaczynPro} />
               {p.prefermentType !== 'direct' && (
                 <WierszMenu id="preferment-flour-btn" etykieta={t('Mąka w zaczynie')} wartosc={`${p.prefermentFlourPct} %`} onPress={wybierzMakeZaczynu} />
               )}

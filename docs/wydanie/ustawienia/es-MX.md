@@ -44,7 +44,7 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Fija la hora en que quieres el pan listo: Panadero calcula cantidades, planifica hacia atrás y te avisa al terminar cada paso. Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3638 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3504 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, de la fórmula a la hogaza: calcula las cantidades, arma el plan y lleva el tiempo aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus fórmulas, masas madre y bitácora se quedan solo en tu teléfono.
@@ -74,7 +74,7 @@ CONVIENE SABER
 Panadero funciona en iPhone y no sincroniza datos entre dispositivos; los datos se transfieren con el archivo de copia. Sin permiso para notificaciones, Panadero muestra el final de un paso solo con la pantalla abierta.
 
 ACCESO Y COMPRA
-El acceso completo se obtiene con una suscripción mensual o anual, o con una compra única de por vida en el App Store. La suscripción puede empezar con un periodo de prueba gratuito (oferta introductoria del App Store para usuarios elegibles). Sin compra, puedes consultar tu historial de horneados, importar un archivo, y exportar y eliminar tus datos.
+Basic es gratis para siempre, sin periodo de prueba. Pro añade planificación, cuidado de la masa madre, más masas madre y fórmulas. Pro es una suscripción mensual o anual, o una compra única de por vida en el App Store.
 Términos de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.
@@ -125,4 +125,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (17): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

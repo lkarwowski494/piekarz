@@ -33,7 +33,7 @@ jest.mock('expo-router', () => {
   };
   return {
     Stack,
-    useRouter: () => ({ push: mockPush, navigate: jest.fn(), setParams: mockSetParams }),
+    /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: mockPush, navigate: jest.fn(), setParams: mockSetParams }),
     useLocalSearchParams: () => ({}),
   };
 });
@@ -160,7 +160,11 @@ describe('106: Receptury — lista, ekran receptury, arkusz „Składniki”', (
     act(() => u.unmount());
     const opcje = mockStos.ekrany.find((e) => e.name === 'receptura')!.options as (a: { route: { params?: { nazwa?: string } } }) => Opcje;
     expect(opcje({ route: { params: { nazwa: r.namePl } } }).title).toBe(r.namePl);
-    expect(typeof opcje({ route: {} }).headerRight).toBe('function');
+    // M3 D10: „Więcej” przeniesione z natywnego nagłówka na pas ekranu receptury (nagłówek ukryty)
+    expect(opcje({ route: {} }).headerShown).toBe(false);
+    const ekran = await render(<EkranReceptury />);
+    expect(host(host(ekran.root, 'pas-zakladki')[0], 'recipe-more-btn')).toHaveLength(1);
+    act(() => ekran.unmount());
     const lista = mockStos.ekrany.find((e) => e.name === 'index')!.options as Opcje;
     expect(lista.title).toBe('Receptury');
     expect(lista.headerRight).toBeUndefined();

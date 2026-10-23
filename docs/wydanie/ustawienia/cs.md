@@ -44,7 +44,7 @@ bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice
 Nastavte čas, kdy má být chléb hotový: Pekař spočítá množství, sestaví plán zpětně a dá vědět o konci každého kroku. Bez účtu, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3010 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2902 / 4000 znaków · wersja 1.0
 
 ```text
 Pekař vás provede pečením chleba z kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. Funguje bez účtu a bez internetu, bez reklam a bez sledování. Vaše recepty, kvásky a deník zůstávají jen ve vašem telefonu.
@@ -74,7 +74,7 @@ DOBRÉ VĚDĚT
 Pekař funguje na iPhonu a nesynchronizuje data mezi zařízeními; data přenesete souborem zálohy. Bez povolení oznámení ukáže Pekař konec kroku jen na otevřené obrazovce.
 
 PŘÍSTUP A NÁKUP
-Plný přístup poskytuje měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu. Předplatné může začínat bezplatnou zkušební dobou (úvodní nabídka App Storu pro oprávněné uživatele). Bez nákupu můžete procházet historii pečení, importovat soubor a exportovat a mazat svá data.
+Basic je navždy zdarma, bez zkušební doby. Pro přidává plánování, péči o kvásek, více kvásků a receptů. Pro je měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu.
 Podmínky použití (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jazyky: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

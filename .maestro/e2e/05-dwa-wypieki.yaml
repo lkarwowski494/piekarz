@@ -1,0 +1,162 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstow jezyka (M1-audytor-generalny-037, 07-jakosc-501).
+# Dwa trwajace wypieki (BR-KAL-016, D-092, D-104; Pro "dwa-wypieki", D-113) [M3 E2E]. Build E2E ma dostep Pro przez
+# EXPO_PUBLIC_E2E=1 (src/lib/app-access.ts; TestFlight odrzuca flage, P-037 a). Wypiek 1 -> drugi start przy trwajacym
+# ("Prowadz oba") -> Stolnica z przelacznikiem -> Dzis: spirala z dwoma torami i karty legendy; karta otwiera Stolnice
+# swojego wypieku (D-122). Kolejnosc kart i segmentow ta sama: od najstarszego (sesjeDoPokazania).
+# Drugi wypiek z dniem "gotowe" +3: okno piekarnika nie nachodzi na wypiek 1, wiec jedyne pytanie to "Trwa juz inny
+# wypiek" (confirmStartPrzyTrwajacym) bez pytania o piekarnik.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+# Wypiek 1: start teraz z planu receptury (jak flow 02)
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+- tapOn:
+    id: "zgoda-dalej-btn"
+    optional: true
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: "next-or-finish-step-btn"
+    timeout: 15000
+- tapOn:
+    id: "next-or-finish-step-btn"
+- launchApp:
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+# Wypiek 2: ta sama receptura, dzien "gotowe" +3, "Zacznij wypiek" przy trwajacym
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- extendedWaitUntil:
+    visible:
+      id: "plan-dzien-2"
+    timeout: 15000
+- swipe:
+    from:
+      id: "plan-dzien-2"
+    direction: LEFT
+- tapOn:
+    id: "plan-dzien-3"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+# Natywny Alert "Trwa juz inny wypiek" (React Native Alert.alert nie ma testID): przycisk "Prowadz oba" po tekscie
+# w obu jezykach przebiegu; wyjatek nazwany w tests/e2e-ios-workflow.test.ts, tekst EN sprawdzany ze slownikiem
+- tapOn:
+    text: "Prowadź oba|Run both"
+- tapOn:
+    id: "zgoda-dalej-btn"
+    optional: true
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+# Stolnica nowego wypieku: przelacznik nad prowadzeniem, wybrany prawy segment (nowszy wypiek)
+- extendedWaitUntil:
+    visible:
+      id: "przelacznik-wypiekow"
+    timeout: 15000
+- assertVisible:
+    id: "przelacznik-wypiek-.*"
+    selected: true
+    rightOf:
+      id: "przelacznik-wypiek-.*"
+      selected: false
+# Nastepny krok zapisuje wypiek 2 (po ponownym uruchomieniu trwa dalej)
+- tapOn:
+    id: "next-or-finish-step-btn"
+# Przelacznik: drugi segment otwiera prowadzenie wypieku 1
+- tapOn:
+    id: "przelacznik-wypiek-.*"
+    selected: false
+- assertVisible:
+    id: "przelacznik-wypiek-.*"
+    selected: true
+    leftOf:
+      id: "przelacznik-wypiek-.*"
+      selected: false
+- assertVisible:
+    id: "next-or-finish-step-btn"
+# Dzis: dwa wypieki = jedna spirala z dwoma torami i karty legendy pod nia (bez spirali jednego wypieku)
+- launchApp:
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- assertNotVisible:
+    id: "spirala-otworz"
+- scrollUntilVisible:
+    element:
+      id: "karta-otworz"
+      index: 1
+- assertVisible:
+    id: "start-trwa-wypiek"
+    index: 1
+# Karta 2 otwiera Stolnice wypieku 2 (prawy segment wybrany)
+- tapOn:
+    id: "karta-otworz"
+    index: 1
+- extendedWaitUntil:
+    visible:
+      id: "przelacznik-wypiekow"
+    timeout: 15000
+- assertVisible:
+    id: "przelacznik-wypiek-.*"
+    selected: true
+    rightOf:
+      id: "przelacznik-wypiek-.*"
+      selected: false
+# Karta 1 otwiera Stolnice wypieku 1 (lewy segment wybrany)
+- launchApp:
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- scrollUntilVisible:
+    element:
+      id: "karta-otworz"
+      index: 0
+- tapOn:
+    id: "karta-otworz"
+    index: 0
+- extendedWaitUntil:
+    visible:
+      id: "przelacznik-wypiekow"
+    timeout: 15000
+- assertVisible:
+    id: "przelacznik-wypiek-.*"
+    selected: true
+    leftOf:
+      id: "przelacznik-wypiek-.*"
+      selected: false

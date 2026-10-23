@@ -47,8 +47,12 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
 
 ### BR-ZAKW-004: Przypomnienie o dokarmieniu i zasada ostrożności
 - Przepływ: PR-05 · Reguła: RD-25, RD-21
-- Dowód potrzeby: J-04; zapominanie o dokarmieniu (S-15, rec. 6706510871); RYZ-14; DEC-10 (a) planu napraw M1
+- Dowód potrzeby: J-04; zapominanie o dokarmieniu (S-15, rec. 6706510871); RYZ-14; DEC-10 (a) planu napraw M1; dostęp: przypomnienia o dokarmianiu w Pro, z wyjątkiem zakładania zakwasu (Basic) — D-113, D-116 (ER-74); ostrzeżenia RD-21 zawsze w Basic
 - Kryteria akceptacji:
+  - Scenariusz: Bez Pro po zakładaniu
+    - Zakładając, że użytkownik nie ma Pro, a pierwszy zakwas jest już gotowy (po zakładaniu)
+    - Gdy mija termin dokarmienia zakwasu na blacie albo w lodówce
+    - Wtedy nie dostaje przypomnienia o dokarmianiu, a przypomnienia w czasie zakładania i powiadomienia o krokach wypieku działają (D-113)
   - Scenariusz: Zakwas na blacie
     - Zakładając, że zakwas na blacie dokarmiono o 08:00
     - Gdy jest 20:00

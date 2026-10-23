@@ -44,7 +44,7 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Setează ora la care vrei pâinea gata: Brutar calculează cantitățile, face planul invers și te anunță la finalul fiecărui pas. Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3384 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3272 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
@@ -74,7 +74,7 @@ BINE DE ȘTIUT
 Brutar funcționează pe iPhone și nu sincronizează datele între dispozitive; datele le muți cu fișierul de backup. Fără permisiunea pentru notificări, Brutar arată finalul pasului doar pe ecranul deschis.
 
 ACCES ȘI ACHIZIȚIE
-Accesul complet îl oferă un abonament lunar sau anual ori o achiziție unică pe viață în App Store. Abonamentul poate începe cu o perioadă de probă gratuită (ofertă introductivă App Store pentru utilizatorii eligibili). Fără achiziție poți răsfoi istoricul coacerilor, importa un fișier, precum și exporta și șterge datele tale.
+Basic este gratuit pentru totdeauna, fără perioadă de probă. Pro adaugă planificare, îngrijirea maielei, mai multe maiele și rețete. Pro este un abonament lunar sau anual ori o achiziție unică pe viață în App Store.
 Termeni de utilizare (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Limbi: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

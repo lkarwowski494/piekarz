@@ -59,3 +59,6 @@ export function odbierzDzienGotowe(now: number): number | null {
 export function powodBezZakwasu(formula: Pick<DoughRecipeInput, 'starterPercentage'>): string | null {
   return formula.starterPercentage > 0 ? null : t('Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.');
 }
+
+/** Temperatura kuchni założona w modelu planu, gdy użytkownik jej nie wybrał, i w planie Basic (nie pomiar) [M1-audytor-generalny-017; M3 P-a-fix P2-1]. */
+export const TEMPERATURA_MODELU_PLANU_C = 23.0;

@@ -13,7 +13,7 @@ import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-stor
 
 jest.setTimeout(20000);
 jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+jest.mock('expo-router', () => ({ /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: jest.fn() }) }));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {

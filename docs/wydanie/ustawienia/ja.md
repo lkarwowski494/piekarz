@@ -44,7 +44,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 パンを仕上げたい時刻を設定するだけ。パン職人が分量を計算し、逆算でプランを立て、各工程の終わりをお知らせします。アカウント不要、インターネット不要、広告なし。
 ```
 
-### Opis (Description) · 1607 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1580 / 4000 znaków · wersja 1.0
 
 ```text
 パン職人は、サワードウブレッドの焼成を配合からローフまでガイドします。分量を計算し、プランを立て、スマートフォンがスリープ中でも時間を管理します。アカウント不要・インターネット接続不要で動作し、広告もトラッキングもありません。配合、サワー種、焼成記録はすべてお使いのスマートフォンの中だけに保存されます。
@@ -74,7 +74,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 パン職人はiPhoneで動作し、デバイス間でデータを同期しません。データはバックアップファイルで移行します。通知を許可しない場合、工程の終了はアプリの画面を開いているときだけ表示されます。
 
 利用と購入
-フルアクセスには、App Storeでの月額または年額のサブスクリプション、または1回限りの買い切り購入が必要です。サブスクリプションは無料トライアルから始まる場合があります（対象者向けのApp Store導入オファー）。購入しなくても、焼成履歴の閲覧、ファイルの読み込み、データの書き出しと削除ができます。
+Basicはずっと無料で、お試し期間はありません。Proでは、スケジュール作成、サワー種のお手入れ機能が加わり、登録できるサワー種と配合の数も増えます。Proは、App Storeでの月額または年額のサブスクリプション、または1回限りの買い切り購入です。
 利用規約（EULA）： https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 言語：35言語。
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

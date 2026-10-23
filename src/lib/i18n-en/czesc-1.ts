@@ -227,8 +227,6 @@ export const EN_1: Record<string, string> = {
   'Skopiowano diagnozę do schowka': 'Diagnosis copied to clipboard',
   'Przyczyna biologiczna / fizyczna': 'Biological / physical cause',
   'Kroki naprawcze na kolejny wypiek': 'Corrective steps for next bake',
-  'Usunąć wpis z historii?': 'Delete history entry?',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'The bake log entry will be permanently deleted.',
   'Usuń wpis': 'Delete Entry',
   'Wczoraj': 'Yesterday',
 

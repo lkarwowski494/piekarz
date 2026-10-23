@@ -20,9 +20,11 @@ import { odstepy, promienie, typografia } from '../../ui/tokeny';
 /** Dni na pasku: średnio 7–10 (ZAK-ZAL-001); dalsze dni rozszerzają pasek. */
 const DNI_PASKA = 10;
 
-export function StarterSetupCard({ dzien, etap, wynik, now, onZapiszDzien, onZacznijOdNowa, onZostaw, onUlozPlan }: {
+export function StarterSetupCard({ dzien, etap, wynik, gratulacje = null, now, onZapiszDzien, onZacznijOdNowa, onZostaw, onUlozPlan }: {
   /** Numer „Dzień N” kalendarzowy (setupDay). */
   dzien: number;
+  /** Gratulacje po pierwszym zakończonym zakładaniu (raz, ZakwasDziennik); zPro: przypomnienia o dokarmianiu działają. */
+  gratulacje?: { zPro: boolean } | null;
   /** Etap treści „Co dziś zrobić” wg czasu i dokarmień (setupGuideStage, D0b). */
   etap: SetupStage;
   /** Wynik ostatniego „Zapisz dzień N”; null = jeszcze nie zapisano. */
@@ -71,6 +73,14 @@ export function StarterSetupCard({ dzien, etap, wynik, now, onZapiszDzien, onZac
             <Text style={styles.wazne}>
               {t('Następne dokarmienie: {dzien} o {godzina}.', { dzien: dzienSlownie(new Date(wynik.nextFeedingAt), new Date(now)), godzina: formatTime(wynik.nextFeedingAt) })}
             </Text>
+          )}
+          {/* Gratulacje (D-113, kontrakt BR-ZAKW-005, W-10) i w Basic neutralne zdanie, że przypomnienia o dokarmianiu
+              są w Pro: bez przycisku do ekranu Pro i bez nacisku [M3 P-b] */}
+          {wynik.kind === 'ready' && gratulacje && (
+            <Text testID="zakladanie-gratulacje" style={styles.wazne}>{t('Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.')}</Text>
+          )}
+          {wynik.kind === 'ready' && gratulacje && !gratulacje.zPro && (
+            <Text testID="zakladanie-gratulacje-pro" style={styles.tresc}>{t('Przypomnienia o dokarmianiu są w Piekarz Pro.')}</Text>
           )}
           {wynik.kind === 'ready' && (
             <Pressable testID="zakladanie-uloz-plan-btn" accessibilityRole="button" style={styles.glowny} onPress={onUlozPlan}>

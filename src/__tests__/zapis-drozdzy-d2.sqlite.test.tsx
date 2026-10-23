@@ -11,7 +11,7 @@ jest.mock('expo-router', () => {
   Stack.Screen = () => null;
   return {
     Stack,
-    useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), setParams: jest.fn() }),
+    /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), setParams: jest.fn() }),
     useLocalSearchParams: () => ({}),
   };
 });

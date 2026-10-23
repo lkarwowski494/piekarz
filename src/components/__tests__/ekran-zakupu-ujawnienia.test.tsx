@@ -88,16 +88,14 @@ describe('Purchase screen disclosures (011)', () => {
     act(() => tree.unmount());
   });
 
-  it('the 14-day introductory offer is shown only to eligible users, with the price after it (BR-ZAK-003 Przed startem próby)', async () => {
+  // Przepisane z kontraktu D-038 (oferta wprowadzająca 14 dni dla uprawnionych) [M3 P-a]: bez próby (D-112), także
+  // gdy App Store Connect ma jeszcze ofertę (usuwaną z buildem, Z-1) i użytkownik jest do niej uprawniony
+  it('no introductory offer on the purchase screen, even when the store still has one and the user is eligible (D-112)', async () => {
     produkty(true);
-    let tree = await mount();
-    expect(text(tree.toJSON())).toContain('Okres próbny: 14 dni');
-    expect(text(tree.toJSON())).toContain(t('{cena} rocznie po próbie', { cena: '29,99 zł' }));
-    act(() => tree.unmount());
-    produkty(true);
-    mockIap.eligible = false;
-    tree = await mount();
+    mockIap.eligible = true;
+    const tree = await mount();
     expect(text(tree.toJSON())).not.toMatch(/Okres próbny|po próbie|Zacznij okres próbny/);
+    expect(text(tree.toJSON())).toContain(t('{cena} rocznie', { cena: '29,99 zł' }));
     act(() => tree.unmount());
   });
 

@@ -15,56 +15,71 @@ import type { StanKartyZakwasu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
-export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNiepokoi, children }: {
+/**
+ * Spirala jednego cyklu i opis (czas od dokarmienia, następne karmienie, miejsce). Na karcie zakwasu na pasie nocy
+ * (D10 opcja A, makieta `d10-A-pas-390`): Spirala i teksty w kolorach pasa (naPasie, naPasie2, ratanNaPasie) [M3 D10].
+ */
+export function CyklZakwasu({ stan, opisMiejsca, naPasie = false }: { stan: StanKartyZakwasu; opisMiejsca: string; naPasie?: boolean }) {
+  const kroki = useMemo(() => krokiSpiraliZakwasu(stan.odstepMin), [stan.odstepMin]);
+  const glowny = [styles.minelo, naPasie && styles.naPasie];
+  const drugi = [styles.drugi, naPasie && styles.naPasie2];
+  return (
+    <View style={styles.cykl} testID="zakwas-cykl">
+      <Spirala
+        kroki={kroki}
+        wariant="zakwas"
+        biezacy={0}
+        postepKroku={stan.postep}
+        rozmiar={140}
+        naPasie={naPasie}
+        etykieta={stan.mineloMin === null ? undefined : etykietaZakwasu({ mineloMin: stan.mineloMin, odstepMin: stan.odstepMin })}
+      />
+      <View style={styles.opis}>
+        {stan.mineloMin === null || stan.dokarmionoAt === null || stan.nastepneAt === null ? (
+          <Text style={[styles.pusty, naPasie && styles.naPasie2]}>{t('Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.')}</Text>
+        ) : (
+          <>
+            <Text style={glowny}>{t('{czas} od dokarmienia', { czas: czasSlownie(stan.mineloMin) })}</Text>
+            {/* Odstęp dłuższy niż doba (lodówka, 7 dni): sama godzina następnego karmienia byłaby myląca [M1-audytor-generalny-188] */}
+            {stan.odstepMin <= 24 * 60 ? (
+              <Text style={drugi}>
+                {t('dokarmiony o {godzina}, następne o {nastepne}', { godzina: formatTime(stan.dokarmionoAt), nastepne: formatTime(stan.nastepneAt) })}
+              </Text>
+            ) : (
+              // Lodówka: dzień i godzina następnego dokarmienia (ten sam termin co powiadomienie), zdaniem z karty
+              // zakładania i dniem jak w §11c (dzienSlownie) [M2-koordynator-napraw-503 (p11)]
+              <Text testID="zakwas-nastepne-data" style={drugi}>
+                {t('Następne dokarmienie: {dzien} o {godzina}.', {
+                  dzien: dzienSlownie(new Date(stan.nastepneAt), new Date(stan.dokarmionoAt + stan.mineloMin * 60_000)),
+                  godzina: formatTime(stan.nastepneAt),
+                })}
+              </Text>
+            )}
+          </>
+        )}
+        <Text style={drugi}>{opisMiejsca}</Text>
+      </View>
+    </View>
+  );
+}
+
+export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNiepokoi, cyklNaPasie = false, children }: {
   stan: StanKartyZakwasu;
   /** „na blacie, 1:2:2” (dane zakwasu). */
   opisMiejsca: string;
   onPodwoil: () => void;
   onDokarm: () => void;
   onNiepokoi: () => void;
+  /** Spirala i opis są na pasie ekranu (D10), karta zaczyna się od „Podwoił objętość”. */
+  cyklNaPasie?: boolean;
   /** Wynik pod przyciskiem (gotowy, plan z lodówki). */
   children?: React.ReactNode;
 }) {
-  const kroki = useMemo(() => krokiSpiraliZakwasu(stan.odstepMin), [stan.odstepMin]);
   // Bez wpisu „Podwoił objętość” nieaktywny: stan i wygląd z §6 (obwódka, tekst `zablokowane`) [M1-audytor-generalny-115]
   const nieaktywny = stan.dokarmionoAt === null;
   return (
     <View testID="zakwas-karta" style={styles.karta}>
-      <View style={styles.cykl}>
-        <Spirala
-          kroki={kroki}
-          wariant="zakwas"
-          biezacy={0}
-          postepKroku={stan.postep}
-          rozmiar={140}
-          etykieta={stan.mineloMin === null ? undefined : etykietaZakwasu({ mineloMin: stan.mineloMin, odstepMin: stan.odstepMin })}
-        />
-        <View style={styles.opis}>
-          {stan.mineloMin === null || stan.dokarmionoAt === null || stan.nastepneAt === null ? (
-            <Text style={styles.pusty}>{t('Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.')}</Text>
-          ) : (
-            <>
-              <Text style={styles.minelo}>{t('{czas} od dokarmienia', { czas: czasSlownie(stan.mineloMin) })}</Text>
-              {/* Odstęp dłuższy niż doba (lodówka, 7 dni): sama godzina następnego karmienia byłaby myląca [M1-audytor-generalny-188] */}
-              {stan.odstepMin <= 24 * 60 ? (
-                <Text style={styles.drugi}>
-                  {t('dokarmiony o {godzina}, następne o {nastepne}', { godzina: formatTime(stan.dokarmionoAt), nastepne: formatTime(stan.nastepneAt) })}
-                </Text>
-              ) : (
-                // Lodówka: dzień i godzina następnego dokarmienia (ten sam termin co powiadomienie), zdaniem z karty
-                // zakładania i dniem jak w §11c (dzienSlownie) [M2-koordynator-napraw-503 (p11)]
-                <Text testID="zakwas-nastepne-data" style={styles.drugi}>
-                  {t('Następne dokarmienie: {dzien} o {godzina}.', {
-                    dzien: dzienSlownie(new Date(stan.nastepneAt), new Date(stan.dokarmionoAt + stan.mineloMin * 60_000)),
-                    godzina: formatTime(stan.nastepneAt),
-                  })}
-                </Text>
-              )}
-            </>
-          )}
-          <Text style={styles.drugi}>{opisMiejsca}</Text>
-        </View>
-      </View>
+      {!cyklNaPasie && <CyklZakwasu stan={stan} opisMiejsca={opisMiejsca} />}
       <Pressable
         testID="zakwas-podwoil-btn"
         accessibilityRole="button"
@@ -104,6 +119,8 @@ const styles = StyleSheet.create({
   minelo: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
   pusty: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
   drugi: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
+  naPasie: { color: theme.colors.naPasie },
+  naPasie2: { color: theme.colors.naPasie2 },
   glowny: {
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',

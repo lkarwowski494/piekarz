@@ -201,10 +201,6 @@ export const EN_12: Record<string, string> = {
   'zostało {czas}, do {godzina}': '{czas} left, until {godzina}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: ready {dzien} at {godzina}',
   'Co jeszcze dziś robisz?': 'What else are you doing today?',
-  'Okres próbny się skończył': 'Your trial has ended',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.':
-    'You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Baker Pro.',
-  'Zobacz plany': 'See Plans',
   'Receptury': 'Recipes',
   'Zakwasy': 'Starters',
   'Dziennik': 'Journal',

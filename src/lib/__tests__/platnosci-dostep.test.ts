@@ -3,7 +3,7 @@
  * [M1-audytor-generalny-008; 02-monetyzacja-001].
  */
 import { decyzja, odczytajPamiec, zapisPamieci, Uprawnienie, Pamiec, Odczyt, Powod, Decyzja } from '../platnosci/dostep';
-import { uprawnienieZTransakcji, uprawnieniaKarencji, dniOkresuProbnego } from '../platnosci/sklep';
+import { uprawnienieZTransakcji, uprawnieniaKarencji, pobierzOferte } from '../platnosci/sklep';
 import { PRODUKTY, PLANY, SUBSKRYPCJE, ODBLOKOWUJA, KLUCZ_PAMIECI, planProduktu, Plan } from '../platnosci/konfiguracja';
 import type { Purchase } from 'expo-iap';
 
@@ -77,16 +77,20 @@ describe('adapter: StoreKit transaction → entitlement', () => {
   });
 });
 
-describe('introductory offer length comes from the StoreKit product (009)', () => {
-  const offer = (o: Record<string, unknown>) => ({ subscriptionOffers: [{ type: 'introductory', paymentMode: 'free-trial', periodCount: 1, ...o }] });
-  it('days and weeks give days; months, paid intro and missing offer give null', () => {
-    expect(dniOkresuProbnego(offer({ period: { unit: 'day', value: 14 } }))).toBe(14);
-    expect(dniOkresuProbnego(offer({ period: { unit: 'week', value: 2 } }))).toBe(14);
-    expect(dniOkresuProbnego(offer({ period: { unit: 'week', value: 1 }, periodCount: 2 }))).toBe(14);
-    expect(dniOkresuProbnego(offer({ period: { unit: 'month', value: 1 } }))).toBeNull();
-    expect(dniOkresuProbnego(offer({ period: { unit: 'day', value: 14 }, paymentMode: 'pay-as-you-go' }))).toBeNull();
-    expect(dniOkresuProbnego({ subscriptionOffers: null })).toBeNull();
-    expect(dniOkresuProbnego(null)).toBeNull();
+// Przepisane z kontraktu D-038 (długość oferty wprowadzającej z produktu, 009) [M3 P-a]: bez oferty wprowadzającej
+// (D-112, aneks ADR-007) adapter nie czyta okresu próbnego ani uprawnienia do niego; oferta to plan i cena
+describe('no introductory offer in the offer (D-112, 009)', () => {
+  it('pobierzOferte gives plan and displayPrice only, even when the product has a free trial', async () => {
+    const Iap = jest.requireMock('expo-iap') as { __mock: { reset: () => void; products: unknown[] }; isEligibleForIntroOfferIOS: jest.Mock };
+    Iap.__mock.reset();
+    Iap.__mock.products = [
+      { id: PRODUKTY.yearly, displayPrice: '29,99 zł', type: 'subs', subscriptionGroupIdIOS: 'g1',
+        subscriptionOffers: [{ type: 'introductory', paymentMode: 'free-trial', period: { unit: 'day', value: 14 }, periodCount: 1 }] },
+      { id: PRODUKTY.lifetime, displayPrice: '79,99 zł', type: 'in-app' },
+    ];
+    Iap.isEligibleForIntroOfferIOS.mockClear();
+    expect(await pobierzOferte()).toEqual([{ plan: 'yearly', cena: '29,99 zł' }, { plan: 'lifetime', cena: '79,99 zł' }]);
+    expect(Iap.isEligibleForIntroOfferIOS).not.toHaveBeenCalled();
   });
 });
 

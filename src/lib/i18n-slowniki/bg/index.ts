@@ -1,4 +1,4 @@
-// Słownik bg: 10 części (limit 20 480 B na plik, CLAUDE.md) [M1-audytor-generalny-093]
+// Słownik bg: 12 części (limit 20 480 B na plik, CLAUDE.md) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs; nie edytuj ręcznie.
 import { CZESC as C1 } from './czesc-1';
 import { CZESC as C2 } from './czesc-2';
@@ -10,7 +10,9 @@ import { CZESC as C7 } from './czesc-7';
 import { CZESC as C8 } from './czesc-8';
 import { CZESC as C9 } from './czesc-9';
 import { CZESC as C10 } from './czesc-10';
+import { CZESC as C11 } from './czesc-11';
+import { CZESC as C12 } from './czesc-12';
 
 export const SLOWNIK: Record<string, string> = {
-  ...C1, ...C2, ...C3, ...C4, ...C5, ...C6, ...C7, ...C8, ...C9, ...C10,
+  ...C1, ...C2, ...C3, ...C4, ...C5, ...C6, ...C7, ...C8, ...C9, ...C10, ...C11, ...C12,
 };

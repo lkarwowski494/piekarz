@@ -4,7 +4,7 @@
     "slug": "piekarz",
     "version": "1.0.0",
     "description": "Piekarz — asystent domowego piekarza, procent piekarski, 4-DDT, harmonogram wsteczny, baza zakwasu i radar sensoryczny. 100% Offline-First.",
-    "primaryColor": "#D49B42",
+    "primaryColor": "#1E4954",
     "scheme": "piekarz",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

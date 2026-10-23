@@ -70,7 +70,7 @@ const PORY = [
   ['23:55', new Date(2026, 9, 21, 23, 55).getTime()],
 ] as const;
 
-describe.each(PORY)('Wypiek zaczęty z dostępem po końcu próby, zegar %s (125; BR-ZAK-004 Koniec próby w trakcie wypieku)', (_pora, start) => {
+describe.each(PORY)('Wypiek zaczęty z Pro po końcu Pro, zegar %s (125; BR-ZAK-004 Trwający wypiek w chwili końca Pro)', (_pora, start) => {
   let now = start;
   beforeEach(async () => {
     now = start;
@@ -110,16 +110,25 @@ describe.each(PORY)('Wypiek zaczęty z dostępem po końcu próby, zegar %s (125
     act(() => tree.unmount());
   });
 
-  it('po końcu próby nowy wypiek z Harmonogramu otwiera ekran zakupu', async () => {
+  // Przepisane z kontraktu D-038 (po próbie nowy wypiek za ekranem zakupu) na Basic/Pro [M3 P-a]: start wypieku jest
+  // w Basic (PR-02 „start wypieku bez planu”), za ekranem Pro tylko „gotowe o…” (BR-HARMO-001…003, D-112, D-113)
+  it('po końcu Pro nowy wypiek z planu zaczyna się w Basic; „gotowe o…” otwiera ekran Pro', async () => {
     bezUprawnienia();
     const plan = await render(<HarmonogramScreen />);
-    await press(plan, 'blokada-harmonogram');
+    await press(plan, 'blokada-plan-wstecz');
     expect(paywallShown(plan.root)).toBe(true);
-    expect(getActiveBake()).toBeNull();
+    await act(async () => {
+      plan.root.findByType(PaywallModal).props.onClose();
+    });
+    await press(plan, 'plan-start-bake-btn');
+    expect(paywallShown(plan.root)).toBe(false);
+    expect(getActiveBake()).not.toBeNull();
     act(() => plan.unmount());
   });
 
-  it('wypiek zapisany przed tą wersją (bez znacznika) prowadzi się dalej; jawnie zaczęty bez dostępu pokazuje kłódkę', async () => {
+  // Przepisane z kontraktu D-038 [M3 P-a]: prowadzenie wypieku jest w Basic, więc kłódki nie ma także przy wypieku
+  // jawnie zaczętym bez dostępu (znacznik zostaje w danych, nic od niego nie zależy)
+  it('wypiek zapisany przed tą wersją (bez znacznika) i zaczęty bez Pro prowadzą się bez kłódki', async () => {
     bezUprawnienia();
     await zacznijWypiekBezReceptury(now); // zapis sesji sprzed aktualizacji: brak znacznika (wybór P-125 a)
     const stary = await render(<StolnicaScreen />);
@@ -129,7 +138,8 @@ describe.each(PORY)('Wypiek zaczęty z dostępem po końcu próby, zegar %s (125
     _resetMemStore();
     await zacznijWypiekBezReceptury(now, { zaczetyZDostepem: false });
     const bez = await render(<StolnicaScreen />);
-    expect(locks(bez.root)).toContain('blokada-stolnica');
+    expect(locks(bez.root)).toEqual([]);
+    expect(paywallShown(bez.root)).toBe(false);
     act(() => bez.unmount());
   });
 });

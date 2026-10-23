@@ -45,7 +45,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 Ορίστε πότε θέλετε έτοιμο το ψωμί: ο Αρτοποιός υπολογίζει ποσότητες, σχεδιάζει αντίστροφα και ειδοποιεί στο τέλος κάθε βήματος. Χωρίς λογαριασμό, internet, διαφημίσεις.
 ```
 
-### Opis (Description) · 3770 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3635 / 4000 znaków · wersja 1.0
 
 ```text
 Ο Αρτοποιός σας καθοδηγεί στο ψήσιμο ψωμιού με προζύμι, από τη συνταγή μέχρι το καρβέλι: υπολογίζει ποσότητες, φτιάχνει πρόγραμμα και μετρά τον χρόνο όσο το τηλέφωνο κοιμάται. Λειτουργεί χωρίς λογαριασμό και χωρίς internet, χωρίς διαφημίσεις και χωρίς παρακολούθηση. Οι συνταγές, τα προζύμια και το ημερολόγιό σας μένουν μόνο στο τηλέφωνό σας.
@@ -75,7 +75,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 Ο Αρτοποιός λειτουργεί σε iPhone και δεν συγχρονίζει δεδομένα μεταξύ συσκευών· τα δεδομένα τα μεταφέρετε με αρχείο αντιγράφου ασφαλείας. Χωρίς άδεια για ειδοποιήσεις, ο Αρτοποιός δείχνει το τέλος ενός βήματος μόνο όταν η οθόνη είναι ανοιχτή.
 
 ΠΡΟΣΒΑΣΗ ΚΑΙ ΑΓΟΡΑ
-Πλήρη πρόσβαση δίνει η μηνιαία ή ετήσια συνδρομή ή η εφάπαξ αγορά εφ' όρου ζωής στο App Store. Η συνδρομή μπορεί να ξεκινά με δωρεάν δοκιμαστική περίοδο (εισαγωγική προσφορά του App Store για όσους πληρούν τις προϋποθέσεις). Χωρίς αγορά μπορείτε να περιηγηθείτε στο ιστορικό ψησίματος, να εισαγάγετε αρχείο, καθώς και να εξαγάγετε και να διαγράψετε τα δεδομένα σας.
+Το Basic είναι δωρεάν για πάντα, χωρίς δοκιμαστική περίοδο. Το Pro προσθέτει προγραμματισμό, φροντίδα προζυμιού, περισσότερα προζύμια και συνταγές. Το Pro είναι μηνιαία ή ετήσια συνδρομή ή εφάπαξ αγορά εφ' όρου ζωής στο App Store.
 Όροι χρήσης (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Γλώσσες: 35.
@@ -121,4 +121,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (2): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

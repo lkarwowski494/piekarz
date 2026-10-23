@@ -81,11 +81,12 @@ const wrocDo = (w: WypiekWPytaniu, onWroc: (id: string) => void) => ({
  * „Zacznij wypiek” przy jednym trwającym wypieku: [Prowadź oba] (domyślne) [Wróć do: {nazwa}] [Anuluj]. Kilka wypieków
  * naraz od D-092; pytanie a1b z przerwaniem zastąpione (D-104). Nic nie znika: przerwanie tylko na Stolnicy [M3 D3a].
  */
-export function confirmStartPrzyTrwajacym(trwa: WypiekWPytaniu, onOba: () => void, onWroc: (id: string) => void) {
+export function confirmStartPrzyTrwajacym(trwa: WypiekWPytaniu, onOba: () => void, onWroc: (id: string) => void, tekstOba: string = t('Prowadź oba')) {
   // Treść z nazwą i krokiem, nie sam tytuł (tekst z listy roli 04 a2 „{r}: {krok}, trwa”); stary zapis bez nazwy — bez treści
   const tresc = trwa.nazwa && trwa.krok ? t('{wypiek}: {krok}, trwa', { wypiek: trwa.nazwa, krok: t(trwa.krok) }) : undefined;
   Alert.alert(t('Trwa już inny wypiek'), tresc, [
-    { text: t('Prowadź oba'), isPreferred: true, onPress: onOba },
+    // Bez Pro tekst „Prowadź oba, Pro” (dwa wypieki naraz, BR-KAL-016; P2-4) [M3 P-b]
+    { text: tekstOba, isPreferred: true, onPress: onOba },
     wrocDo(trwa, onWroc),
     cancelButton(),
   ]);
@@ -115,6 +116,56 @@ export function confirmKolizjaPlanow(linie: readonly string[], onZapisz: () => v
   Alert.alert(t('Kroki nachodzą na siebie'), linie.join('\n'), [cancelButton(), { text: t('Zaplanuj mimo to'), onPress: onZapisz }]);
 }
 
+/** Kolizja piekarnika w pytaniu: godziny już sformatowane, nazwy wypieków, przesunięcie w minutach. */
+export interface PiekarnikWPytaniu {
+  /** Początek części wspólnej okien (tytuł). */
+  godzina: string;
+  pierwszy: string;
+  /** Okno pierwszego: start nagrzewania i koniec pieczenia. */
+  od: string;
+  do: string;
+  drugi: string;
+  minuty: number;
+  /** Po przesunięciu: start pieczenia i „gotowe” drugiego. */
+  pieczenie: string;
+  gotowe: string;
+}
+
+/** Druga akcja pytania: „Zapisz bez zmiany” przy planie, „Zacznij wypiek” albo „Prowadź oba” przy starcie. */
+export interface AkcjaPytania {
+  tekst: string;
+  onPress: () => void;
+}
+
+/**
+ * Piekarnik zajęty (BR-KAL-016 „Jeden piekarnik”, RD-34; teksty roli 04 a2 `piekarnik-1-uklad-planu`): [Przesuń start]
+ * (domyślne) [bez zmiany] [Anuluj]. Mocniejszy przypadek niż „Kroki nachodzą na siebie” (D5): jedno pytanie [M3 D6].
+ */
+export function confirmPiekarnikZajety(p: PiekarnikWPytaniu, a: { przesun: () => void; bezZmiany: AkcjaPytania }) {
+  Alert.alert(
+    t('Piekarnik zajęty o {h}', { h: p.godzina }),
+    t('{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.', {
+      r1: p.pierwszy, od: p.od, do: p.do, r2: p.drugi, m: p.minuty, pieczenie: p.pieczenie, gotowe: p.gotowe,
+    }),
+    [
+      { text: t('Przesuń start: {r} o {m} min', { r: p.drugi, m: p.minuty }), isPreferred: true, onPress: a.przesun },
+      { text: a.bezZmiany.tekst, onPress: a.bezZmiany.onPress },
+      cancelButton(),
+    ]
+  );
+}
+
+/**
+ * Plan bez kroku nagrzewania przy innym wypieku z piekarnikiem (RD-34-W6): kolizji nie liczy się, pytanie prosi
+ * o krok nagrzewania; zapis albo start dopiero po decyzji [M3 D6].
+ */
+export function confirmPiekarnikBezNagrzewania(dalej: AkcjaPytania) {
+  Alert.alert(t('Nie sprawdzę piekarnika'), t('Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.'), [
+    cancelButton(),
+    { text: dalej.tekst, onPress: dalej.onPress },
+  ]);
+}
+
 /**
  * Potwierdzenie zresetowania profilu zakwasu.
  */
@@ -129,17 +180,19 @@ export function confirmResetStarter(onConfirm: () => void) {
 }
 
 /**
- * Potwierdzenie usunięcia wpisu z historii wypieków.
+ * Potwierdzenie założenia zakwasu od nowa (BR-ZAKW-005, D-113): wpisy tego zakwasu usunięte, dzień 1 od teraz [M3 P-a-fix].
  */
-export function confirmDeleteBakeLog(onConfirm: () => void) {
+export function confirmZalozOdNowa(onConfirm: () => void) {
   confirm({
-    title: t('Usunąć wpis z historii?'),
-    message: t('Wpis z historii wypieku zostanie trwale usunięty.'),
-    action: t('Usuń wpis'),
+    title: t('Założyć zakwas od nowa?'),
+    message: t('Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.'),
+    action: t('Zacznij od nowa'),
     destructive: true,
     onConfirm,
   });
 }
+
+// Wpis Dziennika usuwa się bez pytania, z paskiem „Przywróć” (D-051 1a; 04-studio-projektowe-011, W-fix2)
 
 /**
  * Potwierdzenie usunięcia profilu zakwasu.

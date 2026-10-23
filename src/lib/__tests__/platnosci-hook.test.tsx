@@ -37,11 +37,12 @@ async function mount(): Promise<renderer.ReactTestRenderer> {
   return tree!;
 }
 
+// Strażnik nazywa funkcję (D-116): Pro sprawdza funkcja Pro („gotowe o…”), bo funkcje Basic działają zawsze [M3 P-a]
 function canRun(): boolean {
   const fn = jest.fn();
   let result = false;
   act(() => {
-    result = api!.requireActionAccess(fn);
+    result = api!.requireActionAccess('plan-wstecz', fn);
   });
   return result && fn.mock.calls.length === 1;
 }

@@ -178,7 +178,7 @@ export const typografia = {
 
 export const odstepy = {"xs":4,"s":8,"m":12,"l":16,"xl":20,"xxl":24,"xxxl":32} as const;
 
-export const promienie = {"_zasada":"hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe","przyciskGlowny":18,"przycisk":14,"grupa":12,"ostrzezenie":12,"znacznik":6,"pole":10} as const;
+export const promienie = {"_zasada":"hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe","pas":26,"przyciskGlowny":18,"chip":22,"przycisk":14,"grupa":12,"ostrzezenie":12,"znacznik":6,"pole":10} as const;
 
 export const cele = {"glownyPrzeplyw":48,"pozostale":44,"przyciskKciuka":64,"_zrodlo":"DEC-15 a, NFR-INT-001"} as const;
 

@@ -2,7 +2,8 @@
  * Start „Co dziś robisz?” (BR-START-001, H-08, F-68; design-spec §6 Start, makieta docs/design/ekrany/start.html)
  * [M1-audytor-generalny-101]: pierwszy ekran po uruchomieniu to trzy czynności (Wybór czynności: ikona + nazwa
  * + zdanie), bez oferty po wyborze (D-047); trwający wypiek wraca jednym dotknięciem na bieżący krok (F-58);
- * po próbie bez zakupu Start pokazuje stan „tylko historia” (F-67), a dziennik zostaje do przeglądania.
+ * bez Piekarz Pro Start jest tym samym wyborem (Basic, D-112; stan „tylko historia” F-67 odpadł z D-038), a dziennik
+ * zostaje do przeglądania.
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -44,8 +45,7 @@ import { ustawRodzajReceptur } from '../lib/start-stan';
 import { EN } from '../lib/i18n.en';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { PaywallModal } from '../components/PaywallModal';
-import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveBakeLog, setAppSetting } from '../data/sqlite-store';
-import { KLUCZ_HISTORII_DOSTEPU } from '../lib/platnosci/konfiguracja';
+import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveBakeLog } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { planBakeSteps } from '../core/bake-steps';
 import { _resetStanu } from '../lib/platnosci/stan';
@@ -245,12 +245,13 @@ describe('101: Start „Co dziś robisz?”', () => {
       ustawRodzajReceptur('yeast');
     });
     // Filtr listy receptur (§11c 106): wybrany chip „Drożdżowe” [M1-audytor-generalny-106]
-    const lista = tree.root.find((n) => n.props?.onFiltr !== undefined && n.props?.filtr !== undefined);
-    expect(lista.props.filtr).toBe('yeast');
+    // M3 D10: filtr rodzaju jest na pasie (FiltryNaPasie: wybrany/onWybierz zamiast filtr/onFiltr listy)
+    const lista = tree.root.find((n) => n.props?.onWybierz !== undefined && n.props?.wybrany !== undefined);
+    expect(lista.props.wybrany).toBe('yeast');
     act(() => tree.unmount());
   });
 
-  it('po próbie bez zakupu: Dziennik pokazuje historię bez ekranu zakupu (BR-RECP-003 Przegląd historii bez zakupu, BR-ZAK-004 Po końcu próby)', async () => {
+  it('po końcu Pro: Dziennik pokazuje historię bez ekranu Pro (BR-RECP-003 Przegląd historii bez zakupu, BR-ZAK-004 Po końcu Pro)', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {
@@ -270,23 +271,22 @@ describe('101: Start „Co dziś robisz?”', () => {
       'Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.', 'wymaga Piekarz Pro',
       'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.', 'Trwa wypiek',
       'zostało {czas}', 'zostało {czas}, do {godzina}', '{nazwa}: gotowe {dzien} o {godzina}', 'Co jeszcze dziś robisz?',
-      'Okres próbny się skończył',
-      'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.',
-      'Zobacz plany', 'Dziś', 'Receptury', 'Zakwasy', 'Dziennik', 'Plan wypieku', 'Doktor Chleba', 'Doktor', 'Stolnica', 'Akademia',
+      'Dziś', 'Receptury', 'Zakwasy', 'Dziennik', 'Plan wypieku', 'Doktor Chleba', 'Doktor', 'Stolnica', 'Akademia',
     ];
     expect(klucze.filter((k) => !EN[k])).toEqual([]);
   });
 
-  it('po próbie bez zakupu: stan „tylko historia” z kłódką, bez ściany płatności', async () => {
+  // Przepisane z kontraktu D-038 (po próbie stan „tylko historia” z kłódką na kaflach) na Basic/Pro [M3 P-a]: trzy
+  // czynności są w Basic (D-112, D-113), więc bez Pro z własnymi danymi Start jest zwykłym wyborem bez kłódek
+  it('bez Pro z własnymi danymi: trzy czynności bez kłódek i bez ekranu Pro (D-112)', async () => {
     await pustaBaza();
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
-    // Była próba: sklep dał kiedyś dostęp na tym telefonie (nagłówek o końcu próby) [M1-audytor-generalny-143]
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, 'proba'); // tylko okres próbny (C-7: 'platny' i dawne '1' = nagłówek neutralny)
     const tree = await renderStart();
     expect(paywallShown(tree.root)).toBe(false);
     const txt = teksty(tree.root);
-    expect(txt).toContain('Okres próbny się skończył');
-    expect(txt).toContain('wymaga Piekarz Pro');
+    expect(txt).not.toContain('Okres próbny');
+    expect(txt).not.toContain('wymaga Piekarz Pro');
+    expect(tree.root.findAllByProps({ testID: 'start-tylko-historia' })).toHaveLength(0);
     expect(przyciski(tree.root)).toHaveLength(3);
     act(() => tree.unmount());
   });

@@ -21,17 +21,24 @@ export interface DzienPaska {
   numer: string;
 }
 
-/** Siedem dni tygodnia, w którym leży `now`, od pierwszego dnia tygodnia (RD-30). */
-export function dniPaska(now: number, first: FirstWeekday): DzienPaska[] {
-  const dzis = localDateKey(now);
+/** Dzień paska z północy dnia (`dzis` według `now`). */
+export function dzienPaska(ms: number, now: number): DzienPaska {
   const jezyk = appLocale();
-  return daysOfWeek(now, first).map((ms) => ({
+  return {
     klucz: localDateKey(ms),
     ms,
-    dzis: localDateKey(ms) === dzis,
+    dzis: localDateKey(ms) === localDateKey(now),
     skrot: formatDate(ms, jezyk, { weekday: 'short' }),
     numer: formatDate(ms, jezyk, { day: 'numeric' }),
-  }));
+  };
+}
+
+/**
+ * Siedem dni tygodnia, w którym leży `kotwica` (domyślnie `now`), od pierwszego dnia tygodnia (RD-30); `dzis`
+ * według `now`, więc poprzedni i następny tydzień nie mają wyróżnionego dnia (BR-KAL-008) [M3 D7].
+ */
+export function dniPaska(now: number, first: FirstWeekday, kotwica: number = now): DzienPaska[] {
+  return daysOfWeek(kotwica, first).map((ms) => dzienPaska(ms, now));
 }
 
 /** Data na pasie: „Czwartek, 22 października” (dzień tygodnia wielką literą według języka). */
@@ -44,16 +51,19 @@ export function dataSlownie(ms: number): string {
 /**
  * Glify zdarzeń (makieta roli 04 a2, `a2.css`): krok wypieku = spirala (drugi trwający = trójkąt), „gotowe” = bochenek
  * konturem, wpis Dziennika = bochenek pełny, dokarmiony = kropka, następne karmienie = przerywany pierścień,
- * zakładanie = słoik. Zaległe ma osobny glif (koło z wykrzyknikiem).
+ * zakładanie = słoik, piekarnik zajęty = prostokąt z drzwiczkami na tle ostrzeżenia, pierwszy w dniu (makieta
+ * `piekarnik-3-kalendarz`, BR-KAL-016) [M3 D6]. Krok planu niezaczętego = spirala kropkowana („plan”, PRZ-13). Zaległe ma osobny glif (koło z wykrzyknikiem).
  */
-export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karmienie' | 'karmienie-nastepne' | 'zakladanie';
+export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karmienie' | 'karmienie-nastepne' | 'zakladanie' | 'piekarnik' | 'plan';
 
 /** Najwyżej tyle glifów w dniu: glify się nie zawijają (pomiar roli 04 przy 320 pt); całość czyta etykieta dnia. */
 export const MAKS_GLIFOW_DNIA = 3;
 
-function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
+export function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
   switch (z.rodzaj) {
     case 'wypiek-krok':
+      // Plan niezaczęty: spirala kropkowana, osobny glif od trwającego wypieku (PRZ-13, makieta a2)
+      if (z.zaplanowany) return 'plan';
       return wypieki.indexOf(z.zrodlo.id) === 1 ? 'wypiek2' : 'wypiek';
     case 'wypiek-gotowe':
       return 'gotowe';
@@ -65,13 +75,16 @@ function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia
       return 'karmienie-nastepne';
     case 'zakladanie':
       return 'zakladanie';
+    case 'piekarnik-zajety':
+      return 'piekarnik';
   }
 }
 
 /** Glify dnia w kolejności czasu bez powtórzeń (najwyżej MAKS_GLIFOW_DNIA) i to, czy dzień ma zaległe. */
 export function glifyDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: string, wypieki: readonly string[]): { glify: GlifZdarzenia[]; zalegle: boolean } {
   const dnia = zdarzenia.filter((z) => z.dzien === dzien).sort((a, b) => a.at - b.at);
-  const glify = [...new Set(dnia.filter((z) => !z.zalegle).map((z) => glif(z, wypieki)))].slice(0, MAKS_GLIFOW_DNIA);
+  const piec = (g: GlifZdarzenia) => (g === 'piekarnik' ? 0 : 1);
+  const glify = [...new Set(dnia.filter((z) => !z.zalegle).map((z) => glif(z, wypieki)))].sort((a, b) => piec(a) - piec(b)).slice(0, MAKS_GLIFOW_DNIA);
   return { glify, zalegle: dnia.some((z) => z.zalegle) };
 }
 

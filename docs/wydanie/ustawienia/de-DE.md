@@ -44,7 +44,7 @@ anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,
 Stell ein, wann dein Brot fertig sein soll: Bäcker berechnet die Mengen, plant rückwärts und meldet sich am Ende jedes Schritts. Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3757 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3640 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
@@ -74,7 +74,7 @@ GUT ZU WISSEN
 Bäcker läuft auf dem iPhone und synchronisiert keine Daten zwischen Geräten; deine Daten überträgst du mit einer Backup-Datei. Ohne Erlaubnis für Mitteilungen zeigt Bäcker das Ende eines Schritts nur auf dem geöffneten Bildschirm.
 
 ZUGANG UND KAUF
-Vollen Zugang erhältst du mit einem Monats- oder Jahresabo oder einem einmaligen Kauf auf Lebenszeit im App Store. Ein Abo kann mit einem kostenlosen Probezeitraum beginnen (Einführungsangebot des App Store für berechtigte Nutzer). Ohne Kauf kannst du deinen Backverlauf ansehen, eine Datei importieren sowie deine Daten exportieren und löschen.
+Basic ist für immer kostenlos, ohne Probezeitraum. Pro bietet zusätzlich Planung, Sauerteigpflege sowie mehr Sauerteige und Rezepturen. Pro gibt es als Monats- oder Jahresabo oder als einmaligen Kauf auf Lebenszeit im App Store.
 Nutzungsbedingungen (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Sprachen: 35.
@@ -124,4 +124,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (3): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

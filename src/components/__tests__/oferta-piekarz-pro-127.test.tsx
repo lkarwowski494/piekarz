@@ -1,8 +1,11 @@
 /**
- * Ekran zakupu „Piekarz Pro” w nowej szacie: stany oferta-proba, zakup-bez-proby, bez-sieci i ładowanie
- * (design-spec §11e 127, makieta docs/design/ekrany/oferta.html) [M1-audytor-generalny-127; 04-studio-projektowe-502;
- * 02-monetyzacja-506]. Ujawnienia U2–U8 z kontraktu płatności (docs/monetyzacja.md); Apple, odczyt 2026-10-21:
- * nazwa i okres subskrypcji, pełna cena odnowienia, długość próby i cena po próbie (developer.apple.com/app-store/subscriptions).
+ * Ekran zakupu „Piekarz Pro”: stany zakup, bez-sieci, niedostępna i ładowanie (design-spec §11e 127, makieta
+ * docs/design/ekrany/oferta.html) [M1-audytor-generalny-127; 04-studio-projektowe-502; 02-monetyzacja-506].
+ * Przepisane z kontraktu D-038 [M3 P-a]: bez oferty wprowadzającej i okresu próbnego (D-112, kontrakt docs/monetyzacja.md
+ * „Kontrakt płatności”, aneks ADR-007) — ekran nie pokazuje próby, nawet gdy App Store Connect ma jeszcze ofertę
+ * „Free Trial 2 Weeks” (usuwana w ASC razem z buildem, Z-1). Ujawnienia: nazwa i okres subskrypcji, cena z displayPrice,
+ * odnawianie i anulowanie (Apple, developer.apple.com/app-store/subscriptions, odczyt 2026-10-21). Teksty ekranu Pro
+ * z ujawnieniami 1–5 kontraktu: partia P-b (D-117).
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
@@ -66,8 +69,8 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
   afterAll(() => setLang('pl'));
 
   it.each([
-    ['oferta-proba', () => produkty(true)],
-    ['zakup-bez-proby', () => produkty(false)],
+    ['zakup (sklep ma jeszcze ofertę wprowadzającą)', () => produkty(true)],
+    ['zakup', () => produkty(false)],
     // Bez sieci = błąd odczytu produktów; pusta lista to oferta chwilowo niedostępna [audyt-niezalezny A-3]
     ['bez-sieci', () => (mockIap.failProducts = true)],
     ['niedostepna', () => (mockIap.products = [])],
@@ -87,30 +90,22 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
     act(() => tree.unmount());
   });
 
-  it('oferta-proba: długość próby, ceny po próbie, ujawnienia U2–U8 i „Zacznij okres próbny” (BR-ZAK-003 Przed startem próby)', async () => {
+  it('bez próby (D-112): oferta wprowadzająca w danych sklepu nie zmienia ekranu — bez długości próby, cen „po próbie” i „Zacznij okres próbny”', async () => {
     produkty(true);
     const tree = await zamontuj();
     const caly = tekst(tree.toJSON());
-    expect(tekst(tree.root.findByProps({ testID: 'offer-trial-length' }))).toBe('Okres próbny: 14 dni');
-    expect(caly).toContain(t('{cena} rocznie po próbie', { cena: '29,99 zł' }));
-    expect(caly).toContain(t('{cena} miesięcznie po próbie', { cena: '4,99 zł' }));
+    expect(tree.root.findAllByProps({ testID: 'offer-trial-length' })).toHaveLength(0);
+    expect(caly).not.toMatch(/po próbie|Okres próbny|próby|próbę/);
+    expect(caly).toContain(t('{cena} rocznie', { cena: '29,99 zł' }));
+    expect(caly).toContain(t('{cena} miesięcznie', { cena: '4,99 zł' }));
     expect(caly).toContain(t('{cena} jednorazowo', { cena: '79,99 zł' }));
-    for (const u of [
-      'Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.',
-      'Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.',
-      'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.',
-      'Próba jest jedna na oba plany subskrypcji.',
-      'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.',
-      'Zakup wymaga połączenia z App Store.',
-    ])
-      expect(caly).toContain(t(u));
-    expect(tekst(tree.root.findByProps({ testID: 'subscribe-submit-btn' }))).toBe(t('Zacznij okres próbny'));
+    expect(tekst(tree.root.findByProps({ testID: 'subscribe-submit-btn' }))).toBe(t('Kup plan roczny'));
     await wcisnij(tree, 'plan-lifetime-btn');
     expect(tekst(tree.root.findByProps({ testID: 'subscribe-submit-btn' }))).toBe(t('Kup dostęp dożywotni'));
     act(() => tree.unmount());
   });
 
-  it('zakup-bez-proby: „Kup plan …”, ceny bez „po próbie”, U2 krótkie i U8', async () => {
+  it('zakup: „Kup plan …”, ceny bez „po próbie”, odnawianie i połączenie z App Store', async () => {
     produkty(false);
     const tree = await zamontuj();
     const caly = tekst(tree.toJSON());
@@ -181,15 +176,16 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
     act(() => tree!.unmount());
   });
 
-  it('EN: „Baker Pro” jak w App Store Connect, „Free trial: 14 days”, „Start Free Trial”, „Terms of Use”', async () => {
+  it('EN: „Baker Pro” jak w App Store Connect, bez „Free trial”, przycisk zakupu planu, „Terms of Use”', async () => {
     setLang('en');
     produkty(true);
     const tree = await zamontuj();
     const caly = tekst(tree.toJSON());
     expect(caly).toContain('Baker Pro');
     expect(caly).not.toContain('Piekarz');
-    expect(tekst(tree.root.findByProps({ testID: 'offer-trial-length' }))).toBe('Free trial: 14 days');
-    expect(tekst(tree.root.findByProps({ testID: 'subscribe-submit-btn' }))).toBe('Start Free Trial');
+    expect(caly).not.toMatch(/[Tt]rial/);
+    expect(tree.root.findAllByProps({ testID: 'offer-trial-length' })).toHaveLength(0);
+    expect(tekst(tree.root.findByProps({ testID: 'subscribe-submit-btn' }))).toBe(t('Kup plan roczny'));
     expect(tekst(tree.root.findByProps({ testID: 'terms-of-use-btn' }))).toBe('Terms of Use');
     act(() => tree.unmount());
   });

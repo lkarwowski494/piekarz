@@ -44,7 +44,7 @@ hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbag
 Vælg, hvornår brødet skal være klar: Bageren beregner mængderne, planlægger baglæns og giver besked, når hvert trin slutter. Ingen konto, intet internet, ingen reklamer.
 ```
 
-### Opis (Description) · 3385 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3287 / 4000 znaków · wersja 1.0
 
 ```text
 Bageren guider dig gennem bagningen af surdejsbrød fra opskrift til færdigt brød: appen beregner mængderne, lægger planen og holder øje med tiden, mens telefonen sover. Den virker uden konto og uden internet, uden reklamer og uden sporing. Dine opskrifter, surdeje og din bagedagbog bliver kun på din telefon.
@@ -74,7 +74,7 @@ GODT AT VIDE
 Bageren kører på iPhone og synkroniserer ikke data mellem enheder; du flytter data med en backupfil. Uden tilladelse til notifikationer viser Bageren kun slutningen af et trin på den åbne skærm.
 
 ADGANG OG KØB
-Fuld adgang får du med et månedligt eller årligt abonnement eller et engangskøb med livstidsadgang i App Store. Et abonnement kan starte med en gratis prøveperiode (App Store-introduktionstilbud for berettigede brugere). Uden køb kan du se din bagehistorik, importere en fil samt eksportere og slette dine data.
+Basic er gratis for altid, uden prøveperiode. Pro tilføjer planlægning, pleje af surdej, flere surdeje og opskrifter. Pro er et månedligt eller årligt abonnement eller et engangskøb med livstidsadgang i App Store.
 Brugsbetingelser (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Sprog: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

@@ -133,4 +133,13 @@ export const EN_19: Record<string, string> = {
   'Zobacz plan': 'See plan',
   'Zaplanowane wypieki': 'Planned bakes',
   'Zaplanuj wypiek na ten dzień': 'Plan a bake for this day',
+  // M3 D6: piekarnik zajęty (BR-KAL-016, RD-34)
+  'Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie': 'Oven busy: {r1} and {r2} bake at the same time',
+  'Piekarnik zajęty o {h}': 'Oven busy at {h}',
+  '{dzien}: piekarnik zajęty o {h}': '{dzien}: oven busy at {h}',
+  '{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.': '{r1} bakes from {od} to {do}. Move the start of {r2} by {m} min: baking from {pieczenie}, ready at {gotowe}.',
+  'Przesuń start: {r} o {m} min': 'Move start: {r} by {m} min',
+  'Zapisz bez zmiany': 'Save without changes',
+  'Nie sprawdzę piekarnika': 'I will not check the oven',
+  'Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.': 'This plan has no preheating step, so I do not know when it will occupy the oven. Compare the baking times of both bakes.',
 };

@@ -8,8 +8,9 @@ import type { Purchase } from 'expo-iap';
 import { AppState } from 'react-native';
 import { getAppSetting, setAppSetting } from '../../data/settings-store';
 import { StorageWriteError } from '../../data/storage-status';
-import { ODBLOKOWUJA, KLUCZ_PAMIECI, KLUCZ_HISTORII_DOSTEPU } from './konfiguracja';
+import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec, Uprawnienie } from './dostep';
+import { KLUCZ_KONCA_PRO, wygaslPro } from './uprzedzenie';
 import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz, ustawPrzedPolaczeniem, _resetSklepu } from './sklep';
 import { _resetEkranu } from './ekran';
 
@@ -17,7 +18,7 @@ export interface StanDostepu {
   decyzja: Decyzja;
   /** true po pierwszym odczycie sklepu (udanym albo z błędem). */
   gotowe: boolean;
-  /** Uprawnienia z ostatniego udanego odczytu sklepu (uprzedzenie o końcu próby, 126); null = jeszcze brak. */
+  /** Uprawnienia z ostatniego udanego odczytu sklepu (uprzedzenie o końcu Pro, D-113); null = jeszcze brak. */
   uprawnienia?: Uprawnienie[] | null;
 }
 
@@ -47,23 +48,19 @@ async function wczytajPamiec(): Promise<Pamiec> {
 }
 
 /**
- * Rodzaj dostępu do historii (nagłówek po końcu dostępu): 'proba', gdy wszystkie dające dostęp uprawnienia są
- * w okresie próbnym; inaczej 'platny' (także gdy sklep nie podał, czy to próba). Raz 'platny' zostaje [audyt-niezalezny C-7].
+ * Decyzja z odczytu; udany odczyt sklepu nadpisuje pamięć (także pustą po zwrocie). Gdy pamięć dawała Pro, a sklep
+ * już nie (wygaśnięcie, zwrot, odebranie z Family Sharing), znacznik komunikatu wygaśnięcia do pokazania raz (D-113).
  */
-async function zapiszRodzajDostepu(uprawnienia: Uprawnienie[], teraz: number): Promise<void> {
-  const dajace = uprawnienia.filter((u) => !u.odebrane && ODBLOKOWUJA.includes(u.produkt) && (u.wygasa === null || u.wygasa > teraz));
-  const rodzaj = dajace.length > 0 && dajace.every((u) => u.proba === true) ? 'proba' : 'platny';
-  if (rodzaj === 'proba' && (await getAppSetting(KLUCZ_HISTORII_DOSTEPU)) === 'platny') return;
-  await setAppSetting(KLUCZ_HISTORII_DOSTEPU, rodzaj);
-}
-
-/** Decyzja z odczytu; udany odczyt sklepu nadpisuje pamięć (także pustą po zwrocie). */
 export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): Promise<Decyzja> {
-  const d = decyzja(odczyt, await wczytajPamiec(), teraz, ODBLOKOWUJA);
+  const surowa = await getAppSetting(KLUCZ_PAMIECI);
+  const poprzednia = odczytajPamiec(surowa);
+  const d = decyzja(odczyt, poprzednia, teraz, ODBLOKOWUJA);
   if (odczyt.zrodlo === 'sklep') {
     try {
-      await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
-      if (d.dostep) await zapiszRodzajDostepu(odczyt.uprawnienia, teraz);
+      if (wygaslPro(poprzednia, d, odczyt.zrodlo)) await setAppSetting(KLUCZ_KONCA_PRO, '1');
+      // Zapis tylko przy zmianie: ekran z samym odczytem dostępu (np. arkusz importu w Basic) nie zmienia bazy [M3 P-a-fix]
+      const nowa = zapisPamieci(d.pamiec);
+      if (nowa !== (typeof surowa === 'string' ? surowa : '')) await setAppSetting(KLUCZ_PAMIECI, nowa);
     } catch (e) {
       // Baza nowsza niż aplikacja (061) albo nieudany zapis (120): decyzja działa w tej sesji bez zapisu pamięci,
       // kupujący nie traci dostępu przez pełną pamięć telefonu [M1-audytor-generalny-061; M1-audytor-generalny-120]
@@ -72,21 +69,6 @@ export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): P
   }
   ustaw({ decyzja: d, gotowe: true, uprawnienia: odczyt.zrodlo === 'sklep' ? odczyt.uprawnienia : stan.uprawnienia ?? null });
   return d;
-}
-
-/**
- * Jaki dostęp sklep dał kiedyś na tym telefonie (a nie sam import danych) [M1-audytor-generalny-143; 02-monetyzacja-504]:
- * 'proba' (tylko okres próbny), 'platny', 'nieznany' (znacznik z wersji sprzed C-7) albo null (nigdy / błąd odczytu).
- * Nagłówek „Okres próbny się skończył” tylko przy 'proba' [audyt-niezalezny C-7].
- */
-export async function rodzajDostepu(): Promise<'proba' | 'platny' | 'nieznany' | null> {
-  try {
-    const v = await getAppSetting(KLUCZ_HISTORII_DOSTEPU);
-    if (v === 'proba' || v === 'platny') return v;
-    return v === '1' ? 'nieznany' : null;
-  } catch {
-    return null;
-  }
 }
 
 let nasluch: { remove: () => void } | null = null;
@@ -142,7 +124,7 @@ export async function obsluzTransakcje(p: Purchase): Promise<void> {
 
 /**
  * Start aplikacji (app/_layout.tsx): nasłuch transakcji, pierwszy odczyt uprawnień i ponowny odczyt przy każdym
- * powrocie na pierwszy plan: wygaśnięcie w tle działa bez restartu, a uprzedzenie o końcu próby sprawdza się
+ * powrocie na pierwszy plan: wygaśnięcie w tle działa bez restartu, a uprzedzenie o końcu Pro sprawdza się
  * na świeżym stanie (MON-05) [M1-audytor-generalny-144; 02-monetyzacja-505, 02-monetyzacja-601].
  */
 export function uruchomPlatnosci(): () => void {

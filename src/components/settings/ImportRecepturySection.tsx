@@ -15,19 +15,26 @@ import { ImportZPlikuArkusz } from './ImportZPlikuArkusz';
 import { setPendingRecipeToLoad } from '../../lib/recipe-navigation';
 import { StoredRecipe } from '../../data/db';
 
-export function ImportRecepturySection() {
+export function ImportRecepturySection({ onPro }: { onPro?: () => void } = {}) {
   const [otwarte, setOtwarte] = useState<boolean>(false);
 
   const poImporcie = (r: StoredRecipe) => {
     setPendingRecipeToLoad({ id: r.id, name: r.name, targetDDT: r.targetDDT, formula: r.formula });
   };
+  // Receptura ponad limitem Basic: arkusz importu i Ustawienia zamykają się, ekran Pro po zniknięciu Ustawień (D-117, N2)
+  const ponadLimitem = onPro
+    ? () => {
+        setOtwarte(false);
+        onPro();
+      }
+    : undefined;
 
   return (
     <View style={styles.grupa}>
       <Pressable accessibilityRole="button" testID="import-file-btn" style={styles.wiersz} onPress={() => setOtwarte(true)}>
         <Text style={styles.akcja}>{t('Importuj z pliku')}</Text>
       </Pressable>
-      {otwarte && <ImportZPlikuArkusz onClose={() => setOtwarte(false)} onRecipeImported={poImporcie} />}
+      {otwarte && <ImportZPlikuArkusz onClose={() => setOtwarte(false)} onRecipeImported={poImporcie} onPonadLimitem={ponadLimitem} />}
     </View>
   );
 }

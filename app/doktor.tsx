@@ -17,6 +17,7 @@ import {
 import { EmergencyCode } from '../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../src/lib/diagnosis-formatter';
 import { BreadAcademyModal } from '../src/components/BreadAcademyModal';
+import { funkcjaLekcji } from '../src/lib/platnosci/dostep';
 import { useUnitSystem } from '../src/lib/unit-converter';
 import { DiagnosisResultCard } from '../src/components/doktor/DiagnosisResultCard';
 import { EmergencyRecoverySection } from '../src/components/doktor/EmergencyRecoverySection';
@@ -29,14 +30,13 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
-import { loadActiveBakeSessions } from '../src/data/bake-sessions-store';
-import { zaczetyZDostepem } from '../src/data/bake-session-store';
 
 import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
-  // Bez uprawnienia Doktor i Akademia otwierają ekran zakupu [M1-audytor-generalny-027]
+  // Doktor i protokoły w Basic (BR-DIAG-001, -003…005), zawsze — także bez trwającego wypieku (D-112, D-113; wykładnia
+  // D-104 „Doktor przy wypieku z dostępem” zastąpiona, D-116); Akademia: pierwszy poziom w Basic [M1-audytor-generalny-027]
   const { blokada, chron } = useAppAccess();
   // Bez zaznaczonych objawów na starcie: diagnoza dopiero po wyborze użytkownika [audyt-niezalezny E-6]
   const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({});
@@ -45,19 +45,6 @@ export default function DoctorScreen() {
   const [isAcademyOpen, setIsAcademyOpen] = useState<boolean>(false);
   // Zamknięcie Doktora: odłożona prośba o ocenę po wypieku ≤ 2★ (D-089) [reaudit-noc N-12]
   useEffect(() => wykonajOdlozonaProsbeOOcene, []);
-  // W trakcie wypieku zaczętego z dostępem Doktor (z protokołami ratunkowymi i ich ostrzeżeniami) nie jest za ofertą,
-  // jak prowadzenie tego wypieku (D-039 pkt 3, BR-DIAG-003 „Bez dostępu”) [M3 D3a]
-  const [wypiekZDostepem, setWypiekZDostepem] = useState(false);
-  useEffect(() => {
-    let zywy = true;
-    void loadActiveBakeSessions()
-      .then((l) => zywy && setWypiekZDostepem(l.some((s) => zaczetyZDostepem(s.bake))))
-      .catch(() => undefined);
-    return () => {
-      zywy = false;
-    };
-  }, []);
-  const blokadaDoktora = wypiekZDostepem ? { ...blokada('doktor'), odblokowane: true } : blokada('doktor');
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
@@ -100,13 +87,13 @@ export default function DoctorScreen() {
           accessibilityRole="button"
           testID="open-academy-btn"
           style={styles.academyHeaderPill}
-          onPress={chron('doktor', () => setIsAcademyOpen(true))}
+          onPress={chron('akademia', () => setIsAcademyOpen(true))}
           accessibilityLabel={t('Akademia Piekarza')}
         >
           <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
         </Pressable>
         )}
-        <BlokadaFunkcji {...blokadaDoktora}>
+        <BlokadaFunkcji {...blokada('doktor')}>
         {/* Bread Academy Promotion Banner */}
         {wejscieWidoczne('akademia') && (
         <Pressable
@@ -161,6 +148,8 @@ export default function DoctorScreen() {
         <BreadAcademyModal
           visible={isAcademyOpen}
           onClose={() => setIsAcademyOpen(false)}
+          // Pierwszy poziom w Basic, dalsze w Pro (BR-NAUK-001, LIMITY_BASIC.poziomyAkademii)
+          otworzLekcje={(poziom, otworz) => chron(funkcjaLekcji(poziom), otworz)()}
         />
       </ScrollView>
     </SafeAreaView>

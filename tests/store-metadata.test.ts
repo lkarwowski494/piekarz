@@ -94,8 +94,11 @@ const wInterfejsie = (pl: string) => KOD_UI.includes(`t('${pl}'`);
 
 const KROKI_IMPORTU = ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj z pliku', 'Wklej zawartość pliku receptury albo kopii zapasowej.', 'Zastąp dane'];
 const KOLEJNOSC_IMPORTU = ['Ustawienia', 'Importuj z pliku', 'Zastąp dane'];
+// Przepisane z kontraktu D-038 [M3 P-a]: zamiast przycisku próby („Zacznij okres próbny”, bez próby od D-112) notatki
+// prowadzą do zakupu przyciskiem „Kup plan roczny” i nazywają oznaczenie funkcji Pro („wymaga Piekarz Pro”)
 const FUNKCJE: ReadonlyArray<readonly [string, Record<string, number> | undefined]> = [
-  ['Zacznij okres próbny', undefined],
+  ['Kup plan roczny', undefined],
+  ['wymaga Piekarz Pro', undefined],
   ['Przywróć zakupy', undefined],
   ['Zakupy', undefined],
   ['Dziś', undefined],
@@ -146,12 +149,13 @@ describe('notatki dla App Review (078)', () => {
     expect([kopia.state.starters.length, kopia.state.bakes.length, kopia.state.customRecipes.length, kopia.skippedRows]).toEqual([1, 0, 0, 0]);
   });
 
-  it('opisują inne nieoczywiste funkcje 1.0: okres próbny, przywracanie zakupów, 4 zakładki, plan, Stolnica, Doktor', () => {
+  it('opisują inne nieoczywiste funkcje 1.0: Basic i Pro bez próby, przywracanie zakupów, 4 zakładki, plan, Stolnica, Doktor', () => {
     for (const [pl, params] of FUNKCJE) {
       expect({ pl, jest: notatki.includes(en(pl, params)) }).toEqual({ pl, jest: true });
     }
     expect(notatki).toMatch(/Sleep Guard/);
-    expect(notatki).toMatch(/introductory offer/i);
+    expect(notatki).toMatch(/Basic is free forever, with no trial/);
+    expect(notatki).not.toMatch(/introductory offer|Free Trial/i);
   });
 
   it('każda nazwa przycisku z notatek jest tekstem dzisiejszego interfejsu (t() w app/ albo src/components/) (119, 10-wydanie-020)', () => {

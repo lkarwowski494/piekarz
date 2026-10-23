@@ -10,7 +10,8 @@ export default function DziennikLayout() {
   const { duzy } = useNaglowek();
   return (
     <Stack screenOptions={duzy}>
-      <Stack.Screen name="index" options={{ title: t('Dziennik') }} />
+      {/* Pas nocy zamiast natywnego nagłówka (D10 opcja A): tytuł i filtry smaku na pasie ekranu [M3 D10] */}
+      <Stack.Screen name="index" options={{ title: t('Dziennik'), headerShown: false }} />
     </Stack>
   );
 }

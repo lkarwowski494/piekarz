@@ -165,7 +165,7 @@ function karta(kod, m, mapa, sf, ceny, url, prod) {
   const auto = wszystkie.filter((k) => !ceny.reczne[k] && !NIEDOSTEPNE.has(k));
   L.push(`Pozostałe storefronty tej karty (${auto.length}): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).`);
   L.push('');
-  L.push(`Oferta wprowadzająca: ${ceny.ofertaWprowadzajaca.typ}, ${ceny.ofertaWprowadzajaca.czas} (14 dni) na \`${prod.monthly}\` i \`${prod.yearly}\`, ${ceny.ofertaWprowadzajaca.storefronty}; dożywotni bez oferty (D-038).`);
+  L.push(`Bez oferty wprowadzającej na \`${prod.monthly}\`, \`${prod.yearly}\` i \`${prod.lifetime}\` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).`);
   L.push('');
   return L.join('\n');
 }

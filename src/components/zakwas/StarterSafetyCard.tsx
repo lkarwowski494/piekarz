@@ -24,6 +24,8 @@ export interface StarterSafetyCardProps {
   onToggleRottenSmell: () => void;
   safetyResult: SourdoughSafetyCheck;
   onReset: () => void;
+  /** Przy wyniku „wyrzuć”: założenie zakwasu od nowa (BR-ZAKW-005, D-113; Basic) [M3 P-a-fix P0-1]. */
+  onZalozOdNowa?: () => void;
 }
 
 interface CheckProps {
@@ -61,6 +63,7 @@ export function StarterSafetyCard({
   onToggleRottenSmell,
   safetyResult,
   onReset,
+  onZalozOdNowa,
 }: StarterSafetyCardProps) {
   return (
     <View style={styles.card}>
@@ -94,8 +97,14 @@ export function StarterSafetyCard({
         <Text style={[styles.safetyAction, safetyResult.status === 'discard' && styles.safetyTekstOstrz]}>{t(safetyResult.actionPl)}</Text>
       </View>
 
+      {safetyResult.status === 'discard' && onZalozOdNowa && (
+        <Pressable accessibilityRole="button" testID="starter-safety-restart-btn" style={styles.resetBtn} onPress={onZalozOdNowa}>
+          <Text style={styles.resetBtnText}>{t('Załóż zakwas od nowa')}</Text>
+        </Pressable>
+      )}
+
       <Pressable accessibilityRole="button" style={styles.resetBtn} onPress={onReset}>
-        <Text style={styles.resetBtnText}>{t('Zacznij od nowa')}</Text>
+        <Text style={styles.resetBtnText}>{t('Odznacz objawy')}</Text>
       </Pressable>
     </View>
   );

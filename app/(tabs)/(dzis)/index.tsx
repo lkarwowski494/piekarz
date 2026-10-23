@@ -6,13 +6,12 @@
 // i legendą). Pas zastępuje natywny duży tytuł: nagłówek stosu ukryty, pasek stanu jasny na pasie (naglowek.ts, a1).
 // ============================================================================
 
-import React, { useCallback, useEffect, useState } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, View, Pressable, useWindowDimensions } from 'react-native';
-import { Stack, useFocusEffect, useRouter } from 'expo-router';
+import React, { useCallback, useRef, useState } from 'react';
+import { Platform, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
-import { rodzajDostepu } from '../../../src/lib/platnosci/stan';
 import { CZYNNOSCI_STARTU, celCzynnosci, stanStartu, ustawRodzajReceptur, type CzynnoscStartu } from '../../../src/lib/start-stan';
 import { useStanStartu } from '../../../src/hooks/useStanStartu';
 import { useKalendarz } from '../../../src/hooks/useKalendarz';
@@ -22,18 +21,21 @@ import { WypiekiNaSpirali } from '../../../src/components/start/WypiekiNaSpirali
 import { PlanyWypiekow } from '../../../src/components/start/PlanyWypiekow';
 import { ArkuszPlanu } from '../../../src/components/start/ArkuszPlanu';
 import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
+import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
+import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/ArkuszDnia';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { SettingsModal } from '../../../src/components/SettingsModal';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
-import { UprzedzenieProby, useUprzedzenieProby } from '../../../src/components/start/UprzedzenieProby';
+import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
+import { UprzedzenieKoncaPro, useUprzedzenieKoncaPro } from '../../../src/components/start/UprzedzenieKoncaPro';
 import { dataSlownie } from '../../../src/lib/kalendarz-pasek';
 import { tekstyNastepne } from '../../../src/lib/kalendarz-teksty';
 import type { ZdarzenieKalendarza } from '../../../src/core/kalendarz-zdarzenia';
 import { theme } from '../../../src/ui/theme';
-import { odstepy, promienie, typografia } from '../../../src/ui/tokeny';
+import { odstepy, typografia } from '../../../src/ui/tokeny';
 
 /** Duży tekst (AX1–AX5) jak na innych ekranach (fontScale ≥ 2, 200); wąski ekran: pasek od krawędzi (pomiar roli 04). */
 const DUZY_TEKST = 2;
@@ -44,33 +46,25 @@ export default function StartScreen() {
   const { width, fontScale } = useWindowDimensions();
   const gora = useSafeAreaInsets().top;
   const duzyTekst = fontScale >= DUZY_TEKST;
-  const { access, loading, setPaywallVisible, requireActionAccess } = useAppAccess();
+  const { access, loading, chron, requireActionAccess, moze } = useAppAccess();
   const [odczyt, setOdczyt] = useState(0);
   const dane = useStanStartu(odczyt);
-  // Ponowny odczyt po ustaleniu dostępu (koniec próby chowa terminy karmienia, BR-KAL-006)
+  // Ponowny odczyt po ustaleniu dostępu (koniec Pro chowa terminy karmienia poza zakładaniem, D-113)
   const kal = useKalendarz(`${access.canCreateNewBake}:${loading}`);
   const [ustawienia, setUstawienia] = useState(false);
   const [arkusz, setArkusz] = useState<TrybArkusza | null>(null);
-  // Do pierwszego odczytu sklepu bez kłódek: brak odpowiedzi App Store to nie koniec próby
-  const stan = stanStartu({ trwaWypiek: dane.wypieki.length > 0, dostep: access.canCreateNewBake || loading, maDane: dane.maDane });
-  const uprzedzenie = useUprzedzenieProby();
-  // Nagłówek „tylko historia” mówi o końcu próby tylko po dostępie z App Store [M1-audytor-generalny-143; audyt C-7]
-  const [bylaProba, setBylaProba] = useState<boolean | null>(null);
-  useEffect(() => {
-    let zywy = true;
-    if (stan === 'tylko-historia') void rodzajDostepu().then((r) => zywy && setBylaProba(r === 'proba'));
-    return () => {
-      zywy = false;
-    };
-  }, [stan]);
+  // Basic działa zawsze (D-112): „Dziś” bez stanu „tylko historia” i bez ekranu Pro przy starcie
+  const stan = stanStartu({ trwaWypiek: dane.wypieki.length > 0 });
+  const uprzedzenie = useUprzedzenieKoncaPro();
+  // Widok miesiąca to Pro (BR-KAL-013), bez Pro z oznaczeniem „Pro” [M3 P-b]; tydzień i powrót do niego w Basic
+  const widok = {
+    ...kal.widok,
+    ustawTryb: (tryb: typeof kal.widok.tryb) => (tryb === 'miesiac' ? chron('miesiac', () => kal.widok.ustawTryb(tryb))() : kal.widok.ustawTryb(tryb)),
+    miesiacPro: !moze('miesiac'),
+  };
 
-  // Pasek stanu jasny na ciemnym pasie tylko na „Dziś”; inne zakładki wracają do domyślnego (app/_layout.tsx)
-  useFocusEffect(
-    useCallback(() => {
-      StatusBar.setBarStyle('light-content', true);
-      return () => StatusBar.setBarStyle('default', true);
-    }, [])
-  );
+  // Pasek stanu jasny na ciemnym pasie (wspólny z zakładkami D10); po wyjściu domyślny (app/_layout.tsx)
+  usePasekStanuJasny();
 
   const odswiez = useCallback(() => {
     kal.odswiez();
@@ -78,46 +72,71 @@ export default function StartScreen() {
   }, [kal]);
   const otworzWypiek = useCallback((id: string) => router.push({ pathname: '/stolnica', params: { wypiek: id } }), [router]);
   // Zaplanowane wypieki: arkusz planu, start (D-104) i usunięcie (BR-KAL-009, D-108) [M3 D5]
-  const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess });
+  const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess, moze });
   const akcje = useAkcjeDzis({ onZmiana: odswiez, otworzWypiek, otworzPlan: plany.otworz });
   const planOtwarty = dane.plany.find((p) => p.id === plany.otwarty) ?? null;
-  // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]
+  // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]; Pro (D-113):
+  // bez Pro najpierw zamknięcie arkusza dnia, ekran Pro po nim (D-117) [04-studio-projektowe-005]
+  const proDnia = useProPoArkuszu();
   const zaplanujNaDzien = (dzienMs: number) => {
-    setArkusz(null);
-    ustawDzienGotowe(dzienMs);
-    ustawRodzajReceptur('sourdough');
-    router.navigate('/receptury');
+    const zaplanuj = () => {
+      setArkusz(null);
+      ustawDzienGotowe(dzienMs);
+      ustawRodzajReceptur('sourdough');
+      router.navigate('/receptury');
+    };
+    // Po zakupie Pro plan na ten dzień rusza sam (018, W-fix2)
+    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null), zaplanuj);
+    chron('plany-przyszle', zaplanuj)();
   };
 
-  // Wybór otwiera pierwszy ekran przepływu bez oferty (D-047); oferta przy pierwszej akcji liczącej lub zapisującej
+  // Wybór otwiera pierwszy ekran przepływu bez ekranu Pro (D-047, D-112); trzy czynności są w Basic
   const wybierz = (c: CzynnoscStartu) => {
     const cel = celCzynnosci(c);
     if (cel.rodzaj) ustawRodzajReceptur(cel.rodzaj);
     router.navigate(cel.trasa);
   };
+  // Arkusz planu z arkusza dnia dopiero po zniknięciu arkusza dnia (onDismiss, iOS; poza iOS od razu): dwa pageSheety
+  // naraz iOS pokazuje zawodnie (D-117) [weryfikacja W N3]
+  const poArkuszuDnia = useRef<(() => void) | null>(null);
+  const poZamknieciuDnia = () => {
+    const otworz = poArkuszuDnia.current;
+    poArkuszuDnia.current = null;
+    otworz?.();
+    proDnia.poZamknieciu();
+  };
   // Przejście z arkusza dnia do źródła: trwający wypiek → jego Stolnica, zakwas → karta zakwasu, wpis → Dziennik
   const przejdz = (z: ZdarzenieKalendarza) => {
     setArkusz(null);
-    if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) plany.otworz(z.zrodlo.id);
-    else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
+    if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) {
+      const id = z.zrodlo.id;
+      if (Platform.OS === 'ios') poArkuszuDnia.current = () => plany.otworz(id);
+      else plany.otworz(id);
+    } else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
     else if (z.zrodlo.typ === 'zakwas') router.navigate('/zakwasy');
-    else if (z.zrodlo.typ === 'dziennik') router.navigate('/dziennik');
+    // Wpis Dziennika: ten wpis wyróżniony i przewinięty (BR-KAL-013) [M3 D7]
+    else if (z.zrodlo.typ === 'dziennik') router.navigate({ pathname: '/dziennik', params: { wpis: z.zrodlo.id } });
   };
+  // „Otwórz” przy zaległym kroku wypieku albo starcie planu w arkuszu dnia działa jak wiersz arkusza (`przejdz`): najpierw
+  // zamknięcie arkusza dnia; karmienie „Zrobione” zostaje w arkuszu [N3]
+  const akcjeArkusza = { ...akcje, onZrobione: (z: ZdarzenieKalendarza) => (z.zrodlo.typ === 'wypiek' ? przejdz(z) : akcje.onZrobione(z)) };
 
   const o = { now: kal.now, wieleWypiekow: kal.wypieki.length > 1 };
   const teksty = tekstyNastepne(kal.linia, o);
-  const banerProby = uprzedzenie.wariant ? <UprzedzenieProby wariant={uprzedzenie.wariant} onZamknij={uprzedzenie.zamknij} /> : null;
+  const banerPro = uprzedzenie.wariant ? <UprzedzenieKoncaPro wariant={uprzedzenie.wariant} onZamknij={uprzedzenie.zamknij} /> : null;
 
   return (
     <>
       <Stack.Screen options={{ headerShown: false, title: stan === 'wybor' ? t('Co dziś robisz?') : t('Dziś') }} />
       <ScrollView style={styles.ekran} contentContainerStyle={styles.tresc} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
         {/* Przy przeciągnięciu w dół nad pasem dalej kolor pasa, nie tło ekranu */}
-        <View style={styles.nadPasem} />
+        <NadPasem />
         <PasDzis
           gora={gora}
           data={dataSlownie(kal.now)}
           pasek={{ dni: kal.dni, zdarzenia: kal.zdarzenia, znaczniki: kal.znaczniki, wypieki: kal.wypieki, now: kal.now, wieleWypiekow: o.wieleWypiekow, duzyTekst, waski: width <= WASKI_PT, onDzien: (k) => setArkusz({ dzien: k, ms: kal.dni.find((d) => d.klucz === k)?.ms ?? kal.now }) }}
+          widok={widok}
+          miesiac={kal.widok.tryb === 'miesiac' ? { tygodnie: kal.miesiac, zdarzenia: kal.zdarzenia, wypieki: kal.wypieki, o, duzyTekst, waski: width <= WASKI_PT, onDzien: (d) => setArkusz({ dzien: d.klucz, ms: d.ms }) } : null}
           pusty={kal.gotowe && kal.pusty}
           teksty={teksty}
           zalegle={kal.linia.zalegle}
@@ -132,42 +151,33 @@ export default function StartScreen() {
         )}
         <View style={styles.dol}>
           <CorruptStateRecoveryBanner />
-          {/* Uprzedzenie przed końcem próby nie spycha powrotu do wypieku: przy trwającym pod spiralą (126) */}
-          {stan !== 'trwa-wypiek' && banerProby}
-          {dane.gotowe && stan === 'tylko-historia' && (
-            <View style={styles.baner} testID="start-tylko-historia">
-              {bylaProba !== null && (
-                <Text style={styles.banerHeading}>{bylaProba ? t('Okres próbny się skończył') : t('Piekarz Pro nie jest aktywny')}</Text>
-              )}
-              <Text style={styles.banerTekst}>
-                {t('Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.')}
-              </Text>
-              <Pressable testID="start-zobacz-plany-btn" accessibilityRole="button" accessibilityLabel={t('Zobacz plany')} style={styles.drugi} onPress={() => setPaywallVisible(true)}>
-                <Text style={styles.drugiTekst}>{t('Zobacz plany')}</Text>
-              </Pressable>
-            </View>
-          )}
+          {/* Powiadomienia wyłączone, a coś na nich polega (wypiek, plan, karmienie w kalendarzu) (012, W-fix2) */}
+          {(dane.wypieki.length > 0 || dane.plany.length > 0 || (kal.gotowe && !kal.pusty)) && <NotificationsOffBanner />}
+          {/* Uprzedzenie o końcu Pro nie spycha powrotu do wypieku: przy trwającym pod spiralą (126, D-113) */}
+          {stan !== 'trwa-wypiek' && banerPro}
           <View style={[styles.kafle, duzyTekst && styles.kafleDuze]} testID="start-czynnosci" accessibilityLabel={t('Co dziś robisz?')}>
             {CZYNNOSCI_STARTU.map((c) => (
-              <WyborCzynnosci key={c} czynnosc={c} zablokowane={stan === 'tylko-historia'} duzyTekst={duzyTekst} onPress={() => wybierz(c)} />
+              <WyborCzynnosci key={c} czynnosc={c} duzyTekst={duzyTekst} onPress={() => wybierz(c)} />
             ))}
           </View>
-          {dane.gotowe && stan !== 'tylko-historia' && (dane.wypieki.length > 0 || dane.plany.length === 0) && (
+          {dane.gotowe && (dane.wypieki.length > 0 || dane.plany.length === 0) && (
             <WypiekiNaSpirali wypieki={dane.wypieki} teraz={dane.teraz} duzyTekst={duzyTekst} onWroc={otworzWypiek} />
           )}
-          {/* Plany: bez trwającego najbliższy na spirali, inaczej lista pod spiralą (makieta a2-03 w31) [M3 D5] */}
-          {dane.gotowe && stan !== 'tylko-historia' && (
+          {/* Plany: bez trwającego najbliższy na spirali, inaczej lista pod spiralą (makieta a2-03 w31) [M3 D5]; plany
+              zapisane z Pro zostają widoczne i do startu także bez Pro (start w Basic) */}
+          {dane.gotowe && (
             <PlanyWypiekow plany={dane.plany} teraz={dane.teraz} naSpirali={dane.wypieki.length === 0} duzyTekst={duzyTekst} onZobacz={plany.otworz} />
           )}
-          {stan === 'trwa-wypiek' && banerProby}
+          {stan === 'trwa-wypiek' && banerPro}
           {dane.gotowe && stan === 'wybor' && !dane.maDane && (
             <Text style={styles.objasnienie}>{t('Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.')}</Text>
           )}
         </View>
       </ScrollView>
-      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)}
-        liczbaPlanow={dane.plany.length} onZaplanuj={stan === 'tylko-historia' ? undefined : zaplanujNaDzien} />
-      <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij} />
+      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcjeArkusza} onPrzejdz={przejdz} onClose={() => { poArkuszuDnia.current = null; setArkusz(null); }}
+        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={poZamknieciuDnia} />
+      <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij}
+        onPro={plany.pro} onDismiss={plany.poZamknieciu} />
       <SettingsModal visible={ustawienia} onClose={() => setUstawienia(false)} />
     </>
   );
@@ -176,14 +186,8 @@ export default function StartScreen() {
 const styles = StyleSheet.create({
   ekran: { flex: 1, backgroundColor: theme.colors.tlo },
   tresc: { paddingBottom: odstepy.xxl, gap: odstepy.m },
-  nadPasem: { position: 'absolute', top: -1000, left: 0, right: 0, height: 1000, backgroundColor: theme.colors.pas },
   dol: { paddingHorizontal: odstepy.l, gap: odstepy.m },
   kafle: { flexDirection: 'row', gap: odstepy.s },
   kafleDuze: { flexDirection: 'column' },
   objasnienie: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
-  baner: { backgroundColor: theme.colors.powierzchnia, borderRadius: promienie.grupa, borderWidth: 1.5, borderColor: theme.colors.obwodka, padding: odstepy.l, gap: odstepy.s },
-  banerHeading: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, get fontFamily() { return theme.typography.krojTytulow; } },
-  banerTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
-  drugi: { minHeight: theme.cele.glownyPrzeplyw, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m },
-  drugiTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
 });

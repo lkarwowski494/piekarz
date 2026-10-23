@@ -1,8 +1,8 @@
 // ============================================================================
 // Piekarz — komponent systemu „Wybór czynności” jako kafel „Dziś” 3+1 (D-105; makieta roli 04 `a2-03`, kafle obok
 // siebie, przy AX5 pod sobą; design-spec §4) [M3 D4b; wcześniej wiersz listy, M1-audytor-generalny-101]:
-// ikona nad nazwą, bez zdania (zdanie w VoiceOver jako podpowiedź i na następnym ekranie, makieta a2); w stanie
-// „tylko historia” kłódka z tekstem (F-67). Cel dotyku: cały kafel, ≥ 44 pt; nazwa się zawija, nigdy nie ucina
+// ikona nad nazwą, bez zdania (zdanie w VoiceOver jako podpowiedź i na następnym ekranie, makieta a2); bez kłódki:
+// trzy czynności są w Basic (D-112, D-113). Cel dotyku: cały kafel, ≥ 44 pt; nazwa się zawija, nigdy nie ucina
 // (najdłuższy język przy 320 pt: pomiar roli 04 `pomiar-kafli-320.txt`, 88 × 146 pt).
 // ============================================================================
 
@@ -32,10 +32,8 @@ const OPIS: Record<CzynnoscStartu, { ikona: NazwaIkonyStartu; nazwa: () => strin
   },
 };
 
-export function WyborCzynnosci({ czynnosc, zablokowane, duzyTekst, onPress }: {
+export function WyborCzynnosci({ czynnosc, duzyTekst, onPress }: {
   czynnosc: CzynnoscStartu;
-  /** Stan „tylko historia”: kłódka i „wymaga Piekarz Pro”. */
-  zablokowane: boolean;
   /** AX1–AX5: kafle pod sobą, ikona obok nazwy. */
   duzyTekst: boolean;
   onPress: () => void;
@@ -46,19 +44,13 @@ export function WyborCzynnosci({ czynnosc, zablokowane, duzyTekst, onPress }: {
       testID={`start-${czynnosc}`}
       accessibilityRole="button"
       accessibilityLabel={o.nazwa()}
-      accessibilityHint={zablokowane ? t('wymaga Piekarz Pro') : o.zdanie()}
+      accessibilityHint={o.zdanie()}
       style={[styles.kafel, duzyTekst && styles.kafelDuzy]}
       onPress={onPress}
     >
       <IkonaStartu nazwa={o.ikona} kolor={theme.colors.ratan} />
       <View style={[styles.opis, duzyTekst && styles.opisDuzy]}>
         <Text style={[styles.nazwa, duzyTekst && styles.nazwaDuza]}>{o.nazwa()}</Text>
-        {zablokowane && (
-          <View style={styles.zamek}>
-            <IkonaStartu nazwa="zamek" kolor={theme.colors.zablokowane} rozmiar={16} />
-            <Text style={styles.zamekTekst}>{t('wymaga Piekarz Pro')}</Text>
-          </View>
-        )}
       </View>
     </Pressable>
   );
@@ -81,6 +73,4 @@ const styles = StyleSheet.create({
   opisDuzy: { flex: 1, alignItems: 'flex-start' },
   nazwa: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz, textAlign: 'center' },
   nazwaDuza: { textAlign: 'left' },
-  zamek: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: odstepy.xs },
-  zamekTekst: { fontSize: typografia.style.przypis.pt, color: theme.colors.zablokowane, textAlign: 'center' },
 });

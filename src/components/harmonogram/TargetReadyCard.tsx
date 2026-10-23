@@ -5,7 +5,7 @@
 // listą kroków (UstawieniaPlanu.tsx); scenariusze i chipy godziny usunięte.
 // ============================================================================
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView, useWindowDimensions } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
@@ -14,6 +14,7 @@ import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { formatDzienData, formatTime } from '../../lib/format';
 import { dniPlanu } from '../../core/plany-wypiekow';
 import { addCalendarDays, startOfLocalDay } from '../../core/dzien-lokalny';
+import { przesunGotowe } from '../../lib/godzina-gotowe';
 
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
@@ -45,6 +46,8 @@ export interface TargetReadyCardProps {
   children?: React.ReactNode;
   /** Godziny snu po temperaturze (karta nocy albo zdanie „Plan nie sprawdza godzin snu”), jak w `plan-sen`. */
   poTemperaturze?: React.ReactNode;
+  /** Propozycja dnia z rytmu Dziennika pod wyborem dnia (BR-KAL-014) [M3 D7]. */
+  podpowiedz?: string;
 }
 
 /** Poniżej tej szerokości ekranu ±30 min idą do rzędu dni (iPhone SE 320 pt) [M1-audytor-generalny-128]. */
@@ -58,14 +61,16 @@ function etykietaDnia(offset: number): string {
   return formatDzienData(new Date(addCalendarDays(startOfLocalDay(Date.now()), offset)));
 }
 
-function Chip({ tekst, wybrany, onPress, testID }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string }) {
+function Chip({ tekst, wybrany, onPress, testID, onLayout, nieaktywny }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string; onLayout?: (x: number) => void; nieaktywny?: boolean }) {
   return (
     <Pressable
       testID={testID}
+      onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.x) : undefined}
       accessibilityRole="button"
-      accessibilityState={wybrany === undefined ? undefined : { selected: wybrany }}
+      accessibilityState={nieaktywny ? { disabled: true } : wybrany === undefined ? undefined : { selected: wybrany }}
+      disabled={nieaktywny}
       onPress={onPress}
-      style={[styles.chip, wybrany && styles.chipWybrany]}
+      style={[styles.chip, wybrany && styles.chipWybrany, nieaktywny && styles.chipNieaktywny]}
     >
       <Text style={[styles.chipTekst, wybrany && styles.chipTekstWybrany]}>{tekst}</Text>
     </Pressable>
@@ -86,10 +91,26 @@ export function TargetReadyCard({
   unitSystem,
   children,
   poTemperaturze,
+  podpowiedz,
 }: TargetReadyCardProps) {
-  const waski = useWindowDimensions().width < WASKI_EKRAN_PT;
-  const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
-  const plus = <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />;
+  const { width, fontScale } = useWindowDimensions();
+  const waski = width < WASKI_EKRAN_PT;
+  // Duży tekst (okolice AX1–AX5): dni zawijane zamiast przewijania w poziomie, żeby żaden nie wychodził poza ekran (PRZ-10)
+  const zawijaj = fontScale >= 2;
+  const rzadDni = useRef<ScrollView>(null);
+  // Zmiana, która wyszłaby poza dni planu (przed dziś albo za ostatni chip dnia, D-108), jest nieaktywna (N1)
+  const poza = (delta: number) => przesunGotowe({ dayOffset: targetDayOffset, hour: targetHour, minute: targetMinute }, delta) === null;
+  const minus = <Chip tekst={t('{n} min', { n: -30 })} nieaktywny={poza(-30)} onPress={() => onAdjustTargetTime(-30)} />;
+  const plus = <Chip tekst={t('{n} min', { n: '+30' })} nieaktywny={poza(30)} onPress={() => onAdjustTargetTime(30)} />;
+  // ±2 h obok ±30 min: 10:00 → 18:00 w 4 stuknięciach zamiast 16 (04-studio-projektowe-008 b, W-fix2); klucz istniejący
+  const dwieGodziny = (
+    <View style={styles.rzad}>
+      <Chip tekst={t('{n} godziny', { n: '-2' })} nieaktywny={poza(-120)} onPress={() => onAdjustTargetTime(-120)} />
+      {waski && minus}
+      {waski && plus}
+      <Chip tekst={t('{n} godziny', { n: '+2' })} nieaktywny={poza(120)} onPress={() => onAdjustTargetTime(120)} />
+    </View>
+  );
   return (
     <View style={styles.sekcja}>
       <Text style={styles.pytanie} accessibilityRole="header">{t('Kiedy chleb ma być gotowy?')}</Text>
@@ -111,12 +132,21 @@ export function TargetReadyCard({
       </View>
       {/* Dzień „gotowe” od dziś do ZASIEG_DNI_PLANU (D-108): rząd chipów przewijany w poziomie (element nowy, do przeglądu
           roli 04); dalej niż pojutrze dzień tygodnia z datą przez Intl jak w polu [M3 D5] */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">
-        {dniPlanu().map((offset) => (
-          <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)} />
-        ))}
-      </ScrollView>
-      {waski && <View style={styles.rzad}>{minus}{plus}</View>}
+      {/* Wybrany dzień spoza ekranu (skrót, rytm Dziennika, np. +9) przewija się do widoku po układzie chipa (PRZ-10) */}
+      {(() => {
+        const chipy = dniPlanu().map((offset) => (
+          <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)}
+            onLayout={offset === targetDayOffset && !zawijaj ? (x) => rzadDni.current?.scrollTo({ x: Math.max(0, x - odstepy.l), animated: false }) : undefined} />
+        ));
+        return zawijaj ? (
+          <View testID="plan-dni" style={[styles.dni, styles.dniZawijane]}>{chipy}</View>
+        ) : (
+          <ScrollView ref={rzadDni} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">{chipy}</ScrollView>
+        );
+      })()}
+      {/* Propozycja z rytmu Dziennika (BR-KAL-014): zdanie spoza makiety, do przeglądu roli 04 [M3 D7] */}
+      {podpowiedz ? <Text style={styles.zmianaCzasu} testID="plan-podpowiedz-rytmu">{podpowiedz}</Text> : null}
+      {dwieGodziny}
 
       {zmianaCzasu && faktycznaGodzina ? (
         <Text style={styles.zmianaCzasu} testID="plan-zmiana-czasu">
@@ -178,12 +208,13 @@ const styles = StyleSheet.create({
   },
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, marginBottom: odstepy.m },
   dni: { flexDirection: 'row', gap: odstepy.s, marginBottom: odstepy.m },
+  dniZawijane: { flexWrap: 'wrap' },
   chip: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: odstepy.m,
-    borderRadius: 22,
+    borderRadius: promienie.chip,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,
@@ -191,6 +222,7 @@ const styles = StyleSheet.create({
   chipWybrany: { backgroundColor: theme.colors.akcent, borderColor: theme.colors.akcent },
   chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   chipTekstWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
+  chipNieaktywny: { opacity: 0.6 }, // stan nieaktywny jak w PaywallModal: brak tokenu (zgłoszenie do roli 04)
   naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz, marginTop: odstepy.s, marginBottom: odstepy.s },
   zmianaCzasu: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, marginBottom: odstepy.m },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },

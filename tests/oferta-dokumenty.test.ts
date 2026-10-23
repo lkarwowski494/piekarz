@@ -40,11 +40,29 @@ describe('Offer terms are the same in code, README, metadata and App Review note
     expect(offenders).toEqual([]);
   });
 
-  it.each(['README.md', 'docs/app-store-metadata-v2.md'])('%s has no old terms and names the App Store introductory offer', (f) => {
+  // Przepisane z kontraktu D-038 („14 dni”, oferta wprowadzająca) na Basic/Pro [M3 P-a-fix, P1-5]: bez obietnicy próby
+  // i bez „bez zakupu tylko historia”; brzmienie z kontraktu („Basic stays free”, metadane: „Free Basic forever…”)
+  const OBIETNICE_PROBY = [
+    /Okres próbny 14 dni/,
+    /bezpłatnym okresem próbnym/,
+    /may start with a free trial/i,
+    /ofert[aąęy] wprowadzając[a-ząęłńóśźż]* (App Store )?(dla uprawnionych|14 dni)/i,
+    /oferta wprowadzająca: bezpłatny okres próbny/,
+    /Without a purchase you can browse your bake history/,
+    /Bez zakupu przeglądasz historię/,
+    /działa tylko przegląd historii/,
+  ];
+  it.each(['README.md', 'docs/app-store-metadata-v2.md'])('%s has no old terms, no trial promise and names Basic (D-112)', (f) => {
     const text = read(f);
-    for (const re of STARE) expect({ f, re: String(re), found: re.test(text) }).toEqual({ f, re: String(re), found: false });
-    expect(text).toMatch(/14 dni/);
-    expect(text).toMatch(/ofert[aęy] wprowadzając/i);
+    for (const re of [...STARE, ...OBIETNICE_PROBY]) expect({ f, re: String(re), found: re.test(text) }).toEqual({ f, re: String(re), found: false });
+    expect(text).toMatch(/Basic stays free/);
+  });
+
+  it('store description uses the contract wording „Free Basic forever. Pro adds planning, starter care, more starters and recipes.”', () => {
+    expect(read('docs/app-store-metadata-v2.md')).toContain('Free Basic forever. Pro adds planning, starter care, more starters and recipes.');
+    for (const kod of ['en-US', 'en-GB', 'en-AU', 'en-CA']) {
+      expect({ kod, opis: read(`docs/wydanie/metadane/${kod}.json`).includes('Free Basic forever. Pro adds planning, starter care, more starters and recipes.') }).toEqual({ kod, opis: true });
+    }
   });
 
   it('metadata lists exactly the product identifiers from the configuration module', () => {
@@ -53,11 +71,15 @@ describe('Offer terms are the same in code, README, metadata and App Review note
     expect(text.match(/com\.apps4brew\.baker\.[\w.]+/g)?.filter((x) => !Object.values(PRODUKTY).includes(x) && x !== 'com.apps4brew.baker')).toEqual([]);
   });
 
-  it('App Review notes tell the reviewer to start the trial (no history for a new user)', () => {
+  // Przepisane z kontraktu D-038 („Start Free Trial”) [M3 P-a]: bez próby (D-112) notatki prowadzą recenzenta do ekranu Pro
+  // przez funkcję Pro i przycisk zakupu planu w piaskownicy
+  it('App Review notes tell the reviewer how to reach Pro in the sandbox, without a free trial (D-112)', () => {
     const text = read('docs/app-store-metadata-v2.md');
+    const notatki = text.split(/^### /m).find((s) => /^4\.3\. .*Review Notes/.test(s)) ?? '';
     // Notatki po angielsku, przycisk jak w interfejsie EN [M1-audytor-generalny-078]; nazwa z §11e 127 [M1-audytor-generalny-127]
-    expect(text).toMatch(/Start Free Trial/);
-    expect(text).toMatch(/sandbox/i);
+    expect(notatki).toMatch(/Buy Yearly Plan/);
+    expect(notatki).toMatch(/sandbox/i);
+    expect(notatki).not.toMatch(/Start Free Trial/);
   });
 
   it('scope contract no longer promises the 7-day / 3-loaf local trial', () => {

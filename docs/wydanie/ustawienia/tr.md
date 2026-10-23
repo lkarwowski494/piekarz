@@ -44,7 +44,7 @@ hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,may
 Ekmeğin hazır olacağı saati ayarlayın: Fırıncı miktarları hesaplar, planı geriye doğru oluşturur ve her adımın sonunu haber verir. Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3490 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3382 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
@@ -74,7 +74,7 @@ BİLMENİZDE FAYDA VAR
 Fırıncı iPhone'da çalışır ve verileri cihazlar arasında eşitlemez; verileri yedek dosyasıyla taşırsınız. Bildirim izni olmadan Fırıncı adımın bittiğini yalnızca açık ekranda gösterir.
 
 ERİŞİM VE SATIN ALMA
-Tam erişim, App Store'da aylık veya yıllık abonelik ya da tek seferlik ömür boyu satın alma ile sağlanır. Abonelik ücretsiz deneme süresiyle başlayabilir (uygun kullanıcılar için App Store tanıtım teklifi). Satın alma yapmadan pişirme geçmişinizi görüntüleyebilir, dosya içe aktarabilir, verilerinizi dışa aktarabilir ve silebilirsiniz.
+Basic, deneme süresi olmadan, süresiz olarak ücretsizdir. Pro; planlama, ekşi maya bakımı, daha fazla ekşi maya ve tarif ekler. Pro, App Store'da aylık veya yıllık abonelik ya da tek seferlik ömür boyu satın alma olarak sunulur.
 Kullanım Koşulları (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Diller: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (2): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

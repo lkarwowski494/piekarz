@@ -22,13 +22,18 @@ const METADANE = path.join(root, 'docs/wydanie/metadane');
 
 const KLASY: Record<string, [number, number]> = { 'iphone-6.9': [1320, 2868], 'iphone-6.3': [1206, 2622] };
 
-/** Kolejność §5.2 i obszary strażnika dostępu, które obiecuje podpis ramki (ramka 6: ocena po wypieku i „Piecz ponownie”). */
+/**
+ * Kolejność §5.2 i obszary strażnika dostępu, które obiecuje podpis ramki (ramka 6: ocena po wypieku i „Piecz ponownie”).
+ * Przepisane z kontraktu D-038 [M3 P-a]: funkcje według kontraktu Basic/Pro (D-112, D-113) — ramka 1 to plan wstecz
+ * (Pro), ramka 5 ilości do dokarmienia i przypomnienie (Pro), reszta Basic. Pliki PNG z dawnym oznaczeniem na ramkach
+ * 2, 3, 4 i 6 wygeneruje ponownie rola 10 (Z-8 w docs/monetyzacja.md).
+ */
 const RAMKI: Array<{ plik: string; funkcje: Funkcja[] }> = [
-  { plik: '01-plan.png', funkcje: ['harmonogram'] },
+  { plik: '01-plan.png', funkcje: ['plan-wstecz'] },
   { plik: '02-receptura.png', funkcje: ['kalkulator'] },
   { plik: '03-prowadzenie-ciemny.png', funkcje: ['stolnica'] },
   { plik: '04-doktor.png', funkcje: ['doktor'] },
-  { plik: '05-zakwasy.png', funkcje: ['zakwas'] },
+  { plik: '05-zakwasy.png', funkcje: ['proporcje-zakwasu', 'przypomnienia-zakwasu'] },
   { plik: '06-dziennik.png', funkcje: ['historia', 'stolnica', 'kalkulator'] },
   { plik: '07-offline.png', funkcje: [] },
 ];
@@ -125,7 +130,7 @@ describe('zrzuty sklepu App Store (080)', () => {
     });
   });
 
-  it('oznaczenie płatne: ramki 1–6 wymagają dostępu, ramka 7 (offline i prywatność) nie', () => {
-    expect(RAMKI.map((r) => r.funkcje.some((f) => !dozwolona(f, false)))).toEqual([true, true, true, true, true, true, false]);
+  it('oznaczenie Pro: ramka 1 (plan wstecz) i 5 (dokarmianie z przypomnieniem) wymagają Pro, pozostałe to Basic (D-112, D-113)', () => {
+    expect(RAMKI.map((r) => r.funkcje.some((f) => !dozwolona(f, false)))).toEqual([true, false, false, false, true, false, false]);
   });
 });

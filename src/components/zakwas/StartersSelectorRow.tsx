@@ -10,13 +10,17 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
 import { czasSlownie } from '../../lib/spirala-etykieta';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
+import { OznaczeniePro } from '../OznaczeniePro';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, typografia } from '../../ui/tokeny';
 export interface StartersSelectorRowProps {
   startersList: StoredStarter[];
   activeStarterId: string;
   onSelectStarter: (starter: StoredStarter) => void;
   onOpenAddModal: () => void;
+  /** Kolejny zakwas wymaga Pro (limit Basic osiągnięty, bez dostępu): przycisk z oznaczeniem „Pro” (P2-4) [M3 P-b]. */
+  dodajPro?: boolean;
 }
 
 export function StartersSelectorRow({
@@ -24,6 +28,7 @@ export function StartersSelectorRow({
   activeStarterId,
   onSelectStarter,
   onOpenAddModal,
+  dodajPro = false,
 }: StartersSelectorRowProps) {
   // Bez zakwasu wiersz zostaje z samym „Dodaj nowy zakwas”: jedyne wejście do dodania pierwszego zakwasu [M1-audytor-generalny-087]
   return (
@@ -68,10 +73,12 @@ export function StartersSelectorRow({
         <Pressable
           accessibilityRole="button"
           testID="add-starter-btn"
-          style={styles.addStarterBtn}
+          accessibilityLabel={etykietaPro(t('Dodaj nowy zakwas'), !dodajPro)}
+          style={[styles.addStarterBtn, styles.addStarterRzad]}
           onPress={onOpenAddModal}
         >
           <Text style={styles.addStarterBtnText}>+ {t('Dodaj nowy zakwas')}</Text>
+          {dodajPro && <OznaczeniePro />}
         </Pressable>
       </ScrollView>
     </View>
@@ -112,6 +119,7 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
+  addStarterRzad: { flexDirection: 'row', gap: odstepy.s },
   addStarterBtn: {
     minHeight: theme.cele.pozostale,
     backgroundColor: theme.colors.powierzchnia,

@@ -108,35 +108,39 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Gdy wraca do aplikacji
     - Wtedy oferta nie pojawia się sama ponownie w tej samej czynności i nie ma licznika czasu
 
-### BR-ZAK-004: Stan po próbie bez zakupu
+### BR-ZAK-004: Stan po końcu Pro
 - Przepływ: PR-16 · zależy od: ZAL-043
-- Dowód potrzeby: DEC-01 d (bez zakupu tylko przegląd historii oraz odczyt, eksport i usunięcie danych); H-04; RYZ-17
+- Dowód potrzeby: model D-112, D-113 (Basic darmowy na zawsze, Pro bez próby; kontrakt `docs/monetyzacja.md` „Reguły dostępu”, wdrożenie D-116; poprzednio DEC-01 d i D-038/D-039 — próba); H-04 (zamknięte przez D-113); RYZ-17; ER-74
 - Kryteria akceptacji:
-  - Scenariusz: Uprzedzenie przed końcem próby
-    - Zakładając, że do końca próby zostały 3 dni (D-039)
+  - Scenariusz: Uprzedzenie przed końcem Pro
+    - Zakładając, że subskrypcja Pro bez odnowienia kończy się za 3 dni (sklep podaje koniec)
     - Gdy użytkownik otwiera aplikację
-    - Wtedy widzi, co zostanie bez zakupu, a co wymaga zakupu, oraz że przypomnienia o dokarmianiu zakwasu ustaną
-  - Scenariusz: Po końcu próby
-    - Zakładając, że próba się skończyła bez zakupu
-    - Gdy użytkownik próbuje policzyć recepturę
-    - Wtedy widzi ofertę zakupu, a historia, eksport i usunięcie działają dalej
-  - Scenariusz: Trwający wypiek w chwili końca próby
-    - Zakładając, że próba kończy się w trakcie wypieku
-    - Gdy mija koniec próby
-    - Wtedy bieżący wypiek prowadzi się do końca ze wszystkimi krokami i powiadomieniami, a nowego wypieku nie da się zacząć bez zakupu (D-039)
+    - Wtedy widzi raz jasne zdanie, że przypomnienia o dokarmianiu wyłączą się, a dane i Basic zostają, bez odliczania i „ostatniej szansy” (D-113)
+  - Scenariusz: Po końcu Pro
+    - Zakładając, że Pro wygasło (zwrot, anulowanie, odebranie z Family Sharing)
+    - Gdy użytkownik liczy recepturę albo przegląda historię
+    - Wtedy funkcje Basic działają, dane zostają, a funkcja Pro jest widoczna z oznaczeniem „Pro” i otwiera ekran Pro dopiero po stuknięciu
+  - Scenariusz: Trwający wypiek w chwili końca Pro
+    - Zakładając, że wypiek zaczęto z planem Pro, a Pro kończy się w trakcie
+    - Gdy mija koniec Pro
+    - Wtedy bieżący wypiek prowadzi się do końca ze wszystkimi krokami i powiadomieniami (D-039 pkt 3 zostaje), a nowy wypiek „teraz” da się zacząć w Basic
 
-### BR-ZAK-005: Oferta próby przy pierwszym użyciu funkcji
+### BR-ZAK-005: Ekran Pro tylko przy funkcji Pro
 - Przepływ: PR-09, PR-12
-- Dowód potrzeby: DEC-01 d (oferta „Wypróbuj 14 dni” przy pierwszym użyciu dowolnej funkcji); OG-01
+- Dowód potrzeby: D-112 (bez próby i bez oferty wprowadzającej; poprzednio DEC-01 d: oferta „Wypróbuj 14 dni” przy pierwszym użyciu), kontrakt „Reguły dostępu” (ekran Pro tylko przy stuknięciu funkcji Pro i w Ustawieniach); OG-01; ER-74
 - Kryteria akceptacji:
   - Scenariusz: Pierwsze użycie kalkulatora
-    - Zakładając, że użytkownik nie zaczął próby
+    - Zakładając, że użytkownik nie ma Pro
     - Gdy pierwszy raz używa kalkulatora
-    - Wtedy widzi ofertę 14 dni próby na planie miesięcznym albo rocznym i zakup dożywotni
-  - Scenariusz: Przed próbą
-    - Zakładając, że użytkownik nie zaczął próby
+    - Wtedy kalkulator działa w Basic bez ekranu Pro i bez oferty próby
+  - Scenariusz: Funkcja Pro
+    - Zakładając, że użytkownik nie ma Pro
+    - Gdy stuka funkcję oznaczoną „Pro” (np. plan wstecz „gotowe o…”)
+    - Wtedy otwiera się ekran Pro z ceną ze sklepu, bez próby; ekran Pro nie pojawia się przy starcie, po pierwszym użyciu ani w trakcie kroku wypieku
+  - Scenariusz: Historia i eksport
+    - Zakładając, że użytkownik nie ma Pro
     - Gdy otwiera historię albo eksport
-    - Wtedy funkcje działają bez oferty
+    - Wtedy funkcje działają bez ekranu Pro
 
 ### BR-UST-003: Polityka prywatności w aplikacji
 - Przepływ: PR-10 · Ograniczenie: OG-04

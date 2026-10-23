@@ -42,6 +42,7 @@ import {
 } from '../lib/przypomnienia-karmienia';
 import { EN } from '../lib/i18n.en';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { odswiezDostep } from '../lib/platnosci/stan';
 
 const notif = (Notifications as unknown as { __mock: { pending: Map<string, { trigger: { date: number } }>; iosStatus: number } }).__mock;
 const H = 3600_000;
@@ -84,6 +85,8 @@ describe.each(PORY)('Przypomnienia o karmieniu, zegar %s (179; BR-ZAKW-004 Zakwa
     setActiveBake(null);
     await initDatabase();
     for (const s of await getStarters()) await deleteStarter(s.id);
+    // Pro ustalone odczytem sklepu: przed pierwszym odczytem przypomnienia Pro nie są planowane (M3 P-a-fix P2-2)
+    await odswiezDostep();
     await saveBakeSession(null);
     notif.pending.clear();
     notif.iosStatus = 2;

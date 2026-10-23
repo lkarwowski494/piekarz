@@ -15,22 +15,30 @@ import { NO_DOUBLING_ACTIONS } from '../../core/starter-doctor';
 import { fridgeWakeOutcome } from '../../core/fridge-wake';
 import { t } from '../../lib/i18n';
 import { guardSave } from '../../lib/save-guard';
+import { pierwszeGratulacje } from '../../lib/gratulacje-zakwasu';
 import { stanKartyZakwasu, wZakladaniu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { typografia } from '../../ui/tokeny';
-import { useStarterLog, nowyWpis } from './useStarterLog';
+import { nowyWpis, type useStarterLog } from './useStarterLog';
 import { StarterCycleCard } from './StarterCycleCard';
 import { StarterEntriesList } from './StarterEntriesList';
 import { StarterSetupCard } from './StarterSetupCard';
 import { FridgeWakeStatus } from './FridgeWakeStatus';
+import { BlokadaFunkcji, type BlokadaFunkcjiProps } from '../BlokadaFunkcji';
 
 /** „na blacie, 1:2:2” / „w lodówce” z danych zakwasu; brak proporcji zostaje brakiem. */
-function opisMiejsca(s: StoredStarter): string {
+export function opisMiejsca(s: StoredStarter): string {
   if (s.storageState === 'FRIDGE') return s.feedingRatio ? t('w lodówce, {proporcja}', { proporcja: s.feedingRatio }) : t('w lodówce');
   return s.feedingRatio ? t('na blacie, {proporcja}', { proporcja: s.feedingRatio }) : t('na blacie');
 }
 
-export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu }: {
+export function ZakwasDziennik({ starter, log, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci, zPro = true }: {
+  /** Wpisy zakwasu z ekranu (useStarterLog): ten sam stan karmi pas ze spiralą cyklu (D10) i kartę [M3 D10]. */
+  log: ReturnType<typeof useStarterLog>;
+  /** Strażnik gotowości poza zakładaniem (blokada('gotowosc-zakwasu') ekranu; BR-ZAKW-003 w Pro). */
+  blokadaGotowosci: Omit<BlokadaFunkcjiProps, 'children'>;
+  /** Przypomnienia o dokarmianiu działają (Pro): gratulacje bez zdania o Pro (BR-ZAKW-004, W-10) [M3 P-b]. */
+  zPro?: boolean;
   starter: StoredStarter;
   /** Zmienia się po zapisie dokarmienia na ekranie: dziennik czyta wpisy ponownie. */
   wersja: number;
@@ -41,9 +49,10 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   onZmianaZakwasu: () => Promise<void>;
 }) {
   const router = useRouter();
-  const log = useStarterLog(starter.id);
   const { reload } = log;
   const [wynik, setWynik] = useState<SetupOutcome | null>(null);
+  // Gratulacje po pierwszym zakończonym zakładaniu, raz (BR-ZAKW-005, W-10, D-113) [M3 P-b]
+  const [gratulacje, setGratulacje] = useState(false);
   const [wypiekZakwasu, setWypiekZakwasu] = useState<string | null>(null);
   const now = Date.now();
 
@@ -64,13 +73,19 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   // Treść planu wg czasu i dokarmień, nie wg numeru kalendarzowego (D-093, D0b)
   const etap = starter.setupStartedAt !== undefined ? setupGuideStage({ setupStartedAt: starter.setupStartedAt, now, entries: log.entries }) : 'day1';
 
+  const radaKarmienia = !stan.gotowy && !zakladanie && starter.storageState !== 'FRIDGE' && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60;
+  const pokazGotowosc = (stan.gotowy && !zakladanie) || radaKarmienia;
+
   const zapiszDzien = (signs: StarterSign[]) =>
     zDostepem(guardSave(async () => {
       const at = Date.now();
       const out = setupObservationOutcome({ day: dzien, stage: etap, signs, entries: log.entries, observedAt: at });
       if (signs.length > 0) await log.zapiszObserwacje(signs, at, out.kind === 'ready' ? { setupCompletedAt: at } : undefined);
       setWynik(out);
-      if (out.kind === 'ready') await onZmianaZakwasu();
+      if (out.kind === 'ready') {
+        setGratulacje(await pierwszeGratulacje());
+        await onZmianaZakwasu();
+      }
     }));
 
   const podwoil = () =>
@@ -81,6 +96,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       await log.zapiszObserwacje(['doubled'], at, koniec ? { setupCompletedAt: at } : undefined);
       if (koniec) {
         setWynik(setupObservationOutcome({ day: dzien, stage: etap, signs: ['doubled'], entries: log.entries, observedAt: at }));
+        setGratulacje(await pierwszeGratulacje());
         await onZmianaZakwasu();
       }
     }));
@@ -99,6 +115,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
           dzien={dzien}
           etap={etap}
           wynik={wynik}
+          gratulacje={gratulacje ? { zPro } : null}
           now={now}
           onZapiszDzien={zapiszDzien}
           onZacznijOdNowa={odNowa}
@@ -112,11 +129,15 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
         onPodwoil={podwoil}
         onDokarm={onDokarm}
         onNiepokoi={() => router.push({ pathname: '/zakwasy/doktor-zakwasu', params: { starterId: starter.id } })}
+        cyklNaPasie
       >
-        {stan.gotowy && !zakladanie && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
+        {/* Gotowość poza zakładaniem to Pro (BR-ZAKW-003, D-113): w Basic w miejscu stanu blokada, bez treści stanu;
+            w zakładaniu gotowość kończy zakładanie (Basic, karta zakładania) [M3 P-a-fix P1-3] */}
+        {pokazGotowosc && !blokadaGotowosci.odblokowane && <BlokadaFunkcji {...blokadaGotowosci}>{null}</BlokadaFunkcji>}
+        {pokazGotowosc && blokadaGotowosci.odblokowane && stan.gotowy && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
         {/* Po 8 h od dokarmienia bez podwojenia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007; BR-ZAKW-003) [130] */}
         {/* W lodówce ta rada nie obowiązuje (ZAK-ZAL-012: raz w tygodniu; radę daje karta szczytu) [M1-audytor-generalny-188] */}
-        {!stan.gotowy && !zakladanie && starter.storageState !== 'FRIDGE' && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60 && (
+        {pokazGotowosc && blokadaGotowosci.odblokowane && radaKarmienia && (
           <Text testID="zakwas-karm-dalej" style={styles.gotowy}>{t(NO_DOUBLING_ACTIONS[0])}</Text>
         )}
         {wypiekZakwasu === starter.id && <FridgeWakeStatus wynik={fridgeWakeOutcome(log.entries, now)} now={now} />}

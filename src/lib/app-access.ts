@@ -1,16 +1,20 @@
 // ============================================================================
-// Piekarz — dostęp do płatnej części (useAppAccess) [M1-audytor-generalny-008, -009; 02-monetyzacja-001, -002]
-// Źródłem prawdy są transakcje StoreKit (src/lib/platnosci). Okres próbny to wyłącznie oferta
-// wprowadzająca App Store (aktywna subskrypcja w currentEntitlements); aplikacja nie liczy dni.
-// Baza aplikacji nie nadaje dostępu: kolumny app_access z dawnej symulacji i triala nie są czytane.
+// Piekarz — dostęp Basic/Pro (useAppAccess) [M1-audytor-generalny-008, -009; 02-monetyzacja-001, -002; D-112, D-113, D-116]
+// Źródłem prawdy o Piekarz Pro są transakcje StoreKit (src/lib/platnosci): subskrypcja albo zakup dożywotni, bez
+// okresu próbnego. Basic działa zawsze (lista BASIC i limity w src/lib/platnosci/konfiguracja.ts). Baza aplikacji
+// nie nadaje dostępu: kolumny app_access z dawnej symulacji i triala nie są czytane.
+// Ekran Pro otwiera tylko stuknięcie funkcji Pro (strażnik niżej) i Ustawienia; nigdy start aplikacji, pierwsze
+// użycie ani krok wypieku (kontrakt docs/monetyzacja.md, zakazane wzorce).
 // ============================================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { Plan, Funkcja } from './platnosci/konfiguracja';
-import { dozwolona, Decyzja } from './platnosci/dostep';
+import type { Plan, Funkcja, Pojemnosc } from './platnosci/konfiguracja';
+import { dozwolona, mozeDodac, Decyzja } from './platnosci/dostep';
 import { pobierzStan, subskrybujStan, odswiezDostep, ustalDostep, StanDostepu } from './platnosci/stan';
 import { kup, przywroc } from './platnosci/sklep';
 import { czyEkranZakupu, subskrybujEkranZakupu, ustawEkranZakupu } from './platnosci/ekran';
+import { liczbaZapisanych } from './limity-basic';
+import { porzucAkcje, wstrzymajAkcje } from './platnosci/wstrzymana';
 
 export type AccessStatus = 'dostep' | 'bez_uprawnienia';
 
@@ -18,6 +22,7 @@ export interface AppAccessInfo {
   status: AccessStatus;
   /** Decyzja ze sklepu albo z pamięci ostatniego udanego odczytu. */
   zakup: Decyzja;
+  /** Piekarz Pro aktywny (nazwa historyczna; Basic zaczyna wypieki bez Pro, D-112). */
   canCreateNewBake: boolean;
 }
 
@@ -28,7 +33,7 @@ export interface AppAccessInfo {
  */
 const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
 
-/** Czysta ocena: dostęp wyłącznie z uprawnienia App Store (subskrypcja, oferta wprowadzająca, dożywotni). */
+/** Czysta ocena: Pro wyłącznie z uprawnienia App Store (subskrypcja albo dożywotni). */
 export function evaluateAppAccess(zakup: Decyzja): AppAccessInfo {
   const dostep = zakup.dostep || DOSTEP_E2E;
   return { status: dostep ? 'dostep' : 'bez_uprawnienia', zakup, canCreateNewBake: dostep };
@@ -65,42 +70,69 @@ export function useAppAccess() {
   }, []);
 
   const access = evaluateAppAccess(zakup.decyzja);
+  const pro = access.canCreateNewBake;
   const setPaywallVisible = useCallback((v: boolean) => ustawEkranZakupu(v), []);
 
   // Zakup przychodzi przez nasłuch transakcji: po nadaniu dostępu ekran zakupu się zamyka.
   useEffect(() => {
-    if (access.canCreateNewBake) ustawEkranZakupu(false);
-  }, [access.canCreateNewBake]);
+    if (pro) ustawEkranZakupu(false);
+  }, [pro]);
 
-  /** Jedyny strażnik akcji: bez dostępu otwiera ekran zakupu i nie wykonuje akcji. */
+  /** Czy funkcja działa teraz: Basic zawsze, Pro z uprawnieniem [M1-audytor-generalny-027; D-116]. */
+  const moze = useCallback((funkcja: Funkcja) => dozwolona(funkcja, pro), [pro]);
+
+  /** Jedyny strażnik akcji: funkcja Basic albo Pro z uprawnieniem wykonuje akcję, funkcja Pro bez niego otwiera ekran Pro. */
   const requireActionAccess = useCallback(
-    (action?: () => void | Promise<void>): boolean => {
-      if (access.canCreateNewBake) {
+    (funkcja: Funkcja, action?: () => void | Promise<void>): boolean => {
+      if (moze(funkcja)) {
         if (action) void action();
         return true;
       }
+      // Po zakupie akcja wykona się sama (018, W-fix2); bez akcji nic nie czeka
+      if (action) wstrzymajAkcje(action);
+      else porzucAkcje();
       ustawEkranZakupu(true);
       return false;
     },
-    [access.canCreateNewBake]
+    [moze]
   );
 
-  /** Czy funkcja działa teraz (lista BEZ_UPRAWNIENIA w konfiguracji) [M1-audytor-generalny-027]. */
-  const moze = useCallback((funkcja: Funkcja) => dozwolona(funkcja, access.canCreateNewBake), [access.canCreateNewBake]);
-
-  /** Akcja przez strażnika: funkcja z listy bez uprawnienia działa, inna otwiera ekran zakupu. */
+  /** Akcja przez strażnika (do onPress). */
   const chron = useCallback(
     (funkcja: Funkcja, action: () => void | Promise<void>) => () => {
-      if (moze(funkcja)) void action();
-      else requireActionAccess();
+      requireActionAccess(funkcja, action);
     },
-    [moze, requireActionAccess]
+    [requireActionAccess]
   );
 
   /** Właściwości BlokadaFunkcji dla obszaru ekranu. */
   const blokada = useCallback(
-    (funkcja: Funkcja) => ({ funkcja, odblokowane: moze(funkcja), onZablokowane: () => requireActionAccess() }),
+    (funkcja: Funkcja) => ({ funkcja, odblokowane: moze(funkcja), onZablokowane: () => requireActionAccess(funkcja) }),
     [moze, requireActionAccess]
+  );
+
+  /**
+   * Dodanie nowej rzeczy z limitem Basic (własna receptura, zakwas): liczba z bazy w chwili dodawania; ponad limitem
+   * bez Pro ekran Pro, poniżej limitu albo z Pro akcja. Zapisane ponad limitem (import) działają (kontrakt).
+   */
+  // Zwraca obietnicę zakończoną po akcji (albo po otwarciu ekranu Pro), żeby zapis dało się poczekać [M3 P-a-fix].
+  // `ponadLimitem`: wywołujący z otwartego arkusza sam zamyka arkusz i otwiera ekran Pro po nim (D-117), bez wznowienia
+  // zapisu po zakupie (N2, W-fix3)
+  const dodaj = useCallback(
+    async (rodzaj: Pojemnosc, action: () => void | Promise<void>, ponadLimitem?: () => void): Promise<void> => {
+      if (pro) {
+        await action();
+        return;
+      }
+      const n = await liczbaZapisanych(rodzaj);
+      if (n === null || mozeDodac(rodzaj, n, false)) await action();
+      else if (ponadLimitem) ponadLimitem();
+      else {
+        wstrzymajAkcje(action);
+        ustawEkranZakupu(true);
+      }
+    },
+    [pro]
   );
 
   // 'oczekuje': zakup czeka na zatwierdzenie (Ask to Buy) [audyt-niezalezny C-4]
@@ -117,6 +149,7 @@ export function useAppAccess() {
     moze,
     chron,
     blokada,
+    dodaj,
     subscribe,
     restorePurchases,
   };

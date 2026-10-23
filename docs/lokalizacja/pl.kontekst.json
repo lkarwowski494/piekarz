@@ -308,7 +308,6 @@
   },
   "Bardzo kwaśny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tangy)"
     ]
@@ -329,6 +328,11 @@
     ],
     "opis": "Rada w arkuszu „Składniki”, gdy hydratacja jest dużo powyżej zakresu mieszanki mąk. Składanie = składanie ciasta w trakcie fermentacji (stretch and fold). Spokojny ton, bez wykrzyknika. [M1-audytor-generalny-116]"
   },
+  "Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
   "Baza Fiszek Biochemicznych": {
     "gdzie": []
   },
@@ -343,10 +347,14 @@
       "src/components/settings/GodzinySnuSection.tsx (tekst)"
     ]
   },
-  "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
+  "Bez stałego dnia": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
+    ]
+  },
+  "Bez stałego dnia: następne karmienie 7 dni po ostatnim.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
     ]
   },
   "Bezpośrednie": {
@@ -769,6 +777,11 @@
       "src/lib/print-menu.ts (Alert.alert)"
     ]
   },
+  "Co daje Pro": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
   "Co dzisiaj pieczemy?": {
     "gdzie": []
   },
@@ -776,7 +789,7 @@
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
       "app/(tabs)/(dzis)/index.tsx (title)",
-      "src/components/start/PasDzis.tsx (tekst w JSX)"
+      "src/components/start/PasDzis.tsx (tytul)"
     ]
   },
   "Co dziś zrobić": {
@@ -1042,6 +1055,13 @@
       "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
+  "Dodaj do kalendarza": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (accessibilityLabel)",
+      "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)",
+      "src/lib/kalendarz-telefonu.ts (dialogTitle)"
+    ]
+  },
   "Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -1069,6 +1089,7 @@
   "Dodaj nowy zakwas": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StartersSelectorRow.tsx (accessibilityLabel)",
       "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
   },
@@ -1178,11 +1199,6 @@
       "src/lib/zakwas-widok.ts (kod)"
     ]
   },
-  "Dokarmiono zakwas": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
-  },
   "Dokarmiony {zakwas}": {
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
@@ -1190,9 +1206,9 @@
   },
   "Doktor": {
     "gdzie": [
-      "app/(tabs)/zakwasy/_layout.tsx (tekst)",
       "app/_layout.tsx (tekst)",
-      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)"
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/components/zakwas/PasZakwasu.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
@@ -1207,8 +1223,8 @@
   },
   "Doktor zakwasu": {
     "gdzie": [
-      "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
-      "app/(tabs)/zakwasy/_layout.tsx (title)"
+      "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "src/components/zakwas/PasZakwasu.tsx (etykieta)"
     ]
   },
   "Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.": {
@@ -1339,7 +1355,8 @@
   "Dziennik": {
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/dziennik/_layout.tsx (title)"
+      "app/(tabs)/dziennik/_layout.tsx (title)",
+      "app/(tabs)/dziennik/index.tsx (tytul)"
     ]
   },
   "Dzień gotowości:": {
@@ -1373,6 +1390,7 @@
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -1812,6 +1830,11 @@
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
+  "Gotowość zakwasu do ciasta": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Gotowy do ciasta (według King Arthur Baking).": {
     "gdzie": [
       "src/components/zakwas/ZakwasDziennik.tsx (tekst w JSX)"
@@ -1819,6 +1842,11 @@
   },
   "Gotowy do krojenia": {
     "gdzie": []
+  },
+  "Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
   },
   "Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.": {
     "gdzie": [
@@ -2036,9 +2064,9 @@
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
     ]
   },
-  "Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.": {
+  "Jedna opłata, bez odnawiania.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
+      "src/components/PaywallModal.tsx (opis)"
     ]
   },
   "Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce": {
@@ -2079,11 +2107,6 @@
   "Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
-  },
-  "Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
     ]
   },
   "Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.": {
@@ -2152,6 +2175,11 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
+  "Karmienie co 7 dni: {dzien}, {h}.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Karta receptury": {
     "gdzie": [
       "src/lib/calculator-actions.ts (Alert.alert)"
@@ -2197,6 +2225,8 @@
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (nazwa)",
+      "src/hooks/useStartPlanu.ts (drugi)",
       "src/hooks/useStartPlanu.ts (recipeName)"
     ]
   },
@@ -2287,7 +2317,7 @@
   "Konwerter zakwasu & Lievito Madre": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
   "Kopia": {
@@ -2479,7 +2509,6 @@
   },
   "Kwaśny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (sour)"
     ]
@@ -2547,15 +2576,20 @@
       "src/core/preferments.ts (dane: namePl)"
     ]
   },
+  "Licz od: {dzien}": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (text)"
+    ]
+  },
   "Liczba bochenków": {
     "gdzie": []
   },
   "Liczba bochenków i gramatura": {
     "gdzie": []
   },
-  "Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.": {
+  "Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (teksty)"
     ]
   },
   "Lievito Madre / Pasta Madre (50%)": {
@@ -2657,6 +2691,11 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (kod)"
     ]
   },
   "Miesięczny": {
@@ -2814,11 +2853,6 @@
   "Możliwe przyczyny:": {
     "gdzie": [
       "src/core/starter-doctor.ts (dane: kod)"
-    ]
-  },
-  "Musisz posiadać co najmniej jeden profil zakwasu.": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Mój zakwas": {
@@ -3401,6 +3435,16 @@
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
+  "Następny miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
+  "Następny tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
@@ -3436,7 +3480,13 @@
   },
   "Nic w planach": {
     "gdzie": [
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/components/kalendarz/MiesiacKalendarza.tsx (tekst w JSX)",
+      "src/lib/kalendarz-teksty.ts (pusto)"
+    ]
+  },
+  "Nie dodano do kalendarza": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (Alert.alert)"
     ]
   },
   "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
@@ -3457,11 +3507,6 @@
   "Nie można otworzyć bazy danych": {
     "gdzie": [
       "src/components/StorageGate.tsx (tekst w JSX)"
-    ]
-  },
-  "Nie można usunąć": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Nie podwaja objętości": {
@@ -3497,6 +3542,11 @@
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
+  "Nie sprawdzę piekarnika": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Nie teraz": {
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
@@ -3518,9 +3568,19 @@
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
+  "Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.": {
+    "gdzie": [
+      "src/components/settings/ZakupySection.tsx (Alert.alert)"
+    ]
+  },
   "Nie udało się połączyć z App Store. Spróbuj ponownie.": {
     "gdzie": [
       "src/components/przywroc-zakupy.ts (Alert.alert)"
+    ]
+  },
+  "Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
     ]
   },
   "Nie udało się wyeksportować kopii": {
@@ -3823,12 +3883,6 @@
       "src/core/starter-log.ts (dane: day3)"
     ]
   },
-  "Odblokuj pełny dostęp": {
-    "gdzie": [
-      "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
-    ]
-  },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
@@ -3927,6 +3981,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Odznacz objawy": {
+    "gdzie": [
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+    ]
+  },
   "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.": {
     "gdzie": [
       "src/components/oferta/KomunikatBezSieci.tsx (kod)"
@@ -3935,21 +3994,6 @@
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
-    ]
-  },
-  "Okres próbny kończy się {data}": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
-    ]
-  },
-  "Okres próbny się skończył": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
-  },
-  "Okres próbny: {dni}": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
   "Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.": {
@@ -4026,6 +4070,11 @@
       "src/doctor/dough-recovery.ts (dane: titlePl)"
     ]
   },
+  "Ostatni wypiek: {data}": {
+    "gdzie": [
+      "src/lib/ostatni-wypiek.ts (kod)"
+    ]
+  },
   "Ostatnie dokarmienie": {
     "gdzie": [
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
@@ -4057,6 +4106,11 @@
   "Otwieranie placka: oprósz kulkę semoliną, wypchnij gaz palcami ze środka ku brzegom (tworząc cornicione) i rozciągaj techniką slap.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Otwórz": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (zrobione)"
     ]
   },
   "Otwórz Doktora Chleba": {
@@ -4169,20 +4223,44 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Piekarnik zajęty o {h}": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)",
+      "src/lib/kalendarz-teksty.ts (tekst)"
+    ]
+  },
+  "Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Piekarz": {
     "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (opis)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zgloszenie.ts (kod)"
     ]
   },
   "Piekarz Pro": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)",
+      "src/components/settings/ZakupySection.tsx (tekst w JSX)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
+  "Piekarz Pro jest aktywny.": {
+    "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Piekarz Pro kończy się {data}": {
+    "gdzie": [
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Piekarz Pro nie jest aktywny": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
@@ -4233,12 +4311,23 @@
       "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
     ]
   },
+  "Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)"
+    ]
+  },
+  "Plan wstecz od godziny „gotowe”": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/lib/kalendarz-telefonu.ts (tytul)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -4277,6 +4366,11 @@
       "src/lib/spirala-etykieta.ts (dane: many)"
     ]
   },
+  "Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
+    ]
+  },
   "Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).": {
     "gdzie": []
   },
@@ -4284,6 +4378,11 @@
     "gdzie": [
       "src/components/stolnica/PasekKciuka.tsx (tekst)",
       "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst w JSX)"
+    ]
+  },
+  "Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
     ]
   },
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
@@ -4491,9 +4590,24 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
     ]
   },
+  "Poprzedni miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
+  "Poprzedni tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
   "Pora dokarmić zakwas": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
+    ]
+  },
+  "Porównanie i statystyki": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
   },
   "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK": {
@@ -4629,6 +4743,11 @@
   "Preferment (Zaczyn)": {
     "gdzie": []
   },
+  "Pro": {
+    "gdzie": [
+      "src/components/OznaczeniePro.tsx (tekst w JSX)"
+    ]
+  },
   "Procedura Bassinage ratunkowego": {
     "gdzie": []
   },
@@ -4672,9 +4791,19 @@
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
+  "Proporcje dokarmiania": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Proporcje poprawne (100%)": {
     "gdzie": [
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.": {
+    "gdzie": [
+      "src/hooks/useRytmPlanu.ts (tekst)"
     ]
   },
   "Proszek do pieczenia": {
@@ -4695,7 +4824,9 @@
   },
   "Prowadź oba": {
     "gdzie": [
-      "src/lib/confirm.ts (text)"
+      "src/hooks/usePlanyDzis.ts (kod)",
+      "src/hooks/useStartPlanu.ts (kod)",
+      "src/lib/confirm.ts (kod)"
     ]
   },
   "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.": {
@@ -4768,7 +4899,7 @@
   "Przepisy na Odrzut Zakwasu": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
   "Przepisy na odrzut": {
@@ -4811,6 +4942,11 @@
   "Przesuń do lodówki": {
     "gdzie": [
       "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
+    ]
+  },
+  "Przesuń start: {r} o {m} min": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
     ]
   },
   "Przetwarzanie...": {
@@ -4924,6 +5060,21 @@
       "src/core/starter-log.ts (dane: day1)"
     ]
   },
+  "Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.": {
+    "gdzie": [
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Przypomnienia o dokarmianiu są w Piekarz Pro.": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
+    ]
+  },
   "Przypomnienia o karmieniu": {
     "gdzie": [
       "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (kod)"
@@ -4941,13 +5092,7 @@
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/przywroc-zakupy.ts (Alert.alert)",
-      "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
-    ]
-  },
-  "Próba jest jedna na oba plany subskrypcji.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Pt.": {
@@ -5100,12 +5245,19 @@
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/_layout.tsx (headerBackTitle)",
-      "app/(tabs)/receptury/_layout.tsx (title)"
+      "app/(tabs)/receptury/_layout.tsx (title)",
+      "app/(tabs)/receptury/index.tsx (tytul)",
+      "app/(tabs)/receptury/receptura.tsx (tekst)"
     ]
   },
   "Receptury bazowe": {
     "gdzie": [
       "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
+    ]
+  },
+  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
     ]
   },
   "Receptury mistrzowskie": {
@@ -5123,7 +5275,7 @@
   },
   "Rodzaj receptur": {
     "gdzie": [
-      "src/components/receptury/ListaReceptur.tsx (accessibilityLabel)"
+      "app/(tabs)/receptury/index.tsx (etykieta)"
     ]
   },
   "Rodzina Apps4Craft Studio": {
@@ -5585,6 +5737,23 @@
       "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
     ]
   },
+  "Stały dzień karmienia": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)",
+      "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
+    ]
+  },
+  "Stały dzień karmienia to {staly}, a zakwas dokarmiono w dniu: {dzien}.": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
+    ]
+  },
+  "Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Stolnica": {
     "gdzie": [
       "app/_layout.tsx (title)"
@@ -5634,14 +5803,9 @@
       "src/components/PaywallModal.tsx (kod)"
     ]
   },
-  "Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
+  "Subskrypcja się nie odnowi. Potem przypomnienia o dokarmianiu wyłączą się, a Twoje receptury, zakwasy i dziennik zostaną.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
-    ]
-  },
-  "Subskrypcja się nie odnowi, więc nic nie zapłacisz.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
@@ -5984,6 +6148,21 @@
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
     ]
   },
+  "Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
+    ]
+  },
+  "Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
+  "Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
+    ]
+  },
   "Ten tydzień": {
     "gdzie": [
       "src/components/kalendarz/PasekTygodnia.tsx (accessibilityLabel)"
@@ -6091,11 +6270,6 @@
       "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
-  "Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
-  },
   "Twoje zapasy mąk": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
@@ -6109,6 +6283,11 @@
   "Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.": {
     "gdzie": [
       "src/core/starter-converter.ts (dane: kod)"
+    ]
+  },
+  "Tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (kod)"
     ]
   },
   "Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.": {
@@ -6304,7 +6483,8 @@
   },
   "Usunięto wpis": {
     "gdzie": [
-      "src/components/zakwas/StarterEntriesList.tsx (tekst)"
+      "src/components/zakwas/StarterEntriesList.tsx (tekst)",
+      "src/hooks/useBakeHistory.ts (tekst)"
     ]
   },
   "Usunąć profil zakwasu?": {
@@ -6316,11 +6496,6 @@
     "gdzie": []
   },
   "Usunąć recepturę?": {
-    "gdzie": [
-      "src/lib/confirm.ts (title)"
-    ]
-  },
-  "Usunąć wpis z historii?": {
     "gdzie": [
       "src/lib/confirm.ts (title)"
     ]
@@ -6361,8 +6536,7 @@
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (accessibilityLabel)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
-      "src/lib/confirm.ts (action)"
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Usuń wpis: {opis}": {
@@ -6828,7 +7002,7 @@
   },
   "Więcej": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (tekst)"
+      "app/(tabs)/receptury/receptura.tsx (tekst)"
     ]
   },
   "Więcej bochenków": {
@@ -6838,7 +7012,7 @@
   },
   "Więcej działań: receptura": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (etykieta)",
+      "app/(tabs)/receptury/receptura.tsx (etykieta)",
       "src/lib/menu-receptury.ts (Alert.alert)"
     ]
   },
@@ -6909,7 +7083,7 @@
       "src/lib/doctor-suggestion.ts (Alert.alert)"
     ]
   },
-  "Wpis z historii wypieku zostanie trwale usunięty.": {
+  "Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.": {
     "gdzie": [
       "src/lib/confirm.ts (message)"
     ]
@@ -7036,8 +7210,7 @@
   "Wszystkie": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
-      "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)",
-      "src/components/stolnica/BakeHistorySection.tsx (label)"
+      "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
     ]
   },
   "Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).": {
@@ -7060,16 +7233,6 @@
   },
   "Wt.": {
     "gdzie": []
-  },
-  "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
-    ]
-  },
-  "Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
-    ]
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
     "gdzie": [
@@ -7118,6 +7281,11 @@
   "Wyczyść zaznaczone objawy": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (kod)"
     ]
   },
   "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.": {
@@ -7538,21 +7706,16 @@
   },
   "Zacznij od nowa": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)",
       "src/lib/confirm.ts (action)"
-    ]
-  },
-  "Zacznij okres próbny": {
-    "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
   "Zacznij wypiek": {
     "gdzie": [
       "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)",
       "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
-      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)",
+      "src/hooks/useStartPlanu.ts (tekst)"
     ]
   },
   "Zaczyn": {
@@ -7707,13 +7870,19 @@
       "src/lib/notifications.ts (body)"
     ]
   },
+  "Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
+    ]
+  },
   "Zakwas: {amount} g": {
     "gdzie": []
   },
   "Zakwasy": {
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/zakwasy/_layout.tsx (title)"
+      "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "src/components/zakwas/PasZakwasu.tsx (tytul)"
     ]
   },
   "Zakwas|składnik": {
@@ -7778,7 +7947,7 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)",
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
@@ -7787,11 +7956,10 @@
       "src/components/academy/AcademyHeader.tsx (accessibilityLabel)"
     ]
   },
-  "Zamknij informację o końcu próby": {
+  "Zamknij informację o Piekarz Pro": {
     "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (accessibilityLabel)"
-    ],
-    "opis": "Etykieta VoiceOver przycisku, który zamyka (chowa) baner na ekranie „Dziś” z informacją, kiedy kończy się okres próbny. NIE wyłącza powiadomień ani przypomnień; użyj słowa „informacja/komunikat/baner”, nie „powiadomienie” (np. zh-Hant 提示, nie 通知) [M1-audytor-generalny-185]."
+      "src/components/start/UprzedzenieKoncaPro.tsx (accessibilityLabel)"
+    ]
   },
   "Zamknij protokół ratunkowy": {
     "gdzie": [
@@ -7830,7 +7998,8 @@
   },
   "Zapisano dokarmienie zakwasu {zakwas}.": {
     "gdzie": [
-      "src/hooks/useAkcjeDzis.ts (tekst)"
+      "src/hooks/useAkcjeDzis.ts (tekst)",
+      "src/hooks/useCofnijDokarmienie.ts (tekst)"
     ]
   },
   "Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.": {
@@ -7848,6 +8017,11 @@
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
+  "Zapisano zmiany w recepturze „{name}”.": {
+    "gdzie": [
+      "src/lib/calculator-actions.ts (Alert.alert)"
+    ]
+  },
   "Zapisz": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
@@ -7855,6 +8029,11 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
+    ]
+  },
+  "Zapisz bez zmiany": {
+    "gdzie": [
+      "src/hooks/useStartPlanu.ts (tekst)"
     ]
   },
   "Zapisz dokarmienie": {
@@ -7896,6 +8075,7 @@
   },
   "Zaplanuj mimo to": {
     "gdzie": [
+      "src/hooks/useStartPlanu.ts (tekst)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -7913,19 +8093,14 @@
   "Zapomniana sól (Laminacja ratunkowa)": {
     "gdzie": []
   },
-  "Zarejestrowano dokarmienie zakwasu „{name}”.": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
-  },
   "Zarejestrowano dokarmienie!": {
     "gdzie": []
   },
   "Zarządzaj subskrypcją": {
     "gdzie": [
-      "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
+      "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Zasoby mąki w spiżarni zostały zaktualizowane.": {
@@ -7991,7 +8166,12 @@
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
+      "src/core/starter-log.ts (dane: start)"
+    ]
+  },
+  "Założyć zakwas od nowa?": {
+    "gdzie": [
+      "src/lib/confirm.ts (title)"
     ]
   },
   "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
@@ -8004,9 +8184,14 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Załóż zakwas od nowa": {
+    "gdzie": [
+      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+    ]
+  },
   "Zbalansowany": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (balanced)"
     ]
@@ -8208,12 +8393,6 @@
       "src/components/start/PlanyWypiekow.tsx (tekst w JSX)"
     ]
   },
-  "Zobacz plany": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
-  },
   "Zostaje wgłębienie i ciasto siada:": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -8229,10 +8408,21 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
+  "Zostaw: {dzien}": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (text)"
+    ]
+  },
   "Zostawiam w słoiku": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (accessibilityLabel)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Zrealizuj kod": {
+    "gdzie": [
+      "src/components/settings/ZakupySection.tsx (Alert.alert)",
+      "src/components/settings/ZakupySection.tsx (tekst w JSX)"
     ]
   },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.": {
@@ -8431,7 +8621,7 @@
   },
   "i jeszcze {n}, szczegóły w arkuszu dnia": {
     "gdzie": [
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (reszta)"
     ]
   },
   "jutro": {
@@ -8577,13 +8767,6 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
-  "rok": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (dane: kod)",
-      "src/lib/platnosci/uprzedzenie.ts (dane: kod)",
-      "src/lib/platnosci/uprzedzenie.ts (dane: zdanie)"
-    ]
-  },
   "sie": {
     "gdzie": []
   },
@@ -8693,9 +8876,7 @@
   "wymaga Piekarz Pro": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
-      "src/components/start/WyborCzynnosci.tsx (accessibilityHint)",
-      "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (accessibilityHint)"
     ]
   },
   "wymagający": {
@@ -8743,19 +8924,14 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
-  "{cena} miesięcznie po próbie": {
-    "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
-    ]
-  },
   "{cena} rocznie": {
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
-  "{cena} rocznie po próbie": {
+  "{co} z {h}: otwórz": {
     "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (zrobione)"
     ]
   },
   "{co} z {h}: zrobione": {
@@ -8793,6 +8969,16 @@
   "{dzien}, {d} {miesiac}": {
     "gdzie": []
   },
+  "{dzien}: piekarnik zajęty o {h}": {
+    "gdzie": [
+      "src/components/kalendarz/LiniaPiekarnika.tsx (kod)"
+    ]
+  },
+  "{funkcja}, Pro": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "{godziny} {minuty}": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
@@ -8806,7 +8992,7 @@
   "{h} {co}": {
     "gdzie": [
       "src/components/kalendarz/ArkuszDnia.tsx (kod)",
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (tekst)"
     ]
   },
   "{h}h": {
@@ -8883,8 +9069,6 @@
   },
   "{n} dni": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: few)",
-      "src/components/PaywallModal.tsx (dane: many)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: few)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: many)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: few)",
@@ -8900,7 +9084,6 @@
   },
   "{n} dnia": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: other)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
@@ -8913,7 +9096,6 @@
   },
   "{n} dzień": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: one)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
@@ -8936,8 +9118,7 @@
   },
   "{n} godziny": {
     "gdzie": [
-      "src/lib/spirala-etykieta.ts (dane: few)",
-      "src/lib/spirala-etykieta.ts (dane: other)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst)"
     ]
   },
   "{n} h temu": {
@@ -8968,7 +9149,8 @@
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
-      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)",
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
     ]
   },
   "{n} min w {temp}": {
@@ -9083,6 +9265,11 @@
       "src/lib/import-z-pliku.ts (dane: many)"
     ]
   },
+  "{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "{rodzaj} (cały)": {
     "gdzie": [
       "src/components/receptury/DoMiski.tsx (tekst w JSX)"
@@ -9137,7 +9324,6 @@
   },
   "Łagodny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (mild)"
     ]

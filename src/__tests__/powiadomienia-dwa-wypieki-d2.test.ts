@@ -13,6 +13,7 @@ import { resyncNotifications } from '../lib/notifications';
 import { planBakeSteps } from '../core/bake-steps';
 import { MAX_PENDING_NOTIFICATIONS } from '../core/notification-config';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { odswiezDostep } from '../lib/platnosci/stan';
 
 type Pending = { identifier: string; content: { title: string; body: string; data: { fp?: string } }; trigger: { date: number } };
 type Mock = { pending: Map<string, Pending>; iosStatus: number; grantOnRequest: boolean };
@@ -51,6 +52,8 @@ describe('D2: resyncNotifications z listą wypieków z bazy', () => {
     const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
     raw.exec('DELETE FROM bake_sessions; DELETE FROM starters;');
     raw.close();
+    // Pro ustalone odczytem sklepu: przed pierwszym odczytem przypomnienia Pro nie są planowane (M3 P-a-fix P2-2)
+    await odswiezDostep();
   });
   afterEach(() => {
     jest.restoreAllMocks();

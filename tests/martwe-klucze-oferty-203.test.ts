@@ -2,8 +2,8 @@
  * Klucze usuniętego ekranu zakupu (design-spec §11e 127, lista „Znikają z ekranu zakupu”) nie zostają w słowniku EN
  * ani w 33 słownikach przekładu, bo kod ich nie używa (wersaliki, „•”, „(Lifetime)”, „(Read-Only)” wracałyby
  * przy kopiowaniu klucza) [M1-audytor-generalny-203; 04-studio-projektowe-612].
- * Z listy §11e zostają klucze nadal używane: „rok” (uprzedzenie o próbie), „Odblokuj pełny dostęp”,
- * „Przetwarzanie...”, „Zarządzaj subskrypcją”.
+ * Z listy §11e zostają klucze nadal używane: „Przetwarzanie...”, „Zarządzaj subskrypcją” („rok” i „Odblokuj pełny
+ * dostęp” usunięte w M3 P-b, D-117).
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -34,6 +34,14 @@ const MARTWE = [
   'Dostęp dożywotni to jednorazowy zakup bez odnawiania.',
   'Przeglądaj historię (Read-Only)',
   'Nie udało się dokończyć zakupu. Spróbuj ponownie.',
+  // M3 P-b (D-117): opis ekranu Pro obiecujący funkcje Basic (P1-4), kłódka „Odblokuj pełny dostęp” zastąpiona
+  // oznaczeniem „Pro”, „rok” z uprzedzenia o końcu próby (usuniętego w P-a, D-116) i blokada usuwania jedynego zakwasu
+  // (zdjęta w P-a-fix, P0-1)
+  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.',
+  'Odblokuj pełny dostęp',
+  'rok',
+  'Nie można usunąć',
+  'Musisz posiadać co najmniej jeden profil zakwasu.',
 ];
 
 const lit = (k: string) => `'${k.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}':`;
@@ -60,7 +68,8 @@ describe('203: martwe klucze starego ekranu zakupu', () => {
     expect(zostaly).toEqual([]);
   });
 
-  it('„rok” zostaje, bo używa go uprzedzenie o próbie', () => {
-    expect(EN['rok']).toBeDefined();
+  // Zmienione w M3 P-b: „rok” zostawało dla uprzedzenia o końcu próby, które P-a usunęło (D-116); teraz jest na liście MARTWE
+  it('„rok” nie zostaje: uprzedzenie o próbie usunięte (D-116)', () => {
+    expect(EN['rok']).toBeUndefined();
   });
 });

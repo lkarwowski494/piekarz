@@ -18,17 +18,19 @@ import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { useStartPlanu } from '../../../src/hooks/useStartPlanu';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
+import { useRytmPlanu } from '../../../src/hooks/useRytmPlanu';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
 import { UstawieniaPlanu } from '../../../src/components/harmonogram/UstawieniaPlanu';
+import { DodajDoKalendarza } from '../../../src/components/harmonogram/DodajDoKalendarza';
 import { oknoSnu, useProfilSnu } from '../../../src/lib/godziny-snu';
 import { PasekStartu } from '../../../src/components/harmonogram/PasekStartu';
 import { Spirala } from '../../../src/components/Spirala';
@@ -38,6 +40,7 @@ import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-z
 import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { atLocalTime } from '../../../src/core/dzien-lokalny';
+import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
 
 import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
@@ -50,6 +53,8 @@ export default function HarmonogramScreen() {
   // inaczej jutro [M3 D5]
   const [zeSkrotu] = useState(() => odbierzDzienGotowe(Date.now()));
   const [targetDayOffset, setTargetDayOffset] = useState<number>(zeSkrotu ?? 1);
+  // Bez skrótu: propozycja dnia z rytmu Dziennika (BR-KAL-014), którą użytkownik zmienia jak każdy dzień [M3 D7]
+  const { rytm, wczytany: rytmWczytany } = useRytmPlanu(zeSkrotu === null, recepturaPlanu()?.recipeId);
   const [targetHour, setTargetHour] = useState<number>(10);
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
@@ -57,7 +62,7 @@ export default function HarmonogramScreen() {
   // 23 °C to założenie modelu planu, nie pomiar: do wypieku i dziennika trafia tylko temperatura wybrana
   // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]. Z „Ułóż plan”: temperatura kuchni z receptury,
   // ta sama liczba co w arkuszu „Temperatura wody” [audyt-niezalezny D-4]
-  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? 23.0);
+  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? TEMPERATURA_MODELU_PLANU_C);
   const [tempWybrana, setTempWybrana] = useState(() => recepturaPlanu()?.temperaturaKuchni?.wybrana ?? false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
@@ -72,21 +77,22 @@ export default function HarmonogramScreen() {
   const celLokalny = useMemo(() => atLocalTime(Date.now(), targetDayOffset, targetHour, targetMinute), [targetDayOffset, targetHour, targetMinute]);
   const targetDate = useMemo(() => new Date(celLokalny.ms), [celLokalny]);
 
-  // Apps4Craft Monetization & Access (Cheaper than espresso)
-  const {
-    blokada,
-    requireActionAccess,
-  } = useAppAccess();
+  // Basic: plan od teraz (PR-02), BR-HARMO-004; Pro: „gotowe o…” (BR-HARMO-001…003), rytm, „Zaplanuj” [D-116]
+  const { blokada, requireActionAccess, moze, loading } = useAppAccess();
+  const planWstecz = moze('plan-wstecz');
+  // Czas z temperatury kuchni (BR-HARMO-003) w Pro; w Basic temperatura modelu [M3 P-a-fix P2-1]
+  const zTemperatura = planWstecz || loading;
+  const tempPlanu = zTemperatura ? ambientTemp : TEMPERATURA_MODELU_PLANU_C;
 
   // Reverse schedule calculation
   const schedule = useMemo(() => {
     return calculateReverseSchedule(targetDate, {
-      ambientTemperatureC: ambientTemp,
+      ambientTemperatureC: tempPlanu,
       coldRetardHours,
       sleepStartHour,
       sleepEndHour,
     });
-  }, [targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
+  }, [targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
 
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
@@ -143,20 +149,30 @@ export default function HarmonogramScreen() {
   // Godzina domyślna zostaje, gdy nie daje „za późno” ani kroku czynnego w oknie snu; inaczej pole dostaje najbliższą
   // godzinę ≥ najwcześniejszej, przy której żaden krok czynny nie zachodzi na sen (brak takiej: najwcześniejsza, baner nocy)
   // [M1-audytor-generalny-129; DEC-18 a]
+  // Dzień z rytmu przychodzi po odczycie Dziennika; tylko póki użytkownik nie zmienił dnia ani godziny [M3 D7]
   useEffect(() => {
-    if (!godzinaDomyslna.current) return;
+    if (rytm && godzinaDomyslna.current && moze('rytm')) setTargetDayOffset(rytm.offset);
+  }, [rytm, moze]);
+  const dzienZalozony = zeSkrotu ?? rytm?.offset ?? null;
+  // Basic: „gotowe” = najwcześniejsza godzina (start teraz); do odczytu sklepu bez zmian [D-116]
+  useEffect(() => {
+    if (planWstecz || loading || stanCzasu.najwczesniejMs === null) return;
+    if (celLokalny.ms !== stanCzasu.najwczesniejMs) ustawGotowe(stanCzasu.najwczesniejMs);
+  }, [planWstecz, loading, stanCzasu.najwczesniejMs]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!godzinaDomyslna.current || !planWstecz) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
-        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
-      // Dzień ze skrótu arkusza dnia zostaje: szukamy godziny bez nocy od początku tego dnia (BR-KAL-015) [M3 D5]
-      const od = zeSkrotu === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), zeSkrotu, 0, 0).ms);
+        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
+      // Dzień ze skrótu arkusza dnia (BR-KAL-015) albo z rytmu (BR-KAL-014) zostaje: godzina bez nocy od początku tego dnia [M3 D5, D7]
+      const od = dzienZalozony === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), dzienZalozony, 0, 0).ms);
       const bezNocy = godzinaBezNocy(od, kroki, okno);
       if (bezNocy !== null) ustawGotowe(bezNocy);
       else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
     }
-    if (zakwasWczytany) godzinaDomyslna.current = false;
-  }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (zakwasWczytany && rytmWczytany) godzinaDomyslna.current = false;
+  }, [stanCzasu, zakwasWczytany, rytmWczytany, planWstecz]); // eslint-disable-line react-hooks/exhaustive-deps
   // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
   // baner mówi o krokach, które są na ekranie, nie o etapach harmonogramu zastąpionych w planie [audyt-niezalezny D-6]
   const kolizjePlanu = useMemo(
@@ -177,23 +193,20 @@ export default function HarmonogramScreen() {
   const autoResolved = useMemo(() => {
     if (!schedule.hasSleepCollision) return null;
     return autoResolveSleepCollision(targetDate, {
-      ambientTemperatureC: ambientTemp,
+      ambientTemperatureC: tempPlanu,
       coldRetardHours,
       sleepStartHour,
       sleepEndHour,
     });
-  }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
+  }, [schedule.hasSleepCollision, targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
 
-  // ±30 min do najbliższej pełnej lub połówkowej godziny w tym kierunku (np. 23:50 → 00:00 albo 23:30), bo pole
-  // „Kiedy chleb ma być gotowy?” nie ma już chipów godziny (128) [M1-audytor-generalny-128]
+  // ±30 min do pełnej lub połówkowej godziny, ±2 h wprost; przez północ zmienia się dzień (src/lib/godzina-gotowe.ts) [128, N1]
   const adjustTargetTime = (deltaMinutes: number) => {
-    const teraz = targetHour * 60 + targetMinute;
-    const krok = Math.abs(deltaMinutes);
-    let total = deltaMinutes > 0 ? Math.floor(teraz / krok) * krok + krok : Math.ceil(teraz / krok) * krok - krok;
-    if (total < 0) total += 24 * 60;
-    total = total % (24 * 60);
-    setTargetHour(Math.floor(total / 60));
-    setTargetMinute(total % 60);
+    const nowy = przesunGotowe({ dayOffset: targetDayOffset, hour: targetHour, minute: targetMinute }, deltaMinutes);
+    if (!nowy) return;
+    setTargetDayOffset(nowy.dayOffset);
+    setTargetHour(nowy.hour);
+    setTargetMinute(nowy.minute);
   };
 
   // Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]
@@ -214,12 +227,12 @@ export default function HarmonogramScreen() {
   };
 
   // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
-  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess });
+  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess, moze });
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
     await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
-      ambientTempC: ambientTemp,
+      ambientTempC: tempPlanu,
       // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
       ...(zytni ? {} : { coldRetardHours }),
     });
@@ -238,9 +251,6 @@ export default function HarmonogramScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
       <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027]; start w pasku kciuka
-            przechodzi przez tego samego strażnika (requireActionAccess) */}
-        <BlokadaFunkcji {...blokada('harmonogram')}>
         {notatkaPoprzednia ? (
           <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
             {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
@@ -251,6 +261,9 @@ export default function HarmonogramScreen() {
             {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
           </Text>
         ) : null}
+        {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
+            a dotknięcie otwiera ekran Pro (BlokadaFunkcji, [M1-audytor-generalny-027]) */}
+        <BlokadaFunkcji {...blokada('plan-wstecz')} podglad>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}
@@ -258,6 +271,7 @@ export default function HarmonogramScreen() {
           targetMinute={targetMinute}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
+          podpowiedz={moze('rytm') ? rytm?.tekst : undefined}
           faktycznaGodzina={targetDate}
           zmianaCzasu={celLokalny.shifted}
           ambientTemp={ambientTemp}
@@ -293,6 +307,7 @@ export default function HarmonogramScreen() {
           />
         ) : null}
         </TargetReadyCard>
+        </BlokadaFunkcji>
 
         {/* Spirala i opis w jednym rzędzie z zawijaniem (`.kosz` w makiecie): „Start … o …” obok Spirali, nie pod paskiem
             kciuka; przy dużym tekście opis schodzi pod Spiralę [M1-audytor-generalny-128] */}
@@ -314,13 +329,17 @@ export default function HarmonogramScreen() {
           onCopySchedule={handleCopySchedule}
           bezLodowki={zytni}
         />
-        </BlokadaFunkcji>
+        {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
+        <DodajDoKalendarza
+          plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
+        />
       </ScrollView>
       <PasekStartu
         onStart={zacznij}
         powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
-        // Start w przyszłości: plan można zapisać na później (BR-KAL-009) [M3 D5]
-        onZaplanuj={startPlanu !== null && startPlanu.getTime() > teraz ? zaplanuj : undefined}
+        // Start w przyszłości: plan można zapisać na później (BR-KAL-009) [M3 D5]; w Basic plan zaczyna się teraz,
+        // więc „Zaplanuj” pojawia się tylko z planem wstecz (Pro)
+        onZaplanuj={planWstecz && startPlanu !== null && startPlanu.getTime() > teraz ? zaplanuj : undefined}
       />
     </SafeAreaView>
   );

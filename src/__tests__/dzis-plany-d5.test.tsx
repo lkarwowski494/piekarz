@@ -137,6 +137,11 @@ describe('D5: zaplanowane wypieki na „Dziś”', () => {
     expect(przycisk(root, 'resume-bake-btn')).toHaveLength(1);
     const wiersze = zPrefiksem(root, 'plan-wiersz-');
     expect(wiersze.map((w) => w.props.testID)).toEqual(['plan-wiersz-plan_p', 'plan-wiersz-plan_b']);
+    // PRZ-13: wiersz planu ma glif „plan”, nie spiralę trwającego wypieku
+    for (const w of wiersze) {
+      expect(w.findAll((n) => n.props?.testID === 'glif-plan').length).toBeGreaterThan(0);
+      expect(w.findAll((n) => n.props?.testID === 'glif-wypiek')).toHaveLength(0);
+    }
     expect(wiersze[0].props.accessibilityLabel).toMatch(/\d{1,2}:\d{2} Pizza$/);
   });
 

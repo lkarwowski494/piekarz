@@ -41,6 +41,7 @@ import { resyncNotifications } from '../lib/notifications';
 import { planBakeSteps } from '../core/bake-steps';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { odswiezDostep } from '../lib/platnosci/stan';
 type Mock = { pending: Map<string, { identifier: string; trigger: { date: number } }>; iosStatus: number; grantOnRequest: boolean };
 const mock = (Notifications as unknown as { __mock: Mock }).__mock;
 const ids = () => [...mock.pending.keys()].sort();
@@ -85,6 +86,8 @@ describe('Pending notifications follow the saved state (006)', () => {
     jest.spyOn(Date, 'now').mockImplementation(() => now);
     jest.spyOn(Alert, 'alert').mockImplementation(() => {});
     await initDatabase();
+    // Pro ustalone odczytem sklepu: przed pierwszym odczytem przypomnienia Pro nie są planowane (M3 P-a-fix P2-2)
+    await odswiezDostep();
   });
   afterEach(() => {
     jest.restoreAllMocks();

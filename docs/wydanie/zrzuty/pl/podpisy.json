@@ -32,7 +32,7 @@
       "podtytul": "Plan wstecz bez kroków w środku nocy",
       "oznaczenie": "wymaga Piekarz Pro",
       "funkcje": [
-        "harmonogram"
+        "plan-wstecz"
       ],
       "motyw": "jasny"
     },
@@ -40,7 +40,7 @@
       "plik": "02-receptura.png",
       "naglowek": "Gramy każdego składnika od razu",
       "podtytul": "Mąka i woda z zakwasu wliczone w procent piekarski",
-      "oznaczenie": "wymaga Piekarz Pro",
+      "oznaczenie": null,
       "funkcje": [
         "kalkulator"
       ],
@@ -50,7 +50,7 @@
       "plik": "03-prowadzenie-ciemny.png",
       "naglowek": "Jeden krok naraz",
       "podtytul": "Co zrobić, ile to trwa i powiadomienie o końcu kroku",
-      "oznaczenie": "wymaga Piekarz Pro",
+      "oznaczenie": null,
       "funkcje": [
         "stolnica"
       ],
@@ -60,7 +60,7 @@
       "plik": "04-doktor.png",
       "naglowek": "Co poprawić w następnym bochenku",
       "podtytul": "Objawy, przyczyna i jedna zmiana na następny wypiek",
-      "oznaczenie": "wymaga Piekarz Pro",
+      "oznaczenie": null,
       "funkcje": [
         "doktor"
       ],
@@ -72,7 +72,8 @@
       "podtytul": "Ilości do dokarmienia i przypomnienie po 12 godzinach",
       "oznaczenie": "wymaga Piekarz Pro",
       "funkcje": [
-        "zakwas"
+        "proporcje-zakwasu",
+        "przypomnienia-zakwasu"
       ],
       "motyw": "jasny"
     },
@@ -80,7 +81,7 @@
       "plik": "06-dziennik.png",
       "naglowek": "Każdy wypiek zapisany",
       "podtytul": "Ocena bochenka i „Piecz ponownie” jednym dotknięciem",
-      "oznaczenie": "wymaga Piekarz Pro",
+      "oznaczenie": null,
       "funkcje": [
         "historia",
         "stolnica",

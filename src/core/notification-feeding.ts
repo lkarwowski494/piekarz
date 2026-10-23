@@ -44,8 +44,20 @@ export interface TerminKarmienia {
 
 /** Stały dzień karmienia, gdy obowiązuje: lodówka, nie w trakcie zakładania (BR-KAL-010, RD-31). */
 export function stalyDzienKarmienia(s: PlanStarter): { weekday: number; minuteOfDay: number } | null {
-  const wZakladaniu = s.setupStartedAt !== undefined && s.setupCompletedAt === undefined;
-  return s.storageState === 'FRIDGE' && !wZakladaniu && s.fridgeFeedDay ? s.fridgeFeedDay : null;
+  return s.storageState === 'FRIDGE' && !wZakladaniu(s) && s.fridgeFeedDay ? s.fridgeFeedDay : null;
+}
+
+/** Zakwas w trakcie zakładania od zera (BR-ZAKW-005): start zapisany, „gotowy” jeszcze nie. */
+export function wZakladaniu(s: Pick<PlanStarter, 'setupStartedAt' | 'setupCompletedAt'>): boolean {
+  return s.setupStartedAt !== undefined && s.setupCompletedAt === undefined;
+}
+
+/**
+ * Zakwasy, o których karmieniu przypominać (powiadomienia i terminy w kalendarzu, D-113, D-116): z Piekarz Pro wszystkie;
+ * w Basic tylko zakwasy w trakcie zakładania (przypomnienia zakładania), poza nim przypomnienia o dokarmianiu są w Pro.
+ */
+export function zakwasyDoPrzypomnien<T extends Pick<PlanStarter, 'setupStartedAt' | 'setupCompletedAt'>>(zakwasy: readonly T[], pro: boolean): T[] {
+  return pro ? [...zakwasy] : zakwasy.filter(wZakladaniu);
 }
 
 const czytelna = (v: number | undefined): v is number => typeof v === 'number' && Number.isFinite(v);

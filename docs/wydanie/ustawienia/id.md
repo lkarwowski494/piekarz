@@ -44,7 +44,7 @@ resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 Tentukan jam roti harus siap: Tukang Roti menghitung takaran, menyusun jadwal mundur, dan memberi tahu saat tiap langkah selesai. Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3581 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3501 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
@@ -74,7 +74,7 @@ PERLU DIKETAHUI
 Tukang Roti berjalan di iPhone dan tidak menyinkronkan data antarperangkat; data dipindahkan dengan file cadangan. Tanpa izin notifikasi, Tukang Roti menampilkan akhir langkah hanya pada layar yang terbuka.
 
 AKSES DAN PEMBELIAN
-Akses penuh tersedia lewat langganan bulanan atau tahunan, atau pembelian seumur hidup satu kali di App Store. Langganan dapat diawali uji coba gratis (penawaran perkenalan App Store bagi yang memenuhi syarat). Tanpa pembelian, Anda dapat melihat riwayat pemanggangan, mengimpor file, serta mengekspor dan menghapus data Anda.
+Basic gratis selamanya, tanpa masa uji coba. Pro menambahkan perencanaan, perawatan starter ragi alami, serta lebih banyak starter dan resep. Pro tersedia sebagai langganan bulanan atau tahunan, atau pembelian seumur hidup satu kali di App Store.
 Ketentuan Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Bahasa: 35.
@@ -120,4 +120,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

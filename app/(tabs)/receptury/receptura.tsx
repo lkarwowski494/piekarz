@@ -6,7 +6,7 @@
 // Rachunek (useRecipeCalculations), zapis, plan i wczytanie receptury bez zmian. [M1-audytor-generalny-106]
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ScrollView, View, StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
 import { FlourItemInput } from '../../../src/core/domain-rules';
@@ -25,15 +25,22 @@ import {
   executeExportRecipeJson,
   executeCopyRecipe,
   executeSaveCustomRecipe,
+  executeUpdateCustomRecipe,
 } from '../../../src/lib/calculator-actions';
+import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
-import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
+import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
+import { t } from '../../../src/lib/i18n';
 import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
+import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { powiadomOZmianieReceptur, zglosEkranReceptury } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { theme } from '../../../src/ui/theme';
@@ -44,9 +51,13 @@ const bezAkcji = () => undefined;
 
 export default function EkranReceptury() {
   const router = useRouter();
+  // Pas nocy zamiast natywnego nagłówka (D10 opcja A): nazwa, powrót „Receptury” i „Więcej” na pasie [M3 D10]
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
-  // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
-  const { chron, blokada, requireActionAccess } = useAppAccess();
+  // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
+  const { chron, blokada, dodaj, moze } = useAppAccess();
+  const proSkladniki = useProPoArkuszu();
 
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
   const [loavesCount, setLoavesCount] = useState<number>(2);
@@ -183,33 +194,43 @@ export default function EkranReceptury() {
 
   const currentMasterPreset = useMemo(() => MASTER_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
 
+  // Zapis: wczytana własna receptura pod tą samą nazwą = zapis zmian (to samo id, bez limitu: zapisane działają w całości);
+  // inaczej nowa własna receptura z limitem Basic (5) liczonym z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity
+  // pojemności Basic”) [M3 P-a-fix P1-1]
   const handleSaveCustomRecipe = async () => {
-    requireActionAccess(guardSave(async () => {
+    const wlasna = await wczytanaWlasna();
+    const po = (saved: { id: string; name: string } | null) => {
+      if (!saved) return;
+      powiadomOZmianieReceptur();
+      setSelectedPresetId(saved.id);
+      setRecipeName(saved.name);
+      setIsSaveModalOpen(false);
+      setSaveRecipeNameInput('');
+    };
+    if (wlasna && saveRecipeNameInput.trim() === wlasna.name) {
+      await guardSave(async () => po(await executeUpdateCustomRecipe(wlasna, recipeFormula, targetDdt)))();
+      return;
+    }
+    await dodaj('wlasneReceptury', guardSave(async () => {
       // Cała formuła jak dla planu, z drożdżami [audyt-niezalezny D-2]
-      const saved = await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt);
-      if (saved) {
-        powiadomOZmianieReceptur();
-        setSelectedPresetId(saved.id);
-        setRecipeName(saved.name);
-        setIsSaveModalOpen(false);
-        setSaveRecipeNameInput('');
-      }
+      po(await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt));
     }));
   };
+  /** Własna receptura (nie bazowa) wczytana na ekranie; null przy recepturze bazowej albo błędzie odczytu. */
+  const wczytanaWlasna = async () => (await getRecipes().catch(() => [])).find((r) => r.id === selectedPresetId && !r.isBuiltIn) ?? null;
 
-  // „Ułóż plan” (słownik §5): plan wstecz z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057]
+  // „Ułóż plan” (słownik §5): plan z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057].
+  // Plan od teraz w Basic, „gotowe o…” w Pro (strażnik na ekranie planu, D-116)
   const handleMakePlan = () => {
-    requireActionAccess(() => {
-      ustawRecepturePlanu({
-        recipeName,
-        recipeId: selectedPresetId, // id receptury do wypieku i wpisu (D-10, D1-7) [M3 D3a]
-        calculatedRecipe: calculations,
-        recipeFormula,
-        // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
-        ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
-      });
-      router.push('/receptury/harmonogram');
+    ustawRecepturePlanu({
+      recipeName,
+      recipeId: selectedPresetId, // id receptury do wypieku i wpisu (D-10, D1-7) [M3 D3a]
+      calculatedRecipe: calculations,
+      recipeFormula,
+      // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
+      ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
     });
+    router.push('/receptury/harmonogram');
   };
 
   // Menu „Więcej” w pasku nawigacji (057): pozycje z bieżącą recepturą przy każdym otwarciu
@@ -227,8 +248,8 @@ export default function EkranReceptury() {
           loavesCount: calcMode === 'loaves' ? loavesCount : 1,
         }),
       udostepnijPlik: () => void executeExportRecipeJson(currentRecipeForShare),
-      udostepnijQr: chron('udostepnianie', () => setIsShareQrOpen(true)),
-      drukuj: chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf)),
+      udostepnijQr: chron('qr-wysylanie', () => setIsShareQrOpen(true)),
+      drukuj: chron('druk', () => openPrintMenu(handlePrintRecipePdf)),
     });
   useEffect(() => zarejestrujMenuReceptury(() => menuWiecej.current()), []);
 
@@ -237,10 +258,17 @@ export default function EkranReceptury() {
     <CalculatorActionButtons
       onMakePlan={handleMakePlan}
       powodBezPlanu={powodBezZakwasu(recipeFormula)}
-      onSaveCustomRecipe={chron('receptury', () => {
-        setSaveRecipeNameInput(recipeName);
-        setIsSaveModalOpen(true);
-      })}
+      onSaveCustomRecipe={() =>
+        void (async () => {
+          const otworz = () => {
+            setSaveRecipeNameInput(recipeName);
+            setIsSaveModalOpen(true);
+          };
+          // Wczytana własna receptura: okno zapisu bez limitu (zapis zmian); inaczej nowa przez limit [P1-1]
+          if (await wczytanaWlasna()) otworz();
+          else await dodaj('wlasneReceptury', otworz);
+        })()
+      }
       onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
       onEditIngredients={chron('kalkulator', () => setIsIngredientsOpen(true))}
     />
@@ -249,7 +277,11 @@ export default function EkranReceptury() {
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right', 'bottom']}>
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
-        <ScrollView contentContainerStyle={s.tresc} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+          <NadPasem />
+          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
+            akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
+          <View style={s.tresc}>
           <BlokadaFunkcji {...blokada('kalkulator')}>
             {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
             {bladMak ? (
@@ -277,6 +309,7 @@ export default function EkranReceptury() {
           </BlokadaFunkcji>
           {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} />}
           {akcjeWTresci && akcje}
+          </View>
         </ScrollView>
         {!akcjeWTresci && (
           <View style={styles.strefaAkcji} onLayout={(e) => setWysokoscAkcji(e.nativeEvent.layout.height)}>
@@ -303,7 +336,11 @@ export default function EkranReceptury() {
         yeastPct={yeastPct}
         onYeastPctChange={setYeastPct}
         prefermentType={prefermentType}
-        onPrefermentTypeChange={setPrefermentType}
+        // Poolish, biga, levain w Pro (BR-KALK-010); ciasto bezpośrednie w Basic. Bez Pro arkusz się zamyka, ekran Pro po
+        // jego zniknięciu (D-117), a po zakupie zaczyn ustawia się sam (N2, W-fix3)
+        onPrefermentTypeChange={(typ) => (typ === 'direct' || moze('zaczyn') ? setPrefermentType(typ) : proSkladniki.otworzPro(() => setIsIngredientsOpen(false), () => setPrefermentType(typ)))}
+        onDismiss={proSkladniki.poZamknieciu}
+        zaczynPro={!moze('zaczyn')}
         prefermentFlourPct={prefermentFlourPct}
         onPrefermentFlourPctChange={setPrefermentFlourPct}
         prefermentBreakdown={prefermentBreakdown}

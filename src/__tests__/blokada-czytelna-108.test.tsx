@@ -1,8 +1,9 @@
 /**
- * Blokada funkcji bez okresu próbnego i zakupu: dane użytkownika czytelne (także dla VoiceOver) i niezasłonięte,
- * zablokowane tylko akcje — dotknięcie akcji w treści otwiera ekran zakupu, a wiersz z kłódką i „wymaga Piekarz Pro”
- * stoi nad treścią, nie na niej (D-039, DEC-01 d; design-spec §6 `tylko-historia`)
- * [M1-audytor-generalny-108; 04-studio-projektowe-026]. Test dla każdego ekranu z blokadą.
+ * Blokada funkcji Pro bez zakupu: nic nie jest zasłonięte warstwą ani ukryte przed VoiceOver; wiersz z nazwą funkcji
+ * i słowem „Pro” stoi nad treścią, nie na niej [M1-audytor-generalny-108; 04-studio-projektowe-026]. Test dla każdej
+ * blokady funkcji Pro (kontrakt Basic/Pro, D-112, D-113, D-116; wcześniej blokady całych ekranów z D-038). Od M3 P-b
+ * (D-117) treść funkcji Pro bez Pro jest pokazywana tylko jako podgląd obszaru z częścią Basic (plan od teraz); dane
+ * użytkownika (dziennik, receptury, zakwasy) są w Basic i nie stoją za blokadą.
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -82,34 +83,56 @@ async function dotknijTresci(b: Wezel) {
   });
 }
 
-const EKRANY: [string, () => React.ReactElement, string][] = [
-  ['Plan wypieku', () => <HarmonogramScreen />, 'harmonogram'],
-  ['Receptury', () => <RecepturyScreen />, 'kalkulator'],
-  ['Zakwasy', () => <ZakwasyScreen />, 'zakwas'],
-  ['Doktor', () => <DoktorScreen />, 'doktor'],
-  // Diagnoza zakwasu za blokadą, ostrzeżenie o plamach poza nią [M1-audytor-generalny-027; 02-monetyzacja-503]
-  ['Doktor zakwasu', () => <DoktorZakwasuScreen />, 'doktor'],
+// Przepisane z kontraktu D-038 (blokady całych ekranów) na Basic/Pro [M3 P-a]: blokady funkcji Pro w Basic (plan
+// wstecz, gotowość zakwasu, stały dzień, proporcje dokarmiania); Receptury, Doktor i Doktor zakwasu są w Basic bez blokady.
+// Zmienione w M3 P-b (D-117, kontrakt „Reguły dostępu”: funkcja Pro widoczna z oznaczeniem „Pro”; przegląd P-a P2-4):
+// zamiast kłódki wiersz z nazwą i „Pro”; treść funkcji Pro bez Pro nie jest pokazywana, bo zdradza wynik bez zakupu
+// (gotowość, proporcje, stały dzień); podgląd do odczytu zostaje tam, gdzie obszar pokazuje też plan Basic (plan wstecz).
+const EKRANY: [string, () => React.ReactElement, string, string, boolean][] = [
+  ['Plan wypieku: „gotowe o…”', () => <HarmonogramScreen />, 'plan-wstecz', 'Plan wstecz od godziny „gotowe”', true],
+  ['Zakwasy: gotowość i szczyt', () => <ZakwasyScreen />, 'gotowosc-zakwasu', 'Gotowość zakwasu do ciasta', false],
+  ['Zakwasy: stały dzień karmienia', () => <ZakwasyScreen />, 'staly-dzien', 'Stały dzień karmienia', false],
+  ['Zakwasy: proporcje dokarmiania', () => <ZakwasyScreen />, 'proporcje-zakwasu', 'Proporcje dokarmiania', false],
 ];
 
-describe('108: blokada bez uprawnienia — treść czytelna, zablokowane tylko akcje', () => {
+describe('108: Basic — ekrany Receptury, Doktor i Doktor zakwasu bez zablokowanej treści (D-112, D-113)', () => {
   beforeEach(async () => {
     _resetMemStore();
     bezUprawnienia();
     await initDatabase();
   });
 
-  it.each(EKRANY)('%s: treść w drzewie dostępności, bez warstwy na treści; wiersz z kłódką i dotknięcie akcji otwierają ofertę', async (_n, el, funkcja) => {
+  it.each([
+    ['Receptury', () => <RecepturyScreen />],
+    ['Doktor', () => <DoktorScreen />],
+    ['Doktor zakwasu', () => <DoktorZakwasuScreen />],
+  ])('%s: każda BlokadaFunkcji odblokowana', async (_n, el) => {
+    const tree = await render(el());
+    expect(tree.root.findAllByType(BlokadaFunkcji).filter((b) => b.props.odblokowane === false).map((b) => b.props.funkcja)).toEqual([]);
+    act(() => tree.unmount());
+  });
+});
+
+describe('108: blokada funkcji Pro bez uprawnienia — nazwa z „Pro”, bez warstwy na treści; podgląd tylko przy części Basic', () => {
+  beforeEach(async () => {
+    _resetMemStore();
+    bezUprawnienia();
+    await initDatabase();
+  });
+
+  it.each(EKRANY)('%s: wiersz z nazwą i „Pro” (VoiceOver „{funkcja}, Pro”) otwiera ekran Pro; treść tylko jako podgląd bez warstwy', async (_n, el, funkcja, nazwa, podglad) => {
     const tree = await render(el());
     const blokady = tree.root.findAllByType(BlokadaFunkcji).filter((b) => b.props.funkcja === funkcja);
     expect(blokady.length).toBeGreaterThan(0);
     for (const b of blokady) {
       expect(b.props.odblokowane).toBe(false);
       const wynik = sprawdzBlokade(b);
-      expect(wynik.teksty).toBeGreaterThan(1);
       expect({ ukryte: wynik.ukryte, warstwy: wynik.warstwy, martwe: wynik.martwe }).toEqual({ ukryte: [], warstwy: 0, martwe: 0 });
-      // Wiersz z kłódką: przycisk z widocznym tekstem „wymaga Piekarz Pro”, poza treścią
+      // Wiersz: przycisk z widoczną nazwą funkcji i słowem „Pro”, poza treścią; bez kłódki
       const wiersz = b.findAll((n) => n.props.testID === `blokada-${funkcja}` && typeof n.props.onPress === 'function')[0];
-      expect(wiersz.findAllByType(Text).map(tekst)).toContain(t('wymaga Piekarz Pro'));
+      expect(wiersz.findAllByType(Text).map(tekst)).toEqual([t(nazwa), t('Pro')]);
+      expect(wiersz.props.accessibilityLabel).toBe(t('{funkcja}, Pro', { funkcja: t(nazwa) }));
+      expect(wiersz.props.accessibilityHint).toBe(t('wymaga Piekarz Pro'));
       await act(async () => {
         wiersz.props.onPress();
       });
@@ -118,25 +141,35 @@ describe('108: blokada bez uprawnienia — treść czytelna, zablokowane tylko a
         tree.root.findByType(PaywallModal).props.onClose();
       });
       expect(paywall(tree.root)).toBe(false);
-      await dotknijTresci(b);
-      expect(paywall(tree.root)).toBe(true);
-      await act(async () => {
-        tree.root.findByType(PaywallModal).props.onClose();
-      });
+      const tresc = b.findAll((n) => typeof n.type === 'string' && n.props.testID === `blokada-${funkcja}-tresc`);
+      expect(tresc.length > 0).toBe(podglad);
+      if (podglad) {
+        expect(wynik.teksty).toBeGreaterThan(2);
+        await dotknijTresci(b);
+        expect(paywall(tree.root)).toBe(true);
+        await act(async () => {
+          tree.root.findByType(PaywallModal).props.onClose();
+        });
+      } else {
+        expect(wynik.teksty).toBe(2);
+      }
     }
     act(() => tree.unmount());
   });
 
-  it('Dziennik: historia działa bez uprawnienia (BEZ_UPRAWNIENIA) — wpisy czytelne, bez kłódki i bez przechwytywania dotyku', async () => {
+  // Dziennik w Basic; tylko karta statystyk (porównanie, BR-RECP-004) za blokadą Pro [M3 P-a]
+  it('Dziennik: historia działa bez uprawnienia (Basic) — wpisy czytelne, kłódka tylko na statystykach', async () => {
     await saveBakeLog({ id: 'bake_108', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const tree = await render(<DziennikScreen />);
-    const [b] = tree.root.findAllByType(BlokadaFunkcji);
+    const [b] = tree.root.findAllByType(BlokadaFunkcji).filter((x) => x.props.funkcja === 'historia');
     expect(b.props.odblokowane).toBe(true);
     const wynik = sprawdzBlokade(b);
     expect({ ukryte: wynik.ukryte, warstwy: wynik.warstwy, martwe: wynik.martwe }).toEqual({ ukryte: [], warstwy: 0, martwe: 0 });
     expect(b.findAllByType(Text).map(tekst).join(' | ')).toContain('Chleb z historii');
-    expect(b.findAll((n) => typeof n.props.testID === 'string' && n.props.testID.startsWith('blokada-'))).toEqual([]);
-    expect(b.findAll((n) => typeof n.type === 'string' && typeof n.props.onResponderRelease === 'function' && n.props.pointerEvents === 'box-only')).toEqual([]);
+    const zamki = b.findAll((n) => typeof n.type === 'string' && typeof n.props.testID === 'string' && /^blokada-(?!.*-tresc$)/.test(n.props.testID));
+    expect(zamki.map((n) => n.props.testID)).toEqual(['blokada-porownanie']);
+    const [staty] = tree.root.findAllByType(BlokadaFunkcji).filter((x) => x.props.funkcja === 'porownanie');
+    expect(staty.props.odblokowane).toBe(false);
     act(() => tree.unmount());
   });
 });

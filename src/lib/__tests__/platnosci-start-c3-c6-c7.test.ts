@@ -4,14 +4,15 @@
  *   ma limit czasu (zawieszony StoreKit = błąd odczytu, nie wieczne ładowanie);
  * - C-6: nasłuch transakcji istnieje, zanim aplikacja połączy się ze sklepem (także gdy ekran pyta o dostęp przed
  *   startem płatności w app/_layout.tsx), więc transakcja z kolejki StoreKit nie przepada;
- * - C-7: nagłówek „Okres próbny się skończył” tylko po samej próbie; po płatnym dostępie (albo gdy nie wiadomo)
- *   nagłówek neutralny [audyt-niezalezny C-3; audyt-niezalezny C-6; audyt-niezalezny C-7].
+ * - C-7: dawniej nagłówek „Okres próbny się skończył” tylko po samej próbie; po D-112 (bez próby) komunikat końca Pro
+ *   tylko po rzeczywistym końcu Pro [audyt-niezalezny C-3; audyt-niezalezny C-6; audyt-niezalezny C-7; M3 P-a].
  */
 import * as Iap from 'expo-iap';
 import { _resetMemStore, getAppSetting, setAppSetting } from '../../data/sqlite-store';
-import { _resetStanu, odswiezDostep, pobierzStan, rodzajDostepu, uruchomPlatnosci } from '../platnosci/stan';
+import { _resetStanu, odswiezDostep, pobierzStan, uruchomPlatnosci } from '../platnosci/stan';
 import { LIMIT_ODCZYTU_SKLEPU_MS, ustawPrzedPolaczeniem, _resetSklepu, polacz } from '../platnosci/sklep';
-import { KLUCZ_PAMIECI, KLUCZ_HISTORII_DOSTEPU, PRODUKTY } from '../platnosci/konfiguracja';
+import { KLUCZ_PAMIECI, PRODUKTY } from '../platnosci/konfiguracja';
+import { KLUCZ_KONCA_PRO } from '../platnosci/uprzedzenie';
 
 const mockIap = (Iap as unknown as { __mock: any }).__mock;
 const flush = async () => {
@@ -70,27 +71,24 @@ describe('C-3, C-6, C-7: start płatności', () => {
     expect(pobierzStan()).toMatchObject({ gotowe: true, decyzja: { dostep: false } });
   });
 
-  it('C-7: trial only → "proba"; paid (or unknown trial flag) → "platny"; paid stays paid; old marker → unknown', async () => {
-    mockIap.entitlements = [
-      { id: 't1', transactionId: 't1', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: 1, expirationDateIOS: Date.now() + DZIEN, offerIOS: { paymentMode: 'FreeTrial' } },
-    ];
-    await odswiezDostep();
-    expect(await rodzajDostepu()).toBe('proba');
+  // Przepisane z kontraktu D-038 (C-7: rodzaj dostępu próba/płatny do nagłówka „Okres próbny się skończył”) [M3 P-a]:
+  // próby nie ma (D-112); zostaje komunikat końca Pro, raz, tylko po udanym odczycie sklepu bez Pro po pamięci z Pro
+  it('C-7 (Basic/Pro): end-of-Pro marker only after a store read without Pro following memory with Pro; a read error does not set it', async () => {
     mockIap.entitlements = [
       { id: 't2', transactionId: 't2', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: 2, expirationDateIOS: Date.now() + DZIEN },
     ];
     await odswiezDostep();
-    expect(await rodzajDostepu()).toBe('platny');
-    mockIap.entitlements = [
-      { id: 't3', transactionId: 't3', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: 3, expirationDateIOS: Date.now() + DZIEN, offerIOS: { paymentMode: 'FreeTrial' } },
-    ];
+    expect(await getAppSetting(KLUCZ_KONCA_PRO)).not.toBe('1');
+    mockIap.failRead = true;
     await odswiezDostep();
-    expect(await rodzajDostepu()).toBe('platny');
-    expect(await getAppSetting(KLUCZ_HISTORII_DOSTEPU)).toBe('platny');
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '1');
-    expect(await rodzajDostepu()).toBe('nieznany');
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '');
-    expect(await rodzajDostepu()).toBeNull();
+    expect(await getAppSetting(KLUCZ_KONCA_PRO)).not.toBe('1');
+    mockIap.failRead = false;
+    mockIap.entitlements = [];
+    await odswiezDostep();
+    expect(await getAppSetting(KLUCZ_KONCA_PRO)).toBe('1');
+    await setAppSetting(KLUCZ_KONCA_PRO, '');
+    await odswiezDostep();
+    expect(await getAppSetting(KLUCZ_KONCA_PRO)).toBe('');
   });
 
   // Ostatni w pliku: podmienia funkcję wołaną przed połączeniem (stan.ts ustawia ją przy załadowaniu modułu)

@@ -34,7 +34,7 @@ jest.mock('expo-router', () => {
 import React from 'react';
 import { Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
-import ZakwasyLayout from '../../app/(tabs)/zakwasy/_layout';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import StolnicaScreen from '../../app/stolnica';
 import { BackupAndDataSection } from '../components/settings/BackupAndDataSection';
 import { AppAccessProvider } from '../components/AppAccessProvider';
@@ -73,7 +73,8 @@ describe('117: przepływy bez ślepych wejść', () => {
   afterEach(() => setLang('pl'));
 
   it('(a) „Doktor” na Zakwasach otwiera Doktora zakwasu; etykieta VoiceOver PL i EN', async () => {
-    const tree = await render(<ZakwasyLayout />);
+    // M3 D10: skrót „Doktor” na pasie karty zakwasu (dawniej w natywnym nagłówku stosu)
+    const tree = await render(<ZakwasScreen />);
     const btn = tree.root.findAll((n) => n.props.testID === 'zakwas-doctor-shortcut-btn' && n.props.accessibilityRole === 'button' && typeof n.props.onPress === 'function')[0];
     expect(btn.props.accessibilityLabel).toBe('Doktor zakwasu');
     act(() => btn.props.onPress());

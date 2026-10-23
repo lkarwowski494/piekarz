@@ -86,7 +86,7 @@ export async function importujKopie(kopia: ValidatedBackup): Promise<void> {
   void resyncNotifications();
 }
 
-/** Import receptury: zapis dopiero po potwierdzeniu, bez bramki (D-039), jak w oknie importu receptury. */
+/** Import receptury: zapis dopiero po potwierdzeniu; limit Basic 5 własnych sprawdza arkusz przed wywołaniem (D-116, M3 P-a-fix). */
 export async function importujRecepture(receptura: StoredRecipe): Promise<void> {
   await saveRecipe(receptura);
 }

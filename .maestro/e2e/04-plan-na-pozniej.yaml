@@ -1,0 +1,90 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstow jezyka (M1-audytor-generalny-037, 07-jakosc-501).
+# Plan na pozniej (BR-KAL-009, D-108; Pro: plan wstecz i "Zaplanuj", D-116) [M3 E2E]. Build E2E ma dostep Pro przez
+# EXPO_PUBLIC_E2E=1 (src/lib/app-access.ts; TestFlight odrzuca flage, P-037 a). Trwa jeden wypiek -> Harmonogram ->
+# dzien "gotowe" za 3 dni -> "Zaplanuj" -> Dzis: spirala trwajacego wypieku i plan na liscie pod nia (start-plany).
+# Dzien +3, nie +2: wypiek 1 konczy sie jutro, a plan na pojutrze nachodzilby krokami na niego (pytanie
+# "Kroki nachodza na siebie", natywny Alert bez id). Znacznik planu w pasku tygodnia (glif-plan; glify dnia sa w drzewie
+# iOS, przebieg 39873090932) nie jest sprawdzany: dzien +3 bywa juz w nastepnym tygodniu, a klucz dnia zalezy od daty.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+# Wypiek 1: start teraz z planu receptury (jak flow 02)
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+# Zdanie "po co" przed prosba iOS o zgode i okno systemu (bez id) - oba opcjonalne, jak w flow 02
+- tapOn:
+    id: "zgoda-dalej-btn"
+    optional: true
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: "next-or-finish-step-btn"
+    timeout: 15000
+# Nastepny krok zapisuje wypiek (po ponownym uruchomieniu trwa dalej, flow 02)
+- tapOn:
+    id: "next-or-finish-step-btn"
+- launchApp:
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+# Plan na pozniej: Receptury -> receptura -> "Uloz plan" -> dzien "gotowe" +3 -> "Zaplanuj"
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- extendedWaitUntil:
+    visible:
+      id: "plan-dzien-2"
+    timeout: 15000
+# Rzad dni przewija sie w poziomie (TargetReadyCard): przesuniecie w lewo odslania dzien +3 przy waskim ekranie
+- swipe:
+    from:
+      id: "plan-dzien-2"
+    direction: LEFT
+- tapOn:
+    id: "plan-dzien-3"
+# "Zaplanuj" tylko z planem wstecz (Pro) i startem w przyszlosci (PasekStartu, harmonogram.tsx)
+- extendedWaitUntil:
+    visible:
+      id: "plan-zaplanuj-btn"
+    timeout: 15000
+- tapOn:
+    id: "plan-zaplanuj-btn"
+# Po zapisie lista planow na Dzis (useStartPlanu: pokazPlany)
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 15000
+- scrollUntilVisible:
+    element:
+      id: "spirala-otworz"
+- scrollUntilVisible:
+    element:
+      id: "start-plany"
+- assertVisible:
+    id: "plan-wiersz-.*"
+- assertNotVisible:
+    id: "start-plan-spirala"

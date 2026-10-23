@@ -9,12 +9,15 @@ export interface BreadSchoolSectionProps {
   lessons: BreadSchoolLesson[];
   completedLevels: number[];
   onToggleLesson: (level: number) => void;
+  /** Strażnik otwarcia lekcji (pierwszy poziom w Basic, dalsze w Pro; BR-NAUK-001, D-116); brak = bez strażnika. */
+  otworzLekcje?: (level: number, otworz: () => void) => void;
 }
 
 export function BreadSchoolSection({
   lessons,
   completedLevels,
   onToggleLesson,
+  otworzLekcje,
 }: BreadSchoolSectionProps) {
   const [expandedLessonId, setExpandedLessonId] = useState<string | null>(null);
 
@@ -39,9 +42,12 @@ export function BreadSchoolSection({
               accessibilityRole="button"
               testID={`expand-lesson-btn-${lesson.level}`}
               style={styles.lessonHeaderPressable}
-              onPress={() =>
-                setExpandedLessonId((prev) => (prev === lesson.id ? null : lesson.id))
-              }
+              onPress={() => {
+                const przelacz = () => setExpandedLessonId((prev) => (prev === lesson.id ? null : lesson.id));
+                // Zwinięcie zawsze; rozwinięcie przez strażnika poziomu
+                if (isExpanded || !otworzLekcje) przelacz();
+                else otworzLekcje(lesson.level, przelacz);
+              }}
             >
               <View style={styles.lessonTitleBlock}>
                 <View style={styles.levelPillRow}>

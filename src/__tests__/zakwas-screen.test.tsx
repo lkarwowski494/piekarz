@@ -182,7 +182,9 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(text).toContain('Pleśń może sięgać w głąb zakwasu');
 
     // Tap Resetuj profil zakwasu
-    const resetBtn = findButtonByText(tree!.root, 'Zacznij od nowa');
+    // PRZ-39: przycisk czyszczący zaznaczone objawy nie nazywa się jak „Zacznij od nowa” (usuwanie wpisów)
+    expect(findButtonByText(tree!.root, 'Zacznij od nowa')).toBeUndefined();
+    const resetBtn = findButtonByText(tree!.root, 'Odznacz objawy');
     expect(resetBtn).toBeDefined();
 
     await act(async () => {
@@ -282,7 +284,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(fullText).toContain('Bolesław');
   });
 
-  it('allows deleting a starter when multiple exist, but prevents deletion when only one remains (BR-ZAKW-001 Usunięcie zakwasu)', async () => {
+  it('allows deleting a starter when multiple exist, and the only one too (BR-ZAKW-001 Usunięcie zakwasu)', async () => {
     // Add second starter
     await saveStarter({
       id: 'starter_extra',
@@ -325,9 +327,11 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
       editBtn.props.onPress();
     });
 
-    // Delete button should NOT exist when only 1 starter remains
-    const deleteBtnAfter = tree!.root.findAll((n) => n.props?.testID === 'delete-starter-btn');
-    expect(deleteBtnAfter.length).toBe(0);
+    // Przepisane [M3 P-a-fix P0-1]: jedyny zakwas też da się usunąć (D-113: w Basic po nieudanej próbie zakłada się
+    // nowy, a drugi zakwas to Pro); obok „Załóż zakwas od nowa”
+    const deleteBtnAfter = tree!.root.findAll((n) => n.props?.testID === 'delete-starter-btn' && typeof n.props.onPress === 'function');
+    expect(deleteBtnAfter.length).toBeGreaterThan(0);
+    expect(tree!.root.findAll((n) => n.props?.testID === 'restart-starter-setup-btn' && typeof n.props.onPress === 'function').length).toBeGreaterThan(0);
   });
 
   // W lodówce okna szczytu nie ma (M1-audytor-generalny-044); domyślny zakwas jest w lodówce

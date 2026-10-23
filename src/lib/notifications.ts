@@ -17,6 +17,8 @@ import { collectBackupData } from '../data/sqlite-store';
 import { wczytajPominiecia } from '../data/pominiecia-store';
 import { pominietoKarmienieAt } from '../core/pominiecia';
 import { kolejneKarmieniaBudzace, type WypiekZBudzeniem } from '../core/karmienia-budzace';
+import { zakwasyDoPrzypomnien } from '../core/notification-feeding';
+import { NOTIF_PREFIX } from '../core/notification-config';
 import { t, lang } from './i18n';
 import { formatTime } from './format';
 import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
@@ -123,18 +125,24 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       status = await getNotificationPermission();
       const pendingAll = await Notifications.getAllScheduledNotificationsAsync();
       const pending: PendingNotification[] = pendingAll.map((r) => ({ id: r.identifier, fingerprint: fingerprintOf(r.content.data) }));
-      // Przypomnienia o zakwasie tylko z uprawnieniem: po końcu próby dokarmianie otwiera ekran zakupu, a kontrakt
-      // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
+      // Przypomnienia o dokarmianiu w Pro, w Basic tylko w czasie zakładania zakwasu (D-113, zakwasyDoPrzypomnien);
+      // po wygaśnięciu Pro ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
       // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
       // Po „Pomiń” zaległego karmienia termin liczy się od chwili pominięcia, jak w kalendarzu (D-094) [M3 D4a]
-      // Kolejne karmienia budzące (RD-33) z tymi samymi warunkami co przypomnienia o zakwasie, z wpisów zakwasów [M3 D5]
+      // Kolejne karmienia budzące (RD-33) z wpisów zakwasów [M3 D5]: trwającego wypieku zawsze (wypiek zaczęty z Pro
+      // prowadzi się do końca), planu niezaczętego tylko z Pro [M3 P-a-fix P2-3]
+      // Przed pierwszym odczytem sklepu (stan nieustalony) nowych przypomnień Pro nie planujemy, a czekających nie
+      // kasujemy: brak odpowiedzi App Store to nie koniec Pro [M3 P-a-fix P2-2]
+      const stanDostepu = pobierzStan();
+      const nieustalony = !stanDostepu.gotowe;
+      const pro = !nieustalony && evaluateAppAccess(stanDostepu.decyzja).canCreateNewBake;
       const zakwasy = async (w: { sessions: readonly WypiekZBudzeniem[]; planned: readonly WypiekZBudzeniem[] }) => {
-        if (!(przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()))) return { starters: [], budzace: [] };
+        if (!(await czyPrzypomnieniaKarmienia())) return { starters: [], budzace: [] };
         const pominiecia = await wczytajPominiecia(Date.now()).catch(() => []);
         const kopia = await collectBackupData();
         return {
-          starters: kopia.starters.map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) })),
-          budzace: kolejneKarmieniaBudzace([...w.sessions, ...w.planned], kopia.starters, kopia.starterEntries ?? [], Date.now()),
+          starters: zakwasyDoPrzypomnien(kopia.starters, pro).map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) })),
+          budzace: kolejneKarmieniaBudzace([...w.sessions, ...(pro ? w.planned : [])], kopia.starters, kopia.starterEntries ?? [], Date.now()),
         };
       };
       const wypieki = async () => ({
@@ -144,7 +152,9 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       const w = status === 'granted' ? await wypieki() : null;
       const desired = w ? planNotifications({ ...w, ...(await zakwasy(w)) }, Date.now()) : [];
       const jezyk = lang();
-      const { cancel, schedule } = diffNotifications(pending, desired, jezyk);
+      const roznice = diffNotifications(pending, desired, jezyk);
+      const schedule = roznice.schedule;
+      const cancel = nieustalony ? roznice.cancel.filter((id) => !czyPrzypomnieniePro(id)) : roznice.cancel;
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);
       for (const p of schedule) {
         await Notifications.scheduleNotificationAsync({
@@ -168,16 +178,21 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
   });
 }
 
+/** Przypomnienie, które w Basic znika (dokarmianie, karmienie budzące): przed pierwszym odczytem sklepu nie kasowane. */
+function czyPrzypomnieniePro(id: string): boolean {
+  return id.startsWith(`${NOTIF_PREFIX}karmienie.`) || (id.startsWith(`${NOTIF_PREFIX}wypiek.`) && id.endsWith('.budzenie'));
+}
+
 /**
- * Czy planować przypomnienia o zakwasie: z uprawnieniem App Store; do pierwszego odczytu sklepu bez zmian
- * (brak odpowiedzi App Store to nie koniec próby, więc oczekujące przypomnienia nie znikają przy starcie).
+ * Czy planować przypomnienia o dokarmianiu poza zakładaniem (Pro, D-113): z uprawnieniem App Store; do pierwszego
+ * odczytu sklepu bez zmian (brak odpowiedzi App Store to nie koniec Pro, więc oczekujące przypomnienia nie znikają przy starcie).
  */
 export function przypomnieniaZDostepem(s: StanDostepu): boolean {
   return !s.gotowe || evaluateAppAccess(s.decyzja).canCreateNewBake;
 }
 
 /**
- * Uzgadnianie przy zmianie dostępu (koniec próby, zwrot, zakup): app/_layout.tsx od startu
+ * Uzgadnianie przy zmianie dostępu (koniec Pro, zwrot, zakup): kasowanie albo planowanie przypomnień; app/_layout.tsx od startu
  * [M1-audytor-generalny-143; 02-monetyzacja-504]. Zwraca wypisanie.
  */
 export function uzgadniajZDostepem(): () => void {

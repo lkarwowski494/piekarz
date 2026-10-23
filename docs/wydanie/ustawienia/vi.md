@@ -44,7 +44,7 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Đặt giờ bạn muốn bánh xong: Thợ Bánh Mì sẽ tính lượng nguyên liệu, lập lịch trình ngược và báo khi mỗi bước kết thúc. Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3500 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3403 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
@@ -74,7 +74,7 @@ CẦN BIẾT
 Thợ Bánh Mì chạy trên iPhone và không đồng bộ dữ liệu giữa các thiết bị; bạn chuyển dữ liệu bằng tệp sao lưu. Nếu không cho phép thông báo, Thợ Bánh Mì chỉ báo kết thúc bước khi màn hình đang mở.
 
 QUYỀN TRUY CẬP VÀ MUA
-Quyền truy cập đầy đủ có được qua gói đăng ký theo tháng hoặc theo năm, hoặc mua một lần trọn đời trên App Store. Gói đăng ký có thể bắt đầu bằng thời gian dùng thử miễn phí (ưu đãi giới thiệu của App Store dành cho người dùng đủ điều kiện). Khi chưa mua, bạn vẫn có thể xem lịch sử nướng bánh, nhập tệp, cũng như xuất và xóa dữ liệu của mình.
+Gói Basic miễn phí vĩnh viễn, không có thời gian dùng thử. Gói Pro bổ sung tính năng lập kế hoạch, chăm sóc men tự nhiên, thêm nhiều men tự nhiên và công thức. Pro là gói đăng ký theo tháng hoặc theo năm, hoặc mua một lần trọn đời trên App Store.
 Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Ngôn ngữ: 35.
@@ -124,4 +124,4 @@ Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Oferta wprowadzająca: Free Trial, 2 Weeks (14 dni) na `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly`, wszystkie, w których aplikacja jest dostępna; dożywotni bez oferty (D-038).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).

@@ -1,8 +1,10 @@
 /**
  * Kontrola bezpieczeństwa zakwasu (biały kożuch, puszysty nalot, przebarwienia, zgniły zapach → wyrzuć; płyn hooch →
- * nie wyrzucaj) działa bez zakupu: ostrzeżenie o bezpieczeństwie żywności nie może być za paywallem
- * (RD-21-W1; docs/monetyzacja.md BR-DIAG-002 „ostrzeżenie RD-21 zawsze”). Wcześniej StarterSafetyCard była wewnątrz
- * BlokadaFunkcji('zakwas'), więc bez zakupu dotknięcie objawu otwierało ekran zakupu [audyt-niezalezny E-1].
+ * nie wyrzucaj) działa bez zakupu: ostrzeżenie o bezpieczeństwie żywności nie może być za ekranem Pro
+ * (RD-21-W1; kontrakt Basic/Pro docs/monetyzacja.md, D-113: „karta bezpieczeństwa”, ostrzeżenie RD-21 i karta zakwasu
+ * z zapisem karmień w Basic). Wcześniej StarterSafetyCard była wewnątrz BlokadaFunkcji('zakwas'), więc bez zakupu
+ * dotknięcie objawu otwierało ekran zakupu [audyt-niezalezny E-1]. Przepisane z kontraktu D-038 [M3 P-a]: w Basic
+ * także karta i zapis karmień działają bez ekranu Pro, a żadna blokada nie obejmuje całej karty zakwasu.
  */
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
@@ -33,10 +35,11 @@ jest.mock('expo-router', () => {
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import { Alert } from 'react-native';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { PaywallModal } from '../components/PaywallModal';
 import { AppAccessProvider } from '../components/AppAccessProvider';
-import { initDatabase, _resetMemStore } from '../data/sqlite-store';
+import { initDatabase, _resetMemStore, getStarters } from '../data/sqlite-store';
 import { bezUprawnienia } from '../../tests/helpers/platnosci';
 
 const flush = async () => {
@@ -100,6 +103,32 @@ describe('kontrola bezpieczeństwa zakwasu bez zakupu (E-1)', () => {
     const granica = tree!.root.findAll((n) => n.props?.testID === 'starter-safety-boundary')[0];
     expect(granica).toBeDefined();
     expect(wBlokadzie(granica)).toBe(false);
+    act(() => tree!.unmount());
+  });
+
+  it('Basic: karta zakwasu i zapis karmienia bez ekranu Pro, bez blokady całej karty („blokada-zakwas”) (D-113)', async () => {
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => {
+      tree = renderer.create(
+        <AppAccessProvider>
+          <ZakwasScreen />
+        </AppAccessProvider>
+      );
+    });
+    await flush();
+    expect(tree!.root.findAll((n) => n.props?.testID === 'blokada-zakwas')).toEqual([]);
+    const dokarm = tree!.root.findAll((n) => n.props?.testID === 'zakwas-dokarm-btn' && typeof n.props.onPress === 'function')[0];
+    expect(dokarm).toBeDefined();
+    expect(wBlokadzie(dokarm)).toBe(false);
+    const przed = (await getStarters())[0]?.lastFedAt;
+    await act(async () => {
+      dokarm.props.onPress();
+    });
+    await flush();
+    expect(tree!.root.findAllByType(PaywallModal).some((p) => p.props.visible === true)).toBe(false);
+    expect((await getStarters())[0]?.lastFedAt).not.toBe(przed);
+    alert.mockRestore();
     act(() => tree!.unmount());
   });
 });

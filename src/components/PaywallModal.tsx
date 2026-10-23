@@ -1,8 +1,12 @@
 // ============================================================================
-// Piekarz — ekran zakupu „Piekarz Pro” (design-spec §11e 127, makieta docs/design/ekrany/oferta.html; D-063, DEC-17 a)
+// Piekarz — ekran Pro „Piekarz Pro” (design-spec §11e 127, makieta docs/design/ekrany/oferta.html; D-063, DEC-17 a)
 // [M1-audytor-generalny-127; 04-studio-projektowe-502; 02-monetyzacja-506]. Ceny wyłącznie z App Store (displayPrice)
-// [M1-audytor-generalny-008]; próba tylko jako oferta wprowadzająca dla uprawnionych [M1-audytor-generalny-009];
-// ujawnienia U2–U8 z kontraktu płatności (docs/monetyzacja.md); bez sieci komunikat i ponowny odczyt (BR-PRYW-001).
+// [M1-audytor-generalny-008]; bez okresu próbnego i oferty wprowadzającej (D-112, D-116). Ujawnienia 1–5 kontraktu
+// (docs/monetyzacja.md „Ujawnienia dla roli 04”) [M3 P-b, D-117]: (1) plan, okres i cena ze sklepu, krótki opis bez
+// liczb; (2) odnawianie i anulowanie, „Przywróć zakupy”, Warunki (EULA Apple) i Polityka prywatności; (3) co daje Pro
+// wobec Basic, jednym zdaniem na obszar (bez funkcji Basic, przegląd P-a P1-4); (4) dożywotni: jedna opłata; (5) „Zamknij”
+// bez pytania, zakup wymaga połączenia z App Store, bez sieci komunikat i ponowny odczyt (BR-PRYW-001). Z Pro (wejście
+// z Ustawień): „Piekarz Pro jest aktywny.” i dla subskrybenta „Zarządzaj subskrypcją”, bez opcji zakupu.
 // ============================================================================
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -10,12 +14,12 @@ import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, u
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
-import { t, tPlural } from '../lib/i18n';
+import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 import { przywrocZKomunikatem } from './przywroc-zakupy';
 import type { Plan } from '../lib/platnosci/konfiguracja';
-import { pobierzOferte, Oferta } from '../lib/platnosci/sklep';
+import { pobierzOferte, Oferta, zarzadzajSubskrypcja } from '../lib/platnosci/sklep';
 import { OpcjaPlanu } from './oferta/OpcjaPlanu';
 import { KomunikatBezSieci } from './oferta/KomunikatBezSieci';
 import { cenaPlanu, nazwaPlanu, napisPrzycisku, PLANY_OFERTY, stanOferty } from './oferta/stan-oferty';
@@ -28,13 +32,15 @@ export interface PaywallModalProps {
   /** 'oczekuje' = zakup czeka na zatwierdzenie (Ask to Buy) [audyt-niezalezny C-4] */
   onSubscribe: (tier: PlanOption) => Promise<'oczekuje' | void> | 'oczekuje' | void;
   onRestore?: () => Promise<boolean | void> | boolean | void;
+  /** Piekarz Pro aktywny (ekran otwarty z Ustawień): status zamiast zakupu; subskrypcja: „Zarządzaj subskrypcją”. */
+  aktywny?: { subskrypcja: boolean } | null;
 }
 
 const ID_OPCJI: Record<Plan, string> = { yearly: 'plan-yearly-btn', monthly: 'plan-monthly-btn', lifetime: 'plan-lifetime-btn' };
 
-function Ujawnienia({ teksty }: { teksty: string[] }) {
+function Lista({ teksty, testID }: { teksty: string[]; testID: string }) {
   return (
-    <View style={styles.ujawnienia} testID="subscription-terms">
+    <View style={styles.ujawnienia} testID={testID}>
       {teksty.map((u) => (
         <View key={u} style={styles.ujawnienie}>
           <View style={styles.kropka} />
@@ -45,7 +51,25 @@ function Ujawnienia({ teksty }: { teksty: string[] }) {
   );
 }
 
-export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: PaywallModalProps) {
+/** Ujawnienie 3: co daje Pro wobec Basic, jedno zdanie na obszar; tylko funkcje Pro z wejściem w 1.0 (kontrakt, tabela). */
+function CoDajePro() {
+  return (
+    <View style={styles.obszary} testID="pro-obszary">
+      <Text style={styles.naglowek} accessibilityRole="header">{t('Co daje Pro')}</Text>
+      <Lista
+        testID="pro-obszary-lista"
+        teksty={[
+          t('Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.'),
+          t('Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.'),
+          t('Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.'),
+          t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
+        ]}
+      />
+    </View>
+  );
+}
+
+export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny = null }: PaywallModalProps) {
   const [wybrany, setWybrany] = useState<PlanOption>('yearly');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [oferta, setOferta] = useState<Oferta[] | null>(null);
@@ -53,22 +77,23 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
   const [odczyt, setOdczyt] = useState(0);
 
   // Ceny z produktów App Store Connect; bez odczytu sklepu ekran nie pokazuje żadnej kwoty.
+  const zPro = aktywny !== null;
   useEffect(() => {
-    if (!visible) return;
-    let aktywny = true;
+    if (!visible || zPro) return;
+    let zywy = true;
     setOferta(null);
     setBlad(false);
     pobierzOferte()
       .then((o) => {
-        if (aktywny) setOferta(o);
+        if (zywy) setOferta(o);
       })
       .catch(() => {
-        if (aktywny) setBlad(true);
+        if (zywy) setBlad(true);
       });
     return () => {
-      aktywny = false;
+      zywy = false;
     };
-  }, [visible, odczyt]);
+  }, [visible, odczyt, zPro]);
 
   const stan = stanOferty(oferta, blad);
   // Bez sieci albo sklep bez produktów (A-3): komunikat i „Spróbuj ponownie” zamiast opcji
@@ -77,7 +102,6 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
   // Opcja, której sklep nie zwrócił, nie jest rysowana; przy ładowaniu trzy opcje bez kwot (§11e 127).
   const plany = stan === 'ladowanie' ? PLANY_OFERTY : PLANY_OFERTY.filter((p) => doPlanu(p));
   const plan = plany.includes(wybrany) ? wybrany : (plany[0] ?? wybrany);
-  const dniProby = Math.max(0, ...(oferta ?? []).map((o) => o.probaDni ?? 0));
 
   // Blokada przed drugim stuknięciem, zanim stan isProcessing zdąży się wyrenderować [audyt-niezalezny C-5]
   const trwa = useRef(false);
@@ -113,23 +137,13 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
 
   const ponow = useCallback(() => setOdczyt((n) => n + 1), []);
 
-  const ujawnienia =
-    stan === 'oferta-proba'
-      ? [
-          t('Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
-          t('Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.'),
-          t('Próba jest jedna na oba plany subskrypcji.'),
-          t('Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.'),
-          t('Zakup wymaga połączenia z App Store.'),
-        ]
-      : [
-          t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
-          t('Zakup wymaga połączenia z App Store.'),
-        ];
-  const opisDozywotniego =
-    stan === 'oferta-proba'
-      ? t('Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.')
-      : undefined;
+  // Ujawnienia 2 i 5 (bez okresu próbnego, D-112): odnawianie i anulowanie subskrypcji (gdy sklep ją pokazał), połączenie
+  const ujawnienia = [
+    ...(plany.some((p) => p !== 'lifetime')
+      ? [t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.')]
+      : []),
+    t('Zakup wymaga połączenia z App Store.'),
+  ];
 
   // Przy dużym tekście (fontScale ≥ 2, okolice AX1–AX5) przypięty zostaje tylko przycisk główny, a przywracanie
   // i linki idą na koniec przewijanej treści, żeby pasek nie zajmował połowy ekranu [M1-audytor-generalny-200]
@@ -163,19 +177,21 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
             {t('Piekarz Pro')}
           </Text>
 
-          {bezOferty ? (
+          {zPro ? (
+            <>
+              <Text style={styles.opis} testID="pro-aktywny">{t('Piekarz Pro jest aktywny.')}</Text>
+              {aktywny?.subskrypcja && (
+                <Pressable accessibilityRole="button" testID="pro-manage-btn" style={styles.drugi} onPress={() => void zarzadzajSubskrypcja()}>
+                  <Text style={styles.drugiTekst}>{t('Zarządzaj subskrypcją')}</Text>
+                </Pressable>
+              )}
+            </>
+          ) : bezOferty ? (
             <KomunikatBezSieci niedostepna={stan === 'niedostepna'} />
           ) : (
             <>
-              {stan === 'oferta-proba' && (
-                <Text style={styles.proba} testID="offer-trial-length">
-                  {t('Okres próbny: {dni}', {
-                    dni: tPlural(dniProby, { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' }),
-                  })}
-                </Text>
-              )}
-              <Text style={styles.opis}>
-                {t('Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.')}
+              <Text style={styles.opis} testID="pro-opis">
+                {t('Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.')}
               </Text>
 
               <View style={styles.opcje} accessibilityRole="radiogroup">
@@ -187,7 +203,8 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
                       testID={ID_OPCJI[p]}
                       nazwa={nazwaPlanu(p)}
                       cena={o ? cenaPlanu(o) : null}
-                      opis={p === 'lifetime' ? opisDozywotniego : undefined}
+                      // Ujawnienie 4: dożywotni to jedna opłata bez odnawiania
+                      opis={p === 'lifetime' ? t('Jedna opłata, bez odnawiania.') : undefined}
                       wybrana={p === plan}
                       onPress={() => setWybrany(p)}
                     />
@@ -195,14 +212,17 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
                 })}
               </View>
 
-              {stan !== 'ladowanie' && <Ujawnienia teksty={ujawnienia} />}
+              {/* PRZ-28: ceny przed „Co daje Pro”, żeby przy 320 pt cena była widoczna nad paskiem kciuka (ujawnienie 1) */}
+              <CoDajePro />
+
+              {stan !== 'ladowanie' && <Lista testID="subscription-terms" teksty={ujawnienia} />}
             </>
           )}
           {duzyTekst && linki}
         </ScrollView>
 
         <View style={styles.kciuk}>
-          {bezOferty ? (
+          {zPro ? null : bezOferty ? (
             <Pressable accessibilityRole="button" testID="offer-retry-btn" style={styles.glowny} onPress={ponow}>
               <Text style={styles.glownyTekst}>{t('Spróbuj ponownie')}</Text>
             </Pressable>
@@ -215,7 +235,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
               disabled={stan === 'ladowanie' || isProcessing}
               onPress={handlePurchase}
             >
-              <Text style={styles.glownyTekst}>{napisPrzycisku(doPlanu(plan), plan)}</Text>
+              <Text style={styles.glownyTekst}>{napisPrzycisku(plan)}</Text>
             </Pressable>
           )}
 
@@ -236,8 +256,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
   },
-  proba: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   opis: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  obszary: { gap: odstepy.s },
+  naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
+  drugi: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    borderRadius: promienie.przycisk,
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: odstepy.m,
+  },
+  drugiTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   opcje: { gap: odstepy.s },
   ujawnienia: { gap: odstepy.s },
   ujawnienie: { flexDirection: 'row', gap: odstepy.s, alignItems: 'flex-start' },

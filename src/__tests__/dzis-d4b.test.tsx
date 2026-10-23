@@ -38,8 +38,7 @@ import renderer, { act } from 'react-test-renderer';
 import * as Iap from 'expo-iap';
 import StartScreen from '../../app/(tabs)/(dzis)/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
-import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveStarter, getAppSetting, setAppSetting, saveBakeLog } from '../data/sqlite-store';
-import { KLUCZ_HISTORII_DOSTEPU } from '../lib/platnosci/konfiguracja';
+import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveStarter, getAppSetting, saveBakeLog } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { loadActiveBakeSessionsZWersja } from '../data/bake-sessions-store';
 import { KLUCZ_POMINIEC } from '../data/pominiecia-store';
@@ -179,6 +178,13 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(root.findAll((n) => typeof n.props.testID === 'string' && n.props.testID.startsWith('brand-spiral-tor-2-odcinek-')).length).toBeGreaterThan(0);
     const karty = host(root, 'start-trwa-wypiek');
     expect(karty).toHaveLength(2);
+    // PRZ-09: numer toru rośnie z tekstem (min. 24 pt), nie stałe 24 × 24, które przy AX5 wypuszcza cyfrę poza koło
+    for (const k of karty) {
+      const kola = k.findAll((n) => typeof n.type === 'string' && styl(n).borderWidth === 2 && styl(n).borderColor !== undefined && (styl(n).minWidth === 24 || styl(n).width === 24));
+      expect(kola.length).toBeGreaterThan(0);
+      for (const kolo of kola) expect(styl(kolo)).toEqual(expect.objectContaining({ minWidth: 24, minHeight: 24 }));
+      for (const kolo of kola) expect(styl(kolo).width).toBeUndefined();
+    }
     const wroc = przycisk(root, 'resume-bake-btn');
     expect(wroc.map((w) => w.props.accessibilityLabel)).toEqual(['Wróć do: Chleb', 'Wróć do: Pizza']);
     for (const w of wroc) expect(Number(styl(w).minHeight)).toBeGreaterThanOrEqual(44);
@@ -299,8 +305,15 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
     await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1));
     const root = await renderStart();
-    const dni = () => root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function');
+    const dni = () => root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function' && n.props.accessibilityRole === 'button');
     expect(dni()).toHaveLength(1);
+    // PRZ-08: wiersz dnia jak agenda makiety — data jako nagłówek, każde zdarzenie w osobnej linii z glifem (nie jeden akapit)
+    const dzisiejszy = dni()[0];
+    const linie = dzisiejszy.findAllByType(Text).map((n) => [n.props.children].flat().join(''));
+    expect(linie.length).toBeGreaterThanOrEqual(3);
+    expect(linie[0]).toMatch(/dziś/);
+    expect(linie.slice(1).every((l) => !/dziś/.test(l))).toBe(true);
+    expect(dzisiejszy.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('glif-')).length).toBeGreaterThanOrEqual(2);
     await act(async () => przycisk(root, 'pasek-caly-tydzien')[0].props.onPress());
     expect(dni()).toHaveLength(7);
     expect(przycisk(root, 'pasek-caly-tydzien')).toHaveLength(0);
@@ -344,12 +357,14 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(mockPush).toHaveBeenLastCalledWith('/zakwasy');
     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
     await act(async () => przycisk(root, 'arkusz-zdarzenie-dziennik:wpis-1')[0].props.onPress());
-    expect(mockPush).toHaveBeenLastCalledWith('/dziennik');
+    // Od M3 D7 Dziennik otwiera się z tym wpisem (BR-KAL-013 „przejście do każdego wpisu”, D-114)
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/dziennik', params: { wpis: 'wpis-1' } });
   });
 
-  it('BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: po próbie wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia', async () => {
+  // Przepisane z kontraktu D-038 („po próbie”, kłódki na kaflach) na Basic/Pro [M3 P-a]: bez Pro przeszłość zawsze,
+  // bez terminów dokarmiania gotowego zakwasu (D-113), bez kłódek na kaflach (Basic, D-112)
+  it('BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia', async () => {
     await pustaBaza();
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, 'proba');
     await saveBakeLog({ id: 'wpis-1', recipeName: 'Wiejski', startedAt: Date.now() - 3 * H, finishedAt: Date.now() - 2 * H, ratingStars: 4 });
     await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 20 * H });
     const root = await renderStart();
@@ -360,8 +375,8 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(naPasie).not.toContain('wymaga Piekarz Pro');
     expect(naPasie).not.toContain('Zaległe:');
     expect(naPasie).not.toContain('Następne:');
-    // Kłódki zostają tylko na kaflach (stan „tylko historia”)
-    expect(teksty(root)).toContain('wymaga Piekarz Pro');
+    // Kafle bez kłódek: trzy czynności w Basic
+    expect(teksty(root)).not.toContain('wymaga Piekarz Pro');
   });
 
   it('BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {

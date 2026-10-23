@@ -5,7 +5,7 @@
  */
 import { setLang } from '../i18n';
 import { ciagDnia, dataSlownie, dniPaska, glifyDnia, MAKS_GLIFOW_DNIA, type GlifZdarzenia } from '../kalendarz-pasek';
-import { etykietaDnia } from '../kalendarz-teksty';
+import { czesciDnia, etykietaDnia } from '../kalendarz-teksty';
 import { zdarzeniaKalendarza, type DaneKalendarza, type KalendarzWypiek } from '../../core/kalendarz-zdarzenia';
 import { znacznikiDni } from '../../core/kalendarz-nastepne';
 import type { PlanStarter } from '../../core/notification-plan';
@@ -72,6 +72,40 @@ describe('pasek tygodnia (Europe/Warsaw, PL)', () => {
     expect(glifyDnia(zd, '2026-10-24', kolejnosc)).toEqual({ glify: [], zalegle: false });
     const wszystkie: GlifZdarzenia[] = ['wypiek', 'wypiek2', 'gotowe', 'dziennik', 'karmienie', 'karmienie-nastepne', 'zakladanie'];
     expect(new Set(wszystkie).size).toBe(7);
+  });
+
+  it('PRZ-13: plan niezaczęty ma własny glif „plan”, inny niż trwający wypiek; „gotowe” planu zostaje bochenkiem', () => {
+    const now = lok(2026, 10, 22, 12);
+    const d: DaneKalendarza = {
+      ...BRAK,
+      wypieki: [wypiek('chleb', [krok('Mieszanie', lok(2026, 10, 24, 6)), krok('Pieczenie', lok(2026, 10, 24, 9))])],
+      zaplanowane: [{ id: 'sobota', recipeName: 'Pizza', steps: [krok('Kulki', lok(2026, 10, 24, 8)), krok('Pieczenie', lok(2026, 10, 24, 18))] }],
+    };
+    const zd = zdarzeniaKalendarza(d, now);
+    const g = glifyDnia(zd, '2026-10-24', ['chleb']);
+    expect(g.glify).toContain<GlifZdarzenia>('wypiek');
+    expect(g.glify).toContain<GlifZdarzenia>('plan');
+    const tylkoPlan = glifyDnia(zdarzeniaKalendarza({ ...BRAK, zaplanowane: d.zaplanowane }, now), '2026-10-24', []);
+    expect(tylkoPlan.glify).not.toContain<GlifZdarzenia>('wypiek');
+    expect(tylkoPlan.glify[0]).toBe('plan');
+  });
+
+  it('PRZ-08: części dnia (wiersz AX5): data osobno, najwyżej 3 zdarzenia po jednym, potem „i jeszcze N”; etykieta VoiceOver bez zmian', () => {
+    const now = lok(2026, 10, 22, 6);
+    const kroki = [8, 9, 10, 11, 12].map((h) => krok(`Krok ${h}`, lok(2026, 10, 22, h)));
+    const d: DaneKalendarza = { ...BRAK, wypieki: [wypiek('chleb', kroki, { timerEndsAt: lok(2026, 10, 22, 12) })] };
+    const zd = zdarzeniaKalendarza(d, now).filter((z) => z.dzien === '2026-10-22');
+    expect(zd.length).toBeGreaterThan(3);
+    const dzien = { ms: lok(2026, 10, 22), dzis: true };
+    const o = { now, wieleWypiekow: false };
+    const c = czesciDnia(zd, dzien, o);
+    expect(c.data).toBe('czwartek, 22 października, dziś');
+    expect(c.pozycje).toHaveLength(3);
+    expect(c.pozycje.every((p) => /^\d{2}:\d{2} /.test(p.tekst))).toBe(true);
+    expect(c.reszta).toBe(`i jeszcze ${zd.length - 3}, szczegóły w arkuszu dnia`);
+    expect(etykietaDnia(zd, dzien, o)).toBe([c.data, ...c.pozycje.map((p) => p.tekst), c.reszta].join('. '));
+    const pusty = czesciDnia([], dzien, o);
+    expect(pusty).toEqual({ data: 'czwartek, 22 października, dziś', pozycje: [], reszta: null, pusto: 'Nic w planach' });
   });
 
   it('wypiek wielodniowy jako ciągła linia: od pierwszego do ostatniego dnia, połówki na końcach', () => {

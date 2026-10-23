@@ -169,20 +169,20 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-006: Kalendarz bez Piekarz Pro
 - Przepływ: PR-19, PR-16
-- Dowód potrzeby: D-038, D-039 pkt 3 (wypiek rozpoczęty w czasie dostępu prowadzi się do końca); tekst trybu „tylko historia”: „Przypomnienia o dokarmianiu są wyłączone.”
+- Dowód potrzeby: D-112, D-113, D-116 (Basic: widok tygodnia, „Następne”, arkusz dnia, przeszłość; Pro: przypomnienia o dokarmianiu poza zakładaniem, plany na przyszłe dni, dwa wypieki); D-039 pkt 3 (wypiek rozpoczęty z Pro prowadzi się do końca); ER-74
 - Kryteria akceptacji:
   - Scenariusz: Przeszłość zawsze
-    - Zakładając, że okres próbny minął bez zakupu
+    - Zakładając, że użytkownik nie ma Pro (nigdy nie kupił albo Pro wygasło)
     - Gdy użytkownik otwiera „Dziś”
     - Wtedy widzi na pasku wypieki z dziennika i zapisane karmienia z przeszłości, bez kłódek na dniach
   - Scenariusz: Bez terminów karmienia
-    - Zakładając, że okres próbny minął bez zakupu, a zakwas na blacie dokarmiono wczoraj
+    - Zakładając, że użytkownik nie ma Pro, a zakwas na blacie (po zakładaniu) dokarmiono wczoraj
     - Gdy użytkownik patrzy na pasek i linię „Następne”
-    - Wtedy nie widzi następnego karmienia, bo przypomnienia o dokarmianiu są wyłączone (wykładnia D-038 do potwierdzenia przez rolę 02 [DO WYJAŚNIENIA] (OP-55))
+    - Wtedy nie widzi następnego karmienia, bo przypomnienia o dokarmianiu są w Pro (D-113; OP-55 rozstrzygnięte); w czasie zakładania pierwszego zakwasu terminy karmień są widoczne także bez Pro
   - Scenariusz: Wypiek rozpoczęty z dostępem
-    - Zakładając, że wypiek rozpoczęto w czasie próby, a próba minęła w jego trakcie
+    - Zakładając, że wypiek rozpoczęto z planem Pro, a Pro wygasło w jego trakcie
     - Gdy użytkownik patrzy na pasek
-    - Wtedy widzi przyszłe kroki tego wypieku jak przed końcem próby (D-039 pkt 3)
+    - Wtedy widzi przyszłe kroki tego wypieku jak przed końcem Pro (D-039 pkt 3)
 
 ### BR-KAL-007: Kalendarz nie zmienia schematu bazy w pierwszej wersji
 - Przepływ: PR-19
@@ -203,7 +203,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-015: Zaplanuj wypiek na ten dzień
 - Przepływ: PR-19, PR-02
-- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); dziś Harmonogram ma wybór dnia „gotowe”: dziś, jutro, pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`); H-15 (b+)
+- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); H-15 (b+); zasięg dnia „gotowe” dziś + 14 dni i kilka wypieków naraz: D-092, D-108 (ER-73)
 - Kryteria akceptacji:
   - Scenariusz: Pojutrze bez trwającego wypieku
     - Zakładając, że nie ma trwającego wypieku, a dziś jest czwartek
@@ -211,12 +211,16 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Wtedy otwiera się wybór receptury, a potem Harmonogram z dniem „gotowe” ustawionym na sobotę
   - Scenariusz: Dzień poza zasięgiem planu
     - Zakładając, że dziś jest czwartek
-    - Gdy użytkownik dotyka niedzieli
-    - Wtedy arkusz dnia nie ma skrótu do planu (dzień poza zasięgiem Harmonogramu; plan na dowolny dzień: BR-KAL-009)
+    - Gdy użytkownik dotyka dnia dalej niż 14 dni od dziś
+    - Wtedy arkusz dnia nie ma skrótu do planu (zasięg dnia „gotowe” w Harmonogramie: dziś + 14 dni, D-108)
   - Scenariusz: Trwa wypiek
-    - Zakładając, że trwa wypiek
+    - Zakładając, że trwa wypiek, a zaplanowanych wypieków jest mniej niż 5
     - Gdy użytkownik dotyka jutra
-    - Wtedy arkusz dnia nie ma skrótu do planu, bo aplikacja prowadzi jeden wypiek naraz
+    - Wtedy arkusz dnia ma skrót do planu, bo aplikacja prowadzi kilka wypieków naraz (D-092, D-108); start planu przy dwóch trwających idzie przez pytanie z D-104
+  - Scenariusz: Limit planów
+    - Zakładając, że jest już 5 zaplanowanych wypieków
+    - Gdy użytkownik dotyka przyszłego dnia
+    - Wtedy arkusz dnia nie ma skrótu do planu albo skrót prowadzi do komunikatu „Masz już 5 planów” z przejściem do listy planów (D-092, D-108)
   - Scenariusz: Dzień miniony
     - Zakładając, że dziś jest czwartek
     - Gdy użytkownik dotyka wtorku

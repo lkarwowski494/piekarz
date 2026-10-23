@@ -8,13 +8,14 @@ import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { guardSave } from '../lib/save-guard';
 import { tapHaptic } from '../lib/haptics';
-import { confirmDeleteBakeLog } from '../lib/confirm';
-import { getBakeLogs, deleteBakeLog, getRecipes } from '../data/sqlite-store';
+import { t } from '../lib/i18n';
+import { getBakeLogs, deleteBakeLog, getRecipes, restoreBakeLog } from '../data/sqlite-store';
 import { StoredBakeLog } from '../data/db';
 import { bazowaZmienionaOdWypieku, prepareBakeAgainRecipe } from '../lib/recipe-navigation';
 import { ustawRecepturePlanu } from '../lib/plan-receptury';
 import { calculateDoughRecipe } from '../core/domain-rules';
 import { calculateBakeStatistics, filterBakeLogs } from '../core/bake-statistics';
+import type { Funkcja } from '../lib/platnosci/konfiguracja';
 
 /** Masa ciasta, gdy receptura jej nie ma: jak domyślnie na ekranie receptury (2 bochenki po 850 g). */
 const MASA_DOMYSLNA_G = 2 * 850;
@@ -22,7 +23,7 @@ const MASA_DOMYSLNA_G = 2 * 850;
 export type FiltrSmaku = 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
 
 /** Dziennik wypieków z bazy; `requireActionAccess` to jedyny strażnik dostępu ekranu (useAppAccess). */
-export function useBakeHistory(requireActionAccess: (action?: () => void | Promise<void>) => boolean) {
+export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: () => void | Promise<void>) => boolean) {
   const router = useRouter();
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
   const [selectedTasteFilter, setSelectedTasteFilter] = useState<FiltrSmaku>('all');
@@ -41,8 +42,9 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
     loadHistory();
   }, [loadHistory]);
 
+  // „Piecz ponownie” w Basic (BR-RECP-003, D-113)
   const handleBakeAgain = async (log: StoredBakeLog) => {
-    requireActionAccess(async () => {
+    requireActionAccess('historia', async () => {
       tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
 
       // BR-RECP-003 „Następny wypiek z wpisu”: plan wypieku (PR-02) z tą samą recepturą i notatką z wpisu
@@ -72,12 +74,27 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
     });
   };
 
+  // Usunięcie rutynowe bez pytania, pasek „Usunięto wpis” z „Przywróć” (D-051 1a; 04-studio-projektowe-011, W-fix2)
+  const [usuniety, setUsuniety] = useState<StoredBakeLog | null>(null);
   const handleDeleteBakeLog = (id: string) => {
-    confirmDeleteBakeLog(guardSave(async () => {
+    const log = bakeHistory.find((l) => l.id === id);
+    void guardSave(async () => {
       await deleteBakeLog(id);
+      setUsuniety(log ?? null);
       await loadHistory();
-    }));
+    })();
   };
+  const ukryjCofnij = useCallback(() => setUsuniety(null), []);
+  const przywrocWpis = useCallback(() => {
+    if (!usuniety) return;
+    const log = usuniety;
+    setUsuniety(null);
+    void guardSave(async () => {
+      await restoreBakeLog(log);
+      await loadHistory();
+    })();
+  }, [usuniety, loadHistory]);
+  const cofnijUsuniecie = usuniety ? { tekst: t('Usunięto wpis'), onPrzywroc: przywrocWpis, onUkryj: ukryjCofnij } : null;
 
   return {
     bakeHistory,
@@ -88,5 +105,6 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
     loadHistory,
     handleBakeAgain,
     handleDeleteBakeLog,
+    cofnijUsuniecie,
   };
 }

@@ -35,7 +35,7 @@ jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
 const mockPush = jest.fn();
 
 jest.mock('expo-router', () => ({
-  useRouter: () => ({
+  /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({
     push: mockPush,
   }),
 }));
