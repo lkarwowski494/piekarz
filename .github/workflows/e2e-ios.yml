@@ -41,16 +41,16 @@ env:
   MAESTRO_VERSION: "2.11.0"
   MAESTRO_CLI_NO_ANALYTICS: 1
   MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
-  # Build E2E z dostępem (symulator nie ma StoreKit): Metro wstawia flagę przy budowaniu; testflight.yml jej
-  # nie dopuszcza (krok „Guard against test/mock flags”). Wybór P-037 a [M1-audytor-generalny-037].
-  EXPO_PUBLIC_E2E: "1"
+  # Flaga dostępu E2E (pełny Pro) tylko w env kroku pierwszego buildu, nie tutaj: drugi build (Basic) nie może
+  # jej dziedziczyć [M3 E2E-basic, decyzja M1 2026-10-23 wariant a].
 
 jobs:
   e2e:
     name: Maestro E2E on iOS Simulator
     # macos-14 jest wycofywany (actions/runner-images, odczyt 2026-10-19); repo publiczne: standardowe runnery bez opłat.
     runs-on: macos-26
-    timeout-minutes: 90
+    # +30 min na drugi build Release (przyrostowy: ten sam derivedData, nowy bundle JS) i scenariusze Basic [M3 E2E-basic]
+    timeout-minutes: 120
 
     steps:
       - name: Checkout
@@ -69,6 +69,10 @@ jobs:
         run: npx expo prebuild --platform ios --clean
 
       - name: Build Release for simulator
+        env:
+          # Build E2E z dostępem (symulator nie ma StoreKit): Metro wstawia flagę przy budowaniu; testflight.yml jej
+          # nie dopuszcza (krok „Guard against test/mock flags”). Wybór P-037 a [M1-audytor-generalny-037].
+          EXPO_PUBLIC_E2E: "1"
         run: |
           set -o pipefail
           WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
@@ -77,6 +81,8 @@ jobs:
           xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -n 80
+          # Skrót bundle JS z flagą: build Basic musi dać inny (kontrola, że bundle zbudował się od nowa)
+          echo "BUNDLE_E2E_SHA=$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)" >> "$GITHUB_ENV"
 
       - name: Boot simulator and install app
         run: |
@@ -134,6 +140,40 @@ jobs:
             exit 1
           fi
 
+      # E2E w Basic (decyzja M1 2026-10-23, wariant a): drugi build Release BEZ EXPO_PUBLIC_E2E w tym samym jobie, żeby
+      # nie powtarzać npm ci, prebuild, kompilacji natywnej, bootu symulatora i instalacji narzędzi. Ten sam derivedData:
+      # natywny kod bez zmian, od nowa tylko bundle JS (flaga działa wyłącznie w JS, src/lib/app-access.ts). Bez furtki
+      # „wymuś Basic” w kodzie aplikacji [M3 E2E-basic].
+      - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+        run: |
+          set -o pipefail
+          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then
+            echo "::error::EXPO_PUBLIC_E2E jest ustawiona — build Basic musi być bez dostępu E2E."
+            exit 1
+          fi
+          # Bez pamięci transformacji Metro z buildu z flagą (wartość EXPO_PUBLIC_* jest wstawiana przy transformacji)
+          rm -rf "${TMPDIR:-/tmp}"/metro-* "${TMPDIR:-/tmp}"/haste-map-* node_modules/.cache/metro
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -n 80
+          BUNDLE_BASIC_SHA=$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)
+          if [ "$BUNDLE_BASIC_SHA" = "$BUNDLE_E2E_SHA" ]; then
+            echo "::error::main.jsbundle Basic jest taki sam jak w buildzie z EXPO_PUBLIC_E2E — bundle nie zbudował się od nowa."
+            exit 1
+          fi
+
+      - name: Install Basic build on simulator
+        run: |
+          BUNDLE_ID=$(node -p 'require("./app.json").expo.ios.bundleIdentifier')
+          xcrun simctl uninstall "$UDID" "$BUNDLE_ID" || true
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+          xcrun simctl install "$UDID" "$APP"
+
+      # Scenariusze po id: jeden przebieg (język symulatora z poprzedniego kroku, en_US) wystarcza
+      - name: Run E2E flows in Basic (.maestro/e2e-basic)
+        run: maestro --device "$UDID" test .maestro/e2e-basic --format junit --output maestro-e2e-basic.xml
+
       - name: Upload Maestro report and screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -142,6 +182,7 @@ jobs:
           path: |
             maestro-e2e-pl.xml
             maestro-e2e-en.xml
+            maestro-e2e-basic.xml
             ~/.maestro/tests
           if-no-files-found: ignore
           retention-days: 7

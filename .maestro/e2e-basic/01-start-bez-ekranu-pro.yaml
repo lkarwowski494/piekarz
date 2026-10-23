@@ -1,0 +1,58 @@
+# Prawdziwe E2E w Basic: build Release BEZ EXPO_PUBLIC_E2E (.github/workflows/e2e-ios.yml, decyzja M1 2026-10-23,
+# wariant a); elementy tylko po id (M1-audytor-generalny-037, 07-jakosc-501). Symulator bez produktow StoreKit.
+# Start aplikacji i przejscie po zakladkach nie otwieraja ekranu Pro (src/lib/app-access.ts: ekran Pro tylko po
+# stuknieciu funkcji Pro i z Ustawien; kontrakt docs/monetyzacja.md, zakazane wzorce; D-112). Ekran Pro rozpoznajemy
+# po "Przywroc zakupy" (restore-purchases-btn, PaywallModal), widocznym w kazdym stanie oferty.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- assertNotVisible:
+    id: "restore-purchases-btn"
+# Pas Dzis w Basic: tydzien z przyciskiem "Miesiac" (oznaczenie Pro), bez widoku miesiaca
+- assertVisible:
+    id: "kalendarz-tryb-miesiac"
+- assertNotVisible:
+    id: "miesiac-siatka"
+- tapOn:
+    id: "tab-receptury"
+- assertVisible:
+    id: "recipe-list"
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- tapOn:
+    id: "tab-zakwasy"
+- assertVisible:
+    id: "zakwas-doctor-shortcut-btn"
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- tapOn:
+    id: "tab-dziennik"
+- assertVisible:
+    id: "dziennik-doktor-btn"
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- tapOn:
+    id: "tab-dzis"
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 15000
+- assertNotVisible:
+    id: "restore-purchases-btn"
+# Ponowne uruchomienie (po odczycie sklepu z pierwszego): dalej bez ekranu Pro
+- launchApp:
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- assertNotVisible:
+    id: "restore-purchases-btn"

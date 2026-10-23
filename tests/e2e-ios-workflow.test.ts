@@ -13,6 +13,13 @@ const workflow = readFileSync(join(root, '.github', 'workflows', 'e2e-ios.yml'),
 const appJson = JSON.parse(readFileSync(join(root, 'app.json'), 'utf8'));
 const bundleId: string = appJson.expo.ios.bundleIdentifier;
 const e2eDir = join(root, '.maestro', 'e2e');
+// Scenariusze w Basic: drugi build Release bez EXPO_PUBLIC_E2E (decyzja M1 2026-10-23, wariant a) [M3 E2E-basic]
+const e2eBasicDir = join(root, '.maestro', 'e2e-basic');
+/** Pliki .yaml scenariuszy prawdziwego E2E: główny przepływ (build z dostępem) i Basic (build bez flagi). */
+const plikiE2e = (): [string, string][] =>
+  [e2eDir, e2eBasicDir].flatMap((d) => readdirSync(d).filter((f) => f.endsWith('.yaml')).map((f): [string, string] => [d, f]));
+/** Kroki workflow (`- name: …` na poziomie kroków joba). */
+const krokiWorkflow = workflow.split(/\n(?= {6}- name: )/).slice(1);
 
 /** Pliki .ts/.tsx kodu aplikacji w katalogu (bez __tests__). */
 function plikiKodu(dir: string): string[] {
@@ -21,6 +28,14 @@ function plikiKodu(dir: string): string[] {
     if (e.isDirectory()) return e.name === '__tests__' ? [] : plikiKodu(p);
     return /\.tsx?$/.test(e.name) ? [p] : [];
   });
+}
+
+// Każdy id ze scenariuszy (bez wzorców) jest testID w kodzie aplikacji (bez testów): dosłownie albo jako
+// szablon z przedrostkiem (`plan-dzien-${offset}`, `recipe-row-${id}`)
+let zrodla: string | null = null;
+function wKodzie(id: string): boolean {
+  zrodla ??= ['app', 'src'].flatMap((d) => plikiKodu(join(root, d))).map((p) => readFileSync(p, 'utf8')).join('\n');
+  return zrodla.includes(`"${id}"`) || zrodla.includes(`'${id}'`) || zrodla.includes(`\`${id.replace(/-[^-]+$/, '-')}\${`);
 }
 
 describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
@@ -52,10 +67,9 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   // [M1-audytor-generalny-037; 07-jakosc-501] Od 048 aplikacja startuje w języku systemu: scenariusze nie mogą
   // szukać polskich tekstów; przebieg w pl_PL i en_US dowodzi, że nie zależą od przekładu.
   it('scenariusze E2E wybierają elementy tylko po id (bez tekstów zależnych od języka)', () => {
-    const flows = readdirSync(e2eDir).filter((f) => f.endsWith('.yaml'));
     const tekstowe: string[] = [];
-    for (const f of flows) {
-      readFileSync(join(e2eDir, f), 'utf8')
+    for (const [d, f] of plikiE2e()) {
+      readFileSync(join(d, f), 'utf8')
         .split(/\r?\n/)
         .forEach((l, i) => {
           if (/^\s*-\s*(tapOn|assertVisible|assertNotVisible|scrollUntilVisible)\s*:\s*["'\w]/.test(l)) tekstowe.push(`${f}:${i + 1}: ${l.trim()}`);
@@ -75,8 +89,8 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     const OKNO_ZGODY = '"Pozwalaj|Zezwalaj|Zezwól|Allow"';
     const alerty = Object.entries(ALERT_NATYWNY).map(([pl, en]) => `"${pl}|${en}"`);
     const zle: string[] = [];
-    for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {
-      const linie = readFileSync(join(e2eDir, f), 'utf8').split(/\r?\n/);
+    for (const [d, f] of plikiE2e()) {
+      const linie = readFileSync(join(d, f), 'utf8').split(/\r?\n/);
       linie.forEach((l, i) => {
         const m = /^\s+text:\s*(.*)$/.exec(l);
         if (!m) return;
@@ -109,20 +123,65 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     for (const id of ['przelacznik-wypiekow', 'przelacznik-wypiek-.*', 'karta-otworz', 'start-trwa-wypiek']) expect(dwa).toContain(`id: "${id}"`);
     expect(dwa).toMatch(/index: 0[\s\S]*leftOf:/);
     expect(dwa).toMatch(/index: 1[\s\S]*rightOf:/);
-    // Każdy id z tych scenariuszy (bez wzorców) jest testID w kodzie aplikacji (bez testów): dosłownie albo jako
-    // szablon z przedrostkiem (`plan-dzien-${offset}`, `recipe-row-${id}`)
-    const zrodla = ['app', 'src'].flatMap((d) => plikiKodu(join(root, d))).map((p) => readFileSync(p, 'utf8')).join('\n');
-    const wKodzie = (id: string) =>
-      zrodla.includes(`"${id}"`) || zrodla.includes(`'${id}'`) || zrodla.includes(`\`${id.replace(/-[^-]+$/, '-')}\${`);
     for (const tekst of [plan, dwa]) {
       for (const m of tekst.matchAll(/id: "([^"*]+)"/g)) expect(`${m[1]}: ${wKodzie(m[1])}`).toBe(`${m[1]}: true`);
     }
   });
 
+  // Decyzja M1 2026-10-23 (wariant a): E2E w Basic na drugim buildzie Release bez EXPO_PUBLIC_E2E, bez furtki w kodzie
+  // [M3 E2E-basic]. Ekran Pro (PaywallModal) rozpoznawany po "Przywróć zakupy", widocznym w każdym stanie oferty.
+  it('scenariusze Basic: start bez ekranu Pro, funkcje Pro otwierają ekran Pro z linkami, Basic działa bez niego', () => {
+    const plik = (f: string) => readFileSync(join(e2eBasicDir, f), 'utf8');
+    const start = plik('01-start-bez-ekranu-pro.yaml');
+    expect(start).toMatch(/id: "start-czynnosci"[\s\S]*?- assertNotVisible:\s*\n\s*id: "restore-purchases-btn"/);
+    expect(start).not.toMatch(/- tapOn:\s*\n\s*id: "(kalendarz-tryb-miesiac|add-starter-btn|arkusz-zaplanuj-btn)"/);
+    for (const f of ['02-miesiac-ekran-pro.yaml', '03-arkusz-dnia-zaplanuj-pro.yaml', '05-drugi-zakwas-pro.yaml']) {
+      const t = plik(f);
+      for (const id of ['restore-purchases-btn', 'terms-of-use-btn', 'privacy-policy-btn', 'close-modal']) expect(`${f}: ${t.includes(`id: "${id}"`)}`).toBe(`${f}: true`);
+      // Zamknięcie ekranu Pro: po close-modal ekran znika
+      expect(t).toMatch(/id: "close-modal"[\s\S]*notVisible:\s*\n\s*id: "restore-purchases-btn"/);
+    }
+    expect(plik('02-miesiac-ekran-pro.yaml')).toMatch(/tapOn:\s*\n\s*id: "kalendarz-tryb-miesiac"/);
+    // D-117: ekran Pro z arkusza dnia dopiero po jego zamknięciu
+    expect(plik('03-arkusz-dnia-zaplanuj-pro.yaml')).toMatch(/id: "arkusz-zaplanuj-btn"[\s\S]*id: "restore-purchases-btn"[\s\S]*assertNotVisible:\s*\n\s*id: "arkusz-dnia"/);
+    const wypiek = plik('04-wypiek-teraz-basic.yaml');
+    expect(wypiek).toMatch(/tapOn:\s*\n\s*id: "plan-start-bake-btn"[\s\S]*id: "next-or-finish-step-btn"/);
+    expect(wypiek).not.toMatch(/visible:\s*\n\s*id: "restore-purchases-btn"/);
+    expect(plik('05-drugi-zakwas-pro.yaml')).toMatch(/id: "zakladanie-pierwsze-dokarmienie-btn"[\s\S]*tapOn:\s*\n\s*id: "add-starter-btn"/);
+    // Każdy id ze scenariuszy Basic jest testID w kodzie aplikacji (jak wyżej)
+    for (const [d, f] of plikiE2e().filter(([d]) => d === e2eBasicDir)) {
+      for (const m of readFileSync(join(d, f), 'utf8').matchAll(/id: "([^"*]+)"/g)) expect(`${f}: ${m[1]}: ${wKodzie(m[1])}`).toBe(`${f}: ${m[1]}: true`);
+    }
+  });
+
+  it('drugi build Release bez EXPO_PUBLIC_E2E, potem Maestro dla .maestro/e2e-basic; flaga tylko w kroku pierwszego buildu', () => {
+    const buildy = krokiWorkflow.filter((k) => /xcodebuild[\s\S]*-configuration Release[\s\S]*-sdk iphonesimulator/.test(k));
+    expect(buildy.length).toBe(2);
+    const [zFlaga, bezFlagi] = buildy as [string, string];
+    // Flaga nie jest w env całego workflow ani joba (inaczej drugi build by ją dziedziczył), tylko w kroku pierwszego buildu
+    const przedKrokami = workflow.slice(0, workflow.indexOf('    steps:'));
+    expect(przedKrokami).not.toMatch(/EXPO_PUBLIC_E2E/);
+    expect(zFlaga).toMatch(/\n {8}env:\n(?: {10}.*\n)*? {10}EXPO_PUBLIC_E2E:\s*["']1["']/);
+    expect(bezFlagi).not.toMatch(/EXPO_PUBLIC_E2E\s*[:=]\s*["']?1/);
+    // Strażnik w kroku: build Basic przerywa się, gdy flaga jest ustawiona
+    expect(bezFlagi).toMatch(/if \[ -n "\$\{EXPO_PUBLIC_E2E:-\}" \]; then[\s\S]*?exit 1/);
+    // Bundle JS budowany od nowa: bez pamięci Metro z buildu z flagą i inny niż w buildzie z flagą
+    expect(bezFlagi).toMatch(/rm -rf [^\n]*metro/);
+    expect(bezFlagi).toMatch(/main\.jsbundle/);
+    const idx = (re: RegExp) => krokiWorkflow.findIndex((k) => re.test(k));
+    const basic = idx(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e-basic\b/);
+    expect(basic).toBeGreaterThan(-1);
+    expect(basic).toBeGreaterThan(krokiWorkflow.indexOf(bezFlagi));
+    expect(krokiWorkflow.indexOf(bezFlagi)).toBeGreaterThan(idx(/!\s*maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/kontrola-negatywna/));
+    // Instalacja buildu Basic na symulatorze przed scenariuszami Basic
+    expect(krokiWorkflow.slice(krokiWorkflow.indexOf(bezFlagi), basic + 1).join('\n')).toMatch(/xcrun simctl install/);
+    expect(workflow).toMatch(/maestro-e2e-basic\.xml/);
+  });
+
   // Systemowe okno zgody na powiadomienia zasłaniało ekran w przebiegu 39581379222 [M1-audytor-generalny-037]
   it('każde uruchomienie aplikacji w scenariuszach E2E ma z góry zgodę na powiadomienia', () => {
-    for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {
-      const text = readFileSync(join(e2eDir, f), 'utf8').replace(/\r\n/g, '\n');
+    for (const [d, f] of plikiE2e()) {
+      const text = readFileSync(join(d, f), 'utf8').replace(/\r\n/g, '\n');
       const starty = text.match(/^- launchApp\b/gm) ?? [];
       const zgody = text.match(/^- launchApp:\n(?: {4}clearState: true\n)? {4}permissions:\n {6}notifications: allow$/gm) ?? [];
       expect(starty.length).toBeGreaterThan(0);
@@ -152,7 +211,8 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   it('scenariusze idą w dwóch językach symulatora: pl_PL i en_US', () => {
     expect(workflow).toMatch(/AppleLanguages[^\n]*pl/);
     expect(workflow).toMatch(/AppleLanguages[^\n]*en/);
-    expect(workflow.match(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e/g)?.length).toBe(2);
+    // Dokładnie katalog e2e (nie e2e-basic, który ma własny przebieg na buildzie bez flagi) [M3 E2E-basic]
+    expect(workflow.match(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e(?![\w-])/g)?.length).toBe(2);
   });
 
   it('build E2E ma dostęp przez EXPO_PUBLIC_E2E=1 tylko w tym workflow; wydanie TestFlight odrzuca tę flagę (P-037 a)', () => {
@@ -169,8 +229,9 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   it('ma co najmniej 2 scenariusze E2E z appId zgodnym z app.json', () => {
     const flows = readdirSync(e2eDir).filter((f) => f.endsWith('.yaml'));
     expect(flows.length).toBeGreaterThanOrEqual(2);
-    for (const f of flows) {
-      const text = readFileSync(join(e2eDir, f), 'utf8');
+    expect(readdirSync(e2eBasicDir).filter((f) => f.endsWith('.yaml')).length).toBeGreaterThanOrEqual(4);
+    for (const [d, f] of plikiE2e()) {
+      const text = readFileSync(join(d, f), 'utf8');
       expect(text).toMatch(new RegExp(`^appId: ${bundleId.replace(/\./g, '\\.')}$`, 'm'));
     }
   });

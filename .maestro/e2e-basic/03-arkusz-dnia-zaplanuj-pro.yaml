@@ -1,0 +1,52 @@
+# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+# "Zaplanuj wypiek na ten dzien" w arkuszu dnia to funkcja Pro z oznaczeniem "Pro" (BR-KAL-015, D-113): najpierw
+# zamyka sie arkusz dnia, ekran Pro dopiero po jego zniknieciu (D-117; useProPoArkuszu, onDismiss na iOS). Zamkniecie
+# ekranu Pro wraca na Dzis bez zmian: bez planu i bez przejscia do Receptur (akcja czeka na zakup, wstrzymana.ts).
+# Dzien dzisiejszy w pasku tygodnia: testID pasek-dzien-RRRR-MM-DD (localDateKey); klucz liczy skrypt Maestro z zegara
+# hosta, a symulator ma strefe czasowa hosta. Dzis ma skrot zawsze (skrotZaplanuj: przesuniecie 0, bez planow).
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- evalScript: ${output.dzis = new Date().getFullYear() + '-' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '-' + ('0' + new Date().getDate()).slice(-2)}
+- tapOn:
+    id: "pasek-dzien-${output.dzis}"
+- extendedWaitUntil:
+    visible:
+      id: "arkusz-zaplanuj-btn"
+    timeout: 15000
+- tapOn:
+    id: "arkusz-zaplanuj-btn"
+- extendedWaitUntil:
+    visible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+# Ekran Pro po zamknieciu arkusza dnia, nie nad nim
+- assertNotVisible:
+    id: "arkusz-dnia"
+- assertVisible:
+    id: "terms-of-use-btn"
+- assertVisible:
+    id: "privacy-policy-btn"
+- tapOn:
+    id: "close-modal"
+- extendedWaitUntil:
+    notVisible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+- assertVisible:
+    id: "start-czynnosci"
+- assertNotVisible:
+    id: "arkusz-dnia"
+- assertNotVisible:
+    id: "recipe-list"
+- assertNotVisible:
+    id: "start-plany"
+- assertNotVisible:
+    id: "start-plan-spirala"
