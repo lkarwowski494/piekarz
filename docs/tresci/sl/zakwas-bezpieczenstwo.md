@@ -40,7 +40,7 @@ Preden začnete nov kvas, kozarec temeljito umijte in sperite. [T:ZAK-NAC-001]
 Tekočina na površini (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Po navedbah CSU Extension je plast tekočine z vonjem po alkoholu v redu: gre za stranski produkt fermentacije kvasovk. [T:ZAK-HOO-001]
+Plast tekočine z vonjem po alkoholu je v redu: to je stranski produkt delovanja kvasovk. [T:ZAK-HOO-001]
 Lahko jo odlijete ali vmešate. [T:ZAK-HOO-001]
 Če vidite tudi oblogo ali razbarvanje ali zaznate gnil vonj, to označite zgoraj. [T:-]
 

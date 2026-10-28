@@ -40,7 +40,7 @@ Prieš pradėdami naują natūralų raugą, kruopščiai išplaukite ir išskala
 Skystis paviršiuje (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Pasak CSU Extension, alkoholio kvapo skysčio sluoksnis yra normalu: tai mielių fermentacijos šalutinis produktas. [T:ZAK-HOO-001]
+Alkoholiu kvepiantis skysčio sluoksnis yra normalu: tai šalutinis mielių veiklos produktas. [T:ZAK-HOO-001]
 Galite jį nupilti arba įmaišyti. [T:ZAK-HOO-001]
 Jei taip pat matote apnašą ar spalvos pakitimą arba jaučiate puvėsių kvapą, pažymėkite tai aukščiau. [T:-]
 

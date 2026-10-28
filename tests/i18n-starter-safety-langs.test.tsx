@@ -89,26 +89,11 @@ describe('Werdykt bezpieczeństwa zakwasu w każdym aktywnym języku (046)', () 
     }
   });
 
-  // Wyjątek nazwany „T2 / a5d — do usunięcia po wpięciu przekładu a5d” (M3 T2, D-123, 2026-10-23): działanie przy samym
-  // płynie (wynik.hooch.actionPl) ma nowe brzmienie PL bez „Według CSU Extension”; stary przekład usunięty ze słowników,
-  // nowy czeka na przebieg a5d (docs/lokalizacja/czeka-na-przeklad.json). Do tego czasu karta w 33 językach pokazuje
-  // to zdanie po angielsku (słownik EN), a tytuł i granica dalej w języku i równe docs/tresci/<język>. Po wpięciu a5d
-  // (wepnij-przeklad odtworzy docs/tresci/<język>/zakwas-bezpieczenstwo.md) usuń ten wyjątek.
-  const CZEKA_A5D: Status[] = ['hooch'];
+  // Działanie przy samym płynie (wynik.hooch.actionPl) bez „Według CSU Extension” (M3 T2, D-123) przetłumaczone w a5d
+  // (wpięte 2026-10-29); wyjątek „T2 / a5d” usunięty — wszystkie statusy jak niżej.
   for (const lang of OTHER_LANGS) {
     const DOC = sections(lang);
-    for (const status of STATUSES.filter((s) => CZEKA_A5D.includes(s))) {
-      it(`${lang}: ${status} — tytuł i granica w języku; działanie po angielsku do przekładu a5d (wyjątek T2 / a5d)`, () => {
-        setLang(lang);
-        const card = renderCard(status);
-        expect(card.title).toBe(DOC[`wynik.${status}.titlePl`]);
-        expect(card.boundary).toBe(DOC['card.granica']);
-        expect(card.title).not.toBe(PL[`wynik.${status}.titlePl`]);
-        expect(card.action).toBe(EN[PL[`wynik.${status}.actionPl`]]);
-        expect(card.action).not.toMatch(/CSU Extension/);
-      });
-    }
-    for (const status of STATUSES.filter((s) => !CZEKA_A5D.includes(s))) {
+    for (const status of STATUSES) {
       it(`${lang}: ${status} — tytuł, działanie i granica przetłumaczone i równe docs/tresci/${lang}`, () => {
         setLang(lang);
         const card = renderCard(status);

@@ -40,8 +40,8 @@ Antes de empezar una nueva masa madre, lava y enjuaga bien el frasco. [T:ZAK-NAC
 Líquido en la superficie (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Según CSU Extension, una capa de líquido con olor a alcohol está bien: es un subproducto de la fermentación de las levaduras. [T:ZAK-HOO-001]
-Puedes escurrirla o mezclarla. [T:ZAK-HOO-001]
+Una capa de líquido con olor a alcohol está bien: es un subproducto del trabajo de la levadura. [T:ZAK-HOO-001]
+Puedes escurrirla o incorporarla. [T:ZAK-HOO-001]
 Si además ves una película o un cambio de color, o percibes olor a podrido, márcalo arriba. [T:-]
 
 ## wynik.no_observation.titlePl

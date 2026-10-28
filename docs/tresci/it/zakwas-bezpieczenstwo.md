@@ -40,8 +40,8 @@ Prima di avviare un nuovo lievito madre, lava e risciacqua accuratamente il bara
 Liquido in superficie (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Secondo CSU Extension, uno strato di liquido con odore di alcol va bene: è un sottoprodotto della fermentazione dei lieviti. [T:ZAK-HOO-001]
-Puoi scolarlo o incorporarlo mescolando. [T:ZAK-HOO-001]
+Uno strato di liquido con odore di alcol va bene: è un sottoprodotto del lavoro dei lieviti. [T:ZAK-HOO-001]
+Puoi versarlo via o mescolarlo. [T:ZAK-HOO-001]
 Se vedi anche una patina o un'alterazione di colore, oppure senti odore di marcio, segnalalo qui sopra. [T:-]
 
 ## wynik.no_observation.titlePl

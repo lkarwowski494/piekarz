@@ -40,9 +40,9 @@ Pred založením nového kvásku pohár dôkladne umyte a vypláchnite. [T:ZAK-N
 Tekutina na povrchu (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Podľa CSU Extension je vrstva tekutiny, ktorá vonia alkoholom, v poriadku: je to vedľajší produkt kvasenia kvasiniek. [T:ZAK-HOO-001]
+Vrstva tekutiny, ktorá vonia alkoholom, je v poriadku: je to vedľajší produkt činnosti kvasiniek. [T:ZAK-HOO-001]
 Môžete ju zliať alebo vmiešať. [T:ZAK-HOO-001]
-Ak vidíte aj povlak alebo zafarbenie, prípadne cítite hnilobný zápach, označte to vyššie. [T:-]
+Ak vidíte aj povlak alebo zafarbenie alebo cítite hnilobný zápach, označte to vyššie. [T:-]
 
 ## wynik.no_observation.titlePl
 Nie je označený žiadny príznak [T:-]

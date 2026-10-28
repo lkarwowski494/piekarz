@@ -40,9 +40,9 @@ Was en spoel de pot grondig voordat je een nieuwe zuurdesemstarter maakt. [T:ZAK
 Vloeistof op het oppervlak (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Volgens CSU Extension is een laagje vloeistof dat naar alcohol ruikt in orde: het is een bijproduct van de gistfermentatie. [T:ZAK-HOO-001]
+Een laagje vloeistof dat naar alcohol ruikt is in orde: het is een bijproduct van werkende gist. [T:ZAK-HOO-001]
 Je kunt het afgieten of erdoor roeren. [T:ZAK-HOO-001]
-Zie je ook aanslag of verkleuring, of ruik je een rotte geur, vink dat dan hierboven aan. [T:-]
+Zie je ook aanslag of verkleuring, of ruikt het rot, geef dat dan hierboven aan. [T:-]
 
 ## wynik.no_observation.titlePl
 Geen symptoom aangevinkt [T:-]

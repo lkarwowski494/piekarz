@@ -40,9 +40,9 @@ Pirms jauna ierauga uzsākšanas rūpīgi nomazgājiet un izskalojiet burku. [T:
 Šķidrums uz virsmas (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Saskaņā ar CSU Extension šķidruma slānis ar alkohola smaržu ir kārtībā: tas ir rauga fermentācijas blakusprodukts. [T:ZAK-HOO-001]
-To var noliet vai iemaisīt. [T:ZAK-HOO-001]
-Ja redzat arī aplikumu vai krāsas izmaiņu vai jūtat pūšanas smaku, atzīmējiet to augstāk. [T:-]
+Šķidruma kārta ar alkohola smaržu ir kārtībā: tas ir rauga darbības blakusprodukts. [T:ZAK-HOO-001]
+To varat noliet vai iemaisīt. [T:ZAK-HOO-001]
+Ja redzat arī aplikumu vai krāsas izmaiņu vai jūtat sapuvušu smaku, atzīmējiet to augstāk. [T:-]
 
 ## wynik.no_observation.titlePl
 Nav atzīmēta neviena pazīme [T:-]

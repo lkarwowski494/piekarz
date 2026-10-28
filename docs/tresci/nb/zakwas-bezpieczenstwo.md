@@ -40,9 +40,9 @@ Vask og skyll glasset grundig før du lager en ny starter. [T:ZAK-NAC-001]
 Væske på overflaten (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Ifølge CSU Extension er et lag med væske som lukter alkohol i orden: det er et biprodukt av gjærens fermentering. [T:ZAK-HOO-001]
+Et lag med væske som lukter alkohol, er i orden: det er et biprodukt av gjærens arbeid. [T:ZAK-HOO-001]
 Du kan helle det av eller røre det inn. [T:ZAK-HOO-001]
-Hvis du også ser belegg eller misfarging eller kjenner en råtten lukt, kryss av for det ovenfor. [T:-]
+Hvis du også ser belegg eller misfarging, eller kjenner en råtten lukt, merk av for det ovenfor. [T:-]
 
 ## wynik.no_observation.titlePl
 Ingen symptomer avkrysset [T:-]

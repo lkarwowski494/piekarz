@@ -40,9 +40,9 @@ Nu mirosi maiaua cu depunere, deoarece poate provoca probleme respiratorii. [T:Z
 Lichid la suprafață (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Potrivit CSU Extension, un strat de lichid cu miros de alcool este în regulă: este un produs secundar al fermentației drojdiilor. [T:ZAK-HOO-001]
-Îl poți scurge sau încorpora. [T:ZAK-HOO-001]
-Dacă vezi și depunere sau decolorare ori simți miros de putrezit, bifează acest lucru mai sus. [T:-]
+Un strat de lichid cu miros de alcool este în regulă: e un produs secundar al activității drojdiilor. [T:ZAK-HOO-001]
+Îl poți scurge sau îl poți amesteca în maia. [T:ZAK-HOO-001]
+Dacă vezi și o depunere sau o decolorare ori simți un miros de putrezit, marchează asta mai sus. [T:-]
 
 ## wynik.no_observation.titlePl
 Niciun simptom bifat [T:-]

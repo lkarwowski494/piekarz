@@ -40,9 +40,9 @@ Yeni bir ekşi maya başlatmadan önce kavanozu iyice yıkayıp durulayın. [T:Z
 Yüzeyde sıvı (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extension'a göre alkol kokulu sıvı katmanı sorun değildir: maya fermantasyonunun yan ürünüdür. [T:ZAK-HOO-001]
-Dökebilir veya karıştırabilirsiniz. [T:ZAK-HOO-001]
-Ayrıca tabaka ya da renk değişimi görüyor veya çürük koku alıyorsanız bunu yukarıda işaretleyin. [T:-]
+Alkol kokan bir sıvı katmanı sorun değildir: mayanın çalışmasının yan ürünüdür. [T:ZAK-HOO-001]
+Onu dökebilir ya da karıştırabilirsiniz. [T:ZAK-HOO-001]
+Ayrıca tabaka ya da renk değişimi görüyorsanız veya çürük bir koku alıyorsanız, bunu yukarıda işaretleyin. [T:-]
 
 ## wynik.no_observation.titlePl
 Hiçbir belirti işaretlenmedi [T:-]

@@ -40,9 +40,9 @@ Vask og skyl glasset grundigt, før du starter en ny surdej. [T:ZAK-NAC-001]
 Væske på overfladen (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Ifølge CSU Extension er et lag væske, der lugter af alkohol, i orden: det er et biprodukt af gærens fermentering. [T:ZAK-HOO-001]
+Et lag væske, der lugter af alkohol, er i orden: det er et biprodukt af gærens arbejde. [T:ZAK-HOO-001]
 Du kan hælde det fra eller røre det i. [T:ZAK-HOO-001]
-Hvis du også ser belægning eller misfarvning eller lugter en rådden lugt, så markér det ovenfor. [T:-]
+Hvis du også ser belægning eller misfarvning, eller den lugter råddent, så markér det ovenfor. [T:-]
 
 ## wynik.no_observation.titlePl
 Ingen symptomer markeret [T:-]
