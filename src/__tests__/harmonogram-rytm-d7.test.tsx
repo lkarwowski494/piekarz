@@ -30,6 +30,7 @@ import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { setLang } from '../lib/i18n';
 import { ustawDzienGotowe } from '../lib/plan-receptury';
 import { addCalendarDays, startOfLocalDay } from '../core/dzien-lokalny';
+import { godzinaPola } from '../../tests/helpers/plan-godzina';
 
 const poId = (root: renderer.ReactTestInstance, testID: string) =>
   root.findAll((n) => typeof n.type !== 'string' && n.props.testID === testID && typeof n.props.onPress === 'function' && n.props.accessibilityRole === 'button');
@@ -67,9 +68,21 @@ async function soboty(n: number) {
   }
 }
 const doSoboty = () => (SOBOTA - new Date().getDay() + 7) % 7 || 7;
+const ZDANIE = 'Propozycja z Dziennika: sobota, jak ostatnie wypieki. Możesz wybrać inny dzień.';
+
+// Zegar stały w czasie lokalnym strefy procesu (TZ Matrix): wynik nie zależy od chwili uruchomienia. Dawniej test brał
+// Date.now() i w piątek wieczorem (Tokio, Sydney, Auckland ok. 08:30 UTC) dzień przeskakiwał na niedzielę (CI 39923870529) [M3 TZ]
+const zegar = (dzien: number, h: number, min = 0) =>
+  jest.useFakeTimers({ now: new Date(2026, 9, dzien, h, min, 0, 0), doNotFake: ['nextTick', 'setImmediate', 'queueMicrotask'] });
+const SRODA_14 = () => zegar(21, 14); // środa 21.10.2026 14:00: sobota za 3 dni, osiągalna z godziną bez nocy
+// Plan domyślny trwa 29 h 45 min: w piątek 17:30 najwcześniej sobota 23:15 (tylko z krokiem w nocy), w piątek 21:30
+// najwcześniej niedziela 03:15 (sobota nieosiągalna)
+const PIATEK_1730 = () => zegar(23, 17, 30);
+const PIATEK_2130 = () => zegar(23, 21, 30);
 
 describe('D7: podpowiedź rytmu w planie wypieku', () => {
   beforeEach(async () => {
+    SRODA_14();
     zUprawnieniem();
     useTempDbDir();
     _resetMemStore();
@@ -83,6 +96,7 @@ describe('D7: podpowiedź rytmu w planie wypieku', () => {
   // Zegar minutowy planu: odmontowanie, żeby nic nie aktualizowało ekranu po teście
   afterEach(() => {
     for (const d of drzewa.splice(0)) act(() => d.unmount());
+    jest.useRealTimers();
   });
 
   it('BR-KAL-014 Zwykle w sobotę: cztery ostatnie wypieki w sobotę → wybrana najbliższa sobota ze zdaniem o propozycji; dzień można zmienić', async () => {
@@ -113,5 +127,45 @@ describe('D7: podpowiedź rytmu w planie wypieku', () => {
     const harm = await render();
     expect(wybrany(harm.root)).toEqual([`plan-dzien-${dzien}`]);
     expect(teksty(harm.root)).not.toContain('Propozycja z Dziennika');
+  });
+
+  // Dzień założony (rytm albo skrót) nie zmienia się po cichu: godzina bez nocy tylko w tym dniu, a bez niej
+  // najwcześniejsza możliwa w tym dniu (baner nocy); dzień rytmu nieosiągalny → ten sam dzień tygodnia tydzień później [M3 TZ]
+  it('BR-KAL-014 piątek 17:30, sobota osiągalna tylko z krokiem w nocy: dzień zostaje sobotą, godzina najwcześniejsza (23:15)', async () => {
+    PIATEK_1730();
+    await soboty(4);
+    const harm = await render();
+    expect(wybrany(harm.root)).toEqual(['plan-dzien-1']);
+    expect(godzinaPola(harm.root)).toBe(23 * 60 + 15);
+    expect(teksty(harm.root)).toContain(ZDANIE);
+    expect(teksty(harm.root)).not.toContain('Nie zdążysz na tę godzinę');
+  });
+
+  it('BR-KAL-014 piątek 21:30, najbliższa sobota nieosiągalna: propozycja na sobotę za tydzień (+7, w zasięgu D-108), zdanie prawdziwe', async () => {
+    PIATEK_2130();
+    await soboty(4);
+    const harm = await render();
+    expect(wybrany(harm.root)).toEqual(['plan-dzien-8']);
+    expect(new Date(addCalendarDays(startOfLocalDay(Date.now()), 8)).getDay()).toBe(SOBOTA);
+    expect(teksty(harm.root)).toContain(ZDANIE);
+    expect(teksty(harm.root)).not.toContain('Nie zdążysz na tę godzinę');
+  });
+
+  it('BR-KAL-015 piątek 17:30, skrót arkusza dnia na sobotę: dzień zostaje sobotą (bez przeskoku na niedzielę)', async () => {
+    PIATEK_1730();
+    ustawDzienGotowe(addCalendarDays(startOfLocalDay(Date.now()), 1));
+    const harm = await render();
+    expect(wybrany(harm.root)).toEqual(['plan-dzien-1']);
+    expect(godzinaPola(harm.root)).toBe(23 * 60 + 15);
+  });
+
+  it('BR-KAL-015 piątek 21:30, skrót na dziś (dzień nieosiągalny): dzień zostaje, komunikat „Nie zdążysz” z najwcześniejszą godziną', async () => {
+    PIATEK_2130();
+    ustawDzienGotowe(startOfLocalDay(Date.now()));
+    const harm = await render();
+    expect(wybrany(harm.root)).toEqual(['plan-dzien-0']);
+    expect(teksty(harm.root)).toContain('Nie zdążysz na tę godzinę');
+    // 03:15 czasu ściennego, w Europe/Warsaw 02:15 (zmiana czasu 25.10 w nocy)
+    expect(teksty(harm.root)).toMatch(/Najwcześniej chleb będzie gotowy pojutrze o 0[23]:15\./);
   });
 });

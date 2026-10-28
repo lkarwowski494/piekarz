@@ -51,11 +51,15 @@ const czekaj = async () => {
     for (let i = 0; i < 40; i++) await Promise.resolve();
   });
 };
+// Zegar minutowy planu (setInterval): każde drzewo odmontowane po teście, inaczej po minucie loguje po końcu testów
+// („Cannot log after tests are done”, CI TZ Matrix 39923870529) [M3 TZ]
+const drzewa: renderer.ReactTestRenderer[] = [];
 async function renderHarmonogram(): Promise<renderer.ReactTestRenderer> {
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
     tree = renderer.create(<HarmonogramScreen />);
   });
+  drzewa.push(tree!);
   await czekaj();
   return tree!;
 }
@@ -77,7 +81,10 @@ beforeEach(async () => {
   await saveBakeSession(null);
   for (const s of await getStarters()) await deleteStarter(s.id);
 });
-afterEach(() => alertSpy.mockRestore());
+afterEach(() => {
+  for (const d of drzewa.splice(0)) act(() => d.unmount());
+  alertSpy.mockRestore();
+});
 
 describe('BR-KAL-011 Harmonogram: Dodaj do kalendarza', () => {
   it('BR-KAL-011 Dodanie bez dostępu do kalendarza: przycisk otwiera arkusz z plikiem .ics planu, wyjaśnienie pod przyciskiem', async () => {
