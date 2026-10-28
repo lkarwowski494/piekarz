@@ -13,6 +13,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BezpiecznyObszarOkna } from './BezpiecznyObszarOkna';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
@@ -56,6 +57,7 @@ export function QrScannerModal({
 
   return (
     <Modal visible={visible} animationType="slide" transparent={false}>
+      <BezpiecznyObszarOkna>
       <SafeAreaView style={styles.container} testID="qr-scanner-modal">
         {/* Header */}
         <View style={styles.header}>
@@ -116,6 +118,7 @@ export function QrScannerModal({
           </View>
         )}
       </SafeAreaView>
+      </BezpiecznyObszarOkna>
     </Modal>
   );
 }

@@ -15,6 +15,7 @@ import {
   Share,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BezpiecznyObszarOkna } from './BezpiecznyObszarOkna';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
@@ -58,6 +59,7 @@ export function ShareRecipeQrModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
+      <BezpiecznyObszarOkna>
       <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="share-recipe-qr-modal">
           {/* Header */}
@@ -119,6 +121,7 @@ export function ShareRecipeQrModal({
           </ScrollView>
         </View>
       </SafeAreaView>
+      </BezpiecznyObszarOkna>
     </Modal>
   );
 }

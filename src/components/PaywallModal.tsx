@@ -12,6 +12,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BezpiecznyObszarOkna } from './BezpiecznyObszarOkna';
 import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
 import { t } from '../lib/i18n';
@@ -167,6 +168,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
 
   return (
     <Modal visible={visible} animationType="slide" transparent={false}>
+      <BezpiecznyObszarOkna>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.header}>
           <CloseButton onPress={onClose} akcja="zamknij" />
@@ -242,6 +244,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
           {!duzyTekst && linki}
         </View>
       </SafeAreaView>
+      </BezpiecznyObszarOkna>
     </Modal>
   );
 }
