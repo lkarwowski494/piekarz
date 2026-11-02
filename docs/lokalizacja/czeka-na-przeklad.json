@@ -2,6 +2,11 @@
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
   "klucze": [
     {
+      "klucz": "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.",
+      "powod": "streszczenie polityki prywatności offline w Ustawieniach (BR-UST-003, 07-jakosc-001; dosłownie „W skrócie” z apps4brew-www @ fb85d20); EN do czasu przekładu [D-132]",
+      "od": "2026-11-02"
+    },
+    {
       "klucz": "Mąka niskowyciągowa. Białko: np. 9,8%.",
       "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
       "od": "2026-11-02"

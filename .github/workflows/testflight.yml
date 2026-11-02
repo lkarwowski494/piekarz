@@ -27,8 +27,38 @@ env:
   BUILD_BASE: '1000'
 
 jobs:
+  # Bramka stref czasu (07-jakosc-002): te same strefy i ta sama komenda co tests-tz.yml.
+  # Czerwona strefa zatrzymuje build; wszystkie strefy biegną do końca, żeby log pokazał komplet.
+  tz-matrix:
+    name: Jest w 7 strefach czasu (przed buildem)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - name: Run Jest in every timezone
+        run: |
+          failed=""
+          for tz in UTC Europe/Warsaw America/New_York America/Los_Angeles Asia/Tokyo Australia/Sydney Pacific/Auckland; do
+            echo "::group::Jest (TZ=$tz)"
+            if ! TZ="$tz" npm test; then
+              failed="$failed $tz"
+              echo "::error::Czerwona strefa: $tz"
+            fi
+            echo "::endgroup::"
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::Testy czerwone w strefach:$failed"
+            exit 1
+          fi
+
   build:
     name: Archive & Upload (.ipa -> TestFlight)
+    needs: tz-matrix
     runs-on: macos-26
     timeout-minutes: 60
     outputs:

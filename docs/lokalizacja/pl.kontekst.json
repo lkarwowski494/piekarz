@@ -264,6 +264,12 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
+  "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.": {
+    "gdzie": [
+      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
+    ],
+    "opis": "streszczenie polityki prywatności w Ustawieniach, widoczne bez sieci; dosłownie sekcja „W skrócie” polityki (BR-UST-003, D-132)"
+  },
   "Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:": {
     "gdzie": []
   },
