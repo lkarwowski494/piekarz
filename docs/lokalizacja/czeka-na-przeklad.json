@@ -1,6 +1,77 @@
 {
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
-  "klucze": [],
+  "klucze": [
+    {
+      "klucz": "Mąka niskowyciągowa. Białko: np. 9,8%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka niskowyciągowa. Białko: np. 10,6–14,3%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka niskowyciągowa. Białko: np. 10,2–13,8%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka wysokowyciągowa. Białko: np. 12,4–15,5%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka wysokowyciągowa. Białko: np. 11,9%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka wysokowyciągowa. Białko: np. 13,1%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka razowa. Białko: np. 8,7–9,6%. Popiół: najwyżej 2%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Białko: np. 6,3%. Popiół: 0,59–0,78%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Białko: np. 8,4%. Popiół: najwyżej 2%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Białko: np. 12,6%. Popiół: najwyżej 2%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Białko: np. 13,8%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Mąka niskowyciągowa. Białko: np. 7,8–14,8%. Popiół: 0,51–0,58%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Białko: np. 8,1%. Popiół: 1,31–1,60%.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, MAK-OGL-002/003/006; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    },
+    {
+      "klucz": "Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.",
+      "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, ZAK-SZC-002; stary klucz usunięty ze słowników 33 języków) [D-126]",
+      "od": "2026-11-02"
+    }
+  ],
   "zamkniete": {
     "data": "2026-10-22",
     "sposob": "przebieg M1 „hr-ti” (Claude API Message Batches, claude-opus-5-5, effort medium) na gałęzi naprawy/M2-koordynator-napraw-2026-10-19-p18: 51 tekstów hr (15 nowych kluczy noc3 + 36 ponownych przekładów) w formie „ti” (D-086, audyt niezależny F-7); etap terminów pominięty — baza terminów z pełnego przekładu hr, forma „ti” wymuszona; 0 błędów walidacji, tłumaczenie zwrotne bez rozbieżności, 0 tekstów w formie „Vi”; wpięty przez scripts/wepnij-przeklad.mjs --jezyki hr (porównanie map klucz → tekst: hr +15 kluczy i 36 zmienionych, 0 innych zmian; pozostałe 32 języki bez zmian). Kosztorys countTokens 0,19 USD, koszt rzeczywisty 0,1341 USD. Raport: narzedzia-api/przeklad/raporty/hr-ti-2026-10-22.md",

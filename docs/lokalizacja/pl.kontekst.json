@@ -413,31 +413,31 @@
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)"
     ]
   },
-  "Białko: około 12,6%. Popiół: najwyżej 2%.": {
+  "Białko: np. 12,6%. Popiół: najwyżej 2%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Białko: około 13,8%.": {
+  "Białko: np. 13,8%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Białko: około 6,3%. Popiół: 0,59–0,78%.": {
+  "Białko: np. 6,3%. Popiół: 0,59–0,78%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Białko: około 8,1%. Popiół: 1,31–1,60%.": {
+  "Białko: np. 8,1%. Popiół: 1,31–1,60%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Białko: około 8,4%. Popiół: najwyżej 2%.": {
+  "Białko: np. 8,4%. Popiół: najwyżej 2%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -3153,25 +3153,25 @@
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
   },
-  "Mąka niskowyciągowa. Białko: około 9,8%.": {
+  "Mąka niskowyciągowa. Białko: np. 9,8%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka niskowyciągowa. Białko: zwykle 10,2–13,8%.": {
+  "Mąka niskowyciągowa. Białko: np. 10,2–13,8%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka niskowyciągowa. Białko: zwykle 10,6–14,3%.": {
+  "Mąka niskowyciągowa. Białko: np. 10,6–14,3%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka niskowyciągowa. Białko: zwykle 7,8–14,8%. Popiół: 0,51–0,58%.": {
+  "Mąka niskowyciągowa. Białko: np. 7,8–14,8%. Popiół: 0,51–0,58%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -3439,7 +3439,7 @@
   "Mąka razem": {
     "gdzie": []
   },
-  "Mąka razowa. Białko: zwykle 8,7–9,6%. Popiół: najwyżej 2%.": {
+  "Mąka razowa. Białko: np. 8,7–9,6%. Popiół: najwyżej 2%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -3459,19 +3459,19 @@
       "src/components/receptury/SkladnikiSheet.tsx (kod)"
     ]
   },
-  "Mąka wysokowyciągowa. Białko: około 11,9%.": {
+  "Mąka wysokowyciągowa. Białko: np. 11,9%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka wysokowyciągowa. Białko: około 13,1%.": {
+  "Mąka wysokowyciągowa. Białko: np. 13,1%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.": {
+  "Mąka wysokowyciągowa. Białko: np. 12,4–15,5%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -4307,7 +4307,7 @@
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
   },
-  "Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.": {
+  "Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
     ],

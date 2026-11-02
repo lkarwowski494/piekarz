@@ -28,6 +28,21 @@ function slownik(kod: string): Map<string, string> {
 }
 
 const KLUCZE_A5D: string[] = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/a5d-klucze.json'), 'utf8'));
+/**
+ * Klucze a5d zastąpione nowym brzmieniem po przeglądzie T2 roli 06 (noc 2026-11-02, T2-NIEKRYT, D-126): stary klucz
+ * zniknął ze słowników celowo, nowy jest w EN i na liście czeka-na-przeklad (do następnego przebiegu przekładu).
+ */
+const ZASTAPIONE_D125: Record<string, string> = Object.fromEntries(
+  KLUCZE_A5D.filter((k) => /Białko: (około|zwykle) /.test(k) || k.startsWith('Okno szczytu to tylko szacunek:')).map((k) => [
+    k,
+    k.startsWith('Okno szczytu')
+      ? 'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.'
+      : k.replace(/Białko: (około|zwykle) /, 'Białko: np. '),
+  ]),
+);
+const CZEKA: string[] = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8')).klucze.map(
+  (x: { klucz: string }) => x.klucz,
+);
 const POOLISH = 'Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.';
 const ZACZYN_NIE_CIASTO: Record<string, [string, string]> = {
   lt: ['įmaišo hidratacija 100 %', 'tešlos hidratacija'],
@@ -40,12 +55,19 @@ const ZACZYN_NIE_CIASTO: Record<string, [string, string]> = {
 describe('przekład a5d wpięty (M3 T2, D-123)', () => {
   it('175 kluczy a5d, każdy jest kluczem słownika EN', () => {
     expect(KLUCZE_A5D).toHaveLength(175);
-    expect(KLUCZE_A5D.filter((k) => typeof EN[k] !== 'string')).toEqual([]);
+    expect(KLUCZE_A5D.filter((k) => !(k in ZASTAPIONE_D125) && typeof EN[k] !== 'string')).toEqual([]);
+  });
+
+  it('14 kluczy zastąpionych (D-126): stary klucz nie wraca do EN, nowy jest w EN i czeka na przekład', () => {
+    const pary = Object.entries(ZASTAPIONE_D125);
+    expect(pary).toHaveLength(14);
+    expect(pary.filter(([stary]) => typeof EN[stary] === 'string')).toEqual([]);
+    expect(pary.filter(([, nowy]) => typeof EN[nowy] !== 'string' || !CZEKA.includes(nowy))).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy klucz a5d ma własny, niepusty wpis', (kod) => {
     const s = slownik(kod);
-    expect(KLUCZE_A5D.filter((k) => !(s.get(k) ?? '').trim())).toEqual([]);
+    expect(KLUCZE_A5D.filter((k) => !(k in ZASTAPIONE_D125) && !(s.get(k) ?? '').trim())).toEqual([]);
   });
 
   it.each(Object.entries(ZACZYN_NIE_CIASTO))('%s: „100% hydratacji” poolish dotyczy zaczynu, nie ciasta', (kod, [jest, nieMa]) => {

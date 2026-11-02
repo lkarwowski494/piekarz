@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'noin 6–8 tuntia, kunnes se on kaksinkertaistunut ja täynnä kuplia',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, ”Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Huippuikkuna on vain arvio: jokainen hapanjuuri toimii omaan tahtiinsa, ja taikina voi kohota 0,1–1,5 mm tunnissa.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Määrittää vehnäjauhotyypit tuhkapitoisuuden mukaan.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Määrittää ruisjauhotyypit tuhkapitoisuuden mukaan.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Pinnan oliiviöljy vähentää haihtumista, jolloin sisus pysyy mehevänä ja ilmavana.',

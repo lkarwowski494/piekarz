@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'около 6–8 часов, пока не удвоится в объёме и не наполнится пузырьками',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, «Designing safer oven mitts»',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Окно пика — лишь оценка: каждая закваска работает в своём темпе, а тесто может подниматься от 0,1 до 1,5 мм в час.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Определяет типы пшеничной муки по содержанию золы.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Определяет типы ржаной муки по содержанию золы.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Оливковое масло на поверхности ограничивает испарение, сохраняя мякиш сочным и воздушным.',

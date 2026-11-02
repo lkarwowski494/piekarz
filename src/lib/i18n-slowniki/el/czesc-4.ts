@@ -145,7 +145,4 @@ export const CZESC: Record<string, string> = {
   'Mąka dodana': 'Αλεύρι που προστέθηκε',
   'Mąka i normy': 'Αλεύρι και πρότυπα',
   'Mąka Manitoba / Forte (W > 350)': 'Αλεύρι Manitoba / Forte (W > 350)',
-  'Mąka niskowyciągowa. Białko: około 9,8%.': 'Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: περίπου 9,8%.',
-  'Mąka niskowyciągowa. Białko: zwykle 10,2–13,8%.': 'Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: συνήθως 10,2–13,8%.',
-  'Mąka niskowyciągowa. Białko: zwykle 10,6–14,3%.': 'Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: συνήθως 10,6–14,3%.',
 };

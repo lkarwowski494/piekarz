@@ -34,7 +34,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'aproximativ 6–8 ore, până își dublează volumul și se umple de bule',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, „Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Intervalul de vârf este doar o estimare: fiecare maia lucrează în ritmul ei, iar aluatul poate crește cu 0,1 până la 1,5 mm pe oră.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Definește tipurile poloneze de făină de grâu după conținutul de cenușă.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Definește tipurile poloneze de făină de secară după conținutul de cenușă.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Uleiul de măsline de pe suprafață limitează evaporarea, păstrând miezul suculent și aerat.',

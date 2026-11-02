@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'kb. 6–8 óra, amíg megduplázza a térfogatát és tele lesz buborékokkal',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, „Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'A csúcspont időablaka csak becslés: minden kovász a maga tempójában dolgozik, a tészta pedig óránként 0,1 és 1,5 mm között emelkedhet.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'A búzaliszt típusait a hamutartalom alapján határozza meg.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'A rozsliszt típusait a hamutartalom alapján határozza meg.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'A felületen lévő olívaolaj csökkenti a párolgást, így a bélzet szaftos és levegős marad.',

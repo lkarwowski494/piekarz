@@ -68,7 +68,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'khoảng 6–8 giờ, cho đến khi tăng gấp đôi thể tích và đầy bọt khí',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, “Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Khung đỉnh hoạt động của men chỉ là ước tính: mỗi loại men tự nhiên hoạt động theo nhịp riêng, và bột có thể nở từ 0,1 đến 1,5 mm mỗi giờ.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Quy định các loại bột mì theo hàm lượng tro.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Quy định các loại bột lúa mạch đen theo hàm lượng tro.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Dầu ô liu trên bề mặt hạn chế bay hơi, giữ ruột bánh mọng ẩm và xốp.',

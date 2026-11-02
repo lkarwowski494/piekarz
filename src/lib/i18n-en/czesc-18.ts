@@ -64,13 +64,13 @@ export const EN_18: Record<string, string> = {
 
   // Doktor Chleba i porada mieszanki mąk: docs/tresci/en/doktor-chleba.md, maki-chlonnosc.md [M1-audytor-generalny-133; 06-tresci-504]
   'Chleb wyjęty z pieca nie jest jeszcze gotowy: gdy stygnie, oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.':
-    "Bread fresh from the oven isn't finished yet: it gives off moisture as it cools and the crumb needs that time to set, so slicing too early can leave it gummy. It may also be underbaked: most loaves are done when the centre reaches about 88 °C.",
+    "Bread fresh from the oven isn't finished yet: it gives off moisture as it cools and the crumb needs that time to set, so slicing too early can leave it gummy. It may also be underbaked: most loaves are done when the center reaches about 88 °C.",
   'Przed krojeniem poczekaj, aż bochenek całkiem ostygnie. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.':
     'Wait until the loaf has cooled completely before slicing. Sourdough rye is best left to rest for 24 hours before you slice it.',
   'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.':
-    'Check the centre of the loaf with a probe thermometer: most loaves are done at about 88 °C, and rye bread should reach 96–99 °C inside.',
+    'Check the center of the loaf with a probe thermometer: most loaves are done at about 88 °C, and rye bread should reach 96–99 °C inside.',
   'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.':
-    'If the centre is cooler, bake longer and measure again.',
+    'If the center is cooler, bake longer and measure again.',
   'Wydłuż fermentację burzliwą.':
     'Extend the bulk fermentation.',
   'Policz temperaturę wody w recepturze: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
@@ -96,7 +96,7 @@ export const EN_18: Record<string, string> = {
   'Skróć fermentację burzliwą i pilnuj temperatury ciasta: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
     'Shorten the bulk fermentation and keep an eye on dough temperature: wheat dough should be about 24–25.5 °C after mixing.',
   'Garuj ciasto w lodówce: chłód spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.':
-    'Proof the dough in the fridge: cold slows fermentation, and slower fermentation means deeper flavour.',
+    'Proof the dough in the fridge: cold slows fermentation, and slower fermentation means deeper flavor.',
   'Zwiększ udział zakwasu w recepturze.':
     'Increase the share of starter in the recipe.',
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).':
@@ -132,7 +132,7 @@ export const EN_18: Record<string, string> = {
   'Mieszanie i zaszczepienie': 'Mixing and adding the starter',
   'Składanie 1 (Stretch & Fold)': 'Fold 1 (Stretch & Fold)',
   'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.':
-    'With wet hands, lift the 4 edges of the dough upward and fold them into the centre of the bowl.',
+    'With wet hands, lift the 4 edges of the dough upward and fold them into the center of the bowl.',
   'Składanie 2 (Coil Fold)': 'Fold 2 (Coil Fold)',
   'Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.':
     'Gently slide both hands under the middle of the dough, lift it and let the ends tuck underneath.',

@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'Gerai',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'apie 6–8 valandas, kol padvigubės ir bus pilnas burbuliukų',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, „Designing safer oven mitts“',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Raugo aktyvumo piko langas tėra apytikris įvertinimas: kiekvienas natūralus raugas veikia savo tempu, o tešla gali kilti nuo 0,1 iki 1,5 mm per valandą.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Apibrėžia Lenkijos kvietinių miltų tipus pagal pelenų kiekį.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Apibrėžia Lenkijos ruginių miltų tipus pagal pelenų kiekį.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Alyvuogių aliejus paviršiuje mažina garavimą, todėl minkštimas lieka sultingas ir purus.',

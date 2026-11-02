@@ -3,17 +3,17 @@
 
 ## diagnostics.GUMMY_CRUMB.biologicalCausePl
 Bread fresh from the oven isn't finished yet: it gives off moisture as it cools and the crumb needs that time to set, so slicing too early can leave it gummy. [T:KRO-POC-015]
-It may also be underbaked: most loaves are done when the centre reaches about 88 °C. [T:DIA-TEM-001]
+It may also be underbaked: most loaves are done when the center reaches about 88 °C. [T:DIA-TEM-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[0]
 Wait until the loaf has cooled completely before slicing. [T:KRO-POC-015]
 Sourdough rye is best left to rest for 24 hours before you slice it. [T:ZYT-STU-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[1]
-Check the centre of the loaf with a probe thermometer: most loaves are done at about 88 °C, and rye bread should reach 96–99 °C inside. [T:DIA-TEM-001]
+Check the center of the loaf with a probe thermometer: most loaves are done at about 88 °C, and rye bread should reach 96–99 °C inside. [T:DIA-TEM-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[2]
-If the centre is cooler, bake longer and measure again. [T:DIA-TEM-001]
+If the center is cooler, bake longer and measure again. [T:DIA-TEM-001]
 
 ## diagnostics.UNDER_PROOFED.actionChecklistPl[2]
 Work out the water temperature for the recipe: wheat dough should be about 24–25.5 °C after mixing. [T:DIA-DDT-001]
@@ -46,7 +46,7 @@ Feed the starter more often before baking. [T:KWA-GLO-001]
 Shorten the bulk fermentation and keep an eye on dough temperature: wheat dough should be about 24–25.5 °C after mixing. [T:KWA-CZA-001,DIA-DDT-001]
 
 ## diagnostics.BLAND_FLAVOR.actionChecklistPl[0]
-Proof the dough in the fridge: cold slows fermentation, and slower fermentation means deeper flavour. [T:KRO-POC-010]
+Proof the dough in the fridge: cold slows fermentation, and slower fermentation means deeper flavor. [T:KRO-POC-010]
 
 ## diagnostics.DENSE_CRUMB.actionChecklistPl[2]
 Extend the autolyse and add an extra set of coil folds. [T:KRO-POC-003,KRO-POC-006]

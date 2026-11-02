@@ -216,7 +216,7 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
     passingCriteriaPl: 'Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.',
     passingCriteriaEn: 'Thin glass-like blistered crust and translucent creamy crumb with irregular aerodynamic alveoli.',
     scientificInsightPl: 'Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.',
-    scientificInsightEn: 'Poolish adds a nutty flavour and makes baguette dough easier to work, because it stretches better.',
+    scientificInsightEn: 'Poolish adds a nutty flavor and makes baguette dough easier to work, because it stretches better.',
   },
   {
     level: 6,

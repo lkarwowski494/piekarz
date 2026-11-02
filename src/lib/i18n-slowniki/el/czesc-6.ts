@@ -79,7 +79,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'περίπου 6–8 ώρες, μέχρι να διπλασιαστεί σε όγκο και να γεμίσει φυσαλίδες',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, «Designing safer oven mitts»',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Το παράθυρο κορύφωσης είναι μόνο μια εκτίμηση: κάθε προζύμι δουλεύει με τον δικό του ρυθμό και η ζύμη μπορεί να φουσκώνει από 0,1 έως 1,5 mm την ώρα.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Ορίζει τους τύπους αλευριού σίτου ανάλογα με την περιεκτικότητα σε τέφρα.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Ορίζει τους τύπους αλευριού σίκαλης ανάλογα με την περιεκτικότητα σε τέφρα.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Το ελαιόλαδο στην επιφάνεια περιορίζει την εξάτμιση και διατηρεί τη ψίχα ζουμερή και αφράτη.',

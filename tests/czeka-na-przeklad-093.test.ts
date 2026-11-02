@@ -42,9 +42,15 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // Przebieg a5 (M1, 2026-10-23: batche a5, a5b, a5c, 164 klucze × 33 języki, walidacja 0 braków) wpięty przez M3;
   // wyjątki a1b, D-13, 216, P-a/P-b, PRZ, D10, W-fix2 i toru T (F-71, 217) usunięte razem z wpisami listy.
   // Przebieg a5d (M3 T2, D-123: 175 kluczy × 33 języki, M1 2026-10-28) wpięty 2026-10-29; wyjątek „T2 / a5d” usunięty.
-  it('lista czekających na przekład jest pusta (po przebiegach a5 i a5d)', () => {
+  // Wyjątek „noc / D-126” (rola 06, 2026-11-02): 14 kluczy z przywróconym zakresem źródła czeka na przekład;
+  // usunąć razem z wpisami listy po następnym przebiegu przekładu.
+  it('lista czekających na przekład jest pusta (po przebiegach a5 i a5d) poza wyjątkiem „noc / D-126”', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8').replace(/^\uFEFF/, ''));
-    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz)).toEqual([]);
+    const wpisy = j.klucze as { klucz: string; powod: string }[];
+    const d125 = wpisy.filter((x) => x.powod.includes('[D-126]'));
+    expect(d125).toHaveLength(14);
+    expect(d125.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
+    expect(wpisy.filter((x) => !x.powod.includes('[D-126]')).map((x) => x.klucz)).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {

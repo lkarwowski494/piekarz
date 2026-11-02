@@ -137,7 +137,7 @@ export const EN_6: Record<string, string> = {
   'Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.':
     'A glassy, very thin crust with distinct scales and a cream-colored crumb with large, irregular holes.',
   'Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.':
-    'Poolish adds a nutty flavour and makes baguette dough easier to work, because it stretches better.',
+    'Poolish adds a nutty flavor and makes baguette dough easier to work, because it stretches better.',
   'Mistrz Rzemiosła Piekarskiego':
     'Master of the Baking Craft',
   'Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)':

@@ -1,9 +1,6 @@
 // Słownik zh-Hant, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka wysokowyciągowa. Białko: około 11,9%.': '高出粉率麵粉。蛋白質：約 11.9%。',
-  'Mąka wysokowyciągowa. Białko: około 13,1%.': '高出粉率麵粉。蛋白質：約 13.1%。',
-  'Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.': '高出粉率麵粉。蛋白質：通常 12.4–15.5%。',
   'Mąka z pszenicy durum (Semolina)': '杜蘭小麥粉（Semolina）',
   'Mąka żytnia': '裸麥粉',
   'Mąka żytnia chlebowa typ 720': '麵包用裸麥粉（淺色）',
@@ -180,7 +177,6 @@ export const CZESC: Record<string, string> = {
   'OK': '好',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': '約 6–8 小時，直到體積翻倍並充滿氣泡',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University，「Designing safer oven mitts」',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': '活力高峰時段只是估計值：每種天然酵母起種都有自己的速度，麵團每小時可能膨脹 0.1 到 1.5 mm。',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': '依灰分含量界定波蘭小麥麵粉的類型。',
   'Określa typy mąki żytniej według zawartości popiołu.': '依灰分含量界定波蘭裸麥粉的類型。',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '表面的橄欖油能減少水分蒸發，讓內部組織保持濕潤蓬鬆。',

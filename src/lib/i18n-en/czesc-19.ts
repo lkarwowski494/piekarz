@@ -42,7 +42,7 @@ export const EN_19: Record<string, string> = {
   'Inne ciepłe miejsca to wierzch lodówki albo wysoka półka, bo ciepło idzie do góry.':
     'Other warm spots: the top of the fridge or a high shelf, since heat rises.',
   'Przykryj miskę pokrywką albo folią: wilgoć utrzymuje wierzch ciasta miękki i pomaga mu rosnąć.':
-    'Cover the bowl with a lid or cling film: the moisture keeps the surface of the dough soft and helps it rise.',
+    'Cover the bowl with a lid or plastic wrap: the moisture keeps the surface of the dough soft and helps it rise.',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.':
     'Go by how the dough looks, not the clock: it rises more slowly in cold air, and recipe times are only a guide.',
   'Przy 20–26 °C działa prosta zasada: 6 °C chłodniej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.':

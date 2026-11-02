@@ -193,5 +193,4 @@ export const CZESC: Record<string, string> = {
   'Mąka dodana': 'Farina aggiunta',
   'Mąka i normy': 'Farina e norme',
   'Mąka Manitoba / Forte (W > 350)': 'Farina Manitoba / Forte (W > 350)',
-  'Mąka niskowyciągowa. Białko: około 9,8%.': 'Farina a bassa estrazione. Proteine: circa 9,8%.',
 };

@@ -1,13 +1,9 @@
 // Słownik nb, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka razowa. Białko: zwykle 8,7–9,6%. Popiół: najwyżej 2%.': 'Sammalt mel. Protein: vanligvis 8,7–9,6 %. Aske: høyst 2 %.',
   'Mąka stanowi 100% bazy w procentach piekarskich': 'Mel utgjør 100 % av basen i bakerprosent',
   'Mąka uniwersalna / pszenna jasna': 'Allsidig lyst hvetemel',
   'Mąka w zaczynie': 'Mel i fordeigen',
-  'Mąka wysokowyciągowa. Białko: około 11,9%.': 'Mel med høy utmalingsgrad. Protein: ca. 11,9 %.',
-  'Mąka wysokowyciągowa. Białko: około 13,1%.': 'Mel med høy utmalingsgrad. Protein: ca. 13,1 %.',
-  'Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.': 'Mel med høy utmalingsgrad. Protein: vanligvis 12,4–15,5 %.',
   'Mąka z pszenicy durum (Semolina)': 'Durumhvetemel (semolina)',
   'Mąka żytnia': 'Rugmel',
   'Mąka żytnia chlebowa typ 720': 'Halvlyst rugmel til brød',
@@ -184,7 +180,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'ca. 6–8 timer, til den har doblet seg og er full av bobler',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, «Designing safer oven mitts»',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Vinduet for toppunktet er bare et anslag: hver surdeigsstarter jobber i sitt eget tempo, og deigen kan heve fra 0,1 til 1,5 mm i timen.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Fastsetter typene av hvetemel ut fra askeinnholdet.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Fastsetter typene av rugmel ut fra askeinnholdet.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olje på overflaten begrenser fordampningen og holder krummen saftig og luftig.',
