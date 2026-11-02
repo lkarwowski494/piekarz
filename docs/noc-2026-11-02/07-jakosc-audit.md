@@ -265,6 +265,7 @@ Rejestr założeń: bez propozycji zmiany statusu (audyt nie dotknął hipotez Z
 - Opcje: (a) rola 10 (tor C) tworzy `docs/39`-odpowiednik z ID, polem „dlaczego nie automat”, buildem i datą — wejście: sekcja „Nie sprawdzono” tego raportu; (b) lista w `docs/wznowienie-M3.md` — szybciej, bez ID. Rekomendacja: (a).
 - Test akceptacyjny: każda pozycja „Nie sprawdzono” z tego raportu ma wiersz z wynikiem na buildzie kandydata.
 - Status: otwarte
+- Dopisek po audycie (2026-11-02, poza badanym SHA): rola 10 scaliła do `redesign/piekarz-2026-10-22` (8309175) `docs/wydanie/lista-kontrolna-telefonu.md`, `plan-wydania-1.0.md`, `droga-do-app-store.md`; nie oceniałem ich — sprawdzi reaudit, czy pozycje „Nie sprawdzono” mają tam wiersze z wynikiem.
 
 ### 07-jakosc-009 · Kod zewnętrzny w CI bez przypięcia; wymuszone nadpisanie tagu
 - Pozycja listy kontrolnej: JAK-10
