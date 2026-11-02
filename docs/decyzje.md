@@ -646,7 +646,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) czekać do rana tylko z torem A (właściciel: „troche tego malo jak na plan”); (b) pełny M1 w nocy (koszt ok. 7 mln tokenów bez zgody na tę skalę); (c) rola 04 audit wyglądu w nocy (zrzuty z urządzenia potrzebne, Expo web nie pokazuje natywnego nagłówka — `audit/M3-2026-10-22/plan.md`).
 - **Koszt [OCENA]:** 3 sesje ról po ok. 0,25–0,35 mln tokenów + koordynator; minuty runnera macOS na E2E i build.
 
-### [D-125] 2026-11-02 — Audyt roli 07 (gotowość 1.0): STOP-y według rekomendacji roli, rejestr ryzyk zamiast strategii testów, raport w gicie (rola 07 audit, noc, do weta)
+### [D-130] 2026-11-02 — Audyt roli 07 (gotowość 1.0): STOP-y według rekomendacji roli, rejestr ryzyk zamiast strategii testów, raport w gicie (rola 07 audit, noc, do weta)
 - **Rodzaj:** organizacyjna (sposób pracy roli 07 w nocy D-124, tor B); **Status: noc, do weta.**
 - **Analogia:** `trening` ma rejestr ryzyk R-NNN w planie wydania (`docs/42-plan-wydania-1.0.md` §1) zamiast osobnej strategii testów przed 1.0; Piekarz nie ma `docs/jakosc/strategia.md`.
 - **Decyzja:**

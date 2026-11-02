@@ -132,7 +132,7 @@ Rejestr założeń: bez propozycji zmiany statusu (audyt nie dotknął hipotez Z
 ## Stosowalność listy kontrolnej
 | Pozycja | Status (dotyczy / nie dotyczy + powód / decyzja D-xx) | Wynik (ok / znalezisko ID / nie sprawdzono + powód) |
 |---|---|---|
-| JAK-01 | dotyczy (rejestr ryzyk odtworzony, brak strategii — D-125) | ok dla ryzyk z testem; ścieżki urządzenia: Nie sprawdzono |
+| JAK-01 | dotyczy (rejestr ryzyk odtworzony, brak strategii — D-130) | ok dla ryzyk z testem; ścieżki urządzenia: Nie sprawdzono |
 | JAK-02 | dotyczy | 07-jakosc-004 |
 | JAK-03 | dotyczy | 07-jakosc-001; próbka 12 BR MVP: 12/12 z testem |
 | JAK-04 | dotyczy | ok: 8/8 mutantów zabitych |
@@ -265,6 +265,7 @@ Rejestr założeń: bez propozycji zmiany statusu (audyt nie dotknął hipotez Z
 - Opcje: (a) rola 10 (tor C) tworzy `docs/39`-odpowiednik z ID, polem „dlaczego nie automat”, buildem i datą — wejście: sekcja „Nie sprawdzono” tego raportu; (b) lista w `docs/wznowienie-M3.md` — szybciej, bez ID. Rekomendacja: (a).
 - Test akceptacyjny: każda pozycja „Nie sprawdzono” z tego raportu ma wiersz z wynikiem na buildzie kandydata.
 - Status: otwarte
+- Dopisek po audycie (2026-11-02, poza badanym SHA): rola 10 scaliła do `redesign/piekarz-2026-10-22` (8309175) `docs/wydanie/lista-kontrolna-telefonu.md`, `plan-wydania-1.0.md`, `droga-do-app-store.md`; nie oceniałem ich — sprawdzi reaudit, czy pozycje „Nie sprawdzono” mają tam wiersze z wynikiem.
 
 ### 07-jakosc-009 · Kod zewnętrzny w CI bez przypięcia; wymuszone nadpisanie tagu
 - Pozycja listy kontrolnej: JAK-10
@@ -300,11 +301,11 @@ Rejestr założeń: bez propozycji zmiany statusu (audyt nie dotknął hipotez Z
 1. 001: (a) streszczenie offline w aplikacji czy (b) zdjęcie scenariusza z blokerów. Rekomendacja (a).
 2. 002: (a) pętla stref w testflight.yml czy (b) wyzwalacze + zasada. Rekomendacja (a).
 3. Lista „tylko telefon” na buildzie TestFlight z tej nocy: BR-CZAS-002, zakupy w piaskownicy, VoiceOver ostrzeżeń, aktualizacja 1019 → kandydat z trwającym wypiekiem. Kto i kiedy (czas właściciela ok. 60–90 min).
-4. Strategia testów (`docs/jakosc/strategia.md` nie istnieje): (a) rola 07 build od E1 na obecnym kodzie, (b) bez strategii, rejestr ryzyk z tego raportu jako tańsza kontrola. Noc: (b), D-125 (noc, do weta).
+4. Strategia testów (`docs/jakosc/strategia.md` nie istnieje): (a) rola 07 build od E1 na obecnym kodzie, (b) bez strategii, rejestr ryzyk z tego raportu jako tańsza kontrola. Noc: (b), D-130 (noc, do weta).
 
 ## Proponowane polecenie naprawy
 `node tools/assemble.mjs 07-jakosc --tryb fix --zadania 07-jakosc-002,07-jakosc-003,07-jakosc-005,07-jakosc-006,07-jakosc-007,07-jakosc-009`
 `node tools/assemble.mjs 08-programista --tryb fix --zadania 07-jakosc-001,07-jakosc-004`
 Potem: `node tools/assemble.mjs 07-jakosc --tryb reaudit --baza <sha>` po wynikach z telefonu.
 
-`git status --porcelain` na początku: pusto (0 linii). Na końcu (przed commitem): ` M docs/decyzje.md` (D-125) i `?? docs/noc-2026-11-02/` — kod aplikacji, testy i workflowy nietknięte; kopia do mutacji usunięta (`git worktree remove`).
+`git status --porcelain` na początku: pusto (0 linii). Na końcu (przed commitem): ` M docs/decyzje.md` (D-130) i `?? docs/noc-2026-11-02/` — kod aplikacji, testy i workflowy nietknięte; kopia do mutacji usunięta (`git worktree remove`).
