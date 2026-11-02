@@ -11,8 +11,13 @@ Aktualizacja: 2026-11-02 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 ## Następny krok
 1. Wynik iOS E2E na HEAD gałęzi (zielony: dalej; czerwony: rola 08 fix z logiem przebiegu).
 2. Build TestFlight z gałęzi (M1, okno runnera) i test właściciela na urządzeniu: gesty, AX5/320, VoiceOver, powiadomienia dwóch wypieków, .ics, zakupy StoreKit (Basic i Pro), ekran „Źródła wiedzy”.
-3. Scalenie do master za osobną zgodą właściciela razem z krokiem ASC (usunięcie Free Trial z `.pro.monthly` i `.pro.yearly`; czy zrobiony: [DO USTALENIA], zapytać).
+3. Scalenie do master za osobną zgodą właściciela razem z krokiem ASC (usunięcie Free Trial z `.pro.monthly` i `.pro.yearly`; 2026-11-02: jeszcze nie, właściciel rano).
 4. Rola 10: zrzuty A-2 i opis zmian przed zgłoszeniem.
+
+## Zgody właściciela (2026-11-02, przed nocą)
+- Build TestFlight z tej gałęzi po zielonym iOS E2E na `c660cec` (lub późniejszym HEAD po poprawce): „Tak, po zielonym E2E (zalecane)”.
+- Free Trial w ASC (`.pro.monthly`, `.pro.yearly`): jeszcze nie usunięty, „Nie, zrobię to rano” — scalenie do master czeka.
+- Bez zgody w nocy: scalenie do master, zmiany w ASC, tagi, usuwanie gałęzi.
 
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
