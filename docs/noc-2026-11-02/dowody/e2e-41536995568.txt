@@ -1,0 +1,30 @@
+Run 41536995568 (iOS E2E, workflow_dispatch, c660cec), job 125591268084, odczyt MCP get_workflow_job + logi ZIP, 2026-11-02 ~23:05 UTC
+conclusion: failure; krok 10 'Run E2E flows (.maestro/e2e, pl_PL)' failure 22:47:38–22:57:11; kroki 11–15 skipped; kroki 1–9 success (build Release 22:27–22:43)
+--- log kroku 10 bez linii stosu:
+0Z ##[group]Run xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array pl-PL
+[36;1mxcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array pl-PL[0m
+[36;1mxcrun simctl spawn "$UDID" defaults write -g AppleLocale -string pl_PL[0m
+[36;1mxcrun simctl shutdown "$UDID"[0m
+[36;1mxcrun simctl boot "$UDID"[0m
+[36;1mxcrun simctl bootstatus "$UDID" -b[0m
+[36;1mmaestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-pl.xml[0m
+shell: /bin/bash -e {0}
+env:
+  MAESTRO_VERSION: 2.11.0
+  MAESTRO_CLI_NO_ANALYTICS: 1
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
+  SCHEME: Piekarz
+  BUNDLE_E2E_SHA: 3ffb875fca1b7b0c65fa685b981b6ba14cd86bc1d2d263aa4f8fcd228da7878c
+  UDID: F0C70C77-E423-4478-B648-3D25045B311B
+##[endgroup]
+Monitoring boot status for iPhone 17 Pro (F0C70C77-E423-4478-B648-3D25045B311B).
+[2026-11-02 22:48:15 +0000] Status=4294967295, isTerminal=YES, Elapsed=00:25.
+	Finished
+
+
+iOS driver not ready in time, consider increasing timeout by configuring MAESTRO_DRIVER_STARTUP_TIMEOUT env variable
+
+The stack trace was:
+xcuitest.installer.LocalXCTestInstaller$IOSDriverTimeoutException: iOS driver not ready in time, consider increasing timeout by configuring MAESTRO_DRIVER_STARTUP_TIMEOUT env variable
+
+##[error]Process completed with exit code 1.

@@ -1,0 +1,8 @@
+$ npm run verify:native
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+exit=0

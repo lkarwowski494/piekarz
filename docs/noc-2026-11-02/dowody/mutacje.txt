@@ -1,0 +1,55 @@
+Próby mutacji na kopii (git worktree /tmp/claude-0/-home-user-piekarz/ce28320a-b460-573c-8e27-6e85f7bcbfb4/scratchpad/kopia @ 38f8e5f); po każdej git checkout pliku
+== M1 src/lib/backup.ts
+-      .sort((a, b) => (a[1] < b[1] ? 1 : a[1] > b[1] ? -1 : 0))
++      .sort((a, b) => (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0))
+$ npx jest --ci src/lib/__tests__/backup.test.ts src/data/__tests__/auto-backup.sqlite.test.ts
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 17 passed, 18 total
+exit=1
+== M2 src/lib/backup.ts
+-      .slice(AUTO_KEEP - 1);
++      .slice(AUTO_KEEP);
+$ npx jest --ci src/lib/__tests__/backup.test.ts src/data/__tests__/auto-backup.sqlite.test.ts
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       4 failed, 14 passed, 18 total
+exit=1
+== M3 src/core/domain-rules.ts
+-  const totalFlour = baseFlourWeight + starterFlour;
++  const totalFlour = baseFlourWeight;
+$ npx jest --ci src/core
+Test Suites: 5 failed, 58 passed, 63 total
+Tests:       211 failed, 1321 passed, 1532 total
+exit=1
+== M4 src/core/domain-rules.ts
+-  if (roundedWater > 45.0) {
++  if (roundedWater > 46.0) {
+$ npx jest --ci src/core
+Test Suites: 1 failed, 62 passed, 63 total
+Tests:       2 failed, 1530 passed, 1532 total
+exit=1
+== M5 src/scheduler/reverse-scheduler.ts
+-    return hours >= sleepStartHour || hours < sleepEndHour;
++    return hours > sleepStartHour || hours < sleepEndHour;
+$ npx jest --ci src/scheduler
+Test Suites: 2 failed, 3 passed, 5 total
+Tests:       4 failed, 75 passed, 79 total
+exit=1
+== M6 src/core/domain-rules.ts
+-    targetWater = 4 * settings.targetDDT - (settings.flourTemp + settings.roomTemp + settings.starterTemp! + settings.frictionFactor);
++    targetWater = 4 * settings.targetDDT - (settings.flourTemp + settings.roomTemp + settings.frictionFactor);
+$ npx jest --ci src/core
+Test Suites: 4 failed, 59 passed, 63 total
+Tests:       105 failed, 1427 passed, 1532 total
+exit=1
+== M7 src/core/sourdough-physics.ts
+-    observations.hasWhiteWrinkledFilm ||
+$ npx jest --ci (pełny zestaw)
+Test Suites: 5 failed, 507 passed, 512 total
+Tests:       6 failed, 5558 passed, 5564 total
+exit=1
+== M8 src/core/sourdough-physics.ts
+-    observations.hasColoredSpots ||
+$ npx jest --ci (pełny zestaw)
+Test Suites: 4 failed, 508 passed, 512 total
+Tests:       5 failed, 5559 passed, 5564 total
+exit=1

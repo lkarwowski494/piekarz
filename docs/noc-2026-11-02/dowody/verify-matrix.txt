@@ -1,0 +1,7 @@
+$ npm run verify:matrix
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1502/1502 elementów (100%)
+exit=0

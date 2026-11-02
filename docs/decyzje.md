@@ -682,3 +682,13 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** zostawić mieszaną pisownię (dwa warianty jednego języka w jednym ekranie).
 - **Otwarte (krok właściciela):** „Fuzzy growth of any colour, including white” (ZAK-PLE-004, krytyczne; `src/lib/i18n-en/czesc-3.ts`, `docs/tresci/en/zakwas-bezpieczenstwo.md`) zostaje do przeglądu człowieka, bo zmiana zdania unieważnia `przeglad.sha`; propozycja: „color”.
 - **Zależy od:** D-123; akceptacja formy przez rolę 04.
+
+### [D-130] 2026-11-02 — Audyt roli 07 (gotowość 1.0): STOP-y według rekomendacji roli, rejestr ryzyk zamiast strategii testów, raport w gicie (rola 07 audit, noc, do weta)
+- **Rodzaj:** organizacyjna (sposób pracy roli 07 w nocy D-124, tor B); **Status: noc, do weta.**
+- **Analogia:** `trening` ma rejestr ryzyk R-NNN w planie wydania (`docs/42-plan-wydania-1.0.md` §1) zamiast osobnej strategii testów przed 1.0; Piekarz nie ma `docs/jakosc/strategia.md`.
+- **Decyzja:**
+  1. STOP E0 i E3 rozstrzygnięte według rekomendacji roli (właściciel śpi); sekcja „Stan projektu” w `CLAUDE.md` (2026-11-02) wystarcza za pytanie E0.
+  2. Brak strategii testów: wariant (b) — bez strategii przed 1.0; tańsza kontrola (zasada 7): rejestr ryzyk od zera w raporcie `docs/noc-2026-11-02/07-jakosc-audit.md` („Linia bazowa i założenia”). Odrzucone: (a) rola 07 build od E1 teraz — koszt sesji przed wydaniem bez nowego ryzyka, wraca po 1.0.
+  3. Wyjątek nazwany od trybu audit („nie commitować”): raport i dowody (`docs/noc-2026-11-02/`) w gicie, bo `audit/` ginie z kontenerem (polecenie koordynatora D-124); kod aplikacji nietknięty.
+  4. Werdykt dla zgłoszenia 1.0: ZABLOKOWANE (07-jakosc-001, -002 i blokery BRD „tylko telefon” bez wyniku). Nie blokuje buildu TestFlight z toru A.
+- **Zależy od:** D-124; wyniku E2E run 41536995568; weta właściciela.

@@ -1,0 +1,7 @@
+$ npm run check:size
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 689 plików, przekroczeń: 0
+exit=0
