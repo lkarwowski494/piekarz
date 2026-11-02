@@ -127,4 +127,6 @@ export const EN_25: Record<string, string> = {
     'Bread Bakers Guild of America, “Formula Layout Standards” (Bread Lines 2009)',
   'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.':
     'What poolish, biga and pâte fermentée are and how long they ripen.',
+  'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
+    'The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.',
 };

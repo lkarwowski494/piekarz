@@ -77,6 +77,14 @@ export function StudioEcosystemSection() {
         >
           <Text style={styles.linkText}>{t('Polityka prywatności')}</Text>
         </Pressable>
+        {/* Bez sieci strona się nie otworzy: streszczenie (dosłownie „W skrócie” z polityki) i adres jako
+            zwykły tekst są zawsze na ekranie (BR-UST-003, 07-jakosc-001, D-132) */}
+        <Text style={styles.privacySummary}>
+          {t('Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.')}
+        </Text>
+        <Text style={styles.privacyUrl} selectable testID="settings-privacy-url">
+          {PRIVACY_URL}
+        </Text>
         {/* Stały link do opinii (BR-OPIN-002); ukryty, dopóki Apple ID jest znacznikiem [M1-audytor-generalny-082] */}
         {/^\d+$/.test(APP_STORE_ID) && (
           <Pressable
@@ -191,6 +199,17 @@ const styles = StyleSheet.create({
     minHeight: 44,
     justifyContent: 'center',
     marginTop: theme.spacing.sm,
+  },
+  privacySummary: {
+    fontSize: typografia.style.przypis.pt,
+    color: theme.colors.tusz2,
+    lineHeight: 18,
+  },
+  privacyUrl: {
+    fontSize: typografia.style.przypis.pt,
+    color: theme.colors.tusz2,
+    lineHeight: 18,
+    marginBottom: theme.spacing.sm,
   },
   linkText: {
     fontSize: 14,
