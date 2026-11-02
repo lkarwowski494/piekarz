@@ -705,3 +705,19 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** 001 (b) zdjąć scenariusz offline z blokerów — sprzeczne z celem „działa w pełni offline” (`CLAUDE.md`); 002 (b) same wyzwalacze i zasada w `CLAUDE.md` — zależne od dyscypliny, a build 1019 poszedł z czerwoną macierzą stref (run 39923870529); build TestFlight z c660cec bez E2E — sprzeczne ze zgodą właściciela („po zielonym E2E”).
 - **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
 
+
+### [D-132] 2026-11-02 — 07-jakosc-001: streszczenia polityki prywatności nie piszę bez źródła w repo; krok właściciela (rola 08, noc, do weta)
+- **Rodzaj:** produktowa/prawna; rola 08 `fix` według polecenia koordynatora (D-131 a). **Status: noc, do weta.**
+- **Podstawa:** `site/privacy.html` w repo to tylko odsyłacz (komentarz: „Jedno źródło polityki: repo apps4brew-www, plik piekarz/privacy.html … treść zmieniaj tam”, M1-audytor-generalny-174); `PRIVACY_URL` = `https://apps4brew.com/piekarz/privacy.html` (`src/lib/links.ts:6`). Treść polityki jest poza repo i poza zakresem tej sesji; `git grep` po `docs src app site` nie znajduje jej streszczenia. Polecenie: bez źródła nie pisać streszczenia, bez nowych twierdzeń prawnych.
+- **Decyzja:** zadanie 001 zamknięte raportem bez zmiany kodu; wpis BR-UST-003 w `scripts/br-wyjatki.json` zostaje (luka nadal prawdziwa), test BR-UST-003 nie powstaje.
+- **Odrzucone:** (b) streszczenie z `docs/app-store-metadata-v2.md` („Data Not Collected”) i z `CLAUDE.md` — to opis aplikacji, nie treść polityki, więc byłoby nowe twierdzenie prawne; (c) pobranie strony z sieci w nocy — poza zakresem polecenia i poza repo źródłowym.
+- **Krok właściciela:** wskazać albo wkleić aktualną treść `piekarz/privacy.html` z `apps4brew-www` (albo dopisać repo do sesji); wtedy rola 08 pisze 3–5 zdań PL+EN wyłącznie z niej, wpis EN do czasu przekładu 33 języków (jak D-126), test BR-UST-003 (bez sieci: streszczenie i adres), usunięcie wpisu z `br-wyjatki.json`. Do tego czasu bloker BR-UST-003 pozostaje otwarty.
+- **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
+
+### [D-133] 2026-11-02 — 07-jakosc-002: bramka stref jako osobne zadanie Linux z `needs`, nie krok w zadaniu macOS (rola 08, noc, do weta)
+- **Rodzaj:** procesowa; rola 08 `fix`. **Status: noc, do weta.**
+- **Podstawa:** raport `docs/noc-2026-11-02/07-jakosc-audit.md` (07-jakosc-002, opcja a: pętla 7 stref przed buildem); `tests-tz.yml` jako jedyne źródło listy stref i komendy (`npm test` z `TZ`).
+- **Decyzja:** w `testflight.yml` zadanie `tz-matrix` (ubuntu-latest, pętla po 7 strefach, `TZ="$tz" npm test`, kod błędu przy czerwonej strefie, pozostałe strefy biegną do końca); `build` ma `needs: tz-matrix`. Test kontraktu `tests/testflight-strefy-workflow.test.ts` czyta strefy z `tests-tz.yml`, więc zmiana listy tam wymusza zmianę tutaj.
+- **Odrzucone:** krok w zadaniu `build` na macos-26 — minuty macOS kosztują wielokrotność minut Linux, a bramka nie potrzebuje Xcode; 7 zadań w macierzy zamiast pętli — polecenie wskazuje pętlę, a pętla nie mnoży instalacji `npm ci`.
+- **Skutek:** ok. +18 min na runnerze Linux przed buildem (szacunek z raportu 07, nie mierzony); bramka nie biegnie na PR i pushu, tylko przy wydaniu — CI na gałęzi kandydata (opcja b raportu) pozostaje osobną decyzją.
+- **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
