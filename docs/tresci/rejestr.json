@@ -313,10 +313,10 @@
     "krytyczne": true,
     "przeglad": {
       "kto": "właściciel projektu (lkarwowski494)",
-      "data": "2026-10-20",
-      "sha": "eb405d93b6be",
-      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
-      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+      "data": "2026-11-02",
+      "sha": "c20925957600",
+      "status": "przejrzane: właściciel w sesji /apps4brew (M3, wznowienie) 2026-11-02, po pokazaniu starego i nowego brzmienia PL i EN po T2 (D-123): „Potwierdzam wszystkie 3 (zalecane)”",
+      "lista": "docs/tresci/przeglad/t2-d123-2026-11-02.md"
     },
     "wazne_do": "2027-10-19"
   },
@@ -1067,10 +1067,10 @@
     "krytyczne": true,
     "przeglad": {
       "kto": "właściciel projektu (lkarwowski494)",
-      "data": "2026-10-20",
-      "sha": "d0c833d37ff3",
-      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
-      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+      "data": "2026-11-02",
+      "sha": "3e10eb07410a",
+      "status": "przejrzane: właściciel w sesji /apps4brew (M3, wznowienie) 2026-11-02, po pokazaniu starego i nowego brzmienia PL i EN po T2 (D-123): „Potwierdzam wszystkie 3 (zalecane)”",
+      "lista": "docs/tresci/przeglad/t2-d123-2026-11-02.md"
     },
     "wazne_do": "2027-10-20"
   },
@@ -1470,11 +1470,11 @@
     "uwagi": "M1-audytor-generalny-086 (01-odkrywanie-019; RD-22, S-46 roli 01, przeczytane ponownie przez 06).",
     "krytyczne": true,
     "przeglad": {
-      "kto": "właściciel (przez M1)",
-      "data": "2026-10-22",
-      "sha": "919d610fa23e",
-      "status": "przejrzane: właściciel: „Akceptuje” (2026-10-22, przez sesję M1; pokazane zdanie PL, cytat FDA z adresem i uwaga, że zdanie mówi mniej niż twierdzenie)",
-      "lista": "docs/tresci/przeglad/doktor-ratunek.md"
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-11-02",
+      "sha": "6f98f500ae33",
+      "status": "przejrzane: właściciel w sesji /apps4brew (M3, wznowienie) 2026-11-02, po pokazaniu starego i nowego brzmienia PL i EN po T2 (D-123): „Potwierdzam wszystkie 3 (zalecane)”",
+      "lista": "docs/tresci/przeglad/t2-d123-2026-11-02.md"
     },
     "wazne_do": "2027-04-20"
   },
