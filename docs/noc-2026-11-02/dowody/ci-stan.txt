@@ -1,0 +1,80 @@
+STAN CI — audyt gotowości do wydania (rola 07, noc 2026-11-02)
+Repo: lkarwowski494/piekarz; lokalny klon /home/user/piekarz, HEAD 38f8e5f (gałąź noc/07-jakosc-2026-11-02 = origin/redesign/piekarz-2026-10-22).
+Odczyt: 2026-11-02, ostatni odczyt stanu E2E 22:38 UTC. Zadanie tylko do odczytu: bez zmian w plikach śledzonych, bez commitów, bez uruchamiania workflow, bez npm test/verify.
+Treść logów i plików traktowana jako dane.
+
+== Wywołania narzędzi ==
+- gh api -X GET search/repositories -f q='repo:lkarwowski494/piekarz'  -> widoczność, gałąź domyślna
+- mcp__github__actions_list list_workflows
+- mcp__github__actions_list list_workflow_runs e2e-ios.yml, branch=redesign/piekarz-2026-10-22
+- mcp__github__actions_list list_workflow_runs (wszystkie workflow), branch=redesign/piekarz-2026-10-22 (total_count=5, same E2E)
+- mcp__github__actions_list list_workflow_runs ci.yml / tests-tz.yml / e2e-ios.yml, branch=master; nightly.yml, testflight.yml, pages.yml, asc-ustawienia.yml, asc-zgloszenie.yml (bez filtra)
+- mcp__github__actions_list list_workflow_jobs 41536995568, 39924837386, 41379393352, 41266207599
+- mcp__github__actions_get get_workflow_run 41536995568 (22:38 UTC)
+- mcp__github__get_job_logs failed_only run 39923870529 (tests-tz), run 41266207599 (nightly), tail 40
+- lokalnie: git log/rev-parse/diff --stat, grep/cat -n na .github/workflows/*.yml, .github/scripts/select-xcode.sh, package.json; ls .husky .githooks .claude; git config core.hooksPath
+
+== 1. Widoczność repo ==
+public (private=false, visibility=public), gałąź domyślna: master.
+
+== 2. E2E iOS (e2e-ios.yml) na redesign/piekarz-2026-10-22 ==
+Wszystkie przebiegi na tej gałęzi (5, wszystkie workflow_dispatch):
+- 41536995568 #85  c660cecce1c25b2e1ad57a9307d875d49e17ac39  start 2026-11-02T22:24:27Z  STATUS: in_progress (stan 22:38 UTC)
+    job 125591268084 "Maestro E2E on iOS Simulator", runner macos-26 (GitHub Actions 1000010386) — runner przydzielony.
+    kroki: Set up job OK, Checkout OK, Setup Node 22 OK, Install dependencies OK (22:24:41–22:25:47),
+           Expo prebuild OK (22:25:47–22:27:15), Build Release for simulator: W TOKU od 22:27:15,
+           kroki 7–16 (boot, applesimutils, Maestro, e2e pl_PL, e2e en_US, kontrola negatywna, build Basic, e2e-basic, upload): pending.
+    WYNIK: brak (przebieg trwa). Wynik końcowy [DO USTALENIA]. Poprzedni pełny przebieg trwał ok. 57 min -> spodziewany koniec ok. 23:20–23:25 UTC.
+- 39924837386 #84  b47abeac  2026-10-23 08:28–09:25  failure
+    kroki 1–14 OK (w tym e2e pl_PL, e2e en_US, kontrola negatywna, build Basic), padł krok 15 "Run E2E flows in Basic (.maestro/e2e-basic)" (09:21:04–09:24:30).
+    Klasyfikacja: scenariusz albo aplikacja (padł po przejściu wcześniejszych scenariuszy, nie maszyna); rozróżnienie scenariusz/aplikacja [DO USTALENIA] — logu kroku nie czytano.
+- 39916886227 #82  badb044b  2026-10-23 07:18–08:19  success
+- 39903806353 #80  96ca9373  2026-10-23 05:05–05:53  success
+- 39873090932 #79  de0c510e  2026-10-22 23:38–2026-10-23 00:12  failure (krok [DO USTALENIA])
+Commity późniejsze niż c660cec: dfe513d i 38f8e5f — brak przebiegów E2E. Zmieniają tylko docs (docs/decyzje.md, docs/wznowienie-M3.md; git diff --stat c660cec 38f8e5f), więc wynik E2E na c660cec dotyczy kodu HEAD.
+Uwaga: od 39924837386 (failure na b47abea, 2026-10-23) do 41536995568 nie było zielonego E2E na tej gałęzi; ostatni zielony: 39916886227 (badb044, przed dodaniem e2e-basic).
+
+== 3. Ostatnie przebiegi każdego workflow ==
+Gałąź domyślna master (HEAD master w przebiegach: d8a0b404 merge redesign badb044, 2026-10-23):
+- CI (ci.yml): 39923870173  success  d8a0b404  2026-10-23T08:19Z
+- Tests across Timezones (tests-tz.yml): 39923870529  FAILURE  d8a0b404  2026-10-23T08:19Z
+    3/7 zadań padło: Australia/Sydney, Pacific/Auckland, Asia/Tokyo; src/__tests__/harmonogram-rytm-d7.test.tsx:91 (oczekiwano plan-dzien-1, jest plan-dzien-2) — test zależny od strefy/daty.
+    Mimo czerwonej macierzy TestFlight build 1019 poszedł z tego commita (39929298523) — testflight.yml nie zależy od tests-tz.
+- iOS E2E (e2e-ios.yml): 39923870494  success  d8a0b404  2026-10-23T08:19–09:04Z
+- Build & Upload to TestFlight: 39929298523  success  d8a0b404  2026-10-23T09:05–09:23Z (master)
+- Nightly (nightly.yml): 41379393352  CANCELLED  d8a0b404  2026-11-02T02:45–04:45Z — fuzzing OK, npm run verify OK, Stryker anulowany po 120 min (timeout-minutes: 120, nightly.yml:23).
+    poprzednie: 41266207599 FAILURE 2026-11-01 — krok "Full Quality Gate (npm run verify)": 5 zestawów / 6 testów czerwonych (m.in. src/__tests__/pro-wznowienie-w2.test.tsx:58); 41161061627 CANCELLED 2026-10-31.
+    Czyli nightly nie było zielone w ostatnich 3 nocach; verify na master jest zależne od daty (1.11 czerwone, 2.11 zielone).
+- Deploy GitHub Pages (pages.yml): 39659459683  failure  874aac64  2026-10-21 (push, przed zmianą na tylko workflow_dispatch; Pages nieskonfigurowane)
+- ASC ustawienia (asc-ustawienia.yml): 39584935752 success 33b74bf4 2026-10-21 (gałąź naprawy/..., nie master)
+- ASC zgłoszenie (asc-zgloszenie.yml): 39614181814 success 6a1bc32d 2026-10-21 (gałąź naprawy/..., nie master)
+Gałąź redesign/piekarz-2026-10-22: TYLKO e2e-ios.yml (5 przebiegów, wyżej). CI, tests-tz, nightly NIGDY nie biegły na tej gałęzi:
+ci.yml:5-6 push tylko master/main/naprawy/**; tests-tz.yml:5-6 to samo (pull_request bez filtra, ale PR nie ma); nightly tylko master (schedule).
+Zielone verify na c660cec potwierdza tylko deklaracja w commicie (lokalny przebieg), nie CI.
+
+== 4. Kontrole statyczne .github/workflows ==
+- `|| true`: e2e-ios.yml:169 (`xcrun simctl uninstall "$UDID" "$BUNDLE_ID" || true` — nieszkodliwe, odinstalowanie przed instalacją). Także .github/scripts/select-xcode.sh:7,14.
+- continue-on-error: brak. --passWithNoTests: brak. --forceExit: brak. `npm ci || npm install`: brak (wszędzie `npm ci --legacy-peer-deps`: ci.yml:38, e2e-ios.yml:66, nightly.yml:39, tests-tz.yml:39, testflight.yml:63).
+- timeout-minutes: asc-ustawienia.yml:22=30, asc-zgloszenie.yml:25=45, ci.yml:22=15, e2e-ios.yml:53=120, nightly.yml:23=120 (Stryker w nim nie mieści się: 41379393352, 41161061627 cancelled), pages.yml:23=10, testflight.yml:33=60 (build), testflight.yml:308=5 (tag), tests-tz.yml:21=15. Każdy job ma timeout.
+- pull_request_target: brak. workflow_run: brak.
+- `${{ github.event...` / `${{ github.head_ref }}` wprost w run:: brak. ci.yml:48 używa github.event w env (poprawnie). Inne wyrażenia w run:: testflight.yml:123 `${{ steps.pods-cache.outputs.cache-hit }}`, testflight.yml:157 `${{ secrets.APPLE_TEAM_ID || '8NQ9GHY8GF' }}` (niewrażliwe na wstrzyknięcie z zewnątrz).
+- permissions: na poziomie workflow wszędzie: asc-ustawienia.yml:15, asc-zgloszenie.yml:18, ci.yml:11, e2e-ios.yml:33, nightly.yml:12, pages.yml:8 (pages: write, id-token: write), testflight.yml:18 (contents: read) + job tag testflight.yml:309-310 contents: write. Brak workflow bez permissions.
+- uses: spoza actions/*: brak. Wszystkie actions/* przypięte do tagu (@v4/@v3), żadne do 40-znakowego SHA (zgodne z zakresem pytania: tylko actions/*). Kod zewnętrzny bez przypięcia poza uses:: e2e-ios.yml:112 `curl -fsSL https://get.maestro.mobile.dev | bash` (wersja przez env MAESTRO_VERSION=2.11.0, e2e-ios.yml:41 — czy instalator ją honoruje [DO USTALENIA]); e2e-ios.yml:104-107 `brew tap wix/brew` + `brew trust` + `brew install applesimutils` bez wersji.
+- Wybór Xcode/Node:
+  * Node: node-version: 22 wszędzie (bez 'latest', bez fallbacku).
+  * testflight.yml:60 `bash .github/scripts/select-xcode.sh 26`; select-xcode.sh:7-10 CICHY FALLBACK: jeśli nie ma /Applications/Xcode_26*.app, bierze /Applications/Xcode.app bez sprawdzenia wersji (wersja tylko wypisana, select-xcode.sh:19,21-22); select-xcode.sh:21 `|| echo ""`.
+  * e2e-ios.yml: BRAK wyboru Xcode — domyślny Xcode obrazu macos-26; E2E i TestFlight mogą budować innym Xcode.
+  * Ciche fallbacki sekretów: testflight.yml:157,190,224 `secrets.APPLE_TEAM_ID || '8NQ9GHY8GF'` (zaszyty Team ID); testflight.yml:189, asc-ustawienia.yml:39, asc-zgloszenie.yml:56 `secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8`.
+  * asc-zgloszenie.yml:46-50 brak wydania ze zrzutami nie przerywa (świadomie, komunikat w logu).
+- runs-on: ubuntu-latest (asc-ustawienia.yml:21, asc-zgloszenie.yml:24, ci.yml:21, nightly.yml:22, pages.yml:22, tests-tz.yml:20, testflight.yml:307); macos-26 (e2e-ios.yml:51, testflight.yml:32).
+- Inne: testflight.yml:329-330 `git tag -f` + `git push origin "$TAG" --force` (nadpisuje tag). testflight.yml:10-12 push tagów v* uruchamia wydanie; brak warunku zielonego E2E/CI/TZ przed TestFlight (jest tylko verify w samym jobie testflight.yml:77 i sprawdzenie przodka master testflight.yml:45-51).
+- Ostrzeżenie w logach: actions/checkout@v4 i setup-node@v4 na Node 20 są wymuszane na Node 24 (deprecacja).
+- Bramka CI vs `npm run verify`: ci.yml:42 lint, ci.yml:46-49 check-data-tests, ci.yml:52 `npm run verify` — package.json:33 verify = typecheck && check:i18n && check:licenses && check:size && lint && verify:native && verify:matrix && npm test. CI = verify + dodatki (lint uruchamiany 2x). Zgodne. Ale CI nie biegnie na redesign/** (ci.yml:5-8).
+- Czy job E2E naprawdę buduje i steruje symulatorem: TAK — e2e-ios.yml:81-83 xcodebuild Release iphonesimulator, :87-98 simctl boot+install, :116-132 maestro test .maestro/e2e (pl_PL, en_US), :134-141 kontrola negatywna musi paść, :147-164 drugi build Basic (kontrola innego main.jsbundle), :175 maestro test .maestro/e2e-basic. Potwierdzają to kroki przebiegu 39924837386.
+- Hak pre-push: BRAK — nie ma .husky/, .githooks/, .claude/ (ani .claude/settings.json z PreToolUse), git config core.hooksPath pusty, .git/hooks tylko *.sample, package.json bez husky/prepare/hooksPath.
+
+== 5. Minuty CI ==
+Repo publiczne -> standardowe runnery (ubuntu-latest, macos-26) bez opłat; limit minut nie dotyczy.
+Szacunek na wypadek repo prywatnego [szacunek, dane przybliżone]: E2E ~45–60 min macOS/przebieg x ~15–25 przebiegów/mies. ≈ 700–1500 min macOS (x10 = 7 000–15 000 min-ekwiwalentu Linux);
+TestFlight ~17 min macOS x ~5–10/mies. ≈ 85–170 (x10 = 850–1700); nightly do 120 min Linux x 30 ≈ 3 600; CI ~4 min + TZ 7x~4 min na push, ~30 pushy ≈ 1 000.
+Razem ≈ 12 000–21 000 min-ekwiwalentu Linux/mies., znacznie ponad 2 000 (Free) / 3 000 (Pro) — w trybie prywatnym E2E i nightly byłyby płatne.

@@ -1,0 +1,72 @@
+$ dla każdego ID z docs/brd/README.md:64-79: git grep -l ID -- tests src .maestro | wc -l; wyjątki scripts/br-wyjatki.json
+BR-DANE-001 pliki_testow=7 wyjatek=0
+BR-DANE-003 pliki_testow=10 wyjatek=0
+BR-DANE-004 pliki_testow=3 wyjatek=0
+NFR-DANE-003 pliki_testow=0 wyjatek=0
+NFR-DANE-004 pliki_testow=0 wyjatek=0
+BR-ETAP-005 pliki_testow=3 wyjatek=0
+BR-ETAP-006 pliki_testow=5 wyjatek=0
+BR-CZAS-002 pliki_testow=8 wyjatek=1
+BR-CZAS-003 pliki_testow=6 wyjatek=0
+BR-HARMO-001 pliki_testow=7 wyjatek=0
+BR-ETAP-001 pliki_testow=6 wyjatek=0
+BR-KALK-001 pliki_testow=4 wyjatek=0
+BR-KALK-002 pliki_testow=2 wyjatek=0
+BR-ZAKW-004 pliki_testow=11 wyjatek=0
+BR-ZAKW-005 pliki_testow=21 wyjatek=0
+BR-DIAG-002 pliki_testow=6 wyjatek=0
+BR-ETAP-004 pliki_testow=4 wyjatek=0
+BR-DIAG-004 pliki_testow=3 wyjatek=1
+BR-ZAK-001 pliki_testow=5 wyjatek=1
+BR-ZAK-003 pliki_testow=2 wyjatek=0
+BR-ZAK-004 pliki_testow=6 wyjatek=0
+BR-ZAK-005 pliki_testow=2 wyjatek=0
+BR-UST-003 pliki_testow=1 wyjatek=1
+BR-OPIN-001 pliki_testow=5 wyjatek=0
+BR-OPIN-002 pliki_testow=6 wyjatek=0
+BR-PRYW-001 pliki_testow=4 wyjatek=0
+NFR-OFF-001 pliki_testow=0 wyjatek=0
+NFR-PRYW-001 pliki_testow=0 wyjatek=0
+BR-KAL-007 pliki_testow=14 wyjatek=0
+BR-KAL-009 pliki_testow=26 wyjatek=1
+
+$ RD-21 wektory w brd.json i odwołania w testach
+RD-21 wektorów: 6
+RD-21-W1
+RD-21-W2
+RD-21-W3
+RD-21-W4
+RD-21-W5
+RD-21-W6
+
+$ definicje NFR bez ID w testach
+docs/brd/README.md:68:- BR-DANE-001, BR-DANE-003, BR-DANE-004, NFR-DANE-003, NFR-DANE-004: utrata danych użytkownika.
+docs/brd/errata.md:12:| ER-39 | 2026-10-19 | NFR: przeniesione NFR-OFF-001, NFR-DOST-001…003, NFR-INT-001, NFR-INT-003, NFR-DANE-003; nowe NFR-PRYW-001, NFR-DANE-004, NFR-DOST-005, NFR-CZAS-001, NFR-JEZ-001, NFR-WYD-001; nieprzeniesione: OFF 002–003, DOST 
+docs/brd/README.md:68:- BR-DANE-001, BR-DANE-003, BR-DANE-004, NFR-DANE-003, NFR-DANE-004: utrata danych użytkownika.
+docs/brd/errata.md:12:| ER-39 | 2026-10-19 | NFR: przeniesione NFR-OFF-001, NFR-DOST-001…003, NFR-INT-001, NFR-INT-003, NFR-DANE-003; nowe NFR-PRYW-001, NFR-DANE-004, NFR-DOST-005, NFR-CZAS-001, NFR-JEZ-001, NFR-WYD-001; nieprzeniesione: OFF 002–003, DOST 
+docs/brd/README.md:78:- BR-PRYW-001, NFR-OFF-001, NFR-PRYW-001: obietnica prywatności.
+docs/brd/errata.md:12:| ER-39 | 2026-10-19 | NFR: przeniesione NFR-OFF-001, NFR-DOST-001…003, NFR-INT-001, NFR-INT-003, NFR-DANE-003; nowe NFR-PRYW-001, NFR-DANE-004, NFR-DOST-005, NFR-CZAS-001, NFR-JEZ-001, NFR-WYD-001; nieprzeniesione: OFF 002–003, DOST 
+docs/brd/README.md:78:- BR-PRYW-001, NFR-OFF-001, NFR-PRYW-001: obietnica prywatności.
+docs/brd/errata.md:12:| ER-39 | 2026-10-19 | NFR: przeniesione NFR-OFF-001, NFR-DOST-001…003, NFR-INT-001, NFR-INT-003, NFR-DANE-003; nowe NFR-PRYW-001, NFR-DANE-004, NFR-DOST-005, NFR-CZAS-001, NFR-JEZ-001, NFR-WYD-001; nieprzeniesione: OFF 002–003, DOST 
+
+$ git grep RD-21-W[1-6] -- tests src
+RD-21-W1: src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx src/components/zakwas/StarterSetupCard.tsx src/components/zakwas/useObjawyZakwasu.ts src/core/__tests__/gotowy-bez-plam-e5.test.ts src/core/__tests__/starter-doctor.test.ts src/core/__tests__/starter-setup.test.ts src/core/starter-doctor.ts src/core/starter-log.ts tests/wektory/brd.json 
+RD-21-W2: tests/wektory/brd.json 
+RD-21-W3: src/__tests__/br-scenariusze-193-start-zakwas.test.tsx tests/wektory/brd.json 
+RD-21-W4: tests/wektory/brd.json 
+RD-21-W5: tests/wektory/brd.json 
+RD-21-W6: tests/wektory/brd.json 
+
+$ git grep -n "RD-21" -- tests src | head
+src/__tests__/basic-pro-pafix.test.tsx:162:  it('pleśń na gotowym zakwasie (RD-21: wyrzuć): „Załóż zakwas od nowa” przy ostrzeżeniu, bez ekranu Pro', async () => {
+src/__tests__/br-scenariusze-193-start-zakwas.test.tsx:4: * - BR-ZAKW-004 „Tylko płyn o zapachu alkoholu” (RD-21-W3, ZAK-HOO-001; ER-54, D-066 4a): ekran Zakwasy.
+src/__tests__/br-scenariusze-193-start-zakwas.test.tsx:89:  it('BR-ZAKW-004 Tylko płyn o zapachu alkoholu: płyn jest w porządku (produkt uboczny drożdży), rada „zlej albo wmieszaj”, bez „do
+src/__tests__/bramki-ekranow.test.tsx:150:  // Kontrola bezpieczeństwa (RD-21) jest poza blokadą: src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx [audyt-niezalezny E-1]
+src/__tests__/bramki-ekranow.test.tsx:216:  // Kontrakt docs/monetyzacja.md (Basic: BR-DIAG-002, ostrzeżenie RD-21) [M1-audytor-generalny-027; 02-monetyzacja-503].
+src/__tests__/bramki-ekranow.test.tsx:218:  it('Doktor zakwasu: the Zakwasy header and "Coś mnie niepokoi" open it; every symptom gives advice without the Pro screen, the spots and mould warning (RD-
+src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx:4: * (RD-21-W1; kontrakt Basic/Pro docs/monetyzacja.md, D-113: „karta bezpieczeństwa”, ostrzeżenie RD-21 i karta zakwasu
+src/components/Ostrzezenie.tsx:4:// Tylko ostrzeżenia bezpieczeństwa i zasada ostrożności (RD-21…RD-23); makiety .ostrz w docs/design/ekrany/wspolne.css
+{"regula":"RD-21","id":"RD-21-W2","wejscie":{"Objawy [-]":"biały nalot"},"oczekiwane":{"komunikat [-]":"wyrzuć, nie wąchaj, umyj naczynie"},"tolerancja":null,"rodzaj":"typowy","pochodzenie":"S-45 (pleśń bywa biała); decyzja DEC-10","miejsce":"docs\\brd\\reguly.md:139"}
+{"regula":"RD-21","id":"RD-21-W4","wejscie":{"Objawy [-]":"płyn o zapachu alkoholu i kolorowa plama"},"oczekiwane":{"komunikat [-]":"wyrzuć, nie wąchaj, umyj naczynie"},"tolerancja":null,"rodzaj":"typowy","pochodzenie":"S-43, S-44: pleśń przeważa","miejsce":"docs\\brd\\reguly.md:141"}
+{"regula":"RD-21","id":"RD-21-W5","wejscie":{"Objawy [-]":"brak zaznaczeń"},"oczekiwane":{"komunikat [-]":"brak werdyktu „zdrowy” ani „bezpieczny”"},"tolerancja":null,"rodzaj":"typowy","pochodzenie":"S-45 (strzępki pleśni bywają trudne do zauważenia); decyzja DEC-10; rejestr 06 wycofał ZAK-ZDR-900","miejsce":"docs\\brd\\reguly.m
+{"regula":"RD-21","id":"RD-21-W6","wejscie":{"Objawy [-]":"niepełny formularz"},"oczekiwane":{"komunikat [-]":"brak werdyktu „bezpieczny”; prośba o uzupełnienie"},"tolerancja":null,"rodzaj":"błąd","pochodzenie":"S-45; decyzja DEC-10","miejsce":"docs\\brd\\reguly.md:143"}

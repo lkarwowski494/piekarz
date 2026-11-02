@@ -1,0 +1,5 @@
+$ npx jest --ci (przebieg 2)
+Test Suites: 512 passed, 512 total
+Tests:       5564 passed, 5564 total
+Time:        127.924 s, estimated 152 s
+exit=0

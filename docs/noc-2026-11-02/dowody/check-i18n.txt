@@ -1,0 +1,7 @@
+$ npm run check:i18n
+
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+
+i18n: 859 tekstów t('…') w kodzie, 1975 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 145 (skan kodu: src,app; uwagi wypisuje --uwagi)
+exit=0

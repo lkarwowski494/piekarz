@@ -1,0 +1,4 @@
+$ TZ=Europe/Warsaw npx jest --ci
+Test Suites: 512 passed, 512 total
+Tests:       5564 passed, 5564 total
+exit=0
