@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'circa 6–8 ore, finché non raddoppia di volume ed è pieno di bollicine',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, «Designing safer oven mitts»',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'La finestra del picco è solo una stima: ogni lievito madre lavora con i suoi tempi e l\'impasto può crescere da 0,1 a 1,5 mm all\'ora.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Definisce i tipi polacchi di farina di frumento in base al contenuto di ceneri.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Definisce i tipi polacchi di farina di segale in base al contenuto di ceneri.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'L\'olio in superficie limita l\'evaporazione, mantenendo la mollica succosa e ariosa.',

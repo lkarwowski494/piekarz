@@ -11,7 +11,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'ca. 6–8 uur, tot het volume verdubbeld is en het vol belletjes zit',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, „Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Het piekvenster is maar een schatting: elke zuurdesemstarter werkt in zijn eigen tempo, en deeg kan 0,1 tot 1,5 mm per uur rijzen.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Bepaalt de Poolse tarwemeeltypes op basis van het asgehalte.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Bepaalt de Poolse roggemeeltypes op basis van het asgehalte.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olijfolie op het oppervlak beperkt de verdamping en houdt het kruim sappig en luchtig.',

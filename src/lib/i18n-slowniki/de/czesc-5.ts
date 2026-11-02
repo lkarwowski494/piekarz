@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'ca. 6–8 Stunden, bis er sich verdoppelt hat und voller Bläschen ist',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, „Designing safer oven mitts“',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Das Fenster für den Reifehöhepunkt ist nur eine Schätzung: Jeder Sauerteig arbeitet in seinem eigenen Tempo, und der Teig kann zwischen 0,1 und 1,5 mm pro Stunde aufgehen.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Legt die polnischen Weizenmehltypen nach dem Aschegehalt fest.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Legt die polnischen Roggenmehltypen nach dem Aschegehalt fest.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olivenöl auf der Oberfläche begrenzt die Verdunstung und hält die Krume saftig und luftig.',

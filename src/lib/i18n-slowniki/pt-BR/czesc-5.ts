@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'cerca de 6–8 horas, até dobrar de volume e ficar cheio de bolhas',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, “Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'A janela do pico do fermento é só uma estimativa: cada fermento natural trabalha no próprio ritmo, e a massa pode crescer de 0,1 a 1,5 mm por hora.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Define os tipos de farinha de trigo pelo teor de cinzas.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Define os tipos de farinha de centeio pelo teor de cinzas.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'O azeite na superfície limita a evaporação, mantendo o miolo úmido e aerado.',

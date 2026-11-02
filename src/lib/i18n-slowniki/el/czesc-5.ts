@@ -1,7 +1,6 @@
 // Słownik el, część 5 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka niskowyciągowa. Białko: zwykle 7,8–14,8%. Popiół: 0,51–0,58%.': 'Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: συνήθως 7,8–14,8%. Τέφρα: 0,51–0,58%.',
   'Mąka orkiszowa': 'Αλεύρι ζέας',
   'Mąka orkiszowa jasna typ 630': 'Λευκό αλεύρι ζέας',
   'Mąka orkiszowa razowa typ 2000': 'Αλεύρι ζέας ολικής άλεσης',
@@ -45,13 +44,9 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Αλεύρι σίτου υψηλής εξαγωγής, πρωτεΐνη 13,1%',
   'Mąka pszenna, białko 13,8%': 'Αλεύρι σίτου, πρωτεΐνη 13,8%',
   'Mąka razem': 'Σύνολο αλευριού',
-  'Mąka razowa. Białko: zwykle 8,7–9,6%. Popiół: najwyżej 2%.': 'Αλεύρι ολικής άλεσης. Πρωτεΐνη: συνήθως 8,7–9,6%. Τέφρα: το πολύ 2%.',
   'Mąka stanowi 100% bazy w procentach piekarskich': 'Το αλεύρι αποτελεί τη βάση 100% στα αρτοποιητικά ποσοστά',
   'Mąka uniwersalna / pszenna jasna': 'Λευκό αλεύρι σίτου, πολυχρηστικό',
   'Mąka w zaczynie': 'Αλεύρι στη μαγιά προζυμιού',
-  'Mąka wysokowyciągowa. Białko: około 11,9%.': 'Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: περίπου 11,9%.',
-  'Mąka wysokowyciągowa. Białko: około 13,1%.': 'Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: περίπου 13,1%.',
-  'Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.': 'Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: συνήθως 12,4–15,5%.',
   'Mąka z pszenicy durum (Semolina)': 'Αλεύρι σκληρού σίτου (σιμιγδάλι)',
   'Mąka żytnia': 'Αλεύρι σίκαλης',
   'Mąka żytnia chlebowa typ 720': 'Ανοιχτόχρωμο αλεύρι σίκαλης για ψωμί',

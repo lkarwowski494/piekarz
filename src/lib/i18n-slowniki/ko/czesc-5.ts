@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'OK': '확인',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': '약 6–8시간, 부피가 두 배가 되고 기포가 가득해질 때까지',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, “Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': '정점 시간대는 추정치일 뿐이에요. 사워도우 스타터마다 활동 속도가 다르고, 반죽은 시간당 0.1 mm에서 1.5 mm까지 부풀 수 있어요.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': '회분 함량에 따라 밀가루 종류를 정하는 규격이에요.',
   'Określa typy mąki żytniej według zawartości popiołu.': '회분 함량에 따라 호밀가루 종류를 정하는 규격이에요.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '표면의 올리브유가 증발을 줄여 촉촉하고 공기를 머금은 속살 (크럼)을 유지해요.',

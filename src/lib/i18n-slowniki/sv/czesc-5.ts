@@ -1,7 +1,6 @@
 // Słownik sv, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Toppfönstret är bara en uppskattning: varje surdegsgrund arbetar i sin egen takt, och degen kan jäsa från 0,1 till 1,5 mm i timmen.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Definierar typerna av vetemjöl efter askhalt.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Definierar typerna av rågmjöl efter askhalt.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olja på ytan minskar avdunstningen och ger ett saftigt, luftigt inkråm.',

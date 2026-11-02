@@ -19,7 +19,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'Tamam',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'yaklaşık 6–8 saat, hacmi iki katına çıkıp kabarcıklarla dolana kadar',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, “Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Zirve aralığı yalnızca bir tahmindir: Her ekşi maya kendi temposunda çalışır ve hamur saatte 0,1 ile 1,5 mm arasında kabarabilir.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Buğday unu tiplerini kül oranına göre tanımlar.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Çavdar unu tiplerini kül oranına göre tanımlar.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Yüzeydeki zeytinyağı buharlaşmayı sınırlar; ekmek içi sulu ve havadar kalır.',

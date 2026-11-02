@@ -1,9 +1,6 @@
 // Słownik it, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka niskowyciągowa. Białko: zwykle 10,2–13,8%.': 'Farina a bassa estrazione. Proteine: di solito 10,2–13,8%.',
-  'Mąka niskowyciągowa. Białko: zwykle 10,6–14,3%.': 'Farina a bassa estrazione. Proteine: di solito 10,6–14,3%.',
-  'Mąka niskowyciągowa. Białko: zwykle 7,8–14,8%. Popiół: 0,51–0,58%.': 'Farina a bassa estrazione. Proteine: di solito 7,8–14,8%. Ceneri: 0,51–0,58%.',
   'Mąka orkiszowa': 'Farina di farro spelta',
   'Mąka orkiszowa jasna typ 630': 'Farina di farro spelta chiara',
   'Mąka orkiszowa razowa typ 2000': 'Farina di farro spelta integrale',
@@ -47,13 +44,9 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Farina di frumento ad alta estrazione, proteine 13,1%',
   'Mąka pszenna, białko 13,8%': 'Farina di frumento, proteine 13,8%',
   'Mąka razem': 'Farina totale',
-  'Mąka razowa. Białko: zwykle 8,7–9,6%. Popiół: najwyżej 2%.': 'Farina integrale. Proteine: di solito 8,7–9,6%. Ceneri: al massimo 2%.',
   'Mąka stanowi 100% bazy w procentach piekarskich': 'La farina è la base del 100% nella percentuale del fornaio',
   'Mąka uniwersalna / pszenna jasna': 'Farina di frumento chiara per uso generale',
   'Mąka w zaczynie': 'Farina nel lievitino',
-  'Mąka wysokowyciągowa. Białko: około 11,9%.': 'Farina ad alta estrazione. Proteine: circa 11,9%.',
-  'Mąka wysokowyciągowa. Białko: około 13,1%.': 'Farina ad alta estrazione. Proteine: circa 13,1%.',
-  'Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.': 'Farina ad alta estrazione. Proteine: di solito 12,4–15,5%.',
   'Mąka z pszenicy durum (Semolina)': 'Farina di grano duro (semola)',
   'Mąka żytnia': 'Farina di segale',
   'Mąka żytnia chlebowa typ 720': 'Farina di segale chiara da pane',

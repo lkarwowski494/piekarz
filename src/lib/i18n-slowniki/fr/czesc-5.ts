@@ -52,7 +52,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'environ 6–8 heures, jusqu\'à ce qu\'il double de volume et soit plein de bulles',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, « Designing safer oven mitts »',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'La fenêtre du pic d\'activité n\'est qu\'une estimation : chaque levain travaille à son rythme, et la pâte peut lever de 0,1 à 1,5 mm par heure.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Définit les types de farine de blé polonais selon leur teneur en cendres.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Définit les types de farine de seigle polonais selon leur teneur en cendres.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'L\'huile d\'olive en surface limite l\'évaporation et préserve une mie moelleuse et aérée.',

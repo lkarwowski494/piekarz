@@ -1,13 +1,9 @@
 // Słownik da, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka razowa. Białko: zwykle 8,7–9,6%. Popiół: najwyżej 2%.': 'Groftmalet mel. Protein: typisk 8,7–9,6 %. Aske: højst 2 %.',
   'Mąka stanowi 100% bazy w procentach piekarskich': 'Mel udgør 100 % af basen i bagerprocent',
   'Mąka uniwersalna / pszenna jasna': 'Alsidigt mel / lyst hvedemel',
   'Mąka w zaczynie': 'Mel i fordejen',
-  'Mąka wysokowyciągowa. Białko: około 11,9%.': 'Mel med høj udmalingsgrad. Protein: ca. 11,9 %.',
-  'Mąka wysokowyciągowa. Białko: około 13,1%.': 'Mel med høj udmalingsgrad. Protein: ca. 13,1 %.',
-  'Mąka wysokowyciągowa. Białko: zwykle 12,4–15,5%.': 'Mel med høj udmalingsgrad. Protein: typisk 12,4–15,5 %.',
   'Mąka z pszenicy durum (Semolina)': 'Durumhvedemel (semolina)',
   'Mąka żytnia': 'Rugmel',
   'Mąka żytnia chlebowa typ 720': 'Rugmel til brød',
@@ -184,7 +180,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'ca. 6–8 timer, indtil den er fordoblet og fuld af bobler',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, »Designing safer oven mitts«',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Toppunktvinduet er kun et skøn: hver surdej arbejder i sit eget tempo, og dejen kan hæve fra 0,1 til 1,5 mm i timen.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Fastlægger polske hvedemeltyper efter askeindhold.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Fastlægger rugmeltyper efter askeindhold.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olivenolie på overfladen begrænser fordampningen og bevarer en saftig og luftig krumme.',

@@ -167,7 +167,7 @@ export function calculateStarterPhase(
       elapsedHours,
       labelPl: 'W szacowanym oknie szczytu',
       poziom: 'info',
-      advicePl: 'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.',
+      advicePl: 'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.',
     };
   }
   return {

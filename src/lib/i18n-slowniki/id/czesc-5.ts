@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'OK': 'OK',
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'sekitar 6–8 jam, hingga volumenya berlipat dua dan penuh gelembung',
   'Oklahoma State University, „Designing safer oven mitts”': 'Oklahoma State University, “Designing safer oven mitts”',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.': 'Jendela puncak hanyalah perkiraan: setiap starter ragi alami bekerja dengan kecepatannya sendiri, dan adonan bisa mengembang 0,1 hingga 1,5 mm per jam.',
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Menetapkan jenis tepung terigu berdasarkan kadar abu.',
   'Określa typy mąki żytniej według zawartości popiołu.': 'Menetapkan jenis tepung gandum hitam berdasarkan kadar abu.',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Minyak zaitun di permukaan membatasi penguapan, menjaga serat roti tetap lembap dan berongga.',
