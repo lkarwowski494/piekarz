@@ -1,6 +1,6 @@
 # Rola 06-tresci, tryb fix — noc 2026-11-02 (T2-NIEKRYT, D-123-ODST)
 
-Gałąź `noc/06-tresci-2026-11-02` od `origin/redesign/piekarz-2026-10-22` (38f8e5f). Polecenie: repo `prompts`, 553e37b, `polecenia/piekarz-2026-11-02/06-tresci-fix.md`. Decyzje: D-126, D-127 (`docs/decyzje.md`), obie „noc, do weta”.
+Gałąź `noc/06-tresci-2026-11-02` od `origin/redesign/piekarz-2026-10-22` (38f8e5f). Polecenie: repo `prompts`, 553e37b, `polecenia/piekarz-2026-11-02/06-tresci-fix.md`. Decyzje: D-126, D-127 (`docs/decyzje.md`), obie „noc, do weta” (numery przesunięte o 1 na prośbę koordynatora, bo D-125 zajęła rola 10; komunikaty commitów 3cbd292, 6618f35, 25756ce mówią jeszcze D-125/D-126).
 
 ## E0 — środowisko i plan
 
