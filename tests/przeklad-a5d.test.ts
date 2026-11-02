@@ -29,7 +29,7 @@ function slownik(kod: string): Map<string, string> {
 
 const KLUCZE_A5D: string[] = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/a5d-klucze.json'), 'utf8'));
 /**
- * Klucze a5d zastąpione nowym brzmieniem po przeglądzie T2 roli 06 (noc 2026-11-02, T2-NIEKRYT, D-125): stary klucz
+ * Klucze a5d zastąpione nowym brzmieniem po przeglądzie T2 roli 06 (noc 2026-11-02, T2-NIEKRYT, D-126): stary klucz
  * zniknął ze słowników celowo, nowy jest w EN i na liście czeka-na-przeklad (do następnego przebiegu przekładu).
  */
 const ZASTAPIONE_D125: Record<string, string> = Object.fromEntries(
@@ -58,7 +58,7 @@ describe('przekład a5d wpięty (M3 T2, D-123)', () => {
     expect(KLUCZE_A5D.filter((k) => !(k in ZASTAPIONE_D125) && typeof EN[k] !== 'string')).toEqual([]);
   });
 
-  it('14 kluczy zastąpionych (D-125): stary klucz nie wraca do EN, nowy jest w EN i czeka na przekład', () => {
+  it('14 kluczy zastąpionych (D-126): stary klucz nie wraca do EN, nowy jest w EN i czeka na przekład', () => {
     const pary = Object.entries(ZASTAPIONE_D125);
     expect(pary).toHaveLength(14);
     expect(pary.filter(([stary]) => typeof EN[stary] === 'string')).toEqual([]);

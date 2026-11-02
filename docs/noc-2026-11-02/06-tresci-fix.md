@@ -1,6 +1,6 @@
 # Rola 06-tresci, tryb fix — noc 2026-11-02 (T2-NIEKRYT, D-123-ODST)
 
-Gałąź `noc/06-tresci-2026-11-02` od `origin/redesign/piekarz-2026-10-22` (38f8e5f). Polecenie: repo `prompts`, 553e37b, `polecenia/piekarz-2026-11-02/06-tresci-fix.md`. Decyzje: D-125, D-126 (`docs/decyzje.md`), obie „noc, do weta”.
+Gałąź `noc/06-tresci-2026-11-02` od `origin/redesign/piekarz-2026-10-22` (38f8e5f). Polecenie: repo `prompts`, 553e37b, `polecenia/piekarz-2026-11-02/06-tresci-fix.md`. Decyzje: D-126, D-127 (`docs/decyzje.md`), obie „noc, do weta” (numery przesunięte o 1 na prośbę koordynatora, bo D-125 zajęła rola 10; komunikaty commitów 3cbd292, 6618f35, 25756ce mówią jeszcze D-125/D-126).
 
 ## E0 — środowisko i plan
 
@@ -17,7 +17,7 @@ Lista 72: `node scripts/kontrole-tresci.mjs … --skroty` wypisuje tylko krytycz
 
 ## T2-NIEKRYT — tabela 72 pozycji
 
-Kryterium „tak”: nowe zdanie PL i EN mówi to samo co twierdzenie i cytat w rejestrze, z tą samą liczbą, jednostką i granicą, bez rozszerzenia zakresu (TRE-03, TRE-06, TRE-08). Wynik: **68 tak, 4 nie** (poprawione, D-125).
+Kryterium „tak”: nowe zdanie PL i EN mówi to samo co twierdzenie i cytat w rejestrze, z tą samą liczbą, jednostką i granicą, bez rozszerzenia zakresu (TRE-03, TRE-06, TRE-08). Wynik: **68 tak, 4 nie** (poprawione, D-126).
 
 | # | ID | Pliki (PL/EN) | Zgodne ze źródłem i liczbami/granicą | Uzasadnienie |
 |---|---|---|---|---|
@@ -103,13 +103,13 @@ Skrypt `kontrole-tresci` przed i po: `0 błędów, 0 uwag` — błąd zakresu ni
 | MAK-OGL-002/003/006 | „Mąka niskowyciągowa. Białko: około 9,8%.”, „… Białko: zwykle 10,6–14,3%.” (13 opisów, `src/core/flour-atlas-ogolne.ts`) | `uproszczenie`: „Jedna próbka na typ, jeden producent … to wynik badanych próbek, nie wymaganie.”; komentarz kodu: „Białko to wynik badanych próbek handlowych (jedna do trzech próbek na typ), nie wymaganie; opis to mówi.” | „Białko: np. 9,8%.”, „Białko: np. 10,6–14,3%.” / EN „Protein: e.g. …” |
 | ZAK-SZC-002 | „Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.” | `uproszczenie`: „Źródło mierzy tempo rośnięcia ciasta w probówkach, nie czas do szczytu zakwasu w słoiku”; cytat: „wide variation in functional capacities across the 40 starters … Dough rise rates ranged from 0.1 to 1.5 mm/hr.” | „…, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.” |
 
-Pliki: kod (`flour-atlas-ogolne.ts`, `sourdough-physics.ts`), EN (`czesc-17.ts`, `czesc-4.ts`), `docs/tresci/pl|en` (`maki-ogolne.md`, `zakwas-szczyt.md`), `pl.kontekst.json`, 33 słowniki (462 wpisy starych kluczy usunięte), `czeka-na-przeklad.json` (+14), rejestr (`uproszczenie` 4 twierdzeń), testy `przeklad-a5d` (nazwana lista 14 kluczy zastąpionych) i `czeka-na-przeklad-093` (wyjątek „noc / D-125”), do przeglądu roli 07.
+Pliki: kod (`flour-atlas-ogolne.ts`, `sourdough-physics.ts`), EN (`czesc-17.ts`, `czesc-4.ts`), `docs/tresci/pl|en` (`maki-ogolne.md`, `zakwas-szczyt.md`), `pl.kontekst.json`, 33 słowniki (462 wpisy starych kluczy usunięte), `czeka-na-przeklad.json` (+14), rejestr (`uproszczenie` 4 twierdzeń), testy `przeklad-a5d` (nazwana lista 14 kluczy zastąpionych) i `czeka-na-przeklad-093` (wyjątek „noc / D-126”), do przeglądu roli 07.
 
-### Atrybucja szczebla 4 (wynik przeglądu, wyjątek nazwany D-125)
+### Atrybucja szczebla 4 (wynik przeglądu, wyjątek nazwany D-126)
 
 Hierarchia (`docs/tresci/hierarchia.md`) wymagała przy szczeblu 4 „atrybucji w treści”; T2 usunęło „według …” z 66 z 72 twierdzeń, w tym z 57 opartych na źródle szczebla 4 (King Arthur Baking, Modernist Cuisine). Sprawdzenie pokrycia ekranu „Źródła wiedzy”: 118 twierdzeń użytych w `docs/tresci/pl`, 26 adresów na ekranie, brak źródła bez wpisu (BBGA przez web.archive.org = `bbga.org`). Zapis wyjątku w `hierarchia.md`; notatki `uproszczenie` 9 twierdzeń („atrybucja w treści”) zaktualizowane.
 
-## D-123-ODST (D-126)
+## D-123-ODST (D-127)
 
 | Odstępstwo roli 08 | Werdykt roli 06 | Uzasadnienie |
 |---|---|---|
@@ -138,7 +138,7 @@ Hierarchia (`docs/tresci/hierarchia.md`) wymagała przy szczeblu 4 „atrybucji 
 | ID | Commit | Przed | Po |
 |---|---|---|---|
 | T2-NIEKRYT | 3cbd292 | zapis weryfikacji (tabela wyżej); `kontrole-tresci` 0 błędów (błąd zakresu nie jest mechaniczny) | `kontrole-tresci` 0 błędów, 0 uwag; `--skroty` krytycznych bez zmian |
-| D-123-ODST | 6618f35 | pierwszy `npm run verify`: kod 1, `tresci-069` (POL-SMA-001: pole EN lekcji 5 „flavour” ≠ docs „flavor”) i `czeka-na-przeklad-093` (kolejka niepusta) | oba zielone po poprawce pola lekcji 5 i nazwanym wyjątku „noc / D-125” |
+| D-123-ODST | 6618f35 | pierwszy `npm run verify`: kod 1, `tresci-069` (POL-SMA-001: pole EN lekcji 5 „flavour” ≠ docs „flavor”) i `czeka-na-przeklad-093` (kolejka niepusta) | oba zielone po poprawce pola lekcji 5 i nazwanym wyjątku „noc / D-126” |
 
 - `node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en` → `0 błędów, 0 uwag`, kod 0.
 - `npm run verify` (TMPDIR w scratchpadzie) → kod 0: typecheck, i18n (błędy: 0, uwagi: 145), macierz 1502/1502, 512 zestawów, 5565 testów.
@@ -147,7 +147,7 @@ Hierarchia (`docs/tresci/hierarchia.md`) wymagała przy szczeblu 4 „atrybucji 
 
 ## Kroki właściciela i polecenia dla ról
 
-1. Weto lub akceptacja D-125 i D-126 (noc).
+1. Weto lub akceptacja D-126 i D-127 (noc).
 2. Przebieg przekładu dla 14 kluczy z `docs/lokalizacja/czeka-na-przeklad.json` (do tego czasu 33 języki pokazują te teksty po angielsku); po nim usunąć wyjątki z `tests/przeklad-a5d.test.ts` i `tests/czeka-na-przeklad-093.test.ts`.
 3. ZAK-PLE-004 „colour” → „color” przy następnym przeglądzie twierdzeń krytycznych (06-tresci-noc-002).
 4. Rola 04: forma odstępstw D-123 i przymiotnik „sprawdzonych” we wstępie ekranu (06-tresci-noc-001). Rola 07: przegląd dwóch nazwanych wyjątków w testach.

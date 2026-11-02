@@ -20,7 +20,7 @@ Podstawa: DEC-07 (`docs/brd/00b_Decyzje.md`, „Hierarchia źródeł wiedzy piek
 2. Literatura recenzowana i monografie naukowe.
 3. Serwisy instytucji (uczelniane extension, instytuty), podręczniki mistrzowskie wskazane w DEC-07.
 4. Autorytety rzemieślnicze, przewodniki z podanymi źródłami (tylko kontekst z atrybucją w treści).
-   - Wyjątek nazwany (D-125, 2026-11-02, noc, do weta): od D-123 atrybucja stoi na ekranie „Źródła wiedzy” w Ustawieniach, nie w zdaniu. Warunki: każde źródło twierdzenia użytego w `docs/tresci/pl` jest na tym ekranie, a zdanie zachowuje zakres źródła (przykład, jedna próba, „zwykle”, przybliżenie) zwykłymi słowami. *Dlaczego:* decyzja właściciela o języku naturalnym zmienia formę atrybucji, a nie to, ile zdanie wolno twierdzić.
+   - Wyjątek nazwany (D-126, 2026-11-02, noc, do weta): od D-123 atrybucja stoi na ekranie „Źródła wiedzy” w Ustawieniach, nie w zdaniu. Warunki: każde źródło twierdzenia użytego w `docs/tresci/pl` jest na tym ekranie, a zdanie zachowuje zakres źródła (przykład, jedna próba, „zwykle”, przybliżenie) zwykłymi słowami. *Dlaczego:* decyzja właściciela o języku naturalnym zmienia formę atrybucji, a nie to, ile zdanie wolno twierdzić.
 5. Fora, blogi, Wikipedia — wskazówka, gdzie szukać; nigdy źródło reguły.
 
 Treść krytyczna (bezpieczeństwo żywności, zdrowie, mienie): granice i oceny tylko ze szczebla 1–3; szczebel 3 oznaczony w rejestrze jako „jedno źródło”, gdy jest jedynym. Liczba źródeł nie zastępuje szczebla — ta zasada zastępuje regułę „dwóch niezależnych źródeł” z `docs/brd/C4b.md` (8.P.1). *Dlaczego:* reguła liczby źródeł nie wymaga ich przeczytania i przeczy DEC-07.
