@@ -21,7 +21,7 @@ export const EN_14: Record<string, string> = {
   'Wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz z drożdży i rośnie.':
     'Kneading develops the gluten, so the dough holds on to the gas from the yeast and rises.',
   'W czasie fermentacji powstają kwasy, które dają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.':
-    'Fermentation makes acids, which give the dough flavour and strength, and carbon dioxide, which gives it volume and lightness.',
+    'Fermentation makes acids, which give the dough flavor and strength, and carbon dioxide, which gives it volume and lightness.',
   'Składanie pomaga rozwinąć sieć glutenową i wzmacnia ciasto.': 'Folding helps develop the gluten network and strengthens the dough.',
   'Formowanie wstępne nadaje ciastu ogólny kształt bochenka, jeszcze bez wykańczania.':
     'Pre-shaping gives the dough a rough loaf shape, before the finishing touches.',
@@ -30,7 +30,7 @@ export const EN_14: Record<string, string> = {
   'Koszyk podtrzymuje rosnący bochenek i nadaje mu kształt.': 'The basket supports the rising loaf and gives it its shape.',
   'To ostatnie rośnięcie ciasta przed pieczeniem.': "This is the dough's last rise before baking.",
   'Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.':
-    'The cold of the fridge slows fermentation, and slower fermentation means deeper flavour.',
+    'The cold of the fridge slows fermentation, and slower fermentation means deeper flavor.',
   'Garnek nagrzewasz pusty, żeby po włożeniu ciasta zrobiła się w nim para.':
     'You preheat the pot empty so steam builds up inside once the dough goes in.',
   'Nacięcie wyznacza miejsce, w którym bochenek się rozejdzie, więc chleb trzyma kształt i nie pęka z boku.':

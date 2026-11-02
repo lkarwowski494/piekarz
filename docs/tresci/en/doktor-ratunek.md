@@ -64,7 +64,7 @@ Move the dough somewhere warmer: yeast does best at about 24–25.5 °C. [T:RAT-
 Other warm spots: the top of the fridge or a high shelf, since heat rises. [T:RAT-ZIM-003]
 
 ## COLD_SLUGGISH.stepByStepPl[3]
-Cover the bowl with a lid or cling film: the moisture keeps the surface of the dough soft and helps it rise. [T:RAT-ZIM-004]
+Cover the bowl with a lid or plastic wrap: the moisture keeps the surface of the dough soft and helps it rise. [T:RAT-ZIM-004]
 
 ## COLD_SLUGGISH.stepByStepPl[4]
 Go by how the dough looks, not the clock: it rises more slowly in cold air, and recipe times are only a guide. [T:RAT-ZIM-005]

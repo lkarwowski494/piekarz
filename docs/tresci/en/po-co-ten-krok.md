@@ -13,7 +13,7 @@ Resting the flour and water before adding salt lets the flour soak up the water,
 Kneading develops the gluten, so the dough holds on to the gas from the yeast and rises. [T:KRO-POC-004]
 
 ## bulk_ferment (not rye_rest)
-Fermentation makes acids, which give the dough flavour and strength, and carbon dioxide, which gives it volume and lightness. [T:KRO-POC-005]
+Fermentation makes acids, which give the dough flavor and strength, and carbon dioxide, which gives it volume and lightness. [T:KRO-POC-005]
 Folding helps develop the gluten network and strengthens the dough. [T:KRO-POC-006]
 
 ## pre_shape
@@ -27,7 +27,7 @@ The basket supports the rising loaf and gives it its shape. [T:KRO-POC-009]
 
 ## final_proof (not rye_proof)
 This is the dough's last rise before baking. [T:KRO-POC-010]
-The cold of the fridge slows fermentation, and slower fermentation means deeper flavour. [T:KRO-POC-010]
+The cold of the fridge slows fermentation, and slower fermentation means deeper flavor. [T:KRO-POC-010]
 
 ## preheat_oven
 You preheat the pot empty so steam builds up inside once the dough goes in. [T:KRO-POC-011]
