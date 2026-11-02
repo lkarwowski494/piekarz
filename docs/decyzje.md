@@ -692,3 +692,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
   3. Wyjątek nazwany od trybu audit („nie commitować”): raport i dowody (`docs/noc-2026-11-02/`) w gicie, bo `audit/` ginie z kontenerem (polecenie koordynatora D-124); kod aplikacji nietknięty.
   4. Werdykt dla zgłoszenia 1.0: ZABLOKOWANE (07-jakosc-001, -002 i blokery BRD „tylko telefon” bez wyniku). Nie blokuje buildu TestFlight z toru A.
 - **Zależy od:** D-124; wyniku E2E run 41536995568; weta właściciela.
+
+### [D-131] 2026-11-02 — 07-jakosc-001 i -002 według rekomendacji roli 07: streszczenie polityki prywatności offline (a) i pętla stref w testflight.yml (a); E2E powtórzone raz po awarii sterownika (koordynator, noc, do weta)
+- **Rodzaj:** produktowa (001) i procesowa (002, E2E); koordynator na zasadach właściciela z 2026-11-02 („decydujesz sam … według rekomendacji roli”). **Status: noc, do weta.**
+- **Podstawa:** raport `docs/noc-2026-11-02/07-jakosc-audit.md` (07-jakosc-001, -002, P1, werdykt „ZABLOKOWANE” dla zgłoszenia 1.0); log E2E run 41536995568 (c660cec): `IOSDriverTimeoutException` w kroku pl_PL po 480 s, przed pierwszym scenariuszem, build Release zielony.
+- **Analogia (`trening`):** `docs/42-plan-wydania-1.0.md` §1 pkt 2: pełny katalog E2E zielony, „jedno ponowienie scenariusza dozwolone”; bramki przed buildem wydania w workflow, nie w dyscyplinie.
+- **Decyzja:**
+  - **001 → (a):** w Ustawieniach „Polityka prywatności” pokazuje bez sieci krótkie streszczenie (3–5 zdań) i adres polityki jako tekst; link zostaje. Treść streszczenia tylko z obecnej polityki (bez nowych twierdzeń); PL i EN teraz, 33 języki na liście `czeka-na-przeklad` (do przekładu tekst EN, wyjątek nazwany jak w D-126). Test z ID BR-UST-003, wpis usunięty z `scripts/br-wyjatki.json`.
+  - **002 → (a):** `testflight.yml` uruchamia pętlę 7 stref przed buildem; test kontraktu workflowu (czerwony przed, zielony po).
+  - **E2E:** jedno ponowienie na HEAD gałęzi po partii roli 08 (nie na c660cec); drugi błąd maszyny = STOP z raportem rano, bez trzeciej próby na tej samej konfiguracji.
+  - **TestFlight:** dopiero z SHA z zielonym E2E i (po 002) zieloną pętlą stref.
+- **Odrzucone:** 001 (b) zdjąć scenariusz offline z blokerów — sprzeczne z celem „działa w pełni offline” (`CLAUDE.md`); 002 (b) same wyzwalacze i zasada w `CLAUDE.md` — zależne od dyscypliny, a build 1019 poszedł z czerwoną macierzą stref (run 39923870529); build TestFlight z c660cec bez E2E — sprzeczne ze zgodą właściciela („po zielonym E2E”).
+- **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
+
