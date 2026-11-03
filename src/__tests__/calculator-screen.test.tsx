@@ -177,7 +177,8 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
     const fullText = extractCleanText(tree?.toJSON());
     // „Do miski” jako lista grupowana; nazwa receptury jest tytułem paska nawigacji (§11c 106)
-    expect(fullText).toContain('Do miski (odhaczaj przy ważeniu)');
+    expect(fullText).toContain('Do miski');
+    expect(fullText).toContain('Odhaczaj przy ważeniu.');
     expect(fullText).toContain('Razem 1700 g');
     expect(fullText).toContain('O recepturze');
   });

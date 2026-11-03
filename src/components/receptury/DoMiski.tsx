@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — ilości na ekranie receptury (design-spec §11c „106”, stany `receptura` i `receptura-zaczyn`):
-// grupa trybu (Bochenki + Masa bochenka albo Masa mąki), „Do miski” jako lista grupowana z odhaczaniem
+// grupa trybu (Bochenki + Masa bochenka albo Masa mąki), „Do miski” (podpis „Odhaczaj przy ważeniu.”, p6b) jako lista grupowana z odhaczaniem
 // (z zaczynem: „Zaczyn: {rodzaj}” + „Do miski”), zdanie o hydratacji i „Razem {masa}”. Liczby z rachunku
 // receptury (useRecipeCalculations) bez zmian; tryb liczenia wybiera się w arkuszu „Składniki”.
 // Zastępuje kartę DoMiskiScaleCard i karty liczb CalculatorSacredCard (§12a). [M1-audytor-generalny-106]
@@ -198,7 +198,7 @@ export function DoMiski(p: DoMiskiProps) {
             {b.prefermentSaltGrams > 0 && wiersz('scale-item-preferment-salt', t('Sól'), d(b.prefermentSaltGrams))}
           </View>
           </Karta>
-          <Karta testID="karta-do-miski" tytul={t('Do miski')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
+          <Karta testID="karta-do-miski" tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
           <View testID="do-miski-ciasto">
             {wiersz('scale-item-preferment-all', t('{rodzaj} (cały)', { rodzaj: nazwaZaczynu(p.prefermentType) }), w(b.prefermentTotalWeightGrams))}
             {wiersz('scale-item-flour', t('Mąka'), w(b.doughAddedFlourGrams))}
@@ -211,7 +211,7 @@ export function DoMiski(p: DoMiskiProps) {
           </Karta>
         </>
       ) : (
-        <Karta testID="karta-do-miski" tytul={t('Do miski (odhaczaj przy ważeniu)')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
+        <Karta testID="karta-do-miski" tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
           <View testID="do-miski">
             {c.flours.map((f, i) => wiersz(`scale-item-flour-${i}`, nazwaMakiMieszanki(f), w(f.weightGrams), proc(f.percentage)))}
             {wiersz('scale-item-water', t('Woda'), w(c.waterGrams), proc(p.waterPct))}

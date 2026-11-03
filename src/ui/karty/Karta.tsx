@@ -2,7 +2,7 @@
 // Piekarz — Karta: treść ekranu wyłącznie w kartach (design-spec §14, karty/README.md §1–§3, D-141) [M3 p1]
 // Tło `powierzchnia`, obwódka 1 px `kartaLinia` (w ciemnym równa powierzchni, więc niewidoczna), promień `karta`,
 // wypełnienie 16 (przy dużym tekście 12). Nagłówek: ikona 24 pt + tytuł jednym krojem (tytul2 − 2 = 20 pt, 700) +
-// opcjonalny znacznik po prawej (np. „Pro”). Przy dużym tekście ikona i znacznik nad tytułem, tytuł bez limitu linii.
+// opcjonalny znacznik po prawej (np. „Pro”) i opcjonalny podpis pod nagłówkiem (przypis, `tusz2`; M3 p6b). Przy dużym tekście ikona i znacznik nad tytułem, tytuł bez limitu linii.
 // Komponent nie ma własnych tekstów: tytuł i znacznik dostaje od ekranu.
 // ============================================================================
 
@@ -61,7 +61,7 @@ export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
   );
 }
 
-export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia = false, children }: {
+export function Karta({ testID = 'karta', tytul, ikona, znacznik, podpis, bezWypelnienia = false, children }: {
   testID?: string;
   /** Tytuł już przetłumaczony; nagłówek dla VoiceOver. */
   tytul: string;
@@ -69,6 +69,8 @@ export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia
   ikona?: React.ReactNode;
   /** Znacznik po prawej nagłówka (np. oznaczenie Pro). */
   znacznik?: React.ReactNode;
+  /** Zdanie pod nagłówkiem, już przetłumaczone (np. „Odhaczaj przy ważeniu.”, README §6). */
+  podpis?: string;
   /** Karta z wierszami `WierszKarty`: wiersze niosą własne wypełnienie, karta tylko zaokrągla i przycina. */
   bezWypelnienia?: boolean;
   children?: React.ReactNode;
@@ -77,6 +79,7 @@ export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia
   return (
     <View testID={testID} style={[styles.karta, bezWypelnienia ? styles.bezWypelnienia : { padding: duzy ? odstepy.m : odstepy.l }]}>
       <NaglowekKarty testID={testID} tytul={tytul} ikona={ikona} znacznik={znacznik} style={bezWypelnienia && styles.naglowekWKarcie} />
+      {podpis ? <Text testID={`${testID}-podpis`} style={[styles.podpis, bezWypelnienia && styles.podpisWKarcie]}>{podpis}</Text> : null}
       {children}
     </View>
   );
@@ -104,4 +107,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   tytulWiersz: { flex: 1, flexShrink: 1 },
+  // Podpis pod nagłówkiem (makieta: t-przyp p2, wypełnienie 0 16 8)
+  podpis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
+  podpisWKarcie: { paddingHorizontal: odstepy.l, paddingBottom: odstepy.s },
 });

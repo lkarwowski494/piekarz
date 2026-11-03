@@ -1105,9 +1105,7 @@
     "gdzie": []
   },
   "Do miski (odhaczaj przy ważeniu)": {
-    "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tytul)"
-    ]
+    "gdzie": []
   },
   "Do miski na wagę": {
     "gdzie": [
@@ -4212,6 +4210,12 @@
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
+  },
+  "Odhaczaj przy ważeniu.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (podpis)"
+    ],
+    "opis": "Podpis pod nagłówkiem karty „Do miski” na ekranie receptury: zachęta, by odhaczać składniki przy ważeniu (wiersze są polami do odhaczenia); tryb rozkazujący, z kropką; ok. 22 znaki; 13 pt, zawija się (README karty §6, D-185, D-209). Zastępuje dawny nagłówek „Do miski (odhaczaj przy ważeniu)”."
   },
   "Odhaczaj składniki w miarę wsypywania": {
     "gdzie": []

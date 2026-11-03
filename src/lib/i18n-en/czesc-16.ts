@@ -93,4 +93,6 @@ export const EN_16: Record<string, string> = {
     'The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package.',
   'Wstecz': 'Back',
   'Ile pieczesz': 'How much are you baking',
+  // M3 p6b (D-209, README §6)
+  'Odhaczaj przy ważeniu.': 'Tick off as you weigh.',
 };
