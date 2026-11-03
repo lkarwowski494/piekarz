@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 611 | 611 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 612 | 612 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 603 | 603 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 221 | 221 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1506** | Pokrytych: **1506** | Brakujących: **0**
+Łącznie elementów: **1507** | Pokrytych: **1507** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Udział żyta {n}%: wariant pszenny.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 1206 kolejnych elementów w pełnym wykazie)*
+*(... i 1207 kolejnych elementów w pełnym wykazie)*

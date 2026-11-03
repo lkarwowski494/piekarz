@@ -9,8 +9,9 @@ import {
   ScrollView,
   AppState,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Stack, useRouter } from 'expo-router';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
 import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
 import { przerwijWypiek } from '../../lib/przerwij-wypiek';
@@ -40,7 +41,7 @@ import { ostrzezeniaKroku } from '../../core/ostrzezenia-kroku';
 import { useAppAccess } from '../../lib/app-access';
 import { BlokadaFunkcji } from '../BlokadaFunkcji';
 import { FinishBakeModal } from './FinishBakeModal';
-import { StrefaKroku } from './StrefaKroku';
+import { CzasKrokuNaPasie, StrefaKroku } from './StrefaKroku';
 import { StolnicaKeepAwake } from './StolnicaKeepAwake';
 import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
@@ -55,6 +56,9 @@ import { styles } from './stolnica-screen.styles';
 export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: ProwadzenieWypiekuProps) {
   const router = useRouter();
   const sessionId = idSesji(start);
+  // Pas marki zamiast nagłówka systemowego (O3a, D-194; makieta wypiek.html#prowadzenie)
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
   const [isActive, setIsActive] = useState<boolean>(false);
   const [currentStepIdx, setCurrentStepIdx] = useState<number>(0);
@@ -311,25 +315,33 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nawigacja: „Dziś” (wstecz) · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003) */}
-      <Stack.Screen
-        options={{ headerRight: () => <PrzyciskiProwadzenia aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} /> }}
-      />
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+        <NadPasem />
+        {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
+            (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+        <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
+          wstecz={{ etykieta: t('Zamknij'), onPress: () => router.back() }}
+          akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
+          {aktywny && (
+            <>
+              <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />
+              <StrefaPlanu naPasie recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
+                pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
+            </>
+          )}
+        </PasZakladki>
+        <View style={styles.tresc}>
         {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
           <BlokadaFunkcji {...blokadaWypieku}>
           <View>
             <NotificationsOffBanner />
-            {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
-            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
-              pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-
-            {/* Strefa kroku: tytuł, czas do końca, treść, test palca, fazy garnka */}
+            {/* Strefa kroku: karta instrukcji, ostrzeżenie, test palca, fazy garnka (tytuł i czas na pasie) */}
             <StrefaKroku
+              naglowekNaPasie
               step={currentStep}
               formattedTime={teksty.czas?.tekst ?? ''}
               numer={{ n: currentStepIdx + 1, m: steps.length }}
@@ -355,7 +367,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
         {/* Arkusz oceny po ostatnim kroku */}
         <FinishBakeModal {...finish.modalProps} />
-
+        </View>
       </ScrollView>
 
       {aktywny && cofniete && (

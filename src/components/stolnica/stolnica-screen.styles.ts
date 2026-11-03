@@ -7,10 +7,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.tlo,
   },
+  // Pas na całą szerokość u góry przewijanej treści, treść pod nim z wcięciem (M3 p4b, D-194)
   container: {
-    padding: theme.spacing.md,
     paddingBottom: 40,
   },
+  tresc: {
+    padding: theme.spacing.md,
+  },
+  // Tekst na pasie prowadzenia (tokeny pasa, D-194)
+  naPasie: { color: theme.colors.naPasie },
+  naPasie2: { color: theme.colors.naPasie2 },
   header: {
     marginBottom: theme.spacing.md,
   },

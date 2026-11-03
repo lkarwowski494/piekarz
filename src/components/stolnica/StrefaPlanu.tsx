@@ -2,6 +2,7 @@
 // Piekarz — strefa planu na ekranie prowadzenia (design-spec §11b „056”): nazwa receptury, Spirala koszyka
 // z planu tego wypieku (058) i „Gotowe {dzień} o {godzina}” (makieta prowadzenia, 04-studio-projektowe-029); „Krok n z N”
 // jest nagłówkiem karty instrukcji (StrefaKroku, M3 p4, D-192). Wydzielona z app/stolnica.tsx [M1-audytor-generalny-114].
+// Od M3 p4b na pasie prowadzenia (O3a, D-194).
 // ============================================================================
 
 import React from 'react';
@@ -23,15 +24,18 @@ export interface StrefaPlanuProps {
   gotowe?: string | null;
   /** Koniec zegara kroku (ms), ten sam co dla tekstów prowadzenia: Spirala mówi tę samą godzinę „gotowe” (N-4). */
   koniecKrokuMs?: number | null;
+  /** Na pasie prowadzenia (O3a, D-194): kolory pasa (naPasie2, Spirala na pasie). */
+  naPasie?: boolean;
 }
 
-export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null, koniecKrokuMs = null }: StrefaPlanuProps) {
+export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null, koniecKrokuMs = null, naPasie = false }: StrefaPlanuProps) {
+  const kolor = naPasie ? styles.naPasie2 : null;
   return (
     <>
-      <Text testID="stolnica-nazwa-wypieku" style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
-      <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} koniecKrokuMs={koniecKrokuMs} />
+      <Text testID="stolnica-nazwa-wypieku" style={[styles.recipeTag, kolor]}>{nazwaReceptury(recipeName)}</Text>
+      <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} koniecKrokuMs={koniecKrokuMs} naPasie={naPasie} />
       <View style={styles.planOpis}>
-        {gotowe !== null && <Text testID="plan-ready" style={styles.gotowe}>{gotowe}</Text>}
+        {gotowe !== null && <Text testID="plan-ready" style={[styles.gotowe, kolor]}>{gotowe}</Text>}
       </View>
     </>
   );
