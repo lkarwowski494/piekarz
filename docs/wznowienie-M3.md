@@ -1,5 +1,5 @@
 # Wznowienie M3 (Redesigner): przekazanie
-Aktualizacja: 2026-11-02 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
+Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
 ## Stan
 - Przebieg M3 od 2026-10-22, plan wariant (a) „wzmocnienie kierunku A” (`audit/M3-2026-10-22/plan.md`, poza gitem). Partie a1…W-fix3 scalone do master (`d8a0b40`, build 1019).
@@ -23,6 +23,12 @@ Aktualizacja: 2026-11-02 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - iOS E2E: run 41536995568 na `c660cec` — awaria maszyny (`IOSDriverTimeoutException` po 480 s, przed scenariuszami); jedyne ponowienie run 41546766468 na `056e41e` — **zielone** (2026-11-03 00:34 UTC).
 - Build TestFlight: run 41557215220 na `056e41e` — bramka `tz-matrix` (7 stref, 07-jakosc-002) **zielona**; job „Archive & Upload” zatrzymany na kroku „Verify commit is ancestor of master (BR-REL-005)”: TestFlight buduje tylko commity z `master`. **Buildu nie ma.** Bez ponowienia: scalenie do master wymaga zgody właściciela (zgoda z 2026-11-02 obejmowała build, nie scalenie).
 - Wniosek: build do testu na telefonie = najpierw scalenie `redesign/piekarz-2026-10-22` → `master` (za zgodą, razem z krokiem ASC Free Trial albo przed nim — do decyzji właściciela), potem `testflight.yml` na master. Kandydat: `056e41e` (E2E zielone, strefy zielone, verify kod 0).
+
+## 2026-11-03: build TestFlight 1021 (koordynator)
+- Scalenie `redesign/piekarz-2026-10-22` @ `750a83e` → `master` jako `39f3890` (zgoda właściciela 2026-11-03, D-135; drzewo identyczne z gałęzią).
+- Run 41589614991 (`testflight.yml` na master @ `39f3890`): `tz-matrix` zielone (06:24–06:42 UTC, 7 stref); „Archive & Upload” zielone: BR-REL-005, `npm run verify`, niezmienniki iOS, PrivacyInfo; wersja 1.0.0, **build 1021**, „Upload succeeded” / „EXPORT SUCCEEDED” 07:02:53 UTC.
+- Ostrzeżenia bez wpływu na build: brak dSYM dla React.framework, ReactNativeDependencies.framework, hermesvm.framework (symbolikacja awarii tych frameworków w ASC niepełna; brzegowe).
+- Następny krok: właściciel — Free Trial w ASC (Z-1) i test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
 
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
