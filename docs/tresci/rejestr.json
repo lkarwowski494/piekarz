@@ -4889,7 +4889,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "391507c2912d"
+    },
     "wielkosc": "tefal_pf2208_maks_maka",
     "wartosc": 620,
     "jednostka": "g",
@@ -5069,7 +5073,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "a8b555ee66d9"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Tefal PF220838 (Pain Plaisir); nie reguła ogólna maszyn."
   },
@@ -5095,7 +5103,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "447ce226066b"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Tefal PF220838 (Pain Plaisir); nie reguła ogólna maszyn."
   },
@@ -5121,7 +5133,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "14c2c5b0ffb4"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Tefal PF220838 (Pain Plaisir); nie reguła ogólna maszyn."
   },
@@ -5163,7 +5179,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "cbbe24da43b7"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Tefal PF220838 (Pain Plaisir); nie reguła ogólna maszyn."
   },
@@ -5182,7 +5202,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "2e4846296896"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Tefal PF220838 (Pain Plaisir); nie reguła ogólna maszyn."
   },
@@ -5354,7 +5378,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "a8b555ee66d9"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Zojirushi BB-PDC20."
   },
@@ -5380,7 +5408,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "447ce226066b"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Zojirushi BB-PDC20."
   },
@@ -5399,7 +5431,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "cbbe24da43b7"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Zojirushi BB-PDC20."
   },
@@ -5425,7 +5461,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "f0934085c5f6"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modelu Zojirushi BB-PDC20."
   },
@@ -5571,7 +5611,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "a8b555ee66d9"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modeli Panasonic SD-YR2550 (z dozownikiem drożdży) i SD-R2530 (bez dozownika). Kopia z serwera sprzedawcy, nie z panasonic.com — do porównania z oryginałem, gdy serwer producenta będzie dostępny."
   },
@@ -5590,7 +5634,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "447ce226066b"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modeli Panasonic SD-YR2550 (z dozownikiem drożdży) i SD-R2530 (bez dozownika). Kopia z serwera sprzedawcy, nie z panasonic.com — do porównania z oryginałem, gdy serwer producenta będzie dostępny."
   },
@@ -5609,7 +5657,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "cbbe24da43b7"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modeli Panasonic SD-YR2550 (z dozownikiem drożdży) i SD-R2530 (bez dozownika). Kopia z serwera sprzedawcy, nie z panasonic.com — do porównania z oryginałem, gdy serwer producenta będzie dostępny."
   },
@@ -5628,7 +5680,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "f0934085c5f6"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla modeli Panasonic SD-YR2550 (z dozownikiem drożdży) i SD-R2530 (bez dozownika). Kopia z serwera sprzedawcy, nie z panasonic.com — do porównania z oryginałem, gdy serwer producenta będzie dostępny."
   },
@@ -5726,7 +5782,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "a8b555ee66d9"
+    },
     "wielkosc": "cuisinart_cbk110_timer_maks",
     "wartosc": 13,
     "jednostka": "h",
@@ -5755,7 +5815,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "cbbe24da43b7"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla Cuisinart CBK-110. Kopia z serwera sprzedawcy (Home Depot); oficjalny PDF cuisinart.ca zwrócił 404."
   },
@@ -5871,7 +5935,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "447ce226066b"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Szczebel 1 tylko dla Kenwood BM200 (starszy model; PDF z serwera De’Longhi Group)."
   },
@@ -5927,7 +5995,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "60b664c8aa42"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Krytyczne: mienie (przelanie). Aplikacja przy skalowaniu receptury do bochenka nie może przekroczyć limitu mąki maszyny — limit podaje instrukcja modelu (np. MAS-002, MAS-032)."
   },
@@ -6132,7 +6204,11 @@
     "status": "potwierdzone",
     "uproszczenie": "Lista blokady to suma składników z pięciu instrukcji (każda wymienia inną listę); wyjątek mleka w proszku tylko z instrukcji Cuisinart (MAS-084). Mięsa nie ma w żadnej instrukcji maszyny, więc nie ma go w regule (D-175).",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "2c4091952f16"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Do przeglądu człowieka: czy lista blokująca ma być szersza (zasada ostrożności) niż część wspólna źródeł.",
     "decyzja": "D-175"
@@ -6538,7 +6614,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "ceb0af82294c"
+    },
     "wielkosc": "temp_obwarzania_min",
     "wartosc": 90,
     "jednostka": "°C",
@@ -6749,7 +6829,11 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "7c397c1e861c"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Gorąca woda 85–95 °C: ryzyko oparzenia. Obok: „Temperatura wody: 85–95 °C”."
   },
@@ -7419,7 +7503,11 @@
     "status": "potwierdzone",
     "uproszczenie": "Wyjątek z jednej instrukcji (Cuisinart) stosowany w regule aplikacji D-175 dla wszystkich maszyn; inne przeczytane instrukcje zabraniają „mleka” bez rozróżnienia albo milczą o mleku w proszku.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "df63a3878ecd"
+    },
     "wazne_do": "2027-11-03"
   },
   {
@@ -9704,7 +9792,11 @@
     "status": "potwierdzone",
     "uproszczenie": "Mąka: środek 0,8 kg; mleko 1 l ≈ 1,03 kg (rachunek: 244 g ÷ 237 ml, KAT-WAG-009 i -026); środek każdego przedziału; do 0,1 punktu. Przedziały procentowe liczone skrajnie (najmniej składnika na najwięcej mąki i odwrotnie). Rodzaju drożdży dokument nie podaje; przyjęte jako świeże (prasowane) — założenie.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "fbd826602bed"
+    },
     "wazne_do": "2027-11-03",
     "uwagi": "Krytyczne: mleko, jaja i (w nadzieniu) twaróg i żółtka — przy opóźnionym starcie składniki psujące się (D-175, KAT-KOL-005)."
   },
@@ -10088,7 +10180,11 @@
     "status": "potwierdzone",
     "uproszczenie": "Źródło dotyczy wody z kranu 120–150 °F; woda przy obwarzaniu (co najmniej 90 °C) i parzeniu mąki (85–95 °C) jest gorętsza, więc wniosek o ryzyku oparzenia ma kierunek bezpieczny; czasu oparzenia dla 85–95 °C źródło nie podaje.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
+      "data": "2026-11-03",
+      "sha": "d3b15ef100c8"
+    },
     "wazne_do": "2027-11-03"
   }
 ]

@@ -995,3 +995,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Ryzyko:** weto wyglądu po zrzutach p2 może wymagać poprawek w p3–p5 (wszystkie używają tych samych komponentów kart — poprawka w jednym miejscu).
 - **Status:** dzień, do weta.
 
+### [D-190] 2026-11-03 — Odpowiedzi właściciela po powrocie: przegląd 38 zdań krytycznych, brak weta D-172…D-183, build TestFlight dopiero po p5
+- **Rodzaj:** produktowa i przegląd człowieka (moduł tresci-krytyczne), decyzje właściciela przekazane przez koordynatora M3 (czat i przyciski, 2026-11-03 ok. 17:15 UTC).
+- **Słowa właściciela:** „1. Zdania krytyczne. Approved. 2. Ok 3. Ok”; na pytanie o build: „Poczekaj do p5”.
+- **Decyzja:** (1) 38 zdań PL/EN z `docs/tresci/przeglad/m3-zdania-2026-11-03.md` zaakceptowane: pole `przeglad` (kto, data, sha bieżącej wersji zdań) przy 24 twierdzeniach w `docs/tresci/rejestr.json`; `node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en` bez flagi: kod 0. Wpis wykonał koordynator, bo sesja roli 06 jest zarchiwizowana (wyjątek nazwany, zasada 7: mechaniczne przeniesienie decyzji; skróty z `--skroty` porównane z tabelą przeglądu, 24/24 zgodne). (2) Zrzuty Zakwasów przez TestFlight — zgoda („Ok”), ale build wymaga commitu z `master` (BR-REL-005, `testflight.yml`), więc wybór „Poczekaj do p5”: jeden build po p5, po zielonym iOS E2E i za osobną zgodą na scalenie do `master`. (3) Brak weta D-172…D-183.
+- **Odrzucone:** scalenie do `master` teraz i build z połową redesignu; same makiety bez buildu.
+- **Ryzyko:** weto wyglądu Zakwasów po buildzie dotknie p3–p5 (wspólne komponenty kart, poprawka w jednym miejscu).
+- **Status:** właściciel, 2026-11-03.
