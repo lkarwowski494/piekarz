@@ -797,3 +797,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** cały tryb maszyny w Pro (liczenie w Pro łamie linię D-112); wszystko w Basic (darmowy plan „na godzinę” obok płatnego planu wstecz).
 - **Otwarte z tej samej odpowiedzi (do doprecyzowania, D-151):** „2. 9 , nie wiem czy nie powinniśmy rozszerzyć katalogu przepisów w wersji 1.01”; „3. Ale nie można jakiegoś uniwersalnego przepisu ? W sensie bierzesz przepis na chleb który już mamy, wrzucasz w odpowiedniej kolejności składniki do maszyny i aplikacja sugeruje program czyli np chleb zwykły lub chleb pełnoziarnisty itd . Lub najbliższy temu ?”; „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”. Odpowiedzi 2 i 4 wzajemnie się wykluczają; pytania doprecyzowujące w `docs/zakres-zm-2026-11-03.md`.
 - **Zależy od:** D-112, D-113, D-151. **Status:** dzień, do weta.
+
+### [D-153] 2026-11-03 — Tryb maszyny (F-72) uniwersalny, nie profil jednej maszyny; Tefal PF220838 jako maszyna testowa (odpowiedź na pytanie C rundy 2, D-151)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (2026-11-03). **Słowa właściciela:** „Ale to ma być uniwersalna aplikacja a nie tylko pod moją maszynę. Moja to Wypiekacz do chleba TEFAL PAIN PLAISIR PF220838”.
+- **Decyzja:** F-72 jako tryb uniwersalny: dowolna receptura w wersji drożdżowej → ilości pod wielkość bochenka, kolejność wkładania w jednym z dwóch układów, sugestia programu z rodzaju receptury („najbliższy program”); bez profili konkretnych maszyn. Tefal PAIN PLAISIR PF220838: maszyna do wypieku testowego właściciela i przykład w źródłach roli 06 (instrukcja producenta to szczebel 1 tylko dla tego modelu, nie reguła ogólna).
+- **Odrzucone:** (c) profil jednej maszyny (słowa właściciela wyżej).
+- **Otwarte:** C (a) tylko wersje drożdżowe czy (a)+(b) także zakwas w maszynie (warunek: źródło roli 06); pytania A, B, D rundy 2 (`docs/zakres-zm-2026-11-03.md`).
+- **Zależy od:** D-138, D-150, D-151, D-152. **Status:** dzień, do weta.
