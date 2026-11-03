@@ -3,7 +3,7 @@
 
 ## yeast.conversionNote
 Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych. [T:DRO-INS-030]
-To środek wartości producentów, od 0,28 do 0,417, więc na opakowaniu Twoich drożdży może być inaczej. [T:DRO-INS-030]
+To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej. [T:DRO-INS-030]
 
 ## yeast.dryHandling
 Drożdże instant można wsypać prosto do mąki. [T:DRO-INS-005,DRO-INS-016]
@@ -16,4 +16,4 @@ Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciast
 
 ## plan.yeast.fingerTest
 Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. [T:DRO-MOD-013]
-Po kształtowaniu ciasto rośnie mniej więcej o połowę krócej niż za pierwszym razem i przed pieczeniem nie powinno więcej niż podwoić objętości. [T:DRO-MOD-015]
+Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości. [T:DRO-MOD-015]

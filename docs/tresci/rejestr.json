@@ -4605,7 +4605,7 @@
   },
   {
     "id": "ZYT-DRO-002",
-    "twierdzenie": "Według Koistinen i in. (Sci. Rep. 2018) w procesie chleba żytniego ciasto odpoczywa 60 min w 28 °C (80% wilgotności), kęsy 500 g formowane ręcznie garują 60 min w 37 °C, a pieką się 10 min w 240 °C i 35 min w 220 °C; chleby żytnie badano dopiero następnego dnia, bo w dniu wypieku były zbyt lepkie.",
+    "twierdzenie": "Według Koistinen i in. (Sci. Rep. 2018) w procesie chleba żytniego ciasto odpoczywa 60 min w 28 °C (80% wilgotności), kęsy 500 g formowane ręcznie garują 60 min w 37 °C, a pieką się 10 min w 240 °C i 35 min w 220 °C; chleby z pełnoziarnistej mąki żytniej badano dopiero następnego dnia, bo w dniu wypieku były zbyt lepkie.",
     "zrodla": [
       {
         "adres": "https://doi.org/10.1038/s41598-018-24149-w",
@@ -6075,7 +6075,7 @@
   },
   {
     "id": "MAS-072",
-    "twierdzenie": "Wszystkie pięć przeczytanych instrukcji maszyn zabrania opóźnionego startu z łatwo psującymi się składnikami (część wspólna: jajka i mleko; Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; Zojirushi: mleko, sok, warzywa, jajka; Cuisinart i Kenwood: mleko, jajka, ser, jogurt; Panasonic: jajka i mleko zamiast wody). Reguła aplikacji (D-175): tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza mlekiem w proszku, MAS-084), ser, jogurt albo świeże owoce.",
+    "twierdzenie": "Wszystkie pięć przeczytanych instrukcji maszyn zabrania opóźnionego startu z łatwo psującymi się składnikami (część wspólna: jajka i mleko; Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; Zojirushi: mleko, sok, warzywa, jajka; Cuisinart i Kenwood: mleko, jajka, ser, jogurt; Panasonic: jajka i mleko zamiast wody). Reguła aplikacji (D-175, uzupełnienie po weryfikacji E3a): tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa (suma list instrukcji); mleko w proszku tego nie blokuje (MAS-084).",
     "zrodla": [
       {
         "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
@@ -6114,7 +6114,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Uogólnienie z instrukcji pięciu producentów (każda szczebel 1 tylko dla swojego modelu) do reguły ogólnej aplikacji; mięso i warzywa dopisane z Zojirushi (warzywa) i FDA MAS-071 (mięso jako produkt łatwo psujący się) — żadna instrukcja maszyny nie wymienia mięsa. Mleko w proszku jako zamiennik: wskazówka z wyszukiwarki (inne instrukcje), nieprzeczytana — [DO USTALENIA].",
+    "uproszczenie": "Lista blokady to suma składników z pięciu instrukcji (każda wymienia inną listę); wyjątek mleka w proszku tylko z instrukcji Cuisinart (MAS-084). Mięsa nie ma w żadnej instrukcji maszyny, więc nie ma go w regule (D-175).",
     "krytyczne": true,
     "przeglad": null,
     "wazne_do": "2027-11-03",
@@ -7209,7 +7209,7 @@
     "przeglad": null,
     "wazne_do": "2027-11-03",
     "id": "DRO-INS-030",
-    "twierdzenie": "Piekarz przelicza drożdże świeże na suche (aktywne i instant) jako 0,35 masy świeżych: to środek przedziału wartości producentów, od 0,28 (Dr. Oetker, instant) do 0,417 (Red Star i Fleischmann’s), więc producent na opakowaniu może podawać inaczej (rachunek: (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35).",
+    "twierdzenie": "Piekarz przelicza drożdże świeże na suche (aktywne i instant) jako 0,35 masy świeżych: to środek między 0,28 (Dr. Oetker, instant) a 0,417 (Red Star i Fleischmann’s); Lesaffre Polska podaje 0,25–0,33, więc producent na opakowaniu może podawać inaczej (rachunek: (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35).",
     "zrodla": [
       {
         "adres": "https://www.oetker.pl/produkty/p/drozdze-suszone-instant-7g",
@@ -7229,6 +7229,13 @@
         "adres": "https://www.fleischmannsyeast.com/frequently-asked-questions/",
         "miejsce": "Fleischmann's Yeast (ACH Food / AB Mauri), FAQ, „How do I substitute dry yeast for Fresh Active Yeast?”; kopia zrodla/fleischmanns-faq.htm, sha256 bc3146d50afb (cytat sprawdzony grep -F na tekście kopii po usunięciu znaczników HTML/pdftotext i scaleniu białych znaków)",
         "cytat": "One 0.6-ounce cake is equivalent to 1 packet of dry yeast. One 2-ounce cake is equivalent to three packets of dry yeast.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.lesaffre.pl/produkty/drozdze/drozdze-suszone/drozdze-saf-instant-czerwone-zlote/",
+        "miejsce": "Lesaffre Polska, „Drożdże SAF INSTANT czerwone/złote”, opis produktu; kopia zrodla/lesaffre-pl-safrg.htm, sha256 eca9b5fb3a4f (cytat sprawdzony grep -F na tekście kopii po usunięciu znaczników HTML/pdftotext i scaleniu białych znaków)",
+        "cytat": "Produkt ma identyczne właściwości fermentacyjne jak drożdże świeże przy 3-4 krotnie mniejszej wadze.",
         "odczyt": "2026-11-03",
         "szczebel": 1
       }

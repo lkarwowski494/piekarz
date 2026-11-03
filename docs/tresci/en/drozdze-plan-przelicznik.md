@@ -3,7 +3,7 @@
 
 ## yeast.conversionNote
 Piekarz counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast. [T:DRO-INS-030]
-This is the middle of the makers' values, from 0.28 to 0.417, so your yeast package may say otherwise. [T:DRO-INS-030]
+This is the middle between two groups of makers' values, 0.28 and 0.417, and some give even less, so your yeast package may say otherwise. [T:DRO-INS-030]
 
 ## yeast.dryHandling
 Instant yeast can go straight into the flour. [T:DRO-INS-005,DRO-INS-016]
@@ -16,4 +16,4 @@ Times are a guide, because the rise depends on the ingredients, dough strength, 
 
 ## plan.yeast.fingerTest
 The dough is ready when a finger dent stays. [T:DRO-MOD-013]
-After shaping, the dough rises roughly half as long as the first time and should not more than double before baking. [T:DRO-MOD-015]
+Before baking, the shaped dough should not more than double in size. [T:DRO-MOD-015]

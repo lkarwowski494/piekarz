@@ -2,8 +2,8 @@
 <!-- Role 06, E2, 2026-11-03. Same headers and claims as docs/tresci/pl/wersje-drozdzowe.md. -->
 
 ## spelt_ancient_seeded.yeastVersion.notesEn
-With yeast: 3% fresh yeast by flour weight, and about 3 hours at room temperature from mixing the dough to putting the bread in the oven. [T:DRO-WER-SP-001]
-With a night in the fridge: 1% fresh yeast, the dough rests 18 hours in the fridge at 4 °C, then another 3 hours at room temperature. [T:DRO-WER-SP-002]
+With yeast: 3% yeast by flour weight (the study does not name the type; Piekarz counts it as fresh), and about 3 hours at room temperature from mixing the dough to putting the bread in the oven. [T:DRO-WER-SP-001]
+With a night in the fridge: 1% yeast, the dough rests 18 hours in the fridge at 4 °C, then another 3 hours at room temperature. [T:DRO-WER-SP-002]
 The yeast amount and times come from a study of bread made with wholegrain spelt flour. [T:DRO-WER-SP-001]
 Times are a guide: judge readiness by the look of the dough and the finger test. [T:DRO-MOD-016]
 
@@ -13,11 +13,11 @@ In a study of wholemeal wheat bread, the dough fermented 15 minutes, another 15 
 In a cooler room the dough rises longer, so judge readiness by its look and the finger test, not the clock. [T:DRO-MOD-016]
 
 ## rye_100_pan.yeastVersion.notesEn
-With yeast, without sourdough: 3% fresh yeast, 76% water and 1.2% salt by flour weight. [T:ZYT-DRO-001]
+With yeast, without sourdough: 3% yeast (the study does not name the type; Piekarz counts it as fresh), 76% water and 1.2% salt by flour weight. [T:ZYT-DRO-001]
 In the study the dough rested 60 minutes at 28 °C, and the loaves rose in the tin 60 minutes at 37 °C in a proofing cabinet. [T:ZYT-DRO-002]
 The bread was baked 10 minutes at 240 °C and 35 minutes at 220 °C. [T:ZYT-DRO-002]
-On baking day the rye breads were too sticky to assess, so they were tested the next day. [T:ZYT-DRO-002]
+On baking day the wholegrain rye breads were too sticky to assess, so they were tested the next day. [T:ZYT-DRO-002]
 
 ## tartine_high_hydration_80.yeastVersion.notesEn
-With yeast, following one recipe for a no-knead bread with a similar amount of water: about 1.7% fresh yeast by flour weight. [T:DRO-WER-TA-001]
+With yeast, following one recipe for a no-knead bread with a similar amount of water: 1 teaspoon of instant yeast, which by the Piekarz conversion is about 1.7% fresh yeast by flour weight. [T:DRO-WER-TA-001]
 The dough rests at room temperature overnight, at least 8 hours, and the shaped loaf then rises about 90 minutes. [T:DRO-WER-TA-001]

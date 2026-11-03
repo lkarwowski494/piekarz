@@ -112,11 +112,11 @@
       "wartosc": null,
       "granica": "<= wartość z instrukcji użytkownika (włączna)",
       "twierdzenie": "MAS-062",
-      "uwagi": "przykład Tefal PF220838: 620 (MAS-002)"
+      "uwagi": "przykład Tefal PF220838: 620 (MAS-002); drugi limit MASZYNA_MAKS_CIASTO (g, <=, Tefal 1000, MAS-002) i MASZYNA_MAKS_DROZDZE (g, <=, Tefal 10 g instant, MAS-002; Panasonic MAS-032), gdy instrukcja je podaje"
     }
   ],
   "niezmienniki": [
-    "Opóźniony start niedostępny w trybie maszyny, gdy receptura ma jajka, świeże mleko, ser, jogurt albo świeże owoce (D-175, MAS-072); mleko w proszku tego nie blokuje (MAS-084); obok zawsze tekst machine.delayBlocked.",
+    "Opóźniony start niedostępny w trybie maszyny, gdy receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa (D-175 z uzupełnieniem E3a, MAS-072); mleko w proszku tego nie blokuje (MAS-084); obok zawsze tekst machine.delayBlocked.",
     "Podpowiedź programu zawsze z tekstem „reguła Piekarza, sprawdź w instrukcji” (D-179, machine.programHint pierwsze zdanie).",
     "Tryb maszyny przy wersji na zakwasie używa wersji drożdżowej (D-156, MAS-ZAK-005); receptura bez wersji drożdżowej (D-173: country_loaf_72, pain_de_campagne, san_francisco_sourdough, borodinsky_rye, lievito_madre_panettone_brioche) nie ma trybu maszyny.",
     "Plan wersji drożdżowej nie przelicza czasów temperaturą ani ilością drożdży (D-174)."
@@ -385,6 +385,46 @@
         "maka_g": 500
       },
       "twierdzenie": "MAS-062"
+    },
+    {
+      "id": "V-OPO-8",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "sok pomarańczowy"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-9",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "starta marchew"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-MAK-4",
+      "wejscie": {
+        "maks_maka_g": 620,
+        "maks_ciasto_g": 1000,
+        "receptura": "tartine 80% wody, 2% soli, 1,7% drożdży",
+        "maka_receptury_g": 620
+      },
+      "oczekiwane": {
+        "maka_g_maks": 544,
+        "uwagi": "ciasto ≤ 1000 g: 1000 / (1 + 0,80 + 0,02 + 0,017) = 544,4 → 544 g (zaokrąglenie w dół); mąka ograniczona przez ciasto, nie przez 620"
+      },
+      "twierdzenie": "MAS-002"
     }
   ]
 }
