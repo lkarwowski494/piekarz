@@ -1334,7 +1334,6 @@
   },
   "Doktor": {
     "gdzie": [
-      "app/_layout.tsx (tekst)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
       "src/components/zakwas/PasZakwasu.tsx (tekst)"
     ]
@@ -1343,7 +1342,6 @@
     "gdzie": [
       "app/(tabs)/dziennik/index.tsx (accessibilityLabel)",
       "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
-      "app/_layout.tsx (etykieta)",
       "app/_layout.tsx (title)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
@@ -6253,7 +6251,8 @@
   },
   "Stolnica": {
     "gdzie": [
-      "app/_layout.tsx (title)"
+      "app/_layout.tsx (title)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (tytul)"
     ]
   },
   "Strata Piecowa": {
@@ -8422,6 +8421,7 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },

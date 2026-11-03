@@ -19,14 +19,19 @@ import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
 
-export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
+export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
+  /** testID tytułu (prowadzenie: „step-title”, tytuł kroku na pasie, D-194). */
+  tytulTestID?: string;
   /** Zdanie pod tytułem (data na „Dziś”, „Ostatni wypiek: …” w Dzienniku). */
   podtytul?: string;
-  /** Powrót w stosie zakładki (ekran z push): tekst = tytuł poprzedniego ekranu. */
-  wstecz?: { tekst: string; onPress: () => void };
+  /**
+   * Powrót w stosie zakładki (ekran z push): tekst = tytuł poprzedniego ekranu. Bez tekstu sama ikona z etykietą VoiceOver
+   * (prowadzenie: poprzedni ekran bywa różny, makieta wypiek.html#prowadzenie, D-195).
+   */
+  wstecz?: { tekst: string; etykieta?: string; onPress: () => void } | { tekst?: undefined; etykieta: string; onPress: () => void };
   /** Akcje nagłówka po prawej (PrzyciskNaglowka z `naPasie`). */
   akcje?: React.ReactNode;
   /** Filtry (chipy): na pasie, a przy dużym tekście pod pasem (D-120 b). */
@@ -52,7 +57,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, 
       {(wstecz || akcje) && (
         <View style={styles.gora}>
           {wstecz ? (
-            <PrzyciskNaglowka testID="pas-wstecz-btn" etykieta={wstecz.tekst} tekst={wstecz.tekst} naPasie onPress={wstecz.onPress}
+            <PrzyciskNaglowka testID="pas-wstecz-btn" etykieta={wstecz.etykieta ?? wstecz.tekst ?? ''} tekst={wstecz.tekst} naPasie onPress={wstecz.onPress}
               ikona={<IkonaStartu nazwa="wstecz" kolor={theme.colors.naPasie} rozmiar={22} />} />
           ) : <View />}
           <View style={styles.akcje}>{akcje}</View>
@@ -60,7 +65,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, 
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      <Text testID={tytulTestID} style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul && !duzy ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}

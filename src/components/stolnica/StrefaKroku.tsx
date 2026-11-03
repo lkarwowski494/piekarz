@@ -1,7 +1,8 @@
 // ============================================================================
 // Piekarz — strefa kroku na ekranie prowadzenia (design-spec §11b „056”): tytuł kroku, czas do końca
 // (etap żytni bez czasu w planie idzie bez minutnika, 030), „do {godzina}, potem …”, treść kroku, Ostrzeżenie,
-// „Ekran nie zgaśnie…” w kroku czynnym (114), test palca i dwie fazy garnka.
+// „Ekran nie zgaśnie…” w kroku czynnym (114), test palca i dwie fazy garnka. Na prowadzeniu tytuł, czas i „potem …” są
+// na pasie ekranu (O3a, D-194: `naglowekNaPasie`, CzasKroku); ogłoszenie nowego kroku zostaje tutaj.
 // ============================================================================
 
 import React, { useEffect, useRef } from 'react';
@@ -42,9 +43,36 @@ export interface StrefaKrokuProps {
   ekran?: string | null;
   /** Numer kroku i liczba kroków planu: nagłówek karty instrukcji „Krok {n} z {m}” (M3 p4, D-192); bez numeru nazwa kroku. */
   numer?: { n: number; m: number };
+  /** Tytuł, czas i „potem …” są na pasie ekranu (O3a, D-194): strefa pokazuje tylko kartę, ostrzeżenie i garnek. */
+  naglowekNaPasie?: boolean;
 }
 
-export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null, numer }: StrefaKrokuProps) {
+type CzasKrokuProps = Pick<StrefaKrokuProps, 'step' | 'formattedTime' | 'czasEtykieta' | 'potem'>;
+
+/** Czas kroku na pasie prowadzenia (D-194): kolory pasa, waga z „Pogrubionego tekstu” jak tytuł pasa. */
+export function CzasKrokuNaPasie(p: CzasKrokuProps) {
+  return <CzasKroku {...p} waga={{ fontWeight: wagaTytulu(usePogrubionyTekst()) }} naPasie />;
+}
+
+/** Czas kroku i „do {godzina}, potem …”; waga od rodzica (jeden słuchacz „Pogrubionego tekstu” na strefę). */
+function CzasKroku({ step, formattedTime, czasEtykieta, potem = null, naPasie = false, waga }: CzasKrokuProps & { naPasie?: boolean; waga: { fontWeight: ReturnType<typeof wagaTytulu> } }) {
+  return (
+    <>
+      {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt); „1:05:00” przy 320 pt zmniejsza się w jednym
+          wierszu zamiast łamać cyfry [M1-audytor-generalny-201; reaudit-noc N-2] */}
+      {stepHasTimer(step) && (
+        <Text testID="step-time" style={[styles.czas, waga, naPasie && styles.naPasie]} accessibilityLabel={czasEtykieta}
+          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+          numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+          {formattedTime}
+        </Text>
+      )}
+      {potem !== null && <Text testID="step-next" style={[styles.potem, naPasie && styles.naPasie2]}>{potem}</Text>}
+    </>
+  );
+}
+
+export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null, numer, naglowekNaPasie = false }: StrefaKrokuProps) {
   const tytul = tytulOstrzezen(ostrzezenia);
   const { kolory } = useMotyw();
   // „Pogrubiony tekst” iOS: tytuł kroku i czas w kroju tytułów o stopień ciężej [M1-audytor-generalny-158]
@@ -59,17 +87,12 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
   }, [step.id, step.name]);
   return (
     <>
-      <Text testID="step-title" style={[styles.activeStepTitle, waga]}>{t(step.name)}</Text>
-      {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt); „1:05:00” przy 320 pt zmniejsza się w jednym
-          wierszu zamiast łamać cyfry [M1-audytor-generalny-201; reaudit-noc N-2] */}
-      {stepHasTimer(step) && (
-        <Text testID="step-time" style={[styles.czas, waga]} accessibilityLabel={czasEtykieta}
-          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
-          numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-          {formattedTime}
-        </Text>
+      {!naglowekNaPasie && (
+        <>
+          <Text testID="step-title" style={[styles.activeStepTitle, waga]}>{t(step.name)}</Text>
+          <CzasKroku step={step} formattedTime={formattedTime} czasEtykieta={czasEtykieta} potem={potem} waga={waga} />
+        </>
       )}
-      {potem !== null && <Text testID="step-next" style={styles.potem}>{potem}</Text>}
       {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4);
           Ostrzeżenie bez zmian treści i zachowania, jak w makiecie pod kartą instrukcji */}
       <Karta testID="karta-kroku" tytul={numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>

@@ -51,15 +51,6 @@ const uklad = (plik: string) => {
   const screenOptions: Opcje = mockStos.screenOptions ?? {};
   return { screenOptions, ekrany: [...mockStos.ekrany] };
 };
-const testIdPrzycisku = (o: Opcje) => {
-  let tree!: renderer.ReactTestRenderer;
-  act(() => {
-    tree = renderer.create(o.headerRight!());
-  });
-  const id = tree.root.findAll((n) => typeof n.props.testID === 'string')[0]?.props.testID;
-  act(() => tree.unmount());
-  return id;
-};
 
 describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', () => {
   it('pasek ma dokładnie 4 zakładki w kolejności Dziś, Receptury, Zakwasy, Dziennik', () => {
@@ -112,12 +103,14 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     expect(ekrany.find((e) => e.name === 'doktor-zakwasu')!.options).toMatchObject({ title: 'Doktor zakwasu' });
   });
 
-  it('prowadzenie (Stolnica) i Doktor Chleba otwierają się nad zakładkami, z nagłówkiem systemowym', () => {
+  // M3 p4b (D-194, O3a): Stolnica z pasem zamiast nagłówka systemowego; powrót, krok (nagłówek VoiceOver), „Doktor”
+  // i „Plan wypieku” na pasie ekranu (tests/stolnica-naglowek-prz07.test.tsx). Doktor Chleba dalej z nagłówkiem (p5).
+  it('prowadzenie (Stolnica) z pasem, Doktor Chleba z nagłówkiem systemowym; oba nad zakładkami', () => {
     const { ekrany } = uklad('../app/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['(tabs)', 'stolnica', 'doktor']);
     const stolnica = ekrany.find((e) => e.name === 'stolnica')!.options;
-    expect(stolnica).toMatchObject({ headerShown: true, title: 'Stolnica', headerLargeTitleEnabled: false });
-    expect(testIdPrzycisku(stolnica)).toBe('stolnica-doctor-shortcut-btn');
+    expect(stolnica).toMatchObject({ headerShown: false, title: 'Stolnica', headerLargeTitleEnabled: false });
+    expect(stolnica.headerRight).toBeUndefined();
     expect(ekrany.find((e) => e.name === 'doktor')!.options).toMatchObject({ headerShown: true, title: 'Doktor Chleba' });
   });
 

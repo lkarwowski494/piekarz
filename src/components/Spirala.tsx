@@ -207,8 +207,10 @@ function SpiralaJednegoPlanu({ kroki, wariant, biezacy = null, postepKroku = 0, 
 }
 
 /** Legenda tekstem (nic tylko kolorem, §2): zrobione, przed nami, noc w lodówce, skrócone kroki. */
-export function LegendaSpirali({ kroki }: { kroki: readonly KrokSpirali[] }) {
-  const { kolory } = useMotyw();
+export function LegendaSpirali({ kroki, naPasie = false }: { kroki: readonly KrokSpirali[]; naPasie?: boolean }) {
+  const paleta = useMotyw().kolory;
+  // Na pasie (prowadzenie, D-194): linie w kolorach Spirali na pasie, tekst naPasie2
+  const kolory = { ...kolorySpirali(paleta, naPasie), tusz2: naPasie ? paleta.naPasie2 : paleta.tusz2 };
   const noc = kroki.filter((k) => k.noc);
   const skroconaNoc = noc.some((k) => k.bierny && k.minuty !== null && k.minuty > 180);
   const innySkrocony = kroki.some((k) => !k.noc && k.bierny && k.minuty !== null && k.minuty > 180);
@@ -231,7 +233,7 @@ export function LegendaSpirali({ kroki }: { kroki: readonly KrokSpirali[] }) {
 }
 
 /** Spirala trwającego wypieku z kroków sesji (prowadzenie): etykieta z danych planu tego wypieku. */
-export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecKrokuMs = null }: {
+export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecKrokuMs = null, naPasie = false }: {
   steps: readonly SessionStep[];
   stepIdx: number;
   /** Pozostały czas kroku (s); null = krok bez minutnika. */
@@ -240,6 +242,8 @@ export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecK
   pelnySec: number;
   /** Koniec zegara kroku (ms), także po czasie; „gotowe” jak w prowadzeniu (reaudit-noc N-4). */
   koniecKrokuMs?: number | null;
+  /** Na pasie prowadzenia (D-194): kolory pasa. */
+  naPasie?: boolean;
 }) {
   const kroki = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
   const postep = pozostaloSec !== null && pelnySec > 0 ? 1 - pozostaloSec / pelnySec : 0;
@@ -254,8 +258,8 @@ export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecK
   });
   return (
     <View style={styles.wypiek}>
-      <Spirala kroki={kroki} wariant="pelna" biezacy={stepIdx} postepKroku={postep} etykieta={etykieta} />
-      <LegendaSpirali kroki={kroki} />
+      <Spirala kroki={kroki} wariant="pelna" biezacy={stepIdx} postepKroku={postep} etykieta={etykieta} naPasie={naPasie} />
+      <LegendaSpirali kroki={kroki} naPasie={naPasie} />
     </View>
   );
 }
