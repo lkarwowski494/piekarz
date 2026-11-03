@@ -34,7 +34,7 @@ export function KitchenTestsGuideSection() {
             szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
         <View style={duzy ? styles.guideHeaderStos : styles.guideHeader}>
           {duzy ? <View style={styles.guideWstep}>{ikona}<Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text></View> : ikona}
-          <Text style={[styles.guideTitle, !duzy && styles.guideTitleRzad]} accessibilityRole="header">{t('Test palca')}</Text>
+          <Text style={[styles.guideTitle, !duzy && styles.guideRozciagnijWRzedzie]} accessibilityRole="header">{t('Test palca')}</Text>
           {duzy ? null : <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>}
         </View>
         <Text style={styles.guideSummary}>
@@ -68,7 +68,7 @@ export function KitchenTestsGuideSection() {
             szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
         <View style={duzy ? styles.guideHeaderStos : styles.guideHeader}>
           {duzy ? <View style={styles.guideWstep}>{ikona}<Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text></View> : ikona}
-          <Text style={[styles.guideTitle, !duzy && styles.guideTitleRzad]} accessibilityRole="header">{t('Test okna glutenowego')}</Text>
+          <Text style={[styles.guideTitle, !duzy && styles.guideRozciagnijWRzedzie]} accessibilityRole="header">{t('Test okna glutenowego')}</Text>
           {duzy ? null : <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>}
         </View>
         <Text style={styles.guideSummary}>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   guideHeader: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md },
   guideHeaderStos: { flexDirection: 'column', alignItems: 'stretch', gap: theme.spacing.md },
   guideWstep: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  guideTitleRzad: { flex: 1, flexShrink: 1 },
+  guideRozciagnijWRzedzie: { flex: 1, flexShrink: 1 },
   guideTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tytul2.pt - 2,

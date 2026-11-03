@@ -72,7 +72,7 @@ export function EmergencyRecoverySection({
       {selectedProto && (
         <View style={styles.recoveryCard} testID="recovery-protocol-card">
           <View style={[styles.recoveryHeaderRow, duzy && styles.recoveryHeaderStos]}>
-            <Text style={[styles.recoveryCardTitle, duzy && styles.recoveryTitleStos]}>
+            <Text style={[styles.recoveryCardTitle, duzy && styles.recoveryNazwaWStosie]}>
               {t(selectedProto.titlePl)}
             </Text>
             <Pressable
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   // §7a / D-142: przy dużym tekście „Zamknij protokół” nad tytułem (kolejność czytania bez zmian), tytuł na całą szerokość
   recoveryHeaderStos: { flexDirection: 'column-reverse', alignItems: 'flex-end' },
-  recoveryTitleStos: { flex: 0, alignSelf: 'stretch' },
+  recoveryNazwaWStosie: { flex: 0, alignSelf: 'stretch' },
   recoveryHeaderRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
