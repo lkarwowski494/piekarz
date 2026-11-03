@@ -60,7 +60,7 @@ export function BakeHistorySection({
   const gora = React.useRef(0);
   return (
     <View style={styles.historyContainer} onLayout={(e) => { gora.current = e.nativeEvent.layout.y; }}>
-      <NaglowekKarty testID="grupa-historia" tytul={t('Historia wypieków')} ikona={<IkonaKarty nazwa="lista" />} style={styles.sectionHeading} />
+      <NaglowekKarty testID="grupa-historia" tytul={t('Historia wypieków')} ikona={<IkonaKarty nazwa="lista" />} style={styles.odstepGrupy} />
 
       {/* Filtry smaku na pasie Dziennika (D10 opcja A): FILTRY_SMAKU w app/(tabs)/dziennik/index.tsx [M3 D10] */}
 
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     gap: odstepy.m,
   },
   // Nagłówek grupy nad kartami (O2b, D-184): ten sam co nagłówek karty
-  sectionHeading: { marginTop: odstepy.xs },
+  odstepGrupy: { marginTop: odstepy.xs },
   emptyHistoryText: {
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,

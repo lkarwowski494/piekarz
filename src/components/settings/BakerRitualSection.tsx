@@ -36,7 +36,7 @@ export function BakerRitualSection({
             onPress={() => onVesselChange('dutch_oven')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'dutch_oven' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'dutch_oven' && styles.optionLabelActive]}>
                 {t('Garnek żeliwny')}
               </Text>
             </View>
@@ -51,7 +51,7 @@ export function BakerRitualSection({
             onPress={() => onVesselChange('cloche')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'cloche' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'cloche' && styles.optionLabelActive]}>
                 {t('Klosz ceramiczny')}
               </Text>
             </View>
@@ -66,7 +66,7 @@ export function BakerRitualSection({
             onPress={() => onVesselChange('baking_steel')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'baking_steel' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'baking_steel' && styles.optionLabelActive]}>
                 {t('Stal / Kamień szamotowy')}
               </Text>
             </View>
@@ -81,7 +81,7 @@ export function BakerRitualSection({
             onPress={() => onVesselChange('pullman_pan')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'pullman_pan' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'pullman_pan' && styles.optionLabelActive]}>
                 {t('Foremka z pokrywą')}
               </Text>
             </View>
@@ -104,11 +104,11 @@ const styles = StyleSheet.create({
   optionContent: {
     flex: 1,
   },
-  optionTitle: {
+  optionLabel: {
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz,
   },
-  optionTitleActive: {
+  optionLabelActive: {
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
