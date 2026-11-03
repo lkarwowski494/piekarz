@@ -788,3 +788,12 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** pełne E1–E2 (trzy nowe kierunki) — właściciel już wybrał i zaakceptował „Dziś”; poprawka tylko „Zakwasy” i „Receptury” — odrzucona w D-139 (b).
 - **Zależy od:** D-139; wybór O1–O3 właściciela na STOP E3; kontrast `docs/design/karty/kontrast-karty.md`.
 - **Status:** do wyboru na STOP E3.
+
+### [D-141] 2026-11-03 — Wybór właściciela na STOP E3 roli 04: O1a, O2b, O3a, O4a (system kart przyjęty)
+- **Rodzaj:** decyzja właściciela okiem (arkusze `docs/design/karty/arkusze/opcje.png`, `funkcje-d150.png`, 10 arkuszy przed/po).
+- **Słowa właściciela:** „1A 2b 3a 4a”.
+- **Decyzja:** O1 (a) ikona `ratan` przy nagłówku każdej karty; O2 (b) każda receptura na liście we własnej karcie (wbrew rekomendacji (a) roli 04: cena to ok. 30% mniej receptur na ekranie); O3 (a) pas marki także na ekranach w stosie (plan, prowadzenie, Doktor); O4 (a) wybór „Piekarnik / Maszyna do chleba” w karcie „Ile pieczesz”. System kart z D-140 przyjęty: tokeny `promienie.karta` 16 i `kartaLinia` jako propozycja `docs/design/karty/tokeny-karty.json` (rola 08 dopisuje je razem do `docs/design/tokeny.json` i `src/ui/tokeny.ts`, bo testy wymagają równości obu plików), spec `docs/design/design-spec.md` §14 → `docs/design/karty/README.md`.
+- **Odrzucone:** O1 (b) ikony tylko w kaflach i wierszach; O2 (a) jedna karta na grupę; O3 (b) zwykły pasek nawigacji na ekranach w stosie; O4 (b) wybór w menu „Więcej” albo osobna receptura.
+- **Wyjątek nazwany:** pliki `oferta-*` i `oferta-zrodlo.json` zostają w `docs/design/wzorce-zrzuty/` (przypina je `tests/wzorce-oferty-202.test.ts`); nowy wzorzec ekranu Pro to `docs/design/karty/zrzuty/inne-pro-*`, podmiana przy wdrożeniu przez 08 razem z testem.
+- **Zależy od:** D-139, D-140, D-150; liczby w ekranach D-136…D-138 to przykłady do treści ról 03 i 06.
+- **Status:** dzień, do weta.

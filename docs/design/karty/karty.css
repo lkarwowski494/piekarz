@@ -82,3 +82,7 @@ main { background: var(--tlo); }
 .licznik span { width: calc(48px + 16px * var(--ax)); height: calc(48px + 16px * var(--ax)); font-size: calc(22px + 20px * var(--ax)); }
 .kn h2 { overflow-wrap: anywhere; }
 .segment span { font-size: calc(15px + 34px * var(--ax)); }
+/* O2b (właściciel 2026-11-03, D-141): każda receptura we własnej karcie */
+.osobno .karta.bez-wn { background: none; border: 0; gap: 8px; overflow: visible; }
+.osobno .karta.bez-wn > .kn { padding: 4px 4px 0; }
+.osobno .wiersz { background: var(--karta); border: 1px solid var(--kartaLinia); border-radius: 16px; border-top: 1px solid var(--kartaLinia); }

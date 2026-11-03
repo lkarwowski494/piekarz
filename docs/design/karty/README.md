@@ -1,6 +1,6 @@
 # System kart: język ekranu „Dziś” na wszystkich ekranach (M3, rola 04 build E3, 2026-11-03)
 
-Podstawa: D-139 (słowa właściciela: „Pierwszy screen wygląda ładnie… Pozostałe wyglądają jak śmietnik wygenerowany przez AI. Wszystko powinno być ładnie orbobione, pozamykane w ładne karty”). Wyjątek nazwany: E1–E2 pominięte, bo kierunek wybrał właściciel okiem (D-140). Zakres rozszerzony o D-136…D-138 (D-150, wiadomość koordynatora 2026-11-03). Stan: **propozycja do wyboru na STOP E3**; po wyborze wchodzi do `design-spec.md` jako §14 (E4).
+Podstawa: D-139 (słowa właściciela: „Pierwszy screen wygląda ładnie… Pozostałe wyglądają jak śmietnik wygenerowany przez AI. Wszystko powinno być ładnie orbobione, pozamykane w ładne karty”). Wyjątek nazwany: E1–E2 pominięte, bo kierunek wybrał właściciel okiem (D-140). Zakres rozszerzony o D-136…D-138 (D-150, wiadomość koordynatora 2026-11-03). Stan: **przyjęty 2026-11-03 (D-141: O1a, O2b, O3a, O4a)**; w `design-spec.md` jako §14.
 
 ## 1. Zasada
 Każdy ekran ma dwie warstwy: **pas** w kolorze marki z tytułem i stanem ekranu oraz **treść wyłącznie w kartach**. Na tle ekranu nie leży żaden goły nagłówek ani akapit (wyjątek: jedna linia informacji na dole, jak „Piekarz działa bez internetu…” na „Dziś”). *Dlaczego:* właściciel wskazał ten układ jako wzorzec, a znaleziska D-139 („Proporcje dokarmiania” poza kartą, inny krój „Kontroli biologicznej”) wynikają z braku jednej reguły.
@@ -8,8 +8,8 @@ Każdy ekran ma dwie warstwy: **pas** w kolorze marki z tytułem i stanem ekranu
 ## 2. Tokeny układu (kolory bez zmian: `docs/design/tokeny.json`)
 | Token | Wartość | Uwagi |
 |---|---|---|
-| `promienie.karta` | 16 | nowy; hierarchia: pas 26 > przyciskGlowny 18 > karta 16 > przycisk 14 > grupa w karcie 12 > pole 10 > znacznik 6 |
-| karta: tło / obwódka | ciemny: `powierzchnia` bez obwódki; jasny: `powierzchnia` + 1 px `#E2E2DC` | nowy kolor obwódki karty w jasnym (biała karta na `#F5F5F2` bez obwódki ginie); do wpisu w `tokeny.json` (E4) |
+| `promienie.karta` | 16 | propozycja `tokeny-karty.json` (D-141), wpisuje 08 razem w `tokeny.json` i `src/ui/tokeny.ts`; hierarchia: pas 26 > przyciskGlowny 18 > karta 16 > przycisk 14 > grupa w karcie 12 > pole 10 > znacznik 6 |
+| karta: tło / obwódka | ciemny: `powierzchnia` bez obwódki; jasny: `powierzchnia` + 1 px `#E2E2DC` | nowy kolor obwódki karty w jasnym (biała karta na `#F5F5F2` bez obwódki ginie); token `kartaLinia` w `tokeny-karty.json` (D-141; ciemny = `powierzchnia`, czyli bez widocznej obwódki) |
 | karta: wypełnienie | 16 (przy AX: 12) | odstęp między kartami 12, wewnątrz 8–12 |
 | nagłówek karty | ikona 24 pt `ratan` + tytuł krojem tytułów 20 pt 700 (`tytul2` −2) | **jeden** krój i rozmiar dla wszystkich kart; zastępuje Sofia 13–16 i 22 w kartach zakwasu, Doktora, Ustawień |
 | wiersz w karcie | min 52, odstęp 10/16, linia `linia` między wierszami | wartości liczbowe 17 pt 600, cyfry tabelaryczne, skalują się do AX5 |
@@ -28,7 +28,7 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 | Ekran AS IS (kod) | Nagłówek dziś | TO BE (makieta) | Zmiana |
 |---|---|---|---|
 | Dziś `app/(tabs)/(dzis)/index.tsx` | pas | `dzis.html` | wzorzec; tylko czapka paska stanu i karta pustej spirali |
-| Receptury `receptury/index.tsx` | pas | `receptury.html#lista`, `#pusty-filtr` | nagłówki grup do kart, ikona rodzaju w wierszu, pusty filtr w karcie |
+| Receptury `receptury/index.tsx` | pas | `receptury.html#lista`, `#pusty-filtr` | O2b: każda receptura we własnej karcie z ikoną rodzaju; nagłówek grupy z ikoną nad kartami; pusty filtr w karcie |
 | Receptura `receptury/receptura.tsx` + `DoMiski`, `ORecepturze` | pas | `receptury.html#receptura` | „Bochenki/Masa” jako karta „Ile pieczesz”, „Do miski” z nagłówkiem w karcie, informacje w karcie |
 | D-136 (nowe) `DoMiski` | pas | `receptury.html#receptura-drozdze` | wiersz „Drożdże” z segmentem „świeże / instant” w karcie „Do miski” |
 | D-137 (nowe) lista, receptura | pas | `#lista`, `#receptura`, `#receptura-drozdze` | podpis wiersza listy i karta „Wersja na drożdżach” / „Wersja na zakwasie” (powiązanie w obie strony) |
@@ -42,7 +42,7 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 | Ustawienia `SettingsModal.tsx` | własny pasek | `inne.html#ustawienia` | sekcje jako karty z ikonami; wiersze zamiast siatek przycisków (język jako wiersz → lista) |
 | Piekarz Pro `PaywallModal.tsx` | brak | `inne.html#pro` | pas z tytułem i zdaniem Basic; ujawnienia bez zmian treści (D-112/D-113) |
 
-## 5. Decyzje do wyboru okiem (STOP E3) — arkusz `arkusze/opcje.png`
+## 5. Decyzje okiem (STOP E3; wybór właściciela D-141: O1a, O2b, O3a, O4a) — arkusz `arkusze/opcje.png`
 - **O1 Ikony w nagłówkach kart.** (a) ikona przy każdej karcie (rekomendacja: właściciel wskazał „ikony w kartach”, ikona daje kotwicę wzroku przy przewijaniu z mąką na rękach); (b) ikony tylko w kaflach i wierszach list (spokojniej, mniej elementów; ryzyko powrotu do „gołych” nagłówków).
 - **O2 Lista receptur.** (a) jedna karta na grupę z wierszami (rekomendacja: 10+ receptur mieści się na ekranie, zgodne z listą grupowaną iOS); (b) osobna karta na recepturę (bardziej „kartowo”, o ok. 30% mniej receptur na ekranie).
 - **O3 Ekrany w stosie (plan, prowadzenie, Doktor).** (a) pas marki jak na zakładkach (rekomendacja: jeden język na całej ścieżce wypieku; w prowadzeniu krok i czas są na pasie, czytelne z odległości); (b) zwykły pasek nawigacji na tle, pas tylko na zakładkach (mniej zmian w kodzie, standard iOS).
@@ -66,4 +66,4 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 Poprawione: (1) liczby w wierszach nie skalowały się przy AX5 („850 g” 13 px) → 17→53 pt; (2) wiersz czasu od dokarmienia na pasie zawijał się krojem tytułów → treść 17 pt; (3) proporcje dokarmiania w segmencie 2×2 nierówne → chipy. Zostaje: przy 320 AX5 akcje pasa („Więcej”) przechodzą pod „‹ Receptury” (dopuszczalne, kolejność czytania zachowana); pasek tygodnia „Dziś” przy 320 AX5 nie mieści 7 dni (dziś w aplikacji: `fontScale ≥ 2` przenosi część pasa niżej — bez zmian). Kalibracja: identyczne karty z jednym promieniem to wzorzec „SaaS”; tu hierarchia promieni (§2), karty bez cienia, a rozpoznawalność niesie spirala i pas, nie karta — decyzja D-140.
 
 ## 8. Czego nie sprawdzono
-Expo web (brak `react-native-web`, zależności nie dopisuję): „przed” to zrzuty właściciela i wzorce z 2026-10-20, nie bieżący build dla każdego ekranu. Krój treści w makiecie: Noto Sans zastępczo (na iOS SF Pro). Szerokość 430 pt i najdłuższy język: nie renderowane na tym STOP (zrobię w E4 dla wybranych opcji). `warsztat.mjs` nie uruchomiony.
+Expo web (brak `react-native-web`, zależności nie dopisuję): „przed” to zrzuty właściciela i wzorce z 2026-10-20, nie bieżący build dla każdego ekranu. Krój treści w makiecie: Noto Sans zastępczo (na iOS SF Pro). Szerokość 430 pt: zrzuty wzorcowe 5 ekranów (E4). Najdłuższy język: nie renderowany — makiety kart nie mają przekładów; pomiar długości języków z `docs/design/pomiar-jezykow.md` obowiązuje dalej, sprawdzenie na zbudowanych ekranach w audycie roli 04 po 08. `warsztat.mjs` nie uruchomiony.
