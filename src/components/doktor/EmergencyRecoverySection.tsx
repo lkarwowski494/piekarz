@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 import { t } from '../../lib/i18n';
 import {
   DOUGH_RECOVERY_PROTOCOLS,
@@ -29,6 +30,7 @@ export function EmergencyRecoverySection({
   onSelectRecoveryId,
   unitSystem,
 }: EmergencyRecoverySectionProps) {
+  const duzy = useDuzyTekst();
   const selectedProto = selectedRecoveryId
     ? getDoughRecoveryProtocol(selectedRecoveryId)
     : null;
@@ -40,10 +42,12 @@ export function EmergencyRecoverySection({
         {t('Szybkie interwencje w trakcie fermentacji')}
       </Text>
 
+      {/* Przy dużym tekście rząd zawijany zamiast przewijania w poziomie (§7a, D-142; M3 p5b) */}
       <ScrollView
-        horizontal
+        horizontal={!duzy}
+        scrollEnabled={!duzy}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.presetsRow}
+        contentContainerStyle={[styles.presetsRow, duzy && styles.presetsZawijane]}
       >
         {DOUGH_RECOVERY_PROTOCOLS.map((proto) => {
           const isSelected = selectedRecoveryId === proto.id;
@@ -67,8 +71,8 @@ export function EmergencyRecoverySection({
       {/* Selected Protocol Expanded Card */}
       {selectedProto && (
         <View style={styles.recoveryCard} testID="recovery-protocol-card">
-          <View style={styles.recoveryHeaderRow}>
-            <Text style={styles.recoveryCardTitle}>
+          <View style={[styles.recoveryHeaderRow, duzy && styles.recoveryHeaderStos]}>
+            <Text style={[styles.recoveryCardTitle, duzy && styles.recoveryNazwaWStosie]}>
               {t(selectedProto.titlePl)}
             </Text>
             <Pressable
@@ -132,6 +136,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     marginBottom: 8,
   },
+  presetsZawijane: { flexDirection: 'row', flexWrap: 'wrap' },
   presetChip: {
     minHeight: theme.cele.pozostale,
     flexDirection: 'row',
@@ -166,6 +171,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 12,
   },
+  // §7a / D-142: przy dużym tekście „Zamknij protokół” nad tytułem (kolejność czytania bez zmian), tytuł na całą szerokość
+  recoveryHeaderStos: { flexDirection: 'column-reverse', alignItems: 'flex-end' },
+  recoveryNazwaWStosie: { flex: 0, alignSelf: 'stretch' },
   recoveryHeaderRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
