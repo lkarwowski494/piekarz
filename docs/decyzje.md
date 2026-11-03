@@ -1145,3 +1145,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** `convertYeast` świeże → suche × 0,35 (i odwrotnie ÷ 0,35) według D-172; dozwolona zmiana istniejących wektorów z wartością 0,4 (`src/core/__tests__/*`, `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json` i każdego testu, który ją przypina) wyłącznie na wartości wynikające z 0,35; najpierw czerwony test kryterium BR-KALK-012 (25 g świeżych → 8,75 g suchych); tekst „…odważysz 0,4 tej masy” → nowe brzmienie z 0,35 i uwagą D-172 o opakowaniu, PL+EN (pozostałe języki rola 09). Wykonanie: p6a. Zmienia D-200 pkt 3.
 - **Odrzucone:** (b) 0,4 do 1.0.1.
 - **Status:** właściciel, 2026-11-03.
+
+### [D-206] 2026-11-03 — Rola 09: teksty redesignu (README §6, D-185, D-192, D-195, D-198, D-202/D-205) w 35 językach; zmiana testów tylko w asercjach dosłownego brzmienia tych tekstów (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); kolejność z D-160 („po p5: rola 09 (teksty z README §6)”).
+- **Decyzja:** rola 09 build (gałąź `wip/09-teksty-2026-11-03`) dodaje klucze PL+EN+33 i podpina je w miejscach z listy: objaśnienie przelicznika 0,35 (bloker wydania; brzmienie D-202 zgodne z D-172 i D-205), „Wstecz”, „Ile pieczesz”, „Do miski” + „Odhaczaj przy ważeniu.”, „Co zrobić”, podtytuł pasa receptury, „Język i jednostki”, wiersz daty z oceną w Dzienniku; „instant” w segmencie drożdży tylko gdy nie myli z drożdżami aktywnymi (D-172). Istniejące testy wolno zmienić wyłącznie w asercjach przypinających dosłowne stare brzmienie tych tekstów (stare → nowe), z listą w raporcie; teksty zatwierdził właściciel (README §6 na STOP E3, D-141; D-205).
+- **Odrzucone:** (b) teksty po powrocie właściciela (bloker wydania „0,4” zostaje w buildzie po p5); (c) wyjątki w `tests/czeka-na-przeklad-093` i przekład później (aplikacja pokazywałaby EN w 33 językach).
+- **Status:** noc, do weta.
