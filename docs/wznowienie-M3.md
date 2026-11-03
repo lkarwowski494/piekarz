@@ -1,7 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-03 ~20:35 UTC (koordynator M3) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-03 ~21:05 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p5b (`session_01T66VBwSp86GSdKwNWMSbz4`, zarchiwizowana) scalone do `redesign/` (merge `456894a`; verify kod 0, 525 zestawów / 5659 testów): Piekarz Pro z pasem, ujawnienia bez zmian (testy `ekran-zakupu-ujawnienia`, `ekran-pro-pb` nietknięte, testID `pro-opis`/`pro-aktywny` przeniesione na pas), objawy jako `PoleObjawu`, §7a Doktor/Pro; istniejące testy bez zmian; D-199. Rozbieżność dla 02/04: zdanie Basic w makiecie „…i porównanie wypieków.” vs kontrakt „…więcej zakwasów i receptur.” (zostaje kontrakt).
+- Właściciel 20:55 UTC: „Decyzje podejmujesz zgodnie z zasadami … Do rana nic tu nie pisz i nie raportuj (do 5 rano). Pracuj w tle.”
+- Start p6a (zadania 0 pas Planu D-204, 1 segment drożdży D-136, 2 przelicznik 0,35 D-205), pula D-202…D-203.
+
+## Aktualizacja 2026-11-03 ~20:35 UTC (koordynator M3)
 - Właściciel (przyciski ok. 20:30 UTC): **D-204** „Zmień test, daj pas (Recommended)” (pas Planu, d10:135) i **D-205** „Teraz, w nocy (Recommended)” (× 0,35 ze zmianą wektorów). Oba w p6a: zadanie 0 pas Planu, zadanie 1 segment drożdży, zadanie 2 przelicznik. Polecenie `audit/M3-2026-11-03/prompty/08-p6a.polecenie.md` (nowy sha256 w dzienniku dyżuru), pula D-202…D-203; wolne od D-206.
 - Biegnie p5b `session_01T66VBwSp86GSdKwNWMSbz4` (Pro, Doktor). Potem p6a, potem rola 09, E2E, build (D-190, master za zgodą).
 
