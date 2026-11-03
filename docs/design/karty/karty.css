@@ -86,3 +86,24 @@ main { background: var(--tlo); }
 .osobno .karta.bez-wn { background: none; border: 0; gap: 8px; overflow: visible; }
 .osobno .karta.bez-wn > .kn { padding: 4px 4px 0; }
 .osobno .wiersz { background: var(--karta); border: 1px solid var(--kartaLinia); border-radius: 16px; border-top: 1px solid var(--kartaLinia); }
+/* Znalezisko koordynatora 2026-11-03 (NFR-A11Y-004): bez dzielenia wyrazów; przy AX5 stos w jednej kolumnie i mniejsze wcięcia, żeby najdłuższe słowo mieściło się w wierszu */
+main, main * { hyphens: manual !important; overflow-wrap: break-word !important; word-break: normal !important; } /* łamanie tylko słowa dłuższego niż cały wiersz (jak UILabel), bez dzielenia z łącznikiem */
+.karta { padding: calc(16px - 6px * var(--ax)); }
+.karta.bez-wn > .kn, .wiersz { padding-left: calc(16px - 6px * var(--ax)); padding-right: calc(16px - 6px * var(--ax)); }
+.tresc { padding-left: calc(20px - 10px * var(--ax)); padding-right: calc(20px - 10px * var(--ax)); }
+.pas { padding-left: calc(20px - 10px * var(--ax)); padding-right: calc(20px - 10px * var(--ax)); }
+.pas > div[style*="flex"] > svg { width: 96px; }
+.kafle { grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(96px + 400px * var(--ax))), 1fr)); }
+.chipy .chip, .segment span, .rzad > * { max-width: 100%; }
+.wiersz > * { min-width: 0; }
+/* AX5: stos w jednej kolumnie (przyciski obok siebie, pole wyboru nad tekstem, wartość pod etykietą) */
+.rzad > .drugi { flex-basis: calc(140px + 400px * var(--ax)); }
+.pole-wyb { flex-wrap: wrap; } .pole-wyb > span:last-child { flex: 1 1 calc(120px + 400px * var(--ax)); }
+.wiersz .roz { flex-basis: calc(120px + 400px * var(--ax)); }
+.kn h2 { flex-basis: calc(120px + 400px * var(--ax)); }
+.zamek { flex-wrap: wrap; } .zamek > span { flex: 1 1 calc(120px + 400px * var(--ax)); min-width: 0; }
+.info > span { flex: 1 1 calc(120px + 400px * var(--ax)); } .info { flex-wrap: wrap; }
+/* pasek tygodnia „Dziś”: jak w aplikacji, cyfry dni rosną najwyżej 1,5× (maxFontSizeMultiplier, PasZakladki) */
+.tydz span { font-size: calc(13px + 6.5px * var(--ax)) !important; } .tydz b { font-size: calc(22px + 11px * var(--ax)) !important; }
+.ark-nav h1 { flex: 1 1 calc(100px + 400px * var(--ax)); order: calc(0); } .segment span { flex-wrap: wrap; text-align: center; }
+.wiersz .roz { font-size: calc(17px + 36px * var(--ax)); }

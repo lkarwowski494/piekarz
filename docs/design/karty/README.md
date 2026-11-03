@@ -65,5 +65,8 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 ## 7. Krytyka (najpierw usterki)
 Poprawione: (1) liczby w wierszach nie skalowały się przy AX5 („850 g” 13 px) → 17→53 pt; (2) wiersz czasu od dokarmienia na pasie zawijał się krojem tytułów → treść 17 pt; (3) proporcje dokarmiania w segmencie 2×2 nierówne → chipy. Zostaje: przy 320 AX5 akcje pasa („Więcej”) przechodzą pod „‹ Receptury” (dopuszczalne, kolejność czytania zachowana); pasek tygodnia „Dziś” przy 320 AX5 nie mieści 7 dni (dziś w aplikacji: `fontScale ≥ 2` przenosi część pasa niżej — bez zmian). Kalibracja: identyczne karty z jednym promieniem to wzorzec „SaaS”; tu hierarchia promieni (§2), karty bez cienia, a rozpoznawalność niesie spirala i pas, nie karta — decyzja D-140.
 
+## 7a. Duży tekst przy 320 pt (D-142)
+Bez dzielenia wyrazów; przy AX5 stos w jednej kolumnie i mniejsze wcięcia (CSS w `karty.css`, sekcja „AX5”). Dla 08: `flexWrap: 'wrap'` i `flexBasis` zależne od `fontScale` zamiast stałych rzędów; nie ustawiać `maxFontSizeMultiplier` w kartach. Słowo dłuższe niż cały wiersz łamie się systemowo. Kontrola: `node docs/design/narzedzia/slowa.mjs docs/design/karty/*.html` (Playwright ze scratchpadu): 0 elementów poza ekranem.
+
 ## 8. Czego nie sprawdzono
 Expo web (brak `react-native-web`, zależności nie dopisuję): „przed” to zrzuty właściciela i wzorce z 2026-10-20, nie bieżący build dla każdego ekranu. Krój treści w makiecie: Noto Sans zastępczo (na iOS SF Pro). Szerokość 430 pt: zrzuty wzorcowe 5 ekranów (E4). Najdłuższy język: nie renderowany — makiety kart nie mają przekładów; pomiar długości języków z `docs/design/pomiar-jezykow.md` obowiązuje dalej, sprawdzenie na zbudowanych ekranach w audycie roli 04 po 08. `warsztat.mjs` nie uruchomiony.
