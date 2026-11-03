@@ -48,7 +48,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Bột ủ trước (bột men)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Quy trình Bổ sung nước sau cứu bột',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Tỷ lệ men trong công thức là men tươi. Với men khô (men instant hoặc men hoạt tính), bạn cân 0,4 lần khối lượng đó.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Tỷ lệ men trong công thức là men tươi. Với men khô (men instant hoặc men hoạt tính), bạn cân 0,35 lần khối lượng đó. Nhà sản xuất có thể ghi tỷ lệ khác trên bao bì.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Tỷ lệ bột “{name}” phải là số trong khoảng 0,1–100%',
   'Profil smakowy': 'Hương vị',
   'Profil zakwasu': 'Hồ sơ men tự nhiên',

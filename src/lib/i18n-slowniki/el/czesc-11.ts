@@ -2,6 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Βάλτε το σκεύος με τη ζύμη στον σβηστό φούρνο και ανάψτε μόνο τη λάμπα: μέσα ζεσταίνεται σταδιακά, αλλά κάθε φούρνος και κάθε κουζίνα δίνουν διαφορετικό αποτέλεσμα.',
+  'Wstecz': 'Πίσω',
   'Wstrzymaj': 'Παύση',
   'Wstrzymano': 'Σε παύση',
   'Wsyp do miski na wagę': 'Ρίξτε στο μπολ πάνω στη ζυγαριά',

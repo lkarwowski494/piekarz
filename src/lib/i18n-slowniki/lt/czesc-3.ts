@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'tešlos hidratacijos',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ir dar {n}, išsamiau dienos kortelėje',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealus pagrindas motininiam natūraliam raugui palaikyti. Gausu laukinių mielių ir pieno rūgšties bakterijų.',
+  'Ile pieczesz': 'Kiek kepate',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Kiek rugių turi būti duonoje, kad ją būtų galima vadinti rugine arba ruginė-kvietine.',
   'Ilości do dokarmienia': 'Maitinimo kiekiai',
   'Ilości i temperatura wody': 'Kiekiai ir vandens temperatūra',

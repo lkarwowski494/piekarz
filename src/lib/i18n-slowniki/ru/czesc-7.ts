@@ -57,7 +57,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Префермент (опара)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Экстренный бассинаж',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Процент дрожжей в рецептуре — это свежие дрожжи. Сухих дрожжей (инстантных или активных) отвесьте 0,4 от этой массы.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Процент дрожжей в рецептуре — это свежие дрожжи. Сухих дрожжей (инстантных или активных) отвесьте 0,35 от этой массы. Производитель на упаковке может указывать другое соотношение.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Доля муки «{name}» должна быть числом в диапазоне 0,1–100 %',
   'Profil smakowy': 'Вкусовой профиль',
   'Profil zakwasu': 'Профиль закваски',

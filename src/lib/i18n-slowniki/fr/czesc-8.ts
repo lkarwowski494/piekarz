@@ -116,6 +116,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Insérer un mélange prêt',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Placez le banneton dans un sac hermétique au réfrigérateur (4–6 °C). Une longue fermentation donnera au pain un arôme profond.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Placez le récipient de pâte dans le four éteint, avec seulement la lampe allumée : l\'intérieur se réchauffe peu à peu, mais chaque four et chaque cuisine donnent un résultat différent.',
+  'Wstecz': 'Retour',
   'Wstrzymaj': 'Pause',
   'Wstrzymano': 'En pause',
   'Wsyp do miski na wagę': 'Versez dans le bol sur la balance',

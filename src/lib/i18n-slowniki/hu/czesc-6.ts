@@ -1,6 +1,7 @@
 // Słownik hu, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'A receptben szereplő élesztőszázalék friss élesztőre vonatkozik. Szárazélesztőből (instant vagy aktív) ennek a mennyiségnek a 0,35-szeresét mérd ki. A gyártó a csomagoláson más átváltási arányt is megadhat.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'A liszt („{name}”) arányának 0,1–100% közötti számnak kell lennie',
   'Profil smakowy': 'Ízprofil',
   'Profil zakwasu': 'Kovászprofil',

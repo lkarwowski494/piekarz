@@ -1,7 +1,7 @@
 // Słownik es-419, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'El porcentaje de levadura en la fórmula corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0.4 de esa cantidad.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'El porcentaje de levadura en la fórmula corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0.35 de esa cantidad. El fabricante puede indicar otra equivalencia en el empaque.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'El porcentaje de la harina “{name}” debe ser un número en el rango 0.1–100%',
   'Profil smakowy': 'Perfil de sabor',
   'Profil zakwasu': 'Perfil de masa madre',

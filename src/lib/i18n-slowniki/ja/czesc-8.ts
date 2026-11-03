@@ -161,6 +161,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': '既製のブレンドを使用',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': '発酵カゴを密閉できる袋に入れ、冷蔵庫（4–6°C）に入れてください。長時間発酵でパンに深い香りが生まれます。',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': '生地の入った容器を、電源を切ったオーブンに入れ、ライトだけをつけてください。庫内は徐々に暖かくなりますが、結果はオーブンやキッチンによって異なります。',
+  'Wstecz': '戻る',
   'Wstrzymaj': '一時停止',
   'Wstrzymano': '一時停止中',
   'Wsyp do miski na wagę': 'スケール上のボウルに入れる',

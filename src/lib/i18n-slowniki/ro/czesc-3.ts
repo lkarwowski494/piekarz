@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratare',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'și încă {n}, detalii în fișa zilei',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Bază ideală pentru întreținerea maielei naturale-mamă. Bogată în drojdii sălbatice și bacterii lactice.',
+  'Ile pieczesz': 'Cât coci',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Câtă secară trebuie să conțină o pâine ca să se numească pâine de secară sau de secară și grâu.',
   'Ilości do dokarmienia': 'Cantități pentru hrănire',
   'Ilości i temperatura wody': 'Cantități și temperatura apei',

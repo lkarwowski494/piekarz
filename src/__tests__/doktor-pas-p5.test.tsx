@@ -84,7 +84,7 @@ describe('M3 p5: Doktor Chleba z pasem O3a i treścią w kartach', () => {
     expect(styl(pas).backgroundColor).toBe(theme.colors.pas);
     const tytul = pas.findAllByType(Text).filter((n) => n.props.accessibilityRole === 'header').map(tekst);
     expect(tytul).toEqual(['Doktor Chleba']);
-    const wstecz = pas.findAll((n) => n.props.accessibilityRole === 'button' && n.props.accessibilityLabel === 'Zamknij' && typeof n.props.onPress === 'function');
+    const wstecz = pas.findAll((n) => n.props.accessibilityRole === 'button' && n.props.accessibilityLabel === 'Wstecz' && typeof n.props.onPress === 'function');
     expect(wstecz.length).toBeGreaterThan(0);
     await act(async () => wstecz[0].props.onPress());
     expect(mockBack).toHaveBeenCalledTimes(1);

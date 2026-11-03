@@ -1,0 +1,49 @@
+{
+  "_opis": "Źródło przekładu 33 języków dla tekstów redesignu M3 (rola 09, D-206/D-207, 2026-11-03): 3 klucze PL. Tłumaczenie maszynowe (claude-sonnet-5-5, sesja roli 09), drugi przegląd AI w świeżym kontekście, przegląd człowieka: brak (DEC-06). Zdanie o przeliczniku oparte na istniejącym przekładzie 093 (ta sama osoba gramatyczna i terminy) z 0,35 w konwencji liczb języka i zdaniem o producencie. Wpięcie do src/lib/i18n-slowniki/<kod>/ jednorazowym skryptem (wejście generatora 093 leży poza repo); klucz sprzed zmiany („…odważysz 0,4 tej masy.”) usunięty.",
+  "usuniety": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.",
+  "klucze": {
+    "przelicznik": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.",
+    "wstecz": "Wstecz",
+    "ile": "Ile pieczesz"
+  },
+  "en": {
+    "przelicznik": "The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package.",
+    "wstecz": "Back",
+    "ile": "How much are you baking"
+  },
+  "jezyki": {
+    "bg": { "przelicznik": "Процентът мая в рецептата е за прясна мая. От суха мая (инстантна или активна) ще претеглите 0,35 от тази маса. Производителят може да посочва на опаковката друго съотношение.", "wstecz": "Назад", "ile": "Колко печете" },
+    "cs": { "przelicznik": "Procento droždí v receptu platí pro čerstvé droždí. Sušeného droždí (instantního nebo aktivního) odvážíte 0,35 tohoto množství. Výrobce může na obalu uvádět jiný přepočet.", "wstecz": "Zpět", "ile": "Kolik pečete" },
+    "da": { "przelicznik": "Gærprocenten i opskriften er frisk gær. Af tørgær (instant eller aktiv) afvejer du 0,35 af den mængde. Producenten kan angive et andet omregningsforhold på emballagen.", "wstecz": "Tilbage", "ile": "Hvor meget bager du" },
+    "de": { "przelicznik": "Der Hefeanteil in der Rezeptur bezieht sich auf Frischhefe. Von Trockenhefe (Instant- oder Aktivtrockenhefe) wiegst du das 0,35-Fache dieser Menge ab. Der Hersteller kann auf der Verpackung ein anderes Umrechnungsverhältnis angeben.", "wstecz": "Zurück", "ile": "Wie viel backst du" },
+    "el": { "przelicznik": "Το ποσοστό μαγιάς στη συνταγή αφορά νωπή μαγιά. Ξηρής μαγιάς (instant ή ενεργού) θα ζυγίσετε 0,35 αυτής της ποσότητας. Ο κατασκευαστής μπορεί να αναφέρει στη συσκευασία διαφορετική αναλογία.", "wstecz": "Πίσω", "ile": "Πόσο ψήνετε" },
+    "es": { "przelicznik": "El porcentaje de levadura de la receta corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0,35 de esa cantidad. El fabricante puede indicar en el envase otra equivalencia.", "wstecz": "Atrás", "ile": "Cantidad a hornear" },
+    "es-419": { "przelicznik": "El porcentaje de levadura en la fórmula corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0.35 de esa cantidad. El fabricante puede indicar otra equivalencia en el empaque.", "wstecz": "Atrás", "ile": "Cantidad a hornear" },
+    "et": { "przelicznik": "Retsepti pärmiprotsent on värske pärm. Kuivpärmi (instant- või aktiivset) kaalu 0,35 sellest kogusest. Tootja võib pakendil märkida teistsuguse suhte.", "wstecz": "Tagasi", "ile": "Kui palju küpsetad" },
+    "fi": { "przelicznik": "Reseptin hiivaprosentti tarkoittaa tuorehiivaa. Kuivahiivaa (pika- tai aktiivista kuivahiivaa) punnitset 0,35 kertaa tämän määrän. Valmistaja voi ilmoittaa pakkauksessa eri muuntosuhteen.", "wstecz": "Takaisin", "ile": "Paljonko leivot" },
+    "fr": { "przelicznik": "Le pourcentage de levure de la recette correspond à la levure fraîche. Pour la levure sèche (instantanée ou active), vous pèserez 0,35 fois cette masse. Le fabricant peut indiquer un autre rapport sur l'emballage.", "wstecz": "Retour", "ile": "Quantité à cuire" },
+    "hr": { "przelicznik": "Postotak kvasca u recepturi odnosi se na svježi kvasac. Suhog kvasca (instant ili aktivnog) izvagat ćeš 0,35 te mase. Proizvođač na pakiranju može navesti drugačiji omjer.", "wstecz": "Natrag", "ile": "Koliko pečeš" },
+    "hu": { "przelicznik": "A receptben szereplő élesztőszázalék friss élesztőre vonatkozik. Szárazélesztőből (instant vagy aktív) ennek a mennyiségnek a 0,35-szeresét mérd ki. A gyártó a csomagoláson más átváltási arányt is megadhat.", "wstecz": "Vissza", "ile": "Mennyit sütsz" },
+    "id": { "przelicznik": "Persentase ragi dalam resep adalah ragi segar. Untuk ragi kering (instan atau aktif), timbang 0,35 dari massa tersebut. Produsen dapat mencantumkan rasio yang berbeda pada kemasan.", "wstecz": "Kembali", "ile": "Jumlah yang dipanggang" },
+    "it": { "przelicznik": "La percentuale di lievito nella ricetta si riferisce al lievito di birra fresco. Di lievito secco (istantaneo o attivo) pesa 0,35 volte quella quantità. Il produttore può indicare sulla confezione un rapporto diverso.", "wstecz": "Indietro", "ile": "Quanto inforni" },
+    "ja": { "przelicznik": "配合のイーストの割合は生イーストの値です。ドライイースト（インスタントまたはアクティブ）は、その重量の0.35倍を計量します。メーカーによっては、パッケージに異なる換算比が記載されている場合があります。", "wstecz": "戻る", "ile": "焼く量" },
+    "ko": { "przelicznik": "배합표의 이스트 비율은 생이스트 기준이에요. 드라이 이스트(인스턴트 또는 액티브)는 그 양의 0.35배를 계량해요. 제조사가 포장지에 다른 비율을 안내할 수도 있어요.", "wstecz": "뒤로", "ile": "굽는 양" },
+    "lt": { "przelicznik": "Mielių procentas receptūroje – tai šviežios mielės. Sausų mielių (greitai veikiančių arba aktyvių) pasversite 0,35 šio kiekio. Gamintojas ant pakuotės gali nurodyti kitokį santykį.", "wstecz": "Atgal", "ile": "Kiek kepate" },
+    "lv": { "przelicznik": "Rauga procents receptūrā attiecas uz svaigo raugu. Sausā rauga (ātrā vai aktīvā) nosveriet 0,35 no šīs masas. Ražotājs uz iepakojuma var norādīt citu attiecību.", "wstecz": "Atpakaļ", "ile": "Cik cepat" },
+    "ms": { "przelicznik": "Peratusan yis dalam resipi ialah yis segar. Untuk yis kering (segera atau aktif), anda menimbang 0.35 daripada jisim tersebut. Pengilang mungkin menyatakan nisbah yang berbeza pada bungkusan.", "wstecz": "Kembali", "ile": "Jumlah yang dibakar" },
+    "nb": { "przelicznik": "Gjærprosenten i oppskriften gjelder fersk gjær. Av tørrgjær (instant eller aktiv) veier du 0,35 av denne mengden. Produsenten kan oppgi et annet omregningsforhold på pakken.", "wstecz": "Tilbake", "ile": "Hvor mye baker du" },
+    "nl": { "przelicznik": "Het gistpercentage in het recept geldt voor verse gist. Van droge gist (instant of actief) weeg je 0,35 van die hoeveelheid af. De fabrikant kan op de verpakking een andere verhouding vermelden.", "wstecz": "Terug", "ile": "Hoeveel bak je" },
+    "pt": { "przelicznik": "A percentagem de fermento na receita refere-se a fermento fresco. De fermento seco (instantâneo ou ativo), pese 0,35 dessa quantidade. O fabricante pode indicar outra proporção na embalagem.", "wstecz": "Voltar", "ile": "Quanto vai cozer" },
+    "pt-BR": { "przelicznik": "A porcentagem de fermento na receita é de fermento biológico fresco. De fermento seco (instantâneo ou ativo), você pesa 0,35 dessa quantidade. O fabricante pode indicar outra proporção na embalagem.", "wstecz": "Voltar", "ile": "Quanto você vai assar" },
+    "ro": { "przelicznik": "Procentul de drojdie din rețetă se referă la drojdia proaspătă. Din drojdia uscată (instant sau activă) cântărești 0,35 din această cantitate. Producătorul poate indica pe ambalaj un alt raport.", "wstecz": "Înapoi", "ile": "Cât coci" },
+    "ru": { "przelicznik": "Процент дрожжей в рецептуре — это свежие дрожжи. Сухих дрожжей (инстантных или активных) отвесьте 0,35 от этой массы. Производитель на упаковке может указывать другое соотношение.", "wstecz": "Назад", "ile": "Сколько печёте" },
+    "sk": { "przelicznik": "Percento droždia v receptúre je čerstvé droždie. Sušeného droždia (instantného alebo aktívneho) odvážite 0,35 tejto hmotnosti. Výrobca môže na obale uvádzať iný prepočet.", "wstecz": "Späť", "ile": "Koľko pečiete" },
+    "sl": { "przelicznik": "Odstotek pekovskega kvasa v receptu velja za svež pekovski kvas. Suhega (instant ali aktivnega) odtehtajte 0,35 te količine. Proizvajalec lahko na embalaži navede drugačno razmerje.", "wstecz": "Nazaj", "ile": "Koliko pečete" },
+    "sr": { "przelicznik": "Проценат квасца у рецептури односи се на свеж квасац. Сувог квасца (инстант или активног) измери 0,35 те масе. Произвођач на паковању може навести другачији однос.", "wstecz": "Назад", "ile": "Колико печеш" },
+    "sv": { "przelicznik": "Jästprocenten i receptet avser färsk jäst. Av torrjäst (instant eller aktiv) väger du upp 0,35 av den mängden. Tillverkaren kan ange ett annat förhållande på förpackningen.", "wstecz": "Tillbaka", "ile": "Hur mycket bakar du" },
+    "tr": { "przelicznik": "Tarifteki maya yüzdesi yaş maya içindir. Kuru maya (instant veya aktif) için bu miktarın 0,35 katını tartarsınız. Üretici ambalajda farklı bir oran belirtmiş olabilir.", "wstecz": "Geri", "ile": "Ne kadar pişiriyorsunuz" },
+    "uk": { "przelicznik": "Відсоток дріжджів у рецептурі — це свіжі дріжджі. Сухих дріжджів (інстантних або активних) відважте 0,35 цієї маси. Виробник на упаковці може вказувати інше співвідношення.", "wstecz": "Назад", "ile": "Скільки випікаєте" },
+    "vi": { "przelicznik": "Tỷ lệ men trong công thức là men tươi. Với men khô (men instant hoặc men hoạt tính), bạn cân 0,35 lần khối lượng đó. Nhà sản xuất có thể ghi tỷ lệ khác trên bao bì.", "wstecz": "Quay lại", "ile": "Bạn nướng bao nhiêu" },
+    "zh-Hant": { "przelicznik": "配方中的酵母百分比以新鮮酵母計算。若使用乾酵母（即溶或活性），請秤取該重量的 0.35 倍。製造商可能在包裝上標示不同的換算比例。", "wstecz": "返回", "ile": "烘焙份量" }
+  }
+}

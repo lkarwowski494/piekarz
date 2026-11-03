@@ -40,6 +40,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrasyon',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 've {n} tane daha, ayrıntılar gün sayfasında',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ana ekşi mayayı sürdürmek için ideal temel. Yabani mayalar ve laktik asit bakterileri bakımından zengindir.',
+  'Ile pieczesz': 'Ne kadar pişiriyorsunuz',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Bir ekmeğin çavdar ekmeği ya da çavdarlı-buğdaylı ekmek sayılması için ne kadar çavdar içermesi gerektiği.',
   'Ilości do dokarmienia': 'Besleme miktarları',
   'Ilości i temperatura wody': 'Miktarlar ve su sıcaklığı',

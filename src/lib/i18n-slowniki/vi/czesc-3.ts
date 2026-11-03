@@ -55,6 +55,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'độ ẩm bột',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'và thêm {n} mục, xem chi tiết trong bảng ngày',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Nền lý tưởng để nuôi men tự nhiên gốc. Giàu nấm men hoang dã và vi khuẩn axit lactic.',
+  'Ile pieczesz': 'Bạn nướng bao nhiêu',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Bánh mì cần bao nhiêu lúa mạch đen để được gọi là bánh mì lúa mạch đen hoặc bánh mì lúa mạch đen–lúa mì.',
   'Ilości do dokarmienia': 'Lượng cho men ăn',
   'Ilości i temperatura wody': 'Lượng nguyên liệu và nhiệt độ nước',

@@ -158,7 +158,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Esitaikina (juuri)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage-pelastus (lisävesi)',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Reseptin hiivaprosentti tarkoittaa tuorehiivaa. Kuivahiivaa (pika- tai aktiivista kuivahiivaa) punnitset 0,4 kertaa tämän määrän.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Reseptin hiivaprosentti tarkoittaa tuorehiivaa. Kuivahiivaa (pika- tai aktiivista kuivahiivaa) punnitset 0,35 kertaa tämän määrän. Valmistaja voi ilmoittaa pakkauksessa eri muuntosuhteen.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Jauhon ”{name}” osuuden on oltava luku väliltä 0,1–100 %',
   'Profil smakowy': 'Makuprofiili',
   'Profil zakwasu': 'Hapanjuuren profiili',

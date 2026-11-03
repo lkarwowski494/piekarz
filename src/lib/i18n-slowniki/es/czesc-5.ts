@@ -174,5 +174,4 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermento (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage (agua retenida) de rescate',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'El porcentaje de levadura de la receta corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0,4 de esa cantidad.',
 };

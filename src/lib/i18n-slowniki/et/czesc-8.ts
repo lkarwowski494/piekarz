@@ -2,6 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Pane taignanõu väljalülitatud ahju ja lülita sisse ainult lamp: sees läheb järk-järgult soojemaks, kuid iga ahi ja iga köök annab erineva tulemuse.',
+  'Wstecz': 'Tagasi',
   'Wstrzymaj': 'Peata',
   'Wstrzymano': 'Peatatud',
   'Wsyp do miski na wagę': 'Lisa kaalul olevasse kaussi',

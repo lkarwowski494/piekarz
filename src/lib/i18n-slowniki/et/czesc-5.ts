@@ -140,7 +140,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Eeltaigen (preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Päästeprotseduur: vee järkjärguline lisamine',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Retsepti pärmiprotsent on värske pärm. Kuivpärmi (instant- või aktiivset) kaalu 0,4 sellest kogusest.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Retsepti pärmiprotsent on värske pärm. Kuivpärmi (instant- või aktiivset) kaalu 0,35 sellest kogusest. Tootja võib pakendil märkida teistsuguse suhte.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Jahu „{name}“ protsent peab olema arv vahemikus 0,1–100%',
   'Profil smakowy': 'Maitseprofiil',
   'Profil zakwasu': 'Juuretise profiil',

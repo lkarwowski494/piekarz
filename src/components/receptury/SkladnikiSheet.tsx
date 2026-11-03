@@ -224,7 +224,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
                   {segmentDrozdzy('swieze', 'yeast-type-fresh', t('świeże|drożdże'))}
                   {segmentDrozdzy('suche', 'yeast-type-dry', t('suche|drożdże'))}
                 </View>
-                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.')}</Text>
+                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.')}</Text>
               </Karta>
             )}
 

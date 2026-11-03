@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Hazır Karışım Kullan',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Sepeti hava almayan bir poşet içinde buzdolabına (4–6°C) koyun. Uzun fermantasyon ekmeğe derin bir aroma kazandırır.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Hamur kabını kapalı fırına koyun ve yalnızca lambasını yakın: içerisi yavaş yavaş ısınır, ancak her fırın ve her mutfak farklı sonuç verir.',
+  'Wstecz': 'Geri',
   'Wstrzymaj': 'Duraklat',
   'Wstrzymano': 'Duraklatıldı',
   'Wsyp do miski na wagę': 'Terazideki kaseye ekleyin',

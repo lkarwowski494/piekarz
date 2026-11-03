@@ -160,7 +160,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Ön maya (Maya hamuru)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Acil Bassinage prosedürü',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Tarifteki maya yüzdesi yaş maya içindir. Kuru maya (instant veya aktif) için bu miktarın 0,4 katını tartarsınız.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Tarifteki maya yüzdesi yaş maya içindir. Kuru maya (instant veya aktif) için bu miktarın 0,35 katını tartarsınız. Üretici ambalajda farklı bir oran belirtmiş olabilir.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '“{name}” ununun yüzdesi %0,1–100 aralığında bir sayı olmalıdır',
   'Profil smakowy': 'Lezzet profili',
   'Profil zakwasu': 'Ekşi maya profili',

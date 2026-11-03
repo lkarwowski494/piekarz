@@ -145,6 +145,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'ενυδάτωσης ζύμης',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'και {n} ακόμη, λεπτομέρειες στο φύλλο ημέρας',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ιδανική βάση για τη συντήρηση του μητρικού προζυμιού. Πλούσιο σε άγριους ζυμομύκητες και γαλακτικά βακτήρια.',
+  'Ile pieczesz': 'Πόσο ψήνετε',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Πόση σίκαλη πρέπει να έχει ένα ψωμί για να λέγεται ψωμί σίκαλης ή σίκαλης-σίτου.',
   'Ilości do dokarmienia': 'Ποσότητες ταΐσματος',
   'Ilości i temperatura wody': 'Ποσότητες και θερμοκρασία νερού',

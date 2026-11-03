@@ -16,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '麵團含水量',
   'i jeszcze {n}, szczegóły w arkuszu dnia': '還有 {n} 項，詳見當日面板',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '非常適合作為天然酵母起種（母種）的基底。富含野生酵母與乳酸菌。',
+  'Ile pieczesz': '烘焙份量',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': '麵包須含多少裸麥，才能稱為裸麥麵包或裸麥小麥麵包。',
   'Ilości do dokarmienia': '餵養用量',
   'Ilości i temperatura wody': '用量與水溫',

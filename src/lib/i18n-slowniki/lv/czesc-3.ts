@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrācijas',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'un vēl {n}, sīkāk dienas lapā',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideāli piemēroti dabīgā ierauga (mātes kultūras) uzturēšanai. Bagāti ar savvaļas raugiem un pienskābes baktērijām.',
+  'Ile pieczesz': 'Cik cepat',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Cik daudz rudzu jābūt maizē, lai to sauktu par rudzu vai rudzu-kviešu maizi.',
   'Ilości do dokarmienia': 'Barošanas daudzumi',
   'Ilości i temperatura wody': 'Daudzumi un ūdens temperatūra',

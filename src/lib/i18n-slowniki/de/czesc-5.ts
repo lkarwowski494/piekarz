@@ -170,7 +170,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Preferment (Vorteig)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Rettungs-Bassinage (Nachgießen)',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Der Hefeanteil in der Rezeptur bezieht sich auf Frischhefe. Von Trockenhefe (Instant- oder Aktivtrockenhefe) wiegst du das 0,4-Fache dieser Menge ab.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Der Hefeanteil in der Rezeptur bezieht sich auf Frischhefe. Von Trockenhefe (Instant- oder Aktivtrockenhefe) wiegst du das 0,35-Fache dieser Menge ab. Der Hersteller kann auf der Verpackung ein anderes Umrechnungsverhältnis angeben.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Der Anteil des Mehls „{name}“ muss eine Zahl im Bereich 0,1–100 % sein',
   'Profil smakowy': 'Geschmacksprofil',
   'Profil zakwasu': 'Sauerteigprofil',

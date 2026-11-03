@@ -65,7 +65,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': '前発酵種（発酵種）',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': '緊急バシナージュ (後加水) の手順',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': '配合のイーストの割合は生イーストの値です。ドライイースト（インスタントまたはアクティブ）は、その重量の0.4倍を計量します。',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': '配合のイーストの割合は生イーストの値です。ドライイースト（インスタントまたはアクティブ）は、その重量の0.35倍を計量します。メーカーによっては、パッケージに異なる換算比が記載されている場合があります。',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '粉「{name}」の割合は0.1–100%の数値にしてください',
   'Profil smakowy': '風味プロファイル',
   'Profil zakwasu': 'サワー種のプロフィール',

@@ -54,6 +54,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Ievietot gatavu maisījumu',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Ielieciet groziņu hermētiskā maisiņā ledusskapī (4–6 °C). Ilgā fermentācija piešķirs maizei dziļu aromātu.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Ielieciet trauku ar mīklu izslēgtā cepeškrāsnī un ieslēdziet tikai apgaismojumu: iekšā pamazām kļūst siltāks, taču katra cepeškrāsns un katra virtuve dod atšķirīgu rezultātu.',
+  'Wstecz': 'Atpakaļ',
   'Wstrzymaj': 'Apturēt',
   'Wstrzymano': 'Apturēts',
   'Wsyp do miski na wagę': 'Iebēriet bļodā uz svariem',

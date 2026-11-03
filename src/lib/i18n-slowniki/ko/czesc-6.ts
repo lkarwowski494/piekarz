@@ -29,7 +29,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': '사전 발효종 (발효종)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': '응급 바시나주 (추가 수분) 절차',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': '배합표의 이스트 비율은 생이스트 기준이에요. 드라이 이스트(인스턴트 또는 액티브)는 그 양의 0.4를 계량해요.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': '배합표의 이스트 비율은 생이스트 기준이에요. 드라이 이스트(인스턴트 또는 액티브)는 그 양의 0.35배를 계량해요. 제조사가 포장지에 다른 비율을 안내할 수도 있어요.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '‘{name}’ 가루의 비율은 0.1–100% 범위의 숫자여야 해요',
   'Profil smakowy': '풍미 프로필',
   'Profil zakwasu': '사워도우 스타터 프로필',

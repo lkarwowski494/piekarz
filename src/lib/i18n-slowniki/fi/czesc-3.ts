@@ -39,6 +39,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hydraatio',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ja {n} muuta, tiedot päivänäkymässä',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ihanteellinen pohja emohapanjuuren ylläpitoon. Runsaasti villihiivoja ja maitohappobakteereja.',
+  'Ile pieczesz': 'Paljonko leivot',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Kuinka paljon ruista leivässä on oltava, jotta sitä voi kutsua ruisleiväksi tai ruis-vehnäleiväksi.',
   'Ilości do dokarmienia': 'Ruokintamäärät',
   'Ilości i temperatura wody': 'Määrät ja veden lämpötila',

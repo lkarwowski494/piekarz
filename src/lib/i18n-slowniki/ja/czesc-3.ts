@@ -63,6 +63,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '加水率',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ほか{n}件、詳細は日別シートで',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'サワー種の元種を育てるのに最適なベース。野生酵母と乳酸菌が豊富です。',
+  'Ile pieczesz': '焼く量',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'ライ麦パン、ライ麦・小麦混合パンと呼ぶために必要なライ麦の割合。',
   'Ilości do dokarmienia': '種継ぎの分量',
   'Ilości i temperatura wody': '分量と水温',

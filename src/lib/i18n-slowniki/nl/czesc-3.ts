@@ -33,6 +33,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hydratatie',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'en nog {n}, details in het dagoverzicht',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideale basis om een zuurdesemstarter (moederdesem) te onderhouden. Rijk aan wilde gisten en melkzuurbacteriën.',
+  'Ile pieczesz': 'Hoeveel bak je',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Hoeveel rogge een brood moet bevatten om roggebrood of rogge-tarwebrood te mogen heten.',
   'Ilości do dokarmienia': 'Voedingshoeveelheden',
   'Ilości i temperatura wody': 'Hoeveelheden en watertemperatuur',
