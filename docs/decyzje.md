@@ -1070,3 +1070,8 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** zdjęcie limitu z cyfr czasu (cyfry 56 pt × 3,1 przy 320 pt nie mieszczą się w polu; test `czas-ax5-201`).
 - **Status:** dzień, do weta.
 
+### [D-194] 2026-11-03 — Pas O3a na Planie i Prowadzeniu: zmiana dwóch istniejących testów nagłówka dozwolona (odpowiedź na STOP D-191)
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 18:15 UTC). **Słowa właściciela:** „(a) Pas jak w p3 (Recommended)”.
+- **Decyzja:** Plan (`harmonogram.tsx`) i Prowadzenie (`stolnica.tsx`) dostają pas jak Receptury w p3 (O3a, D-141), z ukrytym nagłówkiem stosu. Dozwolona zmiana `tests/nawigacja-d051.test.tsx` (asercje nagłówka systemowego) i `tests/stolnica-naglowek-prz07.test.tsx` (tytuł „Stolnica”) oraz dopisanie `useFocusEffect` do atrap `expo-router` w testach. Warunki (zasada 11): zmieniony test sprawdza nowy pas i jest czerwony na kodzie sprzed zmiany z właściwego powodu; powrót, tytuł ekranu dla VoiceOver i nawigacja nadal mają asercje; żadna asercja bez zastępstwa. Wykonanie: sesja roli 08 p4b (pula D-195…D-196).
+- **Odrzucone:** (b) natywny pasek w kolorze pasa bez zmian testów — odstępstwo od O3a, niespójne z „Dziś” i Recepturami.
+- **Status:** właściciel, 2026-11-03.
