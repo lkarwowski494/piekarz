@@ -1439,6 +1439,392 @@
     "miejsce": "docs\\brd\\reguly.md:284"
   },
   {
+    "regula": "RD-37",
+    "id": "RD-37-W1",
+    "wejscie": {
+      "Mwyb [g]": 500,
+      "Mmax [g]": 620,
+      "Cmax [g]": "brak",
+      "Σp [-]": 0.65
+    },
+    "oczekiwane": {
+      "M [g]": 500
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek; rola 06 V-MAK-3",
+    "miejsce": "docs\\brd\\reguly.md:296"
+  },
+  {
+    "regula": "RD-37",
+    "id": "RD-37-W2",
+    "wejscie": {
+      "Mwyb [g]": 620,
+      "Mmax [g]": 620,
+      "Cmax [g]": "brak",
+      "Σp [-]": 0.65
+    },
+    "oczekiwane": {
+      "M [g]": 620
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: M = Mmax; rola 06 V-MAK-1",
+    "miejsce": "docs\\brd\\reguly.md:297"
+  },
+  {
+    "regula": "RD-37",
+    "id": "RD-37-W3",
+    "wejscie": {
+      "Mwyb [g]": 621,
+      "Mmax [g]": 620,
+      "Cmax [g]": "brak",
+      "Σp [-]": 0.65
+    },
+    "oczekiwane": {
+      "M [g]": 620
+    },
+    "tolerancja": 0,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: przycięcie do Mmax, procenty bez zmian; rola 06 V-MAK-2",
+    "miejsce": "docs\\brd\\reguly.md:298"
+  },
+  {
+    "regula": "RD-37",
+    "id": "RD-37-W4",
+    "wejscie": {
+      "Mwyb [g]": 619,
+      "Mmax [g]": 620,
+      "Cmax [g]": "brak",
+      "Σp [-]": 0.65
+    },
+    "oczekiwane": {
+      "M [g]": 619
+    },
+    "tolerancja": 0,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:299"
+  },
+  {
+    "regula": "RD-37",
+    "id": "RD-37-W5",
+    "wejscie": {
+      "Mwyb [g]": 620,
+      "Mmax [g]": 620,
+      "Cmax [g]": 1000,
+      "Σp [-]": 0.837
+    },
+    "oczekiwane": {
+      "M [g]": 544
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 1000 / 1,837 = 544,4 → 544; rola 06 V-MAK-4 (tartine 80% wody, 2% soli, 1,7% drożdży)",
+    "miejsce": "docs\\brd\\reguly.md:300"
+  },
+  {
+    "regula": "RD-37",
+    "id": "RD-37-W6",
+    "wejscie": {
+      "Mwyb [g]": 500,
+      "Mmax [g]": "brak",
+      "Cmax [g]": "brak",
+      "Σp [-]": 0.65
+    },
+    "oczekiwane": {
+      "M [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: bez Mmax aplikacja prosi o granicę (BR-MASZ-002)",
+    "miejsce": "docs\\brd\\reguly.md:301"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W1",
+    "wejscie": {
+      "Składniki [-]": "mąka, woda, sól, drożdże"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "dostępny"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-175; rola 06 V-OPO-1",
+    "miejsce": "docs\\brd\\reguly.md:313"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W2",
+    "wejscie": {
+      "Składniki [-]": "mąka, woda, jajka"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-101; rola 06 V-OPO-2",
+    "miejsce": "docs\\brd\\reguly.md:314"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W3",
+    "wejscie": {
+      "Składniki [-]": "mąka, mleko"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-104; rola 06 V-OPO-3",
+    "miejsce": "docs\\brd\\reguly.md:315"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W4",
+    "wejscie": {
+      "Składniki [-]": "mąka, woda, mleko w proszku"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "dostępny"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-105; rola 06 V-OPO-4",
+    "miejsce": "docs\\brd\\reguly.md:316"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W5",
+    "wejscie": {
+      "Składniki [-]": "mąka, twaróg"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-104 (ser); rola 06 V-OPO-5",
+    "miejsce": "docs\\brd\\reguly.md:317"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W6",
+    "wejscie": {
+      "Składniki [-]": "mąka, jogurt"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-101; rola 06 V-OPO-6",
+    "miejsce": "docs\\brd\\reguly.md:318"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W7",
+    "wejscie": {
+      "Składniki [-]": "mąka, świeże jabłka"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-101; rola 06 V-OPO-7",
+    "miejsce": "docs\\brd\\reguly.md:319"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W8",
+    "wejscie": {
+      "Składniki [-]": "mąka, sok pomarańczowy"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-103; rola 06 V-OPO-8",
+    "miejsce": "docs\\brd\\reguly.md:320"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W9",
+    "wejscie": {
+      "Składniki [-]": "mąka, starta marchew"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "zablokowany"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-103 (warzywa); rola 06 V-OPO-9",
+    "miejsce": "docs\\brd\\reguly.md:321"
+  },
+  {
+    "regula": "RD-38",
+    "id": "RD-38-W10",
+    "wejscie": {
+      "Składniki [-]": "brak"
+    },
+    "oczekiwane": {
+      "opóźniony start [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: receptura bez składników",
+    "miejsce": "docs\\brd\\reguly.md:322"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W1",
+    "wejscie": {
+      "Kształt [-]": "poza formą",
+      "Kategoria [-]": "pizza",
+      "Upż [%]": 0,
+      "Cukier [%]": 0,
+      "Tłuszcz [%]": 0
+    },
+    "oczekiwane": {
+      "program [-]": "ciasto"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-179; rola 06 V-PRG-1",
+    "miejsce": "docs\\brd\\reguly.md:334"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W2",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "sweet",
+      "Upż [%]": 60,
+      "Cukier [%]": "brak",
+      "Tłuszcz [%]": "brak"
+    },
+    "oczekiwane": {
+      "program [-]": "słodki"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-179 (słodki przed pełnoziarnistym); rola 06 V-PRG-2",
+    "miejsce": "docs\\brd\\reguly.md:335"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W3",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "sourdough",
+      "Upż [%]": 49,
+      "Cukier [%]": 0,
+      "Tłuszcz [%]": 0
+    },
+    "oczekiwane": {
+      "program [-]": "francuski"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "D-179; rola 06 V-PRG-3",
+    "miejsce": "docs\\brd\\reguly.md:336"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W4",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "sourdough",
+      "Upż [%]": 50,
+      "Cukier [%]": "brak",
+      "Tłuszcz [%]": "brak"
+    },
+    "oczekiwane": {
+      "program [-]": "pełnoziarnisty"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "D-179, S-106; rola 06 V-PRG-4",
+    "miejsce": "docs\\brd\\reguly.md:337"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W5",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "rye",
+      "Upż [%]": 100,
+      "Cukier [%]": "brak",
+      "Tłuszcz [%]": "brak"
+    },
+    "oczekiwane": {
+      "program [-]": "pełnoziarnisty"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-179; rola 06 V-PRG-5",
+    "miejsce": "docs\\brd\\reguly.md:338"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W6",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "yeast",
+      "Upż [%]": 51,
+      "Cukier [%]": "brak",
+      "Tłuszcz [%]": "brak"
+    },
+    "oczekiwane": {
+      "program [-]": "pełnoziarnisty"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "D-179; rola 06 V-PRG-6",
+    "miejsce": "docs\\brd\\reguly.md:339"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W7",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "yeast",
+      "Upż [%]": 0,
+      "Cukier [%]": 2,
+      "Tłuszcz [%]": 0
+    },
+    "oczekiwane": {
+      "program [-]": "podstawowy"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-179; rola 06 V-PRG-7",
+    "miejsce": "docs\\brd\\reguly.md:340"
+  },
+  {
+    "regula": "RD-39",
+    "id": "RD-39-W8",
+    "wejscie": {
+      "Kształt [-]": "forma",
+      "Kategoria [-]": "yeast",
+      "Upż [%]": "brak",
+      "Cukier [%]": "brak",
+      "Tłuszcz [%]": "brak"
+    },
+    "oczekiwane": {
+      "program [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: bez masy mąki Upż nieokreślone",
+    "miejsce": "docs\\brd\\reguly.md:341"
+  },
+  {
     "regula": "RD-29",
     "id": "RD-29-W1",
     "wejscie": {
@@ -1451,7 +1837,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:389"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:393"
   },
   {
     "regula": "RD-29",
@@ -1466,7 +1852,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:390"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:394"
   },
   {
     "regula": "RD-29",
@@ -1481,7 +1867,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:391"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:395"
   },
   {
     "regula": "RD-29",
@@ -1496,7 +1882,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:392"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:396"
   },
   {
     "regula": "RD-29",
@@ -1511,7 +1897,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:393"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:397"
   },
   {
     "regula": "RD-29",
@@ -1526,7 +1912,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: nieczytelna data wpisu (BR-KAL-002)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:394"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:398"
   },
   {
     "regula": "RD-30",
@@ -1541,7 +1927,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (PL: poniedziałek)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:406"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:410"
   },
   {
     "regula": "RD-30",
@@ -1556,7 +1942,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (US: niedziela)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:407"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:411"
   },
   {
     "regula": "RD-30",
@@ -1571,7 +1957,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: dziś = pierwszy dzień",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:408"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:412"
   },
   {
     "regula": "RD-30",
@@ -1586,7 +1972,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:409"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:413"
   },
   {
     "regula": "RD-30",
@@ -1601,7 +1987,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: ostatni dzień tygodnia, dzień 25-godzinny",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:410"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:414"
   },
   {
     "regula": "RD-30",
@@ -1616,7 +2002,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: niedziela ze zmianą czasu w USA (S-78)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:411"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:415"
   },
   {
     "regula": "RD-30",
@@ -1631,7 +2017,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak regionu [DO USTALENIA] (OP-53)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:412"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:416"
   },
   {
     "regula": "RD-31",
@@ -1646,7 +2032,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: ten sam dzień kalendarza (D-093)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:424"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:428"
   },
   {
     "regula": "RD-31",
@@ -1661,7 +2047,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "rachunek: północ po dniu założenia",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:425"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:429"
   },
   {
     "regula": "RD-31",
@@ -1676,7 +2062,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: przy okresach 24 h byłoby 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:426"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:430"
   },
   {
     "regula": "RD-31",
@@ -1691,7 +2077,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: Europe/Warsaw, doba 25 h przy zmianie czasu (S-67), nadal 2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:427"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:431"
   },
   {
     "regula": "RD-31",
@@ -1706,7 +2092,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 6 dni kalendarza + 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:428"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:432"
   },
   {
     "regula": "RD-31",
@@ -1721,7 +2107,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:429"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:433"
   },
   {
     "regula": "RD-32",
@@ -1738,7 +2124,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek; przykład właściciela (ER-66)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:441"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:445"
   },
   {
     "regula": "RD-32",
@@ -1755,7 +2141,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: termin = teraz",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:442"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:446"
   },
   {
     "regula": "RD-32",
@@ -1772,7 +2158,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: termin > teraz, jeszcze nie zaległe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:443"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:447"
   },
   {
     "regula": "RD-32",
@@ -1789,7 +2175,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 4 źródła > L",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:444"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:448"
   },
   {
     "regula": "RD-32",
@@ -1806,7 +2192,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 2 zaległe, miejsce na 1 przyszłe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:445"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:449"
   },
   {
     "regula": "RD-32",
@@ -1823,7 +2209,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: po jednym ze źródła",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:446"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:450"
   },
   {
     "regula": "RD-32",
@@ -1840,7 +2226,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (D-094)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:447"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:451"
   },
   {
     "regula": "RD-32",
@@ -1857,7 +2243,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:448"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:452"
   },
   {
     "regula": "RD-33",
@@ -1873,7 +2259,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "D-052: 08:00 − 12 h",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:460"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:464"
   },
   {
     "regula": "RD-33",
@@ -1889,7 +2275,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "D-052, ZAK-LOD-002: ≤ 8 h",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:461"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:465"
   },
   {
     "regula": "RD-33",
@@ -1905,7 +2291,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: 7 h 59 min",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:462"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:466"
   },
   {
     "regula": "RD-33",
@@ -1921,7 +2307,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "D-052: 20:00 + 12 h; BR-ZAKW-006",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:463"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:467"
   },
   {
     "regula": "RD-33",
@@ -1937,7 +2323,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: Europe/Warsaw, 08:00 CET = 07:00 UTC − 12 h = 2026-10-24 19:00 UTC = 21:00 CEST (S-67)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:464"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:468"
   },
   {
     "regula": "RD-33",
@@ -1953,7 +2339,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: plan bez godziny mieszania nie ma karmienia budzącego",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:465"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:469"
   },
   {
     "regula": "RD-34",
@@ -1968,7 +2354,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:477"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:481"
   },
   {
     "regula": "RD-34",
@@ -1983,7 +2369,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "rachunek; wektor roli 06 (M0)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:478"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:482"
   },
   {
     "regula": "RD-34",
@@ -1998,7 +2384,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek; wektor roli 06 (M0)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:479"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:483"
   },
   {
     "regula": "RD-34",
@@ -2013,7 +2399,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek; wektor roli 06 (M0)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:480"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:484"
   },
   {
     "regula": "RD-34",
@@ -2028,7 +2414,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: okno B kończy się, gdy zaczyna się okno A",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:481"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:485"
   },
   {
     "regula": "RD-34",
@@ -2043,6 +2429,6 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:482"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:486"
   }
 ]

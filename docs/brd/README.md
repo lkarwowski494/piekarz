@@ -11,16 +11,17 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | Plik | Zawartość | Stan |
 |---|---|---|
 | `README.md` | stan, spis, streszczenie, otwarte pytania, blokery wydania | E3 |
-| `odkrywanie.md` | wywiad, prace J, persony P, kontekst użycia, zasady ZP, rynek, ograniczenia OG, hipotezy H, ryzyka RYZ | E2 + J-12, OG-07 |
-| `zrodla.md` | źródła S | E2 + S-62…S-64 |
-| `reguly.md` | reguły RD-14…RD-28, RD-35, RD-36 z wektorami | E2 + F-71 |
-| `wymagania.md` | przepływy PR-01…PR-18, wymagania NFR | E3 + PR-18 |
+| `odkrywanie.md` | wywiad, prace J, persony P, kontekst użycia, zasady ZP, rynek, ograniczenia OG, hipotezy H, ryzyka RYZ | E2 + J-12, OG-07, J-16 (ER-77) |
+| `zrodla.md` | źródła S | E2 + S-62…S-64, S-101…S-108 (ER-77) |
+| `reguly.md` | reguły RD-14…RD-28, RD-35…RD-39 z wektorami | E2 + F-71, RD-37…RD-39 (ER-77) |
+| `wymagania.md` | przepływy PR-01…PR-18, PR-24, PR-25, wymagania NFR | E3 + PR-18, PR-25 (ER-77) |
 | `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 + BR-KALK-012 (ER-75) |
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71), BR-RECP-005 (ER-76) |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
+| `wymagania-maszyna.md` | BR-MASZ-001…006 (tryb maszyny do chleba, F-72, PR-25, J-16; reguły RD-37…RD-39) | ER-77, 2026-11-03 |
 | `errata.md` | errata ER-34…ER-70 | E3 + 2026-10-22 |
 
 ## Otwarte pytania
@@ -62,6 +63,12 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-61 | [DO USTALENIA] czy sól można jeszcze dodać w trakcie pierwszego rośnięcia (źródła mówią „przed” i „po”, nie „w trakcie”; wątek forum S-96 radzi wyrobić, szczebel 5) | rola 06 | RD-35 |
 | OP-62 | [DO WYJAŚNIENIA] (OP-62) czy wybór „na drożdżach” zapamiętuje się przy recepturze i czy wypiek oraz wpis w Dzienniku zapisują, którą wersję upieczono; bez tego poprawa następnego wypieku (J-05) miesza obie wersje | rola 03 z rolami 04 i 05 | BR-RECP-005, J-05 |
 | OP-63 | [DO USTALENIA] (OP-63) co po przełączeniu na drożdże dzieje się z mąką i wodą, które w wersji na zakwasie wnosi zakwas (te same procenty całkowite czy procenty ze źródła wersji drożdżowej); dane roli 06 podają procent drożdży względem mąki (`docs/tresci/wektory/m3-2026-11-03.json`) | rola 06 z rolą 05 | BR-RECP-005, RD-14 |
+| OP-64 | [DO USTALENIA] (OP-64) kto poza właścicielem piecze w maszynie do chleba z aplikacją do receptur i jak często (persona i częstotliwość J-16); korpus recenzji nie przeszukany pod „machine” | rozmowy z użytkownikami (później, D-036), rola 01 przy następnym badaniu rynku | J-16, PR-25 |
+| OP-65 | [DO USTALENIA] (OP-65) czy maszyny ustawiają opóźniony start jako czas do końca programu, czy do jego startu, i czy wliczają w to podgrzewanie; od tego zależy, co aplikacja każe wpisać w maszynie | instrukcje producentów, rola 06 | BR-MASZ-005, D-189 |
+| OP-66 | [DO USTALENIA] (OP-66) czasy programów maszyn ze źródła szczebla 1–3 (tabela cykli Tefal PF220838 poza PDF producenta, rejestr MAS-015); źródło pozwoliłoby podpowiadać czas programu zamiast wpisu użytkownika (D-189) | rola 06 | BR-MASZ-005, D-189 |
+| OP-67 | [DO USTALENIA] (OP-67) czy źródło szczebla 1–3 dopuszcza krótkie opóźnienie przy nabiale i jajkach (reguła 2 godzin FDA wobec opóźnionego startu; rejestr MAS-073); do tego czasu blokada całkowita | rola 06 | RD-38, BR-MASZ-005 |
+| OP-68 | [DO USTALENIA] (OP-68) progi cukru i tłuszczu dla programów „słodki” i „francuski” ze źródła (rejestr MAS-080: jedyny próg liczbowy to 50% mąki pełnoziarnistej w Cuisinart CBK-110); do tego czasu reguła Piekarza D-179 | rola 06 | RD-39 |
+| OP-69 | [DO WYJAŚNIENIA] (OP-69) jak tryb maszyny rozpoznaje składniki z listy blokady (RD-38) w recepturach własnych, w których użytkownik wpisuje składnik dowolnym tekstem (lista do wyboru, pytanie przy włączeniu opóźnienia, blokada przy każdym składniku spoza listy) | rola 04 z rolą 05 | RD-38, BR-MASZ-005 |
 
 ## Blokery wydania
 

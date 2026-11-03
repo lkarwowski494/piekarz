@@ -80,6 +80,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Kto: P-6, P-7, P-8 · Praca: J-15, J-02, J-09 · Częstotliwość: przy problemie w trakcie wypieku [OCENA] · Kontekst: w trakcie wypieku, ciasto w misce albo w koszyku, ręce w cieście lub mące, minuty na decyzję.
 - Kroki: na prowadzeniu wypieku dotyka „Doktor” → w sekcji ratunku ciasta wybiera objaw: przerośnięte, zbyt luźne, ospała fermentacja w zimnej kuchni, zapomniana sól → widzi, co zrobić teraz, kroki i krótkie „dlaczego”, każde zdanie z atrybucją źródła → wykonuje kroki i wraca do prowadzenia na tym samym kroku z tym samym zegarem (F-71, D-095).
 
+### PR-25: Upiec chleb w maszynie do chleba
+- Kto: właściciel (dowód B, D-138), P-7 i P-8 [OCENA] · Praca: J-16 · Częstotliwość: [DO USTALENIA] (OP-64) · Kontekst: blat i maszyna, minuty przy wkładaniu; potem maszyna pracuje sama, także przez noc; gorąca forma i mieszadło przy wyjmowaniu (BR-MASZ-006).
+- Kroki: wybiera recepturę drożdżową albo recepturę na zakwasie z wersją drożdżową → wybiera „maszyna” zamiast „piekarnik” (D-138) → za pierwszym razem wpisuje z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja je podaje, także największą masę ciasta i drożdży, oraz wybiera jeden z dwóch układów kolejności wkładania (D-153) → wybiera wielkość bochenka (masę mąki) → widzi jedną listę: co wkładać po kolei i ile, podpowiedź programu z dopiskiem „podpowiedź Piekarza” (D-179) → w Pro wybiera godzinę gotowości, podaje czas programu ze swojej instrukcji i widzi, kiedy program musi ruszyć (D-152, D-189); przy psujących się składnikach widzi, że opóźnionego startu nie ma i dlaczego (D-175) → po programie wyjmuje formę według ostrzeżenia o oparzeniu (F-72, D-150).
+
 ## Wymagania niefunkcjonalne (NFR)
 ### NFR-OFF-001: Działa w pełni offline
 - Miara: liczba wywołań sieciowych (`fetch`, `axios`, `WebSocket`, `XMLHttpRequest`) w kodzie produkcyjnym. Próg: 0 (ZP-17; `CLAUDE.md`, zasada 1). Metoda: `tests/public-repo.test.ts` (`npm test`).

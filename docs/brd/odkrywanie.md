@@ -128,6 +128,13 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Częstotliwość: rzadko, przy problemie [OCENA].
 - Dowód: słaby. 4 z 9 przeczytanych wątków Fresh Loaf 2008–2022 pytają w trakcie, „co teraz” (S-96…S-99, szczebel 5, próba nielosowa); w próbce 438 recenzji konkurencji 0 próśb o ratunek ciasta w trakcie i 1 pochwała „troubleshooting” (S-14, rec. 13535920699); wybór właściciela: F-71 w 1.0 (D-092, ZP-20: narzędzie i nauka). Treść ze źródłami: D-095. Osoby: P-6, P-7, P-8. Zależy od: ZAL-060.
 
+### J-16: Upiec chleb w maszynie do chleba z ilościami i godziną gotowości
+- Kiedy mam maszynę do chleba i chcę upiec w niej chleb z receptury, którą już mam w aplikacji, chcę wiedzieć, ile czego włożyć, żeby zmieściło się w mojej maszynie, w jakiej kolejności, jaki program wybrać i na którą godzinę ustawić opóźnienie, żeby chleb był gotowy, kiedy go potrzebuję.
+- Siły zmiany: pcha prośba właściciela „Możliwość tradycyjnego pieczenia jak i w maszynce do chleba (mam taką)” (D-138); przyciąga tryb uniwersalny zamiast profilu jednej maszyny: „bierzesz przepis na chleb który już mamy, wrzucasz w odpowiedniej kolejności składniki do maszyny i aplikacja sugeruje program” (D-152, D-153); obawa: ciasto ponad pojemność maszyny (granice w instrukcjach, rejestr roli 06 MAS-002, MAS-062) i zepsute składniki przy opóźnionym starcie (MAS-072); nawyk: instrukcja maszyny i jej książka przepisów.
+- Dziś: instrukcja i przepisy producenta maszyny; aplikacje tylko do maszyn mają najwyżej 6 ocen (rola 03, iTunes Search US 2026-11-03, wiersz F-72 w `docs/scope-contract.md`).
+- Częstotliwość: [DO USTALENIA] (OP-64).
+- Dowód: słaby — jedna osoba (właściciel, maszyna Tefal PAIN PLAISIR PF220838 jako maszyna testowa, D-153); korpus 338 recenzji nie przeszukany pod „machine” (rola 03, `docs/zakres-zm-2026-11-03.md`). Zakres 1.0 decyzją właściciela (D-150, D-156). Osoby: właściciel; persona z dowodem: OP-64.
+
 ## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
 
@@ -199,6 +206,7 @@ Kontekst opisany z recenzji i ze zdania celu; rozmów z użytkownikami nie było
 | J-10 | dowolne; aktualizacja, nowy telefon | — | — | przy przenosinach plik lub kopia urządzenia [DO USTALENIA] (OP-32) | rzadko | ZAL-035; ZAL-036 (iPad obok telefonu: 4 z 338) |
 | J-13 | dowolne; rano przed pracą, wieczorem, przy planowaniu tygodnia | zwykle wolne, czasem w cieście | spojrzenie na kilka sekund | bez wymagań | sekundy; kilka razy dziennie | ZAL-051; S-68 (plan wokół dnia pracy) |
 | J-11 | blat; piec do pizzy | jw. J-01 i J-02 | jw. | — | jw. | ⚠ oparzenie (piec, kamień) źródło E2 |
+| J-16 | blat, maszyna do chleba obok gniazdka | wolne przy odważaniu; przy wyjmowaniu formy i mieszadła ⚠ oparzenie (rękawice) | ekran i waga przy wkładaniu, potem maszyna pracuje sama, także przez noc przy opóźnionym starcie | bez wymagań | minuty przy wkładaniu, sekundy przy wyjmowaniu | S-108 (rękawice przy formie); rejestr roli 06 MAS-010, MAS-011, MAS-045 (BR-MASZ-006); ⚠ opóźniony start z psującymi się składnikami: RD-38 |
 
 Dostępność: wzrok (kolory ostrzeżeń nieodróżnialne dla daltonisty, S-24, rec. 5681544617; czytelność dla 60+, ZAL-039), słuch (sygnał nie tylko dźwiękiem: haptyka i powiadomienie [OCENA]), motoryka (ręce w cieście, ZAL-033). Progi ustala rola 04 (DEC-15: pole dotyku ≥ 48 pt w głównym przepływie, ≥ 44 pt w pozostałych).
 

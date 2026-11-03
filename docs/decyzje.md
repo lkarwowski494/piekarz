@@ -1010,3 +1010,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) bez push do czasu zmiany testu przez rolę 07 (paczka M3 czeka, D-183 każe iść dalej); (b) nowe scenariusze wyłącznie w istniejących BR, bez nowych ID (F-72 nie ma żadnego BR, którego dotyczyłby tryb maszyny).
 - **Zależy od:** D-187, D-183. **Status:** dzień, do weta.
 
+### [D-189] 2026-11-03 — Godzina gotowości w trybie maszyny (F-72, Pro) z czasu programu wpisanego przez użytkownika z instrukcji jego maszyny (rola 01 fix, ER-77, do weta)
+- **Rodzaj:** produktowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** D-138 i D-152 wymagają godziny gotowości (w Pro), a do jej policzenia potrzebny jest czas programu. Źródła roli 06 go nie podają: tabela cykli Tefal PF220838 nie jest w PDF producenta (rejestr MAS-015, otwarte), a tryb jest uniwersalny, bez profili maszyn (D-153).
+- **Decyzja:** (a) użytkownik wpisuje czas wybranego programu z instrukcji swojej maszyny (jak granice mąki, ciasta i drożdży, `machine.capacity`); aplikacja liczy godzinę startu = godzina gotowości − czas programu i pokazuje czas od teraz do gotowości. Sposób wpisania opóźnienia w maszynie (do końca programu czy do startu) zostaje otwarty: OP-65.
+- **Odrzucone:** (b) domyślne czasy programów z jednej instrukcji — brak źródła (MAS-015) i sprzeczne z D-153; (c) bez godziny gotowości w 1.0 — przeczy D-138 i D-152 (godzina gotowości jako część Pro).
+- **Koszt [OCENA]:** jedno pole więcej w danych maszyny (rola 04); 1–2 klucze × 33 języki (rola 09).
+- **Zależy od:** D-138, D-152, D-153, D-183; MAS-015. Wraca do sprawdzenia, gdy rola 06 znajdzie czasy programów ze źródła 1–3. **Status:** dzień, do weta.
+
