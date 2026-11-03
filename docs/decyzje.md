@@ -1169,3 +1169,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **7. „Język i jednostki”:** dziś dwie karty „Język” i „Jednostki” (D-198); połączenie zmienia układ. Opcje: (a) połączenie kart przez 08/04, potem klucz (rekomendacja); (b) zostawić dwie karty.
 - **9. Wiersz daty z oceną w Dzienniku:** dziś dwie linie (`BakeHistorySection.tsx:93-96`, data i „Ocena: {n}/5”); jedna linia „{data}, ocena {n}/5” zmienia strukturę i warunek. Opcje: (a) 08 łączy linie z kluczem z parametrami (rekomendacja); (b) zostawić dwie linie.
 - **Status:** noc, do weta.
+
+### [D-209] 2026-11-03 — p6b: pozycje D-208 w opcji (a) (układ pod teksty README §6) i poprawka wyścigu wyboru drożdży; gałąź wspólna 08 → 09 (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); opcje rekomendowane roli 09 w D-208.
+- **Decyzja:** (1) rola 08 p6b na `wip/08-p6b-2026-11-03`: podpis w karcie „Do miski” („Odhaczaj przy ważeniu.”), numer kroku na pasie Prowadzenia i „Co zrobić” jako nagłówek karty, podtytuł pasa receptury z wyborem pełnego zdania-klucza po rodzaju receptury, jedna karta „Język i jednostki”, wiersz daty z oceną w Dzienniku jednym kluczem z parametrami — każda pozycja tylko bez zmiany istniejących testów poza asercjami dosłownego brzmienia tych tekstów (D-206), inaczej odłożona; poprawka `src/lib/rodzaj-drozdzy.ts:26` (stuknięcie przed pierwszym odczytem ustawienia cofa wybór na ekranie) z testem czerwonym najpierw. Nowe klucze PL+EN. (2) Wyjątek nazwany (jak D-166): verify na `wip/08-p6b` może być czerwony wyłącznie przez brak przekładu nowych kluczy (`tests/czeka-na-przeklad-093.test.ts`, `check:i18n`); rola 09 dokłada 33 języki na tej samej gałęzi; scalenie do `redesign/` tylko przy verify kod 0.
+- **Odrzucone:** (b) zostawić pozycje D-208 do wersji 1.0.1 (README §6 zatwierdzony na STOP E3, D-141); (c) przekład 33 języków przez rolę 08 (praca roli 09).
+- **Status:** noc, do weta.
