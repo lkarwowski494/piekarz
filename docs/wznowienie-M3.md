@@ -1,7 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-03 ~19:15 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-03 ~19:20 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p4b scalone do `redesign/` @ `0f97bf85` (merge `d8736c6`; verify kod 0, 520 zestawów / 5633 testy): Prowadzenie z pasem O3a (D-195: powrót ikoną z etykietą „Zamknij”, rola 09 ma dodać „Wstecz”). Zmienione testy tylko z D-194: `tests/nawigacja-d051.test.tsx`, `tests/stolnica-naglowek-prz07.test.tsx` (dowód czerwieni 10/10 na `e648783`); przegląd ścieżek wrażliwych subagentem: brak uwag. Sesja p4b zarchiwizowana.
+- **Do raportu rannego (D-196, zmiana testu spoza D-194/D-197 — nie rozstrzygam nocą):** Plan bez pasa. Opcje: (a) `src/__tests__/pas-zakladek-d10.test.tsx:135` → `toBe(false)` + `git apply docs/stan-08-p4b-plan-pas.patch` + p4:160 wg D-197 (rekomendacja roli i koordynatora: spójna ścieżka wypieku); (b) Plan z paskiem systemowym. Ten sam test w :136 przypina nagłówek Doktora zakwasu — w p5 zostaje z nagłówkiem.
+- p5 startuje: polecenie `audit/M3-2026-11-03/prompty/08-p5.polecenie.md` (sha256 41ecb755…e8c3), pula D-198…D-199, wolne od D-200.
+
+## Aktualizacja 2026-11-03 ~19:15 UTC (koordynator M3, noc)
 - Nowa sesja koordynatora `session_01T66VByBYeozhbEvYUUmVNp` (po /clear). p4b biegnie; rola zgłosiła możliwą kolizję z `src/__tests__/plan-prowadzenie-karty-p4.test.tsx` → **D-197** (noc, do weta): test wolno dostosować do jednego nagłówka na pasie; Doktor Chleba i Doktor zakwasu z pasem w p5 (zmiana `nawigacja-d051` asercji Doktora). Rola dostała to przez send_message.
 - p5 przygotowane: `audit/M3-2026-11-03/prompty/08-p5.polecenie.md` (sha256 32e3ffb7…6a60), pula D-198…D-199; start po scaleniu p4b (sekwencyjnie: wspólne słowniki i macierz).
 - Ocena flagi p6+ (D-160): **bez flagi** — D-136 segment drożdży przy wierszu „Do miski” (zapis przez istniejące `setAppSetting` w `src/lib/rodzaj-drozdzy.ts`), RD-19 × 0,35 (stała przelicznika, BR-KALK-012) → p6a w nocy po p5. **Flaga / do rana:** D-154/D-155 wersja drożdżowa z planem (wybór wersji w aktywnym wypieku i dzienniku), D-138/F-72 maszyna (pojemność, „Zapisz plan”), katalog +15 (D-157: listę zatwierdza właściciel).
