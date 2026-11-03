@@ -131,7 +131,7 @@
           "wartosc": 67.7,
           "twierdzenie": "KAT-ILB-006",
           "od": 59.2,
-          "do": 79.0
+          "do": 79
         },
         "sol_proc": {
           "wartosc": 1.4,
@@ -195,8 +195,8 @@
           "od": 8,
           "do": 10
         },
-        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
-        "forma": "9×5 cali",
+        "wyrastanie": "do podwojenia (KAT-ILB-002; czasu źródło nie podaje)",
+        "forma": "9×5 cali (ok. 23×13 cm, KAT-ILB-002)",
         "twierdzenia_wariantu": null
       },
       "maszyna": {
@@ -314,8 +314,8 @@
           "od": 8,
           "do": 10
         },
-        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
-        "forma": "9×5 cali",
+        "wyrastanie": "do podwojenia (KAT-ILB-002; czasu źródło nie podaje)",
+        "forma": "9×5 cali (ok. 23×13 cm, KAT-ILB-002)",
         "twierdzenia_wariantu": "KAT-ILB-003"
       },
       "maszyna": {
@@ -370,7 +370,7 @@
           "wartosc": 74.6,
           "twierdzenie": "KAT-ILB-014",
           "od": 65.3,
-          "do": 87.0
+          "do": 87
         },
         "sol_proc": {
           "wartosc": 1.5,
@@ -380,7 +380,7 @@
           "wartosc": 5.2,
           "twierdzenie": "KAT-ILB-016",
           "od": 4.5,
-          "do": 6.0,
+          "do": 6,
           "uwagi": "D-172: suche ÷ 0,35"
         },
         "zakwas_proc": {
@@ -434,8 +434,8 @@
           "od": 8,
           "do": 10
         },
-        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
-        "forma": "9×5 cali",
+        "wyrastanie": "do podwojenia (KAT-ILB-002; czasu źródło nie podaje)",
+        "forma": "9×5 cali (ok. 23×13 cm, KAT-ILB-002)",
         "twierdzenia_wariantu": "KAT-ILB-004"
       },
       "maszyna": {
@@ -653,7 +653,7 @@
           }
         ],
         "woda_proc": {
-          "wartosc": 64.0,
+          "wartosc": 64,
           "twierdzenie": "KAT-KAR-006",
           "od": 57.1,
           "do": 72.7
@@ -878,7 +878,7 @@
           {
             "skladnik": "masło lub margaryna",
             "procent": {
-              "wartosc": 13.0,
+              "wartosc": 13,
               "twierdzenie": "KAT-BUL-003"
             }
           },
@@ -1130,7 +1130,7 @@
           }
         ],
         "woda_proc": {
-          "wartosc": 19.0,
+          "wartosc": 19,
           "twierdzenie": "KAT-SLO-005"
         },
         "sol_proc": {
@@ -1149,14 +1149,14 @@
           {
             "skladnik": "mleko",
             "procent": {
-              "wartosc": 39.0,
+              "wartosc": 39,
               "twierdzenie": "KAT-SLO-004"
             }
           },
           {
             "skladnik": "cukier",
             "procent": {
-              "wartosc": 16.0,
+              "wartosc": 16,
               "twierdzenie": "KAT-SLO-004"
             }
           },
@@ -1170,7 +1170,7 @@
           {
             "skladnik": "jajka",
             "procent": {
-              "wartosc": 16.0,
+              "wartosc": 16,
               "twierdzenie": "KAT-SLO-004"
             }
           }
@@ -1244,7 +1244,7 @@
           }
         ],
         "woda_proc": {
-          "wartosc": 19.0,
+          "wartosc": 19,
           "twierdzenie": "KAT-SLO-009"
         },
         "sol_proc": {
@@ -1263,14 +1263,14 @@
           {
             "skladnik": "mleko",
             "procent": {
-              "wartosc": 39.0,
+              "wartosc": 39,
               "twierdzenie": "KAT-SLO-004"
             }
           },
           {
             "skladnik": "cukier",
             "procent": {
-              "wartosc": 16.0,
+              "wartosc": 16,
               "twierdzenie": "KAT-SLO-004"
             }
           },
@@ -1284,7 +1284,7 @@
           {
             "skladnik": "jajka",
             "procent": {
-              "wartosc": 16.0,
+              "wartosc": 16,
               "twierdzenie": "KAT-SLO-004"
             }
           }
@@ -1293,7 +1293,7 @@
           {
             "skladnik": "cukier",
             "procent": {
-              "wartosc": 48.0,
+              "wartosc": 48,
               "twierdzenie": "KAT-SLO-008"
             }
           },
@@ -1322,10 +1322,9 @@
       },
       "pieczenie": {
         "temp_c": {
-          "wartosc": null,
-          "twierdzenie": null,
-          "otwarte": null,
-          "luka": "źródło podaje tylko 375 °F; przeliczenie na °C nie jest w rejestrze"
+          "wartosc": 191,
+          "twierdzenie": "KAT-SLO-003",
+          "uwagi": "rachunek 375 °F → 190,6 °C"
         },
         "temp_f": {
           "wartosc": 375,
