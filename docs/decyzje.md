@@ -1104,3 +1104,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Nie wykonane w p5 (kontekst sesji):** Piekarz Pro (`PaywallModal.tsx`, pas z tytułem i zdaniem Basic; ujawnienia bez zmian, D-112/D-113) i §7a dla Doktora i Pro — kolejna sesja p5b według `docs/stan-08-p5-2026-11-03.md`.
 - **Dla roli 09:** „Wstecz” (Doktor, jak D-195), „Język i jednostki” (README §6), wiersz daty z oceną we wpisie Dziennika.
 - **Dla roli 04:** nagłówek grupy w pustym Dzienniku, Zakupy 17 pt, siatka języka, chipy objawów w kartach Doktora, ikony kart Ustawień (bochenek dla naczynia, waga dla jednostek, lista dla CSV, info dla Kontaktu, miska dla testów w kuchni).
+
+### [D-200] 2026-11-03 — p5b (Piekarz Pro) przed p6a; p6a tylko segment drożdży przy wierszu „Do miski” bez zmiany przelicznika (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183).
+- **Decyzja:** (1) p5b dokańcza p5 według `docs/stan-08-p5-2026-11-03.md`: Piekarz Pro (`PaywallModal.tsx`, ujawnienia bez zmian treści, kolejności i widoczności, D-112/D-113), wiersze `PoleObjawu` w Doktorze tylko bez zmiany testów, §7a dla Doktora i Pro. (2) p6a po p5b: segment „świeże / suche” przy wierszu drożdży na karcie „Do miski” (D-136, BR-KALK-012) przez istniejący wybór `rodzaj_drozdzy` (zapis bez zmian); testy liczą gramy z `gramyDrozdzy`, nie z wpisanej liczby. (3) Przelicznik 0,4 → 0,35 (D-172, RD-19-W2, kryterium BR-KALK-012 „8,75 g”) zmienia istniejące wektory testów (`src/core/__tests__/domain-rules.test.ts` i in., `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json`) i tekst „…odważysz 0,4 tej masy” — zmiana testów spoza D-194/D-197, do decyzji właściciela w raporcie 2026-11-04.
+- **Odrzucone:** (b) p6a z przelicznikiem 0,35 nocą (zmiana istniejących testów bez zgody); (c) p6a przed p5b (Pro jest warunkiem buildu, D-190); (d) p5b i p6a równolegle (wspólne `docs/22`, słowniki, `docs/decyzje.md`).
+- **Status:** noc, do weta.
