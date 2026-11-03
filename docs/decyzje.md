@@ -781,3 +781,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Koszt [OCENA]:** opóźnienie 1.0 o ok. 3–5 dni pracy ról ponad redesign, najwięcej D-138.
 - **Krok właściciela:** model maszyny do chleba (marka, pojemność, lista programów; zdjęcie panelu lub instrukcji) dla roli 06.
 - **Status:** dzień, do weta.
+
+### [D-140] 2026-11-03 — Rola 04 build od E3 bez E1–E2: system kart na języku ekranu „Dziś” (propozycja na STOP E3)
+- **Rodzaj:** decyzja roli 04 (wyjątek nazwany, zasada wspólna 7), warunkowa do wyboru właściciela na STOP E3.
+- **Decyzja:** procedura redesignu (moduł przepływy-i-gesty, pkt 3) każe robić E1–E2 od zera; pomijam je, bo kierunek wybrał właściciel okiem w D-139. Tańsza kontrola zamiast E2: arkusze przed/po dla 10 ekranów i trzy opcje wizualne na tym samym ekranie (`docs/design/karty/arkusze/`). System: pas w kolorze marki na każdym ekranie, treść tylko w kartach, nagłówek karty = ikona `ratan` + krój tytułów 20 pt, czapka paska stanu, promień karty 16 w hierarchii promieni, kolory bez zmian (`docs/design/karty/README.md`). Karty bez cienia i z hierarchią promieni, bo jednakowe karty to ślad szablonu (kalibracja); rozpoznawalność niesie spirala i pas.
+- **Odrzucone:** pełne E1–E2 (trzy nowe kierunki) — właściciel już wybrał i zaakceptował „Dziś”; poprawka tylko „Zakwasy” i „Receptury” — odrzucona w D-139 (b).
+- **Zależy od:** D-139; wybór O1–O3 właściciela na STOP E3; kontrast `docs/design/karty/kontrast-karty.md`.
+- **Status:** do wyboru na STOP E3.

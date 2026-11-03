@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Opcje do wyboru — STOP E3 (M3)</title>
+<link rel="stylesheet" href="karty.css"><style>
+.bez-ikon .kn > svg { display: none; }
+.osobno .karta.bez-wn { background: none; border: 0; gap: 8px; overflow: visible; }
+.osobno .karta.bez-wn > .kn { padding: 4px 4px 0; }
+.osobno .wiersz { background: var(--karta); border: 1px solid var(--kartaLinia); border-radius: 16px; border-top: 1px solid var(--kartaLinia); }
+.bez-pasa .pas { background: var(--tlo); color: var(--tusz); border-radius: 0; }
+.bez-pasa .pas h1, .bez-pasa .pas .t-czas, .bez-pasa .pas .status { color: var(--tusz) !important; }
+.bez-pasa .pas .pod { color: var(--tusz2); } .bez-pasa .pas .nav a, .bez-pasa .pas .nav button { color: var(--akcentTekst); }
+</style></head><body>
+<!-- Trzy decyzje wizualne na STOP E3 (D-139); każda para na tym samym ekranie. Opisy: docs/design/karty/README.md §5. -->
+<main data-ekran="o1a-ikony-w-kazdej-karcie">
+  <div class="czapka"><div class="status"><span>15:01</span><span>5G 65%</span></div><div class="tyt-maly">Zakwasy</div></div>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="proporcje"></i><h2>Proporcje dokarmiania</h2><span class="pro znak">Pro</span></div>
+      <p class="t-obj p2">Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.</p>
+      <div class="zamek t-obj"><i data-i="zamek" class="checkbox"></i><span>Przypomnienia o dokarmianiu są w Piekarz Pro.</span></div>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="tarcza"></i><h2>Kontrola biologiczna (Bezpieczeństwo)</h2></div>
+      <p class="t-obj p2">Zaznacz, co widzisz albo czujesz w słoiku.</p>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Płyn na powierzchni o zapachu alkoholu (hooch)</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Puszysty nalot w dowolnym kolorze, także biały</span></div>
+      <div class="info t-przyp"><i data-i="info"></i><span>Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem.</span></div>
+    </section>
+  </div>
+  <nav data-zakladki="zakwasy"></nav>
+</main>
+<main data-ekran="o1b-ikony-tylko-w-kaflach-i-wierszach" class="bez-ikon">
+  <div class="czapka"><div class="status"><span>15:01</span><span>5G 65%</span></div><div class="tyt-maly">Zakwasy</div></div>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="proporcje"></i><h2>Proporcje dokarmiania</h2><span class="pro znak">Pro</span></div>
+      <p class="t-obj p2">Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.</p>
+      <div class="zamek t-obj"><i data-i="zamek" class="checkbox"></i><span>Przypomnienia o dokarmianiu są w Piekarz Pro.</span></div>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="tarcza"></i><h2>Kontrola biologiczna (Bezpieczeństwo)</h2></div>
+      <p class="t-obj p2">Zaznacz, co widzisz albo czujesz w słoiku.</p>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Płyn na powierzchni o zapachu alkoholu (hooch)</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Puszysty nalot w dowolnym kolorze, także biały</span></div>
+      <div class="info t-przyp"><i data-i="info"></i><span>Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem.</span></div>
+    </section>
+  </div>
+  <nav data-zakladki="zakwasy"></nav>
+</main>
+<main data-ekran="o2a-karta-na-grupe">
+  <header class="pas">
+    <div class="status"><span>15:01</span><span>5G 65%</span></div>
+    <h1 style="margin-top:12px">Receptury</h1>
+    <div class="chipy"><span class="chip wyb">Wszystkie</span><span class="chip">Na zakwasie</span><span class="chip">Żytnie</span><span class="chip">Drożdżowe</span><span class="chip">Pizza i słodkie</span></div>
+  </header>
+  <div class="tresc">
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="gwiazda"></i><h2>Moje receptury</h2></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Chleb pszenny na zakwasie</span><span class="t-przyp p2">moja, woda 75%</span></span><i data-i="dalej" class="szew"></i></div>
+    </section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="receptury"></i><h2>Receptury bazowe</h2></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Wiejski chleb codzienny na zakwasie</span><span class="t-przyp p2">Na zakwasie, poziom łatwy</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Chleb w stylu San Francisco o wyrazistej kwasowości</span><span class="t-przyp p2">Na zakwasie, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="sloik" class="ik"></i><span class="roz"><span class="t-tresc">Tradycyjny chleb 100% żytni razowy</span><span class="t-przyp p2">Żytni, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="miska" class="ik"></i><span class="roz"><span class="t-tresc">Bagietka paryska na poolishu</span><span class="t-przyp p2">Drożdżowy, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="pizza" class="ik"></i><span class="roz"><span class="t-tresc">Focaccia Genovese z solanką i rozmarynem</span><span class="t-przyp p2">Drożdżowy, poziom łatwy</span></span><i data-i="dalej" class="szew"></i></div>
+    </section>
+  </div>
+  <nav data-zakladki="receptury"></nav>
+</main>
+<main data-ekran="o2b-karta-na-recepture" class="osobno">
+  <header class="pas">
+    <div class="status"><span>15:01</span><span>5G 65%</span></div>
+    <h1 style="margin-top:12px">Receptury</h1>
+    <div class="chipy"><span class="chip wyb">Wszystkie</span><span class="chip">Na zakwasie</span><span class="chip">Żytnie</span><span class="chip">Drożdżowe</span><span class="chip">Pizza i słodkie</span></div>
+  </header>
+  <div class="tresc">
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="gwiazda"></i><h2>Moje receptury</h2></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Chleb pszenny na zakwasie</span><span class="t-przyp p2">moja, woda 75%</span></span><i data-i="dalej" class="szew"></i></div>
+    </section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="receptury"></i><h2>Receptury bazowe</h2></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Wiejski chleb codzienny na zakwasie</span><span class="t-przyp p2">Na zakwasie, poziom łatwy</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="bochenek" class="ik"></i><span class="roz"><span class="t-tresc">Chleb w stylu San Francisco o wyrazistej kwasowości</span><span class="t-przyp p2">Na zakwasie, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="sloik" class="ik"></i><span class="roz"><span class="t-tresc">Tradycyjny chleb 100% żytni razowy</span><span class="t-przyp p2">Żytni, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="miska" class="ik"></i><span class="roz"><span class="t-tresc">Bagietka paryska na poolishu</span><span class="t-przyp p2">Drożdżowy, poziom średni</span></span><i data-i="dalej" class="szew"></i></div>
+      <div class="wiersz"><i data-i="pizza" class="ik"></i><span class="roz"><span class="t-tresc">Focaccia Genovese z solanką i rozmarynem</span><span class="t-przyp p2">Drożdżowy, poziom łatwy</span></span><i data-i="dalej" class="szew"></i></div>
+    </section>
+  </div>
+  <nav data-zakladki="receptury"></nav>
+</main>
+<main data-ekran="o3a-pas-na-ekranach-stosu">
+  <header class="pas">
+    <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+    <div class="nav"><a><i data-i="wstecz"></i></a><span><button>Doktor</button><button>Plan wypieku</button></span></div>
+    <p class="pod">Chleb pszenny na zakwasie, krok 4 z 9</p>
+    <h1 class="sredni">Składanie 2 z 4</h1>
+    <p class="t-czas" style="color:var(--naPasie)">18:04</p>
+    <p class="pod">potem: odpoczynek 30 min, gotowe jutro o 9:35</p>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="ksiazka"></i><h2>Co zrobić</h2></div>
+      <p class="t-tresc p2">Mokrą ręką chwyć brzeg ciasta, podciągnij i złóż na środek. Obróć miskę o ćwierć i powtórz cztery razy. <span class="przyklad">przykład</span></p>
+      <div class="info t-przyp"><i data-i="info"></i><span>Ekran nie gaśnie w tym kroku.</span></div>
+    </section>
+    <section class="ostrz"><span data-ikona><i data-i="uwaga"></i></span><span><b>Gorący garnek</b>Garnek ma 250 °C. Używaj suchych rękawic. <span class="przyklad">przykład</span></span></section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="waga"></i><h2>Składniki do odważenia</h2></div>
+      <div class="wiersz"><span class="roz">Mąki</span><b class="wart">863 g</b></div>
+      <div class="wiersz"><span class="roz">Woda</span><b class="wart">647 g</b></div>
+    </section>
+  </div>
+  <div class="kciuk" style="border-top:1px solid var(--linia)">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+<main data-ekran="o3b-zwykly-pasek-nawigacji" class="bez-pasa">
+  <header class="pas">
+    <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+    <div class="nav"><a><i data-i="wstecz"></i></a><span><button>Doktor</button><button>Plan wypieku</button></span></div>
+    <p class="pod">Chleb pszenny na zakwasie, krok 4 z 9</p>
+    <h1 class="sredni">Składanie 2 z 4</h1>
+    <p class="t-czas" style="color:var(--naPasie)">18:04</p>
+    <p class="pod">potem: odpoczynek 30 min, gotowe jutro o 9:35</p>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="ksiazka"></i><h2>Co zrobić</h2></div>
+      <p class="t-tresc p2">Mokrą ręką chwyć brzeg ciasta, podciągnij i złóż na środek. Obróć miskę o ćwierć i powtórz cztery razy. <span class="przyklad">przykład</span></p>
+      <div class="info t-przyp"><i data-i="info"></i><span>Ekran nie gaśnie w tym kroku.</span></div>
+    </section>
+    <section class="ostrz"><span data-ikona><i data-i="uwaga"></i></span><span><b>Gorący garnek</b>Garnek ma 250 °C. Używaj suchych rękawic. <span class="przyklad">przykład</span></span></section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="waga"></i><h2>Składniki do odważenia</h2></div>
+      <div class="wiersz"><span class="roz">Mąki</span><b class="wart">863 g</b></div>
+      <div class="wiersz"><span class="roz">Woda</span><b class="wart">647 g</b></div>
+    </section>
+  </div>
+  <div class="kciuk" style="border-top:1px solid var(--linia)">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+<script src="karty.js"></script>
+</body></html>
