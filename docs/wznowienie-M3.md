@@ -1,6 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## Aktualizacja 2026-11-03 ~17:05 UTC (koordynator M3, D-183) — STAN BIEŻĄCY
+- Scalone do `redesign/`: p1+p2 (`e6346ef6`, verify kod 0, 5617 testów; ścieżka zapisu zakwasu bez zmian — te same `saveStarter`/`deleteStarter` z `guardSave` przeniesione do `useAkcjeZakwasu`) i treści roli 06 E1–E3 (`a68ecec9`, verify kod 0; `kontrole-tresci.mjs --przed-przegladem` kod 0). Sesje 08 p1+p2 i 06 zarchiwizowane.
+- Biegną: rola 08 p3 Receptury `session_01T66VBxE9e9DxVUKbHGR6N6` (gałąź `wip/08-p3-2026-11-03`, artefakt https://claude.ai/artifact/KzUFXvDVMZr46Hz5hzZ9uy, sha256 9cacf818…73f6, pula D-184…D-186); rola 01 fix ER-75…ER-78 `session_01T66VBwEeNuwaNrp2TMeojx` (gałąź `brd/1.0-2026-11-03`, artefakt https://claude.ai/artifact/NwVgaHLjYuQ1PKeER82MPR, sha256 996cbf0f…6caa, pula D-187…D-189). Wolne od D-190.
+- Czeka na właściciela: (1) przegląd 38 zdań krytycznych `docs/tresci/przeglad/m3-zdania-2026-11-03.md` (potem pole `przeglad` przy 24 twierdzeniach, kontrola treści bez flagi ma dać kod 0); (2) zrzuty Zakwasów — brak Expo web, rola 08 ich nie zrobiła: opcje (a) build TestFlight z `redesign/` (za zgodą), (b) zrzuty z symulatora w workflow E2E (koszt minut macOS); (3) weto D-172…D-183.
+- Znalezisko (zasada 21): Nightly na `master` od 27.10 „cancelled”, 01.11 błąd — do roli 07/08 po p5.
+
 ## Plan 24 h pod nieobecność właściciela (D-183, od 2026-11-03 ~16:00 UTC)
 1. Rola 08 p1+p2 (`session_01T66VBxiH4mZTtWm7DZ6XUC`) → verify koordynatora kod 0 → scalenie `wip/08-p1p2` do `redesign/`, push, archiwizacja sesji; zrzuty/opis Zakwasów do właściciela (punkt kontrolny odroczony).
 2. Rola 06 (`session_01T66VBvXXc7DXQ68H1ygqLP`) E2 → E3 (weryfikator) → scalenie `tresci/` do `redesign/` po verify.
