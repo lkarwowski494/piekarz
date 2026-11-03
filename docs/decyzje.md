@@ -804,3 +804,24 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (c) profil jednej maszyny (słowa właściciela wyżej).
 - **Otwarte:** C (a) tylko wersje drożdżowe czy (a)+(b) także zakwas w maszynie (warunek: źródło roli 06); pytania A, B, D rundy 2 (`docs/zakres-zm-2026-11-03.md`).
 - **Zależy od:** D-138, D-150, D-151, D-152. **Status:** dzień, do weta.
+
+### [D-154] 2026-11-03 — Wersje drożdżowe receptur na zakwasie jako przełącznik „na zakwasie / na drożdżach” w recepturze, nie osobne pozycje (zmienia D-137)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Przełącznik w recepturze”; wcześniej w czacie roli 03: „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”, „2. 9”.
+- **Decyzja:** każda z 9 receptur bazowych z zakwasem (6 `sourdough`, 2 żytnie, 1 na lievito madre) dostaje w recepturze przełącznik „na zakwasie / na drożdżach”; za przełącznikiem osobne dane dla każdej receptury (ilość drożdży, czasy fermentacji) ze źródła roli 06. Receptura bez źródła dla wersji drożdżowej nie pokazuje przełącznika. Wybór świeże/instant (D-136) działa w wersji drożdżowej jak dziś.
+- **Zmienia D-137:** „osobne receptury-bliźniaki” → wersja drożdżowa w tej samej recepturze; dane dla każdej receptury osobno zostają (powód odrzucenia ogólnej reguły z D-137 dalej obowiązuje).
+- **Odrzucone:** 9 osobnych pozycji na liście (duplikaty, więcej tekstów do przekładu); jedna reguła przeliczenia dla wszystkich (odrzucona w D-137); bez wersji drożdżowych w 1.0.
+- **Zależy od:** D-137, D-150, D-151, D-152 (Basic). ER-76 dla roli 01: BR przełącznika (zamiast powiązania bliźniaków). **Status:** dzień, do weta.
+
+### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Z planem w 1.0”.
+- **Decyzja:** wersja drożdżowa (D-154) i istniejące receptury drożdżowe dostają w 1.0 plan wstecz i prowadzenie krok po kroku; usuwa blokadę „Plan wypieku jest tylko dla chleba na zakwasie” (`src/lib/plan-receptury.ts:55-61`) zgodnie z BR-HARMO-001 i BR-ETAP-001 (przepływ PR-17). Model czasów fermentacji drożdżowej ze źródła roli 06; kod rola 08 (testy przed kodem). Podział bez zmian: plan wstecz w Pro, start i prowadzenie w Basic (D-112, D-116).
+- **Odrzucone:** wersja drożdżowa bez planu, czasy tylko w opisie (rekomendacja roli 03 przy presji czasu).
+- **Koszt [OCENA]:** +4–6 h właściciela; opóźnia 1.0 (rola 06 model czasów, rola 08 kod).
+- **Zależy od:** D-154, BR-HARMO-001, BR-ETAP-001. **Status:** dzień, do weta.
+
+### [D-156] 2026-11-03 — Tryb maszyny (F-72) także dla receptur na zakwasie, tylko przy źródle roli 06
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Też zakwas (a+b)”.
+- **Decyzja:** tryb uniwersalny (D-153) obejmuje receptury w wersji drożdżowej i — jeśli rola 06 znajdzie źródło szczebla 1–3, że i jak zakwas działa w programach maszyny — także wersję na zakwasie. Bez źródła tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej. Tefal PAIN PLAISIR PF220838 = maszyna testowa (D-153).
+- **Odrzucone:** tylko wersje drożdżowe w maszynie (rekomendacja roli 03).
+- **Koszt [OCENA]:** +2–3 h właściciela (drugi wypiek testowy) ponad ok. 6 h F-72.
+- **Zależy od:** D-153, źródło roli 06. **Status:** dzień, do weta.
