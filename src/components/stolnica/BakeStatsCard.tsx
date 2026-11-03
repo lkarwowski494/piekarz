@@ -2,77 +2,67 @@
 // Apps4Craft Studio — BakeStatsCard Component
 // Artisan statistics card for total bakes, crumb, and crust metrics.
 // 100% Offline-First.
+// M3 p5: karta systemu kart z ikoną (karty/README.md §2: wartości 17 pt 600, cyfry tabelaryczne); przy dużym tekście
+// cztery pozycje jedna pod drugą (flexBasis od fontScale, §7a / D-142).
 // ============================================================================
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
+import { odstepy, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { BakeStatisticsResult } from '../../core/bake-statistics';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 export interface BakeStatsCardProps {
   stats: BakeStatisticsResult;
 }
 
 export function BakeStatsCard({ stats }: BakeStatsCardProps) {
+  const duzy = useDuzyTekst();
+  const pozycje: [string, string][] = [
+    [t('Łącznie wypieków'), String(stats.totalBakes)],
+    [t('Średnia ocena'), String(stats.averageRating)],
+    [t('Śr. miękisz'), `${stats.averageCrumbScore}/5`],
+    [t('Śr. skórka'), `${stats.averageCrustScore}/5`],
+  ];
   return (
-    <View style={styles.statsCard} testID="bake-stats-card">
-      <Text style={styles.statsCardTitle}>{t('Statystyki piekarni domowej')}</Text>
+    <Karta testID="bake-stats-card" tytul={t('Statystyki piekarni domowej')} ikona={<IkonaKarty nazwa="proporcje" />}>
       <View style={styles.statsGrid}>
-        <View style={styles.statsItem}>
-          <Text style={styles.statsLabel}>{t('Łącznie wypieków')}</Text>
-          <Text style={styles.statsValue}>{stats.totalBakes}</Text>
-        </View>
-        <View style={styles.statsItem}>
-          <Text style={styles.statsLabel}>{t('Średnia ocena')}</Text>
-          <Text style={styles.statsValue}>{stats.averageRating}</Text>
-        </View>
-        <View style={styles.statsItem}>
-          <Text style={styles.statsLabel}>{t('Śr. miękisz')}</Text>
-          <Text style={styles.statsValue}>{stats.averageCrumbScore}/5</Text>
-        </View>
-        <View style={styles.statsItem}>
-          <Text style={styles.statsLabel}>{t('Śr. skórka')}</Text>
-          <Text style={styles.statsValue}>{stats.averageCrustScore}/5</Text>
-        </View>
+        {pozycje.map(([etykieta, wartosc]) => (
+          <View key={etykieta} style={[styles.statsItem, { flexBasis: duzy ? '100%' : 0 }]}>
+            <Text style={styles.statsLabel}>{etykieta}</Text>
+            <Text style={styles.statsValue}>{wartosc}</Text>
+          </View>
+        ))}
       </View>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  statsCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: 14,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  statsCardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 10,
-  },
   statsGrid: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: odstepy.m,
   },
   statsItem: {
     alignItems: 'center',
-    flex: 1,
+    flexGrow: 1,
+    minWidth: 0,
   },
   statsLabel: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
+    fontSize: typografia.style.podpis.pt,
+    color: theme.colors.tusz2,
     marginBottom: 4,
     textAlign: 'center',
   },
   statsValue: {
-    fontSize: 14,
-    fontWeight: '800',
+    fontSize: typografia.style.naglowek.pt,
+    fontWeight: '600',
+    fontVariant: ['tabular-nums'],
     color: theme.colors.tusz,
   },
 });

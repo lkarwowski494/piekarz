@@ -2062,7 +2062,7 @@
   },
   "Historia wypieków": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeHistorySection.tsx (tytul)"
     ]
   },
   "Hydratacja": {
@@ -6223,7 +6223,7 @@
   },
   "Statystyki piekarni domowej": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStatsCard.tsx (tytul)"
     ]
   },
   "Stały dzień karmienia": {
@@ -6816,7 +6816,7 @@
   },
   "Tu zapiszą się twoje wypieki": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeHistorySection.tsx (tytul)"
     ]
   },
   "Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.": {
@@ -9828,7 +9828,7 @@
   },
   "Łącznie wypieków": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Łączny czas": {
@@ -9859,12 +9859,12 @@
   },
   "Śr. miękisz": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Śr. skórka": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Średni": {
@@ -9872,7 +9872,7 @@
   },
   "Średnia ocena": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Średnia zawartość minerałów, elastyczny gluten. Bardzo dobra do chlebów pszennych i bagietek.": {
