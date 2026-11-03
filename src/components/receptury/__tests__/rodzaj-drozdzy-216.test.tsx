@@ -160,7 +160,7 @@ describe('216: rodzaj drożdży (BR-KALK-009, DEC-26 a)', () => {
     expect(host(tree.root, 'yeast-type-fresh')).toHaveLength(0);
     act(() => tree!.update(<SkladnikiSheet {...bez} yeastPct={0.5} />));
     const caly = tekst(tree.root);
-    for (const k of ['Drożdże do odważenia', 'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.']) {
+    for (const k of ['Drożdże do odważenia', 'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.']) {
       expect(caly).toContain(t(k));
     }
     expect(tekst(host(tree.root, 'yeast-type-fresh')[0])).toBe(t('świeże|drożdże'));

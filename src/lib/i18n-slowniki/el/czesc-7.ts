@@ -100,7 +100,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Προζύμωση (μαγιά προζυμιού)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Διαδικασία Bassinage διάσωσης',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Το ποσοστό μαγιάς στη συνταγή αφορά νωπή μαγιά. Ξηρής μαγιάς (instant ή ενεργού) θα ζυγίσετε 0,4 αυτής της ποσότητας.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Το ποσοστό μαγιάς στη συνταγή αφορά νωπή μαγιά. Ξηρής μαγιάς (instant ή ενεργού) θα ζυγίσετε 0,35 αυτής της ποσότητας. Ο κατασκευαστής μπορεί να αναφέρει στη συσκευασία διαφορετική αναλογία.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Το ποσοστό του αλευριού «{name}» πρέπει να είναι αριθμός στο εύρος 0,1–100%',
   'Profil smakowy': 'Προφίλ γεύσης',
   'Profil zakwasu': 'Προφίλ προζυμιού',

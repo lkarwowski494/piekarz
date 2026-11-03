@@ -127,6 +127,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'гидратации',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'и ещё {n}, подробности в карточке дня',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеальная основа для ведения материнской закваски. Богата дикими дрожжами и молочнокислыми бактериями.',
+  'Ile pieczesz': 'Сколько печёте',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Сколько ржи должно быть в хлебе, чтобы он назывался ржаным или ржано-пшеничным.',
   'Ilości do dokarmienia': 'Количество для подкормки',
   'Ilości i temperatura wody': 'Количества и температура воды',

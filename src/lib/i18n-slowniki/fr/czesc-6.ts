@@ -35,7 +35,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Préferment (levain tout point)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procédure de Bassinage de secours',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Le pourcentage de levure de la recette correspond à la levure fraîche. Pour la levure sèche (instantanée ou active), vous pèserez 0,4 fois cette masse.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Le pourcentage de levure de la recette correspond à la levure fraîche. Pour la levure sèche (instantanée ou active), vous pèserez 0,35 fois cette masse. Le fabricant peut indiquer un autre rapport sur l\'emballage.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Le pourcentage de la farine « {name} » doit être un nombre compris dans la plage 0,1–100 %',
   'Profil smakowy': 'Profil gustatif',
   'Profil zakwasu': 'Profil du levain naturel',

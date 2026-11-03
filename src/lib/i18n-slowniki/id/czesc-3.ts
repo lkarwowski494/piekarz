@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrasi',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'dan {n} lainnya, detail di lembar hari',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Basis ideal untuk merawat starter ragi alami induk. Kaya ragi liar dan bakteri asam laktat.',
+  'Ile pieczesz': 'Jumlah yang dipanggang',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Berapa banyak gandum hitam yang harus ada dalam roti agar bisa disebut roti gandum hitam atau roti gandum hitam-terigu.',
   'Ilości do dokarmienia': 'Takaran pemberian makan',
   'Ilości i temperatura wody': 'Takaran dan suhu air',

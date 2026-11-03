@@ -68,6 +68,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Inserir mistura pronta',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Coloque o cesto num saco hermético no frigorífico (4–6 °C). A fermentação longa dará ao pão um aroma profundo.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Coloque o recipiente com a massa no forno desligado e acenda apenas a luz: o interior aquece gradualmente, mas cada forno e cada cozinha dão um resultado diferente.',
+  'Wstecz': 'Voltar',
   'Wstrzymaj': 'Pausar',
   'Wstrzymano': 'Em pausa',
   'Wsyp do miski na wagę': 'Deite na taça sobre a balança',

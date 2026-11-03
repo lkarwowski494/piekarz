@@ -170,7 +170,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Pré-fermento (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procedimento de Bassinage de emergência',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'A porcentagem de fermento na receita é de fermento biológico fresco. De fermento seco (instantâneo ou ativo), você pesa 0,4 dessa quantidade.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'A porcentagem de fermento na receita é de fermento biológico fresco. De fermento seco (instantâneo ou ativo), você pesa 0,35 dessa quantidade. O fabricante pode indicar outra proporção na embalagem.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'A porcentagem da farinha “{name}” deve ser um número na faixa de 0,1–100%',
   'Profil smakowy': 'Perfil de sabor',
   'Profil zakwasu': 'Perfil do fermento natural',

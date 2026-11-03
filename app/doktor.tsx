@@ -89,7 +89,7 @@ export default function DoctorScreen() {
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
         <NadPasem />
         <View style={styles.pas}>
-          <PasZakladki gora={gora} tytul={t('Doktor Chleba')} wstecz={{ etykieta: t('Zamknij'), onPress: () => router.back() }} />
+          <PasZakladki gora={gora} tytul={t('Doktor Chleba')} wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} />
         </View>
         {/* Akademia bez wejścia w 1.0 (wejścia-później 'akademia', F-44) [M1-audytor-generalny-100]; kod i testy modułu zostają */}
         {wejscieWidoczne('akademia') && (

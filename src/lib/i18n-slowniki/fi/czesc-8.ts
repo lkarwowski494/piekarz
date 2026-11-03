@@ -41,6 +41,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Lisää valmis seos',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Laita kori tiiviissä pussissa jääkaappiin (4–6 °C). Pitkä käyminen antaa leivälle syvän aromin.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Laita taikina-astia sammutettuun uuniin ja sytytä pelkkä uunin valo: sisällä lämpenee vähitellen, mutta jokainen uuni ja jokainen keittiö antaa eri tuloksen.',
+  'Wstecz': 'Takaisin',
   'Wstrzymaj': 'Keskeytä',
   'Wstrzymano': 'Keskeytetty',
   'Wsyp do miski na wagę': 'Kaada kulhoon vaa\'alla',

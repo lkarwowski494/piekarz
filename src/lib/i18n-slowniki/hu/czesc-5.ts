@@ -172,5 +172,4 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Előtészta (Preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage (pótvíz) mentőeljárás',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'A receptben szereplő élesztőszázalék friss élesztőre vonatkozik. Szárított élesztőből (instant vagy aktív) ennek a mennyiségnek a 0,4-szeresét mérd ki.',
 };

@@ -195,6 +195,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Sett inn ferdig blanding',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Sett kurven i en tett pose i kjøleskapet (4–6 °C). Lang heving gir brødet en dyp aroma.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Sett bollen med deigen i den avslåtte ovnen og slå på bare lyset: det blir gradvis varmere inni, men hver ovn og hvert kjøkken gir forskjellig resultat.',
+  'Wstecz': 'Tilbake',
   'Wstrzymaj': 'Sett på pause',
   'Wstrzymano': 'Satt på pause',
 };

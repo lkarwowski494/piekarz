@@ -152,7 +152,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Voordeeg (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Noodprocedure: Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Het gistpercentage in het recept geldt voor verse gist. Van droge gist (instant of actief) weeg je 0,4 van die hoeveelheid af.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Het gistpercentage in het recept geldt voor verse gist. Van droge gist (instant of actief) weeg je 0,35 van die hoeveelheid af. De fabrikant kan op de verpakking een andere verhouding vermelden.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Percentage van meel “{name}” moet een getal tussen 0,1–100% zijn',
   'Profil smakowy': 'Smaakprofiel',
   'Profil zakwasu': 'Profiel zuurdesemstarter',

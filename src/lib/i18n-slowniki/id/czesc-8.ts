@@ -62,6 +62,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Pakai campuran siap',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Masukkan keranjang dalam kantong rapat ke kulkas (4–6°C). Fermentasi panjang akan memberi roti aroma yang dalam.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Masukkan wadah berisi adonan ke dalam oven yang mati dan nyalakan lampunya saja: bagian dalam perlahan menghangat, tetapi hasilnya berbeda di setiap oven dan setiap dapur.',
+  'Wstecz': 'Kembali',
   'Wstrzymaj': 'Jeda',
   'Wstrzymano': 'Dijeda',
   'Wsyp do miski na wagę': 'Masukkan ke mangkuk di timbangan',

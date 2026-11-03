@@ -170,7 +170,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermen (Biang)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Prosedur darurat penambahan air bertahap',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Persentase ragi dalam resep adalah ragi segar. Untuk ragi kering (instan atau aktif), timbang 0,4 dari massa tersebut.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Persentase ragi dalam resep adalah ragi segar. Untuk ragi kering (instan atau aktif), timbang 0,35 dari massa tersebut. Produsen dapat mencantumkan rasio yang berbeda pada kemasan.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Persentase tepung “{name}” harus berupa angka dalam rentang 0,1–100%',
   'Profil smakowy': 'Profil rasa',
   'Profil zakwasu': 'Profil starter ragi alami',

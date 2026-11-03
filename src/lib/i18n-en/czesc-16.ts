@@ -89,6 +89,8 @@ export const EN_16: Record<string, string> = {
   'Drożdże do odważenia': 'Yeast to weigh',
   'świeże|drożdże': 'fresh',
   'suche|drożdże': 'dry',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.':
-    'The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active) you weigh 0.4 of that amount.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.':
+    'The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package.',
+  'Wstecz': 'Back',
+  'Ile pieczesz': 'How much are you baking',
 };

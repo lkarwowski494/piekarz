@@ -70,6 +70,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Folosește un amestec gata făcut',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Pune coșul într-o pungă etanșă în frigider (4–6 °C). Fermentarea lungă îi va da pâinii o aromă profundă.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Pune vasul cu aluat în cuptorul oprit și aprinde doar becul: înăuntru se încălzește treptat, dar fiecare cuptor și fiecare bucătărie dau alt rezultat.',
+  'Wstecz': 'Înapoi',
   'Wstrzymaj': 'Pauză',
   'Wstrzymano': 'În pauză',
   'Wsyp do miski na wagę': 'Adaugă în bol pe cântar',

@@ -4,7 +4,7 @@
 // (z zaczynem: „Zaczyn: {rodzaj}” + „Do miski”), zdanie o hydratacji i „Razem {masa}”. Liczby z rachunku
 // receptury (useRecipeCalculations) bez zmian; tryb liczenia wybiera się w arkuszu „Składniki”.
 // Zastępuje kartę DoMiskiScaleCard i karty liczb CalculatorSacredCard (§12a). [M1-audytor-generalny-106]
-// M3 p3 (karty/README.md §4, makieta karty/receptury.html #receptura): tryb w karcie „Masa ciasta” (README §6 „Ile pieczesz” do roli 09, D-185), „Do miski”
+// M3 p3 (karty/README.md §4, makieta karty/receptury.html #receptura): tryb w karcie „Ile pieczesz” (README §6, D-185, rola 09 D-206), „Do miski”
 // z nagłówkiem w karcie, hydratacja, udział żyta i „Razem” w tej samej karcie; przy dużym tekście pole nad nazwą,
 // masa pod nią (flexBasis od fontScale, §7a, D-142). [M3 p3, D-184]
 // ============================================================================
@@ -163,7 +163,7 @@ export function DoMiski(p: DoMiskiProps) {
 
   return (
     <>
-      <Karta testID="karta-ile-pieczesz" tytul={t('Masa ciasta')} ikona={<IkonaKarty nazwa="bochenek" />} bezWypelnienia>
+      <Karta testID="karta-ile-pieczesz" tytul={t('Ile pieczesz')} ikona={<IkonaKarty nazwa="bochenek" />} bezWypelnienia>
       <View testID="recipe-mode">
         {p.calcMode === 'loaves' ? (
           <>

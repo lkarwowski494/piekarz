@@ -167,7 +167,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Iejava (Preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Glābšanas procedūra: novēlotā ūdens pievienošana',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Rauga procents receptūrā attiecas uz svaigo raugu. Sausā rauga (ātrā vai aktīvā) nosveriet 0,4 no šīs masas.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Rauga procents receptūrā attiecas uz svaigo raugu. Sausā rauga (ātrā vai aktīvā) nosveriet 0,35 no šīs masas. Ražotājs uz iepakojuma var norādīt citu attiecību.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Miltu „{name}” procentiem jābūt skaitlim robežās 0,1–100 %',
   'Profil smakowy': 'Garšas profils',
   'Profil zakwasu': 'Ierauga profils',

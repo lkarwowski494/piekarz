@@ -134,7 +134,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': '預發酵麵種（酵頭）',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': '延後加水法急救程序',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': '配方中的酵母百分比以新鮮酵母計算。若使用乾酵母（即溶或活性），請秤取該重量的 0.4 倍。',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': '配方中的酵母百分比以新鮮酵母計算。若使用乾酵母（即溶或活性），請秤取該重量的 0.35 倍。製造商可能在包裝上標示不同的換算比例。',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '麵粉「{name}」的比例必須是 0.1–100% 之間的數字',
   'Profil smakowy': '風味特徵',
   'Profil zakwasu': '天然酵母起種檔案',

@@ -23,6 +23,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidracije',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'in še {n}, podrobnosti v pregledu dneva',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealna osnova za vzdrževanje matičnega kvasa. Bogata z divjimi kvasovkami in mlečnokislinskimi bakterijami.',
+  'Ile pieczesz': 'Koliko pečete',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Koliko rži mora imeti kruh, da se lahko imenuje rženi ali rženo-pšenični.',
   'Ilości do dokarmienia': 'Količine za hranjenje',
   'Ilości i temperatura wody': 'Količine in temperatura vode',

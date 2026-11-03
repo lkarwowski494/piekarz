@@ -68,6 +68,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Usar mezcla de harinas',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Mete la canasta en una bolsa hermética al refrigerador (4–6 °C). La fermentación larga le dará al pan un aroma profundo.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Coloca el recipiente con la masa en el horno apagado y enciende solo la luz: adentro se calienta poco a poco, pero cada horno y cada cocina dan un resultado distinto.',
+  'Wstecz': 'Atrás',
   'Wstrzymaj': 'Pausar',
   'Wstrzymano': 'En pausa',
   'Wsyp do miski na wagę': 'Agrega al bol sobre la báscula',

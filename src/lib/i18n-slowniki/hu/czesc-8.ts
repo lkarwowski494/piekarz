@@ -67,6 +67,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Kész lisztkeverék',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Tedd a kosarat jól záródó zacskóban a hűtőbe (4–6 °C). A hosszú erjesztés mély aromát ad a kenyérnek.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Tedd a tésztás edényt a kikapcsolt sütőbe, és csak a lámpát kapcsold fel: bent fokozatosan melegebb lesz, de minden sütő és minden konyha más eredményt ad.',
+  'Wstecz': 'Vissza',
   'Wstrzymaj': 'Szünet',
   'Wstrzymano': 'Szüneteltetve',
   'Wsyp do miski na wagę': 'Szórd a mérlegen álló tálba',

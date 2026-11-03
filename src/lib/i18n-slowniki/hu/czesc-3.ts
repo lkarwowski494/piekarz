@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratáció',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'és még {n}, részletek a napi lapon',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideális alap az anyakovász fenntartásához. Gazdag vadélesztőkben és tejsavbaktériumokban.',
+  'Ile pieczesz': 'Mennyit sütsz',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Mennyi rozs kell a kenyérbe, hogy rozskenyérnek vagy rozs-búza kenyérnek nevezhessék.',
   'Ilości do dokarmienia': 'Etetési mennyiségek',
   'Ilości i temperatura wody': 'Mennyiségek és vízhőmérséklet',

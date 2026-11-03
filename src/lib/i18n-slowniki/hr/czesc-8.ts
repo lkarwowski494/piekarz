@@ -14,6 +14,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Umetni gotovu mješavinu',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Stavi košaricu u nepropusnoj vrećici u hladnjak (4–6 °C). Duga fermentacija dat će kruhu duboku aromu.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Stavi posudu s tijestom u isključenu pećnicu i uključi samo žarulju: unutra postupno postaje toplije, ali svaka pećnica i svaka kuhinja daju drukčiji rezultat.',
+  'Wstecz': 'Natrag',
   'Wstrzymaj': 'Pauziraj',
   'Wstrzymano': 'Pauzirano',
   'Wsyp do miski na wagę': 'Dodaj u zdjelu na vagi',

@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratação',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'e mais {n}, detalhes no painel do dia',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideal para manter o fermento natural mãe. Rica em leveduras selvagens e bactérias lácticas.',
+  'Ile pieczesz': 'Quanto você vai assar',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Quanto centeio um pão precisa ter para ser chamado de pão de centeio ou de centeio e trigo.',
   'Ilości do dokarmienia': 'Quantidades para alimentação',
   'Ilości i temperatura wody': 'Quantidades e temperatura da água',

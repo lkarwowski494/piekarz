@@ -105,6 +105,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': '혼합 가루 넣기',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': '바네통 발효 바구니를 밀폐 봉투에 넣어 냉장고(4–6°C)에 넣으세요. 긴 발효가 빵에 깊은 풍미를 더해요.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': '반죽이 든 용기를 꺼진 오븐에 넣고 오븐 전구만 켜세요. 안이 서서히 따뜻해지지만, 오븐과 주방마다 결과가 달라요.',
+  'Wstecz': '뒤로',
   'Wstrzymaj': '일시정지',
   'Wstrzymano': '일시정지됨',
   'Wsyp do miski na wagę': '저울 위 볼에 넣기',

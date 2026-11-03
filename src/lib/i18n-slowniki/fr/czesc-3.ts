@@ -49,6 +49,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'd\'hydratation totale',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'et encore {n}, détails dans la fiche du jour',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base idéale pour entretenir votre levain naturel chef. Riche en levures sauvages et en bactéries lactiques.',
+  'Ile pieczesz': 'Quantité à cuire',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Quelle proportion de seigle un pain doit contenir pour s\'appeler pain de seigle ou pain de seigle-froment.',
   'Ilości do dokarmienia': 'Quantités pour le rafraîchi',
   'Ilości i temperatura wody': 'Quantités et température de l\'eau',

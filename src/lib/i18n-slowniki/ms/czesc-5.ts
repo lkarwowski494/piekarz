@@ -167,7 +167,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prapenapai (Biang)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Prosedur Bassinage kecemasan',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Peratusan yis dalam resipi ialah yis segar. Untuk yis kering (segera atau aktif), anda menimbang 0.4 daripada jisim tersebut.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Peratusan yis dalam resipi ialah yis segar. Untuk yis kering (segera atau aktif), anda menimbang 0.35 daripada jisim tersebut. Pengilang mungkin menyatakan nisbah yang berbeza pada bungkusan.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Peratusan tepung “{name}” mesti nombor dalam julat 0.1–100%',
   'Profil smakowy': 'Profil rasa',
   'Profil zakwasu': 'Profil pemula sourdough',

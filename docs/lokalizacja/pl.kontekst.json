@@ -2154,6 +2154,12 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
+  "Ile pieczesz": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tytul)"
+    ],
+    "opis": "Nagłówek karty trybu na ekranie receptury (bochenki i masa bochenka albo masa mąki); pytanie do użytkownika, bez znaku zapytania; ok. 12 znaków; w nagłówku karty 20 pt, zawija się (README karty §6, D-185, D-206)."
+  },
   "Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
@@ -2895,7 +2901,6 @@
   },
   "Masa ciasta": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tytul)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -5149,10 +5154,11 @@
   "Procedura Bassinage ratunkowego": {
     "gdzie": []
   },
-  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.": {
+  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.": {
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
-    ]
+    ],
+    "opis": "Objaśnienie pod przełącznikiem „świeże / suche” w arkuszu Składniki. Liczba 0,35 to mnożnik masy drożdży świeżych (jedna liczba dla suchych instant i aktywnych, D-172); zapisz ją według konwencji liczb języka. Tekst krytyczny dla ważenia: nie zmieniaj liczby ani znaczenia (D-202, D-205, D-206)."
   },
   "Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%": {
     "gdzie": [
@@ -7617,6 +7623,13 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Wstecz": {
+    "gdzie": [
+      "app/doktor.tsx (etykieta)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)"
+    ],
+    "opis": "Etykieta dostępności (VoiceOver) przycisku powrotu na pasie ekranów Prowadzenie wypieku i Doktor Chleba; przycisk ma tylko ikonę strzałki. Powrót do poprzedniego ekranu, nie zamknięcie okna; jedno słowo (D-195, D-198, D-206)."
+  },
   "Wstrzymaj": {
     "gdzie": []
   },
@@ -8417,7 +8430,6 @@
   },
   "Zamknij": {
     "gdzie": [
-      "app/doktor.tsx (etykieta)",
       "src/components/CloseButton.tsx (title)",
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
@@ -8428,7 +8440,6 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
-      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },

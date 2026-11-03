@@ -144,7 +144,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Predtijesto (nastavak)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Hitni postupak Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Postotak kvasca u recepturi odnosi se na svježi kvasac. Suhog kvasca (instant ili aktivnog) izvagat ćeš 0,4 te mase.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Postotak kvasca u recepturi odnosi se na svježi kvasac. Suhog kvasca (instant ili aktivnog) izvagat ćeš 0,35 te mase. Proizvođač na pakiranju može navesti drugačiji omjer.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Udio brašna „{name}“ mora biti broj u rasponu 0,1–100 %',
   'Profil smakowy': 'Profil okusa',
   'Profil zakwasu': 'Profil kvasa',

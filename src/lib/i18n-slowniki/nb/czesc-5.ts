@@ -138,7 +138,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Preferment (fordeig)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage (ettervanning) som redning',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Gjærprosenten i oppskriften gjelder fersk gjær. Av tørrgjær (instant eller aktiv) veier du 0,4 av denne mengden.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Gjærprosenten i oppskriften gjelder fersk gjær. Av tørrgjær (instant eller aktiv) veier du 0,35 av denne mengden. Produsenten kan oppgi et annet omregningsforhold på pakken.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Prosentandelen for melet «{name}» må være et tall i området 0,1–100 %',
   'Profil smakowy': 'Smaksprofil',
   'Profil zakwasu': 'Profil for surdeigsstarter',

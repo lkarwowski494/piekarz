@@ -14,7 +14,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermento (Lievitino)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procedura di Bassinage di emergenza',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'La percentuale di lievito nella ricetta si riferisce al lievito di birra fresco. Di lievito secco (istantaneo o attivo) pesa 0,4 volte quella quantità.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'La percentuale di lievito nella ricetta si riferisce al lievito di birra fresco. Di lievito secco (istantaneo o attivo) pesa 0,35 volte quella quantità. Il produttore può indicare sulla confezione un rapporto diverso.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'La percentuale della farina «{name}» deve essere un numero nell\'intervallo 0,1–100%',
   'Profil smakowy': 'Profilo aromatico',
   'Profil zakwasu': 'Profilo del lievito madre',

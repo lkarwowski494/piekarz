@@ -22,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'deighydrering',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'og {n} til, detaljer i dagsoversikten',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideell base for å holde en morstarter. Rik på villgjær og melkesyrebakterier.',
+  'Ile pieczesz': 'Hvor mye baker du',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Hvor mye rug et brød må inneholde for å kalles rugbrød eller rug-hvetebrød.',
   'Ilości do dokarmienia': 'Matemengder',
   'Ilości i temperatura wody': 'Mengder og vanntemperatur',

@@ -170,7 +170,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermentas (įmaišas)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Gelbėjimo Bassinage (vandens papildymas) procedūra',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Mielių procentas receptūroje – tai šviežios mielės. Sausų mielių (greitai veikiančių arba aktyvių) pasversite 0,4 šio kiekio.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Mielių procentas receptūroje – tai šviežios mielės. Sausų mielių (greitai veikiančių arba aktyvių) pasversite 0,35 šio kiekio. Gamintojas ant pakuotės gali nurodyti kitokį santykį.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Miltų „{name}“ procentas turi būti skaičius nuo 0,1 iki 100 %',
   'Profil smakowy': 'Skonio profilis',
   'Profil zakwasu': 'Raugo profilis',

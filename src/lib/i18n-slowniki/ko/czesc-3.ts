@@ -47,6 +47,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '가수율',
   'i jeszcze {n}, szczegóły w arkuszu dnia': '그 외 {n}개, 자세한 내용은 일별 시트에서 확인',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '마더 사워도우 스타터를 키우기에 이상적인 베이스예요. 야생 효모와 젖산균이 풍부해요.',
+  'Ile pieczesz': '굽는 양',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': '호밀빵이나 호밀 밀빵이라고 부르려면 호밀이 얼마나 들어가야 하는지.',
   'Ilości do dokarmienia': '먹이 주기 분량',
   'Ilości i temperatura wody': '분량 및 물 온도',
