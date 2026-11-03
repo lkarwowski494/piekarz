@@ -35,6 +35,8 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - D-150 (2026-11-03): D-136…D-138 przeniesione do 1.0 razem z redesignem; role 03 → 06 → 04 → 08 → 09. Krok właściciela: model maszyny do chleba.
 - (Przed D-150) Wersja 1.1 (właściciel 2026-11-03): D-136 przełącznik świeże / instant przy wierszu drożdży na „Do miski” (04 → 08 → 09); D-137 receptury-bliźniaki drożdżowe dla receptur na zakwasie (03 `zmiany-zakresu` → 06 → 04 → 08 → 09). D-138 tryb „maszyna do chleba” (01/03 → 06 → 04 → 08 → 09; 1.1 albo 1.2 według kosztu roli 03). Start po zgłoszeniu 1.0.
 
+- Kolejka zgłoszeń właściciela (2026-11-03): w review `trening`, potem Oczko, potem Piekarz; jedna aplikacja naraz w review (obawa właściciela przed odrzuceniem „za spam” — wytyczna 4.3 dotyczy duplikatów jednej aplikacji i wariantów, nie równoległych zgłoszeń różnych aplikacji; odczyt developer.apple.com/app-store/review/guidelines/ 2026-11-03). Właściciel ma własny potok wysyłki do ASC. Presja terminu na Piekarza 1.0: mała.
+
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
 
