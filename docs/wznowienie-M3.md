@@ -1,6 +1,11 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## Aktualizacja 2026-11-03 ~15:50 UTC (koordynator M3) — STAN BIEŻĄCY
+- Rola 06 (`session_01T66VBvXXc7DXQ68H1ygqLP`): STOP E1 odebrany; odpowiedzi właściciela wysłane (P1 „Wez srodkowa wartosc” → ok. 0,35 jako uproszczenie; P2 +tartine; P3 czasy z receptury; P4 blokada; P5 „Sugestia jako reguła aplikacji”; P6 11+3 nazwy opisowe; przegląd 27 krytycznych: „Akceptuję wszystkie 27”). Rola 06 zapisuje je w D-172…D-179 i robi E2.
+- Rola 08 p1+p2: `session_01T66VBxiH4mZTtWm7DZ6XUC`, gałąź `wip/08-p1p2-2026-11-03`, polecenie: artefakt https://claude.ai/artifact/SAE8NFW3yPoW4ewz6TPEJ2 (`polecenie.md`, sha256 bc92e1e8…266b); pula D-165, D-180…D-182; wolne od D-183.
+- Dyżur: send_later 16:16 UTC.
+
 ## Punkt czyszczenia 2026-11-03 ~15:20 UTC (koordynator M3) — STAN BIEŻĄCY, czytaj najpierw
 - Gałęzie: `redesign/piekarz-2026-10-22` @ `6bf4e7b7` (verify kod 0, zielona); `master` @ `39f3890` (build 1021); `wip/08-p1p2-2026-11-03` @ `7eb0c296` (4 commity p1 roli 08 + stan; verify CZERWONY tylko przez `tests/osiagalnosc-149.test.ts` — wyjątek nazwany D-166, nie scalać przed zielonym); `tresci/1.0-2026-11-03` @ `54b46e96` (rola 06 E1: rejestr +174 wpisy, pytania P1–P6, przegląd krytycznych, D-170, D-171).
 - Decyzje dnia: D-136…D-138 (prośby właściciela), D-139 (wygląd blokuje 1.0, język „Dziś”), D-140…D-142 (rola 04: system kart, wybór O1a O2b O3a O4a, AX5), D-150 (zakres 1.0 = redesign + D-136…D-138), D-151…D-157 (rola 03: Basic/Pro, maszyna uniwersalna z Tefal PF220838 jako testową, przełącznik zakwas/drożdże w 9 recepturach, plan dla drożdży w 1.0, zakwas w maszynie tylko ze źródłem, ok. 30 przepisów w 1.0), D-160 (partie), D-166 (p1+p2 razem). Wszystkie „dzień, do weta”.
