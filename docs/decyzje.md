@@ -825,3 +825,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** tylko wersje drożdżowe w maszynie (rekomendacja roli 03).
 - **Koszt [OCENA]:** +2–3 h właściciela (drugi wypiek testowy) ponad ok. 6 h F-72.
 - **Zależy od:** D-153, źródło roli 06. **Status:** dzień, do weta.
+
+### [D-157] 2026-11-03 — Katalog receptur: ok. 30 w 1.0 (ok. +15), reszta do 50–80 w 1.0.1 i aktualizacjach (ZM-27)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (przycisk, 2026-11-03). **Słowa właściciela:** „(b) ok. 30 w 1.0”; wcześniej: „Dodajmy od razu więcej. Żeby aplikacja miała z 50-80 przepisów”; kontekst terminu: „Ja i tak mam pipeline na wrzucanie w asc. Teraz na review czeka trening, później idzie tam Oczko które będzie skończone. Nie chce mieć dwóch na raz w review (…). A review ostatnio trwa długo.”
+- **Decyzja:** 1.0 ma ok. 30 receptur bazowych (dziś 15, ok. +15). Kandydatów proponuje rola 06 ze źródłem formuły szczebla 1–3, listę zatwierdza właściciel; każda nowa receptura przechodzi przegląd PL/EN i przekład 33 języków przed wejściem. Dalsze do 50–80 w 1.0.1 i aktualizacjach kwartalnych (D-043). Podział `src/recipes/presets.ts` (16 244 B przy limicie 20 480 B) — zadanie roli 08.
+- **Odrzucone:** 1.0 z obecnymi 15; okno kolejki z celem 50 (rekomendacja roli 03 po kontekście terminu); całość 50–80 w 1.0.
+- **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
+- **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
