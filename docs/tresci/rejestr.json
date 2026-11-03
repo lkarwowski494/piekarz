@@ -4374,14 +4374,15 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Rodzaj drożdży nie podany w artykule; 3% przyjęto jako drożdże świeże (niemiecka praktyka „Hefe”) — [DO USTALENIA]. Formuła: 100% orkisz pełnoziarnisty, preset ma 70% jasnego + 30% razowego i 68% wody; brak podziału 3 h na miskę i garowanie.",
+    "uproszczenie": "Rodzaj drożdży nie podany w artykule; 3% przyjęto jako drożdże świeże (niemiecka praktyka „Hefe”) — rozstrzygnięte decyzją merytoryczną D-178 (do weta). Formuła: 100% orkisz pełnoziarnisty, preset ma 70% jasnego + 30% razowego i 68% wody; brak podziału 3 h na miskę i garowanie.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "drozdze_orkisz_bezposredni_swieze",
     "wartosc": 3,
     "jednostka": "% świeżych",
     "wazne_do": "2027-11-03",
-    "uwagi": "Dotyczy preset spelt_ancient_seeded. Te same przepisy użyto też dla pełnoziarnistej pszenicy zwyczajnej (seria 2)."
+    "uwagi": "Dotyczy preset spelt_ancient_seeded. Te same przepisy użyto też dla pełnoziarnistej pszenicy zwyczajnej (seria 2).",
+    "decyzja": "D-178"
   },
   {
     "id": "DRO-WER-SP-002",
@@ -4396,14 +4397,15 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Rodzaj drożdży nie podany — przyjęto świeże [DO USTALENIA]. Brak temperatury ciasta i podziału czasu na etapy.",
+    "uproszczenie": "Rodzaj drożdży nie podany — przyjęto świeże rozstrzygnięte decyzją merytoryczną D-178 (do weta). Brak temperatury ciasta i podziału czasu na etapy.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "drozdze_orkisz_dlugi_lodowka_swieze",
     "wartosc": 1,
     "jednostka": "% świeżych",
     "wazne_do": "2027-11-03",
-    "uwagi": "Retard: 18 h w 4 °C. Preset spelt_ancient_seeded."
+    "uwagi": "Retard: 18 h w 4 °C. Preset spelt_ancient_seeded.",
+    "decyzja": "D-178"
   },
   {
     "id": "DRO-WER-GR-001",
@@ -4502,7 +4504,7 @@
   },
   {
     "id": "DRO-WER-TA-001",
-    "twierdzenie": "Według King Arthur Baking chleb bez wyrabiania z ziarnami ma 1 łyżeczkę drożdży instant na 390 g mąki high-gluten i 113 g pszennej pełnoziarnistej (plus 149 g mieszanki ziaren) i 397 g wody; ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 h, a bochenek rośnie ok. 90 min (rachunek: łyżeczka instant ≈ 3 g, ok. 0,6% suchych, czyli ok. 1,5% świeżych; woda ok. 79% mąki bez ziaren).",
+    "twierdzenie": "Według King Arthur Baking chleb bez wyrabiania z ziarnami ma 1 łyżeczkę drożdży instant na 390 g mąki high-gluten i 113 g pszennej pełnoziarnistej (plus 149 g mieszanki ziaren) i 397 g wody; ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 h, a bochenek rośnie ok. 90 min (rachunek: łyżeczka instant ≈ 3 g, ok. 0,6% suchych, czyli ok. 1,7% świeżych według D-172; woda ok. 79% mąki bez ziaren).",
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/recipes/no-knead-harvest-grains-bread-recipe",
@@ -4520,14 +4522,15 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Szczebel 4 (KA poza Pro Reference) — luka względem wymogu 1–3. Łyżeczka instant ≈ 3 g wg konwencji rejestru (DRO-PIZ-002); 3/503 = 0,6%; ÷0,4 = 1,5%. Formuła tylko podobna (22% pełnoziarnistej zamiast 10%, ziarna).",
+    "uproszczenie": "Szczebel 4 (KA poza Pro Reference) — luka względem wymogu 1–3. Łyżeczka instant ≈ 3 g wg konwencji rejestru (DRO-PIZ-002); 3/503 = 0,6%; ÷0,35 = 1,7% (D-172; wcześniej ÷0,4 = 1,5%). Formuła tylko podobna (22% pełnoziarnistej zamiast 10%, ziarna).",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "drozdze_wysoka_hydratacja_swieze",
-    "wartosc": 1.5,
+    "wartosc": 1.7,
     "jednostka": "% świeżych",
     "wazne_do": "2027-11-03",
-    "uwagi": "Preset tartine_high_hydration_80. Dodatkowo w rejestrze jest DRO-NOK-001 (KA, szczebel 4)."
+    "uwagi": "Preset tartine_high_hydration_80. Dodatkowo w rejestrze jest DRO-NOK-001 (KA, szczebel 4).",
+    "decyzja": "D-172"
   },
   {
     "id": "DRO-WER-TA-002",
@@ -4590,14 +4593,15 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Rodzaj drożdży nie podany [DO USTALENIA]; przyjęto świeże. Kolumna WRB (Wholegrain rye, straight dough).",
+    "uproszczenie": "Rodzaj drożdży nie podany rozstrzygnięte decyzją merytoryczną D-178 (do weta); przyjęto świeże. Kolumna WRB (Wholegrain rye, straight dough).",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "drozdze_zyto_100_bez_zakwasu_swieze",
     "wartosc": 3,
     "jednostka": "% świeżych",
     "wazne_do": "2027-11-03",
-    "uwagi": "Preset rye_100_pan (zakwas 30%, woda 78%). Ten sam artykuł: chleby żytnie były zbyt lepkie do analizy w dniu wypieku."
+    "uwagi": "Preset rye_100_pan (zakwas 30%, woda 78%). Ten sam artykuł: chleby żytnie były zbyt lepkie do analizy w dniu wypieku.",
+    "decyzja": "D-178"
   },
   {
     "id": "ZYT-DRO-002",
@@ -4619,7 +4623,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Tabela scalona: odczyt przypisania 60 min/500 g/ręczne formowanie/240+220 °C do chlebów żytnich na podstawie formowania ręcznego żyta w tekście — [DO USTALENIA] wobec oryginału PDF. Warunki laboratoryjne (komora 37 °C).",
+    "uproszczenie": "Warunki laboratoryjne (komora 37 °C). Przypisanie czasów do chlebów żytnich sprawdzone w XML tabeli (colspan: kolumny RB i WRB mają wspólne komórki 60 min 28 °C, 500 g, by hand, 60 min 37 °C, 240 °C 10 min + 220 °C 35 min), rola 06, 2026-11-03.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-11-03",
@@ -6071,7 +6075,7 @@
   },
   {
     "id": "MAS-072",
-    "twierdzenie": "Wszystkie pięć przeczytanych instrukcji maszyn zabrania opóźnionego startu z łatwo psującymi się składnikami (część wspólna: jajka i mleko; Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; Zojirushi: mleko, sok, warzywa, jajka; Cuisinart i Kenwood: mleko, jajka, ser, jogurt; Panasonic: jajka i mleko zamiast wody). Reguła dla aplikacji: tryb maszyny blokuje sugestię opóźnionego startu, gdy receptura zawiera nabiał (poza mlekiem w proszku), jajka, ser, jogurt, mięso albo świeże owoce/warzywa.",
+    "twierdzenie": "Wszystkie pięć przeczytanych instrukcji maszyn zabrania opóźnionego startu z łatwo psującymi się składnikami (część wspólna: jajka i mleko; Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; Zojirushi: mleko, sok, warzywa, jajka; Cuisinart i Kenwood: mleko, jajka, ser, jogurt; Panasonic: jajka i mleko zamiast wody). Reguła aplikacji (D-175): tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza mlekiem w proszku, MAS-084), ser, jogurt albo świeże owoce.",
     "zrodla": [
       {
         "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
@@ -6114,7 +6118,8 @@
     "krytyczne": true,
     "przeglad": null,
     "wazne_do": "2027-11-03",
-    "uwagi": "Do przeglądu człowieka: czy lista blokująca ma być szersza (zasada ostrożności) niż część wspólna źródeł."
+    "uwagi": "Do przeglądu człowieka: czy lista blokująca ma być szersza (zasada ostrożności) niż część wspólna źródeł.",
+    "decyzja": "D-175"
   },
   {
     "id": "MAS-073",
@@ -7197,5 +7202,201 @@
     "przeglad": null,
     "wazne_do": "2027-11-03",
     "uwagi": "Tekst pierwotny; wersji skonsolidowanej (po 2024/1143) nie sprawdzono."
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "DRO-INS-030",
+    "twierdzenie": "Piekarz przelicza drożdże świeże na suche (aktywne i instant) jako 0,35 masy świeżych: to środek przedziału wartości producentów, od 0,28 (Dr. Oetker, instant) do 0,417 (Red Star i Fleischmann’s), więc producent na opakowaniu może podawać inaczej (rachunek: (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35).",
+    "zrodla": [
+      {
+        "adres": "https://www.oetker.pl/produkty/p/drozdze-suszone-instant-7g",
+        "miejsce": "Dr. Oetker Polska, „Drożdże suszone instant 7 g”, „Wskazówka dotycząca przygotowania”, punkt 3; kopia zrodla/oetker-pl-instant-7g.htm, sha256 43bb7b31839d (cytat sprawdzony grep -F na tekście kopii po usunięciu znaczników HTML/pdftotext i scaleniu białych znaków)",
+        "cytat": "1 torebka Drożdży instant 7 g = 25 g drożdży świeżych;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://redstaryeast.com/yeast-conversion-chart/",
+        "miejsce": "Red Star, „Yeast Conversion Chart”, przypis ** pod tabelą; kopia zrodla/redstar-conversion.htm, sha256 dc9be091bfe3 (cytat sprawdzony grep -F na tekście kopii po usunięciu znaczników HTML/pdftotext i scaleniu białych znaków)",
+        "cytat": "is equivalent to 0.6 oz cake yeast, or one (1/4oz) package dry yeast, or 2 1/4 teaspoons dry yeast.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.fleischmannsyeast.com/frequently-asked-questions/",
+        "miejsce": "Fleischmann's Yeast (ACH Food / AB Mauri), FAQ, „How do I substitute dry yeast for Fresh Active Yeast?”; kopia zrodla/fleischmanns-faq.htm, sha256 bc3146d50afb (cytat sprawdzony grep -F na tekście kopii po usunięciu znaczników HTML/pdftotext i scaleniu białych znaków)",
+        "cytat": "One 0.6-ounce cake is equivalent to 1 packet of dry yeast. One 2-ounce cake is equivalent to three packets of dry yeast.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "uproszczenie": "Jeden współczynnik dla wszystkich producentów i obu rodzajów suchych (decyzja właściciela D-172); źródła szczebla 1 podają 0,25–0,417 zależnie od produktu (DRO-INS-014, -015, -007, -008).",
+    "decyzja": "D-172",
+    "wielkosc": "wsp_swieze_na_suche_piekarz",
+    "wartosc": 0.35,
+    "jednostka": "g suchych / g świeżych"
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "DRO-PIZ-003",
+    "twierdzenie": "Przeliczenie DRO-PIZ-002 według D-172: ok. 0,16% drożdży suchych (1/8 łyżeczki, ok. 0,375 g, na 232 g mąki) to ok. 0,5% świeżych (rachunek: 0,1616 / 0,35 = 0,46).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "King Arthur Baking, „Neapolitan-Style Pizza Crust”; kopia audit/06-tresci-2026-10-22/zrodla/ka-pizza-napoletana.htm",
+        "cytat": "allow the dough to rise at room temperature overnight, for at least 12 hours and up to 24 hours.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "uproszczenie": "Zaokrąglenie do 0,1 punktu procentowego; łyżeczka instant ≈ 3 g jak w DRO-PIZ-002.",
+    "decyzja": "D-172",
+    "wielkosc": "drozdze_pizza_neapolitanska_swieze_d172",
+    "wartosc": 0.5,
+    "jednostka": "% świeżych"
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "DRO-CHA-002",
+    "twierdzenie": "Przeliczenie DRO-CHA-001 według D-172: 12 g drożdży instant na 480 g mąki (2,5% suchych) to ok. 7,1% świeżych (rachunek: 2,5 / 0,35 = 7,14).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/classic-challah-recipe",
+        "miejsce": "King Arthur Baking, „Classic Challah”; kopia audit/06-tresci-2026-10-22/zrodla/ka-challah.htm",
+        "cytat": "4 teaspoons (12g) instant yeast",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "uproszczenie": "Zaokrąglenie do 0,1 punktu procentowego; dolna granica mąki 480 g jak w DRO-CHA-001.",
+    "decyzja": "D-172",
+    "wielkosc": "drozdze_chalka_swieze_d172",
+    "wartosc": 7.1,
+    "jednostka": "% świeżych"
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "DRO-FOC-002",
+    "twierdzenie": "Przeliczenie DRO-FOC-001 według D-172: 4,5 g drożdży suchych na 357 g mąki (1,26% suchych) to ok. 3,6% świeżych (rachunek: 1,26 / 0,35 = 3,6).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/focaccia-recipe",
+        "miejsce": "King Arthur Baking, „Focaccia” (Robin Rice, aktualizacja 2024-04-09); kopia audit/06-tresci-2026-10-22/zrodla/ka-focaccia.htm",
+        "cytat": "Let the dough rise in a draft-free place for 1 1/2 to 2 hours.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "uproszczenie": "Zaokrąglenie do 0,1 punktu procentowego; 1 1/2 łyżeczki ≈ 4,5 g jak w DRO-FOC-001.",
+    "decyzja": "D-172",
+    "wielkosc": "drozdze_focaccia_swieze_d172",
+    "wartosc": 3.6,
+    "jednostka": "% świeżych"
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "DRO-BAG-002",
+    "twierdzenie": "Przeliczenie DRO-BAG-001 według D-172: ok. 4,69 g drożdży suchych na 540 g mąki (0,87% suchych) to ok. 2,5% świeżych (rachunek: 0,87 / 0,35 = 2,48).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/classic-baguettes-recipe",
+        "miejsce": "King Arthur Baking, „Classic Baguettes”; kopia audit/06-tresci-2026-10-22/zrodla/ka-baguettes.htm",
+        "cytat": "Cover and let rest at room temperature for about 14 hours; overnight works well.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "uproszczenie": "Zaokrąglenie do 0,1 punktu procentowego; cała mąka (poolish i ciasto) jak w DRO-BAG-001.",
+    "decyzja": "D-172",
+    "wielkosc": "drozdze_bagietka_poolish_swieze_d172",
+    "wartosc": 2.5,
+    "jednostka": "% świeżych"
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "MAS-081",
+    "twierdzenie": "Według instrukcji Cuisinart CBK-110 program White jest dla chleba głównie z mąki uniwersalnej albo chlebowej (jasnej).",
+    "zrodla": [
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; oficjalny link cuisinart.ca 404); Types of Breads and Programs, pkt 3, PDF s. 8; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "The White program uses primarily all-purpose or bread flour.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "uproszczenie": null
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "MAS-082",
+    "twierdzenie": "Według instrukcji Cuisinart CBK-110 program French jest dla chlebów francuskich, które tradycyjnie nie mają cukru ani dużej ilości tłuszczu i potrzebują osobnego czasu i temperatury dla chrupiącej skórki.",
+    "zrodla": [
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; oficjalny link cuisinart.ca 404); Types of Breads and Programs, pkt 3, PDF s. 8; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "Because they traditionally lack sugars or large amounts of fat, they tend to be lighter in color.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "uproszczenie": null
+  },
+  {
+    "status": "potwierdzone",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "id": "MAS-083",
+    "twierdzenie": "Według instrukcji Cuisinart CBK-110 program Sweet jest dla chlebów z dużą ilością cukru, tłuszczu i białka.",
+    "zrodla": [
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; oficjalny link cuisinart.ca 404); Types of Breads and Programs, pkt 3, PDF s. 8; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "The Sweet bread program is specifically designed to bake breads with high amounts of sugar, fats and proteins.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "uproszczenie": null
+  },
+  {
+    "id": "MAS-084",
+    "twierdzenie": "Według instrukcji Cuisinart CBK-110 mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu; mleko w proszku dodaje się razem z mąką.",
+    "zrodla": [
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; oficjalny link cuisinart.ca 404); Ingredients, „Nonfat Dry Milk”; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "Using dry milk instead of fresh milk enables you to use the Delay Start feature.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Wyjątek z jednej instrukcji (Cuisinart) stosowany w regule aplikacji D-175 dla wszystkich maszyn; inne przeczytane instrukcje zabraniają „mleka” bez rozróżnienia albo milczą o mleku w proszku.",
+    "krytyczne": true,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
   }
 ]
