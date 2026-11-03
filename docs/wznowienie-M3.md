@@ -28,7 +28,8 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - Scalenie `redesign/piekarz-2026-10-22` @ `750a83e` → `master` jako `39f3890` (zgoda właściciela 2026-11-03, D-135; drzewo identyczne z gałęzią).
 - Run 41589614991 (`testflight.yml` na master @ `39f3890`): `tz-matrix` zielone (06:24–06:42 UTC, 7 stref); „Archive & Upload” zielone: BR-REL-005, `npm run verify`, niezmienniki iOS, PrivacyInfo; wersja 1.0.0, **build 1021**, „Upload succeeded” / „EXPORT SUCCEEDED” 07:02:53 UTC.
 - Ostrzeżenia bez wpływu na build: brak dSYM dla React.framework, ReactNativeDependencies.framework, hermesvm.framework (symbolikacja awarii tych frameworków w ASC niepełna; brzegowe).
-- Następny krok: właściciel — Free Trial w ASC (Z-1) i test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
+- Z-1 zrobione: właściciel usunął Free Trial z `.pro.monthly` i `.pro.yearly` w ASC (2026-11-03, słowa: „Obie usuenięte.”).
+- Następny krok: właściciel — test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
 
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
