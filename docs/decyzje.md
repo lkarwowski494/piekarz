@@ -1186,3 +1186,19 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dziennik (poz. 6):** „{data}, ocena {n}/5” (`historyDate`); bez oceny sama data.
 - **Teksty:** 9 nowych kluczy PL+EN z kontekstem (lista w `docs/stan-08-p6b-2026-11-03.md`). Stare klucze bez użycia w kodzie zostają w słownikach do usunięcia przez rolę 09 razem z przekładem: „Do miski (odhaczaj przy ważeniu)”, „Język”, „Jednostki”, „Ocena: {n}/5” (check:i18n: uwaga „bez miejsca”, nie błąd). Słownik ekranów `tests/maestro-runner.ts:94` ma dalej „Do miski (odhaczaj przy ważeniu)” — to dane symulatora, nie asercja; bez zmiany (poza D-209). Nowych kluczy nie wpisano do `docs/lokalizacja/czeka-na-przeklad.json` (test 093 zostaje zielony); czerwone tylko `check:i18n` i `tests/check-i18n-gate.test.ts` (wyjątek D-209).
 - **Status:** noc, do weta.
+
+### [D-212] 2026-11-03 — p6b: przekład 9 kluczy w 33 językach i usunięcie 4 starych kluczy (rola 09, build, E3, noc, do weta)
+- **Rodzaj:** wykonanie D-209 przez rolę 09; jedna fala E3, tłumaczenie maszynowe (claude-sonnet-5-5), drugi przegląd AI w świeżym kontekście (subagent bez notatek tłumacza), przegląd człowieka: brak (DEC-06).
+- **Zakres:** „Odhaczaj przy ważeniu.”, „Co zrobić”, 5 × „Receptura bazowa, …”, „Język i jednostki”, „{data}, ocena {n}/5” × 33 języki (297 wpisów). Parametry {data}, {n} bez zmian; w nowych kluczach nie ma liczby mnogiej. Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json` (dopisane do pliku z D-207). Rodzaj przymiotnika zgodny z rzeczownikiem „receptura” w danym języku (osobne klucze, bez sklejania).
+- **Usunięte** ze słownika EN i 33 słowników (grep w `app/` i `src/` bez użycia poza testem negatywnym `ustawienia-jezyk-jednostki-p6b.test.tsx:80`): „Do miski (odhaczaj przy ważeniu)”, „Język”, „Jednostki”, „Ocena: {n}/5”; ich wpisy zniknęły z `pl.kontekst.json` (`npm run i18n:kontekst`).
+- **Drugi przegląd AI:** 12 uwag (297 par), przyjęto 11: it „con lievito di birra”, lv „ar dabīgo ieraugu”, zh-Hant (zakwas „天然酵母種”, „使用酵母”, „甜麵包”), ja „…チェックしてください”, ru „сдобная”, uk „здобна”, id „ragi alami”, vi „men tự nhiên”, fi „Merkitse punnitessasi.”. Odrzucone: ms — „sourdough” zostaje (spójne z istniejącym „pemula sourdough”).
+- **Odstępstwo od polecenia:** brak; `npm ci` wykonane w sesji (brak `node_modules`).
+- **Status:** noc, do weta.
+
+### [D-213] 2026-11-03 — p6b: uwagi roli 09 do brzmień PL z D-210 (bez zmiany PL)
+- „żytnia”: przełożone jako receptura na chleb żytni („rye”, „ржаная”); PL nie mówi, czy to żyto w całości, czy mieszanka — do decyzji roli 04/06, czy podtytuł ma to nazywać.
+- „na drożdżach”: przełożone jako „z drożdżami piekarskimi” (nie „na zakwasie drożdżowym”); spójne z D-154.
+- „słodka”: przełożone jako wypieki słodkie (brioszka, chałka): „сдобная”, „甜麵包”, „sweet”; samo „słodka” sugeruje smak, nie rodzaj wypieku. Opcja dla 04: „słodkie wypieki” (nowy klucz PL).
+- „pizza”: bez zmiany.
+- Rekomendacja: zostawić PL jak jest do weta właściciela; zmiana PL to nowa fala przekładu 5 kluczy.
+- **Status:** noc, do weta.
