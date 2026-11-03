@@ -771,3 +771,13 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) szybka poprawka tylko „Zakwasy” i „Receptury” przez rolę 08 bez roli 04 (wyjątek od zasady 15, reszta ekranów dalej odstaje); (c) najpierw więcej zrzutów właściciela.
 - **Zależy od:** D-136…D-138 bez zmian (1.1); wybór okiem właściciela na STOP E3 roli 04.
 - **Status:** dzień, do weta.
+
+### [D-150] 2026-11-03 — Zakres 1.0: redesign (D-139) razem z D-136, D-137 i D-138; funkcje odłożone bez zmian
+- **Rodzaj:** decyzja właściciela (pytania z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Skoro robimy te zmiany to napisz jakie funkcje odłożyliśmy i może też je wdrożymy”; na listę funkcji odłożonych: „A te co dzisiaj pisałem ?”; termin: „Wszystko w 1.0”; doprecyzowanie: „Redesign + D-136…D-138”.
+- **Decyzja:** do 1.0 wchodzą redesign D-139 oraz D-136 (wybór świeże/instant przy wierszu drożdży), D-137 (receptury-bliźniaki drożdżowe), D-138 (tryb „maszyna do chleba”); zmienia termin „1.1” w D-136…D-138 na „1.0”. Funkcje z `docs/scope-contract.md` (PÓŹNIEJ: F-15, F-30, F-45, F-46…F-49, F-50, F-63, F-08, F-70; lista odcięć KL) — bez zmian, właściciel nie wybrał żadnej.
+- **Kolejność:** rola 03 build `zmiany-zakresu` (wpisy ZM dla D-136…D-138, miejsce w Basic/Pro wobec D-038) → rola 06 (ilości drożdży i czasy bliźniaków, reguły maszyny: pojemność, kolejność, programy, zakwas w maszynie) → rola 04 (ekrany w języku „Dziś”, równolegle z E3 redesignu) → rola 08 partiami → rola 09 (33 języki) → E2E → build → test właściciela → rola 07 reaudit.
+- **Odrzucone:** redesign + D-136…D-138 + funkcje ukryte z gotowym kodem; redesign + D-136, D-137 (maszyna w 1.1, rekomendacja koordynatora przy presji czasu); projekt teraz, kod w 1.1 (rekomendacja koordynatora).
+- **Koszt [OCENA]:** opóźnienie 1.0 o ok. 3–5 dni pracy ról ponad redesign, najwięcej D-138.
+- **Krok właściciela:** model maszyny do chleba (marka, pojemność, lista programów; zdjęcie panelu lub instrukcji) dla roli 06.
+- **Status:** dzień, do weta.

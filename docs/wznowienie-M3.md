@@ -32,7 +32,8 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - Test właściciela na 1021 (2026-11-03): wygląd blokuje 1.0 (D-139) — „Dziś” wzorcem, „Zakwasy” i „Receptury” do przebudowy; zrzuty `docs/design/uwagi-wlasciciela-2026-11-03/`. Następny krok: rola 04 build od E3 (język „Dziś” wszędzie, pula decyzji D-140…D-149), STOP E3 okiem właściciela, potem 08 partiami, 09, E2E, build 1022, test, 07 reaudit.
 - (Wcześniej) Następny krok: właściciel — test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
 
-- Wersja 1.1 (właściciel 2026-11-03): D-136 przełącznik świeże / instant przy wierszu drożdży na „Do miski” (04 → 08 → 09); D-137 receptury-bliźniaki drożdżowe dla receptur na zakwasie (03 `zmiany-zakresu` → 06 → 04 → 08 → 09). D-138 tryb „maszyna do chleba” (01/03 → 06 → 04 → 08 → 09; 1.1 albo 1.2 według kosztu roli 03). Start po zgłoszeniu 1.0.
+- D-150 (2026-11-03): D-136…D-138 przeniesione do 1.0 razem z redesignem; role 03 → 06 → 04 → 08 → 09. Krok właściciela: model maszyny do chleba.
+- (Przed D-150) Wersja 1.1 (właściciel 2026-11-03): D-136 przełącznik świeże / instant przy wierszu drożdży na „Do miski” (04 → 08 → 09); D-137 receptury-bliźniaki drożdżowe dla receptur na zakwasie (03 `zmiany-zakresu` → 06 → 04 → 08 → 09). D-138 tryb „maszyna do chleba” (01/03 → 06 → 04 → 08 → 09; 1.1 albo 1.2 według kosztu roli 03). Start po zgłoszeniu 1.0.
 
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
