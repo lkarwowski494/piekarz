@@ -5681,6 +5681,36 @@
       "src/components/harmonogram/NotatkiPlanu.tsx (tekst w JSX)"
     ]
   },
+  "Receptura bazowa, na drożdżach": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb na drożdżach (bez zakwasu); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, na zakwasie": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb na zakwasie (brzmienie zatwierdzone w README §6)."
+  },
+  "Receptura bazowa, pizza": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: ciasto na pizzę; brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, słodka": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: wypieki słodkie (brioszka, chałka); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, żytnia": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb żytni (receptura żytnia); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"

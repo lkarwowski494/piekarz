@@ -96,4 +96,9 @@ export const EN_16: Record<string, string> = {
   // M3 p6b (D-209, README §6)
   'Odhaczaj przy ważeniu.': 'Tick off as you weigh.',
   'Co zrobić': 'What to do',
+  'Receptura bazowa, na zakwasie': 'Base recipe, sourdough',
+  'Receptura bazowa, żytnia': 'Base recipe, rye',
+  'Receptura bazowa, na drożdżach': 'Base recipe, with yeast',
+  'Receptura bazowa, pizza': 'Base recipe, pizza',
+  'Receptura bazowa, słodka': 'Base recipe, sweet',
 };

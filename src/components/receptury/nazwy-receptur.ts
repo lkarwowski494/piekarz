@@ -65,3 +65,22 @@ export function opisReceptury(r: Pick<RecipePreset, 'category' | 'difficulty'>):
   if (!r.difficulty) return rodzaj(r.category);
   return t('{rodzaj}, poziom {trudnosc}', { rodzaj: rodzaj(r.category), trudnosc: poziom(r.difficulty) });
 }
+
+/**
+ * Podtytuł pasa receptury bazowej: pełne zdanie według rodzaju, osobny klucz na rodzaj (README §6, D-209; bez sklejania
+ * „Receptura bazowa” z rodzajem — forma przymiotnika zależy od języka). Własna receptura nie ma rodzaju w danych (D-210).
+ */
+export function podtytulReceptury(c: RecipePreset['category']): string {
+  switch (c) {
+    case 'sourdough':
+      return t('Receptura bazowa, na zakwasie');
+    case 'rye':
+      return t('Receptura bazowa, żytnia');
+    case 'yeast':
+      return t('Receptura bazowa, na drożdżach');
+    case 'pizza':
+      return t('Receptura bazowa, pizza');
+    default:
+      return t('Receptura bazowa, słodka');
+  }
+}
