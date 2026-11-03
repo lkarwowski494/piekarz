@@ -120,7 +120,7 @@ Poprzednio (rola 04, 2026-10-20): przegląd właściciela, potem partia 5 (rola 
 
 ### Przekazanie roli 03 (zmiany zakresu D-136…D-138, 2026-11-03)
 - Zakończono: 03-zakres, build, moduł zmiany-zakresu; gałąź `zakres/1.0-2026-11-03`; `docs/scope-contract.md` (ZM-24…ZM-27, F-55, F-26, F-72), `docs/decyzje.md` (D-151…D-157), plik stanu `docs/zakres-zm-2026-11-03.md` (paczka 06 w punktach 1–6).
-- Zakres 1.0: wybór świeże/instant przy wierszu „Do miski” (ZM-24, Basic); przełącznik „na zakwasie / na drożdżach” w 9 recepturach (D-154, zmienia D-137) z planem i prowadzeniem dla drożdży (D-155); tryb maszyny uniwersalny F-72 (D-153), zakwas w maszynie tylko przy źródle (D-156), godzina gotowości w Pro (D-152); ok. 30 receptur w 1.0 (D-157).
+- Zakres 1.0: wybór świeże/instant przy wierszu „Do miski” (ZM-24, Basic); przełącznik „na zakwasie / na drożdżach” w 9 recepturach (D-154, zmienia D-137) z planem i prowadzeniem dla drożdży (D-155); tryb maszyny uniwersalny F-72 (D-153), zakwas w maszynie tylko przy źródle (D-156), godzina gotowości w Pro (D-152); ok. 30 receptur w 1.0, do ok. 50 w 1.0.1 (D-157; wariant „okno kolejki, cel 50” nieprzedstawiony właścicielowi, do ewentualnego weta).
 - Następny krok: **06-tresci**, build — paczka z pliku stanu (wersje drożdżowe 9 receptur, model czasów drożdżowych, RD-19 „instant”, maszyna uniwersalna z Tefal PAIN PLAISIR PF220838 jako przykładem, zakwas w maszynie, ok. 15 kandydatów do katalogu → zatwierdza właściciel).
 - 01: ER-75 (scenariusz wyboru drożdży przy wierszu, BR-KALK-009), ER-76 (BR przełącznika wersji drożdżowej), ER-77 (J, PR, BR trybu maszyny); numery proponowane.
 - 02: F-72 do tabeli „Basic i Pro według funkcji” (ilości, kolejność, program: Basic; godzina gotowości: Pro); nowe receptury bazowe w Basic.
