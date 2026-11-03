@@ -27,7 +27,8 @@ export const kolory = {
     "pas": "#1E4954",
     "naPasie": "#FFFFFF",
     "naPasie2": "#C8D8DC",
-    "ratanNaPasie": "#D9AE72"
+    "ratanNaPasie": "#D9AE72",
+    "kartaLinia": "#E2E2DC"
   },
   "ciemny": {
     "tlo": "#141A1C",
@@ -51,7 +52,8 @@ export const kolory = {
     "pas": "#1D3B43",
     "naPasie": "#F1F1EC",
     "naPasie2": "#BFD0D4",
-    "ratanNaPasie": "#D3A464"
+    "ratanNaPasie": "#D3A464",
+    "kartaLinia": "#1F2729"
   },
   "jasnyKontrast": {
     "tlo": "#FFFFFF",
@@ -75,7 +77,8 @@ export const kolory = {
     "pas": "#12323A",
     "naPasie": "#FFFFFF",
     "naPasie2": "#E2ECEE",
-    "ratanNaPasie": "#E8C38E"
+    "ratanNaPasie": "#E8C38E",
+    "kartaLinia": "#8A8B84"
   },
   "ciemnyKontrast": {
     "tlo": "#000000",
@@ -99,7 +102,8 @@ export const kolory = {
     "pas": "#0F2A31",
     "naPasie": "#FFFFFF",
     "naPasie2": "#E2ECEE",
-    "ratanNaPasie": "#E8C38E"
+    "ratanNaPasie": "#E8C38E",
+    "kartaLinia": "#7C878A"
   }
 } as const;
 
@@ -178,7 +182,7 @@ export const typografia = {
 
 export const odstepy = {"xs":4,"s":8,"m":12,"l":16,"xl":20,"xxl":24,"xxxl":32} as const;
 
-export const promienie = {"_zasada":"hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe","pas":26,"przyciskGlowny":18,"chip":22,"przycisk":14,"grupa":12,"ostrzezenie":12,"znacznik":6,"pole":10} as const;
+export const promienie = {"_zasada":"hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe","pas":26,"przyciskGlowny":18,"chip":22,"przycisk":14,"grupa":12,"ostrzezenie":12,"znacznik":6,"pole":10,"karta":16} as const;
 
 export const cele = {"glownyPrzeplyw":48,"pozostale":44,"przyciskKciuka":64,"_zrodlo":"DEC-15 a, NFR-INT-001"} as const;
 
