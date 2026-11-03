@@ -476,7 +476,7 @@
   },
   "Blada skórka, brak złocisto-karmelowego rumienia": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Blada, miękka skórka — zwiększ parę lub temperaturę": {
@@ -509,7 +509,7 @@
   },
   "Brak otwartego ucha (nacięcie się zasklepiło)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Brak reakcji Maillarda i karmelizacji cukrów": {
@@ -637,7 +637,7 @@
   },
   "Chleb płaski jak dysk (rozlał się na boki)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Chleb rozlał się na płasko, oklapł po nacięciu żyletką lub ma blady kolor": {
@@ -1398,7 +1398,7 @@
   },
   "Drobne, jednolite pęcherzyki jak gąbka/pianka": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Drożdże": {
@@ -2298,7 +2298,7 @@
   },
   "Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Jednolity, sprężysty miękisz bez lepkiego zakalca pod skórką po 24 godzinach od wypieku.": {
@@ -2664,7 +2664,7 @@
   },
   "Krojony gorący, prosto po wyjęciu z piekarnika": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Krok obliczeniowy:": {
@@ -3098,7 +3098,7 @@
   },
   "Mokry, lepki miękisz, brudzi nóż": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.": {
@@ -4347,7 +4347,7 @@
   },
   "Opadł / zapadł się natychmiast po nacięciu żyletką": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).": {
@@ -5614,7 +5614,7 @@
   },
   "Płaski smak bez głębi (jałowy)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Płyn na powierzchni (hooch)": {
@@ -5750,7 +5750,7 @@
   },
   "Rozerwanie boku przy spodzie": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Rozgrzej mocno gofrownicę i posmaruj pędzelkiem odrobiną oleju.": {
@@ -7397,7 +7397,7 @@
   },
   "Wielkie dziury pod skórką i zbity dół (Jaskinie)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.": {
@@ -8720,7 +8720,7 @@
   },
   "Zbyt kwaśny, octowy smak": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
   "Zbyt luźne ciasto": {

@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 import { t } from '../../lib/i18n';
 import {
   DOUGH_RECOVERY_PROTOCOLS,
@@ -29,6 +30,7 @@ export function EmergencyRecoverySection({
   onSelectRecoveryId,
   unitSystem,
 }: EmergencyRecoverySectionProps) {
+  const duzy = useDuzyTekst();
   const selectedProto = selectedRecoveryId
     ? getDoughRecoveryProtocol(selectedRecoveryId)
     : null;
@@ -40,10 +42,12 @@ export function EmergencyRecoverySection({
         {t('Szybkie interwencje w trakcie fermentacji')}
       </Text>
 
+      {/* Przy dużym tekście rząd zawijany zamiast przewijania w poziomie (§7a, D-142; M3 p5b) */}
       <ScrollView
-        horizontal
+        horizontal={!duzy}
+        scrollEnabled={!duzy}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.presetsRow}
+        contentContainerStyle={[styles.presetsRow, duzy && styles.presetsZawijane]}
       >
         {DOUGH_RECOVERY_PROTOCOLS.map((proto) => {
           const isSelected = selectedRecoveryId === proto.id;
@@ -132,6 +136,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
     marginBottom: 8,
   },
+  presetsZawijane: { flexDirection: 'row', flexWrap: 'wrap' },
   presetChip: {
     minHeight: theme.cele.pozostale,
     flexDirection: 'row',
