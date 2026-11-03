@@ -14,6 +14,9 @@ import { krokiSpiraliZakwasu } from '../../lib/spirala-geometria';
 import type { StanKartyZakwasu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 /**
  * Spirala jednego cyklu i opis (czas od dokarmienia, następne karmienie, miejsce). Na karcie zakwasu na pasie nocy
@@ -77,8 +80,12 @@ export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNie
 }) {
   // Bez wpisu „Podwoił objętość” nieaktywny: stan i wygląd z §6 (obwódka, tekst `zablokowane`) [M1-audytor-generalny-115]
   const nieaktywny = stan.dokarmionoAt === null;
+  // Przy dużym tekście przyciski jeden pod drugim (flexBasis od fontScale, README §7a, D-142) [M3 p2]
+  const szer = { flexBasis: useDuzyTekst() ? '100%' : 140 } as const;
   return (
-    <View testID="zakwas-karta" style={styles.karta}>
+    // Karta systemu kart (karty/README.md §2, §4); spirala cyklu na pasie, w karcie akcje cyklu [M3 p2]
+    <View testID="zakwas-karta">
+    <Karta testID="karta-cykl" tytul={t('Cykl dokarmiania')} ikona={<IkonaKarty nazwa="sloik" />}>
       {!cyklNaPasie && <CyklZakwasu stan={stan} opisMiejsca={opisMiejsca} />}
       <Pressable
         testID="zakwas-podwoil-btn"
@@ -95,25 +102,19 @@ export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNie
       </Text>
       {children}
       <View style={styles.rzad}>
-        <Pressable testID="zakwas-dokarm-btn" accessibilityRole="button" style={styles.drugiPrzycisk} onPress={onDokarm}>
+        <Pressable testID="zakwas-dokarm-btn" accessibilityRole="button" style={[styles.drugiPrzycisk, szer]} onPress={onDokarm}>
           <Text style={styles.drugiTekst}>{t('Zapisz dokarmienie')}</Text>
         </Pressable>
-        <Pressable testID="zakwas-niepokoi-btn" accessibilityRole="button" style={styles.drugiPrzycisk} onPress={onNiepokoi}>
+        <Pressable testID="zakwas-niepokoi-btn" accessibilityRole="button" style={[styles.drugiPrzycisk, szer]} onPress={onNiepokoi}>
           <Text style={styles.drugiTekst}>{t('Coś mnie niepokoi')}</Text>
         </Pressable>
       </View>
+    </Karta>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  karta: {
-    gap: odstepy.m,
-    padding: odstepy.l,
-    marginBottom: odstepy.l,
-    borderRadius: promienie.grupa,
-    backgroundColor: theme.colors.powierzchnia,
-  },
   cykl: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.l },
   opis: { flex: 1, flexBasis: 150, minWidth: 0, gap: odstepy.xs },
   minelo: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
@@ -136,7 +137,6 @@ const styles = StyleSheet.create({
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s },
   drugiPrzycisk: {
     flexGrow: 1,
-    flexBasis: 140,
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
     alignItems: 'center',

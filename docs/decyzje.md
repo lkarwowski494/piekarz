@@ -812,6 +812,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** ograniczenie skali tekstu w kartach (`maxFontSizeMultiplier`) poniżej AX5 — narusza podłogę NFR-A11Y-004 i HIG (podłoga nie podlega gustowi, zasada studia 12); karty od krawędzi do krawędzi przy AX5 — zyskuje ok. 20 pt (1 litera), a traci język kart z D-141.
 - **Zależy od:** D-141; test na urządzeniu przy AX5 (krok właściciela, rola 07).
 - **Status:** dzień, do weta.
+
 ### [D-151] 2026-11-03 — Bramka zmian zakresu dla D-136…D-138 (rola 03 build, moduł zmiany-zakresu): ZM-24…ZM-26, F-72; cztery pytania do właściciela
 - **Rodzaj:** zakresowa (rola 03), wykonanie D-150; decyzje „czy” i „kiedy” są właściciela (D-136…D-138, D-150) i nie są otwierane.
 - **Decyzja:** D-136 → ZM-24 jako zmiana wejścia w F-55 (BR-KALK-009 istnieje; ER-75: scenariusz wyboru przy wierszu „Do miski”); D-137 → ZM-25 jako rozszerzenie F-26 (ER-76: powiązanie receptura na zakwasie ↔ bliźniak); D-138 → ZM-26 i nowa funkcja F-72 MVP bez BR do czasu ER-77 (praca J, PR, BR trybu maszyny). Numery ER-75…ER-77 proponowane; nadaje je rola 01.
@@ -864,6 +865,33 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
 - **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
 
+### [D-161] 2026-11-03 — Komponenty systemu kart w `src/ui/karty/` (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160 (do weta).
+- **Decyzja:** `Karta`, `WierszKarty`, `CzapkaPaska`, `PoleObjawu` i stała progu dużego tekstu leżą w `src/ui/karty/` (jeden plik na komponent, każdy ≪ 20 480 B). Komponenty nie mają własnych tekstów; tytuł, etykiety i znaczniki dostają od ekranu. Czapka nie liczy przewinięcia (ekran podaje `pokazTytul`); wybór obsługi przewijania należy do p2.
+- **Odrzucone:** `src/components/karty/` (obok `PasZakladki`; README nie wskazuje miejsca, polecenie M3 podało `src/ui/` jako pierwsze); jeden plik z czterema komponentami (rozmiar i czytelność).
+- **Skutek:** `src/ui/` nie jest w zakresie macierzy AST (`scripts/test-matrix.mjs`), więc nowe komponenty nie dodają pozycji i `docs/22-macierz-testow.md` nie zmienia się; pilnują ich testy `src/ui/__tests__/karty-p1.test.tsx` i `tokeny-karty-p1.test.ts`.
+- **Status:** dzień, do weta.
+
+### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, stos w jednej kolumnie (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; wykonanie reguły roli 04 D-142 (`docs/design/karty/README.md` §7a, e025fc1, odczytane u źródła po `git pull --rebase`; wiadomość koordynatora tylko wskazała miejsce). Pierwsza wersja p1 (zdanie z polecenia) poprawiona przed push.
+- **Decyzja:** przy `fontScale ≥ 2` (AX3+, ten sam próg co `PasZakladki`, kafle „Dziś”, kalendarz) stos w jednej kolumnie: w `Karta` ikona i znacznik nad tytułem, w `WierszKarty` ikona i szewron nad etykietą, wartość pod etykietą, w `PoleObjawu` pole wyboru nad etykietą; mniejsze wcięcia (karta i wiersz 12 zamiast 16); żaden tekst nie ma limitu linii ani `maxFontSizeMultiplier`. Próg w jednej stałej `PROG_DUZEGO_TEKSTU` (`src/ui/karty/duzy-tekst.ts`). Nie użyto `flexBasis` zależnego od `fontScale`: przy stosie w jednej kolumnie nie ma rzędów do zawijania; do sprawdzenia przy pierwszym ekranie (p2).
+- **Odrzucone:** wartość obok etykiety także przy AX5; `maxFontSizeMultiplier` 1,5 w czapce (sprzeczne z §7a); osobne progi na komponent.
+- **Status:** dzień, do weta.
+
+### [D-163] 2026-11-03 — `kartaLinia` poza tabelą par kontrastu (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; `[DO USTALENIA]` dla roli 04.
+- **Decyzja:** `kartaLinia` wchodzi do czterech wariantów kolorów (wartości z `docs/design/karty/tokeny-karty.json`), ale nie do `pary` w `docs/design/tokeny.json`: to dekoracyjna obwódka karty, nie para tło/tekst, a tekst i grafika w karcie mają pary na `powierzchnia` (`kontrast-karty.md`, 24 pary, kod 0). Obliczenie `narzedzia/tokeny.mjs` po zmianie: 0 par poniżej progu; `kontrast.md` zmienia tylko datę generacji.
+- **Odrzucone:** wpis `["kartaLinia", "powierzchnia", 3, …]` (jasny: #E2E2DC na #FFFFFF to ok. 1,3:1, para by padła, a to kolor wybrany przez rolę 04 jako dyskretny; ciemny: równy powierzchni, 1:1 z założenia).
+- **Do ustalenia (rola 04):** czy brzeg karty bez obwódki ma spełniać 1.4.11 (kontrast elementów interfejsu). Odczyt roli 08: karta nie jest komponentem sterującym, więc nie; nie sprawdzono w źródle WCAG w tej sesji.
+- **Status:** dzień, do weta.
+
+### [D-164] 2026-11-03 — Regeneracja `docs/design/tokeny.ts` razem z `tokeny.json` (wyjątek od zakazu dotykania `docs/design/`, M3 p1, rola 08)
+- **Rodzaj:** wyjątek nazwany (zasada 7).
+- **Decyzja:** polecenie M3 pozwala w `docs/design/` na `tokeny.json` i `kontrast.md`, ale `narzedzia/tokeny.mjs` zapisuje oba razem z `docs/design/tokeny.ts` (kopią, z której powstaje `src/ui/tokeny.ts`). Plik regenerowany generatorem, bez ręcznych zmian: stary `tokeny.ts` zostałby rozjechany z `tokeny.json`. Zmiana ma tylko `kartaLinia` w czterech wariantach i `karta` w `promienie`.
+- **Odrzucone:** zostawić `docs/design/tokeny.ts` bez zmian (rozjazd źródła i kopii; kolejna regeneracja przez rolę 04 i tak by go zmieniła).
+- **Ryzyko:** rola 04 pracuje równolegle w `docs/design/`; kolizja możliwa tylko w tych trzech plikach, rozwiązanie przez `git pull --rebase` i ponowny `node docs/design/narzedzia/tokeny.mjs`.
+- **Status:** dzień, do weta.
+
 ### [D-166] 2026-11-03 — Partia p1 (system kart) łączy się z p2 (Zakwasy): test osiągalności zostaje bez zmian
 - **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; do weta).
 - **Stan:** rola 08 p1 ma 4 commity lokalnie (`bb5246e`, `52ba18b`, `f96cab8`, `b8c7062`); `tests/osiagalnosc-149.test.ts` pada na 5 nowych plikach `src/ui/karty/*`, bo żaden ekran z `app/` ich jeszcze nie importuje (martwy kod, M1-audytor-generalny-149). Rola 08 słusznie wstrzymała push.
@@ -872,6 +900,25 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Zmienia:** D-160 (p1 bez zmian na ekranie).
 - **Status:** dzień, do weta.
 - **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
+
+### [D-180] 2026-11-03 — Wybór zakwasu jako chipy na pasie z miejscem i czasem; „Edytuj” na pasie; profil w karcie z wierszami (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160/D-166 (właściciel nieobecny, D-183: opcja rekomendowana).
+- **Decyzja:** `StartersSelectorRow` rysuje chipy zawijane (bez przewijania w poziomie) w dwóch wariantach: na pasie (z zakwasem, kolory jak `FiltryNaPasie`) i na tle (bez zakwasu: sam „Dodaj nowy zakwas” pod kartą „Zakładam zakwas”, makieta stan „pusty”). Chip zachowuje miejsce i czas od dokarmienia (BR-ZAKW-001, test `zakwasy-lista-130`), choć makieta pokazuje same nazwy. „Edytuj” profilu przechodzi do akcji pasa (makieta, stan „z zakwasem”); profil to `Karta` „Profil zakwasu” z `WierszKarty` (mąka i hydratacja, wiek, ostatnie dokarmienie, miejsce). Zdanie pustego stanu na pasie (podtytuł). Czapka paska stanu z małym tytułem po przewinięciu pasa.
+- **Odrzucone:** chipy z samą nazwą (usuwa informację z BR-ZAKW-001 i łamie test 130); `FiltryNaPasie` z `PasZakladki` (tylko jedna etykieta, bez oznaczenia Pro przy „Dodaj”, przy dużym tekście przenosi chipy pod pas).
+- **Do przeglądu roli 04:** chip na pasie z dwiema liniami pod nazwą (wyższy niż 44 pt).
+- **Status:** dzień, do weta.
+
+### [D-181] 2026-11-03 — Nagłówki kart Zakwasów i Doktora zakwasu z istniejących kluczy; ikony kart; „Zapisz dokarmienie” i „Podwoił objętość” bez przenosin (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wątpliwości układu nazwane, nie zaprojektowane (polecenie p2).
+- **Decyzja:** nagłówki tylko z istniejących kluczy: karta akcji cyklu „Cykl dokarmiania”, „Profil zakwasu”, „Ostatnie wpisy”, „Dzień {n}” (zakładanie), „Co widzisz?” (Doktor zakwasu), karta wyniku Doktora = nazwa wybranego objawu (`first_day` → „Nic się nie dzieje”). Ikony (`src/ui/karty/IkonaKarty.tsx`, kształty z `karty.js`): zakładanie i cykl `sloik`, profil `info`, szczyt `zegar`, stały dzień `kalendarz`, ilości `waga`, blokada proporcji `proporcje`, wpisy `lista`, bezpieczeństwo `tarcza`. „Zapisz dokarmienie” i „Podwoił objętość” zostają w karcie cyklu (Basic), choć makieta kładzie je w „Ilościach do dokarmienia” i „Szczycie aktywności”: obie karty są w Pro (D-113), przeniesienie zabrałoby zapis dokarmienia w Basic.
+- **Odrzucone:** nowe nagłówki (tekst poza §6 README, wymaga roli 04/09); przeniesienie przycisków jak w makiecie (zmiana zachowania Basic/Pro).
+- **Do przeglądu roli 04:** dobór ikon i nagłówków; karta wyniku Doktora zakwasu (README §4: „do makiety w partii, jeśli 08 zgłosi wątpliwość”).
+- **Status:** dzień, do weta.
+
+### [D-182] 2026-11-03 — Zakres p2: Doktor zakwasu tak, Doktor Chleba nie; blokady Pro jako karty; `WierszObjawu` usunięty; narzędzia bez karty (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** p2 obejmuje Doktora zakwasu `app/(tabs)/zakwasy/doktor-zakwasu.tsx` (wiersze `PoleObjawu`, sekcje w kartach). Polecenie p2 nazwało „Doktorem zakwasu” plik `app/doktor.tsx`, który jest Doktorem Chleba (4 sekcje, ok. 36 KB): zostaje do partii z Doktorem Chleba. `BlokadaFunkcji` dostaje opcjonalne `ikonaKarty`: na Zakwasach blokady gotowości, stałego dnia i proporcji to karta z nazwą funkcji w nagłówku i „Pro” jako znacznikiem, bez zdania opisu z makiety (test 108: w przycisku tylko nazwa i „Pro”). `WierszObjawu` usunięty: jedyną kontrolką objawu jest `PoleObjawu` (README §2; zaznaczony objaw groźny nie ma już czerwonej obwódki — wynik pokazuje pole ostrzeżenia). `NarzedziaZakwasu` bez karty: oba wejścia ukryte w 1.0 (D-043, `wejscia-pozniej`).
+- **Odrzucone:** przepięcie Doktora Chleba w p2 (zakres i rozmiar partii); blokada jako wiersz na tle (sprzeczne z README §1); zostawienie dwóch kontrolek objawu.
 
 ### [D-183] 2026-11-03 — Praca koordynatora pod nieobecność właściciela (24 h): punkt kontrolny po p2 przesunięty, partie p3–p5 idą dalej
 - **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; analogia: repo trening, `docs/18-archiwum-do-11.10.md`, 08.10.2026 — „agent decyduje sam: zawsze opcja rekomendowana”, chyba że lepsza była odradzana tylko z powodu nakładu pracy).

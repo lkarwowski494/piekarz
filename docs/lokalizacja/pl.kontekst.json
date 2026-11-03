@@ -451,7 +451,7 @@
   },
   "Biały nalot lub kożuch na powierzchni": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (label)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Biga (Sztywny zaczyn włoski 50%)": {
@@ -897,7 +897,7 @@
   },
   "Co widzisz?": {
     "gdzie": [
-      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tekst w JSX)",
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tytul)",
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
@@ -954,6 +954,7 @@
   },
   "Cykl dokarmiania": {
     "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tytul)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
     ]
   },
@@ -1260,7 +1261,7 @@
   },
   "Dodano zakwas": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+      "src/components/zakwas/useAkcjeZakwasu.ts (Alert.alert)"
     ]
   },
   "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.": {
@@ -1497,7 +1498,7 @@
   "Dzień {n}": {
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterSetupCard.tsx (tytul)"
     ]
   },
   "Dzień {n} zakładania zakwasu": {
@@ -1546,8 +1547,9 @@
   },
   "Edytuj": {
     "gdzie": [
-      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/PasZakwasu.tsx (etykieta)",
+      "src/components/zakwas/PasZakwasu.tsx (tekst)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Edytuj blend": {
@@ -2067,7 +2069,7 @@
   "Hydratacja": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (kod)"
     ]
   },
   "Hydratacja Twojego zakwasu": {
@@ -2159,7 +2161,7 @@
   },
   "Ilości do dokarmienia": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterFeedingCard.tsx (tytul)"
     ]
   },
   "Ilości i temperatura wody": {
@@ -2557,7 +2559,7 @@
   },
   "Kontrola biologiczna (Bezpieczeństwo)": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tytul)"
     ]
   },
   "Kontrola zapasów mąk i powiadomienia o brakach": {
@@ -2741,7 +2743,7 @@
   },
   "Kultura „{name}” została utworzona.": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+      "src/components/zakwas/useAkcjeZakwasu.ts (Alert.alert)"
     ]
   },
   "Kup dostęp dożywotni": {
@@ -2966,7 +2968,7 @@
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (etykieta)"
     ]
   },
   "Miesiąc": {
@@ -3139,6 +3141,7 @@
   "Mąka": {
     "gdzie": [
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterFeedingCard.tsx (etykieta)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)"
     ]
@@ -3159,12 +3162,6 @@
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
   },
-  "Mąka niskowyciągowa. Białko: np. 9,8%.": {
-    "gdzie": [
-      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
-    ],
-    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
-  },
   "Mąka niskowyciągowa. Białko: np. 10,2–13,8%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
@@ -3178,6 +3175,12 @@
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka niskowyciągowa. Białko: np. 7,8–14,8%. Popiół: 0,51–0,58%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka niskowyciągowa. Białko: np. 9,8%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -3261,7 +3264,7 @@
   },
   "Mąka pszenna chlebowa": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (flourType)"
+      "src/components/zakwas/useAkcjeZakwasu.ts (flourType)"
     ]
   },
   "Mąka pszenna chlebowa / wysoki gluten": {
@@ -3271,7 +3274,7 @@
   },
   "Mąka pszenna chlebowa t750": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (kod)"
+      "src/components/zakwas/useAkcjeZakwasu.ts (kod)"
     ]
   },
   "Mąka pszenna chlebowa typ 750": {
@@ -3471,13 +3474,13 @@
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka wysokowyciągowa. Białko: np. 13,1%.": {
+  "Mąka wysokowyciągowa. Białko: np. 12,4–15,5%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
-  "Mąka wysokowyciągowa. Białko: np. 12,4–15,5%.": {
+  "Mąka wysokowyciągowa. Białko: np. 13,1%.": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
     ],
@@ -3808,7 +3811,7 @@
   },
   "Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (tekst w JSX)"
+      "src/components/zakwas/PasZakwasu.tsx (podtytul)"
     ]
   },
   "Nie można otworzyć bazy danych": {
@@ -4006,7 +4009,7 @@
   },
   "Nieprzyjemny, zgniły zapach": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (label)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Nieszczelne sklejenie szwu, przez co chleb pęka od spodu w piecu.": {
@@ -4418,7 +4421,7 @@
   },
   "Ostatnie dokarmienie": {
     "gdzie": [
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (etykieta)"
     ]
   },
   "Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.": {
@@ -4428,7 +4431,7 @@
   },
   "Ostatnie wpisy": {
     "gdzie": [
-      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterEntriesList.tsx (tytul)"
     ]
   },
   "Ostrożnie wyjmij gorący garnek (zawsze w rękawicach żaroodpornych!) i zdejmij pokrywkę.": {
@@ -5160,7 +5163,8 @@
   },
   "Profil zakwasu": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
+      "src/components/zakwas/StarterProfileCard.tsx (tytul)",
+      "src/components/zakwas/useAkcjeZakwasu.ts (Alert.alert)",
       "src/lib/confirm.ts (message)"
     ]
   },
@@ -5569,7 +5573,7 @@
   },
   "Puszysty nalot w dowolnym kolorze, także biały": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (label)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Pâte Fermentée (Stare ciasto)": {
@@ -5619,7 +5623,7 @@
   },
   "Płyn na powierzchni o zapachu alkoholu (hooch)": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (label)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Płynny Levain (100%)": {
@@ -5890,7 +5894,7 @@
   },
   "Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (label)"
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Ręce tylko na starcie": {
@@ -6212,7 +6216,7 @@
   },
   "Stary zakwas": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterFeedingCard.tsx (etykieta)",
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
@@ -6223,7 +6227,7 @@
   },
   "Stały dzień karmienia": {
     "gdzie": [
-      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)",
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tytul)",
       "src/lib/platnosci/nazwy-pro.ts (kod)",
       "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
     ]
@@ -6421,7 +6425,7 @@
   },
   "Szczyt aktywności": {
     "gdzie": [
-      "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterPeakActivityCard.tsx (tytul)"
     ]
   },
   "Sześć etapów nauki: od prostego chleba bez wyrabiania po wiejski chleb na zakwasie i pizzę neapolitańską.": {
@@ -6661,7 +6665,7 @@
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (wartosc)"
     ]
   },
   "Temperatura w kuchni": {
@@ -7246,7 +7250,7 @@
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (wartosc)"
     ]
   },
   "W misce połącz zakwas, mąkę, jogurt, oliwę i sól. Wyrabiaj 2–3 minuty do powstania miękkiego ciasta.": {
@@ -7379,7 +7383,7 @@
   },
   "Wiek zakwasu": {
     "gdzie": [
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterProfileCard.tsx (etykieta)"
     ]
   },
   "Wielkie dziury pod górną skórką, a pod nimi ciężki, zbity i wilgotny dół": {
@@ -7466,6 +7470,7 @@
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (woda)",
+      "src/components/zakwas/StarterFeedingCard.tsx (etykieta)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)",
       "src/lib/recipe-formatter.ts (kod)"
@@ -8340,6 +8345,7 @@
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "app/(tabs)/zakwasy/index.tsx (tytul)",
       "src/components/zakwas/PasZakwasu.tsx (tytul)"
     ]
   },
@@ -8358,7 +8364,7 @@
   "Zakładam zakwas": {
     "gdzie": [
       "src/components/start/WyborCzynnosci.tsx (kod)",
-      "src/components/zakwas/ZakladanieStart.tsx (tekst w JSX)"
+      "src/components/zakwas/ZakladanieStart.tsx (tytul)"
     ]
   },
   "Zakładanie zakwasu od zera, temperatura i codzienna opieka.": {
@@ -8478,7 +8484,7 @@
   },
   "Zapisano zaktualizowany profil": {
     "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+      "src/components/zakwas/useAkcjeZakwasu.ts (Alert.alert)"
     ]
   },
   "Zapisano zmiany w recepturze „{name}”.": {

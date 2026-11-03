@@ -16,6 +16,8 @@ import { formatTime, systemFirstWeekday } from '../../lib/format';
 import { dniTygodniaIso, nazwaDniaTygodnia } from '../../lib/kalendarz-widok';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 const DOBA_MIN = 24 * 60;
 const godzina = (minuta: number) => formatTime(new Date(2000, 0, 1, Math.floor(minuta / 60), minuta % 60));
@@ -36,8 +38,8 @@ export function StalyDzienKarmienia({ starter, teraz, onZapisz }: { starter: Sto
   const d = starter.fridgeFeedDay ?? null;
   const przesun = (delta: number) => d && onZapisz({ weekday: d.weekday, minuteOfDay: (d.minuteOfDay + delta + DOBA_MIN) % DOBA_MIN });
   return (
-    <View style={styles.karta} testID="staly-dzien-karta">
-      <Text style={styles.naglowek} accessibilityRole="header">{t('Stały dzień karmienia')}</Text>
+    // Karta systemu kart, nagłówek jednym krojem (karty/README.md §2, §4) [M3 p2]
+    <Karta testID="staly-dzien-karta" tytul={t('Stały dzień karmienia')} ikona={<IkonaKarty nazwa="kalendarz" />}>
       {dostepnosc !== 'dostepny' ? (
         <Text style={styles.tekst}>{t('Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.')}</Text>
       ) : (
@@ -67,13 +69,11 @@ export function StalyDzienKarmienia({ starter, teraz, onZapisz }: { starter: Sto
           <Text style={styles.przypis}>{t('Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.')}</Text>
         </>
       )}
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  karta: { gap: odstepy.s, padding: odstepy.l, marginBottom: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   tekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   rzad: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s },
@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: odstepy.s,
-    borderRadius: promienie.przycisk,
+    // Chip na karcie jak chip pasa: promień `chip` (karty/README.md §2) [M3 p2]
+    borderRadius: promienie.chip,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,
