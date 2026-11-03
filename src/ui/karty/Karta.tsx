@@ -7,7 +7,7 @@
 // ============================================================================
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { theme } from '../theme';
 import { odstepy, promienie, typografia } from '../tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../pogrubiony-tekst';
@@ -15,6 +15,51 @@ import { useDuzyTekst } from './duzy-tekst';
 
 /** Rozmiar ikony w nagłówku karty (README §2). */
 const IKONA = 24;
+
+/** Wygląd karty bez wypełnienia i nagłówka: tło, obwódka i promień (README §2). Także dla karty-przycisku na liście. */
+export const wygladKarty = {
+  backgroundColor: theme.colors.powierzchnia,
+  borderWidth: 1,
+  borderColor: theme.colors.kartaLinia,
+  borderRadius: promienie.karta,
+} as const;
+
+/** Nagłówek karty (ikona, tytuł, znacznik); też nagłówek grupy kart na tle (lista receptur, O2b). */
+export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
+  testID: string;
+  tytul: string;
+  ikona?: React.ReactNode;
+  znacznik?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+}) {
+  const duzy = useDuzyTekst();
+  const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
+  const ik = ikona ? (
+    <View testID={`${testID}-ikona`} style={styles.ikona} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+      {ikona}
+    </View>
+  ) : null;
+  const zn = znacznik ? <View testID={`${testID}-znacznik`}>{znacznik}</View> : null;
+  const tyt = (
+    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && styles.tytulWiersz, waga]}>{tytul}</Text>
+  );
+  return (
+    <View testID={`${testID}-naglowek`} style={[styles.naglowek, duzy ? styles.naglowekStos : styles.naglowekRzad, style]}>
+      {duzy ? (
+        <>
+          {ik || zn ? <View style={styles.wstep}>{ik}{zn}</View> : null}
+          {tyt}
+        </>
+      ) : (
+        <>
+          {ik}
+          {tyt}
+          {zn}
+        </>
+      )}
+    </View>
+  );
+}
 
 export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia = false, children }: {
   testID?: string;
@@ -29,32 +74,9 @@ export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia
   children?: React.ReactNode;
 }) {
   const duzy = useDuzyTekst();
-  const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
-  const ik = ikona ? (
-    <View testID={`${testID}-ikona`} style={styles.ikona} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
-      {ikona}
-    </View>
-  ) : null;
-  const zn = znacznik ? <View testID={`${testID}-znacznik`}>{znacznik}</View> : null;
-  const tyt = (
-    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && styles.tytulWiersz, waga]}>{tytul}</Text>
-  );
   return (
     <View testID={testID} style={[styles.karta, bezWypelnienia ? styles.bezWypelnienia : { padding: duzy ? odstepy.m : odstepy.l }]}>
-      <View testID={`${testID}-naglowek`} style={[styles.naglowek, duzy ? styles.naglowekStos : styles.naglowekRzad, bezWypelnienia && styles.naglowekWKarcie]}>
-        {duzy ? (
-          <>
-            {ik || zn ? <View style={styles.wstep}>{ik}{zn}</View> : null}
-            {tyt}
-          </>
-        ) : (
-          <>
-            {ik}
-            {tyt}
-            {zn}
-          </>
-        )}
-      </View>
+      <NaglowekKarty testID={testID} tytul={tytul} ikona={ikona} znacznik={znacznik} style={bezWypelnienia && styles.naglowekWKarcie} />
       {children}
     </View>
   );
@@ -62,10 +84,7 @@ export function Karta({ testID = 'karta', tytul, ikona, znacznik, bezWypelnienia
 
 const styles = StyleSheet.create({
   karta: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.kartaLinia,
-    borderRadius: promienie.karta,
+    ...wygladKarty,
     gap: odstepy.m,
     minWidth: 0,
   },
