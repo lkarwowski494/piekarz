@@ -797,3 +797,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Wyjątek nazwany:** pliki `oferta-*` i `oferta-zrodlo.json` zostają w `docs/design/wzorce-zrzuty/` (przypina je `tests/wzorce-oferty-202.test.ts`); nowy wzorzec ekranu Pro to `docs/design/karty/zrzuty/inne-pro-*`, podmiana przy wdrożeniu przez 08 razem z testem.
 - **Zależy od:** D-139, D-140, D-150; liczby w ekranach D-136…D-138 to przykłady do treści ról 03 i 06.
 - **Status:** dzień, do weta.
+
+### [D-160] 2026-11-03 — Partie wdrożenia redesignu D-139/D-141 (rola 08 build, po jednej, na `redesign/piekarz-2026-10-22`)
+- **Rodzaj:** decyzja koordynatora M3 (STOP 3 według zasad właściciela z 2026-11-02: koordynator decyduje sam, wpis do weta).
+- **Podstawa:** tabela AS IS → TO BE `docs/design/karty/README.md` §4 (rola 04, `56047e1`), D-141 (O1a, O2b, O3a, O4a), D-150.
+- **Decyzja:** p1 tokeny karty (`promienie.karta`, `kartaLinia` w `docs/design/tokeny.json` i `src/ui/tokeny.ts` razem) i komponenty `Karta`, `WierszKarty`, `CzapkaPaska`, `PoleObjawu` z testami, bez zmiany ekranów; p2 Zakwasy (+ Doktor zakwasu); p3 Receptury: lista (O2b), receptura, „Do miski”, arkusz „Składniki”; p4 Plan i Prowadzenie (O3a); p5 Dziennik, Ustawienia, Piekarz Pro (treść ujawnień bez zmian, D-112/D-113); p6+ funkcje D-136…D-138 po treści ról 03 i 06 (flaga danych do oceny w p6). Po każdej partii: verify kod 0 u koordynatora, commit z ID partii, push. Po p5: rola 09 (teksty z README §6), E2E, build. Punkt kontrolny właściciela po p2 (zrzuty), nie po p1 (p1 bez zmian na ekranie).
+- **Odrzucone:** jedna duża partia (ryzyko i brak punktu kontrolnego); p1 razem z Zakwasami (miesza zmianę strukturalną z przepływem).
+- **Zależy od:** zamknięcia 04-fix-AX5 przed p2 (reguła stosu przy AX3+).
+- **Status:** dzień, do weta.
