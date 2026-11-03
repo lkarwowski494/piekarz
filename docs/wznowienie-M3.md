@@ -1,7 +1,13 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-03 ~21:05 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-03 ~21:50 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p6a (`session_01T66VBwYccye3XeZdurYz7G`, zarchiwizowana) scalone do `redesign/` (merge `03843af`; verify kod 0, 526 zestawów / 5670 testów): pas Planu (D-204; d10:135, p4:160), segment „świeże / suche” przy wierszu „Do miski” (D-136, `SegmentDrozdzy.tsx`, zapis `rodzaj_drozdzy` bez zmian), przelicznik × 0,35 (D-205; 11 asercji wektorów sprawdzonych rachunkiem przez koordynatora; wyjątek BR-KALK-012 zdjęty). D-202 (noc, do weta).
+- **Bloker wydania:** zdanie w arkuszu „Składniki” nadal „…odważysz 0,4 tej masy” (nowy klucz łamie `tests/czeka-na-przeklad-093`) → rola 09: PL/EN z D-202 + 33 języki.
+- Znalezisko (brzegowe, kod sprzed p6a): `src/lib/rodzaj-drozdzy.ts:26` — stuknięcie przed pierwszym odczytem ustawienia cofa ekran do starego rodzaju, w bazie nowy. Do partii poprawek z testem.
+- Następnie: rola 09 build (teksty README §6, zdanie 0,35, „instant”, „Wstecz”, „Język i jednostki”, „Ile pieczesz”, „Do miski” + „Odhaczaj przy ważeniu.”, „Co zrobić”, podtytuł pasa receptury, wiersz daty z oceną w Dzienniku).
+
+## Aktualizacja 2026-11-03 ~21:05 UTC (koordynator M3, noc)
 - p5b (`session_01T66VBwSp86GSdKwNWMSbz4`, zarchiwizowana) scalone do `redesign/` (merge `456894a`; verify kod 0, 525 zestawów / 5659 testów): Piekarz Pro z pasem, ujawnienia bez zmian (testy `ekran-zakupu-ujawnienia`, `ekran-pro-pb` nietknięte, testID `pro-opis`/`pro-aktywny` przeniesione na pas), objawy jako `PoleObjawu`, §7a Doktor/Pro; istniejące testy bez zmian; D-199. Rozbieżność dla 02/04: zdanie Basic w makiecie „…i porównanie wypieków.” vs kontrakt „…więcej zakwasów i receptur.” (zostaje kontrakt).
 - Właściciel 20:55 UTC: „Decyzje podejmujesz zgodnie z zasadami … Do rana nic tu nie pisz i nie raportuj (do 5 rano). Pracuj w tle.”
 - Start p6a (zadania 0 pas Planu D-204, 1 segment drożdży D-136, 2 przelicznik 0,35 D-205), pula D-202…D-203.
