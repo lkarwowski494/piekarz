@@ -29,7 +29,8 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - Run 41589614991 (`testflight.yml` na master @ `39f3890`): `tz-matrix` zielone (06:24–06:42 UTC, 7 stref); „Archive & Upload” zielone: BR-REL-005, `npm run verify`, niezmienniki iOS, PrivacyInfo; wersja 1.0.0, **build 1021**, „Upload succeeded” / „EXPORT SUCCEEDED” 07:02:53 UTC.
 - Ostrzeżenia bez wpływu na build: brak dSYM dla React.framework, ReactNativeDependencies.framework, hermesvm.framework (symbolikacja awarii tych frameworków w ASC niepełna; brzegowe).
 - Z-1 zrobione: właściciel usunął Free Trial z `.pro.monthly` i `.pro.yearly` w ASC (2026-11-03, słowa: „Obie usuenięte.”).
-- Następny krok: właściciel — test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
+- Test właściciela na 1021 (2026-11-03): wygląd blokuje 1.0 (D-139) — „Dziś” wzorcem, „Zakwasy” i „Receptury” do przebudowy; zrzuty `docs/design/uwagi-wlasciciela-2026-11-03/`. Następny krok: rola 04 build od E3 (język „Dziś” wszędzie, pula decyzji D-140…D-149), STOP E3 okiem właściciela, potem 08 partiami, 09, E2E, build 1022, test, 07 reaudit.
+- (Wcześniej) Następny krok: właściciel — test na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`) na buildzie 1021 po przetworzeniu w ASC; potem rola 07 reaudit na 1021 (D-135).
 
 - Wersja 1.1 (właściciel 2026-11-03): D-136 przełącznik świeże / instant przy wierszu drożdży na „Do miski” (04 → 08 → 09); D-137 receptury-bliźniaki drożdżowe dla receptur na zakwasie (03 `zmiany-zakresu` → 06 → 04 → 08 → 09). D-138 tryb „maszyna do chleba” (01/03 → 06 → 04 → 08 → 09; 1.1 albo 1.2 według kosztu roli 03). Start po zgłoszeniu 1.0.
 
