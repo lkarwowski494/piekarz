@@ -790,3 +790,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** nowe F-nn dla D-136 i D-137 (to zmiany istniejących funkcji, ID F-55 i F-26 zostają); dopisanie BR przez rolę 03 (należą do roli 01, zasada roli 7).
 - **Zależy od:** D-136, D-137, D-138, D-150, D-112, D-113. Po odpowiedziach: wpis decyzji słowami właściciela (pula D-152…D-159), ZM-24…ZM-26 z decyzją, paczka dla roli 06.
 - **Status:** czeka na STOP właściciela.
+
+### [D-152] 2026-11-03 — Basic/Pro dla D-136…D-138: liczenie w Basic, planowanie w Pro (odpowiedź na pytanie 1 z D-151)
+- **Rodzaj:** produktowa, decyzja właściciela (czat roli 03, 2026-11-03). **Słowa właściciela:** „1. Zgoda”.
+- **Decyzja:** D-136 (wybór drożdży przy wierszu) w Basic jak BR-KALK-009; receptury drożdżowe z D-137 w Basic jak inne receptury bazowe (kryterium F-26 „żadna osobno zablokowana”); w trybie maszyny (D-138, F-72) ilości, kolejność wkładania i program w Basic, godzina gotowości (na którą ustawić opóźnienie) w Pro jak plan wstecz (D-112). Podział D-112/D-113 bez zmian; uwaga dla roli 02: dopisać F-72 do tabeli „Basic i Pro według funkcji”.
+- **Odrzucone:** cały tryb maszyny w Pro (liczenie w Pro łamie linię D-112); wszystko w Basic (darmowy plan „na godzinę” obok płatnego planu wstecz).
+- **Otwarte z tej samej odpowiedzi (do doprecyzowania, D-151):** „2. 9 , nie wiem czy nie powinniśmy rozszerzyć katalogu przepisów w wersji 1.01”; „3. Ale nie można jakiegoś uniwersalnego przepisu ? W sensie bierzesz przepis na chleb który już mamy, wrzucasz w odpowiedniej kolejności składniki do maszyny i aplikacja sugeruje program czyli np chleb zwykły lub chleb pełnoziarnisty itd . Lub najbliższy temu ?”; „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”. Odpowiedzi 2 i 4 wzajemnie się wykluczają; pytania doprecyzowujące w `docs/zakres-zm-2026-11-03.md`.
+- **Zależy od:** D-112, D-113, D-151. **Status:** dzień, do weta.
