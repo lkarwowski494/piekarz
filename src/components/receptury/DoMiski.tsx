@@ -102,7 +102,7 @@ export function DoMiski(p: DoMiskiProps) {
   const b = p.prefermentBreakdown;
   const w = (g: number) => formatWeight(g, unitSystem);
   const d = (g: number) => formatDoseWeight(g, unitSystem);
-  // Drożdże z receptury są świeże; wybór „suche” w „Składnikach” przelicza każdy wiersz × 0,4 (RD-19) [M1-audytor-generalny-216]
+  // Drożdże z receptury są świeże; wybór „suche” w „Składnikach” przelicza każdy wiersz × 0,35 (RD-19, D-205) [M1-audytor-generalny-216]
   const rodzaj = useRodzajDrozdzy();
   const drozdze = nazwaDrozdzy(rodzaj);
   const dd = (g: number) => d(gramyDrozdzy(g, rodzaj));

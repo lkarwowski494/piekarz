@@ -222,3 +222,22 @@ describe('M3 p6a: segment drożdży przy wierszu „Do miski” (BR-KALK-012, D-
     expect(tekst(jeden(tree.root, 'do-miski-yeast-dry'))).toBe('dry');
   });
 });
+
+describe('M3 p6a: przelicznik × 0,35 przy wierszu (D-205, D-172, RD-19-W2)', () => {
+  beforeEach(() => {
+    mockUstawienia.clear();
+    mockUstawienia.set('unit_system', 'metric');
+    mockZapis.blad = false;
+    Object.assign(mockOkno, { width: 390, fontScale: 1 });
+    _resetRodzajDrozdzy();
+    setLang('pl');
+  });
+
+  it('BR-KALK-012 Wybór przy wierszu drożdży: 25 g świeżych → 8,75 g suchych', async () => {
+    const tree = await render(<DoMiski {...props()} />);
+    await nacisnij(tree.root, 'do-miski-yeast-dry');
+    expect(gramyDrozdzy(25, 'suche')).toBe(8.75);
+    expect(tekst(jeden(tree.root, 'scale-item-yeast'))).toContain(masa(8.75));
+    act(() => tree.unmount());
+  });
+});

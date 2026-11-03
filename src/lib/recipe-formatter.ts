@@ -97,7 +97,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   // Salt
   lines.push(`  • ${t('Sól')} (${pct(calc.saltGrams)}%): ${dose(calc.saltGrams)}`);
 
-  // Yeast if present: rodzaj z „Składników” (świeże albo suche × 0,4, RD-19) [M1-audytor-generalny-216]
+  // Yeast if present: rodzaj z „Składników” (świeże albo suche × 0,35, RD-19, D-205) [M1-audytor-generalny-216]
   if (calc.yeastGrams && calc.yeastGrams > 0) {
     const rodzaj = biezacyRodzajDrozdzy();
     lines.push(`  • ${nazwaDrozdzy(rodzaj)}: ${dose(gramyDrozdzy(calc.yeastGrams, rodzaj))}`);

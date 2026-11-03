@@ -217,7 +217,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
               </View>
             </Karta>
 
-            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,4 (RD-19) [M1-audytor-generalny-216] */}
+            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,35 (RD-19, D-205) [M1-audytor-generalny-216] */}
             {(p.yeastPct > 0 || (p.prefermentBreakdown?.prefermentYeastGrams ?? 0) > 0) && (
               <Karta testID="karta-drozdze" tytul={t('Drożdże do odważenia')} ikona={<IkonaKarty nazwa="miska" />}>
                 <View style={styles.segmenty} accessibilityRole="radiogroup">

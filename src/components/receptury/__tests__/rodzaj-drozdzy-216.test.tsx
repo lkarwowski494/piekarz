@@ -1,7 +1,7 @@
 /**
  * 216: wybór rodzaju drożdży w interfejsie (BR-KALK-009 „Świeże na suche”, DEC-26 a). Procent drożdży w recepturze
  * to drożdże świeże (jak drożdże zaczynu, D-060); wybór „suche” w arkuszu „Składniki” przelicza wszystkie wiersze
- * drożdży × 0,4 (RD-19) i nazywa rodzaj w wierszu i w kopii tekstowej. Wybór zostaje w app_settings (bez migracji)
+ * drożdży × 0,35 (RD-19, D-205; wcześniej × 0,4) i nazywa rodzaj w wierszu i w kopii tekstowej. Wybór zostaje w app_settings (bez migracji)
  * [M1-audytor-generalny-216; M1-audytor-generalny-207].
  */
 const mockUstawienia = new Map<string, string>();
@@ -98,15 +98,15 @@ describe('216: rodzaj drożdży (BR-KALK-009, DEC-26 a)', () => {
     expect(tekst(wiersz)).toMatch(/10(,0)? g/);
   });
 
-  it('BR-KALK-009 Świeże na suche: receptura z 10 g drożdży świeżych, wybór „suche” → 4 g drożdży suchych (RD-19-W1)', async () => {
+  it('BR-KALK-009 Świeże na suche: receptura z 10 g drożdży świeżych, wybór „suche” → 3,5 g drożdży suchych (RD-19-W1)', async () => {
     tree = await render(<DoMiski {...bezZaczynu()} />);
     await act(async () => {
       await zapiszRodzajDrozdzy('suche');
     });
     const wiersz = host(tree.root, 'scale-item-yeast')[0];
     expect(tekst(wiersz)).toContain('Drożdże suche');
-    expect(tekst(wiersz)).toMatch(/(^|\s)4(,0)? g/);
-    expect(tekst(wiersz)).toContain('0,4%');
+    expect(tekst(wiersz)).toMatch(/(^|\s)3,5 g/);
+    expect(tekst(wiersz)).toContain('0,35%');
     expect(tekst(wiersz)).not.toContain('świeże');
   });
 
@@ -117,7 +117,7 @@ describe('216: rodzaj drożdży (BR-KALK-009, DEC-26 a)', () => {
     tree = await render(<DoMiski {...p} />);
     const zaczyn = tekst(host(tree.root, 'scale-item-preferment-yeast')[0]);
     expect(zaczyn).toContain('Drożdże suche');
-    expect(zaczyn).toContain(`${String(Math.round(b.prefermentYeastGrams * 0.4 * 10) / 10).replace('.', ',')}`);
+    expect(zaczyn).toContain(`${String(Math.round(b.prefermentYeastGrams * 0.35 * 10) / 10).replace('.', ',')}`);
   });
 
   it('wybór w arkuszu „Składniki” zapisuje się w app_settings i wraca po ponownym uruchomieniu', async () => {
@@ -144,7 +144,7 @@ describe('216: rodzaj drożdży (BR-KALK-009, DEC-26 a)', () => {
     const calc = calculateDoughRecipe(formula);
     expect(formatRecipeText({ recipeName: 'Test', calc, unitSystem: 'metric' })).toMatch(/Drożdże świeże \(prasowane\): 10(,0)? g/);
     await zapiszRodzajDrozdzy('suche');
-    expect(formatRecipeText({ recipeName: 'Test', calc, unitSystem: 'metric' })).toMatch(/Drożdże suche: 4(,0)? g/);
+    expect(formatRecipeText({ recipeName: 'Test', calc, unitSystem: 'metric' })).toMatch(/Drożdże suche: 3,5 g/);
   });
 
   it('arkusz pokazuje grupę wyboru z objaśnieniem tylko, gdy receptura ma drożdże', async () => {
@@ -174,8 +174,8 @@ describe('216: rodzaj drożdży (BR-KALK-009, DEC-26 a)', () => {
     expect(parsujRodzajDrozdzy(undefined)).toBe('swieze');
     expect(parsujRodzajDrozdzy('instant')).toBe('swieze');
     expect(biezacyRodzajDrozdzy()).toBe('swieze');
-    expect(gramyDrozdzy(10, 'suche')).toBe(4);
-    expect(gramyDrozdzy(25, 'suche')).toBe(10);
+    expect(gramyDrozdzy(10, 'suche')).toBe(3.5);
+    expect(gramyDrozdzy(25, 'suche')).toBe(8.75);
     expect(gramyDrozdzy(10, 'swieze')).toBe(10);
     expect(nazwaDrozdzy('suche')).toBe('Drożdże suche');
     expect(nazwaDrozdzy('swieze')).toBe('Drożdże świeże (prasowane)');

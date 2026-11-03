@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — rodzaj drożdży do odważenia (BR-KALK-009, DEC-26 a) [M1-audytor-generalny-216].
 // Procent drożdży w recepturze to drożdże świeże (jak drożdże zaczynu, D-060); wybór „suche” przelicza
-// gramy × 0,4 (RD-19, convertYeast). Wybór w app_settings (domyślnie świeże, bez migracji).
+// gramy × 0,35 (RD-19, D-205, convertYeast). Wybór w app_settings (domyślnie świeże, bez migracji).
 // ============================================================================
 
 import { useEffect, useState } from 'react';
@@ -54,7 +54,7 @@ export function useRodzajDrozdzy(): RodzajDrozdzy {
   return v;
 }
 
-/** Gramy drożdży świeżych z receptury → gramy wybranego rodzaju (RD-19: suche × 0,4). */
+/** Gramy drożdży świeżych z receptury → gramy wybranego rodzaju (RD-19: suche × 0,35, D-205). */
 export function gramyDrozdzy(gramySwiezych: number, rodzaj: RodzajDrozdzy): number {
   return rodzaj === 'suche' ? convertYeast(gramySwiezych, 'fresh').instantGrams : gramySwiezych;
 }
