@@ -346,6 +346,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
             <StrefaKroku
               step={currentStep}
               formattedTime={teksty.czas?.tekst ?? ''}
+              numer={{ n: currentStepIdx + 1, m: steps.length }}
               czasEtykieta={teksty.czas?.etykieta}
               potem={teksty.potem}
               ekran={teksty.ekran}

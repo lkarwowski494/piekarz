@@ -1953,6 +1953,7 @@
   },
   "Godziny snu": {
     "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tytul)",
       "src/components/settings/GodzinySnuSection.tsx (tekst w JSX)"
     ]
   },
@@ -2432,7 +2433,7 @@
   },
   "Kiedy chleb ma być gotowy?": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tytul)"
     ]
   },
   "Kiedy zakwas jest dojrzały, jak dokarmianie i temperatura zmieniają jego kwasowość i smak.": {
@@ -2672,7 +2673,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
-      "src/components/stolnica/StrefaPlanu.tsx (tekst w JSX)"
+      "src/components/stolnica/StrefaKroku.tsx (tytul)"
     ]
   },
   "Krok „{step}” dobiegł końca.": {
@@ -4050,7 +4051,7 @@
   },
   "Notatka z poprzedniego wypieku: {notatka}": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
+      "src/components/harmonogram/NotatkiPlanu.tsx (tekst w JSX)"
     ]
   },
   "Notatki z wypieku": {
@@ -4174,7 +4175,7 @@
   },
   "Ochrona snu aktywna": {
     "gdzie": [
-      "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
+      "src/components/harmonogram/SleepGuardBanner.tsx (tytul)"
     ]
   },
   "Oczekiwano obiektu receptury": {
@@ -4480,7 +4481,7 @@
   },
   "Oś czasu przygotowania": {
     "gdzie": [
-      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
+      "src/components/harmonogram/TimelineStagesList.tsx (tytul)"
     ]
   },
   "POZIOM": {
@@ -5649,6 +5650,7 @@
   },
   "Receptura": {
     "gdzie": [
+      "src/components/harmonogram/NotatkiPlanu.tsx (tytul)",
       "src/lib/confirm.ts (message)"
     ]
   },
@@ -5657,7 +5659,7 @@
   },
   "Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
+      "src/components/harmonogram/NotatkiPlanu.tsx (tekst w JSX)"
     ]
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
@@ -6084,7 +6086,7 @@
   "Składniki do odważenia": {
     "gdzie": [
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
-      "src/components/stolnica/SkladnikiKroku.tsx (tekst w JSX)"
+      "src/components/stolnica/SkladnikiKroku.tsx (tytul)"
     ]
   },
   "Składniki do słoika": {
@@ -6676,7 +6678,7 @@
   },
   "Temperatura w kuchni:": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
+      "src/components/harmonogram/TargetReadyCard.tsx (tytul)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
@@ -7049,6 +7051,7 @@
     "gdzie": [
       "src/components/SettingsModal.tsx (tekst w JSX)",
       "src/components/SettingsModal.tsx (title)",
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tytul)",
       "src/components/start/PasDzis.tsx (etykieta)"
     ]
   },

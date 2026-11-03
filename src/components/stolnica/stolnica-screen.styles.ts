@@ -20,12 +20,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     marginBottom: odstepy.s,
   },
-  krokNzN: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz,
-    textAlign: 'center',
-  },
   // „Krok n z N” i „Gotowe {dzień} o {godzina}” (makieta: t-obj, p2) [M1-audytor-generalny-114]
   planOpis: {
     gap: odstepy.xs,

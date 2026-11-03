@@ -1,12 +1,11 @@
 // ============================================================================
 // Piekarz — strefa planu na ekranie prowadzenia (design-spec §11b „056”): nazwa receptury, Spirala koszyka
-// z planu tego wypieku (058), „Krok n z N” i pod nim „Gotowe {dzień} o {godzina}” (makieta prowadzenia,
-// 04-studio-projektowe-029). Wydzielona z app/stolnica.tsx [M1-audytor-generalny-114].
+// z planu tego wypieku (058) i „Gotowe {dzień} o {godzina}” (makieta prowadzenia, 04-studio-projektowe-029); „Krok n z N”
+// jest nagłówkiem karty instrukcji (StrefaKroku, M3 p4, D-192). Wydzielona z app/stolnica.tsx [M1-audytor-generalny-114].
 // ============================================================================
 
 import React from 'react';
 import { Text, View } from 'react-native';
-import { t } from '../../lib/i18n';
 import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import type { SessionStep } from '../../core/bake-steps';
 import { SpiralaWypieku } from '../Spirala';
@@ -32,7 +31,6 @@ export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec
       <Text testID="stolnica-nazwa-wypieku" style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
       <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} koniecKrokuMs={koniecKrokuMs} />
       <View style={styles.planOpis}>
-        <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>
         {gotowe !== null && <Text testID="plan-ready" style={styles.gotowe}>{gotowe}</Text>}
       </View>
     </>
