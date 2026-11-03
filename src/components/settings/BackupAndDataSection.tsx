@@ -19,6 +19,9 @@ import {
 } from '../../lib/csv-exporter';
 
 import { typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 export function BackupAndDataSection() {
   const [isExporting, setIsExporting] = useState<boolean>(false);
   const [isExportingCsv, setIsExportingCsv] = useState<boolean>(false);
@@ -88,50 +91,48 @@ export function BackupAndDataSection() {
 
   return (
     <>
-      {/* Backup Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Kopia zapasowa')}</Text>
+      {/* Kopia zapasowa: karta z ikoną, akcje jako wiersze; „Usuń wszystkie dane” w tej karcie, kolor błędu tylko na tej
+          akcji (makieta inne.html #ustawienia, F-65) [M3 p5]. Handlery, potwierdzenie i kopia przed czyszczeniem bez zmian */}
+      <Karta testID="karta-kopia" tytul={t('Kopia zapasowa')} ikona={<IkonaKarty nazwa="dysk" />}>
         <Text style={styles.cardDescription}>
           {t('Dane są zapisywane tylko w tym telefonie.')}
         </Text>
-
         {/* Import kopii i receptury: jedno wejście „Importuj z pliku” (ImportRecepturySection) [M1-audytor-generalny-113] */}
-        <View style={styles.backupButtonsRow}>
+        <View>
           <Pressable
             accessibilityRole="button"
             testID="export-backup-btn"
-            style={styles.exportBtn}
+            style={styles.wiersz}
             onPress={handleExport}
             disabled={isExporting}
           >
-            <Text style={styles.exportBtnText}>
+            <Text style={wierszUstawien.akcja}>
               {isExporting ? t('Eksportowanie...') : t('Eksportuj do pliku')}
             </Text>
           </Pressable>
+          <Pressable accessibilityRole="button" testID="delete-all-data-btn" style={styles.wiersz} onPress={handleDeleteAll}>
+            <Text style={wierszUstawien.usun}>{t('Usuń wszystkie dane')}</Text>
+          </Pressable>
         </View>
-
-        <View style={styles.infoBadge}>
-          <Text style={styles.infoBadgeText}>
-            {t('Trzymam 10 ostatnich kopii na tym telefonie.')}
-          </Text>
-        </View>
-      </View>
+        <Text style={wierszUstawien.opis}>
+          {t('Trzymam 10 ostatnich kopii na tym telefonie.')}
+        </Text>
+      </Karta>
 
       {/* CSV Export Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Eksport arkuszy CSV')}</Text>
+      <Karta testID="karta-csv" tytul={t('Eksport arkuszy CSV')} ikona={<IkonaKarty nazwa="lista" />}>
         <Text style={styles.cardDescription}>
           {t('Eksportuj swoje dane do otwartego formatu CSV (zgodnego z Excel i arkuszami kalkulacyjnymi).')}
         </Text>
-        <View style={styles.csvButtonsCol}>
+        <View>
           <Pressable
             accessibilityRole="button"
             testID="export-bakes-csv-btn"
-            style={styles.csvBtn}
+            style={styles.wiersz}
             onPress={handleExportBakesCsv}
             disabled={isExportingCsv}
           >
-            <Text style={styles.csvBtnText}>
+            <Text style={wierszUstawien.akcja}>
               {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj historię wypieków (CSV)')}
             </Text>
           </Pressable>
@@ -140,102 +141,26 @@ export function BackupAndDataSection() {
             <Pressable
               accessibilityRole="button"
               testID="export-inventory-csv-btn"
-              style={styles.csvBtn}
+              style={styles.wiersz}
               onPress={handleExportInventoryCsv}
               disabled={isExportingCsv}
             >
-              <Text style={styles.csvBtnText}>
+              <Text style={wierszUstawien.akcja}>
                 {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj spiżarnię mąk (CSV)')}
               </Text>
             </Pressable>
           )}
         </View>
-      </View>
-
-      {/* Usunięcie wszystkich danych (F-65): kolor błędu tylko na tej akcji (design-spec, inne.html us.usun) */}
-      <View style={styles.card}>
-        <Pressable accessibilityRole="button" testID="delete-all-data-btn" style={styles.deleteRow} onPress={handleDeleteAll}>
-          <Text style={styles.deleteText}>{t('Usuń wszystkie dane')}</Text>
-        </Pressable>
-      </View>
+      </Karta>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: theme.spacing.sm,
-  },
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
   cardDescription: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
-    lineHeight: 18,
-    marginBottom: theme.spacing.md,
-  },
-  backupButtonsRow: {
-    flexDirection: 'row',
-    gap: theme.spacing.sm,
-  },
-  exportBtn: {
-    flex: 1,
-    minHeight: 44,
-    backgroundColor: theme.colors.akcent,
-    borderRadius: theme.radius.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing.sm,
-  },
-  exportBtnText: {
-    color: theme.colors.naAkcencie,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  infoBadge: {
-    marginTop: theme.spacing.sm,
-    padding: theme.spacing.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.sm,
-  },
-  infoBadgeText: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz3,
-  },
-  csvButtonsCol: {
-    gap: theme.spacing.sm,
-  },
-  csvBtn: {
-    minHeight: 44,
-    backgroundColor: theme.colors.powierzchnia,
-    borderColor: theme.colors.obwodka,
-    borderWidth: 1,
-    borderRadius: theme.radius.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing.sm,
-  },
-  csvBtnText: {
-    color: theme.colors.tusz,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  deleteRow: {
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  deleteText: {
-    color: theme.colors.blad,
-    fontSize: 14,
-    fontWeight: '700',
   },
 });

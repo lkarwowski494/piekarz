@@ -1588,7 +1588,7 @@
   },
   "Eksport arkuszy CSV": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+      "src/components/settings/BackupAndDataSection.tsx (tytul)"
     ]
   },
   "Eksportowanie...": {
@@ -1952,7 +1952,7 @@
   "Godziny snu": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (tytul)",
-      "src/components/settings/GodzinySnuSection.tsx (tekst w JSX)"
+      "src/components/settings/GodzinySnuSection.tsx (tytul)"
     ]
   },
   "Godziny snu:": {
@@ -2307,7 +2307,7 @@
   },
   "Jednostki": {
     "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+      "src/components/settings/PreferencesSection.tsx (tytul)"
     ]
   },
   "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.": {
@@ -2376,7 +2376,7 @@
   },
   "Język": {
     "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+      "src/components/settings/PreferencesSection.tsx (tytul)"
     ]
   },
   "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.": {
@@ -2553,7 +2553,7 @@
   },
   "Kontakt": {
     "gdzie": [
-      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
+      "src/components/settings/StudioEcosystemSection.tsx (tytul)"
     ]
   },
   "Kontrola biologiczna (Bezpieczeństwo)": {
@@ -2596,7 +2596,7 @@
     "gdzie": [
       "src/components/RescueScreen.tsx (Alert.alert)",
       "src/components/settings/BackupAndDataSection.tsx (Alert.alert)",
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)",
+      "src/components/settings/BackupAndDataSection.tsx (tytul)",
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)",
       "src/lib/backup.ts (dialogTitle)"
     ]
@@ -5735,7 +5735,7 @@
   },
   "Rodzina Apps4Craft Studio": {
     "gdzie": [
-      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
+      "src/components/settings/StudioEcosystemSection.tsx (tytul)"
     ]
   },
   "Rozciągaj i składaj ciasto w czasie fermentacji: to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
@@ -6157,7 +6157,7 @@
   },
   "Sprzęt i naczynie do wypieku": {
     "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
+      "src/components/settings/BakerRitualSection.tsx (tytul)"
     ]
   },
   "Spróbuj ponownie": {
@@ -9905,7 +9905,7 @@
   "Źródła wiedzy": {
     "gdzie": [
       "src/components/SettingsModal.tsx (tekst w JSX)",
-      "src/components/settings/ZrodlaWiedzy.tsx (tekst w JSX)"
+      "src/components/settings/ZrodlaWiedzy.tsx (tytul)"
     ],
     "opis": "tytuł karty w Ustawieniach i nagłówek ekranu „Źródła wiedzy” (M3 T2, D-123)"
   },

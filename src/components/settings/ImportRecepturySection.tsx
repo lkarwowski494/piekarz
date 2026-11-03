@@ -9,7 +9,9 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
-import { promienie, typografia } from '../../ui/tokeny';
+import { odstepy, typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { t } from '../../lib/i18n';
 import { ImportZPlikuArkusz } from './ImportZPlikuArkusz';
 import { setPendingRecipeToLoad } from '../../lib/recipe-navigation';
@@ -31,7 +33,9 @@ export function ImportRecepturySection({ onPro }: { onPro?: () => void } = {}) {
 
   return (
     <View style={styles.grupa}>
+      {/* Wiersz-karta z ikoną (M3 p5); kopia przed importem i arkusz importu bez zmian */}
       <Pressable accessibilityRole="button" testID="import-file-btn" style={styles.wiersz} onPress={() => setOtwarte(true)}>
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="dysk" /></View>
         <Text style={styles.akcja}>{t('Importuj z pliku')}</Text>
       </Pressable>
       {otwarte && <ImportZPlikuArkusz onClose={() => setOtwarte(false)} onRecipeImported={poImporcie} onPonadLimitem={ponadLimitem} />}
@@ -41,17 +45,21 @@ export function ImportRecepturySection({ onPro }: { onPro?: () => void } = {}) {
 
 const styles = StyleSheet.create({
   grupa: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: promienie.grupa,
-    paddingHorizontal: theme.spacing.md,
+    ...wygladKarty,
+    paddingHorizontal: odstepy.l,
   },
   wiersz: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingVertical: theme.spacing.sm,
+    minHeight: 52,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: odstepy.m,
+    paddingVertical: 10,
   },
   akcja: {
+    flex: 1,
+    flexShrink: 1,
     fontSize: typografia.style.tresc.pt,
+    fontWeight: '600',
     color: theme.colors.akcentTekst,
   },
 });

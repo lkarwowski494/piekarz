@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — Ustawienia: godziny snu (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130]. Profile z
 // src/lib/godziny-snu.ts i „Bez godzin snu”; wybór zapisany w app_settings, plan wypieku i prowadzenie go czytają.
-// Wygląd jak sekcje obok (karta, przyciski wyboru 44 pt).
+// Wygląd jak sekcje obok: karta z ikoną, profile jako wiersze, wybrany z ✓ (ikona) i kolorem akcentu [M3 p5].
 // ============================================================================
 
 import React from 'react';
@@ -10,6 +10,9 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { PROFILE_SNU, useProfilSnu, zapiszProfilSnu, type ProfilSnuId } from '../../lib/godziny-snu';
 import { etykietaProfiluSnu } from '../harmonogram/TargetReadyCard';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 
 import { typografia } from '../../ui/tokeny';
 export function GodzinySnuSection() {
@@ -19,49 +22,32 @@ export function GodzinySnuSection() {
     { id: 'brak', tekst: t('Bez godzin snu') },
   ];
   return (
-    <View style={styles.card}>
-      <Text style={styles.sectionTitle}>{t('Godziny snu')}</Text>
+    <Karta testID="karta-godziny-snu" tytul={t('Godziny snu')} ikona={<IkonaKarty nazwa="zegar" />}>
       <Text style={styles.opis}>{t('Kroki z pracą przy cieście planuję poza tymi godzinami.')}</Text>
       <View style={styles.lista}>
-        {opcje.map((o) => (
+        {opcje.map((o, i) => (
           <Pressable
             key={o.id}
             testID={`sleep-profile-${o.id}`}
             accessibilityRole="button"
             accessibilityState={{ selected: wybrany === o.id }}
-            style={[styles.opcja, wybrany === o.id && styles.opcjaWybrana]}
+            style={[styles.wiersz, wierszUstawien.rzad, i === 0 && wierszUstawien.pierwszy]}
             onPress={() => void zapiszProfilSnu(o.id)}
           >
             <Text style={[styles.opcjaTekst, wybrany === o.id && styles.opcjaTekstWybrana]}>{o.tekst}</Text>
+            {wybrany === o.id && <IkonaKarty nazwa="ptaszek" />}
           </Pressable>
         ))}
       </View>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
-  },
-  sectionTitle: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.naglowek.pt, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
-  opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, marginBottom: 10 },
-  lista: { gap: 8 },
-  opcja: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingHorizontal: 12,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  opcjaWybrana: { borderColor: theme.colors.akcent },
-  opcjaTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
+  opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
+  lista: {},
+  opcjaTekst: { flex: 1, flexShrink: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   opcjaTekstWybrana: { color: theme.colors.akcentTekst, fontWeight: '700' },
 });
