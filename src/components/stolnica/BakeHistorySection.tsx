@@ -91,10 +91,10 @@ export function BakeHistorySection({
             <View key={log.id} style={[styles.historyCard, log.id === wyroznionyId && styles.historyCardWyrozniony]} testID={`bake-log-card-${log.id}`}
               onLayout={log.id === wyroznionyId && onWyroznionyY ? (e) => onWyroznionyY(gora.current + e.nativeEvent.layout.y) : undefined}>
               <NaglowekKarty testID={`bake-log-${log.id}`} tytul={nazwaReceptury(log.recipeName)} ikona={<IkonaKarty nazwa="bochenek" />} />
-              <Text style={styles.historyDate}>{dateStr}</Text>
-              {log.ratingStars !== undefined && (
-                <Text style={styles.historyStars}>{t('Ocena: {n}/5', { n: log.ratingStars })}</Text>
-              )}
+              {/* Data i ocena w jednym wierszu, jeden klucz z parametrami (makieta #dziennik, D-209) */}
+              <Text style={styles.historyDate}>
+                {log.ratingStars !== undefined ? t('{data}, ocena {n}/5', { data: dateStr, n: log.ratingStars }) : dateStr}
+              </Text>
 
               {/* Crumb, crust & taste pills; temperatura w kuchni tylko zapisana przy wypieku (BR-RECP-003, bez zgadywania 017).
                   Temperatury ciasta wypiek dziś nie zapisuje (actualDdtC bez zapisu), więc jej nie pokazujemy [M1-audytor-generalny-146] */}
@@ -211,10 +211,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: odstepy.s,
     marginTop: odstepy.xs,
-  },
-  historyStars: {
-    fontSize: typografia.style.objasnienie.pt,
-    color: theme.colors.tusz2,
   },
   deleteHistoryBtnText: {
     fontSize: typografia.style.podpis.pt,

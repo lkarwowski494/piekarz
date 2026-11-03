@@ -4158,9 +4158,7 @@
     ]
   },
   "Ocena: {n}/5": {
-    "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.": {
     "gdzie": [
@@ -9502,6 +9500,12 @@
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
+  },
+  "{data}, ocena {n}/5": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ],
+    "opis": "Wiersz pod nazwą receptury we wpisie Dziennika: data wypieku i ocena (gwiazdki 1–5) w jednej linii, np. „1 lis 2026, ocena 4/5”. {data} = data sformatowana w języku aplikacji (dzień, miesiąc skrótem, rok), {n} = liczba 1–5 (bez odmiany: zapis „n/5”); bez oceny wiersz pokazuje samą datę. 15 pt, zawija się (makieta karty/inne.html #dziennik, D-198, D-209). Zastępuje osobną linię „Ocena: {n}/5”."
   },
   "{dzien} {godzina}: {opis}": {
     "gdzie": [
