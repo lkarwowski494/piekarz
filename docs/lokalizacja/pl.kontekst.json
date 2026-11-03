@@ -4676,6 +4676,7 @@
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
+      "app/(tabs)/receptury/harmonogram.tsx (tytul)",
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
@@ -5649,6 +5650,7 @@
   },
   "Receptura": {
     "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tekst)",
       "src/components/harmonogram/NotatkiPlanu.tsx (tytul)",
       "src/lib/confirm.ts (message)"
     ]

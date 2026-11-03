@@ -5,7 +5,11 @@
  * Wariant ★(a): rozrost w formie ma czas ze źródła (ZYT-ETA-007, 240 min) — zyto-rozrost-zrodlo-d7.test.tsx.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn() }),
+  // Pas planu ustawia jasny pasek stanu przy focusie (usePasekStanuJasny, D-194)
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
+}));
 jest.mock('react-native-safe-area-context', () => {
   const R = require('react');
   return {

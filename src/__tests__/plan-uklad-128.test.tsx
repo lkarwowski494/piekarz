@@ -10,7 +10,11 @@ import { zUprawnieniem } from '../../tests/helpers/platnosci';
 
 jest.setTimeout(20000);
 
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn() }),
+  // Pas planu ustawia jasny pasek stanu przy focusie (usePasekStanuJasny, D-194)
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
+}));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {

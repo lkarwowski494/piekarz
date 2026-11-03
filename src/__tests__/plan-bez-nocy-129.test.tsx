@@ -17,7 +17,11 @@ import type { OknoSnu } from '../lib/plan-bez-nocy';
 import { calculateReverseSchedule } from '../scheduler/reverse-scheduler';
 
 jest.setTimeout(30000);
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn() }),
+  // Pas planu ustawia jasny pasek stanu przy focusie (usePasekStanuJasny, D-194)
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
+}));
 jest.mock('react-native-safe-area-context', () => {
   const R = require('react');
   return {

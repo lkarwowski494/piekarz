@@ -154,9 +154,15 @@ describe('M3 p4: Plan i Prowadzenie na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('plan: każdy nagłówek treści to nagłówek karty (na tle żaden goły nagłówek)', async () => {
+  it('plan: jeden nagłówek ekranu na pasie, każdy nagłówek treści to nagłówek karty (na tle żaden goły nagłówek)', async () => {
     const tree = await plan();
-    const gole = naglowki(tree.root).filter((n) => !jestNaglowkiemKarty(n) || !wKarcie(n)).map(tekst);
+    // D-197/D-204: jeden nagłówek ekranu na pasie O3a; nagłówki treści pod pasem nadal w kartach
+    const naPasie = (n: Wezel): boolean => {
+      for (let p: Wezel | null = n.parent; p; p = p.parent) if (p.props?.testID === 'pas-zakladki') return true;
+      return false;
+    };
+    expect(naglowki(tree.root).filter(naPasie).map(tekst)).toEqual(['Plan wypieku']);
+    const gole = naglowki(tree.root).filter((n) => !naPasie(n) && (!jestNaglowkiemKarty(n) || !wKarcie(n))).map(tekst);
     expect(gole).toEqual([]);
     act(() => tree.unmount());
   });

@@ -14,6 +14,8 @@ jest.mock('expo-router', () => ({
   useRouter: () => ({
     push: mockPush,
   }),
+  // Pas planu ustawia jasny pasek stanu przy focusie (usePasekStanuJasny, D-194)
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
 }));
 
 jest.mock('react-native-safe-area-context', () => {

@@ -36,6 +36,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Jutro` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/helpers/plan-godzina.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Pojutrze` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/helpers/plan-godzina.ts, tests/i18n-en-main-flow.test.tsx |
 | `TEKST` | `Wczoraj` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/lib/__tests__/schedule-formatter.test.ts, src/lib/__tests__/zakwas-widok.test.tsx |
+| `TEKST` | `Plan wypieku` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
+| `TEKST` | `Receptura` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
 | `TEKST` | `Godziny snu` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Klasyczny chleb rzemieślniczy` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/harmonogram-piekarnik-d6.test.tsx |
@@ -204,7 +206,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Dodaj do kalendarza` | `src/components/harmonogram/DodajDoKalendarza.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Dodaj do kalendarza` | `src/components/harmonogram/DodajDoKalendarza.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.` | `src/components/harmonogram/DodajDoKalendarza.tsx` | ✅ | tests/przeklad-a5.test.ts |
-| `TEKST` | `Receptura` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
 | `TEKST` | `Notatka z poprzedniego wypieku: {notatka}` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | src/__tests__/piecz-ponownie-recp003-146.test.tsx |
 | `TEKST` | `Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/piecz-ponownie-id-d3a.test.tsx |
 | `TEKST` | `Zaplanuj` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/core/__tests__/plany-d5.test.ts |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant pszenny.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
-| `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
 *(... i 1207 kolejnych elementów w pełnym wykazie)*
