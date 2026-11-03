@@ -1202,3 +1202,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - „pizza”: bez zmiany.
 - Rekomendacja: zostawić PL jak jest do weta właściciela; zmiana PL to nowa fala przekładu 5 kluczy.
 - **Status:** noc, do weta.
+
+### [D-214] 2026-11-03 — Weryfikacja E5 (rola 04 audit po wdrożeniu): 0 P0, 2 P1; partia p7 przed buildem 1022 (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); opcje rekomendowane raportu weryfikacji (świeży kontekst, subagent roli 04, `sprawdz-raport` kod 0; raport w `audit/M3-2026-11-03/role/04-po/`, poza gitem).
+- **Wynik E5:** P1: 04-001 brak czapki paska stanu na 7 ekranach z pasem (powrót D-139); 04-002 arkusze zamykające przepływy poza systemem kart (ocena po wypieku, zapis receptury, dodaj/edytuj zakwas, przelicznik zakwasu, odrzucenie receptur). P2: 003 „Dziś” bez karty pustej spirali i obwódki kafli; 004 pasek zakładek pod „Zacznij wypiek” na planie; 005 Doktor zakwasu z paskiem systemowym; 006 wynik Doktora Chleba poza widokiem; 007 „Anuluj”/przesunięcie arkusza odrzuca wpisane dane bez pytania (`confirmDiscard` nieużyte).
+- **Decyzja:** p7 (rola 08 build, `wip/08-p7-2026-11-03`): 001 opcja (a) wspólny ekran z pasem i czapką na 9 ekranach; 002 opcja (a) wszystkie wymienione arkusze na kartach i pasku arkusza z README §3, bez zmian zachowania; 003; 006 opcja (a) objawy przed wynikiem (lub przewinięcie do wyniku, jeśli (a) wymaga zmiany testów); 007 pytanie „Odrzucić zmiany?” przy zmienionym formularzu (istniejące `confirmDiscard`); 004 tylko bez zmiany istniejących testów. **005 nie w p7:** wymaga zmiany `src/__tests__/pas-zakladek-d10.test.tsx:136` (spoza D-194/D-197/D-204) — do decyzji właściciela.
+- **Odrzucone:** (b) tylko 001 i arkusz oceny (D-139: „Wszystko powinno być ładnie obrobione, pozamykane w ładne karty”); (c) bez partii.
+- **Status:** noc, do weta.
