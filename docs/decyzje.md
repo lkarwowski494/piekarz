@@ -820,12 +820,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Skutek:** `src/ui/` nie jest w zakresie macierzy AST (`scripts/test-matrix.mjs`), więc nowe komponenty nie dodają pozycji i `docs/22-macierz-testow.md` nie zmienia się; pilnują ich testy `src/ui/__tests__/karty-p1.test.tsx` i `tokeny-karty-p1.test.ts`.
 - **Status:** dzień, do weta.
 
-### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, elementy nad tekstem (M3 p1, rola 08)
-- **Rodzaj:** decyzja techniczna roli 08; wykonanie zdania z polecenia M3, bo `docs/design/karty/README.md` §1 nie zawiera jeszcze reguły roli 04 (zadanie 04-fix-AX5).
-- **Decyzja:** przy `fontScale ≥ 2` (AX3 i większe, ten sam próg co `PasZakladki`, kafle „Dziś” i wiersz okresu kalendarza) elementy leżące obok tekstu przechodzą nad tekst w stosie pionowym: w nagłówku `Karta` ikona i znacznik nad tytułem, w `WierszKarty` ikona i szewron nad etykietą, a wartość pod etykietą; wypełnienie karty 12 zamiast 16 (README §2). Żaden tekst nie ma limitu linii; mały tytuł czapki najwyżej 1,5× jak tytuł pasa. Próg w jednej stałej `PROG_DUZEGO_TEKSTU` (`src/ui/karty/duzy-tekst.ts`).
-- **Odrzucone:** wartość obok etykiety także przy AX5 (wąski ekran 320 pt, liczba zawijana krojem tytułów to znalezisko z README §7); osobne progi dla każdego komponentu (rozjazd).
-- **Zależy od:** treści reguły rola 04. Gdy README §1 dostanie inną, p1 się poprawia (testy „AX5” w `karty-p1.test.tsx` opisują obecną).
-- **Status:** warunkowa, do weta i do porównania z regułą roli 04.
+### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, stos w jednej kolumnie (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; wykonanie reguły roli 04 D-142 (`docs/design/karty/README.md` §7a, e025fc1, odczytane u źródła po `git pull --rebase`; wiadomość koordynatora tylko wskazała miejsce). Pierwsza wersja p1 (zdanie z polecenia) poprawiona przed push.
+- **Decyzja:** przy `fontScale ≥ 2` (AX3+, ten sam próg co `PasZakladki`, kafle „Dziś”, kalendarz) stos w jednej kolumnie: w `Karta` ikona i znacznik nad tytułem, w `WierszKarty` ikona i szewron nad etykietą, wartość pod etykietą, w `PoleObjawu` pole wyboru nad etykietą; mniejsze wcięcia (karta i wiersz 12 zamiast 16); żaden tekst nie ma limitu linii ani `maxFontSizeMultiplier`. Próg w jednej stałej `PROG_DUZEGO_TEKSTU` (`src/ui/karty/duzy-tekst.ts`). Nie użyto `flexBasis` zależnego od `fontScale`: przy stosie w jednej kolumnie nie ma rzędów do zawijania; do sprawdzenia przy pierwszym ekranie (p2).
+- **Odrzucone:** wartość obok etykiety także przy AX5; `maxFontSizeMultiplier` 1,5 w czapce (sprzeczne z §7a); osobne progi na komponent.
+- **Status:** dzień, do weta.
 
 ### [D-163] 2026-11-03 — `kartaLinia` poza tabelą par kontrastu (M3 p1, rola 08)
 - **Rodzaj:** decyzja techniczna roli 08; `[DO USTALENIA]` dla roli 04.

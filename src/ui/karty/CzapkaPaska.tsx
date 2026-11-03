@@ -2,7 +2,7 @@
 // Piekarz — CzapkaPaska: pas stanu przypięty u góry ekranu (design-spec §14, karty/README.md §2) [M3 p1]
 // Gdy pas ekranu odjedzie przy przewijaniu, pod paskiem stanu nie przewija się treść (znalezisko „Zakwasy”, D-139):
 // czapka ma kolor `pas` i wysokość górnego bezpieczeństwa obszaru. Gdy ekran zdecyduje (`pokazTytul`, po
-// zniknięciu tytułu pasa), w czapce pojawia się mały tytuł. Nie przechwytuje dotyku; tytuł jest ukryty przed
+// zniknięciu tytułu pasa), w czapce pojawia się mały tytuł. Nie przechwytuje dotyku; bez limitu powiększenia tytułu (README §7a, D-142); tytuł jest ukryty przed
 // czytnikiem, bo nagłówek ekranu jest na pasie. Tekst dostaje od ekranu.
 // ============================================================================
 
@@ -27,7 +27,6 @@ export function CzapkaPaska({ testID = 'czapka-paska', gora, tytul, pokazTytul =
         <Text
           testID={`${testID}-tytul`}
           style={styles.tytul}
-          maxFontSizeMultiplier={1.5}
           accessibilityElementsHidden
           importantForAccessibility="no-hide-descendants"
         >

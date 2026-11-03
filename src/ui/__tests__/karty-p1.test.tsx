@@ -166,6 +166,7 @@ describe('[M3 p1] WierszKarty', () => {
     expect(k.indexOf('w-ikona')).toBeLessThan(k.indexOf('w-etykieta'));
     expect(k.indexOf('w-etykieta')).toBeLessThan(k.indexOf('w-wartosc'));
     expect(styl(host(tree.root, 'w-wartosc')).fontSize).toBe(typografia.style.naglowek.pt);
+    expect(styl(host(tree.root, 'w')).paddingHorizontal).toBe(12); // mniejsze wcięcia (D-142)
     expect(host(tree.root, 'w-etykieta').props.numberOfLines).toBeUndefined();
   });
 });
@@ -191,10 +192,10 @@ describe('[M3 p1] CzapkaPaska', () => {
     expect(styl(host(tree.root, 'c')).height).toBeUndefined();
   });
 
-  it('AX5: tytuł czapki nie rośnie ponad 1,5× (jak tytuł pasa), bez ucinania linii', () => {
+  it('AX5: tytuł czapki bez limitu powiększenia i linii (README §7a, D-142: bez maxFontSizeMultiplier w kartach)', () => {
     stos(AX5);
     const t = host(render(<CzapkaPaska testID="c" gora={20} tytul="Zakwasy" pokazTytul />).root, 'c-tytul');
-    expect(t.props.maxFontSizeMultiplier).toBe(1.5);
+    expect(t.props.maxFontSizeMultiplier).toBeUndefined();
     expect(t.props.numberOfLines).toBeUndefined();
   });
 });
@@ -239,9 +240,12 @@ describe('[M3 p1] PoleObjawu', () => {
     expect(kolejnosc(pelny.root)).toContain('p-znak');
   });
 
-  it('AX5: etykieta zawija się (bez limitu linii), kwadrat nie kurczy się', () => {
+  it('AX5 (D-142): pole wyboru nad etykietą w jednej kolumnie, etykieta bez limitu linii, kwadrat nie kurczy się', () => {
     stos(AX5);
     const tree = render(pole(true));
+    expect(styl(host(tree.root, 'p')).flexDirection).toBe('column');
+    const k = kolejnosc(tree.root);
+    expect(k.indexOf('p-kwadrat')).toBeLessThan(k.indexOf('p-etykieta'));
     expect(host(tree.root, 'p-etykieta').props.numberOfLines).toBeUndefined();
     expect(styl(host(tree.root, 'p-kwadrat'))).toMatchObject({ width: 28, height: 28, flexShrink: 0 });
   });

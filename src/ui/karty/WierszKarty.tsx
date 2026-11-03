@@ -11,8 +11,7 @@ import { theme } from '../theme';
 import { odstepy, typografia } from '../tokeny';
 import { useDuzyTekst } from './duzy-tekst';
 
-/** Wysokość wiersza i odstęp pionowy z README §2 (nie ma na nie tokenu; ≥ cele.pozostale 44). */
-const WYSOKOSC_WIERSZA = 52;
+/** Odstęp pionowy z README §2 (nie ma na niego tokenu). Wysokość wiersza 52 (≥ cele.pozostale 44) jest literałem w stylu: tak ją czyta skan celów dotyku. */
 const ODSTEP_PIONOWY = 10;
 const IKONA = 28;
 
@@ -58,15 +57,15 @@ export function WierszKarty({ testID = 'wiersz', etykieta, wartosc, podpis, ikon
       {szewron}
     </>
   );
-  const ukladStyle = [styles.wiersz, duzy ? styles.stos : styles.rzad, { borderTopWidth: linia ? 1 : 0 }];
-  if (!onPress) return <View testID={testID} style={ukladStyle}>{tresc}</View>;
+  const linie = { borderTopWidth: linia ? 1 : 0 };
+  if (!onPress) return <View testID={testID} style={[styles.wiersz, duzy ? styles.stos : styles.rzad, linie]}>{tresc}</View>;
   return (
     <Pressable
       testID={testID}
       accessibilityRole="button"
       accessibilityLabel={[etykieta, wartosc, podpis].filter(Boolean).join(', ')}
       onPress={onPress}
-      style={({ pressed }) => [...ukladStyle, pressed && styles.nacisniety]}
+      style={({ pressed }) => [styles.wiersz, duzy ? styles.stos : styles.rzad, linie, pressed && styles.nacisniety]}
     >
       {tresc}
     </Pressable>
@@ -75,14 +74,15 @@ export function WierszKarty({ testID = 'wiersz', etykieta, wartosc, podpis, ikon
 
 const styles = StyleSheet.create({
   wiersz: {
-    minHeight: WYSOKOSC_WIERSZA,
+    minHeight: 52,
     paddingVertical: ODSTEP_PIONOWY,
     paddingHorizontal: odstepy.l,
     gap: odstepy.m,
     borderTopColor: theme.colors.linia,
   },
   rzad: { flexDirection: 'row', alignItems: 'center' },
-  stos: { flexDirection: 'column', alignItems: 'stretch' },
+  // Duży tekst: stos w jednej kolumnie i mniejsze wcięcia (README §7a, D-142)
+  stos: { flexDirection: 'column', alignItems: 'stretch', paddingHorizontal: odstepy.m },
   wstep: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: odstepy.m },
   nacisniety: { backgroundColor: theme.colors.tloGrupa },
   ikona: { width: IKONA, height: IKONA, alignItems: 'center', justifyContent: 'center' },

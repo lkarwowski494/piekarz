@@ -2,16 +2,16 @@
 // Piekarz — PoleObjawu: jedna kontrolka wyboru objawu w zakwasie i w Doktorze (design-spec §14, karty/README.md §2) [M3 p1]
 // Kwadrat 28×28, promień `znacznik` 6, obwódka 2 `obwodka`; cały wiersz w obwódce 1,5, promień `pole` 10, min 52 pt.
 // Zaznaczony: wypełnienie `akcent` i znak rysowany obramowaniem (nie sam kolor, WCAG 1.4.1). Rola checkbox ze stanem
-// checked. Przy dużym tekście etykieta się zawija (bez limitu linii), kwadrat się nie kurczy.
+// checked. Przy dużym tekście pole nad etykietą (D-142), etykieta bez limitu linii, kwadrat się nie kurczy.
 // ============================================================================
 
 import React from 'react';
+import { useDuzyTekst } from './duzy-tekst';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../theme';
 import { odstepy, promienie, typografia } from '../tokeny';
 
 const KWADRAT = 28;
-const WYSOKOSC_WIERSZA = 52;
 
 export function PoleObjawu({ testID = 'pole-objawu', etykieta, zaznaczone, onZmien }: {
   testID?: string;
@@ -21,6 +21,7 @@ export function PoleObjawu({ testID = 'pole-objawu', etykieta, zaznaczone, onZmi
   /** Dostaje wartość przeciwną do bieżącej. */
   onZmien: (zaznaczone: boolean) => void;
 }) {
+  const duzy = useDuzyTekst();
   return (
     <Pressable
       testID={testID}
@@ -28,7 +29,7 @@ export function PoleObjawu({ testID = 'pole-objawu', etykieta, zaznaczone, onZmi
       accessibilityState={{ checked: zaznaczone }}
       accessibilityLabel={etykieta}
       onPress={() => onZmien(!zaznaczone)}
-      style={({ pressed }) => [styles.wiersz, pressed && styles.nacisniety]}
+      style={({ pressed }) => [styles.wiersz, duzy && styles.wierszStos, pressed && styles.nacisniety]}
     >
       <View testID={`${testID}-kwadrat`} style={[styles.kwadrat, zaznaczone && styles.kwadratZaznaczony]}>
         {zaznaczone ? <View testID={`${testID}-znak`} style={styles.znak} /> : null}
@@ -43,13 +44,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: odstepy.m,
-    minHeight: WYSOKOSC_WIERSZA,
+    minHeight: 52, // literał: skan celów dotyku (≥ 44) czyta liczby w stylu
     paddingVertical: odstepy.s,
     paddingHorizontal: odstepy.m,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     borderRadius: promienie.pole,
   },
+  // Duży tekst: pole wyboru nad tekstem, stos w jednej kolumnie (README §7a, D-142)
+  wierszStos: { flexDirection: 'column', alignItems: 'flex-start' },
   nacisniety: { backgroundColor: theme.colors.tloGrupa },
   kwadrat: {
     width: KWADRAT,
