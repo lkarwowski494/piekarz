@@ -863,3 +863,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Nieprzedstawione właścicielowi przed wyborem (do ewentualnego weta):** „okno kolejki, cel 50 w 1.0” — wariant roli 03 po kontekście terminu; do 1.0 wchodzi każda receptura gotowa (źródło, przegląd, przekład) przed zwolnieniem kolejki, zgłoszenie się nie przesuwa. Wiadomości koordynatora i roli 03 się minęły.
 - **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
 - **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
+
+### [D-170] 2026-11-03 — Kopie źródeł paczki M3 poza publicznym repo; w rejestrze nazwa kopii i sha256 (rola 06 build, do weta)
+- **Rodzaj:** merytoryczna/procesowa (rola 06; zasada wspólna 14, zasada roli 8).
+- **Decyzja:** surowe kopie stron i PDF (instrukcje producentów, artykuły, specyfikacje UE) użyte w E1 paczki M3 nie trafiają do repo (publiczne: github.com 200 bez logowania, 2026-11-03); pole `miejsce` w `docs/tresci/rejestr.json` ma nazwę kopii i sha256 (12 znaków), a raporty badania są w `docs/tresci/badanie-2026-11-03/`. Ponowny odczyt: z adresu, porównanie sumy.
+- **Odrzucone:** (a) commit kopii (cudze utwory w całości w publicznym repo); (b) bez śladu kopii (weryfikator E3 nie porówna wersji źródła).
+- **Zależy od:** widoczności repo; prywatne repo treści zmienia decyzję. **Status:** dzień, do weta.
+
+### [D-171] 2026-11-03 — Wyniki E1 roli 06 dla D-151…D-157: rejestr +174 wpisy, sprzeczność przelicznika drożdży, cztery receptury bez wersji drożdżowej, sześć pytań (STOP)
+- **Rodzaj:** merytoryczna (rola 06 build E1; hierarchia D-035).
+- **Ustalenia:** (1) „panettone” bez przełącznika drożdżowego pod tą nazwą: dekret włoski z 22.07.2005 (szczebel 1) wymaga zakwasu, drożdże najwyżej 1% jako dodatek (SLO-PAN-001…003); (2) `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` bez przełącznika do czasu źródła 1–3 (D-154: bez źródła brak przełącznika); (3) zakwas w maszynie bez źródła 1–3 (MAS-ZAK-005), więc według D-156 tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej; (4) sprzeczność przelicznika świeże → suche na szczeblu 1 między producentami (0,28…0,417; DRO-INS-007, -008, -014, -015) — RD-19 bez zmian do odpowiedzi na P1.
+- **Otwarte (STOP):** P1…P6 i przegląd człowieka 27 twierdzeń krytycznych: `docs/tresci/e1-m3-2026-11-03.md`, `docs/tresci/przeglad/m3-2026-11-03.md`.
+- **Odrzucone:** wersje drożdżowe z ogólnej reguły przeliczenia (odrzucone w D-137, D-154); dopisanie mięsa do listy blokady opóźnionego startu bez źródła maszyny (MAS-072).
+- **Zależy od:** D-035, D-153…D-157. **Status:** dzień, czeka na odpowiedzi właściciela.
