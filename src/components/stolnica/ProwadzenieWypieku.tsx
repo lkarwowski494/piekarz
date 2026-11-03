@@ -322,6 +322,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
         {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
             (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
         <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
+          podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
           wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }}
           akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
           {aktywny && (
@@ -344,7 +345,6 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
               naglowekNaPasie
               step={currentStep}
               formattedTime={teksty.czas?.tekst ?? ''}
-              numer={{ n: currentStepIdx + 1, m: steps.length }}
               czasEtykieta={teksty.czas?.etykieta}
               potem={teksty.potem}
               ekran={teksty.ekran}

@@ -95,4 +95,5 @@ export const EN_16: Record<string, string> = {
   'Ile pieczesz': 'How much are you baking',
   // M3 p6b (D-209, README §6)
   'Odhaczaj przy ważeniu.': 'Tick off as you weigh.',
+  'Co zrobić': 'What to do',
 };

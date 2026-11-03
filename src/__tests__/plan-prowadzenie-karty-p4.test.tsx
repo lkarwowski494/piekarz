@@ -177,7 +177,7 @@ describe('M3 p4: Plan i Prowadzenie na kartach', () => {
 
   it('prowadzenie: instrukcja kroku w karcie „Krok 1 z 3”, składniki w karcie z ikoną, ostrzeżenie poza kartą', async () => {
     const tree = await prowadzenie(kroki());
-    const k = kartaZ(tree.root, 'Krok 1 z 3');
+    const k = kartaZ(tree.root, 'Co zrobić');
     expect(tekst(k)).toContain('Wymieszaj mąkę z wodą.');
     expect(ikona(k, 'ksiazka')).toBe(true);
     const s = kartaZ(tree.root, 'Składniki do odważenia');
@@ -193,7 +193,7 @@ describe('M3 p4: Plan i Prowadzenie na kartach', () => {
     const ostrz = poId(tree.root, 'step-warning');
     expect(ostrz.length).toBeGreaterThan(0);
     for (const o of ostrz) expect(wKarcie(o)).toBe(false);
-    expect(naglowkiKart(tree.root)).toContain('Krok 1 z 2');
+    expect(naglowkiKart(tree.root)).toContain('Co zrobić');
     act(() => tree.unmount());
   });
 

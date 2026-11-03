@@ -43,7 +43,7 @@ export interface StrefaKrokuProps {
   ekran?: string | null;
   /** Numer kroku i liczba kroków planu: nagłówek karty instrukcji „Krok {n} z {m}” (M3 p4, D-192); bez numeru nazwa kroku. */
   numer?: { n: number; m: number };
-  /** Tytuł, czas i „potem …” są na pasie ekranu (O3a, D-194): strefa pokazuje tylko kartę, ostrzeżenie i garnek. */
+  /** Tytuł, czas i „potem …” są na pasie ekranu (O3a, D-194): strefa pokazuje tylko kartę „Co zrobić” (numer kroku na pasie, D-209), ostrzeżenie i garnek. */
   naglowekNaPasie?: boolean;
 }
 
@@ -95,7 +95,7 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
       )}
       {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4);
           Ostrzeżenie bez zmian treści i zachowania, jak w makiecie pod kartą instrukcji */}
-      <Karta testID="karta-kroku" tytul={numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
+      <Karta testID="karta-kroku" tytul={naglowekNaPasie ? t('Co zrobić') : numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
       {ekran !== null && (
         <View testID="step-screen-on" style={styles.ekran}>

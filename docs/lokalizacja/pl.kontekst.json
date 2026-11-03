@@ -901,6 +901,12 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
+  "Co zrobić": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (tytul)"
+    ],
+    "opis": "Nagłówek karty instrukcji bieżącego kroku na ekranie prowadzenia wypieku (pod nim treść kroku); bez dwukropka, inny tekst niż „Co zrobić:” z Doktora; ok. 9 znaków; nagłówek karty 20 pt, zawija się. Numer kroku „Krok {n} z {m}” jest na pasie nad kartą (README karty §6, D-192, D-209)."
+  },
   "Co zrobić przy następnym wypieku:": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
@@ -2677,6 +2683,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
+      "src/components/stolnica/ProwadzenieWypieku.tsx (podtytul)",
       "src/components/stolnica/StrefaKroku.tsx (tytul)"
     ]
   },
