@@ -901,6 +901,73 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Status:** dzień, do weta.
 - **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
 
+### [D-170] 2026-11-03 — Kopie źródeł paczki M3 poza publicznym repo; w rejestrze nazwa kopii i sha256 (rola 06 build, do weta)
+- **Rodzaj:** merytoryczna/procesowa (rola 06; zasada wspólna 14, zasada roli 8).
+- **Decyzja:** surowe kopie stron i PDF (instrukcje producentów, artykuły, specyfikacje UE) użyte w E1 paczki M3 nie trafiają do repo (publiczne: github.com 200 bez logowania, 2026-11-03); pole `miejsce` w `docs/tresci/rejestr.json` ma nazwę kopii i sha256 (12 znaków), a raporty badania są w `docs/tresci/badanie-2026-11-03/`. Ponowny odczyt: z adresu, porównanie sumy.
+- **Odrzucone:** (a) commit kopii (cudze utwory w całości w publicznym repo); (b) bez śladu kopii (weryfikator E3 nie porówna wersji źródła).
+- **Zależy od:** widoczności repo; prywatne repo treści zmienia decyzję. **Status:** dzień, do weta.
+
+### [D-171] 2026-11-03 — Wyniki E1 roli 06 dla D-151…D-157: rejestr +174 wpisy, sprzeczność przelicznika drożdży, cztery receptury bez wersji drożdżowej, sześć pytań (STOP)
+- **Rodzaj:** merytoryczna (rola 06 build E1; hierarchia D-035).
+- **Ustalenia:** (1) „panettone” bez przełącznika drożdżowego pod tą nazwą: dekret włoski z 22.07.2005 (szczebel 1) wymaga zakwasu, drożdże najwyżej 1% jako dodatek (SLO-PAN-001…003); (2) `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` bez przełącznika do czasu źródła 1–3 (D-154: bez źródła brak przełącznika); (3) zakwas w maszynie bez źródła 1–3 (MAS-ZAK-005), więc według D-156 tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej; (4) sprzeczność przelicznika świeże → suche na szczeblu 1 między producentami (0,28…0,417; DRO-INS-007, -008, -014, -015) — RD-19 bez zmian do odpowiedzi na P1.
+- **Otwarte (STOP):** P1…P6 i przegląd człowieka 27 twierdzeń krytycznych: `docs/tresci/e1-m3-2026-11-03.md`, `docs/tresci/przeglad/m3-2026-11-03.md`.
+- **Odrzucone:** wersje drożdżowe z ogólnej reguły przeliczenia (odrzucone w D-137, D-154); dopisanie mięsa do listy blokady opóźnionego startu bez źródła maszyny (MAS-072).
+- **Zależy od:** D-035, D-153…D-157. **Status:** dzień, czeka na odpowiedzi właściciela.
+
+### [D-172] 2026-11-03 — P1: jeden przelicznik świeże → suche (aktywne i instant) × 0,35, środek przedziału producentów; zmienia RD-19
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Wez srodkowa wartosc”.
+- **Decyzja:** msuche = mświeże × 0,35 dla suchych aktywnych i instant; tekst przy przeliczeniu: producent na opakowaniu może podawać inaczej. Rachunek (uproszczenie nazwane): skrajne wartości producentów szczebla 1 z E1: Dr. Oetker 7 g instant = 25 g świeżych → 0,28 (DRO-INS-014); Red Star i Fleischmann’s 0,6 oz świeżych = 1/4 oz suchych → 0,417 (DRO-INS-007, -008); środek (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35. Sprawdzenie: mediana czterech producentów (0,28; Lesaffre PL środek 0,25–0,33 = 0,29; 0,417; 0,417) = 0,35, ten sam wynik. Przykład: 25 g świeżych → 8,75 g (ok. 9 g).
+- **Odrzucone:** × 0,4 bez zmian (rozjazd z polską torebką ok. 40%); dwa przeliczniki 0,4/0,33 (rekomendacja roli 06); × 0,28.
+- **Skutki:** errata RD-19 i VEC-YEAST (rola 01), kod i testy (rola 08, testy przed kodem), wektory (rola 07); interpretacja „środkowej wartości” przez koordynatora do weta.
+- **Zależy od:** D-136, D-171. **Status:** dzień, do weta.
+
+### [D-173] 2026-11-03 — P2: przełącznik drożdżowy w 4 recepturach (orkisz, graham, żytni 100%, tartine); brioszka bez przełącznika w 1.0
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „+ tartine (szczebel 4)”.
+- **Decyzja:** przełącznik „na zakwasie / na drożdżach” (D-154) dostają `spelt_ancient_seeded`, `graham_bread_honey` (szczebel 2), `rye_100_pan` (szczebel 2, warunki laboratoryjne jako uproszczenie po przeglądzie) i `tartine_high_hydration_80` (King Arthur, szczebel 4 z atrybucją, tylko dane receptury, nie bezpieczeństwo — wyjątek nazwany od wymogu 1–3 z D-157). Bez przełącznika: brioszka/panettone, `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` (D-171).
+- **Odrzucone:** tylko 1–3 bez tartine (rekomendacja roli 06); tylko orkisz i graham.
+- **Zależy od:** D-154, D-171. **Status:** dzień, do weta.
+
+### [D-174] 2026-11-03 — P3: plan dla drożdży z czasami z receptury, bez przeliczania temperaturą i ilością drożdży (1.0)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Czasy z receptury (Recommended)”.
+- **Decyzja:** plan wersji drożdżowej (D-155) bierze czasy z receptury (przedział) i test palca; bez modelu Q10 dla drożdży (DRO-MOD-008, -012). **Odrzucone:** Q10 ok. 2 z rachunku DRO-MOD-004.
+- **Zależy od:** D-155. **Status:** dzień, do weta.
+
+### [D-175] 2026-11-03 — P4: blokada opóźnionego startu maszyny przy psujących się składnikach, z wyjaśnieniem (krytyczne)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Blokada z wyjaśnieniem (Recommended)”.
+- **Decyzja:** tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza w proszku), ser, jogurt albo świeże owoce (część wspólna instrukcji, MAS-072, MAS-009, -023, -035, -044) i mówi dlaczego; bez mięsa (brak źródła maszyny). **Odrzucone:** samo ostrzeżenie.
+- **Uzupełnienie 2026-11-03 (rola 06, weryfikacja E3a, `docs/tresci/weryfikacja/E3a-werdykty.md`; do weta):** lista blokady to suma list instrukcji: jajka, świeże mleko, ser, jogurt, sok, świeże owoce, warzywa (Zojirushi wymienia sok i warzywa, MAS-023); mleko w proszku nie blokuje (MAS-084); mięsa nie ma w żadnej instrukcji. Tryb maszyny ogranicza recepturę także masą ciasta i drożdży, gdy instrukcja je podaje (Tefal: 1000 g ciasta, 620 g mąki, 10 g drożdży instant, MAS-002); sam limit mąki przy tartine 80% i 620 g mąki dawałby ok. 1139 g ciasta. Odrzucone: tylko część wspólna list (jajka, mleko); tylko limit mąki (ryzyko przelania).
+- **Zależy od:** D-153, D-171. **Status:** dzień, do weta.
+
+### [D-176] 2026-11-03 — P5: podpowiedź rodzaju programu maszyny jako reguła aplikacji (uproszczenie), nie fakt
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Sugestia jako reguła aplikacji” (wbrew rekomendacji roli 06: wybór użytkownika bez podpowiedzi).
+- **Decyzja:** aplikacja podpowiada rodzaj programu (podstawowy, pełnoziarnisty, francuski, słodki, ciasto) z rodzaju receptury; tekst: podpowiedź, sprawdź w instrukcji maszyny. Regułę przypisania proponuje rola 06 w E2 i nazywa ją regułą aplikacji (źródła nie podają progów poza Cuisinart, MAS-080).
+- **Zależy od:** D-153. **Status:** dzień, do weta.
+
+### [D-177] 2026-11-03 — P6 i przegląd: katalog 11 + 3 warunkowo z nazwami opisowymi; 27 twierdzeń krytycznych zaakceptowanych
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „11 + 3, nazwy opisowe (Recommended)”; „Akceptuję wszystkie 27”.
+- **Decyzja:** (1) do 1.0 wchodzi 11 kandydatów z `docs/tresci/badanie-2026-11-03/D-raport.md`, 3 warunkowe (piadina, Stollen, szybki chleb orkiszowy) po domknięciu luk; nazwy opisowe, nazwa chroniona tylko jako informacja o pochodzeniu. (2) Przegląd twierdzeń (nie zdań) 27 krytycznych: kolumna „Decyzja” w `docs/tresci/przeglad/m3-2026-11-03.md`; 158 wpisów `robocze` → `potwierdzone`. Pole `przeglad` (kto, data, sha) wpisuje rola 06 po przeglądzie zdań z E2 (sha zdań z `--skroty`); do tego czasu kontrola z `--przed-przegladem`.
+- **Odrzucone:** nazwy „w stylu …” (art. 26 rozp. 2024/1143 obejmuje także takie dopiski).
+- **Zależy od:** D-157, D-171. **Status:** dzień, do weta.
+
+### [D-178] 2026-11-03 — Drożdże o nieokreślonym rodzaju w źródłach wersji drożdżowych (orkisz, żyto 100%) liczone jako świeże (rola 06 E2, do weta)
+- **Rodzaj:** merytoryczna (rola 06; hierarchia D-035). Właściciel nieobecny do jutra (D-183), więc według polecenia koordynatora: wybór rekomendowany, „dzień, do weta”.
+- **Problem:** Hohenheim 2023 (DRO-WER-SP-001, -002) i Koistinen i in. 2018 (ZYT-DRO-001) podają 3% albo 1% „yeast” bez rodzaju (sprawdzone w surowym tekście obu artykułów, 2026-11-03). Jako suche dałoby to po przeliczeniu D-172 ok. 8,6% świeżych.
+- **Decyzja:** wartość z artykułu = % drożdży świeżych (uproszczenie nazwane w rejestrze). Uzasadnienie z rejestru: procent świeżych w chlebach bez cukru ze źródeł z podanym rodzajem mieści się w 0,2–3,6% (DRO-WER-GR-001 2% prasowanych, -002 0,2%, ZYT-DRO-005 1% prasowanych, DRO-FOC-002 3,6%); 8,6% wypadałoby poza ten zakres. Kierunek bezpieczny: przy niedoszacowaniu ciasto rośnie wolniej, a plan prowadzi testem palca (D-174, DRO-MOD-013).
+- **Odrzucone:** (a) bez przełącznika dla orkiszu i żyta do czasu źródła z rodzajem drożdży (cofa D-173 w dwóch recepturach); (b) traktowanie jako suche (wynik poza zakresem źródeł z podanym rodzajem).
+- **Zależy od:** D-172, D-173. Wraca do sprawdzenia, gdy źródło poda rodzaj drożdży. **Status:** dzień, do weta.
+
+### [D-179] 2026-11-03 — Reguła podpowiedzi programu maszyny (D-176): pięć rodzajów w stałej kolejności, progi z instrukcji Cuisinart CBK-110 jako reguła aplikacji
+- **Rodzaj:** produktowa z podstawą merytoryczną (rola 06 E2, wykonanie D-176; właściciel nieobecny, D-183), „dzień, do weta”.
+- **Decyzja (reguła Piekarza, nie fakt):** pierwsza pasująca: (1) **ciasto** — receptura kształtowana i pieczona poza formą maszyny (pizza, focaccia, bagietka, ciabatta, bułki, obwarzanek, kołocz, chałka, pierożki, placki); podstawa: Tefal program 11 „Leavened doughs” (MAS-006), Cuisinart Artisan Dough (MAS-046), Kenwood 9 (MAS-051); (2) **słodki** — kategoria `sweet`; podstawa: Cuisinart Sweet „high amounts of sugar, fats and proteins” (MAS-083), Tefal 7 (MAS-006); (3) **pełnoziarnisty** — mąki pełnoziarniste i żytnie razem 50% lub więcej mąki; próg z Cuisinart (MAS-042), opis Tefal (MAS-018); (4) **francuski** — bez cukru i tłuszczu w recepturze; podstawa: Cuisinart French (MAS-082); (5) **podstawowy** — pozostałe; podstawa: Cuisinart White (MAS-081). Tekst przy podpowiedzi: podpowiedź Piekarza, sprawdź w instrukcji swojej maszyny.
+- **Odrzucone:** wybór bez podpowiedzi (rekomendacja roli 06, odrzucona w D-176); progi cukru i tłuszczu w liczbach (brak źródła, MAS-080); osobny program żytni (nie ma go w pięciu rodzajach z D-176; Tefal ma program 10, MAS-018).
+- **Zależy od:** D-176, D-153. **Status:** dzień, do weta. Pula D-172…D-179 wyczerpana.
+
 ### [D-180] 2026-11-03 — Wybór zakwasu jako chipy na pasie z miejscem i czasem; „Edytuj” na pasie; profil w karcie z wierszami (M3 p2, rola 08)
 - **Rodzaj:** decyzja techniczna roli 08 w ramach D-160/D-166 (właściciel nieobecny, D-183: opcja rekomendowana).
 - **Decyzja:** `StartersSelectorRow` rysuje chipy zawijane (bez przewijania w poziomie) w dwóch wariantach: na pasie (z zakwasem, kolory jak `FiltryNaPasie`) i na tle (bez zakwasu: sam „Dodaj nowy zakwas” pod kartą „Zakładam zakwas”, makieta stan „pusty”). Chip zachowuje miejsce i czas od dokarmienia (BR-ZAKW-001, test `zakwasy-lista-130`), choć makieta pokazuje same nazwy. „Edytuj” profilu przechodzi do akcji pasa (makieta, stan „z zakwasem”); profil to `Karta` „Profil zakwasu” z `WierszKarty` (mąka i hydratacja, wiek, ostatnie dokarmienie, miejsce). Zdanie pustego stanu na pasie (podtytuł). Czapka paska stanu z małym tytułem po przewinięciu pasa.
@@ -927,3 +994,4 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** czekać z p3 na punkt kontrolny (doba bez postępu; zmiany na gałęzi `redesign/` są odwracalne, a weto po zrzutach cofa najwyżej partie); robić p3–p5 jedną sesją (bez kontroli po partii, D-160).
 - **Ryzyko:** weto wyglądu po zrzutach p2 może wymagać poprawek w p3–p5 (wszystkie używają tych samych komponentów kart — poprawka w jednym miejscu).
 - **Status:** dzień, do weta.
+
