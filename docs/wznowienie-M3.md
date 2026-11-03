@@ -1,7 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-03 ~19:20 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-03 ~20:30 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p5 (`session_01T66VBvejhTapBd1AWrB9bH`, zarchiwizowana) scalone do `redesign/` (merge `39412d8`; verify kod 0, 523 zestawy / 5642 testy): Dziennik, Ustawienia, Doktor Chleba z pasem na kartach. Zmienione testy tylko z D-197 (`nawigacja-d051` Doktor, atrapy `useFocusEffect`); handlery i testID Ustawień/Dziennika bez zmian (porównanie przed/po u koordynatora); odstępstwa D-198 (język siatką, dwie karty zamiast „Język i jednostki”, „Zakupy” 17 pt, objawy chipami).
+- **D-200:** p5b (Piekarz Pro, wiersze objawów, §7a Doktor/Pro) przed p6a; p6a = segment drożdży przy wierszu bez zmiany przelicznika. Polecenia: `audit/M3-2026-11-03/prompty/08-p5b.polecenie.md` (sha256 c1dd825e…15ed, pula D-199, D-201), `08-p6a.polecenie.md` (sha256 58756713…1d95, pula D-202…D-203). Wolne od D-204.
+- **Do raportu rannego:** D-196 (Plan bez pasa; d10:135-136) i przelicznik 0,4 → 0,35 (D-172; zmienia istniejące wektory testów i tekst w 35 językach): (a) zmiana z czerwonym testem 8,75 g (rekomendacja) · (b) 0,4 do 1.0.1.
+
+## Aktualizacja 2026-11-03 ~19:20 UTC (koordynator M3, noc)
 - p4b scalone do `redesign/` @ `0f97bf85` (merge `d8736c6`; verify kod 0, 520 zestawów / 5633 testy): Prowadzenie z pasem O3a (D-195: powrót ikoną z etykietą „Zamknij”, rola 09 ma dodać „Wstecz”). Zmienione testy tylko z D-194: `tests/nawigacja-d051.test.tsx`, `tests/stolnica-naglowek-prz07.test.tsx` (dowód czerwieni 10/10 na `e648783`); przegląd ścieżek wrażliwych subagentem: brak uwag. Sesja p4b zarchiwizowana.
 - **Do raportu rannego (D-196, zmiana testu spoza D-194/D-197 — nie rozstrzygam nocą):** Plan bez pasa. Opcje: (a) `src/__tests__/pas-zakladek-d10.test.tsx:135` → `toBe(false)` + `git apply docs/stan-08-p4b-plan-pas.patch` + p4:160 wg D-197 (rekomendacja roli i koordynatora: spójna ścieżka wypieku); (b) Plan z paskiem systemowym. Ten sam test w :136 przypina nagłówek Doktora zakwasu — w p5 zostaje z nagłówkiem.
 - p5 startuje: polecenie `audit/M3-2026-11-03/prompty/08-p5.polecenie.md` (sha256 41ecb755…e8c3), pula D-198…D-199, wolne od D-200.
