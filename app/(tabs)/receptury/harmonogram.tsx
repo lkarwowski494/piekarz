@@ -12,10 +12,9 @@ import {
   calculateReverseSchedule,
   autoResolveSleepCollision,
 } from '../../../src/scheduler/reverse-scheduler';
-import { getStarters } from '../../../src/data/sqlite-store';
-import type { StoredStarter } from '../../../src/data/db';
 import { withFridgeWake } from '../../../src/core/fridge-wake';
-import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
+import { etapyPlanu } from '../../../src/lib/zakwas-planu';
+import { useZakwasPlanu } from '../../../src/hooks/useZakwasPlanu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
@@ -96,16 +95,7 @@ export default function HarmonogramScreen() {
 
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
-  const [zakwas, setZakwas] = useState<StoredStarter | null>(null);
-  const [zakwasWczytany, setZakwasWczytany] = useState(false);
-  useEffect(() => {
-    let zywy = true;
-    void getStarters()
-      .then((lista) => { if (zywy) setZakwas(zakwasPlanu(lista)); })
-      .catch(() => {})
-      .finally(() => { if (zywy) setZakwasWczytany(true); });
-    return () => { zywy = false; };
-  }, []);
+  const { zakwas, zakwasWczytany } = useZakwasPlanu();
   // Receptura żytnia z „Ułóż plan”: etapy żytnie z czasami planu, studzenie kończy się o godzinie „gotowe”;
   // te same kroki dostaje Stolnica (DEC-04 a) [M1-audytor-generalny-030; 03-zakres-501]
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
