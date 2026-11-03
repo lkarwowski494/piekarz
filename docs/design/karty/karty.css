@@ -81,3 +81,4 @@ main { background: var(--tlo); }
 .wiersz .wart, .wiersz b, .wiersz a { font-size: calc(17px + 36px * var(--ax)); }
 .licznik span { width: calc(48px + 16px * var(--ax)); height: calc(48px + 16px * var(--ax)); font-size: calc(22px + 20px * var(--ax)); }
 .kn h2 { overflow-wrap: anywhere; }
+.segment span { font-size: calc(15px + 34px * var(--ax)); }
