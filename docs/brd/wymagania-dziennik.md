@@ -14,6 +14,18 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Zakładając, że użytkownik ma dostęp do funkcji (próba albo zakup)
     - Gdy przegląda receptury bazowe
     - Wtedy żadna nie jest zablokowana osobno (decyzja D-034, pyt. 8a)
+  - Scenariusz: Katalog w 1.0
+    - Zakładając, że użytkownik ma wersję 1.0
+    - Gdy przegląda receptury bazowe
+    - Wtedy widzi około 30 receptur: 15 dotychczasowych i kandydatów zatwierdzonych przez właściciela (11 i 3 warunkowo po domknięciu luk), każdą pod nazwą opisową (D-157, D-177)
+  - Scenariusz: Nazwa chroniona tylko jako pochodzenie
+    - Zakładając, że formuła receptury pochodzi ze specyfikacji nazwy chronionej (ChNP, ChOG, GTS)
+    - Gdy użytkownik czyta recepturę
+    - Wtedy tytuł jest nazwą opisową, a nazwa chroniona pojawia się tylko w zdaniu o pochodzeniu formuły (D-177; ochrona nazw: [DO USTALENIA] (OP-72))
+  - Scenariusz: Formuła ze specyfikacji produkcji
+    - Zakładając, że receptura podaje ilości i temperatury pieca ze specyfikacji produkcji (np. pierożki 250–300 °C, rejestr KAT-KAR-003)
+    - Gdy użytkownik czyta jej notatki
+    - Wtedy widzi, że ilości i temperatury są podane jak w źródle, bez przeliczenia na kuchnię i piekarnik domowy (tekst roli 06; temperatura dla piekarnika domowego: [DO USTALENIA] (OP-71))
 
 ### BR-RECP-002: Własne receptury
 - Przepływ: PR-01
@@ -57,6 +69,38 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Zakładając, że receptura ma tylko jeden wpis
     - Gdy użytkownik wybiera porównanie
     - Wtedy widzi, że do porównania potrzebny jest drugi wpis
+
+### BR-RECP-005: Wersja na drożdżach w recepturze na zakwasie
+- Przepływ: PR-01, PR-17 · Funkcja: F-26 (ZM-25) · Reguła: RD-19 (wybór świeże / suche w wersji drożdżowej)
+- Dowód potrzeby: J-11, J-01; prośba właściciela 2026-11-03 „Chciałbym aby przepisy na zakwasie miały odpowiedniki z drożdżami” (D-137) i wybór „Przełącznik w recepturze” (D-154, zmienia D-137: wersja w tej samej recepturze, nie osobna pozycja); receptury z przełącznikiem w 1.0: D-173; w Basic jak inne receptury bazowe (D-152); plan i prowadzenie wersji drożdżowej: BR-HARMO-001, BR-ETAP-001 (D-155, D-174).
+- Dane wersji drożdżowej są osobne dla każdej receptury i pochodzą z rejestru roli 06 (D-154; jedna reguła przeliczenia dla wszystkich odrzucona w D-137). Drożdże o nieokreślonym w źródle rodzaju (orkisz, żyto 100%) liczone jako świeże — uproszczenie D-178.
+- Kryteria akceptacji:
+  - Szablon scenariusza: Przełączenie na drożdże
+    - Zakładając, że użytkownik otwiera recepturę bazową z wersją drożdżową
+    - Gdy przełącza „na zakwasie / na drożdżach” na „na drożdżach”
+    - Wtedy karta „Do miski” nie ma zakwasu, a drożdże świeże wynoszą tyle procent mąki, ile podają dane tej receptury
+    - Przykłady: `spelt_ancient_seeded` → 3% (rejestr DRO-WER-SP-001; wariant z nocą w lodówce 1%, DRO-WER-SP-002); `graham_bread_honey` → 2% (DRO-WER-GR-001); `rye_100_pan` → 3%, a woda 76% i sól 1,2% (ZYT-DRO-001); `tartine_high_hydration_80` → 1,7% (DRO-WER-TA-001; D-173)
+  - Scenariusz: Receptura bez źródła wersji drożdżowej
+    - Zakładając, że receptura na zakwasie nie ma wersji drożdżowej ze źródła (`country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye`, `lievito_madre_panettone_brioche`; D-171, D-173)
+    - Gdy użytkownik ją otwiera
+    - Wtedy nie widzi przełącznika „na zakwasie / na drożdżach”, a receptura działa jak dotąd (D-154: bez źródła bez przełącznika)
+  - Scenariusz: Powrót do wersji na zakwasie
+    - Zakładając, że użytkownik przełączył recepturę na drożdże
+    - Gdy przełącza z powrotem na „na zakwasie”
+    - Wtedy widzi zakwas i te same ilości co przed przełączeniem
+  - Scenariusz: Rodzaj drożdży w wersji drożdżowej
+    - Zakładając, że receptura jest przełączona na drożdże
+    - Gdy użytkownik wybiera drożdże suche (BR-KALK-009, BR-KALK-012)
+    - Wtedy karta „Do miski” pokazuje masę drożdży suchych według RD-19 (D-154: wybór świeże / suche działa jak dotąd)
+  - Scenariusz: Wersja ze źródła szczebla 4
+    - Zakładając, że `tartine_high_hydration_80` jest przełączona na drożdże
+    - Gdy użytkownik czyta notatkę wersji drożdżowej
+    - Wtedy notatka mówi, że dane pochodzą z jednego przepisu King Arthur Baking (atrybucja, D-173), a źródło jest na ekranie „Źródła wiedzy” (D-126)
+  - Scenariusz: Bez Pro
+    - Zakładając, że użytkownik nie ma Pro
+    - Gdy przełącza recepturę na drożdże
+    - Wtedy widzi wersję drożdżową bez oferty zakupu (D-152, BR-RECP-001 „żadna osobno zablokowana”)
+- Otwarte: OP-62 (czy wybór wersji się zapamiętuje i trafia do dziennika), OP-63 (co z mąką i wodą zakwasu po przełączeniu).
 
 ### BR-SPIZ-001: Spiżarnia mąk
 - Przepływ: PR-01

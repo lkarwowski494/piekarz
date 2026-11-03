@@ -1017,6 +1017,29 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Do przeglądu roli 04:** ikony sekcji arkusza; pole odhaczania 28×28 z promieniem 8 (README §2 podaje 6 dla `PoleObjawu`; „Do miski” nie używa `PoleObjawu`, bo to wiersz wagi z masą).
 - **Status:** dzień, do weta.
 
+### [D-187] 2026-11-03 — Nowe BR paczki M3 (ER-75…ER-78) bez kodu: pełne wyjątki w `scripts/br-wyjatki.json`, ID w kolumnie „Wymagania” kontraktu dopiero z testem (rola 01 fix, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** `tests/br-bez-testu.test.ts` (`scripts/br-bez-testu.mjs`) wymaga dla każdego BR z kryteriami testu z ID w nazwie albo pełnego wyjątku, a pełny wyjątek jest błędem dla BR wpisanego w kolumnę „Wymagania” wiersza MVP `docs/scope-contract.md`. Nowe BR z ER-75…ER-77 opisują funkcje bez kodu (D-136, D-154, D-153…D-156); testów rola 01 nie pisze (zakres trybu fix), a test z ID byłby dziś czerwony.
+- **Decyzja:** (1) nowe BR dostają pełny wyjątek z powodem „funkcja w zakresie 1.0 bez kodu; test z ID powstaje razem z kodem (rola 07/08), wtedy wpis usunąć” — precedens BR-KAL-012 (ER-62); scenariusze zmienione w BR z testem, których kod jeszcze nie spełnia, dostają wpis „czesciowe”. (2) ID nowych BR stoją w kontrakcie zakresu w kolumnie uwag wierszy F-55, F-26 i F-72, a do kolumny „Wymagania” przenosi je rola 07/08 w zmianie, która dodaje test. (3) Edycja pliku danych `scripts/br-wyjatki.json` przez rolę 01 to wyjątek nazwany od granicy „tylko dokumenty” z polecenia koordynatora (zasada wspólna 7); kodu i testów rola 01 nie zmienia.
+- **Odrzucone:** (a) ID nowych BR od razu w kolumnie „Wymagania” F-72 — `npm run verify` kod 1 (pełny wyjątek dla BR z MVP), więc bez push; (b) nowe scenariusze dopisane do istniejących BR z testem bez wpisu „czesciowe” — bramka zielona, ale ukrywa scenariusze bez kodu; (c) testy z ID pisane przez rolę 01 — poza zakresem trybu fix i czerwone na obecnym kodzie.
+- **Skutek:** `zakres.mjs` może dalej zgłaszać F-72 jako „MVP bez BR”, jeśli czyta tylko kolumnę „Wymagania” (skryptu nie sprawdzono: repo `prompts` niedostępne w tej sesji); znika to, gdy rola 07/08 przeniesie ID z testem.
+- **Zależy od:** D-150, D-151, D-183; ER-75…ER-78. **Status:** dzień, do weta.
+
+### [D-188] 2026-11-03 — Stała liczby BR w `tests/br-bez-testu.test.ts` podnoszona razem z nowym BR przez rolę 01 (fix ER-75…ER-78, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** test „skrypt widzi 75 BR z kryteriami” (`tests/br-bez-testu.test.ts:47`) przypina liczbę BR w `docs/brd/` na sztywno; każde nowe BR z erraty daje `npm run verify` kod 1, a push wymaga kodu 0.
+- **Decyzja:** rola 01 podnosi stałą w tym samym commicie, który dodaje BR (75 → liczba z `scripts/br-bez-testu.mjs --json`, równa liczbie BR z kontroli BRD); asercji ani logiki testu nie zmienia. Wyjątek nazwany od granicy „bez testów” z polecenia koordynatora (zasada wspólna 7). Polecenie dla roli 07: zamienić stałą na liczbę wyliczoną niezależnie od skryptu (np. nagłówki `### BR-` z „Kryteria akceptacji” w `docs/brd/*.md`), żeby errata BRD nie wymagała zmiany testu.
+- **Odrzucone:** (a) bez push do czasu zmiany testu przez rolę 07 (paczka M3 czeka, D-183 każe iść dalej); (b) nowe scenariusze wyłącznie w istniejących BR, bez nowych ID (F-72 nie ma żadnego BR, którego dotyczyłby tryb maszyny).
+- **Zależy od:** D-187, D-183. **Status:** dzień, do weta.
+
+### [D-189] 2026-11-03 — Godzina gotowości w trybie maszyny (F-72, Pro) z czasu programu wpisanego przez użytkownika z instrukcji jego maszyny (rola 01 fix, ER-77, do weta)
+- **Rodzaj:** produktowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** D-138 i D-152 wymagają godziny gotowości (w Pro), a do jej policzenia potrzebny jest czas programu. Źródła roli 06 go nie podają: tabela cykli Tefal PF220838 nie jest w PDF producenta (rejestr MAS-015, otwarte), a tryb jest uniwersalny, bez profili maszyn (D-153).
+- **Decyzja:** (a) użytkownik wpisuje czas wybranego programu z instrukcji swojej maszyny (jak granice mąki, ciasta i drożdży, `machine.capacity`); aplikacja liczy godzinę startu = godzina gotowości − czas programu i pokazuje czas od teraz do gotowości. Sposób wpisania opóźnienia w maszynie (do końca programu czy do startu) zostaje otwarty: OP-65.
+- **Odrzucone:** (b) domyślne czasy programów z jednej instrukcji — brak źródła (MAS-015) i sprzeczne z D-153; (c) bez godziny gotowości w 1.0 — przeczy D-138 i D-152 (godzina gotowości jako część Pro).
+- **Koszt [OCENA]:** jedno pole więcej w danych maszyny (rola 04); 1–2 klucze × 33 języki (rola 09).
+- **Zależy od:** D-138, D-152, D-153, D-183; MAS-015. Wraca do sprawdzenia, gdy rola 06 znajdzie czasy programów ze źródła 1–3. **Status:** dzień, do weta.
+
 ### [D-190] 2026-11-03 — Odpowiedzi właściciela po powrocie: przegląd 38 zdań krytycznych, brak weta D-172…D-183, build TestFlight dopiero po p5
 - **Rodzaj:** produktowa i przegląd człowieka (moduł tresci-krytyczne), decyzje właściciela przekazane przez koordynatora M3 (czat i przyciski, 2026-11-03 ok. 17:15 UTC).
 - **Słowa właściciela:** „1. Zdania krytyczne. Approved. 2. Ok 3. Ok”; na pytanie o build: „Poczekaj do p5”.
@@ -1024,4 +1047,5 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** scalenie do `master` teraz i build z połową redesignu; same makiety bez buildu.
 - **Ryzyko:** weto wyglądu Zakwasów po buildzie dotknie p3–p5 (wspólne komponenty kart, poprawka w jednym miejscu).
 - **Status:** właściciel, 2026-11-03.
+
 
