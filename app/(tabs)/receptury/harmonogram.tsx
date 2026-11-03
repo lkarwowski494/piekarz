@@ -1,12 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { theme } from '../../../src/ui/theme';
 import { t } from '../../../src/lib/i18n';
 import {
   calculateReverseSchedule,
@@ -43,8 +37,7 @@ import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
 import { Karta } from '../../../src/ui/karty/Karta';
 import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 import { NotatkiPlanu } from '../../../src/components/harmonogram/NotatkiPlanu';
-
-import { odstepy, typografia } from '../../../src/ui/tokeny';
+import { styles } from '../../../src/components/harmonogram/harmonogram-styles';
 const MINUTA_MS = 60_000;
 
 
@@ -330,29 +323,3 @@ export default function HarmonogramScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-  },
-  przewijane: {
-    flex: 1,
-  },
-  bezSnu: {
-    fontSize: typografia.style.objasnienie.pt,
-    color: theme.colors.tusz2,
-  },
-  // Karty co 12 (README §2)
-  container: {
-    padding: theme.spacing.md,
-    paddingBottom: 40,
-    gap: odstepy.m,
-  },
-  kosz: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    gap: 14,
-  },
-});

@@ -3,7 +3,7 @@
 // wybiera wypiek z listy trwających (id z trasy, przełącznik), a ten komponent prowadzi tylko jego; zapis kroku,
 // koniec i przerwanie dotyczą tylko tego wypieku (BR-KAL-016 Koniec jednego).
 // ============================================================================
-import React, { useState, useEffect, useRef, useCallback, type ReactNode } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
   ScrollView,
@@ -15,9 +15,10 @@ import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
 import { przerwijWypiek } from '../../lib/przerwij-wypiek';
 import { tapHaptic } from '../../lib/haptics';
-import { useZapisWypieku, type OdrzuconyZapis } from '../../hooks/useBakeSession';
+import { useZapisWypieku } from '../../hooks/useBakeSession';
 import { useFinishBake } from '../../hooks/useFinishBake';
-import { idSesji, type BakeSession } from '../../data/bake-session-store';
+import { idSesji } from '../../data/bake-session-store';
+import type { ProwadzenieWypiekuProps } from './prowadzenie-wypieku-typy';
 import { ensureNotificationPermission, getNotificationPermission } from '../../lib/notifications';
 import { ZgodaPowiadomien } from './ZgodaPowiadomien';
 import { SkladnikiKroku } from './SkladnikiKroku';
@@ -51,22 +52,7 @@ import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
 import { styles } from './stolnica-screen.styles';
 
-export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: {
-  /** Udany zapis kroku (ekran zeruje licznik odrzuceń z rzędu) [M3 D3a-fix]. */
-  onZapisano?: () => void;
-  /** Trwający wypiek z zapisu albo nowy z planu (stan z chwili otwarcia; zegar liczony od zapisanego końca kroku). */
-  start: BakeSession;
-  /** Wersja wiersza z odczytu; null = wypiek z planu jeszcze bez zapisu (pierwszy zapis go tworzy). */
-  wersja: number | null;
-  /** Zapis odrzucony (stan w bazie inny niż na ekranie): ekran czyta wypieki od nowa [M3 D3a-fix]. */
-  onOdrzucony: (powod: OdrzuconyZapis) => void;
-  /** Nad treścią prowadzenia (przełącznik wypieków). */
-  naglowek?: ReactNode;
-  /** Koniec albo przerwanie tego wypieku. */
-  onKoniec: () => void;
-  /** Bieżący krok (nazwa) dla przełącznika. */
-  onKrok?: (krok: string) => void;
-}) {
+export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: ProwadzenieWypiekuProps) {
   const router = useRouter();
   const sessionId = idSesji(start);
 
