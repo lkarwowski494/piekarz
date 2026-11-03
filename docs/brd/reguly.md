@@ -93,21 +93,22 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-18-W6 | 700 | 20 | −1 | błąd danych | — | błąd | rachunek: Tc < 0 |
 
 ### RD-19: Przeliczanie drożdży świeżych na suche
-- Wzór: `msuche = mświeże × 0,4`; odwrotnie `mświeże = msuche / 0,4`
+- Wzór: `msuche = mświeże × 0,35`; odwrotnie `mświeże = msuche / 0,35` (suche aktywne i instant tym samym przelicznikiem; D-172, zmiana z × 0,4 erratą ER-78)
 - Jednostki: msuche, mświeże [g]
 - Granica: m ≥ 0 (włączna)
-- Podstawa: S-40 (producent: 0,6 oz świeżych odpowiada 1/4 oz suchych, czyli 0,417 — rachunek), S-39 (producent: suche aktywne i instant wymienne 1:1), S-38 (świeże na suche aktywne × 0,4)
+- Podstawa: D-172 (rachunek: środek skrajnych wartości producentów szczebla 1, (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35; sprawdzenie: mediana czterech producentów 0,35; rejestr roli 06 DRO-INS-030), S-100 (producent: 7 g instant = 25 g świeżych, czyli 0,28 — rachunek), S-40 (producent: 0,6 oz świeżych odpowiada 1/4 oz suchych, czyli 0,417 — rachunek), S-39 (producent: suche aktywne i instant wymienne 1:1), S-38 (świeże na suche aktywne × 0,4, instant × 0,33; szczebel 3)
 - Krytyczna: nie
-- Uproszczenie: 0,4 zamiast 0,417 (różnica 4%). Rozbieżność: S-38 podaje dla instant × 0,33 (szczebel 3); wyższy szczebel (S-40, S-39) daje ok. 0,4 dla obu rodzajów suchych.
+- Uproszczenie: jeden przelicznik w środku przedziału producentów (0,28…0,417; Lesaffre Polska 0,25–0,33 według DRO-INS-030), nazwany przy przeliczeniu zdaniem „producent na opakowaniu może podawać inaczej” (D-172; tekst `yeast.conversionNote` roli 06). Drożdże bez podanego w źródle rodzaju liczone jako świeże (D-178).
 
 | ID | mświeże [g] | Oczekiwane: msuche [g] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|
-| RD-19-W1 | 10 | 4 | 0,1 | typowy | rachunek: 10 × 0,4 |
-| RD-19-W2 | 25 | 10 | 0,1 | typowy | rachunek: 25 × 0,4 |
-| RD-19-W3 | 0 | 0 | 0 | granica | rachunek |
+| RD-19-W1 | 10 | 3,5 | 0,1 | typowy | rachunek: 10 × 0,35; rola 06 V-PRZ-4 |
+| RD-19-W2 | 25 | 8,75 | 0,1 | typowy | rachunek: 25 × 0,35 (D-172: ok. 9 g); rola 06 V-PRZ-1 |
+| RD-19-W3 | 0 | 0 | 0 | granica | rachunek; rola 06 V-PRZ-2 |
 | RD-19-W4 | −1 | błąd danych | — | poniżej | rachunek: poza granicą m ≥ 0 |
-| RD-19-W5 | 0,1 | 0,04 | 0,01 | powyżej | rachunek: 0,1 × 0,4 |
+| RD-19-W5 | 0,1 | 0,035 | 0,005 | powyżej | rachunek: 0,1 × 0,35 |
 | RD-19-W6 | brak | błąd danych | — | błąd | rachunek: brak masy |
+| RD-19-W7 | 20 | 7 | 0,1 | typowy | rachunek: 7 / 0,35 = 20 (odwrotnie); rola 06 V-PRZ-3 |
 
 ### RD-20: Wariant żytni bez składań
 - Wzór: `U = mżytnia / M × 100`; `U > 50` → wariant żytni (bez składań i bez wyrabiania do kształtu, D-030)
@@ -291,14 +292,15 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 - Krytyczna: tak
 - Uproszczenie: zaokrąglenie w dół zamiast do najbliższego grama, żeby nie przekroczyć granicy; granica drożdży porównywana w drożdżach suchych, bo tak podają ją instrukcje (S-102, MAS-032).
 
-| ID | Mwyb [g] | Mmax [g] | Cmax [g] | Σp [-] | Oczekiwane: M [g] | Tolerancja | Rodzaj | Pochodzenie |
-|---|---|---|---|---|---|---|---|---|
-| RD-37-W1 | 500 | 620 | brak | 0,65 | 500 | 0 | typowy | rachunek; rola 06 V-MAK-3 |
-| RD-37-W2 | 620 | 620 | brak | 0,65 | 620 | 0 | granica | rachunek: M = Mmax; rola 06 V-MAK-1 |
-| RD-37-W3 | 621 | 620 | brak | 0,65 | 620 | 0 | powyżej | rachunek: przycięcie do Mmax, procenty bez zmian; rola 06 V-MAK-2 |
-| RD-37-W4 | 619 | 620 | brak | 0,65 | 619 | 0 | poniżej | rachunek |
-| RD-37-W5 | 620 | 620 | 1000 | 0,837 | 544 | 0 | typowy | rachunek: 1000 / 1,837 = 544,4 → 544; rola 06 V-MAK-4 (tartine 80% wody, 2% soli, 1,7% drożdży) |
-| RD-37-W6 | 500 | brak | brak | 0,65 | błąd danych | — | błąd | rachunek: bez Mmax aplikacja prosi o granicę (BR-MASZ-002) |
+| ID | Mwyb [g] | Mmax [g] | Cmax [g] | Ymax [g] | py [-] | Σp [-] | Oczekiwane: M [g] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|---|---|---|---|
+| RD-37-W1 | 500 | 620 | brak | brak | brak | 0,65 | 500 | 0 | typowy | rachunek; rola 06 V-MAK-3 |
+| RD-37-W2 | 620 | 620 | brak | brak | brak | 0,65 | 620 | 0 | granica | rachunek: M = Mmax; rola 06 V-MAK-1 |
+| RD-37-W3 | 621 | 620 | brak | brak | brak | 0,65 | 620 | 0 | powyżej | rachunek: przycięcie do Mmax, procenty bez zmian; rola 06 V-MAK-2 |
+| RD-37-W4 | 619 | 620 | brak | brak | brak | 0,65 | 619 | 0 | poniżej | rachunek |
+| RD-37-W5 | 620 | 620 | 1000 | brak | brak | 0,837 | 544 | 0 | typowy | rachunek: 1000 / 1,837 = 544,4 → 544; rola 06 V-MAK-4 (tartine 80% wody, 2% soli, 1,7% drożdży) |
+| RD-37-W6 | 500 | brak | brak | brak | brak | 0,65 | błąd danych | — | błąd | rachunek: bez Mmax aplikacja prosi o granicę (BR-MASZ-002) |
+| RD-37-W7 | 620 | 620 | brak | 10 | 0,071 | 0,65 | 402 | 0 | typowy | rachunek: 10 / (0,071 × 0,35) = 402,4 → 402 (Ymax Tefal S-102; drożdże chałki 7,1% świeżych, rejestr DRO-CHA-002; k z RD-19, D-172) |
 
 ### RD-38: Blokada opóźnionego startu maszyny przy łatwo psujących się składnikach
 - Wzór: opóźniony start niedostępny ⇔ receptura ma co najmniej jeden składnik z listy L = {jajka, świeże mleko, ser (także twaróg), jogurt, sok, świeże owoce, warzywa}; mleko w proszku nie należy do L; przy blokadzie zawsze zdanie wyjaśnienia z nazwą składnika
@@ -306,7 +308,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 - Granica: brak (reguła jakościowa)
 - Podstawa: S-101 (Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; szczebel 1), S-103 (Zojirushi: mleko, sok, warzywa, jajka; szczebel 1), S-104 (Cuisinart: mleko, jajka, ser, jogurt; szczebel 1), S-105 (Cuisinart: mleko w proszku pozwala na opóźniony start; szczebel 1), D-175 z uzupełnieniem 2026-11-03 (suma list instrukcji; bez mięsa, brak źródła maszyny); rejestr roli 06 MAS-072, MAS-084
 - Krytyczna: tak
-- Uproszczenie: suma list wszystkich przeczytanych instrukcji zamiast listy jednej maszyny; blokada całkowita, bez dozwolonego krótkiego opóźnienia [DO USTALENIA] (OP-67).
+- Uproszczenie: suma list wszystkich przeczytanych instrukcji zamiast listy jednej maszyny; blokada całkowita, bez dozwolonego krótkiego opóźnienia [DO USTALENIA] (OP-67). Lista dotyczy całej receptury, także składnika spoza maszyny (mleko w nadzieniu pierożków karelskich, rejestr KAT-KAR-002), do rozstrzygnięcia [DO USTALENIA] (OP-73).
 
 | ID | Składniki [-] | Oczekiwane: opóźniony start [-] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|
@@ -343,7 +345,8 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 ## Rozbieżności z kodem i rejestrem (do erraty E3 i ról 06, 07, 08)
 
 - RD-17: silnik liczy czas także poza 20–26 °C bez komunikatu (`src/scheduler/reverse-scheduler.ts`), ale plan przyjmuje temperaturę tylko z wyboru 20–26 °C (`src/components/harmonogram/TargetReadyCard.tsx`), więc użytkownik nie dostaje liczby spoza modelu; według D-066 (2a) to nie rozbieżność kryterium (ER-55). Nowe wejście temperatury poza wyborem wymaga strażnika zakresu.
-- RD-19: zgodne z kodem od 2026-10-22 (`src/core/domain-rules.ts`, `convertYeast` × 0,4; było 3:1, M1-audytor-generalny-130, D-069). Wybór rodzaju drożdży w interfejsie (BR-KALK-009 „Świeże na suche”) od 2026-10-22: arkusz „Składniki”, procent receptury = świeże, „suche” × 0,4 w „Do miski” i w kopii (D-100, M1-audytor-generalny-216).
+- RD-19: od 2026-11-03 × 0,35 (D-172, ER-78); kod liczy × 0,4 (`src/core/domain-rules.ts`, `convertYeast`; wybór w arkuszu „Składniki”, BR-KALK-009) — zmiana kodu: rola 08 (testy przed kodem); wektory VEC-YEAST w `docs/brd/fixtures/test-vectors.json` i `tests/fixtures/test-vectors.json` (15 g świeżych → 5,25 g suchych; 3,5 g instant → 10 g świeżych, rachunek) oraz `tests/presety-drozdze-217.test.ts`: rola 07; procenty drożdży presetów po D-172 (DRO-PIZ-003, DRO-CHA-002, DRO-FOC-002, DRO-BAG-002): rola 08 według przekazania roli 06.
+- Plan dla drożdży: `src/lib/plan-receptury.ts` (`powodBezZakwasu`) blokuje plan i prowadzenie bez zakwasu; od D-155 i D-174 plan wersji drożdżowej i receptur drożdżowych z czasami z receptury (BR-HARMO-001, BR-ETAP-001, ER-78) — rola 08.
 - RD-25 i RD-23: zgodne z kodem od 2026-10-20 (ER-50): przypomnienie po 12 h na blacie (`src/core/notification-config.ts`, `FEED_ROOM_TEMP_AFTER_MS`; D-043 pkt 4) i ostrzeżenie o rękawicach i parze przy zdejmowaniu pokrywki (`src/core/baking-phases.ts`, `safetyWarningPl`, RD-23-W1).
 - Studzenie chleba żytniego: kod Doktora 2 h i 8 h, rejestr roli 06 24 h (ZYT-STU-001, szczebel 4).
 - Próg ostrzeżenia 45 °C dla wody i progi faz zakwasu w godzinach (`src/core/sourdough-physics.ts`) bez źródła: OP-34, OP-39.

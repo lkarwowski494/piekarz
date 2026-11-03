@@ -116,11 +116,15 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
   - Scenariusz: Świeże na suche
     - Zakładając, że receptura ma 10 g drożdży świeżych
     - Gdy użytkownik zmienia rodzaj na suche
-    - Wtedy widzi 4 g drożdży suchych (RD-19-W1)
+    - Wtedy widzi 3,5 g drożdży suchych (RD-19-W1; × 0,35 od D-172, ER-78)
   - Scenariusz: Ujemna masa
     - Zakładając, że użytkownik wpisuje −1 g drożdży
     - Gdy zatwierdza pole
     - Wtedy widzi komunikat o błędnych danych (RD-19-W4)
+  - Scenariusz: Uwaga przy przeliczeniu
+    - Zakładając, że użytkownik zmienia rodzaj na suche
+    - Gdy widzi masę drożdży suchych
+    - Wtedy obok widzi, że producent na opakowaniu może podawać inny przelicznik (D-172; tekst `yeast.conversionNote` roli 06)
 - Drugie wejście tego samego wyboru: BR-KALK-012 (przy wierszu „Do miski”, D-136, ER-75).
 
 ### BR-KALK-012: Wybór rodzaju drożdży przy wierszu „Do miski”
@@ -130,7 +134,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
   - Scenariusz: Wybór przy wierszu drożdży
     - Zakładając, że receptura ma 25 g drożdży świeżych, a karta „Do miski” pokazuje wiersz drożdży
     - Gdy użytkownik wybiera przy tym wierszu drożdże suche
-    - Wtedy wiersz pokazuje 10 g drożdży suchych (RD-19-W2) bez otwierania arkusza „Składniki”
+    - Wtedy wiersz pokazuje 8,75 g drożdży suchych (RD-19-W2; D-172) bez otwierania arkusza „Składniki”
   - Scenariusz: Jeden wybór w dwóch miejscach
     - Zakładając, że użytkownik wybrał drożdże suche w arkuszu „Składniki” (BR-KALK-009)
     - Gdy wraca do karty „Do miski”

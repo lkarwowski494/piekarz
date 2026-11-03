@@ -14,6 +14,14 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Zakładając, że suma czasów etapów jest dłuższa niż czas do wybranej godziny
     - Gdy użytkownik zatwierdza plan
     - Wtedy widzi, że plan nie zdąży, i najwcześniejszą możliwą godzinę „gotowe”
+  - Scenariusz: Plan dla receptury drożdżowej i wersji drożdżowej
+    - Zakładając, że receptura jest drożdżowa albo przełączona na drożdże (BR-RECP-005), a etapy mają czasy z receptury
+    - Gdy użytkownik wybiera godzinę „chleb gotowy”
+    - Wtedy widzi plan z krokami mieszanie, wyrabianie, pierwsze rośnięcie, odgazowanie, kształtowanie, drugie rośnięcie i pieczenie (rejestr roli 06 DRO-MOD-016) z czasami z receptury, a nie komunikat, że plan jest tylko dla chleba na zakwasie (D-155, D-174)
+  - Scenariusz: Temperatura nie zmienia czasów drożdżowych
+    - Zakładając, że plan dotyczy receptury drożdżowej
+    - Gdy użytkownik zmienia temperaturę w kuchni z 20 °C na 26 °C
+    - Wtedy czasy etapów zostają te z receptury, bez przeliczenia temperaturą i ilością drożdży (D-174; model RD-17 tylko dla zakwasu); który koniec przedziału czasu z receptury bierze plan: [DO WYJAŚNIENIA] (OP-70)
 
 ### BR-ETAP-006: Nowy wypiek nie zastępuje trwającego bez pytania
 - Przepływ: PR-02, PR-04, PR-15
@@ -109,6 +117,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Zakładając, że krok czynny się skończył
     - Gdy użytkownik potwierdza wykonanie
     - Wtedy widzi następny krok z jego godziną
+  - Scenariusz: Gotowość ciasta drożdżowego
+    - Zakładając, że wypiek receptury drożdżowej jest na kroku pierwszego albo drugiego rośnięcia
+    - Gdy użytkownik otwiera krok
+    - Wtedy widzi, że czas z receptury jest wskazówką, a ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje (rejestr roli 06 DRO-MOD-013, DRO-MOD-016; D-174)
 
 ### BR-ETAP-002: Kroki z receptury: składania dla pszennego, bez składań dla żytniego
 - Przepływ: PR-04 · Reguła: RD-20

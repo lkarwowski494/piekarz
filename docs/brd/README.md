@@ -1,10 +1,10 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-11-03 (rola 01 fix: paczka M3, ER-75…ER-78; wcześniej 2026-10-22: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
-Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu, P-7 regularny piekarz, P-8 pizza i pieczywo drożdżowe) przez 12 prac J: liczenie z zakwasem i zaczynami, plan wsteczny z sygnałem przy uśpionym telefonie, zakwas od zera i jego prowadzenie, dziennik z poprawą następnego wypieku, naukę i Doktora Chleba, dane bez ryzyka utraty. Zakres pierwszej wersji, podział i cena nie są tu rozstrzygane: hipotezy H-03…H-14 dla ról 02 i 03.
+Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu, P-7 regularny piekarz, P-8 pizza i pieczywo drożdżowe) przez 16 prac J: liczenie z zakwasem i zaczynami, plan wsteczny z sygnałem przy uśpionym telefonie, zakwas od zera i jego prowadzenie, dziennik z poprawą następnego wypieku, naukę i Doktora Chleba, dane bez ryzyka utraty. Zakres pierwszej wersji, podział i cena nie są tu rozstrzygane: hipotezy H-03…H-14 dla ról 02 i 03.
 
 ## Spis
 
@@ -12,7 +12,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 |---|---|---|
 | `README.md` | stan, spis, streszczenie, otwarte pytania, blokery wydania | E3 |
 | `odkrywanie.md` | wywiad, prace J, persony P, kontekst użycia, zasady ZP, rynek, ograniczenia OG, hipotezy H, ryzyka RYZ | E2 + J-12, OG-07, J-16 (ER-77) |
-| `zrodla.md` | źródła S | E2 + S-62…S-64, S-101…S-108 (ER-77) |
+| `zrodla.md` | źródła S | E2 + S-62…S-64, S-100 (ER-78), S-101…S-108 (ER-77) |
 | `reguly.md` | reguły RD-14…RD-28, RD-35…RD-39 z wektorami | E2 + F-71, RD-37…RD-39 (ER-77) |
 | `wymagania.md` | przepływy PR-01…PR-18, PR-24, PR-25, wymagania NFR | E3 + PR-18, PR-25 (ER-77) |
 | `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 + BR-KALK-012 (ER-75) |
@@ -22,7 +22,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
 | `wymagania-maszyna.md` | BR-MASZ-001…006 (tryb maszyny do chleba, F-72, PR-25, J-16; reguły RD-37…RD-39) | ER-77, 2026-11-03 |
-| `errata.md` | errata ER-34…ER-70 | E3 + 2026-10-22 |
+| `errata.md` | errata ER-34…ER-78 | E3 + 2026-10-22, 2026-11-03 (ER-75…ER-78) |
 
 ## Otwarte pytania
 
@@ -69,6 +69,10 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-67 | [DO USTALENIA] (OP-67) czy źródło szczebla 1–3 dopuszcza krótkie opóźnienie przy nabiale i jajkach (reguła 2 godzin FDA wobec opóźnionego startu; rejestr MAS-073); do tego czasu blokada całkowita | rola 06 | RD-38, BR-MASZ-005 |
 | OP-68 | [DO USTALENIA] (OP-68) progi cukru i tłuszczu dla programów „słodki” i „francuski” ze źródła (rejestr MAS-080: jedyny próg liczbowy to 50% mąki pełnoziarnistej w Cuisinart CBK-110); do tego czasu reguła Piekarza D-179 | rola 06 | RD-39 |
 | OP-69 | [DO WYJAŚNIENIA] (OP-69) jak tryb maszyny rozpoznaje składniki z listy blokady (RD-38) w recepturach własnych, w których użytkownik wpisuje składnik dowolnym tekstem (lista do wyboru, pytanie przy włączeniu opóźnienia, blokada przy każdym składniku spoza listy) | rola 04 z rolą 05 | RD-38, BR-MASZ-005 |
+| OP-70 | [DO WYJAŚNIENIA] (OP-70) który koniec przedziału czasu z receptury (początek, środek, koniec) bierze plan wsteczny wersji drożdżowej, skoro czasy nie są przeliczane (D-174), a gotowość ocenia test palca | rola 03 z rolą 04; dane: rola 06 | BR-HARMO-001, D-174 |
+| OP-71 | [DO USTALENIA] (OP-71) temperatury pieca ze specyfikacji (Altamura 250 °C, pierożki karelskie 250–300 °C, obwarzanek 250–320 °C, rupjmaize 280–350 °C; rejestr KAT-ALT-005, KAT-KAR-003, KAT-OBW-012, KAT-RUP-005) wobec piekarnika domowego: czy i jaką temperaturę aplikacja podaje w planie i prowadzeniu | rola 06 | BR-RECP-001, D-177 |
+| OP-72 | [DO USTALENIA] (OP-72) czy przepis w płatnej aplikacji jest „wykorzystywaniem w celach handlowych” nazwy chronionej (rozp. (UE) 2024/1143 art. 26 ust. 1, rejestr KAT-PRA-001, KAT-PRA-002; nazwy GTS: art. 24 rozp. 1151/2012) — opinia prawna; do tego czasu nazwy opisowe (D-177) | właściciel (opinia prawna, krok właściciela) | BR-RECP-001, D-177 |
+| OP-73 | [DO USTALENIA] (OP-73) czy blokada opóźnionego startu (RD-38) obejmuje składniki, które nie trafiają do maszyny (mleko w nadzieniu pierożków karelskich, KAT-KAR-002), i czy pierożki w ogóle mają tryb maszyny (raport roli 06: „nie (formowanie ręczne; źródło milczy)”, D-179 wymienia pierożki przy programie „ciasto”); do tego czasu blokada według całej receptury | rola 06 | RD-38, RD-39, BR-MASZ-005 |
 
 ## Blokery wydania
 

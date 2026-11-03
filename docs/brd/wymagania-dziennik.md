@@ -14,6 +14,18 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Zakładając, że użytkownik ma dostęp do funkcji (próba albo zakup)
     - Gdy przegląda receptury bazowe
     - Wtedy żadna nie jest zablokowana osobno (decyzja D-034, pyt. 8a)
+  - Scenariusz: Katalog w 1.0
+    - Zakładając, że użytkownik ma wersję 1.0
+    - Gdy przegląda receptury bazowe
+    - Wtedy widzi około 30 receptur: 15 dotychczasowych i kandydatów zatwierdzonych przez właściciela (11 i 3 warunkowo po domknięciu luk), każdą pod nazwą opisową (D-157, D-177)
+  - Scenariusz: Nazwa chroniona tylko jako pochodzenie
+    - Zakładając, że formuła receptury pochodzi ze specyfikacji nazwy chronionej (ChNP, ChOG, GTS)
+    - Gdy użytkownik czyta recepturę
+    - Wtedy tytuł jest nazwą opisową, a nazwa chroniona pojawia się tylko w zdaniu o pochodzeniu formuły (D-177; ochrona nazw: [DO USTALENIA] (OP-72))
+  - Scenariusz: Formuła ze specyfikacji produkcji
+    - Zakładając, że receptura podaje ilości i temperatury pieca ze specyfikacji produkcji (np. pierożki 250–300 °C, rejestr KAT-KAR-003)
+    - Gdy użytkownik czyta jej notatki
+    - Wtedy widzi, że ilości i temperatury są podane jak w źródle, bez przeliczenia na kuchnię i piekarnik domowy (tekst roli 06; temperatura dla piekarnika domowego: [DO USTALENIA] (OP-71))
 
 ### BR-RECP-002: Własne receptury
 - Przepływ: PR-01
