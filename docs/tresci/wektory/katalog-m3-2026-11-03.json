@@ -1,0 +1,1357 @@
+{
+  "opis": "Formuły katalogu M3 (D-177, 11 receptur „wchodzi”) dla kodu: procenty piekarskie (mąka = 100), pieczenie, kategoria, podpowiedź programu maszyny (D-179) i blokada opóźnionego startu (D-175). Teksty: docs/tresci/pl|en/katalog-m3.md. Wartość = środek przedziału z rejestru (E-raport); null + 'otwarte' = brak źródła.",
+  "zrodlo": "rola 06-tresci, E2 katalog, 2026-11-03",
+  "przelicznik_drozdzy": "D-172: świeże = suche ÷ 0,35 (już zastosowany w wpisach KAT-ILB, BUL, SLO)",
+  "receptury": [
+    {
+      "id": "durum_semolina_sourdough",
+      "nazwa_pl": "Chleb z semoliny durum na zakwasie",
+      "pochodzenie": "ChNP Pane di Altamura (KAT-ALT-001)",
+      "kategoria": "sourdough",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "semolina z pszenicy durum (semola rimacinata)",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-ALT-007"
+            },
+            "typ_kodu": {
+              "wartosc": "durum",
+              "twierdzenie": "KAT-ALT-001",
+              "uwagi": "istniejący typ 'durum' w src/recipes; dopasowanie po nazwie"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 60,
+          "twierdzenie": "KAT-ALT-008"
+        },
+        "sol_proc": {
+          "wartosc": 2,
+          "twierdzenie": "KAT-ALT-009"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-ALT-010"
+        },
+        "zakwas_proc": {
+          "wartosc": 20,
+          "twierdzenie": "KAT-ALT-007",
+          "uwagi": "woda i semolina w zakwasie nieliczone; hydratacja zakwasu bez źródła"
+        },
+        "temp_wody_c": {
+          "wartosc": 18,
+          "twierdzenie": "KAT-ALT-001"
+        },
+        "inne": []
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": 250,
+          "twierdzenie": "KAT-ALT-005",
+          "uwagi": "piec specyfikacji, nie piekarnik domowy"
+        },
+        "czas_min": {
+          "wartosc": 60,
+          "twierdzenie": "KAT-ALT-005",
+          "fazy": [
+            {
+              "min": 15,
+              "piec": "otwarty"
+            },
+            {
+              "min": 45,
+              "piec": "zamknięty"
+            }
+          ]
+        }
+      },
+      "kroki": {
+        "miesienie_min": {
+          "wartosc": 20,
+          "twierdzenie": "KAT-ALT-003"
+        },
+        "fermentacja_min": {
+          "wartosc": 90,
+          "twierdzenie": "KAT-ALT-004",
+          "granica": ">="
+        },
+        "po_formowaniu_1_min": {
+          "wartosc": 30,
+          "twierdzenie": "KAT-ALT-004"
+        },
+        "po_formowaniu_2_min": {
+          "wartosc": 15,
+          "twierdzenie": "KAT-ALT-004",
+          "granica": ">="
+        }
+      },
+      "wersja_drozdzowa": {
+        "wartosc": null,
+        "twierdzenie": null,
+        "otwarte": "KAT-ALT-006"
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Specyfikacja formuje bochenek dwa razy i piecze go w piecu, więc kształtowanie i pieczenie są poza formą maszyny (reguła 1 D-179).",
+        "twierdzenia": [
+          "KAT-ALT-004",
+          "KAT-ALT-005"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki: semolina, woda, sól, zakwas (KAT-ALT-007)"
+      }
+    },
+    {
+      "id": "white_pan_loaf",
+      "nazwa_pl": "Chleb pszenny foremkowy",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "yeast",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna (albo chlebowa)",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-ILB-005"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 67.7,
+          "twierdzenie": "KAT-ILB-006",
+          "od": 59.2,
+          "do": 79.0
+        },
+        "sol_proc": {
+          "wartosc": 1.4,
+          "twierdzenie": "KAT-ILB-007"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 4.7,
+          "twierdzenie": "KAT-ILB-008",
+          "od": 4.1,
+          "do": 5.5,
+          "uwagi": "D-172: suche ÷ 0,35"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-ILB-005",
+          "uwagi": "brak zakwasu w przepisie"
+        },
+        "temp_wody_f": {
+          "od": 100,
+          "do": 110,
+          "twierdzenie": "KAT-ILB-001"
+        },
+        "inne": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 2.9,
+              "twierdzenie": "KAT-ILB-005"
+            }
+          },
+          {
+            "skladnik": "olej",
+            "procent": {
+              "wartosc": 3.1,
+              "twierdzenie": "KAT-ILB-005"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": 204,
+          "twierdzenie": "KAT-ILB-002",
+          "uwagi": "400 °F; °C to rachunek w twierdzeniu"
+        },
+        "temp_f": {
+          "wartosc": 400,
+          "twierdzenie": "KAT-ILB-002"
+        },
+        "czas_min": {
+          "wartosc": 35,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 30,
+          "do": 40
+        }
+      },
+      "kroki": {
+        "wyrabianie_min": {
+          "wartosc": 9,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 8,
+          "do": 10
+        },
+        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
+        "forma": "9×5 cali",
+        "twierdzenia_wariantu": null
+      },
+      "maszyna": {
+        "program": "podstawowy",
+        "uzasadnienie": "Pieczony w formie, nie słodki, bez mąki pełnoziarnistej, z cukrem i olejem, więc pierwsza pasująca jest reguła 5 (podstawowy) z D-179.",
+        "twierdzenia": [
+          "KAT-ILB-005"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki bez mleka, jaj, sera, jogurtu i owoców (KAT-ILB-001)"
+      }
+    },
+    {
+      "id": "half_whole_wheat_loaf",
+      "nazwa_pl": "Chleb pół-pełnoziarnisty foremkowy",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "yeast",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna",
+            "procent": {
+              "wartosc": 50,
+              "twierdzenie": "KAT-ILB-009"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          },
+          {
+            "nazwa": "pełnoziarnista",
+            "procent": {
+              "wartosc": 50,
+              "twierdzenie": "KAT-ILB-009"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 69.1,
+          "twierdzenie": "KAT-ILB-010",
+          "od": 60.5,
+          "do": 80.6
+        },
+        "sol_proc": {
+          "wartosc": 1.4,
+          "twierdzenie": "KAT-ILB-011"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 4.8,
+          "twierdzenie": "KAT-ILB-012",
+          "od": 4.2,
+          "do": 5.6,
+          "uwagi": "D-172: suche ÷ 0,35"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-ILB-009",
+          "uwagi": "brak zakwasu w przepisie"
+        },
+        "temp_wody_f": {
+          "od": 100,
+          "do": 110,
+          "twierdzenie": "KAT-ILB-001"
+        },
+        "inne": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 2.9,
+              "twierdzenie": "KAT-ILB-009"
+            }
+          },
+          {
+            "skladnik": "olej",
+            "procent": {
+              "wartosc": 3.2,
+              "twierdzenie": "KAT-ILB-009"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": 204,
+          "twierdzenie": "KAT-ILB-002",
+          "uwagi": "400 °F; °C to rachunek w twierdzeniu"
+        },
+        "temp_f": {
+          "wartosc": 400,
+          "twierdzenie": "KAT-ILB-002"
+        },
+        "czas_min": {
+          "wartosc": 35,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 30,
+          "do": 40
+        }
+      },
+      "kroki": {
+        "wyrabianie_min": {
+          "wartosc": 9,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 8,
+          "do": 10
+        },
+        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
+        "forma": "9×5 cali",
+        "twierdzenia_wariantu": "KAT-ILB-003"
+      },
+      "maszyna": {
+        "program": "pełnoziarnisty",
+        "uzasadnienie": "Mąka pełnoziarnista stanowi 50% mąki (KAT-ILB-003), czyli próg „50% lub więcej” reguły 3 D-179.",
+        "twierdzenia": [
+          "KAT-ILB-009",
+          "KAT-ILB-003"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki bez mleka, jaj, sera, jogurtu i owoców (KAT-ILB-001)"
+      }
+    },
+    {
+      "id": "half_rye_loaf",
+      "nazwa_pl": "Chleb pół-żytni foremkowy",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "rye",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna",
+            "procent": {
+              "wartosc": 50,
+              "twierdzenie": "KAT-ILB-013"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          },
+          {
+            "nazwa": "żytnia (średnia; rodzaj nieznany)",
+            "procent": {
+              "wartosc": 50,
+              "twierdzenie": "KAT-ILB-013"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 74.6,
+          "twierdzenie": "KAT-ILB-014",
+          "od": 65.3,
+          "do": 87.0
+        },
+        "sol_proc": {
+          "wartosc": 1.5,
+          "twierdzenie": "KAT-ILB-015"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 5.2,
+          "twierdzenie": "KAT-ILB-016",
+          "od": 4.5,
+          "do": 6.0,
+          "uwagi": "D-172: suche ÷ 0,35"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-ILB-013",
+          "uwagi": "brak zakwasu w przepisie"
+        },
+        "temp_wody_f": {
+          "od": 100,
+          "do": 110,
+          "twierdzenie": "KAT-ILB-001"
+        },
+        "inne": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 3.2,
+              "twierdzenie": "KAT-ILB-013"
+            }
+          },
+          {
+            "skladnik": "olej",
+            "procent": {
+              "wartosc": 3.4,
+              "twierdzenie": "KAT-ILB-013"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": 204,
+          "twierdzenie": "KAT-ILB-002",
+          "uwagi": "400 °F; °C to rachunek w twierdzeniu"
+        },
+        "temp_f": {
+          "wartosc": 400,
+          "twierdzenie": "KAT-ILB-002"
+        },
+        "czas_min": {
+          "wartosc": 35,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 30,
+          "do": 40
+        }
+      },
+      "kroki": {
+        "wyrabianie_min": {
+          "wartosc": 9,
+          "twierdzenie": "KAT-ILB-002",
+          "od": 8,
+          "do": 10
+        },
+        "wyrastanie": "do podwojenia (czasu źródło nie podaje)",
+        "forma": "9×5 cali",
+        "twierdzenia_wariantu": "KAT-ILB-004"
+      },
+      "maszyna": {
+        "program": "pełnoziarnisty",
+        "uzasadnienie": "Mąka żytnia stanowi 50% mąki (KAT-ILB-004), czyli próg „50% lub więcej” reguły 3 D-179.",
+        "twierdzenia": [
+          "KAT-ILB-013",
+          "KAT-ILB-004"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki bez mleka, jaj, sera, jogurtu i owoców (KAT-ILB-001)"
+      }
+    },
+    {
+      "id": "latvian_scalded_rye",
+      "nazwa_pl": "Łotewski parzony chleb żytni",
+      "pochodzenie": "GTS Salinātā rudzu rupjmaize (KAT-RUP-001)",
+      "kategoria": "rye",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "mąka żytnia (gruba do zaparzenia)",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-RUP-007",
+              "uwagi": "10 kg według nagłówka; tabela daje 10–13 kg (sprzeczność, KAT-RUP-004)"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          },
+          {
+            "nazwa": "mąka pszenna (opcjonalnie)",
+            "procent": {
+              "wartosc": null,
+              "twierdzenie": "KAT-RUP-004",
+              "granica": "<=",
+              "maks": 10
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 70,
+          "twierdzenie": "KAT-RUP-008",
+          "od": 60,
+          "do": 80,
+          "uwagi": "tylko woda do zaparzenia"
+        },
+        "sol_proc": {
+          "wartosc": 1.8,
+          "twierdzenie": "KAT-RUP-009",
+          "od": 1.5,
+          "do": 2
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-RUP-010"
+        },
+        "zakwas_proc": {
+          "wartosc": null,
+          "twierdzenie": "KAT-RUP-007",
+          "od": 4,
+          "do": 16,
+          "uwagi": "zaczyn; środka rejestr nie podaje jako wielkości"
+        },
+        "parzenie": {
+          "maka_proc": {
+            "wartosc": 30,
+            "twierdzenie": "KAT-RUP-007"
+          },
+          "temp_wody_c": {
+            "od": 85,
+            "do": 95,
+            "twierdzenie": "KAT-RUP-001",
+            "krytyczne": true
+          },
+          "temp_masy_c": {
+            "od": 63,
+            "do": 68,
+            "twierdzenie": "KAT-RUP-001"
+          },
+          "scukrzanie": {
+            "temp_c": [
+              63,
+              65
+            ],
+            "godz": [
+              2,
+              4
+            ],
+            "twierdzenie": "KAT-RUP-002"
+          }
+        },
+        "inne": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "od": 8,
+              "do": 16,
+              "twierdzenie": "KAT-RUP-007"
+            }
+          },
+          {
+            "skladnik": "kminek",
+            "procent": {
+              "od": 0.8,
+              "do": 1,
+              "twierdzenie": "KAT-RUP-007"
+            }
+          },
+          {
+            "skladnik": "słód żytni niefermentowany",
+            "procent": {
+              "od": 0.5,
+              "do": 3,
+              "twierdzenie": "KAT-RUP-007"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "fazy": [
+            {
+              "od": 280,
+              "do": 350
+            },
+            {
+              "od": 200,
+              "do": 250
+            }
+          ],
+          "twierdzenie": "KAT-RUP-005",
+          "uwagi": "palenisko; powyżej zakresu piekarnika domowego"
+        },
+        "czas_min": {
+          "od": 60,
+          "do": 120,
+          "twierdzenie": "KAT-RUP-005",
+          "uwagi": "źródło: 1–2 godziny"
+        }
+      },
+      "kroki": {
+        "fermentacja_zaparzki_h": {
+          "od": 12,
+          "do": 24,
+          "twierdzenie": "KAT-RUP-002"
+        },
+        "fermentacja_z_zaczynem": {
+          "h": [
+            3,
+            6
+          ],
+          "temp_c": [
+            35,
+            36
+          ],
+          "twierdzenie": "KAT-RUP-003"
+        },
+        "fermentacja_ciasta": {
+          "h": [
+            2,
+            3
+          ],
+          "temp_c": [
+            30,
+            34
+          ],
+          "twierdzenie": "KAT-RUP-004"
+        }
+      },
+      "wersja_drozdzowa": {
+        "wartosc": null,
+        "twierdzenie": "KAT-RUP-006",
+        "uwagi": "specyfikacja wyklucza drożdże"
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Bochenki piecze się na palenisku, poza formą maszyny, a zaparzanie i scukrzanie trwają godzinami (reguła 1 D-179).",
+        "twierdzenia": [
+          "KAT-RUP-005"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki: mąka żytnia, woda, kminek, słód, zaczyn, cukier, sól"
+      }
+    },
+    {
+      "id": "karelian_rye_pasties",
+      "nazwa_pl": "Otwarte pierożki żytnie z nadzieniem ryżowym",
+      "pochodzenie": "GTS Karjalanpiirakka (KAT-KAR-001)",
+      "kategoria": "rye",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "mąka żytnia lub pszenna (proporcji źródło nie podaje)",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-KAR-005"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 64.0,
+          "twierdzenie": "KAT-KAR-006",
+          "od": 57.1,
+          "do": 72.7
+        },
+        "sol_proc": {
+          "wartosc": null,
+          "twierdzenie": null,
+          "otwarte": "KAT-KAR-007"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-KAR-008"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-KAR-005",
+          "uwagi": "bez spulchniacza"
+        },
+        "nadzienie": {
+          "plyn_l": {
+            "wartosc": 1,
+            "twierdzenie": "KAT-KAR-002"
+          },
+          "ryz_lub_jeczmien_g": {
+            "wartosc": 180,
+            "twierdzenie": "KAT-KAR-002"
+          },
+          "plyn": "woda, mleko lub napój mleczny"
+        },
+        "inne": []
+      },
+      "pieczenie": {
+        "temp_c": {
+          "od": 250,
+          "do": 300,
+          "twierdzenie": "KAT-KAR-003",
+          "uwagi": "300 °C poza piekarnikiem domowym"
+        },
+        "czas_min": {
+          "od": 15,
+          "do": 20,
+          "twierdzenie": "KAT-KAR-003"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Pierożki formuje się ręcznie i piecze poza maszyną, a D-179 wymienia pierożki w regule 1.",
+        "twierdzenia": [
+          "KAT-KAR-004"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": true,
+        "skladniki": [
+          "mleko (nadzienie, zamiennie z wodą)"
+        ],
+        "podstawa": "D-175, KAT-KAR-002; kierunek bezpieczny: nadzienie może być na mleku, choć ciasto ma tylko mąkę, wodę i sól — do potwierdzenia przez rolę 01"
+      }
+    },
+    {
+      "id": "boiled_bread_ring",
+      "nazwa_pl": "Obwarzanek parzony",
+      "pochodzenie": "ChOG Obwarzanek krakowski (KAT-OBW-001)",
+      "kategoria": "yeast",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "mąka pszenna",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-OBW-008"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          },
+          {
+            "nazwa": "mąka żytnia (opcjonalnie)",
+            "procent": {
+              "wartosc": null,
+              "maks": 30,
+              "twierdzenie": "KAT-OBW-001"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 44,
+          "twierdzenie": "KAT-OBW-009",
+          "od": 40,
+          "do": 48,
+          "uwagi": "Dz.U. C 38/2010 (wyższy dokument); wniosek EN bez liczby (KAT-OBW-013)"
+        },
+        "sol_proc": {
+          "wartosc": 1.3,
+          "twierdzenie": "KAT-OBW-010",
+          "od": 1,
+          "do": 1.5
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 1.5,
+          "twierdzenie": "KAT-OBW-011",
+          "od": 1,
+          "do": 2,
+          "uwagi": "rodzaj drożdży przyjęty jako świeże (założenie, KAT-OBW-002)"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-OBW-008"
+        },
+        "inne": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "od": 2,
+              "do": 4,
+              "twierdzenie": "KAT-OBW-004"
+            }
+          },
+          {
+            "skladnik": "tłuszcz",
+            "procent": {
+              "od": 2,
+              "do": 3,
+              "twierdzenie": "KAT-OBW-004"
+            }
+          }
+        ],
+        "obwarzanie": {
+          "temp_wody_c": {
+            "wartosc": 90,
+            "twierdzenie": "KAT-OBW-006",
+            "granica": ">=",
+            "krytyczne": true
+          }
+        }
+      },
+      "pieczenie": {
+        "temp_c": {
+          "od": 250,
+          "do": 320,
+          "twierdzenie": "KAT-OBW-012",
+          "uwagi": "powyżej ok. 250 °C poza piekarnikiem domowym — luka roli 01/08"
+        },
+        "czas_min": {
+          "od": 10,
+          "do": 17,
+          "twierdzenie": "KAT-OBW-012"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Obwarzanki formuje się, warzy i piecze poza maszyną, a D-179 wymienia obwarzanek w regule 1.",
+        "twierdzenia": [
+          "KAT-OBW-006"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": false,
+        "skladniki": [],
+        "podstawa": "D-175; składniki: mąka, woda, drożdże, sól, cukier, tłuszcz (KAT-OBW-008)"
+      }
+    },
+    {
+      "id": "milk_dinner_rolls",
+      "nazwa_pl": "Bułki mleczne",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "yeast",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-BUL-003"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 13.5,
+          "twierdzenie": "KAT-BUL-004",
+          "od": 11.8,
+          "do": 15.8
+        },
+        "sol_proc": {
+          "wartosc": 1.4,
+          "twierdzenie": "KAT-BUL-005"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 4.7,
+          "twierdzenie": "KAT-BUL-006",
+          "od": 4.1,
+          "do": 5.5
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-BUL-003"
+        },
+        "inne": [
+          {
+            "skladnik": "mleko",
+            "procent": {
+              "wartosc": 55.8,
+              "twierdzenie": "KAT-BUL-003"
+            }
+          },
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 11.4,
+              "twierdzenie": "KAT-BUL-003"
+            }
+          },
+          {
+            "skladnik": "masło lub margaryna",
+            "procent": {
+              "wartosc": 13.0,
+              "twierdzenie": "KAT-BUL-003"
+            }
+          },
+          {
+            "skladnik": "jajko",
+            "procent": {
+              "wartosc": 11.4,
+              "twierdzenie": "KAT-BUL-003",
+              "uwagi": "jajko duże 50 g — założenie"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "od": 204,
+          "do": 218,
+          "twierdzenie": "KAT-BUL-002"
+        },
+        "temp_f": {
+          "od": 400,
+          "do": 425,
+          "twierdzenie": "KAT-BUL-002"
+        },
+        "czas_min": {
+          "od": 10,
+          "do": 12,
+          "twierdzenie": "KAT-BUL-002"
+        }
+      },
+      "kroki": {
+        "wyrabianie_min": {
+          "wartosc": 10,
+          "twierdzenie": "KAT-BUL-001"
+        },
+        "sztuk": {
+          "wartosc": 24,
+          "twierdzenie": "KAT-BUL-001"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Bułki kształtuje się i piecze poza formą maszyny, a D-179 wymienia bułki w regule 1.",
+        "twierdzenia": [
+          "KAT-BUL-002"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": true,
+        "skladniki": [
+          "mleko",
+          "jajko"
+        ],
+        "podstawa": "D-175, KAT-BUL-001"
+      }
+    },
+    {
+      "id": "cheese_crumble_yeast_cake",
+      "nazwa_pl": "Kołacz drożdżowy z serem i kruszonką",
+      "pochodzenie": "ChOG Kołocz śląski (KAT-KOL-001)",
+      "kategoria": "sweet",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "mąka pszenna",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-KOL-006"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-KOL-007"
+        },
+        "sol_proc": {
+          "wartosc": null,
+          "twierdzenie": null,
+          "otwarte": "KAT-KOL-008"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 6.3,
+          "twierdzenie": "KAT-KOL-009",
+          "od": 4.4,
+          "do": 8.6,
+          "uwagi": "6,25 → 6,3; rodzaj przyjęty jako świeże (założenie)"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-KOL-006"
+        },
+        "inne": [
+          {
+            "skladnik": "mleko",
+            "procent": {
+              "wartosc": 51.5,
+              "twierdzenie": "KAT-KOL-006",
+              "od": 34.3,
+              "do": 73.6
+            }
+          },
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 25,
+              "twierdzenie": "KAT-KOL-006",
+              "od": 11.1,
+              "do": 42.9
+            }
+          },
+          {
+            "skladnik": "jaja",
+            "procent": {
+              "wartosc": 25,
+              "twierdzenie": "KAT-KOL-006",
+              "od": 11.1,
+              "do": 42.9
+            }
+          },
+          {
+            "skladnik": "masło",
+            "procent": {
+              "wartosc": 25,
+              "twierdzenie": "KAT-KOL-006",
+              "od": 11.1,
+              "do": 42.9
+            }
+          }
+        ],
+        "nadzienie_kg_na_blache": {
+          "twarog": [
+            2.4,
+            2.6
+          ],
+          "zoltka": [
+            0.22,
+            0.26
+          ],
+          "cukier": [
+            0.4,
+            0.6
+          ],
+          "maslo": [
+            0.1,
+            0.3
+          ],
+          "twierdzenie": "KAT-KOL-002"
+        },
+        "kruszonka_kg_na_blache": {
+          "maslo": [
+            0.35,
+            0.45
+          ],
+          "maka": [
+            0.7,
+            0.9
+          ],
+          "cukier": [
+            0.35,
+            0.45
+          ],
+          "twierdzenie": "KAT-KOL-003"
+        }
+      },
+      "pieczenie": {
+        "temp_c": {
+          "od": 180,
+          "do": 200,
+          "twierdzenie": "KAT-KOL-011"
+        },
+        "czas_min": {
+          "od": 30,
+          "do": 60,
+          "twierdzenie": "KAT-KOL-011",
+          "uwagi": "blacha 40×60 cm; dla blachy domowej brak źródła"
+        }
+      },
+      "kroki": {
+        "zaczyn": {
+          "min": [
+            10,
+            20
+          ],
+          "temp_c": [
+            25,
+            30
+          ],
+          "twierdzenie": "KAT-KOL-010"
+        },
+        "fermentacja_ciasta": {
+          "wartosc": null,
+          "twierdzenie": null,
+          "otwarte": "KAT-KOL-012"
+        },
+        "garowanie": {
+          "wartosc": null,
+          "twierdzenie": null,
+          "otwarte": "KAT-KOL-012"
+        },
+        "grubosc_cm": {
+          "wartosc": 1.5,
+          "twierdzenie": "KAT-KOL-011"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Placek rozwałkowuje się i piecze na blasze, a D-179 wymienia kołocz w regule 1.",
+        "twierdzenia": [
+          "KAT-KOL-004",
+          "KAT-KOL-011"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": true,
+        "skladniki": [
+          "mleko",
+          "jaja",
+          "twaróg",
+          "żółtka"
+        ],
+        "podstawa": "D-175, KAT-KOL-006 (krytyczne), KAT-KOL-002"
+      }
+    },
+    {
+      "id": "sweet_yeast_buns",
+      "nazwa_pl": "Słodkie bułeczki drożdżowe",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "sweet",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-SLO-004"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 19.0,
+          "twierdzenie": "KAT-SLO-005"
+        },
+        "sol_proc": {
+          "wartosc": 1.9,
+          "twierdzenie": "KAT-SLO-006"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 6.6,
+          "twierdzenie": "KAT-SLO-007"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-SLO-004"
+        },
+        "inne": [
+          {
+            "skladnik": "mleko",
+            "procent": {
+              "wartosc": 39.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 16.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "olej (albo masło 9,1)",
+            "procent": {
+              "wartosc": 8.7,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "jajka",
+            "procent": {
+              "wartosc": 16.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": 177,
+          "twierdzenie": "KAT-SLO-002"
+        },
+        "temp_f": {
+          "wartosc": 350,
+          "twierdzenie": "KAT-SLO-002"
+        },
+        "czas_min": {
+          "wartosci": {
+            "bulki_w_formie": 25,
+            "pojedyncze": 20,
+            "placek": 30
+          },
+          "twierdzenie": "KAT-SLO-002"
+        }
+      },
+      "kroki": {
+        "pierwsze_wyrastanie_min": {
+          "wartosc": 60,
+          "twierdzenie": "KAT-SLO-001",
+          "uwagi": "źródło: ok. 1 godziny"
+        },
+        "sztuk": {
+          "wartosc": 24,
+          "twierdzenie": "KAT-SLO-001"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Bułeczki kształtuje się i piecze poza formą maszyny, więc reguła 1 D-179 ma pierwszeństwo przed regułą 2 (słodki).",
+        "twierdzenia": [
+          "KAT-SLO-002"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": true,
+        "skladniki": [
+          "mleko",
+          "jajka"
+        ],
+        "podstawa": "D-175, KAT-SLO-001"
+      }
+    },
+    {
+      "id": "cinnamon_tea_ring",
+      "nazwa_pl": "Wieniec cynamonowy",
+      "pochodzenie": "University of Illinois Extension 4-H (szczebel 3)",
+      "kategoria": "sweet",
+      "formula": {
+        "maki": [
+          {
+            "nazwa": "pszenna uniwersalna",
+            "procent": {
+              "wartosc": 100,
+              "twierdzenie": "KAT-SLO-008",
+              "uwagi": "połowa ciasta = 312,5 g mąki"
+            },
+            "typ_kodu": {
+              "wartosc": null,
+              "twierdzenie": null,
+              "otwarte": null,
+              "luka": "mapowanie na typ mąki w kodzie: brak wpisu w rejestrze (luka dla roli 01/06)"
+            }
+          }
+        ],
+        "woda_proc": {
+          "wartosc": 19.0,
+          "twierdzenie": "KAT-SLO-009"
+        },
+        "sol_proc": {
+          "wartosc": 1.9,
+          "twierdzenie": "KAT-SLO-010"
+        },
+        "drozdze_swieze_proc": {
+          "wartosc": 6.6,
+          "twierdzenie": "KAT-SLO-011"
+        },
+        "zakwas_proc": {
+          "wartosc": 0,
+          "twierdzenie": "KAT-SLO-004"
+        },
+        "inne": [
+          {
+            "skladnik": "mleko",
+            "procent": {
+              "wartosc": 39.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 16.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "olej (albo masło 9,1)",
+            "procent": {
+              "wartosc": 8.7,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          },
+          {
+            "skladnik": "jajka",
+            "procent": {
+              "wartosc": 16.0,
+              "twierdzenie": "KAT-SLO-004"
+            }
+          }
+        ],
+        "nadzienie": [
+          {
+            "skladnik": "cukier",
+            "procent": {
+              "wartosc": 48.0,
+              "twierdzenie": "KAT-SLO-008"
+            }
+          },
+          {
+            "skladnik": "masło roztopione",
+            "procent": {
+              "wartosc": 36.3,
+              "twierdzenie": "KAT-SLO-008"
+            }
+          },
+          {
+            "skladnik": "rodzynki",
+            "procent": {
+              "wartosc": 15.5,
+              "twierdzenie": "KAT-SLO-008"
+            }
+          },
+          {
+            "skladnik": "cynamon",
+            "procent": {
+              "wartosc": 1.7,
+              "twierdzenie": "KAT-SLO-008"
+            }
+          }
+        ]
+      },
+      "pieczenie": {
+        "temp_c": {
+          "wartosc": null,
+          "twierdzenie": null,
+          "otwarte": null,
+          "luka": "źródło podaje tylko 375 °F; przeliczenie na °C nie jest w rejestrze"
+        },
+        "temp_f": {
+          "wartosc": 375,
+          "twierdzenie": "KAT-SLO-003"
+        },
+        "czas_min": {
+          "wartosc": 25,
+          "twierdzenie": "KAT-SLO-003",
+          "uwagi": "około"
+        }
+      },
+      "maszyna": {
+        "program": "ciasto",
+        "uzasadnienie": "Wieniec formuje się z ciasta i piecze poza formą maszyny, więc reguła 1 D-179 ma pierwszeństwo przed regułą 2 (słodki).",
+        "twierdzenia": [
+          "KAT-SLO-003"
+        ]
+      },
+      "blokada_opoznionego_startu": {
+        "wartosc": true,
+        "skladniki": [
+          "mleko",
+          "jajka"
+        ],
+        "podstawa": "D-175, KAT-SLO-001 (ciasto słodkie)"
+      }
+    }
+  ]
+}

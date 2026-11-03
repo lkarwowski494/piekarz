@@ -902,6 +902,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
 - **Słowa właściciela:** „Blokada z wyjaśnieniem (Recommended)”.
 - **Decyzja:** tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza w proszku), ser, jogurt albo świeże owoce (część wspólna instrukcji, MAS-072, MAS-009, -023, -035, -044) i mówi dlaczego; bez mięsa (brak źródła maszyny). **Odrzucone:** samo ostrzeżenie.
+- **Uzupełnienie 2026-11-03 (rola 06, weryfikacja E3a, `docs/tresci/weryfikacja/E3a-werdykty.md`; do weta):** lista blokady to suma list instrukcji: jajka, świeże mleko, ser, jogurt, sok, świeże owoce, warzywa (Zojirushi wymienia sok i warzywa, MAS-023); mleko w proszku nie blokuje (MAS-084); mięsa nie ma w żadnej instrukcji. Tryb maszyny ogranicza recepturę także masą ciasta i drożdży, gdy instrukcja je podaje (Tefal: 1000 g ciasta, 620 g mąki, 10 g drożdży instant, MAS-002); sam limit mąki przy tartine 80% i 620 g mąki dawałby ok. 1139 g ciasta. Odrzucone: tylko część wspólna list (jajka, mleko); tylko limit mąki (ryzyko przelania).
 - **Zależy od:** D-153, D-171. **Status:** dzień, do weta.
 
 ### [D-176] 2026-11-03 — P5: podpowiedź rodzaju programu maszyny jako reguła aplikacji (uproszczenie), nie fakt
@@ -930,8 +931,3 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** wybór bez podpowiedzi (rekomendacja roli 06, odrzucona w D-176); progi cukru i tłuszczu w liczbach (brak źródła, MAS-080); osobny program żytni (nie ma go w pięciu rodzajach z D-176; Tefal ma program 10, MAS-018).
 - **Zależy od:** D-176, D-153. **Status:** dzień, do weta. Pula D-172…D-179 wyczerpana.
 
-### [D-175 uzupełnienie] 2026-11-03 — Lista blokady opóźnionego startu po weryfikacji E3a: także sok i warzywa; limit ciasta i drożdży obok limitu mąki (rola 06 E3, do weta)
-- **Rodzaj:** merytoryczna (rola 06; weryfikacja niezależna E3a, `docs/tresci/weryfikacja/E3a-werdykty.md`). Pula D-172…D-179 wyczerpana, więc wpis jako uzupełnienie D-175.
-- **Decyzja:** (1) blokada opóźnionego startu obejmuje sumę list instrukcji: jajka, świeże mleko, ser, jogurt, sok, świeże owoce, warzywa (Zojirushi wymienia sok i warzywa, MAS-023); mleko w proszku nie blokuje (MAS-084); mięsa nie ma w żadnej instrukcji, więc nie ma go w regule. (2) Tryb maszyny ogranicza recepturę także masą ciasta i drożdży, gdy instrukcja je podaje (Tefal: 1000 g ciasta, 620 g mąki, 10 g drożdży instant, MAS-002); sam limit mąki przy tartine 80% i 620 g mąki dawałby ok. 1139 g ciasta.
-- **Odrzucone:** lista tylko części wspólnej (jajka, mleko) — słabsza ochrona; tylko limit mąki — ryzyko przelania (weryfikator E3a).
-- **Zależy od:** D-175, D-153. **Status:** dzień, do weta.
