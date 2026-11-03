@@ -10,7 +10,8 @@ import DoctorScreen from '../app/doktor';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 
 jest.setTimeout(20000);
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
+// useFocusEffect: pas O3a na Doktorze (usePasekStanuJasny), D-197
+jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }), useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []) }));
 jest.mock('react-native-safe-area-context', () => {
   const ReactMod = require('react');
   return {

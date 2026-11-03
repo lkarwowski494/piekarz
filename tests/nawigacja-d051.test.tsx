@@ -104,14 +104,17 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
   });
 
   // M3 p4b (D-194, O3a): Stolnica z pasem zamiast nagłówka systemowego; powrót, krok (nagłówek VoiceOver), „Doktor”
-  // i „Plan wypieku” na pasie ekranu (tests/stolnica-naglowek-prz07.test.tsx). Doktor Chleba dalej z nagłówkiem (p5).
-  it('prowadzenie (Stolnica) z pasem, Doktor Chleba z nagłówkiem systemowym; oba nad zakładkami', () => {
+  // i „Plan wypieku” na pasie ekranu (tests/stolnica-naglowek-prz07.test.tsx). M3 p5 (D-197, O3a): Doktor Chleba też
+  // z pasem; powrót, tytuł „Doktor Chleba” (nagłówek VoiceOver) i nawigacja: src/__tests__/doktor-pas-p5.test.tsx.
+  it('prowadzenie (Stolnica) i Doktor Chleba z pasem (nagłówek stosu ukryty); oba nad zakładkami', () => {
     const { ekrany } = uklad('../app/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['(tabs)', 'stolnica', 'doktor']);
     const stolnica = ekrany.find((e) => e.name === 'stolnica')!.options;
     expect(stolnica).toMatchObject({ headerShown: false, title: 'Stolnica', headerLargeTitleEnabled: false });
     expect(stolnica.headerRight).toBeUndefined();
-    expect(ekrany.find((e) => e.name === 'doktor')!.options).toMatchObject({ headerShown: true, title: 'Doktor Chleba' });
+    const doktor = ekrany.find((e) => e.name === 'doktor')!.options;
+    expect(doktor).toMatchObject({ headerShown: false, title: 'Doktor Chleba' });
+    expect(doktor.headerRight).toBeUndefined();
   });
 
   it('żaden ekran w app/ nie rysuje własnego nagłówka CraftHeader', () => {

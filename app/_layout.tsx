@@ -144,7 +144,8 @@ export default function RootLayout() {
                 // ekranu (ProwadzenieWypieku); tytuł trasy zostaje dla systemu
                 options={{ ...naglowekZwykly, title: t('Stolnica'), headerShown: false }}
               />
-              <Stack.Screen name="doktor" options={{ ...naglowekZwykly, title: t('Doktor Chleba'), headerBackButtonDisplayMode: 'minimal' }} />
+              {/* Doktor Chleba z pasem O3a na ekranie (D-197): nagłówek stosu ukryty, tytuł trasy dla historii nawigacji */}
+              <Stack.Screen name="doktor" options={{ ...naglowekZwykly, title: t('Doktor Chleba'), headerShown: false }} />
             </Stack>
           </AppAccessProvider>
         </View>

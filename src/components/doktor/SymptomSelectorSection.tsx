@@ -11,6 +11,8 @@ import { t } from '../../lib/i18n';
 import { BreadInspectionCriteria } from '../../doctor/diagnostics';
 
 import { typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 export interface DiagnosticPreset {
   id: string;
   name: string;
@@ -66,9 +68,10 @@ export function SymptomSelectorSection({
   onClear,
 }: SymptomSelectorSectionProps) {
   return (
+    // M3 p5: grupy objawów w kartach z ikoną (README §1); chipy objawów bez zmian (wiersze PoleObjawu: D-198, p5b)
     <View style={styles.container}>
       {/* Quick Presets */}
-      <Text style={styles.sectionHeading}>{t('Szybkie szablony typowych problemów')}</Text>
+      <Karta testID="karta-szablony" tytul={t('Szybkie szablony typowych problemów')} ikona={<IkonaKarty nazwa="lista" />}>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -86,8 +89,10 @@ export function SymptomSelectorSection({
         ))}
       </ScrollView>
 
+      </Karta>
+
       {/* Symptoms Section: Miękisz */}
-      <Text style={styles.sectionHeading}>{t('Miękisz (Wnętrze bochenka)')}</Text>
+      <Karta testID="karta-miekisz" tytul={t('Miękisz (Wnętrze bochenka)')} ikona={<IkonaKarty nazwa="bochenek" />}>
       <View style={styles.chipsContainer}>
         <Pressable
           accessibilityRole="button"
@@ -166,8 +171,10 @@ export function SymptomSelectorSection({
         </Pressable>
       </View>
 
+      </Karta>
+
       {/* Symptoms Section: Skórka i Kształt */}
-      <Text style={styles.sectionHeading}>{t('Skórka i Kształt bochenka')}</Text>
+      <Karta testID="karta-skorka" tytul={t('Skórka i Kształt bochenka')} ikona={<IkonaKarty nazwa="bochenek" />}>
       <View style={styles.chipsContainer}>
         <Pressable
           accessibilityRole="button"
@@ -284,8 +291,10 @@ export function SymptomSelectorSection({
         </Pressable>
       </View>
 
+      </Karta>
+
       {/* Symptoms Section: Smak i Aromat */}
-      <Text style={styles.sectionHeading}>{t('Smak i Aromat')}</Text>
+      <Karta testID="karta-smak" tytul={t('Smak i Aromat')} ikona={<IkonaKarty nazwa="miska" />}>
       <View style={styles.chipsContainer}>
         <Pressable
           accessibilityRole="button"
@@ -326,6 +335,8 @@ export function SymptomSelectorSection({
         </Pressable>
       </View>
 
+      </Karta>
+
       {/* Clear Button */}
       {hasAnySymptom && (
         <Pressable accessibilityRole="button" style={styles.clearBtn} onPress={onClear}>
@@ -339,14 +350,7 @@ export function SymptomSelectorSection({
 const styles = StyleSheet.create({
   container: {
     marginBottom: theme.spacing.md,
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginTop: 12,
-    marginBottom: 8,
+    gap: theme.spacing.md,
   },
   presetsRow: {
     gap: 8,

@@ -1343,6 +1343,7 @@
       "app/(tabs)/dziennik/index.tsx (accessibilityLabel)",
       "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
       "app/_layout.tsx (title)",
+      "app/doktor.tsx (tytul)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
     ]
@@ -3040,7 +3041,7 @@
   },
   "Miękisz (Wnętrze bochenka)": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (tytul)"
     ]
   },
   "Miękisz maże się na nożu i wygląda na niedopieczony": {
@@ -5209,7 +5210,7 @@
   },
   "Protokoły ratunkowe (Pogotowie ciasta)": {
     "gdzie": [
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
+      "src/components/doktor/EmergencyRecoverySection.tsx (tytul)"
     ]
   },
   "Prowadzisz już 2 wypieki": {
@@ -6016,7 +6017,7 @@
   },
   "Skórka i Kształt bochenka": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (tytul)"
     ]
   },
   "Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.": {
@@ -6099,7 +6100,7 @@
   },
   "Smak i Aromat": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (tytul)"
     ]
   },
   "Sob.": {
@@ -6490,7 +6491,7 @@
   },
   "Szybkie szablony typowych problemów": {
     "gdzie": [
-      "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+      "src/components/doktor/SymptomSelectorSection.tsx (tytul)"
     ]
   },
   "Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.": {
@@ -7666,7 +7667,7 @@
   },
   "Wybierz objawy bochenka": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
+      "src/components/doktor/DiagnosisResultCard.tsx (tytul)"
     ]
   },
   "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.": {
@@ -8413,6 +8414,7 @@
   },
   "Zamknij": {
     "gdzie": [
+      "app/doktor.tsx (etykieta)",
       "src/components/CloseButton.tsx (title)",
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",

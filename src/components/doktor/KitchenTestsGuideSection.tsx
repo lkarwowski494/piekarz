@@ -10,6 +10,8 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 
 import { typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 export function KitchenTestsGuideSection() {
   const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
   const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
@@ -24,8 +26,11 @@ export function KitchenTestsGuideSection() {
         style={styles.guideCard}
         onPress={() => setShowPokeTest((prev) => !prev)}
       >
+        {/* Nagłówek karty z ikoną jak NaglowekKarty (20 pt, krój tytułów; M3 p5), tytuł jako tekst przycisku: tak go
+            szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test palca')}</Text>
+          <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="miska" /></View>
+          <Text style={styles.guideTitle} accessibilityRole="header">{t('Test palca')}</Text>
           <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>
@@ -55,8 +60,11 @@ export function KitchenTestsGuideSection() {
         style={styles.guideCard}
         onPress={() => setShowWindowpaneTest((prev) => !prev)}
       >
+        {/* Nagłówek karty z ikoną jak NaglowekKarty (20 pt, krój tytułów; M3 p5), tytuł jako tekst przycisku: tak go
+            szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test okna glutenowego')}</Text>
+          <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="miska" /></View>
+          <Text style={styles.guideTitle} accessibilityRole="header">{t('Test okna glutenowego')}</Text>
           <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>
@@ -92,24 +100,19 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   guideCard: {
+    ...wygladKarty,
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
     padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
+    gap: theme.spacing.sm,
     marginBottom: 10,
   },
-  guideHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
+  guideHeader: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md },
   guideTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.objasnienie.pt,
+    flex: 1,
+    flexShrink: 1,
+    fontSize: typografia.style.tytul2.pt - 2,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
