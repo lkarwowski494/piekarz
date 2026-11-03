@@ -754,3 +754,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** dla wybranych receptur na zakwasie osobne receptury drożdżowe, każda z treścią i czasami fermentacji ze źródła. Kolejność: rola 03 build `zmiany-zakresu` (które receptury, wejście w interfejsie, miejsce w Basic/Pro wobec D-038), rola 06 (ilość drożdży, czasy, plan; źródła szczebla 1–3), rola 04 (powiązanie na liście / w recepturze), rola 08 (kod, testy), rola 09 (33 języki). Wersja 1.1, po zgłoszeniu 1.0.
 - **Odrzucone:** (b) ogólny przełącznik „zakwas → drożdże” dla każdej receptury (ryzyko błędnych czasów w planie przy różnych mąkach i hydratacji); (c) zostawić 4 istniejące receptury drożdżowe.
 - **Status:** dzień, do weta.
+
+### [D-138] 2026-11-03 — Tryb „maszyna do chleba” obok pieczenia tradycyjnego (wersja 1.1 lub później)
+- **Rodzaj:** decyzja właściciela (prośba „Możliwość tradycyjnego pieczenia jak i w maszynce do chleba (mam taką)”, doprecyzowanie punktu 3; pytania z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Punkt 3 to maszyna”; „Tryb „maszyna”, 1.1+”.
+- **Stan przed:** aplikacja prowadzi tylko pieczenie tradycyjne (wyrabianie, składania, garowanie, piekarnik); brak wzmianki o maszynie do chleba w `src/`, `docs/brd/`, `docs/scope-contract.md` (grep 2026-11-03).
+- **Decyzja:** przy recepturze wybór „piekarnik / maszyna”; w trybie maszyny ilości pod pojemność maszyny użytkownika, kolejność wkładania składników, program i prosty plan z godziną gotowości. Kolejność: rola 01/03 (praca J i zakres, w tym miejsce w Basic/Pro wobec D-038; maszyna właściciela jako przykład, model do ustalenia), rola 06 (reguły ze źródeł: pojemności, kolejność, programy, czy i jak zakwas w maszynie), rola 04 (projekt), rola 08 (kod, testy), rola 09 (33 języki). Po zgłoszeniu 1.0; czy w 1.1 razem z D-136/D-137, czy w 1.2 — rozstrzyga rola 03 kosztem.
+- **Odrzucone:** (b) 2–3 osobne receptury do maszyny bez trybu; (c) zostawić. Punkt 3 jako chleb mieszany (zakwas + drożdże) — właściciel: punkt 3 to maszyna.
+- **Status:** dzień, do weta.
