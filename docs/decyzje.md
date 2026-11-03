@@ -812,3 +812,31 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** ograniczenie skali tekstu w kartach (`maxFontSizeMultiplier`) poniżej AX5 — narusza podłogę NFR-A11Y-004 i HIG (podłoga nie podlega gustowi, zasada studia 12); karty od krawędzi do krawędzi przy AX5 — zyskuje ok. 20 pt (1 litera), a traci język kart z D-141.
 - **Zależy od:** D-141; test na urządzeniu przy AX5 (krok właściciela, rola 07).
 - **Status:** dzień, do weta.
+
+### [D-161] 2026-11-03 — Komponenty systemu kart w `src/ui/karty/` (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160 (do weta).
+- **Decyzja:** `Karta`, `WierszKarty`, `CzapkaPaska`, `PoleObjawu` i stała progu dużego tekstu leżą w `src/ui/karty/` (jeden plik na komponent, każdy ≪ 20 480 B). Komponenty nie mają własnych tekstów; tytuł, etykiety i znaczniki dostają od ekranu. Czapka nie liczy przewinięcia (ekran podaje `pokazTytul`); wybór obsługi przewijania należy do p2.
+- **Odrzucone:** `src/components/karty/` (obok `PasZakladki`; README nie wskazuje miejsca, polecenie M3 podało `src/ui/` jako pierwsze); jeden plik z czterema komponentami (rozmiar i czytelność).
+- **Skutek:** `src/ui/` nie jest w zakresie macierzy AST (`scripts/test-matrix.mjs`), więc nowe komponenty nie dodają pozycji i `docs/22-macierz-testow.md` nie zmienia się; pilnują ich testy `src/ui/__tests__/karty-p1.test.tsx` i `tokeny-karty-p1.test.ts`.
+- **Status:** dzień, do weta.
+
+### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, elementy nad tekstem (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; wykonanie zdania z polecenia M3, bo `docs/design/karty/README.md` §1 nie zawiera jeszcze reguły roli 04 (zadanie 04-fix-AX5).
+- **Decyzja:** przy `fontScale ≥ 2` (AX3 i większe, ten sam próg co `PasZakladki`, kafle „Dziś” i wiersz okresu kalendarza) elementy leżące obok tekstu przechodzą nad tekst w stosie pionowym: w nagłówku `Karta` ikona i znacznik nad tytułem, w `WierszKarty` ikona i szewron nad etykietą, a wartość pod etykietą; wypełnienie karty 12 zamiast 16 (README §2). Żaden tekst nie ma limitu linii; mały tytuł czapki najwyżej 1,5× jak tytuł pasa. Próg w jednej stałej `PROG_DUZEGO_TEKSTU` (`src/ui/karty/duzy-tekst.ts`).
+- **Odrzucone:** wartość obok etykiety także przy AX5 (wąski ekran 320 pt, liczba zawijana krojem tytułów to znalezisko z README §7); osobne progi dla każdego komponentu (rozjazd).
+- **Zależy od:** treści reguły rola 04. Gdy README §1 dostanie inną, p1 się poprawia (testy „AX5” w `karty-p1.test.tsx` opisują obecną).
+- **Status:** warunkowa, do weta i do porównania z regułą roli 04.
+
+### [D-163] 2026-11-03 — `kartaLinia` poza tabelą par kontrastu (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; `[DO USTALENIA]` dla roli 04.
+- **Decyzja:** `kartaLinia` wchodzi do czterech wariantów kolorów (wartości z `docs/design/karty/tokeny-karty.json`), ale nie do `pary` w `docs/design/tokeny.json`: to dekoracyjna obwódka karty, nie para tło/tekst, a tekst i grafika w karcie mają pary na `powierzchnia` (`kontrast-karty.md`, 24 pary, kod 0). Obliczenie `narzedzia/tokeny.mjs` po zmianie: 0 par poniżej progu; `kontrast.md` zmienia tylko datę generacji.
+- **Odrzucone:** wpis `["kartaLinia", "powierzchnia", 3, …]` (jasny: #E2E2DC na #FFFFFF to ok. 1,3:1, para by padła, a to kolor wybrany przez rolę 04 jako dyskretny; ciemny: równy powierzchni, 1:1 z założenia).
+- **Do ustalenia (rola 04):** czy brzeg karty bez obwódki ma spełniać 1.4.11 (kontrast elementów interfejsu). Odczyt roli 08: karta nie jest komponentem sterującym, więc nie; nie sprawdzono w źródle WCAG w tej sesji.
+- **Status:** dzień, do weta.
+
+### [D-164] 2026-11-03 — Regeneracja `docs/design/tokeny.ts` razem z `tokeny.json` (wyjątek od zakazu dotykania `docs/design/`, M3 p1, rola 08)
+- **Rodzaj:** wyjątek nazwany (zasada 7).
+- **Decyzja:** polecenie M3 pozwala w `docs/design/` na `tokeny.json` i `kontrast.md`, ale `narzedzia/tokeny.mjs` zapisuje oba razem z `docs/design/tokeny.ts` (kopią, z której powstaje `src/ui/tokeny.ts`). Plik regenerowany generatorem, bez ręcznych zmian: stary `tokeny.ts` zostałby rozjechany z `tokeny.json`. Zmiana ma tylko `kartaLinia` w czterech wariantach i `karta` w `promienie`.
+- **Odrzucone:** zostawić `docs/design/tokeny.ts` bez zmian (rozjazd źródła i kopii; kolejna regeneracja przez rolę 04 i tak by go zmieniła).
+- **Ryzyko:** rola 04 pracuje równolegle w `docs/design/`; kolizja możliwa tylko w tych trzech plikach, rozwiązanie przez `git pull --rebase` i ponowny `node docs/design/narzedzia/tokeny.mjs`.
+- **Status:** dzień, do weta.
