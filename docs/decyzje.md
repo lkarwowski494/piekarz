@@ -634,8 +634,8 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odstępstwa wykonawcze roli 08 (do akceptacji roli 04 i 06):** temat grupy „Bezpieczeństwo” → „Bezpieczeństwo w kuchni” (ogólny tytuł „Bezpieczeństwo” nie jest kluczem słownika, test 109); temat „Zakwas” używa istniejącego klucza (EN „Sourdough”); nazwy źródeł po angielsku („et al.” zamiast „i in.”) i teksty wejścia („Skąd pochodzą porady, liczby i ostrzeżenia w aplikacji.”, „Zobacz źródła”, „Wróć do ustawień”) napisała rola 08; EN amerykański („mold”, „flavor”, test 074).
 - **Zależy od:** D-117 (jeden arkusz), D-035 (hierarchia źródeł bez zmian); przegląd człowieka twierdzeń krytycznych, których zdania się zmieniły (`audit/M3-2026-10-22/t2/przeglad-do-potwierdzenia.md`); przebieg przekładu a5d.
 
-### [D-124] 2026-11-02 — Plan nocy M3: tor krytyczny E2E → TestFlight i trzy tory równoległe bez właściciela (koordynator, noc, do weta)
-- **Rodzaj:** organizacyjna (kolejność pracy ról); podjęta przez koordynatora na zasadach właściciela z 2026-11-02 („decydujesz sam … każda decyzja w docs/decyzje.md z »dzień, do weta« (nocą »noc, do weta«)”). **Status: noc, do weta.**
+### [D-124] 2026-11-02 — Plan nocy M3: tor krytyczny E2E → TestFlight i trzy tory równoległe bez właściciela (koordynator, noc; zaakceptowana przez właściciela 2026-11-03)
+- **Rodzaj:** organizacyjna (kolejność pracy ról); podjęta przez koordynatora na zasadach właściciela z 2026-11-02 („decydujesz sam … każda decyzja w docs/decyzje.md z »dzień, do weta« (nocą »noc, do weta«)”). **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Analogia (D-052 biblioteki):** repo `trening` ma ścieżkę wydania w dokumentach: `docs/41-droga-do-app-store.md` (punkty A–F), `docs/42-plan-wydania-1.0.md` (bramki przed recenzją: verify, pełny E2E, audyt przed upublicznieniem, redesign M3 przed zrzutami, lista na telefonie), `docs/39-lista-kontrolna-wydania.md`. Piekarz ich nie ma; plan nocy je uzupełnia.
 - **Decyzja:**
   - **Tor A (krytyczny):** iOS E2E na `c660cec` → zielony: build TestFlight z HEAD gałęzi (zgoda właściciela 2026-11-02); czerwony: rola 08 `fix`, verify koordynatora kod 0, ponowny E2E, najwyżej 3 próby.
@@ -647,7 +647,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Koszt [OCENA]:** 3 sesje ról po ok. 0,25–0,35 mln tokenów + koordynator; minuty runnera macOS na E2E i build.
 
 ### [D-125] 2026-11-02 — Tor C nocy: dokumenty ścieżki wydania w `docs/wydanie/`, §4 instrukcji już poprawiony, przekład opisu zmian poza listą kluczy (rola 10 build, noc, do weta)
-- **Rodzaj:** organizacyjna/dokumentacyjna (kolejność i miejsce dokumentów wydania); wykonana według D-124, tor C. **Status: noc, do weta.** Numer D-125 może wymagać zmiany przy scalaniu z torami B i D, jeśli te też zajęły D-125.
+- **Rodzaj:** organizacyjna/dokumentacyjna (kolejność i miejsce dokumentów wydania); wykonana według D-124, tor C. **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).** Numer D-125 może wymagać zmiany przy scalaniu z torami B i D, jeśli te też zajęły D-125.
 - **Podstawa:** analogia z `trening` (`docs/39`, `41`, `42`, odczyt 2026-11-02 z klonu publicznego repo); `docs/monetyzacja.md` (Basic/Pro, Z-1, Z-8); stan §4 `docs/wydanie/instrukcja-ustawien.md` sprawdzony w pliku.
 - **Decyzje:**
   1. **Miejsce i nazwy:** `docs/wydanie/droga-do-app-store.md`, `plan-wydania-1.0.md`, `lista-kontrolna-telefonu.md`, `opis-zmian-1.0.md`. Odrzucone: numerowane `docs/NN-*.md` jak w `trening` (Piekarz ma już `docs/wydanie/` z planem `sklep.md`, a rdzeń planu zostaje tam, bez duplikatu); jeden zbiorczy plik (trzy czytelnicy: agent, właściciel przy telefonie, właściciel przy ASC).
@@ -659,7 +659,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Koszt [OCENA]:** ok. 0,3 mln tokenów; 0 zł.
 
 ### [D-126] 2026-11-02 — Przegląd 72 twierdzeń niekrytycznych po T2: 68 zgodnych, 4 poprawione do zakresu źródła; atrybucja szczebla 4 na ekranie „Źródła wiedzy” jako wyjątek nazwany (rola 06 fix, T2-NIEKRYT, noc, do weta)
-- **Rodzaj:** merytoryczna (zakres twierdzeń, TRE-03/TRE-08) i wykonawcza; rola 06 `fix` na zasadach nocy D-124. **Status: noc, do weta.**
+- **Rodzaj:** merytoryczna (zakres twierdzeń, TRE-03/TRE-08) i wykonawcza; rola 06 `fix` na zasadach nocy D-124. **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Podstawa:** porównanie zdań PL i EN sprzed i po T2 (`git diff badb044 HEAD`, 75 twierdzeń ze zmienionymi zdaniami, w tym 3 krytyczne przejrzane przez właściciela) z polami `twierdzenie`, `uproszczenie` i `zrodla[].cytat` rejestru; tabela 72 pozycji: `docs/noc-2026-11-02/06-tresci-fix.md`. Źródeł nie otwierano ponownie (werdykty TRE-02 z rejestru bez zmian; ponowny odczyt należy do reaudit).
 - **Decyzja:**
   - 68 twierdzeń: nowe brzmienie zgodne z twierdzeniem, liczbami i granicą; bez zmian.
@@ -672,7 +672,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Zależy od:** D-123, D-035; przebieg przekładu dla 14 kluczy (krok koordynatora albo właściciela).
 
 ### [D-127] 2026-11-02 — Odstępstwa wykonawcze roli 08 w D-123 przyjęte przez rolę 06; EN po amerykańsku także w nowych zdaniach T2 (rola 06 fix, D-123-ODST, noc, do weta)
-- **Rodzaj:** merytoryczna i wykonawcza (prawdziwość tekstów ekranu „Źródła wiedzy”); forma pozostaje do akceptacji roli 04. **Status: noc, do weta.**
+- **Rodzaj:** merytoryczna i wykonawcza (prawdziwość tekstów ekranu „Źródła wiedzy”); forma pozostaje do akceptacji roli 04. **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Decyzja (rola 06):**
   - „Bezpieczeństwo w kuchni” (EN „Kitchen safety”): przyjęte; grupa ma źródła o pleśni, surowej mące i oparzeniach, czyli bezpieczeństwo w kuchni.
   - Temat „Zakwas” z istniejącym kluczem (EN „Sourdough”): przyjęte; źródła grupy dotyczą zakwasu i fermentacji na zakwasie.
@@ -684,7 +684,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Zależy od:** D-123; akceptacja formy przez rolę 04.
 
 ### [D-130] 2026-11-02 — Audyt roli 07 (gotowość 1.0): STOP-y według rekomendacji roli, rejestr ryzyk zamiast strategii testów, raport w gicie (rola 07 audit, noc, do weta)
-- **Rodzaj:** organizacyjna (sposób pracy roli 07 w nocy D-124, tor B); **Status: noc, do weta.**
+- **Rodzaj:** organizacyjna (sposób pracy roli 07 w nocy D-124, tor B); **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Analogia:** `trening` ma rejestr ryzyk R-NNN w planie wydania (`docs/42-plan-wydania-1.0.md` §1) zamiast osobnej strategii testów przed 1.0; Piekarz nie ma `docs/jakosc/strategia.md`.
 - **Decyzja:**
   1. STOP E0 i E3 rozstrzygnięte według rekomendacji roli (właściciel śpi); sekcja „Stan projektu” w `CLAUDE.md` (2026-11-02) wystarcza za pytanie E0.
@@ -693,8 +693,8 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
   4. Werdykt dla zgłoszenia 1.0: ZABLOKOWANE (07-jakosc-001, -002 i blokery BRD „tylko telefon” bez wyniku). Nie blokuje buildu TestFlight z toru A.
 - **Zależy od:** D-124; wyniku E2E run 41536995568; weta właściciela.
 
-### [D-131] 2026-11-02 — 07-jakosc-001 i -002 według rekomendacji roli 07: streszczenie polityki prywatności offline (a) i pętla stref w testflight.yml (a); E2E powtórzone raz po awarii sterownika (koordynator, noc, do weta)
-- **Rodzaj:** produktowa (001) i procesowa (002, E2E); koordynator na zasadach właściciela z 2026-11-02 („decydujesz sam … według rekomendacji roli”). **Status: noc, do weta.**
+### [D-131] 2026-11-02 — 07-jakosc-001 i -002 według rekomendacji roli 07: streszczenie polityki prywatności offline (a) i pętla stref w testflight.yml (a); E2E powtórzone raz po awarii sterownika (koordynator, noc; zaakceptowana przez właściciela 2026-11-03)
+- **Rodzaj:** produktowa (001) i procesowa (002, E2E); koordynator na zasadach właściciela z 2026-11-02 („decydujesz sam … według rekomendacji roli”). **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Podstawa:** raport `docs/noc-2026-11-02/07-jakosc-audit.md` (07-jakosc-001, -002, P1, werdykt „ZABLOKOWANE” dla zgłoszenia 1.0); log E2E run 41536995568 (c660cec): `IOSDriverTimeoutException` w kroku pl_PL po 480 s, przed pierwszym scenariuszem, build Release zielony.
 - **Analogia (`trening`):** `docs/42-plan-wydania-1.0.md` §1 pkt 2: pełny katalog E2E zielony, „jedno ponowienie scenariusza dozwolone”; bramki przed buildem wydania w workflow, nie w dyscyplinie.
 - **Decyzja:**
@@ -707,7 +707,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 
 
 ### [D-132] 2026-11-02 — 07-jakosc-001: streszczenia polityki prywatności nie piszę bez źródła w repo; krok właściciela (rola 08, noc, do weta)
-- **Rodzaj:** produktowa/prawna; rola 08 `fix` według polecenia koordynatora (D-131 a). **Status: noc, do weta.**
+- **Rodzaj:** produktowa/prawna; rola 08 `fix` według polecenia koordynatora (D-131 a). **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Podstawa:** `site/privacy.html` w repo to tylko odsyłacz (komentarz: „Jedno źródło polityki: repo apps4brew-www, plik piekarz/privacy.html … treść zmieniaj tam”, M1-audytor-generalny-174); `PRIVACY_URL` = `https://apps4brew.com/piekarz/privacy.html` (`src/lib/links.ts:6`). Treść polityki jest poza repo i poza zakresem tej sesji; `git grep` po `docs src app site` nie znajduje jej streszczenia. Polecenie: bez źródła nie pisać streszczenia, bez nowych twierdzeń prawnych.
 - **Decyzja:** zadanie 001 zamknięte raportem bez zmiany kodu; wpis BR-UST-003 w `scripts/br-wyjatki.json` zostaje (luka nadal prawdziwa), test BR-UST-003 nie powstaje.
 - **Odrzucone:** (b) streszczenie z `docs/app-store-metadata-v2.md` („Data Not Collected”) i z `CLAUDE.md` — to opis aplikacji, nie treść polityki, więc byłoby nowe twierdzenie prawne; (c) pobranie strony z sieci w nocy — poza zakresem polecenia i poza repo źródłowym.
@@ -717,16 +717,23 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
 
 ### [D-133] 2026-11-02 — 07-jakosc-002: bramka stref jako osobne zadanie Linux z `needs`, nie krok w zadaniu macOS (rola 08, noc, do weta)
-- **Rodzaj:** procesowa; rola 08 `fix`. **Status: noc, do weta.**
+- **Rodzaj:** procesowa; rola 08 `fix`. **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Podstawa:** raport `docs/noc-2026-11-02/07-jakosc-audit.md` (07-jakosc-002, opcja a: pętla 7 stref przed buildem); `tests-tz.yml` jako jedyne źródło listy stref i komendy (`npm test` z `TZ`).
 - **Decyzja:** w `testflight.yml` zadanie `tz-matrix` (ubuntu-latest, pętla po 7 strefach, `TZ="$tz" npm test`, kod błędu przy czerwonej strefie, pozostałe strefy biegną do końca); `build` ma `needs: tz-matrix`. Test kontraktu `tests/testflight-strefy-workflow.test.ts` czyta strefy z `tests-tz.yml`, więc zmiana listy tam wymusza zmianę tutaj.
 - **Odrzucone:** krok w zadaniu `build` na macos-26 — minuty macOS kosztują wielokrotność minut Linux, a bramka nie potrzebuje Xcode; 7 zadań w macierzy zamiast pętli — polecenie wskazuje pętlę, a pętla nie mnoży instalacji `npm ci`.
 - **Skutek:** ok. +18 min na runnerze Linux przed buildem (szacunek z raportu 07, nie mierzony); bramka nie biegnie na PR i pushu, tylko przy wydaniu — CI na gałęzi kandydata (opcja b raportu) pozostaje osobną decyzją.
 - **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
 
-### [D-134] 2026-11-03 — Koniec pracy nocy: bez nowych torów po zablokowaniu buildu przez BR-REL-005 (koordynator, noc, do weta)
-- **Rodzaj:** organizacyjna. **Status: noc, do weta.**
+### [D-134] 2026-11-03 — Koniec pracy nocy: bez nowych torów po zablokowaniu buildu przez BR-REL-005 (koordynator, noc; zaakceptowana przez właściciela 2026-11-03)
+- **Rodzaj:** organizacyjna. **Status: zaakceptowana przez właściciela 2026-11-03 („Akceptuję wszystkie (zalecane)”).**
 - **Podstawa:** run 41557215220: `tz-matrix` zielony, build zatrzymany na „Verify commit is ancestor of master (BR-REL-005)”; kontekst koordynatora 36% (zasada właściciela: od 30% domknięcie, koniec przed 35%).
 - **Decyzja:** tor A kończy się bez buildu; nie scalam do master (poza zgodą z 2026-11-02). Bez nowych sesji ról w nocy (P2 roli 07: 003–009 i DEV-10 czekają na plan dnia). Raport: `docs/noc-2026-11-02/raport-koordynatora.md`.
 - **Odrzucone:** (a) scalić do master, żeby zbudować — działanie poza zgodą; (b) zlecić P2 w nocy — wyniki do przyjęcia przez koordynatora ponad próg kontekstu; (c) zmienić krok BR-REL-005 w workflow — to bramka wydania, nie przeszkoda.
+
+### [D-135] 2026-11-03 — Właściciel rano: akceptacja decyzji nocy, scalenie redesign do master i build TestFlight, rola 07 reaudit po teście na telefonie zamiast pełnego M1
+- **Rodzaj:** decyzja właściciela (pytanie z przyciskami w sesji koordynatora, 2026-11-03).
+- **Słowa właściciela:** „Tak, scal i zbuduj (zalecane)”; „Akceptuję wszystkie (zalecane)” (D-124…D-127, D-130…D-134); „07 reaudit po teście telefonu (zalecane)”.
+- **Decyzja:** (1) `redesign/piekarz-2026-10-22` (kandydat `056e41e`, E2E run 41546766468 zielone, `tz-matrix` w run 41557215220 zielony) scalony do `master`, potem `testflight.yml` na master; krok ASC Z-1 (usunięcie Free Trial z `.pro.monthly` i `.pro.yearly`) właściciel robi tego samego dnia. (2) Decyzje nocy zaakceptowane. (3) Przed zgłoszeniem 1.0: rola 07 `reaudit` na buildzie po teście właściciela na telefonie (lista `docs/wydanie/lista-kontrolna-telefonu.md`); pełny M1 tylko przy nowych P1.
+- **Odrzucone:** najpierw ASC, potem scalenie; brak scalenia; pełny M1 przed zgłoszeniem; zgłoszenie bez audytu.
+- **Wyjątek nazwany (zasada 7):** pełny audyt przed upublicznieniem (w `trening` obowiązkowy, `docs/42-plan-wydania-1.0.md` §1 pkt 3) zastąpiony tańszą kontrolą — reauditem roli 07 z progiem eskalacji do M1.
 
