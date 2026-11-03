@@ -40,8 +40,11 @@ import { godzinaPrzyOtwarciu, kolizjeKrokow } from '../../../src/lib/plan-bez-no
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { atLocalTime } from '../../../src/core/dzien-lokalny';
 import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
+import { Karta } from '../../../src/ui/karty/Karta';
+import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
+import { NotatkiPlanu } from '../../../src/components/harmonogram/NotatkiPlanu';
 
-import { typografia } from '../../../src/ui/tokeny';
+import { odstepy, typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
 
 
@@ -243,16 +246,8 @@ export default function HarmonogramScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
       <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {notatkaPoprzednia ? (
-          <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
-            {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
-          </Text>
-        ) : null}
-        {bazowaZmieniona ? (
-          <Text style={styles.bezSnu} testID="plan-bazowa-zmieniona">
-            {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
-          </Text>
-        ) : null}
+        {/* Z „Piecz ponownie”: notatka i zmiana receptury bazowej w karcie (src/components/harmonogram/NotatkiPlanu.tsx) */}
+        <NotatkiPlanu notatka={notatkaPoprzednia} bazowaZmieniona={bazowaZmieniona} />
         {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
             a dotknięcie otwiera ekran Pro (BlokadaFunkcji, [M1-audytor-generalny-027]) */}
         <BlokadaFunkcji {...blokada('plan-wstecz')} podglad>
@@ -275,7 +270,9 @@ export default function HarmonogramScreen() {
           // Noc po temperaturze jak w `plan-sen`; „za późno” zostaje pod polem jak w `plan-za-pozno` [M1-audytor-generalny-128]
           poTemperaturze={zaPozno ? null : oknoPlanu === null ? (
           // „Bez godzin snu” w Ustawieniach: plan bez sprawdzania nocy i informacja, gdzie je ustawić (BR-HARMO-002) [130]
-          <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
+          <Karta testID="karta-snu" tytul={t('Godziny snu')} ikona={<IkonaKarty nazwa="zegar" />}>
+            <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
+          </Karta>
         ) : (
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
           // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
@@ -303,16 +300,12 @@ export default function HarmonogramScreen() {
 
         {/* Spirala i opis w jednym rzędzie z zawijaniem (`.kosz` w makiecie): „Start … o …” obok Spirali, nie pod paskiem
             kciuka; przy dużym tekście opis schodzi pod Spiralę [M1-audytor-generalny-128] */}
-        <View style={styles.kosz}>
-          <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
-          <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
-        </View>
-
-        <TimelineStagesList
-          stages={stages}
-          formatTime={formatTime}
-          formatDayBadge={formatDayBadge}
-        />
+        <TimelineStagesList stages={stages} formatTime={formatTime} formatDayBadge={formatDayBadge}>
+          <View style={styles.kosz}>
+            <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
+            <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
+          </View>
+        </TimelineStagesList>
 
         <UstawieniaPlanu
           okno={oknoPlanu}
@@ -320,11 +313,12 @@ export default function HarmonogramScreen() {
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
           bezLodowki={zytni}
-        />
-        {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
-        <DodajDoKalendarza
-          plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
-        />
+        >
+          {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
+          <DodajDoKalendarza
+            plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
+          />
+        </UstawieniaPlanu>
       </ScrollView>
       <PasekStartu
         onStart={zacznij}
@@ -348,17 +342,17 @@ const styles = StyleSheet.create({
   bezSnu: {
     fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
-    marginBottom: theme.spacing.md,
   },
+  // Karty co 12 (README §2)
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
+    gap: odstepy.m,
   },
   kosz: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
     gap: 14,
-    marginBottom: theme.spacing.md,
   },
 });

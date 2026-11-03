@@ -11,6 +11,8 @@ import { t } from '../../lib/i18n';
 import { ScheduledStage } from '../../scheduler/reverse-scheduler';
 import { czasTrwania } from '../../lib/czas-trwania';
 import { IkonaStartu } from '../start/IkonaStartu';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 import { typografia } from '../../ui/tokeny';
 
@@ -21,12 +23,15 @@ export interface TimelineStagesListProps {
   stages: ScheduledStage[];
   formatTime: (d: Date) => string;
   formatDayBadge: (d: Date) => string;
+  /** Nad listą kroków w tej samej karcie (Spirala planu z opisem, M3 p4). */
+  children?: React.ReactNode;
 }
 
 export function TimelineStagesList({
   stages,
   formatTime,
   formatDayBadge,
+  children,
 }: TimelineStagesListProps) {
   // Kolumna godzin rośnie z Dynamic Type; od fontScale 2 (AX1–AX5, jak ekran zakupu 200) godziny idą nad treścią
   // w pełnej szerokości, bez kolumny kropek [audyt-niezalezny G-5]
@@ -34,8 +39,9 @@ export function TimelineStagesList({
   const duzyTekst = fontScale >= 2;
   const kolumna = duzyTekst ? styles.timeRow : { width: Math.round(SZEROKOSC_GODZIN * Math.max(1, fontScale)) };
   return (
-    <View style={styles.container}>
-      <Text style={styles.sectionHeading}>{t('Oś czasu przygotowania')}</Text>
+    // Oś czasu w karcie (README §4 plan, M3 p4); Spirala z opisem nad krokami, jak dotąd przed listą (`plan-sen`, 128)
+    <Karta testID="karta-osi-czasu" tytul={t('Oś czasu przygotowania')} ikona={<IkonaKarty nazwa="lista" />}>
+      {children}
 
       <View style={styles.timeline}>
         {stages.map((stage: ScheduledStage, idx: number) => {
@@ -105,22 +111,11 @@ export function TimelineStagesList({
           );
         })}
       </View>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: theme.spacing.lg,
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginTop: 8,
-    marginBottom: 12,
-  },
   timeline: {
     paddingLeft: 4,
   },

@@ -1049,3 +1049,24 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Status:** właściciel, 2026-11-03.
 
 
+### [D-191] 2026-11-03 — Pas marki (O3a) na planie i prowadzeniu wstrzymany: wymaga zmiany istniejących testów nagłówka (M3 p4, rola 08, STOP)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160; STOP z polecenia p4 („potrzeba zmiany istniejącego testu”).
+- **Stan:** pas jak na zakładkach (`PasZakladki`, nagłówek stosu ukryty, jasny pasek stanu) na `harmonogram.tsx` i `stolnica.tsx` łamie testy, które przypinają natywny nagłówek: `tests/nawigacja-d051.test.tsx:96-98` (plan: `title` „Plan wypieku”, `headerShown` różne od false), `:117-120` (Stolnica: `headerShown: true`, `title` „Stolnica”, `headerRight` z „Doktor”), `tests/stolnica-naglowek-prz07.test.tsx` (tytuł „Stolnica” / pusty przy ≤ 336 pt). Jasny pasek stanu przez `usePasekStanuJasny` (`useFocusEffect`) wywraca 16 plików testów, które mockują `expo-router` bez `useFocusEffect` (zmiana samych mocków).
+- **Opcje:** (a) pas jak w p3 (receptura): `headerShown: false`, `PasZakladki` z „wstecz” i akcjami („Doktor”, „Plan wypieku”) na pasie, krok, czas i „potem …” na pasie, `usePasekStanuJasny`; zmiana dwóch testów nagłówka (nowa asercja: pas zamiast natywnego nagłówka, D-141 O3a zmienia D-051 i PRZ-07) i dopisanie `useFocusEffect` do 16 mocków — **rekomendacja** (jeden język pasa na ścieżce wypieku, wzorzec już w p3); (b) natywny pasek nawigacji w kolorze `pas` + treść pasa pod nim i `StatusBar` z RN — bez zmiany testów, ale jasny pasek stanu zostaje nad Doktorem Chleba (jasny pasek nawigacji do p5), tytuł „Stolnica” zostaje, a pas ma dwie części (pasek i treść) — odrzucona jako rekomendacja.
+- **Wykonane w p4 bez pasa:** karty treści planu i prowadzenia (D-192), §7a (D-193). Tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” zostają nad kartami jako przyszła treść pasa.
+- **Status:** czeka na decyzję koordynatora (STOP), do weta właściciela.
+
+### [D-192] 2026-11-03 — Karty planu i prowadzenia z istniejących kluczy: „Krok {n} z {m}” zamiast „Co zrobić”; ostrzeżenie pod kartą instrukcji (M3 p4, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wykonanie polecenia p4 i D-185 (nowy klucz łamie `tests/czeka-na-przeklad-093.test.ts`).
+- **Decyzja:** plan: „Kiedy chleb ma być gotowy?” (`zegar`; pole, dni, ±2 h, zmiana czasu, „za późno”), „Temperatura w kuchni: {wartość}” (`termometr`; nagłówek z wartością jak dotąd w linii), sen — „Ochrona snu aktywna” (`ptaszek`), przy kolizji tytuł kolizji jako nagłówek (`zegar`), przy „Bez godzin snu” „Godziny snu” (`zegar`); „Oś czasu przygotowania” (`lista`) ze Spiralą i opisem nad krokami; „Ustawienia” (`zebatka`): godziny snu, lodówka, „Kopiuj jako tekst”, „Dodaj do kalendarza”; notatka „Piecz ponownie” i zmiana receptury bazowej w karcie „Receptura” (`info`, `NotatkiPlanu.tsx`). Prowadzenie: karta instrukcji „Krok {n} z {m}” (`ksiazka`; przeniesione ze strefy planu) z treścią kroku i „Ekran nie zgaśnie…”; `Ostrzezenie` bez zmian treści i zachowania pod kartą (makieta), wcześniej nad zdaniem o ekranie; „Składniki do odważenia” (`waga`) jako karta; kolizja nocy w prowadzeniu tą samą kartą snu. Panel garnka (`DutchOvenController`, własna obwódka) i test palca (ukryty w 1.0) poza kartą.
+- **Odrzucone:** klucz „Co zrobić” (README §6) teraz — zmiana testu 093 albo przekład 33 języków (rola 09); nazwa kroku jako nagłówek karty (powtórzenie tytułu kroku tuż nad kartą); panel garnka w karcie instrukcji (karta w karcie).
+- **Dla roli 09 (po p5, D-160):** „Co zrobić” (nagłówek karty instrukcji, README §6); wtedy „Krok {n} z {m}” wraca na pas (D-191).
+- **Do przeglądu roli 04:** ikony kart planu i prowadzenia; „Ustawienia” jako nagłówek karty ustawień planu; panel garnka poza kartą.
+- **Status:** dzień, do weta.
+
+### [D-193] 2026-11-03 — Duży tekst w planie i prowadzeniu (§7a, D-142): flexBasis od fontScale; limit cyfr czasu na tokenie AX5 zostaje (M3 p4, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** przy `fontScale ≥ 2` pole godziny „gotowe” ma `flexBasis: '100%'` (zamiast 140; ±30 min pod nim), a nazwa składnika w karcie składników `flexBasis: '100%'` (masa pod nią); rzędy chipów i oś czasu już zawijają się albo przechodzą w kolumnę. W kartach żaden tekst nie ma `maxFontSizeMultiplier`, poza cyframi czasu w polu „gotowe” (`typografia.style.czas.ax5 / pt`): to sufit na tokenie AX5, nie ograniczenie poniżej AX5, które odrzuca D-142. Ikony `termometr`, `ptaszek`, `zebatka` z `docs/design/karty/karty.js` w `IkonaKarty`. Strukturalnie przed zmianą: odczyt zakwasu planu w `src/hooks/useZakwasPlanu.ts` (limit 20 480 B).
+- **Odrzucone:** zdjęcie limitu z cyfr czasu (cyfry 56 pt × 3,1 przy 320 pt nie mieszczą się w polu; test `czas-ax5-201`).
+- **Status:** dzień, do weta.
+

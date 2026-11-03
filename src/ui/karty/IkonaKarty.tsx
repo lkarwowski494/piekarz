@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — ikona nagłówka karty (design-spec §14, karty/README.md §2: ikona 24 pt w kolorze `ratan`) [M3 p2]
 // Kształty dosłownie z makiety docs/design/karty/karty.js (IK; siatka 24, kreska 1,8, zaokrąglone końce), tylko te,
-// których używają ekrany wpięte w p2 (Zakwasy, Doktor zakwasu) i p3 (Receptury). Ozdoba: poza drzewem dostępności (Karta ją ukrywa).
+// których używają ekrany wpięte w p2 (Zakwasy, Doktor zakwasu) i p3 (Receptury) i p4 (Plan, Prowadzenie). Ozdoba: poza drzewem dostępności (Karta ją ukrywa).
 // ============================================================================
 
 import React from 'react';
@@ -10,7 +10,7 @@ import { theme } from '../theme';
 
 export type NazwaIkonyKarty =
   | 'sloik' | 'zegar' | 'kalendarz' | 'tarcza' | 'waga' | 'proporcje' | 'lista' | 'info'
-  | 'bochenek' | 'miska' | 'pizza' | 'ksiazka' | 'receptury' | 'gwiazda';
+  | 'bochenek' | 'miska' | 'pizza' | 'ksiazka' | 'receptury' | 'gwiazda' | 'termometr' | 'ptaszek' | 'zebatka';
 
 export function IkonaKarty({ nazwa, rozmiar = 24 }: { nazwa: NazwaIkonyKarty; rozmiar?: number }) {
   const p = { fill: 'none', stroke: theme.colors.ratan, strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -94,6 +94,19 @@ export function IkonaKarty({ nazwa, rozmiar = 24 }: { nazwa: NazwaIkonyKarty; ro
         </>
       )}
       {nazwa === 'gwiazda' && <Path {...p} d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z" />}
+      {nazwa === 'termometr' && (
+        <>
+          <Path {...p} d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z" />
+          <Path {...p} d="M12 9v7" />
+        </>
+      )}
+      {nazwa === 'ptaszek' && <Path {...p} d="M5 12.5l4.5 4.5L19 7.5" />}
+      {nazwa === 'zebatka' && (
+        <>
+          <Circle {...p} cx={12} cy={12} r={3} />
+          <Path {...p} d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
+        </>
+      )}
     </Svg>
   );
 }

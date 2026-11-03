@@ -21,6 +21,8 @@ import { DutchOvenController } from './DutchOvenController';
 import { styles } from './stolnica-screen.styles';
 import { Ostrzezenie } from '../Ostrzezenie';
 import { tytulOstrzezen, type StepWarning } from '../../core/step-warnings';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 export interface StrefaKrokuProps {
   step: SessionStep;
@@ -38,9 +40,11 @@ export interface StrefaKrokuProps {
   potem?: string | null;
   /** „Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.” tylko w kroku czynnym; null = brak. */
   ekran?: string | null;
+  /** Numer kroku i liczba kroków planu: nagłówek karty instrukcji „Krok {n} z {m}” (M3 p4, D-192); bez numeru nazwa kroku. */
+  numer?: { n: number; m: number };
 }
 
-export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null }: StrefaKrokuProps) {
+export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null, numer }: StrefaKrokuProps) {
   const tytul = tytulOstrzezen(ostrzezenia);
   const { kolory } = useMotyw();
   // „Pogrubiony tekst” iOS: tytuł kroku i czas w kroju tytułów o stopień ciężej [M1-audytor-generalny-158]
@@ -66,8 +70,10 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
         </Text>
       )}
       {potem !== null && <Text testID="step-next" style={styles.potem}>{potem}</Text>}
+      {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4);
+          Ostrzeżenie bez zmian treści i zachowania, jak w makiecie pod kartą instrukcji */}
+      <Karta testID="karta-kroku" tytul={numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
-      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
       {ekran !== null && (
         <View testID="step-screen-on" style={styles.ekran}>
           <Svg width={20} height={20} viewBox="0 0 24 24" accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
@@ -77,6 +83,8 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
           <Text style={styles.ekranTekst}>{ekran}</Text>
         </View>
       )}
+      </Karta>
+      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
       <PokeTestEntry step={step} />
 
       {/* Dutch Oven Two-Phase Controller for the bake step */}
