@@ -184,5 +184,4 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Beurteilung des Glutennetzes nach Autolyse und Dehnen und Falten',
   'Ocena wymaga połączenia z App Store.': 'Für die Bewertung ist eine Verbindung zum App Store nötig.',
   'Ocena wypieku': 'Backbewertung',
-  'Ocena: {n}/5': 'Bewertung: {n}/5',
 };

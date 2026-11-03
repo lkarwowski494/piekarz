@@ -187,5 +187,4 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Menilai perkembangan jaringan gluten setelah autolisis dan regang dan lipat',
   'Ocena wymaga połączenia z App Store.': 'Penilaian memerlukan koneksi ke App Store.',
   'Ocena wypieku': 'Nilai hasil panggangan',
-  'Ocena: {n}/5': 'Nilai: {n}/5',
 };

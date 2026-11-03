@@ -18,7 +18,6 @@ export const EN_16: Record<string, string> = {
   'Pokaż wszystkie': 'Show All',
   // Ekran receptury (stany receptura, receptura-zaczyn)
   'Masa bochenka': 'Loaf weight',
-  'Do miski (odhaczaj przy ważeniu)': 'Into the bowl (check off as you weigh)',
   'Do miski': 'Into the bowl',
   'Zakwas ({n}% wody)': 'Starter ({n}% hydration)',
   'Zaczyn: {rodzaj}': 'Preferment: {rodzaj}',

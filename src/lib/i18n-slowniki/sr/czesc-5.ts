@@ -135,7 +135,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Процена развоја глутенске мреже после аутолизе и пресавијања теста',
   'Ocena wymaga połączenia z App Store.': 'За оцењивање је потребна веза са App Store-ом.',
   'Ocena wypieku': 'Оцена печења',
-  'Ocena: {n}/5': 'Оцена: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Процењуј тесто по изгледу, не по сату: на хладном тесто дуже расте, а времена у рецепту су само оријентир.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Оцени векну и сачувај белешке у историју печења',
   'Oceń na {n} z 5': 'Оцени са {n} од 5',

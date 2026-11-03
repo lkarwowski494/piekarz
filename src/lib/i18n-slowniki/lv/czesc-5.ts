@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'No miltiem un ūdens līdz pirmajam kukulim, dienu pēc dienas.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'No šīs dienas barojiet ieraugu divreiz dienā, aptuveni ik pēc 12 stundām.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Izspiediet no tās gāzes, stipri piespiežot, kā veidojot.',
+  'Odhaczaj przy ważeniu.': 'Atzīmējiet, sverot.',
   'Odhaczaj składniki w miarę wsypywania': 'Atzīmējiet sastāvdaļas, kad tās iebērat',
   'Odkryj wiedzę naukową': 'Atklāt zinātnisko skaidrojumu',
   'Odliczanie trwa': 'Atpakaļskaitīšana notiek',

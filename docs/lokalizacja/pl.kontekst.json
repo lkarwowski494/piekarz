@@ -1110,9 +1110,6 @@
   "Do miski (Ciasto właściwe)": {
     "gdzie": []
   },
-  "Do miski (odhaczaj przy ważeniu)": {
-    "gdzie": []
-  },
   "Do miski na wagę": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
@@ -2317,9 +2314,6 @@
       "src/core/bread-school-lessons.ts (dane: passingCriteriaPl)"
     ]
   },
-  "Jednostki": {
-    "gdzie": []
-  },
   "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -2383,9 +2377,6 @@
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
-  },
-  "Język": {
-    "gdzie": []
   },
   "Język i jednostki": {
     "gdzie": [
@@ -4156,9 +4147,6 @@
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
-  },
-  "Ocena: {n}/5": {
-    "gdzie": []
   },
   "Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.": {
     "gdzie": [

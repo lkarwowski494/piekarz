@@ -3,7 +3,7 @@
 export const CZESC: Record<string, string> = {
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ако стартер „{name}“ није удвостручио запремину, поново га нахрани.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако стартер није много нарастао и има мало мехурића, настави да га храниш на 12 сати.',
-  'Język': 'Језик',
+  'Język i jednostki': 'Језик и јединице',
   'jutro': 'сутра',
   'Jutro': 'Сутра',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Календар је празан. Попуниће се када направиш стартер или испланираш печење.',

@@ -32,7 +32,6 @@ export const EN_1: Record<string, string> = {
   'Nie udało się wyeksportować pliku CSV': 'Failed to export CSV file',
   'Eksportuj spiżarnię mąk (CSV)': 'Export flour inventory (CSV)',
   // Jeden wybór jednostek (design-spec §7, D-051 3a, makieta inne.html) [M1-audytor-generalny-096]
-  'Jednostki': 'Units',
   'gramy, °C': 'grams, °C',
   'uncje, °F': 'ounces, °F',
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': "Based on your phone's region by default. Recipes are saved in grams; percentages don't change.",
@@ -207,7 +206,6 @@ export const EN_1: Record<string, string> = {
   'Suchy / chrupki (Crisp Dry)': 'Dry / crisp (Crisp Dry)',
 
   // Settings & Recipe Formatting & Audio
-  'Język': 'Language',
   'Masa ciasta': 'Dough mass',
   'w tym lód': 'of which ice',
   'Kopiuj jako tekst': 'Copy as Text',

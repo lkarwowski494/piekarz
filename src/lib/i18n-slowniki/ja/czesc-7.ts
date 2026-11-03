@@ -1,6 +1,11 @@
 // Słownik ja, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Receptura bazowa, na drożdżach': '基本の配合、イースト',
+  'Receptura bazowa, na zakwasie': '基本の配合、サワードウ',
+  'Receptura bazowa, pizza': '基本の配合、ピザ',
+  'Receptura bazowa, słodka': '基本の配合、甘いパン',
+  'Receptura bazowa, żytnia': '基本の配合、ライ麦',
   'Receptura musi posiadać nazwę (1-120 znaków)': '配合には名前（1-120文字）が必要です',
   'Receptura musi zawierać co najmniej jedną mąkę': '配合には少なくとも1種類の粉が必要です',
   'Receptura z pliku': 'ファイルからの配合',

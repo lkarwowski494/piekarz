@@ -122,3 +122,6 @@ Stan na 2026-10-21. Przegląd modelu to nie przegląd rodzimego użytkownika ję
 
 ## Teksty redesignu M3 (rola 09, 2026-11-03, D-207)
 3 nowe klucze (przelicznik drożdży 0,35, „Wstecz”, „Ile pieczesz”) w PL, EN i 33 językach; stary klucz z 0,4 usunięty. Tłumaczenie maszynowe (sesja roli 09, 2026-11-03), drugi przegląd AI w świeżym kontekście 2026-11-03 (5 poprawek przyjętych), przegląd człowieka: brak (DEC-06). Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json`. Pozycje odłożone: D-208. Tekst o przeliczniku jest krytyczny dla ważenia: przegląd rodzimych użytkowników przed wydaniem w tych językach, które mają ruch.
+
+## Teksty p6b redesignu M3 (rola 09, 2026-11-03, D-212)
+9 kluczy (odhaczanie przy ważeniu, „Co zrobić”, 5 podtytułów pasa receptury, „Język i jednostki”, data z oceną) w 33 językach; 4 stare klucze usunięte. Tłumaczenie maszynowe (sesja roli 09), drugi przegląd AI w świeżym kontekście 2026-11-03 (11 z 12 uwag przyjętych), przegląd człowieka: brak (DEC-06). Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json`. Brzmienia PL do weta: D-213.

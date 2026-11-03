@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Daripada tepung dan air hingga buku roti pertama anda, hari demi hari.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Mulai hari ini, beri makan pemula sourdough dua kali sehari, kira-kira setiap 12 jam.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Keluarkan gasnya dengan menekan kuat, seperti semasa membentuk.',
+  'Odhaczaj przy ważeniu.': 'Tandakan semasa menimbang.',
   'Odhaczaj składniki w miarę wsypywania': 'Tandakan bahan semasa anda memasukkannya',
   'Odkryj wiedzę naukową': 'Terokai pengetahuan saintifik',
   'Odliczanie trwa': 'Kiraan detik berjalan',
