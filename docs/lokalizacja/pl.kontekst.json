@@ -1098,7 +1098,7 @@
   },
   "Do miski": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+      "src/components/receptury/DoMiski.tsx (tytul)"
     ]
   },
   "Do miski (Ciasto właściwe)": {
@@ -1106,7 +1106,7 @@
   },
   "Do miski (odhaczaj przy ważeniu)": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+      "src/components/receptury/DoMiski.tsx (tytul)"
     ]
   },
   "Do miski na wagę": {
@@ -1409,7 +1409,7 @@
   },
   "Drożdże do odważenia": {
     "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
   "Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.": {
@@ -2169,7 +2169,7 @@
   },
   "Ilości liczę od": {
     "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
   "Ilość objętościowa:": {
@@ -2894,6 +2894,7 @@
   },
   "Masa ciasta": {
     "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tytul)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -3092,7 +3093,7 @@
   },
   "Moje receptury": {
     "gdzie": [
-      "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
+      "src/components/receptury/ListaReceptur.tsx (tytul)"
     ]
   },
   "Mokry, lepki miękisz, brudzi nóż": {
@@ -3279,10 +3280,10 @@
   },
   "Mąka pszenna chlebowa typ 750": {
     "gdzie": [
-      "app/(tabs)/receptury/receptura.tsx (dane: name)",
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
+      "src/hooks/useParametryReceptury.ts (dane: name)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -3542,9 +3543,9 @@
   },
   "Mąka żytnia typ 720": {
     "gdzie": [
-      "app/(tabs)/receptury/receptura.tsx (dane: name)",
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
+      "src/hooks/useParametryReceptury.ts (dane: name)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -3584,7 +3585,7 @@
   },
   "Mąki (razem 100%)": {
     "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
   "NIE dodawaj soli na tym etapie — sól działa higroskopijnie, wyciąga wodę i hamuje działanie enzymów.": {
@@ -4068,7 +4069,7 @@
   },
   "O recepturze": {
     "gdzie": [
-      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
+      "src/components/receptury/ORecepturze.tsx (tytul)"
     ]
   },
   "OK": {
@@ -5184,7 +5185,7 @@
   },
   "Proporcje (procent mąki)": {
     "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
   "Proporcje dokarmiania": {
@@ -5700,7 +5701,7 @@
   },
   "Receptury bazowe": {
     "gdzie": [
-      "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
+      "src/components/receptury/ListaReceptur.tsx (tytul)"
     ]
   },
   "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
@@ -8167,7 +8168,7 @@
   "Zaczyn": {
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (kod)",
-      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
   "Zaczyn ({g} g)": {
@@ -8184,7 +8185,7 @@
   },
   "Zaczyn: {rodzaj}": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+      "src/components/receptury/DoMiski.tsx (tytul)"
     ]
   },
   "Zaczyny": {

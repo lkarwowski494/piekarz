@@ -3,6 +3,8 @@
 // w docs/design/ekrany/kalkulator.html): filtr rodzaju jako zawijane chipy 44 pt bez licznika (od D10 na pasie), grupa
 // „Moje receptury” nad „Receptury bazowe”, wiersz z nazwą, podpisem i szewronem; pusty filtr z „Pokaż wszystkie”.
 // Usuwanie własnej receptury bez zmian (z pytaniem; zmiana to osobne znalezisko 04-studio-projektowe-038).
+// M3 p3 (D-141 O2b, karty/README.md §4, makieta karty/receptury.html #lista, #pusty-filtr): nagłówek grupy z ikoną
+// nad kartami, każda receptura we własnej karcie z ikoną rodzaju, pusty filtr w karcie. [M3 p3, D-184]
 // [M1-audytor-generalny-106; 04-studio-projektowe-022]
 // ============================================================================
 
@@ -15,8 +17,10 @@ import type { StoredRecipe } from '../../data/db';
 import type { RecipePreset } from '../../recipes/presets';
 import { opisReceptury } from './nazwy-receptur';
 import { s } from './style-receptur';
-
-import { typografia } from '../../ui/tokeny';
+import { Karta, NaglowekKarty, wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty, type NazwaIkonyKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { odstepy, typografia } from '../../ui/tokeny';
 /** Filtr rodzaju na liście receptur bazowych. */
 export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
@@ -39,15 +43,29 @@ export interface ListaRecepturProps {
   onUsunMoja: (r: StoredRecipe) => void;
 }
 
-function Wiersz({ id, nazwa, opis, ostatni, onPress }: { id: string; nazwa: string; opis: string; ostatni: boolean; onPress: () => void }) {
+/** Ikona rodzaju receptury w karcie (kształty z karty.js; słodkie = ciasto drożdżowe w misce, D-184). */
+const IKONA_RODZAJU: Record<RecipePreset['category'], NazwaIkonyKarty> = {
+  sourdough: 'bochenek',
+  rye: 'sloik',
+  yeast: 'miska',
+  pizza: 'pizza',
+  sweet: 'miska',
+};
+
+function Wiersz({ id, nazwa, opis, ikona, onPress }: { id: string; nazwa: string; opis: string; ikona: NazwaIkonyKarty; onPress: () => void }) {
+  // Przy dużym tekście opis na całą szerokość, ikona i szewron nad nim (flexBasis od fontScale, README §7a) [M3 p3]
+  const duzy = useDuzyTekst();
   return (
     <Pressable
       accessibilityRole="button"
       testID={`recipe-row-${id}`}
-      style={[s.kom, styles.wiersz, ostatni && s.komOstatnia]}
+      style={({ pressed }) => [wygladKarty, styles.wiersz, duzy && styles.wierszDuzy, pressed && styles.nacisniety]}
       onPress={onPress}
     >
-      <View style={s.roz}>
+      <View style={styles.ikona} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+        <IkonaKarty nazwa={ikona} rozmiar={28} />
+      </View>
+      <View style={[s.roz, duzy && styles.opisDuzy]}>
         <Text style={s.etykieta}>{nazwa}</Text>
         <Text style={s.przypis}>{opis}</Text>
       </View>
@@ -64,18 +82,16 @@ export function ListaReceptur({ onFiltr, bazowe, moje, onOtworzBazowa, onOtworzM
       {/* Filtr rodzaju na pasie ekranu (D10 opcja A): FILTRY_RECEPTUR w app/(tabs)/receptury/index.tsx [M3 D10] */}
       {moje.length > 0 && (
         <>
-          <Text style={s.naglowekGrupy} accessibilityRole="header">
-            {t('Moje receptury')}
-          </Text>
-          <View style={s.grupa}>
-            {moje.map((r, i) => (
+          <NaglowekKarty testID="grupa-moje" tytul={t('Moje receptury')} ikona={<IkonaKarty nazwa="gwiazda" />} style={styles.grupa} />
+          <View style={styles.karty}>
+            {moje.map((r) => (
               <View key={r.id} style={styles.mojaRzad}>
                 <View style={styles.mojaWiersz}>
                   <Wiersz
                     id={r.id}
                     nazwa={r.name}
                     opis={t('moja, woda {n}%', { n: formatNumber(r.formula.waterPercentage) })}
-                    ostatni={i === moje.length - 1}
+                    ikona="bochenek"
                     onPress={() => onOtworzMoja(r)}
                   />
                 </View>
@@ -93,35 +109,48 @@ export function ListaReceptur({ onFiltr, bazowe, moje, onOtworzBazowa, onOtworzM
         </>
       )}
 
-      <Text style={s.naglowekGrupy} accessibilityRole="header">
-        {t('Receptury bazowe')}
-      </Text>
       {bazowe.length === 0 ? (
-        <View style={[s.grupa, styles.pusty]}>
+        <Karta testID="karta-pusty-filtr" tytul={t('Receptury bazowe')} ikona={<IkonaKarty nazwa="receptury" />}>
           <Text style={s.etykieta}>{t('Brak receptur tego rodzaju.')}</Text>
           <Pressable accessibilityRole="button" testID="show-all-recipes-btn" style={styles.pokazWszystkie} onPress={() => onFiltr('all')}>
             <Text style={s.akcja}>{t('Pokaż wszystkie')}</Text>
           </Pressable>
-        </View>
+        </Karta>
       ) : (
-        <View style={s.grupa}>
-          {bazowe.map((r, i) => (
-            <Wiersz key={r.id} id={r.id} nazwa={t(r.namePl)} opis={opisReceptury(r)} ostatni={i === bazowe.length - 1} onPress={() => onOtworzBazowa(r)} />
-          ))}
-        </View>
+        <>
+          <NaglowekKarty testID="grupa-bazowe" tytul={t('Receptury bazowe')} ikona={<IkonaKarty nazwa="receptury" />} style={styles.grupa} />
+          <View style={styles.karty}>
+            {bazowe.map((r) => (
+              <Wiersz key={r.id} id={r.id} nazwa={t(r.namePl)} opis={opisReceptury(r)} ikona={IKONA_RODZAJU[r.category]} onPress={() => onOtworzBazowa(r)} />
+            ))}
+          </View>
+        </>
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  // Nagłówek grupy nad kartami (O2b): ten sam nagłówek co w karcie, wcięty jak treść karty
+  grupa: { paddingHorizontal: odstepy.xs, marginTop: odstepy.m },
+  karty: { gap: odstepy.m },
   wiersz: {
-    flexWrap: 'nowrap',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: odstepy.m,
     minHeight: theme.cele.glownyPrzeplyw,
+    paddingHorizontal: odstepy.l,
+    paddingVertical: odstepy.m,
   },
+  wierszDuzy: { paddingHorizontal: odstepy.m, justifyContent: 'space-between' },
+  opisDuzy: { flexBasis: '100%' },
+  nacisniety: { backgroundColor: theme.colors.tloGrupa },
+  ikona: { width: 28, height: 28, alignItems: 'center', justifyContent: 'center' },
   mojaRzad: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: odstepy.xs,
   },
   mojaWiersz: {
     flex: 1,
@@ -135,10 +164,6 @@ const styles = StyleSheet.create({
   usunTekst: {
     fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.blad,
-  },
-  pusty: {
-    padding: theme.spacing.md,
-    gap: theme.spacing.sm,
   },
   pokazWszystkie: {
     minHeight: theme.cele.pozostale,

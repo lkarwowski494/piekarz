@@ -3,6 +3,7 @@
 // naczynie i wskazówki pod zdaniem o hydratacji, poza pierwszym widokiem, w przewijanej treści. Kategoria
 // i trudność są tylko na liście receptur. Treść z receptury (rola 06). Zastępuje kartę szczegółów receptury
 // z dawnego wyboru receptur (FormulaPresetSelector). [M1-audytor-generalny-106]
+// M3 p3 (karty/README.md §4, makieta karty/receptury.html #receptura): informacje w karcie „O recepturze”. [M3 p3]
 // ============================================================================
 
 import React from 'react';
@@ -12,7 +13,8 @@ import { t } from '../../lib/i18n';
 import type { RecipePreset } from '../../recipes/presets';
 import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { s } from './style-receptur';
-
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { typografia } from '../../ui/tokeny';
 function naczynie(v: RecipePreset['recommendedVessel']): string {
   if (v === 'dutch_oven') return t('garnek żeliwny');
@@ -25,11 +27,8 @@ export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
   const unitSystem = useUnitSystem();
   const r = receptura;
   return (
-    <View testID="recipe-about">
-      <Text style={s.naglowekGrupy} accessibilityRole="header">
-        {t('O recepturze')}
-      </Text>
-      <View style={[s.grupa, styles.tresc]}>
+    <Karta testID="karta-o-recepturze" tytul={t('O recepturze')} ikona={<IkonaKarty nazwa="ksiazka" />}>
+      <View testID="recipe-about" style={styles.tresc}>
         <Text style={s.etykieta}>{t(r.descriptionPl)}</Text>
         <Text style={styles.wiersz}>
           <Text style={styles.mocny}>{t('Pieczenie')}:</Text> {formatTemperature(r.bakeTempSteamC, unitSystem)} ({t('{n} min', { n: r.bakeTimeSteamMinutes })} {t('para')} +{' '}
@@ -44,13 +43,12 @@ export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
           </Text>
         ) : null}
       </View>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
   tresc: {
-    padding: theme.spacing.md,
     gap: theme.spacing.sm,
   },
   wiersz: {
