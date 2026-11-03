@@ -19,6 +19,11 @@ Aktualizacja: 2026-11-02 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - Free Trial w ASC (`.pro.monthly`, `.pro.yearly`): jeszcze nie usunięty, „Nie, zrobię to rano” — scalenie do master czeka.
 - Bez zgody w nocy: scalenie do master, zmiany w ASC, tagi, usuwanie gałęzi.
 
+## Noc 2026-11-02/03: wynik toru A (koordynator, D-124, D-131)
+- iOS E2E: run 41536995568 na `c660cec` — awaria maszyny (`IOSDriverTimeoutException` po 480 s, przed scenariuszami); jedyne ponowienie run 41546766468 na `056e41e` — **zielone** (2026-11-03 00:34 UTC).
+- Build TestFlight: run 41557215220 na `056e41e` — bramka `tz-matrix` (7 stref, 07-jakosc-002) **zielona**; job „Archive & Upload” zatrzymany na kroku „Verify commit is ancestor of master (BR-REL-005)”: TestFlight buduje tylko commity z `master`. **Buildu nie ma.** Bez ponowienia: scalenie do master wymaga zgody właściciela (zgoda z 2026-11-02 obejmowała build, nie scalenie).
+- Wniosek: build do testu na telefonie = najpierw scalenie `redesign/piekarz-2026-10-22` → `master` (za zgodą, razem z krokiem ASC Free Trial albo przed nim — do decyzji właściciela), potem `testflight.yml` na master. Kandydat: `056e41e` (E2E zielone, strefy zielone, verify kod 0).
+
 ## Karta „Stan projektu” (odpowiedzi właściciela 2026-11-02)
 Testuje tylko właściciel, dane testowe. Standard marki: wspólna marka Apps4Brew. Wpisane w `CLAUDE.md`.
 

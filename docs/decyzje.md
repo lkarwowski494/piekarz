@@ -723,3 +723,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** krok w zadaniu `build` na macos-26 — minuty macOS kosztują wielokrotność minut Linux, a bramka nie potrzebuje Xcode; 7 zadań w macierzy zamiast pętli — polecenie wskazuje pętlę, a pętla nie mnoży instalacji `npm ci`.
 - **Skutek:** ok. +18 min na runnerze Linux przed buildem (szacunek z raportu 07, nie mierzony); bramka nie biegnie na PR i pushu, tylko przy wydaniu — CI na gałęzi kandydata (opcja b raportu) pozostaje osobną decyzją.
 - **Wykonuje:** rola 08 `fix`, gałąź `noc/08-programista-2026-11-02`.
+
+### [D-134] 2026-11-03 — Koniec pracy nocy: bez nowych torów po zablokowaniu buildu przez BR-REL-005 (koordynator, noc, do weta)
+- **Rodzaj:** organizacyjna. **Status: noc, do weta.**
+- **Podstawa:** run 41557215220: `tz-matrix` zielony, build zatrzymany na „Verify commit is ancestor of master (BR-REL-005)”; kontekst koordynatora 36% (zasada właściciela: od 30% domknięcie, koniec przed 35%).
+- **Decyzja:** tor A kończy się bez buildu; nie scalam do master (poza zgodą z 2026-11-02). Bez nowych sesji ról w nocy (P2 roli 07: 003–009 i DEV-10 czekają na plan dnia). Raport: `docs/noc-2026-11-02/raport-koordynatora.md`.
+- **Odrzucone:** (a) scalić do master, żeby zbudować — działanie poza zgodą; (b) zlecić P2 w nocy — wyniki do przyjęcia przez koordynatora ponad próg kontekstu; (c) zmienić krok BR-REL-005 w workflow — to bramka wydania, nie przeszkoda.
+
