@@ -876,3 +876,43 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Otwarte (STOP):** P1…P6 i przegląd człowieka 27 twierdzeń krytycznych: `docs/tresci/e1-m3-2026-11-03.md`, `docs/tresci/przeglad/m3-2026-11-03.md`.
 - **Odrzucone:** wersje drożdżowe z ogólnej reguły przeliczenia (odrzucone w D-137, D-154); dopisanie mięsa do listy blokady opóźnionego startu bez źródła maszyny (MAS-072).
 - **Zależy od:** D-035, D-153…D-157. **Status:** dzień, czeka na odpowiedzi właściciela.
+
+### [D-172] 2026-11-03 — P1: jeden przelicznik świeże → suche (aktywne i instant) × 0,35, środek przedziału producentów; zmienia RD-19
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Wez srodkowa wartosc”.
+- **Decyzja:** msuche = mświeże × 0,35 dla suchych aktywnych i instant; tekst przy przeliczeniu: producent na opakowaniu może podawać inaczej. Rachunek (uproszczenie nazwane): skrajne wartości producentów szczebla 1 z E1: Dr. Oetker 7 g instant = 25 g świeżych → 0,28 (DRO-INS-014); Red Star i Fleischmann’s 0,6 oz świeżych = 1/4 oz suchych → 0,417 (DRO-INS-007, -008); środek (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35. Sprawdzenie: mediana czterech producentów (0,28; Lesaffre PL środek 0,25–0,33 = 0,29; 0,417; 0,417) = 0,35, ten sam wynik. Przykład: 25 g świeżych → 8,75 g (ok. 9 g).
+- **Odrzucone:** × 0,4 bez zmian (rozjazd z polską torebką ok. 40%); dwa przeliczniki 0,4/0,33 (rekomendacja roli 06); × 0,28.
+- **Skutki:** errata RD-19 i VEC-YEAST (rola 01), kod i testy (rola 08, testy przed kodem), wektory (rola 07); interpretacja „środkowej wartości” przez koordynatora do weta.
+- **Zależy od:** D-136, D-171. **Status:** dzień, do weta.
+
+### [D-173] 2026-11-03 — P2: przełącznik drożdżowy w 4 recepturach (orkisz, graham, żytni 100%, tartine); brioszka bez przełącznika w 1.0
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „+ tartine (szczebel 4)”.
+- **Decyzja:** przełącznik „na zakwasie / na drożdżach” (D-154) dostają `spelt_ancient_seeded`, `graham_bread_honey` (szczebel 2), `rye_100_pan` (szczebel 2, warunki laboratoryjne jako uproszczenie po przeglądzie) i `tartine_high_hydration_80` (King Arthur, szczebel 4 z atrybucją, tylko dane receptury, nie bezpieczeństwo — wyjątek nazwany od wymogu 1–3 z D-157). Bez przełącznika: brioszka/panettone, `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` (D-171).
+- **Odrzucone:** tylko 1–3 bez tartine (rekomendacja roli 06); tylko orkisz i graham.
+- **Zależy od:** D-154, D-171. **Status:** dzień, do weta.
+
+### [D-174] 2026-11-03 — P3: plan dla drożdży z czasami z receptury, bez przeliczania temperaturą i ilością drożdży (1.0)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Czasy z receptury (Recommended)”.
+- **Decyzja:** plan wersji drożdżowej (D-155) bierze czasy z receptury (przedział) i test palca; bez modelu Q10 dla drożdży (DRO-MOD-008, -012). **Odrzucone:** Q10 ok. 2 z rachunku DRO-MOD-004.
+- **Zależy od:** D-155. **Status:** dzień, do weta.
+
+### [D-175] 2026-11-03 — P4: blokada opóźnionego startu maszyny przy psujących się składnikach, z wyjaśnieniem (krytyczne)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Blokada z wyjaśnieniem (Recommended)”.
+- **Decyzja:** tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza w proszku), ser, jogurt albo świeże owoce (część wspólna instrukcji, MAS-072, MAS-009, -023, -035, -044) i mówi dlaczego; bez mięsa (brak źródła maszyny). **Odrzucone:** samo ostrzeżenie.
+- **Zależy od:** D-153, D-171. **Status:** dzień, do weta.
+
+### [D-176] 2026-11-03 — P5: podpowiedź rodzaju programu maszyny jako reguła aplikacji (uproszczenie), nie fakt
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Sugestia jako reguła aplikacji” (wbrew rekomendacji roli 06: wybór użytkownika bez podpowiedzi).
+- **Decyzja:** aplikacja podpowiada rodzaj programu (podstawowy, pełnoziarnisty, francuski, słodki, ciasto) z rodzaju receptury; tekst: podpowiedź, sprawdź w instrukcji maszyny. Regułę przypisania proponuje rola 06 w E2 i nazywa ją regułą aplikacji (źródła nie podają progów poza Cuisinart, MAS-080).
+- **Zależy od:** D-153. **Status:** dzień, do weta.
+
+### [D-177] 2026-11-03 — P6 i przegląd: katalog 11 + 3 warunkowo z nazwami opisowymi; 27 twierdzeń krytycznych zaakceptowanych
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „11 + 3, nazwy opisowe (Recommended)”; „Akceptuję wszystkie 27”.
+- **Decyzja:** (1) do 1.0 wchodzi 11 kandydatów z `docs/tresci/badanie-2026-11-03/D-raport.md`, 3 warunkowe (piadina, Stollen, szybki chleb orkiszowy) po domknięciu luk; nazwy opisowe, nazwa chroniona tylko jako informacja o pochodzeniu. (2) Przegląd twierdzeń (nie zdań) 27 krytycznych: kolumna „Decyzja” w `docs/tresci/przeglad/m3-2026-11-03.md`; 158 wpisów `robocze` → `potwierdzone`. Pole `przeglad` (kto, data, sha) wpisuje rola 06 po przeglądzie zdań z E2 (sha zdań z `--skroty`); do tego czasu kontrola z `--przed-przegladem`.
+- **Odrzucone:** nazwy „w stylu …” (art. 26 rozp. 2024/1143 obejmuje także takie dopiski).
+- **Zależy od:** D-157, D-171. **Status:** dzień, do weta.
