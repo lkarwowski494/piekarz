@@ -30,7 +30,7 @@ import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore, saveBakeLog } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { appLocale, formatDate } from '../lib/format';
-import { setLang } from '../lib/i18n';
+import { setLang, t } from '../lib/i18n';
 
 jest.setTimeout(30000);
 
@@ -70,6 +70,7 @@ describe('M3 p6b: Dziennik — data i ocena w jednym wierszu (D-209)', () => {
     const tree = await dziennik();
     const l = linie(tree.root, 'bake-log-card-b1');
     expect(l).toContain(`${data()}, ocena 4/5`);
+    expect(l).toContain(t('{data}, ocena {n}/5', { data: data(), n: 4 }));
     expect(l).not.toContain(data());
     expect(l.filter((x) => x.includes('Ocena:'))).toEqual([]);
     act(() => tree.unmount());
