@@ -7398,5 +7398,2656 @@
     "krytyczne": true,
     "przeglad": null,
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-001",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168894) 1 szklanka (1 cup, miara amerykańska) mąki pszennej uniwersalnej (all-purpose, enriched, bleached) waży 125 g; ta sama wartość 125 g dla odmiany niebielonej (fdc_id 168936).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168894 „Wheat flour, white, all-purpose, enriched, bleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83944\",\"168894\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168936 „Wheat flour, white, all-purpose, enriched, unbleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"84024\",\"168936\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maki_pszennej_uniwersalnej",
+    "wartosc": 125,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-002",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168896) 1 szklanka (1 cup) mąki pszennej chlebowej (bread, enriched) waży 137 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168896 „Wheat flour, white, bread, enriched”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83946\",\"168896\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"137\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maki_chlebowej",
+    "wartosc": 137,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-003",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168893) 1 szklanka (1 cup) mąki pszennej pełnoziarnistej (whole-grain) waży 120 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168893 „Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83943\",\"168893\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"120\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maki_pelnoziarnistej",
+    "wartosc": 120,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-004",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy) 1 szklanka (1 cup) mąki żytniej średniej (Rye flour, medium, fdc_id 168886) waży 102 g; tyle samo mąki żytniej jasnej (Rye flour, light, fdc_id 168887).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168886 „Rye flour, medium”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83936\",\"168886\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"102\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168887 „Rye flour, light”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83937\",\"168887\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"102\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maki_zytniej_sredniej",
+    "wartosc": 102,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-005",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168885) 1 szklanka (1 cup) ciemnej mąki żytniej (Rye flour, dark) waży 128 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168885 „Rye flour, dark”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83935\",\"168885\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"128\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maki_zytniej_ciemnej",
+    "wartosc": 128,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-006",
+    "twierdzenie": "[DO USTALENIA] Waga szklanki (1 cup) mąki orkiszowej pełnoziarnistej: USDA FoodData Central nie podaje porcji objętościowej. SR Legacy ma tylko ziarno „Spelt, uncooked” (fdc_id 169745: 1 cup = 174 g ziarna, nie mąki); Foundation Foods ma „Flour, spelt, whole grain” (fdc_id 2003587) bez żadnej porcji w food_portion.csv (wydanie 2025-04-24); FNDDS 2024 nie ma mąki orkiszowej. Potrzebne źródło szczebla 1–3 (np. Food Buying Guide, producent o własnej mące).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 169745 „Spelt, uncooked”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"85442\",\"169745\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"174\",\"6\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-007",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 169655) 1 szklanka (1 cup) cukru kryształu (granulated) waży 200 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 169655 „Sugars, granulated”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"85288\",\"169655\",\"3\",\"1\",\"9999\",\"\",\"cup\",\"200\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_cukru",
+    "wartosc": 200,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-008",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 169655) 1 łyżeczka (tsp) cukru kryształu waży 4,2 g (rachunek: 1 łyżka = 3 łyżeczki wg NIST HB 44, czyli ok. 12,6 g; porcji „tbsp” USDA dla cukru nie podaje).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 169655 „Sugars, granulated”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"85287\",\"169655\",\"2\",\"1\",\"9999\",\"\",\"tsp\",\"4.2\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "3 teaspoons (exactly)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Łyżka cukru = 3 × 4,2 g = 12,6 g (rachunek z definicji NIST „1 tablespoon = 3 teaspoons (exactly)”); 1/16 szklanki dałoby 12,5 g — różnica 0,1 g pomijalna.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_cukru",
+    "wartosc": 4.2,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-009",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 171265) 1 szklanka (1 cup) mleka pełnego 3,25% waży 244 g (1 tbsp = 15 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171265 „Milk, whole, 3.25% milkfat, with added vitamin D”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88314\",\"171265\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"244\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_mleka",
+    "wartosc": 244,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-010",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 170874) 1 szklanka (1 cup) maślanki (buttermilk, cultured, lowfat) waży 245 g; maślanka pełna (fdc_id 172225) też 245 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 170874 „Milk, buttermilk, fluid, cultured, lowfat”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"87464\",\"170874\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"245\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 172225 „Milk, buttermilk, fluid, whole”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"90117\",\"172225\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"245\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_maslanki",
+    "wartosc": 245,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-011",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 173647) porcja 8 uncji płynu (8 fl oz) wody z kranu waży 237 g; według NIST Handbook 44 szklanka miarowa (1 cup, measuring) to dokładnie 8 fl oz, ok. 237 ml — więc 1 szklanka wody = 237 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "1 cup, measuring                                   237 milliliters",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_wody",
+    "wartosc": 237,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-012",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 173410) 1 szklanka (1 cup) masła waży 227 g (1 kostka „stick” = 113 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173410 „Butter, salted”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92458\",\"173410\",\"3\",\"1\",\"9999\",\"\",\"cup\",\"227\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_masla",
+    "wartosc": 227,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-013",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 173410) 1 łyżka (tbsp) masła waży 14,2 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173410 „Butter, salted”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92457\",\"173410\",\"2\",\"1\",\"9999\",\"\",\"tbsp\",\"14.2\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzki_masla",
+    "wartosc": 14.2,
+    "jednostka": "g/łyżka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-014",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 172346) 1 szklanka (1 cup) margaryny (80% tłuszczu, w kostce) waży 227 g (1 tbsp = 14 g) — tyle co masło.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 172346 „Margarine, regular, 80% fat, composite, stick, with salt”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"90402\",\"172346\",\"2\",\"1\",\"9999\",\"\",\"cup\",\"227\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_margaryny",
+    "wartosc": 227,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-015",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 172336) 1 szklanka (1 cup) oleju rzepakowego (canola) waży 218 g (1 tbsp = 14 g, 1 tsp = 4,5 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 172336 „Oil, canola”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"90375\",\"172336\",\"2\",\"1\",\"9999\",\"\",\"cup\",\"218\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_oleju",
+    "wartosc": 218,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-016",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 172336) 1 łyżka (tbsp) oleju rzepakowego waży 14 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 172336 „Oil, canola”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"90374\",\"172336\",\"1\",\"1\",\"9999\",\"\",\"tbsp\",\"14\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzki_oleju_rzepakowego",
+    "wartosc": 14,
+    "jednostka": "g/łyżka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-017",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 171411) 1 łyżka (tbsp) oleju sojowego („vegetable oil” w przepisach USA) waży 13,6 g (1 cup = 218 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171411 „Oil, soybean, salad or cooking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88661\",\"171411\",\"1\",\"1\",\"9999\",\"\",\"tbsp\",\"13.6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzki_oleju_roslinnego",
+    "wartosc": 13.6,
+    "jednostka": "g/łyżka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-018",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 175043) 1 opakowanie (packet) suchych drożdży piekarskich aktywnych waży 7,2 g (3 pomiary).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Przepisy Illinois 4-H mówią „1 package yeast” bez rodzaju i masy; przyjmujemy opakowanie suchych drożdży aktywnych USDA (7,2 g). Masy na opakowaniu konkretnego producenta nie sprawdzano.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_opakowania_drozdzy_suchych",
+    "wartosc": 7.2,
+    "jednostka": "g/opakowanie",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-019",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 175043) 1 łyżeczka (tsp) suchych drożdży aktywnych waży 4 g (1 tbsp = 12 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95489\",\"175043\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"4\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_drozdzy_suchych",
+    "wartosc": 4,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-020",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 173468) 1 łyżeczka (tsp) soli kuchennej waży 6 g (1 tbsp = 18 g, 1 cup = 292 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_soli",
+    "wartosc": 6,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-021",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 171287) 1 duże jajko (large, bez skorupki) waży 50 g (średnie 44 g, małe 38 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171287 „Egg, whole, raw, fresh”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88374\",\"171287\",\"1\",\"1\",\"9999\",\"\",\"large\",\"50\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Przepisy USA mówią „1 egg” bez rozmiaru; przyjmujemy rozmiar „large” (standard przepisów w USA — założenie, nie źródło).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_jajka_duzego",
+    "wartosc": 50,
+    "jednostka": "g/szt.",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-022",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 172803) 1 łyżeczka (tsp) proszku do pieczenia (double-acting) waży 4,6 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 172803 „Leavening agents, baking powder, double-acting, sodium aluminum sulfate”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"91437\",\"172803\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"4.6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_proszku_do_pieczenia",
+    "wartosc": 4.6,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-023",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 175040) 1 łyżeczka (tsp) sody oczyszczonej waży 4,6 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175040 „Leavening agents, baking soda”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95484\",\"175040\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"4.6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_sody",
+    "wartosc": 4.6,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-024",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168165) 1 szklanka (1 cup) rodzynek ciemnych bez ugniatania waży 145 g (ugniecionych, „packed” — 165 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168165 „Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"82588\",\"168165\",\"2\",\"1\",\"9999\",\"\",\"cup (not packed)\",\"145\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_szklanki_rodzynek",
+    "wartosc": 145,
+    "jednostka": "g/szklanka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-025",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 171320) 1 łyżeczka (tsp) cynamonu mielonego waży 2,6 g.",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171320 „Spices, cinnamon, ground”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88429\",\"171320\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"2.6\",\"13\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_lyzeczki_cynamonu",
+    "wartosc": 2.6,
+    "jednostka": "g/łyżeczka US",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-026",
+    "twierdzenie": "Według NIST Handbook 44 (2025, Appendix C) 1 szklanka miarowa (1 cup, measuring) to dokładnie 8 uncji płynu (8 fl oz) i ok. 237 ml.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "1 cup, measuring                                   237 milliliters",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "8 fluid ounces (exactly)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "objetosc_szklanki_us",
+    "wartosc": 237,
+    "jednostka": "ml",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-027",
+    "twierdzenie": "Według NIST Handbook 44 (2025, Appendix C) 1 łyżka miarowa (1 tablespoon, measuring) to dokładnie 3 łyżeczki i ½ uncji płynu, ok. 15 ml (NIST zaokrągla łyżkę i łyżeczkę do pełnego mililitra; rachunek: ½ × 29,573 ml = 14,79 ml).",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "1 tablespoon, measuring",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "The equivalents of the imprecise units “tablespoon”",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "29.573 milliliters",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "15 ml to zaokrąglenie NIST; dokładnie ½ fl oz = 14,79 ml.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "objetosc_lyzki_us",
+    "wartosc": 15,
+    "jednostka": "ml",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-028",
+    "twierdzenie": "Według NIST Handbook 44 (2025, Appendix C) 1 łyżeczka miarowa (1 teaspoon, measuring) to dokładnie ⅓ łyżki, ok. 5 ml.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "1 teaspoon, measuring                                   5 milliliters",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://doi.org/10.6028/NIST.HB.44-2025",
+        "miejsce": "NIST Handbook 44 (2025), Appendix C „General Tables of Units of Measurement”, tabela „Units of Volume” / „Liquid Volume”, s. C-26–C-27 (PDF s. 548–549); kopia badanie/E/zrodla/nist_hb44_2025.pdf (https://nvlpubs.nist.gov/nistpubs/hb/2025/NIST.HB.44-2025.pdf), sha256 3f762eb83ea0; tekst strony badanie/E/zrodla/nist_hb44_2025_appC.txt",
+        "cytat": "⅓ tablespoon (exactly)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "objetosc_lyzeczki_us",
+    "wartosc": 5,
+    "jednostka": "ml",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-029",
+    "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 175042) 1 kostka drożdży prasowanych (świeżych, „cake 0.6 oz”) waży 17 g (rachunek kontrolny: 7,2 g opakowania suchych ÷ 17 g = 0,42 — zgodne z Red Star/Fleischmann’s 0,417 w D-172).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175042 „Leavening agents, yeast, baker's, compressed”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95488\",\"175042\",\"1\",\"1\",\"9999\",\"\",\"cake (0.6 oz)\",\"17\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "waga_kostki_drozdzy_swiezych_usda",
+    "wartosc": 17,
+    "jednostka": "g/kostka",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-005",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb podstawowy (Basic loaf) w procentach piekarskich (rachunek, mąka = 100%): mąka uniwersalna 100% (1 szklanka = 125 g); woda 67,7% (przedział 59,2–79,0% dla 3–4 szklanek mąki), sól 1,4% (1,2–1,6%), drożdże suche 1,65%, czyli świeże 4,7% (4,1–5,5%), cukier 2,9%, olej 3,1%. Dane wejściowe: 1 1/4 szklanki wody = 296,25 g, 1 opakowanie drożdży = 7,2 g, 1 łyżka cukru = 12,6 g, 1 łyżeczka soli = 6 g, 1 łyżka oleju roślinnego = 13,6 g, mąka 3–4 szklanki = 375,0–500,0 g (środek 3,5 szklanki = 437,50 g).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-006",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb podstawowy (Basic loaf): woda 67,7% masy mąki (rachunek: 296,25 g wody ÷ 437,50 g mąki; przedział 59,2–79,0%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_podstawowy_woda_proc",
+    "wartosc": 67.7,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-007",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb podstawowy (Basic loaf): sól 1,4% masy mąki (rachunek: 6 g ÷ 437,50 g; przedział 1,2–1,6%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_podstawowy_sol_proc",
+    "wartosc": 1.4,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-008",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb podstawowy (Basic loaf): drożdże świeże 4,7% masy mąki (rachunek: 7,2 g suchych ÷ 437,50 g = 1,65%, ÷ 0,35; przedział 4,1–5,5%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 package yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_podstawowy_drozdze_swieze_proc",
+    "wartosc": 4.7,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-009",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-pełnoziarnisty (wariant Whole Wheat) w procentach piekarskich (rachunek, mąka = 100%): mąka uniwersalna 50% + pełnoziarnista 50% (średnio 1 szklanka = 122,5 g); woda 69,1% (przedział 60,5–80,6% dla 3–4 szklanek mąki), sól 1,4% (1,2–1,6%), drożdże suche 1,68%, czyli świeże 4,8% (4,2–5,6%), cukier 2,9%, olej 3,2%. Dane wejściowe: 1 1/4 szklanki wody = 296,25 g, 1 opakowanie drożdży = 7,2 g, 1 łyżka cukru = 12,6 g, 1 łyżeczka soli = 6 g, 1 łyżka oleju roślinnego = 13,6 g, mąka 3–4 szklanki = 367,5–490,0 g (środek 3,5 szklanki = 428,75 g).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "Whole Wheat Bread — Substitute whole wheat flour for half of the all-purpose flour.",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -003); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-010",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-pełnoziarnisty (wariant Whole Wheat): woda 69,1% masy mąki (rachunek: 296,25 g wody ÷ 428,75 g mąki; przedział 60,5–80,6%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -003); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_pelnoziarnisty_woda_proc",
+    "wartosc": 69.1,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-011",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-pełnoziarnisty (wariant Whole Wheat): sól 1,4% masy mąki (rachunek: 6 g ÷ 428,75 g; przedział 1,2–1,6%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -003); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_pelnoziarnisty_sol_proc",
+    "wartosc": 1.4,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-012",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-pełnoziarnisty (wariant Whole Wheat): drożdże świeże 4,8% masy mąki (rachunek: 7,2 g suchych ÷ 428,75 g = 1,68%, ÷ 0,35; przedział 4,2–5,6%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 package yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -003); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_pelnoziarnisty_drozdze_swieze_proc",
+    "wartosc": 4.8,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-013",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-żytni (wariant Rye) w procentach piekarskich (rachunek, mąka = 100%): mąka uniwersalna 50% + żytnia 50% (mąka żytnia średnia; średnio 1 szklanka = 113,5 g; z ciemną żytnią 126,5 g); woda 74,6% (przedział 65,3–87,0% dla 3–4 szklanek mąki), sól 1,5% (1,3–1,8%), drożdże suche 1,81%, czyli świeże 5,2% (4,5–6,0%), cukier 3,2%, olej 3,4%. Dane wejściowe: 1 1/4 szklanki wody = 296,25 g, 1 opakowanie drożdży = 7,2 g, 1 łyżka cukru = 12,6 g, 1 łyżeczka soli = 6 g, 1 łyżka oleju roślinnego = 13,6 g, mąka 3–4 szklanki = 340,5–454,0 g (środek 3,5 szklanki = 397,25 g).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "Rye Bread — Substitute rye flour for half of the all-purpose flour.",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -004, -005); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki. Illinois nie podaje rodzaju mąki żytniej; przyjęto średnią (102 g/szklanka, KAT-WAG-004). Z ciemną (128 g) woda wyszłaby 66,9%, drożdże 4,6%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-014",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-żytni (wariant Rye): woda 74,6% masy mąki (rachunek: 296,25 g wody ÷ 397,25 g mąki; przedział 65,3–87,0%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 1/4 cups water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -004, -005); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki. Illinois nie podaje rodzaju mąki żytniej; przyjęto średnią (102 g/szklanka, KAT-WAG-004). Z ciemną (128 g) woda wyszłaby 66,9%, drożdże 4,6%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_zytni_woda_proc",
+    "wartosc": 74.6,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-015",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-żytni (wariant Rye): sól 1,5% masy mąki (rachunek: 6 g ÷ 397,25 g; przedział 1,3–1,8%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -004, -005); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki. Illinois nie podaje rodzaju mąki żytniej; przyjęto średnią (102 g/szklanka, KAT-WAG-004). Z ciemną (128 g) woda wyszłaby 66,9%, drożdże 4,6%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_zytni_sol_proc",
+    "wartosc": 1.5,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ILB-016",
+    "twierdzenie": "Według University of Illinois Extension (4-H) chleb pół-żytni (wariant Rye): drożdże świeże 5,2% masy mąki (rachunek: 7,2 g suchych ÷ 397,25 g = 1,81%, ÷ 0,35; przedział 4,5–6,0%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 package yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40–42 i 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose or bread flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek przedziału 3–4 szklanek (3,5 szklanki); wagi szklanek ze źródła USDA (KAT-WAG-001, -011, -007/-008, -018, -020, -017, -004, -005); wynik zaokrąglony do 0,1 punktu procentowego. Przepis każe dodawać mąkę „aż ciasto będzie miękkie, ale da się z nim pracować” — hydratacja w praktyce zależy od wchłaniania mąki. Illinois nie podaje rodzaju mąki żytniej; przyjęto średnią (102 g/szklanka, KAT-WAG-004). Z ciemną (128 g) woda wyszłaby 66,9%, drożdże 4,6%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ilb_pol_zytni_drozdze_swieze_proc",
+    "wartosc": 5.2,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-BUL-003",
+    "twierdzenie": "Według University of Illinois Extension (4-H) bułki obiadowe (Basic Dinner Rolls) w procentach piekarskich (rachunek, mąka uniwersalna 3,5 szklanki = 437,5 g = 100%): mleko 55,8%, woda 13,5%, cukier 11,4%, masło lub margaryna 13,0%, jajko 11,4%, sól 1,4%, drożdże świeże 4,7% (suche 1,65%). Dane wejściowe: 1 szklanka mleka = 244 g, 1/4 szklanki wody = 59,25 g, 1/4 szklanki cukru = 50 g, 1/4 szklanki masła = 56,75 g, 1 jajko = 50 g, 1 łyżeczka soli = 6 g, 1 opakowanie drożdży = 7,2 g; przedział mąki 375–500 g.",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 cup milk, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/4 cup water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171265 „Milk, whole, 3.25% milkfat, with added vitamin D”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88314\",\"171265\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"244\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168894 „Wheat flour, white, all-purpose, enriched, bleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83944\",\"168894\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek 3–4 szklanek (3,5 szklanki = 437,5 g); 1 jajko = duże 50 g (KAT-WAG-021); masło 1/4 szklanki = 56,75 g (KAT-WAG-012). Wynik do 0,1 punktu. Woda i mleko osobno (aplikacja trzyma mleko % oddzielnie); płyn razem 69,3%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-BUL-004",
+    "twierdzenie": "Według University of Illinois Extension (4-H) bułki obiadowe: woda 13,5% masy mąki (rachunek: 59,25 g ÷ 437,5 g; przedział 11,8–15,8%); osobno mleko 55,8% (48,8–65,1%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 cup milk, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/4 cup water, heated to 100 to 110 degrees F",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171265 „Milk, whole, 3.25% milkfat, with added vitamin D”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88314\",\"171265\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"244\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168894 „Wheat flour, white, all-purpose, enriched, bleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83944\",\"168894\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek 3–4 szklanek (3,5 szklanki = 437,5 g); 1 jajko = duże 50 g (KAT-WAG-021); masło 1/4 szklanki = 56,75 g (KAT-WAG-012). Wynik do 0,1 punktu. Woda i mleko osobno (aplikacja trzyma mleko % oddzielnie); płyn razem 69,3%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_bul_woda_proc",
+    "wartosc": 13.5,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-BUL-005",
+    "twierdzenie": "Według University of Illinois Extension (4-H) bułki obiadowe: sól 1,4% masy mąki (rachunek: 6 g ÷ 437,5 g; przedział 1,2–1,6%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek 3–4 szklanek (3,5 szklanki = 437,5 g); 1 jajko = duże 50 g (KAT-WAG-021); masło 1/4 szklanki = 56,75 g (KAT-WAG-012). Wynik do 0,1 punktu. Woda i mleko osobno (aplikacja trzyma mleko % oddzielnie); płyn razem 69,3%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_bul_sol_proc",
+    "wartosc": 1.4,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-BUL-006",
+    "twierdzenie": "Według University of Illinois Extension (4-H) bułki obiadowe: drożdże świeże 4,7% masy mąki (rachunek: 7,2 g suchych ÷ 437,5 g ÷ 0,35; przedział 4,1–5,5%).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1 package yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 40; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3 to 4 cups all-purpose flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: środek 3–4 szklanek (3,5 szklanki = 437,5 g); 1 jajko = duże 50 g (KAT-WAG-021); masło 1/4 szklanki = 56,75 g (KAT-WAG-012). Wynik do 0,1 punktu. Woda i mleko osobno (aplikacja trzyma mleko % oddzielnie); płyn razem 69,3%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_bul_drozdze_swieze_proc",
+    "wartosc": 4.7,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-004",
+    "twierdzenie": "Według University of Illinois Extension (4-H) słodkie ciasto drożdżowe (Basic Sweet Dough) w procentach piekarskich (rachunek, mąka uniwersalna ok. 5 szklanek = 625 g = 100%): mleko 39,0%, woda 19,0%, cukier 16,0%, olej 8,7% (albo masło 9,1%), jajka 16,0%, sól 1,9%, drożdże świeże 6,6% (suche 2,30%). Dane wejściowe: 1 szklanka mleka = 244 g, 1/2 szklanki wody = 118,5 g, 1/2 szklanki cukru = 100 g, 1/4 szklanki oleju = 54,5 g, 2 jajka = 100 g, 2 łyżeczki soli = 12 g, 2 opakowania drożdży = 14,4 g.",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "5 cups all-purpose flour,",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 packages yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 teaspoons salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 cup water, heated to",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168894 „Wheat flour, white, all-purpose, enriched, bleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83944\",\"168894\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-005",
+    "twierdzenie": "Według University of Illinois Extension (4-H) słodkie ciasto drożdżowe: woda 19,0% masy mąki (rachunek: 118,5 g ÷ 625 g); osobno mleko 39,0%.",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "5 cups all-purpose flour,",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 packages yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 teaspoons salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 cup water, heated to",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168894 „Wheat flour, white, all-purpose, enriched, bleached”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"83944\",\"168894\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"125\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173647 „Beverages, water, tap, drinking”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"93024\",\"173647\",\"2\",\"1\",\"9999\",\"\",\"serving 8 fl oz\",\"237\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_woda_proc",
+    "wartosc": 19,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-006",
+    "twierdzenie": "Według University of Illinois Extension (4-H) słodkie ciasto drożdżowe: sól 1,9% masy mąki (rachunek: 12 g ÷ 625 g).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 teaspoons salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "5 cups all-purpose flour,",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_sol_proc",
+    "wartosc": 1.9,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-007",
+    "twierdzenie": "Według University of Illinois Extension (4-H) słodkie ciasto drożdżowe: drożdże świeże 6,6% masy mąki (rachunek: 14,4 g suchych ÷ 625 g = 2,30%, ÷ 0,35).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 packages yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "5 cups all-purpose flour,",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 175043 „Leavening agents, yeast, baker's, active dry”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"95491\",\"175043\",\"3\",\"1\",\"9999\",\"\",\"packet\",\"7.2\",\"3\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_drozdze_swieze_proc",
+    "wartosc": 6.6,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-008",
+    "twierdzenie": "Według University of Illinois Extension (4-H) wieniec cynamonowy (Swedish Tea Ring) to połowa słodkiego ciasta (KAT-SLO-004, te same procenty ciasta: woda 19,0%, mleko 39,0%, sól 1,9%, drożdże świeże 6,6%) plus nadzienie w procentach mąki tej połowy (312,5 g): cukier 48,0% (3/4 szklanki = 150 g), cynamon 1,7% (2 łyżeczki = 5,2 g), masło roztopione 36,3% (1/2 szklanki = 113,5 g), rodzynki 15,5% (1/3 szklanki = 48,3 g).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 prepared sweet dough recipe",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "3/4 cup sugar",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 cup melted butter",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/3 cup raisins",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 168165 „Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"82588\",\"168165\",\"2\",\"1\",\"9999\",\"\",\"cup (not packed)\",\"145\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 171320 „Spices, cinnamon, ground”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"88429\",\"171320\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"2.6\",\"13\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu. Połowa ciasta = 312,5 g mąki; rodzynki bez ugniatania 145 g/szklanka (KAT-WAG-024); lukru nie liczono.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-009",
+    "twierdzenie": "Według University of Illinois Extension (4-H) wieniec cynamonowy (połowa słodkiego ciasta): woda 19,0% masy mąki (rachunek jak KAT-SLO-005; połowa ciasta nie zmienia proporcji).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 prepared sweet dough recipe",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 cup water, heated to",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu. Połowa ciasta = 312,5 g mąki; rodzynki bez ugniatania 145 g/szklanka (KAT-WAG-024); lukru nie liczono.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_wieniec_woda_proc",
+    "wartosc": 19,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-010",
+    "twierdzenie": "Według University of Illinois Extension (4-H) wieniec cynamonowy (połowa słodkiego ciasta): sól 1,9% masy mąki (rachunek jak KAT-SLO-006; połowa ciasta nie zmienia proporcji).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 prepared sweet dough recipe",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 teaspoons salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu. Połowa ciasta = 312,5 g mąki; rodzynki bez ugniatania 145 g/szklanka (KAT-WAG-024); lukru nie liczono.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_wieniec_sol_proc",
+    "wartosc": 1.9,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-SLO-011",
+    "twierdzenie": "Według University of Illinois Extension (4-H) wieniec cynamonowy (połowa słodkiego ciasta): drożdże świeże 6,6% masy mąki (rachunek jak KAT-SLO-007; połowa ciasta nie zmienia proporcji).",
+    "zrodla": [
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 45; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "1/2 prepared sweet dough recipe",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "University of Illinois Extension, Illinois 4-H „Cooking 301 State Fair Recipes”, s. 42; kopia badanie/D/zrodla/il4h_3386.pdf, sha256 cdb429645615",
+        "cytat": "2 packages yeast",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok. 5 szklanek” = 625 g (przepis nie daje przedziału); 1/4 szklanki oleju = 54,5 g (KAT-WAG-015) albo masła 56,75 g; 2 jajka duże = 100 g. Wynik do 0,1 punktu. Połowa ciasta = 312,5 g mąki; rodzynki bez ugniatania 145 g/szklanka (KAT-WAG-024); lukru nie liczono.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_slo_wieniec_drozdze_swieze_proc",
+    "wartosc": 6.6,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ORK-004",
+    "twierdzenie": "[DO USTALENIA — warunkowo] Szybki chleb orkiszowy Utah State University Extension w procentach piekarskich: brak źródła wagi szklanki mąki orkiszowej (KAT-WAG-006). Przy ZAŁOŻENIU 1 szklanka = 120 g (jak pszenna pełnoziarnista, KAT-WAG-003; 2 1/2 szklanki = 300 g) wychodzi: maślanka 81,7% (245 g), woda 0%, sól 0,5% (1/4 łyżeczki = 1,5 g), proszek do pieczenia 3,1% (9,2 g), soda 1,5% (4,6 g), olej rzepakowy 9,3% (2 łyżki = 28 g), jajko 16,7% (50 g), cukier 8,4% (2 łyżki = 25,2 g), drożdże 0%.",
+    "zrodla": [
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "2½ cups whole grain spelt flour",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "¼ teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "1 cup buttermilk",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "2 teaspoons baking powder",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "2 tablespoons canola oil",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "1 teaspoon baking soda",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": "Waga mąki orkiszowej przyjęta jak pszennej pełnoziarnistej — założenie bez źródła; reszta wag z USDA (KAT-WAG-010, -020, -022, -023, -016, -021, -008).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ORK-005",
+    "twierdzenie": "Według Utah State University Extension szybki chleb orkiszowy nie ma wody w składnikach (płyn: 1 szklanka maślanki, 245 g, KAT-WAG-010): woda 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "1 cup buttermilk",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ork_szybki_woda_proc",
+    "wartosc": 0,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03",
+    "uwagi": "Maślanka jako płyn: ok. 82% mąki przy założeniu z KAT-ORK-004 (otwarte)."
+  },
+  {
+    "id": "KAT-ORK-006",
+    "twierdzenie": "[DO USTALENIA] Sól w szybkim chlebie orkiszowym USU: 1/4 łyżeczki = 1,5 g (KAT-WAG-020); procent zależy od wagi mąki orkiszowej (KAT-WAG-006 otwarte); przy założeniu 300 g mąki = 0,5%.",
+    "zrodla": [
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "¼ teaspoon salt",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy (wydanie 2018-04, CSV), food_portion.csv, fdc_id 173468 „Salt, table”; kopia badanie/E/zrodla/fdc_sr_legacy_food_csv_2018-04.zip, sha256 b80817294b88; wyciąg wierszy badanie/E/zrodla/fdc_sr_legacy_wyciag.csv",
+        "cytat": "\"92594\",\"173468\",\"1\",\"1\",\"9999\",\"\",\"tsp\",\"6\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": "Wartość warunkowa: mąka orkiszowa 120 g/szklanka (założenie).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ork_szybki_sol_proc",
+    "wartosc": 0.5,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ORK-007",
+    "twierdzenie": "Według Utah State University Extension szybki chleb orkiszowy spulchnia się proszkiem do pieczenia i sodą, bez drożdży: drożdże świeże 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "2 teaspoons baking powder",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
+        "miejsce": "Utah State University Extension, handout „Cooking with Spelt”, „Quick Spelt Bread”; kopia badanie/D/zrodla/usu_spelt.pdf, sha256 5cf2f6417241",
+        "cytat": "1 teaspoon baking soda",
+        "odczyt": "2026-11-03",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_ork_szybki_drozdze_swieze_proc",
+    "wartosc": 0,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ALT-007",
+    "twierdzenie": "Według specyfikacji ChNP „Pane di Altamura” formuła w procentach piekarskich (semolina z pszenicy durum = 100%): woda 60%, sól morska 2%, zakwas (lievito madre) 20%, drożdże piekarskie 0% (rachunek: 60 l, 2 kg i 20 kg na 100 kg semoliny).",
+    "zrodla": [
+      {
+        "adres": "https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/v1/attachments/59722",
+        "miejsce": "eAmbrosia, specyfikacja (disciplinare) ChNP „Pane di Altamura”, art. 6 „Impasto” (dokument z 2003 r.); kopia badanie/D/zrodla/altamura_spec.pdf, sha256 743c40fc22ba",
+        "cytat": "necessitano kg. 20 (20%) di lievito naturale, kg 2 (2%) di sale marino, lt. 60 (60%)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Procenty podaje sama specyfikacja (na 100 kg semoliny); 60 l wody liczone jako 60 kg. Woda i semolina zawarte w zakwasie (20%) nie są doliczone — hydratacja całkowita jest wyższa, ale specyfikacja nie podaje składu zakwasu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ALT-008",
+    "twierdzenie": "Według specyfikacji ChNP „Pane di Altamura” woda stanowi 60% masy semoliny (60 l na 100 kg).",
+    "zrodla": [
+      {
+        "adres": "https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/v1/attachments/59722",
+        "miejsce": "eAmbrosia, specyfikacja (disciplinare) ChNP „Pane di Altamura”, art. 6 „Impasto” (dokument z 2003 r.); kopia badanie/D/zrodla/altamura_spec.pdf, sha256 743c40fc22ba",
+        "cytat": "necessitano kg. 20 (20%) di lievito naturale, kg 2 (2%) di sale marino, lt. 60 (60%)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Procenty podaje sama specyfikacja (na 100 kg semoliny); 60 l wody liczone jako 60 kg. Woda i semolina zawarte w zakwasie (20%) nie są doliczone — hydratacja całkowita jest wyższa, ale specyfikacja nie podaje składu zakwasu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_alt_woda_proc",
+    "wartosc": 60,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ALT-009",
+    "twierdzenie": "Według specyfikacji ChNP „Pane di Altamura” sól morska stanowi 2% masy semoliny (2 kg na 100 kg).",
+    "zrodla": [
+      {
+        "adres": "https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/v1/attachments/59722",
+        "miejsce": "eAmbrosia, specyfikacja (disciplinare) ChNP „Pane di Altamura”, art. 6 „Impasto” (dokument z 2003 r.); kopia badanie/D/zrodla/altamura_spec.pdf, sha256 743c40fc22ba",
+        "cytat": "necessitano kg. 20 (20%) di lievito naturale, kg 2 (2%) di sale marino, lt. 60 (60%)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Procenty podaje sama specyfikacja (na 100 kg semoliny); 60 l wody liczone jako 60 kg. Woda i semolina zawarte w zakwasie (20%) nie są doliczone — hydratacja całkowita jest wyższa, ale specyfikacja nie podaje składu zakwasu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_alt_sol_proc",
+    "wartosc": 2,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-ALT-010",
+    "twierdzenie": "Według specyfikacji ChNP „Pane di Altamura” chleb robi się tylko na zakwasie (lievito madre, 20%): drożdże świeże 0% masy semoliny.",
+    "zrodla": [
+      {
+        "adres": "https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/v1/attachments/59722",
+        "miejsce": "eAmbrosia, specyfikacja (disciplinare) ChNP „Pane di Altamura”, art. 6 „Impasto” (dokument z 2003 r.); kopia badanie/D/zrodla/altamura_spec.pdf, sha256 743c40fc22ba",
+        "cytat": "necessitano kg. 20 (20%) di lievito naturale, kg 2 (2%) di sale marino, lt. 60 (60%)",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/v1/attachments/59722",
+        "miejsce": "eAmbrosia, specyfikacja (disciplinare) ChNP „Pane di Altamura”, art. 6 „Impasto” (dokument z 2003 r.); kopia badanie/D/zrodla/altamura_spec.pdf, sha256 743c40fc22ba",
+        "cytat": "ottenuto mediante l'antico sistema di lavorazione (a lievito madre o pasta acida-sale",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_alt_drozdze_swieze_proc",
+    "wartosc": 0,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-RUP-007",
+    "twierdzenie": "Według specyfikacji GTS „Salinātā rudzu rupjmaize” formuła w procentach piekarskich (rachunek, mąka żytnia 10 kg = 100%): woda 60–80% (6–8 l do zaparzenia; środek 70%), sól 1,5–2% (środek 1,75%), cukier 8–16%, kminek 0,8–1%, słód żytni niefermentowany 0,5–3%, zaczyn 4–16%, drożdże piekarskie 0%; 30% mąki zaparza się.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "grubej mąki żytniej 3 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "gorącej wody 6–8 litrów",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "mąki żytniej 7–10 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "soli 0,15–0,2 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "Zaparzane jest około 30 % (3 kg) całkowitej ilości mąki użytej do produkcji chleba (10 kg).",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "cukru 0,8–1,6 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "zaczynu 0,4–1,6 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "nasion kminku 0,08–0,1 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka = 10 kg (3 kg zaparzane + 7 kg do ciasta), jak w nagłówku i opisie specyfikacji („całkowitej ilości mąki … (10 kg)”); tabela dopuszcza 7–10 kg mąki do ciasta, czyli 10–13 kg — przy 13 kg woda 46–62%, sól 1,2–1,5%. Woda tylko do zaparzenia (6–8 l = 6–8 kg); zaczyn (0,4–1,6 kg) liczony jako dodatek, bez rozbicia na mąkę i wodę. Wartość dla kodu: środek przedziału, do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-RUP-008",
+    "twierdzenie": "Według specyfikacji GTS „Salinātā rudzu rupjmaize” woda stanowi 60–80% masy mąki (rachunek: 6–8 l gorącej wody na 10 kg mąki; środek 70%).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "grubej mąki żytniej 3 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "gorącej wody 6–8 litrów",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "mąki żytniej 7–10 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "Zaparzane jest około 30 % (3 kg) całkowitej ilości mąki użytej do produkcji chleba (10 kg).",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka = 10 kg (3 kg zaparzane + 7 kg do ciasta), jak w nagłówku i opisie specyfikacji („całkowitej ilości mąki … (10 kg)”); tabela dopuszcza 7–10 kg mąki do ciasta, czyli 10–13 kg — przy 13 kg woda 46–62%, sól 1,2–1,5%. Woda tylko do zaparzenia (6–8 l = 6–8 kg); zaczyn (0,4–1,6 kg) liczony jako dodatek, bez rozbicia na mąkę i wodę. Wartość dla kodu: środek przedziału, do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_rup_woda_proc",
+    "wartosc": 70,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-RUP-009",
+    "twierdzenie": "Według specyfikacji GTS „Salinātā rudzu rupjmaize” sól stanowi 1,5–2% masy mąki (rachunek: 0,15–0,2 kg na 10 kg; środek 1,75%).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "soli 0,15–0,2 kg",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "Zaparzane jest około 30 % (3 kg) całkowitej ilości mąki użytej do produkcji chleba (10 kg).",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka = 10 kg (3 kg zaparzane + 7 kg do ciasta), jak w nagłówku i opisie specyfikacji („całkowitej ilości mąki … (10 kg)”); tabela dopuszcza 7–10 kg mąki do ciasta, czyli 10–13 kg — przy 13 kg woda 46–62%, sól 1,2–1,5%. Woda tylko do zaparzenia (6–8 l = 6–8 kg); zaczyn (0,4–1,6 kg) liczony jako dodatek, bez rozbicia na mąkę i wodę. Wartość dla kodu: środek przedziału, do 0,1 punktu. 1,75 → 1,8.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_rup_sol_proc",
+    "wartosc": 1.8,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-RUP-010",
+    "twierdzenie": "Według specyfikacji GTS „Salinātā rudzu rupjmaize” nie dodaje się drożdży piekarskich: drożdże świeże 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_074_R_0006",
+        "miejsce": "Dz.U. UE C 74 z 15.2.2022 (dok. 06), zmieniona specyfikacja GTS „Salinātā rudzu rupjmaize”, przepis z 10 kg mąki; kopia badanie/D/zrodla/rupjmaize_ojc.xhtml, sha256 559fd048a498",
+        "cytat": "nie dodaje się drożdży piekarskich",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_rup_drozdze_swieze_proc",
+    "wartosc": 0,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KAR-005",
+    "twierdzenie": "Według specyfikacji GTS „Karjalanpiirakka” ciasto w procentach piekarskich (rachunek, mąka żytnia lub pszenna = 100%): woda 57,1–72,7% (200 g wody na 275–350 g mąki; środek 64,0%), sól — ilości specyfikacja nie podaje, środek spulchniający 0%, drożdże 0%.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2019_434_R_0012",
+        "miejsce": "Dz.U. UE C 434/12 z 27.12.2019, zmieniona specyfikacja GTS „Karjalanpiirakka” (TSG-FI-0015-AM01); kopia badanie/D/zrodla/karjala_ojc.xhtml, sha256 53ebc54109f8",
+        "cytat": "Ciasto przygotowuje się z 275–350 g mąki i 200 g wody.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2019_434_R_0012",
+        "miejsce": "Dz.U. UE C 434/12 z 27.12.2019, zmieniona specyfikacja GTS „Karjalanpiirakka” (TSG-FI-0015-AM01); kopia badanie/D/zrodla/karjala_ojc.xhtml, sha256 53ebc54109f8",
+        "cytat": "Ciasto zagniata się z wodą, solą i mąką żytnią lub pszenną.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka: środek 275–350 g = 312,5 g; 200 g wody ÷ 312,5 g = 64,0%; do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KAR-006",
+    "twierdzenie": "Według specyfikacji GTS „Karjalanpiirakka” woda stanowi 57,1–72,7% masy mąki (rachunek: 200 g ÷ 275–350 g; środek 64,0%).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2019_434_R_0012",
+        "miejsce": "Dz.U. UE C 434/12 z 27.12.2019, zmieniona specyfikacja GTS „Karjalanpiirakka” (TSG-FI-0015-AM01); kopia badanie/D/zrodla/karjala_ojc.xhtml, sha256 53ebc54109f8",
+        "cytat": "Ciasto przygotowuje się z 275–350 g mąki i 200 g wody.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka: środek 275–350 g = 312,5 g; 200 g wody ÷ 312,5 g = 64,0%; do 0,1 punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_kar_woda_proc",
+    "wartosc": 64,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KAR-007",
+    "twierdzenie": "[DO USTALENIA] Sól w cieście pierogów karelskich: specyfikacja GTS wymienia sól bez ilości; potrzebne źródło szczebla 1–3 z liczbą.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2019_434_R_0012",
+        "miejsce": "Dz.U. UE C 434/12 z 27.12.2019, zmieniona specyfikacja GTS „Karjalanpiirakka” (TSG-FI-0015-AM01); kopia badanie/D/zrodla/karjala_ojc.xhtml, sha256 53ebc54109f8",
+        "cytat": "Ciasto zagniata się z wodą, solą i mąką żytnią lub pszenną.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KAR-008",
+    "twierdzenie": "Według specyfikacji GTS „Karjalanpiirakka” ciasto robi się z mąki, wody i soli, bez spulchniacza: drożdże świeże 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2019_434_R_0012",
+        "miejsce": "Dz.U. UE C 434/12 z 27.12.2019, zmieniona specyfikacja GTS „Karjalanpiirakka” (TSG-FI-0015-AM01); kopia badanie/D/zrodla/karjala_ojc.xhtml, sha256 53ebc54109f8",
+        "cytat": "Ciasto zagniata się z wodą, solą i mąką żytnią lub pszenną.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_kar_drozdze_swieze_proc",
+    "wartosc": 0,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-OBW-008",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Obwarzanek krakowski” formuła w procentach piekarskich (na 100 kg mąki pszennej, do 30% może być żytnia): woda 40–48% (środek 44%), sól 1–1,5% (1,25%), drożdże 1–2% (1,5%), cukier 2–4%, tłuszcz 2–3%.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "woda do ciasta 40–48 l,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "sól 1–1,5 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "drożdże 1–2 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "dopuszczalne jest zastąpienie 30 % mąki pszennej mąką żytnią.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Ilości na 100 kg mąki = procenty wprost; 1 l wody = 1 kg. Wartość dla kodu: środek przedziału, do 0,1 punktu. Rodzaju drożdży dokument nie podaje; w polskiej piekarni „drożdże” w kg to drożdże prasowane (świeże) — założenie, nie źródło.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-OBW-009",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Obwarzanek krakowski” woda do ciasta stanowi 40–48% masy mąki (40–48 l na 100 kg; środek 44%).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "woda do ciasta 40–48 l,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Ilości na 100 kg mąki = procenty wprost; 1 l wody = 1 kg. Wartość dla kodu: środek przedziału, do 0,1 punktu. Rodzaju drożdży dokument nie podaje; w polskiej piekarni „drożdże” w kg to drożdże prasowane (świeże) — założenie, nie źródło.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_obw_woda_proc",
+    "wartosc": 44,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-OBW-010",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Obwarzanek krakowski” sól stanowi 1–1,5% masy mąki (środek 1,25%).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "sól 1–1,5 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Ilości na 100 kg mąki = procenty wprost; 1 l wody = 1 kg. Wartość dla kodu: środek przedziału, do 0,1 punktu. Rodzaju drożdży dokument nie podaje; w polskiej piekarni „drożdże” w kg to drożdże prasowane (świeże) — założenie, nie źródło. 1,25 → 1,3.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_obw_sol_proc",
+    "wartosc": 1.3,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-OBW-011",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Obwarzanek krakowski” drożdże stanowią 1–2% masy mąki (środek 1,5%; przyjęte jako świeże).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "drożdże 1–2 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Ilości na 100 kg mąki = procenty wprost; 1 l wody = 1 kg. Wartość dla kodu: środek przedziału, do 0,1 punktu. Rodzaju drożdży dokument nie podaje; w polskiej piekarni „drożdże” w kg to drożdże prasowane (świeże) — założenie, nie źródło.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_obw_drozdze_swieze_proc",
+    "wartosc": 1.5,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-OBW-012",
+    "twierdzenie": "Według wniosku o rejestrację ChOG „Obwarzanek krakowski” (tłumaczenie EN w brytyjskim rejestrze) obwarzanki piecze się w 250–320 °C przez 10–17 minut, do uzyskania pożądanego koloru i wielkości.",
+    "zrodla": [
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c4bd2554737c528474f2/Product_specification_Obwarzanek_krakowski_wniosek_EN.docx.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/obwarzanek-krakowski, kopia strony badanie/E/zrodla/govuk_obwarzanek-krakowski.html, sha256 4b36bcfc9f27): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG, pkt 7 „Method of production”, Stage 7; kopia badanie/E/zrodla/obwarzanek_uk_spec.pdf, sha256 55b41953469b. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem",
+        "cytat": "baked at a temperature of 250-320°C for",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "uwagi": "Górna część przedziału (powyżej ok. 250 °C) przekracza typowy piekarnik domowy — do decyzji roli 01/08, jak ustawić temperaturę domową (nie fakt ze źródła)."
+  },
+  {
+    "id": "KAT-OBW-013",
+    "twierdzenie": "Według wniosku o rejestrację ChOG „Obwarzanek krakowski” (tłumaczenie EN w brytyjskim rejestrze) ilość wody do ciasta to „według praktyki piekarskiej”, bez liczby; jednolity dokument w Dz.U. C 38/2010 podaje 40–48 l na 100 kg (KAT-OBW-003) — sprzeczność; część wspólna: woda w cieście, liczba tylko w Dz.U.",
+    "zrodla": [
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c4bd2554737c528474f2/Product_specification_Obwarzanek_krakowski_wniosek_EN.docx.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/obwarzanek-krakowski, kopia strony badanie/E/zrodla/govuk_obwarzanek-krakowski.html, sha256 4b36bcfc9f27): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG, pkt 4 „Description”, „Raw materials”; kopia badanie/E/zrodla/obwarzanek_uk_spec.pdf, sha256 55b41953469b. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem",
+        "cytat": "water: for the dough – quantity according to baking practices",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01",
+        "miejsce": "Dz.U. UE C 38 z 16.2.2010, s. 8, jednolity dokument „Obwarzanek krakowski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/obwarzanek_ojc.xhtml, sha256 04537c329ae3",
+        "cytat": "woda do ciasta 40–48 l,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KOL-006",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Kołocz śląski” ciasto drożdżowe w procentach piekarskich (rachunek, mąka pszenna 0,8 kg = 100%): mleko 51,5% (0,4 l ≈ 0,412 kg; przedział 34,3–73,6%), woda 0%, cukier 25% (11,1–42,9%), drożdże 6,25% (4,4–8,6%), jaja 25% (11,1–42,9%), masło 25% (11,1–42,9%; do 25% masła można zastąpić margaryną), sól — bez ilości.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "mąka pszenna 0,70–0,90 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "mleko 0,30–0,50 l,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "drożdże 0,04–0,06 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "cukier 0,10–0,30 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "jaja 0,10–0,30 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "sól.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "masło 0,10–0,30 kg (dopuszcza się zastąpienie 25 % masła margaryną o zawartości tłuszczu co najmniej 70 %),",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka: środek 0,8 kg; mleko 1 l ≈ 1,03 kg (rachunek: 244 g ÷ 237 ml, KAT-WAG-009 i -026); środek każdego przedziału; do 0,1 punktu. Przedziały procentowe liczone skrajnie (najmniej składnika na najwięcej mąki i odwrotnie). Rodzaju drożdży dokument nie podaje; przyjęte jako świeże (prasowane) — założenie.",
+    "krytyczne": true,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "uwagi": "Krytyczne: mleko, jaja i (w nadzieniu) twaróg i żółtka — przy opóźnionym starcie składniki psujące się (D-175, KAT-KOL-005)."
+  },
+  {
+    "id": "KAT-KOL-007",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Kołocz śląski” ciasto nie zawiera wody (płyn: mleko 0,30–0,50 l na 0,70–0,90 kg mąki): woda 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "mąka pszenna 0,70–0,90 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "mleko 0,30–0,50 l,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka: środek 0,8 kg; mleko 1 l ≈ 1,03 kg (rachunek: 244 g ÷ 237 ml, KAT-WAG-009 i -026); środek każdego przedziału; do 0,1 punktu. Przedziały procentowe liczone skrajnie (najmniej składnika na najwięcej mąki i odwrotnie). Rodzaju drożdży dokument nie podaje; przyjęte jako świeże (prasowane) — założenie.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_kol_woda_proc",
+    "wartosc": 0,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03",
+    "uwagi": "Mleko osobno: ok. 51,5% (KAT-KOL-006)."
+  },
+  {
+    "id": "KAT-KOL-008",
+    "twierdzenie": "[DO USTALENIA] Sól w cieście kołocza: jednolity dokument i wniosek (tłumaczenie EN) wymieniają sól bez ilości; potrzebne źródło szczebla 1–3 z liczbą.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "sól.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 1; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "fat, and salt are added",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KOL-009",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Kołocz śląski” drożdże stanowią 6,25% masy mąki (rachunek: 0,05 kg ÷ 0,8 kg; przedział 0,04–0,06 kg na 0,70–0,90 kg = 4,4–8,6%; przyjęte jako świeże).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "drożdże 0,04–0,06 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_299_R_0007_01",
+        "miejsce": "Dz.U. UE C 299 z 5.11.2010, s. 7, jednolity dokument „Kołocz śląski/kołacz śląski” (ChOG), pkt 3.3; kopia badanie/D/zrodla/kolocz_ojc.xhtml, sha256 a7e41dd29a6d",
+        "cytat": "mąka pszenna 0,70–0,90 kg,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Mąka: środek 0,8 kg; mleko 1 l ≈ 1,03 kg (rachunek: 244 g ÷ 237 ml, KAT-WAG-009 i -026); środek każdego przedziału; do 0,1 punktu. Przedziały procentowe liczone skrajnie (najmniej składnika na najwięcej mąki i odwrotnie). Rodzaju drożdży dokument nie podaje; przyjęte jako świeże (prasowane) — założenie. 6,25 → 6,3.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_kol_drozdze_swieze_proc",
+    "wartosc": 6.3,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KOL-010",
+    "twierdzenie": "Według wniosku o rejestrację ChOG „Kołocz śląski” (tłumaczenie EN w brytyjskim rejestrze) zaczyn z mąki, mleka, drożdży i cukru rośnie ok. 10–20 minut w 25–30 °C; potem dodaje się mąkę, jaja, tłuszcz i sól, a ciasto dalej fermentuje (czasu tej fermentacji wniosek nie podaje).",
+    "zrodla": [
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 1; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "left to ferment or rise for approximately 10–20 minutes at a temperature ranging",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 1; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "fat, and salt are added. The mixture is thoroughly combined and allowed to ferment further for",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KOL-011",
+    "twierdzenie": "Według wniosku o rejestrację ChOG „Kołocz śląski” (tłumaczenie EN w brytyjskim rejestrze) kołocz piecze się w 180–200 °C przez 30–60 minut, do uzyskania pożądanego stopnia wypieczenia; ciasto rozwałkowuje się na ok. 1,5 cm.",
+    "zrodla": [
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 6; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "The ‘kołocz śląski’ is baked at a temperature of 180–200°C for 30–60 minutes, until the desired",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 4; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "thickness (about 1.5 cm).",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "uwagi": "Domyka część KAT-KOL-005 (temperatura i czas pieczenia). Czas dotyczy blachy 40×60 cm; dla mniejszej blachy domowej źródło nic nie mówi."
+  },
+  {
+    "id": "KAT-KOL-012",
+    "twierdzenie": "[DO USTALENIA] Kołocz: czas fermentacji ciasta po dodaniu mąki, jaj, tłuszczu i soli oraz czas garowania na blasze — ani jednolity dokument (Dz.U. C 299/2010), ani wniosek (tłumaczenie EN, brytyjski rejestr) nie podają liczb; eAmbrosia nie ma załącznika specyfikacji. Lista Produktów Tradycyjnych (opis wnioskodawcy) — nie sprawdzona, byłaby szczeblem 4.",
+    "zrodla": [
+      {
+        "adres": "https://assets.publishing.service.gov.uk/media/6772c27b7eedf18d124a6893/Product_specification_Kolocz_slaski_wniosek_EN.pdf",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra, gov.uk/protected-food-drink-names/kolocz-slaski-slash-kolacz-slaski, kopia strony badanie/E/zrodla/govuk_kolocz-slaski-slash-kolacz-slaski.html, sha256 c207c50d4199): „Product specification” = angielskie tłumaczenie wniosku o rejestrację ChOG (Konsorcjum Producentów „Kołocza śląskiego”), pkt 7, Step 1; kopia badanie/E/zrodla/kolocz_uk_spec.pdf, sha256 68faaed2f091. Tłumaczenie; polskiego oryginału wniosku nie otworzyłem. eAmbrosia (GI 13871) nie ma załącznika specyfikacji ani zmian po rejestracji (rozp. 733/2011)",
+        "cytat": "allowed to ferment further for",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-PIA-005",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Piadina Romagnola” (po zmianie 2022) formuła w procentach piekarskich (na 1000 g mąki pszennej lub z orkiszu/płaskurki = 100%): sól do 2,5%, tłuszcz (smalec, oliwa, częściowo olej słonecznikowy) do 25%, spulchniacze chemiczne do 2%, opcjonalnie mleko do 300 ml (ok. 30%) i miód do 2%; woda — „w ilości niezbędnej”, bez liczby (KAT-PIA-006); drożdże 0%.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "sól; do 25 g;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "woda: w ilości niezbędnej do uzyskania ciasta o odpowiedniej konsystencji;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "substancje spulchniające: wodorowęglan sodu, difosforan disodowy, skrobia uzyskana z kukurydzy lub pszenicy, do 20 g;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "mleko krowie świeże lub UHT: do 300 ml;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "miód kwiatowy: do 20 g;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": "Górne granice ze specyfikacji, nie wartości typowe; 300 ml mleka ≈ 30% (rachunek objętościowy, ml ≈ g).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03",
+    "uwagi": "Status otwarte, bo brak wody — formuła niepełna."
+  },
+  {
+    "id": "KAT-PIA-006",
+    "twierdzenie": "[DO USTALENIA] Woda w piadinie: ani jednolity dokument 2022 (Dz.U. C 278/2022), ani dyscyplina 2014 (cytowana w zmianie opublikowanej w Biuletynie Regionu Emilia-Romania 2020: „Acqua: quanto basta per ottenere un impasto omogeneo”) nie podają liczby. Potrzebne źródło szczebla 1–3 z ilością wody.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "woda: w ilości niezbędnej do uzyskania ciasta o odpowiedniej konsystencji;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bur.regione.emilia-romagna.it/area-bollettini/bollettini-in-lavorazione/giugno-periodico-parte-seconda-1a-quindicina.2020-06-09.8815316677/comunicato-relativo-alla-modifica-del-disciplinare-della-igp-piadina-romagnola/disciplinare-piadina-2020.pdf",
+        "miejsce": "Bollettino Ufficiale Regione Emilia-Romagna, 9.6.2020, „Richiesta di modifica di disciplinare «Piadina romagnola / Piada romagnola Igp»” (reg. UE 1174/2014), s. 2, „Metodo di ottenimento del prodotto” — cytuje brzmienie dotychczasowe (2014) i nowe; kopia badanie/E/zrodla/piadina_bur_er_2020.pdf, sha256 60520d6cb054",
+        "cytat": "Acqua: quanto basta per ottenere un impasto omogeneo;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-PIA-007",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Piadina Romagnola” sól to najwyżej 25 g na 1000 g mąki, czyli do 2,5% masy mąki (górna granica, nie wartość typowa).",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "sól; do 25 g;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bur.regione.emilia-romagna.it/area-bollettini/bollettini-in-lavorazione/giugno-periodico-parte-seconda-1a-quindicina.2020-06-09.8815316677/comunicato-relativo-alla-modifica-del-disciplinare-della-igp-piadina-romagnola/disciplinare-piadina-2020.pdf",
+        "miejsce": "Bollettino Ufficiale Regione Emilia-Romagna, 9.6.2020, „Richiesta di modifica di disciplinare «Piadina romagnola / Piada romagnola Igp»” (reg. UE 1174/2014), s. 2, „Metodo di ottenimento del prodotto” — cytuje brzmienie dotychczasowe (2014) i nowe; kopia badanie/E/zrodla/piadina_bur_er_2020.pdf, sha256 60520d6cb054",
+        "cytat": "Sale: pari o inferiore a 25 grammi;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Specyfikacja daje tylko górną granicę („do”, „pari o inferiore”); kod nie powinien traktować jej jako typowej ilości.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_pia_sol_proc_max",
+    "wartosc": 2.5,
+    "jednostka": "% mąki",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-PIA-008",
+    "twierdzenie": "Według jednolitego dokumentu ChOG „Piadina Romagnola” ciasto spulchnia się tylko chemicznie (do 20 g na 1000 g mąki), drożdży nie wymienia: drożdże świeże 0% masy mąki.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
+        "miejsce": "Dz.U. UE C 278 z 20.7.2022, s. 27 (dok. 09), wniosek o zmianę i jednolity dokument „Piadina Romagnola/Piada Romagnola” (ChOG), pkt 3.3; zmianę zatwierdziło rozp. wyk. (UE) 2022/2264; kopia badanie/D/zrodla/piadina_ojc.xhtml, sha256 d65c17a97645",
+        "cytat": "substancje spulchniające: wodorowęglan sodu, difosforan disodowy, skrobia uzyskana z kukurydzy lub pszenicy, do 20 g;",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_pia_drozdze_swieze_proc",
+    "wartosc": 0,
+    "jednostka": "% świeżych",
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-STO-002",
+    "twierdzenie": "[DO USTALENIA — częściowo] Według jednolitego dokumentu ChOG „Dresdner Stollen” w procentach masy mąki: masło 50%, sułtanki 65%, kandyzowana skórka 20%, migdały 15%; mąka pszenna typ 405 lub 550; obowiązkowe też mleko pełne, cukier, skórka cytryny, sól, przyprawy (bez ilości). Brak ilości drożdży, cukru, mleka, soli i czasów: pełnej specyfikacji (DPMA) nie otworzyłem, eAmbrosia (GI 13821) nie ma załącznika, brytyjski rejestr podaje „not yet available”.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "świeże masło lub równoważna ilość masła topionego: 50 %,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "sułtanki: 65 %,",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "mąkę pszenną typ 405 lub 550, mleko pełne lub mleko pełne w proszku, cukier kryształ",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://www.gov.uk/protected-food-drink-names/dresdner-christstollen-slash-dresdner-stollen-slash-dresdner-weihnachtsstollen",
+        "miejsce": "Brytyjski rejestr chronionych nazw (Defra), sekcja „Product specification”; kopia badanie/E/zrodla/govuk_stollen.html, sha256 1c0e1f288673",
+        "cytat": "The product specification is not yet available on this site.",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-STO-003",
+    "twierdzenie": "[DO USTALENIA] Woda/mleko w Dresdner Stollen: jednolity dokument wymienia mleko pełne (lub w proszku) bez ilości; procentu brak.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "mąkę pszenną typ 405 lub 550, mleko pełne lub mleko pełne w proszku, cukier kryształ",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-STO-004",
+    "twierdzenie": "[DO USTALENIA] Sól w Dresdner Stollen: jednolity dokument wymienia sól kuchenną bez ilości.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "sól kuchenną",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-STO-005",
+    "twierdzenie": "[DO USTALENIA] Drożdże w Dresdner Stollen: jednolity dokument mówi „ciasto drożdżowe” bez ilości drożdży; źródła szczebla 1–3 z liczbą nie znalazłem.",
+    "zrodla": [
+      {
+        "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
+        "miejsce": "Dz.U. UE C 46 z 24.2.2010, s. 17, jednolity dokument „Dresdner Christstollen/Dresdner Stollen/Dresdner Weihnachtsstollen” (ChOG), pkt 3.2; kopia badanie/D/zrodla/stollen_ojc.xhtml, sha256 edbfb472457a",
+        "cytat": "jest zwartym ciastem drożdżowym",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-03"
   }
 ]
