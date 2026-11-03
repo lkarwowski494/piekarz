@@ -863,3 +863,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Nieprzedstawione właścicielowi przed wyborem (do ewentualnego weta):** „okno kolejki, cel 50 w 1.0” — wariant roli 03 po kontekście terminu; do 1.0 wchodzi każda receptura gotowa (źródło, przegląd, przekład) przed zwolnieniem kolejki, zgłoszenie się nie przesuwa. Wiadomości koordynatora i roli 03 się minęły.
 - **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
 - **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
+
+### [D-166] 2026-11-03 — Partia p1 (system kart) łączy się z p2 (Zakwasy): test osiągalności zostaje bez zmian
+- **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; do weta).
+- **Stan:** rola 08 p1 ma 4 commity lokalnie (`bb5246e`, `52ba18b`, `f96cab8`, `b8c7062`); `tests/osiagalnosc-149.test.ts` pada na 5 nowych plikach `src/ui/karty/*`, bo żaden ekran z `app/` ich jeszcze nie importuje (martwy kod, M1-audytor-generalny-149). Rola 08 słusznie wstrzymała push.
+- **Decyzja:** p1 i p2 w jednej partii: ekran Zakwasy przepięty na komponenty kart w tej samej sesji; plik bez miejsca na Zakwasach wpięty w najmniejszy ekran przewidziany w `docs/design/karty/README.md` §4 albo odłożony do partii, która go użyje. Push dopiero przy `npm run verify` z kodem 0. Punkt kontrolny właściciela (zrzuty) po p1+p2.
+- **Odrzucone:** wyjątek w teście osiągalności albo push z czerwonym testem (osłabienie testu, zasada wspólna 11); osobny „ekran demonstracyjny” komponentów (kod bez wartości dla użytkownika).
+- **Zmienia:** D-160 (p1 bez zmian na ekranie).
+- **Status:** dzień, do weta.
