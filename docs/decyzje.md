@@ -812,3 +812,53 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** ograniczenie skali tekstu w kartach (`maxFontSizeMultiplier`) poniżej AX5 — narusza podłogę NFR-A11Y-004 i HIG (podłoga nie podlega gustowi, zasada studia 12); karty od krawędzi do krawędzi przy AX5 — zyskuje ok. 20 pt (1 litera), a traci język kart z D-141.
 - **Zależy od:** D-141; test na urządzeniu przy AX5 (krok właściciela, rola 07).
 - **Status:** dzień, do weta.
+### [D-151] 2026-11-03 — Bramka zmian zakresu dla D-136…D-138 (rola 03 build, moduł zmiany-zakresu): ZM-24…ZM-26, F-72; cztery pytania do właściciela
+- **Rodzaj:** zakresowa (rola 03), wykonanie D-150; decyzje „czy” i „kiedy” są właściciela (D-136…D-138, D-150) i nie są otwierane.
+- **Decyzja:** D-136 → ZM-24 jako zmiana wejścia w F-55 (BR-KALK-009 istnieje; ER-75: scenariusz wyboru przy wierszu „Do miski”); D-137 → ZM-25 jako rozszerzenie F-26 (ER-76: powiązanie receptura na zakwasie ↔ bliźniak); D-138 → ZM-26 i nowa funkcja F-72 MVP bez BR do czasu ER-77 (praca J, PR, BR trybu maszyny). Numery ER-75…ER-77 proponowane; nadaje je rola 01.
+- **Znaleziska (realne):** (1) „Stan przed” w D-137 podaje 7 receptur `sourdough`; jest 6 `sourdough`, a receptur bazowych z zakwasem 9 (z 2 żytnimi i 1 na lievito madre) — `grep -c` liczył linię typu `src/recipes/presets.ts:12`. (2) Receptura bez zakwasu nie dostaje planu ani prowadzenia (`src/lib/plan-receptury.ts:55-61`), choć BR-HARMO-001 i BR-ETAP-001 obejmują PR-17 (drożdże, pizza): bliźniak bez planu to tylko receptura do kalkulatora. (3) D-136…D-138 piszą „wobec D-038”; obowiązuje model D-112/D-113 (Basic/Pro, `docs/monetyzacja.md`), więc pytanie o podział jest zadane wobec niego.
+- **Otwarte (STOP, pytania do właściciela):** (1) miejsce D-136…D-138 w Basic/Pro; (2) które receptury dostają bliźniaki; (3) zakres trybu maszyny w 1.0; (4) czy bliźniaki i receptury drożdżowe dostają plan i prowadzenie w 1.0. Opcje i rekomendacje: `docs/zakres-zm-2026-11-03.md`.
+- **Odrzucone:** nowe F-nn dla D-136 i D-137 (to zmiany istniejących funkcji, ID F-55 i F-26 zostają); dopisanie BR przez rolę 03 (należą do roli 01, zasada roli 7).
+- **Zależy od:** D-136, D-137, D-138, D-150, D-112, D-113. Po odpowiedziach: wpis decyzji słowami właściciela (pula D-152…D-159), ZM-24…ZM-26 z decyzją, paczka dla roli 06.
+- **Status:** czeka na STOP właściciela.
+
+### [D-152] 2026-11-03 — Basic/Pro dla D-136…D-138: liczenie w Basic, planowanie w Pro (odpowiedź na pytanie 1 z D-151)
+- **Rodzaj:** produktowa, decyzja właściciela (czat roli 03, 2026-11-03). **Słowa właściciela:** „1. Zgoda”.
+- **Decyzja:** D-136 (wybór drożdży przy wierszu) w Basic jak BR-KALK-009; receptury drożdżowe z D-137 w Basic jak inne receptury bazowe (kryterium F-26 „żadna osobno zablokowana”); w trybie maszyny (D-138, F-72) ilości, kolejność wkładania i program w Basic, godzina gotowości (na którą ustawić opóźnienie) w Pro jak plan wstecz (D-112). Podział D-112/D-113 bez zmian; uwaga dla roli 02: dopisać F-72 do tabeli „Basic i Pro według funkcji”.
+- **Odrzucone:** cały tryb maszyny w Pro (liczenie w Pro łamie linię D-112); wszystko w Basic (darmowy plan „na godzinę” obok płatnego planu wstecz).
+- **Otwarte z tej samej odpowiedzi (do doprecyzowania, D-151):** „2. 9 , nie wiem czy nie powinniśmy rozszerzyć katalogu przepisów w wersji 1.01”; „3. Ale nie można jakiegoś uniwersalnego przepisu ? W sensie bierzesz przepis na chleb który już mamy, wrzucasz w odpowiedniej kolejności składniki do maszyny i aplikacja sugeruje program czyli np chleb zwykły lub chleb pełnoziarnisty itd . Lub najbliższy temu ?”; „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”. Odpowiedzi 2 i 4 wzajemnie się wykluczają; pytania doprecyzowujące w `docs/zakres-zm-2026-11-03.md`.
+- **Zależy od:** D-112, D-113, D-151. **Status:** dzień, do weta.
+
+### [D-153] 2026-11-03 — Tryb maszyny (F-72) uniwersalny, nie profil jednej maszyny; Tefal PF220838 jako maszyna testowa (odpowiedź na pytanie C rundy 2, D-151)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (2026-11-03). **Słowa właściciela:** „Ale to ma być uniwersalna aplikacja a nie tylko pod moją maszynę. Moja to Wypiekacz do chleba TEFAL PAIN PLAISIR PF220838”.
+- **Decyzja:** F-72 jako tryb uniwersalny: dowolna receptura w wersji drożdżowej → ilości pod wielkość bochenka, kolejność wkładania w jednym z dwóch układów, sugestia programu z rodzaju receptury („najbliższy program”); bez profili konkretnych maszyn. Tefal PAIN PLAISIR PF220838: maszyna do wypieku testowego właściciela i przykład w źródłach roli 06 (instrukcja producenta to szczebel 1 tylko dla tego modelu, nie reguła ogólna).
+- **Odrzucone:** (c) profil jednej maszyny (słowa właściciela wyżej).
+- **Otwarte:** C (a) tylko wersje drożdżowe czy (a)+(b) także zakwas w maszynie (warunek: źródło roli 06); pytania A, B, D rundy 2 (`docs/zakres-zm-2026-11-03.md`).
+- **Zależy od:** D-138, D-150, D-151, D-152. **Status:** dzień, do weta.
+
+### [D-154] 2026-11-03 — Wersje drożdżowe receptur na zakwasie jako przełącznik „na zakwasie / na drożdżach” w recepturze, nie osobne pozycje (zmienia D-137)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Przełącznik w recepturze”; wcześniej w czacie roli 03: „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”, „2. 9”.
+- **Decyzja:** każda z 9 receptur bazowych z zakwasem (6 `sourdough`, 2 żytnie, 1 na lievito madre) dostaje w recepturze przełącznik „na zakwasie / na drożdżach”; za przełącznikiem osobne dane dla każdej receptury (ilość drożdży, czasy fermentacji) ze źródła roli 06. Receptura bez źródła dla wersji drożdżowej nie pokazuje przełącznika. Wybór świeże/instant (D-136) działa w wersji drożdżowej jak dziś.
+- **Zmienia D-137:** „osobne receptury-bliźniaki” → wersja drożdżowa w tej samej recepturze; dane dla każdej receptury osobno zostają (powód odrzucenia ogólnej reguły z D-137 dalej obowiązuje).
+- **Odrzucone:** 9 osobnych pozycji na liście (duplikaty, więcej tekstów do przekładu); jedna reguła przeliczenia dla wszystkich (odrzucona w D-137); bez wersji drożdżowych w 1.0.
+- **Zależy od:** D-137, D-150, D-151, D-152 (Basic). ER-76 dla roli 01: BR przełącznika (zamiast powiązania bliźniaków). **Status:** dzień, do weta.
+
+### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Z planem w 1.0”.
+- **Decyzja:** wersja drożdżowa (D-154) i istniejące receptury drożdżowe dostają w 1.0 plan wstecz i prowadzenie krok po kroku; usuwa blokadę „Plan wypieku jest tylko dla chleba na zakwasie” (`src/lib/plan-receptury.ts:55-61`) zgodnie z BR-HARMO-001 i BR-ETAP-001 (przepływ PR-17). Model czasów fermentacji drożdżowej ze źródła roli 06; kod rola 08 (testy przed kodem). Podział bez zmian: plan wstecz w Pro, start i prowadzenie w Basic (D-112, D-116).
+- **Odrzucone:** wersja drożdżowa bez planu, czasy tylko w opisie (rekomendacja roli 03 przy presji czasu).
+- **Koszt [OCENA]:** +4–6 h właściciela; opóźnia 1.0 (rola 06 model czasów, rola 08 kod).
+- **Zależy od:** D-154, BR-HARMO-001, BR-ETAP-001. **Status:** dzień, do weta.
+
+### [D-156] 2026-11-03 — Tryb maszyny (F-72) także dla receptur na zakwasie, tylko przy źródle roli 06
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Też zakwas (a+b)”.
+- **Decyzja:** tryb uniwersalny (D-153) obejmuje receptury w wersji drożdżowej i — jeśli rola 06 znajdzie źródło szczebla 1–3, że i jak zakwas działa w programach maszyny — także wersję na zakwasie. Bez źródła tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej. Tefal PAIN PLAISIR PF220838 = maszyna testowa (D-153).
+- **Odrzucone:** tylko wersje drożdżowe w maszynie (rekomendacja roli 03).
+- **Koszt [OCENA]:** +2–3 h właściciela (drugi wypiek testowy) ponad ok. 6 h F-72.
+- **Zależy od:** D-153, źródło roli 06. **Status:** dzień, do weta.
+
+### [D-157] 2026-11-03 — Katalog receptur: ok. 30 w 1.0 (ok. +15), reszta do 50–80 w 1.0.1 i aktualizacjach (ZM-27)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (przycisk, 2026-11-03). **Słowa właściciela:** „(b) ok. 30 w 1.0”; wcześniej: „Dodajmy od razu więcej. Żeby aplikacja miała z 50-80 przepisów”; kontekst terminu: „Ja i tak mam pipeline na wrzucanie w asc. Teraz na review czeka trening, później idzie tam Oczko które będzie skończone. Nie chce mieć dwóch na raz w review (…). A review ostatnio trwa długo.”
+- **Decyzja:** 1.0 ma ok. 30 receptur bazowych (dziś 15, ok. +15). Kandydatów proponuje rola 06 ze źródłem formuły szczebla 1–3, listę zatwierdza właściciel; każda nowa receptura przechodzi przegląd PL/EN i przekład 33 języków przed wejściem. Dalsze do 50–80 w 1.0.1 i aktualizacjach kwartalnych (D-043). Podział `src/recipes/presets.ts` (16 244 B przy limicie 20 480 B) — zadanie roli 08.
+- **Odrzucone:** 1.0 z obecnymi 15; okno kolejki z celem 50 (rekomendacja roli 03 po kontekście terminu); całość 50–80 w 1.0.
+- **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
+- **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
