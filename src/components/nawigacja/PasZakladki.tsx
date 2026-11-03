@@ -19,7 +19,7 @@ import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
 
-export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
+export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
@@ -27,6 +27,8 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   tytulTestID?: string;
   /** Zdanie pod tytułem (data na „Dziś”, „Ostatni wypiek: …” w Dzienniku). */
   podtytul?: string;
+  /** testID zdania pod tytułem (ekran Pro: „pro-opis”, „pro-aktywny”; M3 p5b). */
+  podtytulTestID?: string;
   /**
    * Powrót w stosie zakładki (ekran z push): tekst = tytuł poprzedniego ekranu. Bez tekstu sama ikona z etykietą VoiceOver
    * (prowadzenie: poprzedni ekran bywa różny, makieta wypiek.html#prowadzenie, D-195).
@@ -47,7 +49,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   const duzy = useWindowDimensions().fontScale >= DUZY_TEKST;
   const pod = duzy && (podtytul || filtry) ? (
     <View style={styles.pod} testID="pas-pod">
-      {podtytul ? <Text style={styles.podtytulPod}>{podtytul}</Text> : null}
+      {podtytul ? <Text testID={podtytulTestID} style={styles.podtytulPod}>{podtytul}</Text> : null}
       {filtry ? <FiltryNaPasie {...filtry} naPasie={false} /> : null}
     </View>
   ) : null;
@@ -66,7 +68,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
       <Text testID={tytulTestID} style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
-      {podtytul && !duzy ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
+      {podtytul && !duzy ? <Text testID={podtytulTestID} style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}
     </View>

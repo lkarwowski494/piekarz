@@ -346,7 +346,7 @@
   },
   "Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (podtytul)"
     ]
   },
   "Baza Fiszek Biochemicznych": {
@@ -874,7 +874,7 @@
   },
   "Co daje Pro": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (tytul)"
     ]
   },
   "Co dzisiaj pieczemy?": {
@@ -4595,14 +4595,14 @@
   },
   "Piekarz Pro": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)",
+      "src/components/PaywallModal.tsx (tytul)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)",
       "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
   },
   "Piekarz Pro jest aktywny.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (podtytul)"
     ]
   },
   "Piekarz Pro kończy się {data}": {
@@ -8419,6 +8419,8 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
+      "src/components/PaywallModal.tsx (etykieta)",
+      "src/components/PaywallModal.tsx (tekst)",
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
