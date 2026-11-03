@@ -872,3 +872,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Zmienia:** D-160 (p1 bez zmian na ekranie).
 - **Status:** dzień, do weta.
 - **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
+
+### [D-183] 2026-11-03 — Praca koordynatora pod nieobecność właściciela (24 h): punkt kontrolny po p2 przesunięty, partie p3–p5 idą dalej
+- **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; analogia: repo trening, `docs/18-archiwum-do-11.10.md`, 08.10.2026 — „agent decyduje sam: zawsze opcja rekomendowana”, chyba że lepsza była odradzana tylko z powodu nakładu pracy).
+- **Polecenie właściciela (2026-11-03 ok. 15:55 UTC):** „musze wyjsc z domu. PRacuj dalej sam, przy decyzjach - znasz zasady gdy mnie nie ma. Zaplanuj zadania na kolejne 24h i wykonuj.”
+- **Decyzja:** (1) punkt kontrolny po p2 (D-160) nie zatrzymuje pracy: zrzuty i opis Zakwasów czekają na właściciela, a p3 Receptury, p4 Plan/Prowadzenie, p5 Dziennik/Ustawienia/Pro idą po kolei na gałęziach `wip/08-p<N>-…`, scalane do `redesign/` dopiero po verify kod 0 u koordynatora; (2) rola 06 E2–E3 i scalenie `tresci/` po E3; (3) po decyzjach roli 06: rola 01 (ER-75…ER-77 i zmiana RD-19 z P1), potem p6+ (D-136…D-138); (4) bez zgody właściciela: scalenie do `master`, build/TestFlight, App Store Connect, usuwanie gałęzi, wydatki (przekład płatny).
+- **Odrzucone:** czekać z p3 na punkt kontrolny (doba bez postępu; zmiany na gałęzi `redesign/` są odwracalne, a weto po zrzutach cofa najwyżej partie); robić p3–p5 jedną sesją (bez kontroli po partii, D-160).
+- **Ryzyko:** weto wyglądu po zrzutach p2 może wymagać poprawek w p3–p5 (wszystkie używają tych samych komponentów kart — poprawka w jednym miejscu).
+- **Status:** dzień, do weta.

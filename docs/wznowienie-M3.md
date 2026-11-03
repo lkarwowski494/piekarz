@@ -1,6 +1,13 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## Plan 24 h pod nieobecność właściciela (D-183, od 2026-11-03 ~16:00 UTC)
+1. Rola 08 p1+p2 (`session_01T66VBxiH4mZTtWm7DZ6XUC`) → verify koordynatora kod 0 → scalenie `wip/08-p1p2` do `redesign/`, push, archiwizacja sesji; zrzuty/opis Zakwasów do właściciela (punkt kontrolny odroczony).
+2. Rola 06 (`session_01T66VBvXXc7DXQ68H1ygqLP`) E2 → E3 (weryfikator) → scalenie `tresci/` do `redesign/` po verify.
+3. p3 Receptury → p4 Plan/Prowadzenie → p5 Dziennik/Ustawienia/Pro: po jednej sesji roli 08 na `wip/08-p<N>-2026-11-0x`, każda od świeżego `redesign/`.
+4. Po decyzjach 06 w `docs/decyzje.md`: rola 01 (ER-75…ER-77, RD-19 przelicznik ≈0,35), potem p6+ (D-136…D-138).
+5. Dyżury co 30 min (send_later); każda decyzja „dzień/noc, do weta”. Bez zgody: master, build/TestFlight, ASC, usuwanie gałęzi, wydatki.
+
 ## Aktualizacja 2026-11-03 ~15:50 UTC (koordynator M3) — STAN BIEŻĄCY
 - Rola 06 (`session_01T66VBvXXc7DXQ68H1ygqLP`): STOP E1 odebrany; odpowiedzi właściciela wysłane (P1 „Wez srodkowa wartosc” → ok. 0,35 jako uproszczenie; P2 +tartine; P3 czasy z receptury; P4 blokada; P5 „Sugestia jako reguła aplikacji”; P6 11+3 nazwy opisowe; przegląd 27 krytycznych: „Akceptuję wszystkie 27”). Rola 06 zapisuje je w D-172…D-179 i robi E2.
 - Rola 08 p1+p2: `session_01T66VBxiH4mZTtWm7DZ6XUC`, gałąź `wip/08-p1p2-2026-11-03`, polecenie: artefakt https://claude.ai/artifact/SAE8NFW3yPoW4ewz6TPEJ2 (`polecenie.md`, sha256 bc92e1e8…266b); pula D-165, D-180…D-182; wolne od D-183.
