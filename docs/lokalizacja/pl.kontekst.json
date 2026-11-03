@@ -2318,9 +2318,7 @@
     ]
   },
   "Jednostki": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tytul)"
-    ]
+    "gdzie": []
   },
   "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.": {
     "gdzie": [
@@ -2387,9 +2385,13 @@
     ]
   },
   "Język": {
+    "gdzie": []
+  },
+  "Język i jednostki": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tytul)"
-    ]
+    ],
+    "opis": "Nagłówek karty w Ustawieniach łączącej wybór języka aplikacji (siatka nazw języków) i jednostek („gramy, °C” / „uncje, °F”); ok. 17 znaków; nagłówek karty 20 pt, zawija się (README karty §6, D-198, D-209). Zastępuje dwa nagłówki „Język” i „Jednostki”."
   },
   "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.": {
     "gdzie": [

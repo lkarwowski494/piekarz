@@ -30,9 +30,8 @@ export function PreferencesSection({
   return (
     <>
       {/* Language Section */}
-      {/* M3 p5: karta z ikoną; „Język i jednostki” w jednej karcie i wybór języka jako wiersz → lista odłożone
-          (nowy klucz i zmiana testów, D-198) */}
-      <Karta testID="karta-jezyk" tytul={t('Język')} ikona={<IkonaKarty nazwa="jezyk" />}>
+      {/* M3 p6b: jedna karta „Język i jednostki” (README §6, D-209); wybór języka jako wiersz → lista odłożony (D-198) */}
+      <Karta testID="karta-jezyk" tytul={t('Język i jednostki')} ikona={<IkonaKarty nazwa="jezyk" />}>
         {/* 35 języków w wydaniu (rejestr, przekład 093): siatka przycisków w stylu dotychczasowych dwóch; nazwa języka
             w nim samym, wymowa VoiceOver w tym języku (LOK-12). Docelowy wzór listy: rola 04 [M1-audytor-generalny-093].
             Etykieta to sama nazwa: `accessibilityLanguage` obejmuje etykietę i podpowiedź, więc zdanie w języku
@@ -56,10 +55,8 @@ export function PreferencesSection({
             );
           })}
         </View>
-      </Karta>
 
-      {/* Jeden wybór segmentowy „gramy, °C” / „uncje, °F” (design-spec §7, D-051 3a) [M1-audytor-generalny-096] */}
-      <Karta testID="karta-jednostki" tytul={t('Jednostki')} ikona={<IkonaKarty nazwa="waga" />}>
+        {/* Jeden wybór segmentowy „gramy, °C” / „uncje, °F” (design-spec §7, D-051 3a) [M1-audytor-generalny-096] */}
         <View style={styles.langRow}>
           <Pressable
             accessibilityRole="button"

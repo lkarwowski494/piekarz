@@ -101,4 +101,5 @@ export const EN_16: Record<string, string> = {
   'Receptura bazowa, na drożdżach': 'Base recipe, with yeast',
   'Receptura bazowa, pizza': 'Base recipe, pizza',
   'Receptura bazowa, słodka': 'Base recipe, sweet',
+  'Język i jednostki': 'Language and units',
 };
