@@ -995,3 +995,18 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Ryzyko:** weto wyglądu po zrzutach p2 może wymagać poprawek w p3–p5 (wszystkie używają tych samych komponentów kart — poprawka w jednym miejscu).
 - **Status:** dzień, do weta.
 
+### [D-187] 2026-11-03 — Nowe BR paczki M3 (ER-75…ER-78) bez kodu: pełne wyjątki w `scripts/br-wyjatki.json`, ID w kolumnie „Wymagania” kontraktu dopiero z testem (rola 01 fix, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** `tests/br-bez-testu.test.ts` (`scripts/br-bez-testu.mjs`) wymaga dla każdego BR z kryteriami testu z ID w nazwie albo pełnego wyjątku, a pełny wyjątek jest błędem dla BR wpisanego w kolumnę „Wymagania” wiersza MVP `docs/scope-contract.md`. Nowe BR z ER-75…ER-77 opisują funkcje bez kodu (D-136, D-154, D-153…D-156); testów rola 01 nie pisze (zakres trybu fix), a test z ID byłby dziś czerwony.
+- **Decyzja:** (1) nowe BR dostają pełny wyjątek z powodem „funkcja w zakresie 1.0 bez kodu; test z ID powstaje razem z kodem (rola 07/08), wtedy wpis usunąć” — precedens BR-KAL-012 (ER-62); scenariusze zmienione w BR z testem, których kod jeszcze nie spełnia, dostają wpis „czesciowe”. (2) ID nowych BR stoją w kontrakcie zakresu w kolumnie uwag wierszy F-55, F-26 i F-72, a do kolumny „Wymagania” przenosi je rola 07/08 w zmianie, która dodaje test. (3) Edycja pliku danych `scripts/br-wyjatki.json` przez rolę 01 to wyjątek nazwany od granicy „tylko dokumenty” z polecenia koordynatora (zasada wspólna 7); kodu i testów rola 01 nie zmienia.
+- **Odrzucone:** (a) ID nowych BR od razu w kolumnie „Wymagania” F-72 — `npm run verify` kod 1 (pełny wyjątek dla BR z MVP), więc bez push; (b) nowe scenariusze dopisane do istniejących BR z testem bez wpisu „czesciowe” — bramka zielona, ale ukrywa scenariusze bez kodu; (c) testy z ID pisane przez rolę 01 — poza zakresem trybu fix i czerwone na obecnym kodzie.
+- **Skutek:** `zakres.mjs` może dalej zgłaszać F-72 jako „MVP bez BR”, jeśli czyta tylko kolumnę „Wymagania” (skryptu nie sprawdzono: repo `prompts` niedostępne w tej sesji); znika to, gdy rola 07/08 przeniesie ID z testem.
+- **Zależy od:** D-150, D-151, D-183; ER-75…ER-78. **Status:** dzień, do weta.
+
+### [D-188] 2026-11-03 — Stała liczby BR w `tests/br-bez-testu.test.ts` podnoszona razem z nowym BR przez rolę 01 (fix ER-75…ER-78, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** test „skrypt widzi 75 BR z kryteriami” (`tests/br-bez-testu.test.ts:47`) przypina liczbę BR w `docs/brd/` na sztywno; każde nowe BR z erraty daje `npm run verify` kod 1, a push wymaga kodu 0.
+- **Decyzja:** rola 01 podnosi stałą w tym samym commicie, który dodaje BR (75 → liczba z `scripts/br-bez-testu.mjs --json`, równa liczbie BR z kontroli BRD); asercji ani logiki testu nie zmienia. Wyjątek nazwany od granicy „bez testów” z polecenia koordynatora (zasada wspólna 7). Polecenie dla roli 07: zamienić stałą na liczbę wyliczoną niezależnie od skryptu (np. nagłówki `### BR-` z „Kryteria akceptacji” w `docs/brd/*.md`), żeby errata BRD nie wymagała zmiany testu.
+- **Odrzucone:** (a) bez push do czasu zmiany testu przez rolę 07 (paczka M3 czeka, D-183 każe iść dalej); (b) nowe scenariusze wyłącznie w istniejących BR, bez nowych ID (F-72 nie ma żadnego BR, którego dotyczyłby tryb maszyny).
+- **Zależy od:** D-187, D-183. **Status:** dzień, do weta.
+

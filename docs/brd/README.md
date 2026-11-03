@@ -15,7 +15,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `zrodla.md` | źródła S | E2 + S-62…S-64 |
 | `reguly.md` | reguły RD-14…RD-28, RD-35, RD-36 z wektorami | E2 + F-71 |
 | `wymagania.md` | przepływy PR-01…PR-18, wymagania NFR | E3 + PR-18 |
-| `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 |
+| `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 + BR-KALK-012 (ER-75) |
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71) |
