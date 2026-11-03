@@ -1,7 +1,8 @@
 // ============================================================================
 // Piekarz — komunikat stanu „bez sieci” ekranu zakupu: ikona chmury przekreślonej + tekst w kolorze błędu, role=alert
 // (design-spec §11e 127; makieta .blad i IKONY.chmura w docs/design/ekrany/wspolne.css / wspolne.js) [M1-audytor-generalny-127;
-// BR-PRYW-001]. Ikona rośnie z tekstem (dopasowanie do Dynamic Type), poza drzewem dostępności.
+// BR-PRYW-001]. Ikona rośnie z tekstem (dopasowanie do Dynamic Type), poza drzewem dostępności. Przy dużym tekście
+// ikona nad komunikatem, tekst na całą szerokość (§7a / D-142, M3 p5b).
 // ============================================================================
 
 import React from 'react';
@@ -10,18 +11,20 @@ import Svg, { Path } from 'react-native-svg';
 import { t } from '../../lib/i18n';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 /**
  * `niedostepna`: sklep odpowiedział, ale bez produktów — oferta chwilowo niedostępna, bez prośby o sprawdzenie
  * internetu [audyt-niezalezny A-3].
  */
 export function KomunikatBezSieci({ niedostepna = false }: { niedostepna?: boolean }) {
+  const duzy = useDuzyTekst();
   const tekst = niedostepna
     ? t('Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.')
     : t('Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.');
   const rozmiar = Math.round(20 * Math.max(1, PixelRatio.getFontScale()));
   return (
-    <View style={styles.blad} accessible accessibilityRole="alert" accessibilityLabel={tekst}>
+    <View style={[styles.blad, duzy && styles.bladStos]} accessible accessibilityRole="alert" accessibilityLabel={tekst}>
       <Svg width={rozmiar} height={rozmiar} viewBox="0 0 24 24" accessible={false} style={styles.ikona}>
         <Path
           d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.5A3.3 3.3 0 0 0 7 18zM4 4l16 16"
@@ -41,6 +44,7 @@ export function KomunikatBezSieci({ niedostepna = false }: { niedostepna?: boole
 
 const styles = StyleSheet.create({
   blad: { flexDirection: 'row', alignItems: 'flex-start', gap: odstepy.s, width: '100%' },
+  bladStos: { flexDirection: 'column' },
   ikona: { marginTop: 2 },
-  tekst: { flex: 1, minWidth: 0, fontSize: typografia.style.tresc.pt, color: theme.colors.blad },
+  tekst: { flexGrow: 1, flexShrink: 1, minWidth: 0, alignSelf: 'stretch', fontSize: typografia.style.tresc.pt, color: theme.colors.blad },
 });

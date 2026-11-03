@@ -112,3 +112,36 @@ describe('p5b §7a / D-142: Doktor Chleba przy AX5', () => {
     expect(s.props.horizontal).toBe(true);
   });
 });
+
+describe('p5b §7a / D-142: nagłówki w kartach Doktora przy AX5 (ikona i znacznik nad tytułem, README §7a)', () => {
+  const rodzicTytulu = (root: Wezel, tytul: string): Wezel => {
+    const n = root.findAll((x) => typeof x.type === 'string' && x.props.accessibilityRole === 'header' && tekst(x) === tytul)[0];
+    return n.parent!;
+  };
+  const kierunek = (n: Wezel) => StyleSheet.flatten(n.props.style)?.flexDirection;
+
+  it('testy w kuchni: AX5 — tytuł pod rzędem ikony i strzałki, na całą szerokość; tekst domyślny — jeden rząd', async () => {
+    mockOkno.fontScale = 3.1;
+    let root = await zamontuj();
+    for (const tytul of ['Test palca', 'Test okna glutenowego']) {
+      const naglowek = rodzicTytulu(root, t(tytul)).parent!;
+      expect([tytul, kierunek(naglowek)]).toEqual([tytul, 'column']);
+    }
+    act(() => tree?.unmount());
+    mockOkno.fontScale = 1;
+    root = await zamontuj();
+    expect(kierunek(rodzicTytulu(root, t('Test palca')).parent!)).toBe('row');
+  });
+
+  it('protokół ratunkowy: AX5 — „Zamknij protokół” nad tytułem (column-reverse, kolejność czytania bez zmian)', async () => {
+    mockOkno.fontScale = 3.1;
+    const root = await zamontuj();
+    const chip = root.findAll((n) => n.props.testID === 'recovery-chip-COLD_SLUGGISH' && typeof n.props.onPress === 'function')[0];
+    await act(async () => chip.props.onPress());
+    const karta = host(root, 'recovery-protocol-card');
+    const zamknij = karta.findAll((n) => typeof n.type === 'string' && n.props.testID === 'close-recovery-card-btn')[0];
+    let rzad = zamknij.parent;
+    while (rzad && typeof rzad.type !== 'string') rzad = rzad.parent;
+    expect(kierunek(rzad!)).toBe('column-reverse');
+  });
+});

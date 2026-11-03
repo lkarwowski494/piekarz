@@ -145,4 +145,12 @@ describe('p5b §7a / D-142: Piekarz Pro przy AX5 i 320 pt', () => {
     const z = root.findAllByType(Text).filter((n) => !naPasie(n) && n.props.maxFontSizeMultiplier !== undefined);
     expect(z.map((n) => tekst(n))).toEqual([]);
   });
+
+  it('AX5 bez sieci: ikona chmury nad komunikatem (stos), tekst na całą szerokość karty', async () => {
+    mockOkno.fontScale = 3.1;
+    mockIap.failProducts = true;
+    const root = await zamontuj();
+    const alert = root.findAll((n) => typeof n.type === 'string' && n.props.accessibilityRole === 'alert')[0];
+    expect(styl(alert).flexDirection).toBe('column');
+  });
 });
