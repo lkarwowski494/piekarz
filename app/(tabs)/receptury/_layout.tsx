@@ -25,7 +25,8 @@ export default function RecepturyLayout() {
           headerShown: false,
         })}
       />
-      <Stack.Screen name="harmonogram" options={{ ...zwykly, title: t('Plan wypieku') }} />
+      {/* Plan z pasem (O3a, D-194): tytuł „Plan wypieku” i powrót „Receptura” na pasie ekranu */}
+      <Stack.Screen name="harmonogram" options={{ ...zwykly, title: t('Plan wypieku'), headerShown: false }} />
     </Stack>
   );
 }

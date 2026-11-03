@@ -1,6 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { t } from '../../../src/lib/i18n';
 import {
   calculateReverseSchedule,
@@ -42,6 +45,10 @@ const MINUTA_MS = 60_000;
 
 
 export default function HarmonogramScreen() {
+  // Pas marki zamiast nagłówka stosu (O3a, D-194; makieta wypiek.html#plan): powrót „Receptura”, tytuł, nazwa receptury
+  const router = useRouter();
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
   const unitSystem = useUnitSystem();
 
   // Dzień „gotowe”: 0 = dziś … ZASIEG_DNI_PLANU (D-108); ze skrótu arkusza dnia dzień z kalendarza (BR-KAL-015),
@@ -237,8 +244,11 @@ export default function HarmonogramScreen() {
   // kroki, ustawienia nocy; „Zacznij wypiek” w pasku kciuka poza przewijaną treścią [M1-audytor-generalny-128]
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
-      <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      <ScrollView style={styles.przewijane} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+        <NadPasem />
+        <PasZakladki gora={gora} tytul={t('Plan wypieku')} podtytul={recepturaPlanu() ? nazwaReceptury(recepturaPlanu()?.recipeName ?? '') : undefined}
+          wstecz={{ tekst: t('Receptura'), onPress: () => router.back() }} />
+        <View style={styles.container}>
         {/* Z „Piecz ponownie”: notatka i zmiana receptury bazowej w karcie (src/components/harmonogram/NotatkiPlanu.tsx) */}
         <NotatkiPlanu notatka={notatkaPoprzednia} bazowaZmieniona={bazowaZmieniona} />
         {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
@@ -312,6 +322,7 @@ export default function HarmonogramScreen() {
             plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
           />
         </UstawieniaPlanu>
+        </View>
       </ScrollView>
       <PasekStartu
         onStart={zacznij}

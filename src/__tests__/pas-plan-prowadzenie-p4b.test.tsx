@@ -1,8 +1,9 @@
 /**
- * M3 p4b (D-194, O3a z D-141): pas marki na Prowadzeniu jak na Recepturach (p3); makieta
- * docs/design/karty/wypiek.html #prowadzenie, README §4. Tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” na pasie
- * (wcześniej nad kartami, D-191); karta instrukcji, ostrzeżenie i składniki pod pasem bez zmian; jasny pasek stanu.
- * Pas na Planie: STOP D-195 (zmiana dwóch testów spoza D-194), patch w docs/stan-08-p4b-plan-pas.patch.
+ * M3 p4b (D-194, O3a z D-141): pas marki na Planie i Prowadzeniu jak na Recepturach (p3); makieta
+ * docs/design/karty/wypiek.html #plan, #prowadzenie, README §4.
+ * Plan — pas z powrotem „Receptura”, tytułem „Plan wypieku” (nagłówek VoiceOver) i nazwą receptury pod nim.
+ * Prowadzenie — tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” na pasie (wcześniej nad kartami, D-191);
+ * karta instrukcji, ostrzeżenie i składniki pod pasem bez zmian. Oba ekrany: jasny pasek stanu na pasie.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
@@ -38,6 +39,7 @@ jest.mock('expo-router', () => {
 import React from 'react';
 import { StatusBar, StyleSheet, Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
+import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
@@ -46,7 +48,10 @@ import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import type { SessionStep } from '../core/bake-steps';
 import { theme } from '../ui/theme';
 import { setLang } from '../lib/i18n';
+import { ustawRecepturePlanu } from '../lib/plan-receptury';
+import { calculateDoughRecipe } from '../core/domain-rules';
 
+const formula = { flours: [{ name: 'Mąka pszenna 750', percentage: 100 }], waterPercentage: 70, saltPercentage: 2, starterPercentage: 20, targetDoughWeightGrams: 1000 };
 
 jest.setTimeout(30000);
 type Wezel = renderer.ReactTestInstance;
@@ -76,7 +81,7 @@ const krok = (id: string, name: string, category: SessionStep['category'], od: n
   id, name, category, durationMin: 30, isPassive: false, instructions: 'Wymieszaj mąkę z wodą.', plannedStart: teraz + od * 1_800_000, plannedEnd: teraz + (od + 1) * 1_800_000,
 });
 
-describe('M3 p4b: pas na Prowadzeniu (D-194)', () => {
+describe('M3 p4b: pas na Planie i Prowadzeniu (D-194)', () => {
   beforeEach(async () => {
     useTempDbDir();
     setLang('pl');
@@ -86,7 +91,26 @@ describe('M3 p4b: pas na Prowadzeniu (D-194)', () => {
     await saveBakeSession(null);
     jest.clearAllMocks();
   });
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(() => {
+    jest.restoreAllMocks();
+    ustawRecepturePlanu(null);
+  });
+
+  it('plan: pas z „Plan wypieku” (nagłówek), nazwą receptury i powrotem „Receptura”; jasny pasek stanu', async () => {
+    const bar = jest.spyOn(StatusBar, 'setBarStyle');
+    ustawRecepturePlanu({ recipeId: 'r1', recipeName: 'Wiejski', calculatedRecipe: calculateDoughRecipe(formula), recipeFormula: formula });
+    const tree = await zamontuj(<HarmonogramScreen />);
+    const pas = pasEkranu(tree.root);
+    expect(naglowkiPasa(pas)).toEqual(['Plan wypieku']);
+    expect(tekst(pas)).toContain('Wiejski');
+    const wstecz = poId(pas, 'pas-wstecz-btn');
+    expect(wstecz).toHaveLength(1);
+    expect(wstecz[0].props.accessibilityLabel).toBe('Receptura');
+    await act(async () => pas.findAll((n) => n.props.testID === 'pas-wstecz-btn' && typeof n.props.onPress === 'function')[0].props.onPress());
+    expect(mockRouter.back).toHaveBeenCalledTimes(1);
+    expect(bar).toHaveBeenCalledWith('light-content', true);
+    act(() => tree.unmount());
+  });
 
   it('prowadzenie: tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” na pasie; karta instrukcji i ostrzeżenie pod pasem', async () => {
     const bar = jest.spyOn(StatusBar, 'setBarStyle');

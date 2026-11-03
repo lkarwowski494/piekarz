@@ -6,7 +6,12 @@
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }), useLocalSearchParams: () => ({}) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
+  useLocalSearchParams: () => ({}),
+  // Pas planu ustawia jasny pasek stanu przy focusie (usePasekStanuJasny, D-194)
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
+}));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {

@@ -121,7 +121,7 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     tree = null;
   });
 
-  it('stosy zakładek: nagłówek natywny ukryty na liście receptur, karcie receptury, karcie zakwasu i w Dzienniku; plan i Doktor zakwasu z nagłówkiem', () => {
+  it('stosy zakładek: nagłówek natywny ukryty na liście receptur, karcie receptury, karcie zakwasu i w Dzienniku; plan też ukryty (D-204); Doktor zakwasu z nagłówkiem', () => {
     for (const L of [RecepturyLayout, ZakwasyLayout, DziennikLayout]) {
       act(() => {
         tree = renderer.create(<L />);
@@ -132,7 +132,8 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     expect(mockEkrany.get('index')?.headerShown).toBe(false);
     expect(mockEkrany.get('receptura')).toEqual(expect.objectContaining({ headerShown: false, headerBackTitle: 'Receptury' }));
     expect(mockEkrany.get('receptura')?.headerRight).toBeUndefined();
-    expect(mockEkrany.get('harmonogram')?.headerShown).not.toBe(false);
+    // M3 p6a (D-204): plan z pasem O3a jak lista i receptura — nagłówek stosu ukryty
+    expect(mockEkrany.get('harmonogram')?.headerShown).toBe(false);
     expect(mockEkrany.get('doktor-zakwasu')?.headerShown).not.toBe(false);
   });
 

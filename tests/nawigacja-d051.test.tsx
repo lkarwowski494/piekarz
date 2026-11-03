@@ -81,12 +81,15 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
   // Plan otwiera akcja receptury „Ułóż plan” (057). Ekran receptury jest w stosie nad listą receptur, tytuł = nazwa
   // receptury (§11c 106) [M1-audytor-generalny-106]. M3 D10 (opcja A): lista i ekran receptury z pasem nocy zamiast
   // natywnego nagłówka; „Więcej” z menu działań jest na pasie ekranu (etykieta i menu: src/__tests__/pas-zakladek-d10).
-  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”; lista i receptura z pasem (nagłówek ukryty)', () => {
+  // M3 p4b (D-194, O3a): plan też z pasem (nagłówek stosu ukryty); tytuł „Plan wypieku” i powrót „Receptura” na pasie
+  // ekranu (src/__tests__/pas-plan-prowadzenie-p4b.test.tsx).
+  it('Receptury: plan wypieku w tym samym stosie, tytuł „Plan wypieku”; lista, receptura i plan z pasem (nagłówek ukryty)', () => {
     const { ekrany } = uklad('../app/(tabs)/receptury/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['index', 'receptura', 'harmonogram']);
     const plan = ekrany.find((e) => e.name === 'harmonogram');
     expect(plan?.options).toMatchObject({ title: 'Plan wypieku', headerLargeTitleEnabled: false });
-    expect(plan?.options.headerShown).not.toBe(false);
+    expect(plan?.options.headerShown).toBe(false);
+    expect(plan?.options.headerRight).toBeUndefined();
     expect(ekrany.find((e) => e.name === 'index')!.options).toMatchObject({ title: 'Receptury', headerShown: false });
     expect(ekrany.find((e) => e.name === 'index')!.options.headerRight).toBeUndefined();
     const opcjeReceptury = ekrany.find((e) => e.name === 'receptura')!.options as unknown as (a: { route: { params?: { nazwa?: string } } }) => Opcje;
