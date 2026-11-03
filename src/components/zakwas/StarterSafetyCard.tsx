@@ -9,8 +9,11 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { SourdoughSafetyCheck } from '../../core/sourdough-physics';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { PoleObjawu } from '../../ui/karty/PoleObjawu';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../ui/tokeny';
 export interface StarterSafetyCardProps {
   hasHooch: boolean;
   onToggleHooch: () => void;
@@ -28,28 +31,6 @@ export interface StarterSafetyCardProps {
   onZalozOdNowa?: () => void;
 }
 
-interface CheckProps {
-  active: boolean;
-  danger: boolean;
-  label: string;
-  onPress: () => void;
-  testID: string;
-}
-
-function CheckButton({ active, danger, label, onPress, testID }: CheckProps) {
-  return (
-    <Pressable
-      style={[styles.checkBtn, active && (danger ? styles.checkBtnDangerActive : styles.checkBtnActive)]}
-      onPress={onPress}
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: active }}
-      testID={testID}
-    >
-      <Text style={[styles.checkBtnText, active && styles.checkBtnTextActive]}>{label}</Text>
-    </Pressable>
-  );
-}
-
 export function StarterSafetyCard({
   hasHooch,
   onToggleHooch,
@@ -65,21 +46,20 @@ export function StarterSafetyCard({
   onReset,
   onZalozOdNowa,
 }: StarterSafetyCardProps) {
+  // Karta systemu kart, jeden krój nagłówka; objawy jedną kontrolką PoleObjawu jak w Doktorze (karty/README.md §2,
+  // §4; makieta zakwasy.html) [M3 p2]
+  const objaw = (id: string, zaznaczone: boolean, onZmien: () => void, etykieta: string) => (
+    <PoleObjawu key={id} testID={id} etykieta={etykieta} zaznaczone={zaznaczone} onZmien={onZmien} />
+  );
   return (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>{t('Kontrola biologiczna (Bezpieczeństwo)')}</Text>
-      <Text style={styles.cardSubtitle}>{t('Zaznacz, co widzisz albo czujesz w słoiku.')}</Text>
-      {/* Granica zastosowania, widoczna przy każdym wyniku [M1-audytor-generalny-014; ZAK-NAL-001, ZAK-SUR-001] */}
-      <Text style={styles.boundary} testID="starter-safety-boundary">
-        {`${t('Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.')} ${t('W razie wątpliwości wyrzuć zakwas.')} ${t('Nie próbuj surowego zakwasu przed upieczeniem.')}`}
-      </Text>
-
-      <View style={styles.checkRow}>
-        <CheckButton active={hasHooch} danger={false} onPress={onToggleHooch} testID="check-hooch" label={t('Płyn na powierzchni o zapachu alkoholu (hooch)')} />
-        <CheckButton active={hasKahm} danger onPress={onToggleKahm} testID="check-film" label={t('Biały nalot lub kożuch na powierzchni')} />
-        <CheckButton active={hasMold} danger onPress={onToggleMold} testID="check-mold" label={t('Puszysty nalot w dowolnym kolorze, także biały')} />
-        <CheckButton active={hasColoredSpots} danger onPress={onToggleColoredSpots} testID="check-colored" label={t('Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy')} />
-        <CheckButton active={hasRottenSmell} danger onPress={onToggleRottenSmell} testID="check-smell" label={t('Nieprzyjemny, zgniły zapach')} />
+    <Karta testID="karta-bezpieczenstwo" tytul={t('Kontrola biologiczna (Bezpieczeństwo)')} ikona={<IkonaKarty nazwa="tarcza" />}>
+      <Text style={styles.podpis}>{t('Zaznacz, co widzisz albo czujesz w słoiku.')}</Text>
+      <View style={styles.objawy}>
+        {objaw('check-hooch', hasHooch, onToggleHooch, t('Płyn na powierzchni o zapachu alkoholu (hooch)'))}
+        {objaw('check-film', hasKahm, onToggleKahm, t('Biały nalot lub kożuch na powierzchni'))}
+        {objaw('check-mold', hasMold, onToggleMold, t('Puszysty nalot w dowolnym kolorze, także biały'))}
+        {objaw('check-colored', hasColoredSpots, onToggleColoredSpots, t('Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy'))}
+        {objaw('check-smell', hasRottenSmell, onToggleRottenSmell, t('Nieprzyjemny, zgniły zapach'))}
       </View>
 
       <View
@@ -106,73 +86,28 @@ export function StarterSafetyCard({
       <Pressable accessibilityRole="button" style={styles.resetBtn} onPress={onReset}>
         <Text style={styles.resetBtnText}>{t('Odznacz objawy')}</Text>
       </Pressable>
-    </View>
+
+      {/* Granica zastosowania, widoczna przy każdym wyniku [M1-audytor-generalny-014; ZAK-NAL-001, ZAK-SUR-001] */}
+      <View style={styles.granica}>
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="info" rozmiar={20} /></View>
+        <Text style={styles.boundary} testID="starter-safety-boundary">
+          {`${t('Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.')} ${t('W razie wątpliwości wyrzuć zakwas.')} ${t('Nie próbuj surowego zakwasu przed upieczeniem.')}`}
+        </Text>
+      </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
-  },
-  cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  cardSubtitle: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    marginTop: 2,
-    marginBottom: 8,
-  },
-  boundary: {
-    fontSize: typografia.style.podpis.pt,
-    lineHeight: 16,
-    color: theme.colors.tusz,
-    marginBottom: 12,
-  },
-  checkRow: {
-    gap: 8,
-    marginBottom: 12,
-  },
-  checkBtn: {
-    backgroundColor: theme.colors.powierzchnia,
-    padding: 10,
-    minHeight: 44,
-    justifyContent: 'center',
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  // Zaznaczenie: ramka w kolorze stanu, tło i tekst z ciemnego motywu (kontrast jak w 016)
-  checkBtnActive: {
-    borderColor: theme.colors.akcent,
-    borderWidth: 2,
-  },
-  checkBtnDangerActive: {
-    borderColor: theme.colors.blad,
-    borderWidth: 2,
-  },
-  checkBtnText: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz2,
-    fontWeight: '500',
-  },
-  checkBtnTextActive: {
-    color: theme.colors.tusz,
-    fontWeight: '700',
-  },
+  podpis: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
+  objawy: { gap: odstepy.s },
+  granica: { flexDirection: 'row', gap: odstepy.s, alignItems: 'flex-start' },
+  boundary: { flex: 1, minWidth: 0, fontSize: typografia.style.przypis.pt, color: theme.colors.tusz },
   safetyBox: {
-    padding: theme.spacing.md,
-    borderRadius: theme.radius.md,
-    marginBottom: 12,
+    padding: odstepy.l,
+    borderRadius: promienie.grupa,
     borderWidth: 1,
+    gap: odstepy.xs,
   },
   // Pleśń (RD-21) to ostrzeżenie bezpieczeństwa: żółte pole Ostrzeżenia z ciemnym tekstem; płyn i brak objawu: informacja (mapa-rol.md §3)
   // (wcześniej pastelowe tła pod jasnym tekstem: 1,04:1) [M1-audytor-generalny-016]
@@ -194,29 +129,29 @@ const styles = StyleSheet.create({
   },
   safetyTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
-    marginBottom: 4,
   },
   safetyAction: {
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
-    lineHeight: 16,
   },
   resetBtn: {
     backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
+    paddingVertical: odstepy.s,
+    paddingHorizontal: odstepy.l,
     minHeight: 44,
     justifyContent: 'center',
-    borderRadius: theme.radius.sm,
+    borderRadius: promienie.przycisk,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   resetBtnText: {
-    fontSize: typografia.style.przypis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
+    textAlign: 'center',
   },
 });

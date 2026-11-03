@@ -12,6 +12,9 @@ import { t } from '../../lib/i18n';
 import { opisWpisu, zmienGodzine } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 /** Ile ostatnich wpisów pokazuje karta. */
 export const LIMIT_WPISOW = 10;
@@ -29,6 +32,8 @@ export function StarterEntriesList({ entries, now, usuniety, onPopraw, onUsun, o
   const [godzina, setGodzina] = useState(0);
   const [minuta, setMinuta] = useState(0);
   const [blad, setBlad] = useState(false);
+  // Przy dużym tekście opis wpisu na całą szerokość, akcje pod nim (flexBasis od fontScale, README §7a) [M3 p2]
+  const opisSzer = { flexBasis: useDuzyTekst() ? '100%' : 160 } as const;
 
   const otworz = (e: StoredStarterEntry) => {
     const d = new Date(e.occurredAt);
@@ -50,14 +55,14 @@ export function StarterEntriesList({ entries, now, usuniety, onPopraw, onUsun, o
 
   return (
     <View style={styles.sekcja}>
-      {entries.length > 0 && <Text style={styles.naglowek}>{t('Ostatnie wpisy')}</Text>}
+      {/* Karta „Ostatnie wpisy” z wierszami (karty/README.md §2, makieta zakwasy.html) [M3 p2] */}
       {entries.length > 0 && (
-        <View style={styles.grupa}>
+        <Karta testID="karta-wpisy" tytul={t('Ostatnie wpisy')} ikona={<IkonaKarty nazwa="lista" />} bezWypelnienia>
           {entries.slice(0, LIMIT_WPISOW).map((e, i) => {
             const opis = opisWpisu(e, now);
             return (
-              <View key={e.id} testID={`wpis-${e.id}`} style={[styles.wiersz, i > 0 && styles.linia]}>
-                <Text style={styles.opis}>{opis}</Text>
+              <View key={e.id} testID={`wpis-${e.id}`} style={[styles.wiersz, styles.linia, i === 0 && styles.bezLinii]}>
+                <Text style={[styles.opis, opisSzer]}>{opis}</Text>
                 <Pressable testID={`wpis-edytuj-${e.id}`} accessibilityRole="button" accessibilityLabel={t('Edytuj wpis: {opis}', { opis })} style={styles.akcja} onPress={() => otworz(e)}>
                   <Text style={styles.akcjaTekst}>{t('Edytuj')}</Text>
                 </Pressable>
@@ -67,7 +72,7 @@ export function StarterEntriesList({ entries, now, usuniety, onPopraw, onUsun, o
               </View>
             );
           })}
-        </View>
+        </Karta>
       )}
       {usuniety && <PasekCofnij tekst={t('Usunięto wpis')} onPrzywroc={onPrzywroc} onUkryj={onSchowajPasek} testID="pasek-cofnij" przywrocTestID="pasek-cofnij-przywroc" />}
       <Modal visible={edytowany !== null} animationType="slide" presentationStyle="formSheet" onRequestClose={() => setEdytowany(null)}>
@@ -102,12 +107,13 @@ export function StarterEntriesList({ entries, now, usuniety, onPopraw, onUsun, o
 }
 
 const styles = StyleSheet.create({
-  sekcja: { gap: odstepy.s, marginBottom: odstepy.l },
+  sekcja: { gap: odstepy.s },
   naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz2 },
-  grupa: { borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  wiersz: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s, paddingHorizontal: odstepy.l, paddingVertical: odstepy.xs },
-  linia: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: theme.colors.linia },
-  opis: { flex: 1, flexBasis: 160, minWidth: 0, fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
+  // Wiersz w karcie: min 52, linia `linia` między wierszami (karty/README.md §2) [M3 p2]
+  wiersz: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s, minHeight: 52, paddingHorizontal: odstepy.l, paddingVertical: odstepy.xs },
+  linia: { borderTopWidth: 1, borderTopColor: theme.colors.linia },
+  bezLinii: { borderTopWidth: 0 },
+  opis: { flex: 1, minWidth: 0, fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   akcja: { minHeight: theme.cele.pozostale, justifyContent: 'center', paddingHorizontal: odstepy.xs },
   akcjaTekst: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.akcentTekst },
   tlo: { flex: 1, backgroundColor: theme.colors.tlo },

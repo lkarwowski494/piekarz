@@ -14,7 +14,10 @@ import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
 import { formatTime } from '../../lib/format';
 import { czasTrwania } from '../../lib/czas-trwania';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' };
 
 /** Etykieta fazy zakwasu w języku aplikacji; liczba dni formami CLDR [M1-audytor-generalny-093; M1-audytor-generalny-071]. */
@@ -70,16 +73,23 @@ export function StarterPeakActivityCard({
   unitSystem,
 }: StarterPeakActivityCardProps) {
   const szczyt = oknoIStatusSzczytu(peakPrediction);
+  // Chipy temperatury: przy dużym tekście dwa w rzędzie zamiast czterech (flexBasis od fontScale, README §7a) [M3 p2]
+  const chipSzer = { flexBasis: useDuzyTekst() ? '45%' : '20%' } as const;
+  // Karta systemu kart; faza jako znacznik po prawej nagłówka (karty/README.md §2–§3) [M3 p2]
   return (
-    <View style={styles.card} testID="peak-activity-card">
-      <View style={styles.peakHeaderRow}>
-        <Text style={styles.cardTitle}>{t('Szczyt aktywności')}</Text>
+    <View testID="peak-activity-card">
+    <Karta
+      testID="karta-szczyt"
+      tytul={t('Szczyt aktywności')}
+      ikona={<IkonaKarty nazwa="zegar" />}
+      znacznik={
         <View style={styles.phaseBadge}>
           <Text style={styles.phaseBadgeText}>
             ● {etykietaFazyZakwasu(phaseResult)}
           </Text>
         </View>
-      </View>
+      }
+    >
 
       <Text style={styles.phaseAdvice}>{t(phaseResult.advicePl)}</Text>
 
@@ -139,6 +149,7 @@ export function StarterPeakActivityCard({
               testID={`temp-chip-${item.temp}`}
               style={[
                 styles.tempChip,
+                chipSzer,
                 ambientTempC === item.temp && styles.tempChipActive,
               ]}
               onPress={() => onAmbientTempChange(item.temp)}
@@ -156,119 +167,97 @@ export function StarterPeakActivityCard({
         </View>
       </View>
       )}
+    </Karta>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
-  },
-  cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  peakHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 6,
-  },
   phaseBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: theme.radius.sm,
+    paddingHorizontal: odstepy.s,
+    paddingVertical: odstepy.xs,
+    borderRadius: promienie.znacznik,
     backgroundColor: theme.colors.tloGrupa, // poziom info (phaseResult.poziom): kolor z komponentu, nie z danych
   },
   phaseBadgeText: {
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   phaseAdvice: {
-    fontSize: typografia.style.przypis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
-    lineHeight: 18,
-    marginBottom: 12,
   },
+  // Grupa w karcie: promień `grupa` 12 (hierarchia promieni, karty/README.md §2) [M3 p2]
   predictionBox: {
-    backgroundColor: theme.colors.powierzchnia,
-    padding: theme.spacing.sm,
-    borderRadius: theme.radius.md,
+    padding: odstepy.m,
+    gap: odstepy.xs,
+    borderRadius: promienie.grupa,
     borderWidth: 1,
     borderColor: theme.colors.linia,
-    marginBottom: 12,
   },
   predictionRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 6,
+    gap: odstepy.xs,
   },
   predictionLabel: {
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
   predictionWindowText: {
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '700',
+    fontSize: typografia.style.naglowek.pt,
+    fontWeight: '600',
     color: theme.colors.akcentTekst,
+    fontVariant: ['tabular-nums'],
   },
   progressBarBackground: {
-    height: 8,
+    height: 10,
     backgroundColor: theme.colors.linia,
-    borderRadius: 4,
+    borderRadius: 5,
     overflow: 'hidden',
-    marginVertical: 4,
+    marginVertical: odstepy.xs,
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 4,
+    borderRadius: 5,
   },
   progressLabelRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginTop: 2,
-    marginBottom: 6,
   },
   progressSubtext: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
+    fontSize: typografia.style.przypis.pt,
+    color: theme.colors.tusz2,
   },
   predictionStatusText: {
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz,
-    fontStyle: 'italic',
-    marginBottom: 8,
   },
   tempSelectorHeading: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
-    marginBottom: 6,
   },
   tempChipsRow: {
     flexDirection: 'row',
-    gap: 6,
+    flexWrap: 'wrap',
+    gap: odstepy.s,
   },
+  // Chip na karcie jak chip pasa: promień `chip`, wybrany `akcent` (karty/README.md §2) [M3 p2]
   tempChip: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
-    flex: 1,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
+    flexGrow: 1,
+    paddingHorizontal: odstepy.s,
+    borderRadius: promienie.chip,
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
   },
   tempChipActive: {
@@ -276,12 +265,11 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   tempChipText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz,
   },
   tempChipTextActive: {
     color: theme.colors.naAkcencie,
-    fontWeight: '700',
+    fontWeight: '600',
   },
 });

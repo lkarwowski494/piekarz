@@ -16,11 +16,13 @@ import { setupDay } from '../../../src/core/starter-log';
 import { DOCTOR_ACTIONS_HEADER, DOCTOR_CAUSES_HEADER, STARTER_SYMPTOMS, diagnoseStarter, type StarterSymptom } from '../../../src/core/starter-doctor';
 import { wZakladaniu } from '../../../src/lib/zakwas-widok';
 import { Ostrzezenie } from '../../../src/components/Ostrzezenie';
-import { WierszObjawu } from '../../../src/components/zakwas/WierszObjawu';
+import { Karta } from '../../../src/ui/karty/Karta';
+import { PoleObjawu } from '../../../src/ui/karty/PoleObjawu';
+import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { theme } from '../../../src/ui/theme';
-import { odstepy, promienie, typografia } from '../../../src/ui/tokeny';
+import { odstepy, typografia } from '../../../src/ui/tokeny';
 
 /** Nazwy objawów (klucze PL dla t()); plamy i brak aktywności jak w zakładaniu (makieta zakwas.html). */
 const NAZWY: Record<StarterSymptom, string> = {
@@ -51,9 +53,10 @@ export default function DoktorZakwasuScreen() {
   const aktywne = useMemo(() => (odblokowany ? objawy : objawy.filter((s) => s === PLAMY)), [objawy, odblokowany]);
   const wynik = useMemo(() => diagnoseStarter({ setupDay: dzien, symptoms: aktywne }), [dzien, aktywne]);
   const przelacz = (s: StarterSymptom) => setObjawy((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]));
-  const wiersz = (s: StarterSymptom, pierwszy: boolean) => (
-    <WierszObjawu key={s} testID={`doktor-zakwasu-objaw-${s}`} tekst={t(NAZWY[s])} zaznaczony={aktywne.includes(s)} pierwszy={pierwszy}
-      onPress={s === PLAMY ? () => przelacz(s) : chron('doktor', () => przelacz(s))} />
+  // Objawy jedną kontrolką PoleObjawu jak w karcie zakwasu; sekcje w kartach (karty/README.md §1–§2, §4) [M3 p2]
+  const wiersz = (s: StarterSymptom) => (
+    <PoleObjawu key={s} testID={`doktor-zakwasu-objaw-${s}`} etykieta={t(NAZWY[s])} zaznaczone={aktywne.includes(s)}
+      onZmien={s === PLAMY ? () => przelacz(s) : chron('doktor', () => przelacz(s))} />
   );
   const lista = (naglowek: string, teksty: readonly string[]) =>
     teksty.length > 0 && (
@@ -65,24 +68,27 @@ export default function DoktorZakwasuScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.ekran} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" style={styles.tlo}>
-      {dzien !== null && <Text style={styles.tresc}>{t('Dzień {n}', { n: dzien })}</Text>}
-      <Text style={styles.naglowek}>{t('Co widzisz?')}</Text>
-      {odblokowany ? (
-        <View style={styles.grupa}>{STARTER_SYMPTOMS.map((s, i) => wiersz(s, i === 0))}</View>
-      ) : (
-        <>
-          <BlokadaFunkcji {...blokada('doktor')}>
-            <View style={styles.grupa}>{PLATNE.map((s, i) => wiersz(s, i === 0))}</View>
-          </BlokadaFunkcji>
-          <View style={styles.grupa}>{wiersz(PLAMY, true)}</View>
-        </>
-      )}
+      <Karta testID="karta-objawy" tytul={t('Co widzisz?')} ikona={<IkonaKarty nazwa="sloik" />}>
+        {dzien !== null && <Text style={styles.tresc}>{t('Dzień {n}', { n: dzien })}</Text>}
+        {odblokowany ? (
+          <View style={styles.grupa}>{STARTER_SYMPTOMS.map((s) => wiersz(s))}</View>
+        ) : (
+          <>
+            <BlokadaFunkcji {...blokada('doktor')}>
+              <View style={styles.grupa}>{PLATNE.map((s) => wiersz(s))}</View>
+            </BlokadaFunkcji>
+            <View style={styles.grupa}>{wiersz(PLAMY)}</View>
+          </>
+        )}
+      </Karta>
       {wynik?.kind === 'discard' && <Ostrzezenie tytul={t(wynik.title)} tekst={t(wynik.action)} testID="doktor-zakwasu-wyrzuc" />}
       {wynik?.kind === 'advice' && (
-        <View testID={`doktor-zakwasu-${wynik.symptom}`} style={styles.wynik}>
-          {wynik.intro.map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}
-          {lista(DOCTOR_CAUSES_HEADER, wynik.causes)}
-          {lista(DOCTOR_ACTIONS_HEADER, wynik.actions)}
+        <View testID={`doktor-zakwasu-${wynik.symptom}`}>
+          <Karta testID="karta-wynik" tytul={t(NAZWY[wynik.symptom === 'first_day' ? 'no_activity' : wynik.symptom])} ikona={<IkonaKarty nazwa="info" />}>
+            {wynik.intro.map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}
+            {lista(DOCTOR_CAUSES_HEADER, wynik.causes)}
+            {lista(DOCTOR_ACTIONS_HEADER, wynik.actions)}
+          </Karta>
         </View>
       )}
     </ScrollView>
@@ -92,9 +98,9 @@ export default function DoktorZakwasuScreen() {
 const styles = StyleSheet.create({
   tlo: { backgroundColor: theme.colors.tlo },
   ekran: { gap: odstepy.m, padding: odstepy.l, paddingBottom: odstepy.xxxl },
-  naglowek: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
+  // Podnagłówek w karcie mniejszy niż nagłówek karty (20 pt) [M3 p2]
+  naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   tresc: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
-  grupa: { borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  wynik: { gap: odstepy.m, padding: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
+  grupa: { gap: odstepy.s },
   lista: { gap: odstepy.xs },
 });

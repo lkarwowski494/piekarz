@@ -900,3 +900,23 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Zmienia:** D-160 (p1 bez zmian na ekranie).
 - **Status:** dzień, do weta.
 - **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
+
+### [D-180] 2026-11-03 — Wybór zakwasu jako chipy na pasie z miejscem i czasem; „Edytuj” na pasie; profil w karcie z wierszami (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160/D-166 (właściciel nieobecny, D-183: opcja rekomendowana).
+- **Decyzja:** `StartersSelectorRow` rysuje chipy zawijane (bez przewijania w poziomie) w dwóch wariantach: na pasie (z zakwasem, kolory jak `FiltryNaPasie`) i na tle (bez zakwasu: sam „Dodaj nowy zakwas” pod kartą „Zakładam zakwas”, makieta stan „pusty”). Chip zachowuje miejsce i czas od dokarmienia (BR-ZAKW-001, test `zakwasy-lista-130`), choć makieta pokazuje same nazwy. „Edytuj” profilu przechodzi do akcji pasa (makieta, stan „z zakwasem”); profil to `Karta` „Profil zakwasu” z `WierszKarty` (mąka i hydratacja, wiek, ostatnie dokarmienie, miejsce). Zdanie pustego stanu na pasie (podtytuł). Czapka paska stanu z małym tytułem po przewinięciu pasa.
+- **Odrzucone:** chipy z samą nazwą (usuwa informację z BR-ZAKW-001 i łamie test 130); `FiltryNaPasie` z `PasZakladki` (tylko jedna etykieta, bez oznaczenia Pro przy „Dodaj”, przy dużym tekście przenosi chipy pod pas).
+- **Do przeglądu roli 04:** chip na pasie z dwiema liniami pod nazwą (wyższy niż 44 pt).
+- **Status:** dzień, do weta.
+
+### [D-181] 2026-11-03 — Nagłówki kart Zakwasów i Doktora zakwasu z istniejących kluczy; ikony kart; „Zapisz dokarmienie” i „Podwoił objętość” bez przenosin (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wątpliwości układu nazwane, nie zaprojektowane (polecenie p2).
+- **Decyzja:** nagłówki tylko z istniejących kluczy: karta akcji cyklu „Cykl dokarmiania”, „Profil zakwasu”, „Ostatnie wpisy”, „Dzień {n}” (zakładanie), „Co widzisz?” (Doktor zakwasu), karta wyniku Doktora = nazwa wybranego objawu (`first_day` → „Nic się nie dzieje”). Ikony (`src/ui/karty/IkonaKarty.tsx`, kształty z `karty.js`): zakładanie i cykl `sloik`, profil `info`, szczyt `zegar`, stały dzień `kalendarz`, ilości `waga`, blokada proporcji `proporcje`, wpisy `lista`, bezpieczeństwo `tarcza`. „Zapisz dokarmienie” i „Podwoił objętość” zostają w karcie cyklu (Basic), choć makieta kładzie je w „Ilościach do dokarmienia” i „Szczycie aktywności”: obie karty są w Pro (D-113), przeniesienie zabrałoby zapis dokarmienia w Basic.
+- **Odrzucone:** nowe nagłówki (tekst poza §6 README, wymaga roli 04/09); przeniesienie przycisków jak w makiecie (zmiana zachowania Basic/Pro).
+- **Do przeglądu roli 04:** dobór ikon i nagłówków; karta wyniku Doktora zakwasu (README §4: „do makiety w partii, jeśli 08 zgłosi wątpliwość”).
+- **Status:** dzień, do weta.
+
+### [D-182] 2026-11-03 — Zakres p2: Doktor zakwasu tak, Doktor Chleba nie; blokady Pro jako karty; `WierszObjawu` usunięty; narzędzia bez karty (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** p2 obejmuje Doktora zakwasu `app/(tabs)/zakwasy/doktor-zakwasu.tsx` (wiersze `PoleObjawu`, sekcje w kartach). Polecenie p2 nazwało „Doktorem zakwasu” plik `app/doktor.tsx`, który jest Doktorem Chleba (4 sekcje, ok. 36 KB): zostaje do partii z Doktorem Chleba. `BlokadaFunkcji` dostaje opcjonalne `ikonaKarty`: na Zakwasach blokady gotowości, stałego dnia i proporcji to karta z nazwą funkcji w nagłówku i „Pro” jako znacznikiem, bez zdania opisu z makiety (test 108: w przycisku tylko nazwa i „Pro”). `WierszObjawu` usunięty: jedyną kontrolką objawu jest `PoleObjawu` (README §2; zaznaczony objaw groźny nie ma już czerwonej obwódki — wynik pokazuje pole ostrzeżenia). `NarzedziaZakwasu` bez karty: oba wejścia ukryte w 1.0 (D-043, `wejscia-pozniej`).
+- **Odrzucone:** przepięcie Doktora Chleba w p2 (zakres i rozmiar partii); blokada jako wiersz na tle (sprzeczne z README §1); zostawienie dwóch kontrolek objawu.
+- **Status:** dzień, do weta.

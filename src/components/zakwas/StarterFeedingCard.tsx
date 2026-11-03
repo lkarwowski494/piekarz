@@ -12,7 +12,11 @@ import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { WierszKarty } from '../../ui/karty/WierszKarty';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 /** Części proporcji karmienia z formą liczby (EN: 1 part, 2 parts) [M1-audytor-generalny-074]. */
 const CZESCI = { one: '{n} cz.', few: '{n} cz.', many: '{n} cz.', other: '{n} cz.' };
@@ -47,10 +51,13 @@ export function StarterFeedingCard({
   // [M1-audytor-generalny-130]; puste pole = prośba o uzupełnienie, wynik z chipów masy zakwasu do ciasta zostaje
   const [zostawiam, setZostawiam] = useState<number | null>(null);
   const zZostawionego = zostawiam === null ? null : dokarmienieZeZostawionego(zostawiam, selectedRatio, hydratacjaZakwasu);
+  // Chipy na karcie zawijane; przy dużym tekście każdy chip na całą szerokość (flexBasis od fontScale, README §7a) [M3 p2]
+  const chipSzer = { flexBasis: useDuzyTekst() ? '100%' : 'auto' } as const;
+  const chipTekst = (wyb: boolean) => [styles.chipTekst, wyb && styles.chipTekstWybrany];
+  // Karta systemu kart, jeden krój nagłówka (karty/README.md §2, §4; makieta zakwasy.html) [M3 p2]
   return (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>{t('Ilości do dokarmienia')}</Text>
-      <Text style={styles.cardSubtitle}>
+    <Karta testID="karta-dokarmianie" tytul={t('Ilości do dokarmienia')} ikona={<IkonaKarty nazwa="waga" />}>
+      <Text style={styles.podpis}>
         {t('Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.')}
       </Text>
 
@@ -68,17 +75,17 @@ export function StarterFeedingCard({
       />
       {zZostawionego ? (
         <View testID="zostawiam-wynik" style={styles.zostawiamWynik}>
-          <Text style={styles.feedingItemLabel}>{t('Mąka')}: {formatWeight(zZostawionego.makaG, unitSystem)}</Text>
-          <Text style={styles.feedingItemLabel}>{t('Woda')}: {formatWeight(zZostawionego.wodaG, unitSystem)}</Text>
-          <Text style={styles.feedingItemLabel}>{t('Hydratacja zakwasu {n}%', { n: zZostawionego.hydratacjaPct })}</Text>
+          <Text style={styles.wynikTekst}>{t('Mąka')}: {formatWeight(zZostawionego.makaG, unitSystem)}</Text>
+          <Text style={styles.wynikTekst}>{t('Woda')}: {formatWeight(zZostawionego.wodaG, unitSystem)}</Text>
+          <Text style={styles.wynikTekst}>{t('Hydratacja zakwasu {n}%', { n: zZostawionego.hydratacjaPct })}</Text>
         </View>
       ) : (
-        <Text style={styles.feedingReserveTip}>{t('Wpisz, ile zakwasu zostawiasz w słoiku.')}</Text>
+        <Text style={styles.wskazowka}>{t('Wpisz, ile zakwasu zostawiasz w słoiku.')}</Text>
       )}
 
       {/* Ratio Selector */}
       <Text style={styles.subHeading}>{t('Cykl dokarmiania')} ({t('Proporcja')})</Text>
-      <View style={styles.ratioChipsRow}>
+      <View style={styles.chipy}>
         {[
           { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (szybki, 3–4 h)') },
           { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (klasyczny, 6–8 h)') },
@@ -95,11 +102,9 @@ export function StarterFeedingCard({
               accessibilityState={{ selected: !!(isSelected) }}
               key={idx}
               onPress={() => onSelectRatio(item.ratio)}
-              style={[styles.ratioChip, isSelected && styles.ratioChipActive]}
+              style={[styles.chip, chipSzer, isSelected && styles.chipWybrany]}
             >
-              <Text style={[styles.ratioChipText, isSelected && styles.ratioChipTextActive]}>
-                {item.label}
-              </Text>
+              <Text style={chipTekst(isSelected)}>{item.label}</Text>
             </Pressable>
           );
         })}
@@ -109,43 +114,30 @@ export function StarterFeedingCard({
       <Text style={styles.subHeading}>
         {t('Potrzebny zakwas')}: {formatWeight(targetYield, unitSystem)}
       </Text>
-      <View style={styles.yieldButtons}>
+      <View style={styles.chipy}>
         {[100, 150, 200, 250, 300].map((y) => (
           <Pressable
             accessibilityRole="button"
             accessibilityState={{ selected: targetYield === y }}
             key={y}
             onPress={() => onTargetYieldChange(y)}
-            style={[styles.yieldChip, targetYield === y && styles.yieldChipActive]}
+            style={[styles.chip, chipSzer, targetYield === y && styles.chipWybrany]}
           >
-            <Text style={[styles.yieldChipText, targetYield === y && styles.yieldChipTextActive]}>
-              {formatWeight(y, unitSystem)}
-            </Text>
+            <Text style={chipTekst(targetYield === y)}>{formatWeight(y, unitSystem)}</Text>
           </Pressable>
         ))}
       </View>
 
-      {/* Result Calculation Breakdown */}
-      <View style={styles.feedingResultGrid}>
-        <View style={styles.feedingItem}>
-          <Text style={styles.feedingItemLabel}>{t('Stary zakwas')}</Text>
-          <Text style={styles.feedingItemValue}>{formatWeight(feeding.starterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[0], CZESCI)}</Text>
-        </View>
-        <Text style={styles.plusSign}>+</Text>
-        <View style={styles.feedingItem}>
-          <Text style={styles.feedingItemLabel}>{t('Mąka')}</Text>
-          <Text style={styles.feedingItemValue}>{formatWeight(feeding.flourGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[1], CZESCI)}</Text>
-        </View>
-        <Text style={styles.plusSign}>+</Text>
-        <View style={styles.feedingItem}>
-          <Text style={styles.feedingItemLabel}>{t('Woda')} (~{formatTemperature(28, unitSystem)})</Text>
-          <Text style={styles.feedingItemValue}>{formatWeight(feeding.waterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[2], CZESCI)}</Text>
-        </View>
+      {/* Wynik jako wiersze w grupie karty (makieta: Zostawiam / Mąka / Woda z wartością 17 pt) [M3 p2] */}
+      <View style={styles.grupa} testID="dokarmianie-wynik">
+        <WierszKarty testID="dokarmianie-zakwas" etykieta={t('Stary zakwas')} wartosc={formatWeight(feeding.starterGrams, unitSystem)}
+          podpis={tPlural(selectedRatio[0], CZESCI)} linia={false} />
+        <WierszKarty testID="dokarmianie-maka" etykieta={t('Mąka')} wartosc={formatWeight(feeding.flourGrams, unitSystem)}
+          podpis={tPlural(selectedRatio[1], CZESCI)} />
+        <WierszKarty testID="dokarmianie-woda" etykieta={`${t('Woda')} (~${formatTemperature(28, unitSystem)})`} wartosc={formatWeight(feeding.waterGrams, unitSystem)}
+          podpis={tPlural(selectedRatio[2], CZESCI)} />
       </View>
-      <Text style={styles.feedingReserveTip}>
+      <Text style={styles.wskazowka}>
         {t('Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.', {
           masa: formatWeight(targetYield, unitSystem),
           od: formatWeight(20, unitSystem),
@@ -165,159 +157,43 @@ export function StarterFeedingCard({
       </Pressable>
 
       {/* Przelicznik hydratacji i wylewki: Basic, poza kartą proporcji (NarzedziaZakwasu) [M3 P-b2] */}
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
-  },
-  cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  cardSubtitle: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz3,
-    marginTop: 2,
-    marginBottom: 12,
-  },
-  subHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-    marginBottom: 6,
-  },
-  ratioChipsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 12,
-  },
-  ratioChip: {
+  podpis: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
+  subHeading: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
+  chipy: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s },
+  // Chip na karcie jak chip pasa: promień `chip`, obwódka, wybrany `akcent` (karty/README.md §2) [M3 p2]
+  chip: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
+    alignItems: 'center',
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.xs,
+    borderRadius: promienie.chip,
+    borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
+    maxWidth: '100%',
   },
-  ratioChipActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  ratioChipText: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    fontWeight: '500',
-  },
-  ratioChipTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-  yieldButtons: {
-    flexDirection: 'row',
-    gap: 6,
-    marginBottom: 12,
-  },
-  yieldChip: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  yieldChipActive: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderColor: theme.colors.akcent,
-  },
-  yieldChipText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  yieldChipTextActive: {
-    color: theme.colors.akcentTekst,
-    fontWeight: '700',
-  },
-  feedingResultGrid: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  feedingItem: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  feedingItemLabel: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  feedingItemValue: {
-    fontSize: 16,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-  },
-  feedingItemRatio: {
-    fontSize: 10,
-    color: theme.colors.akcentTekst,
-    marginTop: 2,
-    fontWeight: '700',
-  },
-  plusSign: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz3,
-  },
-  zostawiamWynik: {
-    gap: 2,
-    marginTop: 6,
-    marginBottom: 12,
-  },
-  feedingReserveTip: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    fontStyle: 'italic',
-    lineHeight: 15,
-    marginBottom: 12,
-  },
+  chipWybrany: { backgroundColor: theme.colors.akcent, borderColor: theme.colors.akcent },
+  chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz, textAlign: 'center' },
+  chipTekstWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
+  // Grupa w karcie: obwódka `linia`, promień `grupa` 12 (hierarchia promieni, karty/README.md §2)
+  grupa: { borderWidth: 1, borderColor: theme.colors.linia, borderRadius: promienie.grupa, overflow: 'hidden' },
+  zostawiamWynik: { gap: 2 },
+  wynikTekst: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
+  wskazowka: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   copyFeedingBtn: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
+    paddingVertical: odstepy.s,
+    paddingHorizontal: odstepy.l,
+    borderRadius: promienie.przycisk,
     borderWidth: 1,
     borderColor: theme.colors.akcent,
     alignItems: 'center',
-    marginBottom: 8,
   },
-  copyFeedingBtnText: {
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
+  copyFeedingBtnText: { fontSize: typografia.style.objasnienie.pt, fontWeight: '700', color: theme.colors.akcentTekst, textAlign: 'center' },
 });

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { ScrollView, StyleSheet, Alert, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Alert, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { PasZakwasu } from '../../../src/components/zakwas/PasZakwasu';
+import { CzapkaPaska } from '../../../src/ui/karty/CzapkaPaska';
+import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
+import { odstepy } from '../../../src/ui/tokeny';
 import { theme } from '../../../src/ui/theme';
-import { typografia } from '../../../src/ui/tokeny';
 import { t } from '../../../src/lib/i18n';
 import { dniTemu, godzinTemu } from '../../../src/lib/czas-temu';
 import { guardSave } from '../../../src/lib/save-guard';
@@ -62,6 +64,8 @@ export default function ZakwasScreen() {
   const gora = useSafeAreaInsets().top;
   usePasekStanuJasny();
   const log = useStarterLog(starter.id);
+  const [wysokoscPasa, setWysokoscPasa] = useState<number>(0);
+  const [przewiniety, setPrzewiniety] = useState<boolean>(false);
 
   const [targetYield, setTargetYield] = useState<number>(150);
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
@@ -161,21 +165,32 @@ export default function ZakwasScreen() {
     }
   };
 
+  const wybor = (
+    <StartersSelectorRow
+      startersList={startersList}
+      activeStarterId={starter.id}
+      onSelectStarter={(s) => {
+        setStarter(s);
+        setSelectedStarterId(s.id);
+      }}
+      onOpenAddModal={akcje.otworzDodawanie}
+      dodajPro={startersList.length >= LIMITY_BASIC.zakwasy && !moze('kolejny-zakwas')}
+      naPasie={maZakwas}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled" scrollEventThrottle={16}
+        onScroll={(e) => setPrzewiniety(e.nativeEvent.contentOffset.y > Math.max(0, wysokoscPasa - gora))}>
         <NadPasem />
-        <PasZakwasu gora={gora} starter={starter} wpisy={log.entries} maZakwas={maZakwas} />
+        {/* Wybór zakwasu jako chipy na pasie; bez zakwasu zdanie pustego stanu na pasie (karty/README.md §4) [M3 p2] */}
+        <PasZakwasu gora={gora} starter={starter} wpisy={log.entries} maZakwas={maZakwas} chipy={maZakwas ? wybor : null}
+          onEdytuj={akcje.handleOpenEditModal} onLayout={setWysokoscPasa} />
         <View style={styles.container}>
         <NotificationsOffBanner />
         {/* Bez bloku statystyk (§12a): wiek i hydratacja w karcie profilu, proporcja w karcie cyklu i ilościach
             do dokarmienia, temperatura w aktywności zakwasu [M1-audytor-generalny-111] */}
-        {!maZakwas && (
-          // Pierwsze uruchomienie: co zrobić zamiast przykładowego zakwasu jako „twojego” [M1-audytor-generalny-087]
-          <Text style={styles.pusty} testID="zakwas-pusty">
-            {t('Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.')}
-          </Text>
-        )}
         {/* Zakładanie od zera: pierwsze dokarmienie tworzy zakwas w dniu 1 (BR-ZAKW-005) [M1-audytor-generalny-104] */}
         {!maZakwas && (
           <ZakladanieStart onZapisz={(nowy) => dodaj('zakwasy', guardSave(async () => {
@@ -184,18 +199,8 @@ export default function ZakwasScreen() {
             await loadStarterData();
           }))} />
         )}
-
-        {/* Starters Carousel / Selector */}
-        <StartersSelectorRow
-          startersList={startersList}
-          activeStarterId={starter.id}
-          onSelectStarter={(s) => {
-            setStarter(s);
-            setSelectedStarterId(s.id);
-          }}
-          onOpenAddModal={akcje.otworzDodawanie}
-          dodajPro={startersList.length >= LIMITY_BASIC.zakwasy && !moze('kolejny-zakwas')}
-        />
+        {/* Pierwsze uruchomienie: „Dodaj nowy zakwas” pod kartą zakładania [M1-audytor-generalny-087; makieta „pusty”] */}
+        {!maZakwas && wybor}
 
         {/* Profile Card */}
         {maZakwas && (
@@ -204,7 +209,6 @@ export default function ZakwasScreen() {
             ageDays={ageDays}
             lastFedLabel={lastFedLabel}
             unitSystem={unitSystem}
-            onOpenEditModal={akcje.handleOpenEditModal}
           />
         )}
 
@@ -223,7 +227,7 @@ export default function ZakwasScreen() {
 
         {/* Gotowość i szczyt (BR-ZAKW-003): Pro; w Basic karta widoczna, dotknięcie otwiera ekran Pro (027, D-113) */}
         {maZakwas && (
-          <BlokadaFunkcji {...blokada('gotowosc-zakwasu')}>
+          <BlokadaFunkcji {...blokada('gotowosc-zakwasu')} ikonaKarty={<IkonaKarty nazwa="zegar" />}>
           <StarterPeakActivityCard
             phaseResult={phaseResult}
             peakPrediction={peakPrediction}
@@ -239,13 +243,13 @@ export default function ZakwasScreen() {
 
         {/* Stały dzień karmienia zakwasu w lodówce (BR-KAL-010, PR-22) [M3 D7]; Pro (D-113) */}
         {maZakwas && starter.storageState === 'FRIDGE' && (
-          <BlokadaFunkcji {...blokada('staly-dzien')}>
+          <BlokadaFunkcji {...blokada('staly-dzien')} ikonaKarty={<IkonaKarty nazwa="kalendarz" />}>
           <StalyDzienKarmienia starter={starter} teraz={Date.now()} onZapisz={akcje.zapiszStalyDzien} />
           </BlokadaFunkcji>
         )}
 
         {/* Dokarmianie z proporcją (BR-ZAKW-002): Pro (D-113) */}
-        <BlokadaFunkcji {...blokada('proporcje-zakwasu')}>
+        <BlokadaFunkcji {...blokada('proporcje-zakwasu')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
         <StarterFeedingCard
           selectedRatio={selectedRatio}
           onSelectRatio={setSelectedRatio}
@@ -286,6 +290,8 @@ export default function ZakwasScreen() {
         />
         </View>
       </ScrollView>
+      {/* Czapka paska stanu: pod paskiem stanu nie przewija się treść; mały tytuł, gdy pas odjedzie (README §2) [M3 p2] */}
+      <CzapkaPaska gora={gora} tytul={maZakwas ? starter.name : t('Zakwasy')} pokazTytul={przewiniety} />
       {cofnijDokarmienie.pasek && (
         <PasekCofnij {...cofnijDokarmienie.pasek} testID="zakwas-dokarm-cofnij" przywrocTestID="zakwas-dokarm-cofnij-przywroc" />
       )}
@@ -298,13 +304,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.tlo,
   },
+  // Odstęp między kartami 12 (karty/README.md §2) [M3 p2]
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
-  },
-  pusty: {
-    fontSize: typografia.style.tresc.pt,
-    color: theme.colors.tusz2,
-    marginBottom: theme.spacing.md,
+    gap: odstepy.m,
   },
 });

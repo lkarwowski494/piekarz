@@ -8,7 +8,9 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ostrzezenie } from '../Ostrzezenie';
-import { WierszObjawu } from './WierszObjawu';
+import { Karta } from '../../ui/karty/Karta';
+import { PoleObjawu } from '../../ui/karty/PoleObjawu';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { t } from '../../lib/i18n';
 import { formatTime } from '../../lib/format';
 import { dzienSlownie } from '../../lib/spirala-etykieta';
@@ -41,7 +43,7 @@ export function StarterSetupCard({ dzien, etap, wynik, gratulacje = null, now, o
 
   if (wynik?.kind === 'discard') {
     return (
-      <View testID="zakladanie-plesn" style={styles.karta}>
+      <Karta testID="zakladanie-plesn" tytul={t('Dzień {n}', { n: dzien })} ikona={<IkonaKarty nazwa="sloik" />}>
         <Ostrzezenie tytul={t(wynik.texts[0])} tekst={t(wynik.texts[1])} testID="zakladanie-ostrzezenie" />
         <Pressable testID="zakladanie-od-nowa-btn" accessibilityRole="button" style={styles.glowny} onPress={onZacznijOdNowa}>
           <Text style={styles.glownyTekst}>{t('Zacznij od nowa')}</Text>
@@ -49,13 +51,13 @@ export function StarterSetupCard({ dzien, etap, wynik, gratulacje = null, now, o
         <Pressable testID="zakladanie-zostaw-btn" accessibilityRole="button" style={styles.drugi} onPress={onZostaw}>
           <Text style={styles.drugiTekst}>{t('Zostaw zapis i wróć')}</Text>
         </Pressable>
-      </View>
+      </Karta>
     );
   }
 
   return (
-    <View testID="zakladanie-karta" style={styles.karta}>
-      <Text accessibilityRole="header" style={styles.tytul}>{t('Dzień {n}', { n: dzien })}</Text>
+    // Karta systemu kart: „Dzień N” jako nagłówek karty jednym krojem (karty/README.md §2, §4) [M3 p2]
+    <Karta testID="zakladanie-karta" tytul={t('Dzień {n}', { n: dzien })} ikona={<IkonaKarty nazwa="sloik" />}>
       {SETUP_GUIDE.start.map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}
       <View style={styles.dni} accessible accessibilityRole="image" accessibilityLabel={t('Dzień {n} zakładania zakwasu', { n: dzien })}>
         {dni.map((d) => (
@@ -90,22 +92,21 @@ export function StarterSetupCard({ dzien, etap, wynik, gratulacje = null, now, o
         </View>
       )}
       <Text style={styles.naglowek}>{t('Co widzisz?')}</Text>
-      <View style={styles.grupa}>
-        {STARTER_SIGNS.map((s, i) => (
-          <WierszObjawu key={s} testID={`zakladanie-objaw-${s}`} tekst={t(NAZWY_OBJAWOW[s])} zaznaczony={zaznaczone.includes(s)} pierwszy={i === 0} onPress={() => przelacz(s)} />
+      <View style={styles.objawy}>
+        {STARTER_SIGNS.map((s) => (
+          <PoleObjawu key={s} testID={`zakladanie-objaw-${s}`} etykieta={t(NAZWY_OBJAWOW[s])} zaznaczone={zaznaczone.includes(s)} onZmien={() => przelacz(s)} />
         ))}
       </View>
       <Pressable testID="zakladanie-zapisz-btn" accessibilityRole="button" style={styles.glowny} onPress={() => onZapiszDzien(zaznaczone)}>
         <Text style={styles.glownyTekst}>{t('Zapisz dzień {n}', { n: dzien })}</Text>
       </Pressable>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  karta: { gap: odstepy.m, padding: odstepy.l, marginBottom: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
-  naglowek: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
+  // Podnagłówek w karcie mniejszy niż nagłówek karty (20 pt) [M3 p2]
+  naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   tresc: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   wazne: { fontSize: typografia.style.tresc.pt, fontWeight: '700', color: theme.colors.tusz },
   dni: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   dzienTekstZrobiony: { color: theme.colors.naAkcencie },
   dzienTekstDzis: { fontWeight: '700' },
   wynik: { gap: odstepy.s, padding: odstepy.m, borderRadius: promienie.grupa, backgroundColor: theme.colors.tloGrupa },
-  grupa: { borderRadius: promienie.grupa, borderWidth: StyleSheet.hairlineWidth, borderColor: theme.colors.linia },
+  objawy: { gap: odstepy.s },
   glowny: { minHeight: theme.cele.glownyPrzeplyw, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.l, borderRadius: promienie.przyciskGlowny, backgroundColor: theme.colors.akcent },
   glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '700', color: theme.colors.naAkcencie, textAlign: 'center' },
   drugi: { minHeight: theme.cele.glownyPrzeplyw, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.l, borderRadius: promienie.przycisk, borderWidth: 1, borderColor: theme.colors.obwodka },

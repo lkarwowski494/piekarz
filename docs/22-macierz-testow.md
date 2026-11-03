@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 608 | 608 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 609 | 609 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 603 | 603 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 221 | 221 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1503** | Pokrytych: **1503** | Brakujących: **0**
+Łącznie elementów: **1504** | Pokrytych: **1504** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -48,12 +48,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Usunięto recepturę` | `app/(tabs)/receptury/index.tsx` | ✅ | src/__tests__/usun-recepture-cofnij-161.test.tsx |
 | `TEKST` | `Więcej działań: receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | src/lib/__tests__/menu-receptury.test.ts, src/__tests__/pas-zakladek-d10.test.tsx |
 | `TEKST` | `Więcej` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Co widzisz?` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx, src/__tests__/zakwasy-karty-p2.test.tsx |
 | `TEKST` | `Dzień {n}` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx |
-| `TEKST` | `Co widzisz?` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx |
 | `TEKST` | `przed chwilą` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Kopiuj jako tekst` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | src/__tests__/dane-przykladowe-087.test.tsx |
+| `TEKST` | `Zakwasy` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
 | `TEKST` | `Akademia Piekarza` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 1203 kolejnych elementów w pełnym wykazie)*
+*(... i 1204 kolejnych elementów w pełnym wykazie)*
