@@ -1,7 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-03 ~22:30 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-03 ~23:40 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p6b (08, `session_01T66VBySnC9423ucYQMaQ3q`) + 09b (`session_01T66VBxKi1pRfhtcCcbVoyg`, sonnet) scalone do `redesign/` (merge `50c0b0e`; verify kod 0, 532 zestawy / 5686 testów): wyścig `rodzaj-drozdzy.ts` naprawiony (test czerwony przed), „Do miski” + „Odhaczaj przy ważeniu.”, „Krok {n} z {m}” na pasie i „Co zrobić”, podtytuł pasa receptury według rodzaju, jedna karta „Język i jednostki”, „{data}, ocena {n}/5”; 9 kluczy × 33 języki, 4 stare klucze usunięte. Obie sesje zarchiwizowane.
+- **Do weta (D-210):** brzmienia „Receptura bazowa, żytnia / na drożdżach / słodka” (rola 08 wg wzoru README); własna receptura: „Moja receptura” bez rodzaju (rodzaj wymagałby zapisu kategorii = migracja); numer kroku pod tytułem kroku (makieta: nad) — dla roli 04.
+- iOS E2E run 41730573773 na `827198aa` (sprzed p6b) — w toku od 22:29 UTC. Po wyniku: nowe E2E na HEAD.
+
+## Aktualizacja 2026-11-03 ~22:30 UTC (koordynator M3, noc)
 - Rola 09 (`session_01T66VByPefsjstBHGHVHV9r`, sonnet, zarchiwizowana) scalona do `redesign/` (merge `67172ac`; verify kod 0, 526/5670): zdanie 0,35 w 35 językach (koordynator sprawdził: 34 przekłady z 0,35, bez 0,4), „Wstecz”, „Ile pieczesz”; D-207 (klucze wpięte skryptem, źródło `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json` — dodać do wejścia generatora), D-208 (5 pozycji odłożonych). Przekład maszynowy, drugi przegląd AI; bez przeglądu rodzimych użytkowników.
 - Push `7135677b` poszedł bez verify (tylko kolejność wpisów `decyzje.md`); następne push z verify kod 0.
 - **iOS E2E** run 41730573773 (workflow_dispatch) na `827198aa` — w kolejce od 22:24 UTC.
