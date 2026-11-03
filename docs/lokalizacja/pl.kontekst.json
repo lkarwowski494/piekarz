@@ -1403,6 +1403,7 @@
   },
   "Drożdże": {
     "gdzie": [
+      "src/components/receptury/SegmentDrozdzy.tsx (accessibilityLabel)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
     ]
   },
@@ -9296,6 +9297,7 @@
   },
   "suche|drożdże": {
     "gdzie": [
+      "src/components/receptury/SegmentDrozdzy.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ],
     "opis": "Segment wyboru rodzaju drożdży w arkuszu „Składniki” (przymiotnik do „drożdże”, l. mn.: drożdże suche, instant albo aktywne); nie o mące ani o innym składniku [M1-audytor-generalny-216]."
@@ -9904,6 +9906,7 @@
   },
   "świeże|drożdże": {
     "gdzie": [
+      "src/components/receptury/SegmentDrozdzy.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ],
     "opis": "Segment wyboru rodzaju drożdży w arkuszu „Składniki” (przymiotnik do „drożdże”, l. mn.: drożdże świeże prasowane); nie o mące ani o innym składniku [M1-audytor-generalny-216]."
