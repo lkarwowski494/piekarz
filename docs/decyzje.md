@@ -781,3 +781,12 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Koszt [OCENA]:** opóźnienie 1.0 o ok. 3–5 dni pracy ról ponad redesign, najwięcej D-138.
 - **Krok właściciela:** model maszyny do chleba (marka, pojemność, lista programów; zdjęcie panelu lub instrukcji) dla roli 06.
 - **Status:** dzień, do weta.
+
+### [D-151] 2026-11-03 — Bramka zmian zakresu dla D-136…D-138 (rola 03 build, moduł zmiany-zakresu): ZM-24…ZM-26, F-72; cztery pytania do właściciela
+- **Rodzaj:** zakresowa (rola 03), wykonanie D-150; decyzje „czy” i „kiedy” są właściciela (D-136…D-138, D-150) i nie są otwierane.
+- **Decyzja:** D-136 → ZM-24 jako zmiana wejścia w F-55 (BR-KALK-009 istnieje; ER-75: scenariusz wyboru przy wierszu „Do miski”); D-137 → ZM-25 jako rozszerzenie F-26 (ER-76: powiązanie receptura na zakwasie ↔ bliźniak); D-138 → ZM-26 i nowa funkcja F-72 MVP bez BR do czasu ER-77 (praca J, PR, BR trybu maszyny). Numery ER-75…ER-77 proponowane; nadaje je rola 01.
+- **Znaleziska (realne):** (1) „Stan przed” w D-137 podaje 7 receptur `sourdough`; jest 6 `sourdough`, a receptur bazowych z zakwasem 9 (z 2 żytnimi i 1 na lievito madre) — `grep -c` liczył linię typu `src/recipes/presets.ts:12`. (2) Receptura bez zakwasu nie dostaje planu ani prowadzenia (`src/lib/plan-receptury.ts:55-61`), choć BR-HARMO-001 i BR-ETAP-001 obejmują PR-17 (drożdże, pizza): bliźniak bez planu to tylko receptura do kalkulatora. (3) D-136…D-138 piszą „wobec D-038”; obowiązuje model D-112/D-113 (Basic/Pro, `docs/monetyzacja.md`), więc pytanie o podział jest zadane wobec niego.
+- **Otwarte (STOP, pytania do właściciela):** (1) miejsce D-136…D-138 w Basic/Pro; (2) które receptury dostają bliźniaki; (3) zakres trybu maszyny w 1.0; (4) czy bliźniaki i receptury drożdżowe dostają plan i prowadzenie w 1.0. Opcje i rekomendacje: `docs/zakres-zm-2026-11-03.md`.
+- **Odrzucone:** nowe F-nn dla D-136 i D-137 (to zmiany istniejących funkcji, ID F-55 i F-26 zostają); dopisanie BR przez rolę 03 (należą do roli 01, zasada roli 7).
+- **Zależy od:** D-136, D-137, D-138, D-150, D-112, D-113. Po odpowiedziach: wpis decyzji słowami właściciela (pula D-152…D-159), ZM-24…ZM-26 z decyzją, paczka dla roli 06.
+- **Status:** czeka na STOP właściciela.
