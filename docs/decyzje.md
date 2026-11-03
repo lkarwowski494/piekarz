@@ -871,3 +871,4 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** wyjątek w teście osiągalności albo push z czerwonym testem (osłabienie testu, zasada wspólna 11); osobny „ekran demonstracyjny” komponentów (kod bez wartości dla użytkownika).
 - **Zmienia:** D-160 (p1 bez zmian na ekranie).
 - **Status:** dzień, do weta.
+- **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
