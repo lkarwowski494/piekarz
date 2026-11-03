@@ -8,15 +8,13 @@ import { typografia } from '../../../src/ui/tokeny';
 import { t } from '../../../src/lib/i18n';
 import { dniTemu, godzinTemu } from '../../../src/lib/czas-temu';
 import { guardSave } from '../../../src/lib/save-guard';
-import { resyncNotifications, ensureNotificationPermission } from '../../../src/lib/notifications';
+import { resyncNotifications } from '../../../src/lib/notifications';
 import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
 import { calculateStarterFeeding, calculateStarterPhase } from '../../../src/core/domain-rules';
 import { predictStarterPeak } from '../../../src/core/starter-peak-predictor';
-import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
-import { confirmDeleteStarter, confirmZalozOdNowa } from '../../../src/lib/confirm';
-import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
-import { restartStarterSetup } from '../../../src/data/starter-entries-store';
-import { nowyWpis, useStarterLog } from '../../../src/components/zakwas/useStarterLog';
+import { parseFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
+import { getStarters } from '../../../src/data/sqlite-store';
+import { useStarterLog } from '../../../src/components/zakwas/useStarterLog';
 import { ustawZakwasPlanu } from '../../../src/lib/zakwas-planu';
 import { StoredStarter } from '../../../src/data/db';
 import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
@@ -33,13 +31,12 @@ import { StarterFeedingCard } from '../../../src/components/zakwas/StarterFeedin
 import { NarzedziaZakwasu } from '../../../src/components/zakwas/NarzedziaZakwasu';
 import { StarterSafetyCard } from '../../../src/components/zakwas/StarterSafetyCard';
 import { useObjawyZakwasu } from '../../../src/components/zakwas/useObjawyZakwasu';
+import { useAkcjeZakwasu } from '../../../src/components/zakwas/useAkcjeZakwasu';
 import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModal';
 import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
 import { ZakwasDziennik } from '../../../src/components/zakwas/ZakwasDziennik';
 import { ZakladanieStart } from '../../../src/components/zakwas/ZakladanieStart';
 import { StalyDzienKarmienia } from '../../../src/components/zakwas/StalyDzienKarmienia';
-import { pytanieOStalyDzien } from '../../../src/core/notification-feeding';
-import { zapytajOStalyDzien } from '../../../src/lib/staly-dzien-pytanie';
 import { useCofnijDokarmienie } from '../../../src/hooks/useCofnijDokarmienie';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 
@@ -73,17 +70,6 @@ export default function ZakwasScreen() {
   // Objawy na karcie bezpieczeństwa (RD-21-W1) i ich ocena
   const objawy = useObjawyZakwasu();
 
-  // Edit Profile Modal
-  const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-  const [editName, setEditName] = useState<string>('');
-  const [editFlourType, setEditFlourType] = useState<string>('');
-  const [editStorageState, setEditStorageState] = useState<'ROOM_TEMP' | 'FRIDGE'>('FRIDGE');
-
-  // Add New Starter Modal
-  const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
-  const [newStarterName, setNewStarterName] = useState<string>('');
-  const [newStarterFlour, setNewStarterFlour] = useState<string>(() => t('Mąka pszenna chlebowa t750'));
-  const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
   const [isConverterOpen, setIsConverterOpen] = useState<boolean>(false);
   const [isDiscardModalOpen, setIsDiscardModalOpen] = useState<boolean>(false);
   // Dziennik czyta wpisy ponownie po dokarmieniu zapisanym na ekranie [M1-audytor-generalny-104]
@@ -161,103 +147,12 @@ export default function ZakwasScreen() {
     return dniTemu(diffDays);
   }, [starter.lastFedAt]);
 
-  // Zapis karmienia w Basic (karta i zapis karmień, D-113)
-  const handleLogFeeding = async () => {
-    void guardSave(async () => {
-      const now = Date.now();
-      const updated: StoredStarter = {
-        ...starter,
-        lastFedAt: now,
-        feedingRatio: formatFeedingRatio(selectedRatio),
-      };
-      await saveStarter(updated);
-      void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)
-      setStarter(updated);
-      setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
-      setWersjaDziennika((v) => v + 1);
-      // Stały dzień w inny dzień tygodnia: pytanie „zostawić czy liczyć od” zamiast potwierdzenia (BR-KAL-010) [M3 D7]
-      if (pytanieOStalyDzien(updated, now)) {
-        if ((await zapytajOStalyDzien(updated.id, now)) === 'licz-od') await loadStarterData(updated.id);
-        return;
-      }
-      // Pasek z „Przywróć” zamiast okna (009, D-051 1a) [M3 W-fix2]
-      cofnijDokarmienie.zapamietaj(starter, now);
-    })();
-  };
-
-  const handleOpenEditModal = () => {
-    setEditName(starter.name);
-    setEditFlourType(starter.flourType);
-    setEditStorageState(starter.storageState);
-    setIsEditModalOpen(true);
-  };
-
-  // Edycja zapisanego zakwasu w Basic (zapisane działają w całości, kontrakt)
-  const handleSaveProfile = async () => {
-    void guardSave(async () => {
-      const trimmed = editName.trim();
-      if (!trimmed) return;
-      const updated: StoredStarter = {
-        ...starter,
-        name: trimmed,
-        flourType: editFlourType.trim() || starter.flourType,
-        storageState: editStorageState,
-      };
-      await saveStarter(updated);
-      void resyncNotifications();
-      setStarter(updated);
-      setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
-      setIsEditModalOpen(false);
-      Alert.alert(t('Profil zakwasu'), t('Zapisano zaktualizowany profil'));
-    })();
-  };
-
-  // Nowy zakwas: limit Basic (1) liczony z bazy przy dodaniu; kolejne zakwasy w Pro (BR-ZAKW-001)
-  const handleAddStarter = async () => {
-    dodaj('zakwasy', guardSave(async () => {
-      const trimmedName = newStarterName.trim();
-      if (!trimmedName) return;
-      const newStarter: StoredStarter = {
-        id: `starter_${Date.now()}`,
-        name: trimmedName,
-        flourType: newStarterFlour.trim() || t('Mąka pszenna chlebowa'),
-        hydration: 100.0,
-        birthDate: Date.now(),
-        storageState: newStarterStorage,
-        lastFedAt: Date.now(),
-      };
-      await saveStarter(newStarter);
-      void resyncNotifications();
-      await loadStarterData(newStarter.id);
-      setIsAddModalOpen(false);
-      setNewStarterName('');
-      Alert.alert(t('Dodano zakwas'), t('Kultura „{name}” została utworzona.', { name: trimmedName }));
-    }));
-  };
-
-  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]; także jedynego zakwasu, żeby w Basic
-  // dało się założyć nowy (D-113 „ponowne zakładanie po nieudanej próbie dozwolone”) [M3 P-a-fix P0-1]
-  const handleDeleteCurrentStarter = () => {
-    confirmDeleteStarter(starter.name, guardSave(async () => {
-      await deleteStarter(starter.id);
-      void resyncNotifications();
-      setIsEditModalOpen(false);
-      const remaining = startersList.filter((s) => s.id !== starter.id);
-      await loadStarterData(remaining[0]?.id);
-    }));
-  };
-
-  // „Załóż od nowa” (BR-ZAKW-005): ten sam zakwas, wpisy usunięte, dzień 1 od dokarmienia teraz; bez limitu i bez Pro, bo
-  // to nie dodanie (jedno aktywne zakładanie naraz: ten zakwas) [M3 P-a-fix P0-1]
-  const handleZalozOdNowa = () => {
-    confirmZalozOdNowa(guardSave(async () => {
-      await restartStarterSetup(starter.id, nowyWpis(starter.id, 'feeding', Date.now()));
-      void resyncNotifications();
-      setIsEditModalOpen(false);
-      setWersjaDziennika((v) => v + 1);
-      await loadStarterData(starter.id);
-    }));
-  };
+  const akcje = useAkcjeZakwasu({
+    starter, setStarter, startersList, setStartersList, selectedRatio, loadStarterData,
+    odswiezDziennik: () => setWersjaDziennika((v) => v + 1),
+    zapamietajCofniecie: cofnijDokarmienie.zapamietaj,
+    dodaj,
+  });
 
   const handleCopyFeeding = async () => {
     const copied = await copyFeedingToClipboard(starter, feeding, selectedRatio);
@@ -298,7 +193,7 @@ export default function ZakwasScreen() {
             setStarter(s);
             setSelectedStarterId(s.id);
           }}
-          onOpenAddModal={() => dodaj('zakwasy', () => setIsAddModalOpen(true))}
+          onOpenAddModal={akcje.otworzDodawanie}
           dodajPro={startersList.length >= LIMITY_BASIC.zakwasy && !moze('kolejny-zakwas')}
         />
 
@@ -309,7 +204,7 @@ export default function ZakwasScreen() {
             ageDays={ageDays}
             lastFedLabel={lastFedLabel}
             unitSystem={unitSystem}
-            onOpenEditModal={handleOpenEditModal}
+            onOpenEditModal={akcje.handleOpenEditModal}
           />
         )}
 
@@ -318,7 +213,7 @@ export default function ZakwasScreen() {
             starter={starter}
             log={log}
             wersja={wersjaDziennika}
-            onDokarm={handleLogFeeding}
+            onDokarm={akcje.handleLogFeeding}
             zDostepem={(akcja) => void akcja()}
             blokadaGotowosci={blokada('gotowosc-zakwasu')}
             zPro={moze('przypomnienia-zakwasu')}
@@ -345,13 +240,7 @@ export default function ZakwasScreen() {
         {/* Stały dzień karmienia zakwasu w lodówce (BR-KAL-010, PR-22) [M3 D7]; Pro (D-113) */}
         {maZakwas && starter.storageState === 'FRIDGE' && (
           <BlokadaFunkcji {...blokada('staly-dzien')}>
-          <StalyDzienKarmienia starter={starter} teraz={Date.now()} onZapisz={(d) => guardSave(async () => {
-            const updated: StoredStarter = { ...starter, fridgeFeedDay: d };
-            await saveStarter(updated);
-            void resyncNotifications();
-            setStarter(updated);
-            setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
-          })()} />
+          <StalyDzienKarmienia starter={starter} teraz={Date.now()} onZapisz={akcje.zapiszStalyDzien} />
           </BlokadaFunkcji>
         )}
 
@@ -375,37 +264,14 @@ export default function ZakwasScreen() {
             (docs/monetyzacja.md BR-DIAG-002 „ostrzeżenie RD-21 zawsze”) [audyt-niezalezny E-1] */}
         <StarterSafetyCard
           {...objawy}
-          onZalozOdNowa={maZakwas ? handleZalozOdNowa : undefined}
+          onZalozOdNowa={maZakwas ? akcje.handleZalozOdNowa : undefined}
         />
 
         {/* Modal: Edit Starter Profile */}
-        <EditStarterModal
-          visible={isEditModalOpen}
-          name={editName}
-          onNameChange={setEditName}
-          flourType={editFlourType}
-          onFlourTypeChange={setEditFlourType}
-          storageState={editStorageState}
-          onStorageStateChange={setEditStorageState}
-          canDelete={startersList.length > 0}
-          onDelete={handleDeleteCurrentStarter}
-          onZalozOdNowa={handleZalozOdNowa}
-          onClose={() => setIsEditModalOpen(false)}
-          onSave={handleSaveProfile}
-        />
+        <EditStarterModal {...akcje.edycja} />
 
         {/* Modal: Add New Starter */}
-        <AddStarterModal
-          visible={isAddModalOpen}
-          name={newStarterName}
-          onNameChange={setNewStarterName}
-          flour={newStarterFlour}
-          onFlourChange={setNewStarterFlour}
-          storage={newStarterStorage}
-          onStorageChange={setNewStarterStorage}
-          onClose={() => setIsAddModalOpen(false)}
-          onSave={handleAddStarter}
-        />
+        <AddStarterModal {...akcje.dodawanie} />
 
         <StarterConverterModal
           visible={isConverterOpen}
