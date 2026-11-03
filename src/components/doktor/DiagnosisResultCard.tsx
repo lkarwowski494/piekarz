@@ -11,7 +11,9 @@ import { t } from '../../lib/i18n';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 import type { DiagnosticResult } from '../../doctor/diagnostics';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { Karta, NaglowekKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 export interface DiagnosisResultCardProps {
   diagnosis: DiagnosticResult | null;
   unitSystem: UnitSystem;
@@ -31,14 +33,14 @@ export function DiagnosisResultCard({
 }: DiagnosisResultCardProps) {
   if (!diagnosis) {
     return (
-      <View style={styles.emptyCard}>
-        <Text style={styles.emptyTitle}>{t('Wybierz objawy bochenka')}</Text>
+      // Pusty wynik jako karta z ikoną (M3 p5, README §1)
+      <Karta testID="karta-wynik-pusty" tytul={t('Wybierz objawy bochenka')} ikona={<IkonaKarty nazwa="info" />}>
         <Text style={styles.emptyText}>
           {t(
             'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.'
           )}
         </Text>
-      </View>
+      </Karta>
     );
   }
 
@@ -88,7 +90,8 @@ export function DiagnosisResultCard({
       </View>
 
       <View style={styles.diagnosisHeader}>
-        <Text style={styles.diagnosisTitle}>{t(diagnosis.titlePl)}</Text>
+        {/* Nazwa wady jako nagłówek karty z ikoną (README §2); obwódka wagi wady zostaje (krytyczna: kolor błędu) [M3 p5] */}
+        <NaglowekKarty testID="karta-diagnoza" tytul={t(diagnosis.titlePl)} ikona={<IkonaKarty nazwa="bochenek" />} />
         <Text style={styles.diagnosisSubtitle}>{t(diagnosis.subtitlePl)}</Text>
       </View>
 
@@ -161,9 +164,8 @@ export function DiagnosisResultCard({
 
 const styles = StyleSheet.create({
   diagnosisCard: {
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    marginBottom: theme.spacing.lg,
+    borderRadius: promienie.karta,
+    padding: odstepy.l,
     borderWidth: 2,
     backgroundColor: theme.colors.powierzchnia,
   },
@@ -211,12 +213,6 @@ const styles = StyleSheet.create({
   },
   diagnosisHeader: {
     marginBottom: 12,
-  },
-  diagnosisTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
-    fontWeight: '800',
-    color: theme.colors.tusz,
   },
   diagnosisSubtitle: {
     fontSize: 14,
@@ -299,26 +295,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
-  emptyCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    marginBottom: theme.spacing.lg,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    alignItems: 'center',
-  },
-  emptyTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.tresc.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 6,
-  },
   emptyText: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz3,
-    textAlign: 'center',
-    lineHeight: 18,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
   },
 });

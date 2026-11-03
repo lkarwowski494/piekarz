@@ -7,6 +7,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { t } from '../../lib/i18n';
 import {
   DOUGH_RECOVERY_PROTOCOLS,
@@ -32,8 +34,8 @@ export function EmergencyRecoverySection({
     : null;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.sectionHeading}>{t('Protokoły ratunkowe (Pogotowie ciasta)')}</Text>
+    // M3 p5: sekcja w karcie z ikoną (README §1); protokoły, treść i wybór bez zmian
+    <Karta testID="karta-protokoly" tytul={t('Protokoły ratunkowe (Pogotowie ciasta)')} ikona={<IkonaKarty nazwa="tarcza" />}>
       <Text style={styles.sectionSubheading}>
         {t('Szybkie interwencje w trakcie fermentacji')}
       </Text>
@@ -115,22 +117,11 @@ export function EmergencyRecoverySection({
           </View>
         </View>
       )}
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginBottom: theme.spacing.md,
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginTop: 8,
-    marginBottom: 2,
-  },
   sectionSubheading: {
     fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,

@@ -7,6 +7,8 @@ jest.setTimeout(20000);
 const mockPush = jest.fn();
 
 jest.mock('expo-router', () => ({
+  // Pas O3a na Doktorze (usePasekStanuJasny): atrapa useFocusEffect, D-197
+  useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []),
   useRouter: () => ({
     push: mockPush,
   }),

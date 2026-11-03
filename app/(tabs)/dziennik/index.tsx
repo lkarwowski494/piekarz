@@ -20,7 +20,9 @@ import { BakeStatsCard } from '../../../src/components/stolnica/BakeStatsCard';
 import { BakeHistorySection } from '../../../src/components/stolnica/BakeHistorySection';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { theme } from '../../../src/ui/theme';
-import { odstepy, promienie, typografia } from '../../../src/ui/tokeny';
+import { odstepy, typografia } from '../../../src/ui/tokeny';
+import { wygladKarty } from '../../../src/ui/karty/Karta';
+import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 
 export default function DziennikScreen() {
   const router = useRouter();
@@ -58,9 +60,9 @@ export default function DziennikScreen() {
             ? { filtry: FILTRY_SMAKU.map((f) => ({ ...f, etykieta: t(f.etykieta) })), wybrany: historia.selectedTasteFilter, onWybierz: historia.setSelectedTasteFilter }
             : undefined} />
       </View>
-      <BlokadaFunkcji {...blokada('historia')}>
+      <BlokadaFunkcji {...blokada('historia')} ikonaKarty={<IkonaKarty nazwa="lista" />}>
         {historia.bakeHistory.length > 0 && (
-          <BlokadaFunkcji {...blokada('porownanie')}>
+          <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
             <BakeStatsCard stats={historia.bakeStats} />
           </BlokadaFunkcji>
         )}
@@ -74,14 +76,17 @@ export default function DziennikScreen() {
           onWyroznionyY={(y) => przewijane.current?.scrollTo({ y: Math.max(0, y - odstepy.l), animated: true })}
         />
       </BlokadaFunkcji>
+      {/* Doktor Chleba jako wiersz-karta z ikoną i szewronem (makieta inne.html #dziennik, README §1) [M3 p5] */}
       <Pressable
         testID="dziennik-doktor-btn"
         accessibilityRole="button"
         accessibilityLabel={t('Doktor Chleba')}
-        style={styles.wiersz}
+        style={({ pressed }) => [styles.wiersz, pressed && styles.nacisniety]}
         onPress={() => router.push('/doktor')}
       >
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="bochenek" rozmiar={28} /></View>
         <Text style={styles.wierszTekst}>{t('Doktor Chleba')}</Text>
+        <View style={styles.szewron} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden />
       </Pressable>
     </ScrollView>
       {/* Pasek nad dolną krawędzią, widoczny bez przewijania do usuniętego wpisu (D-051 1a, 011) */}
@@ -97,12 +102,18 @@ const styles = StyleSheet.create({
   przewijane: { flex: 1 },
   tresc: { padding: theme.spacing.md, paddingBottom: 40, gap: odstepy.m },
   pas: { marginHorizontal: -theme.spacing.md, marginTop: -theme.spacing.md },
+  // Wiersz-karta (README §2: wiersz min 52, odstępy 10/16)
   wiersz: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
+    ...wygladKarty,
+    minHeight: 52,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: odstepy.m,
+    paddingVertical: 10,
     paddingHorizontal: odstepy.l,
-    borderRadius: promienie.grupa,
-    backgroundColor: theme.colors.powierzchnia,
   },
-  wierszTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.akcentTekst },
+  nacisniety: { backgroundColor: theme.colors.tloGrupa },
+  wierszTekst: { flex: 1, flexShrink: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  // Szewron „›” jak w WierszKarty (obramowanie, bez tekstu)
+  szewron: { width: 9, height: 9, borderTopWidth: 2, borderRightWidth: 2, borderColor: theme.colors.tusz3, transform: [{ rotate: '45deg' }] },
 });
