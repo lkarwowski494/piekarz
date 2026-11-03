@@ -18,7 +18,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 + BR-KALK-012 (ER-75) |
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
-| `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71) |
+| `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71), BR-RECP-005 (ER-76) |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
 | `errata.md` | errata ER-34…ER-70 | E3 + 2026-10-22 |
@@ -60,6 +60,8 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-59 | Rozstrzygnięte 2026-10-22 (D-094): 3 pozycje przyszłe w linii „Następne”, „Zaległe” zawsze ponad limit, reszta pod „+N” | właściciel | RD-32, BR-KAL-003 |
 | OP-60 | Rozstrzygnięte 2026-10-22 (D-094): po „Pomiń” karmienia następny termin od chwili pominięcia; pominięcia poza kopią zapasową | właściciel | RD-32, BR-KAL-003, BR-KAL-007 |
 | OP-61 | [DO USTALENIA] czy sól można jeszcze dodać w trakcie pierwszego rośnięcia (źródła mówią „przed” i „po”, nie „w trakcie”; wątek forum S-96 radzi wyrobić, szczebel 5) | rola 06 | RD-35 |
+| OP-62 | [DO WYJAŚNIENIA] (OP-62) czy wybór „na drożdżach” zapamiętuje się przy recepturze i czy wypiek oraz wpis w Dzienniku zapisują, którą wersję upieczono; bez tego poprawa następnego wypieku (J-05) miesza obie wersje | rola 03 z rolami 04 i 05 | BR-RECP-005, J-05 |
+| OP-63 | [DO USTALENIA] (OP-63) co po przełączeniu na drożdże dzieje się z mąką i wodą, które w wersji na zakwasie wnosi zakwas (te same procenty całkowite czy procenty ze źródła wersji drożdżowej); dane roli 06 podają procent drożdży względem mąki (`docs/tresci/wektory/m3-2026-11-03.json`) | rola 06 z rolą 05 | BR-RECP-005, RD-14 |
 
 ## Blokery wydania
 
