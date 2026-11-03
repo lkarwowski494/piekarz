@@ -32,6 +32,7 @@ import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, Poz
 import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
+import { podtytulReceptury } from '../../../src/components/receptury/nazwy-receptur';
 import { t } from '../../../src/lib/i18n';
 import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
@@ -248,7 +249,8 @@ export default function EkranReceptury() {
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
         <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
           <NadPasem />
-          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
+          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} podtytulTestID="recipe-subtitle"
+            podtytul={currentMasterPreset ? podtytulReceptury(currentMasterPreset.category) : undefined} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
             akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
           <View style={s.tresc}>
           <BlokadaFunkcji {...blokada('kalkulator')}>

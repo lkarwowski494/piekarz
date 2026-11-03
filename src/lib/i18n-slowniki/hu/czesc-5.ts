@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ocena wypieku': 'Sütés értékelése',
-  'Ocena: {n}/5': 'Értékelés: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'A tésztát a kinézete alapján ítéld meg, ne az óra szerint: hidegben a tészta tovább kel, a receptben szereplő idők pedig csak iránymutatók.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Értékeld a cipót, és mentsd a jegyzeteidet a sütési előzményekbe',
   'Oceń na {n} z 5': 'Értékelés: {n} / 5',
@@ -14,6 +13,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Liszttől és víztől az első cipóig, napról napra.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Ettől a naptól etesd a kovászt naponta kétszer, nagyjából 12 óránként.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Gáztalanítsd erősen lenyomkodva, ahogy formázáskor szoktad.',
+  'Odhaczaj przy ważeniu.': 'Pipáld ki mérés közben.',
   'Odhaczaj składniki w miarę wsypywania': 'Pipáld ki a hozzávalókat, ahogy beméred őket',
   'Odkryj wiedzę naukową': 'Fedezd fel a tudományos hátteret',
   'Odliczanie trwa': 'Visszaszámlálás folyamatban',

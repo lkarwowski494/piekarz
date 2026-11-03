@@ -84,8 +84,8 @@ describe('M3 p5: Ustawienia na kartach', () => {
     const tree = await ustawienia();
     const sekcje: [string, string][] = [
       ['Sprzęt i naczynie do wypieku', 'vessel-dutch-oven-btn'],
-      ['Język', 'lang-pl'],
-      ['Jednostki', 'unit-metric'],
+      ['Język i jednostki', 'lang-pl'],
+      ['Język i jednostki', 'unit-metric'],
       ['Godziny snu', 'sleep-profile-brak'],
       ['Kopia zapasowa', 'export-backup-btn'],
       ['Eksport arkuszy CSV', 'export-bakes-csv-btn'],

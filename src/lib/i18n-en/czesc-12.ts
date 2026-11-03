@@ -151,7 +151,6 @@ export const EN_12: Record<string, string> = {
     'Mail is not set up on this phone. Write to: {adres}',
   'Kopiuj adres': 'Copy address',
   // 088: teksty zamiast emoji (ocena wpisu w Dzienniku)
-  'Ocena: {n}/5': 'Rating: {n}/5',
   // 089: nazwy akcji ze słownika interakcji (docs/design/design-spec.md §5)
   'Zrobione': 'Done',
   'Zrobione: {krok}': 'Done: {krok}',

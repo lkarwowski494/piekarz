@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '{czas} nuo maitinimo',
   '{czas} po czasie': 'Vėluojama {czas}',
   '{data}, dziś': '{data}, šiandien',
+  '{data}, ocena {n}/5': '{data}, įvertinimas {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}: {opis}',
   '{dzien}, {d} {miesiac}': '{dzien}, {miesiac} {d} d.',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}: {h} orkaitė užimta',

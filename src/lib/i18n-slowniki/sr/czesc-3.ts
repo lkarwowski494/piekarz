@@ -143,7 +143,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Шупљине (Недоферментисан)',
   'Jedna opłata, bez odnawiania.': 'Једна уплата, без обнављања.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Једнолично густа и тешка средина (без ваздуха)',
-  'Jednostki': 'Јединице',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ако тек после првог нарастања приметиш да нема соли, додавање соли неће помоћи, а поновно месење може трајно да упропасти тесто: испеци хлеб без соли или од теста направи подлогу за пицу.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ако спасаваш тесто, извади га из корпе или посуде.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ако нема соли, отвори протокол „Заборављена со“.',

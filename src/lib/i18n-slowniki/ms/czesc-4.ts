@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Menilai perkembangan jaringan gluten selepas autolisis dan lipatan doh',
   'Ocena wymaga połączenia z App Store.': 'Penilaian memerlukan sambungan ke App Store.',
   'Ocena wypieku': 'Penilaian bakaran',
-  'Ocena: {n}/5': 'Penilaian: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Nilai doh berdasarkan rupanya, bukan jam: dalam keadaan sejuk doh mengambil masa lebih lama untuk naik, dan masa dalam resipi hanyalah panduan.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Nilai buku roti dan simpan nota ke sejarah bakaran',
   'Oceń na {n} z 5': 'Nilai {n} daripada 5',

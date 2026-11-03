@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '먹이 주기 후 {czas}',
   '{czas} po czasie': '{czas} 지남',
   '{data}, dziś': '{data}, 오늘',
+  '{data}, ocena {n}/5': '{data}, 평점 {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}: {opis}',
   '{dzien}, {d} {miesiac}': '{miesiac} {d}일 ({dzien})',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}: {h}에 오븐 사용 중',

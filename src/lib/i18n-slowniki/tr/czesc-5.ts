@@ -2,6 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Şekillendirmede olduğu gibi sıkıca bastırarak gazını alın.',
+  'Odhaczaj przy ważeniu.': 'Tartarken işaretleyin.',
   'Odhaczaj składniki w miarę wsypywania': 'Ekledikçe malzemeleri işaretleyin',
   'Odkryj wiedzę naukową': 'Bilimsel bilgiyi keşfet',
   'Odliczanie trwa': 'Geri sayım sürüyor',

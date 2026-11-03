@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плотный и тяжёлый мякиш (нет пористости)',
-  'Jednostki': 'Единицы',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Если нехватка соли обнаружится только после первого подъёма, добавлять её бесполезно, а повторный замес может безвозвратно испортить тесто: испеките хлеб без соли или сделайте из теста основу для пиццы.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Если спасаете тесто, выньте его из корзины или миски.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Если соли нет, откройте протокол «Забытая соль».',
@@ -12,7 +11,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Если вы видите налёт, пятна или изменение цвета либо чувствуете гнилостный запах, откройте проверку закваски.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Если закваска «{name}» не увеличилась вдвое, подкормите её ещё раз.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Если закваска мало поднялась и в ней мало пузырьков, продолжайте подкармливать её каждые 12 часов.',
-  'Język': 'Язык',
+  'Język i jednostki': 'Язык и единицы',
   'jutro': 'завтра',
   'Jutro': 'Завтра',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Календарь пуст. Он заполнится, когда вы заведёте закваску или запланируете выпечку.',

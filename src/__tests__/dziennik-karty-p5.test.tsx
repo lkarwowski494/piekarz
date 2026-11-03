@@ -121,7 +121,7 @@ describe('M3 p5: Dziennik na kartach', () => {
     expect(tytul).toEqual(['Mój chleb']);
     expect(maIkone(karta, 'bochenek')).toBe(true);
     for (const id of ['bake-again-btn-b1', 'delete-bake-log-b1']) expect(poId(karta, id).length).toBeGreaterThan(0);
-    expect(tekst(karta)).toContain('Ocena: 4/5');
+    expect(tekst(karta)).toContain(', ocena 4/5');
     expect(tekst(karta)).toContain('Dłużej w lodówce');
     expect(goleNaglowki(tree.root)).toEqual([]);
     act(() => tree.unmount());

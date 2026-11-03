@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Da farinha e água ao seu primeiro pão, dia após dia.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'A partir deste dia, alimente o fermento natural duas vezes por dia, mais ou menos a cada 12 horas.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Desgaseifique-a pressionando com firmeza, como na modelagem.',
+  'Odhaczaj przy ważeniu.': 'Marque ao pesar.',
   'Odhaczaj składniki w miarę wsypywania': 'Marque os ingredientes conforme for adicionando',
   'Odkryj wiedzę naukową': 'Descobrir a ciência',
   'Odliczanie trwa': 'Contagem regressiva em andamento',

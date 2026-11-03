@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '{czas} desde el refresco',
   '{czas} po czasie': '{czas} de retraso',
   '{data}, dziś': '{data}, hoy',
+  '{data}, ocena {n}/5': '{data}, valoración {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}: {opis}',
   '{dzien}, {d} {miesiac}': '{dzien}, {d} de {miesiac}',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}: horno ocupado a las {h}',

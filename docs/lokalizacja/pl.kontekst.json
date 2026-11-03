@@ -901,6 +901,12 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
+  "Co zrobić": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (tytul)"
+    ],
+    "opis": "Nagłówek karty instrukcji bieżącego kroku na ekranie prowadzenia wypieku (pod nim treść kroku); bez dwukropka, inny tekst niż „Co zrobić:” z Doktora; ok. 9 znaków; nagłówek karty 20 pt, zawija się. Numer kroku „Krok {n} z {m}” jest na pasie nad kartą (README karty §6, D-192, D-209)."
+  },
   "Co zrobić przy następnym wypieku:": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
@@ -1103,11 +1109,6 @@
   },
   "Do miski (Ciasto właściwe)": {
     "gdzie": []
-  },
-  "Do miski (odhaczaj przy ważeniu)": {
-    "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tytul)"
-    ]
   },
   "Do miski na wagę": {
     "gdzie": [
@@ -2313,11 +2314,6 @@
       "src/core/bread-school-lessons.ts (dane: passingCriteriaPl)"
     ]
   },
-  "Jednostki": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tytul)"
-    ]
-  },
   "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -2382,10 +2378,11 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
-  "Język": {
+  "Język i jednostki": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tytul)"
-    ]
+    ],
+    "opis": "Nagłówek karty w Ustawieniach łączącej wybór języka aplikacji (siatka nazw języków) i jednostek („gramy, °C” / „uncje, °F”); ok. 17 znaków; nagłówek karty 20 pt, zawija się (README karty §6, D-198, D-209). Zastępuje dwa nagłówki „Język” i „Jednostki”."
   },
   "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.": {
     "gdzie": [
@@ -2679,6 +2676,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
+      "src/components/stolnica/ProwadzenieWypieku.tsx (podtytul)",
       "src/components/stolnica/StrefaKroku.tsx (tytul)"
     ]
   },
@@ -4150,11 +4148,6 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
-  "Ocena: {n}/5": {
-    "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
-    ]
-  },
   "Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -4212,6 +4205,12 @@
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
+  },
+  "Odhaczaj przy ważeniu.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (podpis)"
+    ],
+    "opis": "Podpis pod nagłówkiem karty „Do miski” na ekranie receptury: zachęta, by odhaczać składniki przy ważeniu (wiersze są polami do odhaczenia); tryb rozkazujący, z kropką; ok. 22 znaki; 13 pt, zawija się (README karty §6, D-185, D-209). Zastępuje dawny nagłówek „Do miski (odhaczaj przy ważeniu)”."
   },
   "Odhaczaj składniki w miarę wsypywania": {
     "gdzie": []
@@ -5669,6 +5668,36 @@
     "gdzie": [
       "src/components/harmonogram/NotatkiPlanu.tsx (tekst w JSX)"
     ]
+  },
+  "Receptura bazowa, na drożdżach": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb na drożdżach (bez zakwasu); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, na zakwasie": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb na zakwasie (brzmienie zatwierdzone w README §6)."
+  },
+  "Receptura bazowa, pizza": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: ciasto na pizzę; brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, słodka": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: wypieki słodkie (brioszka, chałka); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
+  },
+  "Receptura bazowa, żytnia": {
+    "gdzie": [
+      "src/components/receptury/nazwy-receptur.ts (kod)"
+    ],
+    "opis": "Podtytuł pasa ekranu receptury bazowej (pod nazwą receptury, 15 pt, kolor pasa, zawija się): rodzaj receptury jednym zdaniem, bez kropki. Osobny klucz na każdy rodzaj, bo forma przymiotnika zależy od rodzaju gramatycznego „receptura” w języku — nie sklejać „Receptura bazowa” z nazwą rodzaju (README karty §6, D-209). Rodzaj: chleb żytni (receptura żytnia); brzmienie roli 08 do akceptacji roli 04/09 (D-210)."
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [
@@ -9459,6 +9488,12 @@
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
+  },
+  "{data}, ocena {n}/5": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ],
+    "opis": "Wiersz pod nazwą receptury we wpisie Dziennika: data wypieku i ocena (gwiazdki 1–5) w jednej linii, np. „1 lis 2026, ocena 4/5”. {data} = data sformatowana w języku aplikacji (dzień, miesiąc skrótem, rok), {n} = liczba 1–5 (bez odmiany: zapis „n/5”); bez oceny wiersz pokazuje samą datę. 15 pt, zawija się (makieta karty/inne.html #dziennik, D-198, D-209). Zastępuje osobną linię „Ocena: {n}/5”."
   },
   "{dzien} {godzina}: {opis}": {
     "gdzie": [

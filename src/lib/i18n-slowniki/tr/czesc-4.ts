@@ -176,7 +176,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Otoliz ve katlamalardan sonra gluten ağının gelişiminin değerlendirilmesi',
   'Ocena wymaga połączenia z App Store.': 'Değerlendirme için App Store bağlantısı gerekir.',
   'Ocena wypieku': 'Pişirme puanı',
-  'Ocena: {n}/5': 'Puan: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Hamuru saate göre değil görünüşüne göre değerlendirin: Soğukta hamur daha uzun sürede kabarır ve tarifteki süreler yalnızca yol göstericidir.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Somunu puanlayın ve notları pişirme geçmişinize kaydedin',
   'Oceń na {n} z 5': '5 üzerinden {n} puan ver',

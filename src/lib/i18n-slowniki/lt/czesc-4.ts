@@ -184,5 +184,4 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Glitimo tinklo išsivystymo įvertinimas po autolizės ir lankstymų',
   'Ocena wymaga połączenia z App Store.': 'Norint įvertinti, reikia ryšio su App Store.',
   'Ocena wypieku': 'Kepinio įvertinimas',
-  'Ocena: {n}/5': 'Įvertinimas: {n}/5',
 };

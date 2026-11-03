@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Von Mehl und Wasser bis zum ersten Laib, Tag für Tag.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Frische den Sauerteig ab diesem Tag zweimal täglich auf, etwa alle 12 Stunden.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Entgase ihn, indem du fest drückst, wie beim Formen.',
+  'Odhaczaj przy ważeniu.': 'Beim Abwiegen abhaken.',
   'Odhaczaj składniki w miarę wsypywania': 'Hake die Zutaten beim Hinzufügen ab',
   'Odkryj wiedzę naukową': 'Wissenschaftliche Erkenntnis entdecken',
   'Odliczanie trwa': 'Countdown läuft',

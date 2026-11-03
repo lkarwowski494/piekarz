@@ -182,7 +182,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Lipekļa tīkla attīstības novērtēšana pēc autolīzes un mīklas locīšanas',
   'Ocena wymaga połączenia z App Store.': 'Lai novērtētu, nepieciešams savienojums ar App Store.',
   'Ocena wypieku': 'Cepiena vērtējums',
-  'Ocena: {n}/5': 'Vērtējums: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Vērtējiet mīklu pēc izskata, nevis pēc pulksteņa: vēsumā mīkla rūgst ilgāk, un receptē norādītie laiki ir tikai orientieris.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Novērtējiet kukuli un saglabājiet piezīmes cepšanas vēsturē',
   'Oceń na {n} z 5': 'Novērtēt ar {n} no 5',

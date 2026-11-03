@@ -6,6 +6,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Од брашна и воде до прве векне, дан по дан.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Од овог дана храни стартер два пута дневно, отприлике на сваких 12 сати.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Испусти гас из њега чврсто притискајући, као при обликовању.',
+  'Odhaczaj przy ważeniu.': 'Штиклирај док мериш.',
   'Odhaczaj składniki w miarę wsypywania': 'Штиклирај састојке док их сипаш',
   'Odkryj wiedzę naukową': 'Откриј научна сазнања',
   'Odliczanie trwa': 'Одбројавање је у току',

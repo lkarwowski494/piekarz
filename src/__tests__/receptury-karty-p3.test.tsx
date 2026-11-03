@@ -137,14 +137,14 @@ describe('M3 p3: Receptury na kartach', () => {
   it('receptura: „Masa ciasta” (README §6: „Ile pieczesz”, D-185), „Do miski” z hydratacją i „O recepturze” w kartach z ikonami', async () => {
     const tree = await zamontuj(<EkranReceptury />);
     const naglowki = naglowkiKart(tree.root);
-    for (const n of ['Ile pieczesz', 'Do miski (odhaczaj przy ważeniu)', 'O recepturze']) expect(naglowki).toContain(n);
+    for (const n of ['Ile pieczesz', 'Do miski', 'O recepturze']) expect(naglowki).toContain(n);
     const ile = kartaZ(tree.root, 'Ile pieczesz');
     expect(poId(ile, 'recipe-mode').length).toBeGreaterThan(0);
     expect(poId(ile, 'loaves-increment-btn').length).toBeGreaterThan(0);
-    const miska = kartaZ(tree.root, 'Do miski (odhaczaj przy ważeniu)');
+    const miska = kartaZ(tree.root, 'Do miski');
     for (const id of ['scale-item-water', 'recipe-hydration', 'recipe-total']) expect(poId(miska, id).length).toBeGreaterThan(0);
     expect(poId(kartaZ(tree.root, 'O recepturze'), 'recipe-about').length).toBeGreaterThan(0);
-    for (const n of ['Ile pieczesz', 'Do miski (odhaczaj przy ważeniu)', 'O recepturze']) expect(maIkone(kartaZ(tree.root, n))).toBe(true);
+    for (const n of ['Ile pieczesz', 'Do miski', 'O recepturze']) expect(maIkone(kartaZ(tree.root, n))).toBe(true);
     act(() => tree.unmount());
   });
 
