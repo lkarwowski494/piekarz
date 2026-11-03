@@ -1110,3 +1110,15 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** (1) p5b dokańcza p5 według `docs/stan-08-p5-2026-11-03.md`: Piekarz Pro (`PaywallModal.tsx`, ujawnienia bez zmian treści, kolejności i widoczności, D-112/D-113), wiersze `PoleObjawu` w Doktorze tylko bez zmiany testów, §7a dla Doktora i Pro. (2) p6a po p5b: segment „świeże / suche” przy wierszu drożdży na karcie „Do miski” (D-136, BR-KALK-012) przez istniejący wybór `rodzaj_drozdzy` (zapis bez zmian); testy liczą gramy z `gramyDrozdzy`, nie z wpisanej liczby. (3) Przelicznik 0,4 → 0,35 (D-172, RD-19-W2, kryterium BR-KALK-012 „8,75 g”) zmienia istniejące wektory testów (`src/core/__tests__/domain-rules.test.ts` i in., `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json`) i tekst „…odważysz 0,4 tej masy” — zmiana testów spoza D-194/D-197, do decyzji właściciela w raporcie 2026-11-04.
 - **Odrzucone:** (b) p6a z przelicznikiem 0,35 nocą (zmiana istniejących testów bez zgody); (c) p6a przed p5b (Pro jest warunkiem buildu, D-190); (d) p5b i p6a równolegle (wspólne `docs/22`, słowniki, `docs/decyzje.md`).
 - **Status:** noc, do weta.
+
+### [D-204] 2026-11-03 — Pas O3a na Planie: zmiana `pas-zakladek-d10.test.tsx:135` dozwolona (odpowiedź na STOP D-196)
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 20:30 UTC). **Słowa właściciela:** „Zmień test, daj pas (Recommended)”.
+- **Decyzja:** Plan (`harmonogram.tsx`) dostaje pas według `docs/stan-08-p4b-plan-pas.patch`; `src/__tests__/pas-zakladek-d10.test.tsx:135` → nagłówek planu ukryty (`toBe(false)`, jak lista i receptura); `src/__tests__/plan-prowadzenie-karty-p4.test.tsx:160` według D-197. Warunki jak D-194 (czerwień przed, asercje powrotu, tytułu dla VoiceOver i nawigacji, żadna bez zastępstwa). Linia :136 (Doktor zakwasu) bez zmian — nagłówek systemowy zostaje. Wykonanie: p6a.
+- **Odrzucone:** (b) Plan bez pasa (niespójna ścieżka wypieku).
+- **Status:** właściciel, 2026-11-03.
+
+### [D-205] 2026-11-03 — Przelicznik drożdży × 0,35 wdrożony w nocy (D-172, RD-19-W2, BR-KALK-012): zmiana wektorów testów dozwolona
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 20:30 UTC). **Słowa właściciela:** „Teraz, w nocy (Recommended)”.
+- **Decyzja:** `convertYeast` świeże → suche × 0,35 (i odwrotnie ÷ 0,35) według D-172; dozwolona zmiana istniejących wektorów z wartością 0,4 (`src/core/__tests__/*`, `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json` i każdego testu, który ją przypina) wyłącznie na wartości wynikające z 0,35; najpierw czerwony test kryterium BR-KALK-012 (25 g świeżych → 8,75 g suchych); tekst „…odważysz 0,4 tej masy” → nowe brzmienie z 0,35 i uwagą D-172 o opakowaniu, PL+EN (pozostałe języki rola 09). Wykonanie: p6a. Zmienia D-200 pkt 3.
+- **Odrzucone:** (b) 0,4 do 1.0.1.
+- **Status:** właściciel, 2026-11-03.
