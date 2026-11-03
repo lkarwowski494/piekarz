@@ -737,3 +737,20 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** najpierw ASC, potem scalenie; brak scalenia; pełny M1 przed zgłoszeniem; zgłoszenie bez audytu.
 - **Wyjątek nazwany (zasada 7):** pełny audyt przed upublicznieniem (w `trening` obowiązkowy, `docs/42-plan-wydania-1.0.md` §1 pkt 3) zastąpiony tańszą kontrolą — reauditem roli 07 z progiem eskalacji do M1.
 
+
+### [D-136] 2026-11-03 — Rodzaj drożdży: przełącznik świeże / instant przy wierszu drożdży na karcie „Do miski” (wersja 1.1)
+- **Rodzaj:** decyzja właściciela (prośba „Chciałbym żeby była możliwość zamiany drożdży świeżych na instant”, pytanie z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Przełącznik przy wierszu”.
+- **Stan przed:** BR-KALK-009 wdrożone — arkusz „Składniki” → „Drożdże do odważenia”, segmenty „świeże / suche”, przelicznik × 0,4 (RD-19, S-40, S-39; ten sam dla aktywnych i instant), widoczne tylko przy drożdżach w recepturze (`src/components/receptury/SkladnikiSheet.tsx:211-217`, `src/lib/rodzaj-drozdzy.ts`).
+- **Decyzja:** wybór rodzaju drożdży także bezpośrednio przy wierszu drożdży na karcie „Do miski”; logika i przelicznik bez zmian (RD-19). Kolejność: rola 04 (projekt wiersza i brzmienie „instant”), rola 08 (kod, testy przed kodem), rola 09 (33 języki). Wersja 1.1, po zgłoszeniu 1.0.
+- **Odrzucone:** (a) tylko etykieta „suche / instant” (rekomendacja koordynatora, tańsza, do 1.0); (c) zostawić.
+- **Zależy od:** wyniku testu 1.0 na telefonie (czy obecny przełącznik został znaleziony), D-038 (model bez zmian; przełącznik nie zmienia podziału Basic/Pro — do potwierdzenia przez rolę 03).
+- **Status:** dzień, do weta.
+
+### [D-137] 2026-11-03 — Odpowiedniki drożdżowe receptur na zakwasie jako osobne receptury-bliźniaki (wersja 1.1)
+- **Rodzaj:** decyzja właściciela (prośba „Chciałbym aby przepisy na zakwasie miały odpowiedniki z drożdżami”, pytanie z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Osobne bliźniaki, 1.1”.
+- **Stan przed:** 7 receptur `category: 'sourdough'` i 4 drożdżowe (`src/recipes/presets.ts`); brak powiązania receptura zakwasowa ↔ drożdżowa.
+- **Decyzja:** dla wybranych receptur na zakwasie osobne receptury drożdżowe, każda z treścią i czasami fermentacji ze źródła. Kolejność: rola 03 build `zmiany-zakresu` (które receptury, wejście w interfejsie, miejsce w Basic/Pro wobec D-038), rola 06 (ilość drożdży, czasy, plan; źródła szczebla 1–3), rola 04 (powiązanie na liście / w recepturze), rola 08 (kod, testy), rola 09 (33 języki). Wersja 1.1, po zgłoszeniu 1.0.
+- **Odrzucone:** (b) ogólny przełącznik „zakwas → drożdże” dla każdej receptury (ryzyko błędnych czasów w planie przy różnych mąkach i hydratacji); (c) zostawić 4 istniejące receptury drożdżowe.
+- **Status:** dzień, do weta.
