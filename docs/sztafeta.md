@@ -100,6 +100,7 @@ Punkt po punkcie z dowodem: `docs/scope-contract.md`, sekcja „Definicja ukońc
 | Zrzuty wzorcowe 320/390/430, jasny/ciemny, domyślny i AX5, obejrzane i poprawione | `wzorce-zrzuty/` 150 plików (pl 84 + pl-kontrast 4 + en-US-imp 27 + fr 35); arkusze obejrzane; lista usterek i poprawek `04-krytyka-e3.md` (P1 pusta); przegląd `e3-przeglad.png` |
 | Zero wyborów z kalibracji bez decyzji | `design-spec.md` §12 (D-042…D-051) |
 | Nie sprawdzone | makiety w Chromium, nie na iPhonie (krój treści i symbole zastępcze); VoiceOver, haptyka, dźwięk, powiadomienia, Dynamic Type na urządzeniu; test 3–5 osób (opcjonalny, właściciel); `npm test` nie uruchamiany (zmiany tylko w `docs/`) |
+| 09 Lokalizacja (M3 teksty redesignu, D-206) | build | zakończona 2026-11-03 (noc, do weta), czeka na scalenie koordynatora | gałąź `wip/09-teksty-2026-11-03` | `docs/lokalizacja/{przeklad-teksty-redesignu-2026-11-03.json,pl.kontekst.json,jezyki.md}`, słowniki 33 języków + EN, `docs/decyzje.md` (D-207, D-208), stan `docs/stan-09-teksty-2026-11-03.md` | weto D-207/D-208; rola 08/04: układ pozycji odłożonych (D-208); przegląd człowieka zdania o przeliczniku |
 
 ### Przekazanie do następnej roli
 - Zakończono: 04-studio-projektowe, tryb build, gałąź `claude/04-projekt-2026-10-20-088299` (od 0599da8 roli 03); artefakty w `docs/design/` (spis w `design-spec.md`), decyzje D-045…D-051 w `docs/decyzje.md`.
