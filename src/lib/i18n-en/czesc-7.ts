@@ -108,8 +108,8 @@ export const EN_7: Record<string, string> = {
     'Folding in a narrow, deep bowl (it requires a flat container).',
   'Z każdym kolejnym coil foldem poczujesz, jak ciasto staje się coraz bardziej zwarte, poduszkowe i samoistnie trzyma kształt.':
     'With each coil fold you will feel the dough becoming firmer and more pillowy, holding its shape on its own.',
-  'Wyrabianie francuskie (Slap & Fold / Bertinet)':
-    'French Kneading (Slap & Fold / Bertinet)',
+  'Wyrabianie francuskie (slap & fold)':
+    'French kneading (slap & fold)',
   'Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.':
     'Quickly working air and kinetic energy into a very sticky dough at the very start of mixing.',
   'Wyłóż lepkie ciasto na czysty, nienatłuszczony i nieoprószony blat.':

@@ -41,9 +41,9 @@ Wash and rinse the jar thoroughly before starting a new starter. [T:ZAK-NAC-001]
 Liquid on the surface (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. [T:ZAK-HOO-001]
+A layer of liquid that smells of alcohol is fine: it's a by-product of the yeast at work. [T:ZAK-HOO-001]
 You can pour it off or stir it in. [T:ZAK-HOO-001]
-If you also see growth or discoloration, or notice a rotten smell, mark it above. [T:-]
+If you also see growth or discoloration, or it smells rotten, mark it above. [T:-]
 
 ## wynik.no_observation.titlePl
 No signs marked [T:-]

@@ -14,7 +14,7 @@ export const FRIDGE_WAKE_STEP_ID = 'fridge_wake_feed';
 
 /** plan.start (ZAK-LOD-001) */
 export const FRIDGE_WAKE_INSTRUCTIONS: readonly string[] = [
-  'Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej.',
+  'Przed pieczeniem dokarm zakwas z lodówki w równych częściach wagowych i zostaw go w temperaturze pokojowej.',
   'Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.',
 ];
 /** plan.kolejne-dokarmienia (ZAK-LOD-002, ZAK-LOD-003) */
@@ -24,7 +24,7 @@ export const FRIDGE_WAKE_NEXT_FEEDINGS: readonly string[] = [
 ];
 /** niegotowy-w-dniu-ciasta (ZAK-LOD-002; BR-ZAKW-006, RD-24-W3) */
 export const FRIDGE_WAKE_NOT_READY: readonly string[] = [
-  'Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.',
+  'Zakwas jeszcze nie podwoił objętości: dokarm go ponownie i sprawdź, czy po tym dokarmieniu podwoi objętość w ciągu 6–8 godzin.',
   'Możesz przesunąć plan wypieku.',
 ];
 /** Nazwa kroku (tekst nowy, do przeglądu roli 04). */

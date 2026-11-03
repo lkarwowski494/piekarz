@@ -121,7 +121,8 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
 
       expect(result.defectCode).toBe('GUMMY_CRUMB');
       // oczekiwany tekst z docs/tresci/pl/doktor-chleba.md [M1-audytor-generalny-133]
-      expect(result.actionChecklistPl.some((a) => a.includes('całkowicie ostygnie'))).toBe(true);
+      // M3 T2 (D-123): „całkowicie” → „całkiem” w nowym brzmieniu roli 06; sens (poczekaj, aż ostygnie) bez zmian
+      expect(result.actionChecklistPl.some((a) => a.includes('całkiem ostygnie'))).toBe(true);
     });
 
     it('under-proofed flying crust takes precedence over over-proofed flat disk when both checked', () => {

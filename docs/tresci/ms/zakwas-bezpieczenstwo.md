@@ -40,9 +40,9 @@ Sebelum memulakan pemula sourdough baharu, basuh dan bilas balang dengan teliti.
 Cecair di permukaan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Menurut CSU Extension, lapisan cecair yang berbau alkohol tidak mengapa: ia hasil sampingan penapaian yis. [T:ZAK-HOO-001]
-Anda boleh menuangnya keluar atau mengacaunya ke dalam. [T:ZAK-HOO-001]
-Jika anda juga melihat selaput atau perubahan warna, atau terhidu bau busuk, tandakan perkara itu di atas. [T:-]
+Lapisan cecair yang berbau alkohol tidak mengapa: ia hasil sampingan kerja yis. [T:ZAK-HOO-001]
+Anda boleh menuangnya keluar atau mengacaunya masuk. [T:ZAK-HOO-001]
+Jika anda juga melihat selaput atau perubahan warna, atau terhidu bau busuk, tandakannya di atas. [T:-]
 
 ## wynik.no_observation.titlePl
 Tiada gejala ditandakan [T:-]

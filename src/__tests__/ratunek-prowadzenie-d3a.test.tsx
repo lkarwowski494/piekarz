@@ -116,7 +116,8 @@ describe('D3a: ratunek ciasta przy prowadzeniu (BR-DIAG-003, BR-DIAG-004)', () =
       c.props.onPress();
     });
     const karta = tree.root.findByProps({ testID: 'recovery-protocol-card' });
-    expect(karta.findAllByType(Text).map((x) => [x.props.children].flat().join('')).join(' ')).toMatch(/Nie próbuj ciasta.*FDA/);
+    // M3 T2 (D-123): ostrzeżenie z powodem (bakterie w surowej mące) zamiast atrybucji FDA w zdaniu
+    expect(karta.findAllByType(Text).map((x) => [x.props.children].flat().join('')).join(' ')).toMatch(/Nie próbuj ciasta.*surowego ciasta nie je się ani nie próbuje, bo w surowej mące mogą być groźne bakterie/);
     act(() => tree.unmount());
 
     // Wypiek zaczęty bez Pro (zaczety false): też otwarte
@@ -139,7 +140,7 @@ describe('D3a: ratunek ciasta przy prowadzeniu (BR-DIAG-003, BR-DIAG-004)', () =
     expect(kroki.length).toBeGreaterThan(0);
     expect(kroki.every((k) => k.props.accessible === true)).toBe(true);
     const pierwszy = kroki[0].findAllByType(Text).map((x) => [x.props.children].flat().join('')).join(' ');
-    expect(pierwszy).toMatch(/^1 Nie próbuj ciasta.*FDA/);
+    expect(pierwszy).toMatch(/^1 Nie próbuj ciasta.*bo w surowej mące mogą być groźne bakterie\.$/); // M3 T2 (D-123)
     act(() => tree.unmount());
   });
 });

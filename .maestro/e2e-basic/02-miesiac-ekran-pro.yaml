@@ -1,0 +1,41 @@
+# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+# "Miesiac" w pasie Dzis to funkcja Pro z oznaczeniem "Pro" (BR-KAL-013, D-116; app/(tabs)/(dzis)/index.tsx chron
+# 'miesiac'): stukniecie otwiera ekran Pro z "Przywroc zakupy", "Warunki uzytkowania" i "Polityka prywatnosci"
+# (Apple 3.1.2; PaywallModal). Bez produktow StoreKit ekran pokazuje ladowanie albo "Oferta chwilowo niedostepna"
+# (stan-oferty.ts): linki sa w kazdym z tych stanow, wiec asercje nie zaleza od odpowiedzi sklepu. "Zamknij"
+# (close-modal) wraca do tygodnia bez zmian.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "kalendarz-tryb-miesiac"
+- extendedWaitUntil:
+    visible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+- assertVisible:
+    id: "terms-of-use-btn"
+- assertVisible:
+    id: "privacy-policy-btn"
+- tapOn:
+    id: "close-modal"
+- extendedWaitUntil:
+    notVisible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+# Bez zmian: dalej tydzien, bez widoku miesiaca
+- assertVisible:
+    id: "pasek-tygodnia"
+- assertVisible:
+    id: "kalendarz-tryb-miesiac"
+- assertNotVisible:
+    id: "miesiac-siatka"
+- assertVisible:
+    id: "start-czynnosci"

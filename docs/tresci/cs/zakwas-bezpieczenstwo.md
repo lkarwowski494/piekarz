@@ -40,9 +40,9 @@ Před založením nového kvásku sklenici důkladně umyjte a vypláchněte. [T
 Tekutina na povrchu (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Podle CSU Extension je vrstva tekutiny s pachem alkoholu v pořádku: je to vedlejší produkt kvašení kvasinek. [T:ZAK-HOO-001]
+Vrstva tekutiny s pachem alkoholu je v pořádku: je to vedlejší produkt činnosti kvasinek. [T:ZAK-HOO-001]
 Můžete ji slít, nebo vmíchat. [T:ZAK-HOO-001]
-Pokud vidíte také povlak nebo změnu barvy, případně cítíte hnilobný zápach, označte to výše. [T:-]
+Pokud navíc vidíte povlak nebo změnu barvy, nebo cítíte hnilobný zápach, označte to výše. [T:-]
 
 ## wynik.no_observation.titlePl
 Nebyl označen žádný příznak [T:-]

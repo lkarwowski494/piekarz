@@ -43,4 +43,4 @@ Provide steam in the oven at the start of baking. [T:ZYT-ETA-006]
 Cooling [T:ZYT-ETA-001]
 
 ## rye_cool.instructions
-According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality. [T:ZYT-STU-001]
+Sourdough rye is best left to rest for 24 hours before you slice it. [T:ZYT-STU-001]

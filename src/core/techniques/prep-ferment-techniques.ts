@@ -104,7 +104,7 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     id: 'bib_04_slap_and_fold',
     code: 'BIB-04',
     category: 'dough_prep',
-    titlePl: 'Wyrabianie francuskie (Slap & Fold / Bertinet)',
+    titlePl: 'Wyrabianie francuskie (slap & fold)',
     titleEn: 'French Kneading (Slap & Fold)',
     physicalPrinciplePl: 'Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.',
     physicalPrincipleEn: 'Rapidly aerates and introduces mechanical energy into high-hydration sticky dough at the mixing onset.',

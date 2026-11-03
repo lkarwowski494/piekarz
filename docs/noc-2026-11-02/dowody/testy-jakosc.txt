@@ -1,0 +1,186 @@
+AUDYT STRATEGII TESTÓW — Piekarz, HEAD 38f8e5f, 2026-11-02 (noc)
+Tryb: tylko odczyt (grep/czytanie). Bez uruchamiania jest/verify. Punkt odniesienia od zlecającego:
+pełny lokalny `npm run verify` na 38f8e5f: exit 0, Jest 512 zestawów / 5564 testy.
+Oznaczenie [DO USTALENIA] = nie rozstrzygnięte samym odczytem.
+
+======================================================================
+A) INWENTARZ TWIERDZEŃ O JAKOŚCI (JAK-15)
+======================================================================
+Liczby testów:
+- README.md:120 „Liczbę testów podaje wynik `npm test`; ten plik nie powtarza jej ręcznie.” → brak liczby do porównania; zgodne z zasadą.
+- CLAUDE.md, docs/20, docs/wznowienie-M3.md: brak liczby testów/zestawów (grep „[0-9]{3,5} test|zestaw|suite” bez trafień). Nic do porównania z 512/5564.
+- docs/sztafeta.md:10 (wiersz roli 01) „`tests/wektory/brd.json` (112 wektorów)” → dziś plik ma 133 wektory (policzone: python json.load). Liczba nieaktualna (dopiski po 2026-10-22), nie fałsz w chwili zapisu.
+- docs/sztafeta.md:22 „50 BR, 17 PR, 11 J; `kontrola-brd.mjs` … kod 0 (2026-10-19)”; docs/sztafeta.md:60 „44 funkcje (MVP 36 …), 55 BR” — liczby z datą, z narzędzi spoza testów Jest.
+
+„verify zielone” / stan przebiegów:
+- docs/20-definicja-ukonczenia.md:3 „Stan «sprawdzone» obowiązuje tylko dla commitu, na którym komenda przeszła; ten dokument nie ogłasza gotowości” → poprawna forma (bez twierdzenia „zielone”).
+- docs/20:31 wiersz 20 „Całościowa weryfikacja | NFR-TEST-005 | `npm run verify`” — deklaracja bramki; potwierdzona przebiegiem zlecającego (exit 0 na 38f8e5f).
+- docs/sztafeta.md:91 „Nie sprawdzone: … `npm test` nie uruchamiany (zmiany tylko w `docs/`)” — uczciwe zastrzeżenie (rola 04).
+
+Pokrycie %:
+- docs/20:11 wiersz 1 „próg 100% pokrycia: nie sprawdzane automatem | `jest.config.js` nie ma progu `coverageThreshold`” — potwierdzone: jest.config.js:1-19 bez coverageThreshold.
+- CLAUDE.md:61 „Macierz testów AST … egzekwuje 100% pokrycia we wszystkich 5 kategoriach”; docs/22-macierz-testow.md:10-16 „1502 / 1502 … 100.0%”.
+  UWAGA: „pokrycie” macierzy = wystąpienie nazwy/klucza w kodzie testu: scripts/test-matrix.mjs:121 `code.includes(rel) || … code.includes(baseName)`, :142 `code.includes(key)`. To nie jest pokrycie wykonania ani asercji. Nazwa „100% pokrycia” może być czytana jako coverage kodu.
+- docs/20:32 wiersz 21: Stryker próg break 60, „wynik bazowy 61,08 na `ebd8471`” (stryker.config.json:13-18). Mutacje tylko `src/core/**` (stryker.config.json:9-13); poza zakresem: src/scheduler (harmonogram wsteczny/Sleep Guard), src/lib (unit-converter, backup, import), src/data. Przebieg tylko w nightly (.github/workflows/nightly.yml:51). Brak w repo raportu wyniku po 2026-10-19 [DO USTALENIA: aktualny wynik].
+
+„sprawdzone na urządzeniu”:
+- docs/20:16 wiersz 6 „zachowanie przy zablokowanym telefonie: nie sprawdzane automatem | test na urządzeniu: krok właściciela”.
+- docs/wznowienie-M3.md:13 „Build TestFlight z gałęzi … i test właściciela na urządzeniu: gesty, AX5/320, VoiceOver, powiadomienia dwóch wypieków, .ics, zakupy StoreKit” — zaplanowane, NIE wykonane.
+- docs/sztafeta.md:112 to samo jako „Poprzednio, stan na 2026-10-23” — nadal niewykonane; „migracji nie sprawdzamy ręcznie … zostają testy automatyczne”.
+- docs/sztafeta.md:91 „makiety w Chromium, nie na iPhonie … VoiceOver, haptyka, dźwięk, powiadomienia, Dynamic Type na urządzeniu” — nie sprawdzone.
+- docs/sztafeta.md:89 „Zrzuty wzorcowe 320/390/430, jasny/ciemny, domyślny i AX5, obejrzane” — dotyczy makiet HTML (Chromium), nie aplikacji.
+  Wniosek: żadne twierdzenie nie mówi „sprawdzone na urządzeniu”; wszystkie wpisy urządzenia są otwarte.
+
+Dostępność (44 pt, AX5, 320 pt):
+- CLAUDE.md:27 „pole dotyku minimum 44×44 pt … Sprawdza: tylko styl `minHeight` w `tests/matrix-a11y.test.tsx`; zmierzone pole dotyku: brak automatu.” Szerokość (×44) nie jest sprawdzana poza przyciskiem nagłówka (tests/matrix-a11y.test.tsx:63).
+- docs/20:23 wiersz 12a „Pola dotyku ≥ 48 pt w prowadzeniu i akcjach głównych, ≥ 44 pt w pozostałych, 64 pt przycisk kciuka …, 320 pt, AX5 | nie sprawdzane automatem” — progi 48/44/64 inne niż w CLAUDE.md:27 (tylko 44). Niespójność opisu, nie kodu (theme.cele = 48/44/64, tests/matrix-a11y.test.tsx:43).
+- CLAUDE.md:29 „Odporność … 320 pt … AX5 … Sprawdza: brak automatu (testy macierzy sprawdzają tylko obecność elementów).” — uczciwe.
+- README.md:129 kontrast WCAG 2.1 AA (theme-contrast.test.ts) — sprawdzane automatem (pary tokenów, nie zrzuty).
+
+E2E:
+- CLAUDE.md:67 Maestro w Jest „to nie jest E2E … bez wpływu daty”. Dowód: tests/maestro-flows.test.tsx:23,36 podaje `now: new Date()`, ale tests/maestro-runner.ts:26 tylko deklaruje pole `now` (brak innego użycia) → twierdzenie „bez wpływu daty” prawdziwe.
+- CLAUDE.md:68 „Prawdziwe E2E: `.maestro/e2e/*.yaml` na symulatorze iOS w workflow `.github/workflows/e2e-ios.yml`”. Workflow uruchamia się tylko na push/PR do master/main (.github/workflows/e2e-ios.yml:11-22), gałąź redesign tylko ręcznie.
+- docs/wznowienie-M3.md:8 „ostatni iOS E2E na tej gałęzi … run 39924837386 na `b47abea`, failure (2026-10-23); `0a4f12b` i późniejsze bez E2E.” → na HEAD 38f8e5f brak zielonego E2E w dokumentach [DO USTALENIA: wynik w GitHub Actions].
+- docs/sztafeta.md:12 „E6 zakończony 2026-10-23 (badb044, scalenie przez M1 po E2E)” — dotyczy badb044, nie HEAD.
+- docs/20:25 wiersz 14: Maestro w Jest „nie jest E2E”; prawdziwe E2E „sam przebieg na GitHub Actions” — poprawne.
+
+Inne:
+- README.md:123-125 „Niezależny korpus fizyczny (Python ↔ TypeScript)” vs docs/20:19 wiersz 9 „`scripts/gen-bakers-corpus.py` odtwarza wzory kodu JS, więc nie jest niezależną wyrocznią”. Drugi skrypt (gen-baking-physics-corpus.py) też odtwarza kod: scripts/gen-baking-physics-corpus.py:13-14 `def js_round … Mirror JavaScript's Math.round`, :17-25 te same progi 45/4 °C co src/core/domain-rules.ts. „Niezależny” w README jest zawyżone (to druga implementacja tego samego autora, nie wyrocznia ze źródła).
+- docs/20:18 wiersz 8 fast-check: „nightly: ziarno z zegara wypisywane w logu” — potwierdzone: jest.app-after-env.js:44-58, tests/helpers/fc-config.js:3-10, nightly.yml:43-44.
+
+======================================================================
+B) WYROCZNIE (JAK-02)
+======================================================================
+Źródła wartości oczekiwanych w repo:
+ (1) tests/wektory/brd.json — 133 wektory, reguły RD-14…RD-36, pole „pochodzenie”: 89× „rachunek”, reszta S-xx/D-xxx. docs/brd/reguly.md:5 „Wektory policzono skryptem niezależnym od kodu aplikacji (`rachunek-wektorow.mjs` … poza repo)” → skrypt niezależny nie jest w repo [DO USTALENIA].
+     Czytają plik tylko 4 testy: src/core/__tests__/plany-d5.test.ts:21, kalendarz-d4a.test.ts:26, piekarnik-d6.test.ts:16, zaczyn-w-formule-rd28-195.test.ts:11 — i sprawdzają głównie OBECNOŚĆ wektorów („wektory RD-33-W1…W6 są w tests/wektory/brd.json”, plany-d5.test.ts:51; kalendarz-d4a.test.ts:56; piekarnik-d6.test.ts:41; zaczyn-w-formule-rd28-195.test.ts:17). Wartości oczekiwane są przepisane ręcznie w testach (nie czytane z JSON) → rozjazd JSON↔test nie zostanie wykryty.
+     Wektory bez odwołania po ID w żadnym teście (grep RD-nn-Wn + zakresy W1…Wn): 53 / 133:
+       RD-14-W2,W4,W5,W6; RD-15-W1,W2,W4,W5,W6,W7; RD-16-W3; RD-17-W4,W7; RD-18-W1…W6 (całość); RD-19-W2,W3,W5,W6; RD-20-W1…W5 (całość);
+       RD-21-W2,W4,W5,W6; RD-23-W3; RD-24-W1,W4,W6; RD-25-W1…W5 (całość); RD-26-W2…W6; RD-27-W1,W4,W5; RD-29-W1,W3; RD-35-W3,W5.
+     [DO USTALENIA] część może być pokryta bez ID w nazwie. Krytyczne wg reguly.md:5 to RD-21/22/23 — RD-21 ma 4 z 6 wektorów bez odwołania.
+ (2) tests/fixtures/test-vectors.json (= docs/brd/fixtures/test-vectors.json, identyczne, cmp) — 19 wektorów „RD_00…RD_11” (STARA numeracja), sourceCitation na poziomie książki (Hamelman 2012 s. 14, Calvel 2001 rozdz. 4, Suas 2008 s. 72); liczby wyliczone dla danych wejściowych, nie wzięte ze źródła. „Artisan Baking Economics Standard 2026” (VEC-COST-01) i „Podręcznik Fizyki Cieplnej” (VEC-ICE) — źródła nieweryfikowalne [DO USTALENIA]. Test: src/core/__tests__/brd-test-vectors.test.ts:9; nagłówek :3 wskazuje docs/brd/fixtures, import z tests/fixtures.
+ (3) korpusy Pythona src/core/__tests__/fixtures/baking-physics-corpus.json, bakers-corpus.json — odtwarzają kod (patrz A, „Inne”).
+ (4) rachunek w komentarzu przy asercji — najczęstszy wzór w domain-rules.test.ts.
+
+Numeracja: src/core/__tests__/domain-rules.test.ts:17 „Core Domain Rules (RD-00…RD-15)”, :18 „RD-02”, :129 „RD-05 DDT”, :188 „RD-07 Ice”, :319 „RD-18: Hydration Difficulty Classification” — stara numeracja; docs/brd/reguly.md:3 „Reguły starego BRD o numerach 00–13 są wycofane … nowe zaczynają się od RD-14”; w nowym BRD RD-18 = masa lodu (reguly.md:78). Ten sam identyfikator znaczy dwie różne rzeczy → mylące śledzenie BR/RD.
+
+Próbki per obszar:
+True Baker's % / hydratacja
+ - src/core/__tests__/domain-rules.test.ts:42 `overallHydrationPercent).toBe(72.73)` — rachunek w komentarzu :37-39 (800/1100). Niezależna arytmetyka.
+ - tests/br-kryteria-067.test.tsx:57-68 „(RD-14-W1)” `totalWaterGrams).toBe(730)`, `toBeCloseTo(73, 2)` — wartość z BRD, przepisana ręcznie.
+ - tests/br-kryteria-067.test.tsx:71 „(RD-14-W3)” → 70%, granica hz=0.
+ - src/core/__tests__/domain-rules.test.ts:66 `toBe(67.65)` — bez rachunku w komentarzu przy tej linii [lustro kodu? DO USTALENIA].
+ - RD-14-W4 (hz = −1 → „błąd danych”, reguly.md:20) — brak testu z tym ID.
+4-DDT
+ - domain-rules.test.ts:141 `waterTempTarget).toBe(34.0)` — rachunek :132 „4 * 26 - (21 + 23 + 22 + 4)”. Niezależna arytmetyka.
+ - domain-rules.test.ts:172 `toBe(-2.0)` / 'requires_ice'; :179-184 granica 4,0 / 3,9 °C. Progi 4 i 45 °C — z kodu, nie ze źródła (komentarz :176 odwołuje się do audytu, nie do S-xx).
+ - tests/br-kryteria-067.test.tsx:86,92 „(RD-16-W1)” 23 °C, „(RD-16-W2)” 24 °C — z BRD.
+ - Lód: domain-rules.test.ts:191 „(80 + 20)” → kod src/core/domain-rules.ts:299 `80.0 + tapWaterTempC`; BRD RD-18 (reguly.md:79-81) Lf/c = 79,68. Test lustrzany względem kodu; wektory RD-18 nieużyte (mieszczą się w tolerancji 0,5 g, ale nikt tego nie sprawdza). F-53 lód = NIE w 1.0 (docs/scope-contract.md:69).
+Harmonogram wsteczny / Sleep Guard
+ - src/scheduler/__tests__/reverse-scheduler-dst.test.ts:5 „Godziny oczekiwane z Intl.DateTimeFormat z timeZone, niezależnie od kodu harmonogramu”; :67-69 wyrocznia kolizji `kolizja(st)` napisana niezależnie; :96-98 przejście DST wyszukiwane skanem. DOBRA wyrocznia.
+ - reverse-scheduler.test.ts:15-16 koniec chłodzenia 9:00; :61 start 6:30 bez kolizji; :89-90 600/960 min — wartości z konfiguracji kodu.
+ - reverse-scheduler-exhaustive.test.ts:55-56 `getMonth()).toBe(9)` i `getDate()).toBeLessThanOrEqual(31)` — asercja niemal tautologiczna (każdy dzień ≤ 31).
+ - fast-check: domain-property-based.test.ts:297 „guarantees chronological stage adjacency and terminal alignment” — niezmiennik.
+Baza mąk
+ - src/core/__tests__/flour-atlas.test.ts:60-62 `weightedAbsorptionPercent).toBe(68.0)`, `[66.0, 74.0]`, `12.2` = wartości z tabeli src/core/flour-atlas.ts:64-70 (lustro danych); src/core/flour-atlas.ts:22,169 sam przyznaje „parametry liczbowe bez źródła (p4-002 roli 06)”.
+ - flour-atlas.test.ts:76-79 średnia ważona (68+82)/2 = 75 — niezależna arytmetyka na danych bez źródła.
+ - flour-atlas.test.ts:41-47 dopasowanie nazw typów (typ 450…2000) — zachowanie, nie liczby.
+Profil zakwasu
+ - src/core/__tests__/starter-peak-predictor.test.ts:21-27 zakresy (4,5–6,0 h; 20–60%), :42-43 monotoniczność temp., :58-59 proporcja — wyrocznie relacyjne.
+ - src/core/__tests__/starter-one-peak-model.test.ts:42-49 „wektory roli 06” [10.8, 15.4, 'before'], [2.8, 3.9, 'after'] — źródło: wynik roli 06 (poza repo) [DO USTALENIA].
+Konwerter jednostek
+ - src/lib/__tests__/unit-converter.test.ts:25-28 °C→°F 0→32, 100→212, 25→77 — stałe fizyczne (niezależne).
+ - unit-converter.test.ts:40 `'25,5°C'` (przecinek PL), :47 `gramsToOunces(100)).toBeCloseTo(3.53, 1)` — niezależne (1 oz = 28,3495 g), ale tolerancja 1 miejsce po przecinku jest luźna.
+fast-check i Stryker
+ - package.json:80 `"fast-check": "^4.10.2"`; 48 wywołań fc.assert/fc.property w 16 plikach (np. domain-property-based.test.ts:41,98,144,176,211,235,257,273,297,339,376; tests/matrix-invariants.test.ts:104-105). Ziarno stałe 17102026 (jest.app-after-env.js:45), nightly losowe z wypisaniem (nightly.yml:43-44).
+ - package.json:71-72 `@stryker-mutator/core`/`jest-runner` ^10.0.0, skrypt `test:mutation` (package.json:31), konfiguracja stryker.config.json (break 60, tylko src/core), jest.mutation.config.js (tylko src/core/__tests__). Używany tylko w nightly.
+
+======================================================================
+C) POWTARZALNOŚĆ (JAK-05 / JAK-06)
+======================================================================
+Zegar:
+ - `Date.now()` w plikach testów: 189 wystąpień w 53 plikach; fałszywe timery/setSystemTime w 26 plikach.
+ - `new Date()` bez argumentów w testach (10 plików): src/__tests__/dzis-zrobione-d4b.test.tsx:112 (pod fałszywym zegarem :45), stolnica-plan-steps.test.tsx:359, dzis-d4b.test.tsx:385, zakwas-104-ekrany.test.tsx:41, dzis-kalendarz-d7.test.tsx:76, harmonogram-rytm-d7.test.tsx:70 (pod fałszywym zegarem :76-85), zakwas-staly-dzien-d7.test.tsx:47, src/lib/__tests__/zakwas-widok.test.tsx:19, tests/maestro-flows.test.tsx:23,36 (nieużywane).
+ - Zależne od prawdziwego dnia tygodnia/miesiąca BEZ fałszywego zegara: src/__tests__/zakwas-staly-dzien-d7.test.tsx:47-48 `isoDzis = () => new Date().getDay() || 7` użyte w :145-152 (beforeEach :71-79 bez useFakeTimers) → wynik zależy od dnia przebiegu; wyścig o północy [DO USTALENIA: czy kiedyś pada]. src/__tests__/dzis-kalendarz-d7.test.tsx:74-77 „poprzedni miesiąc” z prawdziwego zegara.
+ - dzis-d4b.test.tsx:382-395 test północy: północ liczona z prawdziwej daty + spy na Date.now — świadomy, deterministyczny co do logiki.
+Oczekiwanie przez prawdziwy czas (setTimeout):
+ - src/__tests__/stolnica-plan-steps.test.tsx:388 `setTimeout(r, 1100)`; src/__tests__/garnek-kciuk-fazy-w002.test.tsx:114 `setTimeout(r, 1100)` (tick sekundowy); src/__tests__/prosba-o-ocene-po-doktorze-n12.test.tsx:56 i prosba-o-ocene-138.test.tsx:79 `setTimeout(r, 800)` na zwłokę 600 ms; src/data/__tests__/d1b-przeglad-danych.sqlite.test.ts:115 `setTimeout(r, 5)` „nowa nazwa kopii (czas w ms)”. Margines 200–300 ms na obciążonym CI — ryzyko niestabilności i spowolnienia; da się zastąpić fałszywymi timerami.
+Wydajność: brak asercji czasu wykonania (toBeLessThan na czasach trwania dotyczy minut harmonogramu: reverse-scheduler.test.ts:78, plan-bez-nocy.test.ts:65). Brak performance.now/hrtime w testach.
+Math.random bez ziarna: tylko nazwy plików tymczasowych i bajty-wypełniacze (tests/app-locales-permissions.test.ts:173, tests/build-config.test.ts:64, tests/asc-zgloszenie.test.ts:95) — bez wpływu na wynik.
+Strefy czasowe:
+ - Lista stref: .github/workflows/tests-tz.yml:24-31 (UTC, Europe/Warsaw, America/New_York, America/Los_Angeles, Asia/Tokyo, Australia/Sydney, Pacific/Auckland), TZ przez env (:41-42), push na master/main/naprawy/** i PR.
+ - jest.config.js:1-19: brak TZ, globalSetup, fakeTimers; jest.setup.js bez mocków Date. Lokalnie testy biegną w strefie maszyny.
+ - Ustawianie strefy w testach: src/core/__tests__/helpers/strefa.ts:9-20 `wStrefie()` (prawdziwy process.env.TZ przez getBuiltinModule + kontrola resolvedOptions) — użyte w 18 plikach; src/scheduler/__tests__/reverse-scheduler-dst.test.ts:13-21 (Europe/Warsaw), reverse-scheduler-dst-new-york.test.ts; src/core/__tests__/plan-ics-d8.test.ts:64-70 ustawia `process.env.TZ = 'America/New_York'` w piaskownicy Jest — wg komentarza strefa.ts:3 taka zmiana „nie działa” [DO USTALENIA: czy test plan-ics-d8 naprawdę zmienia strefę, czy tylko czasUtc nie zależy od strefy].
+ - Daty DST wpisane: jesień 2026-10-25 (7 plików, np. reverse-scheduler-dst.test.ts:94-99), wiosna 2027-03-28 (8 plików, reverse-scheduler-dst.test.ts:101-106, karmienie-lodowka-dst.test.ts:25), USA 2026-11-01 / 2027-03-14 (reverse-scheduler-dst-new-york.test.ts). 2026-03-29 nie występuje (zastąpione 2027-03-28 — w porządku).
+Funkcje dni kalendarzowych / harmonogramów / powiadomień i testy DST/strefy:
+ - src/scheduler/reverse-scheduler.ts → reverse-scheduler-dst*.test.ts (Warszawa, NY; jesień+wiosna, godzina powtórzona i brakująca) — DOBRZE.
+ - src/core/dzien-lokalny.ts → dzien-lokalny.test.ts (wStrefie w pętli stref, 2026-10-25, 2027-03-28).
+ - src/core/notification-plan.ts (karmienie) → karmienie-lodowka-dst.test.ts (wiosna 2027, jesień).
+ - src/core/notification-feeding.ts → powiadomienia-wypiekow-d2.test.ts (Warszawa; :257 przejście na 2026-10-25 10:00 CET).
+ - src/core/kalendarz-nastepne.ts, pominiecia.ts, plany-wypiekow.ts, karmienia-budzace.ts, fridge-wake.ts, staly-dzien.ts, rytm-wypiekow.ts, plan-ics.ts → testy z wStrefie (kalendarz-d4a, pominiecia-d4a, plany-d5, rytm-staly-dzien-d7, plan-ics-d8).
+ - BEZ testu DST/strefy: src/lib/plan-za-pozno.ts:39-40 `roznicaDni` (dzień kalendarzowy, Math.round(…/DOBA_MS) — odporne na 23/25 h, ale nietestowane w nocy zmiany), src/lib/godzina-gotowe.ts:14 (DOBA_MIN), src/lib/godziny-snu.ts, src/lib/czas-temu.ts — [DO USTALENIA: czy liczą dni po północy lokalnej].
+ - src/lib/backup.ts:65-72 `localISODate`/`stampOf` (nazwa kopii z czasu lokalnego) — w powtórzonej godzinie 2026-10-25 możliwe dwie kopie z tą samą nazwą; przyrostek „-3” obsłużony (backup.test.ts:46), test w nocy zmiany czasu: brak [DO USTALENIA].
+
+======================================================================
+D) TESTY DOSTĘPNOŚCI OPISANE JAKO POMIAR (JAK-13)
+======================================================================
+ - tests/matrix-a11y.test.tsx:3 komentarz „minimalne pola dotyku >= 44pt (RD-ENG-03)”; :14 describe „Style minHeight >= 48 (RD-ENG-03; touch area on device not measured)” — uczciwe.
+ - tests/matrix-a11y.test.tsx:41 describe „Touch targets from the theme (052, DEC-15 a)”; :46 it „every touchable in app/ and src/ has a base style minHeight at or above its threshold” — statyczny AST stylów (tests/helpers/cele-dotykowe.ts:4-6), tylko Pressable/TouchableOpacity/TouchableHighlight (:14); bez szerokości, bez Switch/TextInput; hitSlop nie liczony.
+ - tests/matrix-a11y.test.tsx:55 it „header button (Zamknij / Anuluj) has a 44 pt target” — sprawdza styl minHeight/minWidth (:62-63), nazwa sugeruje pomiar celu.
+ - tests/matrix-dimensions.test.tsx:37 describe „Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)”; :38 „Compact Width 320pt Constraints (iPhone SE 1st gen)” — tytuły obiecują odporność; :39 it uczciwie „(presence only; layout not measured)”. Nagłówek pliku :3 „Weryfikuje odporność interfejsu na 320pt, AX5” — zawyżone.
+ - tests/duzy-tekst-kroj.test.ts:1 „duży tekst bez ucięć (AX5, 320 pt)”; :62 it „<Text> nie ma limitu linii ani ograniczenia powiększenia” — statyczny zakaz numberOfLines/maxFontSizeMultiplier, nie pomiar ucięcia.
+ - Brak testów z fontScale/PixelRatio.getFontScale (grep pusty).
+ - Strażnik deklaracji: tests/quality-declarations.test.ts:156-162 zakazuje tylko fraz „without overflow|without clipping|wraps gracefully|touch area of 44pt|Touch Targets >= 48pt” — nie łapie „Dimension Resiliency”, „Constraints”, „has a 44 pt target”.
+
+======================================================================
+E) DANE Z ZEWNĄTRZ (JAK-08)
+======================================================================
+ - Fixture z wcześniejszego buildu: tests/fixtures/baza-1014-f42c0d8.sql (zrzut bazy zapisanej kodem buildu 1014), kopia-1014-f42c0d8.json (eksport JSON), bake-session-v1-1c38b28.json, bake-session-v2-pauza-1014.json, bake-session-v2-rye.json; opis src/data/__tests__/helpers/baza-1014.ts:1-8. Użycie: baza-1014-fixture.sqlite.test.ts:97 (parseAndValidateBackup na pliku), migracja-d1-1014.sqlite.test.ts:300,315-317 (restoreFromBackupData z kopii 1014), d1b-przeglad-danych, sesje-wypiekow-d1, wypieki-per-id-d3a; stolnica-plan-steps.test.tsx (sesje v1/v2).
+   [DO USTALENIA] czy pliki to faktyczne zrzuty z urządzenia/symulatora, czy wygenerowane w Node — w repo brak skryptu generującego; najnowszy fixture = build 1014, a TestFlight jest na 1019 (docs/wznowienie-M3.md:5); helpers/baza-1014.ts:1 „1015 … 1016 bez zmian w src/data” — dla 1017–1019 brak deklaracji.
+ - Pozostałe testy importu budują obiekty ręcznie: src/__tests__/import-z-pliku-113.test.tsx:81-82 `JSON.stringify({ ...buildBackup(...) })`, :256,282 mutacje JSON; src/data/__tests__/restore.sqlite.test.ts:36 eksport bieżącym kodem → import bieżącym kodem (zamknięta pętla); src/lib/__tests__/backup.test.ts:158 nazwy plików z treścią '{}'; corrupt-state.test.ts — ręczne łańcuchy.
+ - Brak fixture z pliku uszkodzonego „z życia” (obcięty JSON, BOM, kodowanie z Files/iCloud) [DO USTALENIA czy jest w eksport-csv-bom-152].
+ - Dane osobowe w fixtures: brak (grep @, imię/nazwisko, telefon, „lukas/karwowsk” w tests/fixtures/* — 0 trafień); treść syntetyczna („Mój chleb mieszany”, „Ładne ucho”). Poza fixtures: docs/wznowienie-M3.md:9 ścieżka `C:\Users\lukas\…` (nazwa użytkownika Windows w publicznym repo — drobne).
+ - Mock systemu plików: jest.setup.js:3-54 (Map w pamięci, md5 z node:crypto); testy *.sqlite.test.* używają prawdziwego node:sqlite (helpers/node-sqlite-adapter.ts) — plus.
+
+======================================================================
+F) KRYTERIA AKCEPTACJI (JAK-03) — próbka 12 BR z MVP (docs/scope-contract.md)
+======================================================================
+BR (funkcja)                | pliki testów z ID | w nazwach it/describe | wyjątek br-wyjatki.json | przykładowy plik
+BR-KALK-002 (F-09)          | 2 | 6 | –  | tests/br-kryteria-067.test.tsx:57
+BR-KALK-004 (F-10)          | 3 | 7 | –  | src/__tests__/temperatura-wody-kalk004-146.test.tsx
+BR-HARMO-001 (F-13)         | 5 | 4 | –  | src/__tests__/plan-za-pozno-107.test.tsx
+BR-HARMO-003 (F-14)         | 4 | 6 | –  | tests/br-kryteria-067.test.tsx:117
+BR-ETAP-005 (F-58)          | 2 | 3 | –  | src/__tests__/stolnica-restart.test.tsx
+BR-CZAS-002 (F-16)          | 4 | 3 | częściowe (scripts/br-wyjatki.json:11: punktualność przy zablokowanym ekranie tylko na urządzeniu) | src/__tests__/notifications-pending.test.tsx
+BR-ZAKW-004 (F-25)          | 7 | 7 | –  | src/__tests__/przypomnienia-karmienia-179.test.tsx
+BR-DANE-001 (F-31)          | 4 | 4 | –  | src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts
+BR-DANE-002 (F-32)          | 2 | 2 | częściowe (br-wyjatki.json:15: utrata telefonu, OP-41) | src/data/__tests__/auto-backup.sqlite.test.ts
+BR-DANE-003 (F-33)          | 6 | 5 | –  | src/__tests__/import-zawsze-d039.test.tsx
+BR-DANE-004 (F-65)          | 2 | 3 | –  | src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx
+BR-START-001 (F-68)         | 5 | 5 | –  | src/__tests__/br-scenariusze-193-start-zakwas.test.tsx
+BRAK: 0 / 12. Bramka tests/br-bez-testu.test.ts:1-5 (scripts/br-bez-testu.mjs) wymusza ID w nazwie testu albo wyjątek. Ograniczenie: sprawdza obecność ID, nie zgodność asercji ze scenariuszem; na urządzeniu otwarte: BR-CZAS-002, BR-DANE-002 (oraz BR-REKA-001, BR-ZAK-001 — br-wyjatki.json:12,16).
+
+======================================================================
+G) RYZYKA UTRATY DANYCH (JAK-01) → testy
+======================================================================
+ - Pula kopii po wypieku `piekarz-kopia-*` (autoBackup, src/lib/backup.ts:179) → src/lib/__tests__/backup.test.ts, src/data/__tests__/auto-backup.sqlite.test.ts, dziennik-usun-przywroc-w2.test.tsx, baza-nowsza.sqlite.test.ts.
+ - Pula bezpieczeństwa `piekarz-przed-importem-*` / `piekarz-przed-czyszczeniem-*` (safetyBackup, backup.ts:191-195) → backup.test.ts:44-46,158; kopia-przed-importem-dziennik.sqlite.test.tsx; import-z-pliku-113.test.tsx; usun-wszystkie-dane-124.sqlite.test.tsx; eksport-ustawien-139.sqlite.test.ts.
+ - Import nadpisujący (importujKopie, src/lib/import-z-pliku.ts:77; parseAndValidateBackup backup.ts:214; rozpoznajPlik :36) → import-z-pliku-113.test.tsx, import-jezyk-jednostki-502.test.ts, basic-pro-pafix.test.tsx, uszkodzone-wiersze-121.sqlite.test.ts, suma-mak-import-n8.sqlite.test.ts, restore.sqlite.test.ts, migracja-d1-1014.sqlite.test.ts:300-339 (kopia z 1014 do nowego kodu i odwrotnie :288).
+ - Import receptury (importujRecepture :90) → tylko import-z-pliku-113.test.tsx.
+ - Usunięcie wszystkich danych (usunWszystkieDane, src/data/usun-wszystko.ts:15; najpierw kopia przed-czyszczeniem :3) → usun-wszystkie-dane-124.sqlite.test.tsx, delete-after-trial.test.tsx, kalendarz-d4a.sqlite.test.ts, eksport-ustawien-139.sqlite.test.ts.
+ - Uszkodzony stan `state_corrupt_*` (saveCorruptState/checkCorruptState/dismissCorruptState backup.ts:340-405; rescueAfterOpenFailure :323; copyRawDatabaseFiles :305) → src/lib/__tests__/corrupt-state.test.ts, corrupt-rescue.test.tsx, tests/audit-fixes.test.tsx; blad-odczytu-ustawien-b8.sqlite.test.ts; uszkodzone-wiersze-121.sqlite.test.ts (src/data/uszkodzone-wiersze.ts).
+ - Migracje schematu (src/data/sqlite-schema.ts, migracja-v6.ts:31,53, kopie-przed-migracja.ts:19-43) → sqlite-migration.test.ts, pre-migration-backup.sqlite.test.ts, testflight-migration.sqlite.test.ts, starter-entries-v5-migration.sqlite.test.ts, sesje-wypiekow-d1.sqlite.test.ts (przeniesSesjeV6, zapiszSesjePrzedMigracja), d1b-przeglad-danych.sqlite.test.ts (kopiaPrzedMigracja, sprzatnijKopiePrzedMigracja, awaria zapisu 3×), migracja-d1-1014.sqlite.test.ts (na fixture 1014).
+ - Trwająca sesja wypieku (bake-session-store.ts) → stolnica-restart.test.tsx, sesje-wypiekow-d1.sqlite.test.ts, fixture bake-session-v1/v2.
+ - Baza nowsza niż aplikacja (downgrade) → baza-nowsza.sqlite.test.ts.
+ Luki: test na urządzeniu migracji z buildu TestFlight (docs/sztafeta.md:112 „migracji nie sprawdzamy ręcznie”) — świadoma decyzja (przed 1.0 brak danych użytkowników, CLAUDE.md:6 „testuje tylko właściciel, na danych testowych”); brak fixture buildów 1017–1019 [DO USTALENIA]; utrata telefonu (BR-DANE-002, OP-41) tylko częściowo.
+
+======================================================================
+NAJWAŻNIEJSZE (od najpoważniejszego)
+======================================================================
+1. Wyrocznie BRD słabo wpięte: 53/133 wektorów tests/wektory/brd.json bez odwołania w testach (całe RD-18, RD-20, RD-25; 4/6 RD-21 krytycznej); 4 testy czytające JSON sprawdzają obecność wektora, a wartości są przepisane ręcznie.
+2. iOS E2E na HEAD: brak zielonego przebiegu w dokumentach (ostatni: failure na b47abea, docs/wznowienie-M3.md:8); E2E nie startuje na gałęzi automatycznie.
+3. Wszystkie twierdzenia „na urządzeniu” (AX5/320, VoiceOver, zablokowany ekran, StoreKit) są otwarte; testy a11y to statyczne style, kilka tytułów sugeruje pomiar (matrix-dimensions.test.tsx:3,37-38; matrix-a11y.test.tsx:55).
+4. „100% pokrycia” macierzy = obecność nazwy w kodzie testu (scripts/test-matrix.mjs:121,142); brak coverageThreshold; Stryker tylko src/core (bez scheduler/lib/data).
+5. README.md:123 „Niezależny korpus” — generator Pythona odtwarza kod (gen-baking-physics-corpus.py:13-25).
+6. Stara numeracja RD w domain-rules.test.ts (RD-18 = trudność hydratacji vs BRD RD-18 = lód).
+7. Powtarzalność: dobra macierz TZ i DST dla harmonogramu/kalendarza; słabsze: zakwas-staly-dzien-d7.test.tsx:47 (prawdziwy dzień tygodnia), oczekiwania 800–1100 ms prawdziwego czasu (5 miejsc), plan-ics-d8.test.ts:65 ustawia TZ w piaskownicy [DO USTALENIA].

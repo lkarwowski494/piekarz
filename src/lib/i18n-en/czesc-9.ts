@@ -86,17 +86,15 @@ export const EN_9: Record<string, string> = {
     'Raise the fermentation temperature to the optimal 26–28°C.',
   'Przyspieszona fermentacja termiczna':
     'Accelerated thermal fermentation',
-  'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.':
-    'Put the bowl of dough in the switched-off oven and turn on only the light: according to King Arthur Baking, the temperature inside rises gradually, but every oven and every kitchen gives a different result.',
+  'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.':
+    'Put the bowl of dough in the switched-off oven with just the light on: it slowly warms up inside, but every oven and every kitchen behaves differently.',
   // DOK-PIE-002 dosłownie z docs/tresci/en/doktor-zimna-kuchnia.md [M1-audytor-generalny-069; 06-tresci-012]
-  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.':
-    'Take the bowl out before you turn on the oven to preheat: King Arthur Baking warns that this is easy to forget.',
+  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: łatwo o tym zapomnieć.':
+    "Take the bowl out before you start preheating the oven: it's easy to forget.",
   'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).':
     'Alternatively: set the bowl over a pot of lukewarm water (water bath ~30°C).',
   'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.':
     'Monitor the volume — at 27°C the yeast and bacteria will regain their vigor within 60–90 minutes.',
-  'Aktywność metaboliczna drożdży Saccharomyces cerevisiae i bakterii Lactobacillus podwaja się między 18°C a 26°C wg kinetyki reakcji biochemicznych Arrheniusa.':
-    'The metabolic activity of Saccharomyces cerevisiae yeast and Lactobacillus bacteria doubles between 18°C and 26°C according to the Arrhenius kinetics of biochemical reactions.',
   'Zapomniana sól (Laminacja ratunkowa)':
     'Forgotten salt (Rescue lamination)',
   'Ciasto już fermentuje, a odważona sól została na blacie.':

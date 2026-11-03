@@ -40,7 +40,9 @@ describe('błędy MT (F-7)', () => {
     // forma „ti” w tekstach z ponownego przekładu
     // Klucz „Subskrypcja się nie odnowi, więc nic nie zapłacisz.” usunięty z próbą (D-112, M3 P-a): ta sama forma „ti”
     // w innym kluczu z ponownego przekładu
-    expect(hr['Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.']).toMatch(/nećeš/);
+    // M3 T2 (D-123): klucz „Według King Arthur Baking w pierwszej dobie …” usunięty ze słowników (nowe brzmienie czeka
+    // na przekład a5d); ta sama forma „ti” („nećeš”) w innym kluczu
+    expect(hr['Nie zdążysz na tę godzinę']).toMatch(/Nećeš/);
     expect(hr['Zwiększ udział zakwasu w recepturze.']).toMatch(/^Povećaj /);
   });
 });

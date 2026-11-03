@@ -40,9 +40,9 @@ Mielőtt új kovászt indítasz, alaposan mosd el és öblítsd ki az üveget. [
 Folyadék a felszínen (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-A CSU Extension szerint az alkoholszagú folyadékréteg rendben van: az élesztős erjedés mellékterméke. [T:ZAK-HOO-001]
+Az alkoholszagú folyadékréteg rendben van: ez az élesztő munkájának mellékterméke. [T:ZAK-HOO-001]
 Leöntheted vagy belekeverheted. [T:ZAK-HOO-001]
-Ha bevonatot vagy elszíneződést is látsz, vagy rothadt szagot érzel, jelöld be fent. [T:-]
+Ha bevonatot vagy elszíneződést is látsz, vagy rothadt szagot érzel, jelöld meg fent. [T:-]
 
 ## wynik.no_observation.titlePl
 Nincs bejelölt tünet [T:-]

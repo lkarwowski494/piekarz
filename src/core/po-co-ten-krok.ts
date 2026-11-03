@@ -20,31 +20,31 @@ const z = (tekst: string, id: string): ZdaniePoCo => ({ tekst, id });
 
 const DOKARMIANIE: readonly ZdaniePoCo[] = [
   z('Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.', 'KRO-POC-001'),
-  z('Według King Arthur Baking zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.', 'KRO-POC-002'),
+  z('Zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.', 'KRO-POC-002'),
 ];
-const STUDZENIE = z('Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić.', 'KRO-POC-015');
+const STUDZENIE = z('Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić.', 'KRO-POC-015');
 
 /** Rodzaj kroku → zdania „po co ten krok” (sekcje pliku treści; rye_starter jak starter_feed). */
 export const PO_CO_TEN_KROK: Readonly<Record<string, readonly ZdaniePoCo[]>> = {
   starter_feed: DOKARMIANIE,
   rye_starter: DOKARMIANIE,
-  autolyse: [z('Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.', 'KRO-POC-003')],
-  mix: [z('Według King Arthur Baking wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.', 'KRO-POC-004')],
+  autolyse: [z('Gdy mąka z wodą odpocznie przed dodaniem soli, mąka wchłania wodę, zaczyna się tworzyć gluten, a ciasto łatwiej się wyrabia.', 'KRO-POC-003')],
+  mix: [z('Wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz z drożdży i rośnie.', 'KRO-POC-004')],
   bulk_ferment: [
-    z('Według King Arthur Baking w czasie fermentacji powstają kwasy, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.', 'KRO-POC-005'),
+    z('W czasie fermentacji powstają kwasy, które dają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.', 'KRO-POC-005'),
     z('Składanie pomaga rozwinąć sieć glutenową i wzmacnia ciasto.', 'KRO-POC-006'),
   ],
-  pre_shape: [z('Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt bochenka, jeszcze bez dopracowania.', 'KRO-POC-007')],
-  bench_rest: [z('Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.', 'KRO-POC-008')],
-  final_shape: [z('Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.', 'KRO-POC-009')],
+  pre_shape: [z('Formowanie wstępne nadaje ciastu ogólny kształt bochenka, jeszcze bez wykańczania.', 'KRO-POC-007')],
+  bench_rest: [z('Każde dotknięcie ciasta napina gluten, a odpoczynek go rozluźnia, więc potem łatwiej uformujesz bochenek.', 'KRO-POC-008')],
+  final_shape: [z('Koszyk podtrzymuje rosnący bochenek i nadaje mu kształt.', 'KRO-POC-009')],
   final_proof: [
-    z('Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.', 'KRO-POC-010'),
-    z('Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.', 'KRO-POC-010'),
+    z('To ostatnie rośnięcie ciasta przed pieczeniem.', 'KRO-POC-010'),
+    z('Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.', 'KRO-POC-010'),
   ],
-  preheat_oven: [z('Według King Arthur Baking garnek nagrzewa się pusty, żeby po włożeniu ciasta powstała w nim para.', 'KRO-POC-011')],
-  bake: [z('Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.', 'KRO-POC-012')],
-  lid_on: [z('Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.', 'KRO-POC-013')],
-  lid_off: [z('Według King Arthur Baking bez pokrywki chleb piecze się dalej, aż w pełni się zrumieni.', 'KRO-POC-014')],
+  preheat_oven: [z('Garnek nagrzewasz pusty, żeby po włożeniu ciasta zrobiła się w nim para.', 'KRO-POC-011')],
+  bake: [z('Nacięcie wyznacza miejsce, w którym bochenek się rozejdzie, więc chleb trzyma kształt i nie pęka z boku.', 'KRO-POC-012')],
+  lid_on: [z('Para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.', 'KRO-POC-013')],
+  lid_off: [z('Bez pokrywki chleb piecze się dalej, aż porządnie się zrumieni.', 'KRO-POC-014')],
   cool: [STUDZENIE, z('Pokrojony za wcześnie może być gumowaty.', 'KRO-POC-015')],
   rye_cool: [STUDZENIE, z('Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.', 'KRO-POC-016')],
 };

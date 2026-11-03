@@ -166,7 +166,7 @@ export function TargetReadyCard({
         ))}
       </View>
       <Text style={styles.przypis}>
-        {t('Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).')}
+        {t('Wpływa na tempo fermentacji burzliwej: 10 °C chłodniej to około 3 razy dłuższa fermentacja (to przybliżenie, sprawdza się w 20–26 °C).')}
       </Text>
 
       {/* Noc po temperaturze, jak we wzorcu `plan-sen` (pole → temperatura → noc → Spirala) [M1-audytor-generalny-128] */}

@@ -95,8 +95,9 @@ describe('BR-KALK-011 Informacja o nietypowej ilości soli (RD-27, S-37)', () =>
     const tree = await render(<SkladnikiSheet {...arkusz({ saltPct: 2.01, onSaltPctChange })} />);
     const info = host(tree.root, 'salt-info');
     expect(info).toHaveLength(1);
-    expect(tekst(info[0])).toContain('więcej niż typowe 1,8–2,0% masy mąki');
-    expect(tekst(info[0])).toContain('King Arthur Baking');
+    // M3 T2 (D-123): zakres i kierunek bez przypisu do źródła („typowe … (według King Arthur Baking)” → „zwykłe …”)
+    expect(tekst(info[0])).toContain('więcej niż zwykłe 1,8–2,0% masy mąki');
+    expect(tekst(info[0])).not.toContain('King Arthur Baking');
     expect(info[0].props.accessibilityRole).not.toBe('alert');
     await wpisz(tree.root, 'salt-pct-input', '2,01');
     expect(onSaltPctChange).toHaveBeenLastCalledWith(2.01);
@@ -106,15 +107,16 @@ describe('BR-KALK-011 Informacja o nietypowej ilości soli (RD-27, S-37)', () =>
     setLang('en');
     const tree = await render(<SkladnikiSheet {...arkusz({ saltPct: 1.5 })} />);
     const info = host(tree.root, 'salt-info');
-    expect(tekst(info[0])).toContain('less than the typical 1.8–2.0% of flour weight');
+    expect(tekst(info[0])).toContain('less than the usual 1.8–2.0% of the flour weight'); // M3 T2 (D-123)
   });
 });
 
 describe('130: nowe teksty PL i EN (klucze z parametrami)', () => {
   afterEach(() => setLang('pl'));
   it.each([
-    ['Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', 'Salt at 2.5% is more than the typical 1.8–2.0% of flour weight (according to King Arthur Baking).'],
-    ['Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', 'Salt at 2.5% is less than the typical 1.8–2.0% of flour weight (according to King Arthur Baking).'],
+    // M3 T2 (D-123): nowe brzmienie bez przypisu do źródła
+    ['Sól {procent} to więcej niż zwykłe 1,8–2,0% masy mąki.', 'Salt at 2.5% is more than the usual 1.8–2.0% of the flour weight.'],
+    ['Sól {procent} to mniej niż zwykłe 1,8–2,0% masy mąki.', 'Salt at 2.5% is less than the usual 1.8–2.0% of the flour weight.'],
     ['Udział żyta {n}%: wariant żytni, plan bez składań.', 'Rye share 2.5%: rye variant, no folds in the plan.'],
     ['Udział żyta {n}%: wariant pszenny.', 'Rye share 2.5%: wheat variant.'],
   ])('„%s” ma przekład EN', (pl, en) => {

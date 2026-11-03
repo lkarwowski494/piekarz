@@ -10,6 +10,7 @@ import renderer, { act } from 'react-test-renderer';
 import { StarterSafetyCard } from '../src/components/zakwas/StarterSafetyCard';
 import { evaluateSourdoughSafety } from '../src/core/sourdough-physics';
 import { ACTIVE_LANGS, setLang, Lang } from '../src/lib/i18n';
+import { EN } from '../src/lib/i18n.en';
 
 type Status = 'discard' | 'hooch' | 'no_observation';
 const OBSERVATIONS: Record<Status, Parameters<typeof evaluateSourdoughSafety>[0]> = {
@@ -88,6 +89,8 @@ describe('Werdykt bezpieczeństwa zakwasu w każdym aktywnym języku (046)', () 
     }
   });
 
+  // Działanie przy samym płynie (wynik.hooch.actionPl) bez „Według CSU Extension” (M3 T2, D-123) przetłumaczone w a5d
+  // (wpięte 2026-10-29); wyjątek „T2 / a5d” usunięty — wszystkie statusy jak niżej.
   for (const lang of OTHER_LANGS) {
     const DOC = sections(lang);
     for (const status of STATUSES) {

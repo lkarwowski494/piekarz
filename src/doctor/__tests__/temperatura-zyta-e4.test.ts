@@ -11,9 +11,11 @@ describe('Doktor Chleba: temperatura wnętrza chleba żytniego (E-4)', () => {
   const wynik = diagnoseBreadDefect({ crumbIsWetGummyToKnife: true } as Parameters<typeof diagnoseBreadDefect>[0]);
   const pomiar = wynik.actionChecklistPl.find((z) => /termometrem/.test(z)) ?? '';
 
-  it('zdanie o pomiarze podaje dla chleba żytniego 96–99 °C z atrybucją King Arthur Baking', () => {
+  // M3 T2 (D-123): bez atrybucji w zdaniu (źródło na ekranie „Źródła wiedzy” i w rejestrze); wartości i porządek bez zmian
+  it('zdanie o pomiarze podaje dla chleba żytniego 96–99 °C (po wartości dla większości bochenków, ok. 88 °C)', () => {
     expect(wynik.defectCode).toBe('GUMMY_CRUMB');
-    expect(pomiar).toMatch(/według King Arthur Baking[\s\S]*ok\. 88 °C, a chleb żytni[\s\S]*96–99 °C\.$/);
+    expect(pomiar).toMatch(/^Sprawdź termometrem[\s\S]*ok\. 88 °C, a chleb żytni[\s\S]*96–99 °C\.$/);
+    expect(pomiar).not.toMatch(/King Arthur/);
   });
 
   it('w trybie imperialnym zakres przelicza się na °F (ok. 205–210 °F)', () => {

@@ -37,7 +37,7 @@ import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
 import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
 import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-za-pozno';
-import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
+import { godzinaPrzyOtwarciu, kolizjeKrokow } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { atLocalTime } from '../../../src/core/dzien-lokalny';
 import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
@@ -153,7 +153,8 @@ export default function HarmonogramScreen() {
   useEffect(() => {
     if (rytm && godzinaDomyslna.current && moze('rytm')) setTargetDayOffset(rytm.offset);
   }, [rytm, moze]);
-  const dzienZalozony = zeSkrotu ?? rytm?.offset ?? null;
+  // Rytm bez osiągalnego dnia w zasięgu D-108: bez propozycji i bez zdania [M3 TZ]
+  const [rytmPoza, setRytmPoza] = useState(false);
   // Basic: „gotowe” = najwcześniejsza godzina (start teraz); do odczytu sklepu bez zmian [D-116]
   useEffect(() => {
     if (planWstecz || loading || stanCzasu.najwczesniejMs === null) return;
@@ -162,15 +163,16 @@ export default function HarmonogramScreen() {
   useEffect(() => {
     if (!godzinaDomyslna.current || !planWstecz) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
-    if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
-      const kroki = (celMs: number) =>
-        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
-      // Dzień ze skrótu arkusza dnia (BR-KAL-015) albo z rytmu (BR-KAL-014) zostaje: godzina bez nocy od początku tego dnia [M3 D5, D7]
-      const od = dzienZalozony === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), dzienZalozony, 0, 0).ms);
-      const bezNocy = godzinaBezNocy(od, kroki, okno);
-      if (bezNocy !== null) ustawGotowe(bezNocy);
-      else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
-    }
+    const kroki = (celMs: number) =>
+      krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
+    // Dzień ze skrótu (BR-KAL-015) albo rytmu (BR-KAL-014) nie zmienia się po cichu (src/lib/plan-bez-nocy.ts) [M3 TZ]
+    const z = godzinaPrzyOtwarciu({
+      terazMs: Date.now(), najwczesniejMs: stanCzasu.najwczesniejMs, zaPozno: stanCzasu.zaPozno, krokiNaEkranie: steps, kroki, okno,
+      skrot: zeSkrotu, rytm: rytm && !rytmPoza ? rytm.offset : null, hour: targetHour, minute: targetMinute,
+    });
+    if (z.rytmPoza) setRytmPoza(true);
+    if (z.celMs !== undefined) ustawGotowe(z.celMs);
+    else if (z.dzien !== undefined && z.dzien !== targetDayOffset) setTargetDayOffset(z.dzien);
     if (zakwasWczytany && rytmWczytany) godzinaDomyslna.current = false;
   }, [stanCzasu, zakwasWczytany, rytmWczytany, planWstecz]); // eslint-disable-line react-hooks/exhaustive-deps
   // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
@@ -271,7 +273,7 @@ export default function HarmonogramScreen() {
           targetMinute={targetMinute}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
-          podpowiedz={moze('rytm') ? rytm?.tekst : undefined}
+          podpowiedz={moze('rytm') && !rytmPoza ? rytm?.tekst : undefined}
           faktycznaGodzina={targetDate}
           zmianaCzasu={celLokalny.shifted}
           ambientTemp={ambientTemp}

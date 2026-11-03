@@ -1,0 +1,56 @@
+# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+# Pierwszy zakwas w Basic, drugi w Pro (BR-ZAKW-001; LIMITY_BASIC.zakwasy = 1): "Zapisz dokarmienie" w zakladaniu
+# tworzy pierwszy zakwas bez ekranu Pro, potem "Dodaj nowy zakwas" (oznaczenie Pro) otwiera ekran Pro zamiast
+# formularza (app/(tabs)/zakwasy/index.tsx: dodaj('zakwasy'), limit liczony z bazy). Zamkniecie wraca bez formularza.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "tab-zakwasy"
+- scrollUntilVisible:
+    element:
+      id: "zakladanie-pierwsze-dokarmienie-btn"
+- tapOn:
+    id: "zakladanie-pierwsze-dokarmienie-btn"
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+- extendedWaitUntil:
+    notVisible:
+      id: "zakladanie-start"
+    timeout: 15000
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- scrollUntilVisible:
+    element:
+      id: "add-starter-btn"
+    direction: UP
+- tapOn:
+    id: "add-starter-btn"
+- extendedWaitUntil:
+    visible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+- assertNotVisible:
+    id: "new-starter-name-input"
+- assertVisible:
+    id: "terms-of-use-btn"
+- assertVisible:
+    id: "privacy-policy-btn"
+- tapOn:
+    id: "close-modal"
+- extendedWaitUntil:
+    notVisible:
+      id: "restore-purchases-btn"
+    timeout: 15000
+- assertNotVisible:
+    id: "new-starter-name-input"
+- assertVisible:
+    id: "add-starter-btn"

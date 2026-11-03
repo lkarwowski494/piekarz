@@ -40,9 +40,9 @@ Pese ja huuhtele purkki huolellisesti ennen uuden hapanjuuren aloittamista. [T:Z
 Neste pinnalla (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extensionin mukaan alkoholille tuoksuva nestekerros on kunnossa: se on hiivakäymisen sivutuote. [T:ZAK-HOO-001]
+Alkoholilta tuoksuva nestekerros on kunnossa: se on hiivan toiminnan sivutuote. [T:ZAK-HOO-001]
 Voit kaataa sen pois tai sekoittaa joukkoon. [T:ZAK-HOO-001]
-Jos näet myös kalvoa tai värimuutoksen tai haistat mädän hajun, merkitse se yllä. [T:-]
+Jos näet myös kalvoa tai värimuutoksen tai hapanjuuri haisee mädältä, merkitse se yllä. [T:-]
 
 ## wynik.no_observation.titlePl
 Mitään havaintoa ei ole merkitty [T:-]

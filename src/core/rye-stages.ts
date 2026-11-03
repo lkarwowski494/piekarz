@@ -59,7 +59,7 @@ export const RYE_STAGE_TEMPLATES: readonly RyeStageTemplate[] = [
   // ZYT-ETA-001 (nazwa), ZYT-STU-001 (24 h wg King Arthur Baking, szczebel 4: zalecenie z atrybucją, nie blokada)
   {
     id: 'rye_cool', namePl: 'Studzenie', category: 'cool', isPassive: true,
-    instructionsPl: 'Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
+    instructionsPl: 'Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
     fixedDurationMin: 1440,
   },
 ];

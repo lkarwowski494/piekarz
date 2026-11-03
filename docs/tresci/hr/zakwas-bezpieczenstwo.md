@@ -40,9 +40,9 @@ Prije pokretanja novog kvasa temeljito operi i isperi staklenku. [T:ZAK-NAC-001]
 Tekućina na površini (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Prema CSU Extension sloj tekućine koji miriše na alkohol je u redu: to je nusproizvod fermentacije kvasaca. [T:ZAK-HOO-001]
+Sloj tekućine koji miriše na alkohol je u redu: to je nusproizvod rada kvasaca. [T:ZAK-HOO-001]
 Možeš ga odliti ili umiješati. [T:ZAK-HOO-001]
-Ako vidiš i naslagu ili promjenu boje ili osjetiš truo miris, označi to gore. [T:-]
+Ako uz to vidiš naslagu ili promjenu boje, ili osjetiš truo miris, označi to iznad. [T:-]
 
 ## wynik.no_observation.titlePl
 Nije označen nijedan simptom [T:-]

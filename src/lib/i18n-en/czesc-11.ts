@@ -12,8 +12,8 @@ export const EN_11: Record<string, string> = {
     'Traditional 100% whole-grain rye bread',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.':
     'A heavy, aromatic whole-grain rye loaf in a loaf pan. No kneading or folding. Stays fresh for a week.',
-  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
-    'Mix and transfer directly into a greased loaf pan sprinkled with bran. A single rise in a warm place until doubled (approx. 3–4 h). According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
+  'Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.':
+    'Mix and put it straight into a greased loaf pan dusted with bran. Let it rise once somewhere warm until doubled (about 3–4 h). Sourdough rye is best left to rest for 24 hours before you slice it.',
   'Chleb Borodyński (Żytni na słodzie z kolendrą)':
     'Borodinsky Bread (Rye with malt and coriander)',
   'Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.':
@@ -73,8 +73,8 @@ export const EN_11: Record<string, string> = {
   'Mąka pszenna typ 850':
     'Wheat flour type 850',
   // MAK-TYP-003 (docs/tresci/en/maki-typy.md) [M1-audytor-generalny-091]
-  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.':
-    'Type 850 is not listed in the PN-A-74022:2003 standard: mills produce it to their own technical specification. A darker bread flour with higher enzymatic activity and a nutty aroma.',
+  'Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.':
+    "Type 850 isn't in the Polish standard, so each mill makes it its own way. It's a darker bread flour with more enzyme activity and a nutty aroma.",
   'Mąka pszenna typ 1050':
     'Wheat flour type 1050',
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.':
@@ -110,8 +110,8 @@ export const EN_11: Record<string, string> = {
   'Standardowa mąka chlebowa.':
     'Standard bread flour.',
   // Polskie typy w atlasie: MAK-TYP-001/002/004/005, nazwy EN według DEC-06 [M1-audytor-generalny-091]
-  'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.':
-    'Polish wheat and rye flour types are set by the Polish Standards PN-A-74022:2003 and PN-A-74032:2002 according to ash content.',
+  'Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.':
+    'The type number of wheat and rye flour tells you how much ash it contains.',
   'Mąka pszenna typ 405':
     'Wheat flour type 405',
   'Mąka pszenna typ 550 (Luksusowa)':
@@ -120,8 +120,8 @@ export const EN_11: Record<string, string> = {
     'Rye flour type 500',
   'Mąka żytnia typ 1400':
     'Rye flour type 1400',
-  'Szacunek: parametry przyjęte z typu {typ}, bez źródła':
-    'Estimate: parameters taken from type {typ}, no source',
+  'Szacunek na podstawie typu {typ}.':
+    'Estimated from type {typ}.',
   'Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.':
     'Very high hydration for this blend. The dough may be slack and need skilled folding.',
   'Mieszanka musi zawierać co najmniej jedną mąkę.':
@@ -146,8 +146,8 @@ export const EN_11: Record<string, string> = {
     'The gold standard for the Parisian baguette. Ideal balance between elasticity and extensibility.',
   'Mąka pszenna chlebowa / wysoki gluten':
     'Wheat bread flour / high gluten',
-  'Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.':
-    'High-hydration sourdough breads (75–85%), Tartine, 48 h Neapolitan pizza, brioche.',
+  'Chleby na zakwasie o wysokiej hydratacji (75–85%), pizza neapolitańska 48 h, brioszki.':
+    'High-hydration sourdough breads (75–85%), 48 h Neapolitan pizza, brioche.',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.':
     'Strong gluten network. Withstands many hours of fermentation and a long cold retard without losing shape.',
   'Mąka pszenna sitkowa / graham':

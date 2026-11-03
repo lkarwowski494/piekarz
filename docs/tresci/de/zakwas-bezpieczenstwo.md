@@ -40,9 +40,9 @@ Wasche und spüle das Glas gründlich aus, bevor du einen neuen Sauerteig ansetz
 Flüssigkeit an der Oberfläche (Hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Laut CSU Extension ist eine Flüssigkeitsschicht mit Alkoholgeruch in Ordnung: Sie ist ein Nebenprodukt der Hefegärung. [T:ZAK-HOO-001]
+Eine Flüssigkeitsschicht, die nach Alkohol riecht, ist in Ordnung: Sie ist ein Nebenprodukt der arbeitenden Hefe. [T:ZAK-HOO-001]
 Du kannst sie abgießen oder unterrühren. [T:ZAK-HOO-001]
-Wenn du außerdem einen Belag oder eine Verfärbung siehst oder einen fauligen Geruch wahrnimmst, markiere das oben. [T:-]
+Wenn du außerdem Belag oder eine Verfärbung siehst oder einen fauligen Geruch bemerkst, markiere das oben. [T:-]
 
 ## wynik.no_observation.titlePl
 Kein Merkmal markiert [T:-]

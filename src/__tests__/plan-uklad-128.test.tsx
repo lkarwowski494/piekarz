@@ -64,7 +64,7 @@ describe('Plan wypieku: układ `plan-sen` (128)', () => {
       caly.indexOf(czysty(pole)),
       caly.indexOf('Temperatura w kuchni'),
       // zakres modelu z pliku treści (FER-Q10-002, docs/tresci/pl/fermentacja-temperatura.md), nie zdanie robocze makiety
-      caly.indexOf('ważne w 20–26 °C'),
+      caly.indexOf('sprawdza się w 20–26 °C'), // M3 T2 (D-123): nowe brzmienie, ten sam zakres
       caly.indexOf('Całość trwa'),
       caly.indexOf('Studzenie na kratce'),
     ];

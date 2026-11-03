@@ -41,7 +41,7 @@ Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik. [T:ZAK-NAC-
 Płyn na powierzchni (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. [T:ZAK-HOO-001]
+Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. [T:ZAK-HOO-001]
 Możesz ją zlać albo wmieszać. [T:ZAK-HOO-001]
 Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej. [T:-]
 

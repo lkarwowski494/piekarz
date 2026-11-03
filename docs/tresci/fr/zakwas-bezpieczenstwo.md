@@ -40,9 +40,9 @@ Avant de démarrer un nouveau levain naturel, lavez et rincez soigneusement le b
 Liquide en surface (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Selon CSU Extension, une couche de liquide à l'odeur d'alcool est sans problème : c'est un sous-produit de la fermentation des levures. [T:ZAK-HOO-001]
+Une couche de liquide qui sent l'alcool ne pose pas de problème : c'est un sous-produit de l'activité des levures. [T:ZAK-HOO-001]
 Vous pouvez la vider ou la mélanger. [T:ZAK-HOO-001]
-Si vous voyez aussi une pellicule ou une décoloration, ou si vous sentez une odeur de pourri, cochez-le ci-dessus. [T:-]
+Si vous voyez aussi une pellicule ou une décoloration, ou si vous sentez une odeur de pourriture, cochez-le ci-dessus. [T:-]
 
 ## wynik.no_observation.titlePl
 Aucun symptôme coché [T:-]

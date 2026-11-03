@@ -40,9 +40,9 @@ Enne uue juuretise alustamist pese ja loputa purk hoolikalt. [T:ZAK-NAC-001]
 Vedelik pinnal (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extensioni andmetel on alkoholilõhnaline vedelikukiht korras: see on pärmikäärimise kõrvalsaadus. [T:ZAK-HOO-001]
+Alkoholilõhnaline vedelikukiht on korras: see on pärmi töö kõrvalsaadus. [T:ZAK-HOO-001]
 Võid selle ära valada või sisse segada. [T:ZAK-HOO-001]
-Kui näed ka kirmet või värvimuutust või tunned mädanenud lõhna, märgi see eespool. [T:-]
+Kui näed lisaks kirmet või värvimuutust või tunned mädanenud lõhna, märgi see ülal. [T:-]
 
 ## wynik.no_observation.titlePl
 Ühtegi sümptomit pole märgitud [T:-]

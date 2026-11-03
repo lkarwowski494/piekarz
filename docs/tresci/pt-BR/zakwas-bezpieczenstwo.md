@@ -40,7 +40,7 @@ Antes de começar um novo fermento natural, lave e enxágue bem o pote. [T:ZAK-N
 Líquido na superfície (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Segundo a CSU Extension, uma camada de líquido com cheiro de álcool não é problema: é um subproduto da fermentação das leveduras. [T:ZAK-HOO-001]
+Uma camada de líquido com cheiro de álcool não é problema: é um subproduto do trabalho das leveduras. [T:ZAK-HOO-001]
 Você pode descartá-la ou misturá-la. [T:ZAK-HOO-001]
 Se também vir película ou alteração de cor, ou sentir cheiro de podre, marque isso acima. [T:-]
 

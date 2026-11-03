@@ -40,9 +40,9 @@ Trước khi làm men mới, rửa sạch và tráng kỹ lọ. [T:ZAK-NAC-001]
 Chất lỏng trên bề mặt (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Theo CSU Extension, lớp chất lỏng có mùi cồn là bình thường: đây là sản phẩm phụ của quá trình lên men của nấm men. [T:ZAK-HOO-001]
-Bạn có thể chắt bỏ hoặc khuấy trộn vào. [T:ZAK-HOO-001]
-Nếu bạn cũng thấy lớp phủ hoặc đổi màu, hoặc ngửi thấy mùi thối, đánh dấu điều đó ở trên. [T:-]
+Lớp chất lỏng có mùi cồn là không sao: đó là sản phẩm phụ khi nấm men hoạt động. [T:ZAK-HOO-001]
+Bạn có thể chắt bỏ hoặc khuấy lẫn vào. [T:ZAK-HOO-001]
+Nếu bạn còn thấy lớp phủ hoặc đổi màu, hoặc ngửi thấy mùi thối, đánh dấu điều đó ở phía trên. [T:-]
 
 ## wynik.no_observation.titlePl
 Chưa đánh dấu dấu hiệu nào [T:-]

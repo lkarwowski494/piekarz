@@ -5,10 +5,11 @@
 import { DEFAULT_STAGE_TEMPLATES } from '../reverse-scheduler';
 import { setLang, t } from '../../lib/i18n';
 
+// M3 T2 (D-123): brzmienie roli 06 bez przypisu do źródła; ta sama treść (wilgoć, ustalanie miękiszu, gumowaty)
 const PL =
-  'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.';
+  'Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.';
 const EN =
-  'Move the loaf to a wire rack. According to King Arthur Baking, bread keeps releasing moisture as it cools and the crumb needs that time to set; sliced too early it can be gummy.';
+  'Move the loaf to a wire rack. Bread gives off moisture as it cools and the crumb needs that time to set; slice it too early and it can be gummy.';
 
 const studzenie = () => DEFAULT_STAGE_TEMPLATES.find((s) => s.id === 'cool');
 

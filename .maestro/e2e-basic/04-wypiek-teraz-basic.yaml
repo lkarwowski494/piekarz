@@ -1,0 +1,49 @@
+# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+# Funkcja Basic bez ekranu Pro (D-112, D-116; BASIC: 'harmonogram', 'stolnica'): receptura bazowa -> "Uloz plan" ->
+# plan od teraz -> "Zacznij wypiek" -> Stolnica i nastepny krok. W Basic godzina "gotowe" ustawia sie na najwczesniejsza
+# po odczycie sklepu (harmonogram.tsx, do 15 s przy zawieszonym StoreKit: LIMIT_ODCZYTU_SKLEPU_MS); do tej chwili
+# start bywa nieaktywny ("za pozno"), stad czekanie na aktywny przycisk.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- extendedWaitUntil:
+    visible:
+      id: "plan-start-bake-btn"
+      enabled: true
+    timeout: 30000
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+# Zdanie "po co" przed prosba iOS o zgode i okno systemu (bez id) - oba opcjonalne, jak w .maestro/e2e/02
+- tapOn:
+    id: "zgoda-dalej-btn"
+    optional: true
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: "next-or-finish-step-btn"
+    timeout: 15000
+- assertNotVisible:
+    id: "restore-purchases-btn"
+- tapOn:
+    id: "next-or-finish-step-btn"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- assertNotVisible:
+    id: "restore-purchases-btn"

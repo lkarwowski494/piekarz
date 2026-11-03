@@ -51,7 +51,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'tartine_high_hydration_80',
-    namePl: 'Mistrzowski wiejski w stylu Tartine, 80%',
+    namePl: 'Wiejski chleb na zakwasie, 80%',
     category: 'sourdough',
     descriptionPl: 'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.',
     formula: {
@@ -143,7 +143,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 240,
     bakeTempBrowningC: 220,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.',
+    notesPl: 'Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.',
   },
   {
     id: 'ciabatta_con_biga',
@@ -190,7 +190,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 230,
     recommendedVessel: 'baking_sheet',
-    notesPl: 'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.',
+    notesPl: 'Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.',
   },
   {
     id: 'rye_100_pan',
@@ -213,7 +213,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 195,
     recommendedVessel: 'bread_pan',
-    notesPl: 'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
+    notesPl: 'Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
   },
   {
     id: 'borodinsky_rye',
@@ -354,7 +354,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 450,
     bakeTempBrowningC: 450,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
+    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
   },
   {
     id: 'sweet_chalka',
@@ -377,7 +377,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 180,
     bakeTempBrowningC: 180,
     recommendedVessel: 'baking_sheet',
-    notesPl: 'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.',
+    notesPl: 'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.',
   },
 ];
 

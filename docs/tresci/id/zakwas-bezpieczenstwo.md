@@ -40,8 +40,8 @@ Sebelum membuat starter baru, cuci dan bilas toples hingga bersih. [T:ZAK-NAC-00
 Cairan di permukaan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Menurut CSU Extension, cairan di permukaan yang berbau alkohol tidak masalah: ini adalah produk sampingan fermentasi ragi. [T:ZAK-HOO-001]
-Anda boleh menuangnya keluar atau mengaduknya ke dalam starter. [T:ZAK-HOO-001]
+Cairan di permukaan yang berbau alkohol tidak apa-apa: itu produk sampingan dari kerja ragi. [T:ZAK-HOO-001]
+Anda bisa membuangnya atau mengaduknya ke dalam starter. [T:ZAK-HOO-001]
 Jika Anda juga melihat lapisan atau perubahan warna, atau mencium bau busuk, tandai di atas. [T:-]
 
 ## wynik.no_observation.titlePl

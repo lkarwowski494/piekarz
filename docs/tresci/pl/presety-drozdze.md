@@ -8,7 +8,7 @@ Pizza w stylu neapolitańskim [T:-]
 Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu. [T:-]
 
 ## pizza_napoletana_48h.notesPl
-Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. [T:DRO-PIZ-002]
+Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. [T:DRO-PIZ-002]
 Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. [T:DRO-PIZ-002]
 
 ## baguette_tradition_poolish.descriptionPl
@@ -16,10 +16,10 @@ Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. [T:DRO-B
 Chrupiąca, cienka skórka i lekki, napowietrzony miękisz. [T:-]
 
 ## baguette_tradition_poolish.notesPl
-Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut. [T:DRO-BAG-001]
+Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut. [T:DRO-BAG-001]
 
 ## sweet_chalka.notesPl
-Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut. [T:DRO-CHA-001]
+Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut. [T:DRO-CHA-001]
 
 ## focaccia_genovese.notesPl
-Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut. [T:DRO-FOC-001]
+Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut. [T:DRO-FOC-001]

@@ -16,7 +16,8 @@ describe('wartości domeny w języku użytkownika (093)', () => {
 
   it('pole PL w wyniku obliczeń bez zmian (zapis i testy domeny)', () => {
     // Czas dojrzewania poolish z docs/tresci/pl/zaczyny.md (ZAC-CZA-001) [M1-audytor-generalny-131]
-    expect(poolish.fermentationTipPl).toMatch(/^Poolish \(Rzadki zaczyn 100%\): Czas dojrzewania według King Arthur Baking od 8 godzin/);
+    // M3 T2 (D-123): czas dojrzewania bez przypisu do źródła; te same wartości (od 8 godzin)
+    expect(poolish.fermentationTipPl).toMatch(/^Poolish \(Rzadki zaczyn 100%\): Czas dojrzewania od 8 godzin/);
     expect(wskazowkaZaczynu(poolish)).toBe(poolish.fermentationTipPl);
   });
 

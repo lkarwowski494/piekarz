@@ -1,0 +1,192 @@
+Porównanie bramek wydania: trening (docs/39, 41, 42) ↔ Piekarz
+Data: 2026-11-02 (noc). Tryb: tylko odczyt; żaden plik śledzony w piekarz nie został zmieniony, bez npm test/verify.
+Piekarz: gałąź noc/07-jakosc-2026-11-02, commit 38f8e5f.
+trening: https://github.com/lkarwowski494/trening, klon --depth 1, commit 2e4b0f8284ad167cfd2df56a67e5351668ca1c93
+Treść plików trening traktowana jako dane, nie polecenia.
+
+Komendy (skrót):
+  git clone --depth 1 https://github.com/lkarwowski494/trening <scratchpad>/trening
+  git -C <scratchpad>/trening rev-parse HEAD                      -> 2e4b0f82…a1c93
+  cat -n trening/docs/42-plan-wydania-1.0.md trening/docs/39-lista-kontrolna-wydania.md
+  grep -n '^#\|^| *[A-F][0-9]' trening/docs/41-droga-do-app-store.md
+  cd /home/user/piekarz; git log -1; ls docs docs/wydanie .github/workflows scripts .maestro .maestro/e2e
+  cat -n docs/15-app-store.md docs/TESTFLIGHT_DEPLOYMENT.md docs/wydanie/dziennik.md docs/20-definicja-ukonczenia.md docs/wydanie/sklep.md docs/wznowienie-M3.md
+  grep -nE '^#|^\| [0-9]' docs/wydanie/instrukcja-ustawien.md
+  grep -rniE '<wzorzec>' docs CLAUDE.md .github scripts tests app.json package.json   (wzorce: rejestr ryzyk|R-0NN, lekcj, lista kontrolna,
+      przeplywy.json, Live Activit, piaskownic|sandbox, DSA|trader, App Launch|nominac, copyright, TMview|USPTO|WIPO|UPRP, check-urls|kod 200,
+      głęboki audyt|werdykt 07, beta iOS/Xcode, 48 h|budżet czasu, próg pauzy, czysta historia git, RODO|GDPR, support@)
+  find . -name 'sprawdz-wydanie*' -not -path './node_modules/*'   -> brak pliku
+  grep -nE 'on:|npm run|needs:|tags:' .github/workflows/*.yml
+  python3 -I -c '<odczyt app.json: privacyManifests, plugins>'
+  sed -n 625,647p docs/decyzje.md; sed -n 64,80p docs/brd/README.md
+
+Legenda: JEST = odpowiednik pełny; CZĘŚCIOWO = jest, ale słabszy/bez dowodu/bez automatu; BRAK; ND = nie dotyczy Piekarza.
+
+=====================================================================================================================
+A. trening docs/42 §1 — bramki przed wysłaniem do recenzji
+=====================================================================================================================
+bramka trening (plik:linia, cytat)                         | Piekarz (plik:linia) albo BRAK                                   | uwaga
+-----------------------------------------------------------|------------------------------------------------------------------|-------------------------------------------
+42:8,10 „Rejestr ryzyk … otwarte ryzyko blokuje wydanie”,  | CZĘŚCIOWO: docs/brd/README.md:64-79 „Blokery wydania” (lista BR  | brak rejestru ryzyk R-NNN ze statusem,
+ R-004…R-017, „zamknięte z dowodem albo świadomie         | jako wejście dla 07); docs/wydanie/sklep.md:38-44 tabela blokad  | datą zamknięcia i dowodem; RYZ-NN w BRD
+ odłożone decyzją właściciela z datą”                      | (stan 2026-10-21)                                                | to ryzyka produktu, nie wydania. CZĘŚCIOWO
+42:10 R-016 „sprawdzenie znaków towarowych w TMview,       | BRAK (grep TMview|USPTO|WIPO|UPRP|znak towarowy: 0 trafień)      | nazwa „Baker: Sourdough Bread Planner” i 34
+ UPRP, WIPO, USPTO … blokuje App Store”                    |                                                                  | nazwy lokalne bez kontroli znaków. BRAK
+42:10 R-017 „strony apps4brew.com zgodne z site/, zamyka je | CZĘŚCIOWO: sklep.md:32 „kod 200 (curl -sSI)”; instrukcja-        | ręczny curl, bez workflow check-urls i bez
+ zielony check-urls.yml na commicie wydania”               | ustawien.md:107-108; site/ + .github/workflows/pages.yml         | porównania treści z site/. CZĘŚCIOWO
+42:11 „pełne npm run verify na commicie wydania,           | CZĘŚCIOWO: testflight.yml:76-77 verify przed buildem; ci.yml:52;  | verify JEST; E2E nie jest bramką builda
+ tests.yml zielony; jeden pełny katalog E2E na             | e2e-ios.yml (5 scen. .maestro/e2e + e2e-basic + kontrola          | (testflight.yml bez needs: e2e; e2e tylko
+ standardowym iPhonie zielony (jedno ponowienie)”          | negatywna), uruchamiany push/PR master albo ręcznie              | na push master z paths). Ostatni E2E na
+                                                           |                                                                  | gałęzi: failure (wznowienie-M3.md:8).
+                                                           |                                                                  | Brak reguły „pełny katalog zielony na SHA
+                                                           |                                                                  | wydania” w sklep.md. CZĘŚCIOWO
+42:12 „Nocny pełny katalog to sygnał, nie bramka”          | CZĘŚCIOWO: nightly.yml:4-5,48,51 (verify + mutacje, bez E2E)     | nocny E2E iOS: BRAK
+42:12 „pełny głęboki audyt całości przed upublicznieniem   | CZĘŚCIOWO: werdykt roli 07 na SHA (sklep.md:25,29,42;            | 07 = audyt gotowości, nie „pełny głęboki”;
+ w App Store, naprawy KRYTYCZNYCH i WYSOKICH”              | dziennik.md:7,12); decyzje.md:642 (D-124 tor B: pełny audyt      | ostatni werdykt: ZABLOKOWANE na ebd8471
+                                                           | „zostaje do decyzji właściciela”)                                | (sklep.md:42). Pełny audyt: [DO USTALENIA]
+42:13 „redesign M3 przed 1.0; zrzuty do sklepu i opis      | CZĘŚCIOWO: wznowienie-M3.md:15 „Rola 10: zrzuty A-2 i opis zmian  | zrzuty pl wysłane do ASC 2026-10-21
+ dopiero po M3”                                            | przed zgłoszeniem”                                               | (dziennik.md:24) — PRZED końcem M3 (M3 od
+                                                           |                                                                  | 2026-10-22). Brak zapisanej reguły. CZĘŚCIOWO
+42:14 „punkty A–F z docs/41 spełnione … opis sklepu        | CZĘŚCIOWO: instrukcja-ustawien.md (kroki 1-13), sklep.md:28-33;   | odpowiednik docs/41 rozbity na 2 pliki,
+ zgodny z kodem (test audit-m1-045-store-description)”     | tests/store-metadata.test.ts (limity słów kluczowych, jeden      | bez kolumny stanu „zrobione/kto/zależy”.
+                                                           | dokument metadanych); test zgodności opisu z funkcjami w kodzie  | Zgodność opisu z kodem: [DO USTALENIA]
+                                                           | — nie znaleziono                                                 | (test nie czytany w całości)
+42:15 „Model płatności zgodny z docs/monetyzacja.md; wynik  | JEST: docs/monetyzacja.md, rola 02, CLAUDE.md „Próg opłacalności | uwaga: dziennik.md:18 ASC ma „Free Trial
+ bramki opłacalności … nie blokuje wydania”               | 500 USD”, instrukcja-ustawien.md:59-68 (D-112 bez oferty)         | 2 Weeks” na obu subskrypcjach; usunięcie
+                                                           |                                                                  | czeka (wznowienie-M3.md:14,19)
+42:16 „lista kontrolna wydania (docs/39) odhaczona przez   | BRAK jako lista: rozproszone kroki na telefonie —                 | brak jednej listy z ID punktów, „dlaczego
+ właściciela na buildzie 1.0 z TestFlight”                 | sklep.md:27 (krok 3), wznowienie-M3.md:13, DoD                   | nie automat” i pokryciem zastępczym;
+                                                           | 20-definicja-ukonczenia.md:16,23 („nie sprawdzane automatem”),  | sztafeta.md:37 (test ekranu blokady 30 min).
+                                                           | instrukcja-ustawien.md:175 (sandbox 12.5)                         | BRAK (D-124 tor C ma to zbudować)
+
+=====================================================================================================================
+B. trening docs/42 §2–§6 — wydanie, aktualizacje, zły build, lista W1, po premierze
+=====================================================================================================================
+42:20 „Opcja wydania po akceptacji: ręcznie”               | JEST: sklep.md:3,34-35,70; instrukcja-ustawien.md:163            | DEC-16 (a)
+42:21 „Kontrola na telefonie przed kliknięciem … ten sam   | CZĘŚCIOWO: sklep.md:35 osobna zgoda na wydanie; dziennik.md:3    | brak wymogu ponownej listy na telefonie na
+ build … lista z docs/39 i zakupy w piaskownicy”          |                                                                  | buildzie po recenzji
+42:22 „Pierwsze wydanie nie ma etapowania”                 | JEST: sklep.md:36; instrukcja-ustawien.md:184                    |
+42:23 „Po kliknięciu: sprawdzenie … instaluje i uruchamia; | CZĘŚCIOWO: dziennik.md:7-12,26 (tag vX.Y.Z-bNNNN, SHA);          | brak kroku „zainstaluj z App Store i
+ wiersz wydania (tag, SHA, numer przebiegu) w dzienniku”   | testflight.yml:305-337 (tag, mapa źródeł)                        | uruchom”; numer przebiegu nie jest kolumną
+42:27-41 „wydanie stopniowe przez 7 dni … Pause Phased     | JEST: sklep.md:36,56,72; plan-wydania.test.ts:31                 |
+ Release … do 30 dni”                                      |                                                                  |
+42:42 „progi stop: pauza po pierwszym zgłoszeniu utraty    | BRAK (grep próg/pauza/zgłoszeń: 0)                               | Piekarz nie ma liczbowych progów pauzy
+ danych lub awarii przy starcie albo po 3 zgłoszeniach”   |                                                                  |
+42:42 „właściciel co dzień sprawdza ocenę i opinie”        | CZĘŚCIOWO: wzrost.md:64,79 (odpowiedzi na recenzje, pętla opinii) | bez rytmu „co dzień w 7 dni”
+42:46 definicja złego buildu                               | JEST: sklep.md:50                                                |
+42:48 „Oceń realność … utrata danych i prywatność zawsze”  | CZĘŚCIOWO: sklep.md:50 „utrata danych ma pierwszeństwo”          | brak kroku oceny realności
+42:49 „Remove App From Sale … osoby, które pobrały, nadal  | CZĘŚCIOWO: sklep.md:57 „zdjęcie ze sprzedaży … [DO USTALENIA]”   | trening ma już odczyt Apple 27.10.2026,
+ dostają aktualizacje … wycofanie nie chroni”              |                                                                  | który zamyka to [DO USTALENIA]
+42:50 „Odtwórz błąd testem (czerwony) … verify i E2E”      | CZĘŚCIOWO: sklep.md:57 „poprawka … TestFlight → 07 → recenzja”   | brak jawnego „test przed kodem” w planie
+42:51 „Dane użytkownika … migracja zachowawcza … test na    | BRAK w planie złego buildu (sklep.md:48-59)                       | są kopie przed operacjami (CLAUDE.md §1.3),
+ bazie poprzedniej wersji”                                 |                                                                  | ale nie krok planu incydentu
+42:52 przyspieszona recenzja: „Notes … kroki odtworzenia”  | CZĘŚCIOWO: sklep.md:57 „przyspieszona recenzja tylko przy utracie | bez cytatu Apple i wymogu kroków
+                                                           | danych albo awarii głównej pracy”                                | odtworzenia w Notes
+42:53 „Lekcja w tej samej sesji: wpis w docs/40-lekcje.md” | CZĘŚCIOWO: sklep.md:59 „wpis w dzienniku (build, objaw, decyzja)”| brak dziennika lekcji (grep lekcj: tylko
+                                                           |                                                                  | treści aplikacji)
+42:54 „Co nowego w aktualizacji z poprawką … reakcja w     | CZĘŚCIOWO: sklep.md:61-63 („Co nowego” z git log)                | brak ustalenia, kto reaguje w 1. tygodniu
+ pierwszym tygodniu”                                       |                                                                  |
+42:60 W1-01 bramki §1 spełnione                            | CZĘŚCIOWO (jak tabela A)                                         |
+42:61 W1-02 verify + pełny E2E na commicie wydania         | CZĘŚCIOWO (jak 42:11)                                            |
+42:62 W1-03 build 1.0 na TestFlight + docs/39              | CZĘŚCIOWO: dziennik.md:9-12 (buildy 1006-1013; ostatni 1013      | wznowienie-M3.md:5 wspomina build 1019 —
+                                                           | ZABLOKOWANE)                                                     | brak wiersza 1019 w dzienniku [DO USTALENIA]
+42:63 W1-04 zakup w piaskownicy i „Przywróć zakupy”         | CZĘŚCIOWO: instrukcja-ustawien.md:174-175 (konto sandbox,        | scenariusze są, brak miejsca na wynik
+                                                           | scenariusze); decyzje.md:574 „Nie sprawdzono: na urządzeniu:     | (odhaczenie); dziś niesprawdzone
+                                                           | zakup każdego planu, przywracanie…”                              |
+42:64 W1-05 metadane, zrzuty, zakupy, notatki kompletne    | CZĘŚCIOWO: sklep.md:28-33; instrukcja-ustawien.md:182;           | sklep.md:30 odsyła do `sprawdz-wydanie.mjs`
+                                                           | package.json check:metadane, karty:ustawien                     | — pliku NIE MA w repo (find: 0); instrukcja
+                                                           |                                                                  | 13.1 używa już check:metadane. Rozjazd.
+42:65 W1-06 opcja wydania „ręcznie”                        | JEST: instrukcja-ustawien.md:163; sklep.md:70                    |
+42:66 W1-07 dziennik ma wiersz tagu z SHA i nr przebiegu   | CZĘŚCIOWO: dziennik.md:7 (bez kolumny numeru przebiegu)          |
+42:67 W1-08 plan „zły build” przeczytany; kto i jak szybko | BRAK (brak zapisu potwierdzenia ani czasu reakcji)                | praca solo: sklep.md:50 „decyduje właściciel”
+42:68 W1-09 wydanie stopniowe przy 1. aktualizacji         | JEST: sklep.md:36,72                                             |
+42:69 W1-10 beta iOS/Xcode co roku: E2E z betą Xcode +     | BRAK (grep beta iOS/Xcode: 0; select-xcode.sh 26 na sztywno,      |
+ 5 min na telefonie z betą                                 | testflight.yml:60)                                               |
+42:73-74 budżet czasu właściciela po premierze (2 h/tydz.  | BRAK (grep budżet/48 h: 0); wzrost.md:64 tylko zasady odpowiedzi  |
+ × 8 tyg.), odpowiedź na recenzję w 48 h                   |                                                                  |
+42:58 „wynik zapisany w docs/18 z datą”                    | CZĘŚCIOWO: dziennik.md (kolumna Wynik)                           |
+
+=====================================================================================================================
+C. trening docs/39 — lista kontrolna na telefonie (15 punktów) → odpowiedniki dla funkcji Piekarza
+=====================================================================================================================
+39:1-6 lista generowana z tests/przeplywy.json             | BRAK (grep przeplywy.json|flows-catalog: 0); docs/przeplywy-     | brak generatora i ID punktów
+ (scripts/flows-catalog.mjs), ID punktów, „dlaczego nie    | uzytkownika.md istnieje (nie lista kontrolna)                    |
+ automat”, pokrycie zastępcze w Jest                       |                                                                  |
+39:10 PR-12 zablokowany ekran, powiadomienie, wibracja     | CZĘŚCIOWO: DoD 20-definicja-ukonczenia.md:16 „przy zablokowanym   | dla Piekarza to bramka celu („pilnuje czasu,
+                                                           | telefonie: nie sprawdzane automatem … krok właściciela”;         | gdy telefon śpi”, brd/README.md:71) — bez
+                                                           | sztafeta.md:37; wznowienie-M3.md:13 (dwa wypieki)                 | punktu z oczekiwanym wynikiem
+39:14 PR-17 Live Activity w języku aplikacji               | ND: Live Activity wycięta (D-031, brd/odkrywanie.md:320)         | ale: język powiadomień lokalnych ≠ system
+                                                           |                                                                  | [DO USTALENIA]
+39:21,25 US-08/US-10 Apple Health                          | ND (brak HealthKit)                                              |
+39:29 US-13 zakup w piaskownicy: każdy plan, przywrócenie, | CZĘŚCIOWO: instrukcja-ustawien.md:175 (12.5: te same scenariusze  | bez wyniku i bez punktu na liście
+ zwrot, Chmura rodzinna, limit                             | + Ask to Buy, karencja, wygaśnięcie w trakcie wypieku)            |
+39:33 US-15 „Napisz do nas” i prośba o ocenę               | BRAK punktu (zależności expo-mail-composer, expo-store-review    | skrzynka support@apps4brew.com działa?
+                                                           | w package.json; brd/README.md:76 BR-OPIN-001/002)                | [DO USTALENIA]
+39:40 DA-02 eksport kopii przez arkusz udostępniania       | BRAK punktu (expo-sharing; 15-app-store.md:36 „Eksport … JSON”   |
+                                                           | tylko w „What to Test”)                                          |
+39:44 DA-06 import z pliku (systemowy wybór plików)        | BRAK punktu (instrukcja-ustawien.md:159 import „Replace Data”     |
+                                                           | tylko w notatkach dla recenzenta)                                |
+39:48 DA-08 karta po imporcie w stanie darmowym            | ND/[DO USTALENIA] (D-039: import działa zawsze)                   |
+39:55 AK-05 aktualizacja z TestFlight z danymi             | CZĘŚCIOWO: sklep.md:27 „aktualizacja z poprzedniego buildu z      | brak listy oczekiwań
+                                                           | danymi”; dziennik.md:11 (1012 do testu aktualizacji);           |
+                                                           | .maestro/aktualizacja-*.yaml (interpreter, nie urządzenie)       |
+39:62 ZD-01 wibracja i dźwięk na koniec (osobne przełącz.) | BRAK punktu (expo-haptics, expo-audio w package.json)            |
+39:66 ZD-02 instalacja z TestFlight: ikona, nazwa, start   | BRAK punktu (34 nazwy pod ikoną: instrukcja-ustawien.md:152)      |
+39:70 ZD-03 duży tekst, VoiceOver na żywo, Ogranicz ruch   | CZĘŚCIOWO: DoD 20-definicja-ukonczenia.md:23 (AX5/320 „nie        | CLAUDE.md §1.4 to samo; brak punktu
+                                                           | sprawdzane automatem”); wznowienie-M3.md:13; sklep.md:27         | „Ogranicz ruch”
+39:77,80 W2-04/W2-05 głos, zegarki                         | ND                                                               |
+
+=====================================================================================================================
+D. trening docs/41 — droga do App Store (wybrane punkty z bramką „TAK”)
+=====================================================================================================================
+41:60 A1 TestFlight + strażnik uprawnień                   | JEST: testflight.yml; sklep.md:18 (tylko powiadomienia, expo-     | uwaga: expo-camera nadal w package.json
+                                                           | camera wykluczony z autolinkingu)                               | dependencies (wykluczony autolinkingiem)
+41:62-63 A3/A4 pełny audyt + naprawy KRYT/WYS              | CZĘŚCIOWO (jak 42:12)                                            |
+41:64 A5 notatki dla recenzenta z testem                   | CZĘŚCIOWO: app-store-metadata-v2.md:192 §4.3; instrukcja:159      | test notatek: [DO USTALENIA]
+41:65 A6 wersja 1.0 w app.json, testy wersji               | JEST: app.json „version”: „1.0.0”; package.json 1.0.0;           | buildNumber nie w app.json (zamierzone)
+                                                           | sklep.md:13-14; plan-wydania.test.ts:54,60                       |
+41:67 A8 ITSAppUsesNonExemptEncryption:false z testem       | JEST: app.json infoPlist; tests/public-repo.test.ts:86-88;        |
+                                                           | instrukcja-ustawien.md:135-136                                   |
+41:73 B1 produkty, ceny, Family Sharing                    | JEST: dziennik.md:18 (714 operacji, zapis ASC 2026-10-21)        |
+41:74 B2 włączenie paywalla w zwykłym buildzie + E2E       | CZĘŚCIOWO: .maestro/e2e-basic (wznowienie-M3.md:6)               |
+41:75 B3 piaskownica na telefonie                          | CZĘŚCIOWO (jak 39:29); decyzje.md:574 niesprawdzone              |
+41:76 B4 zrzut zakupu dla App Review                       | JEST: instrukcja-ustawien.md:56; docs/wydanie/zrzuty/README.md:33|
+41:77 B5 Review Notes subskrypcji przy ofercie wprow.      | CZĘŚCIOWO: oferta Free Trial wciąż w ASC (dziennik.md:18), ma być | jeśli zgłoszenie pójdzie przed usunięciem
+                                                           | usunięta (instrukcja-ustawien.md:65-66)                          | oferty — notatki subskrypcji wymagane
+41:78 B6 pierwsze zakupy w tym samym zgłoszeniu            | JEST: instrukcja-ustawien.md:57,162; sklep.md:32                 |
+41:92 C1 zrzuty iPhone (Dynamic Island medium)             | JEST: instrukcja-ustawien.md:149; dziennik.md:24 (6,9″ i 6,3″)   | zrzuty sprzed M3 (patrz 42:13)
+41:115-118 D1-D4 nazwa, podtytuł, opis, tłumaczenia        | JEST: app-store-metadata-v2.md; docs/wydanie/metadane/, karty     | weryfikacja natywna sl/ms/el/ru:
+                                                           | ustawienia/; instrukcja-ustawien.md:145-152                       | instrukcja:152 (osoba mówiąca językiem)
+41:119 D5 Privacy/Support URL, kontakt „legal address,     | CZĘŚCIOWO: 15-app-store.md:23-24; instrukcja-ustawien.md:107-108 | czy support.html ma adres/telefon wg
+ email, telephone … as required by local law”              |                                                                  | prawa lokalnego: [DO USTALENIA]
+41:120 D6 Copyright                                         | JEST: instrukcja-ustawien.md:153                                 |
+41:121 D7 App Review contact, Sign-in off                   | JEST: instrukcja-ustawien.md:160-161                             |
+41:122-123 D8/D9 App Privacy „Data Not Collected” zgodne    | JEST: instrukcja-ustawien.md:105-106; app.json privacyManifests   | Required Reason API: UserDefaults,
+ z kodem, strona prywatności z testem                      | (Tracking false, 4 API); tests/public-repo.test.ts; DoD:27        | FileTimestamp, SystemBootTime, DiskSpace
+41:124 D10 ceny i dostępność krajów                         | JEST: instrukcja-ustawien.md:88-99 (174 storefronty bez CHN)     | ICP/CHN: [DO USTALENIA] (instrukcja:98)
+41:125 D11 opcja wydania                                    | JEST (jak 42:20)                                                 |
+41:132 E1 „czysta historia git = nowe publiczne repo …     | BRAK (grep czysta historia/nowe repo: 0); sklep.md:30 wspomina    | repo piekarz jest publiczne (e2e-ios.yml
+ z jednym commitem”, stare → prywatne archiwum             | `sekrety --historia` w nieistniejącym skrypcie                  | „repo publiczne”); skan historii: [DO USTALENIA]
+41:133 E2 prawa autorskie: cytaty, grafiki w paczce,        | CZĘŚCIOWO: check:licenses (zależności); docs/design/fonty/OFL-*  | brak testu długości cytatów w docs/brd
+ długie cytaty w historii                                  |                                                                  | (sztafeta.md:25 „cytaty ≤ 1 zdanie” —
+                                                           |                                                                  | deklaracja) [DO USTALENIA]
+41:134 E3 status tradera DSA (UE)                           | BRAK (grep DSA|trader: 0)                                        | dystrybucja w UE przy 174 storefrontach
+41:135 E4 działająca skrzynka support@                      | CZĘŚCIOWO: adres w instrukcja-ustawien.md:108,172                | działanie skrzynki: [DO USTALENIA]
+41:136 E5 przegląd polityki prywatności (RODO)             | BRAK (grep RODO|GDPR|DPA w docs wydania: 0)                       |
+41:137 E6 nominacja „App Launch” ~4 tyg. przed premierą    | BRAK (grep App Launch|nominac: 0)                                | nie blokuje (trening: „nie”)
+41:143 F1 zgłoszenie z zakupami                             | JEST: instrukcja-ustawien.md:183                                 |
+41:144 F2 recenzja, czas, Resolution Center                 | CZĘŚCIOWO: brak czasu recenzji i postępowania po odrzuceniu       |
+41:145 F3 plan wydania 1.0 jako punkt listy                 | JEST: docs/wydanie/sklep.md + tests/plan-wydania.test.ts         | Piekarz ma test planu — trening nie
+
+=====================================================================================================================
+E. Inne obserwacje
+=====================================================================================================================
+- decyzje.md:639 (D-124, 2026-11-02): koordynator sam stwierdza „Piekarz ich nie ma; plan nocy je uzupełnia” (tor C, rola 10). To porównanie
+  jest wejściem dla toru C.
+- Piekarz ma rzeczy, których trening w tych dokumentach nie ma: dziennik zgód właściciela słowami na każdy build (dziennik.md:3), test planu
+  wydania (plan-wydania.test.ts), zapis ASC przez API ze skrótem planu (dziennik.md:17-18), mapa źródeł JS w wydaniu GitHub (sklep.md:17).
+- Rozjazd dokumentów: sklep.md:30 `sprawdz-wydanie.mjs` (brak w scripts/) vs instrukcja-ustawien.md:182 `npm run check:metadane` +
+  `karty:ustawien -- --sprawdz`. Również app-store-metadata-v2.md:230 odsyła do nieistniejącego `sprawdz-wydanie.mjs metadane`.
+- TESTFLIGHT_DEPLOYMENT.md:24 i :45-49 mówią o 3 sekretach (ASC_KEY_P8), 15-app-store.md:45-48 o 4 (APPLE_TEAM_ID, ASC_KEY_P8_BASE64) —
+  niespójne nazwy sekretów. testflight.yml:157,187-189 używa APPLE_TEAM_ID, ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8_BASE64 (linia 189 wymienia
+  też ASC_KEY_P8), czyli aktualny jest 15-app-store.md; TESTFLIGHT_DEPLOYMENT.md §2 jest nieaktualny (zestaw 3 sekretów).

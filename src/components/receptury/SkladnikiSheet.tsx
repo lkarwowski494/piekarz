@@ -83,8 +83,8 @@ function infoSoli(saltPct: number): string | null {
   if (ocena === 'typowa') return null;
   const procent = `${formatNumber(saltPct, undefined, { maximumFractionDigits: 2 })}%`;
   return ocena === 'powyzej'
-    ? t('Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', { procent })
-    : t('Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', { procent });
+    ? t('Sól {procent} to więcej niż zwykłe 1,8–2,0% masy mąki.', { procent })
+    : t('Sól {procent} to mniej niż zwykłe 1,8–2,0% masy mąki.', { procent });
 }
 
 function WierszMenu({ id, etykieta, wartosc, onPress, akcja, pro }: { id: string; etykieta: string; wartosc?: string; onPress: () => void; akcja?: boolean; pro?: boolean }) {

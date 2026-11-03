@@ -40,9 +40,9 @@ Diska och skölj burken noga innan du startar en ny surdegsgrund. [T:ZAK-NAC-001
 Vätska på ytan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Enligt CSU Extension är ett vätskeskikt som luktar alkohol i sin ordning: det är en biprodukt av jästens jäsning. [T:ZAK-HOO-001]
+Ett lager vätska som luktar alkohol är i sin ordning: det är en biprodukt av jästens arbete. [T:ZAK-HOO-001]
 Du kan hälla av det eller röra ner det. [T:ZAK-HOO-001]
-Om du också ser beläggning eller missfärgning eller känner en rutten lukt, markera det ovan. [T:-]
+Om du också ser beläggning eller missfärgning, eller känner en rutten lukt, markera det ovan. [T:-]
 
 ## wynik.no_observation.titlePl
 Inget symptom markerat [T:-]
