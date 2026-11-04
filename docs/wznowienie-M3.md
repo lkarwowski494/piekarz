@@ -3,6 +3,7 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 
 ## Aktualizacja 2026-11-04 ~00:50 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
 - p7 (`session_01T66VByCNmHxVu76Rdi2PW8`, zarchiwizowana) scalone do `redesign/` (merge `d1e5204`): 04-001 wspólny ekran z pasem i czapką (8 ekranów; Pro z własną czapką), 04-002 sześć arkuszy na kartach z paskiem arkusza (0 literałów `fontSize`), 04-003 „Dziś”, 04-006 Doktor: protokoły → objawy → wynik → testy kuchenne (D-216), 04-007 „Odrzucić zmiany?” przy zmienionym formularzu (komunikat pod pytaniem pusty — brak klucza; propozycja „Wpisane zmiany nie zostaną zapisane.” → rola 09c). Istniejące testy bez zmian; 537 zestawów / 5726 testów. Przegląd ścieżek wrażliwych: brak uwag; koordynator: handlery zapisu w arkuszach bez zmian. `ProwadzenieWypieku` 25 B pod limitem.
+- 09c (`session_01T66VBwynwJqkEu2XqgMSze`, sonnet, zarchiwizowana) scalona: „Wpisane zmiany nie zostaną zapisane.” w 35 językach pod „Odrzucić zmiany?” (D-217). iOS E2E run 41749231787 na `70a0ee86` (p7) — w toku od 00:45 UTC.
 - **Do właściciela:** 04-004 (pasek zakładek na planie; wymaga zmiany `tests/pasek-zakladek-receptura-106.test.tsx:49`) i 04-005 (Doktor zakwasu z pasem; `pas-zakladek-d10.test.tsx:136`).
 
 ## Aktualizacja 2026-11-04 ~00:00 UTC (koordynator M3, noc)
