@@ -57,7 +57,8 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
       startedAt,
       currentStageId: kroki[0]?.id ?? '',
       ...(tempWybrana ? { ambientTempC: ambientTemp } : {}),
-      isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
+      // Wersja drożdżowa: false, żeby build 1021 (nie zna `wersja`) nie zamienił kroków yeast_* na etapy żytnie [M3 p9b]
+      isHighRye: receptura && receptura.wersja !== 'drozdze' ? receptura.calculatedRecipe.isHighRye : false,
       steps: [...kroki],
       ...(zakwas ? { starterId: zakwas.id } : {}),
       ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),

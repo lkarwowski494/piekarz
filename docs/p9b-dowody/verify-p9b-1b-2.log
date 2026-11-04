@@ -1,0 +1,509 @@
+
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+
+BŁĄD bg „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD bg „Wersja receptury”: brak tłumaczenia
+BŁĄD bg „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD bg „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD bg „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD bg „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD bg „Odgazowanie”: brak tłumaczenia
+BŁĄD bg „Kształtowanie”: brak tłumaczenia
+BŁĄD bg „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD bg „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD bg „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD bg „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD bg „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD bg „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD bg „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD cs „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD cs „Wersja receptury”: brak tłumaczenia
+BŁĄD cs „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD cs „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD cs „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD cs „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD cs „Odgazowanie”: brak tłumaczenia
+BŁĄD cs „Kształtowanie”: brak tłumaczenia
+BŁĄD cs „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD cs „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD cs „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD cs „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD cs „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD cs „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD cs „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD da „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD da „Wersja receptury”: brak tłumaczenia
+BŁĄD da „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD da „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD da „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD da „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD da „Odgazowanie”: brak tłumaczenia
+BŁĄD da „Kształtowanie”: brak tłumaczenia
+BŁĄD da „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD da „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD da „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD da „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD da „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD da „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD da „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD de „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD de „Wersja receptury”: brak tłumaczenia
+BŁĄD de „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD de „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD de „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD de „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD de „Odgazowanie”: brak tłumaczenia
+BŁĄD de „Kształtowanie”: brak tłumaczenia
+BŁĄD de „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD de „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD de „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD de „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD de „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD de „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD de „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD el „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD el „Wersja receptury”: brak tłumaczenia
+BŁĄD el „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD el „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD el „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD el „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD el „Odgazowanie”: brak tłumaczenia
+BŁĄD el „Kształtowanie”: brak tłumaczenia
+BŁĄD el „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD el „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD el „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD el „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD el „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD el „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD el „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD es „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD es „Wersja receptury”: brak tłumaczenia
+BŁĄD es „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD es „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD es „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD es „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD es „Odgazowanie”: brak tłumaczenia
+BŁĄD es „Kształtowanie”: brak tłumaczenia
+BŁĄD es „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD es „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD es „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD es „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD es „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD es „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD es „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD es-419 „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD es-419 „Wersja receptury”: brak tłumaczenia
+BŁĄD es-419 „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD es-419 „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD es-419 „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD es-419 „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD es-419 „Odgazowanie”: brak tłumaczenia
+BŁĄD es-419 „Kształtowanie”: brak tłumaczenia
+BŁĄD es-419 „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD es-419 „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD es-419 „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD es-419 „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD es-419 „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD es-419 „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD es-419 „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD et „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD et „Wersja receptury”: brak tłumaczenia
+BŁĄD et „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD et „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD et „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD et „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD et „Odgazowanie”: brak tłumaczenia
+BŁĄD et „Kształtowanie”: brak tłumaczenia
+BŁĄD et „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD et „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD et „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD et „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD et „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD et „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD et „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD fi „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD fi „Wersja receptury”: brak tłumaczenia
+BŁĄD fi „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD fi „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD fi „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD fi „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD fi „Odgazowanie”: brak tłumaczenia
+BŁĄD fi „Kształtowanie”: brak tłumaczenia
+BŁĄD fi „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD fi „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD fi „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD fi „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD fi „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD fi „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD fi „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD fr „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD fr „Wersja receptury”: brak tłumaczenia
+BŁĄD fr „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD fr „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD fr „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD fr „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD fr „Odgazowanie”: brak tłumaczenia
+BŁĄD fr „Kształtowanie”: brak tłumaczenia
+BŁĄD fr „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD fr „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD fr „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD fr „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD fr „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD fr „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD fr „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD hr „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD hr „Wersja receptury”: brak tłumaczenia
+BŁĄD hr „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD hr „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD hr „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD hr „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD hr „Odgazowanie”: brak tłumaczenia
+BŁĄD hr „Kształtowanie”: brak tłumaczenia
+BŁĄD hr „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD hr „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD hr „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD hr „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD hr „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD hr „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD hr „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD hu „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD hu „Wersja receptury”: brak tłumaczenia
+BŁĄD hu „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD hu „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD hu „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD hu „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD hu „Odgazowanie”: brak tłumaczenia
+BŁĄD hu „Kształtowanie”: brak tłumaczenia
+BŁĄD hu „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD hu „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD hu „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD hu „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD hu „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD hu „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD hu „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD id „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD id „Wersja receptury”: brak tłumaczenia
+BŁĄD id „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD id „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD id „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD id „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD id „Odgazowanie”: brak tłumaczenia
+BŁĄD id „Kształtowanie”: brak tłumaczenia
+BŁĄD id „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD id „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD id „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD id „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD id „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD id „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD id „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD it „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD it „Wersja receptury”: brak tłumaczenia
+BŁĄD it „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD it „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD it „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD it „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD it „Odgazowanie”: brak tłumaczenia
+BŁĄD it „Kształtowanie”: brak tłumaczenia
+BŁĄD it „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD it „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD it „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD it „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD it „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD it „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD it „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD ja „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD ja „Wersja receptury”: brak tłumaczenia
+BŁĄD ja „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD ja „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD ja „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD ja „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD ja „Odgazowanie”: brak tłumaczenia
+BŁĄD ja „Kształtowanie”: brak tłumaczenia
+BŁĄD ja „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD ja „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD ja „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD ja „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD ja „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD ja „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD ja „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD ko „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD ko „Wersja receptury”: brak tłumaczenia
+BŁĄD ko „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD ko „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD ko „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD ko „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD ko „Odgazowanie”: brak tłumaczenia
+BŁĄD ko „Kształtowanie”: brak tłumaczenia
+BŁĄD ko „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD ko „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD ko „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD ko „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD ko „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD ko „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD ko „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD lt „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD lt „Wersja receptury”: brak tłumaczenia
+BŁĄD lt „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD lt „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD lt „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD lt „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD lt „Odgazowanie”: brak tłumaczenia
+BŁĄD lt „Kształtowanie”: brak tłumaczenia
+BŁĄD lt „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD lt „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD lt „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD lt „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD lt „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD lt „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD lt „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD lv „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD lv „Wersja receptury”: brak tłumaczenia
+BŁĄD lv „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD lv „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD lv „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD lv „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD lv „Odgazowanie”: brak tłumaczenia
+BŁĄD lv „Kształtowanie”: brak tłumaczenia
+BŁĄD lv „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD lv „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD lv „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD lv „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD lv „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD lv „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD lv „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD ms „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD ms „Wersja receptury”: brak tłumaczenia
+BŁĄD ms „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD ms „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD ms „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD ms „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD ms „Odgazowanie”: brak tłumaczenia
+BŁĄD ms „Kształtowanie”: brak tłumaczenia
+BŁĄD ms „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD ms „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD ms „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD ms „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD ms „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD ms „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD ms „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD nb „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD nb „Wersja receptury”: brak tłumaczenia
+BŁĄD nb „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD nb „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD nb „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD nb „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD nb „Odgazowanie”: brak tłumaczenia
+BŁĄD nb „Kształtowanie”: brak tłumaczenia
+BŁĄD nb „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD nb „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD nb „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD nb „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD nb „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD nb „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD nb „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD nl „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD nl „Wersja receptury”: brak tłumaczenia
+BŁĄD nl „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD nl „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD nl „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD nl „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD nl „Odgazowanie”: brak tłumaczenia
+BŁĄD nl „Kształtowanie”: brak tłumaczenia
+BŁĄD nl „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD nl „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD nl „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD nl „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD nl „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD nl „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD nl „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD pt „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD pt „Wersja receptury”: brak tłumaczenia
+BŁĄD pt „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD pt „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD pt „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD pt „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD pt „Odgazowanie”: brak tłumaczenia
+BŁĄD pt „Kształtowanie”: brak tłumaczenia
+BŁĄD pt „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD pt „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD pt „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD pt „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD pt „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD pt „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD pt „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD pt-BR „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD pt-BR „Wersja receptury”: brak tłumaczenia
+BŁĄD pt-BR „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD pt-BR „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD pt-BR „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD pt-BR „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD pt-BR „Odgazowanie”: brak tłumaczenia
+BŁĄD pt-BR „Kształtowanie”: brak tłumaczenia
+BŁĄD pt-BR „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD pt-BR „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD pt-BR „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD pt-BR „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD pt-BR „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD pt-BR „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD pt-BR „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD ro „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD ro „Wersja receptury”: brak tłumaczenia
+BŁĄD ro „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD ro „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD ro „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD ro „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD ro „Odgazowanie”: brak tłumaczenia
+BŁĄD ro „Kształtowanie”: brak tłumaczenia
+BŁĄD ro „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD ro „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD ro „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD ro „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD ro „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD ro „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD ro „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD ru „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD ru „Wersja receptury”: brak tłumaczenia
+BŁĄD ru „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD ru „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD ru „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD ru „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD ru „Odgazowanie”: brak tłumaczenia
+BŁĄD ru „Kształtowanie”: brak tłumaczenia
+BŁĄD ru „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD ru „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD ru „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD ru „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD ru „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD ru „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD ru „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD sk „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD sk „Wersja receptury”: brak tłumaczenia
+BŁĄD sk „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD sk „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD sk „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD sk „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD sk „Odgazowanie”: brak tłumaczenia
+BŁĄD sk „Kształtowanie”: brak tłumaczenia
+BŁĄD sk „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD sk „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD sk „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD sk „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD sk „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD sk „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD sk „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD sl „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD sl „Wersja receptury”: brak tłumaczenia
+BŁĄD sl „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD sl „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD sl „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD sl „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD sl „Odgazowanie”: brak tłumaczenia
+BŁĄD sl „Kształtowanie”: brak tłumaczenia
+BŁĄD sl „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD sl „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD sl „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD sl „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD sl „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD sl „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD sl „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD sr „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD sr „Wersja receptury”: brak tłumaczenia
+BŁĄD sr „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD sr „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD sr „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD sr „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD sr „Odgazowanie”: brak tłumaczenia
+BŁĄD sr „Kształtowanie”: brak tłumaczenia
+BŁĄD sr „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD sr „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD sr „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD sr „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD sr „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD sr „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD sr „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD sv „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD sv „Wersja receptury”: brak tłumaczenia
+BŁĄD sv „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD sv „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD sv „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD sv „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD sv „Odgazowanie”: brak tłumaczenia
+BŁĄD sv „Kształtowanie”: brak tłumaczenia
+BŁĄD sv „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD sv „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD sv „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD sv „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD sv „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD sv „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD sv „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD tr „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD tr „Wersja receptury”: brak tłumaczenia
+BŁĄD tr „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD tr „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD tr „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD tr „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD tr „Odgazowanie”: brak tłumaczenia
+BŁĄD tr „Kształtowanie”: brak tłumaczenia
+BŁĄD tr „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD tr „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD tr „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD tr „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD tr „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD tr „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD tr „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD uk „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD uk „Wersja receptury”: brak tłumaczenia
+BŁĄD uk „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD uk „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD uk „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD uk „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD uk „Odgazowanie”: brak tłumaczenia
+BŁĄD uk „Kształtowanie”: brak tłumaczenia
+BŁĄD uk „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD uk „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD uk „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD uk „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD uk „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD uk „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD uk „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD vi „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD vi „Wersja receptury”: brak tłumaczenia
+BŁĄD vi „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD vi „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD vi „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD vi „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD vi „Odgazowanie”: brak tłumaczenia
+BŁĄD vi „Kształtowanie”: brak tłumaczenia
+BŁĄD vi „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD vi „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD vi „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD vi „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD vi „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD vi „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD vi „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+BŁĄD zh-Hant „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.”: brak tłumaczenia
+BŁĄD zh-Hant „Wersja receptury”: brak tłumaczenia
+BŁĄD zh-Hant „na zakwasie|wersja receptury”: brak tłumaczenia
+BŁĄD zh-Hant „na drożdżach|wersja receptury”: brak tłumaczenia
+BŁĄD zh-Hant „Mieszanie i wyrabianie”: brak tłumaczenia
+BŁĄD zh-Hant „Pierwsze rośnięcie”: brak tłumaczenia
+BŁĄD zh-Hant „Odgazowanie”: brak tłumaczenia
+BŁĄD zh-Hant „Kształtowanie”: brak tłumaczenia
+BŁĄD zh-Hant „Drugie rośnięcie”: brak tłumaczenia
+BŁĄD zh-Hant „Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.”: brak tłumaczenia
+BŁĄD zh-Hant „Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.”: brak tłumaczenia
+BŁĄD zh-Hant „Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.”: brak tłumaczenia
+BŁĄD zh-Hant „Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.”: brak tłumaczenia
+BŁĄD zh-Hant „Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.”: brak tłumaczenia
+BŁĄD zh-Hant „Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.”: brak tłumaczenia
+i18n: 872 tekstów t('…') w kodzie, 2048 w słowniku EN, języki przekładu: 33; błędy: 495, uwagi: 149 (skan kodu: src,app; uwagi wypisuje --uwagi)
+EXIT 1

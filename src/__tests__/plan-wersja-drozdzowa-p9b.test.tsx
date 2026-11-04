@@ -113,6 +113,7 @@ describe('D-155 plan i prowadzenie wersji drożdżowej', () => {
     const s = getActiveBake()!;
     const kroki = s.steps ?? [];
     expect(s.wersja).toBe('drozdze');
+    expect(s.isHighRye).toBe(false);
     expect(s.starterId).toBeUndefined();
     expect(s.recipeId).toBe(id);
     expect(kroki.map((k) => k.id)).toEqual(idKrokow);
