@@ -121,16 +121,6 @@ export default function DoctorScreen() {
         </Pressable>
         )}
 
-        {/* Diagnosis Result Card (Primary Focus) */}
-        <DiagnosisResultCard
-          diagnosis={diagnosis}
-          unitSystem={unitSystem}
-          onNavigateHarmonogram={() => router.push('/receptury/harmonogram')}
-          onNavigateCalculator={() => router.push('/receptury')}
-          onNavigateStolnica={() => router.push('/stolnica')}
-          onCopyDiagnosis={handleCopyDiagnosis}
-        />
-
         {/* Protokoły ratunkowe ze źródłami (F-71, D-095, D-096); bez receptury awaryjnej (RAT-PRZ-900, RAT-LUZ-900) */}
         {wejscieWidoczne('protokoly-ratunkowe') && (
         <EmergencyRecoverySection
@@ -147,6 +137,16 @@ export default function DoctorScreen() {
           onApplyPreset={applyPreset}
           hasAnySymptom={hasAnySymptom}
           onClear={handleClear}
+        />
+
+        {/* Wynik pod objawami: po wyborze pojawia się pod kartą, w której stuknięto (04-006, D-216) [M3 p7] */}
+        <DiagnosisResultCard
+          diagnosis={diagnosis}
+          unitSystem={unitSystem}
+          onNavigateHarmonogram={() => router.push('/receptury/harmonogram')}
+          onNavigateCalculator={() => router.push('/receptury')}
+          onNavigateStolnica={() => router.push('/stolnica')}
+          onCopyDiagnosis={handleCopyDiagnosis}
         />
 
         {/* Interactive Kitchen Tests Guide (Poke Test, Windowpane) */}
