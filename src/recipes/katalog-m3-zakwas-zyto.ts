@@ -88,7 +88,7 @@ export const KATALOG_ZAKWAS_ZYTNIE: RecipePreset[] = [
         { name: 'Mąka żytnia typ 720', percentage: 100.0, type: 'zytnia_720' },
       ],
       waterPercentage: 64.0,
-      saltPercentage: 0.0,
+      saltPercentage: 2.1, // KAT-KAR-010 (D-237)
       starterPercentage: 0.0,
       targetDoughWeightGrams: 1000,
     },
@@ -98,6 +98,6 @@ export const KATALOG_ZAKWAS_ZYTNIE: RecipePreset[] = [
     bakeTempSteamC: 275,
     bakeTempBrowningC: 275,
     recommendedVessel: 'baking_sheet',
-    notesPl: 'Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. Ryż gotuje się od pół godziny do godziny, kaszę dłużej. Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. Nadzienie nakłada się 1–2 cm od brzegu, a brzegi karbuje i zakłada na nadzienie, zostawiając środek otwarty. Pierogi piecze się w bardzo gorącym piecu, w około 250–300 °C, przez 15–20 minut.',
+    notesPl: 'Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. W formule sól to 2,1% masy mąki, policzone z przepisu fińskiej organizacji doradztwa domowego na takie pierożki. W tym przepisie na 1 1/2 dl wody, 3 dl mąki żytniej i 1 dl mąki pszennej daje się 3/4 łyżeczki soli. Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. Ryż gotuje się od pół godziny do godziny, kaszę dłużej. Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. Nadzienie nakłada się 1–2 cm od brzegu, a brzegi karbuje i zakłada na nadzienie, zostawiając środek otwarty. Pierogi piecze się w bardzo gorącym piecu, w około 250–300 °C, przez 15–20 minut.',
   },
 ];

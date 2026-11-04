@@ -36,7 +36,7 @@ const OCZEKIWANE: Oczek[] = [
   // Rupjmaize: mąka żytnia 10 kg; woda 6–8 l, sól 0,15–0,2 kg, zaczyn 4–16%; drugi etap pieczenia 200–250 °C, łącznie 1–2 h
   { id: 'latvian_scalded_rye', kategoria: 'rye', woda: zaokr1(porcent(sr(6, 8), 10)), sol: zaokr1(porcent(sr(0.15, 0.2), 10)), drozdze: 0, zakwas: sr(4, 16), temp: sr(200, 250), minuty: sr(60, 120), maki: [['zytnia_2000', 100]] },
   // Karjalanpiirakka: 200 g wody na 275–350 g mąki, soli źródło nie podaje; 250–300 °C, 15–20 min (zaokrąglone w górę do pełnej minuty)
-  { id: 'karelian_rye_pasties', kategoria: 'rye', woda: zaokr1(porcent(200, sr(275, 350))), sol: 0, drozdze: 0, zakwas: 0, temp: sr(250, 300), minuty: Math.ceil(sr(15, 20)), maki: [['zytnia_720', 100]] },
+  { id: 'karelian_rye_pasties', kategoria: 'rye', woda: zaokr1(porcent(200, sr(275, 350))), sol: 2.1, drozdze: 0, zakwas: 0, temp: sr(250, 300), minuty: Math.ceil(sr(15, 20)), maki: [['zytnia_720', 100]] },
   // Obwarzanek: na 100 kg mąki 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli; 250–320 °C, 10–17 min
   { id: 'boiled_bread_ring', kategoria: 'yeast', woda: porcent(sr(40, 48), 100), sol: zaokr1(porcent(sr(1, 1.5), 100)), drozdze: porcent(sr(1, 2), 100), zakwas: 0, temp: sr(250, 320), minuty: Math.ceil(sr(10, 17)), maki: [[MAKA_650, 100]] },
   // Bułki mleczne: mąka 437,5 g, 1/4 szklanki wody 59,25 g; 400–425 °F, 10–12 min

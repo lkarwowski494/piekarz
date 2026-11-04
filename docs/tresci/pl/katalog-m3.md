@@ -89,6 +89,8 @@ Formuła pochodzi ze specyfikacji gwarantowanej tradycyjnej specjalności „Kar
 Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. [T:-]
 Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. [T:KAT-KAR-001]
 Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. [T:KAT-KAR-005]
+W formule sól to 2,1% masy mąki, policzone z przepisu fińskiej organizacji doradztwa domowego na takie pierożki. [T:KAT-KAR-010]
+W tym przepisie na 1 1/2 dl wody, 3 dl mąki żytniej i 1 dl mąki pszennej daje się 3/4 łyżeczki soli. [T:KAT-KAR-009]
 Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. [T:KAT-KAR-002]
 Ryż gotuje się od pół godziny do godziny, kaszę dłużej. [T:KAT-KAR-002]
 Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. [T:KAT-KAR-004]
