@@ -105,7 +105,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     act(() => setLang('en'));
     const en = await otworz();
     await act(async () => en.wejscie.props.onPress());
-    expect(teksty(en.root)).toEqual(expect.arrayContaining(['Marttaliitto (Finnish home economics advisory organisation), recipe “Karjalanpiirakat”', 'Salt in open rye pasties.']));
+    expect(teksty(en.root)).toEqual(expect.arrayContaining(['Marttaliitto (Finnish home economics advisory organization), recipe “Karjalanpiirakat”', 'Salt in open rye pasties.']));
     act(() => en.tree.unmount());
   });
 

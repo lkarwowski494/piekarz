@@ -128,7 +128,7 @@ export const EN_25: Record<string, string> = {
   'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.':
     'What poolish, biga and pâte fermentée are and how long they ripen.',
   'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”':
-    'Marttaliitto (Finnish home economics advisory organisation), recipe “Karjalanpiirakat”',
+    'Marttaliitto (Finnish home economics advisory organization), recipe “Karjalanpiirakat”',
   'Ilość soli w otwartych pierożkach żytnich.':
     'Salt in open rye pasties.',
   'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
