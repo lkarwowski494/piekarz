@@ -1373,3 +1373,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** zmiana starych części notatek według drugiego przeglądu (poza zakresem); zmiana „питки” w opisie i notatce bg (polecenie obejmuje tylko nazwę).
 - **Do roli 06/04:** `wersje-drozdzowe.md:5, 16` nadal mają „Piekarz” w EN; bg: opis i notatka pierożków używają „питки”, nazwa „пирожки”; hu „kovász” oddaje teraz „zaczyn” i „zakwas”.
 - **Zależy od:** D-207, D-237, DEC-06. **Status:** dzień, do weta.
+
+### [D-242] 2026-11-04 — Dane p9 (D-221): wszystkie rekomendacje planu p9a Z1–Z6 (właściciel)
+- **Rodzaj:** decyzja właściciela (STOP przed partią danych, zasada 10). Plan: `docs/plan-danych-p9-2026-11-04.md` (gałąź `wip/08-p9a-dane-2026-11-04` @ `922a7b71`).
+- **Słowa właściciela (raport 15:00, 2026-11-04):** „Wszystkie rekomendacje (Recommended)”.
+- **Decyzja:** Z1 (b) klucz `wersje_receptur` w `app_settings` na liście kopii; Z2 (a) pola `wersja`/`tryb` w `ActiveBakeState` i `PlannedBake`, kroki planu drożdżowego tylko z istniejących kategorii; Z3 (a) migracja v7 `bakes.leaven` (kopia `VACUUM INTO` przed migracją, test łańcucha z każdej wydanej wersji); Z4 (a) klucz `maszyna` (JSON z `v`, parsowany z `unknown`) na liście kopii; Z5 (a) tryb niepamiętany (domyślnie piekarnik); Z6 (a) „Zapisz plan” = zaplanowany wypiek w `bake_sessions`.
+- **Zgody na zmianę istniejących testów (wyjątek nazwany, zasada 7):** 9 asercji bieżącej wersji schematu 6 → 7 (`sqlite-migration.test.ts:64,70,82,88,135`, `testflight-migration.sqlite.test.ts:67`, `starter-entries-v5-migration.sqlite.test.ts:91,117`, `starter-feeding-ratio.sqlite.test.ts:47,79`) i `src/__tests__/plan-bez-zakwasu-d3.test.tsx:43` jako wykonanie D-155 (receptura drożdżowa bez blokady „brak zakwasu”).
+- **Odrzucone:** Z3 (b) bez wersji w Dzienniku (OP-62 zostaje otwarte); odłożenie danych do 1.0.1.
+- **Otwarte dla roli 04/03 w p9b:** czy wypiek z maszyny trafia do Dziennika (`bake_method` w tej samej migracji), czas programu jeden czy na rodzaj (D-189/D-179). **Zależy od:** D-154, D-155, D-138, D-221, D-226. **Status:** właściciel.
+
+### [D-243] 2026-11-04 — Bogate ciasta: dodatki (mleko, jaja, tłuszcz, cukier) tylko w notatce w 1.0 (właściciel)
+- **Słowa właściciela (raport 15:00, 2026-11-04):** „Tylko notatka w 1.0 (Recommended)”. Weto D-222…D-241: „Bez weta (Recommended)” — obowiązują.
+- **Decyzja:** kalkulator liczy mąkę, wodę, sól i zaczyn; dodatki opisane w notatce receptury (stan p8, D-229). Bez zmian danych.
+- **Odrzucone:** nowe pole dodatków z migracją (bez dowodu wartości, zasada 18). **Powrót:** dowód potrzeby; wtedy także szybki chleb orkiszowy (D-236). **Status:** właściciel.
