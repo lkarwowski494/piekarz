@@ -1226,3 +1226,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Do sprawdzenia na urządzeniu:** czy po wyborze objawu z górnej części długiej listy wynik jest w widoku bez przewijania; jeśli nie — opcja (b) jako dodatek.
 - **Zależy od:** D-214.
 - **Status:** noc, do weta.
+
+### [D-217] 2026-11-04 — Komunikat pod „Odrzucić zmiany?” (04-007 z p7): nowy klucz w 35 językach przez rolę 09c (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183).
+- **Decyzja:** p7 wdrożyło pytanie „Odrzucić zmiany?” przy zmienionym formularzu bez treści komunikatu (brak klucza). Rola 09c (`wip/09c-2026-11-04`) dodaje „Wpisane zmiany nie zostaną zapisane.” (propozycja roli 08) w 35 językach i podpina w `ArkuszKart.tsx`.
+- **Odrzucone:** (b) komunikat pusty do 1.0.1 (tytuł sam mówi, co się stanie, ale iOS pokazuje pusty wiersz; koszt 09c mały).
+- **Status:** noc, do weta.
