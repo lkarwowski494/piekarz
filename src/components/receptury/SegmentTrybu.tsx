@@ -8,7 +8,7 @@ import React from 'react';
 import { t } from '../../lib/i18n';
 import type { BakeMethod } from '../../data/db';
 import { SegmentOpcji } from './SegmentOpcji';
-import { sm } from './style-maszyny';
+import { styles } from './style-maszyny';
 
 export { TrybMaszyny } from './TrybMaszyny';
 
@@ -19,7 +19,7 @@ export function SegmentTrybu({ tryb, onWybierz }: { tryb: BakeMethod; onWybierz:
       etykieta={t('Ile pieczesz')}
       wybrana={tryb}
       onWybierz={onWybierz}
-      style={sm.segmentWKarcie}
+      style={styles.segmentWKarcie}
       opcje={[
         { wartosc: 'piekarnik', testID: 'recipe-tryb-oven', etykieta: t('Piekarnik') },
         { wartosc: 'maszyna', testID: 'recipe-tryb-machine', etykieta: t('Maszyna do chleba') },

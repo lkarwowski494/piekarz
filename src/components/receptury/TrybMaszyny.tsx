@@ -24,7 +24,7 @@ import { Ostrzezenie } from '../Ostrzezenie';
 import { DaneMaszynyKarta, WyborUkladu } from './DaneMaszynyKarta';
 import { ProgramMaszynyKarta } from './ProgramMaszynyKarta';
 import { s } from './style-receptur';
-import { sm } from './style-maszyny';
+import { styles } from './style-maszyny';
 
 type Pozycja = { id: string; nazwa: string; masa: string; rodzaj: 'plyn' | 'sucha' | 'drozdze' };
 
@@ -88,28 +88,28 @@ function KartyMaszyny({ receptura, masaBochenkaG, dane, onZmien, onUklad }: {
         {kolejnosc ? (
           kolejnosc.map((p, i) => (
             <View key={p.id} style={s.kom} testID={`maszyna-krok-${i + 1}`}>
-              <Text style={sm.numer}>{i + 1}</Text>
+              <Text style={styles.numer}>{i + 1}</Text>
               <Text style={[s.etykieta, s.roz]}>{p.nazwa}</Text>
               <Text style={s.liczba}>{p.masa}</Text>
             </View>
           ))
         ) : (
-          <View style={sm.wnetrze}>
+          <View style={styles.wnetrze}>
             <WyborUkladu uklad={null} onWybierz={onUklad} />
           </View>
         )}
-        <View style={sm.wnetrze}>
+        <View style={styles.wnetrze}>
           {maka.ok && maka.ograniczenie !== null && (
-            <Text testID="maszyna-ograniczenie" style={sm.zdanie}>{t('Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.')}</Text>
+            <Text testID="maszyna-ograniczenie" style={styles.zdanie}>{t('Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.')}</Text>
           )}
-          {kolejnosc && <Text style={sm.zdanie}>{t('Kolejność wkładania składników podaje instrukcja Twojej maszyny.')}</Text>}
-          {kolejnosc && dane.uklad === 'plyny_najpierw' && <Text style={sm.zdanie}>{t('W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.')}</Text>}
-          {kolejnosc && dane.uklad === 'drozdze_najpierw' && <Text style={sm.zdanie}>{t('W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.')}</Text>}
-          <Text style={sm.zdanie}>{t('Kolejność i ilości według instrukcji maszyny.')}</Text>
+          {kolejnosc && <Text style={styles.zdanie}>{t('Kolejność wkładania składników podaje instrukcja Twojej maszyny.')}</Text>}
+          {kolejnosc && dane.uklad === 'plyny_najpierw' && <Text style={styles.zdanie}>{t('W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.')}</Text>}
+          {kolejnosc && dane.uklad === 'drozdze_najpierw' && <Text style={styles.zdanie}>{t('W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.')}</Text>}
+          <Text style={styles.zdanie}>{t('Kolejność i ilości według instrukcji maszyny.')}</Text>
           {przezWersjeDrozdzowa && (
             <View testID="maszyna-zakwas">
-              <Text style={sm.zdanie}>{t('W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.')}</Text>
-              <Text style={sm.zdanie}>{t('Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.')}</Text>
+              <Text style={styles.zdanie}>{t('W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.')}</Text>
+              <Text style={styles.zdanie}>{t('Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.')}</Text>
             </View>
           )}
         </View>

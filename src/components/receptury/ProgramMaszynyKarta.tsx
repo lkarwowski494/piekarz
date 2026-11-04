@@ -29,7 +29,7 @@ import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WierszKarty } from '../../ui/karty/WierszKarty';
 import { Pole } from './DaneMaszynyKarta';
 import { s } from './style-receptur';
-import { sm } from './style-maszyny';
+import { styles } from './style-maszyny';
 
 /** Nazwa programu (słowa z treści roli 06) i zdanie uzasadnienia z machine.programHint. */
 const PROGRAM: Record<ProgramMaszyny, { nazwa: string; zdanie: string }> = {
@@ -94,23 +94,23 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
       {program.ok ? (
         <>
           <WierszKarty testID="maszyna-program" etykieta={t('Program')} wartosc={t(PROGRAM[program.program].nazwa)} />
-          <View style={sm.wnetrze}>
-            <Text style={sm.zdanie}>{t(PROGRAM[program.program].zdanie)}</Text>
-            <Text style={sm.zdanie}>{t('Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.')}</Text>
+          <View style={styles.wnetrze}>
+            <Text style={styles.zdanie}>{t(PROGRAM[program.program].zdanie)}</Text>
+            <Text style={styles.zdanie}>{t('Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.')}</Text>
           </View>
         </>
       ) : (
-        <Text style={[sm.zdanie, sm.wnetrze]}>{t('Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.')}</Text>
+        <Text style={[styles.zdanie, styles.wnetrze]}>{t('Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.')}</Text>
       )}
       <Pole id="maszyna-czas" etykieta={t('Czas programu')} jednostka="min" wartosc={czas} onChange={setCzas} />
-      <View style={sm.wnetrze}>
-        {czas === null && <Text style={sm.zdanie}>{t('Wpisz czas programu z instrukcji maszyny.')}</Text>}
+      <View style={styles.wnetrze}>
+        {czas === null && <Text style={styles.zdanie}>{t('Wpisz czas programu z instrukcji maszyny.')}</Text>}
         {!zOpoznieniem && opoz.ok && !opoz.dostepny && (
           <View testID="maszyna-opoznienie-blokada">
-            <Text style={sm.zdanie}>{t('Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.')}</Text>
-            <Text style={sm.zdanie}>{t('W tej recepturze: {skladniki}.', { skladniki: opoz.psujace.map((p) => t(SKLADNIK[p])).join(', ') })}</Text>
-            <Text style={sm.zdanie}>{t('Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.')}</Text>
-            <Text style={sm.zdanie}>{t('Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.')}</Text>
+            <Text style={styles.zdanie}>{t('Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.')}</Text>
+            <Text style={styles.zdanie}>{t('W tej recepturze: {skladniki}.', { skladniki: opoz.psujace.map((p) => t(SKLADNIK[p])).join(', ') })}</Text>
+            <Text style={styles.zdanie}>{t('Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.')}</Text>
+            <Text style={styles.zdanie}>{t('Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.')}</Text>
           </View>
         )}
         {zOpoznieniem && (
@@ -118,12 +118,12 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
             <View testID="maszyna-gotowe">
               <Text style={s.etykieta}>{t('Gotowe o')}</Text>
               <Text style={s.liczba}>{`${dzien(cel.dayOffset)} ${formatTime(msCelu(cel, nowMs))}`}</Text>
-              <View style={sm.rzad}>
+              <View style={styles.rzad}>
                 {([[-30, t('{n} min', { n: -30 })], [30, t('{n} min', { n: '+30' })], [120, t('{n} godziny', { n: '+2' })]] as const).map(([dm, et]) => {
                   const nowy = przesunGotowe(cel, dm, 2);
                   return (
-                    <Pressable key={dm} accessibilityRole="button" accessibilityState={{ disabled: !nowy }} disabled={!nowy} onPress={() => nowy && setCel(nowy)} style={sm.drugi}>
-                      <Text style={sm.drugiTekst}>{et}</Text>
+                    <Pressable key={dm} accessibilityRole="button" accessibilityState={{ disabled: !nowy }} disabled={!nowy} onPress={() => nowy && setCel(nowy)} style={styles.drugi}>
+                      <Text style={styles.drugiTekst}>{et}</Text>
                     </Pressable>
                   );
                 })}
@@ -133,15 +133,15 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
         )}
         {start !== null && start.ok && (
           <View testID="maszyna-start">
-            <Text style={sm.zdanie}>{t('Program rusza o {godzina}.', { godzina: formatTime(start.startMs) })}</Text>
-            <Text style={sm.zdanie}>{t('Od teraz do gotowości: {czas}.', { czas: czasTrwania(start.doGotowosciMin).tekst })}</Text>
+            <Text style={styles.zdanie}>{t('Program rusza o {godzina}.', { godzina: formatTime(start.startMs) })}</Text>
+            <Text style={styles.zdanie}>{t('Od teraz do gotowości: {czas}.', { czas: czasTrwania(start.doGotowosciMin).tekst })}</Text>
           </View>
         )}
         {start !== null && !start.ok && start.blad === 'za-wczesnie' && (
-          <Text testID="maszyna-za-wczesnie" style={sm.zdanie}>{t('Program nie zdąży. Najwcześniej gotowe o {godzina}.', { godzina: formatTime(start.najwczesniejGotoweMs) })}</Text>
+          <Text testID="maszyna-za-wczesnie" style={styles.zdanie}>{t('Program nie zdąży. Najwcześniej gotowe o {godzina}.', { godzina: formatTime(start.najwczesniejGotoweMs) })}</Text>
         )}
-        <Pressable testID="maszyna-zapisz-plan" accessibilityRole="button" accessibilityState={{ disabled: !mozna }} disabled={!mozna} onPress={zapiszPlan} style={[sm.glowny, !mozna && sm.glownyZablokowany]}>
-          <Text style={[sm.glownyTekst, !mozna && sm.tekstZablokowany]}>{t('Zapisz plan')}</Text>
+        <Pressable testID="maszyna-zapisz-plan" accessibilityRole="button" accessibilityState={{ disabled: !mozna }} disabled={!mozna} onPress={zapiszPlan} style={[styles.glowny, !mozna && styles.glownyZablokowany]}>
+          <Text style={[styles.glownyTekst, !mozna && styles.tekstZablokowany]}>{t('Zapisz plan')}</Text>
         </Pressable>
       </View>
     </Karta>

@@ -7,7 +7,7 @@ import { StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
-export const sm = StyleSheet.create({
+export const styles = StyleSheet.create({
   wnetrze: { paddingHorizontal: theme.spacing.md, paddingBottom: theme.spacing.md },
   zdanie: { fontSize: typografia.style.przypis.pt, lineHeight: 20, color: theme.colors.tusz2, marginTop: odstepy.xs },
   numer: { minWidth: 28, fontSize: typografia.style.tresc.pt, fontWeight: '600', color: theme.colors.tusz, fontVariant: ['tabular-nums'] },
@@ -23,7 +23,8 @@ export const sm = StyleSheet.create({
   },
   glownyTekst: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
+    // Krój i rozmiar przycisku głównego jak „Ułóż plan”: 20 pt = tytul2 − 2 (karty/README.md §2)
+    fontSize: typografia.style.tytul2.pt - 2,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
     textAlign: 'center',

@@ -14,7 +14,7 @@ import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { SegmentOpcji } from './SegmentOpcji';
 import { s } from './style-receptur';
-import { sm } from './style-maszyny';
+import { styles } from './style-maszyny';
 
 /** Wartość pola: liczba > 0 albo brak (puste pole i 0 = nie podano). */
 const dodatnia = (v: number | null): number | null => (v !== null && Number.isFinite(v) && v > 0 ? v : null);
@@ -23,7 +23,7 @@ export function Pole({ id, etykieta, jednostka, wartosc, onChange }: { id: strin
   return (
     <View style={s.kom}>
       <Text style={[s.etykieta, s.roz]}>{etykieta}</Text>
-      <View style={sm.rzad}>
+      <View style={styles.rzad}>
         <NumInput testID={id} accessibilityLabel={etykieta} value={wartosc ?? ''} unit={jednostka} onChangeNumber={(v) => onChange(dodatnia(v))} style={s.pole} />
         <Text style={s.wartosc}>{jednostka}</Text>
       </View>
@@ -35,7 +35,7 @@ export function Pole({ id, etykieta, jednostka, wartosc, onChange }: { id: strin
 export function WyborUkladu({ uklad, onWybierz }: { uklad: UkladMaszyny | null; onWybierz: (u: UkladMaszyny) => void }) {
   return (
     <View>
-      <Text style={[s.etykieta, sm.naglowekGrupy]}>{t('Kolejność wkładania')}</Text>
+      <Text style={[s.etykieta, styles.naglowekGrupy]}>{t('Kolejność wkładania')}</Text>
       <SegmentOpcji
         testID="maszyna-uklad"
         etykieta={t('Kolejność wkładania')}
@@ -47,8 +47,8 @@ export function WyborUkladu({ uklad, onWybierz }: { uklad: UkladMaszyny | null; 
           { wartosc: 'drozdze_najpierw', testID: 'maszyna-uklad-drozdze', etykieta: t('drożdże najpierw') },
         ]}
       />
-      <Text style={sm.zdanie}>{t('W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.')}</Text>
-      <Text style={sm.zdanie}>{t('W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.')}</Text>
+      <Text style={styles.zdanie}>{t('W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.')}</Text>
+      <Text style={styles.zdanie}>{t('W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.')}</Text>
     </View>
   );
 }
@@ -66,15 +66,15 @@ export function DaneMaszynyKarta({ poczatkowe, onZapisz }: { poczatkowe: DaneMas
   };
   return (
     <Karta testID="maszyna-dane" tytul={t('Pojemność maszyny')} ikona={<IkonaKarty nazwa="waga" />} bezWypelnienia>
-      <View style={sm.wnetrze}>
-        <Text style={sm.zdanie}>{t('Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.')}</Text>
-        <Text style={sm.zdanie}>{t('Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.')}</Text>
+      <View style={styles.wnetrze}>
+        <Text style={styles.zdanie}>{t('Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.')}</Text>
+        <Text style={styles.zdanie}>{t('Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.')}</Text>
       </View>
       <Pole id="maszyna-maka-max" etykieta={t('Największa ilość mąki')} jednostka="g" wartosc={maka} onChange={setMaka} />
       <Pole id="maszyna-ciasto-max" etykieta={t('Największa masa ciasta')} jednostka="g" wartosc={ciasto} onChange={setCiasto} />
       <Pole id="maszyna-drozdze-max" etykieta={t('Największa masa drożdży suchych')} jednostka="g" wartosc={drozdze} onChange={setDrozdze} />
       <Pole id="maszyna-czas-programu" etykieta={t('Czas programu')} jednostka="min" wartosc={czas} onChange={setCzas} />
-      <View style={sm.wnetrze}>
+      <View style={styles.wnetrze}>
         <WyborUkladu uklad={uklad} onWybierz={setUklad} />
         <Pressable
           testID="maszyna-dane-zapisz"
@@ -82,9 +82,9 @@ export function DaneMaszynyKarta({ poczatkowe, onZapisz }: { poczatkowe: DaneMas
           accessibilityState={{ disabled: !gotowe }}
           disabled={!gotowe}
           onPress={zapisz}
-          style={[sm.glowny, !gotowe && sm.glownyZablokowany]}
+          style={[styles.glowny, !gotowe && styles.glownyZablokowany]}
         >
-          <Text style={[sm.glownyTekst, !gotowe && sm.tekstZablokowany]}>{t('Zapisz')}</Text>
+          <Text style={[styles.glownyTekst, !gotowe && styles.tekstZablokowany]}>{t('Zapisz')}</Text>
         </Pressable>
       </View>
     </Karta>
