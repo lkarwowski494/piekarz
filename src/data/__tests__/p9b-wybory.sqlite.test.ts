@@ -92,3 +92,29 @@ describe('p9b: zapis i odczyt wyborów w bazie', () => {
     expect(await w.wczytajMaszyne()).toEqual(expect.objectContaining({ ok: false }));
   });
 });
+
+describe('p9b: import kopii sprawdza kształt nowych kluczy (drugi przegląd ścieżek wrażliwych, P1)', () => {
+  beforeEach(() => {
+    useTempDbDir();
+    mockFiles.clear();
+  });
+
+  it('zła wartość maszyna lub wersje_receptur w kopii jest pomijana jak nieznany klucz; telefon zostaje bez zmian', async () => {
+    zalozBaze1021(APP_DB());
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const dobraMaszyna = '{"v":1,"makaMaxG":620}';
+    await app.store.setAppSetting('maszyna', dobraMaszyna);
+    await app.store.setAppSetting('wersje_receptur', '{"graham_bread_honey":"drozdze"}');
+    const koperta = app.backup.buildBackup(await app.store.collectBackupData());
+    koperta.state.settings = { ...(koperta.state.settings ?? {}), maszyna: '{"v":2,"makaMaxG":620}', wersje_receptur: '[]' };
+    const kopia = app.backup.parseAndValidateBackup(JSON.stringify(koperta));
+    expect(kopia.state.settings).not.toHaveProperty('maszyna');
+    expect(kopia.state.settings).not.toHaveProperty('wersje_receptur');
+    await app.store.restoreFromBackupData({ ...kopia.state, settings: { ...kopia.state.settings, maszyna: 'x', wersje_receptur: '{"a":"inna"}' } });
+    expect(await app.store.getAppSetting('maszyna')).toBe(dobraMaszyna);
+    expect(await app.store.getAppSetting('wersje_receptur')).toBe('{"graham_bread_honey":"drozdze"}');
+    const { przyjety } = require('../ustawienia-kopii') as typeof import('../ustawienia-kopii');
+    expect([przyjety('maszyna', dobraMaszyna), przyjety('maszyna', 'x'), przyjety('wersje_receptur', '{}'), przyjety('language', 'pl'), przyjety('obcy', 'x')]).toEqual([true, false, true, true, false]);
+  });
+});

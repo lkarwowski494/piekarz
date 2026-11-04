@@ -1,0 +1,4 @@
+[test-matrix] Wyniki: 1543/1543 elementów (100%)
+Test Suites: 546 passed, 546 total
+Tests:       5836 passed, 5836 total
+kod=0

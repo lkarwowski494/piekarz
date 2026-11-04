@@ -6,6 +6,7 @@
 // ============================================================================
 
 import type * as SQLite from 'expo-sqlite';
+import { KLUCZ_MASZYNY, KLUCZ_WERSJI_RECEPTUR, parseMaszyna, parseWersjeReceptur } from './wybory-parsery';
 
 /**
  * Klucze app_settings przenoszone kopią: język, jednostki, godziny snu, naczynie, profil, wprowadzenie, przełącznik
@@ -33,10 +34,23 @@ export interface LekcjaKopii {
 
 export const dozwolony = (k: string) => KLUCZE_USTAWIEN_KOPII.some((x) => x === k);
 
+/**
+ * Wartość z kopii do zapisu: dozwolony klucz z tekstem; klucze JSON wyborów (D-242) tylko w kształcie, który aplikacja
+ * odczyta — zła wartość jest pomijana jak nieznany klucz, a telefon zostaje bez zmian (przegląd p9b, P1) [M3 p9b].
+ */
+export function przyjety(k: string, w: unknown): w is string {
+  if (!dozwolony(k) || typeof w !== 'string') return false;
+  if (k === KLUCZ_MASZYNY) {
+    const r = parseMaszyna(w);
+    return r.ok && r.value !== null;
+  }
+  return k === KLUCZ_WERSJI_RECEPTUR ? parseWersjeReceptur(w).ok : true;
+}
+
 /** Ustawienia z pliku: tylko dozwolone klucze z tekstową wartością; brak pola albo zły kształt → undefined. */
 export function parseUstawienia(v: unknown): Record<string, string> | undefined {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return undefined;
-  return Object.fromEntries(Object.entries(v).filter(([k, w]) => dozwolony(k) && typeof w === 'string'));
+  return Object.fromEntries(Object.entries(v).filter(([k, w]) => przyjety(k, w)));
 }
 
 /** Lekcje z pliku: wpisy z całkowitym numerem i czasem; brak tablicy → undefined. */
@@ -61,7 +75,7 @@ export async function czytajUstawieniaILekcje(db: SQLite.SQLiteDatabase): Promis
 /** Zapis z kopii w transakcji importu: tylko pola, które kopia niesie; lekcje zastępują lekcje w telefonie. */
 export async function zapiszUstawieniaILekcje(db: SQLite.SQLiteDatabase, settings?: Record<string, unknown>, lekcje?: LekcjaKopii[]): Promise<void> {
   for (const [k, w] of Object.entries(settings ?? {})) {
-    if (dozwolony(k) && typeof w === 'string') await db.runAsync('INSERT INTO app_settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value;', k, w);
+    if (przyjety(k, w)) await db.runAsync('INSERT INTO app_settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value;', k, w);
   }
   if (!lekcje) return;
   await db.execAsync('DELETE FROM lesson_progress;');
