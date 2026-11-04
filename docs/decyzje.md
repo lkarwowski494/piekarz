@@ -1360,3 +1360,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** w `src/components/__tests__/zrodla-wiedzy-t2.test.tsx` (test „ekran: wstęp, 6 grup…”) oczekiwana liczba źródeł 26 → 27 (nazwa testu i `toHaveLength`). Test zostaje dokładny (nie luźniejszy); nowe źródło ma osobny test, czerwony przed kodem.
 - **Odrzucone:** STOP bez dodania źródła (zadanie 3 z polecenia niewykonalne bez tej zmiany); zmiana na `toBeGreaterThan(26)` (osłabia test).
 - **Zależy od:** D-126, D-234 (precedens), D-237. **Status:** dzień, do weta.
+
+### [D-241] 2026-11-04 — 09p10: przekład 3 kluczy p10 i poprawki terminów D-237 (rola 09, dzień, do weta)
+- **Decyzja:** (1) 3 klucze p10 przełożone na 33 języki, notatka pierożków = istniejący przekład + 2 zdania, stary klucz usunięty; (2) EN „organization” (pisownia US), „Piekarz” → „the app” w `docs/tresci/en/drozdze-plan-przelicznik.md:5` i `wersje-drozdzowe.md:22`; (3) poprawki terminów el, hu, bg z D-237 pkt 5; w el także trzecie wystąpienie „κύμινο” („το αγριοκύμινο 0,8–1%”) dla spójności.
+- **Odrzucone:** zmiana starych części notatek według drugiego przeglądu (poza zakresem); zmiana „питки” w opisie i notatce bg (polecenie obejmuje tylko nazwę).
+- **Do roli 06/04:** `wersje-drozdzowe.md:5, 16` nadal mają „Piekarz” w EN; bg: opis i notatka pierożków używają „питки”, nazwa „пирожки”; hu „kovász” oddaje teraz „zaczyn” i „zakwas”.
+- **Zależy od:** D-207, D-237, DEC-06. **Status:** dzień, do weta.

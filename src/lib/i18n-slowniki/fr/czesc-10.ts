@@ -73,5 +73,5 @@ export const CZESC: Record<string, string> = {
   'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”':
     'Marttaliitto (organisation finlandaise de conseil en économie domestique), recette « Karjalanpiirakat »',
   'Ilość soli w otwartych pierożkach żytnich.':
-    'Sel dans les pâtés de seigle ouverts.',
+    'Quantité de sel dans les pâtés de seigle ouverts.',
 };

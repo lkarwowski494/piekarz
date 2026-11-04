@@ -31,5 +31,5 @@ export const CZESC: Record<string, string> = {
   'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”':
     'Marttaliitto(핀란드 가정경제 자문 단체), 레시피 “Karjalanpiirakat”',
   'Ilość soli w otwartych pierożkach żytnich.':
-    '열린 호밀 파이에 들어가는 소금의 양.',
+    '오픈 호밀 파이에 들어가는 소금의 양.',
 };
