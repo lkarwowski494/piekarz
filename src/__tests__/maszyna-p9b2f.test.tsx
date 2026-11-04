@@ -192,4 +192,20 @@ describe('p9b2f: tryb maszyny, poprawki po 06m i przeglądzie', () => {
     await wpisz(root, 'maszyna-czas', '300');
     expect(tekst(host(root, 'maszyna-gotowe')[0])).toContain(o(14, 0));
   });
+
+  // P9B2F-7 (D-271): domyślne „Gotowe o” bez sekund dawało start sprzed „teraz”, gdy teraz + czas wypadał na pełne 30 min
+  it.each([[30], [0]])('P9B2F-7: teraz 10:20:%i, program 190 min (teraz + czas = pełne 30 min) → domyślny start nie jest w przeszłości, bez „Program nie zdąży”', async (sek) => {
+    jest.setSystemTime(new Date(2026, 10, 4, 10, 20, sek).getTime());
+    await setAppSetting('maszyna', MASZYNA);
+    const root = await otworz('white_pan_loaf');
+    await nacisnij(root, 'recipe-tryb-machine');
+    expect(host(root, 'maszyna-za-wczesnie').length).toBe(0);
+    expect(host(root, 'maszyna-start').length).toBe(1);
+    // Zapis przechodzi zaraz po otwarciu i start nie jest wcześniejszy niż teraz
+    jest.setSystemTime(new Date(2026, 10, 4, 10, 20, sek).getTime() + 45_000);
+    const przed = (await loadPlannedBakes()).length;
+    await nacisnij(root, 'maszyna-zapisz-plan');
+    const plany = await loadPlannedBakes();
+    expect(plany.length).toBe(przed + 1);
+  });
 });
