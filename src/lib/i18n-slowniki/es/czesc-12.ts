@@ -4,7 +4,7 @@ export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
     'Diario Oficial de la Unión Europea: pliegos de condiciones de «Salinātā rudzu rupjmaize», «Karjalanpiirakka», «Obwarzanek krakowski» y «Kołocz śląski»',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
-    'Composición y método de horneado del pan de centeno con harina escaldada, las empanadillas de centeno abiertas, la rosca de pan escaldada y el bollo de levadura con queso y migas crujientes.',
+    'Composición y método de horneado del pan de centeno con harina escaldada, las empanadillas de centeno abiertas, la rosca de pan escaldada y el pastel de masa con levadura, queso y migas crujientes.',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
     'Comisión Europea, registro eAmbrosia: pliego de condiciones de «Pane di Altamura»',
   'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
@@ -12,7 +12,7 @@ export const CZESC: Record<string, string> = {
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
     'Registro británico de nombres protegidos de alimentos (Defra): traducciones al inglés de las solicitudes de «Obwarzanek krakowski» y «Kołocz śląski»',
   'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
-    'Temperatura y tiempo de horneado de la rosca de pan y del bollo de levadura, y levado de la esponja del bollo.',
+    'Temperatura y tiempo de horneado de la rosca de pan y del pastel, y levado de la esponja del pastel.',
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H (University of Illinois Extension), «Cooking 301 State Fair Recipes»',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':

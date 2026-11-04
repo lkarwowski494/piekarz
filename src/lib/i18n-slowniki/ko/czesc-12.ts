@@ -2,7 +2,7 @@
 // Źródło przekładu: docs/lokalizacja/przeklad-zrodla-katalogu-09z-2026-11-04.json.
 export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
-    '유럽연합 공보: “Salinātā rudzu rupjmaize”, “Karjalanpiirakka”, “Obwarzanek krakowski”, “Kołocz śląski” 규격서',
+    '유럽연합 관보: “Salinātā rudzu rupjmaize”, “Karjalanpiirakka”, “Obwarzanek krakowski”, “Kołocz śląski” 규격서',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
     '뜨거운 물로 반죽한 가루를 쓰는 호밀빵, 오픈 호밀 파이, 삶은 링 빵, 치즈와 크럼블을 얹은 이스트 케이크의 재료와 굽는 방법.',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H(University of Illinois Extension), “Cooking 301 State Fair Recipes”',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
-    '틀빵, 우유 롤빵, 달콤한 작은 빵, 시나몬 링의 레시피.',
+    '틀빵, 우유 롤빵, 달콤한 롤빵, 시나몬 링의 레시피.',
   'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
     'USDA FoodData Central(미국 식품 성분 데이터베이스), SR Legacy',
   'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':

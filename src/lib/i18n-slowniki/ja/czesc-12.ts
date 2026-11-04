@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H（University of Illinois Extension）、「Cooking 301 State Fair Recipes」',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
-    '型焼きパン、ミルクロールパン、甘い小さなパン、シナモンリングのレシピ。',
+    '型焼きパン、ミルクロールパン、甘いロールパン、シナモンリングのレシピ。',
   'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
     'USDA FoodData Central（米国の食品成分データベース）、SR Legacy',
   'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':

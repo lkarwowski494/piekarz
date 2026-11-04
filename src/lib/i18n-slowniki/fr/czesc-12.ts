@@ -12,11 +12,11 @@ export const CZESC: Record<string, string> = {
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
     'Registre britannique des noms alimentaires protégés (Defra) : traductions anglaises des demandes « Obwarzanek krakowski » et « Kołocz śląski »',
   'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
-    'Température et durée de cuisson de l’anneau de pain et du gâteau, et temps de pousse du levain-éponge du gâteau.',
+    'Température et durée de cuisson de l’anneau de pain et du gâteau, et temps de pousse de l’éponge à la levure du gâteau.',
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H (University of Illinois Extension), « Cooking 301 State Fair Recipes »',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
-    'Recettes de pains de mie, de petits pains au lait, de petits pains sucrés et de couronne à la cannelle.',
+    'Recettes de pains cuits en moule, de petits pains au lait, de petits pains sucrés et de couronne à la cannelle.',
   'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
     'USDA FoodData Central (base de données américaine sur la composition des aliments), SR Legacy',
   'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':

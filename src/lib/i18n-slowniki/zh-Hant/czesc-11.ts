@@ -2,11 +2,11 @@
 // Źródło przekładu: docs/lokalizacja/przeklad-zrodla-katalogu-09z-2026-11-04.json.
 export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
-    '歐洲聯盟公報：「Salinātā rudzu rupjmaize」、「Karjalanpiirakka」、「Obwarzanek krakowski」與「Kołocz śląski」的規範',
+    '歐洲聯盟官方公報：「Salinātā rudzu rupjmaize」、「Karjalanpiirakka」、「Obwarzanek krakowski」與「Kołocz śląski」的規範',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
     '使用燙麵粉的裸麥麵包、開口裸麥小餡餅、水煮環形麵包以及鋪乳酪與酥粒的酵母蛋糕的成分與烘焙方式。',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
-    '歐盟執委會，eAmbrosia 登錄系統：「Pane di Altamura」規範',
+    '歐盟執委會，eAmbrosia 登記冊：「Pane di Altamura」規範',
   'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
     '杜蘭小麥粗粒粉酸種麵包的成分與烘焙方式。',
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':

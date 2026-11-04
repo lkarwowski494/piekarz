@@ -4,11 +4,11 @@ export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
     'Eiropas Savienības Oficiālais Vēstnesis: specifikācijas „Salinātā rudzu rupjmaize“, „Karjalanpiirakka“, „Obwarzanek krakowski“ un „Kołocz śląski“',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
-    'Rudzu maizes ar appūstiem miltiem, atvērto rudzu pirādziņu, vārītu maizes riņķu un rauga mīklas plāksnes kūkas ar sieru un drupačām sastāvs un cepšanas veids.',
+    'Rudzu maizes ar applaucētiem miltiem, atvērto rudzu pirādziņu, vārītu maizes riņķu un rauga mīklas plāksnes kūkas ar sieru un drupačām sastāvs un cepšanas veids.',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
     'Eiropas Komisija, eAmbrosia reģistrs: specifikācija „Pane di Altamura“',
   'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
-    'Maizes no durum mannas ar ieraugu sastāvs un cepšanas veids.',
+    'Maizes no cieto (durum) kviešu mannas ar ieraugu sastāvs un cepšanas veids.',
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
     'Apvienotās Karalistes aizsargāto pārtikas nosaukumu reģistrs (Defra): pieteikumu „Obwarzanek krakowski“ un „Kołocz śląski“ tulkojumi angļu valodā',
   'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
@@ -28,5 +28,5 @@ export const CZESC: Record<string, string> = {
   'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
     'CPSC (ASV Patērētāju produktu drošuma komisija), „Avoiding Tap Water Scalds“',
   'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
-    'Cik ātri karsts ūdens apdedzina ādu: appūšot miltus un vārot maizes riņķus.',
+    'Cik ātri karsts ūdens applaucē ādu: applaucējot miltus un vārot maizes riņķus.',
 };

@@ -4,11 +4,11 @@ export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
     'Az Európai Unió Hivatalos Lapja: a „Salinātā rudzu rupjmaize”, a „Karjalanpiirakka”, az „Obwarzanek krakowski” és a „Kołocz śląski” termékleírása',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
-    'A forrázott lisztes rozskenyér, a nyitott rozstáskák, a főzött kenyérkarika és a sajtos-morzsás élesztős kalács összetétele és sütési módja.',
+    'A forrázott liszttel készülő rozskenyér, a nyitott rozstáskák, a főzött obwarzanek és a sajtos-morzsás élesztős kalács összetétele és sütési módja.',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
     'Európai Bizottság, eAmbrosia nyilvántartás: a „Pane di Altamura” termékleírása',
   'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
-    'A durum búzadarából készült, kovásszal készülő kenyér összetétele és sütési módja.',
+    'A durum búzadarából kovásszal készülő kenyér összetétele és sütési módja.',
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
     'Az Egyesült Királyság védett élelmiszernevek nyilvántartása (Defra): az „Obwarzanek krakowski” és a „Kołocz śląski” kérelmek angol fordítása',
   'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
@@ -16,11 +16,11 @@ export const CZESC: Record<string, string> = {
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
-    'Receptek formában sült kenyerekhez, tejes kiflikhez, édes élesztős zsemlékhez és fahéjas koszorúhoz.',
+    'Receptek formában sült kenyerekhez, tejes zsemlékhez, édes zsemlékhez és fahéjas koszorúhoz.',
   'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
     'USDA FoodData Central (amerikai élelmiszer-összetételi adatbázis), SR Legacy',
   'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':
-    'Mennyit nyom egy pohár vagy egy teáskanál liszt, cukor, só és más hozzávaló, ha a recept gramm helyett mértékegységeket ad meg.',
+    'Mennyit nyom egy csésze vagy egy teáskanál liszt, cukor, só és más hozzávaló, ha a recept gramm helyett mértékegységeket ad meg.',
   'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)':
     'NIST (az amerikai Nemzeti Szabványügyi és Technológiai Intézet), Handbook 44 (2025)',
   'Ile mililitrów ma amerykańska szklanka miarowa.':
@@ -28,5 +28,5 @@ export const CZESC: Record<string, string> = {
   'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
     'CPSC (az amerikai Fogyasztói Termékbiztonsági Bizottság), „Avoiding Tap Water Scalds”',
   'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
-    'Milyen gyorsan éget a forró víz: a liszt leforrázásakor és az obwarzanek főzésekor.',
+    'Milyen gyorsan égeti meg a forró víz a bőrt: a liszt leforrázásakor és az obwarzanek főzésekor.',
 };

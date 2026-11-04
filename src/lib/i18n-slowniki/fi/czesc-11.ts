@@ -4,19 +4,19 @@ export const CZESC: Record<string, string> = {
   'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
     'Euroopan unionin virallinen lehti: eritelmät ”Salinātā rudzu rupjmaize”, ”Karjalanpiirakka”, ”Obwarzanek krakowski” ja ”Kołocz śląski”',
   'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
-    'Kuumennetulla jauholla tehdyn ruisleivän, avointen ruispiirakoiden, keitettyjen leipärenkaiden sekä juusto-murutäytteisen hiivakakun ainekset ja leivontatapa.',
+    'Poltetuilla jauhoilla tehdyn ruisleivän, avointen ruispiirakoiden, keitettyjen leipärenkaiden sekä juustoisen murupintaisen hiivakakun ainekset ja leivontatapa.',
   'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
     'Euroopan komissio, eAmbrosia-rekisteri: eritelmä ”Pane di Altamura”',
   'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
-    'Ainekset ja leivontatapa durumvehnän mannasuurimoista tehdylle hapanleivälle.',
+    'Ainekset ja leivontatapa durumvehnän mannasuurimoista tehdylle juurileivälle.',
   'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
-    'Ison-Britannian suojattujen elintarvikenimien rekisteri (Defra): hakemusten ”Obwarzanek krakowski” ja ”Kołocz śląski” englanninkieliset käännökset',
+    'Yhdistyneen kuningaskunnan suojattujen elintarvikenimien rekisteri (Defra): hakemusten ”Obwarzanek krakowski” ja ”Kołocz śląski” englanninkieliset käännökset',
   'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
     'Leipärenkaiden ja hiivakakun paistolämpötila ja paistoaika sekä hiivakakun esitaikinan kohoaminen.',
   'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
     'Illinois 4-H (University of Illinois Extension), ”Cooking 301 State Fair Recipes”',
   'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
-    'Reseptejä vuokaleipiin, maitopulliin, makeisiin hiivapulliin ja kanelikranssiin.',
+    'Reseptejä vuokaleipiin, maitopulliin, makeisiin pulliin ja kanelikranssiin.',
   'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
     'USDA FoodData Central (yhdysvaltalainen elintarvikkeiden koostumustietokanta), SR Legacy',
   'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':
@@ -28,5 +28,5 @@ export const CZESC: Record<string, string> = {
   'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
     'CPSC (yhdysvaltalainen Consumer Product Safety Commission), ”Avoiding Tap Water Scalds”',
   'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
-    'Kuinka nopeasti kuuma vesi polttaa ihoa: jauhojen kuumennuksessa ja leipärenkaiden keittämisessä.',
+    'Kuinka nopeasti kuuma vesi polttaa ihoa: jauhojen polttamisessa ja leipärenkaiden keittämisessä.',
 };
