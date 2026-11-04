@@ -106,6 +106,12 @@ export function BakeHistorySection({
                     </Text>
                   </View>
                 )}
+                {/* Metoda wypieku (D-260): tylko wpis z zapisaną metodą; starsze wpisy (null) bez etykiety [M3 p9b2f] */}
+                {log.bakeMethod != null && (
+                  <View style={styles.historyPill} testID={`bake-log-metoda-${log.id}`}>
+                    <Text style={styles.historyPillText}>{log.bakeMethod === 'maszyna' ? t('Maszyna do chleba') : t('Piekarnik')}</Text>
+                  </View>
+                )}
                 {log.crumbScore !== undefined && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>
