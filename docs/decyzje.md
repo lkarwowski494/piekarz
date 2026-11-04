@@ -1209,3 +1209,20 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** p7 (rola 08 build, `wip/08-p7-2026-11-03`): 001 opcja (a) wspólny ekran z pasem i czapką na 9 ekranach; 002 opcja (a) wszystkie wymienione arkusze na kartach i pasku arkusza z README §3, bez zmian zachowania; 003; 006 opcja (a) objawy przed wynikiem (lub przewinięcie do wyniku, jeśli (a) wymaga zmiany testów); 007 pytanie „Odrzucić zmiany?” przy zmienionym formularzu (istniejące `confirmDiscard`); 004 tylko bez zmiany istniejących testów. **005 nie w p7:** wymaga zmiany `src/__tests__/pas-zakladek-d10.test.tsx:136` (spoza D-194/D-197/D-204) — do decyzji właściciela.
 - **Odrzucone:** (b) tylko 001 i arkusz oceny (D-139: „Wszystko powinno być ładnie obrobione, pozamykane w ładne karty”); (c) bez partii.
 - **Status:** noc, do weta.
+
+### [D-215] 2026-11-03 — p7: wykonanie 04-001, 04-002, 04-003, 04-007; odstępstwa nazwane; 04-004 odłożone (rola 08, noc, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 pod nieobecność właściciela (D-183), w ramach D-214.
+- **04-001:** wspólny `EkranZPasem` (`src/components/nawigacja/EkranZPasem.tsx`: przewijanie + `NadPasem` + pas + `CzapkaPaska` z małym tytułem) na 8 ekranach z pasem (Dziś, Receptury, Receptura, Plan, Prowadzenie, Dziennik, Doktor Chleba, Zakwasy). **Odstępstwo:** Piekarz Pro (`PaywallModal`) zostaje z własną czapką (natywny `SafeAreaView` z krawędzią `top`), bo w oknie `Modal` wysokość z `useSafeAreaInsets` nie jest pewna; dostaje wspólny `testID="czapka-paska"`, więc test akceptacyjny obejmuje 9 ekranów.
+- **04-002:** wspólny `ArkuszKart` + `PasekArkusza` (`src/components/arkusz/ArkuszKart.tsx`): „Anuluj”/„Zamknij” z lewej, „Zapisz” z prawej, poza przewijaniem; treść w `Karta`. **Odstępstwo od makiety (`.ark-nav` z tytułem w pasku):** tytuł arkusza jest nagłówkiem pierwszej karty, a pasek ma tylko przyciski. Powód: istniejący test `arkusz-oceny-przewijanie-w001` wymaga pytania „Jak wyszedł bochenek?” w przewijanej treści, a jeden wzór dla 6 arkuszy unika podwójnego tytułu z istniejących kluczy. W ocenie po wypieku karta „Ocena wypieku” z pytaniem w treści (etykieta nad gwiazdkami zastąpiona nagłówkiem karty). Opcja odrzucona: tytuł w pasku i drugi raz w karcie (powtórzenie).
+- **04-007:** `confirmDiscard` przy „Anuluj” i przesunięciu w dół w 4 arkuszach z polami (ocena, zapis receptury, dodanie i edycja zakwasu); komunikat pod tytułem pusty, bo nie ma istniejącego klucza (nowy tekst → lista dla roli 09). Arkusze informacyjne (konwerter, odrzut) zamykają się bez pytania.
+- **04-004 odłożone:** ukrycie paska zakładek na planie wymaga zmiany `tests/pasek-zakladek-receptura-106.test.tsx:49` („plan wypieku pokazuje pasek”), spoza dozwolonych zmian testów (D-206) — do decyzji właściciela razem z 04-005.
+- **Zależy od:** D-214.
+- **Status:** noc, do weta.
+
+### [D-216] 2026-11-03 — p7 04-006: Doktor Chleba w kolejności protokoły → objawy → wynik → testy (rola 08, noc, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 (D-183), opcja (a) z D-214 w wariancie bez zmiany testów.
+- **Decyzja:** karta wyniku przeniesiona pod karty objawów; protokoły ratunkowe zostają nad objawami. Ekran nie wie, skąd wszedł użytkownik (`router.push('/doktor')` z prowadzenia i z Dziennika), a parametr wejścia wymagałby zmiany `ProwadzenieWypieku.tsx` (25 B pod limitem 20 480 B) i asercji wywołań `push`.
+- **Odrzucone:** objawy → wynik → protokoły dla każdego wejścia (pogarsza ścieżkę ratunkową z prowadzenia); przewinięcie do wyniku z ogłoszeniem VoiceOver (opcja (b), zbędna przy zmianie kolejności).
+- **Do sprawdzenia na urządzeniu:** czy po wyborze objawu z górnej części długiej listy wynik jest w widoku bez przewijania; jeśli nie — opcja (b) jako dodatek.
+- **Zależy od:** D-214.
+- **Status:** noc, do weta.
