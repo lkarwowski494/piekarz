@@ -1,4 +1,4 @@
-// Słownik ko, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.': '풀리시(Poolish)는 고소한 견과류 풍미를 더하고, 반죽이 잘 늘어나서 바게트 반죽을 다루기 쉬워져요.',

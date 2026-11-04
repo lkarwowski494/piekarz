@@ -1,0 +1,6 @@
+// Słownik pt, część 11 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
+export const CZESC: Record<string, string> = {
+  'Wieniec z połowy słodkiego ciasta drożdżowego z nadzieniem z cukru, cynamonu, masła i rodzynek.': 'Coroa feita com metade da massa doce levedada, com recheio de açúcar, canela, manteiga e passas.',
+  'Ciasto ma te same proporcje co słodkie bułeczki: woda 19,0% masy mąki, mleko 39,0%, sól 1,9% i drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Nadzienie w procentach mąki tej połowy ciasta to cukier 48,0%, masło roztopione 36,3%, rodzynki 15,5% i cynamon 1,7%. Wieniec piecze się w 375 °F, czyli około 191 °C, przez około 25 minut.': 'A massa tem as mesmas proporções que os pãezinhos doces: água 19,0% do peso da farinha, leite 39,0%, sal 1,9% e fermento 6,6% (na receita é fermento seco, convertido em fresco com a equivalência do Padeiro). O recheio, em percentagem da farinha dessa metade da massa, é açúcar 48,0%, manteiga derretida 36,3%, passas 15,5% e canela 1,7%. A coroa coze a 375 °F, ou seja, cerca de 191 °C, durante cerca de 25 minutos.',
+};

@@ -1,4 +1,4 @@
-// Słownik sr, część 11 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 11 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakładam zakwas': 'Правим стартер',
@@ -164,4 +164,6 @@ export const CZESC: Record<string, string> = {
   'Plan wypieku: {n} krok.#one': 'План печења: {n} корак.',
   'Plan wypieku: {n} krok.#few': 'План печења: {n} корака.',
   'Plan wypieku: {n} krok.#other': 'План печења: {n} корака.',
+  'Chleb z semoliny durum na zakwasie': 'Хлеб од дурум гриза на киселом тесту',
+  'Chleb z semoliny z pszenicy durum, wody, soli morskiej i zakwasu, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji chronionej nazwy pochodzenia „Pane di Altamura”.': 'Хлеб од гриза дурум пшенице, воде, морске соли и стартера, без пекарског квасца. Формула потиче из спецификације заштићене ознаке порекла „Pane di Altamura“.',
 };

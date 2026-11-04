@@ -1,4 +1,4 @@
-// Słownik it, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 9 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.': 'Alto contenuto di crusca, notevole assorbimento d\'acqua, profilo della crosta intenso e rustico.',
@@ -189,4 +189,6 @@ export const CZESC: Record<string, string> = {
   'Plan wypieku: {n} krok.#one': 'Piano della sfornata: {n} passaggio.',
   'Plan wypieku: {n} krok.#many': 'Piano della sfornata: {n} passaggi.',
   'Plan wypieku: {n} krok.#other': 'Piano della sfornata: {n} passaggi.',
+  'Chleb z semoliny durum na zakwasie': 'Pane di semola di grano duro con lievito madre',
+  'Chleb z semoliny z pszenicy durum, wody, soli morskiej i zakwasu, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji chronionej nazwy pochodzenia „Pane di Altamura”.': 'Pane di semola di grano duro, acqua, sale marino e lievito madre, senza lievito di birra. La formula deriva dal disciplinare della denominazione di origine protetta «Pane di Altamura».',
 };

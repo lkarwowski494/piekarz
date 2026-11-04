@@ -1,4 +1,4 @@
-// Słownik fr, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Garuj ciasto w lodówce: chłód spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.': 'Faites pousser la pâte au réfrigérateur : le froid ralentit la fermentation, et une fermentation plus lente donne un goût plus profond.',

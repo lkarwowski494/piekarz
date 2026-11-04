@@ -1,4 +1,4 @@
-// Słownik el, część 12 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 12 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakupy zostały pomyślnie przywrócone': 'Οι αγορές επαναφέρθηκαν με επιτυχία',
@@ -144,4 +144,6 @@ export const CZESC: Record<string, string> = {
   '{n} minuta#other': '{n} λεπτά',
   'Plan wypieku: {n} krok.#one': 'Πλάνο ψησίματος: {n} βήμα.',
   'Plan wypieku: {n} krok.#other': 'Πλάνο ψησίματος: {n} βήματα.',
+  'Chleb z semoliny durum na zakwasie': 'Ψωμί από σιμιγδάλι σκληρού σίτου με προζύμι',
+  'Chleb z semoliny z pszenicy durum, wody, soli morskiej i zakwasu, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji chronionej nazwy pochodzenia „Pane di Altamura”.': 'Ψωμί από σιμιγδάλι σκληρού σίτου, νερό, θαλασσινό αλάτι και προζύμι, χωρίς μαγιά αρτοποιίας. Η φόρμουλα προέρχεται από τις προδιαγραφές της προστατευόμενης ονομασίας προέλευσης «Pane di Altamura».',
 };

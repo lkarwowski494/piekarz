@@ -1,4 +1,4 @@
-// Słownik cs, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik cs, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przed pieczeniem dokarm zakwas z lodówki w równych częściach wagowych i zostaw go w temperaturze pokojowej. Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'Před pečením nakrmte kvásek z lednice ve stejných hmotnostních dílech a nechte ho při pokojové teplotě. Může začít bublat rychle, nebo mu to může trvat až 12 hodin, podle toho, kdy byl naposledy krmen.',

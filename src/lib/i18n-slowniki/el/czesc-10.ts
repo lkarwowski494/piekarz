@@ -1,4 +1,4 @@
-// Słownik el, część 10 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 10 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Τα δεδομένα σας δεν άλλαξαν, αλλά η εφαρμογή δεν μπορεί να τα διαβάσει ή να τα αποθηκεύσει αυτή τη στιγμή. Επανεκκινήστε την εφαρμογή. Αν το πρόβλημα επανέλθει, ελευθερώστε χώρο στη μνήμη του τηλεφώνου.',

@@ -1,4 +1,4 @@
-// Słownik uk, część 7 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 7 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: wtedy łatwiej powstaje płat ciasta, który odchyla się w ucho.': 'Нахиліть вигнуте лезо під кутом близько 30° до поверхні тіста: так легше утворюється клапоть тіста, який відгинається у вушко.',
