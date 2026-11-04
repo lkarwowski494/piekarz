@@ -4,6 +4,8 @@
 // wariant `przelacznik`): segmenty w jednym rzędzie, wybrany wypełniony akcentem; w każdym nazwa receptury i bieżący
 // krok. Druga linia „do {godzina}” (koniec bieżącego kroku) jak w makiecie „{r}, do {h}” (przegląd roli 04 z D3a,
 // M3 D4b); bez godziny — nazwa kroku; VoiceOver czyta krok i godzinę. Wygląd z tokenów, bez nowych.
+// Stały rząd nad paskiem kciuka, poza przewijaniem (pas ze spiralą zajmuje ekran, więc w przewijanej treści segmenty
+// leżały poniżej widocznego obszaru) [E2E-90]; nazwa i krok w jednej linii z obcięciem, pełny tekst w etykiecie VoiceOver.
 // ============================================================================
 
 import React from 'react';
@@ -13,6 +15,9 @@ import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { formatTime } from '../../lib/format';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+
+/** Najwyżej 1,5× jak tytuł pasa i podpisy zakładek: stały rząd nie zjada ekranu przy dużym tekście (E2E-90). */
+const MAX_SKALA = 1.5;
 
 export interface WypiekPrzelacznika {
   id: string;
@@ -47,8 +52,8 @@ export function PrzelacznikWypiekow({ wypieki, wybrany, onWybierz }: {
             style={[styles.segment, wyb && styles.wybrany]}
             onPress={() => onWybierz(w.id)}
           >
-            <Text style={[styles.nazwa, wyb && styles.tekstWybrany]}>{nazwa}</Text>
-            <Text style={[styles.krok, wyb && styles.tekstWybrany]}>{godzina === null ? krok : t('do {godzina}', { godzina })}</Text>
+            <Text style={[styles.nazwa, wyb && styles.tekstWybrany]} numberOfLines={1} maxFontSizeMultiplier={MAX_SKALA}>{nazwa}</Text>
+            <Text style={[styles.krok, wyb && styles.tekstWybrany]} numberOfLines={1} maxFontSizeMultiplier={MAX_SKALA}>{godzina === null ? krok : t('do {godzina}', { godzina })}</Text>
           </Pressable>
         );
       })}
@@ -57,7 +62,7 @@ export function PrzelacznikWypiekow({ wypieki, wybrany, onWybierz }: {
 }
 
 const styles = StyleSheet.create({
-  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, marginBottom: odstepy.m },
+  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, marginHorizontal: odstepy.xl, marginTop: odstepy.s },
   segment: {
     flexGrow: 1,
     flexBasis: 140,

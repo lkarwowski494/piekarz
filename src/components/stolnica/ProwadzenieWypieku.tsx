@@ -334,7 +334,6 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
         </PasZakladki>
       )}>
         <View style={styles.tresc}>
-        {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
           <BlokadaFunkcji {...blokadaWypieku}>
@@ -377,6 +376,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
           onUkryj={ukryjCofniete}
         />
       )}
+      {aktywny ? naglowek : null}
       {aktywny && (
         <BlokadaFunkcji {...blokadaWypieku}>
           <PasekKciuka
