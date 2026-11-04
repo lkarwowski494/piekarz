@@ -17,7 +17,8 @@ import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-step
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
-import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
+import { formatTime as formatGodziny } from '../../../src/lib/format';
+import { plakietkaDnia } from '../../../src/lib/plakietka-dnia';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { useStartPlanu } from '../../../src/hooks/useStartPlanu';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
@@ -208,19 +209,8 @@ export default function HarmonogramScreen() {
   // Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]
   const formatTime = (d: Date) => formatGodziny(d);
 
-  const formatDayBadge = (d: Date) => {
-    const today = new Date();
-    const dDay = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
-    const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
-    const diffDays = Math.round((dDay - todayDay) / (1000 * 60 * 60 * 24));
-
-    if (diffDays === 0) return t('Dziś');
-    if (diffDays === 1) return t('Jutro');
-    if (diffDays === 2) return t('Pojutrze');
-    if (diffDays === -1) return t('Wczoraj');
-    // dzień tygodnia z datą przez Intl w języku aplikacji [audyt-niezalezny F-5]
-    return formatDzienData(d);
-  };
+  // Dzień kroku względem dziś: „Dziś”, „Jutro”, „Pojutrze”, „Wczoraj” albo dzień tygodnia z datą (src/lib/plakietka-dnia.ts)
+  const formatDayBadge = (d: Date) => plakietkaDnia(d, new Date());
 
   // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
   const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess, moze });

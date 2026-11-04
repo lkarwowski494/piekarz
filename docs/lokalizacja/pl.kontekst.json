@@ -1631,9 +1631,9 @@
       "app/(tabs)/(dzis)/_layout.tsx (title)",
       "app/(tabs)/(dzis)/index.tsx (title)",
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -2525,8 +2525,8 @@
   },
   "Jutro": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -5113,8 +5113,8 @@
   },
   "Pojutrze": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -7699,7 +7699,7 @@
   },
   "Wczoraj": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
