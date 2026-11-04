@@ -6,10 +6,11 @@
 // ============================================================================
 
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, type PrzewijanieEkranu } from '../../../src/components/nawigacja/EkranZPasem';
 import { FILTRY_SMAKU } from '../../../src/components/stolnica/BakeHistorySection';
 import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../../../src/lib/ostatni-wypiek';
 import { t } from '../../../src/lib/i18n';
@@ -30,7 +31,7 @@ export default function DziennikScreen() {
   const historia = useBakeHistory(requireActionAccess);
   const { loadHistory } = historia;
   const { wpis } = useLocalSearchParams<{ wpis?: string }>();
-  const przewijane = React.useRef<ScrollView>(null);
+  const przewijane = React.useRef<PrzewijanieEkranu>(null);
   const gora = useSafeAreaInsets().top;
   usePasekStanuJasny();
 
@@ -44,22 +45,17 @@ export default function DziennikScreen() {
   const ostatni = tekstOstatniegoWypieku(ostatniWypiekMs(historia.bakeHistory));
   return (
     <View style={styles.ekran}>
-    <ScrollView
-      ref={przewijane}
-      style={styles.przewijane}
-      contentContainerStyle={styles.tresc}
-      contentInsetAdjustmentBehavior="never"
-      keyboardShouldPersistTaps="handled"
-    >
-      <NadPasem />
+    {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+    <EkranZPasem gora={gora} tytul={t('Dziennik')} przewijanieRef={przewijane} style={styles.przewijane} contentContainerStyle={styles.tresc} pas={(onLayout) => (<>
       {/* Pas nocy (D10 opcja A): tytuł, „Ostatni wypiek: …” i filtry smaku (jak dawniej tylko przy wpisach) [M3 D10].
           Pas od krawędzi mimo marginesu treści: położenie wpisu z kalendarza liczone dalej od początku treści (D7) */}
       <View style={styles.pas}>
-        <PasZakladki gora={gora} tytul={t('Dziennik')} podtytul={ostatni ?? undefined}
+        <PasZakladki gora={gora} tytul={t('Dziennik')} podtytul={ostatni ?? undefined} onLayout={onLayout}
           filtry={historia.bakeHistory.length > 0
             ? { filtry: FILTRY_SMAKU.map((f) => ({ ...f, etykieta: t(f.etykieta) })), wybrany: historia.selectedTasteFilter, onWybierz: historia.setSelectedTasteFilter }
             : undefined} />
       </View>
+    </>)}>
       <BlokadaFunkcji {...blokada('historia')} ikonaKarty={<IkonaKarty nazwa="lista" />}>
         {historia.bakeHistory.length > 0 && (
           <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
@@ -88,7 +84,7 @@ export default function DziennikScreen() {
         <Text style={styles.wierszTekst}>{t('Doktor Chleba')}</Text>
         <View style={styles.szewron} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden />
       </Pressable>
-    </ScrollView>
+    </EkranZPasem>
       {/* Pasek nad dolną krawędzią, widoczny bez przewijania do usuniętego wpisu (D-051 1a, 011) */}
       {historia.cofnijUsuniecie && (
         <PasekCofnij {...historia.cofnijUsuniecie} testID="dziennik-usun-cofnij" przywrocTestID="dziennik-usun-cofnij-przywroc" />

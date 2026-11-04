@@ -3,7 +3,7 @@
 // obsługuje „Piecz ponownie” z Dziennika i import z Ustawień (F-33). Wybór receptury to nawigacja bez oferty
 // (D-047); filtr rodzaju z „Co dziś robisz?” (BR-START-001). [M1-audytor-generalny-106; 04-studio-projektowe-022]
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ScrollView, View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
@@ -20,7 +20,8 @@ import {
 } from '../../../src/lib/recipe-navigation';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
 import { ListaReceptur, FILTRY_RECEPTUR, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { ekranRecepturyOtwarty, subskrybujZmianyReceptur } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
@@ -118,10 +119,11 @@ export default function RecepturyLista() {
 
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right']}>
-      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-        <NadPasem />
-        <PasZakladki gora={gora} tytul={t('Receptury')}
+      {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+      <EkranZPasem gora={gora} tytul={t('Receptury')} pas={(onLayout) => (
+        <PasZakladki gora={gora} tytul={t('Receptury')} onLayout={onLayout}
           filtry={{ filtry: FILTRY_RECEPTUR.map((f) => ({ ...f, etykieta: t(f.etykieta) })), wybrany: filtr, onWybierz: setFiltr, etykieta: t('Rodzaj receptur') }} />
+      )}>
         <View style={s.tresc}>
         <CorruptStateRecoveryBanner />
         {(wejscieWidoczne('qr') || wejscieWidoczne('przelicznik-objetosci')) && (
@@ -139,7 +141,7 @@ export default function RecepturyLista() {
           onUsunMoja={usunMoja}
         />
         </View>
-      </ScrollView>
+      </EkranZPasem>
       {usunieta && <PasekCofnij key={usunieta.id} tekst={t('Usunięto recepturę')} onPrzywroc={() => void przywrocMoja()} onUkryj={schowajPasek} />}
       <CalculatorModalsProvider
         isBlendModalOpen={false}

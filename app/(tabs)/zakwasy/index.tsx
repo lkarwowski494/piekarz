@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { ScrollView, StyleSheet, Alert, View } from 'react-native';
+import { StyleSheet, Alert, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { PasZakwasu } from '../../../src/components/zakwas/PasZakwasu';
-import { CzapkaPaska } from '../../../src/ui/karty/CzapkaPaska';
 import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 import { odstepy } from '../../../src/ui/tokeny';
 import { theme } from '../../../src/ui/theme';
@@ -64,8 +64,6 @@ export default function ZakwasScreen() {
   const gora = useSafeAreaInsets().top;
   usePasekStanuJasny();
   const log = useStarterLog(starter.id);
-  const [wysokoscPasa, setWysokoscPasa] = useState<number>(0);
-  const [przewiniety, setPrzewiniety] = useState<boolean>(false);
 
   const [targetYield, setTargetYield] = useState<number>(150);
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
@@ -181,12 +179,12 @@ export default function ZakwasScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled" scrollEventThrottle={16}
-        onScroll={(e) => setPrzewiniety(e.nativeEvent.contentOffset.y > Math.max(0, wysokoscPasa - gora))}>
-        <NadPasem />
-        {/* Wybór zakwasu jako chipy na pasie; bez zakwasu zdanie pustego stanu na pasie (karty/README.md §4) [M3 p2] */}
+      {/* Ekran z pasem i czapką paska stanu, mały tytuł, gdy pas odjedzie (README §2) [M3 p2, p7: EkranZPasem] */}
+      <EkranZPasem gora={gora} tytul={maZakwas ? starter.name : t('Zakwasy')} pas={(onLayout) => (
+        // Wybór zakwasu jako chipy na pasie; bez zakwasu zdanie pustego stanu na pasie (karty/README.md §4) [M3 p2]
         <PasZakwasu gora={gora} starter={starter} wpisy={log.entries} maZakwas={maZakwas} chipy={maZakwas ? wybor : null}
-          onEdytuj={akcje.handleOpenEditModal} onLayout={setWysokoscPasa} />
+          onEdytuj={akcje.handleOpenEditModal} onLayout={onLayout} />
+      )}>
         <View style={styles.container}>
         <NotificationsOffBanner />
         {/* Bez bloku statystyk (§12a): wiek i hydratacja w karcie profilu, proporcja w karcie cyklu i ilościach
@@ -289,9 +287,7 @@ export default function ZakwasScreen() {
           onClose={() => setIsDiscardModalOpen(false)}
         />
         </View>
-      </ScrollView>
-      {/* Czapka paska stanu: pod paskiem stanu nie przewija się treść; mały tytuł, gdy pas odjedzie (README §2) [M3 p2] */}
-      <CzapkaPaska gora={gora} tytul={maZakwas ? starter.name : t('Zakwasy')} pokazTytul={przewiniety} />
+      </EkranZPasem>
       {cofnijDokarmienie.pasek && (
         <PasekCofnij {...cofnijDokarmienie.pasek} testID="zakwas-dokarm-cofnij" przywrocTestID="zakwas-dokarm-cofnij-przywroc" />
       )}

@@ -884,6 +884,7 @@
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
       "app/(tabs)/(dzis)/index.tsx (title)",
+      "app/(tabs)/(dzis)/index.tsx (tytul)",
       "src/components/start/PasDzis.tsx (tytul)"
     ]
   },

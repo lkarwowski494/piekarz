@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from 'react';
 import {
   View,
   Text,
-  ScrollView,
   StyleSheet,
   Pressable,
 } from 'react-native';
@@ -30,7 +29,8 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../src/components/nawigacja/EkranZPasem';
 
 import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
@@ -86,11 +86,11 @@ export default function DoctorScreen() {
       {/* Pas O3a (D-197): nagłówek stosu ukryty (app/_layout.tsx), tytuł „Doktor Chleba” na pasie (nagłówek VoiceOver),
           powrót samą ikoną z etykietą: poprzedni ekran bywa różny (Dziennik, prowadzenie, koniec wypieku; jak D-195).
           Akademia jako pierwszy wiersz treści (dawniej w nagłówku ekranu) */}
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-        <NadPasem />
+      <EkranZPasem gora={gora} tytul={t('Doktor Chleba')} contentContainerStyle={styles.container} pas={(onLayout) => (
         <View style={styles.pas}>
-          <PasZakladki gora={gora} tytul={t('Doktor Chleba')} wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} />
+          <PasZakladki gora={gora} tytul={t('Doktor Chleba')} wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout} />
         </View>
+      )}>
         {/* Akademia bez wejścia w 1.0 (wejścia-później 'akademia', F-44) [M1-audytor-generalny-100]; kod i testy modułu zostają */}
         {wejscieWidoczne('akademia') && (
         <Pressable
@@ -161,7 +161,7 @@ export default function DoctorScreen() {
           // Pierwszy poziom w Basic, dalsze w Pro (BR-NAUK-001, LIMITY_BASIC.poziomyAkademii)
           otworzLekcje={(poziom, otworz) => chron(funkcjaLekcji(poziom), otworz)()}
         />
-      </ScrollView>
+      </EkranZPasem>
     </SafeAreaView>
   );
 }
