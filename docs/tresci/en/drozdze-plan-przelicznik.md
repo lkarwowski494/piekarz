@@ -2,7 +2,7 @@
 <!-- Role 06, E2, 2026-11-03. Same headers and claims as docs/tresci/pl/drozdze-plan-przelicznik.md. -->
 
 ## yeast.conversionNote
-Piekarz counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast. [T:DRO-INS-030]
+The app counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast. [T:DRO-INS-030]
 This is the middle between two groups of makers' values, 0.28 and 0.417, and some give even less, so your yeast package may say otherwise. [T:DRO-INS-030]
 
 ## yeast.dryHandling

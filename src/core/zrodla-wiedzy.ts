@@ -183,6 +183,11 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         opis: 'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.',
         adres: 'bbga.org',
       },
+      {
+        nazwa: 'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”',
+        opis: 'Ilość soli w otwartych pierożkach żytnich.',
+        adres: 'martat.fi',
+      },
     ],
   },
 ];

@@ -19,5 +19,5 @@ The bread was baked 10 minutes at 240 °C and 35 minutes at 220 °C. [T:ZYT-DRO-
 On baking day the wholegrain rye breads were too sticky to assess, so they were tested the next day. [T:ZYT-DRO-002]
 
 ## tartine_high_hydration_80.yeastVersion.notesEn
-With yeast, following one recipe for a no-knead bread with a similar amount of water: 1 teaspoon of instant yeast, which by the Piekarz conversion is about 1.7% fresh yeast by flour weight. [T:DRO-WER-TA-001]
+With yeast, following one recipe for a no-knead bread with a similar amount of water: 1 teaspoon of instant yeast, which by the app's conversion is about 1.7% fresh yeast by flour weight. [T:DRO-WER-TA-001]
 The dough rests at room temperature overnight, at least 8 hours, and the shaped loaf then rises about 90 minutes. [T:DRO-WER-TA-001]

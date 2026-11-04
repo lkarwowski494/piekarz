@@ -89,6 +89,8 @@ The formula comes from the specification of the traditional speciality guarantee
 Amounts and temperatures are given as in the source's production description, not converted for a home kitchen or home oven. [T:-]
 According to the specification, the dough is mixed from about 275–350 g of rye or wheat flour, 200 g of water and salt. [T:KAT-KAR-001]
 Water is 57.1–72.7% of the flour weight, and the specification gives no amount of salt. [T:KAT-KAR-005]
+In the formula, salt is 2.1% of the flour weight, worked out from a recipe for these pasties by a Finnish home economics advisory organization. [T:KAT-KAR-010]
+That recipe uses 3/4 teaspoon of salt for 1 1/2 dl of water, 3 dl of rye flour and 1 dl of wheat flour. [T:KAT-KAR-009]
 For the filling, 1 l of water, milk or milk drink is boiled with 2 dl (180 g) of rice or barley. [T:KAT-KAR-002]
 Rice cooks for half an hour to an hour, barley longer. [T:KAT-KAR-002]
 The dough is rolled out until translucent and shaped into a pasty 10–24 cm across or long. [T:KAT-KAR-004]

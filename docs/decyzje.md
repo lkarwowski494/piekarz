@@ -1361,3 +1361,15 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja p10:** (a) rola 08 (sonnet) na `wip/08-p10-katalog-2026-11-04`: sól `karelian_rye_pasties` 2,1% (D-237), dwa zdania z `katalog-m3-luki.md`, Marttaliitto na ekranie „Źródła wiedzy” (D-126); potem rola 09 na tej samej gałęzi: przekład nowych kluczy, poprawki terminów el/hu/bg z D-237 i dwa zdania EN z nazwą „Piekarz” (`en/drozdze-plan-przelicznik.md:5`, `en/wersje-drozdzowe.md:22`) według reguły już rozstrzygniętej przez rolę 06 w D-237 pkt 2 („the app's conversion”, D-053). Wyjątek nazwany (zasada 7): brzmienie wpisu źródła („Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat””, opis „Ilość soli w otwartych pierożkach żytnich.”) napisał koordynator z pola `miejsce` rejestru KAT-KAR-009 — tańsza kontrola: rola 06 przy najbliższej sesji (luki źródeł katalogu na ekranie) przegląda ten wpis.
 - **Odrzucone:** (b) osobna sesja roli 06 (opus) na dwa zdania EN — reguła już rozstrzygnięta, a limit tygodniowy konta w stanie ostrzeżenia; (c) poprawki dopiero po decyzjach p9a — sól 0% to treść niezgodna ze źródłem w buildzie kandydata.
 - **Zależy od:** D-053, D-126, D-220, D-237. **Status:** dzień, do weta.
+
+### [D-240] 2026-11-04 — p10: zmiana istniejącego testu „liczba źródeł na ekranie” 26 → 27 (rola 08, partia p10, dzień, do weta)
+- **Rodzaj:** odstępstwo roli 08 od polecenia „innych istniejących testów nie zmieniasz”; wykonanie D-237 pkt 3 (źródło Marttaliitto na ekranie „Źródła wiedzy”).
+- **Decyzja:** w `src/components/__tests__/zrodla-wiedzy-t2.test.tsx` (test „ekran: wstęp, 6 grup…”) oczekiwana liczba źródeł 26 → 27 (nazwa testu i `toHaveLength`). Test zostaje dokładny (nie luźniejszy); nowe źródło ma osobny test, czerwony przed kodem.
+- **Odrzucone:** STOP bez dodania źródła (zadanie 3 z polecenia niewykonalne bez tej zmiany); zmiana na `toBeGreaterThan(26)` (osłabia test).
+- **Zależy od:** D-126, D-234 (precedens), D-237. **Status:** dzień, do weta.
+
+### [D-241] 2026-11-04 — 09p10: przekład 3 kluczy p10 i poprawki terminów D-237 (rola 09, dzień, do weta)
+- **Decyzja:** (1) 3 klucze p10 przełożone na 33 języki, notatka pierożków = istniejący przekład + 2 zdania, stary klucz usunięty; (2) EN „organization” (pisownia US), „Piekarz” → „the app” w `docs/tresci/en/drozdze-plan-przelicznik.md:5` i `wersje-drozdzowe.md:22`; (3) poprawki terminów el, hu, bg z D-237 pkt 5; w el także trzecie wystąpienie „κύμινο” („το αγριοκύμινο 0,8–1%”) dla spójności.
+- **Odrzucone:** zmiana starych części notatek według drugiego przeglądu (poza zakresem); zmiana „питки” w opisie i notatce bg (polecenie obejmuje tylko nazwę).
+- **Do roli 06/04:** `wersje-drozdzowe.md:5, 16` nadal mają „Piekarz” w EN; bg: opis i notatka pierożków używają „питки”, nazwa „пирожки”; hu „kovász” oddaje teraz „zaczyn” i „zakwas”.
+- **Zależy od:** D-207, D-237, DEC-06. **Status:** dzień, do weta.
