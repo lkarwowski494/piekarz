@@ -1,0 +1,32 @@
+// Słownik es, część 12: 14 kluczy ekranu „Źródła wiedzy” (partia 09z, D-247). MT claude-sonnet-5-5, 2026-11-04; drugi przegląd AI: docs/lokalizacja/jezyki.md; przegląd natywny: brak (DEC-06)
+// Źródło przekładu: docs/lokalizacja/przeklad-zrodla-katalogu-09z-2026-11-04.json.
+export const CZESC: Record<string, string> = {
+  'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
+    'Diario Oficial de la Unión Europea: pliegos de condiciones de «Salinātā rudzu rupjmaize», «Karjalanpiirakka», «Obwarzanek krakowski» y «Kołocz śląski»',
+  'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
+    'Composición y método de horneado del pan de centeno con harina escaldada, las empanadillas de centeno abiertas, la rosca de pan escaldada y el bollo de levadura con queso y migas crujientes.',
+  'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
+    'Comisión Europea, registro eAmbrosia: pliego de condiciones de «Pane di Altamura»',
+  'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
+    'Composición y método de horneado del pan de sémola de trigo duro con masa madre.',
+  'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
+    'Registro británico de nombres protegidos de alimentos (Defra): traducciones al inglés de las solicitudes de «Obwarzanek krakowski» y «Kołocz śląski»',
+  'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
+    'Temperatura y tiempo de horneado de la rosca de pan y del bollo de levadura, y levado de la esponja del bollo.',
+  'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
+    'Illinois 4-H (University of Illinois Extension), «Cooking 301 State Fair Recipes»',
+  'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
+    'Recetas de panes de molde, panecillos de leche, bollitos dulces y corona de canela.',
+  'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
+    'USDA FoodData Central (base de datos estadounidense de composición de alimentos), SR Legacy',
+  'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':
+    'Cuánto pesa una taza o una cucharadita de harina, azúcar, sal y otros ingredientes cuando la receta da medidas en lugar de gramos.',
+  'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)':
+    'NIST (Instituto Nacional de Normas y Tecnología de Estados Unidos), Handbook 44 (2025)',
+  'Ile mililitrów ma amerykańska szklanka miarowa.':
+    'Cuántos mililitros tiene una taza medidora estadounidense.',
+  'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
+    'CPSC (Comisión de Seguridad de los Productos de Consumo de Estados Unidos), «Avoiding Tap Water Scalds»',
+  'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
+    'En cuánto tiempo el agua caliente quema la piel: al escaldar la harina y al escaldar las roscas de pan.',
+};

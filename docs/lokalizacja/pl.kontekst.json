@@ -541,6 +541,11 @@
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
   },
+  "Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Bułeczki ze słodkiego ciasta drożdżowego na mleku z jajkami; z przepisu wychodzą 24 sztuki.": {
     "gdzie": [
       "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
@@ -593,6 +598,11 @@
       "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
+  },
+  "CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "CSU Extension (Colorado State University), „Sourdough Starter Best Practices”": {
     "gdzie": [
@@ -1560,6 +1570,11 @@
       "app/(tabs)/dziennik/index.tsx (tytul)"
     ]
   },
+  "Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Dzień gotowości:": {
     "gdzie": []
   },
@@ -2227,17 +2242,32 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
+  "Ile mililitrów ma amerykańska szklanka miarowa.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ile pieczesz": {
     "gdzie": [
       "src/components/receptury/DoMiski.tsx (tytul)"
     ],
     "opis": "Nagłówek karty trybu na ekranie receptury (bochenki i masa bochenka albo masa mąki); pytanie do użytkownika, bez znaku zapytania; ok. 12 znaków; w nagłówku karty 20 pt, zawija się (README karty §6, D-185, D-206)."
   },
+  "Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Ilości do dokarmienia": {
     "gdzie": [
@@ -2367,6 +2397,11 @@
   "Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Jak wygląda pleśń (bywa też biała) i dlaczego spleśniałego jedzenia się nie wącha.": {
@@ -2632,6 +2667,11 @@
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: mold_signs)",
       "src/lib/zakwas-widok.ts (dane: mold_signs)"
+    ]
+  },
+  "Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Kompozycja Mąk": {
@@ -3723,6 +3763,11 @@
   "NIGDY nie używaj wałka — zniszczyłby napompowane brzegi!": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Na 4–5 godzin przed pieczeniem podziel ciasto na kulki (panetti) po 260g i ułóż w szczelnych pojemnikach w temperaturze pokojowej.": {
@@ -5473,6 +5518,11 @@
       "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
+  "Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Przepisy na odrzut": {
     "gdzie": []
   },
@@ -6223,6 +6273,16 @@
     ],
     "opis": "opis karty „Źródła wiedzy” w Ustawieniach (M3 T2, D-123)"
   },
+  "Skład i sposób wypieku chleba z semoliny durum na zakwasie.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Składania": {
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
@@ -6840,6 +6900,11 @@
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
   },
+  "Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Temperatura mąki": {
     "gdzie": [
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: maka)"
@@ -7090,6 +7155,11 @@
       "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
+  },
+  "USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "UWAGA: Ciasta 100% żytniego NIGDY nie składamy ani nie rozciągamy! Zniszczyłoby to delikatne żele pentozanowe.": {
     "gdzie": [
