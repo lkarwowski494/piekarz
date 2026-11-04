@@ -1579,3 +1579,17 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** zaokrąglenie w górę liczy teraz z sekundami i dodaje zapas 1 minuty (`ZAPAS_DOMYSLNEJ_GOTOWOSCI_MIN`). Start domyślnej gotowości jest więc zawsze po „teraz” w chwili otwarcia, a użytkownik ma co najmniej minutę na odczyt. Skutek uboczny: przy teraz + czas w ostatniej minucie przed pełną 30 min domyślna gotowość przesuwa się o 30 min dalej.
 - **Odrzucone:** porównanie w `startProgramu` z dokładnością do minuty (zmieniałoby regułę BR-MASZ-005 i test wektorowy dla wszystkich ścieżek, a zaokrąglenie zostałoby wadliwe przy kolejnym renderze); samo zaokrąglenie po milisekundach bez zapasu (start == teraz i kolejny render po sekundzie znów daje „Program nie zdąży”).
 - **Zależy od:** D-263, D-269, BR-MASZ-005. **Status:** dzień, do weta.
+
+### [D-272] 2026-11-04 — Build kandydata 1.0 z `redesign` po zielonym iOS E2E (właściciel)
+- **Słowa właściciela (raport 20:00, 2026-11-04):** „Po zielonym E2E (Recommended)”.
+- **Decyzja:** po zielonym przebiegu `e2e-ios.yml` na HEAD `redesign/piekarz-2026-10-22` koordynator scala dokładnie sprawdzony commit do `master` (merge --no-ff) i uruchamia `testflight.yml` na `master`; wiersz w `docs/wydanie/dziennik.md`. Zgoda obejmuje jeden build kandydata. Czerwony E2E → poprawka, nowy E2E, bez buildu do zielonego.
+- **Odrzucone:** build po drobnych poprawkach (es 1:xx, 320 pt) — opóźnienie ok. pół dnia; „nie teraz”. **Zależy od:** D-220, D-224, D-226. **Status:** właściciel.
+
+### [D-273] 2026-11-04 — D-270 znalezisko A: błąd zapisu pliku ratunkowego przy kasowaniu `bake_sessions` zostaje (właściciel)
+- **Słowa właściciela (raport 20:00, 2026-11-04):** „Zostawić”.
+- **Decyzja:** `usunZRatunkiem`/`zakonczSesjeWTransakcji` bez zmian w 1.0; znane ryzyko brzegowe (pełny dysk przy jednocześnie uszkodzonym wierszu sesji) do M1 (D-225).
+- **Odrzucone:** blokada z komunikatem (przy pełnym dysku nie da się zakończyć wypieku). **Zależy od:** D-270. **Status:** właściciel.
+
+### [D-274] 2026-11-04 — Przegląd 3 zdań bezpieczeństwa maszyny zaakceptowany; bez weta D-239…D-271 (właściciel)
+- **Słowa właściciela (raport 20:00, 2026-11-04):** „Akceptuję, bez weta (Recommended)”.
+- **Decyzja:** pole `przeglad` MAS-002, MAS-062, MAS-084 z nowymi skrótami (`docs/tresci/przeglad/maszyna-06m-2026-11-04.md`); kontrola treści kod 0. Decyzje D-239…D-271 obowiązują. Nowa sesja koordynatora: „Nie”. **Status:** właściciel.
