@@ -1,6 +1,6 @@
 import { getDb, memStore } from './sqlite-schema';
 import { assertWritable, writeOrThrow } from './storage-status';
-import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
+import { zachowajUszkodzony, zapisUszkodzonychLubBlad } from './uszkodzone-wiersze';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
 // ----------------------------------------------------------------------------
@@ -99,7 +99,7 @@ async function zachowajPrzedNadpisaniem(db: SQLiteDatabase, key: string, value: 
   const row = await writeOrThrow(() => db.getFirstAsync<{ value: string }>('SELECT value FROM app_settings WHERE key = ?;', key));
   if (row?.value && row.value !== value) {
     zachowajUszkodzony({ tabela: 'app_settings', id: key, surowe: row.value });
-    await zapisUszkodzonych();
+    await zapisUszkodzonychLubBlad();
   }
   nieodczytane.delete(key);
 }

@@ -7,7 +7,7 @@
 // ============================================================================
 
 import { getAppSetting, setAppSetting } from './settings-store';
-import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
+import { zachowajUszkodzony, zapisUszkodzonychLubBlad } from './uszkodzone-wiersze';
 import { KLUCZ_MASZYNY, KLUCZ_WERSJI_RECEPTUR, parseMaszyna, parseWersjeReceptur, type DaneMaszyny, type WersjaWypieku, type WynikWyboru } from './wybory-parsery';
 
 export * from './wybory-parsery';
@@ -28,7 +28,7 @@ export async function zapiszWersjeReceptury(recipeId: string, wersja: WersjaWypi
   if (!r.ok && typeof surowe === 'string') {
     // Nieczytelna mapa przed nadpisaniem do pliku ratunkowego (121): bez cichej utraty zapisu
     zachowajUszkodzony({ tabela: 'app_settings', id: KLUCZ_WERSJI_RECEPTUR, surowe });
-    await zapisUszkodzonych();
+    await zapisUszkodzonychLubBlad();
   }
   const mapa: Record<string, WersjaWypieku> = r.ok ? { ...r.value } : {};
   if (wersja === 'drozdze') mapa[recipeId] = 'drozdze';
@@ -45,7 +45,7 @@ export async function zapiszMaszyne(m: DaneMaszyny): Promise<void> {
   const surowe = await getAppSetting(KLUCZ_MASZYNY);
   if (typeof surowe === 'string' && !parseMaszyna(surowe).ok) {
     zachowajUszkodzony({ tabela: 'app_settings', id: KLUCZ_MASZYNY, surowe });
-    await zapisUszkodzonych();
+    await zapisUszkodzonychLubBlad();
   }
   await setAppSetting(KLUCZ_MASZYNY, JSON.stringify(m));
 }
