@@ -3,6 +3,7 @@ Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 
 ## Aktualizacja 2026-11-04 ~00:00 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
 - **E5 (weryfikacja świeża, subagent roli 04 audit, HEAD `58fe8a91`):** raport `audit/M3-2026-11-03/role/04-po/04-studio-projektowe-2026-11-03.md` (poza gitem; `sprawdz-raport` kod 0, powtórzone przez koordynatora). 0 P0, 2 P1 (001 czapka paska stanu na 7 ekranach — powrót D-139; 002 arkusze przepływów poza kartami), 5 P2 (003 Dziś, 004 pasek zakładek na planie, 005 Doktor zakwasu, 006 wynik Doktora poza widokiem, 007 odrzucenie danych bez pytania). Koszt przepływów zmierzony na kodzie: receptura → plan → 1. krok 6 stuknięć (+2 zgoda na powiadomienia), gesty spójne. Decyzje dla właściciela z raportu: kolejność Doktora (006), wpis pamięci portfolio, zgoda na zrzuty buildu 1022.
+- **iOS E2E run 41730573773 na `827198aa` (po rolach 08 p4b–p6a i 09): zielone** (22:24–23:35 UTC). Następne E2E na HEAD po scaleniu p7. p7: `session_01T66VByCNmHxVu76Rdi2PW8`.
 - **D-214:** p7 (08) naprawia 001, 002, 003, 006(a), 007, 004 bez zmian testów; 005 do właściciela (`d10:136`). Polecenie `audit/M3-2026-11-03/prompty/08-p7.polecenie.md` (sha256 5fede73f…bf4f), pula D-215…D-216; wolne od D-217.
 
 ## Aktualizacja 2026-11-03 ~23:40 UTC (koordynator M3, noc)
