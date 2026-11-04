@@ -2,7 +2,7 @@
 <!-- Role 06, E2, 2026-11-03. Same headers and claims as docs/tresci/pl/wersje-drozdzowe.md. -->
 
 ## spelt_ancient_seeded.yeastVersion.notesEn
-With yeast: 3% yeast by flour weight (the study does not name the type; Piekarz counts it as fresh), and about 3 hours at room temperature from mixing the dough to putting the bread in the oven. [T:DRO-WER-SP-001]
+With yeast: 3% yeast by flour weight (the study does not name the type; the app counts it as fresh), and about 3 hours at room temperature from mixing the dough to putting the bread in the oven. [T:DRO-WER-SP-001]
 With a night in the fridge: 1% yeast, the dough rests 18 hours in the fridge at 4 °C, then another 3 hours at room temperature. [T:DRO-WER-SP-002]
 The yeast amount and times come from a study of bread made with wholegrain spelt flour. [T:DRO-WER-SP-001]
 Times are a guide: judge readiness by the look of the dough and the finger test. [T:DRO-MOD-016]
@@ -13,7 +13,7 @@ In a study of wholemeal wheat bread, the dough fermented 15 minutes, another 15 
 In a cooler room the dough rises longer, so judge readiness by its look and the finger test, not the clock. [T:DRO-MOD-016]
 
 ## rye_100_pan.yeastVersion.notesEn
-With yeast, without sourdough: 3% yeast (the study does not name the type; Piekarz counts it as fresh), 76% water and 1.2% salt by flour weight. [T:ZYT-DRO-001]
+With yeast, without sourdough: 3% yeast (the study does not name the type; the app counts it as fresh), 76% water and 1.2% salt by flour weight. [T:ZYT-DRO-001]
 In the study the dough rested 60 minutes at 28 °C, and the loaves rose in the tin 60 minutes at 37 °C in a proofing cabinet. [T:ZYT-DRO-002]
 The bread was baked 10 minutes at 240 °C and 35 minutes at 220 °C. [T:ZYT-DRO-002]
 On baking day the wholegrain rye breads were too sticky to assess, so they were tested the next day. [T:ZYT-DRO-002]
