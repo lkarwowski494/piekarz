@@ -168,9 +168,10 @@ describe('p9b2f: tryb maszyny, poprawki po 06m i przeglądzie', () => {
     await setAppSetting('maszyna', MASZYNA);
     const root = await otworz('white_pan_loaf');
     await nacisnij(root, 'recipe-tryb-machine');
+    const przed = (await loadPlannedBakes()).length; // baza testowa bywa wspólna dla testów pliku
     jest.setSystemTime(T0 + 30 * MIN); // gotowe 13:30 − 190 min = start 10:20, a jest 10:30
     await nacisnij(root, 'maszyna-zapisz-plan');
-    expect((await loadPlannedBakes()).length).toBe(0);
+    expect((await loadPlannedBakes()).length).toBe(przed);
     expect(mockNavigate).not.toHaveBeenCalled();
     expect(host(root, 'maszyna-za-wczesnie').length).toBe(1);
   });

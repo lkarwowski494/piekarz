@@ -73,6 +73,7 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
   const [celReczny, setCelReczny] = useState<CelGotowe | null>(null);
   const celAuto = useMemo(() => celDomyslny(Date.now(), czas ?? 0), [czas]);
   const cel = celReczny ?? celAuto;
+  const [, setOdswiez] = useState(0);
   const nowMs = Date.now();
   const program = podpowiedzProgramu(cechyProgramuReceptury(receptura, formula));
   const opoz = opoznionyStart(skladnikiMaszyny(receptura));
@@ -85,7 +86,12 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
   const mozna = makaG !== null && start !== null && start.ok;
   const zapiszPlan = () => {
     if (!mozna || makaG === null || czas === null || start === null || !start.ok) return;
-    const startMs = start.startMs;
+    // Start liczony z chwili stuknięcia, nie z ostatniego renderu: ekran bywa otwarty długo (P9B2F-3)
+    const teraz = Date.now();
+    const wybranaGotowoscMs = zPlanemGotowosci ? msCelu(cel, nowMs) : teraz + czas * 60_000;
+    const wynik = startProgramu(wybranaGotowoscMs, czas, teraz);
+    if (!wynik.ok) return setOdswiez((n) => n + 1); // ekran pokaże „Program nie zdąży”
+    const startMs = wynik.startMs;
     requireActionAccess('plany-przyszle', () =>
       void guardSave(async () => {
         const r = await zapiszPlanMaszyny({ recipeId: receptura.id, recipeName: receptura.namePl, formula, makaG, przezWersjeDrozdzowa, startMs, czasProgramuMin: czas, nowMs: Date.now() });
