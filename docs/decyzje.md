@@ -1274,3 +1274,29 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Testy:** `src/__tests__/pas-zakladek-d10.test.tsx` — asercja nagłówka Doktora zakwasu odwrócona na `headerShown: false` (zgoda D-219) i nowy test ekranu (pas, powrót, cel 44 pt, czapka, kolejność tytuł → objawy); `src/__tests__/czapka-ekranow-p7.test.tsx` — wpis w `EKRANY` i import (D-227). Czerwień przed łatką ekranu: 2 asercje (lista plików z pasem bez Doktora zakwasu; brak pasa i czapki).
 - **Zależy od:** D-219, D-222, D-227.
 - **Status:** dzień, do weta.
+
+### [D-224] 2026-11-04 — Zakres 1.0 bez podziału: zgłoszenie po partii danych D-221 i katalogu (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (czat, 2026-11-04 ok. 05:05 UTC). **Słowa właściciela:** „Wybieram a”.
+- **Decyzja:** build 1022 jest buildem testowym; kandydat do App Store powstaje po partii danych D-221 (D-154/D-155, D-138), katalogu +15 (D-157), roli 09 i E2E. D-150 bez zmian.
+- **Odrzucone:** (b) 1.0 z buildu po 1022 bez partii danych, funkcje danych w 1.0.1 (szybciej o kilka dni, kosztem zmiany D-150/D-221).
+- **Status:** właściciel, 2026-11-04.
+
+### [D-225] 2026-11-04 — Pełny audyt M1 przed zgłoszeniem 1.0, na kandydacie po partii danych (właściciel)
+- **Rodzaj:** decyzja właściciela (czat, 2026-11-04 ok. 05:15–05:20 UTC). **Słowa właściciela:** „Wybieram c”; moment startu: „A”.
+- **Decyzja:** pełny M1 (STOP 1 plan z kosztem, STOP 2 raport i plan napraw) na buildzie kandydata po partii D-221, potem M2 i reaudyt M1, dopiero potem zgłoszenie. Zmienia D-135 pkt 3 (reaudyt 07 z progiem eskalacji do M1) i znosi wyjątek nazwany z D-135 (plan-wydania-1.0 §1 pkt 3 rozstrzygnięty: opcja (a)). Bramka 02: `docs/monetyzacja.md`, werdykt „przerobić” (22.10, model bez zmian).
+- **Odrzucone:** (a) zostawić D-135; (b) D-135 + audyt celowany danych (05, 12); (d) M1 po wydaniu; start M1 teraz na 1022 (szybciej o ok. 1–2 dni, migracja poza audytem).
+- **Koszt [OCENA]:** ok. 7 mln tokenów (audyt Piekarza 19.10), kilka dni z naprawami; zgłoszenie 1.0 najwcześniej za ok. 1,5–2 tygodnie.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-226] 2026-11-04 — Jeden test na telefonie, na buildzie kandydata; build 1022 bez testu właściciela (właściciel)
+- **Rodzaj:** decyzja właściciela (czat, 2026-11-04 ok. 05:25 UTC). **Słowa właściciela:** „Przenieś mój test na później. Nie dam rady dziś”, potem „B”.
+- **Decyzja:** test według `docs/wydanie/lista-kontrolna-telefonu.md` (z zakupami w piaskownicy) tylko na buildzie kandydata, przed M1. Osobny reaudyt 07 po teście 1022 odpada (obejmuje go M1, D-225).
+- **Odrzucone:** (a) test 1022 w wolnej chwili, inaczej na kandydacie (błędy redesignu wcześniej).
+- **Ryzyko:** błędy redesignu widoczne tylko na urządzeniu wyjdą tuż przed M1.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-227] 2026-11-04 — 04-005: zgoda na dopisanie Doktora zakwasu do listy EKRANY w teście czapki (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (2026-11-04: „ty dzisiaj dalej sam tam na zasadach jak pracujesz w nocy”); opcja rekomendowana roli 08 (D-222).
+- **Decyzja:** `src/__tests__/czapka-ekranow-p7.test.tsx` — jeden wpis `app/(tabs)/zakwasy/doktor-zakwasu.tsx` w `EKRANY` i import. Rozszerzenie: test czapki obejmuje też Doktora zakwasu, żadna asercja nie znika; wykonanie D-223. D-219 zatwierdziło pas Doktora zakwasu, a ten test pilnuje zgodności listy ekranów z pasem.
+- **Odrzucone:** (b) Doktor zakwasu z nagłówkiem systemowym do po 1.0 (sprzeczne z D-219); (c) pas bez literału `<PasZakladki` (ominięcie strażnika testu, zasada 11).
+- **Status:** dzień, do weta.

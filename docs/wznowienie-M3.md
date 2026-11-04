@@ -1,6 +1,12 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## Aktualizacja 2026-11-04 ~05:40 UTC (koordynator M3, dzień, właściciel w pracy do raportu 15:00 Europe/Warsaw) — STAN BIEŻĄCY
+- p7b (rola 08, `session_01T66VBxpFVUQzNCE3NjdC5A`) scalone do `redesign/`: 04-004 plan bez paska zakładek, 04-005 Doktor zakwasu z pasem O3a (D-222, D-223, D-227). Zmienione testy tylko z D-219/D-227 (dowód czerwieni w raporcie roli).
+- Decyzje właściciela rano: D-224 zakres 1.0 bez podziału (kandydat po partii D-221 i katalogu), D-225 pełny M1 na kandydacie (przed zgłoszeniem; zmienia D-135), D-226 jeden test na telefonie, na kandydacie. Wolne od D-228.
+- Kolejność: E2E na HEAD → master + build 1022 (D-220) → partia danych D-221 (STOP z planem migracji) → katalog +15 (akceptacja listy) → rola 09 → E2E → build kandydata → test telefonu → M1 → M2 → reaudyt M1 → rola 10 → zgłoszenie (osobna zgoda).
+- Biblioteka: `/home/user/prompts` (add_repo za zgodą właściciela 2026-11-04); K = `audit/M3-2026-11-04/` (poza gitem).
+
 ## Punkt czyszczenia 2026-11-04 ~04:10 UTC (koordynator M3, po raporcie porannym) — STAN BIEŻĄCY, czytaj najpierw
 - `redesign/piekarz-2026-10-22` (verify kod 0, 537/5726; iOS E2E zielone na `70a0ee86`). Noc: p4b, p5, p5b, p6a, 09, p6b+09b, E5 (audyt 04 świeży), p7, 09c — wszystko scalone, sesje zarchiwizowane; szkic raportu był w scratchpadzie koordynatora.
 - **Odpowiedzi właściciela (04:05 UTC):** D-219 „Popraw oba (Recommended)” (04-004, 04-005 — zmiana `pasek-zakladek-receptura-106:49` i `pas-zakladek-d10:136`); D-220 „Po poprawkach z pyt. 1 (Recommended)” (build 1022 po p7b i zielonym E2E: scalenie do `master` i `testflight.yml`); D-221 „Osobna partia ze STOP (Recommended)” (dane: D-154/D-155, D-138, D-157 po buildzie). Weto D-195…D-218: brak odpowiedzi — obowiązują.
