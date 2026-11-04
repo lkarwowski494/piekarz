@@ -2322,6 +2322,21 @@
       "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
+  "Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ilość objętościowa:": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
@@ -2667,11 +2682,21 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
+  "Koistinen V.M. i in., Scientific Reports 2018": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Kolejne etapy wypieku chleba z razowej mąki żytniej.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Kolizja ze snem": {
     "gdzie": [
@@ -3044,6 +3069,11 @@
   "Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
+    ]
+  },
+  "Longin C.F.H. i in., International Journal of Molecular Sciences 2023": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Maksymalna liczba mąk w mieszance wynosi 12": {
@@ -6013,6 +6043,11 @@
   "Receptury mistrzowskie": {
     "gdzie": []
   },
+  "Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Rhode Island Burn Center (Brown University Health), „Avoiding Scalds”": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: nazwa)"
@@ -7064,6 +7099,11 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "To ostatnie rośnięcie ciasta przed pieczeniem.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
@@ -7328,6 +7368,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -7550,6 +7595,11 @@
   "Używanie mąki na dłoniach, która tworzy wewnątrz ciasta niepożądane suche smugi.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
+    ]
+  },
+  "Verdonck C. i in., Current Research in Food Science 2025": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.": {

@@ -17,8 +17,11 @@ interface Twierdzenie { id: string; status: string; zrodla?: Zrodlo[] }
 const REJESTR: Twierdzenie[] = JSON.parse(fs.readFileSync(path.join(root, 'docs', 'tresci', 'rejestr.json'), 'utf8'));
 const WG = new Map(REJESTR.map((t) => [t.id, t]));
 
-/** D-247: treści bez tekstu w kodzie (wersje drożdżowe, przelicznik drożdży, maszyna; wpina rola 08 w p9). */
-const CZEKAJA_NA_WPIECIE = ['drozdze-plan-przelicznik.md', 'maszyna.md', 'wersje-drozdzowe.md'];
+/**
+ * D-247: treści bez tekstu w kodzie (przelicznik drożdży, maszyna; wpina rola 08 w p9). D-255 (06d): wersje drożdżowe
+ * i plan drożdżowy wpięte w p9b-1b, zdjęte z listy; przelicznik wydzielony z drozdze-plan-przelicznik.md.
+ */
+const CZEKAJA_NA_WPIECIE = ['drozdze-przelicznik.md', 'maszyna.md'];
 
 const ADRESY_EKRANU = ZRODLA_WIEDZY.flatMap((g) => g.zrodla.map((z) => z.adres.toLowerCase()));
 const bezPrzedrostka = (adres: string) =>
