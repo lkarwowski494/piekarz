@@ -1320,3 +1320,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** 33 klucze (nazwy, opisy, notatki 11 receptur, `docs/lokalizacja/klucze-p8-2026-11-04.json`) przełożone maszynowo na 33 słowniki; źródło przekładu w repo: `docs/lokalizacja/przeklad-katalog-p8-2026-11-04.json`; drugi przegląd AI w świeżym kontekście na 12 językach (>= 1/3), 27 poprawek przyjętych; nazwy chronione tylko w opisach jako pochodzenie formuły (D-177), nazwy receptur opisowe.
 - **Odrzucone:** przebudowa generatora `wepnij-przeklad.mjs` pod nowe wejście (zakaz D-207), dlatego wpięcie jednorazowym skryptem poza repo; przegląd wszystkich 33 języków (koszt, DEC-06 wymaga próbki).
 - **Zależy od:** DEC-06, D-157, D-177, D-190, D-207. **Status:** dzień, do weta.
+
+### [D-228] 2026-11-04 — Partie dnia: p8 katalog (bez flagi danych) i p9a plan danych ze STOP, równolegle od d24ea87 (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (2026-11-04: „ty dzisiaj dalej sam tam na zasadach jak pracujesz w nocy”).
+- **Decyzja:** (1) p8 (rola 08, sonnet wg biblioteki): katalog z listy zatwierdzonej w D-177 (11 + 3 warunkowe) — lista już zatwierdzona, więc partia nie czeka na właściciela; bez zmian danych użytkownika; wyjątek jak D-209 (verify czerwony tylko przez przekład), potem rola 09 na tej samej gałęzi. (2) p9a (rola 08): tylko plan zmian danych i czerwone testy według modułu `dane-uzytkownika`, bez kodu produkcyjnego; STOP do właściciela (D-221). **Wyjątek nazwany (zasada 7):** p9a na modelu opus/high zamiast sonnet/medium z biblioteki — ryzyko utraty danych (zasada 10).
+- **Odrzucone:** czekać z katalogiem na raport 15:00 (lista już zatwierdzona); p9a od razu z migracją (D-221: STOP przed wdrożeniem).
+- **Status:** dzień, do weta.
+
+### [D-234] 2026-11-04 — p8: przyjęcie zmian istniejących testów listy receptur (podmiana MASTER_RECIPES → CATALOG_RECIPES) (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 przy przyjęciu partii p8 (D-229, odstępstwo roli 08 od polecenia „istniejących testów nie zmieniasz”).
+- **Decyzja:** przyjęte: `receptury-uklad-106`, `pas-zakladek-d10`, `calculator-screen` porównują teraz z `CATALOG_RECIPES`/`filterCatalogRecipes` zamiast `MASTER_RECIPES`/`filterMasterRecipes`; przegląd diffu koordynatora: każda asercja zachowana, zmieniona tylko lista odniesienia; `MASTER_RECIPES` (15) zostaje z własnymi testami. Wyjątek `i18n-no-polish-in-en` dla nazwy pochodzenia „Kołocz śląski” (D-177).
+- **Do sprawdzenia (M1/E2E):** nowe receptury są tylko w kodzie, wiersze `is_built_in` w bazie dalej dla 15 — plan, prowadzenie i Dziennik dla nowych receptur.
+- **Odrzucone:** cofnięcie p8 do zmiany polecenia (ten sam wynik, dłużej).
+- **Status:** dzień, do weta.
