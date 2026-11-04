@@ -10,6 +10,7 @@ Plan: `docs/wydanie/sklep.md` (DEC-16 a). Jeden wiersz na build i kanał. Zgody 
 | 2026-10-17 | 1.0.0 | 1007 | `276ba2f` | brak (przed audytem) | TestFlight | — | [DO USTALENIA] | tag `v1.0.0-b1007`; przetworzenie w App Store Connect [DO USTALENIA] |
 | 2026-10-17 | 1.0.0 | 1012 | `0016299` | brak (przed audytem) | TestFlight | — | [DO USTALENIA] | tag `v1.0.0-b1012`; build na telefonie do testu aktualizacji 1012 → kandydat (warunek 07) |
 | 2026-10-18 | 1.0.0 | 1013 | `ebd8471` | ZABLOKOWANE (07, 2026-10-19) | TestFlight | DEC-16 (a): wydanie ręczne po TestFlight | [DO USTALENIA] | tag `v1.0.0-b1013`; nie wysyłać do recenzji |
+| 2026-11-04 | 1.0.0 | 1022 | `9c255a0` | brak (przed M1 na kandydacie, D-225) | TestFlight | D-220, D-239 | „Po poprawkach z pyt. 1 (Recommended)” (D-220, 2026-11-04) — tylko scalenie do master i ten build | run 41797022837 zielony (tz-matrix 7 stref, verify, archiwum, wysyłka 08:45 UTC); tag `v1.0.0-b1022`; przetworzenie w App Store Connect [DO USTALENIA]; nie wysyłać do recenzji |
 
 ## Ustawienia App Store Connect przez API (`scripts/asc-ustawienia.mjs`)
 
