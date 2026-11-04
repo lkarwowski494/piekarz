@@ -15,7 +15,7 @@ import { formulaWersji, wersjaDrozdzowa } from './wersje-drozdzowe';
 /** Dodatki każdej receptury z trybem maszyny; pusta lista = notatka i opis nie wymieniają dodatków. */
 export const DODATKI_MASZYNY: Readonly<Record<string, readonly SkladnikMaszyny[]>> = {
   baguette_tradition_poolish: [],
-  ciabatta_con_biga: [],
+  ciabatta_con_biga: ['tluszcz'], // „Do ciasta właściwego dodaj 3% oliwy z oliwek” (06m, D-266)
   focaccia_genovese: ['tluszcz'], // „naoliwioną blachę”, „solanką z wody, oliwy i soli”
   no_knead_night: [],
   pizza_napoletana_48h: [],

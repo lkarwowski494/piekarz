@@ -1,0 +1,49 @@
+FAIL src/recipes/__tests__/dodatki-maszyny-06m.test.ts
+  06m: DODATKI_MASZYNY zgodne z notatką i opisem receptury (D-261, D-266)
+    ✕ każdy składnik wymieniony w notatce albo opisie receptury z trybem maszyny jest w jej wpisie dodatków (18 ms)
+    ✕ ciabatta z bigą: oliwa z notatki („Do ciasta właściwego dodaj 3% oliwy z oliwek”) to tłuszcz (1 ms)
+
+  ● 06m: DODATKI_MASZYNY zgodne z notatką i opisem receptury (D-261, D-266) › każdy składnik wymieniony w notatce albo opisie receptury z trybem maszyny jest w jej wpisie dodatków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ciabatta_con_biga: „oliwy” → tluszcz",
+    + ]
+
+      37 |       }
+      38 |     }
+    > 39 |     expect(braki).toEqual([]);
+         |                   ^
+      40 |   });
+      41 |
+      42 |   it('ciabatta z bigą: oliwa z notatki („Do ciasta właściwego dodaj 3% oliwy z oliwek”) to tłuszcz', () => {
+
+      at Object.toEqual (src/recipes/__tests__/dodatki-maszyny-06m.test.ts:39:19)
+
+  ● 06m: DODATKI_MASZYNY zgodne z notatką i opisem receptury (D-261, D-266) › ciabatta z bigą: oliwa z notatki („Do ciasta właściwego dodaj 3% oliwy z oliwek”) to tłuszcz
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: "tluszcz"
+    Received array: []
+
+      41 |
+      42 |   it('ciabatta z bigą: oliwa z notatki („Do ciasta właściwego dodaj 3% oliwy z oliwek”) to tłuszcz', () => {
+    > 43 |     expect(DODATKI_MASZYNY.ciabatta_con_biga).toContain('tluszcz');
+         |                                               ^
+      44 |   });
+      45 | });
+      46 |
+
+      at Object.toContain (src/recipes/__tests__/dodatki-maszyny-06m.test.ts:43:47)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.598 s, estimated 1 s
+Ran all test suites matching /src\/recipes\/__tests__\/dodatki-maszyny-06m.test.ts/i.
