@@ -28,6 +28,7 @@ const KLUCZE = [
   "W tej recepturze: {skladniki}.",
   "Program rusza o {godzina}.",
   "Od teraz do gotowości: {czas}.",
+  "Ustaw opóźniony start na {czas}.",
   "Program nie zdąży. Najwcześniej gotowe o {godzina}.",
   "Po programie",
   "ciasto|program maszyny",

@@ -77,7 +77,8 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
   const ciasto = program.ok && program.program === 'ciasto';
   const zOpoznieniem = opoz.ok && opoz.dostepny && !ciasto;
   // Bez opóźnienia (blokada, Basic) program rusza teraz; z wybraną gotowością w Pro — gotowość minus czas programu
-  const start = czas === null ? null : startProgramu(zOpoznieniem && moze('plan-wstecz') ? msCelu(cel, nowMs) : nowMs + czas * 60_000, czas, nowMs);
+  const zPlanemGotowosci = zOpoznieniem && moze('plan-wstecz');
+  const start = czas === null ? null : startProgramu(zPlanemGotowosci ? msCelu(cel, nowMs) : nowMs + czas * 60_000, czas, nowMs);
   const mozna = makaG !== null && start !== null && start.ok;
   const zapiszPlan = () => {
     if (!mozna || makaG === null || czas === null || start === null || !start.ok) return;
@@ -141,7 +142,12 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
         {start !== null && start.ok && (
           <View testID="maszyna-start">
             <Text style={styles.zdanie}>{t('Program rusza o {godzina}.', { godzina: formatTime(start.startMs) })}</Text>
-            <Text style={styles.zdanie}>{t('Od teraz do gotowości: {czas}.', { czas: czasTrwania(start.doGotowosciMin).tekst })}</Text>
+            {zPlanemGotowosci ? (
+              // MAS-086, OP-65: w maszynach opóźniony start to czas od teraz do gotowości (maszyna sama wlicza program)
+              <Text style={styles.zdanie}>{t('Ustaw opóźniony start na {czas}.', { czas: czasTrwania(start.doGotowosciMin).tekst })}</Text>
+            ) : (
+              <Text style={styles.zdanie}>{t('Od teraz do gotowości: {czas}.', { czas: czasTrwania(start.doGotowosciMin).tekst })}</Text>
+            )}
           </View>
         )}
         {start !== null && !start.ok && start.blad === 'za-wczesnie' && (

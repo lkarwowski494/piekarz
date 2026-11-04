@@ -26,6 +26,7 @@ export const EN_29: Record<string, string> = {
   'Wpisz czas programu z instrukcji maszyny.': "Enter the program time from your machine's manual.",
   'W tej recepturze: {skladniki}.': 'In this recipe: {skladniki}.',
   'Program rusza o {godzina}.': 'The program starts at {godzina}.',
+  'Ustaw opóźniony start na {czas}.': 'Set the delayed start to {czas}.',
   'Od teraz do gotowości: {czas}.': 'From now until ready: {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.': 'The program will not finish in time. Earliest ready time: {godzina}.',
   'Po programie': 'After the program',
