@@ -1,7 +1,11 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-04 ~00:00 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Aktualizacja 2026-11-04 ~00:50 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+- p7 (`session_01T66VByCNmHxVu76Rdi2PW8`, zarchiwizowana) scalone do `redesign/` (merge `d1e5204`): 04-001 wspólny ekran z pasem i czapką (8 ekranów; Pro z własną czapką), 04-002 sześć arkuszy na kartach z paskiem arkusza (0 literałów `fontSize`), 04-003 „Dziś”, 04-006 Doktor: protokoły → objawy → wynik → testy kuchenne (D-216), 04-007 „Odrzucić zmiany?” przy zmienionym formularzu (komunikat pod pytaniem pusty — brak klucza; propozycja „Wpisane zmiany nie zostaną zapisane.” → rola 09c). Istniejące testy bez zmian; 537 zestawów / 5726 testów. Przegląd ścieżek wrażliwych: brak uwag; koordynator: handlery zapisu w arkuszach bez zmian. `ProwadzenieWypieku` 25 B pod limitem.
+- **Do właściciela:** 04-004 (pasek zakładek na planie; wymaga zmiany `tests/pasek-zakladek-receptura-106.test.tsx:49`) i 04-005 (Doktor zakwasu z pasem; `pas-zakladek-d10.test.tsx:136`).
+
+## Aktualizacja 2026-11-04 ~00:00 UTC (koordynator M3, noc)
 - **E5 (weryfikacja świeża, subagent roli 04 audit, HEAD `58fe8a91`):** raport `audit/M3-2026-11-03/role/04-po/04-studio-projektowe-2026-11-03.md` (poza gitem; `sprawdz-raport` kod 0, powtórzone przez koordynatora). 0 P0, 2 P1 (001 czapka paska stanu na 7 ekranach — powrót D-139; 002 arkusze przepływów poza kartami), 5 P2 (003 Dziś, 004 pasek zakładek na planie, 005 Doktor zakwasu, 006 wynik Doktora poza widokiem, 007 odrzucenie danych bez pytania). Koszt przepływów zmierzony na kodzie: receptura → plan → 1. krok 6 stuknięć (+2 zgoda na powiadomienia), gesty spójne. Decyzje dla właściciela z raportu: kolejność Doktora (006), wpis pamięci portfolio, zgoda na zrzuty buildu 1022.
 - **iOS E2E run 41730573773 na `827198aa` (po rolach 08 p4b–p6a i 09): zielone** (22:24–23:35 UTC). Następne E2E na HEAD po scaleniu p7. p7: `session_01T66VByCNmHxVu76Rdi2PW8`.
 - **D-214:** p7 (08) naprawia 001, 002, 003, 006(a), 007, 004 bez zmian testów; 005 do właściciela (`d10:136`). Polecenie `audit/M3-2026-11-03/prompty/08-p7.polecenie.md` (sha256 5fede73f…bf4f), pula D-215…D-216; wolne od D-217.
