@@ -1,0 +1,285 @@
+FAIL src/core/__tests__/yeast-stages-p9b.test.ts
+  ● D-155 kroki planu wersji drożdżowej › graham: 15 min fermentacji, 15 min po podziale, 70 min w formie, pieczenie z receptury (20 + 23)
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [["mix", 15], ["bulk_ferment", 15], ["pre_shape", 10], ["bench_rest", 15], ["final_shape", 15], ["final_proof", 70], ["bake", 43], ["cool", 120]]
+    Received: undefined
+
+      10 | describe('D-155 kroki planu wersji drożdżowej', () => {
+      11 |   it('graham: 15 min fermentacji, 15 min po podziale, 70 min w formie, pieczenie z receptury (20 + 23)', () => {
+    > 12 |     expect(min(krokiDrozdzowe('graham_bread_honey', START))).toEqual([
+         |                                                              ^
+      13 |       ['mix', 15], ['bulk_ferment', 15], ['pre_shape', 10], ['bench_rest', 15], ['final_shape', 15], ['final_proof', 70], ['bake', 43], ['cool', 120],
+      14 |     ]);
+      15 |   });
+
+
+  ● D-155 kroki planu wersji drożdżowej › żyto 100%: 60 min odpoczynku, 60 min w formie, pieczenie 10 + 35 min ze źródła
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [["mix", 15], ["bulk_ferment", 60], ["pre_shape", 10], ["final_shape", 15], ["final_proof", 60], ["bake", 45], ["cool", 120]]
+    Received: undefined
+
+      16 |
+      17 |   it('żyto 100%: 60 min odpoczynku, 60 min w formie, pieczenie 10 + 35 min ze źródła', () => {
+    > 18 |     expect(min(krokiDrozdzowe('rye_100_pan', START))).toEqual([
+         |                                                       ^
+      19 |       ['mix', 15], ['bulk_ferment', 60], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 60], ['bake', 45], ['cool', 120],
+      20 |     ]);
+      21 |   });
+
+
+  ● D-155 kroki planu wersji drożdżowej › tartine: noc, co najmniej 8 h, i 90 min po uformowaniu
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [["mix", 15], ["bulk_ferment", 480], ["pre_shape", 10], ["final_shape", 15], ["final_proof", 90], ["bake", 47], ["cool", 120]]
+    Received: undefined
+
+      22 |
+      23 |   it('tartine: noc, co najmniej 8 h, i 90 min po uformowaniu', () => {
+    > 24 |     expect(min(krokiDrozdzowe('tartine_high_hydration_80', START))).toEqual([
+         |                                                                     ^
+      25 |       ['mix', 15], ['bulk_ferment', 480], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 90], ['bake', 47], ['cool', 120],
+      26 |     ]);
+      27 |   });
+
+
+  ● D-155 kroki planu wersji drożdżowej › orkisz: źródło nie dzieli 3 h na etapy (DRO-WER-SP-001) — brak planu, nie zgadnięty podział
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      30 |     expect(krokiDrozdzowe('spelt_ancient_seeded', START)).toBeNull();
+      31 |     expect(maPlanDrozdzowy('spelt_ancient_seeded')).toBe(false);
+    > 32 |     expect(maPlanDrozdzowy('graham_bread_honey')).toBe(true);
+         |                                                   ^
+      33 |     expect(krokiDrozdzowe('country_loaf_72', START)).toBeNull();
+      34 |   });
+      35 |
+
+
+  ● D-155 kroki planu wersji drożdżowej › kroki tylko z kategorii wydanego buildu, bez dokarmienia zakwasu, kolejno bez przerw, bez garnka
+
+    TypeError: Cannot read properties of null (reading 'every')
+
+      37 |     for (const id of ['graham_bread_honey', 'rye_100_pan', 'tartine_high_hydration_80']) {
+      38 |       const k = krokiDrozdzowe(id, START)!;
+    > 39 |       expect(k.every((s) => isStageCategory(s.category))).toBe(true);
+         |                ^
+      40 |       expect(k.some((s) => s.category === 'starter_feed')).toBe(false);
+      41 |       expect(k[0].plannedStart).toBe(START);
+      42 |       k.forEach((s, i) => {
+
+
+  ● D-155 kroki planu wersji drożdżowej › plan wstecz: ostatni krok kończy się o godzinie „gotowe”
+
+    TypeError: Cannot read properties of null (reading 'length')
+
+      54 |     const cel = START + 10 * 3_600_000;
+      55 |     const k = krokiDrozdzoweKonczaceSie('rye_100_pan', cel)!;
+    > 56 |     expect(k[k.length - 1].plannedEnd).toBe(cel);
+         |                ^
+      57 |     expect(k[0].plannedStart).toBe(cel - (15 + 60 + 10 + 15 + 60 + 45 + 120) * 60_000);
+      58 |     expect(krokiDrozdzoweKonczaceSie('spelt_ancient_seeded', cel)).toBeNull();
+      59 |   });
+
+
+FAIL src/recipes/__tests__/wersje-drozdzowe-p9b.test.ts
+  ● D-154/D-173 wersje drożdżowe receptur › przełącznik mają dokładnie 4 receptury z D-173
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 6
+    + Received  + 1
+
+    - Array [
+    -   "graham_bread_honey",
+    -   "rye_100_pan",
+    -   "spelt_ancient_seeded",
+    -   "tartine_high_hydration_80",
+    - ]
+    + Array []
+
+      15 | describe('D-154/D-173 wersje drożdżowe receptur', () => {
+      16 |   it('przełącznik mają dokładnie 4 receptury z D-173', () => {
+    > 17 |     expect(Object.keys(WERSJE_DROZDZOWE).sort()).toEqual(['graham_bread_honey', 'rye_100_pan', 'spelt_ancient_seeded', 'tartine_high_hydration_80']);
+         |                                                  ^
+      18 |     const bez = CATALOG_RECIPES.filter((r) => wersjaDrozdzowa(r.id) !== null).map((r) => r.id).sort();
+      19 |     expect(bez).toEqual(['graham_bread_honey', 'rye_100_pan', 'spelt_ancient_seeded', 'tartine_high_hydration_80']);
+      20 |     expect(wersjaDrozdzowa('country_loaf_72')).toBeNull();
+
+
+  ● D-154/D-173 wersje drożdżowe receptur › procent drożdży świeżych (i woda, sól żyta) z treści roli 06
+
+    expect(received).toMatchObject(expected)
+
+    - Expected  - 2
+    + Received  + 1
+
+      Object {
+    -   "extraYeastPercentage": 3,
+        "saltPercentage": 2,
+    -   "starterPercentage": 0,
+    +   "starterPercentage": 20,
+        "waterPercentage": 68,
+      }
+
+      23 |
+      24 |   it('procent drożdży świeżych (i woda, sól żyta) z treści roli 06', () => {
+    > 25 |     expect(formulaWersji(preset('spelt_ancient_seeded').formula, 'spelt_ancient_seeded', 'drozdze')).toMatchObject({ starterPercentage: 0, extraYeastPercentage: 3, waterPercentage: 68, saltPercentage: 2 });
+         |                                                                                                      ^
+      26 |     expect(formulaWersji(preset('graham_bread_honey').formula, 'graham_bread_honey', 'drozdze')).toMatchObject({ starterPercentage: 0, extraYeastPercentage: 2, waterPercentage: 72 });
+      27 |     expect(formulaWersji(preset('rye_100_pan').formula, 'rye_100_pan', 'drozdze')).toMatchObject({ starterPercentage: 0, extraYeastPercentage: 3, waterPercentage: 76, saltPercentage: 1.2 });
+      28 |     expect(formulaWersji(preset('tartine_high_hydration_80').formula, 'tartine_high_hydration_80', 'drozdze')).toMatchObject({ starterPercentage: 0, extraYeastPercentage: 1.7, waterPercentage: 76 });
+
+
+FAIL src/lib/__tests__/plan-drozdzowy-p9b.test.ts
+  ● D-155 powód braku planu › wersja drożdżowa z planem: plan dostępny
+
+    expect(received).toBeNull()
+
+    Received: "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu."
+
+      12 |
+      13 |   it('wersja drożdżowa z planem: plan dostępny', () => {
+    > 14 |     expect(powodBezPlanu(drozdze, { recipeId: 'graham_bread_honey', wersja: 'drozdze' })).toBeNull();
+         |                                                                                           ^
+      15 |     expect(powodBezPlanu(drozdze, { recipeId: 'rye_100_pan', wersja: 'drozdze' })).toBeNull();
+      16 |     expect(powodBezPlanu(drozdze, { recipeId: 'tartine_high_hydration_80', wersja: 'drozdze' })).toBeNull();
+      17 |   });
+
+
+  ● D-155 powód braku planu › orkisz na drożdżach: własny powód zamiast zdania o zakwasie
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej."
+    Received: "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu."
+
+      18 |
+      19 |   it('orkisz na drożdżach: własny powód zamiast zdania o zakwasie', () => {
+    > 20 |     expect(powodBezPlanu(drozdze, { recipeId: 'spelt_ancient_seeded', wersja: 'drozdze' })).toBe(ORKISZ);
+         |                                                                                             ^
+      21 |   });
+      22 |
+      23 |   it('receptura bez zakwasu i bez wersji drożdżowej (pizza) oraz wersja bez danych: jak D-3', () => {
+
+
+(node:2699) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/receptura-wersja-drozdzowa-p9b.test.tsx (12.055 s)
+  ● D-154 przełącznik wersji na recepturze › receptura bez wersji drożdżowej nie ma przełącznika; graham ma, domyślnie „na zakwasie”
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      92 |     zamknij();
+      93 |     root = await otworz('graham_bread_honey');
+    > 94 |     expect(host(root, 'recipe-version')).toHaveLength(1);
+         |                                          ^
+      95 |     expect(host(root, 'recipe-version-sourdough')[0].props.accessibilityState).toMatchObject({ checked: true });
+      96 |     expect(host(root, 'recipe-version-yeast')[0].props.accessibilityState).toMatchObject({ checked: false });
+      97 |   });
+
+
+  ● D-154 przełącznik wersji na recepturze › „na drożdżach”: formuła wersji, wskazówki wersji, zapis wyboru i plan z wersją
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      51 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      52 |   await act(async () => {
+    > 53 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      54 |   });
+      55 |   await settle();
+      56 | };
+
+
+  ● D-154 przełącznik wersji na recepturze › wybór zapamiętany przy następnym otwarciu; powrót „na zakwasie” przywraca formułę receptury
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      51 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      52 |   await act(async () => {
+    > 53 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      54 |   });
+      55 |   await settle();
+      56 | };
+
+
+  ● D-154 przełącznik wersji na recepturze › orkisz na drożdżach: „Ułóż plan” nieaktywny z powodem
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      51 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      52 |   await act(async () => {
+    > 53 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      54 |   });
+      55 |   await settle();
+      56 | };
+
+
+FAIL src/__tests__/plan-wersja-drozdzowa-p9b.test.tsx (12.096 s)
+  ● D-155 plan i prowadzenie wersji drożdżowej › graham_bread_honey na drożdżach: start z krokami wersji, wersja w sesji, bez zakwasu; wpis z leaven = yeast
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "drozdze"
+    Received: undefined
+
+      112 |     act(() => plan.unmount());
+      113 |     const s = getActiveBake()!;
+    > 114 |     expect(s.wersja).toBe('drozdze');
+          |                      ^
+      115 |     expect(s.starterId).toBeUndefined();
+      116 |     expect(s.recipeId).toBe(id);
+      117 |     expect(s.steps.map((k) => k.id)).toEqual(kroki);
+
+
+  ● D-155 plan i prowadzenie wersji drożdżowej › rye_100_pan na drożdżach: start z krokami wersji, wersja w sesji, bez zakwasu; wpis z leaven = yeast
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "drozdze"
+    Received: undefined
+
+      112 |     act(() => plan.unmount());
+      113 |     const s = getActiveBake()!;
+    > 114 |     expect(s.wersja).toBe('drozdze');
+          |                      ^
+      115 |     expect(s.starterId).toBeUndefined();
+      116 |     expect(s.recipeId).toBe(id);
+      117 |     expect(s.steps.map((k) => k.id)).toEqual(kroki);
+
+
+  ● D-155 plan i prowadzenie wersji drożdżowej › ta sama receptura na zakwasie: plan zakwasowy (żytni), wersja zakwas, leaven = sourdough
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "zakwas"
+    Received: undefined
+
+      130 |     act(() => plan.unmount());
+      131 |     const s = getActiveBake()!;
+    > 132 |     expect(s.wersja).toBe('zakwas');
+          |                      ^
+      133 |     expect(s.steps.some((k) => k.id.startsWith('yeast_'))).toBe(false);
+      134 |     expect(s.steps[0].id).toBe('fridge_wake_feed');
+      135 |     await dokonczWypiek();
+
+
+Test Suites: 5 failed, 5 total
+Tests:       17 failed, 5 passed, 22 total
+Snapshots:   0 total
+Time:        12.856 s
+Ran all test suites matching /src\/recipes\/__tests__\/wersje-drozdzowe-p9b.test.ts|src\/core\/__tests__\/yeast-stages-p9b.test.ts|src\/lib\/__tests__\/plan-drozdzowy-p9b.test.ts|src\/__tests__\/receptura-wersja-drozdzowa-p9b.test.tsx|src\/__tests__\/plan-wersja-drozdzowa-p9b.test.tsx/i.

@@ -23,9 +23,11 @@ function naczynie(v: RecipePreset['recommendedVessel']): string {
   return t('blacha piekarnika');
 }
 
-export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
+/** `wskazowki`: wskazówki wersji drożdżowej zamiast wskazówek receptury (D-154) [M3 p9b]. */
+export function ORecepturze({ receptura, wskazowki }: { receptura: RecipePreset; wskazowki?: string }) {
   const unitSystem = useUnitSystem();
   const r = receptura;
+  const notatka = wskazowki ?? r.notesPl;
   return (
     <Karta testID="karta-o-recepturze" tytul={t('O recepturze')} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <View testID="recipe-about" style={styles.tresc}>
@@ -37,9 +39,9 @@ export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
         <Text style={styles.wiersz}>
           <Text style={styles.mocny}>{t('Naczynie')}:</Text> {naczynie(r.recommendedVessel)}
         </Text>
-        {r.notesPl ? (
+        {notatka ? (
           <Text style={styles.wiersz}>
-            <Text style={styles.mocny}>{t('Wskazówki')}:</Text> {t(r.notesPl)}
+            <Text style={styles.mocny}>{t('Wskazówki')}:</Text> {t(notatka)}
           </Text>
         ) : null}
       </View>
