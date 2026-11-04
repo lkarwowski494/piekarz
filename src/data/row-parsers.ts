@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { DoughRecipeInput, DoughRecipeResult, normalizujMaki } from '../core/domain-rules';
-import type { StalyDzienKarmienia, StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
+import type { Leaven, StalyDzienKarmienia, StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
 import { isStarterSign, type StarterSign } from '../core/starter-log';
 
 export type Obj = Record<string, unknown>;
@@ -56,6 +56,9 @@ function sensory(v: unknown): StoredBakeLog['sensoryProfile'] {
 /** Pole opcjonalne kopii v2 (D1-2): nieobecne albo złe → undefined (import zostawia telefon), null → null. */
 const optSN = (v: unknown): string | null | undefined => (v === null || isStr(v) ? v : undefined);
 
+/** Wersja wypieku z bazy albo kopii (Leaven, db.ts). */
+export const isLeaven = (v: unknown): v is Leaven => v === 'sourdough' || v === 'yeast';
+
 export function parseStalyDzien(v: unknown): StalyDzienKarmienia | null | undefined {
   if (v === null) return null;
   if (!isObj(v) || !Number.isInteger(v.weekday) || !Number.isInteger(v.minuteOfDay)) return undefined;
@@ -70,6 +73,7 @@ export function parseBakeRow(v: unknown): StoredBakeLog | null {
     id: v.id,
     recipeName: v.recipeName,
     recipeId: optSN(v.recipeId),
+    leaven: v.leaven === null || isLeaven(v.leaven) ? v.leaven : undefined,
     startedAt: v.startedAt,
     finishedAt: optN(v.finishedAt),
     ambientTemp: optN(v.ambientTemp),

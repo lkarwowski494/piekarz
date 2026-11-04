@@ -367,12 +367,16 @@ export type KoniecSesji = { sessionId?: string; wymagajSesji?: boolean };
  * W transakcji końca wypieku (finishBake): czy wiersz kończonego wypieku był, receptura z jego sesji i skasowanie tylko
  * tego wiersza (`sessionId`).
  */
-export async function zakonczSesjeWTransakcji(db: Db | null, opts: KoniecSesji): Promise<{ trwal: boolean; recipeId?: string }> {
+export async function zakonczSesjeWTransakcji(
+  db: Db | null,
+  opts: KoniecSesji
+): Promise<{ trwal: boolean; recipeId?: string; wersja?: 'zakwas' | 'drozdze' }> {
   const filtr: Filtr | null = opts.sessionId !== undefined ? { id: opts.sessionId } : null;
   if (!filtr) return { trwal: false };
   const lista = await wiersze(filtr);
-  const recipeId = odczytaj(lista, (raw) => parseBakeSession(raw)).find((s) => s.bake?.recipeId !== undefined)?.bake?.recipeId;
-  const wynik = { trwal: lista.length > 0, ...(recipeId !== undefined ? { recipeId } : {}) };
+  const bake = odczytaj(lista, (raw) => parseBakeSession(raw)).find((s) => s.bake)?.bake;
+  // Receptura i wersja wypieku do wpisu Dziennika (D1, D-242 Z3) [M3 p9b]
+  const wynik = { trwal: lista.length > 0, ...(bake?.recipeId !== undefined ? { recipeId: bake.recipeId } : {}), ...(bake?.wersja ? { wersja: bake.wersja } : {}) };
   if (!db || lista.length === 0) return wynik;
   // Nieczytelne wiersze (zgłoszone przez odczytaj) w pliku ratunkowym, zanim DELETE je skasuje (P2-4)
   await zapisUszkodzonych();

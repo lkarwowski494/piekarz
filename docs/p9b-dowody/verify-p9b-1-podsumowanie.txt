@@ -1,0 +1,23 @@
+  ● D1: kilka sesji po migracji › BR-ETAP-006 limit 2 trwających i BR-KAL-009 limit 5 zaplanowanych: nadmiar odrzucony, istniejące bez zmian; limity z jednego modułu
+  ● D1: kilka sesji po migracji › BR-KAL-016 Koniec jednego: koniec pierwszego z dwóch wypieków nie rusza drugiego (ten sam krok i zegar), wpis i sesja w jednej transakcji
+  ● D1: kilka sesji po migracji › „Usuń wszystkie dane” czyści trwające i zaplanowane; kopia przed czyszczeniem nie niesie sesji ani planów
+  ● D1: kopia zapasowa po migracji › BR-KAL-010 eksport nowej wersji: recipeId w wypiekach i stały dzień karmienia w zakwasach (jawny null), format v2, bez sesji i planów
+  ● D1: kopia zapasowa po migracji › BR-KAL-010 import kopii z 1014 (bez nowych pól) nie zmienia nowych pól w telefonie ani sesji
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v1 wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v2-pauza wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v2-zytnia wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 sesja v1 po migracji ma wartości z fixture i ten sam pozostały czas [M3 D1b]
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 sesja v2-pauza po migracji ma wartości z fixture i ten sam pozostały czas [M3 D1b]
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 sesja v2-zytnia po migracji ma wartości z fixture i ten sam pozostały czas [M3 D1b]
+  ● D1: migracja v6 na kopii bazy buildu 1014 › idempotencja: drugi start nic nie zmienia (liczności, sesja, kopia przed migracją, plik ratunkowy)
+  ● D1: migracja v6 na kopii bazy buildu 1014 › przed migracją: kopia bazy VACUUM INTO (backup_pre_migration-v5-*) i surowa stara sesja w pliku ratunkowym
+  ● D1: migracja v6 na kopii bazy buildu 1014 › sesja brak: migracja bez wiersza sesji i bez pliku ratunkowego
+  ● D1: migracja v6 na kopii bazy buildu 1014 › sesja pusta: migracja bez wiersza sesji i bez pliku ratunkowego
+  ● D1: migracja v6 na kopii bazy buildu 1014 › uszkodzona sesja 1014: surowa treść w pliku ratunkowym, brak sesji po migracji, reszta bazy cała
+  ● SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05-02, TASK-R05-03) › applySchemaMigrations on an already migrated database is a no-op (no duplicate migration rows)
+  ● SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05-02, TASK-R05-03) › initDatabase on a new install migrates to user_version 7 with every column of migrations 2, 3, 4, 5, 6 and 7
+  ● p9a: zgodność wydanego odczytu (1017–1021) z polami p9b w JSON-ie sesji › sesja i plan z polami wersji i trybu (opcja Z2 a) czyta wydany parser, a zapis postępu ich nie gubi
+  ● p9b (przed kodem): nowe dane w kopii, eksporcie i imporcie › BR-MASZ-002 Dane maszyny zapamiętane, BR-DANE-003: klucze maszyna i wersje_receptur na liście kopii; eksport je niesie, import przenosi, kopia z 1014 ich nie zmienia
+Test Suites: 4 failed, 541 passed, 545 total
+Tests:       20 failed, 5813 passed, 5833 total
+kod=1

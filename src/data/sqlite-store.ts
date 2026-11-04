@@ -25,6 +25,7 @@ export {
 export * from './settings-store';
 export * from './recipes-store';
 export * from './flour-store';
+export * from './wybory-uzytkownika';
 import { getRecipes } from './recipes-store';
 import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } from './flour-store';
 import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
@@ -32,7 +33,7 @@ import { odczytNieudany } from './odczyt';
 import { czytajUstawieniaILekcje, dozwolony, zapiszUstawieniaILekcje } from './ustawienia-kopii';
 import { zakonczSesjeWTransakcji, zakonczSesjeWPamieci, type KoniecSesji } from './bake-sessions-store';
 import { uszkodzoneWiersze } from './uszkodzone-wiersze';
-import { czytajWpisy, writeBakeRow } from './wpisy-wypiekow';
+import { czytajWpisy, writeBakeRow, wpisZSesji } from './wpisy-wypiekow';
 import { czytajNowePola, dzienPoImporcie, dzienZKolumn, wpisPoImporcie, zapiszStalyDzien } from './nowe-pola-kopii';
 
 // ==========================================
@@ -321,7 +322,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
  * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego); bez niego żadna
- * sesja nie znika [M3 D3a]. Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1]. `wymagajSesji` i brak
+ * sesja nie znika [M3 D3a]. Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1], i wersję (v7) [M3 p9b]. `wymagajSesji` i brak
  * wiersza (wypiek zakończony albo przerwany w drugiej instancji ekranu): nic nie zapisane, wynik `nie-trwa` (P1-1).
  */
 export async function finishBake(
@@ -334,7 +335,7 @@ export async function finishBake(
     const sesja = await zakonczSesjeWTransakcji(null, opts);
     if (opts.wymagajSesji && !sesja.trwal) return 'nie-trwa';
     const byl = memStore.logs.some((l) => l.id === log.id);
-    await saveBakeLog(log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log);
+    await saveBakeLog(wpisZSesji(log, sesja));
     if (!byl) for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
     zakonczSesjeWPamieci(opts);
     return 'zapisano';
@@ -361,7 +362,7 @@ export async function finishBake(
       // Drugi koniec tego samego wypieku (druga instancja Stolnicy): bez wpisu i bez mąki [M3 D3a-fix, P1-1]
       trwal = sesja.trwal || !opts.wymagajSesji;
       if (!trwal) return;
-      wpis = log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log;
+      wpis = wpisZSesji(log, sesja);
       // Mąka tylko przy pierwszym końcu tego wypieku: wpis o tym id (id wpisu = id wypieku) już jest = koniec
       // powtórzony, także gdy wypiek nie miał wiersza sesji (wymagajSesji nie działa) [M3 P1-1]
       odliczono = (await db.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', log.id)).length === 0;

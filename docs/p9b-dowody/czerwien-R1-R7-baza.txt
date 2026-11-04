@@ -1,0 +1,40 @@
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › v6 → v7: liczności bez strat, stare wpisy z pustą wersją, sesje bez zmian, integrity_check i foreign_key_check
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › kolumna przyjmuje tylko zamkniętą listę wartości (CHECK) i NULL
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › przed migracją kopia VACUUM INTO backup_pre_migration-v6-*; drugi start niczego nie zmienia
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › błąd w środku migracji v7: wycofanie całości, baza jak w 1021 (wersja 6, bez kolumny), ekran błędu z kopią
+    Expected: "unavailable"
+    Received: "ok"
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › v5 (build 1014–1016) → v7 jednym startem: liczności bez strat poza przeniesioną sesją (v6)
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): nowe dane w kopii, eksporcie i imporcie › BR-MASZ-002 Dane maszyny zapamiętane, BR-DANE-003: klucze maszyna i wersje_receptur na liście kopii; eksport je niesie, import przenosi, kopia z 1014 ich nie zmienia
+    Expected: ArrayContaining ["maszyna", "wersje_receptur"]
+    Received: ["language", "unit_system", "godziny_snu", "selected_baking_vessel", "baker_ritual_profile", "has_completed_onboarding", "przypomnienia_karmienia", "rodzaj_drozdzy"]
+  ● p9b (przed kodem): nowe dane w kopii, eksporcie i imporcie › wersja wypieku w kopii: eksport jawnie (także null), import przenosi; kopia sprzed p9 bez pola zostawia wartość z telefonu
+    - Expected  - 2
+    + Received  + 2
+--
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › v6 → v7: liczności bez strat, stare wpisy z pustą wersją, sesje bez zmian, integrity_check i foreign_key_check
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › kolumna przyjmuje tylko zamkniętą listę wartości (CHECK) i NULL
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › przed migracją kopia VACUUM INTO backup_pre_migration-v6-*; drugi start niczego nie zmienia
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › błąd w środku migracji v7: wycofanie całości, baza jak w 1021 (wersja 6, bez kolumny), ekran błędu z kopią
+    Expected: "unavailable"
+    Received: "ok"
+  ● p9b (przed kodem): migracja v7 na kopii bazy buildu 1021 › v5 (build 1014–1016) → v7 jednym startem: liczności bez strat poza przeniesioną sesją (v6)
+    - Expected  - 2
+    + Received  + 2
+  ● p9b (przed kodem): nowe dane w kopii, eksporcie i imporcie › BR-MASZ-002 Dane maszyny zapamiętane, BR-DANE-003: klucze maszyna i wersje_receptur na liście kopii; eksport je niesie, import przenosi, kopia z 1014 ich nie zmienia
+    Expected: ArrayContaining ["maszyna", "wersje_receptur"]
+    Received: ["language", "unit_system", "godziny_snu", "selected_baking_vessel", "baker_ritual_profile", "has_completed_onboarding", "przypomnienia_karmienia", "rodzaj_drozdzy"]

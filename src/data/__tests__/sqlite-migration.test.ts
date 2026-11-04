@@ -61,7 +61,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
 
   it('defines 6 atomic forward migrations with monotonically increasing versions', () => {
     // v6: lista sesji wypieków, recipe_id, stały dzień karmienia (D-102) [M3 D1]
-    expect(SCHEMA_MIGRATIONS.length).toBe(6);
+    expect(SCHEMA_MIGRATIONS.length).toBe(7);
     expect(SCHEMA_MIGRATIONS[0].version).toBe(1);
     expect(SCHEMA_MIGRATIONS[1].version).toBe(2);
     expect(SCHEMA_MIGRATIONS[2].version).toBe(3);
@@ -79,13 +79,13 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     expect(control().opened).toEqual([APP_DB()]);
   });
 
-  it('initDatabase on a new install migrates to user_version 6 with every column of migrations 2, 3, 4, 5 and 6', async () => {
+  it('initDatabase on a new install migrates to user_version 7 with every column of migrations 2, 3, 4, 5, 6 and 7', async () => {
     const { schema } = restartApp();
     await schema.initDatabase();
 
     const raw = openRaw(APP_DB());
     const v = raw.prepare('PRAGMA user_version').get() as { user_version: number };
-    expect(v.user_version).toBe(6);
+    expect(v.user_version).toBe(7);
     const applied = raw.prepare('SELECT version FROM schema_migrations ORDER BY version').all() as Array<{ version: number }>;
     expect(applied.map((r) => r.version)).toEqual([1, 2, 3, 4, 5, 6]);
 
@@ -132,7 +132,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     await schema.initDatabase();
 
     const after = openRaw(APP_DB());
-    expect((after.prepare('PRAGMA user_version').get() as { user_version: number }).user_version).toBe(6);
+    expect((after.prepare('PRAGMA user_version').get() as { user_version: number }).user_version).toBe(7);
     const counts = tableCounts(after);
     expect(counts.starters).toBe(1);
     expect(counts.bakes).toBe(1);
