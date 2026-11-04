@@ -9,7 +9,7 @@
 import React from 'react';
 import { Modal, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { HeaderButton } from '../DraftHeader';
+import { HeaderButton, confirmDiscard } from '../DraftHeader';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
@@ -52,7 +52,7 @@ export function PasekArkusza({ tytul, lewy, prawy, testID = 'pasek-arkusza' }: {
   );
 }
 
-export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, tytul, lewy, prawy, contentContainerStyle, children }: {
+export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, tytul, lewy, prawy, zmieniony, contentContainerStyle, children }: {
   visible: boolean;
   /** Przesunięcie arkusza w dół (systemowe zamknięcie). */
   onRequestClose: () => void;
@@ -62,14 +62,21 @@ export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, ty
   tytul?: string;
   lewy?: PrzyciskArkusza;
   prawy?: PrzyciskArkusza;
+  /**
+   * Formularz zmieniony od otwarcia: „Anuluj” (lewy) i przesunięcie w dół pytają „Odrzucić zmiany?” (confirmDiscard,
+   * 04-007). Bez tej wartości arkusz zamyka się od razu (arkusze informacyjne).
+   */
+  zmieniony?: boolean;
   contentContainerStyle?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 }) {
+  const pytaj = (zamknij: () => void) => (zmieniony === undefined ? zamknij : () => confirmDiscard(zmieniony, '', zamknij));
+  const lewyZPytaniem = lewy && { ...lewy, onPress: pytaj(lewy.onPress) };
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onRequestClose} onDismiss={onDismiss}>
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={pytaj(onRequestClose)} onDismiss={onDismiss}>
       <SafeAreaView style={styles.ekran} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.ekran} testID={trescTestID}>
-          <PasekArkusza tytul={tytul} lewy={lewy} prawy={prawy} />
+          <PasekArkusza tytul={tytul} lewy={lewyZPytaniem} prawy={prawy} />
           {/* Treść przewijana pod paskiem: przy 320 pt i AX5 pasek z „Zapisz” zostaje na ekranie [04-studio-projektowe-001] */}
           <ScrollView
             style={styles.przewijane}

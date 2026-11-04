@@ -15,6 +15,7 @@ import {
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { useZmienionyFormularz } from '../arkusz/useZmienionyFormularz';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import {
@@ -58,6 +59,8 @@ export function FinishBakeModal({
   sensoryProfile,
   onSensoryProfileChange,
 }: FinishBakeModalProps) {
+  // „Anuluj” i przesunięcie w dół po zmianie oceny pytają „Odrzucić zmiany?” (04-007) [M3 p7]
+  const zmieniony = useZmienionyFormularz(visible, [rating, notes, crumbScore, crustScore, tasteProfile, sensoryProfile]);
   const ocena = (id: 'crumb' | 'crust', wartosc: number, onZmiana: (n: number) => void) => (
     <View style={styles.scoreRow}>
       {[1, 2, 3, 4, 5].map((s) => (
@@ -77,7 +80,7 @@ export function FinishBakeModal({
   // Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza (poza przewijaniem, osiągalne przy 320 pt i AX5),
   // sekcje oceny w kartach (README §1, §3) [M3 p7, 04-002]
   return (
-    <ArkuszKart visible={visible} onRequestClose={onClose} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave }}>
+    <ArkuszKart visible={visible} onRequestClose={onClose} zmieniony={zmieniony} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave }}>
         <Karta testID="karta-oceny" tytul={t('Ocena wypieku')} ikona={<IkonaKarty nazwa="gwiazda" />}>
           {/* Pytanie arkusza w przewijanej treści, w karcie oceny (nagłówek karty: „Ocena wypieku”) */}
           <View style={styles.grupa}>

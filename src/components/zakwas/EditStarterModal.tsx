@@ -13,6 +13,7 @@ import { t } from '../../lib/i18n';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { ArkuszKart } from '../arkusz/ArkuszKart';
 import { formularz } from '../arkusz/style-formularza';
+import { useZmienionyFormularz } from '../arkusz/useZmienionyFormularz';
 import { WyborPrzechowywania } from './WyborPrzechowywania';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
@@ -48,10 +49,12 @@ export function EditStarterModal({
   onClose,
   onSave,
 }: EditStarterModalProps) {
+  const zmieniony = useZmienionyFormularz(visible, [name, flourType, storageState]);
   return (
     <ArkuszKart
       visible={visible}
       onRequestClose={onClose}
+      zmieniony={zmieniony}
       lewy={{ tekst: t('Anuluj'), onPress: onClose }}
       prawy={{ tekst: t('Zapisz'), onPress: onSave }}
     >
