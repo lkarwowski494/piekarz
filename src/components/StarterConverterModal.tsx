@@ -8,12 +8,11 @@ import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
-  Modal,
-  ScrollView,
   Pressable,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from './arkusz/ArkuszKart';
+import { Karta } from '../ui/karty/Karta';
+import { IkonaKarty } from '../ui/karty/IkonaKarty';
 import { t } from '../lib/i18n';
 import { useUnitSystem, formatWeight } from '../lib/unit-converter';
 import {
@@ -78,15 +77,11 @@ export function StarterConverterModal({
   }, [targetYieldGrams, sourceHydration, targetHydration]);
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard} testID="starter-converter-modal">
-          {/* Header */}
-          <Text style={styles.modalTitle}>{t('Konwerter zakwasu & Lievito Madre')}</Text>
-          <Text style={styles.modalSubtitle}>
-            {t('Przelicznik hydratacji i zamiennik w recepturze')}
-          </Text>
-
+    // Arkusz na kartach: „Zamknij” w pasku arkusza, tryb, dane i wynik w kartach (README §1, §3) [M3 p7, 04-002]
+    <ArkuszKart visible={visible} onRequestClose={onClose} trescTestID="starter-converter-modal"
+      lewy={{ tekst: t('Zamknij'), onPress: onClose, testID: 'close-converter-btn' }}>
+          <Karta testID="karta-konwertera" tytul={t('Konwerter zakwasu & Lievito Madre')} ikona={<IkonaKarty nazwa="proporcje" />}
+            podpis={t('Przelicznik hydratacji i zamiennik w recepturze')}>
           {/* Mode Switcher */}
           <View style={styles.tabRow}>
             <Pressable
@@ -116,10 +111,11 @@ export function StarterConverterModal({
               </Text>
             </Pressable>
           </View>
+          </Karta>
 
-          <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollArea}>
             {activeTab === 'substitution' ? (
-              <View testID="substitution-section">
+              <View testID="substitution-section" style={styles.sekcja}>
+                <Karta testID="karta-zamiennika" tytul={t('Zamiennik w przepisie')} ikona={<IkonaKarty nazwa="sloik" />}>
                 {/* Recipe Starter Quantity */}
                 <Text style={styles.sectionLabel}>{t('Masa zakwasu w przepisie')}:</Text>
                 <View style={styles.chipsRow}>
@@ -197,10 +193,10 @@ export function StarterConverterModal({
                   ))}
                 </View>
 
+                </Karta>
                 {/* Substitution Results */}
                 {subResult && (
-                  <View style={styles.resultCard} testID="substitution-result-card">
-                    <Text style={styles.resultCardTitle}>{t('Wynik przeliczenia')}</Text>
+                  <Karta testID="substitution-result-card" tytul={t('Wynik przeliczenia')} ikona={<IkonaKarty nazwa="waga" />}>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Użyj Twojego zakwasu')}:</Text>
@@ -233,11 +229,12 @@ export function StarterConverterModal({
                     </View>
 
                     <Text style={styles.adviceText}>{t(subResult.adviceTemplatePl, subResult.adviceParams)}</Text>
-                  </View>
+                  </Karta>
                 )}
               </View>
             ) : (
-              <View testID="shift-section">
+              <View testID="shift-section" style={styles.sekcja}>
+                <Karta testID="karta-odrostu" tytul={t('Przygotowanie (Odrost)')} ikona={<IkonaKarty nazwa="sloik" />}>
                 {/* Target Yield */}
                 <Text style={styles.sectionLabel}>{t('Docelowa masa nowego zakwasu')}:</Text>
                 <View style={styles.chipsRow}>
@@ -308,10 +305,10 @@ export function StarterConverterModal({
                   ))}
                 </View>
 
+                </Karta>
                 {/* Shift Results */}
                 {shiftResult && (
-                  <View style={styles.resultCard} testID="shift-result-card">
-                    <Text style={styles.resultCardTitle}>{t('Receptura odrostu')}</Text>
+                  <Karta testID="shift-result-card" tytul={t('Receptura odrostu')} ikona={<IkonaKarty nazwa="waga" />}>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Zakwas matka')}:</Text>
@@ -336,24 +333,10 @@ export function StarterConverterModal({
                     </View>
 
                     <Text style={styles.adviceText}>{`${t(shiftResult.tipTemplatePl, shiftResult.tipParams)}${shiftResult.tipConsistencyPl ? ` ${t(shiftResult.tipConsistencyPl)}` : ''}`}</Text>
-                  </View>
+                  </Karta>
                 )}
               </View>
             )}
-          </ScrollView>
-
-          {/* Close button */}
-          <Pressable
-            accessibilityRole="button"
-            testID="close-converter-btn"
-            style={styles.closeButton}
-            onPress={onClose}
-            hitSlop={sharedCraftTokens.hitSlopStandard}
-          >
-            <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    </Modal>
+    </ArkuszKart>
   );
 }

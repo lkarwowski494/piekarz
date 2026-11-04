@@ -244,14 +244,14 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
-      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
+      "src/components/calculator/SaveRecipeModal.tsx (tekst)",
       "src/components/receptury/stos-receptur.ts (options)",
       "src/components/receptury/stos-receptur.ts (text)",
       "src/components/settings/BackupAndDataSection.tsx (text)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
+      "src/components/stolnica/FinishBakeModal.tsx (tekst)",
+      "src/components/zakwas/AddStarterModal.tsx (tekst)",
+      "src/components/zakwas/EditStarterModal.tsx (tekst)",
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)",
       "src/lib/menu-receptury.ts (options)",
@@ -1217,7 +1217,7 @@
   },
   "Dodaj nowy zakwas": {
     "gdzie": [
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/AddStarterModal.tsx (tytul)",
       "src/components/zakwas/StartersSelectorRow.tsx (accessibilityLabel)",
       "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
@@ -1572,7 +1572,7 @@
   },
   "Edytuj zakwas": {
     "gdzie": [
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
+      "src/components/zakwas/EditStarterModal.tsx (tytul)"
     ]
   },
   "Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.": {
@@ -2287,7 +2287,7 @@
   },
   "Jakość skórki": {
     "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+      "src/components/stolnica/FinishBakeModal.tsx (tytul)"
     ]
   },
   "Jaskinie (Niedofermentowany)": {
@@ -2574,7 +2574,7 @@
   },
   "Konwerter zakwasu & Lievito Madre": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/components/StarterConverterModal.tsx (tytul)",
       "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
@@ -2744,7 +2744,7 @@
   },
   "Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu": {
     "gdzie": [
-      "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
+      "src/components/DiscardRecipesModal.tsx (podpis)"
     ]
   },
   "Kultura „{name}” została utworzona.": {
@@ -4146,7 +4146,7 @@
   },
   "Ocena wypieku": {
     "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+      "src/components/stolnica/FinishBakeModal.tsx (tytul)"
     ]
   },
   "Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.": {
@@ -5167,7 +5167,7 @@
   },
   "Profil smakowy": {
     "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+      "src/components/stolnica/FinishBakeModal.tsx (tytul)"
     ]
   },
   "Profil zakwasu": {
@@ -5284,7 +5284,7 @@
   },
   "Przelicznik hydratacji i zamiennik w recepturze": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (podpis)"
     ]
   },
   "Przelicznik objętości": {
@@ -5322,7 +5322,7 @@
   },
   "Przepisy na Odrzut Zakwasu": {
     "gdzie": [
-      "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
+      "src/components/DiscardRecipesModal.tsx (tytul)",
       "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
@@ -5478,7 +5478,8 @@
   },
   "Przygotowanie (Odrost)": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/components/StarterConverterModal.tsx (tytul)"
     ]
   },
   "Przygotowanie koszyka rozrostowego (Banneton)": {
@@ -5712,7 +5713,7 @@
   },
   "Receptura odrostu": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (tytul)"
     ]
   },
   "Receptura piekarska z aplikacji Piekarz": {
@@ -6314,7 +6315,7 @@
   },
   "Struktura miękiszu": {
     "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+      "src/components/stolnica/FinishBakeModal.tsx (tytul)"
     ]
   },
   "Studzenie": {
@@ -6705,9 +6706,8 @@
   },
   "Temperatura pokojowa": {
     "gdzie": [
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (wartosc)"
+      "src/components/zakwas/StarterProfileCard.tsx (wartosc)",
+      "src/components/zakwas/WyborPrzechowywania.tsx (kod)"
     ]
   },
   "Temperatura w kuchni": {
@@ -7191,7 +7191,7 @@
   },
   "Utwórz profil dla nowej kultury zakwasu": {
     "gdzie": [
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
+      "src/components/zakwas/AddStarterModal.tsx (podpis)"
     ]
   },
   "Uwaga: W spiżarni brakuje {g}g mąki ({lista}).": {
@@ -7291,9 +7291,8 @@
   },
   "W lodówce (4°C)": {
     "gdzie": [
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterProfileCard.tsx (wartosc)"
+      "src/components/zakwas/StarterProfileCard.tsx (wartosc)",
+      "src/components/zakwas/WyborPrzechowywania.tsx (kod)"
     ]
   },
   "W misce połącz zakwas, mąkę, jogurt, oliwę i sól. Wyrabiaj 2–3 minuty do powstania miękkiego ciasta.": {
@@ -7402,7 +7401,7 @@
   },
   "Wektorowy radar sensoryczny": {
     "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+      "src/components/stolnica/FinishBakeModal.tsx (tytul)"
     ]
   },
   "Wersja aplikacji: {wersja}": {
@@ -7568,7 +7567,7 @@
   },
   "Wprowadź unikalną nazwę dla tej proporcji składników": {
     "gdzie": [
-      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)"
+      "src/components/calculator/SaveRecipeModal.tsx (podpis)"
     ]
   },
   "Wpływa na tempo fermentacji burzliwej: 10 °C chłodniej to około 3 razy dłuższa fermentacja (to przybliżenie, sprawdza się w 20–26 °C).": {
@@ -7932,7 +7931,7 @@
   },
   "Wynik przeliczenia": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (tytul)"
     ]
   },
   "Wypiek bez receptury": {
@@ -8455,18 +8454,19 @@
   },
   "Zamiennik w przepisie": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/components/StarterConverterModal.tsx (tytul)"
     ]
   },
   "Zamknij": {
     "gdzie": [
       "src/components/CloseButton.tsx (title)",
-      "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
+      "src/components/DiscardRecipesModal.tsx (tekst)",
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/PaywallModal.tsx (etykieta)",
       "src/components/PaywallModal.tsx (tekst)",
-      "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/components/StarterConverterModal.tsx (tekst)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
@@ -8495,7 +8495,7 @@
   },
   "Zamknij przepisy na odrzut": {
     "gdzie": [
-      "src/components/DiscardRecipesModal.tsx (accessibilityLabel)"
+      "src/components/DiscardRecipesModal.tsx (etykieta)"
     ]
   },
   "Zamknij słownik mąk": {
@@ -8546,10 +8546,10 @@
   },
   "Zapisz": {
     "gdzie": [
-      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
+      "src/components/calculator/SaveRecipeModal.tsx (tekst)",
+      "src/components/stolnica/FinishBakeModal.tsx (tekst)",
+      "src/components/zakwas/AddStarterModal.tsx (tekst)",
+      "src/components/zakwas/EditStarterModal.tsx (tekst)",
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
@@ -8577,7 +8577,7 @@
   "Zapisz jako moją": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)"
+      "src/components/calculator/SaveRecipeModal.tsx (tytul)"
     ]
   },
   "Zapisz w spiżarni": {
@@ -8870,7 +8870,7 @@
   },
   "Zmień parametry swojego zakwasu": {
     "gdzie": [
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
+      "src/components/zakwas/EditStarterModal.tsx (podpis)"
     ]
   },
   "Zmień składniki": {

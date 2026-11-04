@@ -1,17 +1,19 @@
 // ============================================================================
 // Apps4Craft Studio — SaveRecipeModal Component
 // Modal for saving custom bread recipe formula into SQLite database.
+// Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza, nazwa w karcie (README §1, §3) [M3 p7, 04-002].
 // 100% Offline-First.
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, TextInput, Modal } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { TextInput } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { formularz } from '../arkusz/style-formularza';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../ui/tokeny';
 export interface SaveRecipeModalProps {
   visible: boolean;
   recipeName: string;
@@ -28,114 +30,24 @@ export function SaveRecipeModal({
   onSave,
 }: SaveRecipeModalProps) {
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Zapisz jako moją')}</Text>
-          <Text style={styles.modalSubtitle}>
-            {t('Wprowadź unikalną nazwę dla tej proporcji składników')}
-          </Text>
-
-          <TextInput
-            accessibilityLabel={t('Wpisz nazwę przepisu')}
-            style={styles.modalInput}
-            placeholder={t('Wpisz nazwę przepisu')}
-            placeholderTextColor={theme.colors.tusz3}
-            value={recipeName}
-            onChangeText={onRecipeNameChange}
-            autoFocus
-          />
-
-          <View style={styles.modalButtonsRow}>
-            <Pressable
-              accessibilityRole="button"
-              style={styles.modalCancelBtn}
-              onPress={onClose}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              style={styles.modalConfirmBtn}
-              onPress={onSave}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
-            </Pressable>
-          </View>
-        </View>
-      </SafeAreaView>
-    </Modal>
+    <ArkuszKart
+      visible={visible}
+      onRequestClose={onClose}
+      lewy={{ tekst: t('Anuluj'), onPress: onClose }}
+      prawy={{ tekst: t('Zapisz'), onPress: onSave }}
+    >
+      <Karta testID="karta-zapisz-recepture" tytul={t('Zapisz jako moją')} ikona={<IkonaKarty nazwa="receptury" />}
+        podpis={t('Wprowadź unikalną nazwę dla tej proporcji składników')}>
+        <TextInput
+          accessibilityLabel={t('Wpisz nazwę przepisu')}
+          style={formularz.pole}
+          placeholder={t('Wpisz nazwę przepisu')}
+          placeholderTextColor={theme.colors.tusz3}
+          value={recipeName}
+          onChangeText={onRecipeNameChange}
+          autoFocus
+        />
+      </Karta>
+    </ArkuszKart>
   );
 }
-
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  modalCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    width: '100%',
-    maxWidth: 400,
-  },
-  modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz3,
-    marginBottom: 16,
-  },
-  modalInput: {
-    backgroundColor: theme.colors.tlo,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    borderRadius: theme.radius.sm,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: 14,
-    color: theme.colors.tusz,
-    marginBottom: 18,
-  },
-  modalButtonsRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: 10,
-  },
-  modalCancelBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalCancelBtnText: {
-    fontSize: 14,
-    color: theme.colors.tusz3,
-    fontWeight: '600',
-  },
-  modalConfirmBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalConfirmBtnText: {
-    fontSize: 14,
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-});
