@@ -71,3 +71,6 @@ Verify: `jest-p9b2-5.log` 5963/5966 — czerwone tylko `check-i18n` (2: 56 nowyc
 
 ### Nie sprawdzono
 Ekrany na urządzeniu (zrzuty, VoiceOver, AX5, 320 pt), migracja v7 na iOS (expo-sqlite natywne), E2E iOS, prawdziwa baza z telefonu.
+
+### Przegląd ścieżek wrażliwych p9b-2 (subagent, diff `4869d682..HEAD` warstwy danych, kopii i zapisu planu)
+Wynik: **brak uwag P0/P1** (migracja v7, UPSERT/kopia `bake_method`, zgodność z 1021, dane maszyny). Uwagi poniżej P1, niezrobione: (1) `zapisUszkodzonych` połyka błąd zapisu pliku ratunkowego (wzorzec sprzed p9b-2, także `zapiszWersjeReceptury`); (2) „Zapisz plan” liczy start z czasu ostatniego renderu — po wielu minutach na ekranie plan może mieć start w przeszłości (`ProgramMaszynyKarta.tsx`, zapiszPlan); (3) domyślne „Gotowe o” nie przelicza się po wpisaniu czasu programu na ekranie; (4) receptura drożdżowa z natury zapisuje plan bez `wersja` → `leaven` NULL (zgodnie z D-252 pkt 4); (5) build 1021 pokazałby fazy garnka dla `maszyna_program` (tylko odczyt, wygląd).
