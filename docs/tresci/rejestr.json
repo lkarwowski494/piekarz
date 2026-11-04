@@ -7641,11 +7641,12 @@
         "szczebel": 1
       }
     ],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
-    "wazne_do": "2027-11-03"
+    "wazne_do": "2027-11-03",
+    "nastepca": "KAT-WAG-030"
   },
   {
     "id": "KAT-WAG-007",
@@ -8178,6 +8179,45 @@
     "wartosc": 17,
     "jednostka": "g/kostka",
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-WAG-030",
+    "twierdzenie": "Według etykiet producentów zapisanych w bazie USDA FoodData Central (Branded Foods) 1/4 szklanki (1/4 cup) pełnoziarnistej mąki orkiszowej waży 30–35 g: Bob's Red Mill 30 g (trzy produkty), Purity Foods 34 g, Hain Celestial 35 g (rachunek: 1 szklanka ok. 120–140 g).",
+    "zrodla": [
+      {
+        "adres": "https://fdc.nal.usda.gov/food-details/2601112/nutrients",
+        "miejsce": "USDA FoodData Central, Branded Foods (dane z etykiety, dataSource LI), fdc_id 2601112, Bob's Red Mill, „SPELT FLOUR” (skład: WHOLE GRAIN SPELT), publikacja 2023-07-13; rekord JSON portal-data/external/2601112",
+        "cytat": "\"servingSize\":30 … \"householdServingFullText\":\"1/4 cup\"",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/food-details/2615497/nutrients",
+        "miejsce": "USDA FoodData Central, Branded Foods (dane z etykiety, dataSource LI), fdc_id 2615497, Bob's Red Mill, „ORGANIC WHOLE GRAIN STONE GROUND SPELT FLOUR”, publikacja 2023-08-31; rekord JSON portal-data/external/2615497",
+        "cytat": "\"servingSize\":30 … \"householdServingFullText\":\"1/4 cup (30g) raw\"",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/food-details/1954127/nutrients",
+        "miejsce": "USDA FoodData Central, Branded Foods (dane z etykiety, dataSource LI), fdc_id 1954127, Purity Foods, „WHOLE SPELT FLOUR”, publikacja 2021-07-29; rekord JSON portal-data/external/1954127",
+        "cytat": "\"servingSize\":34 … \"householdServingFullText\":\"1/4 cup\"",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/food-details/2104213/nutrients",
+        "miejsce": "USDA FoodData Central, Branded Foods (dane z etykiety, dataSource LI), fdc_id 2104213, The Hain Celestial Group, „ORGANIC SPELT FLOUR” (skład: ORGANIC WHOLE GRAIN SPELT (WHEAT) FLOUR), publikacja 2021-10-28; rekord JSON portal-data/external/2104213",
+        "cytat": "\"servingSize\":35 … \"householdServingFullText\":\"0.25 cup\"",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Masa porcji to deklaracja producenta na etykiecie (szczebel 3: dane producenta w bazie urzędowej, nie pomiar USDA); 1/4 szklanki × 4 = szklanka, rachunek. Producenci różnią się o 5 g na 1/4 szklanki, więc podaję przedział, nie jedną wartość.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04"
   },
   {
     "id": "KAT-ILB-005",
@@ -9129,7 +9169,7 @@
   },
   {
     "id": "KAT-ORK-004",
-    "twierdzenie": "[DO USTALENIA — warunkowo] Szybki chleb orkiszowy Utah State University Extension w procentach piekarskich: brak źródła wagi szklanki mąki orkiszowej (KAT-WAG-006). Przy ZAŁOŻENIU 1 szklanka = 120 g (jak pszenna pełnoziarnista, KAT-WAG-003; 2 1/2 szklanki = 300 g) wychodzi: maślanka 81,7% (245 g), woda 0%, sól 0,5% (1/4 łyżeczki = 1,5 g), proszek do pieczenia 3,1% (9,2 g), soda 1,5% (4,6 g), olej rzepakowy 9,3% (2 łyżki = 28 g), jajko 16,7% (50 g), cukier 8,4% (2 łyżki = 25,2 g), drożdże 0%.",
+    "twierdzenie": "[DO USTALENIA — warunkowo] Szybki chleb orkiszowy Utah State University Extension w procentach piekarskich: brak źródła wagi szklanki mąki orkiszowej (KAT-WAG-006). Przy ZAŁOŻENIU 1 szklanka = 120 g (jak pszenna pełnoziarnista, KAT-WAG-003; 2 1/2 szklanki = 300 g) wychodzi: maślanka 81,7% (245 g), woda 0%, sól 0,5% (1/4 łyżeczki = 1,5 g), proszek do pieczenia 3,1% (9,2 g), soda 1,5% (4,6 g), olej rzepakowy 9,3% (2 łyżki = 28 g), jajko 16,7% (50 g), cukier 8,4% (2 łyżki = 25,2 g), drożdże 0%. Waga szklanki: KAT-WAG-030 (2026-11-04) daje 120–140 g, więc procenty zależą od producenta mąki (przy 140 g maślanka 70,0%, sól 0,4%); rekomendacja rezerwa (D-236).",
     "zrodla": [
       {
         "adres": "https://extension.usu.edu/fscreate/files/handout_spelt.pdf",
@@ -9562,11 +9602,12 @@
         "szczebel": 1
       }
     ],
-    "status": "otwarte",
+    "status": "wycofane",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
-    "wazne_do": "2027-11-03"
+    "wazne_do": "2027-11-03",
+    "nastepca": "KAT-KAR-010"
   },
   {
     "id": "KAT-KAR-008",
@@ -9588,6 +9629,53 @@
     "wartosc": 0,
     "jednostka": "% świeżych",
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-KAR-009",
+    "twierdzenie": "Według przepisu Marttaliitto ciasto na pierożki karelskie robi się z 1 1/2 dl wody, 3/4 łyżeczki soli, 3 dl mąki żytniej i 1 dl mąki pszennej.",
+    "zrodla": [
+      {
+        "adres": "https://www.martat.fi/reseptit/karjalanpiirakat/",
+        "miejsce": "Marttaliitto (fińska krajowa organizacja doradztwa domowego, „Valtakunnallinen kotitalousneuvontapuhelin”), przepis „Karjalanpiirakat”, sekcja „Kuoritaikina”; kopia poza repo scratchpad/kar/martat_karjalanpiirakat.html, sha256 f6bef685076a",
+        "cytat": "Kuoritaikina: 1½ dl vettä 3/4 tl suolaa 3 dl ruisjauhoja 1 dl vehnäjauhoja",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "KAT-KAR-010",
+    "twierdzenie": "Sól w cieście pierożków karelskich: 2,1% masy mąki (rachunek z przepisu KAT-KAR-009 przy wagach USDA; przy jaśniejszej mąki żytniej wychodzi do 2,5%).",
+    "zrodla": [
+      {
+        "adres": "https://www.martat.fi/reseptit/karjalanpiirakat/",
+        "miejsce": "Marttaliitto (fińska krajowa organizacja doradztwa domowego, „Valtakunnallinen kotitalousneuvontapuhelin”), przepis „Karjalanpiirakat”, sekcja „Kuoritaikina”; kopia poza repo scratchpad/kar/martat_karjalanpiirakat.html, sha256 f6bef685076a",
+        "cytat": "3/4 tl suolaa",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "miejsce": "USDA FoodData Central, SR Legacy, food_portion.csv: fdc_id 168885 „Rye flour, dark” 1 cup = 128 g (KAT-WAG-005); fdc_id 168894 mąka uniwersalna 1 cup = 125 g (KAT-WAG-001); fdc_id 173468 sól 1 tsp = 6 g (KAT-WAG-020)",
+        "cytat": "\"83935\",\"168885\",\"1\",\"1\",\"9999\",\"\",\"cup\",\"128\",\"\",\"\",\"\"",
+        "odczyt": "2026-11-03",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Rachunek: szklanka US = 236,588 ml, łyżeczka US = 4,929 ml, fińska łyżeczka (tl) = 5 ml. Mąka żytnia 3 dl × 128/236,588 = 162,3 g (ciemna; fińska „ruisjauho” to zwykle mąka pełna, założenie), pszenna 1 dl × 125/236,588 = 52,8 g, razem 215,1 g; sól 3,75 ml × 6/4,929 = 4,56 g, czyli 2,12% (2,1%); woda 150 g = 69,7% mieści się w 57,1–72,7% specyfikacji GTS (KAT-KAR-005). Przy mące żytniej średniej (102 g/szklankę) mąka 182,2 g, sól 2,51%, woda 82,3% — poza przedziałem GTS, dlatego wybrana podstawa ciemna. Uproszczenie: sól z przepisu domowego (szczebel 3, jedno źródło) wstawiona do formuły GTS, która soli nie liczy.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "kat_kar_sol_proc",
+    "wartosc": 2.1,
+    "jednostka": "% mąki",
+    "decyzja": "D-237",
+    "wazne_do": "2027-11-04"
   },
   {
     "id": "KAT-OBW-008",
@@ -10000,7 +10088,7 @@
   },
   {
     "id": "KAT-PIA-006",
-    "twierdzenie": "[DO USTALENIA] Woda w piadinie: ani jednolity dokument 2022 (Dz.U. C 278/2022), ani dyscyplina 2014 (cytowana w zmianie opublikowanej w Biuletynie Regionu Emilia-Romania 2020: „Acqua: quanto basta per ottenere un impasto omogeneo”) nie podają liczby. Potrzebne źródło szczebla 1–3 z ilością wody.",
+    "twierdzenie": "[DO USTALENIA] Woda w piadinie: ani jednolity dokument 2022 (Dz.U. C 278/2022), ani dyscyplina 2014 (cytowana w zmianie opublikowanej w Biuletynie Regionu Emilia-Romania 2020: „Acqua: quanto basta per ottenere un impasto omogeneo”) nie podają liczby. Potrzebne źródło szczebla 1–3 z ilością wody. Ponowne wyszukiwanie 2026-11-04 (rola 06, partia 06-luki): tylko przepisy szczebla 4–5, źródła szczebla 1–3 z liczbą brak.",
     "zrodla": [
       {
         "adres": "https://publications.europa.eu/resource/oj/JOC_2022_278_R_0009",
@@ -10074,7 +10162,7 @@
   },
   {
     "id": "KAT-STO-002",
-    "twierdzenie": "[DO USTALENIA — częściowo] Według jednolitego dokumentu ChOG „Dresdner Stollen” w procentach masy mąki: masło 50%, sułtanki 65%, kandyzowana skórka 20%, migdały 15%; mąka pszenna typ 405 lub 550; obowiązkowe też mleko pełne, cukier, skórka cytryny, sól, przyprawy (bez ilości). Brak ilości drożdży, cukru, mleka, soli i czasów: pełnej specyfikacji (DPMA) nie otworzyłem, eAmbrosia (GI 13821) nie ma załącznika, brytyjski rejestr podaje „not yet available”.",
+    "twierdzenie": "[DO USTALENIA — częściowo] Według jednolitego dokumentu ChOG „Dresdner Stollen” w procentach masy mąki: masło 50%, sułtanki 65%, kandyzowana skórka 20%, migdały 15%; mąka pszenna typ 405 lub 550; obowiązkowe też mleko pełne, cukier, skórka cytryny, sól, przyprawy (bez ilości). Brak ilości drożdży, cukru, mleka, soli i czasów: pełna specyfikacja (DPMA 2008, odczyt 2026-11-04, KAT-STO-007) też ich nie podaje, eAmbrosia (GI 13821) nie ma załącznika, brytyjski rejestr podaje „not yet available”.",
     "zrodla": [
       {
         "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
@@ -10113,7 +10201,7 @@
   },
   {
     "id": "KAT-STO-003",
-    "twierdzenie": "[DO USTALENIA] Woda/mleko w Dresdner Stollen: jednolity dokument wymienia mleko pełne (lub w proszku) bez ilości; procentu brak.",
+    "twierdzenie": "[DO USTALENIA] Woda/mleko w Dresdner Stollen: jednolity dokument wymienia mleko pełne (lub w proszku) bez ilości; procentu brak. Pełna specyfikacja (DPMA 2008, KAT-STO-007) też nie podaje ilości (odczyt 2026-11-04).",
     "zrodla": [
       {
         "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
@@ -10149,7 +10237,7 @@
   },
   {
     "id": "KAT-STO-005",
-    "twierdzenie": "[DO USTALENIA] Drożdże w Dresdner Stollen: jednolity dokument mówi „ciasto drożdżowe” bez ilości drożdży; źródła szczebla 1–3 z liczbą nie znalazłem.",
+    "twierdzenie": "[DO USTALENIA] Drożdże w Dresdner Stollen: jednolity dokument mówi „ciasto drożdżowe” bez ilości drożdży; źródła szczebla 1–3 z liczbą nie znalazłem. Pełna specyfikacja (DPMA 2008, KAT-STO-007) też nie podaje liczby (odczyt 2026-11-04).",
     "zrodla": [
       {
         "adres": "https://publications.europa.eu/resource/oj/JOC_2010_046_R_0017_01",
@@ -10164,6 +10252,42 @@
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "KAT-STO-006",
+    "twierdzenie": "Według specyfikacji ChOG „Dresdner Stollen” (wniosek opublikowany przez DPMA w 2008 r.) stollen formuje się ręcznie, nie piecze się go w formach ani w blachach skrzynkowych, a jego najmniejsza masa to 500 g.",
+    "zrodla": [
+      {
+        "adres": "https://register.dpma.de/DPMAregister/blattdownload/marken/2008/22/Teil-7/20080530",
+        "miejsce": "DPMA Markenblatt Heft 22 z 30.5.2008, Teil 7 (wnioski o ChOG/ChNP), „Dresdner Christstollen, Dresdner Stollen, Dresdner Weihnachtsstollen”, pkt b) Beschreibung i e) Herstellungsverfahren; kopia poza repo scratchpad/sto/2008_22_Teil-7_20080530, sha256 ed21e84e5584",
+        "cytat": "Die Stollen werden handgeformt und als Laib geschnitten bzw. gerissen oder gerollt bzw. geschlagen und dürfen nicht in Formen oder Verbundkästen gebacken werden. Das Mindestgewicht beträgt 500 g.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04"
+  },
+  {
+    "id": "KAT-STO-007",
+    "twierdzenie": "Pełna specyfikacja ChOG „Dresdner Stollen” (DPMA 2008) opisuje produkcję tylko etapami (ciasto drożdżowe, odpoczynek, ważenie, drugi odpoczynek, formowanie, pieczenie w piecu, dekor) i nie podaje ilości drożdży, mleka, cukru ani soli, czasów ani temperatury pieczenia.",
+    "zrodla": [
+      {
+        "adres": "https://register.dpma.de/DPMAregister/blattdownload/marken/2008/22/Teil-7/20080530",
+        "miejsce": "DPMA Markenblatt Heft 22 z 30.5.2008, Teil 7 (wnioski o ChOG/ChNP), „Dresdner Christstollen, Dresdner Stollen, Dresdner Weihnachtsstollen”, pkt b) Beschreibung i e) Herstellungsverfahren; kopia poza repo scratchpad/sto/2008_22_Teil-7_20080530, sha256 ed21e84e5584; brak liczb sprawdzony w całym tekście wpisu (pdftotext, grep: Hefe, Milch, Minuten, °C)",
+        "cytat": "Die Inhaltsstoffe nach b) werden zu einem Hefeteig aufgearbeitet. Nach einer Teigruhe wird der Teig entsprechend der Gewichtsgrößen abgewogen",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04"
   },
   {
     "id": "BEZ-WRZ-001",

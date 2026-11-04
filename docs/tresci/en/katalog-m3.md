@@ -24,7 +24,7 @@ White pan loaf [T:-]
 A simple yeasted wheat bread with water, sugar, salt and oil, baked in a loaf pan. [T:KAT-ILB-001,KAT-ILB-002]
 
 ## white_pan_loaf.notes
-In the recipe, water is 67.7% of the flour weight, salt 1.4%, sugar 2.9%, oil 3.1% and yeast 4.7% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-ILB-005]
+In the recipe, water is 67.7% of the flour weight, salt 1.4%, sugar 2.9%, oil 3.1% and yeast 4.7% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-ILB-005]
 The percentages were converted from the recipe's volume measures, which call for 3–4 cups of all-purpose or bread flour. [T:KAT-ILB-005,KAT-ILB-001]
 A cup in these recipes is the US measuring cup, about 237 ml. [T:KAT-WAG-026]
 The water for the dough is 100–110 °F, about 38–43 °C. [T:KAT-ILB-001]
@@ -40,7 +40,7 @@ A yeasted pan loaf in which whole wheat flour replaces half of the all-purpose f
 
 ## half_whole_wheat_loaf.notes
 The recipe suggests mixing the whole wheat flour half and half with bread flour. [T:KAT-ILB-003]
-Water is 69.1% of the flour weight, salt 1.4% and yeast 4.8% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-ILB-009]
+Water is 69.1% of the flour weight, salt 1.4% and yeast 4.8% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-ILB-009]
 The percentages were converted from the recipe's volume measures, which call for 3–4 cups of flour. [T:KAT-ILB-009]
 Knead the dough for 8–10 minutes and let it rise until doubled, then let the shaped loaf rise in the pan until doubled again. [T:KAT-ILB-002,KAT-ILB-003]
 Bake at 400 °F, which is about 204 °C, for 30–40 minutes. [T:KAT-ILB-002,KAT-ILB-003]
@@ -53,7 +53,7 @@ A yeasted pan loaf in which rye flour replaces half of the all-purpose flour. [T
 
 ## half_rye_loaf.notes
 The recipe suggests mixing the rye flour half and half with bread flour. [T:KAT-ILB-004]
-Water is 74.6% of the flour weight, salt 1.5% and yeast 5.2% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-ILB-013]
+Water is 74.6% of the flour weight, salt 1.5% and yeast 5.2% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-ILB-013]
 The recipe does not say which rye flour to use, so the percentages were calculated for medium rye flour. [T:KAT-ILB-013]
 Knead the dough for 8–10 minutes and let it rise until doubled, then let the shaped loaf rise in the pan until doubled again. [T:KAT-ILB-002,KAT-ILB-004]
 Bake at 400 °F, which is about 204 °C, for 30–40 minutes. [T:KAT-ILB-002,KAT-ILB-004]
@@ -119,7 +119,7 @@ Milk dinner rolls [T:-]
 Yeasted rolls made with milk, butter and an egg; the recipe makes 24 rolls. [T:KAT-BUL-001]
 
 ## milk_dinner_rolls.notes
-In the recipe, milk is 55.8% of the flour weight, water 13.5%, sugar 11.4%, butter or margarine 13.0%, egg 11.4%, salt 1.4% and yeast 4.7% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-BUL-003]
+In the recipe, milk is 55.8% of the flour weight, water 13.5%, sugar 11.4%, butter or margarine 13.0%, egg 11.4%, salt 1.4% and yeast 4.7% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-BUL-003]
 The percentages were converted from the recipe's volume measures, which call for 3–4 cups of flour. [T:KAT-BUL-003,KAT-BUL-001]
 The milk and water for the dough are 100–110 °F, about 38–43 °C. [T:KAT-BUL-001]
 Knead the dough for about 10 minutes. [T:KAT-BUL-001]
@@ -152,7 +152,7 @@ Sweet yeast buns [T:-]
 Buns made from a sweet yeast dough with milk and eggs; the recipe makes 24 buns. [T:KAT-SLO-001]
 
 ## sweet_yeast_buns.notes
-In the recipe, milk is 39.0% of the flour weight, water 19.0%, sugar 16.0%, oil 8.7% or butter 9.1%, eggs 16.0%, salt 1.9% and yeast 6.6% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-SLO-004]
+In the recipe, milk is 39.0% of the flour weight, water 19.0%, sugar 16.0%, oil 8.7% or butter 9.1%, eggs 16.0%, salt 1.9% and yeast 6.6% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-SLO-004]
 The percentages were converted from the recipe's volume measures, which call for about 5 cups of flour. [T:KAT-SLO-004]
 The first rise takes about 1 hour. [T:KAT-SLO-001]
 Bake the buns at 350 °F, which is about 177 °C: 25 minutes in a pan, 20 minutes for single buns. [T:KAT-SLO-002]
@@ -165,6 +165,6 @@ Cinnamon tea ring [T:-]
 A ring made from half of the sweet yeast dough with a filling of sugar, cinnamon, butter and raisins. [T:KAT-SLO-003]
 
 ## cinnamon_tea_ring.notes
-The dough has the same proportions as the sweet yeast buns: water 19.0% of the flour weight, milk 39.0%, salt 1.9% and yeast 6.6% (dry yeast in the recipe, converted to fresh with the Piekarz conversion). [T:KAT-SLO-008]
+The dough has the same proportions as the sweet yeast buns: water 19.0% of the flour weight, milk 39.0%, salt 1.9% and yeast 6.6% (dry yeast in the recipe, converted to fresh with the app's conversion). [T:KAT-SLO-008]
 The filling, as a percentage of the flour in that half of the dough, is sugar 48.0%, melted butter 36.3%, raisins 15.5% and cinnamon 1.7%. [T:KAT-SLO-008]
 Bake the ring at 375 °F, about 191 °C, for about 25 minutes. [T:KAT-SLO-003]
