@@ -51,13 +51,16 @@ export function ritualCategoryFilter(ritualProfile: string): RitualCategoryFilte
   return ritualProfile === 'sourdough_purist' ? 'sourdough' : 'all';
 }
 
-/** Receptury bazowe w wybranej kategorii; „all” zwraca każdą recepturę bazową. */
-export function filterMasterRecipes(categoryFilter: string): RecipePreset[] {
-  const list = MASTER_RECIPES;
-  if (categoryFilter === 'all') return list;
+/** Receptury z listy w wybranej kategorii; „all” zwraca całą listę, „pizza_sweet” pizzę i słodkie. */
+export function filterRecipesByCategory(list: readonly RecipePreset[], categoryFilter: string): RecipePreset[] {
+  if (categoryFilter === 'all') return [...list];
   if (categoryFilter === 'pizza_sweet') {
     return list.filter((p) => p.category === 'pizza' || p.category === 'sweet');
   }
   return list.filter((p) => p.category === categoryFilter);
 }
 
+/** Receptury bazowe w wybranej kategorii; „all” zwraca każdą recepturę bazową. */
+export function filterMasterRecipes(categoryFilter: string): RecipePreset[] {
+  return categoryFilter === 'all' ? MASTER_RECIPES : filterRecipesByCategory(MASTER_RECIPES, categoryFilter);
+}
