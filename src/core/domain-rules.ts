@@ -362,7 +362,7 @@ export function calculateFermentationAdaptation(
 
 export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
 
-/** Przelicznik drożdży świeżych na suche (RD-19, D-172, DRO-INS-030); używa go też tryb maszyny (RD-37). */
+/** Świeże → suche (RD-19, D-172); też RD-37. */
 export const WSP_SWIEZE_NA_SUCHE = 0.35;
 
 /**
