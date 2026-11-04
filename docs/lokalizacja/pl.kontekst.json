@@ -1006,7 +1006,7 @@
   },
   "Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.": {
     "gdzie": [
-      "src/components/stolnica/ProwadzenieWypieku.tsx (tekst)"
+      "src/components/stolnica/PasekCofnijKroku.tsx (tekst)"
     ]
   },
   "Coś mnie niepokoi": {

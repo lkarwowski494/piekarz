@@ -45,7 +45,7 @@ import { CzasKrokuNaPasie, StrefaKroku } from './StrefaKroku';
 import { StolnicaKeepAwake } from './StolnicaKeepAwake';
 import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
-import { PasekCofnij } from '../PasekCofnij';
+import { PasekCofnijKroku } from './PasekCofnijKroku';
 import { PoCoTenKrokArkusz } from './PoCoTenKrokArkusz';
 import { PrzyciskiProwadzenia } from './PrzyciskiProwadzenia';
 import { StrefaPlanu } from './StrefaPlanu';
@@ -53,7 +53,7 @@ import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
 import { styles } from './stolnica-screen.styles';
 
-export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: ProwadzenieWypiekuProps) {
+export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onKoniec, onKrok, onOdrzucony, onZapisano }: ProwadzenieWypiekuProps) {
   const router = useRouter();
   const sessionId = idSesji(start);
   // Pas marki zamiast nagłówka systemowego (O3a, D-194; makieta wypiek.html#prowadzenie)
@@ -370,13 +370,8 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
         </View>
       </EkranZPasem>
 
-      {aktywny && cofniete && (
-        <PasekCofnij
-          tekst={t('Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.', { krok: cofniete.nazwa })}
-          onPrzywroc={handleRestore}
-          onUkryj={ukryjCofniete}
-        />
-      )}
+      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
+      {aktywny ? naglowekStaly : null}
       {aktywny && (
         <BlokadaFunkcji {...blokadaWypieku}>
           <PasekKciuka

@@ -16,6 +16,8 @@ export interface ProwadzenieWypiekuProps {
   onOdrzucony: (powod: OdrzuconyZapis) => void;
   /** Nad treścią prowadzenia (przełącznik wypieków). */
   naglowek?: ReactNode;
+  /** Stały rząd nad paskiem kciuka, poza przewijaniem (przełącznik wypieków przy zwykłym tekście) [E2E-90]. */
+  naglowekStaly?: ReactNode;
   /** Koniec albo przerwanie tego wypieku. */
   onKoniec: () => void;
   /** Bieżący krok (nazwa) dla przełącznika. */
