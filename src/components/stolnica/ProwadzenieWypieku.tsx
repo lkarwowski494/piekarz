@@ -3,21 +3,23 @@
 // wybiera wypiek z listy trwających (id z trasy, przełącznik), a ten komponent prowadzi tylko jego; zapis kroku,
 // koniec i przerwanie dotyczą tylko tego wypieku (BR-KAL-016 Koniec jednego).
 // ============================================================================
-import React, { useState, useEffect, useRef, useCallback, type ReactNode } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
-  ScrollView,
   AppState,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Stack, useRouter } from 'expo-router';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
+import { EkranZPasem } from '../nawigacja/EkranZPasem';
 import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
 import { przerwijWypiek } from '../../lib/przerwij-wypiek';
 import { tapHaptic } from '../../lib/haptics';
-import { useZapisWypieku, type OdrzuconyZapis } from '../../hooks/useBakeSession';
+import { useZapisWypieku } from '../../hooks/useBakeSession';
 import { useFinishBake } from '../../hooks/useFinishBake';
-import { idSesji, type BakeSession } from '../../data/bake-session-store';
+import { idSesji } from '../../data/bake-session-store';
+import type { ProwadzenieWypiekuProps } from './prowadzenie-wypieku-typy';
 import { ensureNotificationPermission, getNotificationPermission } from '../../lib/notifications';
 import { ZgodaPowiadomien } from './ZgodaPowiadomien';
 import { SkladnikiKroku } from './SkladnikiKroku';
@@ -39,11 +41,11 @@ import { ostrzezeniaKroku } from '../../core/ostrzezenia-kroku';
 import { useAppAccess } from '../../lib/app-access';
 import { BlokadaFunkcji } from '../BlokadaFunkcji';
 import { FinishBakeModal } from './FinishBakeModal';
-import { StrefaKroku } from './StrefaKroku';
+import { CzasKrokuNaPasie, StrefaKroku } from './StrefaKroku';
 import { StolnicaKeepAwake } from './StolnicaKeepAwake';
 import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
-import { PasekCofnij } from '../PasekCofnij';
+import { PasekCofnijKroku } from './PasekCofnijKroku';
 import { PoCoTenKrokArkusz } from './PoCoTenKrokArkusz';
 import { PrzyciskiProwadzenia } from './PrzyciskiProwadzenia';
 import { StrefaPlanu } from './StrefaPlanu';
@@ -51,24 +53,12 @@ import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
 import { styles } from './stolnica-screen.styles';
 
-export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: {
-  /** Udany zapis kroku (ekran zeruje licznik odrzuceń z rzędu) [M3 D3a-fix]. */
-  onZapisano?: () => void;
-  /** Trwający wypiek z zapisu albo nowy z planu (stan z chwili otwarcia; zegar liczony od zapisanego końca kroku). */
-  start: BakeSession;
-  /** Wersja wiersza z odczytu; null = wypiek z planu jeszcze bez zapisu (pierwszy zapis go tworzy). */
-  wersja: number | null;
-  /** Zapis odrzucony (stan w bazie inny niż na ekranie): ekran czyta wypieki od nowa [M3 D3a-fix]. */
-  onOdrzucony: (powod: OdrzuconyZapis) => void;
-  /** Nad treścią prowadzenia (przełącznik wypieków). */
-  naglowek?: ReactNode;
-  /** Koniec albo przerwanie tego wypieku. */
-  onKoniec: () => void;
-  /** Bieżący krok (nazwa) dla przełącznika. */
-  onKrok?: (krok: string) => void;
-}) {
+export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onKoniec, onKrok, onOdrzucony, onZapisano }: ProwadzenieWypiekuProps) {
   const router = useRouter();
   const sessionId = idSesji(start);
+  // Pas marki zamiast nagłówka systemowego (O3a, D-194; makieta wypiek.html#prowadzenie)
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
   const [isActive, setIsActive] = useState<boolean>(false);
   const [currentStepIdx, setCurrentStepIdx] = useState<number>(0);
@@ -325,25 +315,34 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nawigacja: „Dziś” (wstecz) · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003) */}
-      <Stack.Screen
-        options={{ headerRight: () => <PrzyciskiProwadzenia aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} /> }}
-      />
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
+          (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+      <EkranZPasem gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} contentContainerStyle={styles.container} pas={(onLayout) => (
+        <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
+          podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
+          wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout}
+          akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
+          {aktywny && (
+            <>
+              <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />
+              <StrefaPlanu naPasie recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
+                pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
+            </>
+          )}
+        </PasZakladki>
+      )}>
+        <View style={styles.tresc}>
         {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
           <BlokadaFunkcji {...blokadaWypieku}>
           <View>
             <NotificationsOffBanner />
-            {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
-            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
-              pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-
-            {/* Strefa kroku: tytuł, czas do końca, treść, test palca, fazy garnka */}
+            {/* Strefa kroku: karta instrukcji, ostrzeżenie, test palca, fazy garnka (tytuł i czas na pasie) */}
             <StrefaKroku
+              naglowekNaPasie
               step={currentStep}
               formattedTime={teksty.czas?.tekst ?? ''}
               czasEtykieta={teksty.czas?.etykieta}
@@ -368,16 +367,11 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
         {/* Arkusz oceny po ostatnim kroku */}
         <FinishBakeModal {...finish.modalProps} />
+        </View>
+      </EkranZPasem>
 
-      </ScrollView>
-
-      {aktywny && cofniete && (
-        <PasekCofnij
-          tekst={t('Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.', { krok: cofniete.nazwa })}
-          onPrzywroc={handleRestore}
-          onUkryj={ukryjCofniete}
-        />
-      )}
+      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
+      {aktywny ? naglowekStaly : null}
       {aktywny && (
         <BlokadaFunkcji {...blokadaWypieku}>
           <PasekKciuka

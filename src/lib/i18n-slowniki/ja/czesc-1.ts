@@ -1,4 +1,4 @@
-// Słownik ja, część 1 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ja, część 1 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '蒸気 -{masa}',
@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '種継ぎから{czas}',
   '{czas} po czasie': '{czas}超過',
   '{data}, dziś': '{data}、今日',
+  '{data}, ocena {n}/5': '{data}、評価 {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}：{opis}',
   '{dzien}, {d} {miesiac}': '{miesiac}{d}日（{dzien}）',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}：{h}はオーブン使用中',

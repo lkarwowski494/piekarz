@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Dziennik, Ustawienia, Pro — karty (M3 E3)</title>
+<link rel="stylesheet" href="karty.css"></head>
+<body>
+<!-- Treść: dziennik/index.tsx, SettingsModal.tsx + settings/*, PaywallModal.tsx + oferta/*. Wpisy i ceny: [PRZYKŁAD]; ceny na ekranie zakupu pochodzą ze sklepu (D-038). -->
+<main data-ekran="dziennik-pusty">
+  <header class="pas">
+    <div class="status"><span>15:01</span><span>5G 65%</span></div>
+    <h1 style="margin-top:12px">Dziennik</h1>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="kalendarz"></i><h2>Tu zapiszą się twoje wypieki</h2></div>
+      <p class="t-tresc p2">Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.</p>
+      <button class="drugi" style="flex:none">Wybierz recepturę</button>
+    </section>
+    <section class="karta bez-wn"><div class="wiersz" style="border:0"><i data-i="bochenek" class="ik"></i><span class="roz t-tresc">Doktor Chleba</span><i data-i="dalej" class="szew"></i></div></section>
+  </div>
+  <nav data-zakladki="dziennik"></nav>
+</main>
+
+<main data-ekran="dziennik">
+  <header class="pas">
+    <div class="status"><span>15:01</span><span>5G 65%</span></div>
+    <h1 style="margin-top:12px">Dziennik</h1>
+    <p class="pod">Ostatni wypiek: niedziela, 1 listopada</p>
+    <div class="chipy"><span class="chip wyb">Wszystkie</span><span class="chip">Łagodny</span><span class="chip">Zbalansowany</span><span class="chip">Kwaśny</span></div>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="bochenek"></i><h2>Wiejski chleb codzienny na zakwasie</h2></div>
+      <p class="t-obj p2">1 listopada, ocena 4/5 <span class="przyklad">przykład</span></p>
+      <div class="chipy"><span class="pro" style="border-color:var(--obwodka);color:var(--tusz2)">Miękisz: 4/5</span><span class="pro" style="border-color:var(--obwodka);color:var(--tusz2)">Skórka: 5/5</span><span class="pro" style="border-color:var(--obwodka);color:var(--tusz2)">Temperatura w kuchni: 22 °C</span></div>
+      <p class="t-obj">Dłużej w lodówce następnym razem.</p>
+      <div class="rzad"><button class="drugi">Piecz ponownie</button><button class="drugi" style="color:var(--blad)">Usuń wpis</button></div>
+    </section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="proporcje"></i><h2>Porównanie i statystyki</h2><span class="pro znak">Pro</span></div>
+      <div class="wiersz"><span class="roz t-obj p2">Łącznie wypieków, średnia ocena, miękisz i skórka.</span></div>
+    </section>
+    <section class="karta bez-wn"><div class="wiersz" style="border:0"><i data-i="bochenek" class="ik"></i><span class="roz t-tresc">Doktor Chleba</span><i data-i="dalej" class="szew"></i></div></section>
+  </div>
+  <nav data-zakladki="dziennik"></nav>
+</main>
+
+<main data-ekran="ustawienia">
+  <div class="arkusz-tlo"><div class="arkusz2">
+    <div class="uchwyt"></div>
+    <div class="ark-nav"><a>Zamknij</a><h1>Ustawienia</h1><span style="min-width:72px"></span></div>
+    <div class="tresc">
+      <section class="karta">
+        <div class="kn"><i data-i="jezyk"></i><h2>Język i jednostki</h2></div>
+        <div class="wiersz" style="padding:0;border:0"><span class="roz">Język</span><span class="wart">Polski</span><i data-i="dalej" class="szew"></i></div>
+        <div class="segment"><span class="wyb">gramy, °C</span><span>uncje, °F</span></div>
+      </section>
+      <section class="karta">
+        <div class="kn"><i data-i="zegar"></i><h2>Godziny snu</h2></div>
+        <p class="t-obj p2">Kroki z pracą przy cieście planuję poza tymi godzinami.</p>
+        <div class="segment"><span class="wyb">23:00–7:00 <span class="przyklad">przykład</span></span><span>Bez godzin snu</span></div>
+      </section>
+      <section class="karta bez-wn">
+        <div class="kn"><i data-i="dzwonek"></i><h2>Przypomnienia o karmieniu</h2><span class="przelacznik znak"></span></div>
+        <p class="t-obj p2" style="padding:0 16px 14px">Gdy zakwas czeka na karmienie, telefon przypomni.</p>
+      </section>
+      <section class="karta bez-wn">
+        <div class="kn"><i data-i="koszyk"></i><h2>Zakupy</h2></div>
+        <div class="wiersz"><span class="roz">Piekarz Pro</span><i data-i="dalej" class="szew"></i></div>
+        <div class="wiersz"><span class="roz">Przywróć zakupy</span><i data-i="dalej" class="szew"></i></div>
+      </section>
+      <section class="karta bez-wn">
+        <div class="kn"><i data-i="dysk"></i><h2>Kopia zapasowa</h2></div>
+        <p class="t-obj p2" style="padding:0 16px 6px">Dane są zapisywane tylko w tym telefonie.</p>
+        <div class="wiersz"><span class="roz" style="color:var(--akcentTekst)">Eksportuj do pliku</span></div>
+        <div class="wiersz"><span class="roz" style="color:var(--akcentTekst)">Importuj z pliku</span></div>
+        <div class="wiersz"><span class="roz" style="color:var(--blad)">Usuń wszystkie dane</span></div>
+      </section>
+    </div>
+  </div></div>
+</main>
+
+<main data-ekran="pro">
+  <header class="pas">
+    <div class="status"><span>12:00</span><span>5G 90%</span></div>
+    <div class="nav"><span></span><button>Zamknij</button></div>
+    <h1>Piekarz Pro</h1>
+    <p class="pod">Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem i porównanie wypieków.</p>
+  </header>
+  <div class="tresc">
+    <div class="plan-opcja wyb"><b>Roczny</b><span class="cena"><span class="przyklad">cena ze sklepu</span> rocznie</span></div>
+    <div class="plan-opcja"><b>Miesięczny</b><span class="cena"><span class="przyklad">cena ze sklepu</span> miesięcznie</span></div>
+    <div class="plan-opcja"><b>Dożywotni</b><span class="cena"><span class="przyklad">cena ze sklepu</span> jednorazowo</span><span class="male">Jedna opłata, bez odnawiania.</span></div>
+    <section class="karta">
+      <div class="kn"><i data-i="gwiazda"></i><h2>Co daje Pro</h2></div>
+      <p class="t-obj"><span class="kropka"></span>Planowanie: plan wstecz od godziny „gotowe”.</p>
+      <p class="t-obj"><span class="kropka"></span>Zakwas: przypomnienia i proporcje dokarmiania.</p>
+    </section>
+    <p class="t-przyp p2"><span class="kropka"></span>Subskrypcja odnawia się sama, dopóki jej nie anulujesz. Zakup wymaga połączenia z App Store.</p>
+  </div>
+  <div class="kciuk"><button class="glowny">Kup plan roczny</button>
+    <div class="rzad t-obj" style="justify-content:center;color:var(--akcentTekst)"><span>Przywróć zakupy</span><span>Warunki użytkowania</span><span>Polityka prywatności</span></div></div>
+</main>
+<script src="karty.js"></script>
+</body></html>

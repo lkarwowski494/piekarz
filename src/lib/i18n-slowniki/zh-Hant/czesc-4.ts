@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka z pszenicy durum (Semolina)': '杜蘭小麥粉（Semolina）',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': '評估水解法與翻面拉摺後的麩質網絡發展',
   'Ocena wymaga połączenia z App Store.': '評分需要連線至 App Store。',
   'Ocena wypieku': '烘焙評分',
-  'Ocena: {n}/5': '評分：{n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': '依麵團的外觀判斷，而不是看時間：環境冷時麵團發酵較久，食譜上的時間僅供參考。',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': '為麵包評分，並將筆記存入烘焙紀錄',
   'Oceń na {n} z 5': '評為 {n} 分（滿分 5 分）',
@@ -160,6 +159,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': '從麵粉和水到第一個麵包，逐日帶你完成。',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': '從這天起，每天餵養天然酵母起種兩次，大約每 12 小時一次。',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': '用力按壓為它排氣，就像整形時一樣。',
+  'Odhaczaj przy ważeniu.': '秤重時逐項勾選。',
   'Odhaczaj składniki w miarę wsypywania': '每加入一樣食材就打勾',
   'Odkryj wiedzę naukową': '揭曉科學知識',
   'Odliczanie trwa': '倒數計時中',
@@ -169,6 +169,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '要捨棄變更嗎？',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': '丟棄一半的天然酵母起種，加入等重的麵粉和水，靜置 24 小時。',
   'Odrzuć zmiany': '捨棄變更',
+  'Wpisane zmiany nie zostaną zapisane.': '輸入的變更將不會儲存。',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '靜置 20 分鐘，再進行下一次標準翻面拉摺。',
   'Odznacz objawy': '清除所選症狀',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '以 Graham 粗磨全麥粉製作的營養麵包，加入天然蜂蜜與亞麻籽。',

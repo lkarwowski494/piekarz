@@ -1,4 +1,4 @@
-// Słownik sr, część 10 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 10 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Упиши своја запажања (средина, кора, време у рерни)...',
@@ -19,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Убаци готову мешавину',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Стави корпу у добро затвореној кеси у фрижидер (4–6 °C). Дуга ферментација даће хлебу дубоку арому.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Стави посуду са тестом у искључену рерну и упали само сијалицу: унутра постепено постаје топлије, али свака рерна и свака кухиња дају другачији резултат.',
+  'Wstecz': 'Назад',
   'Wstrzymaj': 'Паузирај',
   'Wstrzymano': 'Паузирано',
   'Wsyp do miski na wagę': 'Сипај у чинију на ваги',

@@ -1,4 +1,4 @@
-// Słownik it, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Powiadomienia o kolejnych krokach znikną.': 'Le notifiche dei prossimi passaggi verranno rimosse.',
@@ -14,7 +14,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermento (Lievitino)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procedura di Bassinage di emergenza',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'La percentuale di lievito nella ricetta si riferisce al lievito di birra fresco. Di lievito secco (istantaneo o attivo) pesa 0,4 volte quella quantità.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'La percentuale di lievito nella ricetta si riferisce al lievito di birra fresco. Di lievito secco (istantaneo o attivo) pesa 0,35 volte quella quantità. Il produttore può indicare sulla confezione un rapporto diverso.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'La percentuale della farina «{name}» deve essere un numero nell\'intervallo 0,1–100%',
   'Profil smakowy': 'Profilo aromatico',
   'Profil zakwasu': 'Profilo del lievito madre',
@@ -92,6 +92,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'La ricetta «{nazwa}» è nelle Mie ricette.',
   'Receptura awaryjna:': 'Ricetta di emergenza:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'La ricetta di base è cambiata da quella sfornata: ora contiene più lievito.',
+  'Receptura bazowa, na drożdżach': 'Ricetta di base, con lievito di birra',
+  'Receptura bazowa, na zakwasie': 'Ricetta di base, con lievito madre',
+  'Receptura bazowa, pizza': 'Ricetta di base, pizza',
+  'Receptura bazowa, słodka': 'Ricetta di base, dolce',
+  'Receptura bazowa, żytnia': 'Ricetta di base, di segale',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'La ricetta deve avere un nome (1-120 caratteri)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'La ricetta deve contenere almeno una farina',
   'Receptura z pliku': 'Ricetta da file',

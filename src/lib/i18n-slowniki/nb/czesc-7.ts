@@ -1,4 +1,4 @@
-// Słownik nb, część 7 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nb, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Szukaj np. T65, Tipo 00, 550, Bread Flour...': 'Søk f.eks. T65, Tipo 00, 550, Bread Flour...',
@@ -195,6 +195,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Sett inn ferdig blanding',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Sett kurven i en tett pose i kjøleskapet (4–6 °C). Lang heving gir brødet en dyp aroma.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Sett bollen med deigen i den avslåtte ovnen og slå på bare lyset: det blir gradvis varmere inni, men hver ovn og hvert kjøkken gir forskjellig resultat.',
+  'Wstecz': 'Tilbake',
   'Wstrzymaj': 'Sett på pause',
   'Wstrzymano': 'Satt på pause',
 };

@@ -6,13 +6,16 @@
 // ============================================================================
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
+import { View, Text, Pressable, Alert, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
+import { odstepy, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { przywrocZakupy } from '../../lib/app-access';
 import { przywrocZKomunikatem } from '../przywroc-zakupy';
 import { zarzadzajSubskrypcja, zrealizujKod } from '../../lib/platnosci/sklep';
-import { typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 
 export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
   const [trwa, setTrwa] = useState(false);
@@ -35,9 +38,9 @@ export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
     }
   };
 
-  const wiersz = (testID: string, tekst: string, onPress: () => unknown, zajety = false) => (
+  const wiersz = (testID: string, tekst: string, onPress: () => unknown, zajety = false, pierwszy = false) => (
     <Pressable
-      style={styles.linkRow}
+      style={[styles.wiersz, pierwszy && wierszUstawien.pierwszy]}
       onPress={onPress}
       disabled={zajety}
       accessibilityRole="button"
@@ -45,15 +48,20 @@ export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
       accessibilityState={{ disabled: zajety, busy: zajety }}
       testID={testID}
     >
-      <Text style={styles.linkText}>{zajety ? t('Przetwarzanie...') : tekst}</Text>
+      <Text style={styles.akcja}>{zajety ? t('Przetwarzanie...') : tekst}</Text>
     </Pressable>
   );
 
   return (
-    <View style={styles.card}>
-      <Text style={styles.sectionTitle}>{t('Zakupy')}</Text>
-      {onOtworzPro && wiersz('settings-pro-btn', t('Piekarz Pro'), onOtworzPro)}
-      {wiersz('settings-restore-purchases-btn', t('Przywróć zakupy'), handleRestore, trwa)}
+    // Karta z ikoną, akcje jako wiersze (M3 p5, inne.html #ustawienia); kolejność i zachowanie bez zmian. Tytuł 17 pt i
+    // akcje 15 pt zamiast nagłówka karty 20 pt: tak wymaga test PRZ-33 (zmiana testu poza D-197; D-198, do weta)
+    <View testID="karta-zakupy" style={styles.karta}>
+      <View style={styles.naglowek}>
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="koszyk" /></View>
+        <Text style={styles.tytul} accessibilityRole="header">{t('Zakupy')}</Text>
+      </View>
+      {onOtworzPro && wiersz('settings-pro-btn', t('Piekarz Pro'), onOtworzPro, false, true)}
+      {wiersz('settings-restore-purchases-btn', t('Przywróć zakupy'), handleRestore, trwa, !onOtworzPro)}
       {/* Systemowe zarządzanie i anulowanie subskrypcji [M1-audytor-generalny-011; 02-monetyzacja-008] */}
       {wiersz('settings-manage-subscriptions-btn', t('Zarządzaj subskrypcją'), zarzadzajSubskrypcja)}
       {wiersz('settings-redeem-btn', t('Zrealizuj kod'), handleKod)}
@@ -62,27 +70,16 @@ export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionTitle: {
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
+  karta: { ...wygladKarty, padding: odstepy.l, gap: odstepy.xs },
+  naglowek: { flexDirection: 'row', alignItems: 'center', gap: odstepy.m, flexWrap: 'wrap' },
+  tytul: {
     get fontFamily() { return theme.typography.krojTytulow; },
+    flexShrink: 1,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
-    marginBottom: theme.spacing.sm,
   },
-  linkRow: {
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  linkText: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '600',
-    color: theme.colors.akcentTekst,
-  },
+  akcja: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.akcentTekst },
 });

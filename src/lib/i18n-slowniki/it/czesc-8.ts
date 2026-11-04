@@ -1,4 +1,4 @@
-// Słownik it, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 8 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Uważaj w kuchni': 'Fai attenzione in cucina',
@@ -80,6 +80,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Inserisci miscela pronta',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Metti il cestino in un sacchetto ermetico in frigo (4–6 °C). La lunga fermentazione darà al pane un aroma intenso.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Metti il recipiente con l\'impasto nel forno spento e accendi solo la luce: all\'interno si scalda gradualmente, ma ogni forno e ogni cucina danno un risultato diverso.',
+  'Wstecz': 'Indietro',
   'Wstrzymaj': 'Pausa',
   'Wstrzymano': 'In pausa',
   'Wsyp do miski na wagę': 'Versa nella ciotola sulla bilancia',

@@ -363,8 +363,8 @@ export function calculateFermentationAdaptation(
 export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
 
 /**
- * RD-19: drożdże świeże na suche i odwrotnie (aktywne i instant) × 0,4 (S-40, S-39: producent, szczebel 1; było 3:1)
- * [M1-audytor-generalny-130]
+ * RD-19: drożdże świeże na suche i odwrotnie (aktywne i instant) × 0,35, odwrotnie ÷ 0,35 (D-205, D-172, RD-19-W2;
+ * wcześniej × 0,4 z S-40, S-39 [M1-audytor-generalny-130]). Producent na opakowaniu może podawać inaczej (D-172).
  */
 export function convertYeast(
   amountGrams: number,
@@ -375,10 +375,10 @@ export function convertYeast(
   }
 
   if (from === 'fresh') {
-    const instant = Number((amountGrams * 0.4).toFixed(2));
+    const instant = Number((amountGrams * 0.35).toFixed(2));
     return { freshGrams: amountGrams, instantGrams: instant };
   } else {
-    const fresh = Number((amountGrams / 0.4).toFixed(1));
+    const fresh = Number((amountGrams / 0.35).toFixed(1));
     return { freshGrams: fresh, instantGrams: amountGrams };
   }
 }

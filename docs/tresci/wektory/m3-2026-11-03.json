@@ -1,0 +1,430 @@
+{
+  "opis": "Wektory i parametry paczki M3 (D-172…D-179): przelicznik drożdży, wersje drożdżowe, tryb maszyny. Teksty: docs/tresci/pl|en/{drozdze-plan-przelicznik,wersje-drozdzowe,maszyna}.md.",
+  "zrodlo": "rola 06-tresci, build E2, 2026-11-03",
+  "parametry": [
+    {
+      "parametr": "WSP_SWIEZE_NA_SUCHE",
+      "jednostka": "g suchych / g świeżych",
+      "wartosc": 0.35,
+      "granica": "wartość dokładna",
+      "twierdzenie": "DRO-INS-030",
+      "uwagi": "zastępuje 0,4 z RD-19 (errata rola 01)"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.yeast.fresh",
+      "jednostka": "% mąki",
+      "wartosc": 3,
+      "granica": "wartość",
+      "twierdzenie": "DRO-WER-SP-001"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.yeastRetard.fresh",
+      "jednostka": "% mąki",
+      "wartosc": 1,
+      "granica": "wartość",
+      "twierdzenie": "DRO-WER-SP-002"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.yeastRetard.fridgeHours",
+      "jednostka": "h",
+      "wartosc": 18,
+      "granica": "wartość",
+      "twierdzenie": "DRO-WER-SP-002"
+    },
+    {
+      "parametr": "graham_bread_honey.yeast.fresh",
+      "jednostka": "% mąki",
+      "wartosc": 2,
+      "granica": "wartość",
+      "twierdzenie": "DRO-WER-GR-001"
+    },
+    {
+      "parametr": "rye_100_pan.yeast.fresh",
+      "jednostka": "% mąki",
+      "wartosc": 3,
+      "granica": "wartość",
+      "twierdzenie": "ZYT-DRO-001"
+    },
+    {
+      "parametr": "rye_100_pan.yeast.water",
+      "jednostka": "% mąki",
+      "wartosc": 76,
+      "granica": "wartość",
+      "twierdzenie": "ZYT-DRO-001"
+    },
+    {
+      "parametr": "rye_100_pan.yeast.salt",
+      "jednostka": "% mąki",
+      "wartosc": 1.2,
+      "granica": "wartość",
+      "twierdzenie": "ZYT-DRO-001"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.yeast.fresh",
+      "jednostka": "% mąki",
+      "wartosc": 1.7,
+      "granica": "wartość",
+      "twierdzenie": "DRO-WER-TA-001"
+    },
+    {
+      "parametr": "pizza_napoletana_48h.extraYeastPercentage",
+      "jednostka": "% świeżych",
+      "wartosc": 0.5,
+      "granica": "wartość",
+      "twierdzenie": "DRO-PIZ-003",
+      "uwagi": "po D-172; dziś 0,4 (DRO-PIZ-002); test presety-drozdze-217 przełączyć na DRO-PIZ-003"
+    },
+    {
+      "parametr": "sweet_chalka.extraYeastPercentage",
+      "jednostka": "% świeżych",
+      "wartosc": 7.1,
+      "granica": "wartość",
+      "twierdzenie": "DRO-CHA-002",
+      "uwagi": "po D-172; dziś 6,3"
+    },
+    {
+      "parametr": "focaccia_genovese.extraYeastPercentage",
+      "jednostka": "% świeżych",
+      "wartosc": 3.6,
+      "granica": "wartość",
+      "twierdzenie": "DRO-FOC-002",
+      "uwagi": "po D-172; dziś 3,2"
+    },
+    {
+      "parametr": "baguette_tradition_poolish.extraYeastPercentage",
+      "jednostka": "% świeżych",
+      "wartosc": 2.5,
+      "granica": "wartość",
+      "twierdzenie": "DRO-BAG-002",
+      "uwagi": "po D-172; dziś 2,2"
+    },
+    {
+      "parametr": "MASZYNA_PROG_PELNOZIARNISTY",
+      "jednostka": "% mąki (pełnoziarniste + żytnie)",
+      "wartosc": 50,
+      "granica": ">= (włączna)",
+      "twierdzenie": "MAS-042",
+      "uwagi": "reguła aplikacji D-179"
+    },
+    {
+      "parametr": "MASZYNA_MAKS_MAKA",
+      "jednostka": "g",
+      "wartosc": null,
+      "granica": "<= wartość z instrukcji użytkownika (włączna)",
+      "twierdzenie": "MAS-062",
+      "uwagi": "przykład Tefal PF220838: 620 (MAS-002); drugi limit MASZYNA_MAKS_CIASTO (g, <=, Tefal 1000, MAS-002) i MASZYNA_MAKS_DROZDZE (g, <=, Tefal 10 g instant, MAS-002; Panasonic MAS-032), gdy instrukcja je podaje"
+    }
+  ],
+  "niezmienniki": [
+    "Opóźniony start niedostępny w trybie maszyny, gdy receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa (D-175 z uzupełnieniem E3a, MAS-072); mleko w proszku tego nie blokuje (MAS-084); obok zawsze tekst machine.delayBlocked.",
+    "Podpowiedź programu zawsze z tekstem „reguła Piekarza, sprawdź w instrukcji” (D-179, machine.programHint pierwsze zdanie).",
+    "Tryb maszyny przy wersji na zakwasie używa wersji drożdżowej (D-156, MAS-ZAK-005); receptura bez wersji drożdżowej (D-173: country_loaf_72, pain_de_campagne, san_francisco_sourdough, borodinsky_rye, lievito_madre_panettone_brioche) nie ma trybu maszyny.",
+    "Plan wersji drożdżowej nie przelicza czasów temperaturą ani ilością drożdży (D-174)."
+  ],
+  "wektory": [
+    {
+      "id": "V-PRZ-1",
+      "wejscie": {
+        "swieze_g": 25
+      },
+      "oczekiwane": {
+        "suche_g": 8.75
+      },
+      "twierdzenie": "DRO-INS-030"
+    },
+    {
+      "id": "V-PRZ-2",
+      "wejscie": {
+        "swieze_g": 0
+      },
+      "oczekiwane": {
+        "suche_g": 0
+      },
+      "twierdzenie": "DRO-INS-030",
+      "uwagi": "granica m >= 0 (RD-19)"
+    },
+    {
+      "id": "V-PRZ-3",
+      "wejscie": {
+        "suche_g": 7
+      },
+      "oczekiwane": {
+        "swieze_g": 20
+      },
+      "twierdzenie": "DRO-INS-030"
+    },
+    {
+      "id": "V-PRZ-4",
+      "wejscie": {
+        "swieze_g": 10
+      },
+      "oczekiwane": {
+        "suche_g": 3.5
+      },
+      "twierdzenie": "DRO-INS-030"
+    },
+    {
+      "id": "V-OPO-1",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "woda",
+          "sól",
+          "drożdże"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "dostępny"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-2",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "woda",
+          "jajka"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-3",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "mleko"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-4",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "woda",
+          "mleko w proszku"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "dostępny"
+      },
+      "twierdzenie": "MAS-084"
+    },
+    {
+      "id": "V-OPO-5",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "twaróg"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072",
+      "uwagi": "ser"
+    },
+    {
+      "id": "V-OPO-6",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "jogurt"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-7",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "świeże jabłka"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-PRG-1",
+      "wejscie": {
+        "ksztalt": "poza formą",
+        "kategoria": "pizza"
+      },
+      "oczekiwane": {
+        "program": "ciasto"
+      },
+      "twierdzenie": "MAS-006",
+      "uwagi": "pierwszeństwo przed innymi"
+    },
+    {
+      "id": "V-PRG-2",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "sweet",
+        "pelnoziarniste_zytnie_proc": 60
+      },
+      "oczekiwane": {
+        "program": "słodki"
+      },
+      "twierdzenie": "MAS-083",
+      "uwagi": "słodki przed pełnoziarnistym"
+    },
+    {
+      "id": "V-PRG-3",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "sourdough",
+        "pelnoziarniste_zytnie_proc": 49,
+        "cukier": 0,
+        "tluszcz": 0
+      },
+      "oczekiwane": {
+        "program": "francuski"
+      },
+      "twierdzenie": "MAS-082",
+      "uwagi": "tuż poniżej progu"
+    },
+    {
+      "id": "V-PRG-4",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "sourdough",
+        "pelnoziarniste_zytnie_proc": 50
+      },
+      "oczekiwane": {
+        "program": "pełnoziarnisty"
+      },
+      "twierdzenie": "MAS-042",
+      "uwagi": "na progu, granica włączna"
+    },
+    {
+      "id": "V-PRG-5",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "rye",
+        "pelnoziarniste_zytnie_proc": 100
+      },
+      "oczekiwane": {
+        "program": "pełnoziarnisty"
+      },
+      "twierdzenie": "MAS-042"
+    },
+    {
+      "id": "V-PRG-6",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "yeast",
+        "pelnoziarniste_zytnie_proc": 51
+      },
+      "oczekiwane": {
+        "program": "pełnoziarnisty"
+      },
+      "twierdzenie": "MAS-042",
+      "uwagi": "tuż powyżej progu"
+    },
+    {
+      "id": "V-PRG-7",
+      "wejscie": {
+        "ksztalt": "forma",
+        "kategoria": "yeast",
+        "pelnoziarniste_zytnie_proc": 0,
+        "cukier": 2,
+        "tluszcz": 0
+      },
+      "oczekiwane": {
+        "program": "podstawowy"
+      },
+      "twierdzenie": "MAS-081"
+    },
+    {
+      "id": "V-MAK-1",
+      "wejscie": {
+        "maks_maka_g": 620,
+        "maka_receptury_g": 620
+      },
+      "oczekiwane": {
+        "maka_g": 620
+      },
+      "twierdzenie": "MAS-062",
+      "uwagi": "na granicy"
+    },
+    {
+      "id": "V-MAK-2",
+      "wejscie": {
+        "maks_maka_g": 620,
+        "maka_receptury_g": 621
+      },
+      "oczekiwane": {
+        "maka_g": 620
+      },
+      "twierdzenie": "MAS-062",
+      "uwagi": "przycięcie do maksimum, proporcje bez zmian"
+    },
+    {
+      "id": "V-MAK-3",
+      "wejscie": {
+        "maks_maka_g": 620,
+        "maka_receptury_g": 500
+      },
+      "oczekiwane": {
+        "maka_g": 500
+      },
+      "twierdzenie": "MAS-062"
+    },
+    {
+      "id": "V-OPO-8",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "sok pomarańczowy"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-OPO-9",
+      "wejscie": {
+        "skladniki": [
+          "mąka",
+          "starta marchew"
+        ]
+      },
+      "oczekiwane": {
+        "opoznionyStart": "zablokowany"
+      },
+      "twierdzenie": "MAS-072"
+    },
+    {
+      "id": "V-MAK-4",
+      "wejscie": {
+        "maks_maka_g": 620,
+        "maks_ciasto_g": 1000,
+        "receptura": "tartine 80% wody, 2% soli, 1,7% drożdży",
+        "maka_receptury_g": 620
+      },
+      "oczekiwane": {
+        "maka_g_maks": 544,
+        "uwagi": "ciasto ≤ 1000 g: 1000 / (1 + 0,80 + 0,02 + 0,017) = 544,4 → 544 g (zaokrąglenie w dół); mąka ograniczona przez ciasto, nie przez 620"
+      },
+      "twierdzenie": "MAS-002"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-// Słownik id, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik id, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Setelah pembelian disetujui, Tukang Roti Pro akan aktif dengan sendirinya. Tidak perlu membeli lagi.',
@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrasi',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'dan {n} lainnya, detail di lembar hari',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Basis ideal untuk merawat starter ragi alami induk. Kaya ragi liar dan bakteri asam laktat.',
+  'Ile pieczesz': 'Jumlah yang dipanggang',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Berapa banyak gandum hitam yang harus ada dalam roti agar bisa disebut roti gandum hitam atau roti gandum hitam-terigu.',
   'Ilości do dokarmienia': 'Takaran pemberian makan',
   'Ilości i temperatura wody': 'Takaran dan suhu air',
@@ -68,7 +69,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Rongga besar (Kurang fermentasi)',
   'Jedna opłata, bez odnawiania.': 'Sekali bayar, tanpa perpanjangan.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Serat roti padat dan berat merata (tanpa rongga udara)',
-  'Jednostki': 'Satuan',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Jika kekurangan garam baru ketahuan setelah pengembangan pertama, menambahkannya tidak akan membantu, dan menguleni ulang bisa merusak adonan secara permanen: panggang roti tanpa garam atau jadikan adonan sebagai dasar pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Jika Anda menyelamatkan adonan, keluarkan dari keranjang atau wadahnya.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Jika garam belum ada, buka protokol “Garam terlupa”.',
@@ -78,7 +78,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Jika Anda melihat lapisan, bercak, atau perubahan warna, atau mencium bau busuk, buka pemeriksaan starter.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Jika starter ragi alami “{name}” belum mengembang dua kali lipat, beri makan lagi.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Jika starter hanya sedikit mengembang dan gelembungnya sedikit, terus beri makan setiap 12 jam.',
-  'Język': 'Bahasa',
+  'Język i jednostki': 'Bahasa dan satuan',
   'jutro': 'besok',
   'Jutro': 'Besok',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalender masih kosong. Kalender akan terisi saat Anda membuat starter ragi alami atau menjadwalkan hasil panggangan.',

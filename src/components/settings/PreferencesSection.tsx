@@ -4,6 +4,9 @@ import { theme } from '../../ui/theme';
 import { t, Lang } from '../../lib/i18n';
 import { UnitSystem } from '../../lib/unit-converter';
 import { getLocalesByStatus } from '../../lib/i18n-locales';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 import { typografia } from '../../ui/tokeny';
 const JEZYKI = getLocalesByStatus('released');
@@ -21,11 +24,14 @@ export function PreferencesSection({
   unitSystem,
   onUnitSystemChange,
 }: PreferencesSectionProps) {
+  // Duży tekst (§7a, D-142): przyciski w jednej kolumnie zamiast dwóch
+  const duzy = useDuzyTekst();
+  const kolumna = duzy ? styles.kolumna : null;
   return (
     <>
       {/* Language Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Język')}</Text>
+      {/* M3 p6b: jedna karta „Język i jednostki” (README §6, D-209); wybór języka jako wiersz → lista odłożony (D-198) */}
+      <Karta testID="karta-jezyk" tytul={t('Język i jednostki')} ikona={<IkonaKarty nazwa="jezyk" />}>
         {/* 35 języków w wydaniu (rejestr, przekład 093): siatka przycisków w stylu dotychczasowych dwóch; nazwa języka
             w nim samym, wymowa VoiceOver w tym języku (LOK-12). Docelowy wzór listy: rola 04 [M1-audytor-generalny-093].
             Etykieta to sama nazwa: `accessibilityLanguage` obejmuje etykietę i podpowiedź, więc zdanie w języku
@@ -41,7 +47,7 @@ export function PreferencesSection({
                 accessibilityLabel={name}
                 accessibilityLanguage={code}
                 testID={`lang-${code}`}
-                style={[styles.langBtn, styles.langBtnSiatka, wybrany && styles.langBtnActive]}
+                style={[styles.langBtn, styles.langBtnSiatka, kolumna, wybrany && styles.langBtnActive]}
                 onPress={() => onLanguageChange(code as Lang)}
               >
                 <Text style={[styles.langBtnText, wybrany && styles.langBtnTextActive]}>{name}</Text>
@@ -49,17 +55,14 @@ export function PreferencesSection({
             );
           })}
         </View>
-      </View>
 
-      {/* Jeden wybór segmentowy „gramy, °C” / „uncje, °F” (design-spec §7, D-051 3a) [M1-audytor-generalny-096] */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Jednostki')}</Text>
+        {/* Jeden wybór segmentowy „gramy, °C” / „uncje, °F” (design-spec §7, D-051 3a) [M1-audytor-generalny-096] */}
         <View style={styles.langRow}>
           <Pressable
             accessibilityRole="button"
             accessibilityState={{ selected: unitSystem === 'metric' }}
             testID="unit-metric"
-            style={[styles.langBtn, unitSystem === 'metric' && styles.langBtnActive]}
+            style={[styles.langBtn, kolumna, unitSystem === 'metric' && styles.langBtnActive]}
             onPress={() => onUnitSystemChange('metric')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'metric' && styles.langBtnTextActive]}>
@@ -70,7 +73,7 @@ export function PreferencesSection({
             accessibilityRole="button"
             accessibilityState={{ selected: unitSystem === 'imperial' }}
             testID="unit-imperial"
-            style={[styles.langBtn, unitSystem === 'imperial' && styles.langBtnActive]}
+            style={[styles.langBtn, kolumna, unitSystem === 'imperial' && styles.langBtnActive]}
             onPress={() => onUnitSystemChange('imperial')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'imperial' && styles.langBtnTextActive]}>
@@ -79,28 +82,15 @@ export function PreferencesSection({
           </Pressable>
         </View>
         <Text style={styles.opis}>{t('Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.')}</Text>
-      </View>
+      </Karta>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: theme.spacing.sm,
-  },
   langRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: theme.spacing.sm,
   },
   langBtn: {
@@ -124,18 +114,19 @@ const styles = StyleSheet.create({
     flexBasis: '45%',
     paddingHorizontal: theme.spacing.sm,
   },
+  kolumna: { flexBasis: '100%' },
   langBtnActive: {
     borderColor: theme.colors.akcent,
     borderWidth: 3,
     backgroundColor: theme.colors.powierzchnia,
   },
   langBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
+    textAlign: 'center',
   },
   opis: {
-    marginTop: theme.spacing.sm,
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
   },

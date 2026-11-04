@@ -14,7 +14,7 @@ import {
   saveRecipe,
   setBakerRitualProfile,
 } from '../data/sqlite-store';
-import { MASTER_RECIPES } from '../recipes/presets';
+import { CATALOG_RECIPES } from '../recipes/katalog';
 import { biezaceMenuReceptury } from '../lib/menu-receptury';
 import { recepturaPlanu } from '../lib/plan-receptury';
 import { ImportRecepturySection } from '../components/settings/ImportRecepturySection';
@@ -165,11 +165,11 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
           .map((n) => String(n.props.testID))
       ),
     ];
-    expect(chips()).toHaveLength(MASTER_RECIPES.length);
+    expect(chips()).toHaveLength(CATALOG_RECIPES.length);
     await act(async () => {
       tree!.root.findByProps({ testID: 'category-filter-all' }).props.onPress();
     });
-    expect(chips()).toHaveLength(MASTER_RECIPES.length);
+    expect(chips()).toHaveLength(CATALOG_RECIPES.length);
   });
 
   it('renders correctly with master recipes and scale card', async () => {
@@ -177,7 +177,8 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
     const fullText = extractCleanText(tree?.toJSON());
     // „Do miski” jako lista grupowana; nazwa receptury jest tytułem paska nawigacji (§11c 106)
-    expect(fullText).toContain('Do miski (odhaczaj przy ważeniu)');
+    expect(fullText).toContain('Do miski');
+    expect(fullText).toContain('Odhaczaj przy ważeniu.');
     expect(fullText).toContain('Razem 1700 g');
     expect(fullText).toContain('O recepturze');
   });

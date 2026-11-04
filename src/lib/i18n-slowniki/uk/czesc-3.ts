@@ -1,4 +1,4 @@
-// Słownik uk, część 3 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 3 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Дрібні однакові пухирці, як у губки/піни',
@@ -126,6 +126,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'гідратації',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'і ще {n}, подробиці в панелі дня',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ідеальна основа для ведення материнської закваски. Багате на дикі дріжджі та молочнокислі бактерії.',
+  'Ile pieczesz': 'Скільки випікаєте',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Скільки жита має містити хліб, щоб називатися житнім або житньо-пшеничним.',
   'Ilości do dokarmienia': 'Кількості для підживлення',
   'Ilości i temperatura wody': 'Кількості й температура води',

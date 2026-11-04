@@ -7,7 +7,7 @@
 // ============================================================================
 
 import React, { useCallback, useRef, useState } from 'react';
-import { Platform, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Platform, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { t } from '../../../src/lib/i18n';
@@ -24,7 +24,8 @@ import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
 import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
-import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/ArkuszDnia';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { SettingsModal } from '../../../src/components/SettingsModal';
@@ -128,11 +129,11 @@ export default function StartScreen() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false, title: stan === 'wybor' ? t('Co dziś robisz?') : t('Dziś') }} />
-      <ScrollView style={styles.ekran} contentContainerStyle={styles.tresc} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-        {/* Przy przeciągnięciu w dół nad pasem dalej kolor pasa, nie tło ekranu */}
-        <NadPasem />
+      {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+      <EkranZPasem gora={gora} tytul={t('Co dziś robisz?')} style={styles.ekran} contentContainerStyle={styles.tresc} pas={(onLayout) => (
         <PasDzis
           gora={gora}
+          onLayout={onLayout}
           data={dataSlownie(kal.now)}
           pasek={{ dni: kal.dni, zdarzenia: kal.zdarzenia, znaczniki: kal.znaczniki, wypieki: kal.wypieki, now: kal.now, wieleWypiekow: o.wieleWypiekow, duzyTekst, waski: width <= WASKI_PT, onDzien: (k) => setArkusz({ dzien: k, ms: kal.dni.find((d) => d.klucz === k)?.ms ?? kal.now }) }}
           widok={widok}
@@ -145,6 +146,7 @@ export default function StartScreen() {
           onPlus={() => setArkusz({ najblizsze: true })}
           onUstawienia={() => setUstawienia(true)}
         />
+      )}>
         {akcje.cofnij && <PasekCofnij tekst={akcje.cofnij.tekst} onPrzywroc={akcje.cofnij.przywroc} onUkryj={akcje.cofnij.ukryj} />}
         {plany.cofnij && (
           <PasekCofnij tekst={plany.cofnij.tekst} onPrzywroc={plany.cofnij.przywroc} onUkryj={plany.cofnij.ukryj} testID="plan-undo-bar" przywrocTestID="plan-undo-restore-btn" />
@@ -173,7 +175,7 @@ export default function StartScreen() {
             <Text style={styles.objasnienie}>{t('Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.')}</Text>
           )}
         </View>
-      </ScrollView>
+      </EkranZPasem>
       <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcjeArkusza} onPrzejdz={przejdz} onClose={() => { poArkuszuDnia.current = null; setArkusz(null); }}
         liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={poZamknieciuDnia} />
       <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij}

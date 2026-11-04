@@ -1,4 +1,4 @@
-// Słownik nb, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nb, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przepisy na Odrzut Zakwasu': 'Oppskrifter med surdeigsrester',
@@ -43,6 +43,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Oppskriften «{nazwa}» er i Mine oppskrifter.',
   'Receptura awaryjna:': 'Nødoppskrift:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Grunnoppskriften er endret siden den baksten: den har nå mer gjær.',
+  'Receptura bazowa, na drożdżach': 'Grunnoppskrift, med gjær',
+  'Receptura bazowa, na zakwasie': 'Grunnoppskrift, surdeig',
+  'Receptura bazowa, pizza': 'Grunnoppskrift, pizza',
+  'Receptura bazowa, słodka': 'Grunnoppskrift, søt',
+  'Receptura bazowa, żytnia': 'Grunnoppskrift, rug',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Oppskriften må ha et navn (1-120 tegn)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Oppskriften må inneholde minst én meltype',
   'Receptura z pliku': 'Oppskrift fra fil',

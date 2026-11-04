@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 7 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': '新鮮、單純的小麥風味，沒有明顯的酸味。',
@@ -178,6 +178,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': '套用現成麵粉配比',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': '將發酵藤籃裝入密封袋，放進冰箱（4–6°C）。長時間發酵能為麵包帶來深厚香氣。',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': '把裝麵團的容器放進關閉的烤箱，只開燈：裡面會逐漸變暖，但每台烤箱、每個廚房的效果都不同。',
+  'Wstecz': '返回',
   'Wstrzymaj': '暫停',
   'Wstrzymano': '已暫停',
   'Wsyp do miski na wagę': '倒入秤上的盆中',

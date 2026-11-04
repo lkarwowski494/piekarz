@@ -11,6 +11,10 @@ import { t } from '../../lib/i18n';
 import { BreadInspectionCriteria } from '../../doctor/diagnostics';
 
 import { typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { PoleObjawu } from '../../ui/karty/PoleObjawu';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 export interface DiagnosticPreset {
   id: string;
   name: string;
@@ -58,6 +62,27 @@ export interface SymptomSelectorSectionProps {
   onClear: () => void;
 }
 
+/** Objawy w kartach (kolejność i teksty bez zmian); etykieta jako wywołanie t() z dosłownym kluczem (skan i18n). */
+type Objaw = { klucz: keyof BreadInspectionCriteria; etykieta: () => string };
+const MIEKISZ: Objaw[] = [
+  { klucz: 'crumbHasHugeTopHolesWithDenseBottom', etykieta: () => t('Wielkie dziury pod skórką i zbity dół (Jaskinie)') },
+  { klucz: 'crumbHasSmallUniformFoamLikeHoles', etykieta: () => t('Drobne, jednolite pęcherzyki jak gąbka/pianka') },
+  { klucz: 'crumbIsWetGummyToKnife', etykieta: () => t('Mokry, lepki miękisz, brudzi nóż') },
+  { klucz: 'crumbIsUniformlyDenseAllOver', etykieta: () => t('Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)') },
+];
+const SKORKA: Objaw[] = [
+  { klucz: 'loafIsFlatLikeDisk', etykieta: () => t('Chleb płaski jak dysk (rozlał się na boki)') },
+  { klucz: 'loafCollapsedAfterScoring', etykieta: () => t('Opadł / zapadł się natychmiast po nacięciu żyletką') },
+  { klucz: 'loafBurstAtBottomSide', etykieta: () => t('Rozerwanie boku przy spodzie') },
+  { klucz: 'crustIsPaleLackColor', etykieta: () => t('Blada skórka, brak złocisto-karmelowego rumienia') },
+  { klucz: 'crustLacksEarCutDidNotOpen', etykieta: () => t('Brak otwartego ucha (nacięcie się zasklepiło)') },
+  { klucz: 'cutImmediatelyWhileSteamingHot', etykieta: () => t('Krojony gorący, prosto po wyjęciu z piekarnika') },
+];
+const SMAK: Objaw[] = [
+  { klucz: 'breadIsExcessivelySour', etykieta: () => t('Zbyt kwaśny, octowy smak') },
+  { klucz: 'breadIsBlandNoFlavor', etykieta: () => t('Płaski smak bez głębi (jałowy)') },
+];
+
 export function SymptomSelectorSection({
   symptoms,
   onToggleSymptom,
@@ -65,14 +90,31 @@ export function SymptomSelectorSection({
   hasAnySymptom,
   onClear,
 }: SymptomSelectorSectionProps) {
+  const duzy = useDuzyTekst();
+  // Wiersze PoleObjawu (README §2, M3 p5b): jedna kontrolka objawów w zakwasie i w Doktorze; stuknięcie przełącza objaw
+  const wiersze = (objawy: Objaw[]) => (
+    <View style={styles.wiersze}>
+      {objawy.map((o) => (
+        <PoleObjawu
+          key={o.klucz}
+          testID={`objaw-${o.klucz}`}
+          etykieta={o.etykieta()}
+          zaznaczone={!!symptoms[o.klucz]}
+          onZmien={() => onToggleSymptom(o.klucz)}
+        />
+      ))}
+    </View>
+  );
   return (
+    // M3 p5: grupy objawów w kartach z ikoną (README §1); p5b: objawy jako wiersze PoleObjawu (D-198, D-200)
     <View style={styles.container}>
-      {/* Quick Presets */}
-      <Text style={styles.sectionHeading}>{t('Szybkie szablony typowych problemów')}</Text>
+      {/* Quick Presets; przy dużym tekście rząd zawijany zamiast przewijania w poziomie (§7a, D-142) */}
+      <Karta testID="karta-szablony" tytul={t('Szybkie szablony typowych problemów')} ikona={<IkonaKarty nazwa="lista" />}>
       <ScrollView
-        horizontal
+        horizontal={!duzy}
+        scrollEnabled={!duzy}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.presetsRow}
+        contentContainerStyle={[styles.presetsRow, duzy && styles.presetsZawijane]}
       >
         {DIAGNOSTIC_PRESETS.map((preset) => (
           <Pressable
@@ -85,246 +127,19 @@ export function SymptomSelectorSection({
           </Pressable>
         ))}
       </ScrollView>
+      </Karta>
 
-      {/* Symptoms Section: Miękisz */}
-      <Text style={styles.sectionHeading}>{t('Miękisz (Wnętrze bochenka)')}</Text>
-      <View style={styles.chipsContainer}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crumbHasHugeTopHolesWithDenseBottom) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crumbHasHugeTopHolesWithDenseBottom && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crumbHasHugeTopHolesWithDenseBottom')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crumbHasHugeTopHolesWithDenseBottom && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Wielkie dziury pod skórką i zbity dół (Jaskinie)')}
-          </Text>
-        </Pressable>
+      <Karta testID="karta-miekisz" tytul={t('Miękisz (Wnętrze bochenka)')} ikona={<IkonaKarty nazwa="bochenek" />}>
+        {wiersze(MIEKISZ)}
+      </Karta>
 
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crumbHasSmallUniformFoamLikeHoles) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crumbHasSmallUniformFoamLikeHoles && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crumbHasSmallUniformFoamLikeHoles')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crumbHasSmallUniformFoamLikeHoles && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Drobne, jednolite pęcherzyki jak gąbka/pianka')}
-          </Text>
-        </Pressable>
+      <Karta testID="karta-skorka" tytul={t('Skórka i Kształt bochenka')} ikona={<IkonaKarty nazwa="bochenek" />}>
+        {wiersze(SKORKA)}
+      </Karta>
 
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crumbIsWetGummyToKnife) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crumbIsWetGummyToKnife && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crumbIsWetGummyToKnife')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crumbIsWetGummyToKnife && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Mokry, lepki miękisz, brudzi nóż')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crumbIsUniformlyDenseAllOver) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crumbIsUniformlyDenseAllOver && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crumbIsUniformlyDenseAllOver')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crumbIsUniformlyDenseAllOver && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)')}
-          </Text>
-        </Pressable>
-      </View>
-
-      {/* Symptoms Section: Skórka i Kształt */}
-      <Text style={styles.sectionHeading}>{t('Skórka i Kształt bochenka')}</Text>
-      <View style={styles.chipsContainer}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.loafIsFlatLikeDisk) }}
-          style={[
-            styles.symptomChip,
-            symptoms.loafIsFlatLikeDisk && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('loafIsFlatLikeDisk')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.loafIsFlatLikeDisk && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Chleb płaski jak dysk (rozlał się na boki)')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.loafCollapsedAfterScoring) }}
-          style={[
-            styles.symptomChip,
-            symptoms.loafCollapsedAfterScoring && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('loafCollapsedAfterScoring')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.loafCollapsedAfterScoring && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Opadł / zapadł się natychmiast po nacięciu żyletką')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.loafBurstAtBottomSide) }}
-          style={[
-            styles.symptomChip,
-            symptoms.loafBurstAtBottomSide && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('loafBurstAtBottomSide')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.loafBurstAtBottomSide && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Rozerwanie boku przy spodzie')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crustIsPaleLackColor) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crustIsPaleLackColor && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crustIsPaleLackColor')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crustIsPaleLackColor && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Blada skórka, brak złocisto-karmelowego rumienia')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.crustLacksEarCutDidNotOpen) }}
-          style={[
-            styles.symptomChip,
-            symptoms.crustLacksEarCutDidNotOpen && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('crustLacksEarCutDidNotOpen')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.crustLacksEarCutDidNotOpen && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Brak otwartego ucha (nacięcie się zasklepiło)')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.cutImmediatelyWhileSteamingHot) }}
-          style={[
-            styles.symptomChip,
-            symptoms.cutImmediatelyWhileSteamingHot && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('cutImmediatelyWhileSteamingHot')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.cutImmediatelyWhileSteamingHot && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Krojony gorący, prosto po wyjęciu z piekarnika')}
-          </Text>
-        </Pressable>
-      </View>
-
-      {/* Symptoms Section: Smak i Aromat */}
-      <Text style={styles.sectionHeading}>{t('Smak i Aromat')}</Text>
-      <View style={styles.chipsContainer}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.breadIsExcessivelySour) }}
-          style={[
-            styles.symptomChip,
-            symptoms.breadIsExcessivelySour && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('breadIsExcessivelySour')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.breadIsExcessivelySour && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Zbyt kwaśny, octowy smak')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: !!(symptoms.breadIsBlandNoFlavor) }}
-          style={[
-            styles.symptomChip,
-            symptoms.breadIsBlandNoFlavor && styles.symptomChipActive,
-          ]}
-          onPress={() => onToggleSymptom('breadIsBlandNoFlavor')}
-        >
-          <Text
-            style={[
-              styles.symptomChipText,
-              symptoms.breadIsBlandNoFlavor && styles.symptomChipTextActive,
-            ]}
-          >
-            {t('Płaski smak bez głębi (jałowy)')}
-          </Text>
-        </Pressable>
-      </View>
+      <Karta testID="karta-smak" tytul={t('Smak i Aromat')} ikona={<IkonaKarty nazwa="miska" />}>
+        {wiersze(SMAK)}
+      </Karta>
 
       {/* Clear Button */}
       {hasAnySymptom && (
@@ -339,20 +154,15 @@ export function SymptomSelectorSection({
 const styles = StyleSheet.create({
   container: {
     marginBottom: theme.spacing.md,
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginTop: 12,
-    marginBottom: 8,
+    gap: theme.spacing.md,
   },
   presetsRow: {
     gap: 8,
     paddingBottom: 4,
     marginBottom: 4,
   },
+  // §7a, D-142: przy dużym tekście szablony w zawijanym rzędzie
+  presetsZawijane: { flexDirection: 'row', flexWrap: 'wrap' },
   presetChip: {
     minHeight: theme.cele.pozostale,
     flexDirection: 'row',
@@ -370,33 +180,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     fontWeight: '600',
   },
-  chipsContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  symptomChip: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  symptomChipActive: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderColor: theme.colors.akcent,
-  },
-  symptomChipText: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz2,
-    fontWeight: '500',
-  },
-  symptomChipTextActive: {
-    color: theme.colors.akcentTekst,
-    fontWeight: '700',
-  },
+  wiersze: { gap: 8 },
   clearBtn: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',

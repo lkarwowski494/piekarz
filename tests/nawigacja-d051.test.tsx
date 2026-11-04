@@ -51,15 +51,6 @@ const uklad = (plik: string) => {
   const screenOptions: Opcje = mockStos.screenOptions ?? {};
   return { screenOptions, ekrany: [...mockStos.ekrany] };
 };
-const testIdPrzycisku = (o: Opcje) => {
-  let tree!: renderer.ReactTestRenderer;
-  act(() => {
-    tree = renderer.create(o.headerRight!());
-  });
-  const id = tree.root.findAll((n) => typeof n.props.testID === 'string')[0]?.props.testID;
-  act(() => tree.unmount());
-  return id;
-};
 
 describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', () => {
   it('pasek ma dokładnie 4 zakładki w kolejności Dziś, Receptury, Zakwasy, Dziennik', () => {
@@ -90,12 +81,15 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
   // Plan otwiera akcja receptury „Ułóż plan” (057). Ekran receptury jest w stosie nad listą receptur, tytuł = nazwa
   // receptury (§11c 106) [M1-audytor-generalny-106]. M3 D10 (opcja A): lista i ekran receptury z pasem nocy zamiast
   // natywnego nagłówka; „Więcej” z menu działań jest na pasie ekranu (etykieta i menu: src/__tests__/pas-zakladek-d10).
-  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”; lista i receptura z pasem (nagłówek ukryty)', () => {
+  // M3 p4b (D-194, O3a): plan też z pasem (nagłówek stosu ukryty); tytuł „Plan wypieku” i powrót „Receptura” na pasie
+  // ekranu (src/__tests__/pas-plan-prowadzenie-p4b.test.tsx).
+  it('Receptury: plan wypieku w tym samym stosie, tytuł „Plan wypieku”; lista, receptura i plan z pasem (nagłówek ukryty)', () => {
     const { ekrany } = uklad('../app/(tabs)/receptury/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['index', 'receptura', 'harmonogram']);
     const plan = ekrany.find((e) => e.name === 'harmonogram');
     expect(plan?.options).toMatchObject({ title: 'Plan wypieku', headerLargeTitleEnabled: false });
-    expect(plan?.options.headerShown).not.toBe(false);
+    expect(plan?.options.headerShown).toBe(false);
+    expect(plan?.options.headerRight).toBeUndefined();
     expect(ekrany.find((e) => e.name === 'index')!.options).toMatchObject({ title: 'Receptury', headerShown: false });
     expect(ekrany.find((e) => e.name === 'index')!.options.headerRight).toBeUndefined();
     const opcjeReceptury = ekrany.find((e) => e.name === 'receptura')!.options as unknown as (a: { route: { params?: { nazwa?: string } } }) => Opcje;
@@ -112,13 +106,18 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     expect(ekrany.find((e) => e.name === 'doktor-zakwasu')!.options).toMatchObject({ title: 'Doktor zakwasu' });
   });
 
-  it('prowadzenie (Stolnica) i Doktor Chleba otwierają się nad zakładkami, z nagłówkiem systemowym', () => {
+  // M3 p4b (D-194, O3a): Stolnica z pasem zamiast nagłówka systemowego; powrót, krok (nagłówek VoiceOver), „Doktor”
+  // i „Plan wypieku” na pasie ekranu (tests/stolnica-naglowek-prz07.test.tsx). M3 p5 (D-197, O3a): Doktor Chleba też
+  // z pasem; powrót, tytuł „Doktor Chleba” (nagłówek VoiceOver) i nawigacja: src/__tests__/doktor-pas-p5.test.tsx.
+  it('prowadzenie (Stolnica) i Doktor Chleba z pasem (nagłówek stosu ukryty); oba nad zakładkami', () => {
     const { ekrany } = uklad('../app/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['(tabs)', 'stolnica', 'doktor']);
     const stolnica = ekrany.find((e) => e.name === 'stolnica')!.options;
-    expect(stolnica).toMatchObject({ headerShown: true, title: 'Stolnica', headerLargeTitleEnabled: false });
-    expect(testIdPrzycisku(stolnica)).toBe('stolnica-doctor-shortcut-btn');
-    expect(ekrany.find((e) => e.name === 'doktor')!.options).toMatchObject({ headerShown: true, title: 'Doktor Chleba' });
+    expect(stolnica).toMatchObject({ headerShown: false, title: 'Stolnica', headerLargeTitleEnabled: false });
+    expect(stolnica.headerRight).toBeUndefined();
+    const doktor = ekrany.find((e) => e.name === 'doktor')!.options;
+    expect(doktor).toMatchObject({ headerShown: false, title: 'Doktor Chleba' });
+    expect(doktor.headerRight).toBeUndefined();
   });
 
   it('żaden ekran w app/ nie rysuje własnego nagłówka CraftHeader', () => {

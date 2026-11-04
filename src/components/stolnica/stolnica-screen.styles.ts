@@ -7,10 +7,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.tlo,
   },
+  // Pas na całą szerokość u góry przewijanej treści, treść pod nim z wcięciem (M3 p4b, D-194)
   container: {
-    padding: theme.spacing.md,
     paddingBottom: 40,
   },
+  tresc: {
+    padding: theme.spacing.md,
+  },
+  // Tekst na pasie prowadzenia (tokeny pasa, D-194)
+  naPasie: { color: theme.colors.naPasie },
+  naPasie2: { color: theme.colors.naPasie2 },
   header: {
     marginBottom: theme.spacing.md,
   },
@@ -19,12 +25,6 @@ export const styles = StyleSheet.create({
     fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     marginBottom: odstepy.s,
-  },
-  krokNzN: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz,
-    textAlign: 'center',
   },
   // „Krok n z N” i „Gotowe {dzień} o {godzina}” (makieta: t-obj, p2) [M1-audytor-generalny-114]
   planOpis: {

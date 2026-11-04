@@ -1,4 +1,4 @@
-// Słownik de, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.': 'Fester Teig, klebt nicht an den Händen. Ideal, um das Formen eines Laibs zu lernen.',
@@ -16,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Was machst du heute noch?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'mindestens 3 Stunden bei Raumtemperatur oder 1 Stunde und danach höchstens 3 Tage im Kühlschrank',
   'Co widzisz?': 'Was siehst du?',
+  'Co zrobić': 'Was zu tun ist',
   'Co zrobić przy następnym wypieku:': 'Was beim nächsten Backen zu tun ist:',
   'Co zrobić:': 'Was zu tun ist:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Was zu tun ist: Frische den Sauerteig nach dem Plan für den nächsten Tag auf.',
@@ -54,7 +55,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Stell ihn erst in den Kühlschrank, wenn er sich etabliert hat, also nach 7–10 Tagen.',
   'Do miski': 'In die Schüssel',
   'Do miski (Ciasto właściwe)': 'In die Schüssel (Hauptteig)',
-  'Do miski (odhaczaj przy ważeniu)': 'In die Schüssel (beim Abwiegen abhaken)',
   'Do miski na wagę': 'In die Schüssel auf der Waage',
   'Do ostygnięcia do temp. pokojowej': 'Bis zum Abkühlen auf Raumtemperatur',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Bis zum geschätzten Zeitfenster des Reifehöhepunkts bleiben noch ca. {czas} (Zeitfenster: {okno}).',

@@ -1,4 +1,4 @@
-// Słownik fi, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.': 'Ruoki jääkaapista otettu hapanjuuri ennen leivontaa ja jätä se huoneenlämpöön; voi kestää jopa 12 tuntia, ennen kuin se näyttää elonmerkkejä.',
@@ -61,6 +61,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Resepti ”{nazwa}” on nyt Omissa resepteissä.',
   'Receptura awaryjna:': 'Vararesepti:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Perusresepti on muuttunut tuon leivonnan jälkeen: siinä on nyt enemmän hiivaa.',
+  'Receptura bazowa, na drożdżach': 'Perusresepti, hiivalla',
+  'Receptura bazowa, na zakwasie': 'Perusresepti, hapanjuurella',
+  'Receptura bazowa, pizza': 'Perusresepti, pizza',
+  'Receptura bazowa, słodka': 'Perusresepti, makea',
+  'Receptura bazowa, żytnia': 'Perusresepti, ruis',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Reseptillä on oltava nimi (1-120 merkkiä)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Reseptissä on oltava vähintään yksi jauho',
   'Receptura z pliku': 'Resepti tiedostosta',

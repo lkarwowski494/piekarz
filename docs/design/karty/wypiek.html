@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Plan i prowadzenie — karty (M3 E3)</title>
+<link rel="stylesheet" href="karty.css"></head>
+<body>
+<!-- Treść: harmonogram.tsx, TargetReadyCard, SleepGuardBanner, UstawieniaPlanu; stolnica.tsx, ProwadzenieWypieku.tsx, PasekKciuka.tsx. Godziny i kroki: [PRZYKŁAD]. -->
+<main data-ekran="plan">
+  <header class="pas">
+    <div class="status"><span>18:20</span><span>5G 70%</span></div>
+    <div class="nav"><a><i data-i="wstecz"></i>Receptura</a><span></span></div>
+    <h1 class="sredni">Plan wypieku</h1>
+    <p class="pod">Chleb pszenny na zakwasie <span class="przyklad" style="color:var(--naPasie2);border-color:var(--naPasie2)">przykład</span></p>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="zegar"></i><h2>Kiedy chleb ma być gotowy?</h2></div>
+      <div class="rzad" style="align-items:center"><span class="chip" style="color:var(--tusz);border-color:var(--obwodka)">-30 min</span>
+        <span class="pole" style="flex:1;justify-content:center;flex-direction:column;gap:0"><span class="t-przyp p2">Jutro</span><span class="t-czas">9:30</span></span>
+        <span class="chip" style="color:var(--tusz);border-color:var(--obwodka)">+30 min</span></div>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="termometr"></i><h2>Temperatura w kuchni: 23 °C</h2></div>
+      <div class="segment"><span>20 °C</span><span>22 °C</span><span class="wyb">24 °C</span><span>26 °C</span></div>
+      <p class="t-przyp p2">Wpływa na tempo fermentacji burzliwej.</p>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="ptaszek"></i><h2>Ochrona snu aktywna</h2></div>
+      <p class="t-obj p2">Wszystkie etapy manualne wypadają poza godzinami snu.</p>
+    </section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="lista"></i><h2>Oś czasu przygotowania</h2></div>
+      <div class="wiersz"><b class="wart" style="min-width:52px">19:00</b><span class="roz"><span class="t-tresc">Dokarmienie zakwasu</span><span class="t-przyp p2">5 min, ręce tylko na starcie</span></span></div>
+      <div class="wiersz"><b class="wart" style="min-width:52px">23:30</b><span class="roz"><span class="t-tresc">Mieszanie i autoliza</span><span class="t-przyp p2">45 min, wymaga obecności</span></span></div>
+      <div class="wiersz"><b class="wart" style="min-width:52px">0:15</b><span class="roz"><span class="t-tresc">Garowanie w lodówce</span><span class="t-przyp p2">8 h, pasywne, w nocy</span></span></div>
+    </section>
+  </div>
+  <div class="kciuk" style="border-top:1px solid var(--linia)"><button class="glowny">Zacznij wypiek</button></div>
+</main>
+
+<main data-ekran="prowadzenie">
+  <header class="pas">
+    <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+    <div class="nav"><a><i data-i="wstecz"></i></a><span><button>Doktor</button><button>Plan wypieku</button></span></div>
+    <p class="pod">Chleb pszenny na zakwasie, krok 4 z 9</p>
+    <h1 class="sredni">Składanie 2 z 4</h1>
+    <p class="t-czas" style="color:var(--naPasie)">18:04</p>
+    <p class="pod">potem: odpoczynek 30 min, gotowe jutro o 9:35</p>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="ksiazka"></i><h2>Co zrobić</h2></div>
+      <p class="t-tresc p2">Mokrą ręką chwyć brzeg ciasta, podciągnij i złóż na środek. Obróć miskę o ćwierć i powtórz cztery razy. <span class="przyklad">przykład</span></p>
+      <div class="info t-przyp"><i data-i="info"></i><span>Ekran nie gaśnie w tym kroku.</span></div>
+    </section>
+    <section class="ostrz"><span data-ikona><i data-i="uwaga"></i></span><span><b>Gorący garnek</b>Garnek ma 250 °C. Używaj suchych rękawic. <span class="przyklad">przykład</span></span></section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="waga"></i><h2>Składniki do odważenia</h2></div>
+      <div class="wiersz"><span class="roz">Mąki</span><b class="wart">863 g</b></div>
+      <div class="wiersz"><span class="roz">Woda</span><b class="wart">647 g</b></div>
+    </section>
+  </div>
+  <div class="kciuk" style="border-top:1px solid var(--linia)">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+<script src="karty.js"></script>
+</body></html>

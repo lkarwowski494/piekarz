@@ -1,4 +1,4 @@
-// Słownik de, część 7 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': 'Miss mit einem Einstichthermometer die Temperatur in der Mitte des Laibs: Die meisten Brote sind bei ca. 88 °C durchgebacken, Roggenbrot sollte innen 96–99 °C erreichen.',

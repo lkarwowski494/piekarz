@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Avalie a massa pela aparência, não pelo relógio: no frio, a massa demora mais para crescer, e os tempos da receita são só uma referência.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Da farinha e água ao seu primeiro pão, dia após dia.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'A partir deste dia, alimente o fermento natural duas vezes por dia, mais ou menos a cada 12 horas.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Desgaseifique-a pressionando com firmeza, como na modelagem.',
+  'Odhaczaj przy ważeniu.': 'Marque ao pesar.',
   'Odhaczaj składniki w miarę wsypywania': 'Marque os ingredientes conforme for adicionando',
   'Odkryj wiedzę naukową': 'Descobrir a ciência',
   'Odliczanie trwa': 'Contagem regressiva em andamento',
@@ -21,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Descartar alterações?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Descarte metade do fermento natural, adicione farinha e água em quantidades iguais em peso e deixe por 24 horas.',
   'Odrzuć zmiany': 'Descartar alterações',
+  'Wpisane zmiany nie zostaną zapisane.': 'As alterações inseridas não serão salvas.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Deixe descansar por 20 minutos antes da próxima série de dobras padrão.',
   'Odznacz objawy': 'Desmarcar sintomas',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pão nutritivo de farinha de trigo Graham de moagem grossa, com mel natural e linhaça.',
@@ -170,7 +172,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Pré-fermento (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procedimento de Bassinage de emergência',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'A porcentagem de fermento na receita é de fermento biológico fresco. De fermento seco (instantâneo ou ativo), você pesa 0,4 dessa quantidade.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'A porcentagem de fermento na receita é de fermento biológico fresco. De fermento seco (instantâneo ou ativo), você pesa 0,35 dessa quantidade. O fabricante pode indicar outra proporção na embalagem.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'A porcentagem da farinha “{name}” deve ser um número na faixa de 0,1–100%',
   'Profil smakowy': 'Perfil de sabor',
   'Profil zakwasu': 'Perfil do fermento natural',

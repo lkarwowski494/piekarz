@@ -1,4 +1,4 @@
-// Słownik ro, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ro, część 8 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.': 'La temperaturi mai scăzute, creșterea și fermentarea maielei încetinesc.',
@@ -70,6 +70,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Folosește un amestec gata făcut',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Pune coșul într-o pungă etanșă în frigider (4–6 °C). Fermentarea lungă îi va da pâinii o aromă profundă.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Pune vasul cu aluat în cuptorul oprit și aprinde doar becul: înăuntru se încălzește treptat, dar fiecare cuptor și fiecare bucătărie dau alt rezultat.',
+  'Wstecz': 'Înapoi',
   'Wstrzymaj': 'Pauză',
   'Wstrzymano': 'În pauză',
   'Wsyp do miski na wagę': 'Adaugă în bol pe cântar',

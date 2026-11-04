@@ -1,4 +1,4 @@
-// Słownik el, część 6 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 6 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Δεν ήταν δυνατή η σύνδεση με το App Store. Δοκιμάστε ξανά.',
@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Αξιολόγηση ανάπτυξης του πλέγματος γλουτένης μετά την αυτόλυση και τα διπλώματα ζύμης',
   'Ocena wymaga połączenia z App Store.': 'Η αξιολόγηση απαιτεί σύνδεση με το App Store.',
   'Ocena wypieku': 'Βαθμολογία ψησίματος',
-  'Ocena: {n}/5': 'Βαθμολογία: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Κρίνετε τη ζύμη από την εμφάνισή της, όχι από το ρολόι: στο κρύο η ζύμη χρειάζεται περισσότερο χρόνο για να φουσκώσει και οι χρόνοι της συνταγής είναι απλώς ενδεικτικοί.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Βαθμολογήστε το καρβέλι και αποθηκεύστε σημειώσεις στο ιστορικό ψησίματος',
   'Oceń na {n} z 5': 'Βαθμολογία {n} από 5',
@@ -62,6 +61,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Από το αλεύρι και το νερό ως το πρώτο καρβέλι, μέρα με τη μέρα.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Από αυτή την ημέρα ταΐζετε το προζύμι δύο φορές την ημέρα, περίπου κάθε 12 ώρες.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Ξεφουσκώστε την πιέζοντας δυνατά, όπως στη διαμόρφωση.',
+  'Odhaczaj przy ważeniu.': 'Τσεκάρετε καθώς ζυγίζετε.',
   'Odhaczaj składniki w miarę wsypywania': 'Τσεκάρετε τα υλικά καθώς τα προσθέτετε',
   'Odkryj wiedzę naukową': 'Ανακαλύψτε την επιστημονική γνώση',
   'Odliczanie trwa': 'Η αντίστροφη μέτρηση συνεχίζεται',
@@ -71,6 +71,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Απόρριψη αλλαγών;',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Αφαιρέστε το μισό προζύμι, προσθέστε αλεύρι και νερό σε ίσες ποσότητες κατά βάρος και αφήστε το για 24 ώρες.',
   'Odrzuć zmiany': 'Απόρριψη αλλαγών',
+  'Wpisane zmiany nie zostaną zapisane.': 'Οι αλλαγές που καταχωρίσατε δεν θα αποθηκευτούν.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Αφήστε τη να ξεκουραστεί 20 λεπτά πριν από το επόμενο κανονικό δίπλωμα.',
   'Odznacz objawy': 'Αποεπιλογή συμπτωμάτων',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Θρεπτικό ψωμί από χοντροαλεσμένο αλεύρι σίτου Graham, με φυσικό μέλι και λιναρόσπορο.',

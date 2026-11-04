@@ -16,14 +16,16 @@ import {
 } from '@apps4craft/ui';
 
 import { typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 export function StudioEcosystemSection() {
   return (
     <>
       {/* Rodzina Apps4Craft (F-52) PÓŹNIEJ: sekcja ukryta (ZM-14, D-034); karta bezpieczeństwa
           z odnośnikiem prywatności (F-40) zostaje widoczna [M1-audytor-generalny-032] */}
       {wejscieWidoczne('rodzina-apps4craft') && (
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Rodzina Apps4Craft Studio')}</Text>
+      <Karta testID="karta-rodzina" tytul={t('Rodzina Apps4Craft Studio')} ikona={<IkonaKarty nazwa="gwiazda" />}>
         <Text style={styles.cardDescription}>
           {t('Rzemieślnicze aplikacje kulinarne offline-first. Zero chmury, zero telemetrii, 100% pasji:')}
         </Text>
@@ -60,22 +62,22 @@ export function StudioEcosystemSection() {
             </View>
           ))}
         </View>
-      </View>
+      </Karta>
       )}
 
       {/* Kontakt i polityka prywatności (makieta ustawienia); bez tekstów technicznych o bazie (design-spec §8)
           [M1-audytor-generalny-088] */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Kontakt')}</Text>
+      {/* M3 p5: karta z ikoną, odnośniki jako wiersze; streszczenie i adres polityki zawsze widoczne (D-132) */}
+      <Karta testID="karta-kontakt" tytul={t('Kontakt')} ikona={<IkonaKarty nazwa="info" />}>
         {/* Polityka prywatności dostępna także poza paywallem [M1-audytor-generalny-012] */}
         <Pressable
-          style={styles.linkRow}
+          style={[styles.wiersz, wierszUstawien.pierwszy]}
           onPress={() => void Linking.openURL(PRIVACY_URL)}
           accessibilityRole="link"
           accessibilityLabel={t('Polityka prywatności')}
           testID="settings-privacy-link"
         >
-          <Text style={styles.linkText}>{t('Polityka prywatności')}</Text>
+          <Text style={wierszUstawien.akcja}>{t('Polityka prywatności')}</Text>
         </Pressable>
         {/* Bez sieci strona się nie otworzy: streszczenie (dosłownie „W skrócie” z polityki) i adres jako
             zwykły tekst są zawsze na ekranie (BR-UST-003, 07-jakosc-001, D-132) */}
@@ -88,7 +90,7 @@ export function StudioEcosystemSection() {
         {/* Stały link do opinii (BR-OPIN-002); ukryty, dopóki Apple ID jest znacznikiem [M1-audytor-generalny-082] */}
         {/^\d+$/.test(APP_STORE_ID) && (
           <Pressable
-            style={styles.linkRow}
+            style={styles.wiersz}
             onPress={() => {
               Linking.openURL(APP_STORE_REVIEW_URL).catch(() =>
                 Alert.alert(t('Oceń w App Store'), t('Ocena wymaga połączenia z App Store.'))
@@ -98,41 +100,29 @@ export function StudioEcosystemSection() {
             accessibilityLabel={t('Oceń w App Store')}
             testID="settings-rate-link"
           >
-            <Text style={styles.linkText}>{t('Oceń w App Store')}</Text>
+            <Text style={wierszUstawien.akcja}>{t('Oceń w App Store')}</Text>
           </Pressable>
         )}
         {/* Kontakt przez systemową pocztę (BR-OPIN-003); ukryty, dopóki adres wsparcia jest znacznikiem [M1-audytor-generalny-083] */}
         {czyAdresWsparcia(SUPPORT_EMAIL) && (
           <Pressable
-            style={styles.linkRow}
+            style={styles.wiersz}
             onPress={() => void napiszDoAutora()}
             accessibilityRole="button"
             accessibilityLabel={t('Napisz do nas')}
             testID="settings-contact-link"
           >
-            <Text style={styles.linkText}>{t('Napisz do nas')}</Text>
+            <Text style={wierszUstawien.akcja}>{t('Napisz do nas')}</Text>
           </Pressable>
         )}
-      </View>
+      </Karta>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: theme.spacing.sm,
-  },
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
   cardDescription: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
@@ -195,11 +185,6 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
     marginTop: 2,
   },
-  linkRow: {
-    minHeight: 44,
-    justifyContent: 'center',
-    marginTop: theme.spacing.sm,
-  },
   privacySummary: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
@@ -210,11 +195,5 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.sm,
-  },
-  linkText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: theme.colors.akcentTekst,
-    textDecorationLine: 'underline',
   },
 });

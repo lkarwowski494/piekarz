@@ -1,4 +1,4 @@
-// Słownik fr, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Mélangez la farine et l\'eau, sans ajouter encore le levain naturel ni le sel. Laissez le gluten et les enzymes développer d\'eux-mêmes la structure de la pâte.',
@@ -35,7 +35,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Préferment (levain tout point)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Procédure de Bassinage de secours',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Le pourcentage de levure de la recette correspond à la levure fraîche. Pour la levure sèche (instantanée ou active), vous pèserez 0,4 fois cette masse.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Le pourcentage de levure de la recette correspond à la levure fraîche. Pour la levure sèche (instantanée ou active), vous pèserez 0,35 fois cette masse. Le fabricant peut indiquer un autre rapport sur l\'emballage.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Le pourcentage de la farine « {name} » doit être un nombre compris dans la plage 0,1–100 %',
   'Profil smakowy': 'Profil gustatif',
   'Profil zakwasu': 'Profil du levain naturel',
@@ -113,6 +113,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'La recette « {nazwa} » est dans Mes recettes.',
   'Receptura awaryjna:': 'Recette de secours :',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'La recette de base a changé depuis cette fournée : elle contient maintenant plus de levure.',
+  'Receptura bazowa, na drożdżach': 'Recette de base, à la levure',
+  'Receptura bazowa, na zakwasie': 'Recette de base, au levain',
+  'Receptura bazowa, pizza': 'Recette de base, pizza',
+  'Receptura bazowa, słodka': 'Recette de base, sucrée',
+  'Receptura bazowa, żytnia': 'Recette de base, au seigle',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'La recette doit avoir un nom (1-120 caractères)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'La recette doit contenir au moins une farine',
   'Receptura z pliku': 'Recette depuis un fichier',

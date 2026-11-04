@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 4 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna chlebowa / wysoki gluten': 'Farinha de trigo forte / alto glúten',
@@ -185,5 +185,4 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Avaliação do desenvolvimento da rede de glúten após a autólise e as dobras',
   'Ocena wymaga połączenia z App Store.': 'A avaliação requer conexão com a App Store.',
   'Ocena wypieku': 'Avaliação da fornada',
-  'Ocena: {n}/5': 'Nota: {n}/5',
 };

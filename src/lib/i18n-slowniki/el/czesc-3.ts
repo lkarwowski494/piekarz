@@ -1,4 +1,4 @@
-// Słownik el, część 3 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 3 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Συνεχίστε να το ταΐζετε κάθε 12 ώρες, μέχρι το προζύμι να διπλασιάζει τον όγκο του μέσα σε 6–8 ώρες από το τάισμα.',
@@ -145,6 +145,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'ενυδάτωσης ζύμης',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'και {n} ακόμη, λεπτομέρειες στο φύλλο ημέρας',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ιδανική βάση για τη συντήρηση του μητρικού προζυμιού. Πλούσιο σε άγριους ζυμομύκητες και γαλακτικά βακτήρια.',
+  'Ile pieczesz': 'Πόσο ψήνετε',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Πόση σίκαλη πρέπει να έχει ένα ψωμί για να λέγεται ψωμί σίκαλης ή σίκαλης-σίτου.',
   'Ilości do dokarmienia': 'Ποσότητες ταΐσματος',
   'Ilości i temperatura wody': 'Ποσότητες και θερμοκρασία νερού',

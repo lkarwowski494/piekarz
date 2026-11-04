@@ -1,4 +1,4 @@
-// Słownik ms, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ms, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oceń w App Store': 'Nilaikan di App Store',
@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Daripada tepung dan air hingga buku roti pertama anda, hari demi hari.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Mulai hari ini, beri makan pemula sourdough dua kali sehari, kira-kira setiap 12 jam.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Keluarkan gasnya dengan menekan kuat, seperti semasa membentuk.',
+  'Odhaczaj przy ważeniu.': 'Tandakan semasa menimbang.',
   'Odhaczaj składniki w miarę wsypywania': 'Tandakan bahan semasa anda memasukkannya',
   'Odkryj wiedzę naukową': 'Terokai pengetahuan saintifik',
   'Odliczanie trwa': 'Kiraan detik berjalan',
@@ -18,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Buang perubahan?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Buang separuh pemula sourdough, tambah tepung dan air dalam berat yang sama, dan biarkan selama 24 jam.',
   'Odrzuć zmiany': 'Buang perubahan',
+  'Wpisane zmiany nie zostaną zapisane.': 'Perubahan yang anda masukkan tidak akan disimpan.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Biarkan berehat selama 20 minit sebelum lipatan doh standard yang seterusnya.',
   'Odznacz objawy': 'Nyahtanda simptom',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Roti berkhasiat daripada tepung gandum Graham kisar kasar dengan tambahan madu asli dan biji flaks.',
@@ -167,7 +169,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prapenapai (Biang)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Prosedur Bassinage kecemasan',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Peratusan yis dalam resipi ialah yis segar. Untuk yis kering (segera atau aktif), anda menimbang 0.4 daripada jisim tersebut.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Peratusan yis dalam resipi ialah yis segar. Untuk yis kering (segera atau aktif), anda menimbang 0.35 daripada jisim tersebut. Pengilang mungkin menyatakan nisbah yang berbeza pada bungkusan.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Peratusan tepung “{name}” mesti nombor dalam julat 0.1–100%',
   'Profil smakowy': 'Profil rasa',
   'Profil zakwasu': 'Profil pemula sourdough',

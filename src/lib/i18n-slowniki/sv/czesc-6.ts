@@ -1,4 +1,4 @@
-// Słownik sv, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sv, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia.': 'Lägg över på en rikligt oljad plåt. Häll före gräddning över en emulsion av saltlake (vatten, olivolja, salt) och tryck energiskt med fingrarna så att gropar bildas.',
@@ -50,6 +50,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Receptet ”{nazwa}” finns nu i Mina recept.',
   'Receptura awaryjna:': 'Nödrecept:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Grundreceptet har ändrats sedan det baket: det innehåller nu mer jäst.',
+  'Receptura bazowa, na drożdżach': 'Grundrecept, med jäst',
+  'Receptura bazowa, na zakwasie': 'Grundrecept, med surdeg',
+  'Receptura bazowa, pizza': 'Grundrecept, pizza',
+  'Receptura bazowa, słodka': 'Grundrecept, söt',
+  'Receptura bazowa, żytnia': 'Grundrecept, råg',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Receptet måste ha ett namn (1-120 tecken)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Receptet måste innehålla minst ett mjöl',
   'Receptura z pliku': 'Recept från fil',

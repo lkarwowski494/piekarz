@@ -1,9 +1,12 @@
 // ============================================================================
 // Piekarz — ilości na ekranie receptury (design-spec §11c „106”, stany `receptura` i `receptura-zaczyn`):
-// grupa trybu (Bochenki + Masa bochenka albo Masa mąki), „Do miski” jako lista grupowana z odhaczaniem
+// grupa trybu (Bochenki + Masa bochenka albo Masa mąki), „Do miski” (podpis „Odhaczaj przy ważeniu.”, p6b) jako lista grupowana z odhaczaniem
 // (z zaczynem: „Zaczyn: {rodzaj}” + „Do miski”), zdanie o hydratacji i „Razem {masa}”. Liczby z rachunku
 // receptury (useRecipeCalculations) bez zmian; tryb liczenia wybiera się w arkuszu „Składniki”.
 // Zastępuje kartę DoMiskiScaleCard i karty liczb CalculatorSacredCard (§12a). [M1-audytor-generalny-106]
+// M3 p3 (karty/README.md §4, makieta karty/receptury.html #receptura): tryb w karcie „Ile pieczesz” (README §6, D-185, rola 09 D-206), „Do miski”
+// z nagłówkiem w karcie, hydratacja, udział żyta i „Razem” w tej samej karcie; przy dużym tekście pole nad nazwą,
+// masa pod nią (flexBasis od fontScale, §7a, D-142). [M3 p3, D-184]
 // ============================================================================
 
 import React, { useState } from 'react';
@@ -20,9 +23,12 @@ import { NumInput } from '../NumInput';
 import { useUnitSystem, formatWeight, formatDoseWeight, gramsToOunces, roundTo } from '../../lib/unit-converter';
 import { useRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy } from '../../lib/rodzaj-drozdzy';
 import { nazwaZaczynu } from './nazwy-receptur';
+import { SegmentDrozdzy } from './SegmentDrozdzy';
 import { s } from './style-receptur';
-
-import { typografia } from '../../ui/tokeny';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { odstepy, typografia } from '../../ui/tokeny';
 export interface DoMiskiProps {
   calculations: DoughRecipeResult;
   waterPct: number;
@@ -53,22 +59,23 @@ function haptyka(styl: Haptics.ImpactFeedbackStyle) {
 }
 
 function WierszWagi({ id, nazwa, procent, masa, zaznaczony, onPress }: { id: string; nazwa: string; procent?: string; masa: string; zaznaczony: boolean; onPress: () => void }) {
+  const duzy = useDuzyTekst();
   return (
     <Pressable
       testID={id}
       accessibilityRole="checkbox"
       accessibilityState={{ checked: zaznaczony }}
-      style={[s.kom, styles.waga]}
+      style={[s.kom, styles.waga, duzy && styles.wagaDuzy]}
       onPress={onPress}
     >
       <View style={[styles.pole, zaznaczony && styles.poleZaznaczone]}>
         {zaznaczony && <Text style={styles.znak}>✓</Text>}
       </View>
-      <View style={s.roz}>
+      <View style={[s.roz, duzy && styles.calyRzad]}>
         <Text style={s.etykieta}>{nazwa}</Text>
         {procent !== undefined && <Text style={s.przypis}>{procent}</Text>}
       </View>
-      <Text style={[s.liczba, styles.masa]}>{masa}</Text>
+      <Text style={[s.liczba, styles.masa, duzy && styles.masaDuzy]}>{masa}</Text>
     </Pressable>
   );
 }
@@ -95,10 +102,17 @@ export function DoMiski(p: DoMiskiProps) {
   const b = p.prefermentBreakdown;
   const w = (g: number) => formatWeight(g, unitSystem);
   const d = (g: number) => formatDoseWeight(g, unitSystem);
-  // Drożdże z receptury są świeże; wybór „suche” w „Składnikach” przelicza każdy wiersz × 0,4 (RD-19) [M1-audytor-generalny-216]
+  // Drożdże z receptury są świeże; wybór „suche” w „Składnikach” przelicza każdy wiersz × 0,35 (RD-19, D-205) [M1-audytor-generalny-216]
   const rodzaj = useRodzajDrozdzy();
   const drozdze = nazwaDrozdzy(rodzaj);
   const dd = (g: number) => d(gramyDrozdzy(g, rodzaj));
+  // Wybór „świeże / suche” pod wierszem drożdży, tylko gdy receptura ma drożdże (D-136, BR-KALK-012) [M3 p6a]
+  const zWyborem = (w: React.ReactElement) => (
+    <React.Fragment key={`${String(w.key)}-wybor`}>
+      {w}
+      <SegmentDrozdzy />
+    </React.Fragment>
+  );
   const wiersz = (id: string, nazwa: string, masa: string, procent?: string) => (
     <WierszWagi
       key={id}
@@ -123,9 +137,34 @@ export function DoMiski(p: DoMiskiProps) {
   };
   const hydratacja = formatNumber(c.overallHydrationPercent, undefined, { maximumFractionDigits: 1 });
 
+  // Hydratacja, udział żyta i „Razem” w karcie „Do miski” (makieta #receptura) [M3 p3]
+  const informacje = (
+    <View style={styles.informacje}>
+
+        <Text style={s.info} testID="recipe-hydration">
+          {b
+            ? t('Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.', { n: hydratacja })
+            : c.starterGrams > 0
+              ? t('Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.', { n: hydratacja })
+              : t('Hydratacja całkowita {n}%.', { n: hydratacja })}
+        </Text>
+        {(c.ryePercentage ?? 0) > 0 && (
+          <Text style={s.info} testID="recipe-rye-share">
+            {c.isHighRye
+              ? t('Udział żyta {n}%: wariant żytni, plan bez składań.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })
+              : t('Udział żyta {n}%: wariant pszenny.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })}
+          </Text>
+        )}
+        <Text style={[s.info, styles.razem]} testID="recipe-total">
+          {t('Razem {masa}', { masa: w(c.targetDoughWeightGrams) })}
+        </Text>
+    </View>
+  );
+
   return (
     <>
-      <View style={s.grupa} testID="recipe-mode">
+      <Karta testID="karta-ile-pieczesz" tytul={t('Ile pieczesz')} ikona={<IkonaKarty nazwa="bochenek" />} bezWypelnienia>
+      <View testID="recipe-mode">
         {p.calcMode === 'loaves' ? (
           <>
             <View style={s.kom}>
@@ -146,58 +185,44 @@ export function DoMiski(p: DoMiskiProps) {
           <PoleMasy id="flour-weight-input" etykieta={t('Masa mąki')} gramy={p.flourGrams} onChange={p.onFlourGramsChange} />
         )}
       </View>
+      </Karta>
 
       {b ? (
         <>
-          <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Zaczyn: {rodzaj}', { rodzaj: nazwaZaczynu(p.prefermentType) })}</Text>
-          <View style={s.grupa} testID="do-miski-zaczyn">
+          <Karta testID="karta-zaczyn" tytul={t('Zaczyn: {rodzaj}', { rodzaj: nazwaZaczynu(p.prefermentType) })} ikona={<IkonaKarty nazwa="sloik" />} bezWypelnienia>
+          <View testID="do-miski-zaczyn">
             {wiersz('scale-item-preferment-flour', t('Mąka'), w(b.prefermentFlourGrams))}
             {wiersz('scale-item-preferment-water', t('Woda'), w(b.prefermentWaterGrams))}
             {b.prefermentStarterGrams > 0 && wiersz('scale-item-preferment-starter', nazwaZakwasu, w(b.prefermentStarterGrams), proc(p.starterPct))}
-            {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', drozdze, dd(b.prefermentYeastGrams))}
+            {b.prefermentYeastGrams > 0 && (b.doughYeastGrams > 0 ? wiersz('scale-item-preferment-yeast', drozdze, dd(b.prefermentYeastGrams)) : zWyborem(wiersz('scale-item-preferment-yeast', drozdze, dd(b.prefermentYeastGrams))))}
             {b.prefermentSaltGrams > 0 && wiersz('scale-item-preferment-salt', t('Sól'), d(b.prefermentSaltGrams))}
           </View>
-          <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Do miski')}</Text>
-          <View style={s.grupa} testID="do-miski-ciasto">
+          </Karta>
+          <Karta testID="karta-do-miski" tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
+          <View testID="do-miski-ciasto">
             {wiersz('scale-item-preferment-all', t('{rodzaj} (cały)', { rodzaj: nazwaZaczynu(p.prefermentType) }), w(b.prefermentTotalWeightGrams))}
             {wiersz('scale-item-flour', t('Mąka'), w(b.doughAddedFlourGrams))}
             {wiersz('scale-item-water', t('Woda'), w(b.doughAddedWaterGrams))}
             {b.doughStarterGrams > 0 && wiersz('scale-item-starter', nazwaZakwasu, w(b.doughStarterGrams), proc(p.starterPct))}
             {wiersz('scale-item-salt', t('Sól'), d(b.doughAddedSaltGrams), `${formatFixed(p.saltPct, 1)}%`)}
-            {b.doughYeastGrams > 0 && wiersz('scale-item-yeast', drozdze, dd(b.doughYeastGrams))}
+            {b.doughYeastGrams > 0 && zWyborem(wiersz('scale-item-yeast', drozdze, dd(b.doughYeastGrams)))}
           </View>
+          {informacje}
+          </Karta>
         </>
       ) : (
-        <>
-          <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Do miski (odhaczaj przy ważeniu)')}</Text>
-          <View style={s.grupa} testID="do-miski">
+        <Karta testID="karta-do-miski" tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa="miska" />} bezWypelnienia>
+          <View testID="do-miski">
             {c.flours.map((f, i) => wiersz(`scale-item-flour-${i}`, nazwaMakiMieszanki(f), w(f.weightGrams), proc(f.percentage)))}
             {wiersz('scale-item-water', t('Woda'), w(c.waterGrams), proc(p.waterPct))}
             {zakwas}
             {wiersz('scale-item-salt', t('Sól'), d(c.saltGrams), `${formatFixed(p.saltPct, 1)}%`)}
             {/* Drożdże z dwoma miejscami: 0,08% to nie „0,1%” [audyt-niezalezny D-14] */}
-            {c.yeastGrams > 0 && wiersz('scale-item-yeast', drozdze, dd(c.yeastGrams), proc(gramyDrozdzy(p.yeastPct, rodzaj), 2))}
+            {c.yeastGrams > 0 && zWyborem(wiersz('scale-item-yeast', drozdze, dd(c.yeastGrams), proc(gramyDrozdzy(p.yeastPct, rodzaj), 2)))}
           </View>
-        </>
+          {informacje}
+        </Karta>
       )}
-
-      <Text style={s.info} testID="recipe-hydration">
-        {b
-          ? t('Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.', { n: hydratacja })
-          : c.starterGrams > 0
-            ? t('Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.', { n: hydratacja })
-            : t('Hydratacja całkowita {n}%.', { n: hydratacja })}
-      </Text>
-      {(c.ryePercentage ?? 0) > 0 && (
-        <Text style={s.info} testID="recipe-rye-share">
-          {c.isHighRye
-            ? t('Udział żyta {n}%: wariant żytni, plan bez składań.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })
-            : t('Udział żyta {n}%: wariant pszenny.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })}
-        </Text>
-      )}
-      <Text style={[s.info, styles.razem]} testID="recipe-total">
-        {t('Razem {masa}', { masa: w(c.targetDoughWeightGrams) })}
-      </Text>
     </>
   );
 }
@@ -228,6 +253,11 @@ const styles = StyleSheet.create({
   masa: {
     marginLeft: 'auto',
   },
+  // Duży tekst: pole wyboru nad nazwą, masa pod nią (README §7a, D-142)
+  wagaDuzy: { flexWrap: 'wrap' },
+  calyRzad: { flexBasis: '100%' },
+  masaDuzy: { marginLeft: 0 },
+  informacje: { paddingTop: odstepy.xs, paddingBottom: odstepy.m, gap: odstepy.xs },
   poleRzad: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,4 +1,4 @@
-// Słownik es, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik es, część 9 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zaczyn ({g} g)': 'Levain ({g} g)',
@@ -174,4 +174,9 @@ export const CZESC: Record<string, string> = {
   'Plan wypieku: {n} krok.#one': 'Plan de horneado: {n} paso.',
   'Plan wypieku: {n} krok.#many': 'Plan de horneado: {n} pasos.',
   'Plan wypieku: {n} krok.#other': 'Plan de horneado: {n} pasos.',
+  'Chleb z semoliny durum na zakwasie': 'Pan de sémola de trigo duro con masa madre',
+  'Chleb z semoliny z pszenicy durum, wody, soli morskiej i zakwasu, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji chronionej nazwy pochodzenia „Pane di Altamura”.': 'Pan de sémola de trigo duro, agua, sal marina y masa madre, sin levadura de panadería. La fórmula procede del pliego de condiciones de la denominación de origen protegida «Pane di Altamura».',
+  'Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji na 100 kg semoliny przypada 20 kg zakwasu, 2 kg soli morskiej i około 60 l wody o temperaturze 18 °C. W procentach piekarskich to woda 60%, sól 2% i zakwas 20% masy semoliny. Zakwas przed użyciem odświeża się co najmniej trzy razy wodą i semoliną durum. Według specyfikacji miesienie trwa 20 minut w miesiarce z ramionami nurkującymi. Ciasto przykryte płótnem fermentuje co najmniej 90 minut, po pierwszym formowaniu odpoczywa 30 minut, a po drugim co najmniej 15 minut. Według specyfikacji piec osiąga 250 °C, a chleb piecze się pierwsze 15 minut przy otwartym piecu i kolejne 45 minut przy zamkniętym.': 'Indico las cantidades y temperaturas tal como figuran en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el pliego de condiciones, por cada 100 kg de sémola hay 20 kg de masa madre, 2 kg de sal marina y unos 60 l de agua a 18 °C. En porcentajes del panadero son agua 60 %, sal 2 % y masa madre 20 % del peso de la sémola. Antes de usarla, la masa madre se refresca al menos tres veces con agua y sémola de trigo duro. Según el pliego, el amasado dura 20 minutos en una amasadora de brazos sumergibles. La masa, cubierta con un paño, fermenta al menos 90 minutos; tras el primer formado reposa 30 minutos y tras el segundo, al menos 15 minutos. Según el pliego, el horno alcanza 250 °C y el pan se hornea los primeros 15 minutos con el horno abierto y otros 45 minutos con el horno cerrado.',
+  'Chleb pół-żytni foremkowy': 'Pan de molde mitad centeno',
+  'Chleb foremkowy na drożdżach, w którym połowę mąki uniwersalnej zastępuje mąka żytnia.': 'Pan de molde con levadura en el que la mitad de la harina de uso general se sustituye por harina de centeno.',
 };

@@ -1,4 +1,4 @@
-// Słownik fi, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.': 'Taikina on kiinteää eikä tartu käsiin. Ihanteellinen leivän muotoilun opetteluun.',
@@ -16,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Mitä muuta teet tänään?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'vähintään 3 tuntia huoneenlämmössä tai 1 tunti ja sen jälkeen enintään 3 päivää jääkaapissa',
   'Co widzisz?': 'Mitä näet?',
+  'Co zrobić': 'Mitä tehdä',
   'Co zrobić przy następnym wypieku:': 'Mitä tehdä seuraavalla leivontakerralla:',
   'Co zrobić:': 'Mitä tehdä:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Mitä tehdä: ruoki hapanjuuri seuraavan päivän suunnitelman mukaan.',
@@ -54,7 +55,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Laita se jääkaappiin vasta, kun se on vakiintunut, eli 7–10 päivän jälkeen.',
   'Do miski': 'Kulhoon',
   'Do miski (Ciasto właściwe)': 'Kulhoon (varsinainen taikina)',
-  'Do miski (odhaczaj przy ważeniu)': 'Kulhoon (ruksi punnitessasi)',
   'Do miski na wagę': 'Kulhoon vaa\'alla',
   'Do ostygnięcia do temp. pokojowej': 'Kunnes jäähtynyt huoneenlämpöiseksi',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Arvioituun huippuikkunaan on aikaa noin {czas} (ikkuna: {okno}).',

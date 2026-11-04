@@ -5,6 +5,8 @@
 // przecinek i kropka) → „Zaczyn” (rodzaj i mąka w zaczynie z menu systemowego). Zastępuje akordeon
 // „Parametry Rzemieślnicze & Mąki”, przełącznik trybu z karty „Do miski” i edytor mieszanki mąk.
 // Arkusz systemowy pageSheet, „Gotowe” w pasku arkusza. [M1-audytor-generalny-106; 04-studio-projektowe-022]
+// M3 p3 (karty/README.md §4, makieta karty/receptury.html #skladniki): sekcje jako karty z ikonami; pasek arkusza
+// i zachowanie bez zmian; przy dużym tekście segmenty jeden pod drugim (flexBasis od fontScale, §7a). [M3 p3]
 // ============================================================================
 
 import React, { useEffect, useState } from 'react';
@@ -29,7 +31,9 @@ import { s } from './style-receptur';
 import { ocenaSoli } from '../../core/sol';
 import { formatNumber } from '../../lib/format';
 import { useRodzajDrozdzy, zapiszRodzajDrozdzy, type RodzajDrozdzy } from '../../lib/rodzaj-drozdzy';
-
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 import { typografia } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
   visible: boolean;
@@ -103,6 +107,8 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   // dostaje mąki dopiero, gdy suma się zgadza; do tego czasu informacja pod listą
   const [szkic, setSzkic] = useState<FlourItemInput[]>(p.flourBlend);
   const rodzaj = useRodzajDrozdzy();
+  // Segment przy dużym tekście: każda opcja na całą szerokość (README §7a, D-142) [M3 p3]
+  const szer = { flexBasis: useDuzyTekst() ? '100%' : 120 } as const;
   const { visible, flourBlend, onFlourBlendChange } = p;
   useEffect(() => {
     if (visible) setSzkic(flourBlend);
@@ -145,7 +151,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   const tryb = (m: 'loaves' | 'flour', id: string, etykieta: string) => {
     const wyb = p.calcMode === m;
     return (
-      <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, wyb && styles.segmentWybrany]} onPress={() => p.onCalcModeChange(m)}>
+      <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, szer, wyb && styles.segmentWybrany]} onPress={() => p.onCalcModeChange(m)}>
         <Text style={[s.chipTekst, wyb && styles.segmentTekstWybrany]}>{etykieta}</Text>
       </Pressable>
     );
@@ -154,7 +160,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   const segmentDrozdzy = (r: RodzajDrozdzy, id: string, etykieta: string) => {
     const wyb = rodzaj === r;
     return (
-      <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, wyb && styles.segmentWybrany]} onPress={() => void zapiszRodzajDrozdzy(r)}>
+      <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, szer, wyb && styles.segmentWybrany]} onPress={() => void zapiszRodzajDrozdzy(r)}>
         <Text style={[s.chipTekst, wyb && styles.segmentTekstWybrany]}>{etykieta}</Text>
       </Pressable>
     );
@@ -169,14 +175,14 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             <HeaderButton testID="ingredients-done-btn" title={t('Gotowe')} onPress={p.onClose} />
           </View>
           <ScrollView contentContainerStyle={s.tresc} keyboardShouldPersistTaps="handled">
-            <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Ilości liczę od')}</Text>
-            <View style={styles.segmenty} accessibilityRole="radiogroup">
-              {tryb('loaves', 'calc-mode-loaves', t('bochenków'))}
-              {tryb('flour', 'calc-mode-flour', t('masy mąki'))}
-            </View>
+            <Karta testID="karta-ilosci-od" tytul={t('Ilości liczę od')} ikona={<IkonaKarty nazwa="waga" />}>
+              <View style={styles.segmenty} accessibilityRole="radiogroup">
+                {tryb('loaves', 'calc-mode-loaves', t('bochenków'))}
+                {tryb('flour', 'calc-mode-flour', t('masy mąki'))}
+              </View>
+            </Karta>
 
-            <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Mąki (razem 100%)')}</Text>
-            <View style={s.grupa}>
+            <Karta testID="karta-maki" tytul={t('Mąki (razem 100%)')} ikona={<IkonaKarty nazwa="bochenek" />} bezWypelnienia>
               {szkic.map((f, i) => (
                 <PoleProcentu key={`${f.name}-${i}`} id={`flour-pct-input-${i}`} etykieta={nazwaMakiMieszanki(f)} wartosc={f.percentage} min={0} max={100} onChange={(n) => zmienMake(i, n)} />
               ))}
@@ -188,13 +194,14 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
               {p.onOpenEquivalents && wejscieWidoczne('slownik-mak') && (
                 <WierszMenu id="open-flour-equivalents-btn" etykieta={t('Słownik Odpowiedników Mąk')} onPress={p.onOpenEquivalents} akcja />
               )}
-            </View>
-            {!validateFlourBlend(szkic).isValid && <Text style={s.info} testID="flour-sum-warning">{t('Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.')}</Text>}
-            {p.blendAbsorption && <Text style={s.info}>{t(p.blendAbsorption.doughFeelAdvicePl)}</Text>}
-            {p.blendAbsorption?.ryeWarningPl && <Text style={s.info} testID="rye-warning">{t(p.blendAbsorption.ryeWarningPl)}</Text>}
+              <View style={styles.informacje}>
+                {!validateFlourBlend(szkic).isValid && <Text style={s.info} testID="flour-sum-warning">{t('Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.')}</Text>}
+                {p.blendAbsorption && <Text style={s.info}>{t(p.blendAbsorption.doughFeelAdvicePl)}</Text>}
+                {p.blendAbsorption?.ryeWarningPl && <Text style={s.info} testID="rye-warning">{t(p.blendAbsorption.ryeWarningPl)}</Text>}
+              </View>
+            </Karta>
 
-            <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Proporcje (procent mąki)')}</Text>
-            <View style={s.grupa}>
+            <Karta testID="karta-proporcje" tytul={t('Proporcje (procent mąki)')} ikona={<IkonaKarty nazwa="proporcje" />} bezWypelnienia>
               <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={0} max={150} onChange={p.onWaterPctChange} />
               <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
               {p.starterPct > 0 && (
@@ -202,36 +209,38 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
               )}
               <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={0} max={10} onChange={p.onSaltPctChange} />
               <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={10} onChange={p.onYeastPctChange} ostatnie />
-            </View>
-            {p.hydrationDifficulty && (
-              <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>
-            )}
-            {infoSoli(p.saltPct) !== null && <Text style={s.info} testID="salt-info">{infoSoli(p.saltPct)}</Text>}
+              <View style={styles.informacje}>
+                {p.hydrationDifficulty && (
+                  <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>
+                )}
+                {infoSoli(p.saltPct) !== null && <Text style={s.info} testID="salt-info">{infoSoli(p.saltPct)}</Text>}
+              </View>
+            </Karta>
 
-            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,4 (RD-19) [M1-audytor-generalny-216] */}
+            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,35 (RD-19, D-205) [M1-audytor-generalny-216] */}
             {(p.yeastPct > 0 || (p.prefermentBreakdown?.prefermentYeastGrams ?? 0) > 0) && (
-              <>
-                <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Drożdże do odważenia')}</Text>
+              <Karta testID="karta-drozdze" tytul={t('Drożdże do odważenia')} ikona={<IkonaKarty nazwa="miska" />}>
                 <View style={styles.segmenty} accessibilityRole="radiogroup">
                   {segmentDrozdzy('swieze', 'yeast-type-fresh', t('świeże|drożdże'))}
                   {segmentDrozdzy('suche', 'yeast-type-dry', t('suche|drożdże'))}
                 </View>
-                <Text style={s.info}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.')}</Text>
-              </>
+                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.')}</Text>
+              </Karta>
             )}
 
-            <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Zaczyn')}</Text>
-            <View style={s.grupa}>
+            <Karta testID="karta-zaczyn-skladniki" tytul={t('Zaczyn')} ikona={<IkonaKarty nazwa="sloik" />} bezWypelnienia>
               <WierszMenu id="preferment-type-btn" etykieta={t('Rodzaj')} wartosc={nazwaZaczynu(p.prefermentType)} onPress={wybierzZaczyn} pro={p.zaczynPro} />
               {p.prefermentType !== 'direct' && (
                 <WierszMenu id="preferment-flour-btn" etykieta={t('Mąka w zaczynie')} wartosc={`${p.prefermentFlourPct} %`} onPress={wybierzMakeZaczynu} />
               )}
-            </View>
-            <Text style={s.info}>
-              {p.prefermentBreakdown
-                ? wskazowkaZaczynu(p.prefermentBreakdown)
-                : t('Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.')}
-            </Text>
+              <View style={styles.informacje}>
+                <Text style={s.info}>
+                  {p.prefermentBreakdown
+                    ? wskazowkaZaczynu(p.prefermentBreakdown)
+                    : t('Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.')}
+                </Text>
+              </View>
+            </Karta>
           </ScrollView>
         </View>
       </SafeAreaView>
@@ -272,9 +281,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: theme.colors.tloGrupa,
   },
+  informacje: { paddingTop: theme.spacing.xs, paddingBottom: theme.spacing.md, gap: theme.spacing.xs },
+  objasnienie: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
   segment: {
     flexGrow: 1,
-    flexBasis: 120,
     minHeight: theme.cele.pozostale,
     alignItems: 'center',
     justifyContent: 'center',

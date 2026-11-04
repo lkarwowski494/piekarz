@@ -1,4 +1,4 @@
-// Słownik it, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.': 'Quando dopo il rinfresco inizia a fare bolle, rinfrescalo una seconda volta; se entro 12 ore cresce ed è pieno di bollicine, è pronto per l\'ultimo rinfresco prima dell\'uso.',
@@ -46,6 +46,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'idratazione',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'e altri {n}, dettagli nella scheda del giorno',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideale per mantenere il lievito madre. Ricca di lieviti selvatici e batteri lattici.',
+  'Ile pieczesz': 'Quanto inforni',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Quanta segale deve contenere un pane per chiamarsi pane di segale o di segale e frumento.',
   'Ilości do dokarmienia': 'Quantità per il rinfresco',
   'Ilości i temperatura wody': 'Dosi e temperatura dell\'acqua',
@@ -70,7 +71,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Caverne (Sottolievitato)',
   'Jedna opłata, bez odnawiania.': 'Un unico pagamento, senza rinnovo.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Mollica uniformemente densa e pesante (senza alveoli)',
-  'Jednostki': 'Unità',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Se ti accorgi della mancanza di sale solo dopo la prima lievitazione, aggiungerlo non servirà a nulla e impastare di nuovo può rovinare l\'impasto per sempre: cuoci il pane senza sale oppure usa l\'impasto come base per la pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Se vuoi salvare l\'impasto, toglilo dal cestino o dal contenitore.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Se manca il sale, apri il protocollo «Sale dimenticato».',
@@ -80,7 +80,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Se vedi una patina, macchie o un\'alterazione di colore, oppure senti odore di marcio, apri il controllo del lievito madre.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Se il lievito madre «{name}» non ha raddoppiato il volume, rinfrescalo di nuovo.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Se il lievito madre è cresciuto poco e ha poche bolle, continua a rinfrescarlo ogni 12 ore.',
-  'Język': 'Lingua',
+  'Język i jednostki': 'Lingua e unità',
   'jutro': 'domani',
   'Jutro': 'Domani',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Il calendario è vuoto. Si riempirà quando creerai un lievito madre o pianificherai una sfornata.',

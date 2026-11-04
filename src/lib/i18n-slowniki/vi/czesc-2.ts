@@ -1,4 +1,4 @@
-// Słownik vi, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik vi, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.': 'Bột nhào men tự nhiên ủ lạnh qua đêm sẽ trở nên cứng sau khi xả khí: bánh sẽ nở kém, méo mó và rất chua.',
@@ -21,6 +21,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Hôm nay bạn còn làm gì nữa?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'ít nhất 3 giờ ở nhiệt độ phòng, hoặc 1 giờ rồi để trong tủ lạnh tối đa 3 ngày',
   'Co widzisz?': 'Bạn thấy gì?',
+  'Co zrobić': 'Cần làm',
   'Co zrobić przy następnym wypieku:': 'Việc cần làm ở mẻ bánh sau:',
   'Co zrobić:': 'Cần làm:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Cần làm: cho men tự nhiên ăn theo kế hoạch cho ngày hôm sau.',
@@ -59,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Chỉ cho vào tủ lạnh khi men đã ổn định, tức là sau 7–10 ngày.',
   'Do miski': 'Cho vào tô',
   'Do miski (Ciasto właściwe)': 'Cho vào tô (Bột chính)',
-  'Do miski (odhaczaj przy ważeniu)': 'Cho vào tô (đánh dấu khi cân)',
   'Do miski na wagę': 'Cho vào tô trên cân',
   'Do ostygnięcia do temp. pokojowej': 'Đến khi nguội về nhiệt độ phòng',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Còn khoảng {czas} đến khung đỉnh hoạt động của men ước tính (khung: {okno}).',

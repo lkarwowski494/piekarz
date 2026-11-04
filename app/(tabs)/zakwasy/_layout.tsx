@@ -12,8 +12,9 @@ export default function ZakwasyLayout() {
   return (
     <Stack screenOptions={duzy}>
       <Stack.Screen name="index" options={{ title: t('Zakwasy'), headerShown: false }} />
-      {/* „Coś mnie niepokoi” na karcie zakwasu (BR-DIAG-002) [M1-audytor-generalny-104] */}
-      <Stack.Screen name="doktor-zakwasu" options={{ title: t('Doktor zakwasu'), headerLargeTitle: false }} />
+      {/* „Coś mnie niepokoi” na karcie zakwasu (BR-DIAG-002) [M1-audytor-generalny-104]; pas O3a jak Doktor Chleba,
+          nagłówek stosu ukryty (04-005, D-219) [M3 p7b] */}
+      <Stack.Screen name="doktor-zakwasu" options={{ title: t('Doktor zakwasu'), headerShown: false }} />
     </Stack>
   );
 }

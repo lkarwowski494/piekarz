@@ -1,7 +1,8 @@
-// Słownik et, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Pane taignanõu väljalülitatud ahju ja lülita sisse ainult lamp: sees läheb järk-järgult soojemaks, kuid iga ahi ja iga köök annab erineva tulemuse.',
+  'Wstecz': 'Tagasi',
   'Wstrzymaj': 'Peata',
   'Wstrzymano': 'Peatatud',
   'Wsyp do miski na wagę': 'Lisa kaalul olevasse kaussi',

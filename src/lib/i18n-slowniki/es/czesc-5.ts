@@ -1,10 +1,9 @@
-// Słownik es, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik es, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Evaluación del desarrollo de la red de gluten tras la autólisis y los pliegues',
   'Ocena wymaga połączenia z App Store.': 'Para valorar la app se necesita conexión con el App Store.',
   'Ocena wypieku': 'Valoración del horneado',
-  'Ocena: {n}/5': 'Valoración: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Juzga la masa por su aspecto, no por el reloj: con frío la masa tarda más en subir, y los tiempos de la receta son solo orientativos.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Valora la hogaza y guarda notas en tu historial de horneados',
   'Oceń na {n} z 5': 'Valorar con {n} de 5',
@@ -16,6 +15,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'De la harina y el agua a tu primera hogaza, día a día.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'A partir de este día, refresca la masa madre dos veces al día, más o menos cada 12 horas.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Desgasifícala presionando con firmeza, como al formar.',
+  'Odhaczaj przy ważeniu.': 'Marca al pesar.',
   'Odhaczaj składniki w miarę wsypywania': 'Marca los ingredientes a medida que los añades',
   'Odkryj wiedzę naukową': 'Descubre el dato científico',
   'Odliczanie trwa': 'Cuenta atrás en curso',
@@ -25,6 +25,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '¿Descartar cambios?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Desecha la mitad de la masa madre, añade harina y agua a partes iguales en peso y déjala 24 horas.',
   'Odrzuć zmiany': 'Descartar cambios',
+  'Wpisane zmiany nie zostaną zapisane.': 'Los cambios que has introducido no se guardarán.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Deja reposar 20 minutos antes del siguiente pliegue normal.',
   'Odznacz objawy': 'Desmarcar síntomas',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pan nutritivo de harina de trigo Graham de molienda gruesa con miel natural y linaza.',
@@ -174,5 +175,4 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermento (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage (agua retenida) de rescate',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'El porcentaje de levadura de la receta corresponde a levadura fresca. De levadura seca (instantánea o activa) pesarás 0,4 de esa cantidad.',
 };

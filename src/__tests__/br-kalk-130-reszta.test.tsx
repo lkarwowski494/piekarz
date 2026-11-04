@@ -125,12 +125,12 @@ describe('130: nowe teksty PL i EN (klucze z parametrami)', () => {
   });
 });
 
-describe('BR-KALK-009 Rodzaj drożdży: przelicznik RD-19 (S-40, S-39: × 0,4)', () => {
-  it('BR-KALK-009 Świeże na suche: 10 g drożdży świeżych → 4 g suchych (RD-19-W1)', () => {
-    expect(convertYeast(10, 'fresh').instantGrams).toBe(4);
-    expect(convertYeast(25, 'fresh').instantGrams).toBe(10);
-    expect(convertYeast(0.1, 'fresh').instantGrams).toBe(0.04);
-    expect(convertYeast(4, 'instant').freshGrams).toBe(10);
+describe('BR-KALK-009 Rodzaj drożdży: przelicznik RD-19 (× 0,35, D-205, D-172)', () => {
+  it('BR-KALK-009 Świeże na suche: 10 g drożdży świeżych → 3,5 g suchych (RD-19-W1)', () => {
+    expect(convertYeast(10, 'fresh').instantGrams).toBe(3.5);
+    expect(convertYeast(25, 'fresh').instantGrams).toBe(8.75);
+    expect(convertYeast(0.1, 'fresh').instantGrams).toBe(0.03);
+    expect(convertYeast(4, 'instant').freshGrams).toBe(11.4);
   });
 
   it('BR-KALK-009 Ujemna masa: −1 g drożdży → błąd danych (RD-19-W4)', () => {

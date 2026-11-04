@@ -1,4 +1,4 @@
-// Słownik tr, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'przed nami': 'sırada',
@@ -62,6 +62,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': '“{nazwa}” tarifi Tariflerim\'de.',
   'Receptura awaryjna:': 'Acil durum tarifi:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Temel tarif o pişirmeden bu yana değişti: artık daha fazla maya içeriyor.',
+  'Receptura bazowa, na drożdżach': 'Temel tarif, mayalı',
+  'Receptura bazowa, na zakwasie': 'Temel tarif, ekşi mayalı',
+  'Receptura bazowa, pizza': 'Temel tarif, pizza',
+  'Receptura bazowa, słodka': 'Temel tarif, tatlı',
+  'Receptura bazowa, żytnia': 'Temel tarif, çavdarlı',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Tarifin bir adı olmalıdır (1-120 karakter)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Tarif en az bir un içermelidir',
   'Receptura z pliku': 'Dosyadan Tarif',

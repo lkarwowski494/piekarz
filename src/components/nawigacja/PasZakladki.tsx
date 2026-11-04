@@ -19,14 +19,21 @@ import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
 
-export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
+export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki', onLayout }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
+  /** testID tytułu (prowadzenie: „step-title”, tytuł kroku na pasie, D-194). */
+  tytulTestID?: string;
   /** Zdanie pod tytułem (data na „Dziś”, „Ostatni wypiek: …” w Dzienniku). */
   podtytul?: string;
-  /** Powrót w stosie zakładki (ekran z push): tekst = tytuł poprzedniego ekranu. */
-  wstecz?: { tekst: string; onPress: () => void };
+  /** testID zdania pod tytułem (ekran Pro: „pro-opis”, „pro-aktywny”; M3 p5b). */
+  podtytulTestID?: string;
+  /**
+   * Powrót w stosie zakładki (ekran z push): tekst = tytuł poprzedniego ekranu. Bez tekstu sama ikona z etykietą VoiceOver
+   * (prowadzenie: poprzedni ekran bywa różny, makieta wypiek.html#prowadzenie, D-195).
+   */
+  wstecz?: { tekst: string; etykieta?: string; onPress: () => void } | { tekst?: undefined; etykieta: string; onPress: () => void };
   /** Akcje nagłówka po prawej (PrzyciskNaglowka z `naPasie`). */
   akcje?: React.ReactNode;
   /** Filtry (chipy): na pasie, a przy dużym tekście pod pasem (D-120 b). */
@@ -34,6 +41,8 @@ export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, 
   /** Sterowanie ekranu na pasie (spirala zakwasu, kalendarz). */
   children?: React.ReactNode;
   testID?: string;
+  /** Wysokość pasa: ekran z pasem pokazuje mały tytuł w czapce, gdy pas schowa się pod paskiem stanu (EkranZPasem). */
+  onLayout?: (wysokosc: number) => void;
 }) {
   // Krój Sofia reaguje na „Pogrubiony tekst” jak tytuł kroku (158) [04-studio-projektowe-014]
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
@@ -42,17 +51,17 @@ export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, 
   const duzy = useWindowDimensions().fontScale >= DUZY_TEKST;
   const pod = duzy && (podtytul || filtry) ? (
     <View style={styles.pod} testID="pas-pod">
-      {podtytul ? <Text style={styles.podtytulPod}>{podtytul}</Text> : null}
+      {podtytul ? <Text testID={podtytulTestID} style={styles.podtytulPod}>{podtytul}</Text> : null}
       {filtry ? <FiltryNaPasie {...filtry} naPasie={false} /> : null}
     </View>
   ) : null;
   return (
     <>
-    <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID}>
+    <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID} onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.height) : undefined}>
       {(wstecz || akcje) && (
         <View style={styles.gora}>
           {wstecz ? (
-            <PrzyciskNaglowka testID="pas-wstecz-btn" etykieta={wstecz.tekst} tekst={wstecz.tekst} naPasie onPress={wstecz.onPress}
+            <PrzyciskNaglowka testID="pas-wstecz-btn" etykieta={wstecz.etykieta ?? wstecz.tekst ?? ''} tekst={wstecz.tekst} naPasie onPress={wstecz.onPress}
               ikona={<IkonaStartu nazwa="wstecz" kolor={theme.colors.naPasie} rozmiar={22} />} />
           ) : <View />}
           <View style={styles.akcje}>{akcje}</View>
@@ -60,8 +69,8 @@ export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, 
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
-      {podtytul && !duzy ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
+      <Text testID={tytulTestID} style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      {podtytul && !duzy ? <Text testID={podtytulTestID} style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}
     </View>

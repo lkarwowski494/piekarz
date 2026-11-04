@@ -116,11 +116,41 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
   - Scenariusz: Świeże na suche
     - Zakładając, że receptura ma 10 g drożdży świeżych
     - Gdy użytkownik zmienia rodzaj na suche
-    - Wtedy widzi 4 g drożdży suchych (RD-19-W1)
+    - Wtedy widzi 3,5 g drożdży suchych (RD-19-W1; × 0,35 od D-172, ER-78)
   - Scenariusz: Ujemna masa
     - Zakładając, że użytkownik wpisuje −1 g drożdży
     - Gdy zatwierdza pole
     - Wtedy widzi komunikat o błędnych danych (RD-19-W4)
+  - Scenariusz: Uwaga przy przeliczeniu
+    - Zakładając, że użytkownik zmienia rodzaj na suche
+    - Gdy widzi masę drożdży suchych
+    - Wtedy obok widzi, że producent na opakowaniu może podawać inny przelicznik (D-172; tekst `yeast.conversionNote` roli 06)
+- Drugie wejście tego samego wyboru: BR-KALK-012 (przy wierszu „Do miski”, D-136, ER-75).
+
+### BR-KALK-012: Wybór rodzaju drożdży przy wierszu „Do miski”
+- Przepływ: PR-17, PR-01 · Reguła: RD-19 · Funkcja: F-55 (ZM-24)
+- Dowód potrzeby: J-11, J-01; prośba właściciela 2026-11-03 „Chciałbym żeby była możliwość zamiany drożdży świeżych na instant” i wybór „Przełącznik przy wierszu” (D-136); termin 1.0 (D-150); w Basic jak BR-KALK-009 (D-152). Logika i przelicznik jak w BR-KALK-009 (RD-19); projekt wiersza i brzmienie wyboru: rola 04 (D-136).
+- Kryteria akceptacji:
+  - Scenariusz: Wybór przy wierszu drożdży
+    - Zakładając, że receptura ma 25 g drożdży świeżych, a karta „Do miski” pokazuje wiersz drożdży
+    - Gdy użytkownik wybiera przy tym wierszu drożdże suche
+    - Wtedy wiersz pokazuje 8,75 g drożdży suchych (RD-19-W2; D-172) bez otwierania arkusza „Składniki”
+  - Scenariusz: Jeden wybór w dwóch miejscach
+    - Zakładając, że użytkownik wybrał drożdże suche w arkuszu „Składniki” (BR-KALK-009)
+    - Gdy wraca do karty „Do miski”
+    - Wtedy wiersz drożdży pokazuje wybór „suche” i masę drożdży suchych, a zmiana przy wierszu zmienia też wybór w arkuszu
+  - Scenariusz: Receptura bez drożdży
+    - Zakładając, że receptura nie ma drożdży (sam zakwas)
+    - Gdy użytkownik otwiera kartę „Do miski”
+    - Wtedy nie widzi wyboru rodzaju drożdży (wybór tylko przy drożdżach w recepturze, D-136)
+  - Scenariusz: Zero drożdży
+    - Zakładając, że masa drożdży świeżych w recepturze wynosi 0 g
+    - Gdy użytkownik wybiera przy wierszu drożdże suche
+    - Wtedy wiersz pokazuje 0 g (RD-19-W3)
+  - Scenariusz: Bez Pro
+    - Zakładając, że użytkownik nie ma Pro
+    - Gdy zmienia rodzaj drożdży przy wierszu
+    - Wtedy wybór działa bez oferty zakupu (D-152)
 
 ### BR-KALK-010: Zaczyny poolish, biga i levain
 - Przepływ: PR-17, PR-01 · Reguła: RD-26, RD-14, RD-28 (zaczyn w formule: D-061, D-060)

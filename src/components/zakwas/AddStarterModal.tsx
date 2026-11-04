@@ -1,17 +1,21 @@
 // ============================================================================
 // Apps4Craft Studio — AddStarterModal Component
 // Modal for adding a new sourdough starter culture.
+// Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza, profil w karcie (README §1, §3) [M3 p7, 04-002].
 // 100% Offline-First.
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, TextInput, Modal } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, TextInput } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { formularz } from '../arkusz/style-formularza';
+import { useZmienionyFormularz } from '../arkusz/useZmienionyFormularz';
+import { WyborPrzechowywania } from './WyborPrzechowywania';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../ui/tokeny';
 export interface AddStarterModalProps {
   visible: boolean;
   name: string;
@@ -35,189 +39,45 @@ export function AddStarterModal({
   onClose,
   onSave,
 }: AddStarterModalProps) {
+  const zmieniony = useZmienionyFormularz(visible, [name, flour, storage]);
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Dodaj nowy zakwas')}</Text>
-          <Text style={styles.modalSubtitle}>{t('Utwórz profil dla nowej kultury zakwasu')}</Text>
-
-          {/* Name input */}
-          <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
+    <ArkuszKart
+      visible={visible}
+      onRequestClose={onClose}
+      zmieniony={zmieniony}
+      lewy={{ tekst: t('Anuluj'), onPress: onClose, testID: 'cancel-add-starter-btn' }}
+      prawy={{ tekst: t('Zapisz'), onPress: onSave, testID: 'save-new-starter-btn' }}
+    >
+      <Karta testID="karta-nowy-zakwas" tytul={t('Dodaj nowy zakwas')} ikona={<IkonaKarty nazwa="sloik" />} podpis={t('Utwórz profil dla nowej kultury zakwasu')}>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Imię zakwasu')}</Text>
           <TextInput
             accessibilityLabel={t('Imię zakwasu')}
             testID="new-starter-name-input"
-            style={styles.modalInput}
+            style={formularz.pole}
             value={name}
             onChangeText={onNameChange}
             placeholder={t('np. San Francisco White, Lievito...')}
             placeholderTextColor={theme.colors.tusz3}
           />
-
-          {/* Flour type input */}
-          <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
+        </View>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Typ mąki')}</Text>
           <TextInput
             accessibilityLabel={t('Typ mąki')}
             testID="new-starter-flour-input"
-            style={styles.modalInput}
+            style={formularz.pole}
             value={flour}
             onChangeText={onFlourChange}
             placeholder={t('np. Mąka pszenna chlebowa t750')}
             placeholderTextColor={theme.colors.tusz3}
           />
-
-          {/* Storage toggle */}
-          <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
-          <View style={styles.storageToggleRow}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: storage === 'ROOM_TEMP' }}
-              style={[styles.storageBtn, storage === 'ROOM_TEMP' && styles.storageBtnActive]}
-              onPress={() => onStorageChange('ROOM_TEMP')}
-            >
-              <Text style={[styles.storageBtnText, storage === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                {t('Temperatura pokojowa')}
-              </Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: storage === 'FRIDGE' }}
-              style={[styles.storageBtn, storage === 'FRIDGE' && styles.storageBtnActive]}
-              onPress={() => onStorageChange('FRIDGE')}
-            >
-              <Text style={[styles.storageBtnText, storage === 'FRIDGE' && styles.storageBtnTextActive]}>
-                {t('W lodówce (4°C)')}
-              </Text>
-            </Pressable>
-          </View>
-
-          <View style={styles.modalButtonsRow}>
-            <Pressable
-              accessibilityRole="button"
-              testID="cancel-add-starter-btn"
-              style={styles.modalCancelBtn}
-              onPress={onClose}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              testID="save-new-starter-btn"
-              style={styles.modalConfirmBtn}
-              onPress={onSave}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
-            </Pressable>
-          </View>
         </View>
-      </SafeAreaView>
-    </Modal>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Miejsce przechowywania')}</Text>
+          <WyborPrzechowywania wartosc={storage} onZmiana={onStorageChange} kolejnosc={['ROOM_TEMP', 'FRIDGE']} />
+        </View>
+      </Karta>
+    </ArkuszKart>
   );
 }
-
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  modalCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    width: '100%',
-    maxWidth: 420,
-  },
-  modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz3,
-    marginBottom: 16,
-  },
-  modalInputLabel: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-    marginBottom: 6,
-  },
-  modalInput: {
-    backgroundColor: theme.colors.tlo,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    borderRadius: theme.radius.sm,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: typografia.style.objasnienie.pt,
-    color: theme.colors.tusz,
-    marginBottom: 14,
-  },
-  storageToggleRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 20,
-  },
-  storageBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  storageBtnActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  storageBtnText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  storageBtnTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-  modalButtonsRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: 10,
-  },
-  modalCancelBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalCancelBtnText: {
-    fontSize: 14,
-    color: theme.colors.tusz3,
-    fontWeight: '600',
-  },
-  modalConfirmBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalConfirmBtnText: {
-    fontSize: 14,
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-});

@@ -1,4 +1,4 @@
-// Słownik nl, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.': 'Pak de hete pan, het deksel en de bakvorm vast met droge ovenwanten of pannenlappen.',
@@ -33,6 +33,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hydratatie',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'en nog {n}, details in het dagoverzicht',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideale basis om een zuurdesemstarter (moederdesem) te onderhouden. Rijk aan wilde gisten en melkzuurbacteriën.',
+  'Ile pieczesz': 'Hoeveel bak je',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Hoeveel rogge een brood moet bevatten om roggebrood of rogge-tarwebrood te mogen heten.',
   'Ilości do dokarmienia': 'Voedingshoeveelheden',
   'Ilości i temperatura wody': 'Hoeveelheden en watertemperatuur',
@@ -57,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Grotten (Te kort gerezen)',
   'Jedna opłata, bez odnawiania.': 'Eenmalige betaling, geen verlenging.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Gelijkmatig dicht en zwaar kruim (geen luchtigheid)',
-  'Jednostki': 'Eenheden',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Merk je pas na de eerste rijs dat het zout ontbreekt, dan helpt toevoegen niets meer en kan opnieuw kneden het deeg blijvend bederven: bak het brood zonder zout of maak van het deeg een pizzabodem.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Als je het deeg redt, haal het dan uit het rijsmandje of de kom.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ontbreekt het zout, open dan het protocol “Vergeten zout”.',
@@ -67,7 +67,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Zie je aanslag, vlekken of verkleuring, of ruik je een rotte geur, open dan de controle van de zuurdesemstarter.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Is zuurdesemstarter “{name}” niet in volume verdubbeld, voed hem dan opnieuw.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Is de zuurdesemstarter weinig gerezen en heeft hij weinig belletjes, blijf hem dan elke 12 uur voeden.',
-  'Język': 'Taal',
+  'Język i jednostki': 'Taal en eenheden',
   'jutro': 'morgen',
   'Jutro': 'Morgen',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'De kalender is leeg. Hij vult zich zodra je een zuurdesemstarter opzet of een baksel plant.',

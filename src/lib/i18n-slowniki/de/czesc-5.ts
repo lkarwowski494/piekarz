@@ -1,4 +1,4 @@
-// Słownik de, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Beurteile den Teig nach seinem Aussehen, nicht nach der Uhr: Bei Kälte braucht er länger zum Aufgehen, und die Zeiten im Rezept sind nur ein Richtwert.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Von Mehl und Wasser bis zum ersten Laib, Tag für Tag.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Frische den Sauerteig ab diesem Tag zweimal täglich auf, etwa alle 12 Stunden.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Entgase ihn, indem du fest drückst, wie beim Formen.',
+  'Odhaczaj przy ważeniu.': 'Beim Abwiegen abhaken.',
   'Odhaczaj składniki w miarę wsypywania': 'Hake die Zutaten beim Hinzufügen ab',
   'Odkryj wiedzę naukową': 'Wissenschaftliche Erkenntnis entdecken',
   'Odliczanie trwa': 'Countdown läuft',
@@ -21,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Änderungen verwerfen?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Wirf die Hälfte des Sauerteigs weg, gib Mehl und Wasser in gleichen Gewichtsmengen dazu und lass ihn 24 Stunden stehen.',
   'Odrzuć zmiany': 'Änderungen verwerfen',
+  'Wpisane zmiany nie zostaną zapisane.': 'Die eingegebenen Änderungen werden nicht gespeichert.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lass ihn 20 Minuten ruhen, bevor du wie gewohnt weiter dehnst und faltest.',
   'Odznacz objawy': 'Symptome abwählen',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Nahrhaftes Brot aus grob gemahlenem Weizen-Grahammehl mit natürlichem Honig und Leinsamen.',
@@ -170,7 +172,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Preferment (Vorteig)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Rettungs-Bassinage (Nachgießen)',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Der Hefeanteil in der Rezeptur bezieht sich auf Frischhefe. Von Trockenhefe (Instant- oder Aktivtrockenhefe) wiegst du das 0,4-Fache dieser Menge ab.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Der Hefeanteil in der Rezeptur bezieht sich auf Frischhefe. Von Trockenhefe (Instant- oder Aktivtrockenhefe) wiegst du das 0,35-Fache dieser Menge ab. Der Hersteller kann auf der Verpackung ein anderes Umrechnungsverhältnis angeben.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Der Anteil des Mehls „{name}“ muss eine Zahl im Bereich 0,1–100 % sein',
   'Profil smakowy': 'Geschmacksprofil',
   'Profil zakwasu': 'Sauerteigprofil',

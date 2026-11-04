@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { BakingVessel } from '../../data/sqlite-store';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 
 import { typografia } from '../../ui/tokeny';
 // Bez wyboru stylu wypieku: rodzaj receptur wybiera się na Starcie; zapisana wartość
@@ -19,8 +22,8 @@ export function BakerRitualSection({
   return (
     <>
       {/* Baking Equipment Section */}
-      <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Sprzęt i naczynie do wypieku')}</Text>
+      {/* Karta z ikoną; naczynia jako wiersze z ✓ zamiast kafli z obwódką (M3 p5, inne.html #ustawienia) */}
+      <Karta testID="karta-naczynie" tytul={t('Sprzęt i naczynie do wypieku')} ikona={<IkonaKarty nazwa="bochenek" />}>
         <Text style={styles.cardDescription}>
           {t('Wybierz domyślne naczynie piecowe dla procedury Stolnicy:')}
         </Text>
@@ -29,11 +32,11 @@ export function BakerRitualSection({
             accessibilityRole="button"
             accessibilityState={{ selected: bakingVessel === 'dutch_oven' }}
             testID="vessel-dutch-oven-btn"
-            style={[styles.optionCard, bakingVessel === 'dutch_oven' && styles.optionCardActive]}
+            style={[styles.wiersz, wierszUstawien.rzad, wierszUstawien.pierwszy]}
             onPress={() => onVesselChange('dutch_oven')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'dutch_oven' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'dutch_oven' && styles.optionLabelActive]}>
                 {t('Garnek żeliwny')}
               </Text>
             </View>
@@ -44,11 +47,11 @@ export function BakerRitualSection({
             accessibilityRole="button"
             accessibilityState={{ selected: bakingVessel === 'cloche' }}
             testID="vessel-cloche-btn"
-            style={[styles.optionCard, bakingVessel === 'cloche' && styles.optionCardActive]}
+            style={[styles.wiersz, wierszUstawien.rzad]}
             onPress={() => onVesselChange('cloche')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'cloche' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'cloche' && styles.optionLabelActive]}>
                 {t('Klosz ceramiczny')}
               </Text>
             </View>
@@ -59,11 +62,11 @@ export function BakerRitualSection({
             accessibilityRole="button"
             accessibilityState={{ selected: bakingVessel === 'baking_steel' }}
             testID="vessel-steel-btn"
-            style={[styles.optionCard, bakingVessel === 'baking_steel' && styles.optionCardActive]}
+            style={[styles.wiersz, wierszUstawien.rzad]}
             onPress={() => onVesselChange('baking_steel')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'baking_steel' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'baking_steel' && styles.optionLabelActive]}>
                 {t('Stal / Kamień szamotowy')}
               </Text>
             </View>
@@ -74,84 +77,44 @@ export function BakerRitualSection({
             accessibilityRole="button"
             accessibilityState={{ selected: bakingVessel === 'pullman_pan' }}
             testID="vessel-pullman-btn"
-            style={[styles.optionCard, bakingVessel === 'pullman_pan' && styles.optionCardActive]}
+            style={[styles.wiersz, wierszUstawien.rzad]}
             onPress={() => onVesselChange('pullman_pan')}
           >
             <View style={styles.optionContent}>
-              <Text style={[styles.optionTitle, bakingVessel === 'pullman_pan' && styles.optionTitleActive]}>
+              <Text style={[styles.optionLabel, bakingVessel === 'pullman_pan' && styles.optionLabelActive]}>
                 {t('Foremka z pokrywą')}
               </Text>
             </View>
             {bakingVessel === 'pullman_pan' && <Text style={styles.checkMark}>✓</Text>}
           </Pressable>
         </View>
-      </View>
+      </Karta>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: theme.spacing.sm,
-  },
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
   cardDescription: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
-    lineHeight: 18,
-    marginBottom: theme.spacing.md,
   },
-  optionsCol: {
-    gap: 8,
-  },
-  optionCard: {
-    minHeight: theme.cele.pozostale,
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 12,
-    borderRadius: 12,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  optionCardActive: {
-    borderColor: theme.colors.akcent,
-    borderWidth: 3,
-    backgroundColor: theme.colors.powierzchnia,
-  },
+  optionsCol: {},
   optionContent: {
     flex: 1,
   },
-  optionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
-    fontWeight: '700',
+  optionLabel: {
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz,
   },
-  optionTitleActive: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+  optionLabelActive: {
+    fontWeight: '700',
     color: theme.colors.akcentTekst,
-  },
-  optionSubtitle: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz3,
-    marginTop: 2,
-    lineHeight: 16,
   },
   checkMark: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
-    marginLeft: 8,
   },
 });

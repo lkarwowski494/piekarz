@@ -1,4 +1,4 @@
-// Słownik id, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik id, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Profil, cykl dokarmiania i szczyt aktywności': 'Profil, siklus pemberian makan, dan puncak aktivitas',
@@ -75,6 +75,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Resep “{nazwa}” sudah ada di Resep Saya.',
   'Receptura awaryjna:': 'Resep darurat:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Resep dasar telah berubah sejak hasil panggangan itu: kini memakai lebih banyak ragi.',
+  'Receptura bazowa, na drożdżach': 'Resep dasar, dengan ragi',
+  'Receptura bazowa, na zakwasie': 'Resep dasar, ragi alami',
+  'Receptura bazowa, pizza': 'Resep dasar, pizza',
+  'Receptura bazowa, słodka': 'Resep dasar, manis',
+  'Receptura bazowa, żytnia': 'Resep dasar, gandum hitam',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Resep harus memiliki nama (1-120 karakter)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Resep harus berisi minimal satu tepung',
   'Receptura z pliku': 'Resep dari File',

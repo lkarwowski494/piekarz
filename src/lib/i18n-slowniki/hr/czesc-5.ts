@@ -1,4 +1,4 @@
-// Słownik hr, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hr, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'oko 6–8 sati, dok ne udvostruči volumen i ne bude pun mjehurića',
@@ -144,7 +144,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Predtijesto (nastavak)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Hitni postupak Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Postotak kvasca u recepturi odnosi se na svježi kvasac. Suhog kvasca (instant ili aktivnog) izvagat ćeš 0,4 te mase.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Postotak kvasca u recepturi odnosi se na svježi kvasac. Suhog kvasca (instant ili aktivnog) izvagat ćeš 0,35 te mase. Proizvođač na pakiranju može navesti drugačiji omjer.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Udio brašna „{name}“ mora biti broj u rasponu 0,1–100 %',
   'Profil smakowy': 'Profil okusa',
   'Profil zakwasu': 'Profil kvasa',

@@ -1,4 +1,4 @@
-// Słownik sk, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sk, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciemne chleby razowe, zakwas żytni i pszenny razowy, chleb 100% z keksówki.': 'Tmavé celozrnné chleby, ražný a pšeničný celozrnný kvások, 100 % chlieb z formy.',
@@ -15,6 +15,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Čo ešte dnes robíte?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'najmenej 3 hodiny pri izbovej teplote alebo 1 hodinu a potom najviac 3 dni v chladničke',
   'Co widzisz?': 'Čo vidíte?',
+  'Co zrobić': 'Čo urobiť',
   'Co zrobić przy następnym wypieku:': 'Čo urobiť pri ďalšom pečení:',
   'Co zrobić:': 'Čo urobiť:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Čo urobiť: nakŕmte kvások podľa plánu na ďalší deň.',
@@ -53,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Do chladničky ho dávajte až vtedy, keď sa ustáli, teda po 7–10 dňoch.',
   'Do miski': 'Do misy',
   'Do miski (Ciasto właściwe)': 'Do misy (hlavné cesto)',
-  'Do miski (odhaczaj przy ważeniu)': 'Do misy (odškrtávajte pri vážení)',
   'Do miski na wagę': 'Do misy na váhe',
   'Do ostygnięcia do temp. pokojowej': 'Do vychladnutia na izbovú teplotu',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Do odhadovaného okna vrcholu zostáva asi {czas} (okno: {okno}).',

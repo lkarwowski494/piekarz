@@ -1,4 +1,4 @@
-// Słownik es, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik es, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi.': 'La masa sube más despacio de lo normal: a menudo la culpa es del sitio fresco en el que está.',
@@ -18,6 +18,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': '¿Qué más vas a hacer hoy?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'al menos 3 horas a temperatura ambiente, o 1 hora y después como máximo 3 días en la nevera',
   'Co widzisz?': '¿Qué ves?',
+  'Co zrobić': 'Qué hacer',
   'Co zrobić przy następnym wypieku:': 'Qué hacer en el próximo horneado:',
   'Co zrobić:': 'Qué hacer:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Qué hacer: refresca la masa madre según el plan del día siguiente.',
@@ -56,7 +57,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'No la metas en la nevera hasta que se haya estabilizado, es decir, tras 7–10 días.',
   'Do miski': 'Al bol',
   'Do miski (Ciasto właściwe)': 'Al bol (masa final)',
-  'Do miski (odhaczaj przy ważeniu)': 'Al bol (márcalos al pesar)',
   'Do miski na wagę': 'Al bol en la báscula',
   'Do ostygnięcia do temp. pokojowej': 'Hasta que se enfríe a temperatura ambiente',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Quedan aprox. {czas} para la ventana estimada del pico (ventana: {okno}).',

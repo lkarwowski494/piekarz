@@ -1,4 +1,4 @@
-// Słownik fi, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Godzina gotowości chleba do krojenia': 'Kellonaika, jolloin leipä on valmis leikattavaksi',
@@ -39,6 +39,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hydraatio',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ja {n} muuta, tiedot päivänäkymässä',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ihanteellinen pohja emohapanjuuren ylläpitoon. Runsaasti villihiivoja ja maitohappobakteereja.',
+  'Ile pieczesz': 'Paljonko leivot',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Kuinka paljon ruista leivässä on oltava, jotta sitä voi kutsua ruisleiväksi tai ruis-vehnäleiväksi.',
   'Ilości do dokarmienia': 'Ruokintamäärät',
   'Ilości i temperatura wody': 'Määrät ja veden lämpötila',
@@ -63,7 +64,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Luolat (Alikohonnut)',
   'Jedna opłata, bez odnawiania.': 'Yksi maksu, ei uusiutumista.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Tasaisen tiivis ja raskas sisus (ei ilmavuutta)',
-  'Jednostki': 'Yksiköt',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Jos huomaat suolan puuttuvan vasta ensimmäisen kohotuksen jälkeen, sen lisääminen ei auta, ja uudelleen vaivaaminen voi pilata taikinan pysyvästi: paista leipä ilman suolaa tai tee taikinasta pizzapohja.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Jos pelastat taikinaa, ota se pois korista tai astiasta.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Jos suola puuttuu, avaa ”Unohtunut suola” -ohje.',
@@ -73,7 +73,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Jos näet kalvon, täpliä tai värimuutoksen tai tunnet mätää hajua, avaa hapanjuuren tarkistus.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Jos hapanjuuri ”{name}” ei ole kaksinkertaistunut, ruoki sitä uudelleen.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Jos hapanjuuri on kohonnut vähän ja siinä on vähän kuplia, jatka ruokintaa 12 tunnin välein.',
-  'Język': 'Kieli',
+  'Język i jednostki': 'Kieli ja yksiköt',
   'jutro': 'huomenna',
   'Jutro': 'Huomenna',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalenteri on tyhjä. Se täyttyy, kun aloitat hapanjuuren tai suunnittelet leivonnan.',

@@ -53,6 +53,8 @@ function zbudujKolory(): KoloryMotywu {
     naPasie: k('naPasie'),
     naPasie2: k('naPasie2'),
     ratanNaPasie: k('ratanNaPasie'),
+    // Obwódka karty (system kart, D-141): jasny 1 px, ciemny = powierzchnia [M3 p1]
+    kartaLinia: k('kartaLinia'),
   };
 }
 

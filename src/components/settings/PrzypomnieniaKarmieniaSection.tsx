@@ -8,13 +8,15 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
-import { typografia } from '../../ui/tokeny';
+import { odstepy, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { usePrzypomnieniaKarmienia, zapiszPrzypomnieniaKarmienia } from '../../lib/przypomnienia-karmienia';
 import { resyncNotifications } from '../../lib/notifications';
 import { evaluateAppAccess } from '../../lib/app-access';
 import { pobierzStan, subskrybujStan } from '../../lib/platnosci/stan';
 import { dozwolona } from '../../lib/platnosci/dostep';
+import { wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 export function PrzypomnieniaKarmieniaSection() {
   const wlaczone = usePrzypomnieniaKarmienia();
@@ -37,6 +39,8 @@ export function PrzypomnieniaKarmieniaSection() {
         }}
         style={styles.wiersz}
       >
+        {/* Wiersz-karta z ikoną (makieta: dzwonek przy nagłówku; etykieta przełącznika jest tytułem, bez drugiej kopii) [M3 p5] */}
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="dzwonek" /></View>
         <View style={styles.tekst}>
           <Text style={styles.etykieta}>{etykieta}</Text>
           <Text style={styles.opis}>{t('Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.')}</Text>
@@ -56,16 +60,12 @@ export function PrzypomnieniaKarmieniaSection() {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    paddingHorizontal: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
+    ...wygladKarty,
+    paddingHorizontal: odstepy.l,
   },
-  wiersz: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 12, minHeight: 48 },
-  tekst: { flex: 1, marginRight: 16 },
-  etykieta: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
+  wiersz: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: odstepy.m, paddingVertical: 10, minHeight: 52 },
+  tekst: { flex: 1, flexShrink: 1 },
+  etykieta: { fontSize: typografia.style.tresc.pt, fontWeight: '600', color: theme.colors.tusz },
   opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, marginTop: 2 },
   tor: { width: 48, height: 28, borderRadius: 14, backgroundColor: theme.colors.obwodka, padding: 2, justifyContent: 'center' },
   torWlaczony: { backgroundColor: theme.colors.akcent },

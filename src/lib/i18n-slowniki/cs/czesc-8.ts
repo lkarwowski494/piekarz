@@ -1,4 +1,4 @@
-// Słownik cs, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik cs, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wlej 3–4 łyżki oliwy z oliwek na głęboką blachę do pieczenia lub żeliwną patelnię.': 'Nalijte 3–4 lžíce olivového oleje na hluboký plech na pečení nebo litinovou pánev.',
@@ -32,6 +32,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Vložit hotovou směs',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Vložte ošatku v těsném sáčku do lednice (4–6 °C). Dlouhé kynutí dodá chlebu hluboké aroma.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Vložte nádobu s těstem do vypnuté trouby a rozsviťte jen žárovku: uvnitř se postupně oteplí, ale každá trouba i každá kuchyně dává jiný výsledek.',
+  'Wstecz': 'Zpět',
   'Wstrzymaj': 'Pozastavit',
   'Wstrzymano': 'Pozastaveno',
   'Wsyp do miski na wagę': 'Nasypte do mísy na váze',

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Zakwasy — karty (M3 E3)</title>
+<link rel="stylesheet" href="karty.css"></head>
+<body>
+<!-- Treść: teksty z aplikacji (src/components/zakwas/*, app/(tabs)/zakwasy/index.tsx), zrzut właściciela zakwasy-build1021.png. Dane zakwasu: [PRZYKŁAD]. -->
+
+<!-- Stan: brak zakwasu, góra ekranu -->
+<main data-ekran="pusty">
+  <header class="pas">
+    <div class="status"><span>15:01</span><span>5G 65%</span></div>
+    <div class="nav"><span></span><button>Doktor</button></div>
+    <h1>Zakwasy</h1>
+    <p class="pod">Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.</p>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="sloik"></i><h2>Zakładam zakwas</h2></div>
+      <p class="t-tresc">Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.</p>
+      <p class="t-tresc">Miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.</p>
+      <p class="t-tresc p2">Wymieszaj mąkę pełnoziarnistą (pszenną albo żytnią razową) z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.</p>
+      <p class="t-tresc p2">Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.</p>
+      <button class="glowny">Zapisz dokarmienie</button>
+    </section>
+    <button class="dodaj"><i data-i="plus" class="checkbox"></i>Dodaj nowy zakwas</button>
+  </div>
+  <nav data-zakladki="zakwasy"></nav>
+</main>
+
+<!-- Stan: brak zakwasu, przewinięty — czapka paska stanu zostaje, tytuł mały (znalezisko D-139) -->
+<main data-ekran="przewiniety">
+  <div class="czapka"><div class="status"><span>15:01</span><span>5G 65%</span></div><div class="tyt-maly">Zakwasy</div></div>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="proporcje"></i><h2>Proporcje dokarmiania</h2><span class="pro znak">Pro</span></div>
+      <p class="t-obj p2">Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.</p>
+      <div class="zamek t-obj"><i data-i="zamek" class="checkbox"></i><span>Przypomnienia o dokarmianiu są w Piekarz Pro.</span></div>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="tarcza"></i><h2>Kontrola biologiczna (Bezpieczeństwo)</h2></div>
+      <p class="t-obj p2">Zaznacz, co widzisz albo czujesz w słoiku.</p>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Płyn na powierzchni o zapachu alkoholu (hooch)</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy</span></div>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Puszysty nalot w dowolnym kolorze, także biały</span></div>
+      <div class="info t-przyp"><i data-i="info"></i><span>Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem.</span></div>
+    </section>
+  </div>
+  <nav data-zakladki="zakwasy"></nav>
+</main>
+<!-- Stan: z zakwasem [PRZYKŁAD: imię, godziny, ilości] -->
+<main data-ekran="z-zakwasem">
+  <header class="pas">
+    <div class="status"><span>9:41</span><span>5G 80%</span></div>
+    <div class="nav"><span></span><span><button>Edytuj</button><button>Doktor</button></span></div>
+    <h1>Zakwas żytni</h1>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><svg width="96" height="96" viewBox="0 0 120 120" fill="none" stroke-linecap="round"><circle cx="60" cy="60" r="52" stroke="var(--naPasie2)" stroke-width="2" stroke-dasharray="3 6"/><path d="M60 8a52 52 0 0 1 49 70" stroke="var(--ratanNaPasie)" stroke-width="8"/><circle cx="60" cy="60" r="30" stroke="var(--ratanNaPasie)" stroke-width="3"/></svg>
+    <div style="flex:1 1 calc(160px + 400px * var(--ax));min-width:0"><p class="t-nagl">2 h 10 min od dokarmienia</p><p class="pod">dokarmiony o 7:30, następne o 20:00</p><p class="pod">na blacie, 1:2:2</p></div></div>
+    <div class="chipy"><span class="chip wyb">Zakwas żytni</span><span class="chip">Mój zakwas</span><span class="chip">+ Dodaj nowy zakwas</span></div>
+  </header>
+  <div class="tresc">
+    <section class="karta">
+      <div class="kn"><i data-i="zegar"></i><h2>Szczyt aktywności</h2></div>
+      <p class="t-tresc">Szacowane okno szczytu: <b>13:30–15:30</b></p>
+      <div style="height:10px;border-radius:5px;background:var(--linia);overflow:hidden"><div style="width:62%;height:100%;background:var(--ratan)"></div></div>
+      <p class="t-obj p2">Postęp do szczytu: 62%. Zaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.</p>
+      <button class="drugi" style="flex:none">Podwoił objętość</button>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="waga"></i><h2>Ilości do dokarmienia</h2></div>
+      <div class="chipy t-przyp"><span class="chip c2">1:1:1 (szybki, 3–4 h)</span><span class="chip c2 wyb">1:2:2 (klasyczny, 6–8 h)</span><span class="chip c2">1:3:3 (8–10 h)</span><span class="chip c2">1:5:5 (na noc, 12 h)</span></div>
+      <div class="karta bez-wn" style="border:1px solid var(--linia);border-radius:12px">
+        <div class="wiersz"><span class="roz">Zostawiam w słoiku</span><b class="wart">50 g</b></div>
+        <div class="wiersz"><span class="roz">Mąka</span><b class="wart">100 g</b></div>
+        <div class="wiersz"><span class="roz">Woda</span><b class="wart">100 g</b></div>
+      </div>
+      <button class="glowny">Zapisz dokarmienie</button>
+      <button class="drugi" style="flex:none">Kopiuj jako tekst</button>
+    </section>
+    <section class="karta bez-wn">
+      <div class="kn"><i data-i="lista"></i><h2>Ostatnie wpisy</h2></div>
+      <div class="wiersz"><span class="roz"><b>Dziś 7:30</b><span class="t-obj p2">1:2:2, na blacie</span></span><a class="t-obj" style="color:var(--akcentTekst)">Edytuj</a></div>
+      <div class="wiersz"><span class="roz"><b>Wczoraj 20:10</b><span class="t-obj p2">1:5:5, w lodówce</span></span><a class="t-obj" style="color:var(--akcentTekst)">Edytuj</a></div>
+    </section>
+    <section class="karta">
+      <div class="kn"><i data-i="tarcza"></i><h2>Kontrola biologiczna (Bezpieczeństwo)</h2></div>
+      <p class="t-obj p2">Zaznacz, co widzisz albo czujesz w słoiku.</p>
+      <div class="pole-wyb"><span class="kw"></span><span class="t-obj">Płyn na powierzchni o zapachu alkoholu (hooch)</span></div>
+      <button class="drugi" style="flex:none">Coś mnie niepokoi</button>
+    </section>
+  </div>
+  <nav data-zakladki="zakwasy"></nav>
+</main>
+<script src="karty.js"></script>
+</body></html>

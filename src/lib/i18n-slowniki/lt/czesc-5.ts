@@ -1,4 +1,4 @@
-// Słownik lt, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Tešlą vertinkite pagal išvaizdą, ne pagal laikrodį: vėsoje tešla kyla ilgiau, o recepte nurodyti laikai tėra orientyras.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Nuo miltų ir vandens iki pirmojo kepalo – diena po dienos.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Nuo šios dienos maitinkite raugą du kartus per dieną, maždaug kas 12 valandų.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Degazuokite ją stipriai spausdami, kaip formuodami.',
+  'Odhaczaj przy ważeniu.': 'Pažymėkite sverdami.',
   'Odhaczaj składniki w miarę wsypywania': 'Pažymėkite ingredientus, kai juos suberiate',
   'Odkryj wiedzę naukową': 'Atskleisti mokslines žinias',
   'Odliczanie trwa': 'Vyksta atgalinis skaičiavimas',
@@ -21,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Atmesti pakeitimus?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Išmeskite pusę raugo, įberkite miltų ir įpilkite vandens lygiais kiekiais pagal svorį ir palikite 24 valandoms.',
   'Odrzuć zmiany': 'Atmesti pakeitimus',
+  'Wpisane zmiany nie zostaną zapisane.': 'Įvesti pakeitimai nebus išsaugoti.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Prieš kitą įprastą lankstymą palikite pailsėti 20 minučių.',
   'Odznacz objawy': 'Atžymėti simptomus',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Maistinga duona iš stambiai maltų kvietinių Graham miltų su natūraliu medumi ir sėmenimis.',
@@ -170,7 +172,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Prefermentas (įmaišas)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Gelbėjimo Bassinage (vandens papildymas) procedūra',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Mielių procentas receptūroje – tai šviežios mielės. Sausų mielių (greitai veikiančių arba aktyvių) pasversite 0,4 šio kiekio.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Mielių procentas receptūroje – tai šviežios mielės. Sausų mielių (greitai veikiančių arba aktyvių) pasversite 0,35 šio kiekio. Gamintojas ant pakuotės gali nurodyti kitokį santykį.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Miltų „{name}“ procentas turi būti skaičius nuo 0,1 iki 100 %',
   'Profil smakowy': 'Skonio profilis',
   'Profil zakwasu': 'Raugo profilis',

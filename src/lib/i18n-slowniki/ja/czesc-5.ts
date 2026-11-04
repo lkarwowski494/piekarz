@@ -1,4 +1,4 @@
-// Słownik ja, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ja, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.': 'プランのファイルを作成できませんでした。プランはパン職人に残っています。もう一度お試しください。',
@@ -49,7 +49,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'オートリーズと折りたたみ後のグルテン網の発達を確認',
   'Ocena wymaga połączenia z App Store.': '評価するにはApp Storeへの接続が必要です。',
   'Ocena wypieku': '焼成の評価',
-  'Ocena: {n}/5': '評価：{n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': '時計ではなく見た目で生地を判断してください。寒いと生地の膨らみに時間がかかり、レシピの時間はあくまで目安です。',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'ローフを評価し、メモを焼成履歴に保存します',
   'Oceń na {n} z 5': '5段階中{n}で評価',
@@ -61,6 +60,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': '粉と水から最初のローフまで、1日ずつ。',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'この日から、サワー種を1日2回、約12時間ごとに種継ぎしてください。',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': '成形のときと同じように、しっかり押してガスを抜いてください。',
+  'Odhaczaj przy ważeniu.': '計量しながらチェックしてください。',
   'Odhaczaj składniki w miarę wsypywania': '入れた材料から順にチェックしてください',
   'Odkryj wiedzę naukową': '科学的な解説を見る',
   'Odliczanie trwa': 'カウントダウン中',
@@ -70,6 +70,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '変更を破棄しますか？',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'サワー種の半分を捨て、粉と水を同じ重量ずつ加えて24時間置いてください。',
   'Odrzuć zmiany': '変更を破棄',
+  'Wpisane zmiany nie zostaną zapisane.': '入力した変更は保存されません。',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '次の通常のパンチ / 折りたたみの前に20分休ませてください。',
   'Odznacz objawy': '症状の選択を解除',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '粗挽きのグラハム粉（小麦の全粒粉）に天然のはちみつと亜麻仁を加えた、栄養豊富なパン。',

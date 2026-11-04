@@ -1,4 +1,4 @@
-// Słownik nl, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Własna strata piecowa': 'Eigen bakverlies',
@@ -31,6 +31,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Kies een meelmengsel',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Zet het rijsmandje in een goed afgesloten zak in de koelkast (4–6 °C). Een lange fermentatie geeft het brood een diep aroma.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Zet de kom met deeg in de uitgeschakelde oven en doe alleen het lampje aan: binnen wordt het geleidelijk warmer, maar elke oven en elke keuken geeft een ander resultaat.',
+  'Wstecz': 'Terug',
   'Wstrzymaj': 'Pauzeer',
   'Wstrzymano': 'Gepauzeerd',
   'Wsyp do miski na wagę': 'Op de weegschaal in de kom doen',

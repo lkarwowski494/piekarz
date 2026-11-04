@@ -737,3 +737,620 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** najpierw ASC, potem scalenie; brak scalenia; pełny M1 przed zgłoszeniem; zgłoszenie bez audytu.
 - **Wyjątek nazwany (zasada 7):** pełny audyt przed upublicznieniem (w `trening` obowiązkowy, `docs/42-plan-wydania-1.0.md` §1 pkt 3) zastąpiony tańszą kontrolą — reauditem roli 07 z progiem eskalacji do M1.
 
+
+### [D-136] 2026-11-03 — Rodzaj drożdży: przełącznik świeże / instant przy wierszu drożdży na karcie „Do miski” (wersja 1.1)
+- **Rodzaj:** decyzja właściciela (prośba „Chciałbym żeby była możliwość zamiany drożdży świeżych na instant”, pytanie z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Przełącznik przy wierszu”.
+- **Stan przed:** BR-KALK-009 wdrożone — arkusz „Składniki” → „Drożdże do odważenia”, segmenty „świeże / suche”, przelicznik × 0,4 (RD-19, S-40, S-39; ten sam dla aktywnych i instant), widoczne tylko przy drożdżach w recepturze (`src/components/receptury/SkladnikiSheet.tsx:211-217`, `src/lib/rodzaj-drozdzy.ts`).
+- **Decyzja:** wybór rodzaju drożdży także bezpośrednio przy wierszu drożdży na karcie „Do miski”; logika i przelicznik bez zmian (RD-19). Kolejność: rola 04 (projekt wiersza i brzmienie „instant”), rola 08 (kod, testy przed kodem), rola 09 (33 języki). Wersja 1.1, po zgłoszeniu 1.0.
+- **Odrzucone:** (a) tylko etykieta „suche / instant” (rekomendacja koordynatora, tańsza, do 1.0); (c) zostawić.
+- **Zależy od:** wyniku testu 1.0 na telefonie (czy obecny przełącznik został znaleziony), D-038 (model bez zmian; przełącznik nie zmienia podziału Basic/Pro — do potwierdzenia przez rolę 03).
+- **Status:** dzień, do weta.
+
+### [D-137] 2026-11-03 — Odpowiedniki drożdżowe receptur na zakwasie jako osobne receptury-bliźniaki (wersja 1.1)
+- **Rodzaj:** decyzja właściciela (prośba „Chciałbym aby przepisy na zakwasie miały odpowiedniki z drożdżami”, pytanie z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Osobne bliźniaki, 1.1”.
+- **Stan przed:** 7 receptur `category: 'sourdough'` i 4 drożdżowe (`src/recipes/presets.ts`); brak powiązania receptura zakwasowa ↔ drożdżowa.
+- **Decyzja:** dla wybranych receptur na zakwasie osobne receptury drożdżowe, każda z treścią i czasami fermentacji ze źródła. Kolejność: rola 03 build `zmiany-zakresu` (które receptury, wejście w interfejsie, miejsce w Basic/Pro wobec D-038), rola 06 (ilość drożdży, czasy, plan; źródła szczebla 1–3), rola 04 (powiązanie na liście / w recepturze), rola 08 (kod, testy), rola 09 (33 języki). Wersja 1.1, po zgłoszeniu 1.0.
+- **Odrzucone:** (b) ogólny przełącznik „zakwas → drożdże” dla każdej receptury (ryzyko błędnych czasów w planie przy różnych mąkach i hydratacji); (c) zostawić 4 istniejące receptury drożdżowe.
+- **Status:** dzień, do weta.
+
+### [D-138] 2026-11-03 — Tryb „maszyna do chleba” obok pieczenia tradycyjnego (wersja 1.1 lub później)
+- **Rodzaj:** decyzja właściciela (prośba „Możliwość tradycyjnego pieczenia jak i w maszynce do chleba (mam taką)”, doprecyzowanie punktu 3; pytania z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Punkt 3 to maszyna”; „Tryb „maszyna”, 1.1+”.
+- **Stan przed:** aplikacja prowadzi tylko pieczenie tradycyjne (wyrabianie, składania, garowanie, piekarnik); brak wzmianki o maszynie do chleba w `src/`, `docs/brd/`, `docs/scope-contract.md` (grep 2026-11-03).
+- **Decyzja:** przy recepturze wybór „piekarnik / maszyna”; w trybie maszyny ilości pod pojemność maszyny użytkownika, kolejność wkładania składników, program i prosty plan z godziną gotowości. Kolejność: rola 01/03 (praca J i zakres, w tym miejsce w Basic/Pro wobec D-038; maszyna właściciela jako przykład, model do ustalenia), rola 06 (reguły ze źródeł: pojemności, kolejność, programy, czy i jak zakwas w maszynie), rola 04 (projekt), rola 08 (kod, testy), rola 09 (33 języki). Po zgłoszeniu 1.0; czy w 1.1 razem z D-136/D-137, czy w 1.2 — rozstrzyga rola 03 kosztem.
+- **Odrzucone:** (b) 2–3 osobne receptury do maszyny bez trybu; (c) zostawić. Punkt 3 jako chleb mieszany (zakwas + drożdże) — właściciel: punkt 3 to maszyna.
+- **Status:** dzień, do weta.
+
+### [D-139] 2026-11-03 — Wygląd blokuje 1.0: język ekranu „Dziś” na wszystkie ekrany (rola 04 build od E3, potem 08 partiami, build 1022)
+- **Rodzaj:** decyzja właściciela po teście na telefonie (build 1021, zrzuty `docs/design/uwagi-wlasciciela-2026-11-03/`; pytanie z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Nie może to wejść. Pierwszy screen wygląda ładnie. Zobacz zakładka dziś. Pozostałe wyglądają jak śmietnik wygenerowany przez AI. Wszystko powinno być ładnie orbobione, pozamykane w ładne karty itd.”; wybór: „Język „Dziś” wszędzie”.
+- **Znaleziska koordynatora na zrzutach (realne):** „Zakwasy” — treść przewija się pod pasek stanu (brak pasa nagłówka jak na „Dziś”), „Kontrola biologiczna (Bezpieczeństwo)” innym krojem niż reszta, nagłówek „Proporcje dokarmiania” poza kartą; „Receptury” — lista zgodna z wzorcem `docs/design/wzorce-zrzuty/kalkulator-lista-receptur-pl-390-dark.png`, więc zmiana dotyczy systemu (rola 04), nie tylko kodu.
+- **Decyzja:** rola 04 w trybie build od E3 (system) na kierunku ekranu „Dziś” (pas nagłówka w kolorze marki, treść w kartach, ikony w kartach): zrzuty wszystkich ekranów i arkuszy przed/po, wybór okiem właściciela na STOP E3, nowe zrzuty wzorcowe. Potem rola 08 build partiami (testy przed kodem, logika i dane bez zmian), rola 09 dla nowych tekstów, E2E, build 1022 i ponowny test właściciela; dalej rola 07 reaudit (D-135). Zgłoszenie 1.0 wstrzymane do tego czasu.
+- **Odrzucone:** (b) szybka poprawka tylko „Zakwasy” i „Receptury” przez rolę 08 bez roli 04 (wyjątek od zasady 15, reszta ekranów dalej odstaje); (c) najpierw więcej zrzutów właściciela.
+- **Zależy od:** D-136…D-138 bez zmian (1.1); wybór okiem właściciela na STOP E3 roli 04.
+- **Status:** dzień, do weta.
+
+### [D-150] 2026-11-03 — Zakres 1.0: redesign (D-139) razem z D-136, D-137 i D-138; funkcje odłożone bez zmian
+- **Rodzaj:** decyzja właściciela (pytania z przyciskami, 2026-11-03).
+- **Słowa właściciela:** „Skoro robimy te zmiany to napisz jakie funkcje odłożyliśmy i może też je wdrożymy”; na listę funkcji odłożonych: „A te co dzisiaj pisałem ?”; termin: „Wszystko w 1.0”; doprecyzowanie: „Redesign + D-136…D-138”.
+- **Decyzja:** do 1.0 wchodzą redesign D-139 oraz D-136 (wybór świeże/instant przy wierszu drożdży), D-137 (receptury-bliźniaki drożdżowe), D-138 (tryb „maszyna do chleba”); zmienia termin „1.1” w D-136…D-138 na „1.0”. Funkcje z `docs/scope-contract.md` (PÓŹNIEJ: F-15, F-30, F-45, F-46…F-49, F-50, F-63, F-08, F-70; lista odcięć KL) — bez zmian, właściciel nie wybrał żadnej.
+- **Kolejność:** rola 03 build `zmiany-zakresu` (wpisy ZM dla D-136…D-138, miejsce w Basic/Pro wobec D-038) → rola 06 (ilości drożdży i czasy bliźniaków, reguły maszyny: pojemność, kolejność, programy, zakwas w maszynie) → rola 04 (ekrany w języku „Dziś”, równolegle z E3 redesignu) → rola 08 partiami → rola 09 (33 języki) → E2E → build → test właściciela → rola 07 reaudit.
+- **Odrzucone:** redesign + D-136…D-138 + funkcje ukryte z gotowym kodem; redesign + D-136, D-137 (maszyna w 1.1, rekomendacja koordynatora przy presji czasu); projekt teraz, kod w 1.1 (rekomendacja koordynatora).
+- **Koszt [OCENA]:** opóźnienie 1.0 o ok. 3–5 dni pracy ról ponad redesign, najwięcej D-138.
+- **Krok właściciela:** model maszyny do chleba (marka, pojemność, lista programów; zdjęcie panelu lub instrukcji) dla roli 06.
+- **Status:** dzień, do weta.
+
+### [D-140] 2026-11-03 — Rola 04 build od E3 bez E1–E2: system kart na języku ekranu „Dziś” (propozycja na STOP E3)
+- **Rodzaj:** decyzja roli 04 (wyjątek nazwany, zasada wspólna 7), warunkowa do wyboru właściciela na STOP E3.
+- **Decyzja:** procedura redesignu (moduł przepływy-i-gesty, pkt 3) każe robić E1–E2 od zera; pomijam je, bo kierunek wybrał właściciel okiem w D-139. Tańsza kontrola zamiast E2: arkusze przed/po dla 10 ekranów i trzy opcje wizualne na tym samym ekranie (`docs/design/karty/arkusze/`). System: pas w kolorze marki na każdym ekranie, treść tylko w kartach, nagłówek karty = ikona `ratan` + krój tytułów 20 pt, czapka paska stanu, promień karty 16 w hierarchii promieni, kolory bez zmian (`docs/design/karty/README.md`). Karty bez cienia i z hierarchią promieni, bo jednakowe karty to ślad szablonu (kalibracja); rozpoznawalność niesie spirala i pas.
+- **Odrzucone:** pełne E1–E2 (trzy nowe kierunki) — właściciel już wybrał i zaakceptował „Dziś”; poprawka tylko „Zakwasy” i „Receptury” — odrzucona w D-139 (b).
+- **Zależy od:** D-139; wybór O1–O3 właściciela na STOP E3; kontrast `docs/design/karty/kontrast-karty.md`.
+- **Status:** do wyboru na STOP E3.
+
+### [D-141] 2026-11-03 — Wybór właściciela na STOP E3 roli 04: O1a, O2b, O3a, O4a (system kart przyjęty)
+- **Rodzaj:** decyzja właściciela okiem (arkusze `docs/design/karty/arkusze/opcje.png`, `funkcje-d150.png`, 10 arkuszy przed/po).
+- **Słowa właściciela:** „1A 2b 3a 4a”.
+- **Decyzja:** O1 (a) ikona `ratan` przy nagłówku każdej karty; O2 (b) każda receptura na liście we własnej karcie (wbrew rekomendacji (a) roli 04: cena to ok. 30% mniej receptur na ekranie); O3 (a) pas marki także na ekranach w stosie (plan, prowadzenie, Doktor); O4 (a) wybór „Piekarnik / Maszyna do chleba” w karcie „Ile pieczesz”. System kart z D-140 przyjęty: tokeny `promienie.karta` 16 i `kartaLinia` jako propozycja `docs/design/karty/tokeny-karty.json` (rola 08 dopisuje je razem do `docs/design/tokeny.json` i `src/ui/tokeny.ts`, bo testy wymagają równości obu plików), spec `docs/design/design-spec.md` §14 → `docs/design/karty/README.md`.
+- **Odrzucone:** O1 (b) ikony tylko w kaflach i wierszach; O2 (a) jedna karta na grupę; O3 (b) zwykły pasek nawigacji na ekranach w stosie; O4 (b) wybór w menu „Więcej” albo osobna receptura.
+- **Wyjątek nazwany:** pliki `oferta-*` i `oferta-zrodlo.json` zostają w `docs/design/wzorce-zrzuty/` (przypina je `tests/wzorce-oferty-202.test.ts`); nowy wzorzec ekranu Pro to `docs/design/karty/zrzuty/inne-pro-*`, podmiana przy wdrożeniu przez 08 razem z testem.
+- **Zależy od:** D-139, D-140, D-150; liczby w ekranach D-136…D-138 to przykłady do treści ról 03 i 06.
+- **Status:** dzień, do weta.
+
+### [D-160] 2026-11-03 — Partie wdrożenia redesignu D-139/D-141 (rola 08 build, po jednej, na `redesign/piekarz-2026-10-22`)
+- **Rodzaj:** decyzja koordynatora M3 (STOP 3 według zasad właściciela z 2026-11-02: koordynator decyduje sam, wpis do weta).
+- **Podstawa:** tabela AS IS → TO BE `docs/design/karty/README.md` §4 (rola 04, `56047e1`), D-141 (O1a, O2b, O3a, O4a), D-150.
+- **Decyzja:** p1 tokeny karty (`promienie.karta`, `kartaLinia` w `docs/design/tokeny.json` i `src/ui/tokeny.ts` razem) i komponenty `Karta`, `WierszKarty`, `CzapkaPaska`, `PoleObjawu` z testami, bez zmiany ekranów; p2 Zakwasy (+ Doktor zakwasu); p3 Receptury: lista (O2b), receptura, „Do miski”, arkusz „Składniki”; p4 Plan i Prowadzenie (O3a); p5 Dziennik, Ustawienia, Piekarz Pro (treść ujawnień bez zmian, D-112/D-113); p6+ funkcje D-136…D-138 po treści ról 03 i 06 (flaga danych do oceny w p6). Po każdej partii: verify kod 0 u koordynatora, commit z ID partii, push. Po p5: rola 09 (teksty z README §6), E2E, build. Punkt kontrolny właściciela po p2 (zrzuty), nie po p1 (p1 bez zmian na ekranie).
+- **Odrzucone:** jedna duża partia (ryzyko i brak punktu kontrolnego); p1 razem z Zakwasami (miesza zmianę strukturalną z przepływem).
+- **Zależy od:** zamknięcia 04-fix-AX5 przed p2 (reguła stosu przy AX3+).
+
+### [D-142] 2026-11-03 — Łamanie wyrazów przy 320 pt i AX5: bez dzielenia, stos w jednej kolumnie; złamane tylko słowo dłuższe niż cały wiersz
+- **Rodzaj:** decyzja roli 04 po znalezisku koordynatora (NFR-A11Y-004, realne: „dokar|mienia”, „Pojemnoś|ć” na zrzutach 320 AX5).
+- **Pomiar:** `docs/design/narzedzia/slowa.mjs` na wszystkich makietach: po poprawce 0 elementów poza ekranem. Przy 320 pt i treści 53 pt (AX5, HIG) wiersz karty ma ok. 280 pt, a mieści się w nim ok. 9–10 liter. Kilkadziesiąt polskich słów (np. „dokarmienia”, „pełnoziarnistą”, „(Bezpieczeństwo)”) jest szerszych niż cały wiersz.
+- **Decyzja:** (1) żadnego dzielenia z łącznikiem; (2) przy AX5 układ przechodzi na stos w jednej kolumnie: przyciski jeden pod drugim, pole wyboru nad tekstem, wartość pod etykietą, tekst pod spiralą, nazwa arkusza w osobnym rzędzie; wcięcia kart 16→10 pt, ekranu 20→10 pt; (3) słowo dłuższe niż cały wiersz łamie się jak w systemowym `Text`/UILabel (bez łącznika), bo inaczej zostałoby ucięte. „Pojemność” i inne słowa, które się mieszczą, już się nie łamią.
+- **Odrzucone:** ograniczenie skali tekstu w kartach (`maxFontSizeMultiplier`) poniżej AX5 — narusza podłogę NFR-A11Y-004 i HIG (podłoga nie podlega gustowi, zasada studia 12); karty od krawędzi do krawędzi przy AX5 — zyskuje ok. 20 pt (1 litera), a traci język kart z D-141.
+- **Zależy od:** D-141; test na urządzeniu przy AX5 (krok właściciela, rola 07).
+- **Status:** dzień, do weta.
+
+### [D-151] 2026-11-03 — Bramka zmian zakresu dla D-136…D-138 (rola 03 build, moduł zmiany-zakresu): ZM-24…ZM-26, F-72; cztery pytania do właściciela
+- **Rodzaj:** zakresowa (rola 03), wykonanie D-150; decyzje „czy” i „kiedy” są właściciela (D-136…D-138, D-150) i nie są otwierane.
+- **Decyzja:** D-136 → ZM-24 jako zmiana wejścia w F-55 (BR-KALK-009 istnieje; ER-75: scenariusz wyboru przy wierszu „Do miski”); D-137 → ZM-25 jako rozszerzenie F-26 (ER-76: powiązanie receptura na zakwasie ↔ bliźniak); D-138 → ZM-26 i nowa funkcja F-72 MVP bez BR do czasu ER-77 (praca J, PR, BR trybu maszyny). Numery ER-75…ER-77 proponowane; nadaje je rola 01.
+- **Znaleziska (realne):** (1) „Stan przed” w D-137 podaje 7 receptur `sourdough`; jest 6 `sourdough`, a receptur bazowych z zakwasem 9 (z 2 żytnimi i 1 na lievito madre) — `grep -c` liczył linię typu `src/recipes/presets.ts:12`. (2) Receptura bez zakwasu nie dostaje planu ani prowadzenia (`src/lib/plan-receptury.ts:55-61`), choć BR-HARMO-001 i BR-ETAP-001 obejmują PR-17 (drożdże, pizza): bliźniak bez planu to tylko receptura do kalkulatora. (3) D-136…D-138 piszą „wobec D-038”; obowiązuje model D-112/D-113 (Basic/Pro, `docs/monetyzacja.md`), więc pytanie o podział jest zadane wobec niego.
+- **Otwarte (STOP, pytania do właściciela):** (1) miejsce D-136…D-138 w Basic/Pro; (2) które receptury dostają bliźniaki; (3) zakres trybu maszyny w 1.0; (4) czy bliźniaki i receptury drożdżowe dostają plan i prowadzenie w 1.0. Opcje i rekomendacje: `docs/zakres-zm-2026-11-03.md`.
+- **Odrzucone:** nowe F-nn dla D-136 i D-137 (to zmiany istniejących funkcji, ID F-55 i F-26 zostają); dopisanie BR przez rolę 03 (należą do roli 01, zasada roli 7).
+- **Zależy od:** D-136, D-137, D-138, D-150, D-112, D-113. Po odpowiedziach: wpis decyzji słowami właściciela (pula D-152…D-159), ZM-24…ZM-26 z decyzją, paczka dla roli 06.
+- **Status:** czeka na STOP właściciela.
+
+### [D-152] 2026-11-03 — Basic/Pro dla D-136…D-138: liczenie w Basic, planowanie w Pro (odpowiedź na pytanie 1 z D-151)
+- **Rodzaj:** produktowa, decyzja właściciela (czat roli 03, 2026-11-03). **Słowa właściciela:** „1. Zgoda”.
+- **Decyzja:** D-136 (wybór drożdży przy wierszu) w Basic jak BR-KALK-009; receptury drożdżowe z D-137 w Basic jak inne receptury bazowe (kryterium F-26 „żadna osobno zablokowana”); w trybie maszyny (D-138, F-72) ilości, kolejność wkładania i program w Basic, godzina gotowości (na którą ustawić opóźnienie) w Pro jak plan wstecz (D-112). Podział D-112/D-113 bez zmian; uwaga dla roli 02: dopisać F-72 do tabeli „Basic i Pro według funkcji”.
+- **Odrzucone:** cały tryb maszyny w Pro (liczenie w Pro łamie linię D-112); wszystko w Basic (darmowy plan „na godzinę” obok płatnego planu wstecz).
+- **Otwarte z tej samej odpowiedzi (do doprecyzowania, D-151):** „2. 9 , nie wiem czy nie powinniśmy rozszerzyć katalogu przepisów w wersji 1.01”; „3. Ale nie można jakiegoś uniwersalnego przepisu ? W sensie bierzesz przepis na chleb który już mamy, wrzucasz w odpowiedniej kolejności składniki do maszyny i aplikacja sugeruje program czyli np chleb zwykły lub chleb pełnoziarnisty itd . Lub najbliższy temu ?”; „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”. Odpowiedzi 2 i 4 wzajemnie się wykluczają; pytania doprecyzowujące w `docs/zakres-zm-2026-11-03.md`.
+- **Zależy od:** D-112, D-113, D-151. **Status:** dzień, do weta.
+
+### [D-153] 2026-11-03 — Tryb maszyny (F-72) uniwersalny, nie profil jednej maszyny; Tefal PF220838 jako maszyna testowa (odpowiedź na pytanie C rundy 2, D-151)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (2026-11-03). **Słowa właściciela:** „Ale to ma być uniwersalna aplikacja a nie tylko pod moją maszynę. Moja to Wypiekacz do chleba TEFAL PAIN PLAISIR PF220838”.
+- **Decyzja:** F-72 jako tryb uniwersalny: dowolna receptura w wersji drożdżowej → ilości pod wielkość bochenka, kolejność wkładania w jednym z dwóch układów, sugestia programu z rodzaju receptury („najbliższy program”); bez profili konkretnych maszyn. Tefal PAIN PLAISIR PF220838: maszyna do wypieku testowego właściciela i przykład w źródłach roli 06 (instrukcja producenta to szczebel 1 tylko dla tego modelu, nie reguła ogólna).
+- **Odrzucone:** (c) profil jednej maszyny (słowa właściciela wyżej).
+- **Otwarte:** C (a) tylko wersje drożdżowe czy (a)+(b) także zakwas w maszynie (warunek: źródło roli 06); pytania A, B, D rundy 2 (`docs/zakres-zm-2026-11-03.md`).
+- **Zależy od:** D-138, D-150, D-151, D-152. **Status:** dzień, do weta.
+
+### [D-154] 2026-11-03 — Wersje drożdżowe receptur na zakwasie jako przełącznik „na zakwasie / na drożdżach” w recepturze, nie osobne pozycje (zmienia D-137)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Przełącznik w recepturze”; wcześniej w czacie roli 03: „4. To może zamiast bliźniaków zrobimy ten pasek zmiany drożdży instant/zwykle”, „2. 9”.
+- **Decyzja:** każda z 9 receptur bazowych z zakwasem (6 `sourdough`, 2 żytnie, 1 na lievito madre) dostaje w recepturze przełącznik „na zakwasie / na drożdżach”; za przełącznikiem osobne dane dla każdej receptury (ilość drożdży, czasy fermentacji) ze źródła roli 06. Receptura bez źródła dla wersji drożdżowej nie pokazuje przełącznika. Wybór świeże/instant (D-136) działa w wersji drożdżowej jak dziś.
+- **Zmienia D-137:** „osobne receptury-bliźniaki” → wersja drożdżowa w tej samej recepturze; dane dla każdej receptury osobno zostają (powód odrzucenia ogólnej reguły z D-137 dalej obowiązuje).
+- **Odrzucone:** 9 osobnych pozycji na liście (duplikaty, więcej tekstów do przekładu); jedna reguła przeliczenia dla wszystkich (odrzucona w D-137); bez wersji drożdżowych w 1.0.
+- **Zależy od:** D-137, D-150, D-151, D-152 (Basic). ER-76 dla roli 01: BR przełącznika (zamiast powiązania bliźniaków). **Status:** dzień, do weta.
+
+### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Z planem w 1.0”.
+- **Decyzja:** wersja drożdżowa (D-154) i istniejące receptury drożdżowe dostają w 1.0 plan wstecz i prowadzenie krok po kroku; usuwa blokadę „Plan wypieku jest tylko dla chleba na zakwasie” (`src/lib/plan-receptury.ts:55-61`) zgodnie z BR-HARMO-001 i BR-ETAP-001 (przepływ PR-17). Model czasów fermentacji drożdżowej ze źródła roli 06; kod rola 08 (testy przed kodem). Podział bez zmian: plan wstecz w Pro, start i prowadzenie w Basic (D-112, D-116).
+- **Odrzucone:** wersja drożdżowa bez planu, czasy tylko w opisie (rekomendacja roli 03 przy presji czasu).
+- **Koszt [OCENA]:** +4–6 h właściciela; opóźnia 1.0 (rola 06 model czasów, rola 08 kod).
+- **Zależy od:** D-154, BR-HARMO-001, BR-ETAP-001. **Status:** dzień, do weta.
+
+### [D-156] 2026-11-03 — Tryb maszyny (F-72) także dla receptur na zakwasie, tylko przy źródle roli 06
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Też zakwas (a+b)”.
+- **Decyzja:** tryb uniwersalny (D-153) obejmuje receptury w wersji drożdżowej i — jeśli rola 06 znajdzie źródło szczebla 1–3, że i jak zakwas działa w programach maszyny — także wersję na zakwasie. Bez źródła tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej. Tefal PAIN PLAISIR PF220838 = maszyna testowa (D-153).
+- **Odrzucone:** tylko wersje drożdżowe w maszynie (rekomendacja roli 03).
+- **Koszt [OCENA]:** +2–3 h właściciela (drugi wypiek testowy) ponad ok. 6 h F-72.
+- **Zależy od:** D-153, źródło roli 06. **Status:** dzień, do weta.
+
+### [D-157] 2026-11-03 — Katalog receptur: ok. 30 w 1.0 (ok. +15), do ok. 50 w 1.0.1, dalej kwartalnie (ZM-27)
+- **Rodzaj:** produktowa, decyzja właściciela przekazana przez koordynatora M3 (przycisk, 2026-11-03). **Słowa właściciela:** „(b) ok. 30 w 1.0”; wcześniej: „Dodajmy od razu więcej. Żeby aplikacja miała z 50-80 przepisów”; kontekst terminu: „Ja i tak mam pipeline na wrzucanie w asc. Teraz na review czeka trening, później idzie tam Oczko które będzie skończone. Nie chce mieć dwóch na raz w review (…). A review ostatnio trwa długo.”
+- **Decyzja:** 1.0 ma ok. 30 receptur bazowych (dziś 15, ok. +15). Kandydatów proponuje rola 06 ze źródłem formuły szczebla 1–3, listę zatwierdza właściciel; każda nowa receptura przechodzi przegląd PL/EN i przekład 33 języków przed wejściem. Do ok. 50 w 1.0.1, dalej w aktualizacjach kwartalnych (D-043) w stronę 50–80. Podział `src/recipes/presets.ts` (16 244 B przy limicie 20 480 B) — zadanie roli 08.
+- **Odrzucone:** 1.0 z obecnymi 15 i więcej w 1.0.1; całość 50–80 w 1.0 (opcje przedstawione przez koordynatora ok. 14:57).
+- **Nieprzedstawione właścicielowi przed wyborem (do ewentualnego weta):** „okno kolejki, cel 50 w 1.0” — wariant roli 03 po kontekście terminu; do 1.0 wchodzi każda receptura gotowa (źródło, przegląd, przekład) przed zwolnieniem kolejki, zgłoszenie się nie przesuwa. Wiadomości koordynatora i roli 03 się minęły.
+- **Koszt [OCENA]:** ok. 4 h właściciela przed 1.0 (przegląd ok. 15 min na recepturę); ok. 45 kluczy × 33 języki (koszt przekładu [DO USTALENIA], wydatek za zgodą).
+- **Zależy od:** D-150, D-152 (receptury bazowe w Basic), D-154 (receptura na zakwasie z wersją drożdżową, jeśli 06 da źródło), D-156. **Status:** dzień, do weta.
+
+### [D-161] 2026-11-03 — Komponenty systemu kart w `src/ui/karty/` (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160 (do weta).
+- **Decyzja:** `Karta`, `WierszKarty`, `CzapkaPaska`, `PoleObjawu` i stała progu dużego tekstu leżą w `src/ui/karty/` (jeden plik na komponent, każdy ≪ 20 480 B). Komponenty nie mają własnych tekstów; tytuł, etykiety i znaczniki dostają od ekranu. Czapka nie liczy przewinięcia (ekran podaje `pokazTytul`); wybór obsługi przewijania należy do p2.
+- **Odrzucone:** `src/components/karty/` (obok `PasZakladki`; README nie wskazuje miejsca, polecenie M3 podało `src/ui/` jako pierwsze); jeden plik z czterema komponentami (rozmiar i czytelność).
+- **Skutek:** `src/ui/` nie jest w zakresie macierzy AST (`scripts/test-matrix.mjs`), więc nowe komponenty nie dodają pozycji i `docs/22-macierz-testow.md` nie zmienia się; pilnują ich testy `src/ui/__tests__/karty-p1.test.tsx` i `tokeny-karty-p1.test.ts`.
+- **Status:** dzień, do weta.
+
+### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, stos w jednej kolumnie (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; wykonanie reguły roli 04 D-142 (`docs/design/karty/README.md` §7a, e025fc1, odczytane u źródła po `git pull --rebase`; wiadomość koordynatora tylko wskazała miejsce). Pierwsza wersja p1 (zdanie z polecenia) poprawiona przed push.
+- **Decyzja:** przy `fontScale ≥ 2` (AX3+, ten sam próg co `PasZakladki`, kafle „Dziś”, kalendarz) stos w jednej kolumnie: w `Karta` ikona i znacznik nad tytułem, w `WierszKarty` ikona i szewron nad etykietą, wartość pod etykietą, w `PoleObjawu` pole wyboru nad etykietą; mniejsze wcięcia (karta i wiersz 12 zamiast 16); żaden tekst nie ma limitu linii ani `maxFontSizeMultiplier`. Próg w jednej stałej `PROG_DUZEGO_TEKSTU` (`src/ui/karty/duzy-tekst.ts`). Nie użyto `flexBasis` zależnego od `fontScale`: przy stosie w jednej kolumnie nie ma rzędów do zawijania; do sprawdzenia przy pierwszym ekranie (p2).
+- **Odrzucone:** wartość obok etykiety także przy AX5; `maxFontSizeMultiplier` 1,5 w czapce (sprzeczne z §7a); osobne progi na komponent.
+- **Status:** dzień, do weta.
+
+### [D-163] 2026-11-03 — `kartaLinia` poza tabelą par kontrastu (M3 p1, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08; `[DO USTALENIA]` dla roli 04.
+- **Decyzja:** `kartaLinia` wchodzi do czterech wariantów kolorów (wartości z `docs/design/karty/tokeny-karty.json`), ale nie do `pary` w `docs/design/tokeny.json`: to dekoracyjna obwódka karty, nie para tło/tekst, a tekst i grafika w karcie mają pary na `powierzchnia` (`kontrast-karty.md`, 24 pary, kod 0). Obliczenie `narzedzia/tokeny.mjs` po zmianie: 0 par poniżej progu; `kontrast.md` zmienia tylko datę generacji.
+- **Odrzucone:** wpis `["kartaLinia", "powierzchnia", 3, …]` (jasny: #E2E2DC na #FFFFFF to ok. 1,3:1, para by padła, a to kolor wybrany przez rolę 04 jako dyskretny; ciemny: równy powierzchni, 1:1 z założenia).
+- **Do ustalenia (rola 04):** czy brzeg karty bez obwódki ma spełniać 1.4.11 (kontrast elementów interfejsu). Odczyt roli 08: karta nie jest komponentem sterującym, więc nie; nie sprawdzono w źródle WCAG w tej sesji.
+- **Status:** dzień, do weta.
+
+### [D-164] 2026-11-03 — Regeneracja `docs/design/tokeny.ts` razem z `tokeny.json` (wyjątek od zakazu dotykania `docs/design/`, M3 p1, rola 08)
+- **Rodzaj:** wyjątek nazwany (zasada 7).
+- **Decyzja:** polecenie M3 pozwala w `docs/design/` na `tokeny.json` i `kontrast.md`, ale `narzedzia/tokeny.mjs` zapisuje oba razem z `docs/design/tokeny.ts` (kopią, z której powstaje `src/ui/tokeny.ts`). Plik regenerowany generatorem, bez ręcznych zmian: stary `tokeny.ts` zostałby rozjechany z `tokeny.json`. Zmiana ma tylko `kartaLinia` w czterech wariantach i `karta` w `promienie`.
+- **Odrzucone:** zostawić `docs/design/tokeny.ts` bez zmian (rozjazd źródła i kopii; kolejna regeneracja przez rolę 04 i tak by go zmieniła).
+- **Ryzyko:** rola 04 pracuje równolegle w `docs/design/`; kolizja możliwa tylko w tych trzech plikach, rozwiązanie przez `git pull --rebase` i ponowny `node docs/design/narzedzia/tokeny.mjs`.
+- **Status:** dzień, do weta.
+
+### [D-166] 2026-11-03 — Partia p1 (system kart) łączy się z p2 (Zakwasy): test osiągalności zostaje bez zmian
+- **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; do weta).
+- **Stan:** rola 08 p1 ma 4 commity lokalnie (`bb5246e`, `52ba18b`, `f96cab8`, `b8c7062`); `tests/osiagalnosc-149.test.ts` pada na 5 nowych plikach `src/ui/karty/*`, bo żaden ekran z `app/` ich jeszcze nie importuje (martwy kod, M1-audytor-generalny-149). Rola 08 słusznie wstrzymała push.
+- **Decyzja:** p1 i p2 w jednej partii: ekran Zakwasy przepięty na komponenty kart w tej samej sesji; plik bez miejsca na Zakwasach wpięty w najmniejszy ekran przewidziany w `docs/design/karty/README.md` §4 albo odłożony do partii, która go użyje. Push dopiero przy `npm run verify` z kodem 0. Punkt kontrolny właściciela (zrzuty) po p1+p2.
+- **Odrzucone:** wyjątek w teście osiągalności albo push z czerwonym testem (osłabienie testu, zasada wspólna 11); osobny „ekran demonstracyjny” komponentów (kod bez wartości dla użytkownika).
+- **Zmienia:** D-160 (p1 bez zmian na ekranie).
+- **Status:** dzień, do weta.
+- **Uzupełnienie (2026-11-03, wyjątek nazwany, zasada 7):** rola 08 p1 zakończyła sesję przed p2 (kontekst); 4 commity wypchnięte na osobną gałąź `wip/08-p1p2-2026-11-03` z verify czerwonym tylko przez `osiagalnosc-149` — zamiast zasady „verify przed każdym push”; tańsza kontrola: gałąź `redesign/` bez tych commitów do zielonego verify nowej sesji i koordynatora.
+
+### [D-170] 2026-11-03 — Kopie źródeł paczki M3 poza publicznym repo; w rejestrze nazwa kopii i sha256 (rola 06 build, do weta)
+- **Rodzaj:** merytoryczna/procesowa (rola 06; zasada wspólna 14, zasada roli 8).
+- **Decyzja:** surowe kopie stron i PDF (instrukcje producentów, artykuły, specyfikacje UE) użyte w E1 paczki M3 nie trafiają do repo (publiczne: github.com 200 bez logowania, 2026-11-03); pole `miejsce` w `docs/tresci/rejestr.json` ma nazwę kopii i sha256 (12 znaków), a raporty badania są w `docs/tresci/badanie-2026-11-03/`. Ponowny odczyt: z adresu, porównanie sumy.
+- **Odrzucone:** (a) commit kopii (cudze utwory w całości w publicznym repo); (b) bez śladu kopii (weryfikator E3 nie porówna wersji źródła).
+- **Zależy od:** widoczności repo; prywatne repo treści zmienia decyzję. **Status:** dzień, do weta.
+
+### [D-171] 2026-11-03 — Wyniki E1 roli 06 dla D-151…D-157: rejestr +174 wpisy, sprzeczność przelicznika drożdży, cztery receptury bez wersji drożdżowej, sześć pytań (STOP)
+- **Rodzaj:** merytoryczna (rola 06 build E1; hierarchia D-035).
+- **Ustalenia:** (1) „panettone” bez przełącznika drożdżowego pod tą nazwą: dekret włoski z 22.07.2005 (szczebel 1) wymaga zakwasu, drożdże najwyżej 1% jako dodatek (SLO-PAN-001…003); (2) `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` bez przełącznika do czasu źródła 1–3 (D-154: bez źródła brak przełącznika); (3) zakwas w maszynie bez źródła 1–3 (MAS-ZAK-005), więc według D-156 tryb maszyny przy wersji na zakwasie odsyła do wersji drożdżowej; (4) sprzeczność przelicznika świeże → suche na szczeblu 1 między producentami (0,28…0,417; DRO-INS-007, -008, -014, -015) — RD-19 bez zmian do odpowiedzi na P1.
+- **Otwarte (STOP):** P1…P6 i przegląd człowieka 27 twierdzeń krytycznych: `docs/tresci/e1-m3-2026-11-03.md`, `docs/tresci/przeglad/m3-2026-11-03.md`.
+- **Odrzucone:** wersje drożdżowe z ogólnej reguły przeliczenia (odrzucone w D-137, D-154); dopisanie mięsa do listy blokady opóźnionego startu bez źródła maszyny (MAS-072).
+- **Zależy od:** D-035, D-153…D-157. **Status:** dzień, czeka na odpowiedzi właściciela.
+
+### [D-172] 2026-11-03 — P1: jeden przelicznik świeże → suche (aktywne i instant) × 0,35, środek przedziału producentów; zmienia RD-19
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Wez srodkowa wartosc”.
+- **Decyzja:** msuche = mświeże × 0,35 dla suchych aktywnych i instant; tekst przy przeliczeniu: producent na opakowaniu może podawać inaczej. Rachunek (uproszczenie nazwane): skrajne wartości producentów szczebla 1 z E1: Dr. Oetker 7 g instant = 25 g świeżych → 0,28 (DRO-INS-014); Red Star i Fleischmann’s 0,6 oz świeżych = 1/4 oz suchych → 0,417 (DRO-INS-007, -008); środek (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35. Sprawdzenie: mediana czterech producentów (0,28; Lesaffre PL środek 0,25–0,33 = 0,29; 0,417; 0,417) = 0,35, ten sam wynik. Przykład: 25 g świeżych → 8,75 g (ok. 9 g).
+- **Odrzucone:** × 0,4 bez zmian (rozjazd z polską torebką ok. 40%); dwa przeliczniki 0,4/0,33 (rekomendacja roli 06); × 0,28.
+- **Skutki:** errata RD-19 i VEC-YEAST (rola 01), kod i testy (rola 08, testy przed kodem), wektory (rola 07); interpretacja „środkowej wartości” przez koordynatora do weta.
+- **Zależy od:** D-136, D-171. **Status:** dzień, do weta.
+
+### [D-173] 2026-11-03 — P2: przełącznik drożdżowy w 4 recepturach (orkisz, graham, żytni 100%, tartine); brioszka bez przełącznika w 1.0
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „+ tartine (szczebel 4)”.
+- **Decyzja:** przełącznik „na zakwasie / na drożdżach” (D-154) dostają `spelt_ancient_seeded`, `graham_bread_honey` (szczebel 2), `rye_100_pan` (szczebel 2, warunki laboratoryjne jako uproszczenie po przeglądzie) i `tartine_high_hydration_80` (King Arthur, szczebel 4 z atrybucją, tylko dane receptury, nie bezpieczeństwo — wyjątek nazwany od wymogu 1–3 z D-157). Bez przełącznika: brioszka/panettone, `country_loaf_72`, `pain_de_campagne`, `san_francisco_sourdough`, `borodinsky_rye` (D-171).
+- **Odrzucone:** tylko 1–3 bez tartine (rekomendacja roli 06); tylko orkisz i graham.
+- **Zależy od:** D-154, D-171. **Status:** dzień, do weta.
+
+### [D-174] 2026-11-03 — P3: plan dla drożdży z czasami z receptury, bez przeliczania temperaturą i ilością drożdży (1.0)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Czasy z receptury (Recommended)”.
+- **Decyzja:** plan wersji drożdżowej (D-155) bierze czasy z receptury (przedział) i test palca; bez modelu Q10 dla drożdży (DRO-MOD-008, -012). **Odrzucone:** Q10 ok. 2 z rachunku DRO-MOD-004.
+- **Zależy od:** D-155. **Status:** dzień, do weta.
+
+### [D-175] 2026-11-03 — P4: blokada opóźnionego startu maszyny przy psujących się składnikach, z wyjaśnieniem (krytyczne)
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Blokada z wyjaśnieniem (Recommended)”.
+- **Decyzja:** tryb maszyny nie proponuje opóźnionego startu, gdy receptura ma jajka, mleko (poza w proszku), ser, jogurt albo świeże owoce (część wspólna instrukcji, MAS-072, MAS-009, -023, -035, -044) i mówi dlaczego; bez mięsa (brak źródła maszyny). **Odrzucone:** samo ostrzeżenie.
+- **Uzupełnienie 2026-11-03 (rola 06, weryfikacja E3a, `docs/tresci/weryfikacja/E3a-werdykty.md`; do weta):** lista blokady to suma list instrukcji: jajka, świeże mleko, ser, jogurt, sok, świeże owoce, warzywa (Zojirushi wymienia sok i warzywa, MAS-023); mleko w proszku nie blokuje (MAS-084); mięsa nie ma w żadnej instrukcji. Tryb maszyny ogranicza recepturę także masą ciasta i drożdży, gdy instrukcja je podaje (Tefal: 1000 g ciasta, 620 g mąki, 10 g drożdży instant, MAS-002); sam limit mąki przy tartine 80% i 620 g mąki dawałby ok. 1139 g ciasta. Odrzucone: tylko część wspólna list (jajka, mleko); tylko limit mąki (ryzyko przelania).
+- **Zależy od:** D-153, D-171. **Status:** dzień, do weta.
+
+### [D-176] 2026-11-03 — P5: podpowiedź rodzaju programu maszyny jako reguła aplikacji (uproszczenie), nie fakt
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „Sugestia jako reguła aplikacji” (wbrew rekomendacji roli 06: wybór użytkownika bez podpowiedzi).
+- **Decyzja:** aplikacja podpowiada rodzaj programu (podstawowy, pełnoziarnisty, francuski, słodki, ciasto) z rodzaju receptury; tekst: podpowiedź, sprawdź w instrukcji maszyny. Regułę przypisania proponuje rola 06 w E2 i nazywa ją regułą aplikacji (źródła nie podają progów poza Cuisinart, MAS-080).
+- **Zależy od:** D-153. **Status:** dzień, do weta.
+
+### [D-177] 2026-11-03 — P6 i przegląd: katalog 11 + 3 warunkowo z nazwami opisowymi; 27 twierdzeń krytycznych zaakceptowanych
+- **Rodzaj:** produktowa, odpowiedź właściciela na STOP E1 roli 06 przekazana przez koordynatora M3 (przyciski, 2026-11-03 ok. 15:50 UTC).
+- **Słowa właściciela:** „11 + 3, nazwy opisowe (Recommended)”; „Akceptuję wszystkie 27”.
+- **Decyzja:** (1) do 1.0 wchodzi 11 kandydatów z `docs/tresci/badanie-2026-11-03/D-raport.md`, 3 warunkowe (piadina, Stollen, szybki chleb orkiszowy) po domknięciu luk; nazwy opisowe, nazwa chroniona tylko jako informacja o pochodzeniu. (2) Przegląd twierdzeń (nie zdań) 27 krytycznych: kolumna „Decyzja” w `docs/tresci/przeglad/m3-2026-11-03.md`; 158 wpisów `robocze` → `potwierdzone`. Pole `przeglad` (kto, data, sha) wpisuje rola 06 po przeglądzie zdań z E2 (sha zdań z `--skroty`); do tego czasu kontrola z `--przed-przegladem`.
+- **Odrzucone:** nazwy „w stylu …” (art. 26 rozp. 2024/1143 obejmuje także takie dopiski).
+- **Zależy od:** D-157, D-171. **Status:** dzień, do weta.
+
+### [D-178] 2026-11-03 — Drożdże o nieokreślonym rodzaju w źródłach wersji drożdżowych (orkisz, żyto 100%) liczone jako świeże (rola 06 E2, do weta)
+- **Rodzaj:** merytoryczna (rola 06; hierarchia D-035). Właściciel nieobecny do jutra (D-183), więc według polecenia koordynatora: wybór rekomendowany, „dzień, do weta”.
+- **Problem:** Hohenheim 2023 (DRO-WER-SP-001, -002) i Koistinen i in. 2018 (ZYT-DRO-001) podają 3% albo 1% „yeast” bez rodzaju (sprawdzone w surowym tekście obu artykułów, 2026-11-03). Jako suche dałoby to po przeliczeniu D-172 ok. 8,6% świeżych.
+- **Decyzja:** wartość z artykułu = % drożdży świeżych (uproszczenie nazwane w rejestrze). Uzasadnienie z rejestru: procent świeżych w chlebach bez cukru ze źródeł z podanym rodzajem mieści się w 0,2–3,6% (DRO-WER-GR-001 2% prasowanych, -002 0,2%, ZYT-DRO-005 1% prasowanych, DRO-FOC-002 3,6%); 8,6% wypadałoby poza ten zakres. Kierunek bezpieczny: przy niedoszacowaniu ciasto rośnie wolniej, a plan prowadzi testem palca (D-174, DRO-MOD-013).
+- **Odrzucone:** (a) bez przełącznika dla orkiszu i żyta do czasu źródła z rodzajem drożdży (cofa D-173 w dwóch recepturach); (b) traktowanie jako suche (wynik poza zakresem źródeł z podanym rodzajem).
+- **Zależy od:** D-172, D-173. Wraca do sprawdzenia, gdy źródło poda rodzaj drożdży. **Status:** dzień, do weta.
+
+### [D-179] 2026-11-03 — Reguła podpowiedzi programu maszyny (D-176): pięć rodzajów w stałej kolejności, progi z instrukcji Cuisinart CBK-110 jako reguła aplikacji
+- **Rodzaj:** produktowa z podstawą merytoryczną (rola 06 E2, wykonanie D-176; właściciel nieobecny, D-183), „dzień, do weta”.
+- **Decyzja (reguła Piekarza, nie fakt):** pierwsza pasująca: (1) **ciasto** — receptura kształtowana i pieczona poza formą maszyny (pizza, focaccia, bagietka, ciabatta, bułki, obwarzanek, kołocz, chałka, pierożki, placki); podstawa: Tefal program 11 „Leavened doughs” (MAS-006), Cuisinart Artisan Dough (MAS-046), Kenwood 9 (MAS-051); (2) **słodki** — kategoria `sweet`; podstawa: Cuisinart Sweet „high amounts of sugar, fats and proteins” (MAS-083), Tefal 7 (MAS-006); (3) **pełnoziarnisty** — mąki pełnoziarniste i żytnie razem 50% lub więcej mąki; próg z Cuisinart (MAS-042), opis Tefal (MAS-018); (4) **francuski** — bez cukru i tłuszczu w recepturze; podstawa: Cuisinart French (MAS-082); (5) **podstawowy** — pozostałe; podstawa: Cuisinart White (MAS-081). Tekst przy podpowiedzi: podpowiedź Piekarza, sprawdź w instrukcji swojej maszyny.
+- **Odrzucone:** wybór bez podpowiedzi (rekomendacja roli 06, odrzucona w D-176); progi cukru i tłuszczu w liczbach (brak źródła, MAS-080); osobny program żytni (nie ma go w pięciu rodzajach z D-176; Tefal ma program 10, MAS-018).
+- **Zależy od:** D-176, D-153. **Status:** dzień, do weta. Pula D-172…D-179 wyczerpana.
+
+### [D-180] 2026-11-03 — Wybór zakwasu jako chipy na pasie z miejscem i czasem; „Edytuj” na pasie; profil w karcie z wierszami (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160/D-166 (właściciel nieobecny, D-183: opcja rekomendowana).
+- **Decyzja:** `StartersSelectorRow` rysuje chipy zawijane (bez przewijania w poziomie) w dwóch wariantach: na pasie (z zakwasem, kolory jak `FiltryNaPasie`) i na tle (bez zakwasu: sam „Dodaj nowy zakwas” pod kartą „Zakładam zakwas”, makieta stan „pusty”). Chip zachowuje miejsce i czas od dokarmienia (BR-ZAKW-001, test `zakwasy-lista-130`), choć makieta pokazuje same nazwy. „Edytuj” profilu przechodzi do akcji pasa (makieta, stan „z zakwasem”); profil to `Karta` „Profil zakwasu” z `WierszKarty` (mąka i hydratacja, wiek, ostatnie dokarmienie, miejsce). Zdanie pustego stanu na pasie (podtytuł). Czapka paska stanu z małym tytułem po przewinięciu pasa.
+- **Odrzucone:** chipy z samą nazwą (usuwa informację z BR-ZAKW-001 i łamie test 130); `FiltryNaPasie` z `PasZakladki` (tylko jedna etykieta, bez oznaczenia Pro przy „Dodaj”, przy dużym tekście przenosi chipy pod pas).
+- **Do przeglądu roli 04:** chip na pasie z dwiema liniami pod nazwą (wyższy niż 44 pt).
+- **Status:** dzień, do weta.
+
+### [D-181] 2026-11-03 — Nagłówki kart Zakwasów i Doktora zakwasu z istniejących kluczy; ikony kart; „Zapisz dokarmienie” i „Podwoił objętość” bez przenosin (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wątpliwości układu nazwane, nie zaprojektowane (polecenie p2).
+- **Decyzja:** nagłówki tylko z istniejących kluczy: karta akcji cyklu „Cykl dokarmiania”, „Profil zakwasu”, „Ostatnie wpisy”, „Dzień {n}” (zakładanie), „Co widzisz?” (Doktor zakwasu), karta wyniku Doktora = nazwa wybranego objawu (`first_day` → „Nic się nie dzieje”). Ikony (`src/ui/karty/IkonaKarty.tsx`, kształty z `karty.js`): zakładanie i cykl `sloik`, profil `info`, szczyt `zegar`, stały dzień `kalendarz`, ilości `waga`, blokada proporcji `proporcje`, wpisy `lista`, bezpieczeństwo `tarcza`. „Zapisz dokarmienie” i „Podwoił objętość” zostają w karcie cyklu (Basic), choć makieta kładzie je w „Ilościach do dokarmienia” i „Szczycie aktywności”: obie karty są w Pro (D-113), przeniesienie zabrałoby zapis dokarmienia w Basic.
+- **Odrzucone:** nowe nagłówki (tekst poza §6 README, wymaga roli 04/09); przeniesienie przycisków jak w makiecie (zmiana zachowania Basic/Pro).
+- **Do przeglądu roli 04:** dobór ikon i nagłówków; karta wyniku Doktora zakwasu (README §4: „do makiety w partii, jeśli 08 zgłosi wątpliwość”).
+- **Status:** dzień, do weta.
+
+### [D-182] 2026-11-03 — Zakres p2: Doktor zakwasu tak, Doktor Chleba nie; blokady Pro jako karty; `WierszObjawu` usunięty; narzędzia bez karty (M3 p2, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** p2 obejmuje Doktora zakwasu `app/(tabs)/zakwasy/doktor-zakwasu.tsx` (wiersze `PoleObjawu`, sekcje w kartach). Polecenie p2 nazwało „Doktorem zakwasu” plik `app/doktor.tsx`, który jest Doktorem Chleba (4 sekcje, ok. 36 KB): zostaje do partii z Doktorem Chleba. `BlokadaFunkcji` dostaje opcjonalne `ikonaKarty`: na Zakwasach blokady gotowości, stałego dnia i proporcji to karta z nazwą funkcji w nagłówku i „Pro” jako znacznikiem, bez zdania opisu z makiety (test 108: w przycisku tylko nazwa i „Pro”). `WierszObjawu` usunięty: jedyną kontrolką objawu jest `PoleObjawu` (README §2; zaznaczony objaw groźny nie ma już czerwonej obwódki — wynik pokazuje pole ostrzeżenia). `NarzedziaZakwasu` bez karty: oba wejścia ukryte w 1.0 (D-043, `wejscia-pozniej`).
+- **Odrzucone:** przepięcie Doktora Chleba w p2 (zakres i rozmiar partii); blokada jako wiersz na tle (sprzeczne z README §1); zostawienie dwóch kontrolek objawu.
+
+### [D-183] 2026-11-03 — Praca koordynatora pod nieobecność właściciela (24 h): punkt kontrolny po p2 przesunięty, partie p3–p5 idą dalej
+- **Rodzaj:** decyzja koordynatora M3 (zasady właściciela z 2026-11-02; analogia: repo trening, `docs/18-archiwum-do-11.10.md`, 08.10.2026 — „agent decyduje sam: zawsze opcja rekomendowana”, chyba że lepsza była odradzana tylko z powodu nakładu pracy).
+- **Polecenie właściciela (2026-11-03 ok. 15:55 UTC):** „musze wyjsc z domu. PRacuj dalej sam, przy decyzjach - znasz zasady gdy mnie nie ma. Zaplanuj zadania na kolejne 24h i wykonuj.”
+- **Decyzja:** (1) punkt kontrolny po p2 (D-160) nie zatrzymuje pracy: zrzuty i opis Zakwasów czekają na właściciela, a p3 Receptury, p4 Plan/Prowadzenie, p5 Dziennik/Ustawienia/Pro idą po kolei na gałęziach `wip/08-p<N>-…`, scalane do `redesign/` dopiero po verify kod 0 u koordynatora; (2) rola 06 E2–E3 i scalenie `tresci/` po E3; (3) po decyzjach roli 06: rola 01 (ER-75…ER-77 i zmiana RD-19 z P1), potem p6+ (D-136…D-138); (4) bez zgody właściciela: scalenie do `master`, build/TestFlight, App Store Connect, usuwanie gałęzi, wydatki (przekład płatny).
+- **Odrzucone:** czekać z p3 na punkt kontrolny (doba bez postępu; zmiany na gałęzi `redesign/` są odwracalne, a weto po zrzutach cofa najwyżej partie); robić p3–p5 jedną sesją (bez kontroli po partii, D-160).
+- **Ryzyko:** weto wyglądu po zrzutach p2 może wymagać poprawek w p3–p5 (wszystkie używają tych samych komponentów kart — poprawka w jednym miejscu).
+- **Status:** dzień, do weta.
+
+### [D-184] 2026-11-03 — Lista receptur O2b: nagłówek grupy jako `NaglowekKarty` nad kartami, receptura jako karta-przycisk z ikoną rodzaju (M3 p3, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160 (właściciel nieobecny, D-183: opcja rekomendowana).
+- **Decyzja:** (1) `src/ui/karty/Karta.tsx` eksportuje `NaglowekKarty` (ten sam nagłówek co w `Karta`: ikona 24, tytuł 20 pt 700, stos przy dużym tekście) i `wygladKarty` (tło, obwódka `kartaLinia`, promień `karta`); `Karta` używa obu, bez zmiany wyglądu p1/p2. (2) Na liście nagłówki grup „Moje receptury” (`gwiazda`) i „Receptury bazowe” (`receptury`) to `NaglowekKarty` na tle nad kartami (README §4 O2b), każda receptura to przycisk z `wygladKarty`, ikoną rodzaju 28 pt, nazwą, podpisem i szewronem „›” (tekst bez zmian, test 106). Ikony rodzaju: na zakwasie `bochenek`, żytnie `sloik`, drożdżowe `miska`, pizza `pizza`, słodkie `miska` (makieta nie ma ikony słodkich), moje `bochenek`. Pusty filtr: `Karta` „Receptury bazowe” z tekstem i „Pokaż wszystkie”. Usuwanie własnej („✕”) zostaje obok karty. (3) `IkonaKarty` dostaje 6 kształtów z `karty.js` (bochenek, miska, pizza, ksiazka, receptury, gwiazda).
+- **Odrzucone:** `Karta` z tytułem = nazwa receptury (każda receptura byłaby nagłówkiem VoiceOver, a przycisk zawierałby nagłówek); kopia stylu karty w `ListaReceptur` (dwa źródła wyglądu, README §3 „jeden komponent na wzór”); makieta `#lista` z kartą na grupę (to O2a, właściciel wybrał O2b w D-141).
+- **Do przeglądu roli 04:** nagłówek grupy na tle (wyjątek od §1 zapisany w §4 O2b); ikona słodkich; „✕” obok karty własnej receptury.
+- **Status:** dzień, do weta.
+
+### [D-185] 2026-11-03 — Teksty p3 bez nowych kluczy: karta trybu „Masa ciasta” zamiast „Ile pieczesz”; „Do miski (odhaczaj przy ważeniu)” zostaje nagłówkiem; podtytuł pasa odłożony (M3 p3, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wykonanie polecenia p3 („teksty tylko z istniejących kluczy; nowy tekst z README §6 → PL+EN, reszta języków dla roli 09”).
+- **Stan:** nowy klucz „Ile pieczesz” (PL+EN, wpis w `docs/lokalizacja/czeka-na-przeklad.json`) dał czerwony istniejący test `tests/czeka-na-przeklad-093.test.ts:57` (lista czekających ma być pusta poza wyjątkami D-126 i D-132; każdy nowy wyjątek to zmiana testu). Zmiana istniejącego testu to w poleceniu warunek STOP.
+- **Decyzja:** (1) nagłówek karty trybu z istniejącego klucza „Masa ciasta” (33 języki mają przekład); „Ile pieczesz” przechodzi na listę tekstów README §6 dla roli 09 po p5 (D-160), razem z wyjątkiem w teście 093 albo z przekładem 33 języków. (2) Karta „Do miski” bez zaczynu ma nagłówek z istniejącego klucza „Do miski (odhaczaj przy ważeniu)”; rozbicie na „Do miski” + podpis „Odhaczaj przy ważeniu.” wymaga nowego klucza i zmiany testów (`src/__tests__/calculator-screen.test.tsx:180`, `tests/matrix-ui-text.test.tsx:516`) — do roli 09. Z zaczynem nagłówki „Zaczyn: {rodzaj}” i „Do miski” jak dotąd. (3) Podtytuł pasa „Receptura bazowa, na zakwasie” / „Moja receptura, …” (README §6) nie wdrożony: nowa rodzina tekstów z formami rodzaju, brzmienie do ustalenia przez rolę 04/09.
+- **Odrzucone:** „Ile pieczesz” z wyjątkiem w teście 093 (zmiana istniejącego testu → STOP, a właściciel nieobecny); przekład 33 języków przez rolę 08 (praca roli 09, polecenie p3); „Bochenki” / „Masa mąki” zależnie od trybu (powtórzenie etykiety pierwszego wiersza); sklejanie podtytułu z „Receptura bazowa” + `opisReceptury` (sklejanie napisów, zasada programisty 8).
+- **Do przeglądu roli 04:** „Masa ciasta” nad wierszami „Bochenki” i „Masa bochenka” (albo „Masa mąki”).
+- **Status:** dzień, do weta.
+
+### [D-186] 2026-11-03 — Arkusz „Składniki” i receptura na kartach: „Pro” zostaje w wierszu „Rodzaj”, ikony sekcji, duży tekst przez flexBasis (M3 p3, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** (1) arkusz: karty „Ilości liczę od” (`waga`), „Mąki (razem 100%)” (`bochenek`), „Proporcje (procent mąki)” (`proporcje`), „Drożdże do odważenia” (`miska`), „Zaczyn” (`sloik`); informacje pod listami (suma mąk, odczucie ciasta, żyto, trudność hydratacji, sól, wskazówka zaczynu) w tej samej karcie; pasek arkusza („Składniki”, „Gotowe”), `pageSheet` i zachowanie bez zmian. Oznaczenie „Pro” zostaje w wierszu „Rodzaj” (P-b, D-117), nie w nagłówku karty jak w makiecie `#skladniki` (dwa oznaczenia przy jednej funkcji albo zmiana testów P-b). (2) Receptura: „Ile pieczesz” (`bochenek`), „Do miski” (`miska`; z zaczynem „Zaczyn: …” `sloik` + „Do miski” `miska`), hydratacja, udział żyta i „Razem” w karcie „Do miski”, „O recepturze” (`ksiazka`). (3) §7a/D-142: segmenty arkusza `flexBasis` 120 → '100%' przy `fontScale ≥ 2`; wiersz wagi `flexWrap: 'wrap'`, nazwa na całą szerokość, masa pod nią; karta-receptura na liście: opis na całą szerokość; bez `maxFontSizeMultiplier` w kartach.
+- **Odrzucone:** „Pro” w nagłówku karty i w wierszu naraz; przeniesienie „Pro” tylko do nagłówka (zmiana P-b bez roli 04).
+- **Do przeglądu roli 04:** ikony sekcji arkusza; pole odhaczania 28×28 z promieniem 8 (README §2 podaje 6 dla `PoleObjawu`; „Do miski” nie używa `PoleObjawu`, bo to wiersz wagi z masą).
+- **Status:** dzień, do weta.
+
+### [D-187] 2026-11-03 — Nowe BR paczki M3 (ER-75…ER-78) bez kodu: pełne wyjątki w `scripts/br-wyjatki.json`, ID w kolumnie „Wymagania” kontraktu dopiero z testem (rola 01 fix, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** `tests/br-bez-testu.test.ts` (`scripts/br-bez-testu.mjs`) wymaga dla każdego BR z kryteriami testu z ID w nazwie albo pełnego wyjątku, a pełny wyjątek jest błędem dla BR wpisanego w kolumnę „Wymagania” wiersza MVP `docs/scope-contract.md`. Nowe BR z ER-75…ER-77 opisują funkcje bez kodu (D-136, D-154, D-153…D-156); testów rola 01 nie pisze (zakres trybu fix), a test z ID byłby dziś czerwony.
+- **Decyzja:** (1) nowe BR dostają pełny wyjątek z powodem „funkcja w zakresie 1.0 bez kodu; test z ID powstaje razem z kodem (rola 07/08), wtedy wpis usunąć” — precedens BR-KAL-012 (ER-62); scenariusze zmienione w BR z testem, których kod jeszcze nie spełnia, dostają wpis „czesciowe”. (2) ID nowych BR stoją w kontrakcie zakresu w kolumnie uwag wierszy F-55, F-26 i F-72, a do kolumny „Wymagania” przenosi je rola 07/08 w zmianie, która dodaje test. (3) Edycja pliku danych `scripts/br-wyjatki.json` przez rolę 01 to wyjątek nazwany od granicy „tylko dokumenty” z polecenia koordynatora (zasada wspólna 7); kodu i testów rola 01 nie zmienia.
+- **Odrzucone:** (a) ID nowych BR od razu w kolumnie „Wymagania” F-72 — `npm run verify` kod 1 (pełny wyjątek dla BR z MVP), więc bez push; (b) nowe scenariusze dopisane do istniejących BR z testem bez wpisu „czesciowe” — bramka zielona, ale ukrywa scenariusze bez kodu; (c) testy z ID pisane przez rolę 01 — poza zakresem trybu fix i czerwone na obecnym kodzie.
+- **Skutek:** `zakres.mjs` może dalej zgłaszać F-72 jako „MVP bez BR”, jeśli czyta tylko kolumnę „Wymagania” (skryptu nie sprawdzono: repo `prompts` niedostępne w tej sesji); znika to, gdy rola 07/08 przeniesie ID z testem.
+- **Zależy od:** D-150, D-151, D-183; ER-75…ER-78. **Status:** dzień, do weta.
+
+### [D-188] 2026-11-03 — Stała liczby BR w `tests/br-bez-testu.test.ts` podnoszona razem z nowym BR przez rolę 01 (fix ER-75…ER-78, do weta)
+- **Rodzaj:** procesowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** test „skrypt widzi 75 BR z kryteriami” (`tests/br-bez-testu.test.ts:47`) przypina liczbę BR w `docs/brd/` na sztywno; każde nowe BR z erraty daje `npm run verify` kod 1, a push wymaga kodu 0.
+- **Decyzja:** rola 01 podnosi stałą w tym samym commicie, który dodaje BR (75 → liczba z `scripts/br-bez-testu.mjs --json`, równa liczbie BR z kontroli BRD); asercji ani logiki testu nie zmienia. Wyjątek nazwany od granicy „bez testów” z polecenia koordynatora (zasada wspólna 7). Polecenie dla roli 07: zamienić stałą na liczbę wyliczoną niezależnie od skryptu (np. nagłówki `### BR-` z „Kryteria akceptacji” w `docs/brd/*.md`), żeby errata BRD nie wymagała zmiany testu.
+- **Odrzucone:** (a) bez push do czasu zmiany testu przez rolę 07 (paczka M3 czeka, D-183 każe iść dalej); (b) nowe scenariusze wyłącznie w istniejących BR, bez nowych ID (F-72 nie ma żadnego BR, którego dotyczyłby tryb maszyny).
+- **Zależy od:** D-187, D-183. **Status:** dzień, do weta.
+
+### [D-189] 2026-11-03 — Godzina gotowości w trybie maszyny (F-72, Pro) z czasu programu wpisanego przez użytkownika z instrukcji jego maszyny (rola 01 fix, ER-77, do weta)
+- **Rodzaj:** produktowa (rola 01 fix; właściciel nieobecny, D-183: opcja rekomendowana).
+- **Problem:** D-138 i D-152 wymagają godziny gotowości (w Pro), a do jej policzenia potrzebny jest czas programu. Źródła roli 06 go nie podają: tabela cykli Tefal PF220838 nie jest w PDF producenta (rejestr MAS-015, otwarte), a tryb jest uniwersalny, bez profili maszyn (D-153).
+- **Decyzja:** (a) użytkownik wpisuje czas wybranego programu z instrukcji swojej maszyny (jak granice mąki, ciasta i drożdży, `machine.capacity`); aplikacja liczy godzinę startu = godzina gotowości − czas programu i pokazuje czas od teraz do gotowości. Sposób wpisania opóźnienia w maszynie (do końca programu czy do startu) zostaje otwarty: OP-65.
+- **Odrzucone:** (b) domyślne czasy programów z jednej instrukcji — brak źródła (MAS-015) i sprzeczne z D-153; (c) bez godziny gotowości w 1.0 — przeczy D-138 i D-152 (godzina gotowości jako część Pro).
+- **Koszt [OCENA]:** jedno pole więcej w danych maszyny (rola 04); 1–2 klucze × 33 języki (rola 09).
+- **Zależy od:** D-138, D-152, D-153, D-183; MAS-015. Wraca do sprawdzenia, gdy rola 06 znajdzie czasy programów ze źródła 1–3. **Status:** dzień, do weta.
+
+### [D-190] 2026-11-03 — Odpowiedzi właściciela po powrocie: przegląd 38 zdań krytycznych, brak weta D-172…D-183, build TestFlight dopiero po p5
+- **Rodzaj:** produktowa i przegląd człowieka (moduł tresci-krytyczne), decyzje właściciela przekazane przez koordynatora M3 (czat i przyciski, 2026-11-03 ok. 17:15 UTC).
+- **Słowa właściciela:** „1. Zdania krytyczne. Approved. 2. Ok 3. Ok”; na pytanie o build: „Poczekaj do p5”.
+- **Decyzja:** (1) 38 zdań PL/EN z `docs/tresci/przeglad/m3-zdania-2026-11-03.md` zaakceptowane: pole `przeglad` (kto, data, sha bieżącej wersji zdań) przy 24 twierdzeniach w `docs/tresci/rejestr.json`; `node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en` bez flagi: kod 0. Wpis wykonał koordynator, bo sesja roli 06 jest zarchiwizowana (wyjątek nazwany, zasada 7: mechaniczne przeniesienie decyzji; skróty z `--skroty` porównane z tabelą przeglądu, 24/24 zgodne). (2) Zrzuty Zakwasów przez TestFlight — zgoda („Ok”), ale build wymaga commitu z `master` (BR-REL-005, `testflight.yml`), więc wybór „Poczekaj do p5”: jeden build po p5, po zielonym iOS E2E i za osobną zgodą na scalenie do `master`. (3) Brak weta D-172…D-183.
+- **Odrzucone:** scalenie do `master` teraz i build z połową redesignu; same makiety bez buildu.
+- **Ryzyko:** weto wyglądu Zakwasów po buildzie dotknie p3–p5 (wspólne komponenty kart, poprawka w jednym miejscu).
+- **Status:** właściciel, 2026-11-03.
+
+
+### [D-191] 2026-11-03 — Pas marki (O3a) na planie i prowadzeniu wstrzymany: wymaga zmiany istniejących testów nagłówka (M3 p4, rola 08, STOP)
+- **Rodzaj:** decyzja techniczna roli 08 w ramach D-160; STOP z polecenia p4 („potrzeba zmiany istniejącego testu”).
+- **Stan:** pas jak na zakładkach (`PasZakladki`, nagłówek stosu ukryty, jasny pasek stanu) na `harmonogram.tsx` i `stolnica.tsx` łamie testy, które przypinają natywny nagłówek: `tests/nawigacja-d051.test.tsx:96-98` (plan: `title` „Plan wypieku”, `headerShown` różne od false), `:117-120` (Stolnica: `headerShown: true`, `title` „Stolnica”, `headerRight` z „Doktor”), `tests/stolnica-naglowek-prz07.test.tsx` (tytuł „Stolnica” / pusty przy ≤ 336 pt). Jasny pasek stanu przez `usePasekStanuJasny` (`useFocusEffect`) wywraca 16 plików testów, które mockują `expo-router` bez `useFocusEffect` (zmiana samych mocków).
+- **Opcje:** (a) pas jak w p3 (receptura): `headerShown: false`, `PasZakladki` z „wstecz” i akcjami („Doktor”, „Plan wypieku”) na pasie, krok, czas i „potem …” na pasie, `usePasekStanuJasny`; zmiana dwóch testów nagłówka (nowa asercja: pas zamiast natywnego nagłówka, D-141 O3a zmienia D-051 i PRZ-07) i dopisanie `useFocusEffect` do 16 mocków — **rekomendacja** (jeden język pasa na ścieżce wypieku, wzorzec już w p3); (b) natywny pasek nawigacji w kolorze `pas` + treść pasa pod nim i `StatusBar` z RN — bez zmiany testów, ale jasny pasek stanu zostaje nad Doktorem Chleba (jasny pasek nawigacji do p5), tytuł „Stolnica” zostaje, a pas ma dwie części (pasek i treść) — odrzucona jako rekomendacja.
+- **Wykonane w p4 bez pasa:** karty treści planu i prowadzenia (D-192), §7a (D-193). Tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” zostają nad kartami jako przyszła treść pasa.
+- **Status:** czeka na decyzję koordynatora (STOP), do weta właściciela.
+
+### [D-192] 2026-11-03 — Karty planu i prowadzenia z istniejących kluczy: „Krok {n} z {m}” zamiast „Co zrobić”; ostrzeżenie pod kartą instrukcji (M3 p4, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana); wykonanie polecenia p4 i D-185 (nowy klucz łamie `tests/czeka-na-przeklad-093.test.ts`).
+- **Decyzja:** plan: „Kiedy chleb ma być gotowy?” (`zegar`; pole, dni, ±2 h, zmiana czasu, „za późno”), „Temperatura w kuchni: {wartość}” (`termometr`; nagłówek z wartością jak dotąd w linii), sen — „Ochrona snu aktywna” (`ptaszek`), przy kolizji tytuł kolizji jako nagłówek (`zegar`), przy „Bez godzin snu” „Godziny snu” (`zegar`); „Oś czasu przygotowania” (`lista`) ze Spiralą i opisem nad krokami; „Ustawienia” (`zebatka`): godziny snu, lodówka, „Kopiuj jako tekst”, „Dodaj do kalendarza”; notatka „Piecz ponownie” i zmiana receptury bazowej w karcie „Receptura” (`info`, `NotatkiPlanu.tsx`). Prowadzenie: karta instrukcji „Krok {n} z {m}” (`ksiazka`; przeniesione ze strefy planu) z treścią kroku i „Ekran nie zgaśnie…”; `Ostrzezenie` bez zmian treści i zachowania pod kartą (makieta), wcześniej nad zdaniem o ekranie; „Składniki do odważenia” (`waga`) jako karta; kolizja nocy w prowadzeniu tą samą kartą snu. Panel garnka (`DutchOvenController`, własna obwódka) i test palca (ukryty w 1.0) poza kartą.
+- **Odrzucone:** klucz „Co zrobić” (README §6) teraz — zmiana testu 093 albo przekład 33 języków (rola 09); nazwa kroku jako nagłówek karty (powtórzenie tytułu kroku tuż nad kartą); panel garnka w karcie instrukcji (karta w karcie).
+- **Dla roli 09 (po p5, D-160):** „Co zrobić” (nagłówek karty instrukcji, README §6); wtedy „Krok {n} z {m}” wraca na pas (D-191).
+- **Do przeglądu roli 04:** ikony kart planu i prowadzenia; „Ustawienia” jako nagłówek karty ustawień planu; panel garnka poza kartą.
+- **Status:** dzień, do weta.
+
+### [D-193] 2026-11-03 — Duży tekst w planie i prowadzeniu (§7a, D-142): flexBasis od fontScale; limit cyfr czasu na tokenie AX5 zostaje (M3 p4, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
+- **Decyzja:** przy `fontScale ≥ 2` pole godziny „gotowe” ma `flexBasis: '100%'` (zamiast 140; ±30 min pod nim), a nazwa składnika w karcie składników `flexBasis: '100%'` (masa pod nią); rzędy chipów i oś czasu już zawijają się albo przechodzą w kolumnę. W kartach żaden tekst nie ma `maxFontSizeMultiplier`, poza cyframi czasu w polu „gotowe” (`typografia.style.czas.ax5 / pt`): to sufit na tokenie AX5, nie ograniczenie poniżej AX5, które odrzuca D-142. Ikony `termometr`, `ptaszek`, `zebatka` z `docs/design/karty/karty.js` w `IkonaKarty`. Strukturalnie przed zmianą: odczyt zakwasu planu w `src/hooks/useZakwasPlanu.ts` (limit 20 480 B).
+- **Odrzucone:** zdjęcie limitu z cyfr czasu (cyfry 56 pt × 3,1 przy 320 pt nie mieszczą się w polu; test `czas-ax5-201`).
+- **Status:** dzień, do weta.
+
+### [D-194] 2026-11-03 — Pas O3a na Planie i Prowadzeniu: zmiana dwóch istniejących testów nagłówka dozwolona (odpowiedź na STOP D-191)
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 18:15 UTC). **Słowa właściciela:** „(a) Pas jak w p3 (Recommended)”.
+- **Decyzja:** Plan (`harmonogram.tsx`) i Prowadzenie (`stolnica.tsx`) dostają pas jak Receptury w p3 (O3a, D-141), z ukrytym nagłówkiem stosu. Dozwolona zmiana `tests/nawigacja-d051.test.tsx` (asercje nagłówka systemowego) i `tests/stolnica-naglowek-prz07.test.tsx` (tytuł „Stolnica”) oraz dopisanie `useFocusEffect` do atrap `expo-router` w testach. Warunki (zasada 11): zmieniony test sprawdza nowy pas i jest czerwony na kodzie sprzed zmiany z właściwego powodu; powrót, tytuł ekranu dla VoiceOver i nawigacja nadal mają asercje; żadna asercja bez zastępstwa. Wykonanie: sesja roli 08 p4b (pula D-195…D-196).
+- **Odrzucone:** (b) natywny pasek w kolorze pasa bez zmian testów — odstępstwo od O3a, niespójne z „Dziś” i Recepturami.
+- **Status:** właściciel, 2026-11-03.
+
+### [D-195] 2026-11-03 — Pas O3a na Prowadzeniu: krok, czas i Spirala na pasie; powrót samą ikoną z etykietą „Zamknij” (M3 p4b, rola 08)
+- **Rodzaj:** decyzja techniczna roli 08 w wykonaniu D-194 (polecenie p4b: odstępstwo → opcja rekomendowana).
+- **Decyzja:** `app/stolnica.tsx` bez nagłówka stosu (`headerShown: false`, tytuł trasy „Stolnica” stały, bez `headerRight` i bez pustego tytułu ≤ 336 pt z PRZ-07). `ProwadzenieWypieku` rysuje `PasZakladki`: po lewej powrót (`router.back()`), po prawej „Doktor” i w trwającym wypieku „Plan wypieku” (`PrzyciskiProwadzenia naPasie`, rząd zawijany); tytuł pasa = nazwa bieżącego kroku (`step-title`, nagłówek VoiceOver; bez trwającego wypieku „Stolnica”); na pasie czas kroku i „potem …” (`CzasKrokuNaPasie`), nazwa receptury, Spirala z legendą w kolorach pasa i „Gotowe …” (`StrefaPlanu naPasie`). Pod pasem bez zmian kolejności: przełącznik dwóch wypieków, baner powiadomień, karta „Krok {n} z {m}”, `Ostrzezenie` (treść i zachowanie bez zmian), test palca, garnek, kolizja nocy, składniki. Jasny pasek stanu przez `usePasekStanuJasny`. `StrefaKroku` bez `naglowekNaPasie` rysuje tytuł i czas jak dotąd (test 158).
+- **Powrót samą ikoną (makieta `wypiek.html#prowadzenie`), etykieta VoiceOver „Zamknij”:** poprzedni ekran bywa różny („Dziś”, plan, Doktor), a klucza „Wstecz” nie ma (nowy klucz łamie `tests/czeka-na-przeklad-093.test.ts`, D-185). Odrzucone: „Dziś” (błędne po wejściu z planu albo Doktora), tytuł poprzedniej trasy z `useNavigation` (zmiana atrap `expo-router` poza D-194). **Dla roli 09:** klucz „Wstecz” zamiast „Zamknij”.
+- **Do przeglądu roli 04:** kolejność na pasie (tytuł kroku, czas, „potem …”, nazwa receptury, Spirala, „Gotowe …”) różni się od makiety (nazwa receptury i „krok n z N” nad tytułem: `PasZakladki` nie ma miejsca nad tytułem; „Krok {n} z {m}” zostaje nagłówkiem karty, D-192); tytuł pasa najwyżej 1,5× (reguła pasa 04-003), wcześniej tytuł kroku bez limitu; Spirala na pasie (makieta prowadzenia jej nie ma, polecenie p4b i D-191 ją przenoszą).
+- **Status:** dzień, do weta.
+
+### [D-196] 2026-11-03 — Pas O3a na Planie wstrzymany: wymaga zmiany dwóch testów spoza D-194 (M3 p4b, rola 08, STOP)
+- **Rodzaj:** STOP z polecenia p4b („inny test do zmiany → STOP”).
+- **Stan:** pas planu jest gotowy w `docs/stan-08-p4b-plan-pas.patch` (harmonogram.tsx 20 068 B z pasem: powrót „Receptura”, tytuł „Plan wypieku”, nazwa receptury; `_layout.tsx` `headerShown: false`; `useFocusEffect` w 16 atrapach `expo-router`; asercja planu w `tests/nawigacja-d051.test.tsx`; przypadek planu w `src/__tests__/pas-plan-prowadzenie-p4b.test.tsx`). Z nim pełny zestaw: 2 asercje czerwone, obie spoza listy D-194: `src/__tests__/pas-zakladek-d10.test.tsx:135` (`harmonogram` `headerShown` różne od false: przypina nagłówek systemowy planu) i `src/__tests__/plan-prowadzenie-karty-p4.test.tsx:160` (tytuł pasa „Plan wypieku” liczony jako goły nagłówek na tle). Dwa dalsze czerwone w tym pliku to skutek :160 (drzewo planu nie odmontowane; uruchomione osobno zielone).
+- **Opcje:** (a) zgoda na zmianę obu testów: d10:135 → `toBe(false)` (jak lista i receptura), p4:160 → nagłówki poza pasem (`pas-zakladki`) muszą być nagłówkami kart, plus asercja, że tytuł pasa to „Plan wypieku” — **rekomendacja** (oba testy pisano przed D-194; sprawdzają to samo co dotąd poza pasem); (b) plan bez pasa do p5 (Doktor też z nagłówkiem systemowym) — niespójna ścieżka wypieku: receptura i prowadzenie z pasem, plan między nimi z paskiem systemowym.
+- **Status:** czeka na decyzję koordynatora (STOP), do weta właściciela.
+- **Uzupełnienie (2026-11-03, wiadomość koordynatora):** D-197 (koordynator) dopuszcza zmianę `plan-prowadzenie-karty-p4.test.tsx` (jeden nagłówek ekranu na pasie, nagłówki treści pod pasem nadal w kartach). Wiadomość przyszła po rozdzieleniu pracy; do decyzji zostaje tylko `src/__tests__/pas-zakladek-d10.test.tsx:135` (poza D-194 i D-197). Po zgodzie: `git apply docs/stan-08-p4b-plan-pas.patch` + zmiana obu testów.
+
+### [D-197] 2026-11-03 — Zakres D-194 rozszerzony: test kart planu z p4 dopuszcza nagłówek pasa; Doktor Chleba i Doktor zakwasu z pasem O3a w p5
+- **Rodzaj:** produktowa, decyzja koordynatora M3 pod nieobecność właściciela (D-183), analogia do odpowiedzi właściciela na STOP D-191 („(a) Pas jak w p3 (Recommended)”, D-194) i do wyboru O3a dla ekranów w stosie „plan, prowadzenie, Doktor” (D-141).
+- **Decyzja:** (1) p4b: `src/__tests__/plan-prowadzenie-karty-p4.test.tsx` (napisany w p4 przy założeniu „bez pasa”, D-191) wolno zmienić tak, by dopuszczał dokładnie jeden nagłówek ekranu na pasie poza kartami; nagłówki treści pod pasem nadal muszą być nagłówkami kart. (2) p5: Doktor Chleba (`app/doktor.tsx`) i Doktor zakwasu dostają pas O3a z ukrytym nagłówkiem stosu; dozwolona zmiana asercji `headerShown: true` Doktora Chleba w `tests/nawigacja-d051.test.tsx` i atrap `expo-router` (`useFocusEffect`). Warunki jak D-194: zmieniony test sprawdza nowy pas i jest czerwony na kodzie sprzed zmiany z właściwego powodu (albo kontrola negatywna pokazuje, że nadal łapie nagłówek treści poza kartą); powrót, tytuł dla VoiceOver i nawigacja z asercjami; żadna asercja bez zastępstwa. Inny test → wariant bez zmiany testu albo STOP.
+- **Odrzucone:** (b) STOP p4b do rana przy pierwszej czerwieni (ten sam rodzaj pytania co D-191, właściciel wybrał już (a); koszt: noc bez p4b i p5); (c) Doktor ze zwykłym paskiem nawigacji (odstępstwo od O3a, D-141).
+- **Status:** noc, do weta.
+
+### [D-198] 2026-11-03 — p5: Dziennik, Ustawienia, Doktor Chleba na kartach; odstępstwa bez zmiany testów; Pro i wiersze objawów do p5b (M3 p5, rola 08, noc, do weta)
+- **Rodzaj:** decyzje techniczne roli 08 w wykonaniu D-160/D-197 pod nieobecność właściciela (D-183): przy odstępstwie opcja rekomendowana, wpis „noc, do weta”.
+- **Dziennik:** „Historia wypieków” zostaje jako nagłówek grupy z ikoną nad kartami (O2b, D-184), także w pustym stanie (Maestro `01-nowy-piekarz.yaml` i `aktualizacja-sprawdz.yaml` sprawdzają ten tekst); makieta `#dziennik-pusty` go nie ma. Wiersz daty i oceny z istniejących kluczy („Ocena: {n}/5” w osobnej linii zamiast „1 listopada, ocena 4/5”). Odrzucone: usunięcie nagłówka (zmiana scenariuszy Maestro poza D-197).
+- **Ustawienia:** (1) wybór języka zostaje siatką przycisków w karcie „Język” — wiersz → lista wymagałby zmiany testów wyboru `lang-*` (settings-modal, voiceover-jezyk-170, jezyk-powiadomienia-n10); (2) „Język i jednostki” jako dwie karty „Język” i „Jednostki” z istniejących kluczy (nowy klucz łamie `tests/czeka-na-przeklad-093.test.ts`, jak D-185); (3) karta „Zakupy” z tytułem 17 pt i akcjami 15 pt zamiast nagłówka karty 20 pt — wymaga tego `src/components/__tests__/zakupy-section-prz33.test.tsx:22-25` (zmiana poza D-197); (4) „Usuń wszystkie dane” przeniesione do karty „Kopia zapasowa” (makieta), handler i potwierdzenie bez zmian; (5) `minHeight: 52` wiersza lokalnie w każdym pliku (`styles.wiersz` + `WIERSZ` z `wiersz-ustawien.ts`), bo skan celów dotyku czyta literał w `styles.*` pliku.
+- **Doktor Chleba:** pas O3a, powrót samą ikoną z etykietą „Zamknij” (jak D-195; dla roli 09: „Wstecz”). Nagłówek kart testów w kuchni złożony lokalnie z tokenów nagłówka karty, bo `src/__tests__/doktor-screen.test.tsx:37-43` szuka tytułu w `children` przycisku. Chipy objawów zostają przyciskami (rola `button`, `selected`): zamiana na wiersze `PoleObjawu` (rola `checkbox`) zmienia drzewo i role sprawdzane w `doktor-screen` i `prosba-o-ocene-po-doktorze-n12` — do p5b po sprawdzeniu, czy da się bez zmiany testu; inaczej do decyzji. Doktor zakwasu bez zmian (D-196).
+- **Nie wykonane w p5 (kontekst sesji):** Piekarz Pro (`PaywallModal.tsx`, pas z tytułem i zdaniem Basic; ujawnienia bez zmian, D-112/D-113) i §7a dla Doktora i Pro — kolejna sesja p5b według `docs/stan-08-p5-2026-11-03.md`.
+- **Dla roli 09:** „Wstecz” (Doktor, jak D-195), „Język i jednostki” (README §6), wiersz daty z oceną we wpisie Dziennika.
+- **Dla roli 04:** nagłówek grupy w pustym Dzienniku, Zakupy 17 pt, siatka języka, chipy objawów w kartach Doktora, ikony kart Ustawień (bochenek dla naczynia, waga dla jednostek, lista dla CSV, info dla Kontaktu, miska dla testów w kuchni).
+
+### [D-199] 2026-11-03 — p5b: Piekarz Pro z pasem O3a i kartą „Co daje Pro”; objawy Doktora jako PoleObjawu bez zmiany testów; §7a dla Doktora i Pro (M3 p5b, rola 08, noc, do weta)
+- **Rodzaj:** decyzje techniczne roli 08 w wykonaniu D-200 pod nieobecność właściciela (D-183): przy odstępstwie opcja rekomendowana, wpis „noc, do weta”. Żaden istniejący test nie został zmieniony.
+- **Piekarz Pro (`PaywallModal.tsx`):** pas `PasZakladki` na górze przewijanej treści (jak Doktor, D-197) z „Zamknij” tekstem po prawej (makieta `inne.html` „pro”; `PrzyciskNaglowka` z testID `close-modal`, bo `CloseButton` nie ma wariantu na pasie), tytułem „Piekarz Pro” (nagłówek VoiceOver) i zdaniem Basic jako podtytułem (`podtytulTestID`, nowy opcjonalny props pasa); w stanie „Pro aktywne” podtytułem jest „Piekarz Pro jest aktywny.”. Nad pasem przypięta czapka paska stanu w kolorze `pas` (`SafeAreaView` z krawędzią `top`) i `<StatusBar barStyle="light-content">` w oknie — `usePasekStanuJasny` wymaga fokusu nawigacji, a ekran Pro jest oknem `Modal` poza stosem. „Co daje Pro” jako `Karta` z ikoną `gwiazda`; komunikat bez sieci na powierzchni karty (`wygladKarty`; `blad`/`powierzchnia` 6,54:1, `docs/design/kontrast.md:25`). Opcje planu, ujawnienia (`subscription-terms`), „Zarządzaj subskrypcją” i pasek kciuka zostają na tle jak w makiecie. Ujawnienia: treść, kolejność i widoczność bez zmian (`ekran-zakupu-ujawnienia`, `ekran-pro-pb` niezmienione, zielone).
+- **Odstępstwa od makiety (do weta):** (1) zdanie Basic z istniejącego klucza („…więcej zakwasów i receptur.”), makieta ma „…i porównanie wypieków.” — to ujawnienie 1 kontraktu i test `ekran-pro-pb` przypina brzmienie; (2) tytuł pasa najwyżej 1,5× (reguła pasa 04-003), wcześniej tytuł ekranu bez limitu; (3) przy dużym tekście zdanie Basic pod pasem (`pas-pod`, `tusz2`), jak na innych ekranach z pasem (D-120 b).
+- **Doktor Chleba:** 12 objawów jako wiersze `PoleObjawu` (checkbox, `checked`), te same klucze `BreadInspectionCriteria` w tej samej kolejności. Obawa z D-198 się nie potwierdziła: `doktor-screen` i `prosba-o-ocene-po-doktorze-n12` szukają przycisków po `onPress` i tekście dzieci, nie po roli; oba zielone bez zmian.
+- **§7a / D-142 (fontScale ≥ 2):** szybkie szablony i protokoły ratunkowe w zawijanym rzędzie zamiast przewijania w poziomie; nagłówki testów w kuchni: ikona i strzałka nad tytułem; „Zamknij protokół” nad tytułem protokołu (`column-reverse`, kolejność czytania bez zmian); opcja planu: znacznik nad nazwą i ceną (`column-reverse`); komunikat bez sieci: ikona nad tekstem; treść ekranu Pro z wcięciem `l` zamiast `xl`. Bez `maxFontSizeMultiplier` w treści pod pasem.
+- **Odrzucone:** pas przypięty nad przewijaną treścią (przy 320 pt i AX5 pas ze zdaniem Basic zabrałby większość ekranu, cena zeszłaby pod pasek kciuka, PRZ-28); `CloseButton` w rzędzie nad pasem (dwa paski zamiast jednego pasa z makiety); opcje planu w karcie (makieta ich nie zamyka; opcja planu ma własną obwódkę).
+- **Dla roli 09:** brak nowych kluczy. Rozbieżność brzmienia zdania Basic między makietą a kontraktem (wyżej, pkt 1) — do roli 02/04.
+- **Dla roli 04:** kolejność i miejsce elementów ekranu Pro (wyżej), „Zamknij” tekstem na pasie, karta komunikatu bez sieci bez nagłówka, ikona `gwiazda` „Co daje Pro”, wiersze objawów Doktora, układy AX5 (wyżej); zrzuty — Expo web brak (krok właściciela).
+- **Zależy od:** D-200, D-141, D-142, D-112/D-113, D-198. **Status:** noc, do weta.
+
+### [D-200] 2026-11-03 — p5b (Piekarz Pro) przed p6a; p6a tylko segment drożdży przy wierszu „Do miski” bez zmiany przelicznika (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183).
+- **Decyzja:** (1) p5b dokańcza p5 według `docs/stan-08-p5-2026-11-03.md`: Piekarz Pro (`PaywallModal.tsx`, ujawnienia bez zmian treści, kolejności i widoczności, D-112/D-113), wiersze `PoleObjawu` w Doktorze tylko bez zmiany testów, §7a dla Doktora i Pro. (2) p6a po p5b: segment „świeże / suche” przy wierszu drożdży na karcie „Do miski” (D-136, BR-KALK-012) przez istniejący wybór `rodzaj_drozdzy` (zapis bez zmian); testy liczą gramy z `gramyDrozdzy`, nie z wpisanej liczby. (3) Przelicznik 0,4 → 0,35 (D-172, RD-19-W2, kryterium BR-KALK-012 „8,75 g”) zmienia istniejące wektory testów (`src/core/__tests__/domain-rules.test.ts` i in., `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json`) i tekst „…odważysz 0,4 tej masy” — zmiana testów spoza D-194/D-197, do decyzji właściciela w raporcie 2026-11-04.
+- **Odrzucone:** (b) p6a z przelicznikiem 0,35 nocą (zmiana istniejących testów bez zgody); (c) p6a przed p5b (Pro jest warunkiem buildu, D-190); (d) p5b i p6a równolegle (wspólne `docs/22`, słowniki, `docs/decyzje.md`).
+- **Status:** noc, do weta.
+
+### [D-202] 2026-11-03 — p6a: Plan z pasem (D-204), segment drożdży przy wierszu „Do miski” (D-136), przelicznik × 0,35 (D-205) (M3 p6a, rola 08, noc, do weta)
+- **Rodzaj:** decyzje techniczne roli 08 w wykonaniu D-204, D-200 i D-205 pod nieobecność właściciela (D-183): przy odstępstwie opcja rekomendowana, wpis „noc, do weta”. Istniejące testy zmienione tylko w zakresie D-204 i D-205 (lista niżej).
+- **Plan (D-204):** `docs/stan-08-p4b-plan-pas.patch` wszedł czysto (`git apply`), plik usunięty. `pas-zakladek-d10.test.tsx:135` → `toBe(false)`; `plan-prowadzenie-karty-p4.test.tsx:160` → na pasie dokładnie jeden nagłówek „Plan wypieku”, poza pasem żaden nagłówek spoza kart (D-197). Linia :136 (Doktor zakwasu) bez zmian. Powiadomienia, Sleep Guard, „Kiedy gotowy” i start wypieku bez zmian kodu.
+- **Segment drożdży (D-136, BR-KALK-012):** nowy `SegmentDrozdzy` pod wierszem drożdży (nie w wierszu): wiersz jest polem odhaczania (`checkbox`), a zagnieżdżone przyciski wewnątrz pola dostępności VoiceOver nie są osobno osiągalne; nazwa wiersza bez zmian („Drożdże świeże (prasowane)” / „Drożdże suche”, test 216 sprawdza, że wiersz suchych nie zawiera „świeże”). Grupa `radiogroup` z etykietą „Drożdże”, opcje „świeże” / „suche” z istniejących kluczy `świeże|drożdże`, `suche|drożdże`. Z zaczynem jeden segment: pod wierszem drożdży ciasta, a gdy ich brak — pod wierszem drożdży zaczynu. Receptura bez drożdży i zero drożdży: brak wiersza i brak segmentu (wiersz drożdży i tak znika przy 0 g; scenariusz „Zero drożdży” sprawdza `gramyDrozdzy(0, 'suche') = 0`, RD-19-W3). Zapis bez zmian (`zapiszRodzajDrozdzy`, klucz `rodzaj_drozdzy`, `guardSave`). Wygląd z tokenów (`odstepy`, `promienie.grupa`, `promienie.pole`, `cele.pozostale`); obwódka wybranej opcji 1,5 jak w segmencie arkusza — brak tokenu grubości (do roli 04).
+- **Przelicznik (D-205):** `convertYeast` × 0,35 / ÷ 0,35, zaokrąglenia bez zmian (2 i 1 miejsce po przecinku). Zmienione wektory (przed → po): `src/core/__tests__/domain-rules.test.ts:231` 16,8 → 14,7 (42 g), `:236` 17,5 → 20 (7 g suchych); `src/core/__tests__/domain-math-exhaustive.test.ts:384` 15 → 17,1 (6 g suchych), `:390` 6 → 5,25 (15 g); `src/__tests__/br-kalk-130-reszta.test.tsx:130-133` 4 → 3,5, 10 → 8,75, 0,04 → 0,03, 10 → 11,4 (4 g suchych); `src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx:108-109` „4 g” → „3,5 g”, „0,4%” → „0,35%”, `:120` czynnik 0,4 → 0,35, `:147` „4 g” → „3,5 g”, `:177-178` 4 → 3,5, 10 → 8,75; `tests/fixtures/test-vectors.json` VEC-YEAST-01 6 → 5,25, VEC-YEAST-02 8,8 → 10 (kopia `docs/brd/fixtures/test-vectors.json` identyczna, wymaga tego `brd-test-vectors.test.ts:107`). Nazwy tych testów i komentarze 0,4 → 0,35. `tests/wektory/brd.json` miał już 0,35. RD-19-W5: 0,1 g → 0,03 g (zaokrąglenie do 0,01 g; wektor 0,035 ± 0,005 spełniony).
+- **Tekst arkusza „…odważysz 0,4 tej masy” zostaje (odstępstwo):** nowy klucz bez przekładu 33 języków trzeba wpisać do `docs/lokalizacja/czeka-na-przeklad.json`, a `tests/czeka-na-przeklad-093.test.ts:46-57` dopuszcza tylko wyjątki D-126 i D-132 (jak D-185). Skutek: do przekładu objaśnienie w arkuszu mówi 0,4, a liczby są z 0,35 — realny przed wydaniem, dziś brzegowy (TestFlight, tylko właściciel). Odrzucone: (b) nowy klucz z wpisem na liście (zmiana testu 093 poza D-205); (c) ukrycie zdania do przekładu (zmiana testu 216:163 i utrata objaśnienia). **Dla roli 09 (bloker wydania):** PL „Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.”; EN „The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package.”; razem z przekładem usunąć stary klucz z 35 słowników i zdjąć częściowy wyjątek BR-KALK-009 (`scripts/br-wyjatki.json`, scenariusz „Uwaga przy przeliczeniu”).
+- **Wyjątki BR:** BR-KALK-012 zdjęty z `scripts/br-wyjatki.json` (testy z ID w `segment-drozdzy-do-miski-p6a`); powód częściowego wyjątku BR-KALK-009 odświeżony (zostaje tylko „Uwaga przy przeliczeniu”).
+- **Dla roli 09:** zdanie wyżej; „instant” zamiast „suche” w segmencie (README §6, D-185); „Wstecz” (D-195).
+- **Dla roli 04:** segment pod wierszem zamiast w wierszu pod nazwą (makieta `#receptura-drozdze`), nazwa wiersza „Drożdże suche” zamiast „Drożdże”, brak tokenu grubości obwódki segmentu; zrzuty Planu i „Do miski” — Expo web brak (krok właściciela).
+- **Zależy od:** D-204, D-205, D-200, D-136, D-172, D-185, D-197. **Status:** noc, do weta.
+- **Znalezisko z przeglądu D-043 (P2, kod sprzed p6a, brzegowe):** `src/lib/rodzaj-drozdzy.ts:26` — wybór stuknięty, zanim skończy się pierwszy odczyt `rodzaj_drozdzy`, nadpisuje spóźniony wynik odczytu (ekran wraca do starego rodzaju, w bazie zostaje nowy). Opcje: (a) przypisanie po odczycie tylko, gdy `biezacy` nadal jest `null`, z testem wyścigu — następna partia (rekomendacja); (b) bez zmian. Bez naprawy w p6a (poza zakresem, noc).
+
+### [D-204] 2026-11-03 — Pas O3a na Planie: zmiana `pas-zakladek-d10.test.tsx:135` dozwolona (odpowiedź na STOP D-196)
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 20:30 UTC). **Słowa właściciela:** „Zmień test, daj pas (Recommended)”.
+- **Decyzja:** Plan (`harmonogram.tsx`) dostaje pas według `docs/stan-08-p4b-plan-pas.patch`; `src/__tests__/pas-zakladek-d10.test.tsx:135` → nagłówek planu ukryty (`toBe(false)`, jak lista i receptura); `src/__tests__/plan-prowadzenie-karty-p4.test.tsx:160` według D-197. Warunki jak D-194 (czerwień przed, asercje powrotu, tytułu dla VoiceOver i nawigacji, żadna bez zastępstwa). Linia :136 (Doktor zakwasu) bez zmian — nagłówek systemowy zostaje. Wykonanie: p6a.
+- **Odrzucone:** (b) Plan bez pasa (niespójna ścieżka wypieku).
+- **Status:** właściciel, 2026-11-03.
+
+### [D-205] 2026-11-03 — Przelicznik drożdży × 0,35 wdrożony w nocy (D-172, RD-19-W2, BR-KALK-012): zmiana wektorów testów dozwolona
+- **Rodzaj:** produktowa, decyzja właściciela (przycisk, 2026-11-03 ok. 20:30 UTC). **Słowa właściciela:** „Teraz, w nocy (Recommended)”.
+- **Decyzja:** `convertYeast` świeże → suche × 0,35 (i odwrotnie ÷ 0,35) według D-172; dozwolona zmiana istniejących wektorów z wartością 0,4 (`src/core/__tests__/*`, `tests/fixtures/test-vectors.json`, `tests/wektory/brd.json` i każdego testu, który ją przypina) wyłącznie na wartości wynikające z 0,35; najpierw czerwony test kryterium BR-KALK-012 (25 g świeżych → 8,75 g suchych); tekst „…odważysz 0,4 tej masy” → nowe brzmienie z 0,35 i uwagą D-172 o opakowaniu, PL+EN (pozostałe języki rola 09). Wykonanie: p6a. Zmienia D-200 pkt 3.
+- **Odrzucone:** (b) 0,4 do 1.0.1.
+- **Status:** właściciel, 2026-11-03.
+
+### [D-206] 2026-11-03 — Rola 09: teksty redesignu (README §6, D-185, D-192, D-195, D-198, D-202/D-205) w 35 językach; zmiana testów tylko w asercjach dosłownego brzmienia tych tekstów (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); kolejność z D-160 („po p5: rola 09 (teksty z README §6)”).
+- **Decyzja:** rola 09 build (gałąź `wip/09-teksty-2026-11-03`) dodaje klucze PL+EN+33 i podpina je w miejscach z listy: objaśnienie przelicznika 0,35 (bloker wydania; brzmienie D-202 zgodne z D-172 i D-205), „Wstecz”, „Ile pieczesz”, „Do miski” + „Odhaczaj przy ważeniu.”, „Co zrobić”, podtytuł pasa receptury, „Język i jednostki”, wiersz daty z oceną w Dzienniku; „instant” w segmencie drożdży tylko gdy nie myli z drożdżami aktywnymi (D-172). Istniejące testy wolno zmienić wyłącznie w asercjach przypinających dosłowne stare brzmienie tych tekstów (stare → nowe), z listą w raporcie; teksty zatwierdził właściciel (README §6 na STOP E3, D-141; D-205).
+- **Odrzucone:** (b) teksty po powrocie właściciela (bloker wydania „0,4” zostaje w buildzie po p5); (c) wyjątki w `tests/czeka-na-przeklad-093` i przekład później (aplikacja pokazywałaby EN w 33 językach).
+- **Status:** noc, do weta.
+
+### [D-207] 2026-11-03 — Rola 09: „Procent drożdży… 0,35”, „Wstecz”, „Ile pieczesz” w 35 językach; „instant” w segmencie bez zmiany (M3 09, noc, do weta)
+- **Rodzaj:** wykonanie D-206 pod nieobecność właściciela (D-183); przy odstępstwie opcja rekomendowana.
+- **Wdrożone (PL + EN + 33 języki, kontekst w `pl.kontekst.json`):** (1) bloker wydania: objaśnienie przelicznika w `SkladnikiSheet.tsx` z 0,35 i zdaniem o producencie (brzmienie D-202; liczba w konwencji liczb języka, zgodna z `Intl.NumberFormat`), stary klucz „…0,4 tej masy.” usunięty z EN i 33 słowników, częściowy wyjątek BR-KALK-009 zdjęty z `scripts/br-wyjatki.json` (scenariusz „Uwaga przy przeliczeniu” pokrywa `rodzaj-drozdzy-216.test.tsx`); (2) „Wstecz” w `app/doktor.tsx` i `ProwadzenieWypieku.tsx` (etykieta powrotu na pasie, D-195/D-198); (3) „Ile pieczesz” jako nagłówek karty trybu w `DoMiski.tsx` (D-185). Zmienił się tylko argument `t()`.
+- **Sposób wpięcia (odstępstwo od „nie edytuj ręcznie”):** wejście generatora 093 leży poza repo, więc `scripts/wepnij-przeklad.mjs` nie da się uruchomić. Klucze wstawiono jednorazowym skryptem w kolejności słownika (locale pl); źródło przekładu: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json`. Przy następnym przebiegu generatora wejście musi je zawierać. Odrzucone: nowa ścieżka w generatorze (zakres poza D-206).
+- **Jakość:** tłumaczenie maszynowe (sesja roli 09); drugi przegląd AI w świeżym kontekście (subagent): 5 poprawek przyjętych (ko „0.35배”, hu „szárazélesztő”, ms „bungkusan”, uk „інстантних”, en „How much are you baking”), 4 uwagi stylistyczne (fr, es, es-419, id, ms: „ile” rzeczownikowo) odrzucone jako poprawne. Przegląd człowieka: brak (DEC-06); zdanie o przeliczniku jest tekstem krytycznym dla ważenia — rekomendacja: przegląd rodzimych użytkowników najpierw w językach z ruchem.
+- **Pozycja 8 („instant”):** segment zostaje „świeże / suche”. D-172: jeden przelicznik dla drożdży aktywnych i instant, więc „suche” obejmuje oba; „instant” zawęziłoby znaczenie. Opcje: (a) bez zmiany (rekomendacja); (b) „instant” plus osobne „aktywne” — zmiana logiki i danych, poza D-206.
+- **Zmienione testy (tylko brzmienie z listy):** `src/__tests__/doktor-pas-p5.test.tsx:87` „Zamknij” → „Wstecz”; `src/__tests__/receptury-karty-p3.test.tsx:140,141,147` „Masa ciasta” → „Ile pieczesz”; `src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx:163` i `tests/przeklad-a5.test.ts:72` stary klucz (0,4) → nowy. `tests/czeka-na-przeklad-093.test.ts` bez zmian, zielony.
+- **Zależy od:** D-172, D-185, D-195, D-198, D-202, D-205, D-206. **Status:** noc, do weta.
+
+### [D-208] 2026-11-03 — Rola 09: pozycje D-206 odłożone, bo wymagają układu lub logiki (M3 09, noc, do weta)
+- **Rodzaj:** D-206 zabrania zmiany układu i logiki; pozycje poniżej mają wpis zamiast wdrożenia.
+- **4. „Do miski” + podpis „Odhaczaj przy ważeniu.”:** `Karta` nie ma podpisu; podpis to nowy element pod nagłówkiem (układ, do roli 04/08). Opcje: (a) rola 08 dodaje podpis w karcie, potem klucze (rekomendacja); (b) tylko skrócenie nagłówka do „Do miski” bez podpisu — gubi wskazówkę.
+- **5. „Co zrobić”:** stan p4b/D-195 zostawia „Krok {n} z {m}” nagłówkiem karty, bo pas go nie pokazuje; zamiana usunęłaby numer kroku z ekranu. Opcje: (a) najpierw numer kroku na pasie (08/04), potem „Co zrobić” (rekomendacja); (b) zostawić „Krok {n} z {m}”.
+- **6. Podtytuł pasa receptury:** brak w kodzie podtytułu i wyboru wariantu rodzaju („bazowa” / „Moja”). Opcje: (a) 08 dodaje wybór klucza po rodzaju receptury, potem dwa pełne zdania-klucze (rekomendacja); (b) zrezygnować z podtytułu.
+- **7. „Język i jednostki”:** dziś dwie karty „Język” i „Jednostki” (D-198); połączenie zmienia układ. Opcje: (a) połączenie kart przez 08/04, potem klucz (rekomendacja); (b) zostawić dwie karty.
+- **9. Wiersz daty z oceną w Dzienniku:** dziś dwie linie (`BakeHistorySection.tsx:93-96`, data i „Ocena: {n}/5”); jedna linia „{data}, ocena {n}/5” zmienia strukturę i warunek. Opcje: (a) 08 łączy linie z kluczem z parametrami (rekomendacja); (b) zostawić dwie linie.
+- **Status:** noc, do weta.
+
+### [D-209] 2026-11-03 — p6b: pozycje D-208 w opcji (a) (układ pod teksty README §6) i poprawka wyścigu wyboru drożdży; gałąź wspólna 08 → 09 (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); opcje rekomendowane roli 09 w D-208.
+- **Decyzja:** (1) rola 08 p6b na `wip/08-p6b-2026-11-03`: podpis w karcie „Do miski” („Odhaczaj przy ważeniu.”), numer kroku na pasie Prowadzenia i „Co zrobić” jako nagłówek karty, podtytuł pasa receptury z wyborem pełnego zdania-klucza po rodzaju receptury, jedna karta „Język i jednostki”, wiersz daty z oceną w Dzienniku jednym kluczem z parametrami — każda pozycja tylko bez zmiany istniejących testów poza asercjami dosłownego brzmienia tych tekstów (D-206), inaczej odłożona; poprawka `src/lib/rodzaj-drozdzy.ts:26` (stuknięcie przed pierwszym odczytem ustawienia cofa wybór na ekranie) z testem czerwonym najpierw. Nowe klucze PL+EN. (2) Wyjątek nazwany (jak D-166): verify na `wip/08-p6b` może być czerwony wyłącznie przez brak przekładu nowych kluczy (`tests/czeka-na-przeklad-093.test.ts`, `check:i18n`); rola 09 dokłada 33 języki na tej samej gałęzi; scalenie do `redesign/` tylko przy verify kod 0.
+- **Odrzucone:** (b) zostawić pozycje D-208 do wersji 1.0.1 (README §6 zatwierdzony na STOP E3, D-141); (c) przekład 33 języków przez rolę 08 (praca roli 09).
+- **Status:** noc, do weta.
+
+### [D-210] 2026-11-03 — p6b: odstępstwa przy układzie pod teksty README §6 (Do miski, numer kroku, podtytuł pasa, Język i jednostki, Dziennik) i wyścig wyboru drożdży (M3 p6b, rola 08, noc, do weta)
+- **Rodzaj:** decyzje techniczne roli 08 w wykonaniu D-209 pod nieobecność właściciela (D-183): przy odstępstwie opcja rekomendowana.
+- **Wyścig (poz. 1):** `rodzajDrozdzy()` po odczycie z bazy zapisuje wynik tylko, gdy w trakcie nie było wyboru (`biezacy === null`); wybór z ekranu wygrywa. Zapis bez zmian. Odrzucone: (b) blokada stuknięcia do końca odczytu (opóźnia reakcję ekranu); (c) wersja odczytu z licznikiem (to samo przy większym kodzie).
+- **„Do miski” (poz. 2):** nowy prop `podpis` w `Karta` (przypis 13 pt, `tusz2`, w karcie z wierszami wypełnienie `odstepy.l`/`odstepy.s`; makieta 0 16 8). Podpis w obu wariantach karty (bez zaczynu i z zaczynem), bo karta „Do miski” ma te same wiersze do odhaczenia. Odrzucone: podpis w `WierszKarty` (to nie wiersz, linia nad wierszem rozdzieliłaby nagłówek i podpis).
+- **Numer kroku (poz. 3):** „Krok {n} z {m}” jako podtytuł `PasZakladki` pod tytułem kroku (testID `step-number`, `naPasie2`), przy dużym tekście pod pasem jak inne podtytuły (D-120 b); karta instrukcji „Co zrobić”. Odstępstwo od makiety: makieta ma nad tytułem zdanie „{receptura}, krok {n} z {m}” — `PasZakladki` nie ma miejsca nad tytułem (D-195), a nazwa receptury jest już na pasie przy Spirali; zdanie z nazwą wymagałoby nowego klucza. Do przeglądu roli 04.
+- **Podtytuł pasa (poz. 4):** 5 pełnych kluczy według kategorii receptury bazowej (`podtytulReceptury`): „Receptura bazowa, na zakwasie” (README §6) oraz „…, żytnia”, „…, na drożdżach”, „…, pizza”, „…, słodka” — brzmienie roli 08 według wzoru README, do akceptacji roli 04/09. **Odłożone:** „Moja receptura, …” — `StoredRecipe` nie ma kategorii, więc dane nie rozróżniają rodzaju własnej receptury; wywnioskowanie rodzaju z formuły to nowa logika (poza D-209). Własna receptura: pas bez podtytułu jak dotąd. Opcje dla 03/04: (a) samo „Moja receptura” (nowy klucz, bez rodzaju; rekomendacja); (b) kategoria zapisywana z recepturą (migracja, rola 05).
+- **„Język i jednostki” (poz. 5):** jedna karta `karta-jezyk` z ikoną `jezyk`; siatka języków zostaje (D-198), pod nią wybór jednostek i zdanie o regionie. Ikona `waga` jednostek znika.
+- **Dziennik (poz. 6):** „{data}, ocena {n}/5” (`historyDate`); bez oceny sama data.
+- **Teksty:** 9 nowych kluczy PL+EN z kontekstem (lista w `docs/stan-08-p6b-2026-11-03.md`). Stare klucze bez użycia w kodzie zostają w słownikach do usunięcia przez rolę 09 razem z przekładem: „Do miski (odhaczaj przy ważeniu)”, „Język”, „Jednostki”, „Ocena: {n}/5” (check:i18n: uwaga „bez miejsca”, nie błąd). Słownik ekranów `tests/maestro-runner.ts:94` ma dalej „Do miski (odhaczaj przy ważeniu)” — to dane symulatora, nie asercja; bez zmiany (poza D-209). Nowych kluczy nie wpisano do `docs/lokalizacja/czeka-na-przeklad.json` (test 093 zostaje zielony); czerwone tylko `check:i18n` i `tests/check-i18n-gate.test.ts` (wyjątek D-209).
+- **Status:** noc, do weta.
+
+### [D-212] 2026-11-03 — p6b: przekład 9 kluczy w 33 językach i usunięcie 4 starych kluczy (rola 09, build, E3, noc, do weta)
+- **Rodzaj:** wykonanie D-209 przez rolę 09; jedna fala E3, tłumaczenie maszynowe (claude-sonnet-5-5), drugi przegląd AI w świeżym kontekście (subagent bez notatek tłumacza), przegląd człowieka: brak (DEC-06).
+- **Zakres:** „Odhaczaj przy ważeniu.”, „Co zrobić”, 5 × „Receptura bazowa, …”, „Język i jednostki”, „{data}, ocena {n}/5” × 33 języki (297 wpisów). Parametry {data}, {n} bez zmian; w nowych kluczach nie ma liczby mnogiej. Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json` (dopisane do pliku z D-207). Rodzaj przymiotnika zgodny z rzeczownikiem „receptura” w danym języku (osobne klucze, bez sklejania).
+- **Usunięte** ze słownika EN i 33 słowników (grep w `app/` i `src/` bez użycia poza testem negatywnym `ustawienia-jezyk-jednostki-p6b.test.tsx:80`): „Do miski (odhaczaj przy ważeniu)”, „Język”, „Jednostki”, „Ocena: {n}/5”; ich wpisy zniknęły z `pl.kontekst.json` (`npm run i18n:kontekst`).
+- **Drugi przegląd AI:** 12 uwag (297 par), przyjęto 11: it „con lievito di birra”, lv „ar dabīgo ieraugu”, zh-Hant (zakwas „天然酵母種”, „使用酵母”, „甜麵包”), ja „…チェックしてください”, ru „сдобная”, uk „здобна”, id „ragi alami”, vi „men tự nhiên”, fi „Merkitse punnitessasi.”. Odrzucone: ms — „sourdough” zostaje (spójne z istniejącym „pemula sourdough”).
+- **Odstępstwo od polecenia:** brak; `npm ci` wykonane w sesji (brak `node_modules`).
+- **Status:** noc, do weta.
+
+### [D-213] 2026-11-03 — p6b: uwagi roli 09 do brzmień PL z D-210 (bez zmiany PL)
+- „żytnia”: przełożone jako receptura na chleb żytni („rye”, „ржаная”); PL nie mówi, czy to żyto w całości, czy mieszanka — do decyzji roli 04/06, czy podtytuł ma to nazywać.
+- „na drożdżach”: przełożone jako „z drożdżami piekarskimi” (nie „na zakwasie drożdżowym”); spójne z D-154.
+- „słodka”: przełożone jako wypieki słodkie (brioszka, chałka): „сдобная”, „甜麵包”, „sweet”; samo „słodka” sugeruje smak, nie rodzaj wypieku. Opcja dla 04: „słodkie wypieki” (nowy klucz PL).
+- „pizza”: bez zmiany.
+- Rekomendacja: zostawić PL jak jest do weta właściciela; zmiana PL to nowa fala przekładu 5 kluczy.
+- **Status:** noc, do weta.
+
+### [D-214] 2026-11-03 — Weryfikacja E5 (rola 04 audit po wdrożeniu): 0 P0, 2 P1; partia p7 przed buildem 1022 (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183); opcje rekomendowane raportu weryfikacji (świeży kontekst, subagent roli 04, `sprawdz-raport` kod 0; raport w `audit/M3-2026-11-03/role/04-po/`, poza gitem).
+- **Wynik E5:** P1: 04-001 brak czapki paska stanu na 7 ekranach z pasem (powrót D-139); 04-002 arkusze zamykające przepływy poza systemem kart (ocena po wypieku, zapis receptury, dodaj/edytuj zakwas, przelicznik zakwasu, odrzucenie receptur). P2: 003 „Dziś” bez karty pustej spirali i obwódki kafli; 004 pasek zakładek pod „Zacznij wypiek” na planie; 005 Doktor zakwasu z paskiem systemowym; 006 wynik Doktora Chleba poza widokiem; 007 „Anuluj”/przesunięcie arkusza odrzuca wpisane dane bez pytania (`confirmDiscard` nieużyte).
+- **Decyzja:** p7 (rola 08 build, `wip/08-p7-2026-11-03`): 001 opcja (a) wspólny ekran z pasem i czapką na 9 ekranach; 002 opcja (a) wszystkie wymienione arkusze na kartach i pasku arkusza z README §3, bez zmian zachowania; 003; 006 opcja (a) objawy przed wynikiem (lub przewinięcie do wyniku, jeśli (a) wymaga zmiany testów); 007 pytanie „Odrzucić zmiany?” przy zmienionym formularzu (istniejące `confirmDiscard`); 004 tylko bez zmiany istniejących testów. **005 nie w p7:** wymaga zmiany `src/__tests__/pas-zakladek-d10.test.tsx:136` (spoza D-194/D-197/D-204) — do decyzji właściciela.
+- **Odrzucone:** (b) tylko 001 i arkusz oceny (D-139: „Wszystko powinno być ładnie obrobione, pozamykane w ładne karty”); (c) bez partii.
+- **Status:** noc, do weta.
+
+### [D-215] 2026-11-03 — p7: wykonanie 04-001, 04-002, 04-003, 04-007; odstępstwa nazwane; 04-004 odłożone (rola 08, noc, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 pod nieobecność właściciela (D-183), w ramach D-214.
+- **04-001:** wspólny `EkranZPasem` (`src/components/nawigacja/EkranZPasem.tsx`: przewijanie + `NadPasem` + pas + `CzapkaPaska` z małym tytułem) na 8 ekranach z pasem (Dziś, Receptury, Receptura, Plan, Prowadzenie, Dziennik, Doktor Chleba, Zakwasy). **Odstępstwo:** Piekarz Pro (`PaywallModal`) zostaje z własną czapką (natywny `SafeAreaView` z krawędzią `top`), bo w oknie `Modal` wysokość z `useSafeAreaInsets` nie jest pewna; dostaje wspólny `testID="czapka-paska"`, więc test akceptacyjny obejmuje 9 ekranów.
+- **04-002:** wspólny `ArkuszKart` + `PasekArkusza` (`src/components/arkusz/ArkuszKart.tsx`): „Anuluj”/„Zamknij” z lewej, „Zapisz” z prawej, poza przewijaniem; treść w `Karta`. **Odstępstwo od makiety (`.ark-nav` z tytułem w pasku):** tytuł arkusza jest nagłówkiem pierwszej karty, a pasek ma tylko przyciski. Powód: istniejący test `arkusz-oceny-przewijanie-w001` wymaga pytania „Jak wyszedł bochenek?” w przewijanej treści, a jeden wzór dla 6 arkuszy unika podwójnego tytułu z istniejących kluczy. W ocenie po wypieku karta „Ocena wypieku” z pytaniem w treści (etykieta nad gwiazdkami zastąpiona nagłówkiem karty). Opcja odrzucona: tytuł w pasku i drugi raz w karcie (powtórzenie).
+- **04-007:** `confirmDiscard` przy „Anuluj” i przesunięciu w dół w 4 arkuszach z polami (ocena, zapis receptury, dodanie i edycja zakwasu); komunikat pod tytułem pusty, bo nie ma istniejącego klucza (nowy tekst → lista dla roli 09). Arkusze informacyjne (konwerter, odrzut) zamykają się bez pytania.
+- **04-004 odłożone:** ukrycie paska zakładek na planie wymaga zmiany `tests/pasek-zakladek-receptura-106.test.tsx:49` („plan wypieku pokazuje pasek”), spoza dozwolonych zmian testów (D-206) — do decyzji właściciela razem z 04-005.
+- **Zależy od:** D-214.
+- **Status:** noc, do weta.
+
+### [D-216] 2026-11-03 — p7 04-006: Doktor Chleba w kolejności protokoły → objawy → wynik → testy (rola 08, noc, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 (D-183), opcja (a) z D-214 w wariancie bez zmiany testów.
+- **Decyzja:** karta wyniku przeniesiona pod karty objawów; protokoły ratunkowe zostają nad objawami. Ekran nie wie, skąd wszedł użytkownik (`router.push('/doktor')` z prowadzenia i z Dziennika), a parametr wejścia wymagałby zmiany `ProwadzenieWypieku.tsx` (25 B pod limitem 20 480 B) i asercji wywołań `push`.
+- **Odrzucone:** objawy → wynik → protokoły dla każdego wejścia (pogarsza ścieżkę ratunkową z prowadzenia); przewinięcie do wyniku z ogłoszeniem VoiceOver (opcja (b), zbędna przy zmianie kolejności).
+- **Do sprawdzenia na urządzeniu:** czy po wyborze objawu z górnej części długiej listy wynik jest w widoku bez przewijania; jeśli nie — opcja (b) jako dodatek.
+- **Zależy od:** D-214.
+- **Status:** noc, do weta.
+
+### [D-217] 2026-11-04 — Komunikat pod „Odrzucić zmiany?” (04-007 z p7): nowy klucz w 35 językach przez rolę 09c (koordynator M3, noc, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (D-183).
+- **Decyzja:** p7 wdrożyło pytanie „Odrzucić zmiany?” przy zmienionym formularzu bez treści komunikatu (brak klucza). Rola 09c (`wip/09c-2026-11-04`) dodaje „Wpisane zmiany nie zostaną zapisane.” (propozycja roli 08) w 35 językach i podpina w `ArkuszKart.tsx`.
+- **Odrzucone:** (b) komunikat pusty do 1.0.1 (tytuł sam mówi, co się stanie, ale iOS pokazuje pusty wiersz; koszt 09c mały).
+- **Status:** noc, do weta.
+
+### [D-218] 2026-11-04 — Wykonanie D-217: klucz „Wpisane zmiany nie zostaną zapisane.” w 35 językach i podpięcie w ArkuszKart (rola 09c, noc, do weta)
+- **Rodzaj:** wykonanie decyzji koordynatora (D-217) pod nieobecność właściciela (D-183).
+- **Decyzja:** klucz PL dopisany do EN i 33 słowników (`src/lib/i18n-en/czesc-1.ts`, `src/lib/i18n-slowniki/<kod>/`, obok „Odrzuć zmiany”), do `pl.kontekst.json` (z opisem) i do źródła przekładu `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json` (pole `wpisane_zmiany`). Podpięty jedyny pusty komunikat `confirmDiscard`: `ArkuszKart.tsx:73`. Terminy zgodne z istniejącym „Odrzucić zmiany?” i „Zmiany w recepturze nie zostaną zapisane.” w każdym języku. Tłumaczenie maszynowe, drugi przegląd AI w świeżym kontekście: bez poprawek (2 uwagi o istniejących przyciskach bg „Отхвърлете промените” i et „Tagasi muutma” poza zakresem), przegląd człowieka: brak (DEC-06).
+- **Test:** do `src/__tests__/odrzucic-zmiany-p7.test.tsx` dodana asercja treści komunikatu (macierz AST wymaga pokrycia tekstu; żadna asercja nie przypinała pustego komunikatu, nic nie zmieniono). `docs/22-macierz-testow.md` przeliczony.
+- **Odrzucone:** zmiana przycisków bg/et w tej partii (poza zakresem, do przeglądu człowieka).
+- **Zależy od:** D-217.
+- **Status:** noc, do weta.
+
+### [D-219] 2026-11-04 — 04-004 i 04-005: plan bez paska zakładek, Doktor zakwasu z pasem O3a; zmiana dwóch testów dozwolona (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (przyciski, raport poranny 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Popraw oba (Recommended)”.
+- **Decyzja:** rola 08 (partia p7b): plan bez paska zakładek pod „Zacznij wypiek” — zmiana `tests/pasek-zakladek-receptura-106.test.tsx:49`; Doktor zakwasu z pasem O3a jak Doktor Chleba — zmiana `src/__tests__/pas-zakladek-d10.test.tsx:136`. Warunki jak D-194 (czerwień przed z właściwego powodu, asercje powrotu, tytułu dla VoiceOver i nawigacji, żadna bez zastępstwa).
+- **Odrzucone:** (b) zostawić na po 1.0.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-220] 2026-11-04 — Build TestFlight 1022 po p7b i zielonym E2E: scalenie redesign → master (właściciel)
+- **Rodzaj:** zgoda właściciela na działanie zewnętrzne (przyciski, 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Po poprawkach z pyt. 1 (Recommended)”.
+- **Decyzja:** po scaleniu p7b do `redesign/`, verify kod 0 i zielonym iOS E2E na HEAD: scalenie `redesign/piekarz-2026-10-22` → `master` i `testflight.yml` na master (build 1022). Zgoda obejmuje to jedno scalenie i ten build; ASC, zgłoszenie do review i usuwanie gałęzi — osobno.
+- **Odrzucone:** (b) scal i buduj teraz; (c) jeszcze nie.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-221] 2026-11-04 — Funkcje z flagą danych (D-154/D-155, D-138, D-157) jako osobna partia ze STOP po buildzie 1022 (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (przyciski, 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Osobna partia ze STOP (Recommended)”.
+- **Decyzja:** po buildzie 1022: rola 08 z modułem `dane-uzytkownika` (M2) i `sqlite-expo`: migracja w transakcji, test na kopii bazy poprzedniej wersji, STOP przed wdrożeniem; katalog +15 receptur (D-157) po akceptacji listy przez właściciela. Zostają w 1.0 (D-150 bez zmian).
+- **Odrzucone:** (b) po wydaniu 1.0.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-222] 2026-11-04 — p7b: 04-004 wykonane; 04-005 STOP — pas Doktora zakwasu wymaga dopisania ekranu do testu czapki (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 w ramach D-219 i odstępstwo zgłoszone właścicielowi.
+- **04-004 (wykonane, 296007c):** stos receptur ukrywa pasek zakładek na trasie `harmonogram` jak na `receptura` (`app/(tabs)/_layout.tsx`). Pasek „Zacznij wypiek” (`PasekStartu`) już ma dolny margines systemu (`SafeAreaView edges={['bottom']}`), więc ekran planu bez zmian (drugi margines dałby podwójny odstęp). Test `tests/pasek-zakladek-receptura-106.test.tsx`: asercja `harmonogram` → pasek ukryty (czerwona przed: Expected "none", Received undefined) plus asercje stosu i powrotu, marginesu i wejść.
+- **04-005 (STOP):** pas O3a na Doktorze zakwasu dodaje `<PasZakladki` do `app/(tabs)/zakwasy/doktor-zakwasu.tsx`, a `src/__tests__/czapka-ekranow-p7.test.tsx:134` wymaga, by lista plików z pasem równała się liście `EKRANY` (linie 95–111). Próbna implementacja: `pas-zakladek-d10` zielony (13/13), 10 innych zestawów zielonych, pada tylko ta asercja (brak wpisu `app/(tabs)/zakwasy/doktor-zakwasu.tsx`). D-219 dopuszcza zmianę tylko `pas-zakladek-d10.test.tsx:136`.
+- **Opcje dla właściciela:** (a) **rekomendowana** — zgoda na dopisanie jednego wpisu do `EKRANY` (rozszerzenie: test czapki sprawdzi też Doktora zakwasu; żadna asercja nie znika); łatka gotowa w `docs/stan-08-p7b-2026-11-04.md`; (b) Doktor zakwasu zostaje z nagłówkiem systemowym do po 1.0 (stan dziś); odrzucona (c) pas bez literału `<PasZakladki` (ominięcie strażnika testu, zasada 11).
+- **Etykieta powrotu w łatce:** ikona z etykietą VoiceOver „Wstecz” jak Doktor Chleba (D-197); odrzucona „Zakwasy” jako tekst — poprzedni ekran pokazuje na pasie nazwę zakwasu, nie „Zakwasy”.
+- **Zależy od:** D-219.
+- **Status:** dzień, do weta.
+
+### [D-223] 2026-11-04 — p7b: wykonanie 04-005 po D-227 — Doktor zakwasu z pasem O3a, wpis w EKRANY testu czapki (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 po zgodzie koordynatora M3 (D-227, wiadomość sesji koordynatora 2026-11-04 ok. 05:19 UTC; nie właściciel, do weta) na opcję (a) z D-222.
+- **Wykonanie:** `app/(tabs)/zakwasy/_layout.tsx` — `doktor-zakwasu` z `headerShown: false`; `doktor-zakwasu.tsx` — `EkranZPasem` z `PasZakladki` (tytuł „Doktor zakwasu” nagłówkiem VoiceOver, powrót ikoną z etykietą „Wstecz”, jak Doktor Chleba), czapka paska stanu, jasny pasek stanu; treść i logika bez zmian.
+- **Testy:** `src/__tests__/pas-zakladek-d10.test.tsx` — asercja nagłówka Doktora zakwasu odwrócona na `headerShown: false` (zgoda D-219) i nowy test ekranu (pas, powrót, cel 44 pt, czapka, kolejność tytuł → objawy); `src/__tests__/czapka-ekranow-p7.test.tsx` — wpis w `EKRANY` i import (D-227). Czerwień przed łatką ekranu: 2 asercje (lista plików z pasem bez Doktora zakwasu; brak pasa i czapki).
+- **Zależy od:** D-219, D-222, D-227.
+- **Status:** dzień, do weta.
+
+### [D-224] 2026-11-04 — Zakres 1.0 bez podziału: zgłoszenie po partii danych D-221 i katalogu (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (czat, 2026-11-04 ok. 05:05 UTC). **Słowa właściciela:** „Wybieram a”.
+- **Decyzja:** build 1022 jest buildem testowym; kandydat do App Store powstaje po partii danych D-221 (D-154/D-155, D-138), katalogu +15 (D-157), roli 09 i E2E. D-150 bez zmian.
+- **Odrzucone:** (b) 1.0 z buildu po 1022 bez partii danych, funkcje danych w 1.0.1 (szybciej o kilka dni, kosztem zmiany D-150/D-221).
+- **Status:** właściciel, 2026-11-04.
+
+### [D-225] 2026-11-04 — Pełny audyt M1 przed zgłoszeniem 1.0, na kandydacie po partii danych (właściciel)
+- **Rodzaj:** decyzja właściciela (czat, 2026-11-04 ok. 05:15–05:20 UTC). **Słowa właściciela:** „Wybieram c”; moment startu: „A”.
+- **Decyzja:** pełny M1 (STOP 1 plan z kosztem, STOP 2 raport i plan napraw) na buildzie kandydata po partii D-221, potem M2 i reaudyt M1, dopiero potem zgłoszenie. Zmienia D-135 pkt 3 (reaudyt 07 z progiem eskalacji do M1) i znosi wyjątek nazwany z D-135 (plan-wydania-1.0 §1 pkt 3 rozstrzygnięty: opcja (a)). Bramka 02: `docs/monetyzacja.md`, werdykt „przerobić” (22.10, model bez zmian).
+- **Odrzucone:** (a) zostawić D-135; (b) D-135 + audyt celowany danych (05, 12); (d) M1 po wydaniu; start M1 teraz na 1022 (szybciej o ok. 1–2 dni, migracja poza audytem).
+- **Koszt [OCENA]:** ok. 7 mln tokenów (audyt Piekarza 19.10), kilka dni z naprawami; zgłoszenie 1.0 najwcześniej za ok. 1,5–2 tygodnie.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-226] 2026-11-04 — Jeden test na telefonie, na buildzie kandydata; build 1022 bez testu właściciela (właściciel)
+- **Rodzaj:** decyzja właściciela (czat, 2026-11-04 ok. 05:25 UTC). **Słowa właściciela:** „Przenieś mój test na później. Nie dam rady dziś”, potem „B”.
+- **Decyzja:** test według `docs/wydanie/lista-kontrolna-telefonu.md` (z zakupami w piaskownicy) tylko na buildzie kandydata, przed M1. Osobny reaudyt 07 po teście 1022 odpada (obejmuje go M1, D-225).
+- **Odrzucone:** (a) test 1022 w wolnej chwili, inaczej na kandydacie (błędy redesignu wcześniej).
+- **Ryzyko:** błędy redesignu widoczne tylko na urządzeniu wyjdą tuż przed M1.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-227] 2026-11-04 — 04-005: zgoda na dopisanie Doktora zakwasu do listy EKRANY w teście czapki (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (2026-11-04: „ty dzisiaj dalej sam tam na zasadach jak pracujesz w nocy”); opcja rekomendowana roli 08 (D-222).
+- **Decyzja:** `src/__tests__/czapka-ekranow-p7.test.tsx` — jeden wpis `app/(tabs)/zakwasy/doktor-zakwasu.tsx` w `EKRANY` i import. Rozszerzenie: test czapki obejmuje też Doktora zakwasu, żadna asercja nie znika; wykonanie D-223. D-219 zatwierdziło pas Doktora zakwasu, a ten test pilnuje zgodności listy ekranów z pasem.
+- **Odrzucone:** (b) Doktor zakwasu z nagłówkiem systemowym do po 1.0 (sprzeczne z D-219); (c) pas bez literału `<PasZakladki` (ominięcie strażnika testu, zasada 11).
+- **Status:** dzień, do weta.
+
+### [D-229] 2026-11-04 — Katalog M3 p8: 11 receptur dodane, 3 warunkowe pominięte; katalog obok MASTER_RECIPES; wartości bez źródła nazwane (rola 08, dzień, do weta)
+- **Rodzaj:** decyzje techniczne roli 08 w wykonaniu D-157 i D-177 (plan zatwierdzony przez właściciela: „11 + 3, nazwy opisowe (Recommended)”); przy odstępstwie opcja rekomendowana.
+- **Decyzja:** (1) Dodane 11: durum_semolina_sourdough, white_pan_loaf, half_whole_wheat_loaf, half_rye_loaf, latvian_scalded_rye, karelian_rye_pasties, boiled_bread_ring, milk_dinner_rolls, cheese_crumble_yeast_cake, sweet_yeast_buns, cinnamon_tea_ring; teksty PL i EN dosłownie z docs/tresci/*/katalog-m3.md (test czyta pliki), procenty z danych wejściowych źródeł (rejestr.json) liczone w teście. (2) Pominięte 3 warunkowe, bo luki zostają otwarte w treściach roli 06 (docs/tresci/e3-m3-2026-11-03.md, rejestr KAT-PIA-006, KAT-STO, KAT-ORK-004/-006): piadina (woda „quanto basta”, brak liczby), Dresdner Stollen (drożdże, mleko, czasy; pełnej specyfikacji nie otwarto), szybki chleb orkiszowy (waga szklanki mąki orkiszowej). Do roli 06. (3) Układ kodu: MASTER_RECIPES zostaje 15 dotychczasowych (eksport, kolejność i treść bez zmian); nowy src/recipes/katalog.ts daje KATALOG_M3_RECIPES (11), CATALOG_RECIPES (15 + 11) i filterCatalogRecipes; lista Receptury, ekran receptury, nazwa-receptury, recipe-navigation i calculator-actions czytają CATALOG_RECIPES. Kategorie i filtry rodzaju bez zmian: nowe pozycje mają istniejące rodzaje (zakwas: 1, żytnie: 3, drożdżowe: 4, słodkie: 3). (4) Wartości, których źródło nie podaje, a pole receptury wymaga: DDT 25 °C (domyślne aplikacji, jak w ShareRecipeQrModal), masa ciasta 1000 g (skala, użytkownik zmienia), naczynie (baking_steel dla chleba z paleniska/pieca, bread_pan dla form 9×5, baking_sheet dla reszty), typ mąki „uniwersalna” = pszenna 650, „pełnoziarnista” = razowa 2000, „żytnia średnia” = 720, gruba żytnia do zaparzania = 2000. Środki przedziałów źródeł (woda, sól, drożdże, zaczyn 10%, temperatura, czas pieczenia; czasy zaokrąglone w górę do pełnej minuty) według zasady z docs/tresci/wektory/katalog-m3-2026-11-03.json; łotewski: temperatura drugiego etapu (225 °C), faza 280–350 °C tylko w notatce. Soli pierożków karelskich źródło nie podaje: 0% w formule. (5) Dodatki spoza pól formuły (mleko, jaja, tłuszcz, cukier, nadzienia) są w notatce z procentami od masy mąki, jak masło i cukier w chałce i brioszce; kołacz ma wodę 0% (płyn to mleko w notatce).
+- **Odrzucone:** (a) wszystkie 26 w MASTER_RECIPES — łamie istniejący test „contains 15 unique master recipes” oraz testy „woda i sól > 0 dla każdej receptury” (kołacz: woda 0, pierożki: sól bez ilości), a zmiana istniejących testów jest zakazana poleceniem; (b) mleko jako woda w polu wody — fałszuje hydratację i nazwę składnika; (c) nowe pole „inne składniki” (mleko, jaja, tłuszcz, cukier) — poprawiłoby masę ciasta i przeliczenie, ale to nowe pole zapisu (polecenie: STOP); do decyzji właściciela przy następnej partii danych. (d) wymyślenie wody piadiny, receptury Stollena i wagi szklanki orkiszowej.
+- **Wyjątek nazwany (zasada 7):** cztery asercje w dwóch istniejących testach listy liczyły oczekiwane wiersze z filterMasterRecipes (15), a ekran pokazuje już katalog (26): receptury-uklad-106.test.tsx (3 miejsca) i pas-zakladek-d10.test.tsx (1) liczą teraz z filterCatalogRecipes; siła asercji bez zmian. Nie dało się tego uniknąć bez pozostawienia nowych receptur poza listą. Dalsze trzy zmiany istniejących testów, ten sam powód: calculator-screen.test.tsx (2 oczekiwane liczby wierszy listy: CATALOG_RECIPES.length zamiast MASTER_RECIPES.length) oraz tests/i18n-no-polish-in-en.test.tsx (dopisany wyjątek "Kołocz śląski": nazwa chronionego oznaczenia w opisie pochodzenia formuły, tekst z przeglądu D-190). W EN jedna różnica wobec en/katalog-m3.md: "the Piekarz conversion" -> "the app's conversion" (D-053: słownik EN nie nazywa aplikacji "Piekarz"); do roli 06. Żadnego testu nie usunięto ani nie osłabiono.
+- **Ryzyko:** bogate ciasta (bułki mleczne, słodkie, kołacz) liczą masę ciasta bez mleka, jaj, tłuszczu i cukru, więc przy zadanej masie ciasta mąki wychodzi więcej niż przy pełnej recepturze; wartości w notatce są od masy mąki, więc użytkownik policzy dodatki z wagi mąki. Zapisów receptury w bazie nie zmieniono; wiersze is_built_in w bazie (INSERT OR IGNORE w src/data) dalej dotyczą 15 dotychczasowych (src/data poza zakresem p8, p9a); nowe działają z kodu.
+- **Zależy od:** D-157, D-171, D-172, D-177, D-190. **Status:** dzień, do weta.
+
+### [D-230] 2026-11-04 — Podział src/recipes/presets.ts na moduły według rodzaju (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja techniczna roli 08 w wykonaniu D-157 (zadanie „podział presets.ts”).
+- **Decyzja:** presets.ts (16 244 B) składa MASTER_RECIPES z czterech modułów: presets-zakwas.ts (6), presets-drozdzowe.ts (4), presets-zytnie.ts (2), presets-pizza-slodkie.ts (3); typ RecipePreset i MasterRecipe w presets-types.ts (eksport z presets.ts bez zmian); kolejność listy zachowana listą id. Dodany eksport filterRecipesByCategory (wspólna reguła filtra dla MASTER_RECIPES i CATALOG_RECIPES; filterMasterRecipes zachowuje wynik). Test presets-zachowanie-p8: kolejność id i sha256 treści 15 receptur takie same przed i po podziale.
+- **Odrzucone:** podział bez listy id kolejności (zmieniłby kolejność listy receptur i indeksy MASTER_RECIPES[n] używane w testach).
+- **Zależy od:** D-157. **Status:** dzień, do weta.
+
+### [D-235] 2026-11-04 — Przekład 33 kluczy katalogu p8 na 33 języki (rola 09, dzień, do weta)
+- **Rodzaj:** decyzja procesowa roli 09 w wykonaniu DEC-06 i D-207.
+- **Decyzja:** 33 klucze (nazwy, opisy, notatki 11 receptur, `docs/lokalizacja/klucze-p8-2026-11-04.json`) przełożone maszynowo na 33 słowniki; źródło przekładu w repo: `docs/lokalizacja/przeklad-katalog-p8-2026-11-04.json`; drugi przegląd AI w świeżym kontekście na 12 językach (>= 1/3), 27 poprawek przyjętych; nazwy chronione tylko w opisach jako pochodzenie formuły (D-177), nazwy receptur opisowe.
+- **Odrzucone:** przebudowa generatora `wepnij-przeklad.mjs` pod nowe wejście (zakaz D-207), dlatego wpięcie jednorazowym skryptem poza repo; przegląd wszystkich 33 języków (koszt, DEC-06 wymaga próbki).
+- **Zależy od:** DEC-06, D-157, D-177, D-190, D-207. **Status:** dzień, do weta.
+
+### [D-228] 2026-11-04 — Partie dnia: p8 katalog (bez flagi danych) i p9a plan danych ze STOP, równolegle od d24ea87 (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 pod nieobecność właściciela (2026-11-04: „ty dzisiaj dalej sam tam na zasadach jak pracujesz w nocy”).
+- **Decyzja:** (1) p8 (rola 08, sonnet wg biblioteki): katalog z listy zatwierdzonej w D-177 (11 + 3 warunkowe) — lista już zatwierdzona, więc partia nie czeka na właściciela; bez zmian danych użytkownika; wyjątek jak D-209 (verify czerwony tylko przez przekład), potem rola 09 na tej samej gałęzi. (2) p9a (rola 08): tylko plan zmian danych i czerwone testy według modułu `dane-uzytkownika`, bez kodu produkcyjnego; STOP do właściciela (D-221). **Wyjątek nazwany (zasada 7):** p9a na modelu opus/high zamiast sonnet/medium z biblioteki — ryzyko utraty danych (zasada 10).
+- **Odrzucone:** czekać z katalogiem na raport 15:00 (lista już zatwierdzona); p9a od razu z migracją (D-221: STOP przed wdrożeniem).
+- **Status:** dzień, do weta.
+
+### [D-234] 2026-11-04 — p8: przyjęcie zmian istniejących testów listy receptur (podmiana MASTER_RECIPES → CATALOG_RECIPES) (koordynator M3, dzień, do weta)
+- **Rodzaj:** decyzja koordynatora M3 przy przyjęciu partii p8 (D-229, odstępstwo roli 08 od polecenia „istniejących testów nie zmieniasz”).
+- **Decyzja:** przyjęte: `receptury-uklad-106`, `pas-zakladek-d10`, `calculator-screen` porównują teraz z `CATALOG_RECIPES`/`filterCatalogRecipes` zamiast `MASTER_RECIPES`/`filterMasterRecipes`; przegląd diffu koordynatora: każda asercja zachowana, zmieniona tylko lista odniesienia; `MASTER_RECIPES` (15) zostaje z własnymi testami. Wyjątek `i18n-no-polish-in-en` dla nazwy pochodzenia „Kołocz śląski” (D-177).
+- **Do sprawdzenia (M1/E2E):** nowe receptury są tylko w kodzie, wiersze `is_built_in` w bazie dalej dla 15 — plan, prowadzenie i Dziennik dla nowych receptur.
+- **Odrzucone:** cofnięcie p8 do zmiany polecenia (ten sam wynik, dłużej).
+- **Status:** dzień, do weta.
+
+### [D-236] 2026-11-04 — Trzy receptury warunkowe (piadina, Stollen, szybki chleb orkiszowy) zostają poza katalogiem: rekomendacja rezerwa (rola 06, partia 06-luki, dzień, do weta)
+- **Rodzaj:** merytoryczna (luki źródeł, hierarchia D-035) z rekomendacją produktową dla właściciela (zakres: rola 03). Wykonanie D-177 pkt 1 („3 warunkowe po domknięciu luk”).
+- **Wynik:** piadina — wody w źródle szczebla 1–3 brak (KAT-PIA-006, ponowne wyszukiwanie 2026-11-04); Stollen — pełna specyfikacja ChOG (DPMA Markenblatt 22/2008, Teil 7) też nie podaje drożdży, mleka, cukru, soli ani czasów (KAT-STO-007; nowe KAT-STO-006: formowany ręcznie, nie w formach, min. 500 g); szybki chleb orkiszowy — waga szklanki mąki orkiszowej 120–140 g z etykiet producentów w USDA FoodData Central (KAT-WAG-030, szczebel 3, przedział; KAT-WAG-006 wycofane), ale receptura bez fermentacji, z płynami poza polami formuły, nie pasuje do celu z CLAUDE.md.
+- **Decyzja (rekomendacja):** (a) wszystkie trzy do rezerwy; powrót: piadina i Stollen po źródle szczebla 1–3 z liczbami, orkisz po decyzji właściciela o recepturach bez fermentacji i o polu dodatków (D-229 c).
+- **Odrzucone:** (b) piadina z wodą „do konsystencji” ustawianą przez użytkownika — pole bez wartości domyślnej to decyzja ról 03/04, nie treści; (c) orkisz z 120 g/szklankę — przedział producentów 120–140 g zmienia maślankę z 81,7% na 70,0%, a receptura nie korzysta z harmonogramu ani DDT; (d) liczby z przepisów szczebla 4–5 bez atrybucji.
+- **Zależy od:** D-177, D-229, KAT-PIA-006, KAT-STO-007, KAT-WAG-030. Lista: `docs/tresci/przeglad/luki-katalogu-2026-11-04.md`. **Status:** dzień, do weta.
+
+### [D-237] 2026-11-04 — Sól pierożków karelskich 2,1%; EN „the app's conversion”; które wartości D-229 wymagają źródła (rola 06, partia 06-luki, dzień, do weta)
+- **Rodzaj:** merytoryczna (rola 06, hierarchia D-035).
+- **Decyzja:** (1) Sól w `karelian_rye_pasties`: 2,1% masy mąki (KAT-KAR-010, wielkość `kat_kar_sol_proc`) — rachunek z przepisu Marttaliitto (KAT-KAR-009, szczebel 3, jedno źródło: 3/4 łyżeczki soli na 1 1/2 dl wody, 3 dl mąki żytniej i 1 dl pszennej) i wag USDA; podstawa mąka żytnia ciemna, bo przy średniej woda 82,3% wychodzi poza 57,1–72,7% specyfikacji GTS. KAT-KAR-007 wycofane. Zdania do notatki: `docs/tresci/pl|en/katalog-m3-luki.md` (rola 08 wpina i przenosi do katalog-m3.md; Marttaliitto na ekran źródeł, D-126). (2) EN: „the app's conversion” potwierdzone (D-053: nazwa EN „Baker”); 6 zdań w `docs/tresci/en/katalog-m3.md` poprawione. (3) Z wartości D-229 źródła wymagają: DDT 25 °C w recepturach fermentowanych (liczy temperaturę wody; chleb łotewski: ciasto 30–34 °C, KAT-RUP-004), `baking_steel` tam, gdzie źródło mówi o piecu lub palenisku (albo nazwać uproszczeniem), mapowanie typów mąk (MAK-EN-900 otwarte). Nie wymagają: masa ciasta 1000 g, DDT receptur bez fermentacji, naczynia wprost ze źródła.
+- **Odrzucone:** sól 0% z jawnym zdaniem o braku ilości (prawdziwe, ale chleb bez soli to inna receptura niż w źródle); sól 2,5% z podstawy mąki średniej (sprzeczna z hydratacją GTS); „Baker's conversion” w EN (myli się z procentem piekarskim).
+- **Zależy od:** D-053, D-126, D-229, KAT-KAR-005, KAT-WAG-001, -005, -020. **Status:** dzień, do weta.
+
+### [D-238] 2026-11-04 — E2E-90: przełącznik dwóch wypieków w stałym rzędzie nad paskiem kciuka (rola 08, p7c, dzień, do weta)
+- **Rodzaj:** naprawa defektu E2E-90 (iOS E2E run 41779445029, `05-dwa-wypieki.yaml:96-104`); realny, P1 dla dwóch wypieków. Zmiana układu w systemie roli 04 (tokeny i komponenty bez zmian), do przeglądu roli 04.
+- **Przyczyna:** `PrzelacznikWypiekow` leżał w przewijanej treści pod pasem ze spiralą; pas zajmuje prawie cały ekran (iPhone 17 Pro), więc segmenty wypadały poniżej widocznego obszaru przewijania, a środek segmentu leżał pod paskiem kciuka (zrzut `e2e-90-step-031.png`). Zależy od wysokości treści nad przełącznikiem (długie teksty, 320 pt, AX5).
+- **Decyzja:** (B) przełącznik poza `EkranZPasem`, w stałym rzędzie nad `PasekKciuka` (`ProwadzenieWypieku` renderuje `naglowek` tam; kontrakt `EkranZPasem` bez zmian); segment bez zmian (`minHeight` 48 pt, tekst bez ucinania, design-spec §3 i `tests/duzy-tekst-kroj.test.ts`); przy dużym tekście (fontScale ≥ 2, jak `PasZakladki`) przełącznik zostaje w przewijanej treści, bo stały rząd z dwuwierszowymi nazwami zająłby za dużo ekranu (prop `naglowekStaly` obok `naglowek`; pasek „Cofnięto” wydzielony do `PasekCofnijKroku.tsx` z powodu limitu 20 480 B). Test: `src/__tests__/stolnica-przelacznik-poza-przewijaniem-e2e90.test.tsx`.
+- **Odrzucone:** (A) przełącznik na pasie nad spiralą (zgodne z makietą „nad jedną spiralą”, ale segmenty jasne i akcentowe na ciemnym pasie: akcent = kolor pasa, kontrast wybranego segmentu do rozstrzygnięcia przez rolę 04; podnosi pas); (C) nazwa w jednej linii z obcięciem (pierwsza wersja tej poprawki: łamie regułę „żaden tekst nie jest ucinany”, test 055; nie usuwa też przyczyny, jeśli przełącznik zostaje w treści).
+- **Ryzyko:** stały rząd zabiera ok. 64 pt (dwa segmenty obok siebie) do ok. 130 pt (jeden pod drugim, 320 pt, długie nazwy w dwóch wierszach) widocznej treści; przy fontScale ≥ 2 rząd wraca do treści (tam przełącznik dalej może wypaść pod dolną strefą akcji, do zgłoszenia roli 04). Nie sprawdzone na symulatorze (E2E koordynatora).
+- **Zależy od:** BR-KAL-016, D-194, NFR-A11Y-004, przegląd roli 04. **Status:** dzień, do weta.

@@ -1,4 +1,4 @@
-// Słownik hr, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hr, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.': 'Čestitamo, tvoj prvi kvas je spreman. Ne zaboravi se o njemu brinuti prema pravilima.',
@@ -25,6 +25,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratacije',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'i još {n}, pojedinosti u prikazu dana',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealna osnova za održavanje matičnog kvasa. Bogato je divljim kvascima i bakterijama mliječne kiseline.',
+  'Ile pieczesz': 'Koliko pečeš',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Koliko raži mora imati kruh da bi se zvao raženim ili raženo-pšeničnim.',
   'Ilości do dokarmienia': 'Količine za hranjenje',
   'Ilości i temperatura wody': 'Količine i temperatura vode',
@@ -49,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Šupljine (Nedovoljno fermentiran)',
   'Jedna opłata, bez odnawiania.': 'Jedno plaćanje, bez obnavljanja.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Jednolično gusta i teška sredina (bez prozračnosti)',
-  'Jednostki': 'Jedinice',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ako nedostatak soli primijetiš tek nakon prvog dizanja, dodavanje neće pomoći, a ponovno mijesenje može trajno uništiti tijesto: ispeci kruh bez soli ili od tijesta napravi podlogu za pizzu.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ako spašavaš tijesto, izvadi ga iz košarice ili posude.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ako nedostaje soli, otvori protokol „Zaboravljena sol“.',
@@ -59,7 +59,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ako vidiš naslagu, mrlje ili promjenu boje ili osjetiš truo miris, otvori provjeru kvasa.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ako kvas „{name}“ nije udvostručio volumen, ponovno ga nahrani.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ako kvas nije puno narastao i ima malo mjehurića, nastavi ga hraniti svakih 12 sati.',
-  'Język': 'Jezik',
+  'Język i jednostki': 'Jezik i jedinice',
   'jutro': 'sutra',
   'Jutro': 'Sutra',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalendar je prazan. Popunit će se kad započneš kvas ili isplaniraš pečenje.',

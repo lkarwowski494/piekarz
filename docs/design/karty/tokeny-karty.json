@@ -1,0 +1,10 @@
+{
+  "_opis": "Propozycja tokenów systemu kart (D-141) do dopisania przez rolę 08 jednocześnie w docs/design/tokeny.json i src/ui/tokeny.ts (testy tokeny-zgodnosc i kontrast-motywu wymagają równości obu plików).",
+  "promienie": { "karta": 16 },
+  "kolory": {
+    "jasny": { "kartaLinia": "#E2E2DC" },
+    "ciemny": { "kartaLinia": "#1F2729" },
+    "jasnyKontrast": { "kartaLinia": "#8A8B84" },
+    "ciemnyKontrast": { "kartaLinia": "#7C878A" }
+  }
+}

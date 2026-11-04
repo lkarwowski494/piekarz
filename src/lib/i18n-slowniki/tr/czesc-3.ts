@@ -1,4 +1,4 @@
-// Słownik tr, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Godzina': 'Saat',
@@ -40,6 +40,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrasyon',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 've {n} tane daha, ayrıntılar gün sayfasında',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ana ekşi mayayı sürdürmek için ideal temel. Yabani mayalar ve laktik asit bakterileri bakımından zengindir.',
+  'Ile pieczesz': 'Ne kadar pişiriyorsunuz',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Bir ekmeğin çavdar ekmeği ya da çavdarlı-buğdaylı ekmek sayılması için ne kadar çavdar içermesi gerektiği.',
   'Ilości do dokarmienia': 'Besleme miktarları',
   'Ilości i temperatura wody': 'Miktarlar ve su sıcaklığı',
@@ -64,7 +65,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Dev boşluklar (Az mayalanmış)',
   'Jedna opłata, bez odnawiania.': 'Tek ödeme, yenileme yok.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Baştan sona yoğun ve ağır ekmek içi (havalanma yok)',
-  'Jednostki': 'Birimler',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Tuzun eksik olduğunu ancak ilk kabarmadan sonra fark ederseniz, eklemenin faydası olmaz ve yeniden yoğurmak hamuru kalıcı olarak bozabilir: Ekmeği tuzsuz pişirin ya da hamurdan pizza tabanı yapın.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Hamuru kurtarıyorsanız sepetten veya kaptan çıkarın.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Tuz eksikse “Unutulan tuz” protokolünü açın.',
@@ -74,7 +74,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Tabaka, leke veya renk değişimi görürseniz ya da çürük koku alırsanız ekşi maya kontrolünü açın.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': '“{name}” ekşi mayası hacmini iki katına çıkarmadıysa yeniden besleyin.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ekşi maya az kabardıysa ve az kabarcığı varsa onu 12 saatte bir beslemeye devam edin.',
-  'Język': 'Dil',
+  'Język i jednostki': 'Dil ve birimler',
   'jutro': 'yarın',
   'Jutro': 'Yarın',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Takvim boş. Ekşi maya başlattığınızda veya bir pişirme planladığınızda dolacak.',

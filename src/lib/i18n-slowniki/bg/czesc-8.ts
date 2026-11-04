@@ -1,4 +1,4 @@
-// Słownik bg, część 8 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 8 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przy chlebie ze 100% mąki żytniej składanie zwykle można pominąć.': 'При хляб от 100% ръжено брашно сгъването обикновено може да се пропусне.',
@@ -27,6 +27,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Рецептата „{nazwa}“ е в „Моите рецепти“.',
   'Receptura awaryjna:': 'Резервна рецепта:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Базовата рецепта се е променила след онова изпичане: сега има повече мая.',
+  'Receptura bazowa, na drożdżach': 'Базова рецепта, с мая',
+  'Receptura bazowa, na zakwasie': 'Базова рецепта, със закваска',
+  'Receptura bazowa, pizza': 'Базова рецепта, пица',
+  'Receptura bazowa, słodka': 'Базова рецепта, сладка',
+  'Receptura bazowa, żytnia': 'Базова рецепта, ръжена',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Рецептата трябва да има име (1-120 знака)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Рецептата трябва да съдържа поне едно брашно',
   'Receptura z pliku': 'Рецепта от файл',

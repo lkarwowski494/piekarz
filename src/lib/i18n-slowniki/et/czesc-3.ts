@@ -1,4 +1,4 @@
-// Słownik et, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gumowaty (Gorący nóż)': 'Kummine (Kuumalt lõigatud)',
@@ -22,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'veesisalduse',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ja veel {n}, üksikasjad päevalehel',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideaalne alus emajuuretise pidamiseks. Rikas looduslike pärmide ja piimhappebakterite poolest.',
+  'Ile pieczesz': 'Kui palju küpsetad',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Kui palju rukist peab leivas olema, et seda võiks nimetada rukki- või rukki-nisuleivaks.',
   'Ilości do dokarmienia': 'Toitmise kogused',
   'Ilości i temperatura wody': 'Kogused ja vee temperatuur',
@@ -46,7 +47,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Koopad (Alakergunud)',
   'Jedna opłata, bez odnawiania.': 'Ühekordne makse, ilma pikendamiseta.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ühtlaselt tihe ja raske sisu (õhulisus puudub)',
-  'Jednostki': 'Ühikud',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Kui soola puudumine selgub alles pärast esimest kerkimist, ei aita selle lisamine enam midagi ning uuesti sõtkumine võib taigna jäädavalt rikkuda: küpseta leib soolata või tee taignast pitsapõhi.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Kui päästad taignat, võta see korvist või nõust välja.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Kui sool puudub, ava protokoll „Unustatud sool”.',
@@ -56,7 +56,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Kui näed kirmet, laike või värvimuutust või tunned mädanenud lõhna, ava juuretise kontroll.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Kui juuretise „{name}” maht pole kahekordistunud, toida seda uuesti.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Kui juuretis kerkis vähe ja sellel on vähe mulle, toida seda edasi iga 12 tunni järel.',
-  'Język': 'Keel',
+  'Język i jednostki': 'Keel ja ühikud',
   'jutro': 'homme',
   'Jutro': 'Homme',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalender on tühi. See täitub, kui valmistad juuretise või planeerid küpsetise.',

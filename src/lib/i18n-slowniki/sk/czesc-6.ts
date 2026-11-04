@@ -1,4 +1,4 @@
-// Słownik sk, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sk, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przed pieczeniem dokarm zakwas z lodówki w równych częściach wagowych i zostaw go w temperaturze pokojowej. Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'Pred pečením nakŕmte kvások z chladničky v rovnakých hmotnostných dieloch a nechajte ho pri izbovej teplote. Môže začať bublať rýchlo alebo mu to môže trvať až 12 hodín, podľa toho, kedy bol naposledy nakŕmený.',
@@ -59,6 +59,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Receptúra „{nazwa}“ je v Mojich receptúrach.',
   'Receptura awaryjna:': 'Núdzová receptúra:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Základná receptúra sa od toho pečenia zmenila: teraz má viac droždia.',
+  'Receptura bazowa, na drożdżach': 'Základná receptúra, na droždí',
+  'Receptura bazowa, na zakwasie': 'Základná receptúra, na kvase',
+  'Receptura bazowa, pizza': 'Základná receptúra, pizza',
+  'Receptura bazowa, słodka': 'Základná receptúra, sladká',
+  'Receptura bazowa, żytnia': 'Základná receptúra, ražná',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Receptúra musí mať názov (1-120 znakov)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Receptúra musí obsahovať aspoň jednu múku',
   'Receptura z pliku': 'Receptúra zo súboru',

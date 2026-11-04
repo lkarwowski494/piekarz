@@ -1,4 +1,4 @@
-// Słownik ro, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ro, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'După ce achiziția este aprobată, Brutar Pro se va activa singur. Nu trebuie să cumperi din nou.',
@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratare',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'și încă {n}, detalii în fișa zilei',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Bază ideală pentru întreținerea maielei naturale-mamă. Bogată în drojdii sălbatice și bacterii lactice.',
+  'Ile pieczesz': 'Cât coci',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Câtă secară trebuie să conțină o pâine ca să se numească pâine de secară sau de secară și grâu.',
   'Ilości do dokarmienia': 'Cantități pentru hrănire',
   'Ilości i temperatura wody': 'Cantități și temperatura apei',
@@ -68,7 +69,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Caverne (Dospit insuficient)',
   'Jedna opłata, bez odnawiania.': 'O singură plată, fără reînnoire.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Miez uniform dens și greu (fără aerare)',
-  'Jednostki': 'Unități',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Dacă observi lipsa sării abia după prima creștere, adăugarea ei nu va ajuta, iar frământarea din nou poate strica definitiv aluatul: coace pâinea fără sare sau folosește aluatul ca blat de pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Dacă salvezi aluatul, scoate-l din coș sau din vas.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Dacă lipsește sarea, deschide protocolul „Sare uitată”.',
@@ -78,7 +78,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Dacă vezi depunere, pete sau decolorare ori simți miros de putred, deschide verificarea maiei.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Dacă maia „{name}” nu și-a dublat volumul, hrănește-o din nou.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Dacă maiaua a crescut puțin și are puține bule, continuă s-o hrănești la fiecare 12 ore.',
-  'Język': 'Limbă',
+  'Język i jednostki': 'Limbă și unități',
   'jutro': 'mâine',
   'Jutro': 'Mâine',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Calendarul este gol. Se va umple când pornești o maia sau planifici o coacere.',

@@ -1,4 +1,4 @@
-// Słownik vi, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik vi, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Không kịp vào giờ này',
@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Đánh giá sự phát triển mạng gluten sau thủy phân bột và gấp bột',
   'Ocena wymaga połączenia z App Store.': 'Cần kết nối với App Store để đánh giá.',
   'Ocena wypieku': 'Đánh giá mẻ bánh',
-  'Ocena: {n}/5': 'Đánh giá: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Đánh giá bột qua vẻ ngoài, không theo đồng hồ: khi trời lạnh, bột nở lâu hơn, và thời gian trong công thức chỉ để tham khảo.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Đánh giá ổ bánh và lưu ghi chú vào lịch sử nướng bánh',
   'Oceń na {n} z 5': 'Chấm {n} trên 5',
@@ -51,6 +50,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Từ bột và nước đến ổ bánh đầu tiên, từng ngày một.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Từ ngày này, cho men ăn hai lần mỗi ngày, khoảng 12 giờ một lần.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Đuổi khí bằng cách ấn mạnh, như khi tạo hình.',
+  'Odhaczaj przy ważeniu.': 'Đánh dấu khi cân.',
   'Odhaczaj składniki w miarę wsypywania': 'Đánh dấu nguyên liệu khi cho vào',
   'Odkryj wiedzę naukową': 'Khám phá kiến thức khoa học',
   'Odliczanie trwa': 'Đang đếm ngược',
@@ -60,6 +60,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Bỏ thay đổi?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Bỏ một nửa men tự nhiên, thêm bột và nước với khối lượng bằng nhau rồi để trong 24 giờ.',
   'Odrzuć zmiany': 'Bỏ thay đổi',
+  'Wpisane zmiany nie zostaną zapisane.': 'Các thay đổi bạn đã nhập sẽ không được lưu.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Để nghỉ 20 phút trước lần gấp bột tiêu chuẩn tiếp theo.',
   'Odznacz objawy': 'Bỏ chọn triệu chứng',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Bánh mì bổ dưỡng từ bột mì Graham xay thô (nguyên cám), thêm mật ong tự nhiên và hạt lanh.',

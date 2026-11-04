@@ -1,4 +1,4 @@
-// Słownik tr, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciemne chleby razowe, zakwas żytni i pszenny razowy, chleb 100% z keksówki.': 'Koyu kepekli ekmekler, çavdar ve kepekli buğday ekşi mayası, kalıpta %100 kepekli ekmek.',
@@ -15,6 +15,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Bugün başka ne yapıyorsunuz?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'oda sıcaklığında en az 3 saat ya da 1 saat, ardından buzdolabında en fazla 3 gün',
   'Co widzisz?': 'Ne görüyorsunuz?',
+  'Co zrobić': 'Yapılacaklar',
   'Co zrobić przy następnym wypieku:': 'Bir sonraki pişirmede yapılacaklar:',
   'Co zrobić:': 'Yapılacaklar:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Yapılacaklar: ekşi mayayı ertesi günün planına göre besleyin.',
@@ -53,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Buzdolabına ancak istikrar kazandıktan sonra, yani 7–10 gün sonra koyun.',
   'Do miski': 'Kaseye',
   'Do miski (Ciasto właściwe)': 'Kaseye (Ana hamur)',
-  'Do miski (odhaczaj przy ważeniu)': 'Kaseye (tartarken işaretleyin)',
   'Do miski na wagę': 'Terazideki kaseye',
   'Do ostygnięcia do temp. pokojowej': 'Oda sıcaklığına soğuyana kadar',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Tahmini zirve aralığına yaklaşık {czas} kaldı (aralık: {okno}).',

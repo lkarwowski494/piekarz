@@ -1,4 +1,4 @@
-// Słownik sr, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 6 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)': 'од 8 сати (више квасца) до 14–16 сати (мање квасца)',
@@ -6,6 +6,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Од брашна и воде до прве векне, дан по дан.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Од овог дана храни стартер два пута дневно, отприлике на сваких 12 сати.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Испусти гас из њега чврсто притискајући, као при обликовању.',
+  'Odhaczaj przy ważeniu.': 'Штиклирај док мериш.',
   'Odhaczaj składniki w miarę wsypywania': 'Штиклирај састојке док их сипаш',
   'Odkryj wiedzę naukową': 'Откриј научна сазнања',
   'Odliczanie trwa': 'Одбројавање је у току',
@@ -15,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Одбацити измене?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Одбаци половину стартера, додај брашно и воду у једнаким количинама по тежини и остави 24 сата.',
   'Odrzuć zmiany': 'Одбаци измене',
+  'Wpisane zmiany nie zostaną zapisane.': 'Унесене измене неће бити сачуване.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Остави тесто да одмара 20 минута пре следећег уобичајеног пресавијања.',
   'Odznacz objawy': 'Поништи симптоме',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Хранљив хлеб од крупно млевеног пшеничног грахам брашна, уз додатак природног меда и ланеног семена.',

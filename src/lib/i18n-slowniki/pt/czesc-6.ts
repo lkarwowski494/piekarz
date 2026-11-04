@@ -1,7 +1,7 @@
-// Słownik pt, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'A percentagem de fermento na receita refere-se a fermento fresco. De fermento seco (instantâneo ou ativo), pese 0,4 dessa quantidade.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'A percentagem de fermento na receita refere-se a fermento fresco. De fermento seco (instantâneo ou ativo), pese 0,35 dessa quantidade. O fabricante pode indicar outra proporção na embalagem.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'A percentagem da farinha «{name}» tem de ser um número no intervalo de 0,1–100%',
   'Profil smakowy': 'Perfil de sabor',
   'Profil zakwasu': 'Perfil do fermento natural',
@@ -79,6 +79,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'A receita «{nazwa}» está nas Minhas receitas.',
   'Receptura awaryjna:': 'Receita de recurso:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'A receita base mudou desde essa fornada: agora leva mais fermento de padeiro.',
+  'Receptura bazowa, na drożdżach': 'Receita base, com fermento de padeiro',
+  'Receptura bazowa, na zakwasie': 'Receita base, com massa-mãe',
+  'Receptura bazowa, pizza': 'Receita base, pizza',
+  'Receptura bazowa, słodka': 'Receita base, doce',
+  'Receptura bazowa, żytnia': 'Receita base, de centeio',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'A receita tem de ter um nome (1-120 caracteres)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'A receita tem de incluir pelo menos uma farinha',
   'Receptura z pliku': 'Receita de ficheiro',

@@ -1,4 +1,4 @@
-// Słownik et, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Kõrge väljasaagisega nisujahu, valgusisaldus 13,1%',
@@ -154,7 +154,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Gluteenivõrgustiku arengu hindamine pärast autolüüsi ja voltimist',
   'Ocena wymaga połączenia z App Store.': 'Hindamiseks on vaja ühendust App Store\'iga.',
   'Ocena wypieku': 'Küpsetise hinne',
-  'Ocena: {n}/5': 'Hinne: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Hinda tainast välimuse, mitte kella järgi: jahedas kerkib tainas kauem ning retsepti ajad on vaid suunised.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Hinda pätsi ja salvesta märkmed küpsetusajalukku',
   'Oceń na {n} z 5': 'Hinda {n} punktiga 5-st',
@@ -166,6 +165,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Jahust ja veest esimese pätsini, päev päeva haaval.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Alates sellest päevast toida juuretist kaks korda päevas, umbes iga 12 tunni järel.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Vabasta see gaasist, vajutades tugevalt, nagu vormimisel.',
+  'Odhaczaj przy ważeniu.': 'Märgi kaalumisel ära.',
   'Odhaczaj składniki w miarę wsypywania': 'Märgi koostisosad ära, kui neid lisad',
   'Odkryj wiedzę naukową': 'Avasta teaduslik selgitus',
   'Odliczanie trwa': 'Loendus käib',
@@ -175,6 +175,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Loobuda muudatustest?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Viska pool juuretisest ära, lisa jahu ja vett võrdses kaalukoguses ning jäta 24 tunniks seisma.',
   'Odrzuć zmiany': 'Loobu muudatustest',
+  'Wpisane zmiany nie zostaną zapisane.': 'Sisestatud muudatusi ei salvestata.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lase 20 minutit puhata enne järgmist tavalist voltimist.',
   'Odznacz objawy': 'Tühjenda sümptomid',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Toitev leib jämedalt jahvatatud Graham-nisujahust, millele on lisatud naturaalset mett ja linaseemneid.',

@@ -18,7 +18,6 @@ export const EN_16: Record<string, string> = {
   'Pokaż wszystkie': 'Show All',
   // Ekran receptury (stany receptura, receptura-zaczyn)
   'Masa bochenka': 'Loaf weight',
-  'Do miski (odhaczaj przy ważeniu)': 'Into the bowl (check off as you weigh)',
   'Do miski': 'Into the bowl',
   'Zakwas ({n}% wody)': 'Starter ({n}% hydration)',
   'Zaczyn: {rodzaj}': 'Preferment: {rodzaj}',
@@ -89,6 +88,18 @@ export const EN_16: Record<string, string> = {
   'Drożdże do odważenia': 'Yeast to weigh',
   'świeże|drożdże': 'fresh',
   'suche|drożdże': 'dry',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.':
-    'The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active) you weigh 0.4 of that amount.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.':
+    'The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package.',
+  'Wstecz': 'Back',
+  'Ile pieczesz': 'How much are you baking',
+  // M3 p6b (D-209, README §6)
+  'Odhaczaj przy ważeniu.': 'Tick off as you weigh.',
+  'Co zrobić': 'What to do',
+  'Receptura bazowa, na zakwasie': 'Base recipe, sourdough',
+  'Receptura bazowa, żytnia': 'Base recipe, rye',
+  'Receptura bazowa, na drożdżach': 'Base recipe, with yeast',
+  'Receptura bazowa, pizza': 'Base recipe, pizza',
+  'Receptura bazowa, słodka': 'Base recipe, sweet',
+  'Język i jednostki': 'Language and units',
+  '{data}, ocena {n}/5': '{data}, rated {n}/5',
 };

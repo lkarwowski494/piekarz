@@ -1,4 +1,4 @@
-// Słownik lt, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.': 'Glitimas puikiai išsivystęs. Paruošta pradiniam formavimui.',
@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'tešlos hidratacijos',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ir dar {n}, išsamiau dienos kortelėje',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealus pagrindas motininiam natūraliam raugui palaikyti. Gausu laukinių mielių ir pieno rūgšties bakterijų.',
+  'Ile pieczesz': 'Kiek kepate',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Kiek rugių turi būti duonoje, kad ją būtų galima vadinti rugine arba ruginė-kvietine.',
   'Ilości do dokarmienia': 'Maitinimo kiekiai',
   'Ilości i temperatura wody': 'Kiekiai ir vandens temperatūra',
@@ -66,7 +67,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Urvai (Nepakankamai fermentuotas)',
   'Jedna opłata, bez odnawiania.': 'Vienas mokėjimas, be atnaujinimo.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Vienodai tankus ir sunkus minkštimas (neakytas)',
-  'Jednostki': 'Vienetai',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Jei druskos trūkumą pastebėsite tik po pirmojo kilimo, ją įdėję nieko nepasieksite, o pakartotinis minkymas gali negrįžtamai sugadinti tešlą: iškepkite duoną be druskos arba panaudokite tešlą picos padui.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Jei gelbėjate tešlą, išimkite ją iš krepšelio arba indo.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Jei trūksta druskos, atidarykite protokolą „Pamiršta druska“.',
@@ -76,7 +76,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Jei matote apnašą, dėmes ar spalvos pakitimą arba jaučiate puvėsių kvapą, atidarykite natūralaus raugo patikrą.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Jei natūralus raugas „{name}“ nepadvigubėjo, pamaitinkite jį dar kartą.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Jei natūralus raugas mažai pakilo ir turi mažai burbuliukų, toliau maitinkite jį kas 12 valandų.',
-  'Język': 'Kalba',
+  'Język i jednostki': 'Kalba ir vienetai',
   'jutro': 'rytoj',
   'Jutro': 'Rytoj',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalendorius tuščias. Jis prisipildys, kai užvesite natūralų raugą arba suplanuosite kepinį.',

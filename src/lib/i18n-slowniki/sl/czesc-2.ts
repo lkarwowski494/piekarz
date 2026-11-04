@@ -1,4 +1,4 @@
-// Słownik sl, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sl, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Tanek prerez in veliko razmerje med površino skorje in maso povzročata močno izhlapevanje vode.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Kaj boste še delali danes?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'najmanj 3 ure pri sobni temperaturi ali 1 ura, nato pa največ 3 dni v hladilniku',
   'Co widzisz?': 'Kaj vidite?',
+  'Co zrobić': 'Kaj storiti',
   'Co zrobić przy następnym wypieku:': 'Kaj storiti pri naslednji peki:',
   'Co zrobić:': 'Kaj storiti:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Kaj storiti: kvas nahranite po načrtu za naslednji dan.',
@@ -50,7 +51,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'V hladilnik ga postavite šele, ko se ustali, torej po 7–10 dneh.',
   'Do miski': 'V skledo',
   'Do miski (Ciasto właściwe)': 'V skledo (glavno testo)',
-  'Do miski (odhaczaj przy ważeniu)': 'V skledo (odkljukajte pri tehtanju)',
   'Do miski na wagę': 'V skledo na tehtnici',
   'Do ostygnięcia do temp. pokojowej': 'Do ohladitve na sobno temperaturo',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Do predvidenega okna vrha aktivnosti je še pribl. {czas} (okno: {okno}).',

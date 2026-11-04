@@ -1,8 +1,7 @@
-// Słownik uk, część 4 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 4 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Рівномірно щільний і важкий м\'якуш (без пористості)',
-  'Jednostki': 'Одиниці',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Якщо відсутність солі виявиться лише після першого підходу, додавати її вже марно, а повторне вимішування може остаточно зіпсувати тісто: спечіть хліб без солі або зробіть із тіста основу для піци.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Якщо рятуєте тісто, вийміть його з кошика або посудини.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Якщо солі бракує, відкрийте протокол «Забута сіль».',
@@ -12,7 +11,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Якщо ви бачите наліт, плями або зміну кольору чи відчуваєте гнилий запах, відкрийте перевірку закваски.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Якщо закваска «{name}» не подвоїла об\'єм, підживіть її знову.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Якщо закваска мало піднялася й має мало бульбашок, підживлюйте її далі кожні 12 годин.',
-  'Język': 'Мова',
+  'Język i jednostki': 'Мова й одиниці',
   'jutro': 'завтра',
   'Jutro': 'Завтра',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Календар порожній. Він заповниться, коли ви заведете закваску або заплануєте випічку.',

@@ -1,4 +1,4 @@
-// Słownik ms, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ms, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wektorowy radar sensoryczny': 'Radar deria vektor',
@@ -52,6 +52,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Guna campuran sedia ada',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Masukkan bakul dalam beg kedap udara ke dalam peti sejuk (4–6°C). Penapaian yang panjang memberikan aroma yang mendalam kepada roti.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Letakkan bekas berisi doh di dalam ketuhar yang dimatikan dan nyalakan lampunya sahaja: bahagian dalam akan beransur hangat, tetapi setiap ketuhar dan setiap dapur memberi hasil yang berbeza.',
+  'Wstecz': 'Kembali',
   'Wstrzymaj': 'Jeda',
   'Wstrzymano': 'Dijeda',
   'Wsyp do miski na wagę': 'Masukkan ke dalam mangkuk di atas penimbang',

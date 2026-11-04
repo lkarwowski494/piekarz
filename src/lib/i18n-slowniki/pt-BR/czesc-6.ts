@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Profil, cykl dokarmiania i szczyt aktywności': 'Perfil, ciclo de alimentação e pico do fermento',
@@ -75,6 +75,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'A receita “{nazwa}” está em Minhas receitas.',
   'Receptura awaryjna:': 'Receita de emergência:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'A receita base mudou desde aquela fornada: agora ela tem mais fermento.',
+  'Receptura bazowa, na drożdżach': 'Receita base, com fermento biológico',
+  'Receptura bazowa, na zakwasie': 'Receita base, com fermento natural',
+  'Receptura bazowa, pizza': 'Receita base, pizza',
+  'Receptura bazowa, słodka': 'Receita base, doce',
+  'Receptura bazowa, żytnia': 'Receita base, de centeio',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'A receita deve ter um nome (1-120 caracteres)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'A receita deve conter pelo menos uma farinha',
   'Receptura z pliku': 'Receita de arquivo',

@@ -1,4 +1,4 @@
-// Słownik lv, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lv, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Protokoły ratunkowe (Pogotowie ciasta)': 'Glābšanas protokoli (mīklas neatliekamā palīdzība)',
@@ -68,6 +68,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Receptūra „{nazwa}” ir sadaļā Manas receptūras.',
   'Receptura awaryjna:': 'Rezerves receptūra:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Bāzes receptūra kopš tā cepiena ir mainījusies: tagad tajā ir vairāk rauga.',
+  'Receptura bazowa, na drożdżach': 'Bāzes receptūra, ar raugu',
+  'Receptura bazowa, na zakwasie': 'Bāzes receptūra, ar dabīgo ieraugu',
+  'Receptura bazowa, pizza': 'Bāzes receptūra, pica',
+  'Receptura bazowa, słodka': 'Bāzes receptūra, saldā',
+  'Receptura bazowa, żytnia': 'Bāzes receptūra, rudzu',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Receptūrai jābūt nosaukumam (1-120 rakstzīmes)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Receptūrā jābūt vismaz vienam miltu veidam',
   'Receptura z pliku': 'Receptūra no faila',

@@ -1,4 +1,4 @@
-// Słownik fr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.': 'La pâte lève à température ambiante au moins 12 heures et au plus 24 heures. Une fois divisée en boules, elle lève encore 45–60 minutes pendant que le four chauffe.',
@@ -19,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Que faites-vous d\'autre aujourd\'hui ?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'au moins 3 heures à température ambiante, ou 1 heure puis au plus 3 jours au réfrigérateur',
   'Co widzisz?': 'Que voyez-vous ?',
+  'Co zrobić': 'Que faire',
   'Co zrobić przy następnym wypieku:': 'À faire lors de la prochaine fournée :',
   'Co zrobić:': 'Que faire :',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Que faire : rafraîchissez le levain selon le planning du lendemain.',
@@ -57,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Ne le mettez au réfrigérateur qu\'une fois stabilisé, soit après 7–10 jours.',
   'Do miski': 'Dans le bol',
   'Do miski (Ciasto właściwe)': 'Dans le bol (pâte finale)',
-  'Do miski (odhaczaj przy ważeniu)': 'Dans le bol (cochez au fil de la pesée)',
   'Do miski na wagę': 'Dans le bol sur la balance',
   'Do ostygnięcia do temp. pokojowej': 'Jusqu’à refroidissement à température ambiante',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Il reste env. {czas} avant la fenêtre estimée du pic d\'activité (fenêtre : {okno}).',

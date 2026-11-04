@@ -15,6 +15,8 @@ import { t } from '../lib/i18n';
 import type { Funkcja } from '../lib/platnosci/konfiguracja';
 import { etykietaPro, nazwaBlokady } from '../lib/platnosci/nazwy-pro';
 import { OznaczeniePro } from './OznaczeniePro';
+import { Karta } from '../ui/karty/Karta';
+import { useDuzyTekst } from '../ui/karty/duzy-tekst';
 
 export interface BlokadaFunkcjiProps {
   funkcja: Funkcja;
@@ -22,24 +24,37 @@ export interface BlokadaFunkcjiProps {
   onZablokowane: () => void;
   /** Treść widoczna do odczytu także bez Pro (obszar z częścią Basic); domyślnie bez treści. */
   podglad?: boolean;
+  /** Ekran na systemie kart: blokada jako karta z nazwą funkcji w nagłówku i „Pro” jako znacznikiem (ikona karty;
+   *  karty/README.md §1, §4 „Proporcje dokarmiania” w karcie) [M3 p2]. */
+  ikonaKarty?: React.ReactNode;
   children: React.ReactNode;
 }
 
-export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, podglad = false, children }: BlokadaFunkcjiProps) {
+export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, podglad = false, ikonaKarty, children }: BlokadaFunkcjiProps) {
+  const duzy = useDuzyTekst();
   if (odblokowane) return <>{children}</>;
   const nazwa = nazwaBlokady(funkcja);
   return (
     <View>
       <Pressable
         testID={`blokada-${funkcja}`}
-        style={styles.wiersz}
+        style={[styles.wiersz, ikonaKarty ? styles.wKarcie : null]}
         onPress={onZablokowane}
         accessibilityRole="button"
         accessibilityLabel={etykietaPro(nazwa, false)}
         accessibilityHint={t('wymaga Piekarz Pro')}
       >
-        <Text style={styles.nazwa}>{nazwa}</Text>
-        <OznaczeniePro />
+        {ikonaKarty ? (
+          // Przy dużym tekście „Pro” pod nazwą (kolejność czytania: nazwa, potem „Pro”), inaczej po prawej nagłówka
+          <Karta testID={`karta-blokada-${funkcja}`} tytul={nazwa} ikona={ikonaKarty} znacznik={duzy ? undefined : <OznaczeniePro />}>
+            {duzy ? <OznaczeniePro /> : null}
+          </Karta>
+        ) : (
+          <>
+            <Text style={styles.nazwa}>{nazwa}</Text>
+            <OznaczeniePro />
+          </>
+        )}
       </Pressable>
       {podglad && (
         <View
@@ -56,6 +71,7 @@ export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, podglad = 
 }
 
 const styles = StyleSheet.create({
+  wKarcie: { flexDirection: 'column', alignItems: 'stretch', paddingVertical: 0, marginBottom: 0 },
   wiersz: {
     flexDirection: 'row',
     flexWrap: 'wrap',

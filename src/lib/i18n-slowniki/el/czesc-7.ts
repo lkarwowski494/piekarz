@@ -1,4 +1,4 @@
-// Słownik el, część 7 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 7 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie': 'Φούρνος κατειλημμένος: {r1} και {r2} ψήνονται ταυτόχρονα',
@@ -100,7 +100,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Προζύμωση (μαγιά προζυμιού)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Διαδικασία Bassinage διάσωσης',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Το ποσοστό μαγιάς στη συνταγή αφορά νωπή μαγιά. Ξηρής μαγιάς (instant ή ενεργού) θα ζυγίσετε 0,4 αυτής της ποσότητας.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Το ποσοστό μαγιάς στη συνταγή αφορά νωπή μαγιά. Ξηρής μαγιάς (instant ή ενεργού) θα ζυγίσετε 0,35 αυτής της ποσότητας. Ο κατασκευαστής μπορεί να αναφέρει στη συσκευασία διαφορετική αναλογία.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Το ποσοστό του αλευριού «{name}» πρέπει να είναι αριθμός στο εύρος 0,1–100%',
   'Profil smakowy': 'Προφίλ γεύσης',
   'Profil zakwasu': 'Προφίλ προζυμιού',

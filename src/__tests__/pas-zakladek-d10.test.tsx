@@ -43,12 +43,14 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import RecepturyLayout from '../../app/(tabs)/receptury/_layout';
 import ZakwasyLayout from '../../app/(tabs)/zakwasy/_layout';
+import DoktorZakwasuScreen from '../../app/(tabs)/zakwasy/doktor-zakwasu';
 import DziennikLayout from '../../app/(tabs)/dziennik/_layout';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore, getStarters, deleteStarter, saveStarter, saveBakeLog, getBakeLogs, deleteBakeLog } from '../data/sqlite-store';
 import { addStarterEntry } from '../data/starter-entries-store';
 import { nowyWpis } from '../components/zakwas/useStarterLog';
-import { filterMasterRecipes, MASTER_RECIPES } from '../recipes/presets';
+import { MASTER_RECIPES } from '../recipes/presets';
+import { filterCatalogRecipes } from '../recipes/katalog';
 import { nazwaReceptury } from '../lib/nazwa-receptury';
 import { pokazMenuReceptury } from '../lib/menu-receptury';
 import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../lib/ostatni-wypiek';
@@ -121,7 +123,7 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     tree = null;
   });
 
-  it('stosy zakładek: nagłówek natywny ukryty na liście receptur, karcie receptury, karcie zakwasu i w Dzienniku; plan i Doktor zakwasu z nagłówkiem', () => {
+  it('stosy zakładek: nagłówek natywny ukryty na liście receptur, karcie receptury, karcie zakwasu i w Dzienniku; plan też ukryty (D-204); Doktor zakwasu też ukryty (D-219)', () => {
     for (const L of [RecepturyLayout, ZakwasyLayout, DziennikLayout]) {
       act(() => {
         tree = renderer.create(<L />);
@@ -132,8 +134,10 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     expect(mockEkrany.get('index')?.headerShown).toBe(false);
     expect(mockEkrany.get('receptura')).toEqual(expect.objectContaining({ headerShown: false, headerBackTitle: 'Receptury' }));
     expect(mockEkrany.get('receptura')?.headerRight).toBeUndefined();
-    expect(mockEkrany.get('harmonogram')?.headerShown).not.toBe(false);
-    expect(mockEkrany.get('doktor-zakwasu')?.headerShown).not.toBe(false);
+    // M3 p6a (D-204): plan z pasem O3a jak lista i receptura — nagłówek stosu ukryty
+    expect(mockEkrany.get('harmonogram')?.headerShown).toBe(false);
+    // M3 p7b (D-219, 04-005): Doktor zakwasu z pasem O3a jak Doktor Chleba — nagłówek stosu ukryty; tytuł zostaje w opcjach
+    expect(mockEkrany.get('doktor-zakwasu')).toEqual(expect.objectContaining({ headerShown: false, title: 'Doktor zakwasu' }));
   });
 
   it('Receptury: tytuł i filtry rodzaju na pasie; filtr działa jak wcześniej; kolejność tytuł → filtry → lista', async () => {
@@ -148,7 +152,7 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     await flush();
     expect(host(pas, 'category-filter-rye')[0].props.accessibilityState).toEqual({ selected: true });
     const wiersze = host(root, 'recipe-list')[0].findAll((n) => typeof n.type === 'string' && /^recipe-row-/.test(String(n.props.testID)));
-    expect(wiersze.map((w) => w.props.testID)).toEqual(filterMasterRecipes('rye').map((r) => `recipe-row-${r.id}`));
+    expect(wiersze.map((w) => w.props.testID)).toEqual(filterCatalogRecipes('rye').map((r) => `recipe-row-${r.id}`));
   });
 
   it('karta receptury: nazwa receptury na pasie, powrót „Receptury” i „Więcej” na pasie z etykietą, cel 44 pt', async () => {
@@ -184,6 +188,27 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     expect(host(root, 'brand-spiral')).toHaveLength(1);
     expect(host(root, 'zakwas-podwoil-btn')).toHaveLength(1);
     kolejnosc(root, [naglowek, zId('brand-spiral'), zId('zakwas-karta')]);
+  });
+
+  it('Doktor zakwasu (04-005, D-219): tytuł na pasie (nagłówek VoiceOver), powrót z etykietą, czapka; objawy pod pasem', async () => {
+    const root = await render(<DoktorZakwasuScreen />);
+    const pas = sprawdzPas(root, 'Doktor zakwasu');
+    // Powrót jak w Doktorze Chleba: ikona z etykietą VoiceOver, cel 44 pt, wraca w stosie zakładki
+    const wstecz = przycisk(pas, 'pas-wstecz-btn');
+    expect(wstecz).toHaveLength(1);
+    expect(wstecz[0].props.accessibilityLabel).toBe('Wstecz');
+    expect(Number(styl(host(pas, 'pas-wstecz-btn')[0]).minHeight)).toBeGreaterThanOrEqual(44);
+    act(() => wstecz[0].props.onPress());
+    expect(mockNawigacja.back).toHaveBeenCalledTimes(1);
+    expect(mockNawigacja.push).not.toHaveBeenCalled();
+    // Czapka paska stanu w kolorze pasa (README §2, EkranZPasem)
+    const czapki = host(root, 'czapka-paska');
+    expect(czapki).toHaveLength(1);
+    expect(styl(czapki[0]).backgroundColor).toBe(theme.colors.pas);
+    // Treść bez zmian, pod pasem: karta objawów i objaw plam dostępny; VoiceOver: tytuł → objawy
+    expect(host(pas, 'karta-objawy')).toHaveLength(0);
+    expect(host(root, 'doktor-zakwasu-objaw-mold_signs').length).toBeGreaterThan(0);
+    kolejnosc(root, [naglowek, zId('karta-objawy')]);
   });
 
   it('karta zakwasu bez zakwasu: tytuł „Zakwasy” na pasie, bez spirali', async () => {

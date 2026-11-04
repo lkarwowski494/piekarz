@@ -10,7 +10,13 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 
 import { typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 export function KitchenTestsGuideSection() {
+  // §7a / D-142 (M3 p5b): przy dużym tekście ikona i strzałka w rzędzie nad tytułem, tytuł na całą szerokość
+  const duzy = useDuzyTekst();
+  const ikona = <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><IkonaKarty nazwa="miska" /></View>;
   const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
   const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
 
@@ -24,9 +30,12 @@ export function KitchenTestsGuideSection() {
         style={styles.guideCard}
         onPress={() => setShowPokeTest((prev) => !prev)}
       >
-        <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test palca')}</Text>
-          <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>
+        {/* Nagłówek karty z ikoną jak NaglowekKarty (20 pt, krój tytułów; M3 p5), tytuł jako tekst przycisku: tak go
+            szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
+        <View style={duzy ? styles.guideHeaderStos : styles.guideHeader}>
+          {duzy ? <View style={styles.guideWstep}>{ikona}<Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text></View> : ikona}
+          <Text style={[styles.guideTitle, !duzy && styles.guideRozciagnijWRzedzie]} accessibilityRole="header">{t('Test palca')}</Text>
+          {duzy ? null : <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>}
         </View>
         <Text style={styles.guideSummary}>
           {t('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia')}
@@ -55,9 +64,12 @@ export function KitchenTestsGuideSection() {
         style={styles.guideCard}
         onPress={() => setShowWindowpaneTest((prev) => !prev)}
       >
-        <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test okna glutenowego')}</Text>
-          <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>
+        {/* Nagłówek karty z ikoną jak NaglowekKarty (20 pt, krój tytułów; M3 p5), tytuł jako tekst przycisku: tak go
+            szuka doktor-screen (D-198); strzałka rozwinięcia po prawej */}
+        <View style={duzy ? styles.guideHeaderStos : styles.guideHeader}>
+          {duzy ? <View style={styles.guideWstep}>{ikona}<Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text></View> : ikona}
+          <Text style={[styles.guideTitle, !duzy && styles.guideRozciagnijWRzedzie]} accessibilityRole="header">{t('Test okna glutenowego')}</Text>
+          {duzy ? null : <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>}
         </View>
         <Text style={styles.guideSummary}>
           {t('Ocena rozwoju siatki glutenowej po autolizie i składaniach')}
@@ -92,24 +104,20 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   guideCard: {
+    ...wygladKarty,
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
     padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
+    gap: theme.spacing.sm,
     marginBottom: 10,
   },
-  guideHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
+  guideHeader: { flexDirection: 'row', alignItems: 'center', gap: theme.spacing.md },
+  guideHeaderStos: { flexDirection: 'column', alignItems: 'stretch', gap: theme.spacing.md },
+  guideWstep: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  guideRozciagnijWRzedzie: { flex: 1, flexShrink: 1 },
   guideTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.objasnienie.pt,
+    fontSize: typografia.style.tytul2.pt - 2,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

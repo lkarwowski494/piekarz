@@ -1,4 +1,4 @@
-// Słownik bg, część 2 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 2 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Chleby graham, rustykalne bochenki wiejskie (Campagne), dodatek do chlebów mieszanych.': 'Хлябове Греъм, рустикални селски самуни (Campagne), добавка към смесени хлябове.',
@@ -38,6 +38,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Какво още ще правите днес?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'поне 3 часа на стайна температура или 1 час и след това най-много 3 дни в хладилника',
   'Co widzisz?': 'Какво виждате?',
+  'Co zrobić': 'Какво да направите',
   'Co zrobić przy następnym wypieku:': 'Какво да направите при следващото изпичане:',
   'Co zrobić:': 'Какво да направите:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Какво да направите: нахранете квасния стартер според плана за следващия ден.',
@@ -76,7 +77,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Слагайте го в хладилника едва когато се стабилизира, т.е. след 7–10 дни.',
   'Do miski': 'В купата',
   'Do miski (Ciasto właściwe)': 'В купата (основно тесто)',
-  'Do miski (odhaczaj przy ważeniu)': 'В купата (отмятайте при претегляне)',
   'Do miski na wagę': 'В купата на кантара',
   'Do ostygnięcia do temp. pokojowej': 'До изстиване до стайна температура',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До очаквания прозорец на пика остават около {czas} (прозорец: {okno}).',

@@ -1,4 +1,4 @@
-// Słownik es, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik es, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Cuando se apruebe la compra, Panadero Pro se activará automáticamente. No hace falta volver a comprarlo.',
@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'de hidratación',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'y {n} más, detalles en la hoja del día',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideal para mantener la masa madre de base. Rica en levaduras salvajes y bacterias lácticas.',
+  'Ile pieczesz': 'Cantidad a hornear',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Cuánto centeno debe tener un pan para llamarse de centeno o de centeno y trigo.',
   'Ilości do dokarmienia': 'Cantidades para el refresco',
   'Ilości i temperatura wody': 'Cantidades y temperatura del agua',
@@ -68,7 +69,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Cavernas (Poco fermentado)',
   'Jedna opłata, bez odnawiania.': 'Un solo pago, sin renovación.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Miga uniformemente densa y pesada (sin aireación)',
-  'Jednostki': 'Unidades',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Si notas la falta de sal solo después de la primera subida, añadirla no servirá de nada y volver a amasar puede estropear la masa para siempre: hornea el pan sin sal o usa la masa como base de pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Si vas a salvar la masa, sácala de la cesta o del recipiente.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Si falta la sal, abre el protocolo «Sal olvidada».',
@@ -78,7 +78,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Si ves una película, manchas o un cambio de color, o notas olor a podrido, abre la revisión de la masa madre.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Si la masa madre «{name}» no ha duplicado su volumen, refréscala de nuevo.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Si la masa madre ha crecido poco y tiene pocas burbujas, sigue refrescándola cada 12 horas.',
-  'Język': 'Idioma',
+  'Język i jednostki': 'Idioma y unidades',
   'jutro': 'mañana',
   'Jutro': 'Mañana',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'El calendario está vacío. Se llenará cuando crees una masa madre o planifiques un horneado.',

@@ -1,4 +1,4 @@
-// Słownik bg, część 10 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 10 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Użyj mąki chlebowej o wyższej zawartości białka.': 'Използвайте пшенично брашно с по-високо съдържание на белтък.',
@@ -77,6 +77,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Използвайте готова смес',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Поставете кошницата в плътно затворен плик в хладилника (4–6 °C). Дългата ферментация ще придаде на хляба дълбок аромат.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Поставете съда с тестото в изключената фурна и включете само лампата: вътре постепенно става по-топло, но всяка фурна и всяка кухня дават различен резултат.',
+  'Wstecz': 'Назад',
   'Wstrzymaj': 'Пауза',
   'Wstrzymano': 'На пауза',
   'Wsyp do miski na wagę': 'Изсипете в купата на кантара',

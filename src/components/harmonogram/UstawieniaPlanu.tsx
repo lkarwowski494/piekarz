@@ -12,6 +12,8 @@ import { t } from '../../lib/i18n';
 import { etykietaProfiluSnu } from './TargetReadyCard';
 import type { OknoSnu } from '../../lib/plan-bez-nocy';
 import { czasTrwania } from '../../lib/czas-trwania';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 export interface UstawieniaPlanuProps {
   /** Okno snu z Ustawień; null = „Bez godzin snu”. */
@@ -21,11 +23,14 @@ export interface UstawieniaPlanuProps {
   onCopySchedule: () => void;
   /** Plan żytni: rozrost w formie w cieple (ZYT-ETA-005), bez przełącznika lodówki [audyt-niezalezny D-7] */
   bezLodowki?: boolean;
+  /** Pod „Kopiuj jako tekst” w tej samej karcie („Dodaj do kalendarza”, M3 p4). */
+  children?: React.ReactNode;
 }
 
-export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange, onCopySchedule, bezLodowki = false }: UstawieniaPlanuProps) {
+export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange, onCopySchedule, bezLodowki = false, children }: UstawieniaPlanuProps) {
   return (
-    <View style={styles.sekcja}>
+    // Ustawienia planu w karcie (README §1, M3 p4): godziny snu, czas w lodówce, kopia i kalendarz
+    <Karta testID="karta-ustawien-planu" tytul={t('Ustawienia')} ikona={<IkonaKarty nazwa="zebatka" />}>
       <Text style={styles.naglowek}>
         {t('Godziny snu:')} {okno ? etykietaProfiluSnu({ start: okno.startH, end: okno.koniecH }) : t('Bez godzin snu')}
       </Text>
@@ -55,12 +60,12 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
       <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
         <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
       </Pressable>
-    </View>
+      {children}
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  sekcja: { paddingTop: odstepy.m, borderTopWidth: 1, borderTopColor: theme.colors.linia, marginTop: odstepy.m },
   naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz, marginBottom: odstepy.s },
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, marginBottom: odstepy.xs },
   chip: {

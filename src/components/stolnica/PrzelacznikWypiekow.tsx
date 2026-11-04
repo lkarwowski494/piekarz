@@ -4,6 +4,8 @@
 // wariant `przelacznik`): segmenty w jednym rzędzie, wybrany wypełniony akcentem; w każdym nazwa receptury i bieżący
 // krok. Druga linia „do {godzina}” (koniec bieżącego kroku) jak w makiecie „{r}, do {h}” (przegląd roli 04 z D3a,
 // M3 D4b); bez godziny — nazwa kroku; VoiceOver czyta krok i godzinę. Wygląd z tokenów, bez nowych.
+// Przy zwykłym tekście stały rząd nad paskiem kciuka, poza przewijaniem (pas ze spiralą zajmuje ekran, więc w przewijanej
+// treści segmenty leżały poniżej widocznego obszaru) [E2E-90]; przy dużym tekście (fontScale ≥ 2) dalej w treści.
 // ============================================================================
 
 import React from 'react';
@@ -23,13 +25,15 @@ export interface WypiekPrzelacznika {
   doMs: number | null;
 }
 
-export function PrzelacznikWypiekow({ wypieki, wybrany, onWybierz }: {
+export function PrzelacznikWypiekow({ wypieki, wybrany, onWybierz, staly = false }: {
   wypieki: readonly WypiekPrzelacznika[];
   wybrany: string;
   onWybierz: (id: string) => void;
+  /** Stały rząd poza przewijaniem (wcięcie jak pasek kciuka) zamiast rzędu w przewijanej treści. */
+  staly?: boolean;
 }) {
   return (
-    <View style={styles.rzad} accessibilityRole="tablist" testID="przelacznik-wypiekow">
+    <View style={[styles.rzad, staly ? styles.staly : styles.wTresci]} accessibilityRole="tablist" testID="przelacznik-wypiekow">
       {wypieki.map((w) => {
         const wyb = w.id === wybrany;
         const nazwa = nazwaReceptury(w.nazwa);
@@ -57,7 +61,9 @@ export function PrzelacznikWypiekow({ wypieki, wybrany, onWybierz }: {
 }
 
 const styles = StyleSheet.create({
-  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, marginBottom: odstepy.m },
+  rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs },
+  staly: { marginHorizontal: odstepy.xl, marginTop: odstepy.s },
+  wTresci: { marginBottom: odstepy.m },
   segment: {
     flexGrow: 1,
     flexBasis: 140,

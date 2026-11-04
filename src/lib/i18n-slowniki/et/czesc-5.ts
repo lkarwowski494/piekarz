@@ -1,4 +1,4 @@
-// Słownik et, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Pinnal olev oliiviõli piirab aurustumist ning hoiab sisu mahlase ja õhulisena.',
@@ -140,7 +140,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Eeltaigen (preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Päästeprotseduur: vee järkjärguline lisamine',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Retsepti pärmiprotsent on värske pärm. Kuivpärmi (instant- või aktiivset) kaalu 0,4 sellest kogusest.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Retsepti pärmiprotsent on värske pärm. Kuivpärmi (instant- või aktiivset) kaalu 0,35 sellest kogusest. Tootja võib pakendil märkida teistsuguse suhte.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Jahu „{name}“ protsent peab olema arv vahemikus 0,1–100%',
   'Profil smakowy': 'Maitseprofiil',
   'Profil zakwasu': 'Juuretise profiil',

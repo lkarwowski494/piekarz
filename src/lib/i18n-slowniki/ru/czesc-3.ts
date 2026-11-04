@@ -1,4 +1,4 @@
-// Słownik ru, część 3 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ru, część 3 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Drobne pory, bochenek ciężki w dłoni': 'Мелкие поры, каравай тяжёлый в руке',
@@ -127,6 +127,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'гидратации',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'и ещё {n}, подробности в карточке дня',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеальная основа для ведения материнской закваски. Богата дикими дрожжами и молочнокислыми бактериями.',
+  'Ile pieczesz': 'Сколько печёте',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Сколько ржи должно быть в хлебе, чтобы он назывался ржаным или ржано-пшеничным.',
   'Ilości do dokarmienia': 'Количество для подкормки',
   'Ilości i temperatura wody': 'Количества и температура воды',

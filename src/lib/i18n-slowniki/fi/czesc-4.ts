@@ -1,4 +1,4 @@
-// Słownik fi, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna niskowyciągowa, białko 10,6–14,3%': 'Vehnäjauho, matala jauhatusaste, proteiini 10,6–14,3 %',
@@ -176,7 +176,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Gluteeniverkon kehityksen arviointi autolyysin ja taittelujen jälkeen',
   'Ocena wymaga połączenia z App Store.': 'Arvioiminen edellyttää yhteyttä App Storeen.',
   'Ocena wypieku': 'Leivonnan arvio',
-  'Ocena: {n}/5': 'Arvio: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Arvioi taikinaa sen ulkonäön, älä kellon mukaan: kylmässä taikina kohoaa pidempään, ja reseptin ajat ovat vain suuntaa antavia.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Arvioi leipä ja tallenna muistiinpanot leivontahistoriaan',
   'Oceń na {n} z 5': 'Arvioi: {n}/5',
@@ -188,5 +187,6 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Jauhoista ja vedestä ensimmäiseen leipään, päivä päivältä.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Tästä päivästä alkaen ruoki hapanjuurta kahdesti päivässä, noin 12 tunnin välein.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Poista siitä kaasu painamalla tiukasti, kuten muotoillessa.',
+  'Odhaczaj przy ważeniu.': 'Merkitse punnitessasi.',
   'Odhaczaj składniki w miarę wsypywania': 'Merkitse ainekset sitä mukaa kuin lisäät ne',
 };

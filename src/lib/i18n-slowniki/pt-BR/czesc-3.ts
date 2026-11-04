@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.': 'Quando um fermento natural precisa ser alimentado. As notificações das etapas da fornada funcionam de forma independente.',
@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratação',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'e mais {n}, detalhes no painel do dia',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideal para manter o fermento natural mãe. Rica em leveduras selvagens e bactérias lácticas.',
+  'Ile pieczesz': 'Quanto você vai assar',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Quanto centeio um pão precisa ter para ser chamado de pão de centeio ou de centeio e trigo.',
   'Ilości do dokarmienia': 'Quantidades para alimentação',
   'Ilości i temperatura wody': 'Quantidades e temperatura da água',
@@ -67,7 +68,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Cavernas (Subfermentado)',
   'Jedna opłata, bez odnawiania.': 'Pagamento único, sem renovação.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Miolo uniformemente denso e pesado (sem aeração)',
-  'Jednostki': 'Unidades',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Se você só perceber a falta de sal depois da primeira fermentação, adicioná-lo não vai adiantar, e sovar de novo pode estragar a massa de vez: asse o pão sem sal ou use a massa como base de pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Se for salvar a massa, tire-a do cesto ou do recipiente.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Se faltar sal, abra o protocolo “Sal esquecido”.',
@@ -77,7 +77,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Se você vir película, manchas ou alteração de cor, ou sentir cheiro de podre, abra a verificação do fermento natural.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Se o fermento natural “{name}” não dobrou de volume, alimente-o novamente.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Se o fermento natural cresceu pouco e tem poucas bolhas, continue alimentando-o a cada 12 horas.',
-  'Język': 'Idioma',
+  'Język i jednostki': 'Idioma e unidades',
   'jutro': 'amanhã',
   'Jutro': 'Amanhã',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'O calendário está vazio. Ele vai se preencher quando você criar um fermento natural ou planejar uma fornada.',

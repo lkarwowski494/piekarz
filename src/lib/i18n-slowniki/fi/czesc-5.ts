@@ -1,4 +1,4 @@
-// Słownik fi, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Odkryj wiedzę naukową': 'Näytä tieteellinen selitys',
@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Hylätäänkö muutokset?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Poista puolet hapanjuuresta, lisää jauhoja ja vettä painon mukaan yhtä suuret määrät ja jätä 24 tunniksi.',
   'Odrzuć zmiany': 'Hylkää muutokset',
+  'Wpisane zmiany nie zostaną zapisane.': 'Antamiasi muutoksia ei tallenneta.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Anna levätä 20 minuuttia ennen seuraavaa tavallista taittelua.',
   'Odznacz objawy': 'Tyhjennä oireet',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Ravitseva leipä karkeasta grahamjauhosta (vehnän täysjyväjauho), lisänä luonnollista hunajaa ja pellavansiemeniä.',
@@ -158,7 +159,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Esitaikina (juuri)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage-pelastus (lisävesi)',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Reseptin hiivaprosentti tarkoittaa tuorehiivaa. Kuivahiivaa (pika- tai aktiivista kuivahiivaa) punnitset 0,4 kertaa tämän määrän.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Reseptin hiivaprosentti tarkoittaa tuorehiivaa. Kuivahiivaa (pika- tai aktiivista kuivahiivaa) punnitset 0,35 kertaa tämän määrän. Valmistaja voi ilmoittaa pakkauksessa eri muuntosuhteen.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Jauhon ”{name}” osuuden on oltava luku väliltä 0,1–100 %',
   'Profil smakowy': 'Makuprofiili',
   'Profil zakwasu': 'Hapanjuuren profiili',

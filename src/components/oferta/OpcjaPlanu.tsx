@@ -2,12 +2,15 @@
 // Piekarz — Opcja planu (komponent systemu, design-spec §4, §11e 127; makieta .plan-opcja w docs/design/ekrany/wspolne.css):
 // obwódka 1,5 (wybrana: akcent 3), znacznik wyboru kształtem, nazwa, cena krojem tytułów 22 pt (największy element
 // cenowy), opis drobniej; VoiceOver: radio z „checked”, etykieta z widocznych tekstów. [M1-audytor-generalny-127]
+// §7a / D-142 (M3 p5b): przy dużym tekście jedna kolumna, znacznik nad nazwą i ceną (column-reverse: kolejność
+// w drzewie bez zmian), tekst na całą szerokość opcji; bez limitu powiększenia.
 // ============================================================================
 
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 export function OpcjaPlanu({
   nazwa,
@@ -25,6 +28,7 @@ export function OpcjaPlanu({
   onPress: () => void;
   testID: string;
 }) {
+  const duzy = useDuzyTekst();
   return (
     <Pressable
       testID={testID}
@@ -32,9 +36,9 @@ export function OpcjaPlanu({
       accessibilityState={{ checked: wybrana }}
       accessibilityLabel={[nazwa, cena, opis].filter(Boolean).join('. ')}
       onPress={onPress}
-      style={[styles.opcja, wybrana && styles.wybrana]}
+      style={[styles.opcja, duzy && styles.opcjaStos, wybrana && styles.wybrana]}
     >
-      <View style={styles.tresc}>
+      <View style={[styles.tresc, !duzy && styles.trescRzad]}>
         <Text style={styles.nazwa}>{nazwa}</Text>
         <Text style={styles.cena}>{cena ?? ' '}</Text>
         {opis ? <Text style={styles.opis}>{opis}</Text> : null}
@@ -57,8 +61,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: odstepy.l - 2,
     backgroundColor: theme.colors.powierzchnia,
   },
+  opcjaStos: { flexDirection: 'column-reverse', alignItems: 'stretch' },
   wybrana: { borderWidth: 3, borderColor: theme.colors.akcent },
-  tresc: { flex: 1, minWidth: 0, gap: 2 },
+  tresc: { minWidth: 0, gap: 2 },
+  trescRzad: { flex: 1 },
   nazwa: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   cena: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', get fontFamily() { return theme.typography.krojTytulow; }, color: theme.colors.tusz },
   opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },

@@ -1,4 +1,4 @@
-// Słownik lt, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Siūlomas tešlos maišymo laikas: {dzien} {godzina}.',
@@ -74,6 +74,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Receptūra „{nazwa}“ yra Mano receptūrose.',
   'Receptura awaryjna:': 'Atsarginė receptūra:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Bazinė receptūra nuo to kepinio pasikeitė: dabar joje daugiau mielių.',
+  'Receptura bazowa, na drożdżach': 'Bazinė receptūra, su mielėmis',
+  'Receptura bazowa, na zakwasie': 'Bazinė receptūra, su raugu',
+  'Receptura bazowa, pizza': 'Bazinė receptūra, pica',
+  'Receptura bazowa, słodka': 'Bazinė receptūra, saldi',
+  'Receptura bazowa, żytnia': 'Bazinė receptūra, ruginė',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Receptūra turi turėti pavadinimą (1-120 simbolių)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Receptūroje turi būti bent viena miltų rūšis',
   'Receptura z pliku': 'Receptūra iš failo',

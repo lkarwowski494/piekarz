@@ -7,17 +7,24 @@
 // wobec Basic, jednym zdaniem na obszar (bez funkcji Basic, przegląd P-a P1-4); (4) dożywotni: jedna opłata; (5) „Zamknij”
 // bez pytania, zakup wymaga połączenia z App Store, bez sieci komunikat i ponowny odczyt (BR-PRYW-001). Z Pro (wejście
 // z Ustawień): „Piekarz Pro jest aktywny.” i dla subskrybenta „Zarządzaj subskrypcją”, bez opcji zakupu.
+// M3 p5b (D-200, O3a D-141, makieta docs/design/karty/inne.html „pro”): pas marki z „Zamknij”, tytułem i zdaniem
+// Basic (albo stanem „aktywny”), „Co daje Pro” w karcie z ikoną, komunikat bez sieci na powierzchni karty; ujawnienia,
+// ich treść, kolejność i widoczność bez zmian (D-112/D-113). §7a / D-142: przy dużym tekście mniejsze wcięcie treści.
 // ============================================================================
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Alert, Linking, Modal, Pressable, ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BezpiecznyObszarOkna } from './BezpiecznyObszarOkna';
 import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
 import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
-import { CloseButton } from './CloseButton';
+import { CLOSE_TEST_ID } from './CloseButton';
+import { NadPasem, PasZakladki } from './nawigacja/PasZakladki';
+import { PrzyciskNaglowka } from './nawigacja/PrzyciskNaglowka';
+import { Karta, wygladKarty } from '../ui/karty/Karta';
+import { IkonaKarty } from '../ui/karty/IkonaKarty';
 import { przywrocZKomunikatem } from './przywroc-zakupy';
 import type { Plan } from '../lib/platnosci/konfiguracja';
 import { pobierzOferte, Oferta, zarzadzajSubskrypcja } from '../lib/platnosci/sklep';
@@ -55,8 +62,8 @@ function Lista({ teksty, testID }: { teksty: string[]; testID: string }) {
 /** Ujawnienie 3: co daje Pro wobec Basic, jedno zdanie na obszar; tylko funkcje Pro z wejściem w 1.0 (kontrakt, tabela). */
 function CoDajePro() {
   return (
-    <View style={styles.obszary} testID="pro-obszary">
-      <Text style={styles.naglowek} accessibilityRole="header">{t('Co daje Pro')}</Text>
+    // Karta z ikoną (README §1, makieta „Co daje Pro”); teksty i kolejność bez zmian
+    <Karta testID="pro-obszary" tytul={t('Co daje Pro')} ikona={<IkonaKarty nazwa="gwiazda" />}>
       <Lista
         testID="pro-obszary-lista"
         teksty={[
@@ -66,7 +73,7 @@ function CoDajePro() {
           t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
         ]}
       />
-    </View>
+    </Karta>
   );
 }
 
@@ -169,19 +176,26 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
   return (
     <Modal visible={visible} animationType="slide" transparent={false}>
       <BezpiecznyObszarOkna>
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.header}>
-          <CloseButton onPress={onClose} akcja="zamknij" />
-        </View>
-
-        <ScrollView contentContainerStyle={styles.tresc} keyboardShouldPersistTaps="handled">
-          <Text style={styles.tytul} accessibilityRole="header">
-            {t('Piekarz Pro')}
-          </Text>
-
+      {/* Jasny pasek stanu na pasie, póki okno jest widoczne (po zamknięciu wraca styl ekranu pod spodem) */}
+      <StatusBar barStyle="light-content" animated />
+      <View style={styles.okno}>
+      {/* Czapka paska stanu w kolorze pasa: pas odjeżdża z treścią, pod paskiem stanu nie przewija się treść (README §2).
+          Wyjątek od EkranZPasem (D-215): w oknie Modal wysokość daje natywny SafeAreaView, nie useSafeAreaInsets */}
+      <SafeAreaView testID="czapka-paska" edges={['top']} style={styles.czapka} />
+      <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'bottom']}>
+        <ScrollView contentContainerStyle={styles.przewijane} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+          <NadPasem />
+          {/* Pas O3a: „Zamknij” bez pytania (ujawnienie 5), tytuł (nagłówek VoiceOver), zdanie Basic albo stan „aktywny” */}
+          <PasZakladki
+            gora={0}
+            tytul={t('Piekarz Pro')}
+            podtytul={zPro ? t('Piekarz Pro jest aktywny.') : bezOferty ? undefined : t('Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.')}
+            podtytulTestID={zPro ? 'pro-aktywny' : 'pro-opis'}
+            akcje={<PrzyciskNaglowka testID={CLOSE_TEST_ID} etykieta={t('Zamknij')} tekst={t('Zamknij')} naPasie onPress={onClose} />}
+          />
+          <View testID="pro-tresc" style={[styles.tresc, duzyTekst && styles.trescDuzy]}>
           {zPro ? (
             <>
-              <Text style={styles.opis} testID="pro-aktywny">{t('Piekarz Pro jest aktywny.')}</Text>
               {aktywny?.subskrypcja && (
                 <Pressable accessibilityRole="button" testID="pro-manage-btn" style={styles.drugi} onPress={() => void zarzadzajSubskrypcja()}>
                   <Text style={styles.drugiTekst}>{t('Zarządzaj subskrypcją')}</Text>
@@ -189,13 +203,11 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
               )}
             </>
           ) : bezOferty ? (
-            <KomunikatBezSieci niedostepna={stan === 'niedostepna'} />
+            <View style={styles.kartaKomunikatu}>
+              <KomunikatBezSieci niedostepna={stan === 'niedostepna'} />
+            </View>
           ) : (
             <>
-              <Text style={styles.opis} testID="pro-opis">
-                {t('Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.')}
-              </Text>
-
               <View style={styles.opcje} accessibilityRole="radiogroup">
                 {plany.map((p) => {
                   const o = doPlanu(p);
@@ -221,6 +233,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
             </>
           )}
           {duzyTekst && linki}
+          </View>
         </ScrollView>
 
         <View style={styles.kciuk}>
@@ -244,24 +257,21 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
           {!duzyTekst && linki}
         </View>
       </SafeAreaView>
+      </View>
       </BezpiecznyObszarOkna>
     </Modal>
   );
 }
 
 const styles = StyleSheet.create({
+  okno: { flex: 1, backgroundColor: theme.colors.tlo },
+  czapka: { backgroundColor: theme.colors.pas, zIndex: 2 },
   safeArea: { flex: 1, backgroundColor: theme.colors.tlo },
-  header: { flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: odstepy.l, paddingVertical: odstepy.s },
-  tresc: { paddingHorizontal: odstepy.xl, paddingBottom: odstepy.l, gap: odstepy.m },
-  tytul: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.tytulDuzy.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  opis: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
-  obszary: { gap: odstepy.s },
-  naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
+  przewijane: { paddingBottom: odstepy.l },
+  tresc: { paddingHorizontal: odstepy.xl, paddingTop: odstepy.l, gap: odstepy.m },
+  // Duży tekst (§7a, D-142): mniejsze wcięcie, więcej miejsca na wiersz
+  trescDuzy: { paddingHorizontal: odstepy.l },
+  kartaKomunikatu: { ...wygladKarty, padding: odstepy.l },
   drugi: {
     minHeight: theme.cele.glownyPrzeplyw,
     borderRadius: promienie.przycisk,

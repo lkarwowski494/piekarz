@@ -1,4 +1,4 @@
-// Słownik uk, część 2 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 2 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Chleby na zakwasie o wysokiej hydratacji (75–85%), pizza neapolitańska 48 h, brioszki.': 'Хліб на заквасці з високою гідратацією тіста (75–85%), неаполітанська піца 48 год, бріоші.',
@@ -37,6 +37,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Що ще ви сьогодні робите?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'щонайменше 3 години за кімнатної температури або 1 година, а потім щонайбільше 3 дні в холодильнику',
   'Co widzisz?': 'Що ви бачите?',
+  'Co zrobić': 'Що зробити',
   'Co zrobić przy następnym wypieku:': 'Що зробити під час наступної випічки:',
   'Co zrobić:': 'Що зробити:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Що зробити: підживіть закваску за планом на наступний день.',
@@ -75,7 +76,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Ставте її в холодильник лише тоді, коли вона стабілізується, тобто через 7–10 днів.',
   'Do miski': 'У миску',
   'Do miski (Ciasto właściwe)': 'У миску (основне тісто)',
-  'Do miski (odhaczaj przy ważeniu)': 'У миску (позначайте під час зважування)',
   'Do miski na wagę': 'У миску на вагах',
   'Do ostygnięcia do temp. pokojowej': 'До охолодження до кімнатної температури',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До орієнтовного вікна піку залишилося прибл. {czas} (вікно: {okno}).',

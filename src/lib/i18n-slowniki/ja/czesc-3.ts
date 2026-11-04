@@ -1,4 +1,4 @@
-// Słownik ja, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ja, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Formowanie ostateczne i koszyk': '最終成形と発酵カゴ',
@@ -63,6 +63,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '加水率',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'ほか{n}件、詳細は日別シートで',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'サワー種の元種を育てるのに最適なベース。野生酵母と乳酸菌が豊富です。',
+  'Ile pieczesz': '焼く量',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'ライ麦パン、ライ麦・小麦混合パンと呼ぶために必要なライ麦の割合。',
   'Ilości do dokarmienia': '種継ぎの分量',
   'Ilości i temperatura wody': '分量と水温',
@@ -87,7 +88,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': '大きな空洞（発酵不足）',
   'Jedna opłata, bez odnawiania.': '1回払い、更新なし。',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': '全体が詰まって重いクラム（気泡がない）',
-  'Jednostki': '単位',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': '1回目の発酵後に塩の入れ忘れに気づいた場合、塩を加えても効果はなく、こね直すと生地が完全に台無しになることがあります。塩なしで焼くか、ピザ生地にしてください。',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': '生地を救う場合は、カゴまたは容器から取り出してください。',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': '塩が入っていない場合は、「塩の入れ忘れ」の対処法を開いてください。',
@@ -97,7 +97,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': '表面の膜、斑点、変色がある場合、または腐敗臭がする場合は、サワー種チェックを開いてください。',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'サワー種「{name}」の体積が2倍になっていない場合は、もう一度種継ぎしてください。',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'サワー種があまり膨らまず気泡も少ない場合は、12時間ごとに種継ぎを続けてください。',
-  'Język': '言語',
+  'Język i jednostki': '言語と単位',
   'jutro': '明日',
   'Jutro': '明日',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'カレンダーは空です。サワー種を作り始めるか焼成を計画すると、予定が表示されます。',

@@ -1,4 +1,4 @@
-// Słownik fr, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 8 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': 'Part de seigle {n} % : variante blé.',
@@ -116,6 +116,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Insérer un mélange prêt',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Placez le banneton dans un sac hermétique au réfrigérateur (4–6 °C). Une longue fermentation donnera au pain un arôme profond.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Placez le récipient de pâte dans le four éteint, avec seulement la lampe allumée : l\'intérieur se réchauffe peu à peu, mais chaque four et chaque cuisine donnent un résultat différent.',
+  'Wstecz': 'Retour',
   'Wstrzymaj': 'Pause',
   'Wstrzymano': 'En pause',
   'Wsyp do miski na wagę': 'Versez dans le bol sur la balance',

@@ -1,4 +1,4 @@
-// Słownik id, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik id, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.': 'Pada hari ini terjadi pergantian waktu, dan jam yang dipilih tidak ada. Roti akan siap pukul {godzina}.',
@@ -62,6 +62,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Pakai campuran siap',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Masukkan keranjang dalam kantong rapat ke kulkas (4–6°C). Fermentasi panjang akan memberi roti aroma yang dalam.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Masukkan wadah berisi adonan ke dalam oven yang mati dan nyalakan lampunya saja: bagian dalam perlahan menghangat, tetapi hasilnya berbeda di setiap oven dan setiap dapur.',
+  'Wstecz': 'Kembali',
   'Wstrzymaj': 'Jeda',
   'Wstrzymano': 'Dijeda',
   'Wsyp do miski na wagę': 'Masukkan ke mangkuk di timbangan',

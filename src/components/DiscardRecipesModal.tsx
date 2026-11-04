@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import {
-  Modal,
   View,
   Text,
   ScrollView,
   StyleSheet,
   Pressable,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from './arkusz/ArkuszKart';
+import { Karta, wygladKarty } from '../ui/karty/Karta';
+import { IkonaKarty } from '../ui/karty/IkonaKarty';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { useUnitSystem, formatWeight } from '../lib/unit-converter';
@@ -38,31 +38,11 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
   };
 
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      presentationStyle="pageSheet"
-      onRequestClose={onClose}
-    >
-      <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.header}>
-          <View style={styles.headerTitleRow}>
-            <Text style={styles.title}>{t('Przepisy na Odrzut Zakwasu')}</Text>
-            <Pressable
-              testID="close-discard-modal-btn"
-              style={styles.closeBtn}
-              accessibilityRole="button"
-              onPress={onClose}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-              accessibilityLabel={t('Zamknij przepisy na odrzut')}
-            >
-              <Text style={styles.closeBtnText}>{t('Zamknij')}</Text>
-            </Pressable>
-          </View>
-          <Text style={styles.subtitle}>
-            {t('Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu')}
-          </Text>
-
+    // Arkusz na kartach: „Zamknij” w pasku arkusza, filtr w karcie, każdy przepis jako karta (README §1, §3) [M3 p7, 04-002]
+    <ArkuszKart visible={visible} onRequestClose={onClose}
+      lewy={{ tekst: t('Zamknij'), onPress: onClose, testID: 'close-discard-modal-btn', etykieta: t('Zamknij przepisy na odrzut') }}>
+        <Karta testID="karta-odrzutu" tytul={t('Przepisy na Odrzut Zakwasu')} ikona={<IkonaKarty nazwa="sloik" />}
+          podpis={t('Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu')}>
           {/* Category Filter Chips */}
           <ScrollView
             horizontal
@@ -184,9 +164,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
           </ScrollView>
-        </View>
+        </Karta>
 
-        <ScrollView contentContainerStyle={styles.scrollContent}>
           {recipes.map((recipe) => {
             const isExpanded = expandedRecipeId === recipe.id;
             return (
@@ -255,52 +234,11 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </View>
             );
           })}
-        </ScrollView>
-      </SafeAreaView>
-    </Modal>
+    </ArkuszKart>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-  },
-  header: {
-    padding: theme.spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.linia,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  headerTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  subtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz3,
-    marginBottom: 8,
-  },
-  closeBtn: {
-    minWidth: 44,
-    minHeight: 44,
-    paddingHorizontal: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  closeBtnText: {
-    fontSize: typografia.style.tresc.pt,
-    color: theme.colors.akcentTekst,
-  },
   categoryScroll: {
     marginTop: 4,
   },
@@ -328,17 +266,10 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
-  scrollContent: {
-    padding: theme.spacing.md,
-    paddingBottom: 32,
-  },
+  // Przepis jako karta (README §2: tło, obwódka kartaLinia, promień karta) [M3 p7]
   card: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
+    ...wygladKarty,
     padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
   },
   cardHeaderPressable: {
     minHeight: theme.cele.pozostale,
@@ -353,7 +284,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 6,
@@ -373,7 +304,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.full,
   },
   discardGramsText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -386,7 +317,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
   },
   toggleIcon: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     padding: 4,
   },
@@ -418,7 +349,7 @@ const styles = StyleSheet.create({
   ingredientBullet: {
     color: theme.colors.akcentTekst,
     marginRight: 6,
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
   },
   ingredientName: {
     flex: 1,
@@ -446,7 +377,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   stepNumberText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },
@@ -466,13 +397,13 @@ const styles = StyleSheet.create({
   },
   proTipTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
     marginBottom: 2,
   },
   proTipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 16,
   },

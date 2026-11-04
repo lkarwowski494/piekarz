@@ -13,6 +13,9 @@ import { t } from '../../lib/i18n';
 import { formatDoseWeight, formatWeight, UnitSystem } from '../../lib/unit-converter';
 import type { SessionStep } from '../../core/bake-steps';
 import type { DoughRecipeResult } from '../../core/domain-rules';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 type Skladnik = 'maka' | 'woda' | 'zakwas' | 'sol';
 
@@ -33,6 +36,7 @@ export interface SkladnikiKrokuProps {
 
 export function SkladnikiKroku({ steps, stepIdx, calculatedRecipe, unitSystem }: SkladnikiKrokuProps) {
   const lista = skladnikiKroku(steps, stepIdx);
+  const duzy = useDuzyTekst();
   if (!calculatedRecipe || lista.length === 0) return null;
   const wiersz: Record<Skladnik, [string, string]> = {
     maka: [t('Mąki'), formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)],
@@ -41,30 +45,24 @@ export function SkladnikiKroku({ steps, stepIdx, calculatedRecipe, unitSystem }:
     sol: [t('Sól'), formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)],
   };
   return (
-    <View testID="skladniki-kroku" style={styles.karta}>
-      <Text style={styles.tytul}>{t('Składniki do odważenia')}</Text>
-      {lista.map((s) => (
-        <View key={s} style={styles.wiersz}>
-          <Text style={styles.nazwa}>{wiersz[s][0]}</Text>
-          <Text style={styles.wartosc}>{wiersz[s][1]}</Text>
-        </View>
-      ))}
+    // Karta z ikoną (README §4 prowadzenie, M3 p4); przy dużym tekście nazwa na całą szerokość, masa pod nią (§7a, D-142)
+    <View testID="skladniki-kroku" style={styles.odstep}>
+      <Karta testID="karta-skladnikow-kroku" tytul={t('Składniki do odważenia')} ikona={<IkonaKarty nazwa="waga" />}>
+        {lista.map((s) => (
+          <View key={s} testID={`skladnik-${s}`} style={styles.wiersz}>
+            <Text testID={`skladnik-${s}-nazwa`} style={[styles.nazwa, duzy && styles.nazwaPelna]}>{wiersz[s][0]}</Text>
+            <Text style={styles.wartosc}>{wiersz[s][1]}</Text>
+          </View>
+        ))}
+      </Karta>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  karta: {
-    marginTop: odstepy.m,
-    padding: odstepy.m,
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    backgroundColor: theme.colors.powierzchnia,
-    gap: odstepy.xs,
-  },
-  tytul: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
+  odstep: { marginTop: odstepy.m },
   wiersz: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: odstepy.s },
   nazwa: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  nazwaPelna: { flexBasis: '100%' },
   wartosc: { fontSize: typografia.style.tresc.pt, fontWeight: '600', color: theme.colors.tusz, fontVariant: ['tabular-nums'] },
 });

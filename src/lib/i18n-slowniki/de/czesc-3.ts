@@ -1,4 +1,4 @@
-// Słownik de, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.': 'Wenn ein Anstellgut aufgefrischt werden muss. Benachrichtigungen zu Backschritten funktionieren unabhängig davon.',
@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'Hydration',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'und {n} weitere, Details in der Tagesübersicht',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideale Basis für die Führung des Anstellguts. Reich an wilden Hefen und Milchsäurebakterien.',
+  'Ile pieczesz': 'Wie viel backst du',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Wie viel Roggen ein Brot enthalten muss, um als Roggenbrot oder Roggenmischbrot zu gelten.',
   'Ilości do dokarmienia': 'Mengen zum Auffrischen',
   'Ilości i temperatura wody': 'Mengen und Wassertemperatur',
@@ -67,7 +68,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Hohlräume (Untergare)',
   'Jedna opłata, bez odnawiania.': 'Eine Zahlung, keine Verlängerung.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Gleichmäßig dichte, schwere Krume (keine Lockerung)',
-  'Jednostki': 'Einheiten',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Bemerkst du das fehlende Salz erst nach dem ersten Gehen, bringt Nachsalzen nichts mehr, und erneutes Kneten kann den Teig dauerhaft ruinieren: Backe das Brot ohne Salz oder mach aus dem Teig einen Pizzaboden.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Wenn du den Teig rettest, nimm ihn aus dem Gärkörbchen oder Gefäß.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Fehlt das Salz, öffne das Protokoll „Vergessenes Salz“.',
@@ -77,7 +77,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Wenn du Belag, Flecken oder eine Verfärbung siehst oder einen fauligen Geruch bemerkst, öffne die Sauerteig-Kontrolle.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Hat der Sauerteig „{name}“ sein Volumen nicht verdoppelt, frische ihn erneut auf.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Wenn der Sauerteig kaum aufgegangen ist und wenige Bläschen hat, frische ihn weiter alle 12 Stunden auf.',
-  'Język': 'Sprache',
+  'Język i jednostki': 'Sprache und Einheiten',
   'jutro': 'morgen',
   'Jutro': 'Morgen',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Der Kalender ist leer. Er füllt sich, sobald du einen Sauerteig ansetzt oder ein Backen planst.',

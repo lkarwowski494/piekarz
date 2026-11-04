@@ -2,11 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react';
 import {
   View,
   Text,
-  ScrollView,
   StyleSheet,
   Pressable,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { theme } from '../src/ui/theme';
 import { t } from '../src/lib/i18n';
@@ -30,11 +29,16 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
+import { PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../src/components/nawigacja/EkranZPasem';
 
 import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
+  // Pas O3a zamiast nagłówka systemowego (D-197, D-141): jasny pasek stanu nad pasem
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
   // Doktor i protokoły w Basic (BR-DIAG-001, -003…005), zawsze — także bez trwającego wypieku (D-112, D-113; wykładnia
   // D-104 „Doktor przy wypieku z dostępem” zastąpiona, D-116); Akademia: pierwszy poziom w Basic [M1-audytor-generalny-027]
   const { blokada, chron } = useAppAccess();
@@ -79,8 +83,14 @@ export default function DoctorScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nagłówek systemowy „Doktor Chleba”: app/_layout.tsx; Akademia jako pierwszy wiersz treści (dawniej w nagłówku ekranu) */}
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      {/* Pas O3a (D-197): nagłówek stosu ukryty (app/_layout.tsx), tytuł „Doktor Chleba” na pasie (nagłówek VoiceOver),
+          powrót samą ikoną z etykietą: poprzedni ekran bywa różny (Dziennik, prowadzenie, koniec wypieku; jak D-195).
+          Akademia jako pierwszy wiersz treści (dawniej w nagłówku ekranu) */}
+      <EkranZPasem gora={gora} tytul={t('Doktor Chleba')} contentContainerStyle={styles.container} pas={(onLayout) => (
+        <View style={styles.pas}>
+          <PasZakladki gora={gora} tytul={t('Doktor Chleba')} wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout} />
+        </View>
+      )}>
         {/* Akademia bez wejścia w 1.0 (wejścia-później 'akademia', F-44) [M1-audytor-generalny-100]; kod i testy modułu zostają */}
         {wejscieWidoczne('akademia') && (
         <Pressable
@@ -111,16 +121,6 @@ export default function DoctorScreen() {
         </Pressable>
         )}
 
-        {/* Diagnosis Result Card (Primary Focus) */}
-        <DiagnosisResultCard
-          diagnosis={diagnosis}
-          unitSystem={unitSystem}
-          onNavigateHarmonogram={() => router.push('/receptury/harmonogram')}
-          onNavigateCalculator={() => router.push('/receptury')}
-          onNavigateStolnica={() => router.push('/stolnica')}
-          onCopyDiagnosis={handleCopyDiagnosis}
-        />
-
         {/* Protokoły ratunkowe ze źródłami (F-71, D-095, D-096); bez receptury awaryjnej (RAT-PRZ-900, RAT-LUZ-900) */}
         {wejscieWidoczne('protokoly-ratunkowe') && (
         <EmergencyRecoverySection
@@ -139,6 +139,16 @@ export default function DoctorScreen() {
           onClear={handleClear}
         />
 
+        {/* Wynik pod objawami: po wyborze pojawia się pod kartą, w której stuknięto (04-006, D-216) [M3 p7] */}
+        <DiagnosisResultCard
+          diagnosis={diagnosis}
+          unitSystem={unitSystem}
+          onNavigateHarmonogram={() => router.push('/receptury/harmonogram')}
+          onNavigateCalculator={() => router.push('/receptury')}
+          onNavigateStolnica={() => router.push('/stolnica')}
+          onCopyDiagnosis={handleCopyDiagnosis}
+        />
+
         {/* Interactive Kitchen Tests Guide (Poke Test, Windowpane) */}
         <KitchenTestsGuideSection />
         </BlokadaFunkcji>
@@ -151,7 +161,7 @@ export default function DoctorScreen() {
           // Pierwszy poziom w Basic, dalsze w Pro (BR-NAUK-001, LIMITY_BASIC.poziomyAkademii)
           otworzLekcje={(poziom, otworz) => chron(funkcjaLekcji(poziom), otworz)()}
         />
-      </ScrollView>
+      </EkranZPasem>
     </SafeAreaView>
   );
 }
@@ -164,7 +174,10 @@ const styles = StyleSheet.create({
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
+    gap: theme.spacing.md,
   },
+  // Pas od krawędzi mimo marginesu treści (jak Dziennik)
+  pas: { marginHorizontal: -theme.spacing.md, marginTop: -theme.spacing.md },
   academyHeaderPill: {
     alignSelf: 'flex-end',
     marginBottom: theme.spacing.sm,

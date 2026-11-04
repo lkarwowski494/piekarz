@@ -1,11 +1,10 @@
-// Słownik ro, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ro, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'Evaluarea va apărea după ce bifezi ce vezi sau simți.',
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Evaluarea dezvoltării rețelei de gluten după autoliză și împăturiri',
   'Ocena wymaga połączenia z App Store.': 'Evaluarea necesită o conexiune la App Store.',
   'Ocena wypieku': 'Nota coacerii',
-  'Ocena: {n}/5': 'Notă: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Judecă aluatul după aspect, nu după ceas: la rece, aluatul crește mai mult timp, iar timpii din rețetă sunt doar orientativi.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Evaluează pâinea și salvează notițele în istoricul de coacere',
   'Oceń na {n} z 5': 'Acordă nota {n} din 5',
@@ -17,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'De la făină și apă la prima ta pâine, zi cu zi.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Din această zi, hrănește maia de două ori pe zi, cam la fiecare 12 ore.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Degazează-l apăsând ferm, ca la modelare.',
+  'Odhaczaj przy ważeniu.': 'Bifează pe măsură ce cântărești.',
   'Odhaczaj składniki w miarę wsypywania': 'Bifează ingredientele pe măsură ce le adaugi',
   'Odkryj wiedzę naukową': 'Descoperă explicația științifică',
   'Odliczanie trwa': 'Numărătoarea inversă rulează',
@@ -26,6 +26,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Renunți la modificări?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Aruncă jumătate din maia, adaugă făină și apă în cantități egale ca greutate și las-o 24 de ore.',
   'Odrzuć zmiany': 'Renunță la modificări',
+  'Wpisane zmiany nie zostaną zapisane.': 'Modificările introduse nu vor fi salvate.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lasă-l să se odihnească 20 de minute înainte de următoarea împăturire obișnuită.',
   'Odznacz objawy': 'Debifează simptomele',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pâine hrănitoare din făină de grâu Graham, măcinată grosier, cu miere naturală și semințe de in.',

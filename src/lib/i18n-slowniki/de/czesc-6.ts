@@ -1,4 +1,4 @@
-// Słownik de, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Profil, cykl dokarmiania i szczyt aktywności': 'Profil, Auffrischzyklus und Reifehöhepunkt',
@@ -75,6 +75,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Die Rezeptur „{nazwa}“ ist jetzt in „Meine Rezepturen“.',
   'Receptura awaryjna:': 'Notfallrezeptur:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Die Basisrezeptur hat sich seit diesem Backen geändert: Sie enthält jetzt mehr Hefe.',
+  'Receptura bazowa, na drożdżach': 'Basisrezeptur, mit Hefe',
+  'Receptura bazowa, na zakwasie': 'Basisrezeptur, mit Sauerteig',
+  'Receptura bazowa, pizza': 'Basisrezeptur, Pizza',
+  'Receptura bazowa, słodka': 'Basisrezeptur, süß',
+  'Receptura bazowa, żytnia': 'Basisrezeptur, Roggen',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Die Rezeptur muss einen Namen haben (1–120 Zeichen)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Die Rezeptur muss mindestens ein Mehl enthalten',
   'Receptura z pliku': 'Rezeptur aus Datei',

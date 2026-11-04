@@ -1,4 +1,4 @@
-// Słownik ko, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.': '풀리시(Poolish)는 고소한 견과류 풍미를 더하고, 반죽이 잘 늘어나서 바게트 반죽을 다루기 쉬워져요.',
@@ -29,7 +29,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': '사전 발효종 (발효종)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': '응급 바시나주 (추가 수분) 절차',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': '배합표의 이스트 비율은 생이스트 기준이에요. 드라이 이스트(인스턴트 또는 액티브)는 그 양의 0.4를 계량해요.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': '배합표의 이스트 비율은 생이스트 기준이에요. 드라이 이스트(인스턴트 또는 액티브)는 그 양의 0.35배를 계량해요. 제조사가 포장지에 다른 비율을 안내할 수도 있어요.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '‘{name}’ 가루의 비율은 0.1–100% 범위의 숫자여야 해요',
   'Profil smakowy': '풍미 프로필',
   'Profil zakwasu': '사워도우 스타터 프로필',
@@ -107,6 +107,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': '‘{nazwa}’ 배합표가 내 배합표에 추가됐어요.',
   'Receptura awaryjna:': '비상 배합표:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': '그 베이킹 이후 기본 배합표가 바뀌었어요: 이제 이스트가 더 많이 들어가요.',
+  'Receptura bazowa, na drożdżach': '기본 배합표, 이스트',
+  'Receptura bazowa, na zakwasie': '기본 배합표, 사워도우',
+  'Receptura bazowa, pizza': '기본 배합표, 피자',
+  'Receptura bazowa, słodka': '기본 배합표, 달콤한 빵',
+  'Receptura bazowa, żytnia': '기본 배합표, 호밀',
   'Receptura musi posiadać nazwę (1-120 znaków)': '배합표에는 이름이 있어야 해요(1-120자)',
   'Receptura musi zawierać co najmniej jedną mąkę': '배합표에는 가루가 하나 이상 있어야 해요',
   'Receptura z pliku': '파일 배합표',

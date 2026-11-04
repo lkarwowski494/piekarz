@@ -1,4 +1,4 @@
-// Słownik bg, część 11 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 11 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.': 'Разбъркайте и веднага прехвърлете в намазана правоъгълна форма за хляб, поръсена с трици. Оставете да втаса веднъж на топло, докато удвои обема си (около 3–4 ч). Изпеченият ръжен квасен хляб е най-добре да се нареже едва след 24 часа почивка.',

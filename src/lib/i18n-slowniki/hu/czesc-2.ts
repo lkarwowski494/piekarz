@@ -1,4 +1,4 @@
-// Słownik hu, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hu, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rwie się przy rozciąganiu:': 'A tészta nyújtáskor szakad:',
@@ -17,6 +17,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Mit csinálsz még ma?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'legalább 3 óra szobahőmérsékleten, vagy 1 óra, majd legfeljebb 3 nap a hűtőben',
   'Co widzisz?': 'Mit látsz?',
+  'Co zrobić': 'Teendő',
   'Co zrobić przy następnym wypieku:': 'Teendők a következő sütésnél:',
   'Co zrobić:': 'Teendő:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Teendő: etesd meg a kovászt a másnapi terv szerint.',
@@ -55,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Csak akkor tedd hűtőbe, amikor már stabil, vagyis 7–10 nap után.',
   'Do miski': 'A tálba',
   'Do miski (Ciasto właściwe)': 'A tálba (főtészta)',
-  'Do miski (odhaczaj przy ważeniu)': 'A tálba (mérés közben pipáld ki)',
   'Do miski na wagę': 'A tálba, mérlegre',
   'Do ostygnięcia do temp. pokojowej': 'Amíg szobahőmérsékletűre hűl',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kb. {czas} van hátra a csúcspont becsült időablakáig (ablak: {okno}).',

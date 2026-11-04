@@ -1,4 +1,4 @@
-// Słownik ko, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy mąka z wodą odpocznie przed dodaniem soli, mąka wchłania wodę, zaczyna się tworzyć gluten, a ciasto łatwiej się wyrabia.': '소금을 넣기 전에 밀가루와 물을 휴지시키면 밀가루가 물을 흡수하고 글루텐이 형성되기 시작해 반죽하기가 쉬워져요.',
@@ -47,6 +47,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '가수율',
   'i jeszcze {n}, szczegóły w arkuszu dnia': '그 외 {n}개, 자세한 내용은 일별 시트에서 확인',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '마더 사워도우 스타터를 키우기에 이상적인 베이스예요. 야생 효모와 젖산균이 풍부해요.',
+  'Ile pieczesz': '굽는 양',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': '호밀빵이나 호밀 밀빵이라고 부르려면 호밀이 얼마나 들어가야 하는지.',
   'Ilości do dokarmienia': '먹이 주기 분량',
   'Ilości i temperatura wody': '분량 및 물 온도',
@@ -71,7 +72,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': '동굴 같은 구멍 (발효 부족)',
   'Jedna opłata, bez odnawiania.': '1회 결제, 갱신 없음.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': '전체적으로 조밀하고 무거운 속살 (공기층 없음)',
-  'Jednostki': '단위',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': '1차 발효가 끝난 뒤에야 소금을 빠뜨린 걸 알았다면 지금 넣어도 소용없고, 다시 반죽하면 반죽이 완전히 망가질 수 있어요. 소금 없이 굽거나 피자 도우로 쓰세요.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': '반죽을 되살리려면 바구니나 그릇에서 꺼내세요.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': '소금이 빠졌다면 ‘잊어버린 소금’ 프로토콜을 여세요.',
@@ -81,7 +81,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': '표면 막, 얼룩 또는 변색이 보이거나 썩은 냄새가 나면 스타터 점검을 여세요.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': '‘{name}’ 스타터가 두 배로 부풀지 않았다면 먹이를 다시 주세요.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': '스타터가 별로 부풀지 않고 기포가 적다면 12시간마다 계속 먹이를 주세요.',
-  'Język': '언어',
+  'Język i jednostki': '언어 및 단위',
   'jutro': '내일',
   'Jutro': '내일',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': '캘린더가 비어 있어요. 스타터를 만들거나 베이킹을 계획하면 채워져요.',

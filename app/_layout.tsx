@@ -1,7 +1,7 @@
 import '../src/lib/intl-polyfills';
 import React, { useEffect, useRef, useState } from 'react';
 import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
-import { StatusBar, AppState, View, StyleSheet, useWindowDimensions } from 'react-native';
+import { StatusBar, AppState, View, StyleSheet } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import { configureNotificationHandler, resyncNotifications, uzgadniajZDostepem } from '../src/lib/notifications';
 import { initDatabase } from '../src/data/sqlite-store';
@@ -15,7 +15,6 @@ import { initLanguage, t, useLang } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
-import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -55,9 +54,6 @@ export default function RootLayout() {
   useLang();
   // Kolory nagłówka bieżącego wariantu (jasny/ciemny/kontrast), nie DynamicColorIOS [M3 p1 a1]
   const { zwykly: naglowekZwykly } = useNaglowek();
-  // Przy ≤ 336 pt (320 pt = iPhone SE) „Doktor” i „Plan wypieku” zajmują ok. 176 pt prawego rogu i tytuł się nie mieści:
-  // pusty tytuł, bo krok i przełącznik wypieków mówią, gdzie jesteś (PRZ-07, D-107)
-  const { width: szerokosc } = useWindowDimensions();
 
   const stopPlatnosci = useRef<(() => void) | undefined>(undefined);
   const kamien = useRef(false);
@@ -144,16 +140,12 @@ export default function RootLayout() {
               <Stack.Screen
                 name="stolnica"
                 dangerouslySingular
-                options={{
-                  ...naglowekZwykly,
-                  title: szerokosc <= 336 ? '' : t('Stolnica'),
-                  headerBackButtonDisplayMode: 'minimal',
-                  headerRight: () => (
-                    <PrzyciskNaglowka testID="stolnica-doctor-shortcut-btn" etykieta={t('Doktor Chleba')} tekst={t('Doktor')} onPress={() => router.push('/doktor')} />
-                  ),
-                }}
+                // Pas marki zamiast nagłówka systemowego (O3a, D-194): powrót, krok, „Doktor” i „Plan wypieku” na pasie
+                // ekranu (ProwadzenieWypieku); tytuł trasy zostaje dla systemu
+                options={{ ...naglowekZwykly, title: t('Stolnica'), headerShown: false }}
               />
-              <Stack.Screen name="doktor" options={{ ...naglowekZwykly, title: t('Doktor Chleba'), headerBackButtonDisplayMode: 'minimal' }} />
+              {/* Doktor Chleba z pasem O3a na ekranie (D-197): nagłówek stosu ukryty, tytuł trasy dla historii nawigacji */}
+              <Stack.Screen name="doktor" options={{ ...naglowekZwykly, title: t('Doktor Chleba'), headerShown: false }} />
             </Stack>
           </AppAccessProvider>
         </View>

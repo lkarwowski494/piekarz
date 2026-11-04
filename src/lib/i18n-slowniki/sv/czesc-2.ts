@@ -1,4 +1,4 @@
-// Słownik sv, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sv, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Cienka, przezroczysta membrana:': 'Tunt, genomskinligt membran:',
@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Vad mer gör du i dag?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'minst 3 timmar i rumstemperatur eller 1 timme och sedan högst 3 dagar i kylskåpet',
   'Co widzisz?': 'Vad ser du?',
+  'Co zrobić': 'Gör så här',
   'Co zrobić przy następnym wypieku:': 'Att göra vid nästa bak:',
   'Co zrobić:': 'Gör så här:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Gör så här: mata surdegsgrunden enligt planen för nästa dag.',
@@ -51,7 +52,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Ställ in den i kylskåpet först när den har etablerat sig, alltså efter 7–10 dagar.',
   'Do miski': 'I skålen',
   'Do miski (Ciasto właściwe)': 'I skålen (huvuddeg)',
-  'Do miski (odhaczaj przy ważeniu)': 'I skålen (bocka av när du väger)',
   'Do miski na wagę': 'I skålen på vågen',
   'Do ostygnięcia do temp. pokojowej': 'Tills den svalnat till rumstemperatur',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Cirka {czas} kvar till det beräknade toppfönstret (fönster: {okno}).',

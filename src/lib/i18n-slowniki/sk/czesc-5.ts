@@ -1,10 +1,11 @@
-// Słownik sk, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sk, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Odrzucanie utrzymuje małą objętość, więc drożdże dostają więcej pożywienia.': 'Odhadzovanie udržiava malý objem, takže kvasinky dostanú viac potravy.',
   'Odrzucić zmiany?': 'Zahodiť zmeny?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Odhoďte polovicu kvásku, pridajte múku a vodu v rovnakom hmotnostnom množstve a nechajte 24 hodín.',
   'Odrzuć zmiany': 'Zahodiť zmeny',
+  'Wpisane zmiany nie zostaną zapisane.': 'Zadané zmeny sa neuložia.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Pred ďalším štandardným preložením nechajte cesto 20 minút odpočívať.',
   'Odznacz objawy': 'Odznačiť príznaky',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Výživný chlieb z hrubo mletej pšeničnej grahamovej múky s prídavkom prírodného medu a ľanového semienka.',
@@ -154,7 +155,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Preferment (predkvas)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Záchranný postup Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Percento droždia v receptúre je čerstvé droždie. Sušeného droždia (instantného alebo aktívneho) odvážite 0,4 tejto hmotnosti.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Percento droždia v receptúre je čerstvé droždie. Sušeného droždia (instantného alebo aktívneho) odvážite 0,35 tejto hmotnosti. Výrobca môže na obale uvádzať iný prepočet.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Percento múky „{name}“ musí byť číslo v rozsahu 0,1–100 %',
   'Profil smakowy': 'Chuťový profil',
   'Profil zakwasu': 'Profil kvásku',

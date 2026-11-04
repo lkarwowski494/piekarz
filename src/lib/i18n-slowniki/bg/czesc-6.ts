@@ -1,4 +1,4 @@
-// Słownik bg, część 6 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 6 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Niska wilgotność miękiszu (styl bagietkowy). Skórka bardzo krucha, krótszy czas zachowania świeżości.': 'Ниска влажност на средата (стил багета). Много крехка кора, запазва свежестта си по-кратко.',
@@ -23,7 +23,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Оценка на развитието на глутеновата мрежа след автолизата и сгъванията',
   'Ocena wymaga połączenia z App Store.': 'Оценяването изисква връзка с App Store.',
   'Ocena wypieku': 'Оценка на изпичането',
-  'Ocena: {n}/5': 'Оценка: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Преценявайте тестото по вида му, а не по часовника: на студено тестото втасва по-дълго, а времената в рецептата са само ориентир.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Оценете самуна и запишете бележки в историята на печенето',
   'Oceń na {n} z 5': 'Оценете с {n} от 5',
@@ -35,6 +34,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'От брашно и вода до първия самун, ден след ден.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'От този ден хранете стартера два пъти дневно, приблизително на всеки 12 часа.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Обезгазете го, като го притискате силно, както при оформянето.',
+  'Odhaczaj przy ważeniu.': 'Отмятайте при претегляне.',
   'Odhaczaj składniki w miarę wsypywania': 'Отмятайте съставките, докато ги добавяте',
   'Odkryj wiedzę naukową': 'Открийте научните знания',
   'Odliczanie trwa': 'Отброяването тече',
@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Да се отхвърлят ли промените?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Изхвърлете половината стартер, добавете брашно и вода в равни количества по тегло и оставете за 24 часа.',
   'Odrzuć zmiany': 'Отхвърлете промените',
+  'Wpisane zmiany nie zostaną zapisane.': 'Въведените промени няма да бъдат запазени.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Оставете го да почива 20 минути преди следващото стандартно сгъване.',
   'Odznacz objawy': 'Изчистете симптомите',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Питателен хляб от едро смляно пшенично брашно грахам с натурален мед и ленено семе.',

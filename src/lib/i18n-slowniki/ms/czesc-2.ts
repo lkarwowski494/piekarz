@@ -1,4 +1,4 @@
-// Słownik ms, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ms, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.': 'Doh padat, tidak melekat di tangan. Sesuai untuk belajar membentuk buku roti.',
@@ -16,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Apa lagi yang anda buat hari ini?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'sekurang-kurangnya 3 jam pada suhu bilik, atau 1 jam dan kemudian paling lama 3 hari di dalam peti sejuk',
   'Co widzisz?': 'Apa yang anda lihat?',
+  'Co zrobić': 'Apa perlu dibuat',
   'Co zrobić przy następnym wypieku:': 'Apa yang perlu dilakukan pada bakaran seterusnya:',
   'Co zrobić:': 'Apa perlu dibuat:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Apa perlu dibuat: beri makan pemula mengikut pelan untuk hari berikutnya.',
@@ -54,7 +55,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Masukkan ke dalam peti sejuk hanya selepas ia stabil, iaitu selepas 7–10 hari.',
   'Do miski': 'Ke dalam mangkuk',
   'Do miski (Ciasto właściwe)': 'Ke dalam mangkuk (doh akhir)',
-  'Do miski (odhaczaj przy ważeniu)': 'Ke dalam mangkuk (tandakan semasa menimbang)',
   'Do miski na wagę': 'Ke dalam mangkuk di atas penimbang',
   'Do ostygnięcia do temp. pokojowej': 'Sehingga sejuk ke suhu bilik',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kira-kira {czas} lagi sebelum tempoh kemuncak anggaran (tempoh: {okno}).',

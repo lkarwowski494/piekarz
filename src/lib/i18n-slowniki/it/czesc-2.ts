@@ -1,4 +1,4 @@
-// Słownik it, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.': 'L\'impasto lievita a temperatura ambiente per almeno 12 e al massimo 24 ore. Dopo la divisione in palline, lievita altri 45–60 minuti mentre il forno si scalda.',
@@ -19,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Cos\'altro fai oggi?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'almeno 3 ore a temperatura ambiente oppure 1 ora e poi al massimo 3 giorni in frigorifero',
   'Co widzisz?': 'Cosa vedi?',
+  'Co zrobić': 'Cosa fare',
   'Co zrobić przy następnym wypieku:': 'Cosa fare alla prossima sfornata:',
   'Co zrobić:': 'Cosa fare:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Cosa fare: rinfresca il lievito madre secondo il piano per il giorno successivo.',
@@ -57,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Mettilo in frigo solo quando si è stabilizzato, cioè dopo 7–10 giorni.',
   'Do miski': 'Nella ciotola',
   'Do miski (Ciasto właściwe)': 'Nella ciotola (impasto finale)',
-  'Do miski (odhaczaj przy ważeniu)': 'Nella ciotola (spunta mentre pesi)',
   'Do miski na wagę': 'Nella ciotola sulla bilancia',
   'Do ostygnięcia do temp. pokojowej': 'Fino a raffreddamento a temperatura ambiente',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Mancano circa {czas} alla finestra stimata del picco (finestra: {okno}).',

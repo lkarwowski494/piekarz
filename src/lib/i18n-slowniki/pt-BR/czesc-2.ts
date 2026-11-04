@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rwie się przy rozciąganiu:': 'A massa rasga ao ser esticada:',
@@ -17,6 +17,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'O que mais você vai fazer hoje?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'pelo menos 3 horas em temperatura ambiente ou 1 hora e depois no máximo 3 dias na geladeira',
   'Co widzisz?': 'O que você vê?',
+  'Co zrobić': 'O que fazer',
   'Co zrobić przy następnym wypieku:': 'O que fazer na próxima fornada:',
   'Co zrobić:': 'O que fazer:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'O que fazer: alimente o fermento natural conforme o plano para o dia seguinte.',
@@ -55,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Coloque-o na geladeira só depois que ele se estabilizar, ou seja, após 7–10 dias.',
   'Do miski': 'Para a tigela',
   'Do miski (Ciasto właściwe)': 'Para a tigela (massa final)',
-  'Do miski (odhaczaj przy ważeniu)': 'Para a tigela (marque ao pesar)',
   'Do miski na wagę': 'Para a tigela na balança',
   'Do ostygnięcia do temp. pokojowej': 'Até esfriar à temperatura ambiente',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Faltam cerca de {czas} para a janela estimada do pico (janela: {okno}).',

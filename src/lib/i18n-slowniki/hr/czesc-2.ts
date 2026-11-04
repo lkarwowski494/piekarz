@@ -1,4 +1,4 @@
-// Słownik hr, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.': 'Taman, slatkasto-začinski raženi kruh s aromom crvenog fermentiranog slada i prženog korijandera.',
@@ -14,6 +14,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Što još danas radiš?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'najmanje 3 sata na sobnoj temperaturi ili 1 sat, a zatim najviše 3 dana u hladnjaku',
   'Co widzisz?': 'Što vidiš?',
+  'Co zrobić': 'Što napraviti',
   'Co zrobić przy następnym wypieku:': 'Što učiniti pri sljedećem pečenju:',
   'Co zrobić:': 'Što napraviti:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Što napraviti: nahrani kvas prema planu za sljedeći dan.',
@@ -52,7 +53,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Stavi ga u hladnjak tek kad se ustali, tj. nakon 7–10 dana.',
   'Do miski': 'U zdjelu',
   'Do miski (Ciasto właściwe)': 'U zdjelu (glavno tijesto)',
-  'Do miski (odhaczaj przy ważeniu)': 'U zdjelu (označi pri vaganju)',
   'Do miski na wagę': 'U zdjelu na vagi',
   'Do ostygnięcia do temp. pokojowej': 'Dok se ne ohladi na sobnu temperaturu',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Do procijenjenog prozora vrhunca ostalo je oko {czas} (prozor: {okno}).',

@@ -1,21 +1,18 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { theme } from '../../../src/ui/theme';
+import { Text, View } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { t } from '../../../src/lib/i18n';
 import {
   calculateReverseSchedule,
   autoResolveSleepCollision,
 } from '../../../src/scheduler/reverse-scheduler';
-import { getStarters } from '../../../src/data/sqlite-store';
-import type { StoredStarter } from '../../../src/data/db';
 import { withFridgeWake } from '../../../src/core/fridge-wake';
-import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
+import { etapyPlanu } from '../../../src/lib/zakwas-planu';
+import { useZakwasPlanu } from '../../../src/hooks/useZakwasPlanu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
@@ -41,12 +38,18 @@ import { godzinaPrzyOtwarciu, kolizjeKrokow } from '../../../src/lib/plan-bez-no
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { atLocalTime } from '../../../src/core/dzien-lokalny';
 import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
-
-import { typografia } from '../../../src/ui/tokeny';
+import { Karta } from '../../../src/ui/karty/Karta';
+import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
+import { NotatkiPlanu } from '../../../src/components/harmonogram/NotatkiPlanu';
+import { styles } from '../../../src/components/harmonogram/harmonogram-styles';
 const MINUTA_MS = 60_000;
 
 
 export default function HarmonogramScreen() {
+  // Pas marki zamiast nagłówka stosu (O3a, D-194; makieta wypiek.html#plan): powrót „Receptura”, tytuł, nazwa receptury
+  const router = useRouter();
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
   const unitSystem = useUnitSystem();
 
   // Dzień „gotowe”: 0 = dziś … ZASIEG_DNI_PLANU (D-108); ze skrótu arkusza dnia dzień z kalendarza (BR-KAL-015),
@@ -96,16 +99,7 @@ export default function HarmonogramScreen() {
 
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
-  const [zakwas, setZakwas] = useState<StoredStarter | null>(null);
-  const [zakwasWczytany, setZakwasWczytany] = useState(false);
-  useEffect(() => {
-    let zywy = true;
-    void getStarters()
-      .then((lista) => { if (zywy) setZakwas(zakwasPlanu(lista)); })
-      .catch(() => {})
-      .finally(() => { if (zywy) setZakwasWczytany(true); });
-    return () => { zywy = false; };
-  }, []);
+  const { zakwas, zakwasWczytany } = useZakwasPlanu();
   // Receptura żytnia z „Ułóż plan”: etapy żytnie z czasami planu, studzenie kończy się o godzinie „gotowe”;
   // te same kroki dostaje Stolnica (DEC-04 a) [M1-audytor-generalny-030; 03-zakres-501]
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
@@ -251,18 +245,14 @@ export default function HarmonogramScreen() {
   // kroki, ustawienia nocy; „Zacznij wypiek” w pasku kciuka poza przewijaną treścią [M1-audytor-generalny-128]
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
-      <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {notatkaPoprzednia ? (
-          <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
-            {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
-          </Text>
-        ) : null}
-        {bazowaZmieniona ? (
-          <Text style={styles.bezSnu} testID="plan-bazowa-zmieniona">
-            {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
-          </Text>
-        ) : null}
+      {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+      <EkranZPasem gora={gora} tytul={t('Plan wypieku')} style={styles.przewijane} pas={(onLayout) => (
+        <PasZakladki gora={gora} tytul={t('Plan wypieku')} podtytul={recepturaPlanu() ? nazwaReceptury(recepturaPlanu()?.recipeName ?? '') : undefined}
+          wstecz={{ tekst: t('Receptura'), onPress: () => router.back() }} onLayout={onLayout} />
+      )}>
+        <View style={styles.container}>
+        {/* Z „Piecz ponownie”: notatka i zmiana receptury bazowej w karcie (src/components/harmonogram/NotatkiPlanu.tsx) */}
+        <NotatkiPlanu notatka={notatkaPoprzednia} bazowaZmieniona={bazowaZmieniona} />
         {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
             a dotknięcie otwiera ekran Pro (BlokadaFunkcji, [M1-audytor-generalny-027]) */}
         <BlokadaFunkcji {...blokada('plan-wstecz')} podglad>
@@ -285,7 +275,9 @@ export default function HarmonogramScreen() {
           // Noc po temperaturze jak w `plan-sen`; „za późno” zostaje pod polem jak w `plan-za-pozno` [M1-audytor-generalny-128]
           poTemperaturze={zaPozno ? null : oknoPlanu === null ? (
           // „Bez godzin snu” w Ustawieniach: plan bez sprawdzania nocy i informacja, gdzie je ustawić (BR-HARMO-002) [130]
-          <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
+          <Karta testID="karta-snu" tytul={t('Godziny snu')} ikona={<IkonaKarty nazwa="zegar" />}>
+            <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
+          </Karta>
         ) : (
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
           // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
@@ -313,16 +305,12 @@ export default function HarmonogramScreen() {
 
         {/* Spirala i opis w jednym rzędzie z zawijaniem (`.kosz` w makiecie): „Start … o …” obok Spirali, nie pod paskiem
             kciuka; przy dużym tekście opis schodzi pod Spiralę [M1-audytor-generalny-128] */}
-        <View style={styles.kosz}>
-          <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
-          <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
-        </View>
-
-        <TimelineStagesList
-          stages={stages}
-          formatTime={formatTime}
-          formatDayBadge={formatDayBadge}
-        />
+        <TimelineStagesList stages={stages} formatTime={formatTime} formatDayBadge={formatDayBadge}>
+          <View style={styles.kosz}>
+            <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
+            <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
+          </View>
+        </TimelineStagesList>
 
         <UstawieniaPlanu
           okno={oknoPlanu}
@@ -330,12 +318,14 @@ export default function HarmonogramScreen() {
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
           bezLodowki={zytni}
-        />
-        {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
-        <DodajDoKalendarza
-          plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
-        />
-      </ScrollView>
+        >
+          {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
+          <DodajDoKalendarza
+            plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
+          />
+        </UstawieniaPlanu>
+        </View>
+      </EkranZPasem>
       <PasekStartu
         onStart={zacznij}
         powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
@@ -346,29 +336,3 @@ export default function HarmonogramScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-  },
-  przewijane: {
-    flex: 1,
-  },
-  bezSnu: {
-    fontSize: typografia.style.objasnienie.pt,
-    color: theme.colors.tusz2,
-    marginBottom: theme.spacing.md,
-  },
-  container: {
-    padding: theme.spacing.md,
-    paddingBottom: 40,
-  },
-  kosz: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    gap: 14,
-    marginBottom: theme.spacing.md,
-  },
-});

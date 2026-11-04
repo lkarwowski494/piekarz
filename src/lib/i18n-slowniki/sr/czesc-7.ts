@@ -1,4 +1,4 @@
-// Słownik sr, część 7 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 7 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Poolish (Rzadki zaczyn 100%)': 'Пулиш (ретко предтесто 100%)',
@@ -30,7 +30,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Предфермент (предтесто)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Поступак спасилачког басинажа',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Проценат квасца у рецептури односи се на свеж квасац. Сувог квасца (инстант или активног) измери 0,4 те масе.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Проценат квасца у рецептури односи се на свеж квасац. Сувог квасца (инстант или активног) измери 0,35 те масе. Произвођач на паковању може навести другачији однос.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Проценат брашна „{name}“ мора бити број у опсегу 0,1–100%',
   'Profil smakowy': 'Профил укуса',
   'Profil zakwasu': 'Профил стартера',
@@ -108,6 +108,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Рецептура „{nazwa}“ је у Мојим рецептурама.',
   'Receptura awaryjna:': 'Резервна рецептура:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Основна рецептура се променила од тог печења: сада има више квасца.',
+  'Receptura bazowa, na drożdżach': 'Основна рецептура, на квасцу',
+  'Receptura bazowa, na zakwasie': 'Основна рецептура, на киселом тесту',
+  'Receptura bazowa, pizza': 'Основна рецептура, пица',
+  'Receptura bazowa, słodka': 'Основна рецептура, слатка',
+  'Receptura bazowa, żytnia': 'Основна рецептура, ражана',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Рецептура мора имати назив (1-120 знакова)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Рецептура мора садржати бар једно брашно',
   'Receptura z pliku': 'Рецептура из фајла',

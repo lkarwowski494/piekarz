@@ -63,7 +63,7 @@ describe('BR-RECP-003: dziennik wypieków', () => {
     const karta = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'bake-log-card-b1')[0];
     const tekst = karta.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
     expect(tekst).toContain(`${t('Temperatura w kuchni:')} ${formatTemperature(22)}`);
-    expect(tekst).toContain('Ocena: 4/5');
+    expect(tekst).toContain(', ocena 4/5');
     expect(tekst).toContain('Dłużej garować');
     act(() => tree.unmount());
   });

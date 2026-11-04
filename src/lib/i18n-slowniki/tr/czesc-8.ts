@@ -1,4 +1,4 @@
-// Słownik tr, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.': 'Birçok fırıncı irmik ya da pirinç unu gibi daha iri taneli bir unu tercih eder, çünkü hamuru sepetten daha iyi ayırır ve hamura karışmaz.',
@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Hazır Karışım Kullan',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Sepeti hava almayan bir poşet içinde buzdolabına (4–6°C) koyun. Uzun fermantasyon ekmeğe derin bir aroma kazandırır.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Hamur kabını kapalı fırına koyun ve yalnızca lambasını yakın: içerisi yavaş yavaş ısınır, ancak her fırın ve her mutfak farklı sonuç verir.',
+  'Wstecz': 'Geri',
   'Wstrzymaj': 'Duraklat',
   'Wstrzymano': 'Duraklatıldı',
   'Wsyp do miski na wagę': 'Terazideki kaseye ekleyin',

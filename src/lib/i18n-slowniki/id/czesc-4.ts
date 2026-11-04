@@ -1,4 +1,4 @@
-// Słownik id, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik id, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna bułkowa / bagietkowa': 'Tepung terigu untuk roti kecil / baguette',
@@ -187,5 +187,4 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Menilai perkembangan jaringan gluten setelah autolisis dan regang dan lipat',
   'Ocena wymaga połączenia z App Store.': 'Penilaian memerlukan koneksi ke App Store.',
   'Ocena wypieku': 'Nilai hasil panggangan',
-  'Ocena: {n}/5': 'Nilai: {n}/5',
 };

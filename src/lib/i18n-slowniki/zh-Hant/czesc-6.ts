@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przesuń start: {r} o {m} min': '調整開始：{r} 移動 {m} 分鐘',
@@ -33,6 +33,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': '配方「{nazwa}」已在「我的配方」中。',
   'Receptura awaryjna:': '應急配方：',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': '自那次烘焙後，基本配方已有變更：現在酵母量更多。',
+  'Receptura bazowa, na drożdżach': '基本配方，使用酵母',
+  'Receptura bazowa, na zakwasie': '基本配方，天然酵母種',
+  'Receptura bazowa, pizza': '基本配方，披薩',
+  'Receptura bazowa, słodka': '基本配方，甜麵包',
+  'Receptura bazowa, żytnia': '基本配方，裸麥',
   'Receptura musi posiadać nazwę (1-120 znaków)': '配方必須有名稱（1-120 個字元）',
   'Receptura musi zawierać co najmniej jedną mąkę': '配方必須至少包含一種麵粉',
   'Receptura z pliku': '檔案中的配方',

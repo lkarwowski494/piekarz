@@ -1,4 +1,4 @@
-// Słownik da, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik da, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka stanowi 100% bazy w procentach piekarskich': 'Mel udgør 100 % af basen i bagerprocent',
@@ -151,7 +151,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Vurdering af glutennetværket efter autolyse og foldninger',
   'Ocena wymaga połączenia z App Store.': 'Bedømmelse kræver forbindelse til App Store.',
   'Ocena wypieku': 'Bedømmelse af bagningen',
-  'Ocena: {n}/5': 'Bedømmelse: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Bedøm dejen på udseendet, ikke på uret: i kulde hæver dejen længere, og tiderne i opskriften er kun vejledende.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Bedøm brødet, og gem noter i din bagehistorik',
   'Oceń na {n} z 5': 'Giv {n} ud af 5',
@@ -163,6 +162,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Fra mel og vand til dit første brød, dag for dag.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Fra denne dag skal du fodre surdejen to gange om dagen, cirka hver 12. time.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Afgas den ved at trykke godt ned, ligesom når du former.',
+  'Odhaczaj przy ważeniu.': 'Sæt flueben, mens du vejer.',
   'Odhaczaj składniki w miarę wsypywania': 'Sæt flueben ved ingredienserne, efterhånden som du hælder dem i',
   'Odkryj wiedzę naukową': 'Opdag videnskaben',
   'Odliczanie trwa': 'Nedtælling i gang',
@@ -172,6 +172,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Kassér ændringer?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Kassér halvdelen af surdejen, tilsæt mel og vand i lige store vægtmængder, og lad den stå i 24 timer.',
   'Odrzuć zmiany': 'Kassér ændringer',
+  'Wpisane zmiany nie zostaną zapisane.': 'De indtastede ændringer bliver ikke gemt.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lad dejen hvile i 20 minutter før næste almindelige foldning.',
   'Odznacz objawy': 'Ryd symptomer',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Nærende brød af groftmalet grahamsmel med naturlig honning og hørfrø.',

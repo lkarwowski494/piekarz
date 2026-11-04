@@ -1,4 +1,4 @@
-// Słownik fr, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Niska wilgotność miękiszu (styl bagietkowy). Skórka bardzo krucha, krótszy czas zachowania świeżości.': 'Faible humidité de la mie (style baguette). Croûte très friable, fraîcheur moins durable.',
@@ -23,7 +23,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Évaluer le développement du réseau de gluten après l\'autolyse et les rabats',
   'Ocena wymaga połączenia z App Store.': 'La notation nécessite une connexion à l’App Store.',
   'Ocena wypieku': 'Note de la fournée',
-  'Ocena: {n}/5': 'Note : {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Jugez la pâte à son aspect, pas à l\'horloge : au froid, elle met plus de temps à lever, et les temps de la recette ne sont qu\'indicatifs.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Notez la miche et enregistrez vos remarques dans l\'historique',
   'Oceń na {n} z 5': 'Noter {n} sur 5',
@@ -35,6 +34,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'De la farine et de l\'eau à votre première miche, jour après jour.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'À partir de ce jour, rafraîchissez le levain naturel deux fois par jour, environ toutes les 12 heures.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Dégazez-la en appuyant fermement, comme lors du façonnage.',
+  'Odhaczaj przy ważeniu.': 'Cochez au fil de la pesée.',
   'Odhaczaj składniki w miarę wsypywania': 'Cochez les ingrédients au fur et à mesure que vous les versez',
   'Odkryj wiedzę naukową': 'Découvrir l\'explication scientifique',
   'Odliczanie trwa': 'Compte à rebours en cours',
@@ -44,6 +44,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Abandonner les modifications ?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Jetez la moitié du levain naturel, ajoutez de la farine et de l\'eau en poids égaux et laissez reposer 24 heures.',
   'Odrzuć zmiany': 'Abandonner les modifications',
+  'Wpisane zmiany nie zostaną zapisane.': 'Les modifications saisies ne seront pas enregistrées.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Laissez reposer 20 minutes avant la série de rabats suivante.',
   'Odznacz objawy': 'Décocher les symptômes',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pain nourrissant à la farine de blé Graham (intégrale, mouture grossière), avec du miel naturel et des graines de lin.',

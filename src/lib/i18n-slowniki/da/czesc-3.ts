@@ -1,4 +1,4 @@
-// Słownik da, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik da, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.': 'Groftmalet mel med alle kornets dele. Klid skærer glutenet over, kræver skånsomme foldninger.',
@@ -23,6 +23,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hydrering',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'og {n} til, detaljer i dagsoversigten',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideel base til at holde en modersurdej. Rig på vildgær og mælkesyrebakterier.',
+  'Ile pieczesz': 'Hvor meget bager du',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Hvor meget rug et brød skal indeholde for at måtte kaldes rugbrød eller rug-hvedebrød.',
   'Ilości do dokarmienia': 'Fodringsmængder',
   'Ilości i temperatura wody': 'Mængder og vandtemperatur',
@@ -47,7 +48,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Huler (Underhævet)',
   'Jedna opłata, bez odnawiania.': 'Én betaling, ingen fornyelse.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ensartet tæt og tung krumme (ingen luft)',
-  'Jednostki': 'Enheder',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Opdager du først det manglende salt efter første hævning, hjælper det ikke at tilsætte det, og ny æltning kan ødelægge dejen for altid: bag brødet uden salt, eller brug dejen til en pizzabund.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Hvis du redder dejen, så tag den ud af hævekurven eller beholderen.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Hvis saltet mangler, så åbn protokollen »Glemt salt«.',
@@ -57,7 +57,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Hvis du ser belægning, pletter eller misfarvning eller kan mærke en rådden lugt, så åbn surdejstjekket.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Hvis surdejen »{name}« ikke er fordoblet i volumen, så fodr den igen.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Hvis surdejen kun er hævet lidt og har få bobler, så fortsæt med at fodre den hver 12. time.',
-  'Język': 'Sprog',
+  'Język i jednostki': 'Sprog og enheder',
   'jutro': 'i morgen',
   'Jutro': 'I morgen',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalenderen er tom. Den fyldes op, når du starter en surdej eller planlægger en bagning.',

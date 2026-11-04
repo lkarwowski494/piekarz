@@ -1,4 +1,4 @@
-// Słownik bg, część 4 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 4 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Jak wyszedł bochenek?': 'Как се получи самунът?',
@@ -7,7 +7,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Кухини (Недоферментирал)',
   'Jedna opłata, bez odnawiania.': 'Еднократно плащане, без подновяване.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плътна и тежка среда (без въздух)',
-  'Jednostki': 'Единици',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ако липсата на сол се окаже едва след първото втасване, добавянето ѝ няма да помогне, а повторното месене може трайно да развали тестото: изпечете хляба без сол или използвайте тестото за основа за пица.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ако спасявате тестото, извадете го от кошницата или съда.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ако солта липсва, отворете протокола „Забравена сол“.',
@@ -17,7 +16,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ако виждате налеп, петна или промяна в цвета, или усещате гнилостна миризма, отворете проверката на квасния стартер.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ако квасният стартер „{name}“ не е удвоил обема си, нахранете го отново.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако квасният стартер е нараснал малко и има малко мехурчета, продължете да го храните на всеки 12 часа.',
-  'Język': 'Език',
+  'Język i jednostki': 'Език и единици',
   'jutro': 'утре',
   'Jutro': 'Утре',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Календарът е празен. Ще се запълни, когато създадете квасен стартер или планирате изпичане.',

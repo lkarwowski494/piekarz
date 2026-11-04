@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': '古老品種斯佩爾特小麥。麩質延展性很好，但在強力機器攪拌下容易變弱。',
@@ -134,7 +134,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': '預發酵麵種（酵頭）',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': '延後加水法急救程序',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': '配方中的酵母百分比以新鮮酵母計算。若使用乾酵母（即溶或活性），請秤取該重量的 0.4 倍。',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': '配方中的酵母百分比以新鮮酵母計算。若使用乾酵母（即溶或活性），請秤取該重量的 0.35 倍。製造商可能在包裝上標示不同的換算比例。',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '麵粉「{name}」的比例必須是 0.1–100% 之間的數字',
   'Profil smakowy': '風味特徵',
   'Profil zakwasu': '天然酵母起種檔案',

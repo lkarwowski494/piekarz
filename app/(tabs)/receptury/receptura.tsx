@@ -4,22 +4,21 @@
 // przyklejona do dołu poza przewijaniem, a gdy zajęłaby ponad 40% wysokości (duży tekst), na końcu treści.
 // Tryb, mąki, proporcje i zaczyn: arkusz „Składniki”; temperatura: arkusz „Temperatura wody”.
 // Rachunek (useRecipeCalculations), zapis, plan i wczytanie receptury bez zmian. [M1-audytor-generalny-106]
-import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ScrollView, View, StyleSheet, Text } from 'react-native';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
-import { FlourItemInput } from '../../../src/core/domain-rules';
-import { MASTER_RECIPES } from '../../../src/recipes/presets';
-import type { PendingRecipeFormula, PendingRecipeToLoad } from '../../../src/lib/recipe-navigation';
+import { CATALOG_RECIPES } from '../../../src/recipes/katalog';
+import type { PendingRecipeToLoad } from '../../../src/lib/recipe-navigation';
 import { usePendingRecipeLoader } from '../../../src/hooks/usePendingRecipeLoader';
-import { PrefermentType } from '../../../src/core/preferments';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { SaveRecipeModal } from '../../../src/components/calculator/SaveRecipeModal';
 import { CalculatorActionButtons } from '../../../src/components/calculator/CalculatorActionButtons';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
 import { useRecipeCalculations } from '../../../src/hooks/useRecipeCalculations';
+import { useParametryReceptury } from '../../../src/hooks/useParametryReceptury';
 import {
   executePrintRecipePdf,
   executeExportRecipeJson,
@@ -30,9 +29,11 @@ import {
 import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
+import { podtytulReceptury } from '../../../src/components/receptury/nazwy-receptur';
 import { t } from '../../../src/lib/i18n';
 import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
@@ -46,7 +47,6 @@ import { s } from '../../../src/components/receptury/style-receptur';
 import { theme } from '../../../src/ui/theme';
 import { typografia } from '../../../src/ui/tokeny';
 
-type CalculationMode = 'loaves' | 'flour';
 const bezAkcji = () => undefined;
 
 export default function EkranReceptury() {
@@ -59,26 +59,14 @@ export default function EkranReceptury() {
   const { chron, blokada, dodaj, moze } = useAppAccess();
   const proSkladniki = useProPoArkuszu();
 
-  const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
-  const [loavesCount, setLoavesCount] = useState<number>(2);
-  const [loafWeightGrams, setLoafWeightGrams] = useState<number>(850);
-  const [flourGrams, setFlourGrams] = useState<number>(500);
+  const {
+    calcMode, setCalcMode, loavesCount, setLoavesCount, loafWeightGrams, setLoafWeightGrams, flourGrams, setFlourGrams,
+    selectedPresetId, setSelectedPresetId, recipeName, setRecipeName, flourBlend, setFlourBlend,
+    waterPct, setWaterPct, starterPct, setStarterPct, saltPct, setSaltPct, yeastPct, setYeastPct,
+    starterHydration, setStarterHydration, targetDdt, setTargetDdt,
+    prefermentType, setPrefermentType, prefermentFlourPct, setPrefermentFlourPct, applyFormula,
+  } = useParametryReceptury();
 
-  // Recipe parameters
-  const [selectedPresetId, setSelectedPresetId] = useState<string>(MASTER_RECIPES[0].id);
-  const [recipeName, setRecipeName] = useState<string>(MASTER_RECIPES[0].namePl);
-  const [flourBlend, setFlourBlend] = useState<FlourItemInput[]>([
-    { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
-    { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
-  ]);
-  const [waterPct, setWaterPct] = useState<number>(68.0);
-  const [starterPct, setStarterPct] = useState<number>(20.0);
-  const [saltPct, setSaltPct] = useState<number>(2.0);
-  const [yeastPct, setYeastPct] = useState<number>(0); // drożdże z receptury [M1-audytor-generalny-092]
-  const [starterHydration, setStarterHydration] = useState<number>(100.0);
-
-  // DDT parameters
-  const [targetDdt, setTargetDdt] = useState<number>(25.0);
   // Temperatury do wzoru wody: pola w arkuszu „Temperatura wody”, null = puste pole (BR-KALK-004, RD-16)
   // [M1-audytor-generalny-146]
   const [temperatury, setTemperatury] = useState<TemperaturyDdt>({ maka: 21.0, kuchnia: 22.0, zaczyn: 21.0, tarcie: 2.0 });
@@ -96,10 +84,6 @@ export default function EkranReceptury() {
   const [isEquivModalOpen, setIsEquivModalOpen] = useState<boolean>(false);
   const [isWaterTempOpen, setIsWaterTempOpen] = useState<boolean>(false);
 
-  // Artisan Preferments state
-  const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
-  const [prefermentFlourPct, setPrefermentFlourPct] = useState<number>(20.0);
-
   // Strefa akcji poza przewijaniem, chyba że zajęłaby ponad 40% wysokości ekranu (§11c 106)
   const [wysokoscEkranu, setWysokoscEkranu] = useState<number>(0);
   const [wysokoscAkcji, setWysokoscAkcji] = useState<number>(0);
@@ -114,19 +98,6 @@ export default function EkranReceptury() {
   useEffect(() => {
     routerRef.current.setParams?.({ nazwa: recipeName });
   }, [recipeName]);
-
-  // Unified recipe setter
-  const applyFormula = useCallback((id: string, name: string, formula: PendingRecipeFormula, ddt?: number) => {
-    setSelectedPresetId(id);
-    setRecipeName(name);
-    setFlourBlend(formula.flours);
-    setWaterPct(formula.waterPercentage);
-    setStarterPct(formula.starterPercentage);
-    setSaltPct(formula.saltPercentage);
-    setYeastPct(formula.extraYeastPercentage ?? 0);
-    setStarterHydration(formula.starterHydration ?? 100.0);
-    if (ddt !== undefined) setTargetDdt(ddt);
-  }, []);
 
   const roomTemp = temperatury.kuchnia ?? 0;
   const zZaczynem = starterPct > 0 || prefermentType !== 'direct';
@@ -192,7 +163,7 @@ export default function EkranReceptury() {
     }
   }, bezAkcji, [applyFormula, selectedPresetId]);
 
-  const currentMasterPreset = useMemo(() => MASTER_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
+  const currentMasterPreset = useMemo(() => CATALOG_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
 
   // Zapis: wczytana własna receptura pod tą samą nazwą = zapis zmian (to samo id, bez limitu: zapisane działają w całości);
   // inaczej nowa własna receptura z limitem Basic (5) liczonym z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity
@@ -277,10 +248,12 @@ export default function EkranReceptury() {
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right', 'bottom']}>
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
-        <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-          <NadPasem />
-          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
+        {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+        <EkranZPasem gora={gora} tytul={nazwaReceptury(recipeName)} pas={(onLayout) => (
+          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} podtytulTestID="recipe-subtitle" onLayout={onLayout}
+            podtytul={currentMasterPreset ? podtytulReceptury(currentMasterPreset.category) : undefined} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
             akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
+        )}>
           <View style={s.tresc}>
           <BlokadaFunkcji {...blokada('kalkulator')}>
             {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
@@ -310,7 +283,7 @@ export default function EkranReceptury() {
           {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} />}
           {akcjeWTresci && akcje}
           </View>
-        </ScrollView>
+        </EkranZPasem>
         {!akcjeWTresci && (
           <View style={styles.strefaAkcji} onLayout={(e) => setWysokoscAkcji(e.nativeEvent.layout.height)}>
             {akcje}

@@ -11,19 +11,19 @@ import {
   StyleSheet,
   Pressable,
   TextInput,
-  Modal,
-  ScrollView,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { useZmienionyFormularz } from '../arkusz/useZmienionyFormularz';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import {
   SensoryRadarChart,
   BreadSensoryProfile,
 } from '../SensoryRadarChart';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
 export interface FinishBakeModalProps {
   visible: boolean;
   onClose: () => void;
@@ -59,99 +59,90 @@ export function FinishBakeModal({
   sensoryProfile,
   onSensoryProfileChange,
 }: FinishBakeModalProps) {
-  return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        {/* Treść przewijana, przyciski pod nią: przy 320 pt i AX5 „Zapisz” zostaje na ekranie [04-studio-projektowe-001] */}
-        <ScrollView
-          style={styles.przewijane}
-          contentContainerStyle={styles.przewijaneTresc}
-          keyboardShouldPersistTaps="handled"
-          keyboardDismissMode="interactive"
-          automaticallyAdjustKeyboardInsets
+  // „Anuluj” i przesunięcie w dół po zmianie oceny pytają „Odrzucić zmiany?” (04-007) [M3 p7]
+  const zmieniony = useZmienionyFormularz(visible, [rating, notes, crumbScore, crustScore, tasteProfile, sensoryProfile]);
+  const ocena = (id: 'crumb' | 'crust', wartosc: number, onZmiana: (n: number) => void) => (
+    <View style={styles.scoreRow}>
+      {[1, 2, 3, 4, 5].map((s) => (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: wartosc === s }}
+          key={s}
+          testID={`${id}-score-${s}`}
+          style={[styles.scoreBtn, wartosc === s && styles.scoreBtnActive]}
+          onPress={() => onZmiana(s)}
         >
-        <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Jak wyszedł bochenek?')}</Text>
-          <Text style={styles.modalSubtitle}>
-            {t('Oceń bochenek i zapisz notatki do historii piekarskiej')}
-          </Text>
-
+          <Text style={[styles.scoreBtnText, wartosc === s && styles.scoreBtnTextActive]}>{s}</Text>
+        </Pressable>
+      ))}
+    </View>
+  );
+  // Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza (poza przewijaniem, osiągalne przy 320 pt i AX5),
+  // sekcje oceny w kartach (README §1, §3) [M3 p7, 04-002]
+  return (
+    <ArkuszKart visible={visible} onRequestClose={onClose} zmieniony={zmieniony} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave }}>
+        <Karta testID="karta-oceny" tytul={t('Ocena wypieku')} ikona={<IkonaKarty nazwa="gwiazda" />}>
+          {/* Pytanie arkusza w przewijanej treści, w karcie oceny (nagłówek karty: „Ocena wypieku”) */}
+          <View style={styles.grupa}>
+            <Text style={styles.pytanie}>{t('Jak wyszedł bochenek?')}</Text>
+            <Text style={styles.podpis}>{t('Oceń bochenek i zapisz notatki do historii piekarskiej')}</Text>
+          </View>
           {/* Star Rating */}
-          <Text style={styles.modalSectionLabel}>{t('Ocena wypieku')}</Text>
-          <View style={styles.starRow}>
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel={t('Oceń na {n} z 5', { n: star })}
-                accessibilityState={{ selected: rating === star }}
-                key={star}
-                style={styles.starBtn}
-                testID={`finish-rating-star-${star}`}
-                onPress={() => onRatingChange(star)}
-              >
-                <Text style={[styles.starIcon, rating >= star && styles.starIconActive]}>
-                  ★
-                </Text>
-              </Pressable>
-            ))}
+          <View style={styles.grupa}>
+            <View style={styles.starRow}>
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={t('Oceń na {n} z 5', { n: star })}
+                  accessibilityState={{ selected: rating === star }}
+                  key={star}
+                  style={styles.starBtn}
+                  testID={`finish-rating-star-${star}`}
+                  onPress={() => onRatingChange(star)}
+                >
+                  <Text style={[styles.starIcon, rating >= star && styles.starIconActive]}>
+                    ★
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
           </View>
 
           {/* Notes */}
-          <Text style={styles.modalSectionLabel}>{t('Notatki z wypieku')}</Text>
-          <TextInput
-            accessibilityLabel={t('Notatki z wypieku')}
-            style={styles.modalInput}
-            placeholder={t('Wpisz swoje uwagi (miękisz, skórka, czas pieca)...')}
-            placeholderTextColor={theme.colors.tusz3}
-            value={notes}
-            onChangeText={onNotesChange}
-            multiline
-            numberOfLines={3}
-          />
-
-          {/* Crumb Score */}
-          <Text style={styles.modalSectionLabel}>{t('Struktura miękiszu')} (1–5)</Text>
-          <View style={styles.scoreRow}>
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ selected: crumbScore === s }}
-                key={s}
-                testID={`crumb-score-${s}`}
-                style={[styles.scoreBtn, crumbScore === s && styles.scoreBtnActive]}
-                onPress={() => onCrumbScoreChange(s)}
-              >
-                <Text style={[styles.scoreBtnText, crumbScore === s && styles.scoreBtnTextActive]}>{s}</Text>
-              </Pressable>
-            ))}
+          <View style={styles.grupa}>
+            <Text style={styles.modalSectionLabel}>{t('Notatki z wypieku')}</Text>
+            <TextInput
+              accessibilityLabel={t('Notatki z wypieku')}
+              style={styles.modalInput}
+              placeholder={t('Wpisz swoje uwagi (miękisz, skórka, czas pieca)...')}
+              placeholderTextColor={theme.colors.tusz3}
+              value={notes}
+              onChangeText={onNotesChange}
+              multiline
+              numberOfLines={3}
+            />
           </View>
+        </Karta>
+
+        {/* Crumb Score */}
+        <Karta testID="karta-miekisz" tytul={`${t('Struktura miękiszu')} (1–5)`} ikona={<IkonaKarty nazwa="bochenek" />}>
+          {ocena('crumb', crumbScore, onCrumbScoreChange)}
           <Text style={styles.scoreHint}>
             {/* podpis oceny bez porady i wykrzyknika; porada należy do Doktora Chleba (§11c 116) [M1-audytor-generalny-116] */}
             {crumbScore <= 2 ? t('Zbity, gęsty miękisz.') : crumbScore >= 5 ? t('Bardzo otwarty miękisz.') : t('Równomierny miękisz.')}
           </Text>
+        </Karta>
 
-          {/* Crust Score */}
-          <Text style={styles.modalSectionLabel}>{t('Jakość skórki')} (1–5)</Text>
-          <View style={styles.scoreRow}>
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ selected: crustScore === s }}
-                key={s}
-                testID={`crust-score-${s}`}
-                style={[styles.scoreBtn, crustScore === s && styles.scoreBtnActive]}
-                onPress={() => onCrustScoreChange(s)}
-              >
-                <Text style={[styles.scoreBtnText, crustScore === s && styles.scoreBtnTextActive]}>{s}</Text>
-              </Pressable>
-            ))}
-          </View>
+        {/* Crust Score */}
+        <Karta testID="karta-skorka" tytul={`${t('Jakość skórki')} (1–5)`} ikona={<IkonaKarty nazwa="termometr" />}>
+          {ocena('crust', crustScore, onCrustScoreChange)}
           <Text style={styles.scoreHint}>
             {crustScore <= 2 ? t('Blada, miękka skórka — zwiększ parę lub temperaturę') : crustScore >= 5 ? t('Perfekcyjna chrupiąca skórka z pęcherzykami') : t('Dobra skórka z lekkim połyskiem')}
           </Text>
+        </Karta>
 
-          {/* Taste Profile */}
-          <Text style={styles.modalSectionLabel}>{t('Profil smakowy')}</Text>
+        {/* Taste Profile */}
+        <Karta testID="karta-smak" tytul={t('Profil smakowy')} ikona={<IkonaKarty nazwa="miska" />}>
           <View style={styles.tasteRow}>
             {(['mild', 'balanced', 'sour', 'tangy'] as const).map((profile) => {
               const labels: Record<string, string> = {
@@ -176,9 +167,10 @@ export function FinishBakeModal({
               );
             })}
           </View>
+        </Karta>
 
-          {/* Sensory Radar Profile (5 Osi Rzemieślniczych) */}
-          <Text style={styles.modalSectionLabel}>{t('Wektorowy radar sensoryczny')}</Text>
+        {/* Sensory Radar Profile (5 Osi Rzemieślniczych) */}
+        <Karta testID="karta-radar" tytul={t('Wektorowy radar sensoryczny')} ikona={<IkonaKarty nazwa="proporcje" />}>
           <View style={styles.modalRadarBox}>
             <SensoryRadarChart
               profile={sensoryProfile}
@@ -189,76 +181,25 @@ export function FinishBakeModal({
               testID="finish-sensory-radar"
             />
           </View>
-        </View>
-        </ScrollView>
-
-          <View style={styles.modalButtonsRow}>
-            <Pressable
-              accessibilityRole="button"
-              style={styles.modalCancelBtn}
-              onPress={onClose}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              style={styles.modalConfirmBtn}
-              onPress={onSave}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
-            </Pressable>
-          </View>
-      </SafeAreaView>
-    </Modal>
+        </Karta>
+    </ArkuszKart>
   );
 }
 
+// Wartości z tokenów (README §2): odstępy, promienie przycisku i pola, typografia (koniec literałów 20/14/11 pt)
 const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-    padding: theme.spacing.md,
-  },
-  przewijane: {
-    flex: 1,
-  },
-  przewijaneTresc: {
-    // Krótka treść zostaje wycentrowana jak wcześniej; dłuższa przewija się nad przyciskami
-    flexGrow: 1,
-    justifyContent: 'center',
-    paddingBottom: theme.spacing.md,
-  },
-  modalCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz2,
-    marginBottom: 16,
-  },
+  grupa: { gap: odstepy.xs },
+  pytanie: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
+  podpis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   modalSectionLabel: {
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz3,
-    marginBottom: 6,
   },
   starRow: {
     flexDirection: 'row',
-    gap: 8,
-    marginBottom: 14,
+    flexWrap: 'wrap',
+    gap: odstepy.s,
   },
   starBtn: {
     minHeight: theme.cele.glownyPrzeplyw,
@@ -274,28 +215,26 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   modalInput: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.sm,
-    padding: 12,
-    fontSize: 14,
+    backgroundColor: theme.colors.tlo,
+    borderRadius: promienie.pole,
+    padding: odstepy.m,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     minHeight: 65,
     textAlignVertical: 'top',
-    marginBottom: 14,
   },
   scoreRow: {
     flexDirection: 'row',
-    gap: 8,
-    marginBottom: 4,
+    gap: odstepy.s,
   },
   scoreBtn: {
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
     flex: 1,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
+    paddingVertical: odstepy.s,
+    borderRadius: promienie.przycisk,
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -314,22 +253,20 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
   },
   scoreHint: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    marginBottom: 12,
+    fontSize: typografia.style.przypis.pt,
+    color: theme.colors.tusz2,
   },
   tasteRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 14,
+    gap: odstepy.s,
   },
   tasteChip: {
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.xs,
+    borderRadius: promienie.przycisk,
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -339,7 +276,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   tasteChipText: {
-    fontSize: typografia.style.podpis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -350,44 +287,5 @@ const styles = StyleSheet.create({
   modalRadarBox: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    paddingVertical: 10,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  modalButtonsRow: {
-    flexDirection: 'row',
-    gap: 10,
-    marginTop: 6,
-  },
-  modalCancelBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    flex: 1,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.colors.powierzchnia,
-    alignItems: 'center',
-  },
-  modalCancelBtnText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  modalConfirmBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    flex: 2,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.colors.akcent,
-    alignItems: 'center',
-  },
-  modalConfirmBtnText: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.naAkcencie,
   },
 });

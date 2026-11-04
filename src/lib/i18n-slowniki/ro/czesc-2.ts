@@ -1,4 +1,4 @@
-// Słownik ro, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ro, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi.': 'Aluatul crește mai încet decât de obicei: de multe ori de vină e locul răcoros în care stă.',
@@ -18,6 +18,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Ce altceva faci azi?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'cel puțin 3 ore la temperatura camerei sau 1 oră, apoi cel mult 3 zile în frigider',
   'Co widzisz?': 'Ce vezi?',
+  'Co zrobić': 'Ce ai de făcut',
   'Co zrobić przy następnym wypieku:': 'Ce să faci la următoarea coacere:',
   'Co zrobić:': 'Ce ai de făcut:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Ce ai de făcut: hrănește maiaua conform planului pentru ziua următoare.',
@@ -56,7 +57,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Pune-o în frigider abia după ce s-a stabilizat, adică după 7–10 zile.',
   'Do miski': 'În bol',
   'Do miski (Ciasto właściwe)': 'În bol (aluatul final)',
-  'Do miski (odhaczaj przy ważeniu)': 'În bol (bifează pe măsură ce cântărești)',
   'Do miski na wagę': 'În bol, pe cântar',
   'Do ostygnięcia do temp. pokojowej': 'Până se răcește la temperatura camerei',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Până la fereastra estimată a vârfului au mai rămas aprox. {czas} (fereastra: {okno}).',

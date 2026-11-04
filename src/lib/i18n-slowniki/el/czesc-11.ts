@@ -1,7 +1,8 @@
-// Słownik el, część 11 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 11 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Βάλτε το σκεύος με τη ζύμη στον σβηστό φούρνο και ανάψτε μόνο τη λάμπα: μέσα ζεσταίνεται σταδιακά, αλλά κάθε φούρνος και κάθε κουζίνα δίνουν διαφορετικό αποτέλεσμα.',
+  'Wstecz': 'Πίσω',
   'Wstrzymaj': 'Παύση',
   'Wstrzymano': 'Σε παύση',
   'Wsyp do miski na wagę': 'Ρίξτε στο μπολ πάνω στη ζυγαριά',

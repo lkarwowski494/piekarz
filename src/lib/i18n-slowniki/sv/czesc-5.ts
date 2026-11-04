@@ -1,4 +1,4 @@
-// Słownik sv, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sv, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.': 'Definierar typerna av vetemjöl efter askhalt.',
@@ -142,7 +142,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Förjäsning (fördeg)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Nödprocedur med Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Jästprocenten i receptet avser färsk jäst. Av torrjäst (instant eller aktiv) väger du upp 0,4 av den mängden.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Jästprocenten i receptet avser färsk jäst. Av torrjäst (instant eller aktiv) väger du upp 0,35 av den mängden. Tillverkaren kan ange ett annat förhållande på förpackningen.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Andelen mjöl ”{name}” måste vara ett tal inom intervallet 0,1–100 %',
   'Profil smakowy': 'Smakprofil',
   'Profil zakwasu': 'Profil för surdegsgrund',

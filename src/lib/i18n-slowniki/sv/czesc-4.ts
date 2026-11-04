@@ -1,4 +1,4 @@
-// Słownik sv, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sv, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'Vetemjöl med hög proteinhalt (W>280 / Manitoba)',
@@ -157,7 +157,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Bedöm glutennätverkets utveckling efter autolys och vikningar',
   'Ocena wymaga połączenia z App Store.': 'Betygsättning kräver anslutning till App Store.',
   'Ocena wypieku': 'Betyg för baket',
-  'Ocena: {n}/5': 'Betyg: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Bedöm degen efter utseendet, inte efter klockan: i kyla tar det längre tid för degen att jäsa, och tiderna i receptet är bara en riktlinje.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Betygsätt limpan och spara anteckningar i bakhistoriken',
   'Oceń na {n} z 5': 'Ge betyget {n} av 5',
@@ -169,6 +168,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Från mjöl och vatten till din första limpa, dag för dag.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Från och med den här dagen matar du surdegsgrunden två gånger om dagen, ungefär var 12:e timme.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Avgasa den genom att trycka till ordentligt, som vid formning.',
+  'Odhaczaj przy ważeniu.': 'Bocka av när du väger.',
   'Odhaczaj składniki w miarę wsypywania': 'Bocka av ingredienserna allteftersom du häller i dem',
   'Odkryj wiedzę naukową': 'Upptäck vetenskapen',
   'Odliczanie trwa': 'Nedräkning pågår',
@@ -178,6 +178,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Kasta ändringarna?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Kasta hälften av surdegsgrunden, tillsätt mjöl och vatten i lika vikt och låt stå i 24 timmar.',
   'Odrzuć zmiany': 'Kasta ändringar',
+  'Wpisane zmiany nie zostaną zapisane.': 'De ändringar du har skrivit in sparas inte.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Låt vila i 20 minuter före nästa vanliga vikning.',
   'Odznacz objawy': 'Avmarkera symtom',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Näringsrikt bröd av grovmalet grahamsmjöl med naturlig honung och linfrö.',

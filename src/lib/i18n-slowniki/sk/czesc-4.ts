@@ -1,4 +1,4 @@
-// Słownik sk, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sk, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna sitkowa / graham': 'Polocelozrnná pšeničná múka / graham',
@@ -170,7 +170,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Hodnotenie vývoja lepkovej siete po autolýze a prekladaní',
   'Ocena wymaga połączenia z App Store.': 'Hodnotenie vyžaduje pripojenie k App Store.',
   'Ocena wypieku': 'Hodnotenie pečenia',
-  'Ocena: {n}/5': 'Hodnotenie: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Cesto posudzujte podľa vzhľadu, nie podľa hodín: v chlade cesto kysne dlhšie a časy v recepte sú len orientačné.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Ohodnoťte bochník a uložte poznámky do histórie pečenia',
   'Oceń na {n} z 5': 'Ohodnotiť na {n} z 5',
@@ -182,6 +181,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Od múky a vody k prvému bochníku, deň po dni.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Od tohto dňa kŕmte kvások dvakrát denne, približne každých 12 hodín.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Odplyňte ho silným pritlačením, ako pri tvarovaní.',
+  'Odhaczaj przy ważeniu.': 'Odškrtávajte pri vážení.',
   'Odhaczaj składniki w miarę wsypywania': 'Odškrtávajte suroviny priebežne, ako ich nasypávate',
   'Odkryj wiedzę naukową': 'Odhaliť vedecké poznatky',
   'Odliczanie trwa': 'Odpočítavanie beží',

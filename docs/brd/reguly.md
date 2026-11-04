@@ -93,21 +93,22 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-18-W6 | 700 | 20 | −1 | błąd danych | — | błąd | rachunek: Tc < 0 |
 
 ### RD-19: Przeliczanie drożdży świeżych na suche
-- Wzór: `msuche = mświeże × 0,4`; odwrotnie `mświeże = msuche / 0,4`
+- Wzór: `msuche = mświeże × 0,35`; odwrotnie `mświeże = msuche / 0,35` (suche aktywne i instant tym samym przelicznikiem; D-172, zmiana z × 0,4 erratą ER-78)
 - Jednostki: msuche, mświeże [g]
 - Granica: m ≥ 0 (włączna)
-- Podstawa: S-40 (producent: 0,6 oz świeżych odpowiada 1/4 oz suchych, czyli 0,417 — rachunek), S-39 (producent: suche aktywne i instant wymienne 1:1), S-38 (świeże na suche aktywne × 0,4)
+- Podstawa: D-172 (rachunek: środek skrajnych wartości producentów szczebla 1, (0,28 + 0,417) / 2 = 0,3485 ≈ 0,35; sprawdzenie: mediana czterech producentów 0,35; rejestr roli 06 DRO-INS-030), S-100 (producent: 7 g instant = 25 g świeżych, czyli 0,28 — rachunek), S-40 (producent: 0,6 oz świeżych odpowiada 1/4 oz suchych, czyli 0,417 — rachunek), S-39 (producent: suche aktywne i instant wymienne 1:1), S-38 (świeże na suche aktywne × 0,4, instant × 0,33; szczebel 3)
 - Krytyczna: nie
-- Uproszczenie: 0,4 zamiast 0,417 (różnica 4%). Rozbieżność: S-38 podaje dla instant × 0,33 (szczebel 3); wyższy szczebel (S-40, S-39) daje ok. 0,4 dla obu rodzajów suchych.
+- Uproszczenie: jeden przelicznik w środku przedziału producentów (0,28…0,417; Lesaffre Polska 0,25–0,33 według DRO-INS-030), nazwany przy przeliczeniu zdaniem „producent na opakowaniu może podawać inaczej” (D-172; tekst `yeast.conversionNote` roli 06). Drożdże bez podanego w źródle rodzaju liczone jako świeże (D-178).
 
 | ID | mświeże [g] | Oczekiwane: msuche [g] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|
-| RD-19-W1 | 10 | 4 | 0,1 | typowy | rachunek: 10 × 0,4 |
-| RD-19-W2 | 25 | 10 | 0,1 | typowy | rachunek: 25 × 0,4 |
-| RD-19-W3 | 0 | 0 | 0 | granica | rachunek |
+| RD-19-W1 | 10 | 3,5 | 0,1 | typowy | rachunek: 10 × 0,35; rola 06 V-PRZ-4 |
+| RD-19-W2 | 25 | 8,75 | 0,1 | typowy | rachunek: 25 × 0,35 (D-172: ok. 9 g); rola 06 V-PRZ-1 |
+| RD-19-W3 | 0 | 0 | 0 | granica | rachunek; rola 06 V-PRZ-2 |
 | RD-19-W4 | −1 | błąd danych | — | poniżej | rachunek: poza granicą m ≥ 0 |
-| RD-19-W5 | 0,1 | 0,04 | 0,01 | powyżej | rachunek: 0,1 × 0,4 |
+| RD-19-W5 | 0,1 | 0,035 | 0,005 | powyżej | rachunek: 0,1 × 0,35 |
 | RD-19-W6 | brak | błąd danych | — | błąd | rachunek: brak masy |
+| RD-19-W7 | 20 | 7 | 0,1 | typowy | rachunek: 7 / 0,35 = 20 (odwrotnie); rola 06 V-PRZ-3 |
 
 ### RD-20: Wariant żytni bez składań
 - Wzór: `U = mżytnia / M × 100`; `U > 50` → wariant żytni (bez składań i bez wyrabiania do kształtu, D-030)
@@ -283,10 +284,69 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-36-W3 | na zakwasie | w ciągu kilku godzin od zrobienia | można spróbować odgazować i uformować ponownie | — | typowy | D-095 (RAT-PRZ-004, RAT-PRZ-005) |
 | RD-36-W4 | brak | brak | objaw do sprawdzenia: wgłębienie po naciśnięciu palcem zostaje na stałe | — | błąd | D-095 (RAT-PRZ-001) |
 
+### RD-37: Ilości pod granice maszyny do chleba
+- Wzór: `M = min(Mwyb, Mmax, Cmax / (1 + Σp), Ymax / (py × k))`, zaokrąglone w dół do 1 g; pozostałe składniki = M × pi (procenty receptury bez zmian, RD-14). Mwyb: masa mąki wybranego bochenka; Mmax: największa ilość mąki z instrukcji maszyny (wymagana); Cmax: największa masa ciasta, Ymax: największa masa drożdży suchych — tylko gdy instrukcja je podaje (inaczej człon pominięty); Σp: suma procentów piekarskich pozostałych składników jako ułamek masy mąki; py: drożdże świeże jako ułamek masy mąki; k: przelicznik świeże → suche z RD-19
+- Jednostki: M, Mwyb, Mmax, Cmax [g]; Ymax [g drożdży suchych]; Σp, py, k [-]
+- Granica: M ≤ Mmax, M × (1 + Σp) ≤ Cmax, M × py × k ≤ Ymax (wszystkie włączne)
+- Podstawa: S-107 (nie więcej mąki niż maksimum producenta; szczebel 3), S-102 (Tefal PF220838: 1000 g ciasta, 620 g mąki, 10 g drożdży instant; szczebel 1 tylko dla tego modelu), D-153 (granice z instrukcji użytkownika, bez profili maszyn), D-175 z uzupełnieniem (granica ciasta i drożdży obok mąki); rejestr roli 06 MAS-062, MAS-002, MAS-032; rachunek
+- Krytyczna: tak
+- Uproszczenie: zaokrąglenie w dół zamiast do najbliższego grama, żeby nie przekroczyć granicy; granica drożdży porównywana w drożdżach suchych, bo tak podają ją instrukcje (S-102, MAS-032).
+
+| ID | Mwyb [g] | Mmax [g] | Cmax [g] | Ymax [g] | py [-] | Σp [-] | Oczekiwane: M [g] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|---|---|---|---|
+| RD-37-W1 | 500 | 620 | brak | brak | brak | 0,65 | 500 | 0 | typowy | rachunek; rola 06 V-MAK-3 |
+| RD-37-W2 | 620 | 620 | brak | brak | brak | 0,65 | 620 | 0 | granica | rachunek: M = Mmax; rola 06 V-MAK-1 |
+| RD-37-W3 | 621 | 620 | brak | brak | brak | 0,65 | 620 | 0 | powyżej | rachunek: przycięcie do Mmax, procenty bez zmian; rola 06 V-MAK-2 |
+| RD-37-W4 | 619 | 620 | brak | brak | brak | 0,65 | 619 | 0 | poniżej | rachunek |
+| RD-37-W5 | 620 | 620 | 1000 | brak | brak | 0,837 | 544 | 0 | typowy | rachunek: 1000 / 1,837 = 544,4 → 544; rola 06 V-MAK-4 (tartine 80% wody, 2% soli, 1,7% drożdży) |
+| RD-37-W6 | 500 | brak | brak | brak | brak | 0,65 | błąd danych | — | błąd | rachunek: bez Mmax aplikacja prosi o granicę (BR-MASZ-002) |
+| RD-37-W7 | 620 | 620 | brak | 10 | 0,071 | 0,65 | 402 | 0 | typowy | rachunek: 10 / (0,071 × 0,35) = 402,4 → 402 (Ymax Tefal S-102; drożdże chałki 7,1% świeżych, rejestr DRO-CHA-002; k z RD-19, D-172) |
+
+### RD-38: Blokada opóźnionego startu maszyny przy łatwo psujących się składnikach
+- Wzór: opóźniony start niedostępny ⇔ receptura ma co najmniej jeden składnik z listy L = {jajka, świeże mleko, ser (także twaróg), jogurt, sok, świeże owoce, warzywa}; mleko w proszku nie należy do L; przy blokadzie zawsze zdanie wyjaśnienia z nazwą składnika
+- Jednostki: składniki receptury [-] (zbiór)
+- Granica: brak (reguła jakościowa)
+- Podstawa: S-101 (Tefal: surowe mleko, jajka, jogurt, ser, świeże owoce; szczebel 1), S-103 (Zojirushi: mleko, sok, warzywa, jajka; szczebel 1), S-104 (Cuisinart: mleko, jajka, ser, jogurt; szczebel 1), S-105 (Cuisinart: mleko w proszku pozwala na opóźniony start; szczebel 1), D-175 z uzupełnieniem 2026-11-03 (suma list instrukcji; bez mięsa, brak źródła maszyny); rejestr roli 06 MAS-072, MAS-084
+- Krytyczna: tak
+- Uproszczenie: suma list wszystkich przeczytanych instrukcji zamiast listy jednej maszyny; blokada całkowita, bez dozwolonego krótkiego opóźnienia [DO USTALENIA] (OP-67). Lista dotyczy całej receptury, także składnika spoza maszyny (mleko w nadzieniu pierożków karelskich, rejestr KAT-KAR-002), do rozstrzygnięcia [DO USTALENIA] (OP-73).
+
+| ID | Składniki [-] | Oczekiwane: opóźniony start [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|
+| RD-38-W1 | mąka, woda, sól, drożdże | dostępny | — | typowy | D-175; rola 06 V-OPO-1 |
+| RD-38-W2 | mąka, woda, jajka | zablokowany | — | typowy | S-101; rola 06 V-OPO-2 |
+| RD-38-W3 | mąka, mleko | zablokowany | — | typowy | S-104; rola 06 V-OPO-3 |
+| RD-38-W4 | mąka, woda, mleko w proszku | dostępny | — | typowy | S-105; rola 06 V-OPO-4 |
+| RD-38-W5 | mąka, twaróg | zablokowany | — | typowy | S-104 (ser); rola 06 V-OPO-5 |
+| RD-38-W6 | mąka, jogurt | zablokowany | — | typowy | S-101; rola 06 V-OPO-6 |
+| RD-38-W7 | mąka, świeże jabłka | zablokowany | — | typowy | S-101; rola 06 V-OPO-7 |
+| RD-38-W8 | mąka, sok pomarańczowy | zablokowany | — | typowy | S-103; rola 06 V-OPO-8 |
+| RD-38-W9 | mąka, starta marchew | zablokowany | — | typowy | S-103 (warzywa); rola 06 V-OPO-9 |
+| RD-38-W10 | brak | błąd danych | — | błąd | rachunek: receptura bez składników |
+
+### RD-39: Podpowiedź programu maszyny (reguła Piekarza)
+- Wzór: pierwsza pasująca: (1) receptura kształtowana i pieczona poza formą maszyny → „ciasto”; (2) kategoria `sweet` → „słodki”; (3) Upż ≥ 50 → „pełnoziarnisty”, gdzie Upż = (mąki pełnoziarniste + mąki żytnie) / M × 100; (4) cukier = 0 i tłuszcz = 0 → „francuski”; (5) pozostałe → „podstawowy”; zawsze z dopiskiem „podpowiedź Piekarza, sprawdź w instrukcji swojej maszyny”
+- Jednostki: Upż [%]; cukier, tłuszcz [% mąki]; kształt, kategoria [-]
+- Granica: Upż ≥ 50 (włączna)
+- Podstawa: D-176, D-179 (reguła aplikacji, nie fakt); S-106 (Cuisinart CBK-110: program pełnoziarnisty przy 50% lub więcej mąki pełnoziarnistej; szczebel 1 tylko dla tego modelu); rejestr roli 06 MAS-006, MAS-046, MAS-083, MAS-082, MAS-081
+- Krytyczna: nie
+- Uproszczenie: próg z jednej instrukcji dla wszystkich maszyn (D-179); mąki żytnie liczone razem z pełnoziarnistymi; „słodki” i „francuski” bez progów cukru i tłuszczu w liczbach [DO USTALENIA] (OP-68).
+
+| ID | Kształt [-] | Kategoria [-] | Upż [%] | Cukier [%] | Tłuszcz [%] | Oczekiwane: program [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|---|---|---|
+| RD-39-W1 | poza formą | pizza | 0 | 0 | 0 | ciasto | — | typowy | D-179; rola 06 V-PRG-1 |
+| RD-39-W2 | forma | sweet | 60 | brak | brak | słodki | — | typowy | D-179 (słodki przed pełnoziarnistym); rola 06 V-PRG-2 |
+| RD-39-W3 | forma | sourdough | 49 | 0 | 0 | francuski | — | poniżej | D-179; rola 06 V-PRG-3 |
+| RD-39-W4 | forma | sourdough | 50 | brak | brak | pełnoziarnisty | — | granica | D-179, S-106; rola 06 V-PRG-4 |
+| RD-39-W5 | forma | rye | 100 | brak | brak | pełnoziarnisty | — | typowy | D-179; rola 06 V-PRG-5 |
+| RD-39-W6 | forma | yeast | 51 | brak | brak | pełnoziarnisty | — | powyżej | D-179; rola 06 V-PRG-6 |
+| RD-39-W7 | forma | yeast | 0 | 2 | 0 | podstawowy | — | typowy | D-179; rola 06 V-PRG-7 |
+| RD-39-W8 | forma | yeast | brak | brak | brak | błąd danych | — | błąd | rachunek: bez masy mąki Upż nieokreślone |
+
 ## Rozbieżności z kodem i rejestrem (do erraty E3 i ról 06, 07, 08)
 
 - RD-17: silnik liczy czas także poza 20–26 °C bez komunikatu (`src/scheduler/reverse-scheduler.ts`), ale plan przyjmuje temperaturę tylko z wyboru 20–26 °C (`src/components/harmonogram/TargetReadyCard.tsx`), więc użytkownik nie dostaje liczby spoza modelu; według D-066 (2a) to nie rozbieżność kryterium (ER-55). Nowe wejście temperatury poza wyborem wymaga strażnika zakresu.
-- RD-19: zgodne z kodem od 2026-10-22 (`src/core/domain-rules.ts`, `convertYeast` × 0,4; było 3:1, M1-audytor-generalny-130, D-069). Wybór rodzaju drożdży w interfejsie (BR-KALK-009 „Świeże na suche”) od 2026-10-22: arkusz „Składniki”, procent receptury = świeże, „suche” × 0,4 w „Do miski” i w kopii (D-100, M1-audytor-generalny-216).
+- RD-19: od 2026-11-03 × 0,35 (D-172, ER-78); kod liczy × 0,4 (`src/core/domain-rules.ts`, `convertYeast`; wybór w arkuszu „Składniki”, BR-KALK-009) — zmiana kodu: rola 08 (testy przed kodem); wektory VEC-YEAST w `docs/brd/fixtures/test-vectors.json` i `tests/fixtures/test-vectors.json` (15 g świeżych → 5,25 g suchych; 3,5 g instant → 10 g świeżych, rachunek) oraz `tests/presety-drozdze-217.test.ts`: rola 07; procenty drożdży presetów po D-172 (DRO-PIZ-003, DRO-CHA-002, DRO-FOC-002, DRO-BAG-002): rola 08 według przekazania roli 06.
+- Plan dla drożdży: `src/lib/plan-receptury.ts` (`powodBezZakwasu`) blokuje plan i prowadzenie bez zakwasu; od D-155 i D-174 plan wersji drożdżowej i receptur drożdżowych z czasami z receptury (BR-HARMO-001, BR-ETAP-001, ER-78) — rola 08.
 - RD-25 i RD-23: zgodne z kodem od 2026-10-20 (ER-50): przypomnienie po 12 h na blacie (`src/core/notification-config.ts`, `FEED_ROOM_TEMP_AFTER_MS`; D-043 pkt 4) i ostrzeżenie o rękawicach i parze przy zdejmowaniu pokrywki (`src/core/baking-phases.ts`, `safetyWarningPl`, RD-23-W1).
 - Studzenie chleba żytniego: kod Doktora 2 h i 8 h, rejestr roli 06 24 h (ZYT-STU-001, szczebel 4).
 - Próg ostrzeżenia 45 °C dla wody i progi faz zakwasu w godzinach (`src/core/sourdough-physics.ts`) bez źródła: OP-34, OP-39.

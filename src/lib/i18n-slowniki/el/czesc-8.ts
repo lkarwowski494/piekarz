@@ -1,4 +1,4 @@
-// Słownik el, część 8 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 8 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przekwaszenie / Przerośnięcie': 'Υπερβολική ξίνιση / Υπερωρίμανση',
@@ -56,6 +56,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Η συνταγή «{nazwa}» βρίσκεται στις Συνταγές μου.',
   'Receptura awaryjna:': 'Συνταγή έκτακτης ανάγκης:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Η βασική συνταγή έχει αλλάξει από εκείνο το ψήσιμο: τώρα έχει περισσότερη μαγιά.',
+  'Receptura bazowa, na drożdżach': 'Βασική συνταγή, με μαγιά',
+  'Receptura bazowa, na zakwasie': 'Βασική συνταγή, με προζύμι',
+  'Receptura bazowa, pizza': 'Βασική συνταγή, πίτσα',
+  'Receptura bazowa, słodka': 'Βασική συνταγή, γλυκιά',
+  'Receptura bazowa, żytnia': 'Βασική συνταγή, σίκαλης',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Η συνταγή πρέπει να έχει όνομα (1-120 χαρακτήρες)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Η συνταγή πρέπει να περιέχει τουλάχιστον ένα αλεύρι',
   'Receptura z pliku': 'Συνταγή από αρχείο',

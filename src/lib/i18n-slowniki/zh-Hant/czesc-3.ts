@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Hydratacja bazy': '基底麵團含水量',
@@ -16,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': '麵團含水量',
   'i jeszcze {n}, szczegóły w arkuszu dnia': '還有 {n} 項，詳見當日面板',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '非常適合作為天然酵母起種（母種）的基底。富含野生酵母與乳酸菌。',
+  'Ile pieczesz': '烘焙份量',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': '麵包須含多少裸麥，才能稱為裸麥麵包或裸麥小麥麵包。',
   'Ilości do dokarmienia': '餵養用量',
   'Ilości i temperatura wody': '用量與水溫',
@@ -40,7 +41,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': '大空洞（發酵不足）',
   'Jedna opłata, bez odnawiania.': '一次付費，不續訂。',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': '內部組織整體緊密沉重（缺乏氣孔）',
-  'Jednostki': '單位',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': '如果到第一次發酵後才發現忘了加鹽，再加鹽也沒用，重新揉麵反而可能永久毀掉麵團：直接烤成無鹽麵包，或拿麵團做披薩餅皮。',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': '如果要挽救麵團，請將它從發酵藤籃或容器中取出。',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': '如果缺少鹽，請開啟「忘記加鹽」急救流程。',
@@ -50,7 +50,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': '如果看到表層覆膜、斑點或變色，或聞到腐臭味，請開啟天然酵母起種檢查。',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': '如果天然酵母起種「{name}」的體積沒有膨脹到兩倍，請再餵養一次。',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': '如果天然酵母起種沒長高多少、氣泡也很少，就繼續每 12 小時餵養一次。',
-  'Język': '語言',
+  'Język i jednostki': '語言與單位',
   'jutro': '明天',
   'Jutro': '明天',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': '行事曆是空的。當你開始培養天然酵母起種或規劃烘焙後，這裡就會出現內容。',

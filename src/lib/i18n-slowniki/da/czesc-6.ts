@@ -1,4 +1,4 @@
-// Słownik da, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik da, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przepis zostanie trwale usunięty.': 'Opskriften slettes permanent.',
@@ -45,6 +45,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Opskriften »{nazwa}« er i Mine opskrifter.',
   'Receptura awaryjna:': 'Nødopskrift:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Grundopskriften er ændret siden den bagning: den har nu mere gær.',
+  'Receptura bazowa, na drożdżach': 'Grundopskrift, med gær',
+  'Receptura bazowa, na zakwasie': 'Grundopskrift, med surdej',
+  'Receptura bazowa, pizza': 'Grundopskrift, pizza',
+  'Receptura bazowa, słodka': 'Grundopskrift, sød',
+  'Receptura bazowa, żytnia': 'Grundopskrift, med rug',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Opskriften skal have et navn (1-120 tegn)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Opskriften skal indeholde mindst én melsort',
   'Receptura z pliku': 'Opskrift fra fil',

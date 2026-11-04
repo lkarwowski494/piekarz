@@ -1,4 +1,4 @@
-// Słownik ko, część 1 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 1 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} 수증기',
@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '먹이 주기 후 {czas}',
   '{czas} po czasie': '{czas} 지남',
   '{data}, dziś': '{data}, 오늘',
+  '{data}, ocena {n}/5': '{data}, 평점 {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}: {opis}',
   '{dzien}, {d} {miesiac}': '{miesiac} {d}일 ({dzien})',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}: {h}에 오븐 사용 중',

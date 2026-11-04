@@ -2,6 +2,9 @@
 // Apps4Craft Studio — BakeHistorySection Component
 // History log list, sensory radar visualization, and "bake again" shortcuts.
 // 100% Offline-First.
+// M3 p5 (karty/README.md §1, §4; inne.html #dziennik-pusty, #dziennik): nagłówek grupy z ikoną nad kartami (O2b),
+// pusty stan w karcie, każdy wpis jako karta z ikoną i nazwą receptury w nagłówku; przyciski wpisu w rzędzie,
+// przy dużym tekście jeden pod drugim (flexBasis od fontScale, D-142). Teksty i zachowanie bez zmian.
 // ============================================================================
 
 import React from 'react';
@@ -14,6 +17,9 @@ import { appLocale, formatDate } from '../../lib/format';
 import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { StoredBakeLog } from '../../data/db';
 import { SensoryRadarChart } from '../SensoryRadarChart';
+import { Karta, NaglowekKarty, wygladKarty } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
 export type FiltrSmaku = 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
 
@@ -48,19 +54,20 @@ export function BakeHistorySection({
   onWyroznionyY,
 }: BakeHistorySectionProps) {
   const unitSystem = useUnitSystem();
+  const duzy = useDuzyTekst();
+  const przycisk = { flexBasis: duzy ? ('100%' as const) : 0 };
   // Położenie sekcji w treści ekranu: karta mierzy się względem sekcji
   const gora = React.useRef(0);
   return (
     <View style={styles.historyContainer} onLayout={(e) => { gora.current = e.nativeEvent.layout.y; }}>
-      <Text style={styles.sectionHeading}>{t('Historia wypieków')}</Text>
+      <NaglowekKarty testID="grupa-historia" tytul={t('Historia wypieków')} ikona={<IkonaKarty nazwa="lista" />} style={styles.odstepGrupy} />
 
       {/* Filtry smaku na pasie Dziennika (D10 opcja A): FILTRY_SMAKU w app/(tabs)/dziennik/index.tsx [M3 D10] */}
 
       {bakeHistory.length === 0 ? (
         // Pusty Dziennik: zaproszenie i jedna akcja do listy receptur (design-spec §11c 116, `dziennik-pusty`)
         // [M1-audytor-generalny-116]
-        <View style={styles.emptyHistoryBox}>
-          <Text style={styles.emptyHistoryTitle} accessibilityRole="header">{t('Tu zapiszą się twoje wypieki')}</Text>
+        <Karta testID="karta-dziennik-pusty" tytul={t('Tu zapiszą się twoje wypieki')} ikona={<IkonaKarty nazwa="kalendarz" />}>
           <Text style={styles.emptyHistoryText}>{t('Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.')}</Text>
           <Pressable
             accessibilityRole="button"
@@ -70,7 +77,7 @@ export function BakeHistorySection({
           >
             <Text style={styles.emptyHistoryBtnText}>{t('Wybierz recepturę')}</Text>
           </Pressable>
-        </View>
+        </Karta>
       ) : (
         // Wszystkie wpisy (BR-RECP-003 „Przegląd historii”; dawniej najwyżej 15) [M1-audytor-generalny-146]
         filteredHistory.map((log) => {
@@ -83,24 +90,11 @@ export function BakeHistorySection({
             // Wpis z kalendarza (BR-KAL-013): obwódka akcentu i położenie do przewinięcia ekranu [M3 D7]
             <View key={log.id} style={[styles.historyCard, log.id === wyroznionyId && styles.historyCardWyrozniony]} testID={`bake-log-card-${log.id}`}
               onLayout={log.id === wyroznionyId && onWyroznionyY ? (e) => onWyroznionyY(gora.current + e.nativeEvent.layout.y) : undefined}>
-              <View style={styles.historyCardHeader}>
-                <Text style={styles.historyRecipeName}>{nazwaReceptury(log.recipeName)}</Text>
-                <View style={styles.historyActionsRow}>
-                  {log.ratingStars !== undefined && (
-                    <Text style={styles.historyStars}>{t('Ocena: {n}/5', { n: log.ratingStars })}</Text>
-                  )}
-                  <Pressable
-                    accessibilityRole="button"
-                    testID={`delete-bake-log-${log.id}`}
-                    onPress={() => onDeleteBakeLog(log.id)}
-                    style={styles.deleteHistoryBtn}
-                    accessibilityLabel={t('Usuń wpis')}
-                  >
-                    <Text style={styles.deleteHistoryBtnText}>{t('Usuń wpis')}</Text>
-                  </Pressable>
-                </View>
-              </View>
-              <Text style={styles.historyDate}>{dateStr}</Text>
+              <NaglowekKarty testID={`bake-log-${log.id}`} tytul={nazwaReceptury(log.recipeName)} ikona={<IkonaKarty nazwa="bochenek" />} />
+              {/* Data i ocena w jednym wierszu, jeden klucz z parametrami (makieta #dziennik, D-209) */}
+              <Text style={styles.historyDate}>
+                {log.ratingStars !== undefined ? t('{data}, ocena {n}/5', { data: dateStr, n: log.ratingStars }) : dateStr}
+              </Text>
 
               {/* Crumb, crust & taste pills; temperatura w kuchni tylko zapisana przy wypieku (BR-RECP-003, bez zgadywania 017).
                   Temperatury ciasta wypiek dziś nie zapisuje (actualDdtC bez zapisu), więc jej nie pokazujemy [M1-audytor-generalny-146] */}
@@ -149,16 +143,27 @@ export function BakeHistorySection({
 
               {log.notes && <Text style={styles.historyNotes}>{log.notes}</Text>}
 
-              {/* Bake Again Button (Zadanie P3) */}
-              <Pressable
-                testID={`bake-again-btn-${log.id}`}
-                accessibilityRole="button"
-                accessibilityLabel={`${t('Piecz ponownie')}: ${nazwaReceptury(log.recipeName)}`}
-                style={styles.bakeAgainBtn}
-                onPress={() => onBakeAgain(log)}
-              >
-                <Text style={styles.bakeAgainBtnText}>{t('Piecz ponownie')}</Text>
-              </Pressable>
+              {/* „Piecz ponownie” i „Usuń wpis” w jednym rzędzie na dole karty (makieta #dziennik) [M3 p5] */}
+              <View style={styles.historyActionsRow}>
+                <Pressable
+                  testID={`bake-again-btn-${log.id}`}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${t('Piecz ponownie')}: ${nazwaReceptury(log.recipeName)}`}
+                  style={[styles.bakeAgainBtn, przycisk]}
+                  onPress={() => onBakeAgain(log)}
+                >
+                  <Text style={styles.bakeAgainBtnText}>{t('Piecz ponownie')}</Text>
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  testID={`delete-bake-log-${log.id}`}
+                  onPress={() => onDeleteBakeLog(log.id)}
+                  style={[styles.bakeAgainBtn, przycisk]}
+                  accessibilityLabel={t('Usuń wpis')}
+                >
+                  <Text style={styles.deleteHistoryBtnText}>{t('Usuń wpis')}</Text>
+                </Pressable>
+              </View>
             </View>
           );
         })
@@ -169,26 +174,11 @@ export function BakeHistorySection({
 
 const styles = StyleSheet.create({
   historyContainer: {
-    marginTop: 10,
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 10,
-    marginTop: 6,
-  },
-  emptyHistoryBox: {
+    marginTop: odstepy.s,
     gap: odstepy.m,
-    marginTop: odstepy.xxl,
   },
-  emptyHistoryTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.tytul2.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
+  // Nagłówek grupy nad kartami (O2b, D-184): ten sam co nagłówek karty
+  odstepGrupy: { marginTop: odstepy.xs },
   emptyHistoryText: {
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,
@@ -210,87 +200,63 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   historyCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: 14,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
+    ...wygladKarty,
+    padding: odstepy.l,
+    gap: odstepy.s,
+    minWidth: 0,
   },
   historyCardWyrozniony: { borderWidth: 2, borderColor: theme.colors.akcent },
-  historyCardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  historyRecipeName: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    flex: 1,
-  },
   historyActionsRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  historyStars: {
-    fontSize: typografia.style.przypis.pt,
-  },
-  deleteHistoryBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    padding: 4,
+    flexWrap: 'wrap',
+    gap: odstepy.s,
+    marginTop: odstepy.xs,
   },
   deleteHistoryBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.podpis.pt,
+    fontWeight: '700',
     color: theme.colors.blad,
+    textAlign: 'center',
   },
   historyDate: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz3,
-    marginTop: 2,
-    marginBottom: 8,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
   },
   historyPillsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 8,
+    gap: odstepy.xs,
   },
+  // Chip na karcie: kolory `tusz`/`obwodka` (README §2)
   historyPill: {
-    backgroundColor: theme.colors.powierzchnia,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.obwodka,
+    paddingHorizontal: odstepy.s,
+    paddingVertical: odstepy.xs,
+    borderRadius: promienie.znacznik,
   },
   historyPillText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
   historyRadarBox: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.sm,
-    paddingVertical: 8,
-    marginVertical: 8,
+    paddingVertical: odstepy.s,
   },
   historyNotes: {
-    fontSize: typografia.style.przypis.pt,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
-    lineHeight: 18,
-    marginVertical: 6,
   },
   bakeAgainBtn: {
+    flexGrow: 1,
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
-    marginTop: 8,
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
+    paddingVertical: odstepy.s,
+    paddingHorizontal: odstepy.m,
+    borderRadius: promienie.przycisk,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -299,5 +265,6 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
+    textAlign: 'center',
   },
 });

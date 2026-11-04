@@ -1,11 +1,10 @@
-// Słownik pt, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'A avaliação aparece depois de assinalar o que vê ou cheira.',
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Avaliação do desenvolvimento da rede de glúten após a autólise e as dobras',
   'Ocena wymaga połączenia z App Store.': 'A avaliação requer ligação à App Store.',
   'Ocena wypieku': 'Avaliação da fornada',
-  'Ocena: {n}/5': 'Avaliação: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Avalie a massa pelo aspeto, não pelo relógio: no frio, a massa demora mais a crescer, e os tempos da receita são apenas uma indicação.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Avalie o pão e guarde notas no histórico de fornadas',
   'Oceń na {n} z 5': 'Avaliar com {n} de 5',
@@ -17,6 +16,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Da farinha e da água ao primeiro pão, dia após dia.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'A partir deste dia, alimente o fermento natural duas vezes por dia, mais ou menos de 12 em 12 horas.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Desgaseifique-a pressionando com firmeza, tal como ao modelar.',
+  'Odhaczaj przy ważeniu.': 'Assinale ao pesar.',
   'Odhaczaj składniki w miarę wsypywania': 'Assinale os ingredientes à medida que os adiciona',
   'Odkryj wiedzę naukową': 'Descobrir a ciência',
   'Odliczanie trwa': 'Contagem decrescente em curso',
@@ -26,6 +26,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Descartar alterações?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Descarte metade do fermento natural, junte farinha e água em pesos iguais e deixe repousar 24 horas.',
   'Odrzuć zmiany': 'Descartar alterações',
+  'Wpisane zmiany nie zostaną zapisane.': 'As alterações introduzidas não serão guardadas.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Deixe repousar 20 minutos antes da dobra normal seguinte.',
   'Odznacz objawy': 'Desmarcar sintomas',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pão nutritivo de farinha de trigo Graham de moagem grossa, com mel natural e linhaça.',

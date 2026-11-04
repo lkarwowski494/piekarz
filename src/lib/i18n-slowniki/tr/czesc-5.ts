@@ -1,7 +1,8 @@
-// Słownik tr, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Şekillendirmede olduğu gibi sıkıca bastırarak gazını alın.',
+  'Odhaczaj przy ważeniu.': 'Tartarken işaretleyin.',
   'Odhaczaj składniki w miarę wsypywania': 'Ekledikçe malzemeleri işaretleyin',
   'Odkryj wiedzę naukową': 'Bilimsel bilgiyi keşfet',
   'Odliczanie trwa': 'Geri sayım sürüyor',
@@ -11,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Değişiklikler atılsın mı?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Ekşi mayanın yarısını atın, ağırlıkça eşit miktarda un ve su ekleyin ve 24 saat bekletin.',
   'Odrzuć zmiany': 'Değişiklikleri at',
+  'Wpisane zmiany nie zostaną zapisane.': 'Girdiğiniz değişiklikler kaydedilmeyecek.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Bir sonraki standart katlamadan önce 20 dakika dinlendirin.',
   'Odznacz objawy': 'Belirtileri Temizle',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'İri öğütülmüş Graham buğday unundan, doğal bal ve keten tohumu ilaveli besleyici ekmek.',
@@ -160,7 +162,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Ön maya (Maya hamuru)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Acil Bassinage prosedürü',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Tarifteki maya yüzdesi yaş maya içindir. Kuru maya (instant veya aktif) için bu miktarın 0,4 katını tartarsınız.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Tarifteki maya yüzdesi yaş maya içindir. Kuru maya (instant veya aktif) için bu miktarın 0,35 katını tartarsınız. Üretici ambalajda farklı bir oran belirtmiş olabilir.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': '“{name}” ununun yüzdesi %0,1–100 aralığında bir sayı olmalıdır',
   'Profil smakowy': 'Lezzet profili',
   'Profil zakwasu': 'Ekşi maya profili',

@@ -1,4 +1,4 @@
-// Słownik et, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przenieś harmonogram do asystenta wypieku na żywo': 'Vii ajakava reaalajas küpsetusabilisse',
@@ -48,6 +48,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Retsept „{nazwa}” on nüüd Minu retseptides.',
   'Receptura awaryjna:': 'Varuretsept:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Põhiretsept on pärast seda küpsetist muutunud: selles on nüüd rohkem pärmi.',
+  'Receptura bazowa, na drożdżach': 'Põhiretsept, pärmiga',
+  'Receptura bazowa, na zakwasie': 'Põhiretsept, juuretisega',
+  'Receptura bazowa, pizza': 'Põhiretsept, pitsa',
+  'Receptura bazowa, słodka': 'Põhiretsept, magus',
+  'Receptura bazowa, żytnia': 'Põhiretsept, rukkine',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Retseptil peab olema nimi (1-120 tähemärki)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Retseptis peab olema vähemalt üks jahu',
   'Receptura z pliku': 'Retsept failist',

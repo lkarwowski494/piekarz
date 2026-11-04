@@ -1,4 +1,4 @@
-// Słownik hr, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hr, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 650 (Bułkowa)': 'Svijetlo pšenično brašno (za peciva)',
@@ -161,7 +161,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Procjena razvoja glutenske mreže nakon autolize i preklapanja',
   'Ocena wymaga połączenia z App Store.': 'Za ocjenu je potrebna veza s App Storeom.',
   'Ocena wypieku': 'Ocjena pečenja',
-  'Ocena: {n}/5': 'Ocjena: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Procjenjuj tijesto po izgledu, a ne po satu: na hladnom se tijesto dulje diže, a vremena u receptu samo su smjernica.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Ocijeni štrucu i spremi bilješke u povijest pečenja',
   'Oceń na {n} z 5': 'Ocijeni s {n} od 5',
@@ -173,6 +172,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Od brašna i vode do prve štruce, dan po dan.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Od tog dana hrani kvas dvaput dnevno, otprilike svakih 12 sati.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Odzrači ga snažno pritišćući, kao pri oblikovanju.',
+  'Odhaczaj przy ważeniu.': 'Označi pri vaganju.',
   'Odhaczaj składniki w miarę wsypywania': 'Označavaj sastojke dok ih dodaješ',
   'Odkryj wiedzę naukową': 'Otkrij znanstvena saznanja',
   'Odliczanie trwa': 'Odbrojavanje u tijeku',
@@ -182,6 +182,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Odbaciti promjene?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Odbaci polovicu kvasa, dodaj brašno i vodu u jednakim količinama po težini i ostavi 24 sata.',
   'Odrzuć zmiany': 'Odbaci promjene',
+  'Wpisane zmiany nie zostaną zapisane.': 'Unesene promjene neće biti spremljene.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Ostavi tijesto 20 minuta da odmori prije sljedećeg standardnog preklapanja.',
   'Odznacz objawy': 'Poništi simptome',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Hranjiv kruh od krupno mljevenog pšeničnog graham brašna s dodatkom prirodnog meda i lanenih sjemenki.',

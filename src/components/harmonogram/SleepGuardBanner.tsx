@@ -10,6 +10,8 @@ import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
 import { SLEEP_COLLISION_TEMPLATE_PL, SleepCollision, sleepCollisionParams } from '../../scheduler/reverse-scheduler';
 import { formatTime } from '../../lib/format';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 import { typografia } from '../../ui/tokeny';
 export interface SleepGuardBannerProps {
@@ -47,8 +49,9 @@ export function SleepGuardBanner({
 }: SleepGuardBannerProps) {
   if (hasSleepCollision) {
     return (
-      <View style={styles.sleepGuardAlert} testID="sleep-guard-banner">
-        <Text style={styles.sleepGuardTitle}>{tytulKolizji(sleepCollisions)}</Text>
+      // Karta snu (README §4 plan, M3 p4): tytuł kolizji jako nagłówek karty; treść i „Przesuń do lodówki” bez zmian
+      <Karta testID="karta-snu" tytul={tytulKolizji(sleepCollisions)} ikona={<IkonaKarty nazwa="zegar" />}>
+      <View testID="sleep-guard-banner">
         {/* przy jednym kroku tytuł mówi już wszystko; przy kilku lista kroków z godzinami */}
         {sleepCollisions.length > 1 && (
           <Text style={styles.sleepGuardBody}>
@@ -70,40 +73,23 @@ export function SleepGuardBanner({
           <Text style={styles.sleepGuardAction}>{t(suggestedActionPl)}</Text>
         )}
       </View>
+      </Karta>
     );
   }
 
   return (
-    <View style={styles.sleepGuardSafe} testID="sleep-guard-banner">
-      <Text style={styles.sleepGuardSafeTitle}>
-        {t('Ochrona snu aktywna')}
-      </Text>
-      <Text style={styles.sleepGuardSafeBody}>
+    <Karta testID="karta-snu" tytul={t('Ochrona snu aktywna')} ikona={<IkonaKarty nazwa="ptaszek" />}>
+      <Text style={styles.sleepGuardSafeBody} testID="sleep-guard-banner">
         {t('Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).', {
           od: godzinaOkna(okno.startH),
           do: godzinaOkna(okno.koniecH),
         })}
       </Text>
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  sleepGuardAlert: {
-    backgroundColor: theme.colors.powierzchnia, // kolizja ze snem: informacja, nie błąd (mapa-rol.md §3)
-    borderWidth: 2,
-    borderColor: theme.colors.obwodka,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-  },
-  sleepGuardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
   sleepGuardBody: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
@@ -128,21 +114,6 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
-  },
-  sleepGuardSafe: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-  },
-  sleepGuardSafeTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 2,
   },
   sleepGuardSafeBody: {
     fontSize: typografia.style.podpis.pt,

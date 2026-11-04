@@ -1,4 +1,4 @@
-// Słownik fr, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fr, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Garuj ciasto w lodówce: chłód spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.': 'Faites pousser la pâte au réfrigérateur : le froid ralentit la fermentation, et une fermentation plus lente donne un goût plus profond.',
@@ -49,6 +49,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'd\'hydratation totale',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'et encore {n}, détails dans la fiche du jour',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base idéale pour entretenir votre levain naturel chef. Riche en levures sauvages et en bactéries lactiques.',
+  'Ile pieczesz': 'Quantité à cuire',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Quelle proportion de seigle un pain doit contenir pour s\'appeler pain de seigle ou pain de seigle-froment.',
   'Ilości do dokarmienia': 'Quantités pour le rafraîchi',
   'Ilości i temperatura wody': 'Quantités et température de l\'eau',
@@ -73,7 +74,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Cavernes (Sous-fermenté)',
   'Jedna opłata, bez odnawiania.': 'Un seul paiement, sans renouvellement.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Mie uniformément dense et lourde (pas d\'aération)',
-  'Jednostki': 'Unités',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Si vous ne remarquez l\'absence de sel qu\'après la première pousse, en ajouter ne servira à rien et pétrir à nouveau peut abîmer la pâte définitivement : cuisez le pain sans sel ou faites-en une base de pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Si vous sauvez la pâte, sortez-la du banneton ou du récipient.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Si le sel manque, ouvrez le protocole « Sel oublié ».',
@@ -83,7 +83,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Si vous voyez une pellicule, des taches ou une décoloration, ou si vous sentez une odeur de pourri, ouvrez la vérification du levain.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Si le levain naturel « {name} » n\'a pas doublé de volume, rafraîchissez-le à nouveau.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Si le levain a peu levé et a peu de bulles, continuez à le rafraîchir toutes les 12 heures.',
-  'Język': 'Langue',
+  'Język i jednostki': 'Langue et unités',
   'jutro': 'demain',
   'Jutro': 'Demain',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Le calendrier est vide. Il se remplira quand vous créerez un levain naturel ou planifierez une fournée.',

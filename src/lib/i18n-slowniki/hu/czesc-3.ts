@@ -1,4 +1,4 @@
-// Słownik hu, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hu, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.': 'Amikor a kovász etetésre vár. A sütési lépések értesítései ettől függetlenül működnek.',
@@ -43,6 +43,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidratáció',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'és még {n}, részletek a napi lapon',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideális alap az anyakovász fenntartásához. Gazdag vadélesztőkben és tejsavbaktériumokban.',
+  'Ile pieczesz': 'Mennyit sütsz',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Mennyi rozs kell a kenyérbe, hogy rozskenyérnek vagy rozs-búza kenyérnek nevezhessék.',
   'Ilości do dokarmienia': 'Etetési mennyiségek',
   'Ilości i temperatura wody': 'Mennyiségek és vízhőmérséklet',
@@ -67,7 +68,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Üregek (Alulkelesztett)',
   'Jedna opłata, bez odnawiania.': 'Egyszeri díj, megújítás nélkül.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Egyenletesen tömör, nehéz bélzet (nem levegős)',
-  'Jednostki': 'Mértékegységek',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ha a só hiánya csak az első kelesztés után derül ki, a hozzáadása már nem segít, az újbóli dagasztás pedig végleg tönkreteheti a tésztát: süsd meg a kenyeret só nélkül, vagy készíts belőle pizzaalapot.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ha meg akarod menteni a tésztát, vedd ki a kosárból vagy az edényből.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ha hiányzik a só, nyisd meg az „Elfelejtett só” protokollt.',
@@ -77,7 +77,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ha bevonatot, foltokat vagy elszíneződést látsz, vagy rothadt szagot érzel, nyisd meg a kovászellenőrzést.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ha a kovász („{name}”) nem duplázta meg a térfogatát, etesd meg újra.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ha a kovász alig nőtt, és kevés benne a buborék, etesd tovább 12 óránként.',
-  'Język': 'Nyelv',
+  'Język i jednostki': 'Nyelv és mértékegységek',
   'jutro': 'holnap',
   'Jutro': 'Holnap',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'A naptár üres. Akkor telik meg, ha kovászt indítasz, vagy megtervezel egy sütést.',

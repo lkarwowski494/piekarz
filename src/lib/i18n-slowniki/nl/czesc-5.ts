@@ -1,8 +1,9 @@
-// Słownik nl, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Gooi de helft van de zuurdesemstarter weg, voeg meel en water in gelijke hoeveelheden op gewicht toe en laat hem 24 uur staan.',
   'Odrzuć zmiany': 'Negeer wijzigingen',
+  'Wpisane zmiany nie zostaną zapisane.': 'De ingevoerde wijzigingen worden niet bewaard.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Laat het 20 minuten rusten vóór de volgende gewone vouwronde.',
   'Odznacz objawy': 'Symptomen wissen',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Voedzaam brood van grof gemalen grahammeel (tarwevolkoren) met natuurlijke honing en lijnzaad.',
@@ -152,7 +153,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Voordeeg (levain)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Noodprocedure: Bassinage',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Het gistpercentage in het recept geldt voor verse gist. Van droge gist (instant of actief) weeg je 0,4 van die hoeveelheid af.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Het gistpercentage in het recept geldt voor verse gist. Van droge gist (instant of actief) weeg je 0,35 van die hoeveelheid af. De fabrikant kan op de verpakking een andere verhouding vermelden.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Percentage van meel “{name}” moet een getal tussen 0,1–100% zijn',
   'Profil smakowy': 'Smaakprofiel',
   'Profil zakwasu': 'Profiel zuurdesemstarter',

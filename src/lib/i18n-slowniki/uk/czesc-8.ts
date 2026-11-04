@@ -1,4 +1,4 @@
-// Słownik uk, część 8 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 8 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przykryj miskę pokrywką albo folią: wilgoć utrzymuje wierzch ciasta miękki i pomaga mu rosnąć.': 'Накрийте миску кришкою або плівкою: волога зберігає поверхню тіста м\'якою й допомагає йому рости.',
@@ -22,6 +22,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Рецептура «{nazwa}» уже в «Моїх рецептурах».',
   'Receptura awaryjna:': 'Аварійна рецептура:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Базова рецептура змінилася після тієї випічки: тепер у ній більше дріжджів.',
+  'Receptura bazowa, na drożdżach': 'Базова рецептура, на дріжджах',
+  'Receptura bazowa, na zakwasie': 'Базова рецептура, на заквасці',
+  'Receptura bazowa, pizza': 'Базова рецептура, піца',
+  'Receptura bazowa, słodka': 'Базова рецептура, здобна',
+  'Receptura bazowa, żytnia': 'Базова рецептура, житня',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Рецептура повинна мати назву (1-120 символів)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Рецептура повинна містити принаймні один вид борошна',
   'Receptura z pliku': 'Рецептура з файлу',

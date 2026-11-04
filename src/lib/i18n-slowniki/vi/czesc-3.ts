@@ -1,4 +1,4 @@
-// Słownik vi, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik vi, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Garnek nagrzewasz pusty, żeby po włożeniu ciasta zrobiła się w nim para.': 'Bạn làm nóng nồi khi còn trống để hơi nước hình thành bên trong ngay khi cho bột vào.',
@@ -55,6 +55,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'độ ẩm bột',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'và thêm {n} mục, xem chi tiết trong bảng ngày',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Nền lý tưởng để nuôi men tự nhiên gốc. Giàu nấm men hoang dã và vi khuẩn axit lactic.',
+  'Ile pieczesz': 'Bạn nướng bao nhiêu',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Bánh mì cần bao nhiêu lúa mạch đen để được gọi là bánh mì lúa mạch đen hoặc bánh mì lúa mạch đen–lúa mì.',
   'Ilości do dokarmienia': 'Lượng cho men ăn',
   'Ilości i temperatura wody': 'Lượng nguyên liệu và nhiệt độ nước',
@@ -79,7 +80,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Hốc lớn (Lên men chưa đủ)',
   'Jedna opłata, bez odnawiania.': 'Thanh toán một lần, không gia hạn.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ruột bánh đặc và nặng đều (không thoáng khí)',
-  'Jednostki': 'Đơn vị',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Nếu chỉ phát hiện thiếu muối sau lần ủ nở đầu tiên, thêm muối cũng không giúp được gì, còn nhào lại có thể làm hỏng bột vĩnh viễn: nướng bánh không muối hoặc dùng bột làm đế pizza.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Nếu bạn cứu bột, lấy bột ra khỏi rổ hoặc tô.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Nếu thiếu muối, mở quy trình “Quên muối”.',
@@ -89,7 +89,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Nếu bạn thấy lớp phủ, vết đốm hoặc đổi màu, hoặc ngửi thấy mùi thối, mở mục kiểm tra men tự nhiên.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Nếu men tự nhiên “{name}” chưa nở gấp đôi thể tích, cho men ăn lại.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Nếu men tự nhiên nở ít và có ít bọt khí, tiếp tục cho ăn mỗi 12 giờ.',
-  'Język': 'Ngôn ngữ',
+  'Język i jednostki': 'Ngôn ngữ và đơn vị',
   'jutro': 'ngày mai',
   'Jutro': 'Ngày mai',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Lịch đang trống. Lịch sẽ có nội dung khi bạn tạo men tự nhiên hoặc lên kế hoạch cho một mẻ bánh.',

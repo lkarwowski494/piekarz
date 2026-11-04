@@ -1,4 +1,4 @@
-// Słownik nl, część 4 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Mąka pszenna sitkowa / graham': 'Halfvolkoren tarwemeel / graham',
@@ -170,7 +170,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Beoordeling van de glutenontwikkeling na autolyse en vouwen',
   'Ocena wymaga połączenia z App Store.': 'Beoordelen vereist een verbinding met de App Store.',
   'Ocena wypieku': 'Beoordeling baksel',
-  'Ocena: {n}/5': 'Beoordeling: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Beoordeel het deeg op hoe het eruitziet, niet op de klok: in de kou rijst deeg langer, en de tijden in het recept zijn alleen een richtlijn.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Beoordeel het brood en bewaar notities in je bakgeschiedenis',
   'Oceń na {n} z 5': 'Beoordeel met {n} van 5',
@@ -182,6 +181,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Van meel en water tot je eerste brood, dag na dag.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Voed de zuurdesemstarter vanaf deze dag twee keer per dag, ongeveer elke 12 uur.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Ontgas het door stevig aan te drukken, net als bij het vormen.',
+  'Odhaczaj przy ważeniu.': 'Vink af tijdens het wegen.',
   'Odhaczaj składniki w miarę wsypywania': 'Vink ingrediënten af terwijl je ze toevoegt',
   'Odkryj wiedzę naukową': 'Ontdek de wetenschap',
   'Odliczanie trwa': 'Aftellen loopt',

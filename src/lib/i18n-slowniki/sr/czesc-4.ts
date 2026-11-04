@@ -1,9 +1,9 @@
-// Słownik sr, część 4 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 4 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ако стартер „{name}“ није удвостручио запремину, поново га нахрани.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако стартер није много нарастао и има мало мехурића, настави да га храниш на 12 сати.',
-  'Język': 'Језик',
+  'Język i jednostki': 'Језик и јединице',
   'jutro': 'сутра',
   'Jutro': 'Сутра',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Календар је празан. Попуниће се када направиш стартер или испланираш печење.',

@@ -1,4 +1,4 @@
-// Słownik el, część 2 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 2 z 14. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Ψωμί από χοντροαλεσμένο αλεύρι σίτου Graham με προσθήκη φυσικού μελιού και λιναρόσπορου.',
@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Τι άλλο φτιάχνετε σήμερα;',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'τουλάχιστον 3 ώρες σε θερμοκρασία δωματίου ή 1 ώρα και μετά το πολύ 3 ημέρες στο ψυγείο',
   'Co widzisz?': 'Τι βλέπετε;',
+  'Co zrobić': 'Τι να κάνετε',
   'Co zrobić przy następnym wypieku:': 'Τι να κάνετε στο επόμενο ψήσιμο:',
   'Co zrobić:': 'Τι να κάνετε:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Τι να κάνετε: ταΐστε το προζύμι σύμφωνα με το πρόγραμμα για την επόμενη ημέρα.',
@@ -80,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Βάλτε το στο ψυγείο μόνο όταν σταθεροποιηθεί, δηλαδή μετά από 7–10 ημέρες.',
   'Do miski': 'Στο μπολ',
   'Do miski (Ciasto właściwe)': 'Στο μπολ (Κύρια ζύμη)',
-  'Do miski (odhaczaj przy ważeniu)': 'Στο μπολ (σημειώστε καθώς ζυγίζετε)',
   'Do miski na wagę': 'Στο μπολ, στη ζυγαριά',
   'Do ostygnięcia do temp. pokojowej': 'Μέχρι να κρυώσει σε θερμοκρασία δωματίου',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Απομένουν περίπου {czas} μέχρι το εκτιμώμενο παράθυρο κορύφωσης του προζυμιού (παράθυρο: {okno}).',

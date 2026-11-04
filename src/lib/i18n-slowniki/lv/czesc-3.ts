@@ -1,4 +1,4 @@
-// Słownik lv, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lv, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.': 'Lipeklis lieliski attīstīts. Gatavs sākotnējai veidošanai.',
@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'hidrācijas',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'un vēl {n}, sīkāk dienas lapā',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideāli piemēroti dabīgā ierauga (mātes kultūras) uzturēšanai. Bagāti ar savvaļas raugiem un pienskābes baktērijām.',
+  'Ile pieczesz': 'Cik cepat',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Cik daudz rudzu jābūt maizē, lai to sauktu par rudzu vai rudzu-kviešu maizi.',
   'Ilości do dokarmienia': 'Barošanas daudzumi',
   'Ilości i temperatura wody': 'Daudzumi un ūdens temperatūra',
@@ -66,7 +67,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Lieli tukšumi (Nepietiekami fermentēts)',
   'Jedna opłata, bez odnawiania.': 'Viens maksājums, bez atjaunošanas.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Vienmērīgi blīvs un smags mīkstums (nav gaisīguma)',
-  'Jednostki': 'Mērvienības',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ja sāls trūkums atklājas tikai pēc pirmās rūgšanas, tā pievienošana neko nedos, bet atkārtota mīcīšana var neatgriezeniski sabojāt mīklu: izcepiet maizi bez sāls vai izmantojiet mīklu picas pamatnei.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ja glābjat mīklu, izņemiet to no raudzēšanas groziņa vai trauka.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ja trūkst sāls, atveriet protokolu „Aizmirsts sāls”.',
@@ -76,7 +76,7 @@ export const CZESC: Record<string, string> = {
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ja redzat aplikumu, plankumus vai krāsas izmaiņu vai jūtat puvuma smaku, atveriet ierauga pārbaudi.',
   'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.': 'Ja dabīgais ieraugs „{name}” nav dubultojies apjomā, pabarojiet to vēlreiz.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ja ieraugs maz uzrūdzis un tajā ir maz burbulīšu, turpiniet to barot ik pēc 12 stundām.',
-  'Język': 'Valoda',
+  'Język i jednostki': 'Valoda un mērvienības',
   'jutro': 'rīt',
   'Jutro': 'Rīt',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'Kalendārs ir tukšs. Tas aizpildīsies, kad sāksiet audzēt dabīgo ieraugu vai ieplānosiet cepienu.',

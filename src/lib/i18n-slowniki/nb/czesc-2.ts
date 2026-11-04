@@ -1,4 +1,4 @@
-// Słownik nb, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nb, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Tynt tverrsnitt og et høyt forhold mellom skorpeoverflate og vekt gir kraftig fordampning av vann.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Hva mer skal du gjøre i dag?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'minst 3 timer i romtemperatur, eller 1 time og deretter høyst 3 dager i kjøleskapet',
   'Co widzisz?': 'Hva ser du?',
+  'Co zrobić': 'Hva du gjør',
   'Co zrobić przy następnym wypieku:': 'Dette gjør du ved neste bakst:',
   'Co zrobić:': 'Hva du gjør:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Hva du gjør: mat starteren etter planen for neste dag.',
@@ -50,7 +51,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Sett den ikke i kjøleskapet før den har stabilisert seg, altså etter 7–10 dager.',
   'Do miski': 'I bollen',
   'Do miski (Ciasto właściwe)': 'I bollen (hoveddeig)',
-  'Do miski (odhaczaj przy ważeniu)': 'I bollen (kryss av mens du veier)',
   'Do miski na wagę': 'I bollen på vekten',
   'Do ostygnięcia do temp. pokojowej': 'Til den er avkjølt til romtemperatur',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Omtrent {czas} igjen til det anslåtte vinduet for toppunktet (vindu: {okno}).',

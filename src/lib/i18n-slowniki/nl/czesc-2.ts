@@ -1,4 +1,4 @@
-// Słownik nl, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.': 'Donker, zoetig-kruidig roggebrood met het aroma van gefermenteerde rode mout en geroosterde koriander.',
@@ -14,6 +14,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Wat ga je vandaag nog doen?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'minstens 3 uur op kamertemperatuur, of 1 uur en daarna hoogstens 3 dagen in de koelkast',
   'Co widzisz?': 'Wat zie je?',
+  'Co zrobić': 'Wat te doen',
   'Co zrobić przy następnym wypieku:': 'Wat je bij je volgende baksel doet:',
   'Co zrobić:': 'Wat te doen:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Wat te doen: voed de zuurdesemstarter volgens het schema voor de volgende dag.',
@@ -52,7 +53,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Zet hem pas in de koelkast als hij stabiel is, dus na 7–10 dagen.',
   'Do miski': 'In de kom',
   'Do miski (Ciasto właściwe)': 'In de kom (hoofddeeg)',
-  'Do miski (odhaczaj przy ważeniu)': 'In de kom (vink af tijdens het wegen)',
   'Do miski na wagę': 'In de kom op de weegschaal',
   'Do ostygnięcia do temp. pokojowej': 'Tot afgekoeld tot kamertemperatuur',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Nog ongeveer {czas} tot het geschatte venster voor de piek van de starter (venster: {okno}).',

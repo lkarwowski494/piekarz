@@ -1,4 +1,4 @@
-// Słownik sl, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sl, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przenieś ciasto w cieplejsze miejsce: drożdże najlepiej rosną w ok. 24–25,5 °C.': 'Testo prestavite na toplejše mesto: kvasovke najbolje rastejo pri pribl. 24–25,5 °C.',
@@ -49,6 +49,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Recept »{nazwa}« je v Mojih receptih.',
   'Receptura awaryjna:': 'Rezervni recept:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Osnovni recept se je od te peke spremenil: zdaj ima več pekovskega kvasa.',
+  'Receptura bazowa, na drożdżach': 'Osnovni recept, s pekovskim kvasom',
+  'Receptura bazowa, na zakwasie': 'Osnovni recept, na kislem testu',
+  'Receptura bazowa, pizza': 'Osnovni recept, pica',
+  'Receptura bazowa, słodka': 'Osnovni recept, sladki',
+  'Receptura bazowa, żytnia': 'Osnovni recept, rženi',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Recept mora imeti ime (1-120 znakov)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Recept mora vsebovati vsaj eno moko',
   'Receptura z pliku': 'Recept iz datoteke',

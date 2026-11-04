@@ -1,4 +1,4 @@
-// Słownik sv, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sv, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.': 'Tips: Ta den mängd degen behöver av de {masa} du får och ställ resten (~{od}–{do}) i kylen som moderdeg till nästa bak.',
@@ -8,6 +8,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Infoga färdig blandning',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Ställ jäskorgen i en tät påse i kylen (4–6 °C). Den långa jäsningen ger brödet en djup arom.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Ställ kärlet med degen i den avstängda ugnen och tänd bara lampan: det blir gradvis varmare inuti, men varje ugn och varje kök ger olika resultat.',
+  'Wstecz': 'Tillbaka',
   'Wstrzymaj': 'Pausa',
   'Wstrzymano': 'Pausad',
   'Wsyp do miski na wagę': 'Häll i skålen på vågen',

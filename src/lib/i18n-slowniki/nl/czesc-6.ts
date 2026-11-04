@@ -1,4 +1,4 @@
-// Słownik nl, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nl, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Przed szacowanym szczytem': 'Vóór de geschatte piek',
@@ -58,6 +58,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Recept ‘{nazwa}’ staat in Mijn recepten.',
   'Receptura awaryjna:': 'Noodrecept:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Het basisrecept is sinds dat baksel gewijzigd: het bevat nu meer gist.',
+  'Receptura bazowa, na drożdżach': 'Basisrecept, met gist',
+  'Receptura bazowa, na zakwasie': 'Basisrecept, met zuurdesem',
+  'Receptura bazowa, pizza': 'Basisrecept, pizza',
+  'Receptura bazowa, słodka': 'Basisrecept, zoet',
+  'Receptura bazowa, żytnia': 'Basisrecept, rogge',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Recept moet een naam hebben (1-120 tekens)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Recept moet minstens één meelsoort bevatten',
   'Receptura z pliku': 'Recept uit bestand',

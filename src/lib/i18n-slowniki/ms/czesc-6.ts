@@ -1,4 +1,4 @@
-// Słownik ms, część 6 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ms, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Protokoły ratunkowe (Pogotowie ciasta)': 'Protokol penyelamat (Kecemasan doh)',
@@ -68,6 +68,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Resipi “{nazwa}” kini dalam Resipi Saya.',
   'Receptura awaryjna:': 'Resipi kecemasan:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Resipi asas telah berubah sejak bakaran itu: kini ia mengandungi lebih banyak yis.',
+  'Receptura bazowa, na drożdżach': 'Resipi asas, dengan yis',
+  'Receptura bazowa, na zakwasie': 'Resipi asas, sourdough',
+  'Receptura bazowa, pizza': 'Resipi asas, piza',
+  'Receptura bazowa, słodka': 'Resipi asas, manis',
+  'Receptura bazowa, żytnia': 'Resipi asas, rai',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Resipi mesti mempunyai nama (1-120 aksara)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Resipi mesti mengandungi sekurang-kurangnya satu tepung',
   'Receptura z pliku': 'Resipi dari Fail',

@@ -1,4 +1,4 @@
-// Słownik uk, część 6 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 6 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Notatka z poprzedniego wypieku: {notatka}': 'Нотатка з попередньої випічки: {notatka}',
@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Оцінка розвитку клейковинної сітки після аутолізу та складань',
   'Ocena wymaga połączenia z App Store.': 'Для оцінювання потрібне з’єднання з App Store.',
   'Ocena wypieku': 'Оцінка випічки',
-  'Ocena: {n}/5': 'Оцінка: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Оцінюйте тісто за виглядом, а не за годинником: у холоді тісто підходить довше, а час у рецепті — лише орієнтир.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Оцініть хлібину й збережіть нотатки в історії випічки',
   'Oceń na {n} z 5': 'Оцінити на {n} з 5',
@@ -29,6 +28,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Від борошна й води до першої хлібини, день за днем.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Від цього дня підживлюйте закваску двічі на день, приблизно кожні 12 годин.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Дегазуйте його, сильно притискаючи, як під час формування.',
+  'Odhaczaj przy ważeniu.': 'Позначайте під час зважування.',
   'Odhaczaj składniki w miarę wsypywania': 'Відмічайте інгредієнти, щойно їх всипаєте',
   'Odkryj wiedzę naukową': 'Відкрити наукові знання',
   'Odliczanie trwa': 'Відлік триває',
@@ -38,6 +38,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Відхилити зміни?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Відкиньте половину закваски, додайте борошно й воду в рівних вагових кількостях і залиште на 24 години.',
   'Odrzuć zmiany': 'Відхилити зміни',
+  'Wpisane zmiany nie zostaną zapisane.': 'Введені зміни не буде збережено.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Залиште на 20 хвилин відпочити перед наступним звичайним складанням.',
   'Odznacz objawy': 'Зняти позначки',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Поживний хліб із пшеничного борошна грубого помелу Грехем з додаванням натурального меду й лляного насіння.',

@@ -1,4 +1,4 @@
-// Słownik ru, część 6 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ru, część 6 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Notatki z wypieku': 'Заметки о выпечке',
@@ -16,7 +16,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Оценка развития клейковинной сетки после автолиза и складываний',
   'Ocena wymaga połączenia z App Store.': 'Для оценки требуется подключение к App Store.',
   'Ocena wypieku': 'Оценка выпечки',
-  'Ocena: {n}/5': 'Оценка: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Оценивайте тесто по виду, а не по часам: в прохладе тесто поднимается дольше, а время в рецепте — лишь ориентир.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Оцените каравай и сохраните заметки в историю выпечки',
   'Oceń na {n} z 5': 'Оценить на {n} из 5',
@@ -28,6 +27,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'От муки и воды до первого каравая, день за днём.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'С этого дня подкармливайте закваску два раза в день, примерно каждые 12 часов.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Обомните его, сильно прижимая, как при формовке.',
+  'Odhaczaj przy ważeniu.': 'Отмечайте при взвешивании.',
   'Odhaczaj składniki w miarę wsypywania': 'Отмечайте ингредиенты по мере добавления',
   'Odkryj wiedzę naukową': 'Открыть научный факт',
   'Odliczanie trwa': 'Идёт обратный отсчёт',
@@ -37,6 +37,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Отменить изменения?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Выбросьте половину закваски, добавьте муку и воду в равных количествах по весу и оставьте на 24 часа.',
   'Odrzuć zmiany': 'Отменить изменения',
+  'Wpisane zmiany nie zostaną zapisane.': 'Введённые изменения не будут сохранены.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Оставьте отдохнуть на 20 минут перед следующим обычным складыванием.',
   'Odznacz objawy': 'Сбросить симптомы',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Питательный хлеб из крупно смолотой пшеничной муки грэм с натуральным мёдом и льняным семенем.',

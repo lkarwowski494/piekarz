@@ -1,4 +1,4 @@
-// Słownik lt, część 7 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 7 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': 'Termometru su zondu patikrinkite temperatūrą kepalo viduryje: dauguma kepalų būna iškepę maždaug 88 °C, o ruginės duonos viduje turėtų būti 96–99 °C.',

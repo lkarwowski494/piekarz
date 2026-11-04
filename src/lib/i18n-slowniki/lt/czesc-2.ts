@@ -1,4 +1,4 @@
-// Słownik lt, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rwie się przy rozciąganiu:': 'Tešla tempiant plyšta:',
@@ -17,6 +17,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Ką dar šiandien darote?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'ne mažiau kaip 3 valandas kambario temperatūroje arba 1 valandą, o paskui ne ilgiau kaip 3 dienas šaldytuve',
   'Co widzisz?': 'Ką matote?',
+  'Co zrobić': 'Ką daryti',
   'Co zrobić przy następnym wypieku:': 'Ką daryti kitą kartą kepant:',
   'Co zrobić:': 'Ką daryti:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Ką daryti: pamaitinkite natūralų raugą pagal kitos dienos planą.',
@@ -55,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Į šaldytuvą dėkite jį tik tada, kai jis nusistovi, t. y. po 7–10 dienų.',
   'Do miski': 'Į dubenį',
   'Do miski (Ciasto właściwe)': 'Į dubenį (pagrindinė tešla)',
-  'Do miski (odhaczaj przy ważeniu)': 'Į dubenį (pažymėkite sverdami)',
   'Do miski na wagę': 'Į dubenį ant svarstyklių',
   'Do ostygnięcia do temp. pokojowej': 'Kol atvės iki kambario temperatūros',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Iki numatomo raugo aktyvumo piko lango liko apie {czas} (langas: {okno}).',

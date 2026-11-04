@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 1 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 1 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} de vapor',
@@ -13,6 +13,7 @@ export const CZESC: Record<string, string> = {
   '{czas} od dokarmienia': '{czas} desde a alimentação',
   '{czas} po czasie': '{czas} de atraso',
   '{data}, dziś': '{data}, hoje',
+  '{data}, ocena {n}/5': '{data}, nota {n}/5',
   '{dzien} {godzina}: {opis}': '{dzien} {godzina}: {opis}',
   '{dzien}, {d} {miesiac}': '{dzien}, {d} de {miesiac}',
   '{dzien}: piekarnik zajęty o {h}': '{dzien}: forno ocupado às {h}',

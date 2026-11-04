@@ -1,4 +1,4 @@
-// Słownik ko, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.': '반죽은 실온에서 최소 12시간, 최대 24시간 부풀어요. 공 모양으로 분할한 뒤에는 오븐을 예열하는 동안 45–60분 더 부풀어요.',
@@ -19,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': '오늘 또 무엇을 할까요?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': '실온에서 최소 3시간, 또는 1시간 후 냉장고에서 최대 3일',
   'Co widzisz?': '무엇이 보이나요?',
+  'Co zrobić': '할 일',
   'Co zrobić przy następnym wypieku:': '다음 베이킹 때 할 일:',
   'Co zrobić:': '할 일:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': '할 일: 다음 날 계획에 따라 스타터에 먹이를 주세요.',
@@ -57,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': '스타터가 자리를 잡은 뒤, 즉 7–10일 후에만 냉장고에 넣으세요.',
   'Do miski': '볼에 담기',
   'Do miski (Ciasto właściwe)': '볼에 담기 (본반죽)',
-  'Do miski (odhaczaj przy ważeniu)': '볼에 담기 (계량하면서 체크)',
   'Do miski na wagę': '저울 위 볼에 담기',
   'Do ostygnięcia do temp. pokojowej': '실온으로 식을 때까지',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': '예상 정점 구간까지 약 {czas} 남았어요 (구간: {okno}).',

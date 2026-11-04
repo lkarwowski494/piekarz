@@ -11,23 +11,25 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { typografia } from '../../ui/tokeny';
 import { ZRODLA_WIEDZY, ZRODLA_WIEDZY_WSTEP } from '../../core/zrodla-wiedzy';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
 
-/** Karta w Ustawieniach z wejściem na ekran źródeł. */
+/** Karta w Ustawieniach z wejściem na ekran źródeł (M3 p5: karta z ikoną, wejście jako wiersz). */
 export function ZrodlaWiedzySection({ onOtworz }: { onOtworz: () => void }) {
   return (
-    <View style={styles.card}>
-      <Text style={styles.sectionTitle} accessibilityRole="header">{t('Źródła wiedzy')}</Text>
+    <Karta testID="karta-zrodla" tytul={t('Źródła wiedzy')} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <Text style={styles.opis}>{t('Skąd pochodzą porady, liczby i ostrzeżenia w aplikacji.')}</Text>
       <Pressable
-        style={styles.linkRow}
+        style={styles.wiersz}
         onPress={onOtworz}
         accessibilityRole="button"
         accessibilityLabel={t('Zobacz źródła')}
         testID="settings-zrodla-btn"
       >
-        <Text style={styles.linkText}>{t('Zobacz źródła')}</Text>
+        <Text style={wierszUstawien.akcja}>{t('Zobacz źródła')}</Text>
       </Pressable>
-    </View>
+    </Karta>
   );
 }
 
@@ -53,6 +55,8 @@ export function ZrodlaWiedzyEkran() {
 }
 
 const styles = StyleSheet.create({
+  // Wiersz w karcie (README §2): min 52, linia nad wierszem
+  wiersz: { minHeight: 52, ...WIERSZ },
   card: {
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
@@ -90,14 +94,5 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginTop: 2,
-  },
-  linkRow: {
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  linkText: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '600',
-    color: theme.colors.akcentTekst,
   },
 });

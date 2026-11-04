@@ -1,4 +1,4 @@
-// Słownik it, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calcolata dell\'acqua supera i 45 °C. Questo rischia di cuocere i lieviti e i batteri lattici. Raffredda la farina o abbassa la temperatura ambiente.',
@@ -10,7 +10,6 @@ export const CZESC: Record<string, string> = {
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Valutazione dello sviluppo della maglia glutinica dopo l\'autolisi e le pieghe',
   'Ocena wymaga połączenia z App Store.': 'Per valutare serve una connessione all\'App Store.',
   'Ocena wypieku': 'Voto della sfornata',
-  'Ocena: {n}/5': 'Voto: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'Giudica l\'impasto dall\'aspetto, non dall\'orologio: al freddo l\'impasto lievita più a lungo, e i tempi della ricetta sono solo indicativi.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Valuta la pagnotta e salva le note nel tuo storico',
   'Oceń na {n} z 5': 'Valuta {n} su 5',
@@ -22,6 +21,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Da farina e acqua alla tua prima pagnotta, giorno dopo giorno.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Da questo giorno rinfresca il lievito madre due volte al giorno, più o meno ogni 12 ore.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Sgonfialo premendo con decisione, come durante la formatura.',
+  'Odhaczaj przy ważeniu.': 'Spunta mentre pesi.',
   'Odhaczaj składniki w miarę wsypywania': 'Spunta gli ingredienti man mano che li versi',
   'Odkryj wiedzę naukową': 'Scopri la scienza',
   'Odliczanie trwa': 'Conto alla rovescia in corso',
@@ -31,6 +31,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Scartare le modifiche?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Scarta metà del lievito madre, aggiungi farina e acqua in pari peso e lascia riposare per 24 ore.',
   'Odrzuć zmiany': 'Scarta modifiche',
+  'Wpisane zmiany nie zostaną zapisane.': 'Le modifiche inserite non verranno salvate.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lascia riposare 20 minuti prima della successiva serie standard di pieghe di rinforzo.',
   'Odznacz objawy': 'Deseleziona sintomi',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pane nutriente di farina di frumento Graham macinata grossa, con miele naturale e semi di lino.',

@@ -1,4 +1,4 @@
-// Słownik et, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Õhuke ristlõige ja kooriku pinna suur suhe massi suhtes põhjustavad intensiivset vee aurustumist.',
@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'Mida sa täna veel teed?',
   'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'vähemalt 3 tundi toatemperatuuril või 1 tund ja seejärel kõige rohkem 3 päeva külmkapis',
   'Co widzisz?': 'Mida sa näed?',
+  'Co zrobić': 'Mida teha',
   'Co zrobić przy następnym wypieku:': 'Mida teha järgmisel küpsetamisel:',
   'Co zrobić:': 'Mida teha:',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'Mida teha: toida juuretist järgmise päeva plaani järgi.',
@@ -50,7 +51,6 @@ export const CZESC: Record<string, string> = {
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Pane see külmkappi alles siis, kui see on stabiliseerunud, st 7–10 päeva pärast.',
   'Do miski': 'Kaussi',
   'Do miski (Ciasto właściwe)': 'Kaussi (põhitaigen)',
-  'Do miski (odhaczaj przy ważeniu)': 'Kaussi (märgi kaalumisel ära)',
   'Do miski na wagę': 'Kaalul olevasse kaussi',
   'Do ostygnięcia do temp. pokojowej': 'Kuni jahtub toatemperatuurini',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Hinnangulise tipuaknani on jäänud umbes {czas} (aken: {okno}).',

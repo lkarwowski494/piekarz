@@ -1,4 +1,4 @@
-// Słownik ru, część 7 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ru, część 7 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśno pachnieć.': 'К концу 5-го дня закваска должна как минимум удвоиться в объёме, быть полной пузырьков и приятно кисло пахнуть.',
@@ -57,7 +57,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Префермент (опара)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Экстренный бассинаж',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Процент дрожжей в рецептуре — это свежие дрожжи. Сухих дрожжей (инстантных или активных) отвесьте 0,4 от этой массы.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Процент дрожжей в рецептуре — это свежие дрожжи. Сухих дрожжей (инстантных или активных) отвесьте 0,35 от этой массы. Производитель на упаковке может указывать другое соотношение.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Доля муки «{name}» должна быть числом в диапазоне 0,1–100 %',
   'Profil smakowy': 'Вкусовой профиль',
   'Profil zakwasu': 'Профиль закваски',

@@ -1,4 +1,4 @@
-// Słownik hu, część 8 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hu, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.': 'A túlkelt tésztában a proteáz enzimek meggyengítették a gluténhálót, így az nem tudja megtartani a függőleges formát. A tepsi vízszintes formája megtámasztja a szerkezetet, a felgyűlt gáz pedig puha, nedves focacciabelet hoz létre.',
@@ -67,6 +67,7 @@ export const CZESC: Record<string, string> = {
   'Wstaw gotową mieszankę': 'Kész lisztkeverék',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Tedd a kosarat jól záródó zacskóban a hűtőbe (4–6 °C). A hosszú erjesztés mély aromát ad a kenyérnek.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Tedd a tésztás edényt a kikapcsolt sütőbe, és csak a lámpát kapcsold fel: bent fokozatosan melegebb lesz, de minden sütő és minden konyha más eredményt ad.',
+  'Wstecz': 'Vissza',
   'Wstrzymaj': 'Szünet',
   'Wstrzymano': 'Szüneteltetve',
   'Wsyp do miski na wagę': 'Szórd a mérlegen álló tálba',

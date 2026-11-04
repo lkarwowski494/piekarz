@@ -15,6 +15,8 @@ import { formatDzienData, formatTime } from '../../lib/format';
 import { dniPlanu } from '../../core/plany-wypiekow';
 import { addCalendarDays, startOfLocalDay } from '../../core/dzien-lokalny';
 import { przesunGotowe } from '../../lib/godzina-gotowe';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
@@ -112,14 +114,17 @@ export function TargetReadyCard({
     </View>
   );
   return (
-    <View style={styles.sekcja}>
-      <Text style={styles.pytanie} accessibilityRole="header">{t('Kiedy chleb ma być gotowy?')}</Text>
+    <>
+    {/* Karty planu (README §4, makieta wypiek.html#plan, M3 p4): „Kiedy chleb ma być gotowy?” z polem, dniami i ±2 h,
+        potem temperatura; pytanie jest nagłówkiem karty */}
+    <Karta testID="karta-gotowosci" tytul={t('Kiedy chleb ma być gotowy?')} ikona={<IkonaKarty nazwa="zegar" />}>
       {/* Pole dnia i godziny z ±30 min po bokach (jeden rząd zamiast dwóch: Spirala w pierwszym widoku); przy szerokości
           < 360 pt oba ±30 min w rzędzie dni pod polem, bo 77 + 140 + 77 pt z odstępami nie mieści się w 288 pt
           [M1-audytor-generalny-128; 04-studio-projektowe-607] */}
       <View style={styles.rzadPola}>
         {!waski && minus}
-        <View testID="plan-pole-gotowosci" style={styles.pole}>
+        {/* §7a / D-142: przy dużym tekście pole na całą szerokość rzędu (±30 min pod nim), bez limitu linii */}
+        <View testID="plan-pole-gotowosci" style={[styles.pole, zawijaj && styles.polePelne]}>
           <Text style={styles.dzien}>{formattedDayBadge}</Text>
           {/* Cyfry rosną z Dynamic Type najwyżej do tokenu AX5 (czas 56 → 99 pt); en-US „9:45 AM” przy 320 pt zmniejsza
               się w jednym wierszu zamiast łamać [M1-audytor-generalny-201; reaudit-noc N-2] */}
@@ -155,11 +160,10 @@ export function TargetReadyCard({
       ) : null}
 
       {children}
+    </Karta>
 
-      {/* Wartość przy nagłówku: domyślne 23 °C to założenie modelu bez chipa (017), więc widać, z czym liczy plan */}
-      <Text style={styles.naglowek}>
-        {t('Temperatura w kuchni:')} {formatTemperature(ambientTemp, unitSystem)}
-      </Text>
+    {/* Wartość w nagłówku karty: domyślne 23 °C to założenie modelu bez chipa (017), więc widać, z czym liczy plan */}
+    <Karta testID="karta-temperatury" tytul={`${t('Temperatura w kuchni:')} ${formatTemperature(ambientTemp, unitSystem)}`} ikona={<IkonaKarty nazwa="termometr" />}>
       <View style={styles.rzad}>
         {[20, 22, 24, 26].map((temp) => (
           <Chip key={temp} tekst={formatTemperature(temp, unitSystem)} wybrany={ambientTemp === temp} onPress={() => onAmbientTempChange(temp)} />
@@ -168,22 +172,15 @@ export function TargetReadyCard({
       <Text style={styles.przypis}>
         {t('Wpływa na tempo fermentacji burzliwej: 10 °C chłodniej to około 3 razy dłuższa fermentacja (to przybliżenie, sprawdza się w 20–26 °C).')}
       </Text>
+    </Karta>
 
-      {/* Noc po temperaturze, jak we wzorcu `plan-sen` (pole → temperatura → noc → Spirala) [M1-audytor-generalny-128] */}
-      {poTemperaturze}
-    </View>
+    {/* Noc po temperaturze, jak we wzorcu `plan-sen` (pole → temperatura → noc → Spirala) [M1-audytor-generalny-128] */}
+    {poTemperaturze}
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  sekcja: { marginBottom: odstepy.l },
-  pytanie: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.tytulKroku.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: odstepy.m,
-  },
   rzadPola: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s, marginBottom: odstepy.s },
   pole: {
     flexGrow: 1,
@@ -198,6 +195,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,
   },
+  polePelne: { flexBasis: '100%' },
   dzien: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   godzina: {
     get fontFamily() { return theme.typography.krojTytulow; },
@@ -223,7 +221,6 @@ const styles = StyleSheet.create({
   chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   chipTekstWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
   chipNieaktywny: { opacity: 0.6 }, // stan nieaktywny jak w PaywallModal: brak tokenu (zgłoszenie do roli 04)
-  naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz, marginTop: odstepy.s, marginBottom: odstepy.s },
   zmianaCzasu: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, marginBottom: odstepy.m },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
 });

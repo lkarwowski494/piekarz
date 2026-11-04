@@ -1,4 +1,4 @@
-// Słownik lv, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lv, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Oceń w App Store': 'Novērtēt App Store',
@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'No miltiem un ūdens līdz pirmajam kukulim, dienu pēc dienas.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'No šīs dienas barojiet ieraugu divreiz dienā, aptuveni ik pēc 12 stundām.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Izspiediet no tās gāzes, stipri piespiežot, kā veidojot.',
+  'Odhaczaj przy ważeniu.': 'Atzīmējiet, sverot.',
   'Odhaczaj składniki w miarę wsypywania': 'Atzīmējiet sastāvdaļas, kad tās iebērat',
   'Odkryj wiedzę naukową': 'Atklāt zinātnisko skaidrojumu',
   'Odliczanie trwa': 'Atpakaļskaitīšana notiek',
@@ -18,6 +19,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Atmest izmaiņas?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Izmetiet pusi ierauga, pievienojiet miltus un ūdeni vienādās daļās pēc svara un atstājiet uz 24 stundām.',
   'Odrzuć zmiany': 'Atmest izmaiņas',
+  'Wpisane zmiany nie zostaną zapisane.': 'Ievadītās izmaiņas netiks saglabātas.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Ļaujiet atpūsties 20 minūtes pirms nākamās standarta mīklas locīšanas.',
   'Odznacz objawy': 'Notīrīt simptomus',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Barojoša maize no rupji maltiem Grahama kviešu miltiem ar dabīgu medu un linsēklām.',
@@ -167,7 +169,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Iejava (Preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Glābšanas procedūra: novēlotā ūdens pievienošana',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Rauga procents receptūrā attiecas uz svaigo raugu. Sausā rauga (ātrā vai aktīvā) nosveriet 0,4 no šīs masas.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Rauga procents receptūrā attiecas uz svaigo raugu. Sausā rauga (ātrā vai aktīvā) nosveriet 0,35 no šīs masas. Ražotājs uz iepakojuma var norādīt citu attiecību.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Miltu „{name}” procentiem jābūt skaitlim robežās 0,1–100 %',
   'Profil smakowy': 'Garšas profils',
   'Profil zakwasu': 'Ierauga profils',

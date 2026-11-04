@@ -1,8 +1,7 @@
-// Słownik hu, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hu, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ocena wypieku': 'Sütés értékelése',
-  'Ocena: {n}/5': 'Értékelés: {n}/5',
   'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.': 'A tésztát a kinézete alapján ítéld meg, ne az óra szerint: hidegben a tészta tovább kel, a receptben szereplő idők pedig csak iránymutatók.',
   'Oceń bochenek i zapisz notatki do historii piekarskiej': 'Értékeld a cipót, és mentsd a jegyzeteidet a sütési előzményekbe',
   'Oceń na {n} z 5': 'Értékelés: {n} / 5',
@@ -14,6 +13,7 @@ export const CZESC: Record<string, string> = {
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Liszttől és víztől az első cipóig, napról napra.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Ettől a naptól etesd a kovászt naponta kétszer, nagyjából 12 óránként.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.': 'Gáztalanítsd erősen lenyomkodva, ahogy formázáskor szoktad.',
+  'Odhaczaj przy ważeniu.': 'Pipáld ki mérés közben.',
   'Odhaczaj składniki w miarę wsypywania': 'Pipáld ki a hozzávalókat, ahogy beméred őket',
   'Odkryj wiedzę naukową': 'Fedezd fel a tudományos hátteret',
   'Odliczanie trwa': 'Visszaszámlálás folyamatban',
@@ -23,6 +23,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Elveted a módosításokat?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Dobd ki a kovász felét, adj hozzá azonos tömegű lisztet és vizet, és hagyd állni 24 órán át.',
   'Odrzuć zmiany': 'Módosítások elvetése',
+  'Wpisane zmiany nie zostaną zapisane.': 'A megadott módosítások nem lesznek elmentve.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Hagyd pihenni 20 percig a következő szokásos hajtogatás előtt.',
   'Odznacz objawy': 'Tünetek törlése',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Tápláló kenyér durva őrlésű graham-lisztből (teljes kiőrlésű búzaliszt), természetes mézzel és lenmaggal.',
@@ -172,5 +173,4 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Előtészta (Preferment)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Bassinage (pótvíz) mentőeljárás',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'A receptben szereplő élesztőszázalék friss élesztőre vonatkozik. Szárított élesztőből (instant vagy aktív) ennek a mennyiségnek a 0,4-szeresét mérd ki.',
 };

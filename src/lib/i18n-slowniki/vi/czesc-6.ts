@@ -1,4 +1,4 @@
-// Słownik vi, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik vi, część 6 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Pokaż jeszcze {n} w arkuszu dnia': 'Hiện thêm {n} mục trong bảng ngày',
@@ -48,7 +48,7 @@ export const CZESC: Record<string, string> = {
   'Preferment (Zaczyn)': 'Bột ủ trước (bột men)',
   'Pro': 'Pro',
   'Procedura Bassinage ratunkowego': 'Quy trình Bổ sung nước sau cứu bột',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.': 'Tỷ lệ men trong công thức là men tươi. Với men khô (men instant hoặc men hoạt tính), bạn cân 0,4 lần khối lượng đó.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.': 'Tỷ lệ men trong công thức là men tươi. Với men khô (men instant hoặc men hoạt tính), bạn cân 0,35 lần khối lượng đó. Nhà sản xuất có thể ghi tỷ lệ khác trên bao bì.',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Tỷ lệ bột “{name}” phải là số trong khoảng 0,1–100%',
   'Profil smakowy': 'Hương vị',
   'Profil zakwasu': 'Hồ sơ men tự nhiên',
@@ -126,6 +126,11 @@ export const CZESC: Record<string, string> = {
   'Receptura „{nazwa}” jest w Moich recepturach.': 'Công thức “{nazwa}” đã có trong Công thức của tôi.',
   'Receptura awaryjna:': 'Công thức dự phòng:',
   'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.': 'Công thức gốc đã thay đổi kể từ mẻ bánh đó: giờ có nhiều men hơn.',
+  'Receptura bazowa, na drożdżach': 'Công thức gốc, dùng men',
+  'Receptura bazowa, na zakwasie': 'Công thức gốc, men tự nhiên',
+  'Receptura bazowa, pizza': 'Công thức gốc, pizza',
+  'Receptura bazowa, słodka': 'Công thức gốc, vị ngọt',
+  'Receptura bazowa, żytnia': 'Công thức gốc, lúa mạch đen',
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Công thức phải có tên (1-120 ký tự)',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Công thức phải có ít nhất một loại bột',
   'Receptura z pliku': 'Công thức từ tệp',

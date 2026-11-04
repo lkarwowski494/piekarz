@@ -9,7 +9,7 @@
       "ratan": "#9C6B2F", "ratanSzary": "#8A8273", "nocDane": "#1E4954",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#1C1D1B",
       "blad": "#B3261E", "zablokowane": "#62645E",
-      "pas": "#1E4954", "naPasie": "#FFFFFF", "naPasie2": "#C8D8DC", "ratanNaPasie": "#D9AE72"
+      "pas": "#1E4954", "naPasie": "#FFFFFF", "naPasie2": "#C8D8DC", "ratanNaPasie": "#D9AE72", "kartaLinia": "#E2E2DC"
     },
     "ciemny": {
       "tlo": "#141A1C", "tloGrupa": "#0E1315", "powierzchnia": "#1F2729",
@@ -19,7 +19,7 @@
       "ratan": "#D3A464", "ratanSzary": "#7D7466", "nocDane": "#8FB9C4",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#1C1D1B",
       "blad": "#FF8A80", "zablokowane": "#9AA09A",
-      "pas": "#1D3B43", "naPasie": "#F1F1EC", "naPasie2": "#BFD0D4", "ratanNaPasie": "#D3A464"
+      "pas": "#1D3B43", "naPasie": "#F1F1EC", "naPasie2": "#BFD0D4", "ratanNaPasie": "#D3A464", "kartaLinia": "#1F2729"
     },
     "jasnyKontrast": {
       "tlo": "#FFFFFF", "tloGrupa": "#F0F0EC", "powierzchnia": "#FFFFFF",
@@ -29,7 +29,7 @@
       "ratan": "#6E4A1F", "ratanSzary": "#7C7568", "nocDane": "#12323A",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
       "blad": "#8C1D18", "zablokowane": "#3E403B",
-      "pas": "#12323A", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E"
+      "pas": "#12323A", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E", "kartaLinia": "#8A8B84"
     },
     "ciemnyKontrast": {
       "tlo": "#000000", "tloGrupa": "#000000", "powierzchnia": "#161C1E",
@@ -39,7 +39,7 @@
       "ratan": "#E8C38E", "ratanSzary": "#837C6D", "nocDane": "#B5D6DE",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
       "blad": "#FFB4AB", "zablokowane": "#C4C8C2",
-      "pas": "#0F2A31", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E"
+      "pas": "#0F2A31", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E", "kartaLinia": "#7C878A"
     }
   },
   "pary": [
@@ -100,7 +100,7 @@
   "odstepy": { "xs": 4, "s": 8, "m": 12, "l": 16, "xl": 20, "xxl": 24, "xxxl": 32 },
   "promienie": {
     "_zasada": "hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe",
-    "pas": 26, "przyciskGlowny": 18, "chip": 22, "przycisk": 14, "grupa": 12, "ostrzezenie": 12, "znacznik": 6, "pole": 10
+    "pas": 26, "przyciskGlowny": 18, "chip": 22, "przycisk": 14, "grupa": 12, "ostrzezenie": 12, "znacznik": 6, "pole": 10, "karta": 16
   },
   "cele": { "glownyPrzeplyw": 48, "pozostale": 44, "przyciskKciuka": 64, "_zrodlo": "DEC-15 a, NFR-INT-001" },
   "ruch": {

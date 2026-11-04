@@ -1,4 +1,4 @@
-// Słownik sr, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik sr, część 3 z 13. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Drożdżowy': 'Са квасцем',
@@ -118,6 +118,7 @@ export const CZESC: Record<string, string> = {
   'hydratacji': 'хидратације',
   'i jeszcze {n}, szczegóły w arkuszu dnia': 'и још {n}, детаљи у прегледу дана',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеална основа за одржавање матичног стартера. Богато дивљим квасцима и бактеријама млечне киселине.',
+  'Ile pieczesz': 'Колико печеш',
   'Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.': 'Колико ражи мора да има хлеб да би се звао ражаним или ражано-пшеничним.',
   'Ilości do dokarmienia': 'Количине за храњење',
   'Ilości i temperatura wody': 'Количине и температура воде',
@@ -142,7 +143,6 @@ export const CZESC: Record<string, string> = {
   'Jaskinie (Niedofermentowany)': 'Шупљине (Недоферментисан)',
   'Jedna opłata, bez odnawiania.': 'Једна уплата, без обнављања.',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Једнолично густа и тешка средина (без ваздуха)',
-  'Jednostki': 'Јединице',
   'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': 'Ако тек после првог нарастања приметиш да нема соли, додавање соли неће помоћи, а поновно месење може трајно да упропасти тесто: испеци хлеб без соли или од теста направи подлогу за пицу.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': 'Ако спасаваш тесто, извади га из корпе или посуде.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.': 'Ако нема соли, отвори протокол „Заборављена со“.',

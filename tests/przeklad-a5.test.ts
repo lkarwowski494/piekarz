@@ -69,7 +69,7 @@ const KLUCZE_A5 = [
   'Drożdże do odważenia',
   'świeże|drożdże',
   'suche|drożdże',
-  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.',
   'Pizza w stylu neapolitańskim',
   'Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.',
   'Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
