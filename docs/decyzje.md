@@ -1267,3 +1267,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Etykieta powrotu w łatce:** ikona z etykietą VoiceOver „Wstecz” jak Doktor Chleba (D-197); odrzucona „Zakwasy” jako tekst — poprzedni ekran pokazuje na pasie nazwę zakwasu, nie „Zakwasy”.
 - **Zależy od:** D-219.
 - **Status:** dzień, do weta.
+
+### [D-223] 2026-11-04 — p7b: wykonanie 04-005 po D-227 — Doktor zakwasu z pasem O3a, wpis w EKRANY testu czapki (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 po zgodzie koordynatora M3 (D-227, wiadomość sesji koordynatora 2026-11-04 ok. 05:19 UTC; nie właściciel, do weta) na opcję (a) z D-222.
+- **Wykonanie:** `app/(tabs)/zakwasy/_layout.tsx` — `doktor-zakwasu` z `headerShown: false`; `doktor-zakwasu.tsx` — `EkranZPasem` z `PasZakladki` (tytuł „Doktor zakwasu” nagłówkiem VoiceOver, powrót ikoną z etykietą „Wstecz”, jak Doktor Chleba), czapka paska stanu, jasny pasek stanu; treść i logika bez zmian.
+- **Testy:** `src/__tests__/pas-zakladek-d10.test.tsx` — asercja nagłówka Doktora zakwasu odwrócona na `headerShown: false` (zgoda D-219) i nowy test ekranu (pas, powrót, cel 44 pt, czapka, kolejność tytuł → objawy); `src/__tests__/czapka-ekranow-p7.test.tsx` — wpis w `EKRANY` i import (D-227). Czerwień przed łatką ekranu: 2 asercje (lista plików z pasem bez Doktora zakwasu; brak pasa i czapki).
+- **Zależy od:** D-219, D-222, D-227.
+- **Status:** dzień, do weta.

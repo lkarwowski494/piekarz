@@ -8,8 +8,11 @@
 // ============================================================================
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { t } from '../../../src/lib/i18n';
 import { getStarters } from '../../../src/data/sqlite-store';
 import { setupDay } from '../../../src/core/starter-log';
@@ -41,6 +44,10 @@ export default function DoktorZakwasuScreen() {
   const [objawy, setObjawy] = useState<StarterSymptom[]>([]);
   const { blokada, chron, moze } = useAppAccess();
   const odblokowany = moze('doktor');
+  // Pas O3a zamiast nagłówka stosu (04-005, D-219; jak Doktor Chleba, D-197): jasny pasek stanu nad pasem
+  const router = useRouter();
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
   useEffect(() => {
     void getStarters().then((lista) => {
@@ -67,7 +74,13 @@ export default function DoktorZakwasuScreen() {
     );
 
   return (
-    <ScrollView contentContainerStyle={styles.ekran} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" style={styles.tlo}>
+    <SafeAreaView style={styles.tlo} edges={['left', 'right']}>
+      {/* Tytuł na pasie (nagłówek VoiceOver), powrót ikoną z etykietą jak w Doktorze Chleba; czapka paska stanu z EkranZPasem */}
+      <EkranZPasem gora={gora} tytul={t('Doktor zakwasu')} contentContainerStyle={styles.ekran} pas={(onLayout) => (
+        <View style={styles.pas}>
+          <PasZakladki gora={gora} tytul={t('Doktor zakwasu')} wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout} />
+        </View>
+      )}>
       <Karta testID="karta-objawy" tytul={t('Co widzisz?')} ikona={<IkonaKarty nazwa="sloik" />}>
         {dzien !== null && <Text style={styles.tresc}>{t('Dzień {n}', { n: dzien })}</Text>}
         {odblokowany ? (
@@ -91,12 +104,15 @@ export default function DoktorZakwasuScreen() {
           </Karta>
         </View>
       )}
-    </ScrollView>
+      </EkranZPasem>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  tlo: { backgroundColor: theme.colors.tlo },
+  tlo: { flex: 1, backgroundColor: theme.colors.tlo },
+  // Pas na pełną szerokość i do samej góry mimo wcięcia treści (jak Doktor Chleba)
+  pas: { marginHorizontal: -odstepy.l, marginTop: -odstepy.l },
   ekran: { gap: odstepy.m, padding: odstepy.l, paddingBottom: odstepy.xxxl },
   // Podnagłówek w karcie mniejszy niż nagłówek karty (20 pt) [M3 p2]
   naglowek: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },

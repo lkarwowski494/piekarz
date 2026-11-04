@@ -46,6 +46,7 @@ import RecepturyLista from '../../app/(tabs)/receptury/index';
 import EkranReceptury from '../../app/(tabs)/receptury/receptura';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
+import DoktorZakwasuScreen from '../../app/(tabs)/zakwasy/doktor-zakwasu';
 import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import DoctorScreen from '../../app/doktor';
 import StolnicaScreen from '../../app/stolnica';
@@ -101,6 +102,8 @@ const EKRANY: Record<string, () => React.ReactElement> = {
   },
   'app/(tabs)/receptury/index.tsx': () => <RecepturyLista />,
   'app/(tabs)/receptury/receptura.tsx': () => <EkranReceptury />,
+  // Doktor zakwasu z pasem O3a od M3 p7b (04-005, D-219, D-227)
+  'app/(tabs)/zakwasy/doktor-zakwasu.tsx': () => <DoktorZakwasuScreen />,
   'app/(tabs)/zakwasy/index.tsx': () => <ZakwasScreen />,
   'app/doktor.tsx': () => <DoctorScreen />,
   'src/components/PaywallModal.tsx': () => <PaywallModal visible onClose={() => undefined} onSubscribe={() => undefined} onRestore={() => false} />,
