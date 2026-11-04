@@ -23,6 +23,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Elveted a módosításokat?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Dobd ki a kovász felét, adj hozzá azonos tömegű lisztet és vizet, és hagyd állni 24 órán át.',
   'Odrzuć zmiany': 'Módosítások elvetése',
+  'Wpisane zmiany nie zostaną zapisane.': 'A megadott módosítások nem lesznek elmentve.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Hagyd pihenni 20 percig a következő szokásos hajtogatás előtt.',
   'Odznacz objawy': 'Tünetek törlése',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Tápláló kenyér durva őrlésű graham-lisztből (teljes kiőrlésű búzaliszt), természetes mézzel és lenmaggal.',

@@ -175,6 +175,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Loobuda muudatustest?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Viska pool juuretisest ära, lisa jahu ja vett võrdses kaalukoguses ning jäta 24 tunniks seisma.',
   'Odrzuć zmiany': 'Loobu muudatustest',
+  'Wpisane zmiany nie zostaną zapisane.': 'Sisestatud muudatusi ei salvestata.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lase 20 minutit puhata enne järgmist tavalist voltimist.',
   'Odznacz objawy': 'Tühjenda sümptomid',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Toitev leib jämedalt jahvatatud Graham-nisujahust, millele on lisatud naturaalset mett ja linaseemneid.',

@@ -22,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Änderungen verwerfen?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Wirf die Hälfte des Sauerteigs weg, gib Mehl und Wasser in gleichen Gewichtsmengen dazu und lass ihn 24 Stunden stehen.',
   'Odrzuć zmiany': 'Änderungen verwerfen',
+  'Wpisane zmiany nie zostaną zapisane.': 'Die eingegebenen Änderungen werden nicht gespeichert.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lass ihn 20 Minuten ruhen, bevor du wie gewohnt weiter dehnst und faltest.',
   'Odznacz objawy': 'Symptome abwählen',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Nahrhaftes Brot aus grob gemahlenem Weizen-Grahammehl mit natürlichem Honig und Leinsamen.',

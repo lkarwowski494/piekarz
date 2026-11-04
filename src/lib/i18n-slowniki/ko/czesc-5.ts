@@ -42,6 +42,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '변경 사항을 버릴까요?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': '사워도우 스타터의 절반을 덜어 내고, 가루와 물을 같은 무게로 넣은 뒤 24시간 두세요.',
   'Odrzuć zmiany': '변경 사항 버리기',
+  'Wpisane zmiany nie zostaną zapisane.': '입력한 변경 사항은 저장되지 않아요.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '다음 일반 늘려접기 전에 20분간 휴지하세요.',
   'Odznacz objawy': '증상 선택 해제',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '굵게 간 그레이엄 밀가루(전립분)에 천연 꿀과 아마씨를 더한 영양 많은 빵.',

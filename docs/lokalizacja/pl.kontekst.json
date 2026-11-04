@@ -7539,6 +7539,12 @@
       "src/lib/doctor-suggestion.ts (Alert.alert)"
     ]
   },
+  "Wpisane zmiany nie zostaną zapisane.": {
+    "gdzie": [
+      "src/components/arkusz/ArkuszKart.tsx (kod)"
+    ],
+    "opis": "Treść komunikatu systemowego (Alert) pod tytułem „Odrzucić zmiany?” przy zamknięciu zmienionego formularza w arkuszu (Anuluj albo przesunięcie w dół); przyciski „Wróć do edycji” i „Odrzuć zmiany”. Mówi, że to, co użytkownik wpisał, przepadnie; jedno zdanie, ok. 36 znaków, zawija się w oknie systemowym (04-007, D-217)."
+  },
   "Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.": {
     "gdzie": [
       "src/lib/confirm.ts (message)"

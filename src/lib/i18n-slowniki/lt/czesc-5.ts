@@ -22,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Atmesti pakeitimus?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Išmeskite pusę raugo, įberkite miltų ir įpilkite vandens lygiais kiekiais pagal svorį ir palikite 24 valandoms.',
   'Odrzuć zmiany': 'Atmesti pakeitimus',
+  'Wpisane zmiany nie zostaną zapisane.': 'Įvesti pakeitimai nebus išsaugoti.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Prieš kitą įprastą lankstymą palikite pailsėti 20 minučių.',
   'Odznacz objawy': 'Atžymėti simptomus',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Maistinga duona iš stambiai maltų kvietinių Graham miltų su natūraliu medumi ir sėmenimis.',

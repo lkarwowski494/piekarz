@@ -71,6 +71,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Απόρριψη αλλαγών;',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Αφαιρέστε το μισό προζύμι, προσθέστε αλεύρι και νερό σε ίσες ποσότητες κατά βάρος και αφήστε το για 24 ώρες.',
   'Odrzuć zmiany': 'Απόρριψη αλλαγών',
+  'Wpisane zmiany nie zostaną zapisane.': 'Οι αλλαγές που καταχωρίσατε δεν θα αποθηκευτούν.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Αφήστε τη να ξεκουραστεί 20 λεπτά πριν από το επόμενο κανονικό δίπλωμα.',
   'Odznacz objawy': 'Αποεπιλογή συμπτωμάτων',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Θρεπτικό ψωμί από χοντροαλεσμένο αλεύρι σίτου Graham, με φυσικό μέλι και λιναρόσπορο.',

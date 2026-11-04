@@ -26,6 +26,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Renunți la modificări?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Aruncă jumătate din maia, adaugă făină și apă în cantități egale ca greutate și las-o 24 de ore.',
   'Odrzuć zmiany': 'Renunță la modificări',
+  'Wpisane zmiany nie zostaną zapisane.': 'Modificările introduse nu vor fi salvate.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lasă-l să se odihnească 20 de minute înainte de următoarea împăturire obișnuită.',
   'Odznacz objawy': 'Debifează simptomele',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pâine hrănitoare din făină de grâu Graham, măcinată grosier, cu miere naturală și semințe de in.',

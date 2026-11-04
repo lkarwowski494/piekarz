@@ -60,6 +60,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Bỏ thay đổi?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Bỏ một nửa men tự nhiên, thêm bột và nước với khối lượng bằng nhau rồi để trong 24 giờ.',
   'Odrzuć zmiany': 'Bỏ thay đổi',
+  'Wpisane zmiany nie zostaną zapisane.': 'Các thay đổi bạn đã nhập sẽ không được lưu.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Để nghỉ 20 phút trước lần gấp bột tiêu chuẩn tiếp theo.',
   'Odznacz objawy': 'Bỏ chọn triệu chứng',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Bánh mì bổ dưỡng từ bột mì Graham xay thô (nguyên cám), thêm mật ong tự nhiên và hạt lanh.',

@@ -70,6 +70,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '変更を破棄しますか？',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'サワー種の半分を捨て、粉と水を同じ重量ずつ加えて24時間置いてください。',
   'Odrzuć zmiany': '変更を破棄',
+  'Wpisane zmiany nie zostaną zapisane.': '入力した変更は保存されません。',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '次の通常のパンチ / 折りたたみの前に20分休ませてください。',
   'Odznacz objawy': '症状の選択を解除',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '粗挽きのグラハム粉（小麦の全粒粉）に天然のはちみつと亜麻仁を加えた、栄養豊富なパン。',

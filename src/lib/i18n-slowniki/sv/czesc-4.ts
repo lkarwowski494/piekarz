@@ -178,6 +178,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Kasta ändringarna?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Kasta hälften av surdegsgrunden, tillsätt mjöl och vatten i lika vikt och låt stå i 24 timmar.',
   'Odrzuć zmiany': 'Kasta ändringar',
+  'Wpisane zmiany nie zostaną zapisane.': 'De ändringar du har skrivit in sparas inte.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Låt vila i 20 minuter före nästa vanliga vikning.',
   'Odznacz objawy': 'Avmarkera symtom',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Näringsrikt bröd av grovmalet grahamsmjöl med naturlig honung och linfrö.',

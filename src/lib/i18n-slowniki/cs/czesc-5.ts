@@ -5,6 +5,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Zahodit změny?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Odeberte polovinu kvásku, přidejte mouku a vodu ve stejném hmotnostním množství a nechte 24 hodin stát.',
   'Odrzuć zmiany': 'Zahodit změny',
+  'Wpisane zmiany nie zostaną zapisane.': 'Zadané změny nebudou uloženy.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Před dalším běžným přeložením nechte 20 minut odpočinout.',
   'Odznacz objawy': 'Odznačit příznaky',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Výživný chléb z hrubě mleté pšeničné grahamové mouky s přídavkem přírodního medu a lněného semínka.',

@@ -176,6 +176,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Želite zavreči spremembe?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Zavrzite polovico kvasa, dodajte moko in vodo v enakih količinah po teži in pustite stati 24 ur.',
   'Odrzuć zmiany': 'Zavrzi spremembe',
+  'Wpisane zmiany nie zostaną zapisane.': 'Vnesene spremembe ne bodo shranjene.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Pred naslednjim običajnim prepogibanjem pustite testo počivati 20 minut.',
   'Odznacz objawy': 'Odznači simptome',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Hranljiv kruh iz grobo mlete pšenične moke graham z dodatkom naravnega medu in lanenega semena.',
