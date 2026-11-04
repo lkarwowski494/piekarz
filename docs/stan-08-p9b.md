@@ -48,3 +48,26 @@ Ekrany p9b-1b na urządzeniu (zrzuty, VoiceOver, AX5); migracja na iOS (expo-sql
 
 ## p9b-1c (sesja 3, D-258)
 Rola 08 wdrozyla D-256 dla rye_100_pan na drozdzach: rosniecie wg ZYT-ETA-005 bez testu palca, studzenie 1440 min (KRO-POC-016), pieczenie 240/220 C 10+35 min takze w "O recepturze". Dowody: docs/p9b-dowody/czerwien-d256-zyto-drozdze.log, verify-p9b-1c.log, jest-p9b-1c.log. Czerwone: tylko check-i18n (przeklad kluczy z 1b/06d, rola 09).
+
+## p9b-2 (sesja 4, tryb maszyny F-72, D-138) — gałąź `wip/08-p9b2-maszyna-2026-11-04` od `4869d682`
+| Commit | Co |
+|---|---|
+| `04e6e808` | `bakes.bake_method` w migracji v7 (D-260): metoda z trybu sesji do wpisu, UPSERT z COALESCE, kopia jawnie (także null), import starej kopii zostawia wartość z telefonu |
+| `d937a314` | struktura: `WSP_SWIEZE_NA_SUCHE` (RD-19) w `domain-rules.ts` |
+| `92829a62` | logika: `src/core/maszyna.ts` (RD-37, RD-38, RD-39, kolejność BR-MASZ-003, start programu BR-MASZ-005), `src/recipes/maszyna-receptur.ts` (dostępność, wersja drożdżowa, dodatki z notatek; D-261) |
+| `208c4758` | `domain-rules.ts` w limicie 20 480 B (verify-p9b2-2 miał kod 1 tylko przez check:size) |
+| `1021d86a` | struktura: `SegmentOpcji` (wspólny segment wersji i trybu) |
+| `ded2572c` | `zapiszMaszyne`: nieczytelna wartość do pliku ratunkowego przed nadpisaniem |
+| `9efd5d19` | ekran: segment w „Ile pieczesz”, karty „Pojemność maszyny”, „Kolejność wkładania”, „Program i godzina”, ostrzeżenie, „Zapisz plan” (D-262, D-263); EN `czesc-29.ts`; br-wyjatki BR-MASZ |
+| `6a26a4dc` | bramki: pola dotyku, fontSize z tokenu, „Zapisz plan” w słowniku §5 |
+
+Testy (czerwone przed kodem, `docs/p9b-dowody/czerwien-p9b2-*.log`): `p9b2-metoda-wypieku.sqlite` (8; 7 czerwonych, test wycofania zielony od początku — charakteryzujący), `maszyna-rd37-39` (41 z wektorami brd.json; przy zaślepce 33/40 czerwonych, 7 zgodnych przypadkiem z najprostszym wynikiem), `maszyna-receptur-p9b2` (9; 7/9), `p9b2-dane-maszyny.sqlite` (2; 1/2), `plan-maszyny-p9b2` (3; isDutchOvenStep czerwony), `receptura-maszyna-p9b2` (11; 1 na asercji, 10 na braku przycisku segmentu), `maszyna-teksty-p9b2` (2, pokrycie macierzy TEKST). Istniejące testy bez zmian.
+Verify: `jest-p9b2-5.log` 5963/5966 — czerwone tylko `check-i18n` (2: 56 nowych kluczy PL × 33 języki, 1848 braków) i `zrodla-katalogu-06z` (maszyna.md w kodzie; domeny: dam.groupeseb.com, bilder.quelle.de, cdn.shopify.com, images.homedepot-static.com, dls.delonghigroup.com); `verify-p9b2-5-bramki.log`: typecheck, licencje, rozmiar, lint, natywne, macierz 1615/1615 — kod 0.
+
+### Zostało po p9b-2
+1. Rola 09: 56 kluczy (`src/lib/i18n-en/czesc-29.ts`) × 33 języki. Rola 06: 5 domen na „Źródła wiedzy” i zdjęcie `maszyna.md` z `CZEKAJA_NA_WPIECIE`; potwierdzenie `DODATKI_MASZYNY` (D-261); przegląd zdań machine.safety przez właściciela (D-177).
+2. Rola 04: makieta formularza granic, karta „Pojemność maszyny”, „Gotowe o” w maszynie, nowe etykiety z D-262, wiersz „Zapisz plan” w §5; zrzuty (brak Expo web): `receptura-maszyna-dane`, `receptura-maszyna-lista`, `receptura-maszyna-chalka-blokada`, `receptura-maszyna-graham`, `receptura-maszyna-bez-pro` — jasny i ciemny, 320 pt i AX5.
+3. OP-65 (co wpisać w maszynie jako opóźnienie), OP-66, OP-67, OP-73 otwarte; metoda wypieku nie jest jeszcze pokazana w Dzienniku (dane są); tryb dla własnych receptur wymaga dodatków w formule (rola 05/03).
+
+### Nie sprawdzono
+Ekrany na urządzeniu (zrzuty, VoiceOver, AX5, 320 pt), migracja v7 na iOS (expo-sqlite natywne), E2E iOS, prawdziwa baza z telefonu.
