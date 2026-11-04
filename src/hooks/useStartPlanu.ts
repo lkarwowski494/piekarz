@@ -63,6 +63,8 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
       ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       // Id receptury w sesji, przy końcu w bakes.recipe_id: „Piecz ponownie” po id (D-10, D1-7) [M3 D3a]
       ...(receptura?.recipeId !== undefined ? { recipeId: receptura.recipeId } : {}),
+      // Wersja receptury z przełącznikiem (D-242 Z2): prowadzenie i wpis Dziennika (bakes.leaven, Z3) [M3 p9b]
+      ...(receptura?.wersja !== undefined ? { wersja: receptura.wersja } : {}),
     };
   };
 

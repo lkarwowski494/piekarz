@@ -54,10 +54,25 @@ export function wersjaDrozdzowa(recipeId: string | undefined): WersjaDrozdzowa |
 }
 
 /**
+ * Wersja do „Piecz ponownie” z wpisu Dziennika (bakes.leaven, D-242 Z3): tylko dla receptury z przełącznikiem;
+ * wpis bez wersji (NULL, sprzed p9) albo receptura bez przełącznika = brak (bez zgadywania) [M3 p9b].
+ */
+export function wersjaZWpisu(leaven: 'sourdough' | 'yeast' | null | undefined, recipeId: string | undefined): WersjaWypieku | undefined {
+  if (!wersjaDrozdzowa(recipeId)) return undefined;
+  if (leaven === 'yeast') return 'drozdze';
+  if (leaven === 'sourdough') return 'zakwas';
+  return undefined;
+}
+
+/**
  * Formuła wybranej wersji: „na drożdżach” = bez zakwasu, drożdże świeże wersji (oraz woda i sól, jeśli treść je podaje);
  * „na zakwasie” albo receptura bez wersji drożdżowej = formuła receptury bez zmian.
  */
-export function formulaWersji(formula: DoughRecipeInput, recipeId: string | undefined, wersja: WersjaWypieku): DoughRecipeInput {
+export function formulaWersji<F extends Pick<DoughRecipeInput, 'starterPercentage' | 'waterPercentage' | 'saltPercentage' | 'extraYeastPercentage'>>(
+  formula: F,
+  recipeId: string | undefined,
+  wersja: WersjaWypieku,
+): F {
   const w = wersjaDrozdzowa(recipeId);
   if (wersja !== 'drozdze' || !w) return formula;
   return {

@@ -67,7 +67,7 @@ function krokiBezCzasu(recipeId: string): Krok[] | null {
       id: 'yeast_bake', name: 'Pieczenie', category: 'bake', isPassive: true, rekaNaStarcie: true, instructions: '',
       durationMin: c.pieczenieMin ?? receptura.bakeTimeSteamMinutes + receptura.bakeTimeBrowningMinutes,
     },
-    { id: 'cool', name: studzenie.namePl, category: 'cool', durationMin: studzenie.durationMinutes, isPassive: true, instructions: studzenie.instructionsPl },
+    { id: 'yeast_cool', name: studzenie.namePl, category: 'cool', durationMin: studzenie.durationMinutes, isPassive: true, instructions: studzenie.instructionsPl },
   ];
   return kroki.filter((k): k is Krok => k !== null);
 }

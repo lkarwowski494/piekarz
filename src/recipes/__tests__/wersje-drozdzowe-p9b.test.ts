@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { MASTER_RECIPES } from '../presets';
 import { CATALOG_RECIPES } from '../katalog';
-import { WERSJE_DROZDZOWE, wersjaDrozdzowa, formulaWersji } from '../wersje-drozdzowe';
+import { WERSJE_DROZDZOWE, wersjaDrozdzowa, formulaWersji, wersjaZWpisu } from '../wersje-drozdzowe';
 
 const preset = (id: string) => MASTER_RECIPES.find((r) => r.id === id)!;
 const tresc = readFileSync(join(__dirname, '../../../docs/tresci/pl/wersje-drozdzowe.md'), 'utf8');
@@ -39,5 +39,14 @@ describe('D-154/D-173 wersje drożdżowe receptur', () => {
     for (const id of Object.keys(WERSJE_DROZDZOWE)) {
       expect(wersjaDrozdzowa(id)?.notesPl).toBe(akapit(id));
     }
+  });
+
+  it('wersjaZWpisu: wersja z bakes.leaven tylko dla receptury z przełącznikiem; NULL zostaje brakiem', () => {
+    expect(wersjaZWpisu('yeast', 'graham_bread_honey')).toBe('drozdze');
+    expect(wersjaZWpisu('sourdough', 'graham_bread_honey')).toBe('zakwas');
+    expect(wersjaZWpisu(null, 'graham_bread_honey')).toBeUndefined();
+    expect(wersjaZWpisu(undefined, 'graham_bread_honey')).toBeUndefined();
+    expect(wersjaZWpisu('yeast', 'country_loaf_72')).toBeUndefined();
+    expect(wersjaZWpisu('yeast', undefined)).toBeUndefined();
   });
 });

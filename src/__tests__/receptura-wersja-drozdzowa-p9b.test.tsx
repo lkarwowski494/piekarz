@@ -33,7 +33,7 @@ import { clearPendingRecipeToLoad, setPendingRecipeToLoad } from '../lib/recipe-
 import { ustawRecepturePlanu, recepturaPlanu } from '../lib/plan-receptury';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
-import { setLang } from '../lib/i18n';
+import { setLang, t } from '../lib/i18n';
 
 jest.setTimeout(20000);
 
@@ -94,6 +94,12 @@ describe('D-154 przełącznik wersji na recepturze', () => {
     expect(host(root, 'recipe-version')).toHaveLength(1);
     expect(host(root, 'recipe-version-sourdough')[0].props.accessibilityState).toMatchObject({ checked: true });
     expect(host(root, 'recipe-version-yeast')[0].props.accessibilityState).toMatchObject({ checked: false });
+    // Etykiety: radiogroup „Wersja receptury”, opcje bez dopisku kontekstu klucza (PL i EN)
+    expect(host(root, 'recipe-version')[0].props.accessibilityLabel).toBe(t('Wersja receptury'));
+    expect(tekst(host(root, 'recipe-version')[0])).toBe('na zakwasie na drożdżach');
+    expect([t('na zakwasie|wersja receptury'), t('na drożdżach|wersja receptury')]).toEqual(['na zakwasie', 'na drożdżach']);
+    setLang('en');
+    expect([t('Wersja receptury'), t('na zakwasie|wersja receptury'), t('na drożdżach|wersja receptury')]).toEqual(['Recipe version', 'sourdough', 'with yeast']);
   });
 
   it('„na drożdżach”: formuła wersji, wskazówki wersji, zapis wyboru i plan z wersją', async () => {
