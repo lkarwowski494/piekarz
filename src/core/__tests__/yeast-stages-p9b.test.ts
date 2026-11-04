@@ -16,7 +16,7 @@ describe('D-155 kroki planu wersji drożdżowej', () => {
 
   it('żyto 100%: 60 min odpoczynku, kęsy formowane ręcznie (bez odgazowania), 60 min w formie, pieczenie 10 + 35 min ze źródła', () => {
     expect(min(krokiDrozdzowe('rye_100_pan', START))).toEqual([
-      ['mix', 15], ['bulk_ferment', 60], ['final_shape', 15], ['final_proof', 60], ['bake', 45], ['cool', 120],
+      ['mix', 15], ['bulk_ferment', 60], ['final_shape', 15], ['final_proof', 60], ['bake', 45], ['cool', 1440],
     ]);
   });
 
@@ -45,8 +45,8 @@ describe('D-155 kroki planu wersji drożdżowej', () => {
       });
       expect(new Set(k.map((s) => s.id)).size).toBe(k.length);
       expect(k.some((s) => isDutchOvenStep(s))).toBe(false);
-      // Drugie rośnięcie ocenia test palca (DRO-MOD-013)
-      expect(k.filter((s) => showsPokeTestEntry(s)).map((s) => s.category)).toEqual(['final_proof']);
+      // Drugie rośnięcie ocenia test palca (DRO-MOD-013) — tylko ciasto pszenne; żyto: D-256 (ZYT-ETA-005)
+      expect(k.filter((s) => showsPokeTestEntry(s)).map((s) => s.category)).toEqual(id === 'rye_100_pan' ? [] : ['final_proof']);
     }
   });
 
@@ -54,7 +54,7 @@ describe('D-155 kroki planu wersji drożdżowej', () => {
     const cel = START + 10 * 3_600_000;
     const k = krokiDrozdzoweKonczaceSie('rye_100_pan', cel)!;
     expect(k[k.length - 1].plannedEnd).toBe(cel);
-    expect(k[0].plannedStart).toBe(cel - (15 + 60 + 15 + 60 + 45 + 120) * 60_000);
+    expect(k[0].plannedStart).toBe(cel - (15 + 60 + 15 + 60 + 45 + 1440) * 60_000);
     expect(krokiDrozdzoweKonczaceSie('spelt_ancient_seeded', cel)).toBeNull();
   });
 });

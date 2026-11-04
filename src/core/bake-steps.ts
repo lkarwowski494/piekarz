@@ -11,7 +11,7 @@ import {
   StageCategory,
   StageTemplate,
 } from '../scheduler/reverse-scheduler';
-import { RYE_STAGE_TEMPLATES } from './rye-stages';
+import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from './rye-stages';
 
 /** Migawka etapu planu zapisana w sesji wypieku; nazwa i instrukcja to klucze PL dla t(). */
 export interface SessionStep {
@@ -52,8 +52,11 @@ export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boo
  * [M1-audytor-generalny-032]. Chleb żytni rośnie w formie i ma własny opis gotowości (ZYT-ETA-001),
  * więc jego garowanie nie dostaje testu palca z koszyka.
  */
-export function showsPokeTestEntry(step: Pick<SessionStep, 'id' | 'category'>): boolean {
-  return step.category === 'final_proof' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id);
+export function showsPokeTestEntry(step: Pick<SessionStep, 'id' | 'category'> & { instructions?: string }): boolean {
+  const zyto = RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID);
+  // Żyto na drożdżach (`yeast_proof`) ma ten sam opis gotowości co etap żytni (ZYT-ETA-005, D-256)
+  const opisZytni = step.instructions !== undefined && step.instructions === zyto?.instructionsPl;
+  return step.category === 'final_proof' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !opisZytni;
 }
 
 /** Etapy planu jako kroki Stolnicy: ta sama kolejność, id, nazwy i czasy. */

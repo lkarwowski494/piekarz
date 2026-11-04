@@ -42,6 +42,7 @@ import { formulaWersji, wersjaDrozdzowa } from '../../../src/recipes/wersje-droz
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
+import { pieczenieDrozdzowe } from '../../../src/core/yeast-stages';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
 import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
@@ -295,7 +296,7 @@ export default function EkranReceptury() {
               prefermentBreakdown={prefermentBreakdown}
             />
           </BlokadaFunkcji>
-          {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} wskazowki={wersja === 'drozdze' ? wersjaDrozdzowa(selectedPresetId)?.notesPl : undefined} />}
+          {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} wskazowki={wersja === 'drozdze' ? wersjaDrozdzowa(selectedPresetId)?.notesPl : undefined} {...(wersja === 'drozdze' && pieczenieDrozdzowe(selectedPresetId) ? { pieczenie: pieczenieDrozdzowe(selectedPresetId) ?? undefined } : {})} />}
           {akcjeWTresci && akcje}
           </View>
         </EkranZPasem>

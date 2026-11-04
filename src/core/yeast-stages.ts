@@ -13,6 +13,10 @@
 import type { SessionStep } from './bake-steps';
 import { DEFAULT_STAGE_TEMPLATES, type StageCategory } from '../scheduler/reverse-scheduler';
 import { CATALOG_RECIPES } from '../recipes/katalog';
+import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from './rye-stages';
+
+/** Pieczenie wersji drożdżowej: temperatura i czas dwóch faz (bez zgadywania pary, której źródło nie podaje). */
+export interface PieczenieWersji { temp1C: number; min1: number; temp2C: number; min2: number }
 
 interface CzasyWersji {
   /** Pierwsze rośnięcie, min. */
@@ -21,8 +25,13 @@ interface CzasyWersji {
   odpoczynekMin?: number;
   /** Drugie rośnięcie (w formie / po uformowaniu), min. */
   garowanieMin: number;
-  /** Pieczenie ze źródła wersji, min; brak = czas receptury. */
-  pieczenieMin?: number;
+  /** Pieczenie ze źródła wersji (dwie fazy); brak = czas receptury. */
+  pieczenie?: PieczenieWersji;
+  /** Rośnięcie w formie ocenia powierzchnia ciasta (ZYT-ETA-005), nie test palca — ciasto żytnie bez glutenu (D-256). */
+  gotowoscPowierzchnia?: boolean;
+  /** Studzenie wersji, min; brak = szablon planu (120). Żyto: do 24 h (KRO-POC-016, D-256). */
+  studzenieMin?: number;
+  studzenieOpis?: string;
   /** Ciasto bez wyrabiania (tartine, DRO-WER-TA-001) albo żytnie (bez wyrabiania, ZYT-ETA-001). */
   bezWyrabiania?: boolean;
   /** Kęsy formowane ręcznie zaraz po odpoczynku, bez odgazowania (żyto, ZYT-DRO-002). */
@@ -32,13 +41,22 @@ interface CzasyWersji {
 const CZASY: Readonly<Record<string, CzasyWersji | null>> = {
   spelt_ancient_seeded: null, // DRO-WER-SP-001: 3 h od zarobienia do pieca bez podziału na etapy
   graham_bread_honey: { rosniecieMin: 15, odpoczynekMin: 15, garowanieMin: 70 }, // DRO-WER-GR-001
-  rye_100_pan: { rosniecieMin: 60, garowanieMin: 60, pieczenieMin: 10 + 35, bezWyrabiania: true, bezOdgazowania: true }, // ZYT-DRO-002
+  // ZYT-DRO-002 (czasy i temperatury pieczenia), ZYT-ETA-005 (gotowość), KRO-POC-016 (studzenie do 24 h); D-256
+  rye_100_pan: {
+    rosniecieMin: 60, garowanieMin: 60, bezWyrabiania: true, bezOdgazowania: true, gotowoscPowierzchnia: true,
+    pieczenie: { temp1C: 240, min1: 10, temp2C: 220, min2: 35 },
+    studzenieMin: 24 * 60,
+    studzenieOpis: 'Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.',
+  },
   tartine_high_hydration_80: { rosniecieMin: 8 * 60, garowanieMin: 90, bezWyrabiania: true }, // DRO-WER-TA-001: noc, co najmniej 8 h
 };
 
 const MIESZANIE = 'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.';
 const CZASY_WSKAZOWKA = 'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.';
 const TEST_PALCA = 'Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.';
+
+/** Instrukcja rośnięcia w formie żyta (ZYT-ETA-005): ten sam klucz co etap żytni na zakwasie. */
+const OPIS_POWIERZCHNIA = RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID)?.instructionsPl ?? '';
 
 function szablon(id: string): { namePl: string; durationMinutes: number; instructionsPl: string } {
   const tp = DEFAULT_STAGE_TEMPLATES.find((x) => x.id === id);
@@ -62,14 +80,20 @@ function krokiBezCzasu(recipeId: string): Krok[] | null {
     c.bezOdgazowania
       ? { id: 'yeast_shape', name: 'Podział i formowanie', category: 'final_shape', durationMin: szablon('final_shape').durationMinutes, isPassive: false, instructions: 'Podziel ciasto, uformuj je ręcznie i włóż do formy.' }
       : { id: 'yeast_shape', name: 'Kształtowanie', category: 'final_shape', durationMin: szablon('final_shape').durationMinutes, isPassive: false, instructions: '' },
-    { id: 'yeast_proof', name: 'Drugie rośnięcie', category: 'final_proof', durationMin: c.garowanieMin, isPassive: true, instructions: TEST_PALCA },
+    { id: 'yeast_proof', name: 'Drugie rośnięcie', category: 'final_proof', durationMin: c.garowanieMin, isPassive: true, instructions: c.gotowoscPowierzchnia ? OPIS_POWIERZCHNIA : TEST_PALCA },
     {
       id: 'yeast_bake', name: 'Pieczenie', category: 'bake', isPassive: true, rekaNaStarcie: true, instructions: '',
-      durationMin: c.pieczenieMin ?? receptura.bakeTimeSteamMinutes + receptura.bakeTimeBrowningMinutes,
+      durationMin: c.pieczenie ? c.pieczenie.min1 + c.pieczenie.min2 : receptura.bakeTimeSteamMinutes + receptura.bakeTimeBrowningMinutes,
     },
-    { id: 'yeast_cool', name: studzenie.namePl, category: 'cool', durationMin: studzenie.durationMinutes, isPassive: true, instructions: studzenie.instructionsPl },
+    { id: 'yeast_cool', name: studzenie.namePl, category: 'cool', durationMin: c.studzenieMin ?? studzenie.durationMinutes, isPassive: true, instructions: c.studzenieOpis ?? studzenie.instructionsPl },
   ];
   return kroki.filter((k): k is Krok => k !== null);
+}
+
+/** Pieczenie wersji drożdżowej ze źródła (ZYT-DRO-002); null = czas i temperatura receptury. */
+export function pieczenieDrozdzowe(recipeId: string | undefined): PieczenieWersji | null {
+  if (recipeId === undefined || !Object.prototype.hasOwnProperty.call(CZASY, recipeId)) return null;
+  return CZASY[recipeId]?.pieczenie ?? null;
 }
 
 /** Czy wersja drożdżowa receptury ma plan (czasy etapów ze źródła). */

@@ -7821,7 +7821,8 @@
   },
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
-      "src/core/po-co-ten-krok.ts (dane: rye_cool)"
+      "src/core/po-co-ten-krok.ts (dane: rye_cool)",
+      "src/core/yeast-stages.ts (dane: studzenieOpis)"
     ]
   },
   "Więcej": {
