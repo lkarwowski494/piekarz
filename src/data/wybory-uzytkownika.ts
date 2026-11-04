@@ -40,6 +40,12 @@ export async function wczytajMaszyne(): Promise<WynikWyboru<DaneMaszyny | null>>
   return parseMaszyna(await getAppSetting(KLUCZ_MASZYNY));
 }
 
+/** Zapis danych maszyny; nieczytelna poprzednia wartość najpierw do pliku ratunkowego (121), bez cichej utraty [M3 p9b2]. */
 export async function zapiszMaszyne(m: DaneMaszyny): Promise<void> {
+  const surowe = await getAppSetting(KLUCZ_MASZYNY);
+  if (typeof surowe === 'string' && !parseMaszyna(surowe).ok) {
+    zachowajUszkodzony({ tabela: 'app_settings', id: KLUCZ_MASZYNY, surowe });
+    await zapisUszkodzonych();
+  }
   await setAppSetting(KLUCZ_MASZYNY, JSON.stringify(m));
 }
