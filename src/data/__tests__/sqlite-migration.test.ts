@@ -87,7 +87,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     const v = raw.prepare('PRAGMA user_version').get() as { user_version: number };
     expect(v.user_version).toBe(7);
     const applied = raw.prepare('SELECT version FROM schema_migrations ORDER BY version').all() as Array<{ version: number }>;
-    expect(applied.map((r) => r.version)).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(applied.map((r) => r.version)).toEqual([1, 2, 3, 4, 5, 6, 7]);
 
     const cols = (table: string) =>
       (raw.prepare(`PRAGMA table_info(${table})`).all() as Array<{ name: string }>).map((c) => c.name);
@@ -105,7 +105,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     expect(db).not.toBeNull();
     await schema.applySchemaMigrations(db as NonNullable<typeof db>);
     const raw = openRaw(APP_DB());
-    expect(raw.prepare('SELECT count(*) AS c FROM schema_migrations').get()).toEqual({ c: 6 });
+    expect(raw.prepare('SELECT count(*) AS c FROM schema_migrations').get()).toEqual({ c: 7 });
     raw.close();
   });
 

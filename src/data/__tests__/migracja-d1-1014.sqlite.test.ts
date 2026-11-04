@@ -19,7 +19,7 @@ const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }
 const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
 type Raw = ReturnType<typeof openRaw>;
 
-const WERSJA_D1 = 6;
+const WERSJA_D1 = 7; // bieżąca wersja po starcie: v7 (D-242 Z3, zgoda D-250) [M3 p9b]
 const kolumny = (raw: Raw, t: string) => (raw.prepare(`PRAGMA table_info(${t})`).all() as Array<{ name: string }>).map((c) => c.name);
 const maTabele = (raw: Raw, t: string) => (raw.prepare("SELECT count(*) AS c FROM sqlite_master WHERE type='table' AND name = ?").get(t) as { c: number }).c === 1;
 const wersja = (raw: Raw) => (raw.prepare('PRAGMA user_version').get() as { user_version: number }).user_version;

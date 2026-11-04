@@ -117,6 +117,8 @@ describe('p9a: import kopii z p9b w wydanym kodzie (właściciel wraca do 1021 i
 
   it('nieznane klucze ustawień i pola wpisu są pomijane bez błędu; liczności i znane pola z kopii', async () => {
     zalozBaze1021(APP_DB());
+    // Lista kluczy kopii zamrożona z buildu 1021 (zgoda D-250): kod bieżący przenosi nowe klucze (R6) [M3 p9b]
+    jest.doMock('../ustawienia-kopii', () => jest.requireActual('./helpers/ustawienia-kopii-1021'));
     const app = restartApp();
     await app.schema.initDatabase();
     const koperta = JSON.parse(kopia1014()) as { state: { bakes: Array<Record<string, unknown>>; settings?: Record<string, unknown> } };
@@ -132,5 +134,6 @@ describe('p9a: import kopii z p9b w wydanym kodzie (właściciel wraca do 1021 i
     expect(raw.prepare('PRAGMA integrity_check').get()).toEqual({ integrity_check: 'ok' });
     expect(raw.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
     raw.close();
+    jest.dontMock('../ustawienia-kopii');
   });
 });

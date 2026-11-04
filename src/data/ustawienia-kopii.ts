@@ -9,7 +9,8 @@ import type * as SQLite from 'expo-sqlite';
 
 /**
  * Klucze app_settings przenoszone kopią: język, jednostki, godziny snu, naczynie, profil, wprowadzenie, przełącznik
- * przypomnień o karmieniu (D-068) [audyt-niezalezny B-6] i rodzaj drożdży (D-101, zmienia D-100) [M3 D1].
+ * przypomnień o karmieniu (D-068) [audyt-niezalezny B-6] i rodzaj drożdży (D-101, zmienia D-100) [M3 D1];
+ * wybór wersji receptur i dane maszyny (D-242 Z1 b, Z4 a; BR-DANE-003, BR-MASZ-002) [M3 p9b].
  * Kopia bez klucza nie zmienia wartości w telefonie.
  */
 export const KLUCZE_USTAWIEN_KOPII = [
@@ -21,6 +22,8 @@ export const KLUCZE_USTAWIEN_KOPII = [
   'has_completed_onboarding',
   'przypomnienia_karmienia',
   'rodzaj_drozdzy',
+  'wersje_receptur',
+  'maszyna',
 ] as const;
 
 export interface LekcjaKopii {

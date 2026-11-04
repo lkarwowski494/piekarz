@@ -3,7 +3,7 @@
 // Z1 b: `wersje_receptur` = JSON {"<recipeId>":"drozdze"} (tylko odstępstwa od domyślnej wersji na zakwasie).
 // Z4 a: `maszyna` = JSON dane maszyny z wersją formatu `v` (BR-MASZ-002, BR-MASZ-003, D-189).
 // Odczyt z `unknown`: zły kształt = typowany błąd, brak = brak (prośba o dane, nie liczba domyślna). Oba klucze są
-// na liście kopii (ustawienia-kopii.ts) dopiero po decyzji o teście G5 (STOP p9b-1).
+// na liście kopii (ustawienia-kopii.ts, D-250).
 // ============================================================================
 
 import { getAppSetting, setAppSetting } from './settings-store';

@@ -1,6 +1,6 @@
 # Stan p9b-1 (rola 08, build) — 2026-11-04
 
-Gałąź `wip/08-p9b-dane-2026-11-04` od `0a2618fd`. Polecenie: p9b-1 (dane p9 wg D-242 + D-154/D-155). **Stan: STOP (D-244)** po warstwie danych; ekrany D-154/D-155 nie zaczęte.
+Gałąź `wip/08-p9b-dane-2026-11-04` od `0a2618fd`. Polecenie: p9b-1 (dane p9 wg D-242 + D-154/D-155). **Stan: STOP (D-246)** po wykonaniu D-250 pkt 1 i 3; ekrany D-154/D-155 nie zaczęte.
 
 ## Zrobione
 | Commit | Co |
@@ -15,15 +15,19 @@ Testy:
 - Łańcuch migracji do v7 zielony z: stary `schema.ts` (adfe1fa = 1006/1007, 70fd81a, b21c194 = 1012), v3 (ebd8471 = 1013), v4, v5 (1014–1016, R5), v6 (1021/1022, R1, R3, R4).
 - `npm run verify` (`docs/p9b-dowody/verify-p9b-1-podsumowanie.txt`): kod 1; bramki przed Jest zielone (macierz 1542/1542, lint 0 błędów, 2 ostrzeżenia sprzed partii); Jest 5813 zielonych, 20 czerwonych — wszystkie wymagają zmiany testu spoza zgody D-242 (lista w D-244).
 
+## Po D-250 (koordynator, 2026-11-04)
+- Wykonane: `migracja-d1-1014:22` (7), `sqlite-migration:90,108` (7; w D-244 błędnie „:89”), G5 z listą kluczy z 1021 (`src/data/__tests__/helpers/ustawienia-kopii-1021.ts`), klucze `wersje_receptur` i `maszyna` w `KLUCZE_USTAWIEN_KOPII` (R6 i G5 zielone), pkt 3: „Piecz ponownie” bierze wbudowaną recepturę z kodu przed wierszem bazy (`src/lib/recipe-navigation.ts`, test `src/lib/__tests__/piecz-ponownie-katalog-p9b.test.ts`, czerwień: `docs/p9b-dowody/czerwien-karelian-piecz-ponownie.log`, 2 → 2,1).
+- **STOP D-246:** G3 (`p9a-baza-1021:91`), `migracja-d1-1014:79` (3 testy), `eksport-ustawien-139:41` — przyczyny i opcje w D-246; każda wymaga zmiany testu.
+
 ## Sprawdzenie `INSERT OR IGNORE` (polecenie, pkt „Uwaga z planu §1”)
 - p8 (`22d949f`, receptura `karelian_rye_pasties`, sól 2,0%) **jest** w buildzie 1022 (`9c255a0`); p10 (`8423442`, sól 2,1%) **nie jest**. U właściciela wiersz `recipes` tej receptury będzie miał 2,0%, a `INSERT OR IGNORE` (`src/data/sqlite-schema.ts`, `initDatabase`) go nie zaktualizuje.
 - Ekrany biorą formułę wbudowanej receptury z kodu (`CATALOG_RECIPES`/`MASTER_RECIPES`); wiersz z bazy wygrywa tylko w „Piecz ponownie” dla wpisu **bez** `recipeId` dopasowanego po nazwie (`src/lib/recipe-navigation.ts:92,97`: wbudowane z bazy przed katalogiem). Wpisy z 1022 mają `recipeId` (D1), więc ocena: **brzegowy**.
-- Poprawka nie zrobiona (STOP). Opcje: (a) w `prepareBakeAgainRecipe` katalog z kodu przed wbudowanymi z bazy — bez zmian danych; (b) przy starcie aktualizacja formuły wierszy `is_built_in = 1` z kodu — zmienia wiersze bazy (nie dane użytkownika, użytkownik nie edytuje wbudowanych). Rekomendacja: (a). Testu nie napisano.
+- Poprawka zrobiona wg D-250 pkt 3 (opcja a), bez zapisu w bazie (sekcja wyżej).
 
 ## Zostało (p9b-1)
-1. Decyzja D-244 → zmiany testów → klucze `maszyna`, `wersje_receptur` na `KLUCZE_USTAWIEN_KOPII` (R6, G5).
+1. Decyzja D-246 → 3 zmiany testów → verify zielony.
 2. D-154/D-155: przełącznik wersji na recepturze (zapamiętanie przez `wczytajWersjeReceptury`/`zapiszWersjeReceptury`), zdjęcie blokady `src/lib/plan-receptury.ts:55-61` (zgoda na `plan-bez-zakwasu-d3.test.tsx:43`), plan wstecz i prowadzenie wersji drożdżowej, `wersja` w starcie wypieku, „Piecz ponownie” z zapisaną wersją, nowe klucze i18n (PL + EN), zrzuty.
-3. Przegląd ścieżek wrażliwych: wynik w raporcie końcowym tej sesji.
+3. Przegląd ścieżek wrażliwych (diff 0a2618fd..2947d3c2, subagent): brak uwag P0/P1. Zmiany po D-250 (lista kopii, recipe-navigation) bez drugiego przeglądu.
 
 ## Nie sprawdzono
 Migracja na iOS (expo-sqlite natywne, `VACUUM INTO` ze ścieżką `file://`), prawdziwa baza z telefonu, E2E iOS, powrót do 1022 z bazą v7 (zamierzone: ekran „nowsza wersja”, test `baza-nowsza`).

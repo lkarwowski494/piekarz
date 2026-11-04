@@ -1,0 +1,9 @@
+  ● 139: format ustawień i lekcji w kopii › KLUCZE_USTAWIEN_KOPII, dozwolony, parseUstawienia i parseLekcje: tylko dozwolone klucze z tekstem, lekcje z liczbami
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v1 wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v2-pauza wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● D1: migracja v6 na kopii bazy buildu 1014 › BR-KAL-009 Aktualizacja z wersji z jednym planem: sesja v2-zytnia wraca na tym samym kroku, z tym samym zegarem i pauzą; liczności bez strat
+  ● p9a: zgodność wydanego odczytu (1017–1021) z polami p9b w JSON-ie sesji › sesja i plan z polami wersji i trybu (opcja Z2 a) czyta wydany parser, a zapis postępu ich nie gubi
+Test Suites: 3 failed, 543 passed, 546 total
+Tests:       5 failed, 5830 passed, 5835 total
+[test-matrix] Wyniki: 1542/1542 elementów (100%)
+kod=1
