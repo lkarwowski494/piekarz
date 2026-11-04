@@ -44,10 +44,12 @@ const SKLADNIK: Record<SkladnikPsujacy, string> = {
 };
 
 const DOBA_MIN = 24 * 60;
-/** Domyślna gotowość: teraz + czas programu, w górę do pełnej albo połówkowej godziny (jak krok ±30 min planu). */
+/** Zapas na odczyt ekranu: bez niego start wypadałby sekundy przed „teraz”, gdy teraz + czas to pełne 30 min (P9B2F-7, D-271). */
+const ZAPAS_DOMYSLNEJ_GOTOWOSCI_MIN = 1;
+/** Domyślna gotowość: teraz (z sekundami) + czas programu + zapas, w górę do pełnej albo połówkowej godziny (jak krok ±30 min planu). */
 function celDomyslny(nowMs: number, czasMin: number): CelGotowe {
   const d = new Date(nowMs);
-  const min = Math.ceil((d.getHours() * 60 + d.getMinutes() + czasMin) / 30) * 30;
+  const min = Math.ceil((d.getHours() * 60 + d.getMinutes() + d.getSeconds() / 60 + czasMin + ZAPAS_DOMYSLNEJ_GOTOWOSCI_MIN) / 30) * 30;
   const w = min % DOBA_MIN;
   return { dayOffset: Math.floor(min / DOBA_MIN), hour: Math.floor(w / 60), minute: w % 60 };
 }
