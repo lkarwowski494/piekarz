@@ -41,10 +41,11 @@ export function isStageCategory(v: unknown): v is StageCategory {
 
 /**
  * Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). Chleb żytni piecze się w formie (ZYT-ETA-001); wersja
- * drożdżowa (`yeast_*`, src/core/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b].
+ * drożdżowa (`yeast_*`, src/core/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
+ * (`maszyna_*`, src/lib/plan-maszyny.ts) piecze w maszynie [M3 p9b2].
  */
 export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boolean {
-  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !step.id.startsWith('yeast_');
+  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !step.id.startsWith('yeast_') && !step.id.startsWith('maszyna_');
 }
 
 /**

@@ -1,0 +1,26 @@
+
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+
+i18n: 872 tekstów t('…') w kodzie, 2058 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 149 (skan kodu: src,app; uwagi wypisuje --uwagi)
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+ZA DUŻY: src/core/domain-rules.ts 20507 B > 20480 B
+check:size: 841 plików, przekroczeń: 1
+kod 1

@@ -1,0 +1,179 @@
+FAIL src/recipes/__tests__/maszyna-receptur-p9b2.test.ts
+  BR-MASZ-001: wybór „piekarnik / maszyna” tylko przy recepturach drożdżowych i z wersją drożdżową
+    ✕ receptura drożdżowa i receptura na zakwasie z wersją drożdżową: tak; zakwas bez wersji, pierożki bez drożdży, brak receptury: nie (5 ms)
+    ✕ zakwas z wersją drożdżową: tryb używa formuły wersji drożdżowej (bez zakwasu) i oznacza to dla zdania machine.sourdough (1 ms)
+    ✓ każda receptura z trybem maszyny ma wpis dodatków (bez wpisu RD-38 dałby błąd danych)
+  RD-38 na recepturach katalogu (cała receptura, OP-67/OP-73 otwarte → blokada)
+    ✕ chałka (jajko do posmarowania), bułki na mleku z jajkiem, kołacz z serem: zablokowany z nazwą składnika (5 ms)
+    ✕ chleb w formie z wodą, cukrem, solą i olejem; wersja drożdżowa grahama: dostępny (1 ms)
+    ✓ receptura spoza listy (np. własna) nie ma składników: błąd danych, nie „dostępny” (1 ms)
+  RD-39 na recepturach katalogu
+    ✕ pieczone poza formą maszyny (blacha, kamień): ciasto — pizza, bagietka, chałka, bułki (2 ms)
+    ✕ w formie: chleb z cukrem i olejem → podstawowy; pół na pół z razową i z żytnią → pełnoziarnisty; graham i żyto na drożdżach → pełnoziarnisty (1 ms)
+    ✕ w garnku, bez cukru i tłuszczu, poniżej progu: francuski (chleb bez wyrabiania, tartine na drożdżach) (1 ms)
+
+  ● BR-MASZ-001: wybór „piekarnik / maszyna” tylko przy recepturach drożdżowych i z wersją drożdżową › receptura drożdżowa i receptura na zakwasie z wersją drożdżową: tak; zakwas bez wersji, pierożki bez drożdży, brak receptury: nie
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      19 | describe('BR-MASZ-001: wybór „piekarnik / maszyna” tylko przy recepturach drożdżowych i z wersją drożdżową', () => {
+      20 |   it('receptura drożdżowa i receptura na zakwasie z wersją drożdżową: tak; zakwas bez wersji, pierożki bez drożdży, brak receptury: nie', () => {
+    > 21 |     expect(trybMaszynyDostepny(r('white_pan_loaf'))).toBe(true);
+         |                                                      ^
+      22 |     expect(trybMaszynyDostepny(r('pizza_napoletana_48h'))).toBe(true);
+      23 |     expect(trybMaszynyDostepny(r('graham_bread_honey'))).toBe(true);
+      24 |     expect(trybMaszynyDostepny(r('country_loaf_72'))).toBe(false);
+
+      at Object.toBe (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:21:54)
+
+  ● BR-MASZ-001: wybór „piekarnik / maszyna” tylko przy recepturach drożdżowych i z wersją drożdżową › zakwas z wersją drożdżową: tryb używa formuły wersji drożdżowej (bez zakwasu) i oznacza to dla zdania machine.sourdough
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      30 |   it('zakwas z wersją drożdżową: tryb używa formuły wersji drożdżowej (bez zakwasu) i oznacza to dla zdania machine.sourdough', () => {
+      31 |     const f = formulaMaszyny(r('graham_bread_honey'));
+    > 32 |     expect(f.przezWersjeDrozdzowa).toBe(true);
+         |                                    ^
+      33 |     expect(f.formula.starterPercentage).toBe(0);
+      34 |     expect(f.formula.extraYeastPercentage).toBe(2);
+      35 |     expect(formulaMaszyny(r('white_pan_loaf'))).toEqual({ formula: r('white_pan_loaf').formula, przezWersjeDrozdzowa: false });
+
+      at Object.toBe (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:32:36)
+
+  ● RD-38 na recepturach katalogu (cała receptura, OP-67/OP-73 otwarte → blokada) › chałka (jajko do posmarowania), bułki na mleku z jajkiem, kołacz z serem: zablokowany z nazwą składnika
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 5
+    + Received  + 2
+
+      Object {
+    -   "dostepny": false,
+    -   "ok": true,
+    -   "psujace": Array [
+    -     "jajka",
+    -   ],
+    +   "blad": "brak-skladnikow",
+    +   "ok": false,
+      }
+
+      44 | describe('RD-38 na recepturach katalogu (cała receptura, OP-67/OP-73 otwarte → blokada)', () => {
+      45 |   it('chałka (jajko do posmarowania), bułki na mleku z jajkiem, kołacz z serem: zablokowany z nazwą składnika', () => {
+    > 46 |     expect(opoznionyStart(skladnikiMaszyny(r('sweet_chalka')))).toEqual({ ok: true, dostepny: false, psujace: ['jajka'] });
+         |                                                                 ^
+      47 |     expect(opoznionyStart(skladnikiMaszyny(r('milk_dinner_rolls')))).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+      48 |     const kolacz = opoznionyStart(skladnikiMaszyny(r('cheese_crumble_yeast_cake')));
+      49 |     expect(kolacz.ok && !kolacz.dostepny && kolacz.psujace).toEqual(['mleko', 'jajka', 'ser']);
+
+      at Object.toEqual (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:46:65)
+
+  ● RD-38 na recepturach katalogu (cała receptura, OP-67/OP-73 otwarte → blokada) › chleb w formie z wodą, cukrem, solą i olejem; wersja drożdżowa grahama: dostępny
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "dostepny": true,
+    -   "ok": true,
+    +   "blad": "brak-skladnikow",
+    +   "ok": false,
+      }
+
+      50 |   });
+      51 |   it('chleb w formie z wodą, cukrem, solą i olejem; wersja drożdżowa grahama: dostępny', () => {
+    > 52 |     expect(opoznionyStart(skladnikiMaszyny(r('white_pan_loaf')))).toEqual({ ok: true, dostepny: true });
+         |                                                                   ^
+      53 |     expect(opoznionyStart(skladnikiMaszyny(r('graham_bread_honey')))).toEqual({ ok: true, dostepny: true });
+      54 |   });
+      55 |   it('receptura spoza listy (np. własna) nie ma składników: błąd danych, nie „dostępny”', () => {
+
+      at Object.toEqual (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:52:67)
+
+  ● RD-39 na recepturach katalogu › pieczone poza formą maszyny (blacha, kamień): ciasto — pizza, bagietka, chałka, bułki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+        "id": "pizza_napoletana_48h",
+        "p": Object {
+    -     "ok": true,
+    -     "program": "ciasto",
+    +     "blad": "brak-maki",
+    +     "ok": false,
+        },
+      }
+
+      61 | describe('RD-39 na recepturach katalogu', () => {
+      62 |   it('pieczone poza formą maszyny (blacha, kamień): ciasto — pizza, bagietka, chałka, bułki', () => {
+    > 63 |     for (const id of ['pizza_napoletana_48h', 'baguette_tradition_poolish', 'sweet_chalka', 'milk_dinner_rolls']) expect({ id, p: program(id) }).toEqual({ id, p: { ok: true, program: 'ciasto' } });
+         |                                                                                                                                                  ^
+      64 |   });
+      65 |   it('w formie: chleb z cukrem i olejem → podstawowy; pół na pół z razową i z żytnią → pełnoziarnisty; graham i żyto na drożdżach → pełnoziarnisty', () => {
+      66 |     expect(program('white_pan_loaf')).toEqual({ ok: true, program: 'podstawowy' });
+
+      at Object.toEqual (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:63:146)
+
+  ● RD-39 na recepturach katalogu › w formie: chleb z cukrem i olejem → podstawowy; pół na pół z razową i z żytnią → pełnoziarnisty; graham i żyto na drożdżach → pełnoziarnisty
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "ok": true,
+    -   "program": "podstawowy",
+    +   "blad": "brak-maki",
+    +   "ok": false,
+      }
+
+      64 |   });
+      65 |   it('w formie: chleb z cukrem i olejem → podstawowy; pół na pół z razową i z żytnią → pełnoziarnisty; graham i żyto na drożdżach → pełnoziarnisty', () => {
+    > 66 |     expect(program('white_pan_loaf')).toEqual({ ok: true, program: 'podstawowy' });
+         |                                       ^
+      67 |     expect(program('half_whole_wheat_loaf')).toEqual({ ok: true, program: 'pelnoziarnisty' });
+      68 |     expect(program('half_rye_loaf')).toEqual({ ok: true, program: 'pelnoziarnisty' });
+      69 |     expect(program('graham_bread_honey')).toEqual({ ok: true, program: 'pelnoziarnisty' });
+
+      at Object.toEqual (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:66:39)
+
+  ● RD-39 na recepturach katalogu › w garnku, bez cukru i tłuszczu, poniżej progu: francuski (chleb bez wyrabiania, tartine na drożdżach)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "ok": true,
+    -   "program": "francuski",
+    +   "blad": "brak-maki",
+    +   "ok": false,
+      }
+
+      71 |   });
+      72 |   it('w garnku, bez cukru i tłuszczu, poniżej progu: francuski (chleb bez wyrabiania, tartine na drożdżach)', () => {
+    > 73 |     expect(program('no_knead_night')).toEqual({ ok: true, program: 'francuski' });
+         |                                       ^
+      74 |     expect(program('tartine_high_hydration_80')).toEqual({ ok: true, program: 'francuski' });
+      75 |   });
+      76 | });
+
+      at Object.toEqual (src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:73:39)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 2 passed, 9 total
+Snapshots:   0 total
+Time:        1.123 s
+Ran all test suites matching /src\/recipes\/__tests__\/maszyna-receptur-p9b2.test.ts/i.

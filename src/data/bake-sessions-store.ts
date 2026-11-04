@@ -370,13 +370,13 @@ export type KoniecSesji = { sessionId?: string; wymagajSesji?: boolean };
 export async function zakonczSesjeWTransakcji(
   db: Db | null,
   opts: KoniecSesji
-): Promise<{ trwal: boolean; recipeId?: string; wersja?: 'zakwas' | 'drozdze' }> {
+): Promise<{ trwal: boolean; recipeId?: string; wersja?: 'zakwas' | 'drozdze'; tryb?: 'piekarnik' | 'maszyna' }> {
   const filtr: Filtr | null = opts.sessionId !== undefined ? { id: opts.sessionId } : null;
   if (!filtr) return { trwal: false };
   const lista = await wiersze(filtr);
   const bake = odczytaj(lista, (raw) => parseBakeSession(raw)).find((s) => s.bake)?.bake;
-  // Receptura i wersja wypieku do wpisu Dziennika (D1, D-242 Z3) [M3 p9b]
-  const wynik = { trwal: lista.length > 0, ...(bake?.recipeId !== undefined ? { recipeId: bake.recipeId } : {}), ...(bake?.wersja ? { wersja: bake.wersja } : {}) };
+  // Receptura, wersja i tryb wypieku do wpisu Dziennika (D1, D-242 Z3, D-260) [M3 p9b, p9b2]
+  const wynik = { trwal: lista.length > 0, ...(bake?.recipeId !== undefined ? { recipeId: bake.recipeId } : {}), ...(bake?.wersja ? { wersja: bake.wersja } : {}), ...(bake?.tryb ? { tryb: bake.tryb } : {}) };
   if (!db || lista.length === 0) return wynik;
   // Nieczytelne wiersze (zgłoszone przez odczytaj) w pliku ratunkowym, zanim DELETE je skasuje (P2-4)
   await zapisUszkodzonych();

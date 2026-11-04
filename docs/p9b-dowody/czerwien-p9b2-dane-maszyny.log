@@ -1,0 +1,31 @@
+(node:7338) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b2-dane-maszyny.sqlite.test.ts
+  p9b-2: zapiszMaszyne bez cichej utraty zapisu
+    ✕ nieczytelna wartość klucza maszyna: surowa treść w pliku ratunkowym, potem nowy zapis (382 ms)
+    ✓ czytelna wartość: zwykłe nadpisanie, bez pliku ratunkowego (34 ms)
+
+  ● p9b-2: zapiszMaszyne bez cichej utraty zapisu › nieczytelna wartość klucza maszyna: surowa treść w pliku ratunkowym, potem nowy zapis
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "620 g"
+    Received string:    ""
+
+      28 |     const w = require('../wybory-uzytkownika') as typeof import('../wybory-uzytkownika');
+      29 |     await w.zapiszMaszyne(m);
+    > 30 |     expect(ratunkowe().join('\n')).toContain('620 g');
+         |                                    ^
+      31 |     expect(await w.wczytajMaszyne()).toEqual({ ok: true, value: m });
+      32 |   });
+      33 |
+
+      at Object.toContain (src/data/__tests__/p9b2-dane-maszyny.sqlite.test.ts:30:36)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.304 s
+Ran all test suites matching /src\/data\/__tests__\/p9b2-dane-maszyny.sqlite.test.ts/i.

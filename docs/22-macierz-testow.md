@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 621 | 621 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 625 | 625 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 238 | 238 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 658 | 658 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 639 | 639 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 250 | 250 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1555** | Pokrytych: **1555** | Brakujących: **0**
+Łącznie elementów: **1618** | Pokrytych: **1618** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -315,9 +315,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/en-kontrola-074.test.ts |
 | `TEKST` | `Zezwól na dostęp do aparatu` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Skieruj obiektyw na kod QR receptury` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zakwas ({n}% wody)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
+| `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
+| `TEKST` | `drożdże najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
+| `TEKST` | `W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1255 kolejnych elementów w pełnym wykazie)*
+*(... i 1318 kolejnych elementów w pełnym wykazie)*

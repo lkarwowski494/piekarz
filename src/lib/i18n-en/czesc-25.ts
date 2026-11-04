@@ -183,4 +183,24 @@ export const EN_25: Record<string, string> = {
     'How much yeast, water and salt to use, and the rise and bake times in the yeast version of the rye bread.',
   'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
     'The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.',
+  'Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)':
+    'Tefal, instructions for use and safety instructions for the Pain Plaisir bread maker (PF220838)',
+  'Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.':
+    'The most flour, dough and yeast, the order of ingredients, delayed start and taking the pan out safely.',
+  'Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)':
+    'Zojirushi, operating instructions for the BB-PDC20 bread maker (Home Bakery Virtuoso Plus)',
+  'Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.':
+    'The order of ingredients, delayed start, hot parts after baking and the sourdough course that also uses yeast.',
+  'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550':
+    'Panasonic, operating instructions and recipes for the SD-YR2550 bread maker',
+  'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.':
+    'Loaf size, the order of ingredients and the yeast dispenser, delayed start and taking the pan out safely.',
+  'Cuisinart, instrukcja obsługi maszyny do chleba CBK-110':
+    'Cuisinart, instruction booklet for the CBK-110 bread maker',
+  'Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.':
+    'The machine programs behind the program hint, delayed start with dry milk, and the hot kneading paddle.',
+  'Kenwood, instrukcja obsługi maszyny do chleba BM200':
+    'Kenwood, operating instructions for the BM200 bread maker',
+  'Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.':
+    'The order of ingredients, delayed start and taking out the hot pan.',
 };

@@ -1,0 +1,44 @@
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+== typecheck kod 0
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+== check:licenses kod 0
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 850 plików, przekroczeń: 0
+== check:size kod 0
+
+> piekarz@1.0.0 lint
+> eslint app src
+
+
+/home/user/piekarz/src/hooks/usePendingRecipeLoader.ts
+  34:6  warning  React Hook useEffect was passed a dependency list that is not an array literal. This means we can't statically verify whether you've passed the correct dependencies                                                                                react-hooks/exhaustive-deps
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)
+
+== lint kod 0
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+== verify:native kod 0
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1615/1615 elementów (100%)
+== verify:matrix kod 0
+== npm test kod 1

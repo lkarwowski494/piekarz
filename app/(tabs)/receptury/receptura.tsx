@@ -42,6 +42,8 @@ import { formulaWersji, wersjaDrozdzowa } from '../../../src/recipes/wersje-droz
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
+import { SegmentTrybu, TrybMaszyny } from '../../../src/components/receptury/SegmentTrybu';
+import { trybMaszynyDostepny } from '../../../src/recipes/maszyna-receptur';
 import { pieczenieDrozdzowe } from '../../../src/core/yeast-stages';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
@@ -168,6 +170,11 @@ export default function EkranReceptury() {
   }, bezAkcji, [applyFormula, selectedPresetId]);
 
   const currentMasterPreset = useMemo(() => CATALOG_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
+  // Tryb maszyny (D-138; Z5 a: niepamiętany) [M3 p9b2]
+  const maszyna = trybMaszynyDostepny(currentMasterPreset) ? currentMasterPreset : undefined;
+  const [tryb, setTryb] = useState<'piekarnik' | 'maszyna'>('piekarnik');
+  useEffect(() => setTryb('piekarnik'), [selectedPresetId]);
+  const wMaszynie = tryb === 'maszyna' && maszyna;
 
   // „Na zakwasie / na drożdżach” (D-154, D-173): formuła wersji z receptury bazowej, wybór zapamiętany (D-242 Z1 b) [M3 p9b]
   const { wersja, wybierz: wybierzWersje } = useWersjaReceptury(selectedPresetId, (w) => {
@@ -240,7 +247,7 @@ export default function EkranReceptury() {
   useEffect(() => zarejestrujMenuReceptury(() => menuWiecej.current()), []);
 
   // Obszar akcji receptury: dokładnie 4 akcje główne (057); reszta w menu „Więcej” w pasku nawigacji
-  const akcje = (
+  const akcje = wMaszynie ? null : (
     <CalculatorActionButtons
       onMakePlan={handleMakePlan}
       powodBezPlanu={powodBezPlanu(recipeFormula, { recipeId: selectedPresetId, ...(wersja !== null ? { wersja } : {}) })}
@@ -270,7 +277,7 @@ export default function EkranReceptury() {
             akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
         )}>
           <View style={s.tresc}>
-          {wersja !== null && <SegmentWersji wersja={wersja} onWybierz={wybierzWersje} />}
+          {wersja !== null && !wMaszynie && <SegmentWersji wersja={wersja} onWybierz={wybierzWersje} />}
           <BlokadaFunkcji {...blokada('kalkulator')}>
             {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
             {bladMak ? (
@@ -294,13 +301,15 @@ export default function EkranReceptury() {
               onFlourGramsChange={setFlourGrams}
               prefermentType={prefermentType}
               prefermentBreakdown={prefermentBreakdown}
+              segmentTrybu={maszyna && <SegmentTrybu tryb={tryb} onWybierz={setTryb} />}
+              zamiastDoMiski={wMaszynie && <TrybMaszyny receptura={maszyna} masaBochenkaG={calculations.targetDoughWeightGrams / (calcMode === 'loaves' ? loavesCount : 1)} />}
             />
           </BlokadaFunkcji>
           {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} wskazowki={wersja === 'drozdze' ? wersjaDrozdzowa(selectedPresetId)?.notesPl : undefined} {...(wersja === 'drozdze' && pieczenieDrozdzowe(selectedPresetId) ? { pieczenie: pieczenieDrozdzowe(selectedPresetId) ?? undefined } : {})} />}
           {akcjeWTresci && akcje}
           </View>
         </EkranZPasem>
-        {!akcjeWTresci && (
+        {!akcjeWTresci && akcje && (
           <View style={styles.strefaAkcji} onLayout={(e) => setWysokoscAkcji(e.nativeEvent.layout.height)}>
             {akcje}
           </View>

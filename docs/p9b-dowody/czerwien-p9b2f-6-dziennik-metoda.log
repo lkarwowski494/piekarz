@@ -1,0 +1,51 @@
+FAIL src/components/__tests__/dziennik-metoda-p9b2f.test.tsx
+  P9B2F-6: metoda wypieku w Dzienniku (D-260)
+    ✕ wpis z maszyny pokazuje „Maszyna do chleba”, wpis z piekarnika „Piekarnik” (77 ms)
+    ✓ starszy wpis (null albo brak pola) nie ma etykiety metody (16 ms)
+    ✕ po angielsku etykiety z istniejących kluczy EN (8 ms)
+
+  ● P9B2F-6: metoda wypieku w Dzienniku (D-260) › wpis z maszyny pokazuje „Maszyna do chleba”, wpis z piekarnika „Piekarnik”
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      31 |   it('wpis z maszyny pokazuje „Maszyna do chleba”, wpis z piekarnika „Piekarnik”', async () => {
+      32 |     const tree = await render([wpis('m', 'maszyna'), wpis('p', 'piekarnik')]);
+    > 33 |     expect(metoda(tree, 'm')).toHaveLength(1);
+         |                               ^
+      34 |     expect(metoda(tree, 'p')).toHaveLength(1);
+      35 |     expect(napisy(metoda(tree, 'm')[0])).toBe('Maszyna do chleba');
+      36 |     expect(napisy(metoda(tree, 'p')[0])).toBe('Piekarnik');
+
+      at Object.toHaveLength (src/components/__tests__/dziennik-metoda-p9b2f.test.tsx:33:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● P9B2F-6: metoda wypieku w Dzienniku (D-260) › po angielsku etykiety z istniejących kluczy EN
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      46 |     setLang('en');
+      47 |     const tree = await render([wpis('m', 'maszyna')]);
+    > 48 |     expect(metoda(tree, 'm')).toHaveLength(1);
+         |                               ^
+      49 |     expect(napisy(metoda(tree, 'm')[0])).toBe('Bread machine');
+      50 |   });
+      51 | });
+
+      at Object.toHaveLength (src/components/__tests__/dziennik-metoda-p9b2f.test.tsx:48:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        1.583 s, estimated 2 s
+Ran all test suites matching /src\/components\/__tests__\/dziennik-metoda-p9b2f.test.tsx/i.

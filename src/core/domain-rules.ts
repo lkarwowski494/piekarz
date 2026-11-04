@@ -362,6 +362,9 @@ export function calculateFermentationAdaptation(
 
 export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
 
+/** Świeże → suche (RD-19, D-172); też RD-37. */
+export const WSP_SWIEZE_NA_SUCHE = 0.35;
+
 /**
  * RD-19: drożdże świeże na suche i odwrotnie (aktywne i instant) × 0,35, odwrotnie ÷ 0,35 (D-205, D-172, RD-19-W2;
  * wcześniej × 0,4 z S-40, S-39 [M1-audytor-generalny-130]). Producent na opakowaniu może podawać inaczej (D-172).
@@ -375,10 +378,10 @@ export function convertYeast(
   }
 
   if (from === 'fresh') {
-    const instant = Number((amountGrams * 0.35).toFixed(2));
+    const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(2));
     return { freshGrams: amountGrams, instantGrams: instant };
   } else {
-    const fresh = Number((amountGrams / 0.35).toFixed(1));
+    const fresh = Number((amountGrams / WSP_SWIEZE_NA_SUCHE).toFixed(1));
     return { freshGrams: fresh, instantGrams: amountGrams };
   }
 }

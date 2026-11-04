@@ -1,0 +1,112 @@
+(node:1195) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/maszyna-p9b2f.test.tsx
+  p9b2f: tryb maszyny, poprawki po 06m i przeglądzie
+    ✕ P9B2F-1 (MAS-085): program „ciasto” bez składników psujących (ciabatta) → bez „Gotowe o”, zdanie o braku opóźnienia, start teraz (510 ms)
+    ✓ P9B2F-1: program inny niż „ciasto” (chleb) zachowuje „Gotowe o”; zdania o ciaście tam nie ma (111 ms)
+    ✓ P9B2F-2 (MAS-086, OP-65): wektor — gotowość jutro 7:00, program 3 h 10 min, teraz 22:00 → start 3:50, w maszynie wpisujesz 9 h (czas od teraz do gotowości) (2 ms)
+    ✕ P9B2F-2: ekran — „Ustaw opóźniony start na {czas do gotowości}.” (teraz 10:00, program 190 min → gotowe 13:30 → 3 h 30 min), bez „Od teraz do gotowości” (109 ms)
+    ✕ P9B2F-3: „Zapisz plan” bez opóźnienia (chałka) liczy start z chwili stuknięcia, nie z ostatniego renderu (67 ms)
+    ✕ P9B2F-3: gotowość wybrana na ekranie, ale start wypadł już w przeszłość → plan nie zapisuje się, ekran pokazuje „Program nie zdąży” (58 ms)
+    ✕ P9B2F-4: domyślne „Gotowe o” przelicza się po wpisaniu czasu programu, dopóki użytkownik go nie zmienił (58 ms)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-1 (MAS-085): program „ciasto” bez składników psujących (ciabatta) → bez „Gotowe o”, zdanie o braku opóźnienia, start teraz
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      119 |     await nacisnij(root, 'recipe-tryb-machine');
+      120 |     expect(tekst(host(root, 'karta-program')[0])).toContain('ciasto');
+    > 121 |     expect(host(root, 'maszyna-gotowe').length).toBe(0);
+          |                                                 ^
+      122 |     expect(host(root, 'maszyna-opoznienie-blokada').length).toBe(0);
+      123 |     const zdanie = tekst(host(root, 'maszyna-opoznienie-ciasto')[0]);
+      124 |     expect(zdanie).toContain('Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta');
+
+      at Object.toBe (src/__tests__/maszyna-p9b2f.test.tsx:121:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-2: ekran — „Ustaw opóźniony start na {czas do gotowości}.” (teraz 10:00, program 190 min → gotowe 13:30 → 3 h 30 min), bez „Od teraz do gotowości”
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Ustaw opóźniony start na 3 h 30 min."
+    Received string:    "Program rusza o 10:20. Od teraz do gotowości: 3 h 30 min."
+
+      149 |     await nacisnij(root, 'recipe-tryb-machine');
+      150 |     const start = tekst(host(root, 'maszyna-start')[0]);
+    > 151 |     expect(start).toContain(`Ustaw opóźniony start na ${czasTrwania(210).tekst}.`);
+          |                   ^
+      152 |     expect(start).toContain(`Program rusza o ${formatTime(T0 + 20 * MIN)}.`);
+      153 |     expect(start).not.toContain('Od teraz do gotowości');
+      154 |   });
+
+      at Object.toContain (src/__tests__/maszyna-p9b2f.test.tsx:151:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-3: „Zapisz plan” bez opóźnienia (chałka) liczy start z chwili stuknięcia, nie z ostatniego renderu
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793788200000
+    Received: 1793786400000
+
+      161 |     await nacisnij(root, 'maszyna-zapisz-plan');
+      162 |     const [p] = await loadPlannedBakes();
+    > 163 |     expect(p.plannedStartAt).toBe(T0 + 30 * MIN);
+          |                              ^
+      164 |     expect((p.steps[0].plannedEnd ?? 0) - (p.steps[0].plannedStart ?? 0)).toBe(190 * MIN);
+      165 |   });
+      166 |
+
+      at Object.toBe (src/__tests__/maszyna-p9b2f.test.tsx:163:30)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-3: gotowość wybrana na ekranie, ale start wypadł już w przeszłość → plan nie zapisuje się, ekran pokazuje „Program nie zdąży”
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      171 |     jest.setSystemTime(T0 + 30 * MIN); // gotowe 13:30 − 190 min = start 10:20, a jest 10:30
+      172 |     await nacisnij(root, 'maszyna-zapisz-plan');
+    > 173 |     expect((await loadPlannedBakes()).length).toBe(0);
+          |                                               ^
+      174 |     expect(mockNavigate).not.toHaveBeenCalled();
+      175 |     expect(host(root, 'maszyna-za-wczesnie').length).toBe(1);
+      176 |   });
+
+      at Object.toBe (src/__tests__/maszyna-p9b2f.test.tsx:173:47)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-4: domyślne „Gotowe o” przelicza się po wpisaniu czasu programu, dopóki użytkownik go nie zmienił
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Dziś 14:30"
+    Received string:    "Gotowe o Dziś 10:00 -30 min +30 min +2 godziny"
+
+      182 |     const o = (h: number, m: number) => `Dziś ${formatTime(new Date(2026, 10, 4, h, m, 0).getTime())}`;
+      183 |     await wpisz(root, 'maszyna-czas', '250');
+    > 184 |     expect(tekst(host(root, 'maszyna-gotowe')[0])).toContain(o(14, 30)); // 10:00 + 250 min = 14:10 → w górę do 14:30
+          |                                                    ^
+      185 |     await wpisz(root, 'maszyna-czas', '190');
+      186 |     expect(tekst(host(root, 'maszyna-gotowe')[0])).toContain(o(13, 30));
+      187 |     // Użytkownik zmienia „Gotowe o” (+30 min): od teraz nie przeliczamy
+
+      at Object.toContain (src/__tests__/maszyna-p9b2f.test.tsx:184:52)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 2 passed, 7 total
+Snapshots:   0 total
+Time:        2.692 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/maszyna-p9b2f.test.tsx/i.

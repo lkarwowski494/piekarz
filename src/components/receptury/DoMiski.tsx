@@ -46,6 +46,10 @@ export interface DoMiskiProps {
   prefermentType: PrefermentType;
   /** Zaczyn w formule (D-061): wiersze „Zaczyn” i „Do miski” sumują się do masy [M1-audytor-generalny-182] */
   prefermentBreakdown: ZaczynWFormuleResult | null;
+  /** Segment „Piekarnik / Maszyna do chleba” na górze karty „Ile pieczesz” (D-138, O4 a) [M3 p9b2]. */
+  segmentTrybu?: React.ReactNode;
+  /** Tryb maszyny: karty maszyny zamiast „Do miski” (karty/README.md wiersz D-138) [M3 p9b2]. */
+  zamiastDoMiski?: React.ReactNode;
 }
 
 const proc = (n: number, miejsca = 1) => `${formatNumber(n, undefined, { maximumFractionDigits: miejsca })}%`;
@@ -164,6 +168,7 @@ export function DoMiski(p: DoMiskiProps) {
   return (
     <>
       <Karta testID="karta-ile-pieczesz" tytul={t('Ile pieczesz')} ikona={<IkonaKarty nazwa="bochenek" />} bezWypelnienia>
+      {p.segmentTrybu}
       <View testID="recipe-mode">
         {p.calcMode === 'loaves' ? (
           <>
@@ -187,7 +192,7 @@ export function DoMiski(p: DoMiskiProps) {
       </View>
       </Karta>
 
-      {b ? (
+      {p.zamiastDoMiski ? p.zamiastDoMiski : b ? (
         <>
           <Karta testID="karta-zaczyn" tytul={t('Zaczyn: {rodzaj}', { rodzaj: nazwaZaczynu(p.prefermentType) })} ikona={<IkonaKarty nazwa="sloik" />} bezWypelnienia>
           <View testID="do-miski-zaczyn">

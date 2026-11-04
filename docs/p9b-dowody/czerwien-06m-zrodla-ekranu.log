@@ -1,0 +1,54 @@
+FAIL tests/zrodla-katalogu-06z.test.ts
+  06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji
+    ✓ katalog p8 (katalog-m3.md): każda domena źródeł użytych twierdzeń ma wpis na ekranie (11 ms)
+    ✓ pozostałe treści docs/tresci/pl (poza czekającymi na wpięcie): każda domena źródeł ma wpis na ekranie (6 ms)
+    ✓ twierdzenia użyte w treściach są w rejestrze (dopasowanie domen ma na czym działać) (3 ms)
+    ✕ wyjątek D-247 wygasa sam: tekstu treści czekających na wpięcie nie ma w kodzie app/ i src/ (86 ms)
+
+  ● 06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji › wyjątek D-247 wygasa sam: tekstu treści czekających na wpięcie nie ma w kodzie app/ i src/
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 23
+
+    - Array []
+    + Array [
+    +   "maszyna.md: Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją p",
+    +   "maszyna.md: Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g ",
+    +   "maszyna.md: Kolejność wkładania składników podaje instrukcja Twojej maszyny.",
+    +   "maszyna.md: W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mą",
+    +   "maszyna.md: W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suc",
+    +   "maszyna.md: Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt",
+    +   "maszyna.md: Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią ty",
+    +   "maszyna.md: Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć o",
+    +   "maszyna.md: Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrz",
+    +   "maszyna.md: Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero p",
+    +   "maszyna.md: Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gor",
+    +   "maszyna.md: W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+    +   "maszyna.md: Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej uż",
+    +   "maszyna.md: Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź j",
+    +   "maszyna.md: Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarn",
+    +   "maszyna.md: Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcj",
+    +   "maszyna.md: Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem",
+    +   "maszyna.md: Program „francuski” podpowiadamy dla receptur bez cukru i tłuszczu, jak w opisie",
+    +   "maszyna.md: W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instru",
+    +   "maszyna.md: W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży p",
+    +   "maszyna.md: Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.",
+    + ]
+
+      88 |     );
+      89 |     // Czerwony = treść wpięta: dopisz jej źródła na ekran (src/core/zrodla-wiedzy.ts) i usuń plik z CZEKAJA_NA_WPIECIE.
+    > 90 |     expect(wKodzie).toEqual([]);
+         |                     ^
+      91 |   });
+      92 | });
+      93 |
+
+      at Object.toEqual (tests/zrodla-katalogu-06z.test.ts:90:21)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        1.091 s
+Ran all test suites matching /tests\/zrodla-katalogu-06z.test.ts/i.

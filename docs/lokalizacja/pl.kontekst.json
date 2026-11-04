@@ -1029,6 +1029,11 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "Cuisinart, instrukcja obsługi maszyny do chleba CBK-110": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -1048,6 +1053,12 @@
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tytul)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Czas programu": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (etykieta)"
     ]
   },
   "Czas w lodówce:": {
@@ -1182,6 +1193,11 @@
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
   },
   "Do ciasta dodaj proszek do pieczenia, a następnie delikatnie wmieszaj szpatułką ubitą pianę z białek.": {
     "gdzie": [
@@ -1563,6 +1579,11 @@
       "src/core/flour-equivalents.ts (dane: substitutionTipsPl)"
     ]
   },
+  "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
+  },
   "Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.": {
     "gdzie": [
       "src/core/step-warnings.ts (dane: kod)"
@@ -1633,6 +1654,7 @@
       "app/(tabs)/_layout.tsx (title)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
       "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
@@ -2095,6 +2117,11 @@
       "src/components/receptury/SkladnikiSheet.tsx (title)"
     ]
   },
+  "Gotowe o": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Gotowe {dzien} o {godzina}": {
     "gdzie": [
       "src/lib/prowadzenie-teksty.ts (kod)"
@@ -2264,7 +2291,8 @@
   },
   "Ile pieczesz": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tytul)"
+      "src/components/receptury/DoMiski.tsx (tytul)",
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)"
     ],
     "opis": "Nagłówek karty trybu na ekranie receptury (bochenki i masa bochenka albo masa mąki); pytanie do użytkownika, bez znaku zapytania; ok. 12 znaków; w nagłówku karty 20 pt, zawija się (README karty §6, D-185, D-206)."
   },
@@ -2341,6 +2369,11 @@
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
     ]
   },
   "Ilość soli w otwartych pierożkach żytnich.": {
@@ -2541,6 +2574,7 @@
   "Jutro": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
       "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -2595,11 +2629,21 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Każde dotknięcie ciasta napina gluten, a odpoczynek go rozluźnia, więc potem łatwiej uformujesz bochenek.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: bench_rest)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Kenwood, instrukcja obsługi maszyny do chleba BM200": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Kiedy chleb ma być gotowy?": {
     "gdzie": [
@@ -2694,6 +2738,33 @@
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
   },
   "Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Kolejność i ilości według instrukcji maszyny.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Kolejność wkładania": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
+    ]
+  },
+  "Kolejność wkładania składników podaje instrukcja Twojej maszyny.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
@@ -3130,6 +3201,12 @@
       "src/lib/confirm.ts (Alert.alert)"
     ]
   },
+  "Maszyna do chleba": {
+    "gdzie": [
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ]
+  },
   "Masło (roztopione)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -3186,6 +3263,11 @@
   "Miesięczny": {
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
     ]
   },
   "Mieszanie ciasta": {
@@ -3856,6 +3938,11 @@
       "src/core/rye-stages.ts (dane: instructionsPl)"
     ]
   },
+  "Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Na zakwasie": {
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
@@ -3945,6 +4032,27 @@
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
+  "Największa ilość mąki": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (etykieta)"
+    ]
+  },
+  "Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Największa masa ciasta": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "Największa masa drożdży suchych": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
     ]
   },
   "Nakarm zakwas dziś": {
@@ -4445,6 +4553,11 @@
       "src/core/starter-log.ts (dane: day3)"
     ]
   },
+  "Od teraz do gotowości: {czas}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
@@ -4655,6 +4768,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -4752,6 +4870,11 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: lid_on)"
@@ -4837,6 +4960,12 @@
   "Pieczenie bez pokrywki od początku (skórka twardnieje przedwcześnie, blokując rozrost bochenka).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
+    ]
+  },
+  "Piekarnik": {
+    "gdzie": [
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Piekarnik zajęty o {h}": {
@@ -5032,6 +5161,11 @@
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
+  "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
+  },
   "Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/step-warnings.ts (dane: kod)"
@@ -5045,6 +5179,11 @@
   "Po prawidłowej autolizie ciasto z szorstkiej grudkowatej masy staje się gładkie i rozciągliwe jeszcze przed właściwym wyrabianiem!": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
+    ]
+  },
+  "Po programie": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
     ]
   },
   "Po szacowanym szczycie": {
@@ -5109,6 +5248,11 @@
   "Podnieś temperaturę fermentacji do optymalnych 26–28°C.": {
     "gdzie": []
   },
+  "Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Podpłomyki": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
@@ -5141,9 +5285,16 @@
       "src/core/yeast-stages.ts (dane: instructions)"
     ]
   },
+  "Pojemność maszyny": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tytul)",
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
+    ]
+  },
   "Pojutrze": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
       "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -5460,6 +5611,51 @@
   "Profil, cykl dokarmiania i szczyt aktywności": {
     "gdzie": []
   },
+  "Program": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "Program i godzina": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tytul)"
+    ]
+  },
+  "Program nie zdąży. Najwcześniej gotowe o {godzina}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Program rusza o {godzina}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „francuski” podpowiadamy dla receptur bez cukru i tłuszczu, jak w opisie z instrukcji jednej z maszyn.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem co najmniej 50% mąki, jak w progu z instrukcji jednej z maszyn.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Proponowane mieszanie ciasta: {dzien} o {godzina}.": {
     "gdzie": [
       "src/components/zakwas/FridgeWakeStatus.tsx (tekst w JSX)"
@@ -5754,6 +5950,11 @@
   "Przy każdym dokarmieniu zostaw część zakwasu, dodaj mąkę i wodę w proporcji 1:1:1 wagowo, a resztę odrzuć.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
+  "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
     ]
   },
   "Przyczyna biologiczna / fizyczna": {
@@ -6854,6 +7055,7 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (sol)",
@@ -6964,6 +7166,11 @@
   "Techniki": {
     "gdzie": [
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
+    ]
+  },
+  "Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Tego dnia nic nie zaplanowano.": {
@@ -7411,6 +7618,11 @@
       "src/lib/zakwas-widok.ts (dane: rose)"
     ]
   },
+  "Ustaw opóźniony start na {czas}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Ustaw tę godzinę": {
     "gdzie": [
       "src/components/harmonogram/PlanZaPozno.tsx (tekst w JSX)"
@@ -7539,6 +7751,11 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
+  "Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
@@ -7613,6 +7830,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
+  },
   "W dniu 3 zwykle widać już pęcherzyki, czuć świeży, owocowy zapach, a zakwas trochę rośnie.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day3)"
@@ -7640,6 +7862,12 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
   "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
@@ -7660,6 +7888,16 @@
       "src/lib/recipe-sharing.ts (error)"
     ],
     "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
+  },
+  "W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instrukcji jednej z maszyn przeznaczony głównie dla jasnej mąki pszennej.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
   },
   "W przepisie mleko stanowi 39,0% masy mąki, woda 19,0%, cukier 16,0%, olej 8,7% albo masło 9,1%, jajka 16,0%, sól 1,9%, a drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje około 5 szklanek mąki. Pierwsze wyrastanie trwa około 1 godziny. Bułeczki piecze się w 350 °F, czyli około 177 °C: w formie 25 minut, a pojedyncze 20 minut. Z tego samego ciasta piecze się też placek drożdżowy przez 30 minut.": {
     "gdzie": [
@@ -7712,6 +7950,11 @@
   "W szczycie aktywności": {
     "gdzie": []
   },
+  "W tej recepturze: {skladniki}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "W trakcie wyrabiania ciasto magicznie przestanie kleić się do rąk i blatu, zamieniając się w lśniącą kulę.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
@@ -7725,6 +7968,12 @@
   "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+    ]
+  },
+  "W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
     ]
   },
   "Waga bochenka": {
@@ -7754,6 +8003,16 @@
       "src/lib/zakwas-widok.ts (kod)"
     ]
   },
+  "Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Według szacunku zakwas jest teraz w oknie szczytu.": {
     "gdzie": [
       "src/core/starter-peak-predictor.ts (dane: kod)"
@@ -7771,7 +8030,7 @@
   },
   "Wersja receptury": {
     "gdzie": [
-      "src/components/receptury/SegmentWersji.tsx (accessibilityLabel)"
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
     ]
   },
   "Wiejski chleb codzienny na zakwasie": {
@@ -7801,6 +8060,11 @@
   "Wielkie dziury pod skórką i zbity dół (Jaskinie)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (kod)"
+    ]
+  },
+  "Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.": {
@@ -7885,6 +8149,7 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (woda)",
@@ -7926,6 +8191,11 @@
       "src/lib/confirm.ts (message)"
     ]
   },
+  "Wpisz czas programu z instrukcji maszyny.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Wpisz nazwę przepisu": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
@@ -7935,6 +8205,11 @@
   "Wpisz swoje uwagi (miękisz, skórka, czas pieca)...": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (placeholder)"
+    ]
+  },
+  "Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Wpisz, ile zakwasu zostawiasz w słoiku.": {
@@ -8792,7 +9067,7 @@
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
-    "opis": "Zakwas jako składnik receptury: etykieta obok masy albo procentu (Stolnica, podgląd importu, tekst receptury „Zakwas (20%): 200 g”). Termin glosariusza: EN „starter”. Krótka etykieta."
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "Zakładam zakwas": {
     "gdzie": [
@@ -8931,6 +9206,7 @@
   "Zapisz": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst)",
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst)",
       "src/components/zakwas/AddStarterModal.tsx (tekst)",
       "src/components/zakwas/EditStarterModal.tsx (tekst)",
@@ -8962,6 +9238,11 @@
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
       "src/components/calculator/SaveRecipeModal.tsx (tytul)"
+    ]
+  },
+  "Zapisz plan": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Zapisz w spiżarni": {
@@ -9307,6 +9588,11 @@
     ],
     "opis": "przycisk na karcie „Źródła wiedzy” w Ustawieniach, otwiera ekran źródeł (M3 T2, D-123)"
   },
+  "Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Zostaje wgłębienie i ciasto siada:": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -9480,6 +9766,12 @@
   "chłodnicza": {
     "gdzie": []
   },
+  "ciasto|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce": {
     "gdzie": [
       "src/core/preferments.ts (dane: fermentationTimeHours)"
@@ -9505,6 +9797,11 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "drożdże najpierw": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
   "dziś": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
@@ -9520,6 +9817,12 @@
     "gdzie": [
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
+  },
+  "francuski|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
   },
   "garnek żeliwny": {
     "gdzie": [
@@ -9543,6 +9846,18 @@
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (reszta)"
     ]
+  },
+  "jajka|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: jajka)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
+  "jogurt|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: jogurt)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "jutro": {
     "gdzie": [
@@ -9620,13 +9935,13 @@
   },
   "na drożdżach|wersja receptury": {
     "gdzie": [
-      "src/components/receptury/SegmentWersji.tsx (tekst w JSX)"
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
     ],
     "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony z drożdżami piekarskimi zamiast zakwasu (D-241: „z drożdżami piekarskimi”, nie „zakwas drożdżowy”) [M3 p9b]."
   },
   "na zakwasie|wersja receptury": {
     "gdzie": [
-      "src/components/receptury/SegmentWersji.tsx (tekst w JSX)"
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
     ],
     "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony na zakwasie; para z „na drożdżach”. Mała litera, bez dopełnienia [M3 p9b]."
   },
@@ -9680,6 +9995,12 @@
   "paź": {
     "gdzie": []
   },
+  "pełnoziarnisty|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "pieczenie bez pokrywy": {
     "gdzie": [
       "src/lib/prowadzenie-teksty.ts (nazwa)"
@@ -9689,6 +10010,12 @@
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
     ]
+  },
+  "podstawowy|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
   },
   "pojutrze": {
     "gdzie": [
@@ -9711,8 +10038,25 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
+  "płyny najpierw": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "ser|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: ser)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
   "sie": {
     "gdzie": []
+  },
+  "sok|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: sok)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "soli": {
     "gdzie": [
@@ -9744,6 +10088,12 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "słodki|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "temp. {temp}": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
@@ -9773,6 +10123,12 @@
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
     ]
+  },
+  "warzywa|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: warzywa)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "wczoraj": {
     "gdzie": [
@@ -10049,7 +10405,8 @@
   },
   "{n} godziny": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "{n} h temu": {
@@ -10079,6 +10436,7 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)",
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
@@ -10346,6 +10704,18 @@
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
+  },
+  "świeże mleko|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: mleko)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
+  "świeże owoce|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: owoce)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "świeże|drożdże": {
     "gdzie": [

@@ -1,0 +1,52 @@
+(node:683) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b2f-ratunek-zapis.sqlite.test.ts
+  p9b2f: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytelnej wartości
+    ✕ zapiszMaszyne: plik ratunkowy się nie zapisał → StorageWriteError, wartość w bazie bez zmian; po naprawie zapis przechodzi (268 ms)
+    ✕ zapiszWersjeReceptury: to samo dla mapy wersji (39 ms)
+
+  ● p9b2f: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytelnej wartości › zapiszMaszyne: plik ratunkowy się nie zapisał → StorageWriteError, wartość w bazie bez zmian; po naprawie zapis przechodzi
+
+    expect(received).rejects.toBeInstanceOf()
+
+    Received promise resolved instead of rejected
+    Resolved to value: undefined
+
+      42 |     const { StorageWriteError } = require('../storage-status') as typeof import('../storage-status');
+      43 |     psuj();
+    > 44 |     await expect(w.zapiszMaszyne(m)).rejects.toBeInstanceOf(StorageWriteError);
+         |           ^
+      45 |     expect(await app.store.getAppSetting('maszyna', 'brak')).toBe(ZLE_MASZYNA);
+      46 |     zapis.mockImplementation(oryginal);
+      47 |     await w.zapiszMaszyne(m);
+
+      at expect (node_modules/expect/build/index.js:113:15)
+      at Object.expect (src/data/__tests__/p9b2f-ratunek-zapis.sqlite.test.ts:44:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytelnej wartości › zapiszWersjeReceptury: to samo dla mapy wersji
+
+    expect(received).rejects.toBeInstanceOf()
+
+    Received promise resolved instead of rejected
+    Resolved to value: undefined
+
+      56 |     const { StorageWriteError } = require('../storage-status') as typeof import('../storage-status');
+      57 |     psuj();
+    > 58 |     await expect(w.zapiszWersjeReceptury('white_pan_loaf', 'drozdze')).rejects.toBeInstanceOf(StorageWriteError);
+         |           ^
+      59 |     expect(await app.store.getAppSetting('wersje_receptur', 'brak')).toBe(ZLE_WERSJE);
+      60 |     zapis.mockImplementation(oryginal);
+      61 |     await w.zapiszWersjeReceptury('white_pan_loaf', 'drozdze');
+
+      at expect (node_modules/expect/build/index.js:113:15)
+      at Object.expect (src/data/__tests__/p9b2f-ratunek-zapis.sqlite.test.ts:58:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.7 s, estimated 4 s
+Ran all test suites matching /src\/data\/__tests__\/p9b2f-ratunek-zapis.sqlite.test.ts/i.

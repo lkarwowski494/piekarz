@@ -7511,6 +7511,93 @@
     "wazne_do": "2027-11-03"
   },
   {
+    "id": "MAS-085",
+    "twierdzenie": "Według czterech przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programach samego ciasta (bez pieczenia): Tefal Pain Plaisir — niedostępny m.in. w programie 11 (ciasto drożdżowe); Zojirushi BB-PDC20 — niedostępny w kursie DOUGH; Panasonic SD-YR2550 — niedostępny w menu ciast poza pizzą; Kenwood BM200 — niezalecany dla ciasta. Przeczytany fragment instrukcji Cuisinart CBK-110 o opóźnionym starcie o tym milczy.",
+    "zrodla": [
+      {
+        "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
+        "miejsce": "Tefal, „PAIN PLAISIR / PAIN & DELICES Instructions for Use” (PDF producenta, link „Download manual” na tefal.com/instructions-for-use/csp/7211002268, strona produktu wymienia PF220838); EN, „DELAYED START PROGRAM”, s. 113; kopia tefal-pf2208-IFU.pdf, sha256 ef4b947716d9",
+        "cytat": "The delayed start program is not available for: Programs 5,11, 12, 13, 14, 15, 16 and 17 (for “Pain Plaisir” model).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://cdn.shopify.com/s/files/1/0348/3467/7900/files/bbpdc_en.pdf?v=1793226626",
+        "miejsce": "Zojirushi BB-PDC20 Home Bakery Virtuoso Plus, Operating Instructions (PDF z zojirushi.com/products/bbpdc); HOW TO MAKE DOUGH, PDF s. 20; kopia zoj-bbpdc-en.pdf, sha256 05d8046b8246",
+        "cytat": "The timer function is not available for the DOUGH course.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bilder.quelle.de/v1/static/be27c6ec478999a4dd93915a7cea41fd",
+        "miejsce": "Panasonic SD-YR2550/SD-R2530, „OPERATING INSTRUCTIONS AND RECIPES” (© Panasonic Taiwan; EN, „Bread Dough”, PDF s. 8; kopia PDF producenta u sprzedawcy Quelle — panasonic.com zwraca 403)",
+        "cytat": "Timer is not available on doughs menus except Pizza.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://dls.delonghigroup.com/files/docs/5/A1-BM258.pdf",
+        "miejsce": "Kenwood BM200 Operating Instructions (PDF na serwerze De’Longhi Group, właściciela marki Kenwood; THE TIMER SET PADS, PDF s. 8; kopia kenwood-bm258-delonghigroup.pdf, sha256 997a631565ee",
+        "cytat": "The delayed start is not recommended for use with dough, jam or rapid bake settings.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04",
+    "uwagi": "06m (D-266 c): brakujące ograniczenie — ekran trybu maszyny proponuje „Gotowe o” (opóźnienie) także przy podpowiedzi programu „ciasto” (ProgramMaszynyKarta.tsx); zmiana logiki dla roli 08. Cuisinart: tabela cykli nie sprawdzona pod tym kątem."
+  },
+  {
+    "id": "MAS-086",
+    "twierdzenie": "Według pięciu przeczytanych instrukcji opóźniony start ustawia się jako czas, o którym chleb ma być gotowy (koniec programu), a nie jako czas startu programu: Tefal Pain Plaisir, Panasonic SD-YR2550, Cuisinart CBK-110 i Kenwood BM200 — czas od teraz do gotowości, w który maszyna sama wlicza czas programu; Zojirushi BB-PDC20 — godzina zakończenia programu.",
+    "zrodla": [
+      {
+        "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
+        "miejsce": "Tefal, „PAIN PLAISIR / PAIN & DELICES Instructions for Use” (PDF producenta, link „Download manual” na tefal.com/instructions-for-use/csp/7211002268, strona produktu wymienia PF220838); EN, „DELAYED START PROGRAM”, s. 113; kopia tefal-pf2208-IFU.pdf, sha256 ef4b947716d9",
+        "cytat": "Calculate the time difference between the moment you start the programme and the time at which you want your recipe to be ready. The machine automatically includes the programme cycle duration.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bilder.quelle.de/v1/static/72d0ef670c729c033dff0bb9614197d8",
+        "miejsce": "Panasonic SD-YR2550/SD-YR2540/SD-R2530/SD-B2510, „OPERATING INSTRUCTIONS” (© Panasonic Taiwan; EN, „Parts Names and Instructions”, Timer, s. GB7 (PDF s. 8); kopia PDF producenta hostowana u sprzedawcy Quelle — panasonic.com zwraca 403)",
+        "cytat": "Set delay timer (time until bread is ready).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; Delay Start Timer, PDF s. 5; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "Be sure to set your timer based on when you would like your bread to be complete.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://dls.delonghigroup.com/files/docs/5/A1-BM258.pdf",
+        "miejsce": "Kenwood BM200 Operating Instructions (PDF na serwerze De’Longhi Group, właściciela marki Kenwood; THE TIMER SET PADS, PDF s. 8; kopia kenwood-bm258-delonghigroup.pdf, sha256 997a631565ee",
+        "cytat": "You do not need to work out the difference between the setting time selected and the total hours required as the bread maker will automatically include the setting cycle time when the timer pad is first pressed.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://cdn.shopify.com/s/files/1/0348/3467/7900/files/bbpdc_en.pdf?v=1793226626",
+        "miejsce": "Zojirushi BB-PDC20 Home Bakery Virtuoso Plus, Operating Instructions (PDF z zojirushi.com/products/bbpdc); SETTING THE TIMER, s. 17; kopia zoj-bbpdc-en.pdf, sha256 05d8046b8246",
+        "cytat": "The timer function allows you to set the completion time up to 13 hours in the future in 10-minute increments.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04",
+    "uwagi": "06m (D-266 c): rozstrzyga OP-65. Tefal po pieczeniu utrzymuje ciepło jeszcze 1 godzinę („Keep warm”), więc „gotowe” = koniec pieczenia. Podgrzewania instrukcje nie wyodrębniają: liczy się cały program."
+  },
+  {
     "id": "KAT-WAG-001",
     "twierdzenie": "Według USDA FoodData Central (SR Legacy, fdc_id 168894) 1 szklanka (1 cup, miara amerykańska) mąki pszennej uniwersalnej (all-purpose, enriched, bleached) waży 125 g; ta sama wartość 125 g dla odmiany niebielonej (fdc_id 168936).",
     "zrodla": [
