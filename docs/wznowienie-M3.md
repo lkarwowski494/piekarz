@@ -1,7 +1,13 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-03 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## Aktualizacja 2026-11-04 ~02:10 UTC (koordynator M3, noc) — STAN BIEŻĄCY, czytaj najpierw
+## Punkt czyszczenia 2026-11-04 ~04:10 UTC (koordynator M3, po raporcie porannym) — STAN BIEŻĄCY, czytaj najpierw
+- `redesign/piekarz-2026-10-22` (verify kod 0, 537/5726; iOS E2E zielone na `70a0ee86`). Noc: p4b, p5, p5b, p6a, 09, p6b+09b, E5 (audyt 04 świeży), p7, 09c — wszystko scalone, sesje zarchiwizowane; szkic raportu był w scratchpadzie koordynatora.
+- **Odpowiedzi właściciela (04:05 UTC):** D-219 „Popraw oba (Recommended)” (04-004, 04-005 — zmiana `pasek-zakladek-receptura-106:49` i `pas-zakladek-d10:136`); D-220 „Po poprawkach z pyt. 1 (Recommended)” (build 1022 po p7b i zielonym E2E: scalenie do `master` i `testflight.yml`); D-221 „Osobna partia ze STOP (Recommended)” (dane: D-154/D-155, D-138, D-157 po buildzie). Weto D-195…D-218: brak odpowiedzi — obowiązują.
+- **Następny krok:** (1) p7b rola 08 (04-004, 04-005 wg D-219; wzór polecenia `audit/M3-2026-11-03/prompty/08-p7.naglowek.md` — K może nie istnieć w nowym kontenerze: złożyć ponownie z `/home/user/prompts`), pula od D-222; (2) merge, verify, E2E (workflow_dispatch e2e-ios.yml na redesign); (3) zielone → scalenie do master (D-220), `testflight.yml` na master, wynik buildu; (4) test właściciela na telefonie (`docs/wydanie/lista-kontrolna-telefonu.md`), rola 07 reaudit; (5) partia danych (D-221) ze STOP.
+- Raport E5 (poza gitem): `audit/M3-2026-11-03/role/04-po/04-studio-projektowe-2026-11-03.md` — przepadnie z kontenerem; znaleziska i decyzje streszczone w D-214…D-216.
+
+## Aktualizacja 2026-11-04 ~02:10 UTC (koordynator M3, noc)
 - `redesign/` @ `856687ef` (verify kod 0, 537 zestawów / 5726 testów). **iOS E2E run 41749231787 na `70a0ee86` (po p7): zielone** (00:45–01:43 UTC); różnica `70a0ee86` → HEAD to tylko D-217/09c (słowniki + argument `t()` w `ArkuszKart`) i dokumenty.
 - Partie nocne zakończone. Czeka na właściciela: 04-004 (`pasek-zakladek-receptura-106:49`), 04-005 (`pas-zakladek-d10:136`), weto D-195…D-217 (zwłaszcza D-210 brzmienia, D-216 kolejność Doktora), p6+ z flagą danych (D-154/D-155 wersja drożdżowa z planem, D-138 maszyna, D-157 katalog), zgoda na scalenie do `master` i build 1022 (D-190), zrzuty buildu dla roli 04 (E5, decyzja 4), wpis pamięci portfolio (E5, decyzja 3).
 

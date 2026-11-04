@@ -1240,3 +1240,21 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** zmiana przycisków bg/et w tej partii (poza zakresem, do przeglądu człowieka).
 - **Zależy od:** D-217.
 - **Status:** noc, do weta.
+
+### [D-219] 2026-11-04 — 04-004 i 04-005: plan bez paska zakładek, Doktor zakwasu z pasem O3a; zmiana dwóch testów dozwolona (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (przyciski, raport poranny 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Popraw oba (Recommended)”.
+- **Decyzja:** rola 08 (partia p7b): plan bez paska zakładek pod „Zacznij wypiek” — zmiana `tests/pasek-zakladek-receptura-106.test.tsx:49`; Doktor zakwasu z pasem O3a jak Doktor Chleba — zmiana `src/__tests__/pas-zakladek-d10.test.tsx:136`. Warunki jak D-194 (czerwień przed z właściwego powodu, asercje powrotu, tytułu dla VoiceOver i nawigacji, żadna bez zastępstwa).
+- **Odrzucone:** (b) zostawić na po 1.0.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-220] 2026-11-04 — Build TestFlight 1022 po p7b i zielonym E2E: scalenie redesign → master (właściciel)
+- **Rodzaj:** zgoda właściciela na działanie zewnętrzne (przyciski, 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Po poprawkach z pyt. 1 (Recommended)”.
+- **Decyzja:** po scaleniu p7b do `redesign/`, verify kod 0 i zielonym iOS E2E na HEAD: scalenie `redesign/piekarz-2026-10-22` → `master` i `testflight.yml` na master (build 1022). Zgoda obejmuje to jedno scalenie i ten build; ASC, zgłoszenie do review i usuwanie gałęzi — osobno.
+- **Odrzucone:** (b) scal i buduj teraz; (c) jeszcze nie.
+- **Status:** właściciel, 2026-11-04.
+
+### [D-221] 2026-11-04 — Funkcje z flagą danych (D-154/D-155, D-138, D-157) jako osobna partia ze STOP po buildzie 1022 (właściciel)
+- **Rodzaj:** produktowa, decyzja właściciela (przyciski, 2026-11-04 ok. 04:05 UTC). **Słowa właściciela:** „Osobna partia ze STOP (Recommended)”.
+- **Decyzja:** po buildzie 1022: rola 08 z modułem `dane-uzytkownika` (M2) i `sqlite-expo`: migracja w transakcji, test na kopii bazy poprzedniej wersji, STOP przed wdrożeniem; katalog +15 receptur (D-157) po akceptacji listy przez właściciela. Zostają w 1.0 (D-150 bez zmian).
+- **Odrzucone:** (b) po wydaniu 1.0.
+- **Status:** właściciel, 2026-11-04.
