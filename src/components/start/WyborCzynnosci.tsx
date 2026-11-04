@@ -11,7 +11,8 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { t } from '../../lib/i18n';
 import type { CzynnoscStartu } from '../../lib/start-stan';
 import { theme } from '../../ui/theme';
-import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { odstepy, typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
 import { IkonaStartu, type NazwaIkonyStartu } from './IkonaStartu';
 
 const OPIS: Record<CzynnoscStartu, { ikona: NazwaIkonyStartu; nazwa: () => string; zdanie: () => string }> = {
@@ -65,8 +66,8 @@ const styles = StyleSheet.create({
     gap: odstepy.s,
     paddingVertical: odstepy.l,
     paddingHorizontal: odstepy.xs,
-    borderRadius: promienie.grupa,
-    backgroundColor: theme.colors.powierzchnia,
+    // Kafel na wyglądzie karty: obwódka kartaLinia, promień karta (karty.css .kafel; README §2) [M3 p7, 04-003]
+    ...wygladKarty,
   },
   kafelDuzy: { flex: 0, flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: odstepy.l, gap: odstepy.m },
   opis: { alignItems: 'center', gap: odstepy.xs, minWidth: 0 },

@@ -1,17 +1,24 @@
 // ============================================================================
 // Apps4Craft Studio — EditStarterModal Component
 // Modal for editing starter name, flour type, and refrigeration storage state.
+// Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza, profil i działania na zakwasie w karcie (README §1, §3)
+// [M3 p7, 04-002].
 // 100% Offline-First.
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, TextInput, Modal } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { sharedCraftTokens } from '@apps4craft/ui';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { formularz } from '../arkusz/style-formularza';
+import { useZmienionyFormularz } from '../arkusz/useZmienionyFormularz';
+import { WyborPrzechowywania } from './WyborPrzechowywania';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
-import { typografia } from '../../ui/tokeny';
 export interface EditStarterModalProps {
   visible: boolean;
   name: string;
@@ -42,236 +49,81 @@ export function EditStarterModal({
   onClose,
   onSave,
 }: EditStarterModalProps) {
+  const zmieniony = useZmienionyFormularz(visible, [name, flourType, storageState]);
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Edytuj zakwas')}</Text>
-          <Text style={styles.modalSubtitle}>{t('Zmień parametry swojego zakwasu')}</Text>
-
-          {/* Name input */}
-          <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
+    <ArkuszKart
+      visible={visible}
+      onRequestClose={onClose}
+      zmieniony={zmieniony}
+      lewy={{ tekst: t('Anuluj'), onPress: onClose }}
+      prawy={{ tekst: t('Zapisz'), onPress: onSave }}
+    >
+      <Karta testID="karta-edycja-zakwasu" tytul={t('Edytuj zakwas')} ikona={<IkonaKarty nazwa="sloik" />} podpis={t('Zmień parametry swojego zakwasu')}>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Imię zakwasu')}</Text>
           <TextInput
             accessibilityLabel={t('Imię zakwasu')}
-            style={styles.modalInput}
+            style={formularz.pole}
             value={name}
             onChangeText={onNameChange}
             placeholder={t('Imię zakwasu')}
           />
-
-          {/* Flour type input */}
-          <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
+        </View>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Typ mąki')}</Text>
           <TextInput
             accessibilityLabel={t('Typ mąki')}
-            style={styles.modalInput}
+            style={formularz.pole}
             value={flourType}
             onChangeText={onFlourTypeChange}
             placeholder={t('Typ mąki')}
           />
-
-          {/* Storage state toggle */}
-          <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
-          <View style={styles.storageToggleRow}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: storageState === 'FRIDGE' }}
-              style={[styles.storageBtn, storageState === 'FRIDGE' && styles.storageBtnActive]}
-              onPress={() => onStorageStateChange('FRIDGE')}
-            >
-              <Text style={[styles.storageBtnText, storageState === 'FRIDGE' && styles.storageBtnTextActive]}>
-                {t('W lodówce (4°C)')}
-              </Text>
-            </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: storageState === 'ROOM_TEMP' }}
-              style={[styles.storageBtn, storageState === 'ROOM_TEMP' && styles.storageBtnActive]}
-              onPress={() => onStorageStateChange('ROOM_TEMP')}
-            >
-              <Text style={[styles.storageBtnText, storageState === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                {t('Temperatura pokojowa')}
-              </Text>
-            </Pressable>
-          </View>
-
-          {/* Zakładanie od nowa (BR-ZAKW-005, D-113): w Basic, także przy jedynym zakwasie [M3 P-a-fix P0-1] */}
-          {onZalozOdNowa && (
-            <Pressable
-              accessibilityRole="button"
-              testID="restart-starter-setup-btn"
-              style={styles.zalozBtn}
-              onPress={onZalozOdNowa}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-            >
-              <Text style={styles.storageBtnText}>{t('Załóż zakwas od nowa')}</Text>
-            </Pressable>
-          )}
-
-          <View style={styles.modalButtonsRow}>
-            {canDelete && (
-              <Pressable
-                accessibilityRole="button"
-                testID="delete-starter-btn"
-                style={styles.modalDeleteBtn}
-                onPress={onDelete}
-                hitSlop={sharedCraftTokens.hitSlopStandard}
-              >
-                <Text style={styles.modalDeleteBtnText}>{t('Usuń zakwas')}</Text>
-              </Pressable>
-            )}
-            <View style={styles.modalRightButtons}>
-              <Pressable
-                accessibilityRole="button"
-                style={styles.modalCancelBtn}
-                onPress={onClose}
-                hitSlop={sharedCraftTokens.hitSlopStandard}
-              >
-                <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-              </Pressable>
-              <Pressable
-                accessibilityRole="button"
-                style={styles.modalConfirmBtn}
-                onPress={onSave}
-                hitSlop={sharedCraftTokens.hitSlopStandard}
-              >
-                <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
-              </Pressable>
-            </View>
-          </View>
         </View>
-      </SafeAreaView>
-    </Modal>
+        <View style={formularz.grupa}>
+          <Text style={formularz.etykieta}>{t('Miejsce przechowywania')}</Text>
+          <WyborPrzechowywania wartosc={storageState} onZmiana={onStorageStateChange} kolejnosc={['FRIDGE', 'ROOM_TEMP']} />
+        </View>
+
+        {/* Zakładanie od nowa (BR-ZAKW-005, D-113): w Basic, także przy jedynym zakwasie [M3 P-a-fix P0-1] */}
+        {onZalozOdNowa && (
+          <Pressable
+            accessibilityRole="button"
+            testID="restart-starter-setup-btn"
+            style={styles.zaloz}
+            onPress={onZalozOdNowa}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+          >
+            <Text style={styles.zalozTekst}>{t('Załóż zakwas od nowa')}</Text>
+          </Pressable>
+        )}
+        {canDelete && (
+          <Pressable
+            accessibilityRole="button"
+            testID="delete-starter-btn"
+            style={styles.usun}
+            onPress={onDelete}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+          >
+            <Text style={styles.usunTekst}>{t('Usuń zakwas')}</Text>
+          </Pressable>
+        )}
+      </Karta>
+    </ArkuszKart>
   );
 }
 
 const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
+  zaloz: {
+    minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 24,
-  },
-  modalCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    width: '100%',
-    maxWidth: 420,
-  },
-  modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz3,
-    marginBottom: 16,
-  },
-  modalInputLabel: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-    marginBottom: 6,
-  },
-  modalInput: {
-    backgroundColor: theme.colors.tlo,
+    paddingHorizontal: odstepy.m,
+    borderRadius: promienie.przycisk,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
-    borderRadius: theme.radius.sm,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: typografia.style.objasnienie.pt,
-    color: theme.colors.tusz,
-    marginBottom: 14,
-  },
-  storageToggleRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 20,
-  },
-  zalozBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    marginBottom: theme.spacing.md,
   },
-  storageBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    flex: 1,
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  storageBtnActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  storageBtnText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  storageBtnTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-  modalButtonsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  modalDeleteBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-  },
-  modalDeleteBtnText: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.blad,
-    fontWeight: '600',
-  },
-  modalRightButtons: {
-    flexDirection: 'row',
-    gap: 10,
-    marginLeft: 'auto',
-  },
-  modalCancelBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalCancelBtnText: {
-    fontSize: 14,
-    color: theme.colors.tusz3,
-    fontWeight: '600',
-  },
-  modalConfirmBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalConfirmBtnText: {
-    fontSize: 14,
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
+  zalozTekst: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz2, textAlign: 'center' },
+  usun: { minHeight: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center' },
+  usunTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.blad, fontWeight: '600' },
 });

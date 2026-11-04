@@ -179,8 +179,9 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny
       {/* Jasny pasek stanu na pasie, póki okno jest widoczne (po zamknięciu wraca styl ekranu pod spodem) */}
       <StatusBar barStyle="light-content" animated />
       <View style={styles.okno}>
-      {/* Czapka paska stanu w kolorze pasa: pas odjeżdża z treścią, pod paskiem stanu nie przewija się treść (README §2) */}
-      <SafeAreaView edges={['top']} style={styles.czapka} />
+      {/* Czapka paska stanu w kolorze pasa: pas odjeżdża z treścią, pod paskiem stanu nie przewija się treść (README §2).
+          Wyjątek od EkranZPasem (D-215): w oknie Modal wysokość daje natywny SafeAreaView, nie useSafeAreaInsets */}
+      <SafeAreaView testID="czapka-paska" edges={['top']} style={styles.czapka} />
       <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'bottom']}>
         <ScrollView contentContainerStyle={styles.przewijane} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
           <NadPasem />

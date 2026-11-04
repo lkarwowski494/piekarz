@@ -19,7 +19,7 @@ import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
 
-export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
+export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki', onLayout }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
@@ -41,6 +41,8 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   /** Sterowanie ekranu na pasie (spirala zakwasu, kalendarz). */
   children?: React.ReactNode;
   testID?: string;
+  /** Wysokość pasa: ekran z pasem pokazuje mały tytuł w czapce, gdy pas schowa się pod paskiem stanu (EkranZPasem). */
+  onLayout?: (wysokosc: number) => void;
 }) {
   // Krój Sofia reaguje na „Pogrubiony tekst” jak tytuł kroku (158) [04-studio-projektowe-014]
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
@@ -55,7 +57,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   ) : null;
   return (
     <>
-    <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID}>
+    <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID} onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.height) : undefined}>
       {(wstecz || akcje) && (
         <View style={styles.gora}>
           {wstecz ? (

@@ -23,7 +23,7 @@ import { NawigacjaKalendarza } from '../kalendarz/NawigacjaKalendarza';
 import { MiesiacKalendarza, type MiesiacKalendarzaProps } from '../kalendarz/MiesiacKalendarza';
 import type { NawigacjaWidoku } from '../../hooks/useKalendarz';
 
-export function PasDzis({ gora, data, pasek, widok, miesiac, pusty, teksty, zalegle, o, akcje, onPlus, onUstawienia }: {
+export function PasDzis({ gora, data, pasek, widok, miesiac, pusty, teksty, zalegle, o, akcje, onPlus, onUstawienia, onLayout }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   data: string;
@@ -38,10 +38,13 @@ export function PasDzis({ gora, data, pasek, widok, miesiac, pusty, teksty, zale
   akcje: AkcjeZaleglego;
   onPlus: () => void;
   onUstawienia: () => void;
+  /** Wysokość pasa (EkranZPasem: mały tytuł w czapce). */
+  onLayout?: (wysokosc: number) => void;
 }) {
   return (
     <PasZakladki
       gora={gora}
+      onLayout={onLayout}
       testID="pas-dzis"
       tytul={t('Co dziś robisz?')}
       podtytul={data}

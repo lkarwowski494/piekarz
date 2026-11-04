@@ -1,8 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { t } from '../../../src/lib/i18n';
 import {
@@ -244,10 +245,11 @@ export default function HarmonogramScreen() {
   // kroki, ustawienia nocy; „Zacznij wypiek” w pasku kciuka poza przewijaną treścią [M1-audytor-generalny-128]
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      <ScrollView style={styles.przewijane} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-        <NadPasem />
+      {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+      <EkranZPasem gora={gora} tytul={t('Plan wypieku')} style={styles.przewijane} pas={(onLayout) => (
         <PasZakladki gora={gora} tytul={t('Plan wypieku')} podtytul={recepturaPlanu() ? nazwaReceptury(recepturaPlanu()?.recipeName ?? '') : undefined}
-          wstecz={{ tekst: t('Receptura'), onPress: () => router.back() }} />
+          wstecz={{ tekst: t('Receptura'), onPress: () => router.back() }} onLayout={onLayout} />
+      )}>
         <View style={styles.container}>
         {/* Z „Piecz ponownie”: notatka i zmiana receptury bazowej w karcie (src/components/harmonogram/NotatkiPlanu.tsx) */}
         <NotatkiPlanu notatka={notatkaPoprzednia} bazowaZmieniona={bazowaZmieniona} />
@@ -323,7 +325,7 @@ export default function HarmonogramScreen() {
           />
         </UstawieniaPlanu>
         </View>
-      </ScrollView>
+      </EkranZPasem>
       <PasekStartu
         onStart={zacznij}
         powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}

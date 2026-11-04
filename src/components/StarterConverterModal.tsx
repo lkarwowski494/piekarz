@@ -8,14 +8,11 @@ import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
-  Modal,
-  ScrollView,
   Pressable,
-  StyleSheet,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { sharedCraftTokens } from '@apps4craft/ui';
-import { theme } from '../ui/theme';
+import { ArkuszKart } from './arkusz/ArkuszKart';
+import { Karta } from '../ui/karty/Karta';
+import { IkonaKarty } from '../ui/karty/IkonaKarty';
 import { t } from '../lib/i18n';
 import { useUnitSystem, formatWeight } from '../lib/unit-converter';
 import {
@@ -23,8 +20,8 @@ import {
   convertStarterHydration,
   STARTER_PRESETS,
 } from '../core/starter-converter';
+import { styles } from './starter-converter.styles';
 
-import { typografia } from '../ui/tokeny';
 export interface StarterConverterModalProps {
   visible: boolean;
   onClose: () => void;
@@ -80,15 +77,11 @@ export function StarterConverterModal({
   }, [targetYieldGrams, sourceHydration, targetHydration]);
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard} testID="starter-converter-modal">
-          {/* Header */}
-          <Text style={styles.modalTitle}>{t('Konwerter zakwasu & Lievito Madre')}</Text>
-          <Text style={styles.modalSubtitle}>
-            {t('Przelicznik hydratacji i zamiennik w recepturze')}
-          </Text>
-
+    // Arkusz na kartach: „Zamknij” w pasku arkusza, tryb, dane i wynik w kartach (README §1, §3) [M3 p7, 04-002]
+    <ArkuszKart visible={visible} onRequestClose={onClose} trescTestID="starter-converter-modal"
+      lewy={{ tekst: t('Zamknij'), onPress: onClose, testID: 'close-converter-btn' }}>
+          <Karta testID="karta-konwertera" tytul={t('Konwerter zakwasu & Lievito Madre')} ikona={<IkonaKarty nazwa="proporcje" />}
+            podpis={t('Przelicznik hydratacji i zamiennik w recepturze')}>
           {/* Mode Switcher */}
           <View style={styles.tabRow}>
             <Pressable
@@ -118,10 +111,11 @@ export function StarterConverterModal({
               </Text>
             </Pressable>
           </View>
+          </Karta>
 
-          <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollArea}>
             {activeTab === 'substitution' ? (
-              <View testID="substitution-section">
+              <View testID="substitution-section" style={styles.sekcja}>
+                <Karta testID="karta-zamiennika" tytul={t('Zamiennik w przepisie')} ikona={<IkonaKarty nazwa="sloik" />}>
                 {/* Recipe Starter Quantity */}
                 <Text style={styles.sectionLabel}>{t('Masa zakwasu w przepisie')}:</Text>
                 <View style={styles.chipsRow}>
@@ -199,10 +193,10 @@ export function StarterConverterModal({
                   ))}
                 </View>
 
+                </Karta>
                 {/* Substitution Results */}
                 {subResult && (
-                  <View style={styles.resultCard} testID="substitution-result-card">
-                    <Text style={styles.resultCardTitle}>{t('Wynik przeliczenia')}</Text>
+                  <Karta testID="substitution-result-card" tytul={t('Wynik przeliczenia')} ikona={<IkonaKarty nazwa="waga" />}>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Użyj Twojego zakwasu')}:</Text>
@@ -235,11 +229,12 @@ export function StarterConverterModal({
                     </View>
 
                     <Text style={styles.adviceText}>{t(subResult.adviceTemplatePl, subResult.adviceParams)}</Text>
-                  </View>
+                  </Karta>
                 )}
               </View>
             ) : (
-              <View testID="shift-section">
+              <View testID="shift-section" style={styles.sekcja}>
+                <Karta testID="karta-odrostu" tytul={t('Przygotowanie (Odrost)')} ikona={<IkonaKarty nazwa="sloik" />}>
                 {/* Target Yield */}
                 <Text style={styles.sectionLabel}>{t('Docelowa masa nowego zakwasu')}:</Text>
                 <View style={styles.chipsRow}>
@@ -310,10 +305,10 @@ export function StarterConverterModal({
                   ))}
                 </View>
 
+                </Karta>
                 {/* Shift Results */}
                 {shiftResult && (
-                  <View style={styles.resultCard} testID="shift-result-card">
-                    <Text style={styles.resultCardTitle}>{t('Receptura odrostu')}</Text>
+                  <Karta testID="shift-result-card" tytul={t('Receptura odrostu')} ikona={<IkonaKarty nazwa="waga" />}>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Zakwas matka')}:</Text>
@@ -338,229 +333,10 @@ export function StarterConverterModal({
                     </View>
 
                     <Text style={styles.adviceText}>{`${t(shiftResult.tipTemplatePl, shiftResult.tipParams)}${shiftResult.tipConsistencyPl ? ` ${t(shiftResult.tipConsistencyPl)}` : ''}`}</Text>
-                  </View>
+                  </Karta>
                 )}
               </View>
             )}
-          </ScrollView>
-
-          {/* Close button */}
-          <Pressable
-            accessibilityRole="button"
-            testID="close-converter-btn"
-            style={styles.closeButton}
-            onPress={onClose}
-            hitSlop={sharedCraftTokens.hitSlopStandard}
-          >
-            <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    </Modal>
+    </ArkuszKart>
   );
 }
-
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  modalCard: {
-    width: '100%',
-    maxHeight: '90%',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: 20,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    marginBottom: 14,
-  },
-  tabRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 16,
-  },
-  tabButton: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    flex: 1,
-    paddingVertical: 8,
-    paddingHorizontal: 8,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    alignItems: 'center',
-  },
-  tabButtonActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  tabButtonText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  tabButtonTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '800',
-  },
-  scrollArea: {
-    maxHeight: 400,
-  },
-  sectionLabel: {
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginTop: 10,
-    marginBottom: 6,
-  },
-  chipsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 6,
-  },
-  chip: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  chipActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  chipText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  chipTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-  presetsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 8,
-  },
-  presetChip: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingVertical: 6,
-    paddingHorizontal: 8,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  presetChipActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  presetChipText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  presetChipTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-  },
-  resultCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: 12,
-    marginTop: 12,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  resultCardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-    marginBottom: 8,
-  },
-  metricRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 4,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.linia,
-  },
-  metricLabel: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-  },
-  metricValue: {
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  metricValueHighlight: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '800',
-    color: theme.colors.akcentTekst,
-  },
-  badge: {
-    paddingVertical: 3,
-    paddingHorizontal: 8,
-    borderRadius: theme.radius.sm,
-  },
-  badgeAdd: {
-    backgroundColor: theme.colors.tloGrupa,
-  },
-  badgeReduce: {
-    backgroundColor: theme.colors.tloGrupa,
-  },
-  badgeNeutral: {
-    backgroundColor: theme.colors.tloGrupa,
-  },
-  badgeText: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  adviceText: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    fontStyle: 'italic',
-    marginTop: 8,
-    lineHeight: 16,
-  },
-  closeButton: {
-    backgroundColor: theme.colors.akcent,
-    borderRadius: theme.radius.md,
-    minHeight: 52,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 14,
-  },
-  closeButtonText: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-    fontSize: 14,
-  },
-});

@@ -5,7 +5,7 @@
 // Tryb, mąki, proporcje i zaczyn: arkusz „Składniki”; temperatura: arkusz „Temperatura wody”.
 // Rachunek (useRecipeCalculations), zapis, plan i wczytanie receptury bez zmian. [M1-audytor-generalny-106]
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { ScrollView, View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
@@ -29,7 +29,8 @@ import {
 import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { podtytulReceptury } from '../../../src/components/receptury/nazwy-receptur';
@@ -247,11 +248,12 @@ export default function EkranReceptury() {
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right', 'bottom']}>
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
-        <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-          <NadPasem />
-          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} podtytulTestID="recipe-subtitle"
+        {/* Ekran z pasem i czapką paska stanu (README §2, 04-001) [M3 p7] */}
+        <EkranZPasem gora={gora} tytul={nazwaReceptury(recipeName)} pas={(onLayout) => (
+          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} podtytulTestID="recipe-subtitle" onLayout={onLayout}
             podtytul={currentMasterPreset ? podtytulReceptury(currentMasterPreset.category) : undefined} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
             akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
+        )}>
           <View style={s.tresc}>
           <BlokadaFunkcji {...blokada('kalkulator')}>
             {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
@@ -281,7 +283,7 @@ export default function EkranReceptury() {
           {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} />}
           {akcjeWTresci && akcje}
           </View>
-        </ScrollView>
+        </EkranZPasem>
         {!akcjeWTresci && (
           <View style={styles.strefaAkcji} onLayout={(e) => setWysokoscAkcji(e.nativeEvent.layout.height)}>
             {akcje}

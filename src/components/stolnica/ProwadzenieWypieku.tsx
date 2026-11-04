@@ -6,12 +6,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
-  ScrollView,
   AppState,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { NadPasem, PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
+import { PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
+import { EkranZPasem } from '../nawigacja/EkranZPasem';
 import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
 import { przerwijWypiek } from '../../lib/przerwij-wypiek';
@@ -317,13 +317,12 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
-        <NadPasem />
-        {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
-            (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+      {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
+          (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+      <EkranZPasem gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} contentContainerStyle={styles.container} pas={(onLayout) => (
         <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
           podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
-          wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }}
+          wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout}
           akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
           {aktywny && (
             <>
@@ -333,6 +332,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
             </>
           )}
         </PasZakladki>
+      )}>
         <View style={styles.tresc}>
         {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
@@ -368,7 +368,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
         {/* Arkusz oceny po ostatnim kroku */}
         <FinishBakeModal {...finish.modalProps} />
         </View>
-      </ScrollView>
+      </EkranZPasem>
 
       {aktywny && cofniete && (
         <PasekCofnij
