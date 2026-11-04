@@ -1,0 +1,27 @@
+FAIL src/lib/__tests__/plan-maszyny-p9b2.test.ts
+  plan trybu maszyny
+    ✕ jeden krok programu: kategoria z listy wydanego buildu, bez dwóch faz garnka, od startu do gotowości (6 ms)
+    ✓ dane wypieku: tryb maszyna, wersja drożdżowa przy zakwasie (D-156), receptura; parser planów go czyta (2 ms)
+
+  ● plan trybu maszyny › jeden krok programu: kategoria z listy wydanego buildu, bez dwóch faz garnka, od startu do gotowości
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      19 |     expect(isStageCategory(k.category)).toBe(true);
+      20 |     expect(k.id).toBe(ID_KROKU_MASZYNY);
+    > 21 |     expect(isDutchOvenStep(k)).toBe(false);
+         |                                ^
+      22 |     expect([k.plannedStart, k.plannedEnd]).toEqual([we.startMs, we.startMs + 190 * 60_000]);
+      23 |   });
+      24 |   it('dane wypieku: tryb maszyna, wersja drożdżowa przy zakwasie (D-156), receptura; parser planów go czyta', () => {
+
+      at Object.toBe (src/lib/__tests__/plan-maszyny-p9b2.test.ts:21:32)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.43 s
+Ran all test suites matching /src\/lib\/__tests__\/plan-maszyny-p9b2.test.ts/i.
