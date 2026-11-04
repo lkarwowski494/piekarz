@@ -257,6 +257,37 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
       },
     ],
   },
+  {
+    // D-265 (06m): instrukcje producentów maszyn do chleba, źródła trybu maszyny (docs/tresci/pl/maszyna.md)
+    temat: 'Maszyna do chleba',
+    zrodla: [
+      {
+        nazwa: 'Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)',
+        opis: 'Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.',
+        adres: 'dam.groupeseb.com',
+      },
+      {
+        nazwa: 'Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)',
+        opis: 'Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.',
+        adres: 'cdn.shopify.com',
+      },
+      {
+        nazwa: 'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550',
+        opis: 'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.',
+        adres: 'bilder.quelle.de',
+      },
+      {
+        nazwa: 'Cuisinart, instrukcja obsługi maszyny do chleba CBK-110',
+        opis: 'Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.',
+        adres: 'images.homedepot-static.com',
+      },
+      {
+        nazwa: 'Kenwood, instrukcja obsługi maszyny do chleba BM200',
+        opis: 'Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.',
+        adres: 'dls.delonghigroup.com',
+      },
+    ],
+  },
 ];
 
 /** Wszystkie klucze słownika ekranu: wstęp, tematy, nazwy i opisy (do testu „nazwy źródeł tylko tutaj”). */

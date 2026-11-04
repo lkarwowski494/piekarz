@@ -1029,6 +1029,11 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "Cuisinart, instrukcja obsługi maszyny do chleba CBK-110": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -2635,6 +2640,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Kenwood, instrukcja obsługi maszyny do chleba BM200": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Kiedy chleb ma być gotowy?": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tytul)"
@@ -2747,6 +2757,16 @@
   "Kolejność wkładania składników podaje instrukcja Twojej maszyny.": {
     "gdzie": [
       "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Kolizja ze snem": {
@@ -4019,6 +4039,11 @@
       "src/components/receptury/TrybMaszyny.tsx (etykieta)"
     ]
   },
+  "Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Największa masa ciasta": {
     "gdzie": [
       "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
@@ -4844,6 +4869,11 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: lid_on)"
@@ -5617,6 +5647,11 @@
   "Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.": {
     "gdzie": [
       "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Proponowane mieszanie ciasta: {dzien} o {godzina}.": {
@@ -7131,6 +7166,11 @@
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
+  "Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Tego dnia nic nie zaplanowano.": {
     "gdzie": [
       "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
@@ -8008,6 +8048,11 @@
   "Wielkie dziury pod skórką i zbity dół (Jaskinie)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (kod)"
+    ]
+  },
+  "Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.": {
@@ -9530,6 +9575,11 @@
       "src/components/settings/ZrodlaWiedzy.tsx (tekst w JSX)"
     ],
     "opis": "przycisk na karcie „Źródła wiedzy” w Ustawieniach, otwiera ekran źródeł (M3 T2, D-123)"
+  },
+  "Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Zostaje wgłębienie i ciasto siada:": {
     "gdzie": [
