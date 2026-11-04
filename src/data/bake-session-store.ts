@@ -111,6 +111,9 @@ export function isHighRyeBake(bake: ActiveBakeState): boolean {
 export function stepsForBake(bake: ActiveBakeState): SessionStep[] {
   if (bake.steps && bake.steps.length > 0) {
     // Plan żytni z planu wypieku ma już etapy żytnie z godzinami planu (030): bez przeliczania od startu
+    // Wersja drożdżowa (kroki yeast_*, D-155) zostaje planem z receptury: bez etapów żytnich na zakwasie (dokarmienie,
+    // 240 min w formie), także dla żyta 100% na drożdżach (przegląd p9b-1b, P1) [M3 p9b]
+    if (bake.wersja === 'drozdze') return bake.steps;
     return isHighRyeBake(bake) && !areRyeSteps(bake.steps) ? ryeStepsFromPlan(bake.steps, bake.startedAt) : bake.steps;
   }
   return planBakeSteps({ startAt: bake.startedAt, isHighRye: isHighRyeBake(bake), ambientTempC: bake.ambientTempC });

@@ -28,9 +28,23 @@ Testy:
 - Ekrany biorą formułę wbudowanej receptury z kodu (`CATALOG_RECIPES`/`MASTER_RECIPES`); wiersz z bazy wygrywa tylko w „Piecz ponownie” dla wpisu **bez** `recipeId` dopasowanego po nazwie (`src/lib/recipe-navigation.ts:92,97`: wbudowane z bazy przed katalogiem). Wpisy z 1022 mają `recipeId` (D1), więc ocena: **brzegowy**.
 - Poprawka zrobiona wg D-250 pkt 3 (opcja a), bez zapisu w bazie (sekcja wyżej).
 
-## Zostało (p9b-1)
-1. D-154/D-155 (następna sesja): dane wersji drożdżowej 4 receptur (D-173) z `docs/tresci/pl/wersje-drozdzowe.md` (+ EN) jako pole presetu; plan wstecz drożdżowy z kroków tylko istniejących kategorii (`bake-steps.ts`, warunek G4; „odgazowanie” jako krok w istniejącej kategorii), czasy z receptury (D-174); przełącznik wersji na recepturze (zapamiętanie przez `wczytajWersjeReceptury`/`zapiszWersjeReceptury`), zdjęcie blokady `src/lib/plan-receptury.ts:55-61` (zgoda na `plan-bez-zakwasu-d3.test.tsx:43`), plan wstecz i prowadzenie wersji drożdżowej, `wersja` w starcie wypieku, „Piecz ponownie” z zapisaną wersją, nowe klucze i18n (PL + EN), zrzuty.
-2. Przegląd ścieżek wrażliwych dla zmian p9b-1 w ekranach (start wypieku z `wersja`), jeśli dotkną zapisu.
+## p9b-1b (sesja 2, gałąź `wip/08-p9b-ekrany-2026-11-04` od `9cf15139`)
+| Commit | Co |
+|---|---|
+| `68129e4` | przełącznik wersji (`SegmentWersji`, `useWersjaReceptury`), dane 4 receptur (`src/recipes/wersje-drozdzowe.ts`), kroki drożdżowe (`src/core/yeast-stages.ts`), `powodBezPlanu` |
+| `96f19a1` | struktura: `plakietkaDnia` z `harmonogram.tsx` (limit 20 KB) |
+| `90b7b74` | plan i start z `wersja`, Dziennik `leaven`, „Piecz ponownie” w zapisanej wersji; D-252 |
+
+Testy (czerwone przed kodem: `docs/p9b-dowody/czerwien-p9b-ekrany.log`, `czerwien-piecz-ponownie-wersja.log`): `wersje-drozdzowe-p9b` (5), `yeast-stages-p9b` (6), `plan-drozdzowy-p9b` (5), `receptura-wersja-drozdzowa-p9b` (4), `plan-wersja-drozdzowa-p9b` (3), `piecz-ponownie-wersja-p9b` (3), `plakietka-dnia` (2, charakteryzujący). Istniejące testy bez zmian (zgoda na `plan-bez-zakwasu-d3` niewykorzystana, D-252 pkt 3).
+Verify (`docs/p9b-dowody/verify-p9b-1b-1*.log`): typecheck, licencje, rozmiar, lint, natywne, macierz 1554/1554 — 0; Jest 5878/5881, czerwone tylko `check-i18n-gate` (2: 15 nowych kluczy PL × 33 języki) i `zrodla-katalogu-06z` (domeny: redstaryeast.com, fcs.mgcafe.uky.edu, doi 10.1016/j.crfs.2025.101208, 10.1038/s41598-018-24149-w, 10.3390/ijms24032770).
+
+## Zostało
+1. Rola 09: przekład 15 kluczy (`src/lib/i18n-en/czesc-28.ts`) na 33 języki. Rola 06: domeny 06z na ekran „Źródła wiedzy”, luki z D-252 (orkisz 3 h, czasy kroków z rękami, żyto: studzenie i gotowość, czasy receptur drożdżowych).
+2. Rola 04: makieta przełącznika wersji i teksty z D-252; zrzuty (brak Expo web w projekcie): `receptura-graham-zakwas`, `receptura-graham-drozdze`, `receptura-orkisz-drozdze-bez-planu`, `plan-zyto-drozdze`, `stolnica-drozdze-drugie-rosniecie` — jasny i ciemny, 320 pt i AX5.
+3. p9b-2: tryb maszyny (Z4 ekrany, Z5, Z6, RD-37…39).
 
 ## Nie sprawdzono
-Migracja na iOS (expo-sqlite natywne, `VACUUM INTO` ze ścieżką `file://`), prawdziwa baza z telefonu, E2E iOS, powrót do 1022 z bazą v7 (zamierzone: ekran „nowsza wersja”, test `baza-nowsza`).
+Ekrany p9b-1b na urządzeniu (zrzuty, VoiceOver, AX5); migracja na iOS (expo-sqlite natywne, `VACUUM INTO` ze ścieżką `file://`), prawdziwa baza z telefonu, E2E iOS, powrót do 1022 z bazą v7 (zamierzone: ekran „nowsza wersja”, test `baza-nowsza`).
+
+## p9b-1c (sesja 3, D-258)
+Rola 08 wdrozyla D-256 dla rye_100_pan na drozdzach: rosniecie wg ZYT-ETA-005 bez testu palca, studzenie 1440 min (KRO-POC-016), pieczenie 240/220 C 10+35 min takze w "O recepturze". Dowody: docs/p9b-dowody/czerwien-d256-zyto-drozdze.log, verify-p9b-1c.log, jest-p9b-1c.log. Czerwone: tylko check-i18n (przeklad kluczy z 1b/06d, rola 09).

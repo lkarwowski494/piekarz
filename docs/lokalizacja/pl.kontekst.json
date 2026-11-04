@@ -838,6 +838,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: kod)"
+    ]
+  },
   "Ciasto jest już wymieszane, a odważona sól została na blacie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
@@ -1053,6 +1058,11 @@
   "Czas zdjąć pokrywkę z garnka i piec dalej bez pary.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: kod)"
     ]
   },
   "Czego unikać (typowe błędy):": {
@@ -1531,6 +1541,11 @@
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
+  "Drugie rośnięcie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Drukuj": {
     "gdzie": [
       "src/lib/menu-receptury.ts (etykieta)",
@@ -1616,9 +1631,9 @@
       "app/(tabs)/(dzis)/_layout.tsx (title)",
       "app/(tabs)/(dzis)/index.tsx (title)",
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -2307,6 +2322,21 @@
       "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
+  "Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ilość objętościowa:": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
@@ -2510,8 +2540,8 @@
   },
   "Jutro": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -2652,11 +2682,21 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
+  "Koistinen V.M. i in., Scientific Reports 2018": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Kolejne etapy wypieku chleba z razowej mąki żytniej.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Kolizja ze snem": {
     "gdzie": [
@@ -2878,6 +2918,11 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
+  "Kształtowanie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Który zakwas?": {
     "gdzie": [
       "src/lib/print-menu.ts (Alert.alert)"
@@ -3026,6 +3071,11 @@
       "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
     ]
   },
+  "Longin C.F.H. i in., International Journal of Molecular Sciences 2023": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Maksymalna liczba mąk w mieszance wynosi 12": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
@@ -3140,7 +3190,13 @@
   },
   "Mieszanie ciasta": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: namePl)"
+      "src/core/rye-stages.ts (dane: namePl)",
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
+  "Mieszanie i wyrabianie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i zaszczepienie": {
@@ -3775,6 +3831,26 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
   "Na początku wypieku zapewnij parę w piekarniku.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)"
@@ -4374,6 +4450,11 @@
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
     ]
   },
+  "Odgazowanie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Odgazuj je, mocno dociskając, tak jak przy formowaniu.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -4818,6 +4899,11 @@
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
+  "Pierwsze rośnięcie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.": {
     "gdzie": [
       "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
@@ -4844,6 +4930,11 @@
   "Placek z ciasta drożdżowego na mleku z masą serową i kruszonką, pieczony na blasze. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Kołocz śląski”.": {
     "gdzie": [
       "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
+    ]
+  },
+  "Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -5035,7 +5126,8 @@
   },
   "Podział i formowanie": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: namePl)"
+      "src/core/rye-stages.ts (dane: namePl)",
+      "src/core/yeast-stages.ts (dane: name)"
     ]
   },
   "Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).": {
@@ -5045,13 +5137,14 @@
   },
   "Podziel ciasto, uformuj je ręcznie i włóż do formy.": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: instructionsPl)"
+      "src/core/rye-stages.ts (dane: instructionsPl)",
+      "src/core/yeast-stages.ts (dane: instructions)"
     ]
   },
   "Pojutrze": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -5949,6 +6042,11 @@
   },
   "Receptury mistrzowskie": {
     "gdzie": []
+  },
+  "Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Rhode Island Burn Center (Brown University Health), „Avoiding Scalds”": {
     "gdzie": [
@@ -7001,6 +7099,11 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "To ostatnie rośnięcie ciasta przed pieczeniem.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
@@ -7265,6 +7368,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -7489,6 +7597,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Verdonck C. i in., Current Research in Food Science 2025": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: temperature)"
@@ -7636,7 +7749,7 @@
   },
   "Wczoraj": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -7654,6 +7767,11 @@
   "Wersja aplikacji: {wersja}": {
     "gdzie": [
       "src/lib/zgloszenie.ts (kod)"
+    ]
+  },
+  "Wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (accessibilityLabel)"
     ]
   },
   "Wiejski chleb codzienny na zakwasie": {
@@ -7703,7 +7821,8 @@
   },
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
-      "src/core/po-co-ten-krok.ts (dane: rye_cool)"
+      "src/core/po-co-ten-krok.ts (dane: rye_cool)",
+      "src/core/yeast-stages.ts (dane: studzenieOpis)"
     ]
   },
   "Więcej": {
@@ -8167,7 +8286,8 @@
   },
   "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: instructionsPl)"
+      "src/core/rye-stages.ts (dane: instructionsPl)",
+      "src/core/yeast-stages.ts (dane: kod)"
     ]
   },
   "Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.": {
@@ -9497,6 +9617,18 @@
     "gdzie": [
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
+  },
+  "na drożdżach|wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (tekst w JSX)"
+    ],
+    "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony z drożdżami piekarskimi zamiast zakwasu (D-241: „z drożdżami piekarskimi”, nie „zakwas drożdżowy”) [M3 p9b]."
+  },
+  "na zakwasie|wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (tekst w JSX)"
+    ],
+    "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony na zakwasie; para z „na drożdżach”. Mała litera, bez dopełnienia [M3 p9b]."
   },
   "nieznana": {
     "gdzie": [

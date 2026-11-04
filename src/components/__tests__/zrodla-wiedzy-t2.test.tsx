@@ -65,7 +65,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     act(() => tree.unmount());
   });
 
-  it('ekran: wstęp, 7 grup z nagłówkami VoiceOver i 34 źródła z nazwą, opisem i adresem jako tekstem', async () => {
+  it('ekran: wstęp, 7 grup z nagłówkami VoiceOver i 39 źródeł z nazwą, opisem i adresem jako tekstem', async () => {
     act(() => setLang('pl'));
     const openURL = jest.spyOn(Linking, 'openURL');
     const { tree, root, wejscie } = await otworz();
@@ -76,7 +76,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     const naglowki = root.findAll((n) => (n.type as unknown) === 'Text' && n.props.accessibilityRole === 'header').map((n) => tekstWezla(n.props.children));
     expect(naglowki).toEqual(ZRODLA_WIEDZY.map((g) => g.temat));
     const zrodla = ZRODLA_WIEDZY.flatMap((g) => g.zrodla);
-    expect(zrodla).toHaveLength(34); // D-247: +7 źródeł katalogu p8 (27 → 34), grupa „Receptury” (6 → 7)
+    expect(zrodla).toHaveLength(39); // D-247: +7 źródeł katalogu p8 (27 → 34), grupa „Receptury” (6 → 7); D-255: +5 źródeł wersji drożdżowych (34 → 39)
     for (const z of zrodla) {
       expect(t1).toContain(z.nazwa);
       expect(t1).toContain(z.opis);

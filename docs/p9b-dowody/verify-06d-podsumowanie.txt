@@ -1,0 +1,9 @@
+06d verify 2026-11-04 (HEAD bazowy d0aa79b7 + zmiany 06d)
+npm run verify: kod 1 — typecheck 0; check:i18n 1 (825 błędów = 25 kluczy PL × 33 języki: 10 z 06d D-255 + 15 z p9b-1b; kontekst kompletny)
+check:licenses: kod 0
+check:size: kod 0
+lint: kod 0
+verify:native: kod 0
+verify:matrix: kod 0
+npm test: kod 1 — Tests:       2 failed, 5881 passed, 5883 total; czerwone tylko tests/check-i18n-gate.test.ts (2)
+kontrole-tresci (rejestr, pl, en): kod 1 przed i po — te same 3 błędy MAS-002/062/084 (przegląd innej wersji zdań, sprzed 06d), 0 nowych

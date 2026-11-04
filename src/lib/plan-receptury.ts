@@ -7,6 +7,9 @@
 import type { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
 import { t } from './i18n';
 import { przesuniecieDnia } from '../core/plany-wypiekow';
+import { maPlanDrozdzowy } from '../core/yeast-stages';
+import { wersjaDrozdzowa } from '../recipes/wersje-drozdzowe';
+import type { WersjaWypieku } from '../data/wybory-parsery';
 
 export interface RecepturaPlanu {
   recipeName: string;
@@ -23,6 +26,8 @@ export interface RecepturaPlanu {
    * przez użytkownika (tylko wtedy trafia do wypieku i dziennika) [audyt-niezalezny D-4].
    */
   temperaturaKuchni?: { c: number; wybrana: boolean };
+  /** Wersja receptury z przełącznikiem (D-154): trafia do wypieku (`wersja`, D-242 Z2); brak = receptura bez przełącznika [M3 p9b]. */
+  wersja?: WersjaWypieku;
 }
 
 let biezaca: RecepturaPlanu | null = null;
@@ -62,3 +67,17 @@ export function powodBezZakwasu(formula: Pick<DoughRecipeInput, 'starterPercenta
 
 /** Temperatura kuchni założona w modelu planu, gdy użytkownik jej nie wybrał, i w planie Basic (nie pomiar) [M1-audytor-generalny-017; M3 P-a-fix P2-1]. */
 export const TEMPERATURA_MODELU_PLANU_C = 23.0;
+
+/**
+ * Powód braku planu dla receptury i wersji (D-155): wersja drożdżowa z czasami etapów ma plan; orkisz na drożdżach
+ * (źródło bez podziału 3 h na etapy, DRO-WER-SP-001) ma własny powód; reszta jak powodBezZakwasu (D-3) [M3 p9b].
+ */
+export function powodBezPlanu(
+  formula: Pick<DoughRecipeInput, 'starterPercentage'>,
+  r: { recipeId?: string; wersja?: WersjaWypieku },
+): string | null {
+  if (r.wersja === 'drozdze' && wersjaDrozdzowa(r.recipeId)) {
+    return maPlanDrozdzowy(r.recipeId) ? null : t('Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.');
+  }
+  return powodBezZakwasu(formula);
+}

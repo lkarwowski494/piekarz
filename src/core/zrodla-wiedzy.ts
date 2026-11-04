@@ -188,10 +188,21 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         opis: 'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.',
         adres: 'bbga.org',
       },
+      {
+        nazwa: 'Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”',
+        opis: 'Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.',
+        adres: 'redstaryeast.com',
+      },
+      {
+        nazwa: 'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)',
+        opis: 'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.',
+        adres: 'fcs.mgcafe.uky.edu',
+      },
     ],
   },
   {
-    // D-247 (06z): źródła receptur katalogu p8 (docs/tresci/pl/katalog-m3.md) i przeliczania miar na gramy
+    // D-247 (06z): źródła receptur katalogu p8 (docs/tresci/pl/katalog-m3.md) i przeliczania miar na gramy;
+    // D-255 (06d): badania wersji drożdżowych 3 receptur (docs/tresci/pl/wersje-drozdzowe.md)
     temat: 'Receptury',
     zrodla: [
       {
@@ -228,6 +239,21 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         nazwa: 'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)',
         opis: 'Ile mililitrów ma amerykańska szklanka miarowa.',
         adres: 'doi.org/10.6028/NIST.HB.44-2025',
+      },
+      {
+        nazwa: 'Longin C.F.H. i in., International Journal of Molecular Sciences 2023',
+        opis: 'Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.',
+        adres: 'doi.org/10.3390/ijms24032770',
+      },
+      {
+        nazwa: 'Verdonck C. i in., Current Research in Food Science 2025',
+        opis: 'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.',
+        adres: 'doi.org/10.1016/j.crfs.2025.101208',
+      },
+      {
+        nazwa: 'Koistinen V.M. i in., Scientific Reports 2018',
+        opis: 'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.',
+        adres: 'doi.org/10.1038/s41598-018-24149-w',
       },
     ],
   },

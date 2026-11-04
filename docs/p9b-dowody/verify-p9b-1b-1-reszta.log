@@ -1,0 +1,93 @@
+=== check:licenses
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+=== check:licenses EXIT 0
+=== check:size
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 806 plików, przekroczeń: 0
+=== check:size EXIT 0
+=== lint
+
+> piekarz@1.0.0 lint
+> eslint app src
+
+
+src/hooks/usePendingRecipeLoader.ts
+  34:6  warning  React Hook useEffect was passed a dependency list that is not an array literal. This means we can't statically verify whether you've passed the correct dependencies                                                                                react-hooks/exhaustive-deps
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)
+
+=== lint EXIT 0
+=== verify:native
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+=== verify:native EXIT 0
+=== verify:matrix
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1554/1554 elementów (100%)
+=== verify:matrix EXIT 0
+=== test
+
+    - Expected  -  1
+    + Received  + 18
+
+    - Array []
+    + Array [
+    +   "drozdze-plan-przelicznik.md: Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temper",
+    +   "drozdze-plan-przelicznik.md: Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.",
+    +   "drozdze-plan-przelicznik.md: Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.",
+    +   "wersje-drozdzowe.md: Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz ",
+    +   "wersje-drozdzowe.md: Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem je",
+    +   "wersje-drozdzowe.md: Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowe",
+    +   "wersje-drozdzowe.md: Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.",
+    +   "wersje-drozdzowe.md: Na drożdżach: 2% drożdży świeżych względem mąki.",
+    +   "wersje-drozdzowe.md: W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podzia",
+    +   "wersje-drozdzowe.md: W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyg",
+    +   "wersje-drozdzowe.md: Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz l",
+    +   "wersje-drozdzowe.md: W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minu",
+    +   "wersje-drozdzowe.md: Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C.",
+    +   "wersje-drozdzowe.md: W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, ",
+    +   "wersje-drozdzowe.md: Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości ",
+    +   "wersje-drozdzowe.md: Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowa",
+    + ]
+
+      85 |     );
+      86 |     // Czerwony = treść wpięta: dopisz jej źródła na ekran (src/core/zrodla-wiedzy.ts) i usuń plik z CZEKAJA_NA_WPIECIE.
+    > 87 |     expect(wKodzie).toEqual([]);
+         |                     ^
+      88 |   });
+      89 | });
+      90 |
+
+      at Object.toEqual (tests/zrodla-katalogu-06z.test.ts:87:21)
+
+
+Test Suites: 2 failed, 553 passed, 555 total
+Tests:       3 failed, 5878 passed, 5881 total
+Snapshots:   0 total
+Time:        155.113 s, estimated 172 s
+Ran all test suites.
+=== test EXIT 1
+
+=== jest tests/ (czerwone, pełny opis)
+  ● 06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji › wyjątek D-247 wygasa sam: tekstu treści czekających na wpięcie nie ma w kodzie app/ i src/
+  ● check:i18n sprawdza słowniki 33 języków przekładu 093 (M1-audytor-generalny-093) › słowniki repo: 33 języki bez błędów, kod 0
+  ● check:i18n wykrywa teksty na sztywno (M1-audytor-generalny-075) › tekst przez t('…') ze słownikiem EN: kod 0
+FAIL tests/check-i18n-gate.test.ts (8.078 s)
+FAIL tests/zrodla-katalogu-06z.test.ts
+Tests:       3 failed, 1343 passed, 1346 total

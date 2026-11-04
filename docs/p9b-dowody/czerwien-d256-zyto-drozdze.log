@@ -1,0 +1,166 @@
+FAIL src/core/__tests__/zyto-drozdze-d256-p9b.test.ts
+  ● D-256 żyto na drożdżach według źródeł › drugie rośnięcie żyta: id yeast_proof, opis ZYT-ETA-005, bez wejścia do testu palca
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy."
+    Received: "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości."
+
+      13 |   it('drugie rośnięcie żyta: id yeast_proof, opis ZYT-ETA-005, bez wejścia do testu palca', () => {
+      14 |     const k = krok('rye_100_pan', 'yeast_proof');
+    > 15 |     expect(k.instructions).toBe(ZYT_ETA_005);
+         |                            ^
+      16 |     expect(showsPokeTestEntry(k)).toBe(false);
+      17 |   });
+      18 |
+
+      at Object.toBe (src/core/__tests__/zyto-drozdze-d256-p9b.test.ts:15:28)
+
+  ● D-256 żyto na drożdżach według źródeł › studzenie żyta: 1440 min i zdanie KRO-POC-016
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1440
+    Received: 120
+
+      19 |   it('studzenie żyta: 1440 min i zdanie KRO-POC-016', () => {
+      20 |     const k = krok('rye_100_pan', 'yeast_cool');
+    > 21 |     expect(k.durationMin).toBe(1440);
+         |                           ^
+      22 |     expect(k.instructions).toBe(KRO_POC_016);
+      23 |   });
+      24 |
+
+      at Object.toBe (src/core/__tests__/zyto-drozdze-d256-p9b.test.ts:21:27)
+
+  ● D-256 żyto na drożdżach według źródeł › pieczenie żyta na drożdżach: 240 °C 10 min + 220 °C 35 min (ZYT-DRO-002); inne receptury bez danych
+
+    TypeError: (0 , _yeastStages.pieczenieDrozdzowe) is not a function
+
+      35 |
+      36 |   it('pieczenie żyta na drożdżach: 240 °C 10 min + 220 °C 35 min (ZYT-DRO-002); inne receptury bez danych', () => {
+    > 37 |     expect(pieczenieDrozdzowe('rye_100_pan')).toEqual({ temp1C: 240, min1: 10, temp2C: 220, min2: 35 });
+         |                              ^
+      38 |     expect(krok('rye_100_pan', 'yeast_bake').durationMin).toBe(45);
+      39 |     for (const id of ['graham_bread_honey', 'tartine_high_hydration_80', 'spelt_ancient_seeded', 'country_loaf_72']) {
+      40 |       expect(pieczenieDrozdzowe(id)).toBeNull();
+
+      at Object.<anonymous> (src/core/__tests__/zyto-drozdze-d256-p9b.test.ts:37:30)
+
+FAIL src/core/__tests__/yeast-stages-p9b.test.ts
+  ● D-155 kroki planu wersji drożdżowej › żyto 100%: 60 min odpoczynku, kęsy formowane ręcznie (bez odgazowania), 60 min w formie, pieczenie 10 + 35 min ze źródła
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -19,8 +19,8 @@
+          "bake",
+          45,
+        ],
+        Array [
+          "cool",
+    -     1440,
+    +     120,
+        ],
+      ]
+
+      16 |
+      17 |   it('żyto 100%: 60 min odpoczynku, kęsy formowane ręcznie (bez odgazowania), 60 min w formie, pieczenie 10 + 35 min ze źródła', () => {
+    > 18 |     expect(min(krokiDrozdzowe('rye_100_pan', START))).toEqual([
+         |                                                       ^
+      19 |       ['mix', 15], ['bulk_ferment', 60], ['final_shape', 15], ['final_proof', 60], ['bake', 45], ['cool', 1440],
+      20 |     ]);
+      21 |   });
+
+      at Object.toEqual (src/core/__tests__/yeast-stages-p9b.test.ts:18:55)
+
+  ● D-155 kroki planu wersji drożdżowej › kroki tylko z kategorii wydanego buildu, bez dokarmienia zakwasu, kolejno bez przerw, bez garnka
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "final_proof",
+    + ]
+
+      47 |       expect(k.some((s) => isDutchOvenStep(s))).toBe(false);
+      48 |       // Drugie rośnięcie ocenia test palca (DRO-MOD-013) — tylko ciasto pszenne; żyto: D-256 (ZYT-ETA-005)
+    > 49 |       expect(k.filter((s) => showsPokeTestEntry(s)).map((s) => s.category)).toEqual(id === 'rye_100_pan' ? [] : ['final_proof']);
+         |                                                                             ^
+      50 |     }
+      51 |   });
+      52 |
+
+      at toEqual (src/core/__tests__/yeast-stages-p9b.test.ts:49:77)
+      at Object._loop (src/core/__tests__/yeast-stages-p9b.test.ts:37:88)
+
+  ● D-155 kroki planu wersji drożdżowej › plan wstecz: ostatni krok kończy się o godzinie „gotowe”
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793717100000
+    Received: 1793796300000
+
+      55 |     const k = krokiDrozdzoweKonczaceSie('rye_100_pan', cel)!;
+      56 |     expect(k[k.length - 1].plannedEnd).toBe(cel);
+    > 57 |     expect(k[0].plannedStart).toBe(cel - (15 + 60 + 15 + 60 + 45 + 1440) * 60_000);
+         |                               ^
+      58 |     expect(krokiDrozdzoweKonczaceSie('spelt_ancient_seeded', cel)).toBeNull();
+      59 |   });
+      60 | });
+
+      at Object.toBe (src/core/__tests__/yeast-stages-p9b.test.ts:57:31)
+
+FAIL src/components/__tests__/o-recepturze-zyto-drozdze-d256.test.tsx
+  ● O recepturze: pieczenie wersji drożdżowej żyta › z danymi wersji: 240 °C, 10 min, 35 min w 220 °C; bez temperatur receptury na zakwasie i bez „para”
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "240"
+    Received string:    "Pieczenie: 230°C (15 min para + 45 min w 195°C)"
+
+      23 |     const t = await tekst({ temp1C: 240, min1: 10, temp2C: 220, min2: 35 });
+      24 |     const wiersz = t.split('\n').find((l) => l.startsWith('Pieczenie'))!;
+    > 25 |     expect(wiersz).toContain('240');
+         |                    ^
+      26 |     expect(wiersz).toContain('10 min');
+      27 |     expect(wiersz).toContain('35 min w');
+      28 |     expect(wiersz).toContain('220');
+
+      at Object.toContain (src/components/__tests__/o-recepturze-zyto-drozdze-d256.test.tsx:25:20)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+(node:1402) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/receptura-zyto-drozdze-pieczenie-d256.test.tsx
+  ● D-256 O recepturze żyta › żyto: na zakwasie pieczenie receptury, na drożdżach 240 °C 10 min + 35 min w 220 °C
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /240/
+    Received string:  "Pieczenie: 230°C (15 min para + 45 min w 195°C)"
+
+      102 |     await nacisnij(root, 'recipe-version-yeast');
+      103 |     const w = o().slice(o().indexOf('Pieczenie'), o().indexOf('Naczynie'));
+    > 104 |     expect(w).toMatch(/240/);
+          |               ^
+      105 |     expect(w).toMatch(/35 min w/);
+      106 |     expect(w).toMatch(/220/);
+      107 |     expect(w).not.toContain('para');
+
+      at Object.toMatch (src/__tests__/receptura-zyto-drozdze-pieczenie-d256.test.tsx:104:15)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 4 failed, 4 total
+Tests:       8 failed, 5 passed, 13 total
+Snapshots:   0 total
+Time:        2.373 s
+Ran all test suites matching /src\/core\/__tests__\/yeast-stages-p9b.test.ts|src\/core\/__tests__\/zyto-drozdze-d256-p9b.test.ts|src\/components\/__tests__\/o-recepturze-zyto-drozdze-d256.test.tsx|src\/__tests__\/receptura-zyto-drozdze-pieczenie-d256.test.tsx/i.
+kod 1

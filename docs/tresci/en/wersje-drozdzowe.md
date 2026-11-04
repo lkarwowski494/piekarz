@@ -21,3 +21,8 @@ On baking day the wholegrain rye breads were too sticky to assess, so they were 
 ## tartine_high_hydration_80.yeastVersion.notesEn
 With yeast, following one recipe for a no-knead bread with a similar amount of water: 1 teaspoon of instant yeast, which by the app's conversion is about 1.7% fresh yeast by flour weight. [T:DRO-WER-TA-001]
 The dough rests at room temperature overnight, at least 8 hours, and the shaped loaf then rises about 90 minutes. [T:DRO-WER-TA-001]
+
+## rye_100_pan.yeastVersion.planSteps
+<!-- 06d (D-256, 2026-11-04): step instructions of the rye yeast plan for role 08; both sentences are existing dictionary keys (rye_proof, po-co-ten-krok). Cooling 1440 min (KRO-POC-016), baking 10 min at 240 °C and 35 min at 220 °C (ZYT-DRO-002). -->
+Leave the dough in the tin until its surface reaches the rim of the tin. [T:ZYT-ETA-005]
+Moist, dense breads with a high share of rye often benefit from cooling for up to 24 hours. [T:KRO-POC-016]

@@ -1,0 +1,36 @@
+FAIL tests/zrodla-katalogu-06z.test.ts
+  06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji
+    ✓ katalog p8 (katalog-m3.md): każda domena źródeł użytych twierdzeń ma wpis na ekranie (9 ms)
+    ✕ pozostałe treści docs/tresci/pl (poza czekającymi na wpięcie): każda domena źródeł ma wpis na ekranie (21 ms)
+    ✓ twierdzenia użyte w treściach są w rejestrze (dopasowanie domen ma na czym działać) (5 ms)
+    ✓ wyjątek D-247 wygasa sam: tekstu treści czekających na wpięcie nie ma w kodzie app/ i src/ (156 ms)
+
+  ● 06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji › pozostałe treści docs/tresci/pl (poza czekającymi na wpięcie): każda domena źródeł ma wpis na ekranie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   "drozdze-plan-przelicznik.md: redstaryeast.com (DRO-MOD-016)",
+    +   "drozdze-plan-przelicznik.md: fcs.mgcafe.uky.edu (DRO-MOD-013, DRO-MOD-015)",
+    +   "wersje-drozdzowe.md: doi.org (DRO-WER-SP-001, DRO-WER-SP-002, DRO-WER-GR-001, ZYT-DRO-001, ZYT-DRO-002)",
+    +   "wersje-drozdzowe.md: redstaryeast.com (DRO-MOD-016)",
+    + ]
+
+      74 |     const pliki = PLIKI.filter((f) => f !== 'katalog-m3.md' && !CZEKAJA_NA_WPIECIE.includes(f));
+      75 |     expect(pliki.length).toBeGreaterThan(20);
+    > 76 |     expect(pliki.flatMap(luki)).toEqual([]);
+         |                                 ^
+      77 |   });
+      78 |
+      79 |   it('twierdzenia użyte w treściach są w rejestrze (dopasowanie domen ma na czym działać)', () => {
+
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        1.216 s, estimated 2 s
+Ran all test suites matching /tests\/zrodla-katalogu-06z.test.ts/i.

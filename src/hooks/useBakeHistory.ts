@@ -13,6 +13,7 @@ import { getBakeLogs, deleteBakeLog, getRecipes, restoreBakeLog } from '../data/
 import { StoredBakeLog } from '../data/db';
 import { bazowaZmienionaOdWypieku, prepareBakeAgainRecipe } from '../lib/recipe-navigation';
 import { ustawRecepturePlanu } from '../lib/plan-receptury';
+import { formulaWersji, wersjaZWpisu } from '../recipes/wersje-drozdzowe';
 import { calculateDoughRecipe } from '../core/domain-rules';
 import { calculateBakeStatistics, filterBakeLogs } from '../core/bake-statistics';
 import type { Funkcja } from '../lib/platnosci/konfiguracja';
@@ -57,7 +58,10 @@ export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: 
           router.navigate('/receptury');
           return;
         }
-        const recipeFormula = { ...pending.formula, targetDoughWeightGrams: pending.formula.targetDoughWeightGrams ?? MASA_DOMYSLNA_G };
+        // Wersja z wpisu (bakes.leaven): plan w tej samej wersji co tamten wypiek (D-154, D-242 Z3) [M3 p9b]
+        const wersja = wersjaZWpisu(log.leaven, pending.id);
+        const zWpisu = { ...pending.formula, targetDoughWeightGrams: pending.formula.targetDoughWeightGrams ?? MASA_DOMYSLNA_G };
+        const recipeFormula = wersja ? formulaWersji(zWpisu, pending.id, wersja) : zWpisu;
         ustawRecepturePlanu({
           recipeName: pending.name,
           // Id receptury do wypieku i informacja o zmianie receptury bazowej (D-10 pełne, 217) [M3 D3a]
@@ -65,6 +69,7 @@ export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: 
           ...(bazowaZmienionaOdWypieku(log, pending) ? { bazowaZmieniona: true } : {}),
           calculatedRecipe: calculateDoughRecipe(recipeFormula),
           recipeFormula,
+          ...(wersja ? { wersja } : {}),
           notatka: log.notes?.trim() || undefined,
         });
         router.navigate('/receptury/harmonogram');

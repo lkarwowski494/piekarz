@@ -1,0 +1,25 @@
+=== check:licenses
+=== check:licenses EXIT 0
+=== check:size
+check:size: 806 plików, przekroczeń: 0
+=== check:size EXIT 0
+=== lint
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+  34:6  warning  React Hook useEffect was passed a dependency list that is not an array literal. This means we can't statically verify whether you've passed the correct dependencies                                                                                react-hooks/exhaustive-deps
+✖ 2 problems (0 errors, 2 warnings)
+=== lint EXIT 0
+=== verify:native
+=== verify:native EXIT 0
+=== verify:matrix
+[test-matrix] Wyniki: 1554/1554 elementów (100%)
+=== verify:matrix EXIT 0
+=== test
+  ● 06z (D-126, D-247): ekran „Źródła wiedzy” ma każde źródło treści użytych w aplikacji › wyjątek D-247 wygasa sam: tekstu treści czekających na wpięcie nie ma w kodzie app/ i src/
+  ● check:i18n sprawdza słowniki 33 języków przekładu 093 (M1-audytor-generalny-093) › słowniki repo: 33 języki bez błędów, kod 0
+  ● check:i18n wykrywa teksty na sztywno (M1-audytor-generalny-075) › tekst przez t('…') ze słownikiem EN: kod 0
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL tests/check-i18n-gate.test.ts (6.68 s)
+FAIL tests/zrodla-katalogu-06z.test.ts
+Test Suites: 2 failed, 554 passed, 556 total
+Tests:       3 failed, 5880 passed, 5883 total
+=== test EXIT 1

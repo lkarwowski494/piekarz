@@ -160,6 +160,27 @@ export const EN_25: Record<string, string> = {
     'CPSC (U.S. Consumer Product Safety Commission), “Avoiding Tap Water Scalds”',
   'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
     'How quickly hot water burns skin: when scalding flour and boiling bread rings.',
+  // D-255 (06d): źródła wersji drożdżowych (docs/tresci/en/wersje-drozdzowe.md, drozdze-plan-przelicznik.md)
+  'Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”':
+    'Red Star Yeast (yeast maker), “Baking with Yeast: Step-by-Step Guide”',
+  'Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.':
+    'The steps of a yeast bake and why recipe rise times are only a guide.',
+  'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)':
+    'University of Kentucky Cooperative Extension, “The Art of Baking Bread” (2010)',
+  'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.':
+    'The finger test: when yeast dough is ready and how much it may rise before baking.',
+  'Longin C.F.H. i in., International Journal of Molecular Sciences 2023':
+    'Longin C.F.H. et al., International Journal of Molecular Sciences 2023',
+  'Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.':
+    'How much yeast to use and the time from mixing to oven in the yeast version of the spelt bread.',
+  'Verdonck C. i in., Current Research in Food Science 2025':
+    'Verdonck C. et al., Current Research in Food Science 2025',
+  'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.':
+    'How much yeast to use and the rise times in the yeast version of the whole wheat bread.',
+  'Koistinen V.M. i in., Scientific Reports 2018':
+    'Koistinen V.M. et al., Scientific Reports 2018',
+  'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':
+    'How much yeast, water and salt to use, and the rise and bake times in the yeast version of the rye bread.',
   'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
     'The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.',
 };

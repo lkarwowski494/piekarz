@@ -1,0 +1,129 @@
+FAIL src/data/__tests__/kroki-drozdzowe-sesji-p9b.test.ts
+  p9b: kroki wersji drożdżowej w sesji
+    ✕ żyto na drożdżach: kroki planu bez zamiany na etapy żytnie na zakwasie (9 ms)
+    ✓ żyto na zakwasie bez etapów żytnich: zamiana jak dotąd (030) (1 ms)
+
+  ● p9b: kroki wersji drożdżowej w sesji › żyto na drożdżach: kroki planu bez zamiany na etapy żytnie na zakwasie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 28
+    + Received  + 39
+
+      Array [
+        Object {
+    +     "category": "starter_feed",
+    +     "durationMin": null,
+    +     "id": "rye_starter",
+    +     "instructions": "",
+    +     "isPassive": true,
+    +     "name": "Zakwas żytni",
+    +     "plannedEnd": null,
+    +     "plannedStart": 1793779200000,
+    +     "rekaNaStarcie": true,
+    +   },
+    +   Object {
+          "category": "mix",
+          "durationMin": 15,
+    -     "id": "yeast_mix",
+    +     "id": "rye_mix",
+          "instructions": "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+          "isPassive": false,
+          "name": "Mieszanie ciasta",
+    -     "plannedEnd": 1793780100000,
+    -     "plannedStart": 1793779200000,
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+        },
+        Object {
+          "category": "bulk_ferment",
+          "durationMin": 60,
+    -     "id": "yeast_rise",
+    -     "instructions": "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.",
+    +     "id": "rye_rest",
+    +     "instructions": "",
+          "isPassive": true,
+    -     "name": "Pierwsze rośnięcie",
+    -     "plannedEnd": 1793783700000,
+    -     "plannedStart": 1793780100000,
+    +     "name": "Krótka fermentacja ciasta",
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+        },
+        Object {
+          "category": "final_shape",
+          "durationMin": 15,
+    -     "id": "yeast_shape",
+    +     "id": "rye_shape",
+          "instructions": "Podziel ciasto, uformuj je ręcznie i włóż do formy.",
+          "isPassive": false,
+          "name": "Podział i formowanie",
+    -     "plannedEnd": 1793784600000,
+    -     "plannedStart": 1793783700000,
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+        },
+        Object {
+          "category": "final_proof",
+    -     "durationMin": 60,
+    -     "id": "yeast_proof",
+    -     "instructions": "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.",
+    +     "durationMin": 240,
+    +     "id": "rye_proof",
+    +     "instructions": "Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.",
+          "isPassive": true,
+    -     "name": "Drugie rośnięcie",
+    -     "plannedEnd": 1793788200000,
+    -     "plannedStart": 1793784600000,
+    +     "name": "Rozrost w formie",
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+        },
+        Object {
+          "category": "bake",
+          "durationMin": 45,
+    -     "id": "yeast_bake",
+    -     "instructions": "",
+    +     "id": "rye_bake",
+    +     "instructions": "Na początku wypieku zapewnij parę w piekarniku.",
+          "isPassive": true,
+    -     "name": "Pieczenie",
+    -     "plannedEnd": 1793790900000,
+    -     "plannedStart": 1793788200000,
+    +     "name": "Wypiek w formie",
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+          "rekaNaStarcie": true,
+        },
+        Object {
+          "category": "cool",
+    -     "durationMin": 120,
+    -     "id": "yeast_cool",
+    -     "instructions": "Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.",
+    +     "durationMin": 1440,
+    +     "id": "rye_cool",
+    +     "instructions": "Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.",
+          "isPassive": true,
+    -     "name": "Studzenie na kratce",
+    -     "plannedEnd": 1793798100000,
+    -     "plannedStart": 1793790900000,
+    +     "name": "Studzenie",
+    +     "plannedEnd": null,
+    +     "plannedStart": null,
+        },
+      ]
+
+      12 | describe('p9b: kroki wersji drożdżowej w sesji', () => {
+      13 |   it('żyto na drożdżach: kroki planu bez zamiany na etapy żytnie na zakwasie', () => {
+    > 14 |     expect(stepsForBake(bake)).toEqual(kroki);
+         |                                ^
+      15 |     expect(nowaSesja(bake).steps.map((s) => `${s.id}:${s.durationMin}`)).toEqual(kroki.map((s) => `${s.id}:${s.durationMin}`));
+      16 |   });
+      17 |   it('żyto na zakwasie bez etapów żytnich: zamiana jak dotąd (030)', () => {
+
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.099 s
+Ran all test suites matching /src\/data\/__tests__\/kroki-drozdzowe-sesji-p9b.test.ts/i.
