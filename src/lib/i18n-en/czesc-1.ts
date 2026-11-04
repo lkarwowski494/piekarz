@@ -7,6 +7,7 @@ export const EN_1: Record<string, string> = {
   'Wróć do edycji': 'Back to editing',
   'Odrzuć zmiany': 'Discard changes',
   'Odrzucić zmiany?': 'Discard changes?',
+  'Wpisane zmiany nie zostaną zapisane.': 'Your changes will not be saved.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Recipe changes will not be saved.',
   'OK': 'OK',
   'Edytuj': 'Edit',

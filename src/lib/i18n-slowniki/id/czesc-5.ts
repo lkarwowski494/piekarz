@@ -22,6 +22,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Buang perubahan?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Buang separuh starter ragi alami, tambahkan tepung dan air dengan berat yang sama, lalu diamkan selama 24 jam.',
   'Odrzuć zmiany': 'Buang perubahan',
+  'Wpisane zmiany nie zostaną zapisane.': 'Perubahan yang Anda masukkan tidak akan disimpan.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Diamkan 20 menit sebelum regang dan lipat standar berikutnya.',
   'Odznacz objawy': 'Hapus pilihan gejala',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Roti bergizi dari tepung terigu Graham giling kasar dengan tambahan madu alami dan biji rami.',

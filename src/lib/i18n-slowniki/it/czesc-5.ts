@@ -31,6 +31,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Scartare le modifiche?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Scarta metà del lievito madre, aggiungi farina e acqua in pari peso e lascia riposare per 24 ore.',
   'Odrzuć zmiany': 'Scarta modifiche',
+  'Wpisane zmiany nie zostaną zapisane.': 'Le modifiche inserite non verranno salvate.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lascia riposare 20 minuti prima della successiva serie standard di pieghe di rinforzo.',
   'Odznacz objawy': 'Deseleziona sintomi',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pane nutriente di farina di frumento Graham macinata grossa, con miele naturale e semi di lino.',

@@ -10,6 +10,7 @@ import React from 'react';
 import { Modal, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderButton, confirmDiscard } from '../DraftHeader';
+import { t } from '../../lib/i18n';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
@@ -70,7 +71,7 @@ export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, ty
   contentContainerStyle?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 }) {
-  const pytaj = (zamknij: () => void) => (zmieniony === undefined ? zamknij : () => confirmDiscard(zmieniony, '', zamknij));
+  const pytaj = (zamknij: () => void) => (zmieniony === undefined ? zamknij : () => confirmDiscard(zmieniony, t('Wpisane zmiany nie zostaną zapisane.'), zamknij));
   const lewyZPytaniem = lewy && { ...lewy, onPress: pytaj(lewy.onPress) };
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={pytaj(onRequestClose)} onDismiss={onDismiss}>

@@ -37,6 +37,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Отменить изменения?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Выбросьте половину закваски, добавьте муку и воду в равных количествах по весу и оставьте на 24 часа.',
   'Odrzuć zmiany': 'Отменить изменения',
+  'Wpisane zmiany nie zostaną zapisane.': 'Введённые изменения не будут сохранены.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Оставьте отдохнуть на 20 минут перед следующим обычным складыванием.',
   'Odznacz objawy': 'Сбросить симптомы',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Питательный хлеб из крупно смолотой пшеничной муки грэм с натуральным мёдом и льняным семенем.',

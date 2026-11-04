@@ -25,6 +25,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '¿Descartar cambios?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Descarta la mitad de la masa madre, agrega harina y agua en partes iguales por peso y déjala 24 horas.',
   'Odrzuć zmiany': 'Descartar cambios',
+  'Wpisane zmiany nie zostaną zapisane.': 'Los cambios que ingresaste no se guardarán.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Deja reposar 20 minutos antes del siguiente pliegue estándar.',
   'Odznacz objawy': 'Desmarcar síntomas',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Pan nutritivo de harina de trigo graham de molienda gruesa, con miel natural y linaza.',

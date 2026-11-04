@@ -169,6 +169,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': '要捨棄變更嗎？',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': '丟棄一半的天然酵母起種，加入等重的麵粉和水，靜置 24 小時。',
   'Odrzuć zmiany': '捨棄變更',
+  'Wpisane zmiany nie zostaną zapisane.': '輸入的變更將不會儲存。',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '靜置 20 分鐘，再進行下一次標準翻面拉摺。',
   'Odznacz objawy': '清除所選症狀',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '以 Graham 粗磨全麥粉製作的營養麵包，加入天然蜂蜜與亞麻籽。',

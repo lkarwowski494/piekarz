@@ -12,6 +12,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Değişiklikler atılsın mı?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Ekşi mayanın yarısını atın, ağırlıkça eşit miktarda un ve su ekleyin ve 24 saat bekletin.',
   'Odrzuć zmiany': 'Değişiklikleri at',
+  'Wpisane zmiany nie zostaną zapisane.': 'Girdiğiniz değişiklikler kaydedilmeyecek.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Bir sonraki standart katlamadan önce 20 dakika dinlendirin.',
   'Odznacz objawy': 'Belirtileri Temizle',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'İri öğütülmüş Graham buğday unundan, doğal bal ve keten tohumu ilaveli besleyici ekmek.',

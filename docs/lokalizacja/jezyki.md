@@ -125,3 +125,6 @@ Stan na 2026-10-21. Przegląd modelu to nie przegląd rodzimego użytkownika ję
 
 ## Teksty p6b redesignu M3 (rola 09, 2026-11-03, D-212)
 9 kluczy (odhaczanie przy ważeniu, „Co zrobić”, 5 podtytułów pasa receptury, „Język i jednostki”, data z oceną) w 33 językach; 4 stare klucze usunięte. Tłumaczenie maszynowe (sesja roli 09), drugi przegląd AI w świeżym kontekście 2026-11-03 (11 z 12 uwag przyjętych), przegląd człowieka: brak (DEC-06). Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json`. Brzmienia PL do weta: D-213.
+
+## Komunikat pod „Odrzucić zmiany?” (rola 09, 2026-11-04, D-218)
+1 klucz („Wpisane zmiany nie zostaną zapisane.”) w EN i 33 językach. Tłumaczenie maszynowe (sesja roli 09), drugi przegląd AI w świeżym kontekście 2026-11-04 (bez poprawek), przegląd człowieka: brak (DEC-06). Źródło: `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json`.

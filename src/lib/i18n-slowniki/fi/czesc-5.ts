@@ -9,6 +9,7 @@ export const CZESC: Record<string, string> = {
   'Odrzucić zmiany?': 'Hylätäänkö muutokset?',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Poista puolet hapanjuuresta, lisää jauhoja ja vettä painon mukaan yhtä suuret määrät ja jätä 24 tunniksi.',
   'Odrzuć zmiany': 'Hylkää muutokset',
+  'Wpisane zmiany nie zostaną zapisane.': 'Antamiasi muutoksia ei tallenneta.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Anna levätä 20 minuuttia ennen seuraavaa tavallista taittelua.',
   'Odznacz objawy': 'Tyhjennä oireet',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Ravitseva leipä karkeasta grahamjauhosta (vehnän täysjyväjauho), lisänä luonnollista hunajaa ja pellavansiemeniä.',

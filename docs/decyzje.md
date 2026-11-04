@@ -1232,3 +1232,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** p7 wdrożyło pytanie „Odrzucić zmiany?” przy zmienionym formularzu bez treści komunikatu (brak klucza). Rola 09c (`wip/09c-2026-11-04`) dodaje „Wpisane zmiany nie zostaną zapisane.” (propozycja roli 08) w 35 językach i podpina w `ArkuszKart.tsx`.
 - **Odrzucone:** (b) komunikat pusty do 1.0.1 (tytuł sam mówi, co się stanie, ale iOS pokazuje pusty wiersz; koszt 09c mały).
 - **Status:** noc, do weta.
+
+### [D-218] 2026-11-04 — Wykonanie D-217: klucz „Wpisane zmiany nie zostaną zapisane.” w 35 językach i podpięcie w ArkuszKart (rola 09c, noc, do weta)
+- **Rodzaj:** wykonanie decyzji koordynatora (D-217) pod nieobecność właściciela (D-183).
+- **Decyzja:** klucz PL dopisany do EN i 33 słowników (`src/lib/i18n-en/czesc-1.ts`, `src/lib/i18n-slowniki/<kod>/`, obok „Odrzuć zmiany”), do `pl.kontekst.json` (z opisem) i do źródła przekładu `docs/lokalizacja/przeklad-teksty-redesignu-2026-11-03.json` (pole `wpisane_zmiany`). Podpięty jedyny pusty komunikat `confirmDiscard`: `ArkuszKart.tsx:73`. Terminy zgodne z istniejącym „Odrzucić zmiany?” i „Zmiany w recepturze nie zostaną zapisane.” w każdym języku. Tłumaczenie maszynowe, drugi przegląd AI w świeżym kontekście: bez poprawek (2 uwagi o istniejących przyciskach bg „Отхвърлете промените” i et „Tagasi muutma” poza zakresem), przegląd człowieka: brak (DEC-06).
+- **Test:** do `src/__tests__/odrzucic-zmiany-p7.test.tsx` dodana asercja treści komunikatu (macierz AST wymaga pokrycia tekstu; żadna asercja nie przypinała pustego komunikatu, nic nie zmieniono). `docs/22-macierz-testow.md` przeliczony.
+- **Odrzucone:** zmiana przycisków bg/et w tej partii (poza zakresem, do przeglądu człowieka).
+- **Zależy od:** D-217.
+- **Status:** noc, do weta.

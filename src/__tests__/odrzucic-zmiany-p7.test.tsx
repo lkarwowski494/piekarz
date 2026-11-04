@@ -92,6 +92,7 @@ describe('M3 p7 (04-007): „Odrzucić zmiany?” przy zamknięciu zmienionego f
       expect(onClose).not.toHaveBeenCalled();
       expect(alert).toHaveBeenCalledTimes(1);
       expect(alert.mock.calls[0][0]).toBe('Odrzucić zmiany?');
+      expect(alert.mock.calls[0][1]).toBe('Wpisane zmiany nie zostaną zapisane.');
       const przyciski = (alert.mock.calls[0][2] ?? []) as AlertButton[];
       expect(przyciski.map((b) => b.text)).toEqual(['Wróć do edycji', 'Odrzuć zmiany']);
       act(() => przyciski[1].onPress?.());

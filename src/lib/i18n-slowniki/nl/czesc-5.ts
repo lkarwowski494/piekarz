@@ -3,6 +3,7 @@
 export const CZESC: Record<string, string> = {
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.': 'Gooi de helft van de zuurdesemstarter weg, voeg meel en water in gelijke hoeveelheden op gewicht toe en laat hem 24 uur staan.',
   'Odrzuć zmiany': 'Negeer wijzigingen',
+  'Wpisane zmiany nie zostaną zapisane.': 'De ingevoerde wijzigingen worden niet bewaard.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Laat het 20 minuten rusten vóór de volgende gewone vouwronde.',
   'Odznacz objawy': 'Symptomen wissen',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Voedzaam brood van grof gemalen grahammeel (tarwevolkoren) met natuurlijke honing en lijnzaad.',
