@@ -55,6 +55,8 @@ export function isActiveBakeState(v: unknown): v is ActiveBakeState {
     (v.starterId === undefined || isStr(v.starterId)) &&
     (v.zaczetyZDostepem === undefined || typeof v.zaczetyZDostepem === 'boolean') &&
     (v.recipeId === undefined || isStr(v.recipeId)) &&
+    (v.wersja === undefined || v.wersja === 'zakwas' || v.wersja === 'drozdze') &&
+    (v.tryb === undefined || v.tryb === 'piekarnik' || v.tryb === 'maszyna') &&
     (v.steps === undefined || parseSteps(v.steps) !== null);
 }
 

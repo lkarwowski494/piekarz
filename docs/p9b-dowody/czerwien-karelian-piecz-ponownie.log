@@ -1,0 +1,27 @@
+FAIL src/lib/__tests__/piecz-ponownie-katalog-p9b.test.ts
+  p9b: Piecz ponownie — receptura wbudowana z kodu przed wierszem z bazy
+    ✕ wpis bez recipeId z nazwą receptury wbudowanej: formuła z kodu (sól 2,1), nie z wiersza bazy z 1022 (2,0) (5 ms)
+    ✓ własna receptura o tej samej nazwie nadal wygrywa z wbudowaną (1 ms)
+
+  ● p9b: Piecz ponownie — receptura wbudowana z kodu przed wierszem z bazy › wpis bez recipeId z nazwą receptury wbudowanej: formuła z kodu (sól 2,1), nie z wiersza bazy z 1022 (2,0)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2.1
+    Received: 2
+
+      23 |     const wynik = prepareBakeAgainRecipe({ id: 'b', recipeName: kod.namePl, startedAt: 1 }, [wiersz1022]);
+      24 |     expect(wynik?.id).toBe('karelian_rye_pasties');
+    > 25 |     expect(wynik?.formula.saltPercentage).toBe(2.1);
+         |                                           ^
+      26 |   });
+      27 |
+      28 |   it('własna receptura o tej samej nazwie nadal wygrywa z wbudowaną', () => {
+
+      at Object.toBe (src/lib/__tests__/piecz-ponownie-katalog-p9b.test.ts:25:43)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        1.023 s
+Ran all test suites matching /src\/lib\/__tests__\/piecz-ponownie-katalog-p9b.test.ts/i.

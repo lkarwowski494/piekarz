@@ -1327,6 +1327,23 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** czekać z katalogiem na raport 15:00 (lista już zatwierdzona); p9a od razu z migracją (D-221: STOP przed wdrożeniem).
 - **Status:** dzień, do weta.
 
+### [D-231] 2026-11-04 — Kopia bazy buildu 1021 (v6) jako zamrożony zrzut z kodu wydanego, do testów partii danych p9 (M3 p9a, rola 08)
+- **Rodzaj:** techniczna roli 08 (wykonanie D-221, zasada wspólna 10). **Status:** dzień, do weta.
+- **Decyzja:** `tests/fixtures/baza-1021-39f3890.sql` — zrzut bazy zapisanej kodem danych identycznym z buildami 1017–1021 (`git diff v1.0.0-b1017 HEAD -- src/data src/lib/backup.ts` pusty), zrobiony na `d24ea87` przed zmianą kodu; generator `zrzutBazy` w `src/data/__tests__/helpers/baza-1021.ts`. Testy zgodności wydanego odczytu (G1–G5, `p9a-baza-1021.sqlite.test.ts`) zielone przed i po p9b.
+- **Odrzucone:** kopia generowana bieżącym kodem przy każdym teście (po p9b sprawdzałaby migrację na bazie z nowego kodu); budowa z samych DDL bez danych (bez sesji i planów nie sprawdza zgodności JSON-a).
+- **Dlaczego:** test migracji ma działać na bazie takiej jak u właściciela, nie takiej, jaką zapisze kod po zmianie.
+
+### [D-232] 2026-11-04 — Plan zmian danych p9 (D-154/D-155, D-138): sześć wyborów zapisu do decyzji właściciela; STOP przed wdrożeniem (M3 p9a, rola 08)
+- **Rodzaj:** zapis STOP (moduł dane-uzytkownika); wybory zapisu nie są tym wpisem rozstrzygane. **Status:** dzień, do weta.
+- **Do decyzji właściciela (opcje i kompromisy: `docs/plan-danych-p9-2026-11-04.md` §1):** Z1 pamiętanie wersji receptury (rekomendacja: klucz `wersje_receptur` w app_settings); Z2 wersja i tryb w trwającym wypieku (rekomendacja: pola JSON w sesji); Z3 wersja w Dzienniku (rekomendacja: migracja v7, kolumna `bakes.leaven`; alternatywa bez migracji); Z4 dane maszyny (rekomendacja: jeden klucz `maszyna` z JSON); Z5 tryb piekarnik/maszyna przy recepturze (rekomendacja: nie pamiętać); Z6 „Zapisz plan” maszyny (rekomendacja: zaplanowany wypiek w bake_sessions).
+- **Ustalenia:** u właściciela schemat v6 (tagi 1017–1021); przełącznik dotyczy 4 receptur (D-173), nie 9; kroki planu drożdżowego muszą mieć istniejące kategorie, inaczej 1021 nie odczyta sesji (test G4); Z3 (a) wymaga zmiany 9 asercji wersji 6 w 4 istniejących testach i `plan-bez-zakwasu-d3.test.tsx:43` przez D-155 (wyjątki do zgody).
+- **Zależy od:** D-221, D-154, D-155, D-173, D-138, D-153, D-189, OP-62.
+
+### [D-233] 2026-11-04 — Wyjątek nazwany: gałąź p9a z 7 czerwonymi testami przed kodem (M3 p9a, rola 08)
+- **Rodzaj:** wyjątek od „verify kod 0 przed push” (zasada 7), dozwolony poleceniem p9a. **Status:** dzień, do weta.
+- **Decyzja:** `npm run verify` na `wip/08-p9a-dane-2026-11-04` czerwony wyłącznie przez `src/data/__tests__/p9a-migracja-v7-czerwone.sqlite.test.ts` (7 testów R1–R7, czerwone na asercji wersji schematu i listy kluczy kopii); reszta zestawu zielona. Gałęzi nie scala się do `redesign/` przed p9b albo przed zastąpieniem testów po decyzji właściciela.
+- **Kontrola zastępcza:** lista czerwonych testów w planie §5 i w raporcie; koordynator sprawdza, że czerwone są tylko te.
+
 ### [D-234] 2026-11-04 — p8: przyjęcie zmian istniejących testów listy receptur (podmiana MASTER_RECIPES → CATALOG_RECIPES) (koordynator M3, dzień, do weta)
 - **Rodzaj:** decyzja koordynatora M3 przy przyjęciu partii p8 (D-229, odstępstwo roli 08 od polecenia „istniejących testów nie zmieniasz”).
 - **Decyzja:** przyjęte: `receptury-uklad-106`, `pas-zakladek-d10`, `calculator-screen` porównują teraz z `CATALOG_RECIPES`/`filterCatalogRecipes` zamiast `MASTER_RECIPES`/`filterMasterRecipes`; przegląd diffu koordynatora: każda asercja zachowana, zmieniona tylko lista odniesienia; `MASTER_RECIPES` (15) zostaje z własnymi testami. Wyjątek `i18n-no-polish-in-en` dla nazwy pochodzenia „Kołocz śląski” (D-177).
@@ -1386,6 +1403,25 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Słowa właściciela (raport 15:00, 2026-11-04):** „Tylko notatka w 1.0 (Recommended)”. Weto D-222…D-241: „Bez weta (Recommended)” — obowiązują.
 - **Decyzja:** kalkulator liczy mąkę, wodę, sól i zaczyn; dodatki opisane w notatce receptury (stan p8, D-229). Bez zmian danych.
 - **Odrzucone:** nowe pole dodatków z migracją (bez dowodu wartości, zasada 18). **Powrót:** dowód potrzeby; wtedy także szybki chleb orkiszowy (D-236). **Status:** właściciel.
+
+### [D-244] 2026-11-04 — p9b-1: STOP — testy p9a G3 i G5 oraz 3 asercje wersji 6 poza zgodą D-242 (rola 08, dzień, do weta)
+- **Rodzaj:** STOP roli 08 (zasada 11: zmiana istniejącego testu tylko za zgodą). Stan: `docs/stan-08-p9b.md`.
+- **Fakty (verify na 2947d3c2, Jest 5813 zielonych / 20 czerwonych):** migracja v7 (Z3 a, D-242) sama w sobie zmienia wersję i liczność `schema_migrations`, co łamie testy spoza listy zgód: `migracja-d1-1014.sqlite.test.ts:22` (stała `WERSJA_D1 = 6` — 16 testów), `sqlite-migration.test.ts:89` (lista `[1..6]`) i `:108` (`c: 6`), p9a G3 `p9a-baza-1021.sqlite.test.ts:91` (liczności z `schema_migrations` 6). G5 (`p9a-baza-1021:130`) wymaga, by import kopii pominął `maszyna`/`wersje_receptur`, a R6 — by je przeniósł: na tym samym kodzie oba nie mogą być zielone, bo G5 sprawdza zachowanie 1021 na kodzie bieżącym.
+- **Opcje:** (a) **rekomendacja:** rozszerzyć zgodę: `WERSJA_D1` 6 → 7 (znaczenie „bieżąca wersja”), `sqlite-migration:89` lista do 7, `:108` 6 → 7, G3 porównuje liczności z `schema_migrations` +1 po migracji, G5 importuje przy liście kluczy kopii z 1021 (stała w teście jak `KLUCZE` z `git show v1.0.0-b1021:src/data/ustawienia-kopii.ts`, zamockowany moduł) — asercja „1021 pomija nieznane klucze” zostaje; potem dopisanie kluczy do kopii (R6 zielony). Kompromis: 5 zmian testów, G5 przestaje używać kodu bieżącego. (b) jak (a), ale asercje bieżącej wersji jako `Math.max(...SCHEMA_MIGRATIONS.map(m => m.version))`: następna migracja nie wymaga zgody na testy; kompromis: test nie łapie przypadkowego dopisania migracji. (c) bez kluczy na liście kopii (G5 bez zmian, R6 czerwony): dane maszyny i wybór wersji nie przechodzą eksportem (BR-DANE-003 „Pełny eksport” niespełniony).
+- **Zależy od:** D-242, D-233. **Status:** dzień, do weta (decyzja właściciela).
+
+### [D-245] 2026-11-04 — p9b-1: wybory techniczne warstwy danych (rola 08, dzień, do weta)
+- **Decyzja:** (1) sesja bez pola `wersja` (sprzed p9) daje wpis Dziennika z `leaven` NULL, nie „sourdough”: brak zostaje brakiem, choć plan §1 Z2 mówi, że takie wypieki były na zakwasie; (2) `NowePolaTelefonu.leaven` opcjonalne, żeby nie zmieniać testu `sesje-wypiekow-d1:249`; (3) odczyt i zapis wiersza `bakes` wydzielone do `src/data/wpisy-wypiekow.ts` (osobny commit strukturalny, limit 20 KB); (4) `sqlite-migration.test.ts:70` bez zmian (nadal prawdziwa, zmiana nic nie wnosi); (5) nieczytelna mapa `wersje_receptur` przy zapisie trafia do pliku ratunkowego (121) przed nadpisaniem.
+- **Odrzucone:** (1) „sourdough” dla starych sesji — zgadnięta wartość w Dzienniku. **Zależy od:** D-242. **Status:** dzień, do weta.
+
+### [D-246] 2026-11-04 — p9b-1: STOP po D-250 — 3 kolejne testy wymagają zmiany przez migrację v7 i nowe klucze kopii (rola 08, dzień, do weta)
+- **Rodzaj:** STOP roli 08 (D-250 pkt 2: „gdyby wymagała zmiany testu, STOP z opcjami”). Wykonane z D-250: `migracja-d1-1014:22` (`WERSJA_D1` 6 → 7; oba użycia, :55 i :160, znaczą „bieżąca wersja po starcie”, więc bez rozdzielania stałej), `sqlite-migration:90` (lista + 7; w D-244 podałem błędnie :89 — to linia `const applied`) i `:108` (6 → 7), G5 z listą kluczy kopii z 1021 (`helpers/ustawienia-kopii-1021.ts` = `git show v1.0.0-b1021:src/data/ustawienia-kopii.ts`), klucze `wersje_receptur` i `maszyna` na liście kopii (R6 zielony), pkt 3 `INSERT OR IGNORE` (test czerwony → zielony).
+- **Czerwone, przyczyny (żadnej nie da się usunąć w kodzie bez cofnięcia D-242):**
+  1. G3 `p9a-baza-1021.sqlite.test.ts:91` `expect(tableCounts(raw)).toEqual(przed)`: `przed` liczone na bazie v6 przed startem, a start aplikacji uruchamia migrację v7, która dopisuje wiersz `schema_migrations` (6 → 7). Asercja o sesjach (wersja, tryb zachowane po zapisie postępu) przechodzi; pada tylko liczność tabeli migracji. Test zakłada, że kod bieżący = 1021 (nie migruje).
+  2. `migracja-d1-1014.sqlite.test.ts:79` `schema_migrations` = przed + 1 (3 testy: v1, v2-pauza, v2-zytnia): z v5 start przechodzi teraz przez v6 i v7, więc +2.
+  3. `eksport-ustawien-139.sqlite.test.ts:41` dokładna lista `KLUCZE_USTAWIEN_KOPII` (8 kluczy): po D-250 pkt 1 lista ma 10.
+- **Opcje:** (a) **rekomendacja:** zgoda na 3 zmiany: G3 porównuje liczności z `schema_migrations: przed + 1` (reszta tabel równa), d1-1014:79 `+ 2` (migracje v6 i v7; komentarz), 139:41 lista + `'wersje_receptur', 'maszyna'`; bez osłabień. (b) G3 i d1-1014:79 liczą oczekiwaną liczność z `SCHEMA_MIGRATIONS` (`max − wersja startowa`): następna migracja nie łamie testów; kompromis: test nie łapie przypadkowej migracji. (c) zostawić czerwone do weta (verify czerwony, scalenie zablokowane).
+- **Zależy od:** D-242, D-244, D-250. **Status:** dzień, do weta (koordynator/właściciel).
 
 ### [D-247] 2026-11-04 — Ekran „Źródła wiedzy”: 7 źródeł katalogu p8 i nowa grupa „Receptury”; Marttaliitto zatwierdzone i przeniesione; wyjątek treści p9 wygasający sam (rola 06, partia 06z, dzień, do weta)
 - **Rodzaj:** merytoryczna (prawdziwość zdania wejścia ekranu, D-126/D-127) i wykonawcza (dane tekstowe ekranu, EN). Problem realny: zdanie wejścia „Skąd pochodzą porady, liczby i ostrzeżenia w aplikacji.” obiecuje komplet, a katalog p8 (`docs/tresci/pl/katalog-m3.md`, tekst w kodzie) stał na 7 domenach bez wpisu.

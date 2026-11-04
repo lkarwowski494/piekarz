@@ -84,12 +84,14 @@ export function bazowaZmienionaOdWypieku(log: StoredBakeLog, r: PendingRecipeToL
 /**
  * Receptura do „Piecz ponownie”: najpierw po recipe_id wpisu (receptura przemianowana dalej się znajduje; D-10 pełne)
  * [M3 D3a], a dla starych wpisów bez id albo z id receptury, której już nie ma — po nazwie: najpierw własne receptury
- * użytkownika, potem bazowe (także dawne nazwy, D1-7). Bez dopasowania null — ekran otwiera listę receptur zamiast
+ * użytkownika, potem bazowe z kodu, potem wbudowane z bazy (także dawne nazwy, D1-7). Bez dopasowania null — ekran otwiera listę receptur zamiast
  * zmyślonej formuły [audyt-niezalezny D-10].
  */
 export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad | null {
   const wlasne = customRecipes.filter((r) => !r.isBuiltIn);
-  const allPresets = [...wlasne, ...customRecipes.filter((r) => r.isBuiltIn), ...CATALOG_RECIPES];
+  // Wbudowane z kodu przed wierszami bazy: INSERT OR IGNORE nie aktualizuje formuły wiersza z wcześniejszego buildu
+  // (karelian_rye_pasties 2,0 → 2,1, p10); wiersz bazy tylko dla wbudowanej, której kod już nie ma (D-250) [M3 p9b]
+  const allPresets = [...wlasne, ...CATALOG_RECIPES, ...customRecipes.filter((r) => r.isBuiltIn)];
   const nazwa = log.recipeName.toLowerCase();
   const id = log.recipeId ?? undefined;
   const match =

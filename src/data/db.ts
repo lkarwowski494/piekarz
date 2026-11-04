@@ -57,6 +57,9 @@ export interface StoredStarterEntry {
   updatedAt: number;
 }
 
+/** Wersja wypieku w Dzienniku; ta sama lista co CHECK w migracji v7 (migracja-v7.ts) i isLeaven (row-parsers.ts). */
+export type Leaven = 'sourdough' | 'yeast';
+
 export interface StoredBakeLog {
   id: string;
   recipeName: string;
@@ -65,6 +68,8 @@ export interface StoredBakeLog {
    * zapis nie dotyczy receptury: UPSERT zostawia wartość w bazie (ocena po wypieku jej nie zeruje) [M3 D1].
    */
   recipeId?: string | null;
+  /** Wersja wypieku (bakes.leaven, v7, D-242 Z3): null = brak (wpis sprzed p9); brak pola = zapis jej nie dotyczy [M3 p9b]. */
+  leaven?: Leaven | null;
   startedAt: number;
   finishedAt?: number;
   ambientTemp?: number;
