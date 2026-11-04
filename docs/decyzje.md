@@ -1327,6 +1327,23 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** czekać z katalogiem na raport 15:00 (lista już zatwierdzona); p9a od razu z migracją (D-221: STOP przed wdrożeniem).
 - **Status:** dzień, do weta.
 
+### [D-231] 2026-11-04 — Kopia bazy buildu 1021 (v6) jako zamrożony zrzut z kodu wydanego, do testów partii danych p9 (M3 p9a, rola 08)
+- **Rodzaj:** techniczna roli 08 (wykonanie D-221, zasada wspólna 10). **Status:** dzień, do weta.
+- **Decyzja:** `tests/fixtures/baza-1021-39f3890.sql` — zrzut bazy zapisanej kodem danych identycznym z buildami 1017–1021 (`git diff v1.0.0-b1017 HEAD -- src/data src/lib/backup.ts` pusty), zrobiony na `d24ea87` przed zmianą kodu; generator `zrzutBazy` w `src/data/__tests__/helpers/baza-1021.ts`. Testy zgodności wydanego odczytu (G1–G5, `p9a-baza-1021.sqlite.test.ts`) zielone przed i po p9b.
+- **Odrzucone:** kopia generowana bieżącym kodem przy każdym teście (po p9b sprawdzałaby migrację na bazie z nowego kodu); budowa z samych DDL bez danych (bez sesji i planów nie sprawdza zgodności JSON-a).
+- **Dlaczego:** test migracji ma działać na bazie takiej jak u właściciela, nie takiej, jaką zapisze kod po zmianie.
+
+### [D-232] 2026-11-04 — Plan zmian danych p9 (D-154/D-155, D-138): sześć wyborów zapisu do decyzji właściciela; STOP przed wdrożeniem (M3 p9a, rola 08)
+- **Rodzaj:** zapis STOP (moduł dane-uzytkownika); wybory zapisu nie są tym wpisem rozstrzygane. **Status:** dzień, do weta.
+- **Do decyzji właściciela (opcje i kompromisy: `docs/plan-danych-p9-2026-11-04.md` §1):** Z1 pamiętanie wersji receptury (rekomendacja: klucz `wersje_receptur` w app_settings); Z2 wersja i tryb w trwającym wypieku (rekomendacja: pola JSON w sesji); Z3 wersja w Dzienniku (rekomendacja: migracja v7, kolumna `bakes.leaven`; alternatywa bez migracji); Z4 dane maszyny (rekomendacja: jeden klucz `maszyna` z JSON); Z5 tryb piekarnik/maszyna przy recepturze (rekomendacja: nie pamiętać); Z6 „Zapisz plan” maszyny (rekomendacja: zaplanowany wypiek w bake_sessions).
+- **Ustalenia:** u właściciela schemat v6 (tagi 1017–1021); przełącznik dotyczy 4 receptur (D-173), nie 9; kroki planu drożdżowego muszą mieć istniejące kategorie, inaczej 1021 nie odczyta sesji (test G4); Z3 (a) wymaga zmiany 9 asercji wersji 6 w 4 istniejących testach i `plan-bez-zakwasu-d3.test.tsx:43` przez D-155 (wyjątki do zgody).
+- **Zależy od:** D-221, D-154, D-155, D-173, D-138, D-153, D-189, OP-62.
+
+### [D-233] 2026-11-04 — Wyjątek nazwany: gałąź p9a z 7 czerwonymi testami przed kodem (M3 p9a, rola 08)
+- **Rodzaj:** wyjątek od „verify kod 0 przed push” (zasada 7), dozwolony poleceniem p9a. **Status:** dzień, do weta.
+- **Decyzja:** `npm run verify` na `wip/08-p9a-dane-2026-11-04` czerwony wyłącznie przez `src/data/__tests__/p9a-migracja-v7-czerwone.sqlite.test.ts` (7 testów R1–R7, czerwone na asercji wersji schematu i listy kluczy kopii); reszta zestawu zielona. Gałęzi nie scala się do `redesign/` przed p9b albo przed zastąpieniem testów po decyzji właściciela.
+- **Kontrola zastępcza:** lista czerwonych testów w planie §5 i w raporcie; koordynator sprawdza, że czerwone są tylko te.
+
 ### [D-234] 2026-11-04 — p8: przyjęcie zmian istniejących testów listy receptur (podmiana MASTER_RECIPES → CATALOG_RECIPES) (koordynator M3, dzień, do weta)
 - **Rodzaj:** decyzja koordynatora M3 przy przyjęciu partii p8 (D-229, odstępstwo roli 08 od polecenia „istniejących testów nie zmieniasz”).
 - **Decyzja:** przyjęte: `receptury-uklad-106`, `pas-zakladek-d10`, `calculator-screen` porównują teraz z `CATALOG_RECIPES`/`filterCatalogRecipes` zamiast `MASTER_RECIPES`/`filterMasterRecipes`; przegląd diffu koordynatora: każda asercja zachowana, zmieniona tylko lista odniesienia; `MASTER_RECIPES` (15) zostaje z własnymi testami. Wyjątek `i18n-no-polish-in-en` dla nazwy pochodzenia „Kołocz śląski” (D-177).
