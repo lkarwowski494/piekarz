@@ -131,6 +131,35 @@ export const EN_25: Record<string, string> = {
     'Marttaliitto (Finnish home economics advisory organization), recipe “Karjalanpiirakat”',
   'Ilość soli w otwartych pierożkach żytnich.':
     'Salt in open rye pasties.',
+  // D-247 (06z): grupa „Receptury” (klucz istniejący, EN 'Recipes' w czesc-12) i CPSC w „Bezpieczeństwo w kuchni”
+  'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
+    'Official Journal of the European Union: specifications for “Salinātā rudzu rupjmaize”, “Karjalanpiirakka”, “Obwarzanek krakowski” and “Kołocz śląski”',
+  'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
+    'Ingredients and baking method for the rye bread with scalded flour, open rye pasties, boiled bread rings and the yeasted sheet cake with cheese and crumble.',
+  'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
+    'European Commission, eAmbrosia register: “Pane di Altamura” specification',
+  'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
+    'Ingredients and baking method for the durum semolina sourdough bread.',
+  'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
+    'UK register of protected food names (Defra): English translations of the “Obwarzanek krakowski” and “Kołocz śląski” applications',
+  'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
+    "Baking temperature and time for the bread rings and the sheet cake, and how long the sheet cake's sponge rises.",
+  'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
+    'Illinois 4-H (University of Illinois Extension), “Cooking 301 State Fair Recipes”',
+  'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
+    'Recipes for the pan loaves, milk dinner rolls, sweet yeast buns and cinnamon tea ring.',
+  'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
+    'USDA FoodData Central (U.S. food composition database), SR Legacy',
+  'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':
+    'How much a cup or teaspoon of flour, sugar, salt and other ingredients weighs when a recipe uses measures instead of grams.',
+  'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)':
+    'NIST (U.S. National Institute of Standards and Technology), Handbook 44 (2025)',
+  'Ile mililitrów ma amerykańska szklanka miarowa.':
+    'How many milliliters are in a U.S. measuring cup.',
+  'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
+    'CPSC (U.S. Consumer Product Safety Commission), “Avoiding Tap Water Scalds”',
+  'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
+    'How quickly hot water burns skin: when scalding flour and boiling bread rings.',
   'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
     'The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.',
 };

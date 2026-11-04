@@ -65,7 +65,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     act(() => tree.unmount());
   });
 
-  it('ekran: wstęp, 6 grup z nagłówkami VoiceOver i 27 źródeł z nazwą, opisem i adresem jako tekstem', async () => {
+  it('ekran: wstęp, 7 grup z nagłówkami VoiceOver i 34 źródła z nazwą, opisem i adresem jako tekstem', async () => {
     act(() => setLang('pl'));
     const openURL = jest.spyOn(Linking, 'openURL');
     const { tree, root, wejscie } = await otworz();
@@ -76,7 +76,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     const naglowki = root.findAll((n) => (n.type as unknown) === 'Text' && n.props.accessibilityRole === 'header').map((n) => tekstWezla(n.props.children));
     expect(naglowki).toEqual(ZRODLA_WIEDZY.map((g) => g.temat));
     const zrodla = ZRODLA_WIEDZY.flatMap((g) => g.zrodla);
-    expect(zrodla).toHaveLength(27);
+    expect(zrodla).toHaveLength(34); // D-247: +7 źródeł katalogu p8 (27 → 34), grupa „Receptury” (6 → 7)
     for (const z of zrodla) {
       expect(t1).toContain(z.nazwa);
       expect(t1).toContain(z.opis);
@@ -93,10 +93,10 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     openURL.mockRestore();
   });
 
-  it('KAT-KAR-009 (D-126, D-237): źródło Marttaliitto jest na ekranie, w grupie „Technika i wypiek”, po polsku i po angielsku', async () => {
+  it('KAT-KAR-009 (D-126, D-237): źródło Marttaliitto jest na ekranie, w grupie „Receptury” (D-247), po polsku i po angielsku', async () => {
     const nazwa = 'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”';
-    const grupa = ZRODLA_WIEDZY.find((g) => g.temat === 'Technika i wypiek');
-    expect(grupa?.zrodla[grupa.zrodla.length - 1]).toEqual({ nazwa, opis: 'Ilość soli w otwartych pierożkach żytnich.', adres: 'martat.fi' });
+    const grupa = ZRODLA_WIEDZY.find((g) => g.temat === 'Receptury');
+    expect(grupa?.zrodla).toContainEqual({ nazwa, opis: 'Ilość soli w otwartych pierożkach żytnich.', adres: 'martat.fi' });
     act(() => setLang('pl'));
     const pl = await otworz();
     await act(async () => pl.wejscie.props.onPress());
