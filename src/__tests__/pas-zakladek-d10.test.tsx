@@ -49,7 +49,8 @@ import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore, getStarters, deleteStarter, saveStarter, saveBakeLog, getBakeLogs, deleteBakeLog } from '../data/sqlite-store';
 import { addStarterEntry } from '../data/starter-entries-store';
 import { nowyWpis } from '../components/zakwas/useStarterLog';
-import { filterMasterRecipes, MASTER_RECIPES } from '../recipes/presets';
+import { MASTER_RECIPES } from '../recipes/presets';
+import { filterCatalogRecipes } from '../recipes/katalog';
 import { nazwaReceptury } from '../lib/nazwa-receptury';
 import { pokazMenuReceptury } from '../lib/menu-receptury';
 import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../lib/ostatni-wypiek';
@@ -151,7 +152,7 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     await flush();
     expect(host(pas, 'category-filter-rye')[0].props.accessibilityState).toEqual({ selected: true });
     const wiersze = host(root, 'recipe-list')[0].findAll((n) => typeof n.type === 'string' && /^recipe-row-/.test(String(n.props.testID)));
-    expect(wiersze.map((w) => w.props.testID)).toEqual(filterMasterRecipes('rye').map((r) => `recipe-row-${r.id}`));
+    expect(wiersze.map((w) => w.props.testID)).toEqual(filterCatalogRecipes('rye').map((r) => `recipe-row-${r.id}`));
   });
 
   it('karta receptury: nazwa receptury na pasie, powrót „Receptury” i „Więcej” na pasie z etykietą, cel 44 pt', async () => {

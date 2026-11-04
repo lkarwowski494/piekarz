@@ -7,7 +7,8 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
-import { filterMasterRecipes, RecipePreset } from '../../../src/recipes/presets';
+import type { RecipePreset } from '../../../src/recipes/presets';
+import { filterCatalogRecipes } from '../../../src/recipes/katalog';
 import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/lib/start-stan';
 import { getRecipes, deleteRecipe, saveRecipe } from '../../../src/data/sqlite-store';
 import { StoredRecipe } from '../../../src/data/db';
@@ -77,7 +78,7 @@ export default function RecepturyLista() {
     return subscribePendingRecipe(otworz);
   }, [wczytajMoje]);
 
-  const bazowe = useMemo(() => filterMasterRecipes(filtr), [filtr]);
+  const bazowe = useMemo(() => filterCatalogRecipes(filtr), [filtr]);
 
   const otworzBazowa = (r: RecipePreset) =>
     setPendingRecipeToLoad({ id: r.id, name: r.namePl, formula: r.formula, targetDDT: r.targetDDT });

@@ -9,7 +9,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
-import { MASTER_RECIPES } from '../../../src/recipes/presets';
+import { CATALOG_RECIPES } from '../../../src/recipes/katalog';
 import type { PendingRecipeToLoad } from '../../../src/lib/recipe-navigation';
 import { usePendingRecipeLoader } from '../../../src/hooks/usePendingRecipeLoader';
 import { useAppAccess } from '../../../src/lib/app-access';
@@ -163,7 +163,7 @@ export default function EkranReceptury() {
     }
   }, bezAkcji, [applyFormula, selectedPresetId]);
 
-  const currentMasterPreset = useMemo(() => MASTER_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
+  const currentMasterPreset = useMemo(() => CATALOG_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
 
   // Zapis: wczytana własna receptura pod tą samą nazwą = zapis zmian (to samo id, bez limitu: zapisane działają w całości);
   // inaczej nowa własna receptura z limitem Basic (5) liczonym z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity

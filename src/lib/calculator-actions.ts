@@ -13,7 +13,7 @@ import { formatRecipeText, copyRecipeToClipboard } from './recipe-formatter';
 import { wejscieWidoczne } from './wejscia-pozniej';
 import { saveRecipe } from '../data/sqlite-store';
 import { StoredRecipe } from '../data/db';
-import { MASTER_RECIPES } from '../recipes/presets';
+import { CATALOG_RECIPES } from '../recipes/katalog';
 import { DoughRecipeResult, DoughRecipeInput, BakeLossMetricsResult } from '../core/domain-rules';
 
 export interface PrintRecipePdfParams {
@@ -58,7 +58,7 @@ export async function executePrintRecipePdf({
       targetDoughWeightGrams: calculations.targetDoughWeightGrams,
       loavesCount,
       bakedSingleLoafWeight,
-      notes: MASTER_RECIPES.find((r) => r.id === selectedPresetId)?.notesPl,
+      notes: CATALOG_RECIPES.find((r) => r.id === selectedPresetId)?.notesPl,
     });
   } catch {
     Alert.alert(t('Karta receptury'), t('Nie udało się wygenerować pliku PDF'));

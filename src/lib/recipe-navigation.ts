@@ -6,6 +6,7 @@
 
 import { FlourItemInput } from '../core/domain-rules';
 import { MASTER_RECIPES } from '../recipes/presets';
+import { CATALOG_RECIPES } from '../recipes/katalog';
 import { StoredBakeLog, StoredRecipe } from '../data/db';
 
 export interface PendingRecipeFormula {
@@ -88,11 +89,11 @@ export function bazowaZmienionaOdWypieku(log: StoredBakeLog, r: PendingRecipeToL
  */
 export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad | null {
   const wlasne = customRecipes.filter((r) => !r.isBuiltIn);
-  const allPresets = [...wlasne, ...customRecipes.filter((r) => r.isBuiltIn), ...MASTER_RECIPES];
+  const allPresets = [...wlasne, ...customRecipes.filter((r) => r.isBuiltIn), ...CATALOG_RECIPES];
   const nazwa = log.recipeName.toLowerCase();
   const id = log.recipeId ?? undefined;
   const match =
-    (id !== undefined ? wlasne.find((r) => r.id === id) ?? MASTER_RECIPES.find((r) => r.id === id) : undefined) ??
+    (id !== undefined ? wlasne.find((r) => r.id === id) ?? CATALOG_RECIPES.find((r) => r.id === id) : undefined) ??
     allPresets.find((r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === nazwa) ??
     MASTER_RECIPES.find((r) => r.id === DAWNE_NAZWY_BAZOWYCH[nazwa]);
 

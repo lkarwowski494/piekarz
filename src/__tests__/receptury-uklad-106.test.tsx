@@ -11,7 +11,8 @@ import renderer, { act } from 'react-test-renderer';
 import RecepturyLista from '../../app/(tabs)/receptury/index';
 import EkranReceptury from '../../app/(tabs)/receptury/receptura';
 import { initDatabase, setActiveBake, _resetMemStore, saveRecipe } from '../data/sqlite-store';
-import { MASTER_RECIPES, filterMasterRecipes } from '../recipes/presets';
+import { MASTER_RECIPES } from '../recipes/presets';
+import { filterCatalogRecipes } from '../recipes/katalog';
 import { POPULAR_FLOUR_BLENDS } from '../core/domain-rules';
 import { clearPendingRecipeToLoad, setPendingRecipeToLoad } from '../lib/recipe-navigation';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -109,13 +110,13 @@ describe('106: Receptury — lista, ekran receptury, arkusz „Składniki”', (
     tree = await render(<RecepturyLista />);
     expect(host(tree.root, 'recipe-list')).toHaveLength(1);
     const wiersze = () => [...new Set(hostIds(tree!.root).filter((id) => id.startsWith('recipe-row-')))];
-    expect(wiersze()).toEqual(filterMasterRecipes('all').map((r) => `recipe-row-${r.id}`));
+    expect(wiersze()).toEqual(filterCatalogRecipes('all').map((r) => `recipe-row-${r.id}`));
     expect(hostIds(tree.root)).not.toContain('start-bake-btn');
     const txt = tekst(tree.root);
     expect(txt).toContain('Receptury bazowe');
     expect(txt).not.toContain('Receptury mistrzowskie');
     // Podpis „{rodzaj}, poziom {trudność}”; receptury bazowe nie mają dziś poziomu (dane roli 06), więc sam rodzaj
-    const pierwsza = filterMasterRecipes('all')[0];
+    const pierwsza = filterCatalogRecipes('all')[0];
     expect(tekst(host(tree.root, `recipe-row-${pierwsza.id}`)[0])).toBe(`${pierwsza.namePl} ${opisReceptury(pierwsza)} ›`);
     expect(opisReceptury({ category: 'sourdough', difficulty: 'easy' })).toBe('Na zakwasie, poziom łatwy');
     expect(opisReceptury({ category: 'rye', difficulty: 'medium' })).toBe('Żytni, poziom średni');
@@ -123,7 +124,7 @@ describe('106: Receptury — lista, ekran receptury, arkusz „Składniki”', (
     // Filtr bez licznika (§11c 106)
     expect(tekst(host(tree.root, 'category-filter-all')[0])).toBe('Wszystkie');
     await nacisnij(tree.root, 'category-filter-rye');
-    expect(wiersze()).toEqual(filterMasterRecipes('rye').map((r) => `recipe-row-${r.id}`));
+    expect(wiersze()).toEqual(filterCatalogRecipes('rye').map((r) => `recipe-row-${r.id}`));
   });
 
   it('(1) my recipes are a group above the base recipes', async () => {
