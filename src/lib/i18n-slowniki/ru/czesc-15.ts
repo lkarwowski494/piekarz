@@ -34,7 +34,7 @@ export const CZESC: Record<string, string> = {
   'Pierwsze rośnięcie':
     'Первый подъём',
   'Odgazowanie':
-    'Выпуск газа',
+    'Обминка',
   'Kształtowanie':
     'Формование',
   'Drugie rośnięcie':
@@ -44,11 +44,11 @@ export const CZESC: Record<string, string> = {
   'Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.':
     'Тесто готово, если ямка от нажатия пальцем остаётся. Перед выпечкой сформованное тесто не должно увеличиваться в объёме больше чем вдвое.',
   'Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.':
-    'На дрожжах: 3% дрожжей к массе муки (исследование не указывает их вид, Хлебопёк считает их свежими), а от замеса теста до посадки хлеба в печь проходит около 3 часов при комнатной температуре. С ночью в холодильнике: 1% дрожжей, тесто стоит 18 часов в холодильнике при 4 °C, а затем ещё 3 часа при комнатной температуре. Количество дрожжей и время взяты из исследования хлеба из цельнозерновой полбяной муки. Время указано как ориентир: готовность теста оценивают по внешнему виду и тесту пальцем.',
+    'На дрожжах: 3% дрожжей к массе муки (исследование не указывает их вид, Хлебопёк считает их свежими), а от замеса теста до посадки хлеба в печь проходит около 3 часов при комнатной температуре. С ночёвкой в холодильнике: 1% дрожжей, тесто стоит 18 часов в холодильнике при 4 °C, а затем ещё 3 часа при комнатной температуре. Количество дрожжей и время взяты из исследования хлеба из цельнозерновой полбяной муки. Время указано как ориентир: готовность теста оценивают по внешнему виду и тесту пальцем.',
   'Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.':
     'На дрожжах: 2% свежих дрожжей к массе муки. В исследовании хлеба из пшеничной обойной муки тесто бродило 15 минут, после деления ещё 15 минут, а в форме поднималось 70 минут в камере при 32 °C. В более прохладном помещении тесто поднимается дольше, поэтому готовность оценивают по внешнему виду и тесту пальцем, а не по времени.',
   'Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.':
     'На дрожжах, без закваски: 3% дрожжей (исследование не указывает их вид, Хлебопёк считает их свежими), 76% воды и 1,2% соли к массе муки. В исследовании тесто отдыхало 60 минут при 28 °C, а буханки поднимались в форме 60 минут при 37 °C в расстоечном шкафу. Хлеб выпекали 10 минут при 240 °C и 35 минут при 220 °C. В день выпечки хлеба из цельнозерновой ржаной муки были слишком липкими для оценки, поэтому их исследовали на следующий день.',
   'Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.':
-    'На дрожжах, по одному рецепту хлеба без замеса с похожим количеством воды: 1 чайная ложка instant-дрожжей, то есть по пересчёту Хлебопёка около 1,7% свежих дрожжей к массе муки. Тесто стоит при комнатной температуре всю ночь, не менее 8 часов, а сформованная буханка затем поднимается около 90 минут.',
+    'На дрожжах, по одному рецепту хлеба без замеса с похожим количеством воды: 1 чайная ложка инстантных дрожжей, то есть по пересчёту Хлебопёка около 1,7% свежих дрожжей к массе муки. Тесто стоит при комнатной температуре всю ночь, не менее 8 часов, а сформованная буханка затем поднимается около 90 минут.',
 };

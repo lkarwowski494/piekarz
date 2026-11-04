@@ -63,7 +63,7 @@
    "k5": "Longin C.F.H. и др., International Journal of Molecular Sciences 2023",
    "k6": "Количество мая и време от замесването на тестото до фурната във варианта с мая на хляба от спелта.",
    "k7": "Verdonck C. и др., Current Research in Food Science 2025",
-   "k8": "Количество мая и времена за втасване във варианта с мая на хляба от пълнозърнесто пшенично брашно.",
+   "k8": "Количество мая и времена за втасване във варианта с мая на хляба от интегрално пшенично брашно.",
    "k9": "Koistinen V.M. и др., Scientific Reports 2018",
    "k10": "Количество мая, вода и сол, както и времена за втасване и печене във варианта с мая на ръжения хляб.",
    "k11": "Планът за тази рецепта с мая чака времената на етапите. Количествата и съветите са по-горе.",
@@ -79,7 +79,7 @@
    "k21": "Тестото е готово, когато вдлъбнатината от натискане с пръст остава. Преди печене оформеното тесто не бива да увеличава обема си повече от два пъти.",
    "k22": "С мая: 3% мая спрямо брашното (изследването не посочва вида ѝ, Пекар я смята за прясна), а от замесването на тестото до поставянето на хляба във фурната минават около 3 часа на стайна температура. С нощ в хладилника: 1% мая, тестото стои 18 часа в хладилника при 4 °C, а след това още 3 часа на стайна температура. Количеството мая и времената идват от изследване на хляб от пълнозърнесто брашно от спелта. Времената са ориентир: готовността на тестото се преценява по вида му и с теста с пръст.",
    "k23": "С мая: 2% прясна мая спрямо брашното. В изследването на хляб от интегрално пшенично брашно тестото ферментира 15 минути, след разделянето още 15 минути, а във формата втасва 70 минути в камера с температура 32 °C. В по-хладно помещение тестото втасва по-дълго, затова готовността се преценява по вида му и с теста с пръст, а не по часовника.",
-   "k24": "С мая, без квасен стартер: 3% мая (изследването не посочва вида ѝ, Пекар я смята за прясна), 76% вода и 1,2% сол спрямо брашното. В изследването тестото почива 60 минути при 28 °C, а хлябовете втасват във формата 60 минути при 37 °C в камера за втасване. Хлябът се пече 10 минути при 240 °C и 35 минути при 220 °C. В деня на печене хлябовете от пълнозърнесто ръжено брашно били твърде лепкави за оценка, затова ги изследвали на следващия ден.",
+   "k24": "С мая, без квасен стартер: 3% мая (изследването не посочва вида ѝ, Пекар я смята за прясна), 76% вода и 1,2% сол спрямо брашното. В изследването тестото е почивало 60 минути при 28 °C, а хлябовете са втасвали във формата 60 минути при 37 °C в камера за втасване. Хлябът е бил печен 10 минути при 240 °C и 35 минути при 220 °C. В деня на печене хлябовете от пълнозърнесто ръжено брашно са били твърде лепкави за оценка, затова са били изследвани на следващия ден.",
    "k25": "С мая, по една рецепта за хляб без месене с подобно количество вода: 1 чаена лъжичка инстантна мая, тоест по коефициента на Пекар около 1,7% прясна мая спрямо брашното. Тестото стои на стайна температура през нощта, най-малко 8 часа, а оформеният самун след това втасва около 90 минути."
   },
   "cs": {
@@ -159,7 +159,7 @@
    "k20": "Die Zeiten sind ein Richtwert, denn das Tempo des Gehens hängt von den Zutaten, der Teigstärke, der Temperatur und der Feuchtigkeit ab.",
    "k21": "Der Teig ist fertig, wenn die Delle nach dem Eindrücken mit dem Finger bleibt. Vor dem Backen sollte der geformte Teig sein Volumen nicht mehr als verdoppeln.",
    "k22": "Mit Hefe: 3 % Hefe bezogen auf das Mehl (die Studie nennt die Art nicht, Bäcker rechnet sie als Frischhefe), und vom Anteigen bis zum Einschieben des Brots in den Ofen vergehen etwa 3 Stunden bei Raumtemperatur. Mit einer Nacht im Kühlschrank: 1 % Hefe, der Teig steht 18 Stunden im Kühlschrank bei 4 °C und danach noch 3 Stunden bei Raumtemperatur. Hefemenge und Zeiten stammen aus einer Studie zu Brot aus Dinkelvollkornmehl. Die Zeiten sind ein Richtwert: Ob der Teig fertig ist, beurteilt man am Aussehen und mit dem Fingertest.",
-   "k23": "Mit Hefe: 2 % Frischhefe bezogen auf das Mehl. In der Studie zu Brot aus Weizenvollkornmehl gärte der Teig 15 Minuten, nach dem Teilen noch 15 Minuten und ging in der Form 70 Minuten in einer Kammer bei 32 °C. In einem kühleren Raum geht der Teig länger, daher beurteilt man die Reife am Aussehen und mit dem Fingertest, nicht nach der Uhr.",
+   "k23": "Mit Hefe: 2 % Frischhefe bezogen auf das Mehl. In der Studie zu Brot aus Weizenvollkornmehl gärte der Teig 15 Minuten, nach dem Teilen noch 15 Minuten und ging in der Form 70 Minuten in einem Gärschrank bei 32 °C. In einem kühleren Raum geht der Teig länger, daher beurteilt man die Reife am Aussehen und mit dem Fingertest, nicht nach der Uhr.",
    "k24": "Mit Hefe, ohne Sauerteig: 3 % Hefe (die Studie nennt die Art nicht, Bäcker rechnet sie als Frischhefe), 76 % Wasser und 1,2 % Salz bezogen auf das Mehl. In der Studie ruhte der Teig 60 Minuten bei 28 °C, und die Laibe gingen in der Form 60 Minuten bei 37 °C in einem Gärschrank. Das Brot wurde 10 Minuten bei 240 °C und 35 Minuten bei 220 °C gebacken. Am Backtag waren die Brote aus Roggenvollkornmehl zu klebrig zur Beurteilung, deshalb wurden sie am nächsten Tag untersucht.",
    "k25": "Mit Hefe, nach einem Rezept für ein Brot ohne Kneten mit ähnlicher Wassermenge: 1 Teelöffel Instanthefe, also nach der Umrechnung von Bäcker etwa 1,7 % Frischhefe bezogen auf das Mehl. Der Teig steht über Nacht bei Raumtemperatur, mindestens 8 Stunden, und der geformte Laib geht danach etwa 90 Minuten."
   },
@@ -240,7 +240,7 @@
    "k20": "Los tiempos son orientativos, porque el ritmo de subida depende de los ingredientes, la fuerza de la masa, la temperatura y la humedad.",
    "k21": "La masa está lista cuando la marca que deja el dedo al presionar se mantiene. Antes de hornear, la masa ya formada no debería aumentar su volumen más del doble.",
    "k22": "Con levadura: 3 % de levadura respecto a la harina (el estudio no indica su tipo; Panadero la cuenta como fresca), y desde que se amasa hasta que el pan entra en el horno pasan unas 3 horas a temperatura ambiente. Con una noche en la nevera: 1 % de levadura, la masa reposa 18 horas en la nevera a 4 °C y después otras 3 horas a temperatura ambiente. La cantidad de levadura y los tiempos proceden de un estudio sobre pan de harina de espelta de grano entero. Los tiempos son orientativos: el punto de la masa se juzga por su aspecto y por la prueba del dedo.",
-   "k23": "Con levadura: 2 % de levadura fresca respecto a la harina. En el estudio sobre pan de harina de trigo integral, la masa fermentó 15 minutos, otros 15 minutos tras dividirla, y subió 70 minutos en el molde en una cámara a 32 °C. En un ambiente más fresco la masa sube más despacio, así que el punto se juzga por el aspecto y por la prueba del dedo, no por el tiempo.",
+   "k23": "Con levadura: 2 % de levadura fresca respecto a la harina. En el estudio sobre pan de harina de trigo integral, la masa fermentó 15 minutos, otros 15 minutos tras dividirla, y subió 70 minutos en el molde en una cámara de fermentación a 32 °C. En un ambiente más fresco la masa sube más despacio, así que el punto se juzga por el aspecto y por la prueba del dedo, no por el tiempo.",
    "k24": "Con levadura, sin masa madre: 3 % de levadura (el estudio no indica su tipo; Panadero la cuenta como fresca), 76 % de agua y 1,2 % de sal respecto a la harina. En el estudio la masa reposó 60 minutos a 28 °C y las hogazas subieron en el molde 60 minutos a 37 °C en una cámara de fermentación. El pan se coció 10 minutos a 240 °C y 35 minutos a 220 °C. El día del horneado, los panes de harina de centeno de grano entero estaban demasiado pegajosos para evaluarlos, por eso se analizaron al día siguiente.",
    "k25": "Con levadura, según una receta de pan sin amasado con una cantidad de agua similar: 1 cucharadita de levadura instantánea, es decir, según la equivalencia de Panadero, aproximadamente 1,7 % de levadura fresca respecto a la harina. La masa reposa a temperatura ambiente durante la noche, al menos 8 horas, y la hogaza ya formada sube después unos 90 minutos."
   },
@@ -294,9 +294,9 @@
    "k20": "Ajat ovat vain suuntaa antavia, koska kohotuksen nopeus riippuu aineksista, taikinan vahvuudesta, lämpötilasta ja kosteudesta.",
    "k21": "Taikina on valmis, kun sormella painamalla syntynyt kuoppa jää. Ennen paistoa muotoillun taikinan tilavuus ei saisi kasvaa yli kaksinkertaiseksi.",
    "k22": "Hiivalla: 3 % hiivaa jauhojen painosta (tutkimus ei kerro hiivan lajia, Leipuri laskee sen tuorehiivaksi), ja taikinan sekoituksesta leivän uuniin laittamiseen kuluu noin 3 tuntia huoneenlämmössä. Yön yli jääkaapissa: 1 % hiivaa, taikina seisoo jääkaapissa 18 tuntia 4 °C:ssa ja sen jälkeen vielä 3 tuntia huoneenlämmössä. Hiivan määrä ja ajat ovat peräisin täysjyväspelttijauhosta tehtyä leipää koskevasta tutkimuksesta. Ajat ovat vain suuntaa antavia: taikinan valmius arvioidaan ulkonäöstä ja sormikokeella.",
-   "k23": "Hiivalla: 2 % tuorehiivaa jauhojen painosta. Karkeasta täysjyvävehnäjauhosta tehtyä leipää koskevassa tutkimuksessa taikina käytti 15 minuuttia, jaon jälkeen vielä 15 minuuttia, ja kohosi vuoassa 70 minuuttia 32 °C:n kaapissa. Viileämmässä tilassa taikina kohoaa kauemmin, joten valmius arvioidaan ulkonäöstä ja sormikokeella, ei kellosta.",
+   "k23": "Hiivalla: 2 % tuorehiivaa jauhojen painosta. Karkeasta täysjyvävehnäjauhosta tehtyä leipää koskevassa tutkimuksessa taikina käyi 15 minuuttia, jaon jälkeen vielä 15 minuuttia, ja kohosi vuoassa 70 minuuttia 32 °C:n kohotuskaapissa. Viileämmässä tilassa taikina kohoaa kauemmin, joten valmius arvioidaan ulkonäöstä ja sormikokeella, ei kellosta.",
    "k24": "Hiivalla, ilman hapanjuurta: 3 % hiivaa (tutkimus ei kerro hiivan lajia, Leipuri laskee sen tuorehiivaksi), 76 % vettä ja 1,2 % suolaa jauhojen painosta. Tutkimuksessa taikina lepäsi 60 minuuttia 28 °C:ssa ja leivät kohosivat vuoassa 60 minuuttia 37 °C:ssa kohotuskaapissa. Leipä paistettiin 10 minuuttia 240 °C:ssa ja 35 minuuttia 220 °C:ssa. Paistopäivänä täysjyväruisjauhosta tehdyt leivät olivat liian tahmeita arvioitaviksi, minkä vuoksi ne tutkittiin seuraavana päivänä.",
-   "k25": "Hiivalla, yhden samanlaisella vesimäärällä tehtävän vaivaamattoman leivän reseptin mukaan: 1 teelusikallinen pikahiivaa, eli Leipurin muuntosuhteen mukaan noin 1,7 % tuorehiivaa jauhojen painosta. Taikina seisoo huoneenlämmössä yön yli, vähintään 8 tuntia, ja muotoiltu leipä kohoaa sen jälkeen noin 90 minuuttia."
+   "k25": "Hiivalla, erään vaivaamattoman, samankaltaisella vesimäärällä tehtävän leivän reseptin mukaan: 1 teelusikallinen pikahiivaa, eli Leipurin muuntokertoimen mukaan noin 1,7 % tuorehiivaa jauhojen painosta. Taikina seisoo huoneenlämmössä yön yli, vähintään 8 tuntia, ja muotoiltu leipä kohoaa sen jälkeen noin 90 minuuttia."
   },
   "fr": {
    "k1": "Red Star Yeast (fabricant de levure), « Baking with Yeast: Step-by-Step Guide »",
@@ -321,7 +321,7 @@
    "k20": "Les temps sont indicatifs, car la vitesse de pousse dépend des ingrédients, de la force de la pâte, de la température et de l’humidité.",
    "k21": "La pâte est prête lorsque l’empreinte laissée par le doigt reste visible. Avant la cuisson, la pâte façonnée ne doit pas plus que doubler de volume.",
    "k22": "À la levure : 3 % de levure par rapport à la farine (l’étude n’indique pas son type, Mitron la compte comme fraîche), et entre le pétrissage et l’enfournement du pain s’écoulent environ 3 heures à température ambiante. Avec une nuit au réfrigérateur : 1 % de levure, la pâte reste 18 heures au réfrigérateur à 4 °C, puis encore 3 heures à température ambiante. La quantité de levure et les temps proviennent d’une étude sur un pain de farine d’épeautre complète. Les temps sont indicatifs : on juge de l’état de la pâte à son aspect et au test du doigt.",
-   "k23": "À la levure : 2 % de levure fraîche par rapport à la farine. Dans l’étude sur un pain de farine de blé complète, la pâte a fermenté 15 minutes, encore 15 minutes après la division, puis a levé 70 minutes dans le moule dans une enceinte à 32 °C. Dans une pièce plus fraîche, la pâte lève plus longtemps, c’est pourquoi on juge de l’état de la pâte à son aspect et au test du doigt, et non au temps.",
+   "k23": "À la levure : 2 % de levure fraîche par rapport à la farine. Dans l’étude sur un pain de farine de blé complète, la pâte a fermenté 15 minutes, encore 15 minutes après la division, puis a levé 70 minutes dans le moule dans une étuve de fermentation à 32 °C. Dans une pièce plus fraîche, la pâte lève plus longtemps, c’est pourquoi on juge de l’état de la pâte à son aspect et au test du doigt, et non au temps.",
    "k24": "À la levure, sans levain : 3 % de levure (l’étude n’indique pas son type, Mitron la compte comme fraîche), 76 % d’eau et 1,2 % de sel par rapport à la farine. Dans l’étude, la pâte a reposé 60 minutes à 28 °C, et les pains ont levé dans le moule 60 minutes à 37 °C dans une étuve de fermentation. Le pain a été cuit 10 minutes à 240 °C puis 35 minutes à 220 °C. Le jour de la cuisson, les pains de farine de seigle complète étaient trop collants pour être évalués, c’est pourquoi ils ont été examinés le lendemain.",
    "k25": "À la levure, d’après une recette de pain sans pétrissage avec une quantité d’eau similaire : 1 cuillère à café de levure instantanée, soit, selon la conversion de Mitron, environ 1,7 % de levure fraîche par rapport à la farine. La pâte reste à température ambiante pendant la nuit, au moins 8 heures, puis le pain façonné lève environ 90 minutes."
   },
@@ -374,8 +374,8 @@
    "k19": "Második kelés",
    "k20": "Az idők csak útmutatók, mert a kelés üteme a hozzávalóktól, a tészta erősségétől, a hőmérséklettől és a páratartalomtól függ.",
    "k21": "A tészta akkor kész, ha az ujjal benyomott mélyedés megmarad. Sütés előtt a megformázott tészta ne nőjön a duplájánál nagyobbra.",
-   "k22": "Élesztővel: a liszthez képest 3% élesztő (a kutatás nem adja meg a fajtáját, a Pék frissként számolja), a tészta elkészítésétől a kenyér sütőbe tételéig pedig körülbelül 3 óra telik el szobahőmérsékleten. Egy éjszakára a hűtőben: 1% élesztő, a tészta 18 órát pihen a hűtőben 4 °C-on, majd még 3 órát szobahőmérsékleten. Az élesztő mennyisége és az idők teljes kiőrlésű tönkölylisztből készült kenyér kutatásából származnak. Az idők csak útmutatók: a tészta készségét a külseje és az ujjteszt alapján lehet megítélni.",
-   "k23": "Élesztővel: a liszthez képest 2% friss élesztő. A teljes kiőrlésű búzalisztből készült kenyér kutatásában a tészta 15 percig erjedt, szétosztás után még 15 percig, a formában pedig 70 percig kelt 32 °C-os kelesztőkamrában. Hűvösebb helyiségben a tészta tovább kel, ezért a készséget a külseje és az ujjteszt alapján kell megítélni, nem az idő szerint.",
+   "k22": "Élesztővel: a liszthez képest 3% élesztő (a kutatás nem adja meg a fajtáját, a Pék frissként számolja), a tészta összedolgozásától a kenyér sütőbe tételéig pedig körülbelül 3 óra telik el szobahőmérsékleten. Egy éjszakára a hűtőben: 1% élesztő, a tészta 18 órát pihen a hűtőben 4 °C-on, majd még 3 órát szobahőmérsékleten. Az élesztő mennyisége és az idők teljes kiőrlésű tönkölylisztből készült kenyér kutatásából származnak. Az idők csak útmutatók: azt, hogy a tészta kész-e, a külseje és az ujjteszt alapján lehet megítélni.",
+   "k23": "Élesztővel: a liszthez képest 2% friss élesztő. A teljes kiőrlésű búzalisztből készült kenyér kutatásában a tészta 15 percig erjedt, szétosztás után még 15 percig, a formában pedig 70 percig kelt 32 °C-os kelesztőkamrában. Hűvösebb helyiségben a tészta tovább kel, ezért azt, hogy kész-e, a külseje és az ujjteszt alapján kell megítélni, nem az idő szerint.",
    "k24": "Élesztővel, kovász nélkül: a liszthez képest 3% élesztő (a kutatás nem adja meg a fajtáját, a Pék frissként számolja), 76% víz és 1,2% só. A kutatásban a tészta 60 percig pihent 28 °C-on, a cipók pedig a formában 60 percig keltek 37 °C-on kelesztőkamrában. A kenyeret 10 percig sütötték 240 °C-on, majd 35 percig 220 °C-on. A sütés napján a teljes kiőrlésű rozslisztből készült kenyerek túl ragacsosak voltak az értékeléshez, ezért másnap vizsgálták őket.",
    "k25": "Élesztővel, egy gyúrás nélküli, hasonló vízmennyiségű kenyér receptje szerint: 1 teáskanál instant élesztő, ami a Pék átváltása szerint a liszthez képest körülbelül 1,7% friss élesztőnek felel meg. A tészta egy éjszakán át, legalább 8 órán át áll szobahőmérsékleten, a megformázott cipó pedig utána körülbelül 90 percig kel."
   },
@@ -434,17 +434,17 @@
    "k25": "Con lievito di birra, secondo una ricetta di pane senza impasto con una quantità d'acqua simile: 1 cucchiaino di lievito istantaneo, cioè secondo la conversione di Fornaio circa 1,7% di lievito fresco rispetto alla farina. L'impasto riposa a temperatura ambiente per una notte, almeno 8 ore, e la pagnotta formata lievita poi circa 90 minuti."
   },
   "ja": {
-   "k1": "Red Star Yeast（イーストメーカー）、「Baking with Yeast: Step-by-Step Guide」",
+   "k1": "Red Star Yeast（イースト製造会社）、「Baking with Yeast: Step-by-Step Guide」",
    "k2": "イーストを使ったパン作りの手順と、レシピの発酵時間があくまで目安である理由です。",
    "k3": "University of Kentucky Cooperative Extension、「The Art of Baking Bread」（2010）",
-   "k4": "フィンガーテスト：イースト生地がいつ仕上がりか、焼く前にどこまで膨らんでよいか。",
+   "k4": "フィンガーテスト：イースト生地がいつ仕上がるか、焼く前にどこまで膨らんでよいか。",
    "k5": "Longin C.F.H. ほか、International Journal of Molecular Sciences 2023",
    "k6": "スペルト小麦パンのイースト版での、イーストの量と、生地をこねてからオーブンに入れるまでの時間です。",
    "k7": "Verdonck C. ほか、Current Research in Food Science 2025",
    "k8": "全粒粉の小麦パンのイースト版での、イーストの量と発酵時間です。",
    "k9": "Koistinen V.M. ほか、Scientific Reports 2018",
    "k10": "ライ麦パンのイースト版での、イースト・水・塩の量と、発酵および焼成の時間です。",
-   "k11": "このイースト版レシピのプランは、各工程の時間待ちです。分量とヒントは上にあります。",
+   "k11": "このイースト版レシピのプランは、各工程の時間が入るのを待っています。分量とヒントは上にあります。",
    "k12": "レシピのバージョン",
    "k13": "サワー種",
    "k14": "イースト",
@@ -458,7 +458,7 @@
    "k22": "イースト版：粉に対してイースト3%（研究では種類が示されていないため、パン職人では生イーストとして計算します）で、生地をこねてからパンをオーブンに入れるまで、室温でおよそ3時間かかります。一晩冷蔵庫に置く場合：イースト1%で、生地を4 °Cの冷蔵庫に18時間置き、その後さらに室温で3時間置きます。イーストの量と時間は、スペルト小麦の全粒粉パンの研究に基づいています。時間は目安で、生地の仕上がりは見た目とフィンガーテストで判断します。",
    "k23": "イースト版：粉に対して生イースト2%。全粒粉の小麦パンの研究では、生地を15分発酵させ、分割後にさらに15分置き、型に入れて32 °Cの発酵器で70分発酵させました。涼しい部屋では生地の発酵に時間がかかるため、仕上がりは時間ではなく、見た目とフィンガーテストで判断します。",
    "k24": "イースト版（サワー種なし）：粉に対してイースト3%（研究では種類が示されていないため、パン職人では生イーストとして計算します）、水76%、塩1.2%。研究では、生地を28 °Cで60分休ませ、パンは型に入れて37 °Cの発酵器で60分発酵させました。パンは240 °Cで10分、続いて220 °Cで35分焼きました。焼いた日はライ麦全粒粉のパンがべたつきすぎて評価できなかったため、翌日に調べました。",
-   "k25": "イースト版：水の量が近い、こねないパンのあるレシピによると、インスタントイースト小さじ1で、パン職人の換算では粉に対して生イースト約1.7%にあたります。生地は室温で一晩、少なくとも8時間置き、成形したパンはその後およそ90分発酵させます。"
+   "k25": "イースト版：水の量が近い、こねないパンのレシピのひとつによると、インスタントイースト小さじ1で、パン職人の換算では粉に対して生イースト約1.7%にあたります。生地は室温で一晩、少なくとも8時間置き、成形したパンはその後およそ90分発酵させます。"
   },
   "ko": {
    "k1": "Red Star Yeast (이스트 제조사), “Baking with Yeast: Step-by-Step Guide”",
@@ -471,7 +471,7 @@
    "k8": "통밀 빵의 이스트 버전에서 이스트 양과 발효 시간.",
    "k9": "Koistinen V.M. 외, Scientific Reports 2018",
    "k10": "호밀빵의 이스트 버전에서 이스트, 물, 소금의 양과 발효 및 굽는 시간.",
-   "k11": "이 레시피의 이스트 버전 계획은 단계별 시간을 기다리고 있어요. 재료 양과 팁은 위에 있어요.",
+   "k11": "이 레시피의 이스트 버전 계획에는 아직 단계별 시간이 없어요. 재료 양과 팁은 위에 있어요.",
    "k12": "레시피 버전",
    "k13": "사워도우",
    "k14": "이스트",
@@ -522,7 +522,7 @@
    "k5": "Longin C.F.H. u. c., International Journal of Molecular Sciences 2023",
    "k6": "Rauga daudzums un laiks no mīklas iejaukšanas līdz likšanai krāsnī speltas maizes versijā ar raugu.",
    "k7": "Verdonck C. u. c., Current Research in Food Science 2025",
-   "k8": "Rauga daudzums un ceļšanās laiki pilngraudu kviešu maizes versijā ar raugu.",
+   "k8": "Rauga daudzums un ceļšanās laiki rupja maluma kviešu miltu maizes versijā ar raugu.",
    "k9": "Koistinen V.M. u. c., Scientific Reports 2018",
    "k10": "Rauga, ūdens un sāls daudzums, kā arī ceļšanās un cepšanas laiki rudzu maizes versijā ar raugu.",
    "k11": "Šīs receptūras plānam ar raugu vēl trūkst etapu laiku. Daudzumi un padomi ir augstāk.",
@@ -697,9 +697,9 @@
    "k18": "Modelare",
    "k19": "A doua dospire",
    "k20": "Timpii sunt orientativi, pentru că ritmul de dospire depinde de ingrediente, de tăria aluatului, de temperatură și de umiditate.",
-   "k21": "Aluatul este gata când adâncitura lăsată de deget rămâne. Înainte de copt, aluatul modelat nu trebuie să crească mai mult decât să își dubleze volumul.",
+   "k21": "Aluatul este gata când adâncitura lăsată de deget rămâne. Înainte de copt, aluatul modelat nu trebuie să crească mai mult de dublul volumului.",
    "k22": "Cu drojdie: 3% drojdie față de făină (studiul nu precizează tipul, Brutar o socotește drojdie proaspătă), iar de la frământarea aluatului până la introducerea pâinii în cuptor trec aproximativ 3 ore la temperatura camerei. Cu o noapte în frigider: 1% drojdie, aluatul stă 18 ore în frigider la 4 °C, apoi încă 3 ore la temperatura camerei. Cantitatea de drojdie și timpii provin dintr-un studiu al pâinii din făină integrală de spelt. Timpii sunt orientativi: gradul de dospire al aluatului se judecă după aspect și după testul degetului.",
-   "k23": "Cu drojdie: 2% drojdie proaspătă față de făină. În studiul pâinii din făină integrală de grâu, aluatul a fermentat 15 minute, după împărțire încă 15 minute, iar în formă a crescut 70 de minute într-o cameră de dospire la 32 °C. Într-o încăpere mai rece aluatul crește mai mult, așa că gradul de dospire se judecă după aspect și după testul degetului, nu după ceas.",
+   "k23": "Cu drojdie: 2% drojdie proaspătă față de făină. În studiul pâinii din făină integrală de grâu, aluatul a fermentat 15 minute, după împărțire încă 15 minute, iar în formă a crescut 70 de minute într-o cameră de dospire la 32 °C. Într-o încăpere mai rece aluatul are nevoie de mai mult timp ca să crească, așa că gradul de dospire se judecă după aspect și după testul degetului, nu după ceas.",
    "k24": "Cu drojdie, fără maia: 3% drojdie (studiul nu precizează tipul, Brutar o socotește drojdie proaspătă), 76% apă și 1,2% sare față de făină. În studiu, aluatul s-a odihnit 60 de minute la 28 °C, iar pâinile au crescut în formă 60 de minute la 37 °C într-o cameră de dospire. Pâinea a fost coaptă 10 minute la 240 °C și 35 de minute la 220 °C. În ziua coacerii, pâinile din făină integrală de secară erau prea lipicioase pentru a fi evaluate, de aceea au fost analizate a doua zi.",
    "k25": "Cu drojdie, după o rețetă de pâine fără frământare cu o cantitate de apă asemănătoare: 1 linguriță de drojdie instant, adică, după conversia Brutarului, aproximativ 1,7% drojdie proaspătă față de făină. Aluatul stă la temperatura camerei peste noapte, cel puțin 8 ore, iar pâinea modelată crește apoi aproximativ 90 de minute."
   },
@@ -720,15 +720,15 @@
    "k14": "на дрожжах",
    "k15": "Смешивание и замес",
    "k16": "Первый подъём",
-   "k17": "Выпуск газа",
+   "k17": "Обминка",
    "k18": "Формование",
    "k19": "Второй подъём",
    "k20": "Время указано как ориентир, потому что скорость подъёма зависит от ингредиентов, силы теста, температуры и влажности.",
    "k21": "Тесто готово, если ямка от нажатия пальцем остаётся. Перед выпечкой сформованное тесто не должно увеличиваться в объёме больше чем вдвое.",
-   "k22": "На дрожжах: 3% дрожжей к массе муки (исследование не указывает их вид, Хлебопёк считает их свежими), а от замеса теста до посадки хлеба в печь проходит около 3 часов при комнатной температуре. С ночью в холодильнике: 1% дрожжей, тесто стоит 18 часов в холодильнике при 4 °C, а затем ещё 3 часа при комнатной температуре. Количество дрожжей и время взяты из исследования хлеба из цельнозерновой полбяной муки. Время указано как ориентир: готовность теста оценивают по внешнему виду и тесту пальцем.",
+   "k22": "На дрожжах: 3% дрожжей к массе муки (исследование не указывает их вид, Хлебопёк считает их свежими), а от замеса теста до посадки хлеба в печь проходит около 3 часов при комнатной температуре. С ночёвкой в холодильнике: 1% дрожжей, тесто стоит 18 часов в холодильнике при 4 °C, а затем ещё 3 часа при комнатной температуре. Количество дрожжей и время взяты из исследования хлеба из цельнозерновой полбяной муки. Время указано как ориентир: готовность теста оценивают по внешнему виду и тесту пальцем.",
    "k23": "На дрожжах: 2% свежих дрожжей к массе муки. В исследовании хлеба из пшеничной обойной муки тесто бродило 15 минут, после деления ещё 15 минут, а в форме поднималось 70 минут в камере при 32 °C. В более прохладном помещении тесто поднимается дольше, поэтому готовность оценивают по внешнему виду и тесту пальцем, а не по времени.",
    "k24": "На дрожжах, без закваски: 3% дрожжей (исследование не указывает их вид, Хлебопёк считает их свежими), 76% воды и 1,2% соли к массе муки. В исследовании тесто отдыхало 60 минут при 28 °C, а буханки поднимались в форме 60 минут при 37 °C в расстоечном шкафу. Хлеб выпекали 10 минут при 240 °C и 35 минут при 220 °C. В день выпечки хлеба из цельнозерновой ржаной муки были слишком липкими для оценки, поэтому их исследовали на следующий день.",
-   "k25": "На дрожжах, по одному рецепту хлеба без замеса с похожим количеством воды: 1 чайная ложка instant-дрожжей, то есть по пересчёту Хлебопёка около 1,7% свежих дрожжей к массе муки. Тесто стоит при комнатной температуре всю ночь, не менее 8 часов, а сформованная буханка затем поднимается около 90 минут."
+   "k25": "На дрожжах, по одному рецепту хлеба без замеса с похожим количеством воды: 1 чайная ложка инстантных дрожжей, то есть по пересчёту Хлебопёка около 1,7% свежих дрожжей к массе муки. Тесто стоит при комнатной температуре всю ночь, не менее 8 часов, а сформованная буханка затем поднимается около 90 минут."
   },
   "sk": {
    "k1": "Red Star Yeast (výrobca droždia), „Baking with Yeast: Step-by-Step Guide“",
@@ -940,11 +940,11 @@
    "k18": "整形",
    "k19": "第二次發酵",
    "k20": "時間僅供參考，因為發酵速度取決於材料、麵團筋度、溫度和濕度。",
-   "k21": "按壓手指後凹陷留著不回彈，表示麵團已準備好。烘烤前，整形後的麵團膨脹不應超過兩倍。",
-   "k22": "酵母版：酵母用量為麵粉重量的 3%（研究未說明酵母種類，App 以新鮮酵母計算），從揉麵到麵包入烤箱約需 3 小時，在室溫下進行。若隔夜冷藏：酵母 1%，麵團在 4°C 冰箱中放 18 小時，之後再於室溫下放 3 小時。酵母用量與時間來自一項以全穀斯佩爾特小麥粉製作麵包的研究。時間僅供參考：麵團是否準備好，要憑外觀和手指測試來判斷。",
+   "k21": "用手指按壓後，凹陷沒有彈回，表示麵團已準備好。烘烤前，整形後的麵團體積不應超過原來的兩倍。",
+   "k22": "酵母版：酵母用量為麵粉重量的 3%（研究未說明酵母種類，麵包師傅以新鮮酵母計算），從揉麵到麵包入烤箱約需 3 小時，在室溫下進行。若隔夜冷藏：酵母 1%，麵團在 4°C 冰箱中放 18 小時，之後再於室溫下放 3 小時。酵母用量與時間來自一項以全穀斯佩爾特小麥粉製作麵包的研究。時間僅供參考：麵團是否準備好，要憑外觀和手指測試來判斷。",
    "k23": "酵母版：新鮮酵母 2%，以麵粉重量計。在一項粗磨全麥麵包的研究中，麵團發酵 15 分鐘，分割後再發酵 15 分鐘，並在 32°C 的發酵箱中於模具內發酵 70 分鐘。在較涼的房間裡，麵團發酵時間較長，因此要憑外觀和手指測試判斷是否準備好，而不是看時間。",
-   "k24": "酵母版，不使用天然酵母：酵母 3%（研究未說明酵母種類，App 以新鮮酵母計算）、水 76%、鹽 1.2%，皆以麵粉重量計。研究中麵團在 28°C 下靜置 60 分鐘，麵包在模具內於 37°C 的發酵箱中發酵 60 分鐘。麵包以 240°C 烘烤 10 分鐘，再以 220°C 烘烤 35 分鐘。烘焙當天，全穀裸麥麵包太黏，無法評估，因此改在隔天檢測。",
-   "k25": "酵母版，依據一份水量相近的免揉麵包食譜：1 茶匙速發酵母，依 App 的換算約為麵粉重量的 1.7% 新鮮酵母。麵團在室溫下靜置過夜，至少 8 小時，之後整形好的麵包再發酵約 90 分鐘。"
+   "k24": "酵母版，不使用天然酵母起種：酵母 3%（研究未說明酵母種類，麵包師傅以新鮮酵母計算）、水 76%、鹽 1.2%，皆以麵粉重量計。研究中麵團在 28°C 下靜置 60 分鐘，麵包在模具內於 37°C 的發酵箱中發酵 60 分鐘。麵包以 240°C 烘烤 10 分鐘，再以 220°C 烘烤 35 分鐘。烘焙當天，全穀裸麥麵包太黏，無法評估，因此改在隔天檢測。",
+   "k25": "酵母版，依據一份水量相近的免揉麵包食譜：1 茶匙速發酵母，依麵包師傅的換算約為麵粉重量的 1.7% 新鮮酵母。麵團在室溫下靜置過夜，至少 8 小時，之後整形好的麵包再發酵約 90 分鐘。"
   }
  }
 }

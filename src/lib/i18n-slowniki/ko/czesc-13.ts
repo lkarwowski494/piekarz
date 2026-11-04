@@ -22,7 +22,7 @@ export const CZESC: Record<string, string> = {
   'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':
     '호밀빵의 이스트 버전에서 이스트, 물, 소금의 양과 발효 및 굽는 시간.',
   'Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.':
-    '이 레시피의 이스트 버전 계획은 단계별 시간을 기다리고 있어요. 재료 양과 팁은 위에 있어요.',
+    '이 레시피의 이스트 버전 계획에는 아직 단계별 시간이 없어요. 재료 양과 팁은 위에 있어요.',
   'Wersja receptury':
     '레시피 버전',
   'na zakwasie|wersja receptury':

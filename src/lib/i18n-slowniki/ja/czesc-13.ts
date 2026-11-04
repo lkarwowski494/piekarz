@@ -2,13 +2,13 @@
 // Źródło przekładu: docs/lokalizacja/przeklad-drozdze-zrodla-09d-2026-11-04.json.
 export const CZESC: Record<string, string> = {
   'Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”':
-    'Red Star Yeast（イーストメーカー）、「Baking with Yeast: Step-by-Step Guide」',
+    'Red Star Yeast（イースト製造会社）、「Baking with Yeast: Step-by-Step Guide」',
   'Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.':
     'イーストを使ったパン作りの手順と、レシピの発酵時間があくまで目安である理由です。',
   'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)':
     'University of Kentucky Cooperative Extension、「The Art of Baking Bread」（2010）',
   'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.':
-    'フィンガーテスト：イースト生地がいつ仕上がりか、焼く前にどこまで膨らんでよいか。',
+    'フィンガーテスト：イースト生地がいつ仕上がるか、焼く前にどこまで膨らんでよいか。',
   'Longin C.F.H. i in., International Journal of Molecular Sciences 2023':
     'Longin C.F.H. ほか、International Journal of Molecular Sciences 2023',
   'Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.':
@@ -22,7 +22,7 @@ export const CZESC: Record<string, string> = {
   'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':
     'ライ麦パンのイースト版での、イースト・水・塩の量と、発酵および焼成の時間です。',
   'Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.':
-    'このイースト版レシピのプランは、各工程の時間待ちです。分量とヒントは上にあります。',
+    'このイースト版レシピのプランは、各工程の時間が入るのを待っています。分量とヒントは上にあります。',
   'Wersja receptury':
     'レシピのバージョン',
   'na zakwasie|wersja receptury':
@@ -50,5 +50,5 @@ export const CZESC: Record<string, string> = {
   'Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.':
     'イースト版（サワー種なし）：粉に対してイースト3%（研究では種類が示されていないため、パン職人では生イーストとして計算します）、水76%、塩1.2%。研究では、生地を28 °Cで60分休ませ、パンは型に入れて37 °Cの発酵器で60分発酵させました。パンは240 °Cで10分、続いて220 °Cで35分焼きました。焼いた日はライ麦全粒粉のパンがべたつきすぎて評価できなかったため、翌日に調べました。',
   'Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.':
-    'イースト版：水の量が近い、こねないパンのあるレシピによると、インスタントイースト小さじ1で、パン職人の換算では粉に対して生イースト約1.7%にあたります。生地は室温で一晩、少なくとも8時間置き、成形したパンはその後およそ90分発酵させます。',
+    'イースト版：水の量が近い、こねないパンのレシピのひとつによると、インスタントイースト小さじ1で、パン職人の換算では粉に対して生イースト約1.7%にあたります。生地は室温で一晩、少なくとも8時間置き、成形したパンはその後およそ90分発酵させます。',
 };

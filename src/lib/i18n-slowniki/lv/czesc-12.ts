@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   'Verdonck C. i in., Current Research in Food Science 2025':
     'Verdonck C. u. c., Current Research in Food Science 2025',
   'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.':
-    'Rauga daudzums un ceļšanās laiki pilngraudu kviešu maizes versijā ar raugu.',
+    'Rauga daudzums un ceļšanās laiki rupja maluma kviešu miltu maizes versijā ar raugu.',
   'Koistinen V.M. i in., Scientific Reports 2018':
     'Koistinen V.M. u. c., Scientific Reports 2018',
   'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':

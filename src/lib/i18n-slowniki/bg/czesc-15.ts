@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   'Verdonck C. i in., Current Research in Food Science 2025':
     'Verdonck C. и др., Current Research in Food Science 2025',
   'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.':
-    'Количество мая и времена за втасване във варианта с мая на хляба от пълнозърнесто пшенично брашно.',
+    'Количество мая и времена за втасване във варианта с мая на хляба от интегрално пшенично брашно.',
   'Koistinen V.M. i in., Scientific Reports 2018':
     'Koistinen V.M. и др., Scientific Reports 2018',
   'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':
@@ -48,7 +48,7 @@ export const CZESC: Record<string, string> = {
   'Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.':
     'С мая: 2% прясна мая спрямо брашното. В изследването на хляб от интегрално пшенично брашно тестото ферментира 15 минути, след разделянето още 15 минути, а във формата втасва 70 минути в камера с температура 32 °C. В по-хладно помещение тестото втасва по-дълго, затова готовността се преценява по вида му и с теста с пръст, а не по часовника.',
   'Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.':
-    'С мая, без квасен стартер: 3% мая (изследването не посочва вида ѝ, Пекар я смята за прясна), 76% вода и 1,2% сол спрямо брашното. В изследването тестото почива 60 минути при 28 °C, а хлябовете втасват във формата 60 минути при 37 °C в камера за втасване. Хлябът се пече 10 минути при 240 °C и 35 минути при 220 °C. В деня на печене хлябовете от пълнозърнесто ръжено брашно били твърде лепкави за оценка, затова ги изследвали на следващия ден.',
+    'С мая, без квасен стартер: 3% мая (изследването не посочва вида ѝ, Пекар я смята за прясна), 76% вода и 1,2% сол спрямо брашното. В изследването тестото е почивало 60 минути при 28 °C, а хлябовете са втасвали във формата 60 минути при 37 °C в камера за втасване. Хлябът е бил печен 10 минути при 240 °C и 35 минути при 220 °C. В деня на печене хлябовете от пълнозърнесто ръжено брашно са били твърде лепкави за оценка, затова са били изследвани на следващия ден.',
   'Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.':
     'С мая, по една рецепта за хляб без месене с подобно количество вода: 1 чаена лъжичка инстантна мая, тоест по коефициента на Пекар около 1,7% прясна мая спрямо брашното. Тестото стои на стайна температура през нощта, най-малко 8 часа, а оформеният самун след това втасва около 90 минути.',
 };
