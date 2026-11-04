@@ -45,3 +45,6 @@ Verify (`docs/p9b-dowody/verify-p9b-1b-1*.log`): typecheck, licencje, rozmiar, l
 
 ## Nie sprawdzono
 Ekrany p9b-1b na urządzeniu (zrzuty, VoiceOver, AX5); migracja na iOS (expo-sqlite natywne, `VACUUM INTO` ze ścieżką `file://`), prawdziwa baza z telefonu, E2E iOS, powrót do 1022 z bazą v7 (zamierzone: ekran „nowsza wersja”, test `baza-nowsza`).
+
+## p9b-1c (sesja 3, D-258)
+Rola 08 wdrozyla D-256 dla rye_100_pan na drozdzach: rosniecie wg ZYT-ETA-005 bez testu palca, studzenie 1440 min (KRO-POC-016), pieczenie 240/220 C 10+35 min takze w "O recepturze". Dowody: docs/p9b-dowody/czerwien-d256-zyto-drozdze.log, verify-p9b-1c.log, jest-p9b-1c.log. Czerwone: tylko check-i18n (przeklad kluczy z 1b/06d, rola 09).
