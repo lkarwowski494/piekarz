@@ -1,0 +1,30 @@
+== check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+exit 0
+== check:size
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 850 plików, przekroczeń: 0
+exit 0
+== lint
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)
+
+exit 0
+== verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+exit 0
+== verify:matrix
+[test-matrix] BŁĄD BRAMKI: /home/user/piekarz/docs/22-macierz-testow.md jest nieaktualny; uruchom npm run matrix:update
+[test-matrix] Wyniki: 1617/1618 elementów (Braki: 1)
+[test-matrix] Braki w LOGIKA: [ 'zapisUszkodzonychLubBlad' ]
+[test-matrix] BŁĄD BRAMKI: Wykryto 1 nieprzetestowanych elementów!
+exit 1

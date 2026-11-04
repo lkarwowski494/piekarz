@@ -62,4 +62,17 @@ describe('p9b2f: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytel
     expect(ratunkowe().join('\n')).toContain('cos-nowego');
     expect(await w.wczytajWersjeReceptury('white_pan_loaf')).toBe('drozdze');
   });
+
+  it('zapisUszkodzonychLubBlad: bez zgłoszonych wierszy nic nie rzuca; po awarii zapisu rzuca, po naprawie ponowna próba przechodzi', async () => {
+    await start();
+    const u = require('../uszkodzone-wiersze') as typeof import('../uszkodzone-wiersze');
+    const { StorageWriteError } = require('../storage-status') as typeof import('../storage-status');
+    await expect(u.zapisUszkodzonychLubBlad()).resolves.toBeUndefined();
+    psuj();
+    u.zachowajUszkodzony({ tabela: 'app_settings', id: 'x', surowe: 'ZEPSUTE-X' });
+    await expect(u.zapisUszkodzonychLubBlad()).rejects.toBeInstanceOf(StorageWriteError);
+    zapis.mockImplementation(oryginal);
+    await expect(u.zapisUszkodzonychLubBlad()).resolves.toBeUndefined();
+    expect(ratunkowe().join('\n')).toContain('ZEPSUTE-X');
+  });
 });

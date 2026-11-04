@@ -3203,7 +3203,8 @@
   },
   "Maszyna do chleba": {
     "gdzie": [
-      "src/components/receptury/SegmentTrybu.tsx (etykieta)"
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Masło (roztopione)": {
@@ -4963,7 +4964,8 @@
   },
   "Piekarnik": {
     "gdzie": [
-      "src/components/receptury/SegmentTrybu.tsx (etykieta)"
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Piekarnik zajęty o {h}": {
@@ -7616,6 +7618,11 @@
       "src/lib/zakwas-widok.ts (dane: rose)"
     ]
   },
+  "Ustaw opóźniony start na {czas}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Ustaw tę godzinę": {
     "gdzie": [
       "src/components/harmonogram/PlanZaPozno.tsx (tekst w JSX)"
@@ -7994,6 +8001,11 @@
       "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
+  "Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.": {

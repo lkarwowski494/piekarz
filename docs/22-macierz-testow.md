@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 656 | 656 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 638 | 638 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 658 | 658 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 639 | 639 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 250 | 250 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1615** | Pokrytych: **1615** | Brakujących: **0**
+Łącznie elementów: **1618** | Pokrytych: **1618** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `drożdże najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1315 kolejnych elementów w pełnym wykazie)*
+*(... i 1318 kolejnych elementów w pełnym wykazie)*
