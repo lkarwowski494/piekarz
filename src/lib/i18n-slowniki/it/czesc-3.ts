@@ -1,4 +1,4 @@
-// Słownik it, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.': 'Quando dopo il rinfresco inizia a fare bolle, rinfrescalo una seconda volta; se entro 12 ore cresce ed è pieno di bollicine, è pronto per l\'ultimo rinfresco prima dell\'uso.',

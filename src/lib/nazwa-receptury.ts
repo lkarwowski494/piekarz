@@ -5,10 +5,10 @@
 // zostaje dosłownie (bez t(): „|” w nazwie nie może jej uciąć, zbieżność z kluczem słownika jej nie zmieni).
 // ============================================================================
 
-import { MASTER_RECIPES } from '../recipes/presets';
+import { CATALOG_RECIPES } from '../recipes/katalog';
 import { t } from './i18n';
 
-const BAZOWE = new Set(MASTER_RECIPES.map((r) => r.namePl));
+const BAZOWE = new Set(CATALOG_RECIPES.map((r) => r.namePl));
 
 export function nazwaReceptury(nazwa: string): string {
   return BAZOWE.has(nazwa) ? t(nazwa) : nazwa;

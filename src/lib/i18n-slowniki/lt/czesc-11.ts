@@ -1,0 +1,5 @@
+// Słownik lt, część 11 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
+export const CZESC: Record<string, string> = {
+  'Ciasto ma te same proporcje co słodkie bułeczki: woda 19,0% masy mąki, mleko 39,0%, sól 1,9% i drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Nadzienie w procentach mąki tej połowy ciasta to cukier 48,0%, masło roztopione 36,3%, rodzynki 15,5% i cynamon 1,7%. Wieniec piecze się w 375 °F, czyli około 191 °C, przez około 25 minut.': 'Tešlos proporcijos tokios pat kaip saldžių bandelių: vanduo 19,0 % miltų masės, pienas 39,0 %, druska 1,9 % ir mielės 6,6 % (recepte sausos mielės, perskaičiuotos į šviežias Kepėjo perskaičiavimo koeficientu). Įdaras, skaičiuojant šios tešlos pusės miltų procentais, yra cukrus 48,0 %, ištirpdytas sviestas 36,3 %, razinos 15,5 % ir cinamonas 1,7 %. Žiedas kepamas 375 °F, t. y. apie 191 °C, maždaug 25 minutes.',
+};

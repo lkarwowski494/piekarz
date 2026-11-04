@@ -1,4 +1,4 @@
-// Słownik ko, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Niski gluten. Przy chlebach nie używać solo — ciasto rozleje się z powodu słabej siatki.': '글루텐이 적어요. 빵에는 단독으로 쓰지 마세요. 글루텐 망이 약해 반죽이 퍼져요.',

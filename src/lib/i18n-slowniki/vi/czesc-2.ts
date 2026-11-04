@@ -1,4 +1,4 @@
-// Słownik vi, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik vi, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.': 'Bột nhào men tự nhiên ủ lạnh qua đêm sẽ trở nên cứng sau khi xả khí: bánh sẽ nở kém, méo mó và rất chua.',

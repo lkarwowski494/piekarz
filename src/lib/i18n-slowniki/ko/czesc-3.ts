@@ -1,4 +1,4 @@
-// Słownik ko, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Gdy mąka z wodą odpocznie przed dodaniem soli, mąka wchłania wodę, zaczyna się tworzyć gluten, a ciasto łatwiej się wyrabia.': '소금을 넣기 전에 밀가루와 물을 휴지시키면 밀가루가 물을 흡수하고 글루텐이 형성되기 시작해 반죽하기가 쉬워져요.',
