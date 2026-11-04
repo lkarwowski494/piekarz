@@ -65,7 +65,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     act(() => tree.unmount());
   });
 
-  it('ekran: wstęp, 6 grup z nagłówkami VoiceOver i 26 źródeł z nazwą, opisem i adresem jako tekstem', async () => {
+  it('ekran: wstęp, 6 grup z nagłówkami VoiceOver i 27 źródeł z nazwą, opisem i adresem jako tekstem', async () => {
     act(() => setLang('pl'));
     const openURL = jest.spyOn(Linking, 'openURL');
     const { tree, root, wejscie } = await otworz();
@@ -76,7 +76,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     const naglowki = root.findAll((n) => (n.type as unknown) === 'Text' && n.props.accessibilityRole === 'header').map((n) => tekstWezla(n.props.children));
     expect(naglowki).toEqual(ZRODLA_WIEDZY.map((g) => g.temat));
     const zrodla = ZRODLA_WIEDZY.flatMap((g) => g.zrodla);
-    expect(zrodla).toHaveLength(26);
+    expect(zrodla).toHaveLength(27);
     for (const z of zrodla) {
       expect(t1).toContain(z.nazwa);
       expect(t1).toContain(z.opis);
@@ -91,6 +91,22 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     expect(root.findAllByProps({ testID: 'settings-zrodla-btn' })).toHaveLength(0);
     act(() => tree.unmount());
     openURL.mockRestore();
+  });
+
+  it('KAT-KAR-009 (D-126, D-237): źródło Marttaliitto jest na ekranie, w grupie „Technika i wypiek”, po polsku i po angielsku', async () => {
+    const nazwa = 'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”';
+    const grupa = ZRODLA_WIEDZY.find((g) => g.temat === 'Technika i wypiek');
+    expect(grupa?.zrodla[grupa.zrodla.length - 1]).toEqual({ nazwa, opis: 'Ilość soli w otwartych pierożkach żytnich.', adres: 'martat.fi' });
+    act(() => setLang('pl'));
+    const pl = await otworz();
+    await act(async () => pl.wejscie.props.onPress());
+    expect(teksty(pl.root)).toEqual(expect.arrayContaining([nazwa, 'Ilość soli w otwartych pierożkach żytnich.', 'martat.fi']));
+    act(() => pl.tree.unmount());
+    act(() => setLang('en'));
+    const en = await otworz();
+    await act(async () => en.wejscie.props.onPress());
+    expect(teksty(en.root)).toEqual(expect.arrayContaining(['Marttaliitto (Finnish home economics advisory organisation), recipe “Karjalanpiirakat”', 'Salt in open rye pasties.']));
+    act(() => en.tree.unmount());
   });
 
   it('powrót: „Ustawienia” w nagłówku (etykieta „Wróć do ustawień”, ≥ 44 pt) wraca do listy ustawień', async () => {
