@@ -1354,3 +1354,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (A) przełącznik na pasie nad spiralą (zgodne z makietą „nad jedną spiralą”, ale segmenty jasne i akcentowe na ciemnym pasie: akcent = kolor pasa, kontrast wybranego segmentu do rozstrzygnięcia przez rolę 04; podnosi pas); (C) nazwa w jednej linii z obcięciem (pierwsza wersja tej poprawki: łamie regułę „żaden tekst nie jest ucinany”, test 055; nie usuwa też przyczyny, jeśli przełącznik zostaje w treści).
 - **Ryzyko:** stały rząd zabiera ok. 64 pt (dwa segmenty obok siebie) do ok. 130 pt (jeden pod drugim, 320 pt, długie nazwy w dwóch wierszach) widocznej treści; przy fontScale ≥ 2 rząd wraca do treści (tam przełącznik dalej może wypaść pod dolną strefą akcji, do zgłoszenia roli 04). Nie sprawdzone na symulatorze (E2E koordynatora).
 - **Zależy od:** BR-KAL-016, D-194, NFR-A11Y-004, przegląd roli 04. **Status:** dzień, do weta.
+
+### [D-240] 2026-11-04 — p10: zmiana istniejącego testu „liczba źródeł na ekranie” 26 → 27 (rola 08, partia p10, dzień, do weta)
+- **Rodzaj:** odstępstwo roli 08 od polecenia „innych istniejących testów nie zmieniasz”; wykonanie D-237 pkt 3 (źródło Marttaliitto na ekranie „Źródła wiedzy”).
+- **Decyzja:** w `src/components/__tests__/zrodla-wiedzy-t2.test.tsx` (test „ekran: wstęp, 6 grup…”) oczekiwana liczba źródeł 26 → 27 (nazwa testu i `toHaveLength`). Test zostaje dokładny (nie luźniejszy); nowe źródło ma osobny test, czerwony przed kodem.
+- **Odrzucone:** STOP bez dodania źródła (zadanie 3 z polecenia niewykonalne bez tej zmiany); zmiana na `toBeGreaterThan(26)` (osłabia test).
+- **Zależy od:** D-126, D-234 (precedens), D-237. **Status:** dzień, do weta.
