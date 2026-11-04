@@ -163,6 +163,11 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         opis: 'Strefa bez dzieci wokół kuchenki i piekarnika.',
         adres: 'shrinerschildrens.org',
       },
+      {
+        nazwa: 'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”',
+        opis: 'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.',
+        adres: 'cpsc.gov',
+      },
     ],
   },
   {
@@ -183,10 +188,46 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         opis: 'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.',
         adres: 'bbga.org',
       },
+    ],
+  },
+  {
+    // D-247 (06z): źródła receptur katalogu p8 (docs/tresci/pl/katalog-m3.md) i przeliczania miar na gramy
+    temat: 'Receptury',
+    zrodla: [
+      {
+        nazwa: 'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”',
+        opis: 'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.',
+        adres: 'publications.europa.eu',
+      },
+      {
+        nazwa: 'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”',
+        opis: 'Skład i sposób wypieku chleba z semoliny durum na zakwasie.',
+        adres: 'ec.europa.eu',
+      },
+      {
+        nazwa: 'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”',
+        opis: 'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.',
+        adres: 'assets.publishing.service.gov.uk',
+      },
+      {
+        nazwa: 'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”',
+        opis: 'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.',
+        adres: '4h.extension.illinois.edu',
+      },
       {
         nazwa: 'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”',
         opis: 'Ilość soli w otwartych pierożkach żytnich.',
         adres: 'martat.fi',
+      },
+      {
+        nazwa: 'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy',
+        opis: 'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.',
+        adres: 'fdc.nal.usda.gov',
+      },
+      {
+        nazwa: 'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)',
+        opis: 'Ile mililitrów ma amerykańska szklanka miarowa.',
+        adres: 'doi.org/10.6028/NIST.HB.44-2025',
       },
     ],
   },
