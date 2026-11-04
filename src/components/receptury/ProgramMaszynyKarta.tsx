@@ -73,7 +73,9 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
   const nowMs = Date.now();
   const program = podpowiedzProgramu(cechyProgramuReceptury(receptura, formula));
   const opoz = opoznionyStart(skladnikiMaszyny(receptura));
-  const zOpoznieniem = opoz.ok && opoz.dostepny;
+  // Program „ciasto”: 4 z 5 przeczytanych instrukcji wyłączają albo odradzają opóźniony start (MAS-085, P9B2F-1)
+  const ciasto = program.ok && program.program === 'ciasto';
+  const zOpoznieniem = opoz.ok && opoz.dostepny && !ciasto;
   // Bez opóźnienia (blokada, Basic) program rusza teraz; z wybraną gotowością w Pro — gotowość minus czas programu
   const start = czas === null ? null : startProgramu(zOpoznieniem && moze('plan-wstecz') ? msCelu(cel, nowMs) : nowMs + czas * 60_000, czas, nowMs);
   const mozna = makaG !== null && start !== null && start.ok;
@@ -112,6 +114,11 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
             <Text style={styles.zdanie}>{t('Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.')}</Text>
             <Text style={styles.zdanie}>{t('Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.')}</Text>
           </View>
+        )}
+        {opoz.ok && opoz.dostepny && ciasto && (
+          <Text testID="maszyna-opoznienie-ciasto" style={styles.zdanie}>
+            {t('Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.')}
+          </Text>
         )}
         {zOpoznieniem && (
           <BlokadaFunkcji {...blokada('plan-wstecz')}>

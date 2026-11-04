@@ -63,6 +63,7 @@ const KLUCZE = [
   "W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instrukcji jednej z maszyn przeznaczony głównie dla jasnej mąki pszennej.",
   "W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.",
   "Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.",
+  "Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.",
 ] as const;
 
 describe('Teksty trybu maszyny (F-72)', () => {

@@ -59,6 +59,9 @@ export const EN_29: Record<string, string> = {
     'Each machine manual we read forbids delayed start with some of these ingredients because they spoil easily.',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
     'According to one manual, dry milk instead of fresh milk allows delayed start, so the app does not block it.',
+  // MAS-085 (P9B2F-1)
+  'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
+    'According to four of the five manuals we read, delayed start does not work or is not recommended in a dough-only program, so the app does not offer it.',
   // machine.safety
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
     'After baking, take the pan out with oven mitts, because the pan, its handle and the inside of the lid are hot.',
