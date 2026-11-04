@@ -145,3 +145,7 @@ Poprzednio (rola 04, 2026-10-20): przegląd właściciela, potem partia 5 (rola 
 ### Rola 09, przekład p6b (2026-11-03)
 - Zakończono: 09 build E3, gałąź `wip/08-p6b-2026-11-03`; 9 kluczy × 33 języki, 4 stare klucze usunięte, D-212, D-213, stan `docs/stan-09b-2026-11-03.md`.
 - Następny krok: koordynator (weto D-210, D-212, D-213; scalenie do `redesign/`); rola 04: audyt układu w najdłuższych językach (podtytuł pasa hr/it/pt 36–37 znaków).
+
+### Rola 08, p8 katalog receptur (2026-11-04)
+- Zakończono: 08 build, gałąź `wip/08-p8-katalog-2026-11-04`; 11 receptur, podział presets.ts, D-229, D-230, stan `docs/stan-08-p8-2026-11-04.md`, klucze `docs/lokalizacja/klucze-p8-2026-11-04.json`.
+- Następny krok: rola 09 (33 klucze × 33 języki na tej gałęzi); rola 06 (piadina, Stollen, szybki orkiszowy); koordynator (weto, scalenie, konflikt decyzje.md z p9a).

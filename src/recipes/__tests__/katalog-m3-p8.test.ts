@@ -139,7 +139,9 @@ function teksty(plik: string): Record<string, string> {
 
 describe('M3 p8: teksty receptur dosłownie z docs/tresci (D-190) i przekład EN', () => {
   const PL = teksty('pl/katalog-m3.md');
-  const ENT = teksty('en/katalog-m3.md');
+  // Jedyna różnica wobec en/katalog-m3.md: „the Piekarz conversion” → „the app's conversion” (D-053: słownik EN nie nazywa aplikacji
+  // „Piekarz”; zgłoszone roli 06, D-229).
+  const ENT = Object.fromEntries(Object.entries(teksty('en/katalog-m3.md')).map(([k, v]) => [k, v.replace(/the Piekarz conversion/g, "the app's conversion")]));
 
   it.each(KATALOG_M3_RECIPES.map((r) => [r.id, r] as const))('%s: nazwa, opis i notatka PL dosłownie z katalog-m3.md', (id, r) => {
     expect([r.namePl, r.descriptionPl, r.notesPl]).toEqual([PL[`${id}.name`], PL[`${id}.description`], PL[`${id}.notes`]]);
