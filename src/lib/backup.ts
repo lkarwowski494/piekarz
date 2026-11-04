@@ -56,7 +56,7 @@ export function buildBackup(state: PiekarzBackupData): PiekarzBackupEnvelope {
     exportedAt: new Date().toISOString(),
     state: {
       ...state,
-      bakes: state.bakes.map((b) => ({ ...b, recipeId: b.recipeId ?? null, leaven: b.leaven ?? null })),
+      bakes: state.bakes.map((b) => ({ ...b, recipeId: b.recipeId ?? null, leaven: b.leaven ?? null, bakeMethod: b.bakeMethod ?? null })),
       starters: state.starters.map((s) => ({ ...s, fridgeFeedDay: s.fridgeFeedDay ?? null })),
     },
   };
