@@ -6,6 +6,9 @@ import { calculateDoughRecipe } from '../../core/domain-rules';
 import { EN } from '../../lib/i18n.en';
 import { MASTER_RECIPES } from '../presets';
 import { CATALOG_RECIPES, KATALOG_M3_RECIPES, filterCatalogRecipes } from '../katalog';
+import { KATALOG_ZAKWAS_ZYTNIE } from '../katalog-m3-zakwas-zyto';
+import { KATALOG_DROZDZOWE } from '../katalog-m3-drozdzowe';
+import { KATALOG_SLODKIE } from '../katalog-m3-slodkie';
 
 const zaokr1 = (x: number) => Math.round(x * 10 + 1e-9) / 10; // połówki w górę, z poprawką na błąd zmiennoprzecinkowy
 const fnaC = (f: number) => Math.round(((f - 32) * 5) / 9);
@@ -53,6 +56,11 @@ describe('M3 p8: katalog 11 receptur — wektory ilości ze źródeł (D-157, D-
     expect(CATALOG_RECIPES).toHaveLength(26);
     expect(new Set(CATALOG_RECIPES.map((r) => r.id)).size).toBe(26);
     expect(CATALOG_RECIPES.slice(0, 15)).toEqual(MASTER_RECIPES);
+  });
+
+  it('moduły katalogu mają 4 + 4 + 3 receptury i razem dają KATALOG_M3_RECIPES w tej kolejności', () => {
+    expect([KATALOG_ZAKWAS_ZYTNIE, KATALOG_DROZDZOWE, KATALOG_SLODKIE].map((m) => m.length)).toEqual([4, 4, 3]);
+    expect([...KATALOG_ZAKWAS_ZYTNIE, ...KATALOG_DROZDZOWE, ...KATALOG_SLODKIE]).toEqual(KATALOG_M3_RECIPES);
   });
 
   it.each(OCZEKIWANE)('$id: procenty piekarskie, mąki, rodzaj i pieczenie jak w źródle', (o) => {

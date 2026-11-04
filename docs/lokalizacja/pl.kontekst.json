@@ -303,7 +303,7 @@
   },
   "Bagietka paryska na poolishu": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-drozdzowe.ts (dane: namePl)"
     ],
     "opis": "Nazwa receptury bazowej: bagietka paryska na zaczynie poolish (płynny zaczyn drożdżowy; w aplikacji nazwa zaczynu „poolish”). Bez nawiasów. [M1-audytor-generalny-112]"
   },
@@ -461,7 +461,7 @@
   },
   "Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: notesPl)"
     ]
   },
   "Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.": {
@@ -541,6 +541,21 @@
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
   },
+  "Bułeczki ze słodkiego ciasta drożdżowego na mleku z jajkami; z przepisu wychodzą 24 sztuki.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bułki drożdżowe na mleku z masłem i jajkiem; z przepisu wychodzą 24 sztuki.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bułki mleczne": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: namePl)"
+    ]
+  },
   "Bułki, chałki, focaccia, ciasta drożdżowe, pizza domowa na blasze.": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: bestForPl)"
@@ -608,12 +623,12 @@
   },
   "Chleb Borodyński (Żytni na słodzie z kolendrą)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zytnie.ts (dane: namePl)"
     ]
   },
   "Chleb Graham z miodem i siemieniem": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ]
   },
   "Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.": {
@@ -621,12 +636,22 @@
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
+  "Chleb foremkowy na drożdżach, w którym połowę mąki uniwersalnej zastępuje mąka pełnoziarnista.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
+  "Chleb foremkowy na drożdżach, w którym połowę mąki uniwersalnej zastępuje mąka żytnia.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: descriptionPl)"
+    ]
+  },
   "Chleb foremkowy o wysokiej wilgotności": {
     "gdzie": []
   },
   "Chleb nocny bez wyrabiania (drożdżowy)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-drozdzowe.ts (dane: namePl)"
     ]
   },
   "Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić.": {
@@ -634,6 +659,21 @@
       "src/core/po-co-ten-krok.ts (dane: kod)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Chleb pszenny foremkowy": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: namePl)"
+    ]
+  },
+  "Chleb pół-pełnoziarnisty foremkowy": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: namePl)"
+    ]
+  },
+  "Chleb pół-żytni foremkowy": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: namePl)"
+    ]
   },
   "Chleb płaski jak dysk (rozlał się na boki)": {
     "gdzie": [
@@ -657,7 +697,7 @@
   },
   "Chleb w stylu San Francisco o wyrazistej kwasowości": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ],
     "opis": "Nazwa receptury bazowej: chleb na zakwasie w stylu San Francisco (nazwa miasta, styl chleba), wyraźnie kwaśny. Bez nawiasów. [M1-audytor-generalny-112]"
   },
@@ -674,7 +714,17 @@
   },
   "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Chleb z semoliny durum na zakwasie": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: namePl)"
+    ]
+  },
+  "Chleb z semoliny z pszenicy durum, wody, soli morskiej i zakwasu, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji chronionej nazwy pochodzenia „Pane di Altamura”.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: descriptionPl)"
     ]
   },
   "Chleb żytni": {
@@ -686,6 +736,16 @@
   "Chleb żytni / foremkowy": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: namePl)"
+    ]
+  },
+  "Chleb żytni na zaczynie, w którym część mąki zaparza się gorącą wodą z kminkiem i scukrza słodem żytnim, bez drożdży piekarskich. Formuła pochodzi ze specyfikacji gwarantowanej tradycyjnej specjalności „Salinātā rudzu rupjmaize”.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: descriptionPl)"
+    ]
+  },
+  "Chleb żytni z parzoną mąką na zaczynie": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: namePl)"
     ]
   },
   "Chleb żytni: upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku. Gorące żyto po ukrojeniu jest jak lepka maź.": {
@@ -781,6 +841,11 @@
   "Ciasto już fermentuje, a odważona sól została na blacie.": {
     "gdzie": []
   },
+  "Ciasto ma te same proporcje co słodkie bułeczki: woda 19,0% masy mąki, mleko 39,0%, sól 1,9% i drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Nadzienie w procentach mąki tej połowy ciasta to cukier 48,0%, masło roztopione 36,3%, rodzynki 15,5% i cynamon 1,7%. Wieniec piecze się w 375 °F, czyli około 191 °C, przez około 25 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: notesPl)"
+    ]
+  },
   "Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: tipPl)"
@@ -793,7 +858,7 @@
   },
   "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.": {
@@ -807,7 +872,7 @@
   },
   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -834,7 +899,7 @@
   },
   "Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
     ]
   },
   "Cienka, przezroczysta membrana:": {
@@ -845,6 +910,11 @@
   "Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"
+    ]
+  },
+  "Cienkie, otwarte pierożki z ciasta z mąki, wody i soli, z nadzieniem z ryżu lub jęczmienia. Formuła pochodzi ze specyfikacji gwarantowanej tradycyjnej specjalności „Karjalanpiirakka”.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: descriptionPl)"
     ]
   },
   "Ciepło tarcia": {
@@ -864,7 +934,7 @@
   },
   "Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
     ]
   },
   "Co chcesz wydrukować?": {
@@ -1268,7 +1338,7 @@
   },
   "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Dodatki (orzechy, ziarna)": {
@@ -1763,7 +1833,7 @@
   },
   "Focaccia Genovese z solanką i rozmarynem": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-drozdzowe.ts (dane: namePl)"
     ]
   },
   "Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.": {
@@ -1847,12 +1917,12 @@
   },
   "Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Francuski Pain de Campagne (Chleb Wiejski)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ]
   },
   "Garnek": {
@@ -2177,6 +2247,31 @@
   "Ilości i temperatura wody": {
     "gdzie": []
   },
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu ciasto drożdżowe ma 0,70–0,90 kg mąki pszennej, 0,30–0,50 l mleka, 0,10–0,30 kg cukru, 0,04–0,06 kg drożdży, 0,10–0,30 kg jaj, 0,10–0,30 kg masła i sól. W procentach piekarskich, licząc środki przedziałów, gdy 0,8 kg mąki to 100%, mleko stanowi 51,5%, cukier, jaja i masło po 25%, a drożdże 6,25%. Masa serowa to 2,4–2,6 kg twarogu półtłustego, 0,22–0,26 kg żółtek, 0,40–0,60 kg cukru, 0,10–0,30 kg masła, skórka z 1 cytryny, a można dodać rodzynki i budyń. Kruszonka to 0,35–0,45 kg masła, 0,70–0,90 kg mąki pszennej, 0,35–0,45 kg cukru i cukier waniliowy. Ciasto zawiera mleko i jaja, a masa serowa twaróg i żółtka. Według wniosku o rejestrację zaczyn z mąki, mleka, drożdży i cukru rośnie około 10–20 minut w 25–30 °C. Potem dodaje się mąkę, jaja, tłuszcz i sól, a ciasto dalej fermentuje, ale czasu tej fermentacji wniosek nie podaje. Ciasto rozwałkowuje się na około 1,5 cm. Placek piecze się w 180–200 °C przez 30–60 minut, do pożądanego stopnia wypieczenia. Według dokumentu placek z blachy piekarskiej ma około 3,5 cm wysokości, wymiary 40 × 60 cm i masę około 5–6 kg.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: notesPl)"
+    ]
+  },
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. Ryż gotuje się od pół godziny do godziny, kaszę dłużej. Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. Nadzienie nakłada się 1–2 cm od brzegu, a brzegi karbuje i zakłada na nadzienie, zostawiając środek otwarty. Pierogi piecze się w bardzo gorącym piecu, w około 250–300 °C, przez 15–20 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: notesPl)"
+    ]
+  },
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji na 100 kg semoliny przypada 20 kg zakwasu, 2 kg soli morskiej i około 60 l wody o temperaturze 18 °C. W procentach piekarskich to woda 60%, sól 2% i zakwas 20% masy semoliny. Zakwas przed użyciem odświeża się co najmniej trzy razy wodą i semoliną durum. Według specyfikacji miesienie trwa 20 minut w miesiarce z ramionami nurkującymi. Ciasto przykryte płótnem fermentuje co najmniej 90 minut, po pierwszym formowaniu odpoczywa 30 minut, a po drugim co najmniej 15 minut. Według specyfikacji piec osiąga 250 °C, a chleb piecze się pierwsze 15 minut przy otwartym piecu i kolejne 45 minut przy zamkniętym.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: notesPl)"
+    ]
+  },
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: notesPl)"
+    ]
+  },
   "Ilości liczę od": {
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tytul)"
@@ -2463,7 +2558,7 @@
   },
   "Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.": {
@@ -2473,7 +2568,7 @@
   },
   "Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Klasyczny chleb rzemieślniczy": {
@@ -2485,7 +2580,7 @@
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Klasyczny rzemieślniczy zakwas 1:1. Zrównoważony profil kwasowy, łatwy do dozowania.": {
@@ -2652,6 +2747,11 @@
       "src/core/po-co-ten-krok.ts (dane: final_shape)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Kołacz drożdżowy z serem i kruszonką": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: namePl)"
+    ]
   },
   "Krakersy": {
     "gdzie": [
@@ -2878,7 +2978,7 @@
   },
   "Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
     ]
   },
   "Maksymalna liczba mąk w mieszance wynosi 12": {
@@ -2947,7 +3047,7 @@
   },
   "Maślana chałka drożdżowa": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: namePl)"
     ]
   },
   "Maślane kruche ciasteczka z czekoladą": {
@@ -3198,7 +3298,7 @@
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
@@ -3215,7 +3315,7 @@
   "Mąka orkiszowa typ 2000": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka orkiszowa, białko 12,6%": {
@@ -3250,7 +3350,9 @@
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-drozdzowe.ts (dane: name)",
+      "src/recipes/presets-pizza-slodkie.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
@@ -3290,7 +3392,7 @@
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
       "src/hooks/useParametryReceptury.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka pszenna graham typ 1850": {
@@ -3341,7 +3443,8 @@
   "Mąka pszenna razowa typ 2000": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka pszenna razowa, białko 8,7–9,6%": {
@@ -3363,7 +3466,7 @@
   "Mąka pszenna typ 1850 (Graham)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 405": {
@@ -3389,7 +3492,7 @@
   "Mąka pszenna typ 550 (Luksusowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 650": {
@@ -3400,7 +3503,10 @@
   "Mąka pszenna typ 650 (Bułkowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: name)",
+      "src/recipes/katalog-m3-slodkie.ts (dane: name)",
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: name)",
+      "src/recipes/presets-drozdzowe.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 650 (chlebowa jasna)": {
@@ -3443,7 +3549,7 @@
   },
   "Mąka pszenna włoska Tipo 00": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: name)"
     ]
   },
   "Mąka pszenna, białko 13,8%": {
@@ -3495,7 +3601,8 @@
   },
   "Mąka z pszenicy durum (Semolina)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: name)",
+      "src/recipes/presets-drozdzowe.ts (dane: name)"
     ]
   },
   "Mąka ze sfermentowanego zaczynu": {
@@ -3539,7 +3646,9 @@
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)",
+      "src/recipes/presets-zytnie.ts (dane: name)"
     ]
   },
   "Mąka żytnia typ 500": {
@@ -3552,7 +3661,9 @@
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/hooks/useParametryReceptury.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)",
+      "src/recipes/presets-zytnie.ts (dane: name)"
     ]
   },
   "Mąka żytnia z polskich młynów przemysłowych.": {
@@ -3702,7 +3813,7 @@
   },
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Nakarm zakwas dziś": {
@@ -4026,7 +4137,7 @@
   },
   "Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Niska temperatura 4°C wyhamowuje drożdże, umożliwiając bakteriom mlekowym powolną produkcję kwasu mlekowego i enzymów.": {
@@ -4128,6 +4239,11 @@
   "Obserwacja: {objawy}": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
+  "Obwarzanek parzony": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: namePl)"
     ]
   },
   "Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.": {
@@ -4414,7 +4530,7 @@
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Ospała fermentacja (Zimna kuchnia)": {
@@ -4449,6 +4565,11 @@
   },
   "Otoczenie": {
     "gdzie": []
+  },
+  "Otwarte pierożki żytnie z nadzieniem ryżowym": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: namePl)"
+    ]
   },
   "Otwartość": {
     "gdzie": [
@@ -4642,6 +4763,11 @@
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
+  "Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
   "Pizza": {
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
@@ -4657,7 +4783,12 @@
   },
   "Pizza w stylu neapolitańskim": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: namePl)"
+    ]
+  },
+  "Placek z ciasta drożdżowego na mleku z masą serową i kruszonką, pieczony na blasze. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Kołocz śląski”.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -5121,7 +5252,7 @@
   },
   "Pradawny chleb orkiszowy z prażonymi ziarnami": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ]
   },
   "Praktykant Zakwasu": {
@@ -5210,6 +5341,11 @@
   "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.": {
     "gdzie": [
       "src/hooks/useRytmPlanu.ts (tekst)"
+    ]
+  },
+  "Prosty chleb pszenny na drożdżach z wodą, cukrem, solą i olejem, pieczony w formie.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Proszek do pieczenia": {
@@ -5414,7 +5550,7 @@
   },
   "Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: notesPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -5569,7 +5705,7 @@
   },
   "Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Puszyste amerykańskie pancakes na zakwasie": {
@@ -5579,7 +5715,7 @@
   },
   "Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Puszysty nalot w dowolnym kolorze, także biały": {
@@ -5904,7 +6040,7 @@
   },
   "Rzemieślnicza maślana brioszka na Lievito Madre": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: namePl)"
     ]
   },
   "Rzemieślnicze aplikacje kulinarne offline-first. Zero chmury, zero telemetrii, 100% pasji:": {
@@ -6622,6 +6758,11 @@
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
+  "Słodkie bułeczki drożdżowe": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: namePl)"
+    ]
+  },
   "Słownik Odpowiedników Mąk": {
     "gdzie": [
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
@@ -6803,17 +6944,17 @@
   },
   "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Tradycyjny chleb 100% żytni razowy": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zytnie.ts (dane: namePl)"
     ]
   },
   "Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.": {
@@ -7327,6 +7468,31 @@
     ],
     "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
   },
+  "W przepisie mleko stanowi 39,0% masy mąki, woda 19,0%, cukier 16,0%, olej 8,7% albo masło 9,1%, jajka 16,0%, sól 1,9%, a drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje około 5 szklanek mąki. Pierwsze wyrastanie trwa około 1 godziny. Bułeczki piecze się w 350 °F, czyli około 177 °C: w formie 25 minut, a pojedyncze 20 minut. Z tego samego ciasta piecze się też placek drożdżowy przez 30 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: notesPl)"
+    ]
+  },
+  "W przepisie mleko stanowi 55,8% masy mąki, woda 13,5%, cukier 11,4%, masło lub margaryna 13,0%, jajko 11,4%, sól 1,4%, a drożdże 4,7% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje 3–4 szklanki mąki. Mleko i woda do ciasta mają 100–110 °F, czyli około 38–43 °C. Ciasto wyrabia się około 10 minut. Bułki piecze się w 400–425 °F, czyli około 204–218 °C, przez 10–12 minut, do złotego koloru.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "W przepisie najlepiej łączyć mąkę pełnoziarnistą pół na pół z mąką chlebową. Woda stanowi 69,1% masy mąki, sól 1,4%, a drożdże 4,8% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje 3–4 szklanki mąki. Ciasto wyrabia się 8–10 minut i zostawia, aż podwoi objętość, a uformowany bochenek rośnie w formie znowu do podwojenia. Chleb piecze się w 400 °F, czyli około 204 °C, przez 30–40 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "W przepisie najlepiej łączyć mąkę żytnią pół na pół z mąką chlebową. Woda stanowi 74,6% masy mąki, sól 1,5%, a drożdże 5,2% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Przepis nie podaje rodzaju mąki żytniej, więc procenty liczono dla mąki żytniej średniej. Ciasto wyrabia się 8–10 minut i zostawia, aż podwoi objętość, a uformowany bochenek rośnie w formie znowu do podwojenia. Chleb piecze się w 400 °F, czyli około 204 °C, przez 30–40 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-zakwas-zyto.ts (dane: notesPl)"
+    ]
+  },
+  "W przepisie woda stanowi 67,7% masy mąki, sól 1,4%, cukier 2,9%, olej 3,1%, a drożdże 4,7% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje 3–4 szklanki mąki uniwersalnej lub chlebowej. Szklanka w tych przepisach to amerykańska miara „cup”, około 237 ml. Woda do ciasta ma 100–110 °F, czyli około 38–43 °C. Ciasto wyrabia się 8–10 minut i zostawia, aż podwoi objętość. Uformowany bochenek rośnie w formie 9×5 cali, czyli około 23×13 cm, znowu do podwojenia. Chleb piecze się w 400 °F, czyli około 204 °C, przez 30–40 minut.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
   "W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.": {
     "gdzie": []
   },
@@ -7412,12 +7578,12 @@
   },
   "Wiejski chleb codzienny na zakwasie": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ]
   },
   "Wiejski chleb na zakwasie, 80%": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-zakwas.ts (dane: namePl)"
     ],
     "opis": "Nazwa receptury bazowej na liście receptur. Tartine = nazwa własna (piekarnia w San Francisco, styl chleba), 80% = hydratacja. Bez nawiasów. [M1-audytor-generalny-112]"
   },
@@ -7444,6 +7610,16 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ],
     "opis": "tekst Akademii (wejście PÓŹNIEJ, F-44) w nowym brzmieniu bez nazwy źródła (M3 T2, D-123)"
+  },
+  "Wieniec cynamonowy": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: namePl)"
+    ]
+  },
+  "Wieniec z połowy słodkiego ciasta drożdżowego z nadzieniem z cukru, cynamonu, masła i rodzynek.": {
+    "gdzie": [
+      "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
+    ]
   },
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
@@ -7780,7 +7956,7 @@
   },
   "Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Wygładź wierzch mokrą łyżką, posyp ziarnami lub mąką i odstaw w ciepłe miejsce (26–28°C) do wyrośnięcia (ok. 3h).": {
@@ -7849,7 +8025,7 @@
   },
   "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Wymaga obecności": {
@@ -7865,7 +8041,7 @@
   },
   "Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zytnie.ts (dane: notesPl)"
     ]
   },
   "Wymagający": {
@@ -7884,7 +8060,7 @@
   },
   "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zytnie.ts (dane: notesPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -7916,7 +8092,7 @@
   },
   "Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: notesPl)"
     ]
   },
   "Wymieszaj sól z kilkoma łyżeczkami wody.": {
@@ -7990,7 +8166,7 @@
   },
   "Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Wypiek z parą i rumienienie": {
@@ -8013,7 +8189,7 @@
   },
   "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -8147,7 +8323,7 @@
   },
   "Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
+      "src/recipes/presets-drozdzowe.ts (dane: namePl)"
     ]
   },
   "Włożenie ciasta do niedostatecznie nagrzanego garnka (dolna skórka będzie blada i gruba).": {
@@ -8199,7 +8375,7 @@
   },
   "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {
@@ -8235,7 +8411,7 @@
   },
   "Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-drozdzowe.ts (dane: notesPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -8850,7 +9026,7 @@
   },
   "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.": {

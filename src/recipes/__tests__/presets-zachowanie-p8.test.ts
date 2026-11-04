@@ -1,7 +1,11 @@
 // M3 p8 (D-157, D-229): podział src/recipes/presets.ts na moduły nie zmienia 15 istniejących receptur ani ich kolejności.
 // Odcisk policzony na kodzie sprzed podziału (commit d24ea87): sha256 z JSON.stringify(MASTER_RECIPES).
 import { createHash } from 'node:crypto';
-import { MASTER_RECIPES, filterMasterRecipes, ritualCategoryFilter } from '../presets';
+import { MASTER_RECIPES, filterMasterRecipes, filterRecipesByCategory, ritualCategoryFilter } from '../presets';
+import { PRESETY_ZAKWAS } from '../presets-zakwas';
+import { PRESETY_DROZDZOWE } from '../presets-drozdzowe';
+import { PRESETY_ZYTNIE } from '../presets-zytnie';
+import { PRESETY_PIZZA_SLODKIE } from '../presets-pizza-slodkie';
 
 const KOLEJNOSC_ID = [
   'country_loaf_72', 'tartine_high_hydration_80', 'san_francisco_sourdough', 'pain_de_campagne',
@@ -25,5 +29,22 @@ describe('M3 p8: 15 istniejących receptur bazowych bez zmian po podziale moduł
     expect(filterMasterRecipes('pizza_sweet').map((r) => r.id)).toEqual(['lievito_madre_panettone_brioche', 'pizza_napoletana_48h', 'sweet_chalka']);
     expect(ritualCategoryFilter('sourdough_purist')).toBe('sourdough');
     expect(ritualCategoryFilter('beginner')).toBe('all');
+  });
+
+  it('moduły według rodzaju mają 6 + 4 + 2 + 3 receptur i razem dają dokładnie MASTER_RECIPES', () => {
+    expect([PRESETY_ZAKWAS, PRESETY_DROZDZOWE, PRESETY_ZYTNIE, PRESETY_PIZZA_SLODKIE].map((m) => m.length)).toEqual([6, 4, 2, 3]);
+    expect(PRESETY_ZAKWAS.every((r) => r.category === 'sourdough')).toBe(true);
+    expect(PRESETY_DROZDZOWE.every((r) => r.category === 'yeast')).toBe(true);
+    expect(PRESETY_ZYTNIE.every((r) => r.category === 'rye')).toBe(true);
+    expect(PRESETY_PIZZA_SLODKIE.every((r) => r.category === 'pizza' || r.category === 'sweet')).toBe(true);
+    const razem = [...PRESETY_ZAKWAS, ...PRESETY_DROZDZOWE, ...PRESETY_ZYTNIE, ...PRESETY_PIZZA_SLODKIE];
+    expect(razem.map((r) => r.id).sort()).toEqual([...KOLEJNOSC_ID].sort());
+  });
+
+  it('filterRecipesByCategory: „all” kopia listy, „pizza_sweet” pizza i słodkie, inna wartość po rodzaju', () => {
+    expect(filterRecipesByCategory(MASTER_RECIPES, 'all')).toEqual(MASTER_RECIPES);
+    expect(filterRecipesByCategory(MASTER_RECIPES, 'pizza_sweet').map((r) => r.category)).toEqual(['sweet', 'pizza', 'sweet']);
+    expect(filterRecipesByCategory(MASTER_RECIPES, 'rye').map((r) => r.id)).toEqual(['rye_100_pan', 'borodinsky_rye']);
+    expect(filterRecipesByCategory(MASTER_RECIPES, 'nie-ma-takiego')).toEqual([]);
   });
 });
