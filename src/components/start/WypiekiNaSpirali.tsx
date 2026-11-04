@@ -19,6 +19,7 @@ import { czasSlownie, dzienSlownie, etykietaPlanuWypieku } from '../../lib/spira
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { wygladKarty } from '../../ui/karty/Karta';
 import { Spirala } from '../Spirala';
 
 /** Stan jednego wypieku na „Dziś”: krok, czas do końca kroku, postęp i godzina „gotowe” (jak w prowadzeniu, N-4). */
@@ -132,7 +133,8 @@ export function WypiekiNaSpirali({ wypieki, teraz, duzyTekst, onWroc }: {
 }
 
 const styles = StyleSheet.create({
-  pusta: { alignItems: 'center', gap: odstepy.m, paddingVertical: odstepy.l },
+  // Pusta spirala i karta wypieku na wyglądzie karty (README §2, §4; dzis.html) [M3 p7, 04-003]
+  pusta: { ...wygladKarty, alignItems: 'center', gap: odstepy.m, padding: odstepy.l },
   jeden: { alignItems: 'center', gap: odstepy.xs },
   srodek: { alignItems: 'center' },
   dwa: { gap: odstepy.m },
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
   objasnienie: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, textAlign: 'center' },
   glowny: { alignSelf: 'stretch', minHeight: theme.cele.przyciskKciuka, borderRadius: promienie.przyciskGlowny, backgroundColor: theme.colors.akcent, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.s, marginTop: odstepy.m },
   glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naAkcencie, textAlign: 'center' },
-  karta: { gap: odstepy.xs, padding: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
+  karta: { ...wygladKarty, gap: odstepy.xs, padding: odstepy.l },
   dotyk: { alignItems: 'center', minHeight: theme.cele.pozostale },
   kartaGora: { minHeight: theme.cele.pozostale, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s },
   numer: { minWidth: 24, minHeight: 24, paddingHorizontal: odstepy.xs, borderRadius: promienie.przycisk, borderWidth: 2, borderColor: theme.colors.tusz, alignItems: 'center', justifyContent: 'center' },
