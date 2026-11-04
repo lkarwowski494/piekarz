@@ -1314,3 +1314,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** presets.ts (16 244 B) składa MASTER_RECIPES z czterech modułów: presets-zakwas.ts (6), presets-drozdzowe.ts (4), presets-zytnie.ts (2), presets-pizza-slodkie.ts (3); typ RecipePreset i MasterRecipe w presets-types.ts (eksport z presets.ts bez zmian); kolejność listy zachowana listą id. Dodany eksport filterRecipesByCategory (wspólna reguła filtra dla MASTER_RECIPES i CATALOG_RECIPES; filterMasterRecipes zachowuje wynik). Test presets-zachowanie-p8: kolejność id i sha256 treści 15 receptur takie same przed i po podziale.
 - **Odrzucone:** podział bez listy id kolejności (zmieniłby kolejność listy receptur i indeksy MASTER_RECIPES[n] używane w testach).
 - **Zależy od:** D-157. **Status:** dzień, do weta.
+
+### [D-235] 2026-11-04 — Przekład 33 kluczy katalogu p8 na 33 języki (rola 09, dzień, do weta)
+- **Rodzaj:** decyzja procesowa roli 09 w wykonaniu DEC-06 i D-207.
+- **Decyzja:** 33 klucze (nazwy, opisy, notatki 11 receptur, `docs/lokalizacja/klucze-p8-2026-11-04.json`) przełożone maszynowo na 33 słowniki; źródło przekładu w repo: `docs/lokalizacja/przeklad-katalog-p8-2026-11-04.json`; drugi przegląd AI w świeżym kontekście na 12 językach (>= 1/3), 27 poprawek przyjętych; nazwy chronione tylko w opisach jako pochodzenie formuły (D-177), nazwy receptur opisowe.
+- **Odrzucone:** przebudowa generatora `wepnij-przeklad.mjs` pod nowe wejście (zakaz D-207), dlatego wpięcie jednorazowym skryptem poza repo; przegląd wszystkich 33 języków (koszt, DEC-06 wymaga próbki).
+- **Zależy od:** DEC-06, D-157, D-177, D-190, D-207. **Status:** dzień, do weta.
