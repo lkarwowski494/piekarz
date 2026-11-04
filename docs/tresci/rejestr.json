@@ -482,7 +482,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03). 06d (D-256): użyte też jako warunek końca rozrostu w formie wersji drożdżowej chleba żytniego (procedura źródła ma 10 g drożdży na 1000 g mąki obok zakwasu, ciasto żytnie w formie); test palca (DRO-MOD-013) dotyczy ciasta pszennego z siatką glutenu (ZYT-CIA-001) i nie jest dla żyta.",
     "krytyczne": false,
     "przeglad": null
   },
@@ -1927,7 +1927,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Zgodne kierunkowo z ZYT-STU-001 (24 h, ten sam wydawca, inny tekst); granica „do 24 godzin” to zalecenie, nie blokada.",
+    "uproszczenie": "Zgodne kierunkowo z ZYT-STU-001 (24 h, ten sam wydawca, inny tekst); granica „do 24 godzin” to zalecenie, nie blokada. 06d (D-256): dotyczy chlebów z dużym udziałem żyta bez względu na zaczyn, więc także wersji drożdżowej rye_100_pan; zgodne kierunkowo z ZYT-DRO-002 (chleby żytnie na drożdżach zbyt lepkie do oceny w dniu wypieku, szczebel 2). Odczyt dosłowny 2026-11-04 (curl, tekst strony).",
     "uwagi": "M1-audytor-generalny-100: rye_cool.",
     "krytyczne": false,
     "przeglad": null,
@@ -4623,7 +4623,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Warunki laboratoryjne (komora 37 °C). Przypisanie czasów do chlebów żytnich sprawdzone w XML tabeli (colspan: kolumny RB i WRB mają wspólne komórki 60 min 28 °C, 500 g, by hand, 60 min 37 °C, 240 °C 10 min + 220 °C 35 min), rola 06, 2026-11-03.",
+    "uproszczenie": "Warunki laboratoryjne (komora 37 °C). Przypisanie czasów do chlebów żytnich sprawdzone w XML tabeli (colspan: kolumny RB i WRB mają wspólne komórki 60 min 28 °C, 500 g, by hand, 60 min 37 °C, 240 °C 10 min + 220 °C 35 min), rola 06, 2026-11-03. 06d (D-256, 2026-11-04): para czas–temperatura pieczenia wersji drożdżowej pochodzi z tego źródła w całości (10 min 240 °C + 35 min 220 °C), nie z receptury na zakwasie (230/195 °C bez źródła w rejestrze); źródło piecze kęsy 500 g, receptura domyślnie 1000 g ciasta — dłuższy czas dla większego bochenka bez źródła [DO USTALENIA]. Mieszanie w tym samym wierszu tabeli: „Mixing 2 min slow + 4 min fast” (mikser, wszystkie chleby; odczyt 2026-11-04, Europe PMC fullTextXML, w XML spacje wąskie U+2009).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-11-03",
@@ -10310,5 +10310,29 @@
       "sha": "d3b15ef100c8"
     },
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "DRO-PLN-900",
+    "twierdzenie": "[DO USTALENIA] Czasy kroków z rękami w planie wersji drożdżowej (src/core/yeast-stages.ts: mieszanie i wyrabianie 15 min, odgazowanie 10 min, kształtowanie 15 min, studzenie chleba pszennego 120 min) nie mają źródła. Źródła opisują te czynności bez czasu: Red Star „Kneading time varies depending on many factors”, „Completely cool breads before storing”; UK Extension „cool on a wire rack”. Jedyny czas ze źródła: wyrabianie ręczne około 8–10 minut (KAT-ILB-002, Illinois 4-H, szczebel 3); studzenie chleba żytniego: KRO-POC-016 (do 24 h).",
+    "zrodla": [
+      {
+        "adres": "https://redstaryeast.com/baking-with-yeast-guide/",
+        "miejsce": "Red Star, „Baking with Yeast: Step-by-Step Guide”, sekcje Kneading i Cooling & Storage; tekst strony (curl, znaczniki HTML zdjęte)",
+        "cytat": "Kneading time varies depending on many factors, including the recipe, ingredients, type of flour and kneading method (by hand, mixer, or bread machine).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "Illinois 4-H „Cooking 301 State Fair Recipes”, przepis chleba, krok 4 (pdftotext)",
+        "cytat": "knead until dough is smooth, elastic, and does not stick to surface or hands, about 8 to 10 minutes.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła plan zostawia te czasy jako nazwane uproszczenie planu (D-256): to rezerwa czasu w harmonogramie, nie zalecenie; tekst kroku nie podaje tych liczb. Kierunek: 15 min mieszania i wyrabiania obejmuje 8–10 min wyrabiania ze źródła; krótsze odgazowanie i kształtowanie niż w planie nie skracają rośnięcia (czasy rośnięcia są ze źródeł).",
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
