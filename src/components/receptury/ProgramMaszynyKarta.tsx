@@ -6,7 +6,7 @@
 // „ustaw opóźnienie na…”), przycisk „Zapisz plan” (D-242 Z6 a; plan na później jak „Zaplanuj”: Pro) [M3 p9b2].
 // ============================================================================
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { t } from '../../lib/i18n';
@@ -69,7 +69,10 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
   const router = useRouter();
   const { blokada, moze, requireActionAccess } = useAppAccess();
   const [czas, setCzas] = useState<number | null>(czasPoczatkowy);
-  const [cel, setCel] = useState<CelGotowe>(() => celDomyslny(Date.now(), czasPoczatkowy ?? 0));
+  // Wybór użytkownika; null = domyślna gotowość, która przelicza się z czasem programu (P9B2F-4)
+  const [celReczny, setCelReczny] = useState<CelGotowe | null>(null);
+  const celAuto = useMemo(() => celDomyslny(Date.now(), czas ?? 0), [czas]);
+  const cel = celReczny ?? celAuto;
   const nowMs = Date.now();
   const program = podpowiedzProgramu(cechyProgramuReceptury(receptura, formula));
   const opoz = opoznionyStart(skladnikiMaszyny(receptura));
@@ -130,7 +133,7 @@ export function ProgramMaszynyKarta({ receptura, formula, makaG, przezWersjeDroz
                 {([[-30, t('{n} min', { n: -30 })], [30, t('{n} min', { n: '+30' })], [120, t('{n} godziny', { n: '+2' })]] as const).map(([dm, et]) => {
                   const nowy = przesunGotowe(cel, dm, 2);
                   return (
-                    <Pressable key={dm} accessibilityRole="button" accessibilityState={{ disabled: !nowy }} disabled={!nowy} onPress={() => nowy && setCel(nowy)} style={styles.drugi}>
+                    <Pressable key={dm} accessibilityRole="button" accessibilityState={{ disabled: !nowy }} disabled={!nowy} onPress={() => nowy && setCelReczny(nowy)} style={styles.drugi}>
                       <Text style={styles.drugiTekst}>{et}</Text>
                     </Pressable>
                   );
