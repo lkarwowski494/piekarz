@@ -35,11 +35,11 @@ export const CZESC: Record<string, string> = {
   'płyny najpierw': '액체 먼저',
   'drożdże najpierw': '이스트 먼저',
   'Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.':
-    '제빵기의 한도 때문에 양이 제한되었어요. 레시피 비율은 그대로예요.',
+    '제빵기의 한도 때문에 양이 제한되었어요. 배합표 비율은 그대로예요.',
   'Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.':
-    '코스 추천을 보려면 레시피에 밀가루를 추가하세요.',
+    '코스 추천을 보려면 배합표에 밀가루를 추가하세요.',
   'Wpisz czas programu z instrukcji maszyny.': '제빵기 설명서에 나온 코스 시간을 입력하세요.',
-  'W tej recepturze: {skladniki}.': '이 레시피의 재료: {skladniki}.',
+  'W tej recepturze: {skladniki}.': '이 배합표의 재료: {skladniki}.',
   'Program rusza o {godzina}.': '코스는 {godzina}에 시작해요.',
   'Ustaw opóźniony start na {czas}.': '예약 시간을 설정하세요: {czas}.',
   'Od teraz do gotowości: {czas}.': '지금부터 완료까지: {czas}.',
@@ -59,7 +59,7 @@ export const CZESC: Record<string, string> = {
   'świeże owoce|składnik': '신선한 과일',
   'warzywa|składnik': '채소',
   'Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.':
-    '제빵기 설명서에서 밀가루 최대량을 입력하세요. 설명서에 나와 있다면 반죽과 이스트의 최대량도 입력하세요. 제빵사는 이 한도를 넘도록 레시피를 환산하지 않아요.',
+    '제빵기 설명서에서 밀가루 최대량을 입력하세요. 설명서에 나와 있다면 반죽과 이스트의 최대량도 입력하세요. 제빵사는 이 한도를 넘도록 배합표를 환산하지 않아요.',
   'Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.':
     '예를 들어 Tefal PF220838은 반죽 1000 g, 강력분 620 g, 인스턴트 드라이 이스트 10 g을 합계로 넘기면 안 돼요.',
   'Kolejność wkładania składników podaje instrukcja Twojej maszyny.':
@@ -69,7 +69,7 @@ export const CZESC: Record<string, string> = {
   'W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.':
     '일부 제빵기는 반대예요. 드라이 이스트를 먼저 넣고, 그 위에 밀가루와 마른 재료를 넣고, 액체는 마지막에 넣어요.',
   'Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.':
-    '레시피에 달걀, 신선한 우유, 치즈, 요거트, 주스, 신선한 과일 또는 채소가 있어서 예약 기능이 꺼져 있어요.',
+    '배합표에 달걀, 신선한 우유, 치즈, 요거트, 주스, 신선한 과일 또는 채소가 있어서 예약 기능이 꺼져 있어요.',
   'Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.':
     '확인한 제빵기 설명서는 모두 이 재료 중 일부와 함께 예약 기능을 쓰는 것을 금지해요. 쉽게 상하기 때문이에요.',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
@@ -91,15 +91,15 @@ export const CZESC: Record<string, string> = {
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':
     '‘반죽’ 코스는 모양을 잡아 오븐에서 굽는 빵에 추천해요. 이 코스에서는 제빵기가 반죽을 만들지만 굽지는 않기 때문이에요.',
   'Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.':
-    '‘스위트’ 코스는 달콤한 레시피에 추천해요. 한 제빵기 설명서의 설명에 따르면 설탕, 지방, 단백질이 많은 빵을 위한 코스이기 때문이에요.',
+    '‘스위트’ 코스는 달콤한 배합표에 추천해요. 한 제빵기 설명서의 설명에 따르면 설탕, 지방, 단백질이 많은 빵을 위한 코스이기 때문이에요.',
   'Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem co najmniej 50% mąki, jak w progu z instrukcji jednej z maszyn.':
     '‘통밀’ 코스는 통밀가루와 호밀가루가 합쳐서 밀가루의 50% 이상일 때 추천해요. 한 제빵기 설명서의 기준을 따른 거예요.',
   'Program „francuski” podpowiadamy dla receptur bez cukru i tłuszczu, jak w opisie z instrukcji jednej z maszyn.':
-    '‘프렌치’ 코스는 설탕과 지방이 없는 레시피에 추천해요. 한 제빵기 설명서의 설명을 따른 거예요.',
+    '‘프렌치’ 코스는 설탕과 지방이 없는 배합표에 추천해요. 한 제빵기 설명서의 설명을 따른 거예요.',
   'W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instrukcji jednej z maszyn przeznaczony głównie dla jasnej mąki pszennej.':
-    '그 밖의 레시피에는 기본 코스를 추천해요. 한 제빵기 설명서의 설명에 따르면 주로 흰 밀가루용이에요.',
+    '그 밖의 배합표에는 기본 코스를 추천해요. 한 제빵기 설명서의 설명에 따르면 주로 흰 밀가루용이에요.',
   'W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.':
     '확인한 제빵기 설명서에서는 사워도우 코스도 제빵용 이스트를 함께 써요.',
   'Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.':
-    '그래서 제빵기 모드에서는 이 레시피가 이스트 버전을 사용해요.',
+    '그래서 제빵기 모드에서는 이 배합표가 이스트 버전을 사용해요.',
 };

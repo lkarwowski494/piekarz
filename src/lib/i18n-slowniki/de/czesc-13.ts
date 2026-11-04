@@ -37,7 +37,7 @@ export const CZESC: Record<string, string> = {
   'płyny najpierw': 'Flüssigkeit zuerst',
   'drożdże najpierw': 'Hefe zuerst',
   'Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.':
-    'Die Grenze deines Geräts hat die Menge begrenzt; die Prozentwerte des Rezepts bleiben gleich.',
+    'Die Menge wurde auf die Grenze deines Geräts gekürzt; die Prozentwerte des Rezepts bleiben gleich.',
   'Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.':
     'Ergänze die Mehle im Rezept, um eine Programmempfehlung zu sehen.',
   'Wpisz czas programu z instrukcji maszyny.': 'Gib die Programmdauer aus der Anleitung deines Geräts ein.',

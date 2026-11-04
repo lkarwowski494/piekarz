@@ -46,7 +46,7 @@ export const CZESC: Record<string, string> = {
   'Ustaw opóźniony start na {czas}.': 'Ajusta el inicio diferido a {czas}.',
   'Od teraz do gotowości: {czas}.': 'Desde ahora hasta que esté listo: {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.':
-    'El programa no llegará a tiempo. Lo más pronto estará listo a las {godzina}.',
+    'El programa no llegará a tiempo. Como pronto, estará listo a las {godzina}.',
   'Po programie': 'Después del programa',
   'ciasto|program maszyny': 'masa',
   'słodki|program maszyny': 'dulce',
@@ -73,13 +73,13 @@ export const CZESC: Record<string, string> = {
   'Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.':
     'El inicio diferido está desactivado porque la receta lleva huevos, leche fresca, queso, yogur, zumo, fruta fresca o verduras.',
   'Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.':
-    'Todas las instrucciones de máquinas leídas prohíben el inicio diferido con parte de estos ingredientes, porque se estropean fácilmente.',
+    'Todas las instrucciones de máquinas leídas prohíben el inicio diferido con algunos de estos ingredientes, porque se estropean fácilmente.',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
     'Según una de las instrucciones, la leche en polvo en lugar de leche fresca permite usar el inicio diferido, por eso Panadero no lo bloquea.',
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Según cuatro de las cinco instrucciones leídas, el inicio diferido no funciona o no se recomienda en el programa de solo masa, por eso Panadero no lo propone.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Después de hornear, saca el molde con guantes de cocina, porque el molde, su asa y el interior de la tapa están calientes.',
+    'Después de hornear, saca el molde con guantes de horno, porque el molde, su asa y el interior de la tapa están calientes.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'La pala amasadora que ha quedado en la hogaza puede estar muy caliente: sácala solo cuando el pan se haya enfriado, con la herramienta incluida o una espátula de plástico, sin cuchillo ni tenedor, y sigue teniendo cuidado de no quemarte.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':
@@ -87,11 +87,11 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Mientras funciona, no toques la salida de vapor ni la tapes.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Mantén a los niños menores de 8 años lejos de la máquina y del cable; los mayores solo pueden usarla bajo supervisión.',
+    'Mantén a los niños menores de 8 años lejos de la máquina y del cable; los niños mayores solo pueden usarla bajo supervisión.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'La sugerencia de programa es una regla de Panadero, no una recomendación del fabricante, así que compruébala en las instrucciones de tu máquina.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':
-    'Sugerimos el programa «masa» para panes que se forman y se hornean en el horno, porque en él la máquina prepara la masa pero no la hornea.',
+    'Sugerimos el programa «masa» para panes que se forman y se hornean en el horno, porque con este programa la máquina prepara la masa pero no la hornea.',
   'Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.':
     'Sugerimos el programa «dulce» para recetas dulces porque, según la descripción de las instrucciones de una de las máquinas, está pensado para panes con mucho azúcar, grasa y proteína.',
   'Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem co najmniej 50% mąki, jak w progu z instrukcji jednej z maszyn.':

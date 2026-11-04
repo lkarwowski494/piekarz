@@ -86,7 +86,7 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Darbības laikā nepieskarieties tvaika atverei un neaizsedziet to.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Bērnus līdz 8 gadu vecumam turiet tālāk no ierīces un vada, bet vecāki to drīkst izmantot tikai uzraudzībā.',
+    'Bērnus, jaunākus par 8 gadiem, turiet tālāk no ierīces un vada, bet vecāki bērni to drīkst izmantot tikai uzraudzībā.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'Programmas ieteikums ir Maiznieka noteikums, nevis ražotāja ieteikums, tāpēc pārbaudiet to savas ierīces instrukcijā.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':

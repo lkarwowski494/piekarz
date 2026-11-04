@@ -31,9 +31,9 @@ export const CZESC: Record<string, string> = {
   'Kolejność i ilości według instrukcji maszyny.':
     'A sorrendet és a mennyiségeket a gép útmutatója szerint kövesd.',
   'Zapisz plan': 'Terv mentése',
-  'Największa ilość mąki': 'Legtöbb liszt',
-  'Największa masa ciasta': 'Legtöbb tészta',
-  'Największa masa drożdży suchych': 'Legtöbb szárított élesztő',
+  'Największa ilość mąki': 'Max. lisztmennyiség',
+  'Największa masa ciasta': 'Max. tésztatömeg',
+  'Największa masa drożdży suchych': 'Max. szárított élesztő',
   'Czas programu': 'Program ideje',
   'płyny najpierw': 'előbb a folyadék',
   'drożdże najpierw': 'előbb az élesztő',
@@ -80,9 +80,9 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Az öt elolvasott útmutató közül négy szerint a késleltetett indítás a csak tésztát készítő programban nem működik, vagy nem ajánlott, ezért a Pék nem kínálja fel.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Sütés után a formát konyhai kesztyűben vedd ki, mert a forma, a fogantyúja és a fedél belseje forró.',
+    'Sütés után a formát edényfogó kesztyűvel vedd ki, mert a forma, a fogantyúja és a fedél belseje forró.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
-    'A cipóban maradt dagasztókar nagyon forró lehet: csak a kenyér kihűlése után told ki, a készletben lévő eszközzel vagy műanyag spatulával, kés és villa nélkül, és továbbra is vigyázz az égési sérülésre.',
+    'A cipóban maradt dagasztókar nagyon forró lehet: csak a kenyér kihűlése után vedd ki, a készletben lévő eszközzel vagy műanyag spatulával, kés és villa nélkül, és továbbra is vigyázz az égési sérülésre.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':
     'Ha a program közben vagy végén felnyitod a fedelet, forró gőz szabadulhat ki.',
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
@@ -92,7 +92,7 @@ export const CZESC: Record<string, string> = {
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'A programjavaslat a Pék saját szabálya, nem a gyártó ajánlása, ezért ellenőrizd a géped útmutatójában.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':
-    'A „tészta” programot a formázott, sütőben sütött kenyerekhez javasoljuk, mert abban a gép elkészíti a tésztát, de nem süti meg.',
+    'A „tészta” programot a formázott, sütőben sütött pékárukhoz javasoljuk, mert abban a gép elkészíti a tésztát, de nem süti meg.',
   'Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.':
     'Az „édes” programot édes receptekhez javasoljuk, mert az egyik gép útmutatójának leírása szerint sok cukrot, zsírt és fehérjét tartalmazó kenyerekhez készült.',
   'Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem co najmniej 50% mąki, jak w progu z instrukcji jednej z maszyn.':

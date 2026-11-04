@@ -44,7 +44,7 @@ export const CZESC: Record<string, string> = {
   'W tej recepturze: {skladniki}.': 'Dans cette recette : {skladniki}.',
   'Program rusza o {godzina}.': 'Le programme démarre à {godzina}.',
   'Ustaw opóźniony start na {czas}.': 'Réglez le départ différé sur {czas}.',
-  'Od teraz do gotowości: {czas}.': 'De maintenant jusqu’à la fin : {czas}.',
+  'Od teraz do gotowości: {czas}.': 'D’ici à ce que ce soit prêt : {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.':
     'Le programme n’aura pas fini à temps. Au plus tôt, prêt à {godzina}.',
   'Po programie': 'Après le programme',
@@ -61,7 +61,7 @@ export const CZESC: Record<string, string> = {
   'świeże owoce|składnik': 'fruits frais',
   'warzywa|składnik': 'légumes',
   'Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.':
-    'Saisissez la quantité maximale de farine indiquée dans la notice de votre machine et, si la notice les donne, la quantité maximale de pâte et de levure ; Mitron ne recalculera pas la recette au-delà de l’une de ces limites.',
+    'Saisissez la quantité maximale de farine indiquée dans la notice de votre machine et, si la notice les donne, la quantité maximale de pâte et de levure ; Mitron ne recalculera la recette au-delà d’aucune de ces limites.',
   'Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.':
     'Par exemple, avec la Tefal PF220838, il ne faut pas dépasser au total 1000 g de pâte, 620 g de farine à pain et 10 g de levure sèche instantanée.',
   'Kolejność wkładania składników podaje instrukcja Twojej maszyny.':

@@ -42,9 +42,9 @@ export const CZESC: Record<string, string> = {
   'W tej recepturze: {skladniki}.': 'Tässä reseptissä: {skladniki}.',
   'Program rusza o {godzina}.': 'Ohjelma käynnistyy klo {godzina}.',
   'Ustaw opóźniony start na {czas}.': 'Aseta ajastettu käynnistys: {czas}.',
-  'Od teraz do gotowości: {czas}.': 'Nyt valmiiseen: {czas}.',
+  'Od teraz do gotowości: {czas}.': 'Nyt valmistumiseen: {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.':
-    'Ohjelma ei ehdi valmistua ajoissa. Aikaisin valmis klo {godzina}.',
+    'Ohjelma ei ehdi valmistua ajoissa. Aikaisintaan valmista klo {godzina}.',
   'Po programie': 'Ohjelman jälkeen',
   'ciasto|program maszyny': 'taikina',
   'słodki|program maszyny': 'makea',
@@ -77,7 +77,7 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Neljässä viidestä luetusta käyttöohjeesta ajastettu käynnistys ei toimi tai sitä ei suositella pelkän taikinan ohjelmassa, joten Leipuri ei ehdota sitä.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Ota vuoka pois uunikintaita käyttäen paiston jälkeen, sillä vuoka, sen kahva ja kannen sisäpuoli ovat kuumia.',
+    'Ota vuoka pois patakintailla paiston jälkeen, sillä vuoka, sen kahva ja kannen sisäpuoli ovat kuumia.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'Leipään jäänyt vaivain voi olla erittäin kuuma: ota se pois vasta leivän jäähdyttyä, mukana tulevalla työkalulla tai muovilastalla, ei veitsellä eikä haarukalla, ja varo edelleen palovammoja.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':
@@ -85,7 +85,7 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Älä koske höyryaukkoon äläkä peitä sitä koneen käydessä.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Pidä alle 8-vuotiaat lapset poissa koneen ja johdon luota; vanhemmat saavat käyttää konetta vain valvonnassa.',
+    'Pidä alle 8-vuotiaat lapset poissa koneen ja johdon luota; sitä vanhemmat lapset saavat käyttää vain valvonnassa.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'Ohjelmaehdotus on Leipurin sääntö, ei valmistajan suositus, joten tarkista se koneesi käyttöohjeesta.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':

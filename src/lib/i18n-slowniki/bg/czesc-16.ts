@@ -8,7 +8,7 @@ export const CZESC: Record<string, string> = {
   'Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)':
     'Zojirushi, ръководство за употреба на хлебопекарната BB-PDC20 (Home Bakery Virtuoso Plus)',
   'Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.':
-    'Редът на слагане, отложеният старт, горещите части след печене и програмата с квас, която използва и мая.',
+    'Редът на слагане, отложеният старт, горещите части след печене и програмата с квасен стартер, която използва и мая.',
   'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550':
     'Panasonic, ръководство за употреба и рецепти за хлебопекарната SD-YR2550',
   'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.':
@@ -103,7 +103,7 @@ export const CZESC: Record<string, string> = {
   'W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instrukcji jednej z maszyn przeznaczony głównie dla jasnej mąki pszennej.':
     'За останалите рецепти подсказваме основната програма, която според описанието в ръководството на една от машините е предназначена главно за светло пшеничено брашно.',
   'W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.':
-    'В прочетените ръководства на машини програмите с квас използват и мая за хляб.',
+    'В прочетените ръководства на машини програмите с квасен стартер използват и мая за хляб.',
   'Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.':
     'Затова в режим на машина тази рецепта използва версията с мая.',
 };

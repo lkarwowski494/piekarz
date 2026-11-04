@@ -63,7 +63,7 @@ export const CZESC: Record<string, string> = {
   'świeże owoce|składnik': 'свежие фрукты',
   'warzywa|składnik': 'овощи',
   'Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.':
-    'Введите из инструкции своей хлебопечки наибольшее количество муки, а если инструкция его указывает, то и наибольшую массу теста и дрожжей. Хлебопёк не пересчитает рецептуру выше любого из этих пределов.',
+    'Введите из инструкции своей хлебопечки наибольшее количество муки, а если инструкция его указывает, то и наибольшую массу теста и дрожжей. Хлебопёк не пересчитает рецептуру так, чтобы превысить хотя бы один из этих пределов.',
   'Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.':
     'Например, для Tefal PF220838 в сумме нельзя превышать 1000 г теста, 620 г хлебной муки и 10 г сухих быстродействующих дрожжей.',
   'Kolejność wkładania składników podaje instrukcja Twojej maszyny.':

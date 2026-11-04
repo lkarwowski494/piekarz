@@ -12,7 +12,7 @@ export const CZESC: Record<string, string> = {
   'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550':
     'Panasonic，SD-YR2550 麵包機使用說明書與食譜',
   'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.':
-    '吐司大小、放入材料的順序與酵母投入盒、預約定時，以及安全取出麵包桶。',
+    '麵包大小、放入材料的順序與酵母投入盒、預約定時，以及安全取出麵包桶。',
   'Cuisinart, instrukcja obsługi maszyny do chleba CBK-110': 'Cuisinart，CBK-110 麵包機使用說明書',
   'Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.':
     '程式建議所依據的麵包機程式、使用奶粉的預約定時，以及高溫的攪拌葉。',
@@ -59,7 +59,7 @@ export const CZESC: Record<string, string> = {
   'świeże owoce|składnik': '新鮮水果',
   'warzywa|składnik': '蔬菜',
   'Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.':
-    '請從麵包機說明書輸入麵粉的最大量；若說明書有提供，也請輸入麵團與酵母的最大量。麵包師傅不會把配方換算到超過其中任何一項上限。',
+    '請從麵包機說明書輸入麵粉的最大量；若說明書有提供，也請輸入麵團與酵母的最大量。麵包師傅 不會把配方換算到超過其中任何一項上限。',
   'Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.':
     '例如 Tefal PF220838 的總量不得超過 1000 g 麵團、620 g 高筋麵粉與 10 g 即發乾酵母。',
   'Kolejność wkładania składników podaje instrukcja Twojej maszyny.':
@@ -73,9 +73,9 @@ export const CZESC: Record<string, string> = {
   'Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.':
     '我們讀過的每一本麵包機說明書都禁止在含有部分這些材料時使用預約定時，因為它們容易腐壞。',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
-    '根據其中一本說明書，用奶粉取代鮮奶即可使用預約定時，因此麵包師傅不會封鎖預約定時。',
+    '根據其中一本說明書，用奶粉取代鮮奶即可使用預約定時，因此麵包師傅 不會封鎖預約定時。',
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
-    '根據我們讀過的五本說明書中的四本，在僅做麵團的程式中預約定時無法運作或不建議使用，因此麵包師傅不提供預約定時。',
+    '根據我們讀過的五本說明書中的四本，在僅做麵團的程式中預約定時無法運作或不建議使用，因此麵包師傅 不提供預約定時。',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
     '烘烤後請戴隔熱手套取出麵包桶，因為麵包桶、提把與上蓋內側都很燙。',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
@@ -86,7 +86,7 @@ export const CZESC: Record<string, string> = {
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
     '請讓未滿 8 歲的孩童遠離麵包機與電源線，較大的孩童只能在大人監督下使用。',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
-    '程式建議是麵包師傅自訂的規則，並非製造商的建議，請對照你的麵包機說明書確認。',
+    '程式建議是麵包師傅 自訂的規則，並非製造商的建議，請對照你的麵包機說明書確認。',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':
     '我們對需要整形並在烤箱中烘烤的麵包建議使用「麵團」程式，因為這個程式中麵包機只準備麵團，不會烘烤。',
   'Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.':
