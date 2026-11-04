@@ -88,7 +88,7 @@ describe('p9a: zgodność wydanego odczytu (1017–1021) z polami p9b w JSON-ie 
     expect(await sesje.zapiszPostepWypieku({ ...w.sesja, stepIdx: w.sesja.stepIdx + 1 }, w.wersja)).toEqual(expect.objectContaining({ ok: true }));
     const raw = openRaw(APP_DB());
     expect(sesjaJson(raw, 'bake_live').bake).toEqual(expect.objectContaining({ wersja: 'drozdze', tryb: 'piekarnik' }));
-    expect(tableCounts(raw)).toEqual(przed);
+    expect(tableCounts(raw)).toEqual({ ...przed, schema_migrations: przed.schema_migrations + 1 }); // start migruje v6 → v7 (D-251)
     raw.close();
   });
 
