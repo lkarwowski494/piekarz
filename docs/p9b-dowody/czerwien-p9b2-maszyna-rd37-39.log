@@ -1,0 +1,737 @@
+FAIL src/core/__tests__/maszyna-rd37-39.test.ts
+  RD-37: ilości pod granice maszyny (wektory W1…W7)
+    ✓ w brd.json jest 7 wektorów RD-37 (3 ms)
+    ✕ RD-37-W1 (2 ms)
+    ✕ RD-37-W2 (1 ms)
+    ✕ RD-37-W3 (1 ms)
+    ✕ RD-37-W4
+    ✕ RD-37-W5 (1 ms)
+    ✕ RD-37-W6 (5 ms)
+    ✕ RD-37-W7
+    ✕ ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3) (5 ms)
+    ✓ granice włączne: ciasto i drożdże po przycięciu nie przekraczają granic (1 ms)
+    ✕ złe dane (masa ≤ 0, granica ≤ 0) dają błąd, nie liczbę (2 ms)
+  RD-38: blokada opóźnionego startu (wektory W1…W10)
+    ✓ w brd.json jest 10 wektorów RD-38 (1 ms)
+    ✓ RD-38-W1 (1 ms)
+    ✕ RD-38-W2 (1 ms)
+    ✕ RD-38-W3 (1 ms)
+    ✓ RD-38-W4
+    ✕ RD-38-W5 (1 ms)
+    ✕ RD-38-W6 (1 ms)
+    ✕ RD-38-W7 (1 ms)
+    ✕ RD-38-W8
+    ✕ RD-38-W9
+    ✕ RD-38-W10 (1 ms)
+    ✕ przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia) (1 ms)
+  RD-39: podpowiedź programu (wektory W1…W8)
+    ✕ w brd.json jest 8 wektorów RD-39; próg 50% (MAS-042, D-179)
+    ✕ RD-39-W1 (1 ms)
+    ✕ RD-39-W2 (1 ms)
+    ✕ RD-39-W3 (1 ms)
+    ✕ RD-39-W4 (1 ms)
+    ✕ RD-39-W5
+    ✕ RD-39-W6 (1 ms)
+    ✓ RD-39-W7 (1 ms)
+    ✕ RD-39-W8 (1 ms)
+    ✓ nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)
+    ✕ Upż: mąki żytnie i pełnoziarniste (typ ≥ 1850) liczone raz; brak mąk = null (1 ms)
+  BR-MASZ-003: kolejność wkładania w jednym z dwóch układów
+    ✕ płyny najpierw: płyny, potem suche, drożdże na końcu (MAS-005) (1 ms)
+    ✕ drożdże najpierw: drożdże, suche, płyn na końcu (MAS-031) (1 ms)
+    ✕ bez układu: brak kolejności (ekran prosi o wybór) (1 ms)
+  BR-MASZ-005: godzina startu programu z godziny gotowości i czasu programu
+    ✕ program 3 h 10 min, gotowe jutro o 7:00 → start jutro o 3:50; od teraz do gotowości 11 h (RD-38-W1 w BR-MASZ-005) (1 ms)
+    ✕ gotowe za 2 h przy programie 3 h 10 min: nie zdąży, najwcześniejsza godzina gotowości = teraz + czas programu (1 ms)
+    ✕ start dokładnie teraz jest dozwolony (granica włączna); zły czas programu = błąd (1 ms)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W1
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 500
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W2
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 620
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W3
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 620
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W4
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 619
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W5
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 544
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W6
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 3
+
+      Object {
+    -   "blad": "brak-granicy-maki",
+    -   "ok": false,
+    +   "makaG": 0,
+    +   "ograniczenie": null,
+    +   "ok": true,
+      }
+
+      34 |     );
+      35 |     const ocz = w.oczekiwane['M [g]'];
+    > 36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+         |                                              ^
+      37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:36:46)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › RD-37-W7
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 402
+    Received: 0
+
+      35 |     const ocz = w.oczekiwane['M [g]'];
+      36 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-granicy-maki' });
+    > 37 |     else expect(wynik.ok && wynik.makaG).toBe(ocz);
+         |                                          ^
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+      40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:37:42)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "makaG": 500,
+    +   "makaG": 0,
+        "ograniczenie": null,
+        "ok": true,
+      }
+
+      38 |   });
+      39 |   it('ograniczenie mówi, która granica przycięła ilość (komunikat BR-MASZ-002 W3)', () => {
+    > 40 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 500, ograniczenie: null });
+         |                                                                                                       ^
+      41 |     expect(makaMaszyny(621, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 620, ograniczenie: 'maka' });
+      42 |     expect(makaMaszyny(620, 0.837, null, { makaMaxG: 620, ciastoMaxG: 1000, drozdzeSucheMaxG: null })).toEqual({ ok: true, makaG: 544, ograniczenie: 'ciasto' });
+      43 |     expect(makaMaszyny(620, 0.65, 0.071, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: 10 })).toEqual({ ok: true, makaG: 402, ograniczenie: 'drozdze' });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:40:103)
+
+  ● RD-37: ilości pod granice maszyny (wektory W1…W7) › złe dane (masa ≤ 0, granica ≤ 0) dają błąd, nie liczbę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 3
+
+      Object {
+    -   "blad": "zle-dane",
+    -   "ok": false,
+    +   "makaG": 0,
+    +   "ograniczenie": null,
+    +   "ok": true,
+      }
+
+      50 |   });
+      51 |   it('złe dane (masa ≤ 0, granica ≤ 0) dają błąd, nie liczbę', () => {
+    > 52 |     expect(makaMaszyny(0, 0.65, null, { makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: false, blad: 'zle-dane' });
+         |                                                                                                     ^
+      53 |     expect(makaMaszyny(500, 0.65, null, { makaMaxG: -1, ciastoMaxG: null, drozdzeSucheMaxG: null })).toEqual({ ok: false, blad: 'zle-dane' });
+      54 |   });
+      55 | });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:52:101)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W2
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W3
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W5
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W6
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W7
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W8
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W9
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+      74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+    > 75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+         |                                             ^
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+      78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+
+      at toBe (src/core/__tests__/maszyna-rd37-39.test.ts:75:45)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › RD-38-W10
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "blad": "brak-skladnikow",
+    -   "ok": false,
+    +   "dostepny": true,
+    +   "ok": true,
+      }
+
+      72 |     const wynik = opoznionyStart(skladniki);
+      73 |     const ocz = w.oczekiwane['opóźniony start [-]'];
+    > 74 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-skladnikow' });
+         |                                              ^
+      75 |     else expect(wynik.ok && wynik.dostepny).toBe(ocz === 'dostępny');
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:74:46)
+
+  ● RD-38: blokada opóźnionego startu (wektory W1…W10) › przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 5
+    + Received  + 1
+
+      Object {
+    -   "dostepny": false,
+    +   "dostepny": true,
+        "ok": true,
+    -   "psujace": Array [
+    -     "mleko",
+    -     "jajka",
+    -   ],
+      }
+
+      76 |   });
+      77 |   it('przy blokadzie wynik podaje, które składniki ją powodują (zdanie wyjaśnienia)', () => {
+    > 78 |     expect(opoznionyStart(['maka', 'mleko', 'jajka', 'cukier', 'mleko'])).toEqual({ ok: true, dostepny: false, psujace: ['mleko', 'jajka'] });
+         |                                                                           ^
+      79 |     expect(opoznionyStart(null)).toEqual({ ok: false, blad: 'brak-skladnikow' });
+      80 |   });
+      81 | });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:78:75)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › w brd.json jest 8 wektorów RD-39; próg 50% (MAS-042, D-179)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 50
+    Received: 0
+
+      87 |   it('w brd.json jest 8 wektorów RD-39; próg 50% (MAS-042, D-179)', () => {
+      88 |     expect(rd39).toHaveLength(8);
+    > 89 |     expect(PROG_PELNOZIARNISTY_PROC).toBe(50);
+         |                                      ^
+      90 |   });
+      91 |   it.each(rd39.map((w) => [w.id, w] as const))('%s', (_id, w) => {
+      92 |     const we = w.wejscie;
+
+      at Object.toBe (src/core/__tests__/maszyna-rd37-39.test.ts:89:38)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W1
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "ciasto",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W2
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "slodki",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W3
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "francuski",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W4
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "pelnoziarnisty",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W5
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "pelnoziarnisty",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W6
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "program": "pelnoziarnisty",
+    +   "program": "podstawowy",
+      }
+
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+      103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+    > 104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+          |                        ^
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+      107 |     expect(podpowiedzProgramu({ pozaForma: false, kategoria: 'yeast', upzProc: 10, maCukier: null, maTluszcz: false })).toEqual({ ok: true, program: 'podstawowy' });
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:104:24)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › RD-39-W8
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "blad": "brak-maki",
+    -   "ok": false,
+    +   "ok": true,
+    +   "program": "podstawowy",
+      }
+
+      101 |     });
+      102 |     const ocz = String(w.oczekiwane['program [-]']);
+    > 103 |     if (ocz === 'błąd danych') expect(wynik).toEqual({ ok: false, blad: 'brak-maki' });
+          |                                              ^
+      104 |     else expect(wynik).toEqual({ ok: true, program: PROGRAM[ocz] });
+      105 |   });
+      106 |   it('nieznany cukier albo tłuszcz poniżej progu: podstawowy, nie francuski (brak zostaje brakiem)', () => {
+
+      at toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:103:46)
+
+  ● RD-39: podpowiedź programu (wektory W1…W8) › Upż: mąki żytnie i pełnoziarniste (typ ≥ 1850) liczone raz; brak mąk = null
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 50
+    Received: 0
+
+      108 |   });
+      109 |   it('Upż: mąki żytnie i pełnoziarniste (typ ≥ 1850) liczone raz; brak mąk = null', () => {
+    > 110 |     expect(udzialPelnoziarnistychIZytnich([{ name: 'Mąka pszenna typ 650', percentage: 50 }, { name: 'Mąka żytnia typ 720', percentage: 50 }])).toBe(50);
+          |                                                                                                                                                 ^
+      111 |     expect(udzialPelnoziarnistychIZytnich([{ name: 'Mąka pszenna typ 750', percentage: 40 }, { name: 'Mąka pszenna graham typ 1850', percentage: 60 }])).toBe(60);
+      112 |     expect(udzialPelnoziarnistychIZytnich([{ name: 'Mąka żytnia typ 2000', percentage: 100 }])).toBe(100);
+      113 |     expect(udzialPelnoziarnistychIZytnich([])).toBeNull();
+
+      at Object.toBe (src/core/__tests__/maszyna-rd37-39.test.ts:110:145)
+
+  ● BR-MASZ-003: kolejność wkładania w jednym z dwóch układów › płyny najpierw: płyny, potem suche, drożdże na końcu (MAS-005)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+    -   "woda",
+        "maka",
+    +   "woda",
+        "sol",
+        "drozdze",
+      ]
+
+      123 |   ];
+      124 |   it('płyny najpierw: płyny, potem suche, drożdże na końcu (MAS-005)', () => {
+    > 125 |     expect(kolejnoscWkladania(lista, 'plyny_najpierw').map((x) => x.id)).toEqual(['woda', 'maka', 'sol', 'drozdze']);
+          |                                                                          ^
+      126 |   });
+      127 |   it('drożdże najpierw: drożdże, suche, płyn na końcu (MAS-031)', () => {
+      128 |     expect(kolejnoscWkladania(lista, 'drozdze_najpierw').map((x) => x.id)).toEqual(['drozdze', 'maka', 'sol', 'woda']);
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:125:74)
+
+  ● BR-MASZ-003: kolejność wkładania w jednym z dwóch układów › drożdże najpierw: drożdże, suche, płyn na końcu (MAS-031)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   "drozdze",
+        "maka",
+    -   "sol",
+        "woda",
+    +   "sol",
+    +   "drozdze",
+      ]
+
+      126 |   });
+      127 |   it('drożdże najpierw: drożdże, suche, płyn na końcu (MAS-031)', () => {
+    > 128 |     expect(kolejnoscWkladania(lista, 'drozdze_najpierw').map((x) => x.id)).toEqual(['drozdze', 'maka', 'sol', 'woda']);
+          |                                                                            ^
+      129 |   });
+      130 |   it('bez układu: brak kolejności (ekran prosi o wybór)', () => {
+      131 |     expect(kolejnoscWkladania(lista, null)).toBeNull();
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:128:76)
+
+  ● BR-MASZ-003: kolejność wkładania w jednym z dwóch układów › bez układu: brak kolejności (ekran prosi o wybór)
+
+    expect(received).toBeNull()
+
+    Received: [{"id": "maka", "rodzaj": "sucha"}, {"id": "woda", "rodzaj": "plyn"}, {"id": "sol", "rodzaj": "sucha"}, {"id": "drozdze", "rodzaj": "drozdze"}]
+
+      129 |   });
+      130 |   it('bez układu: brak kolejności (ekran prosi o wybór)', () => {
+    > 131 |     expect(kolejnoscWkladania(lista, null)).toBeNull();
+          |                                             ^
+      132 |   });
+      133 | });
+      134 |
+
+      at Object.toBeNull (src/core/__tests__/maszyna-rd37-39.test.ts:131:45)
+
+  ● BR-MASZ-005: godzina startu programu z godziny gotowości i czasu programu › program 3 h 10 min, gotowe jutro o 7:00 → start jutro o 3:50; od teraz do gotowości 11 h (RD-38-W1 w BR-MASZ-005)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "doGotowosciMin": 660,
+    +   "doGotowosciMin": 0,
+        "ok": true,
+    -   "startMs": 1793850600000,
+    +   "startMs": 0,
+      }
+
+      138 |   const gotowe = Date.UTC(2026, 10, 5, 7, 0); // jutro 7:00
+      139 |   it('program 3 h 10 min, gotowe jutro o 7:00 → start jutro o 3:50; od teraz do gotowości 11 h (RD-38-W1 w BR-MASZ-005)', () => {
+    > 140 |     expect(startProgramu(gotowe, 190, teraz)).toEqual({ ok: true, startMs: Date.UTC(2026, 10, 5, 3, 50), doGotowosciMin: 660 });
+          |                                               ^
+      141 |   });
+      142 |   it('gotowe za 2 h przy programie 3 h 10 min: nie zdąży, najwcześniejsza godzina gotowości = teraz + czas programu', () => {
+      143 |     expect(startProgramu(teraz + 2 * H, 190, teraz)).toEqual({ ok: false, blad: 'za-wczesnie', najwczesniejGotoweMs: teraz + 190 * 60_000 });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:140:47)
+
+  ● BR-MASZ-005: godzina startu programu z godziny gotowości i czasu programu › gotowe za 2 h przy programie 3 h 10 min: nie zdąży, najwcześniejsza godzina gotowości = teraz + czas programu
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 3
+
+      Object {
+    -   "blad": "za-wczesnie",
+    -   "najwczesniejGotoweMs": 1793833800000,
+    -   "ok": false,
+    +   "doGotowosciMin": 0,
+    +   "ok": true,
+    +   "startMs": 0,
+      }
+
+      141 |   });
+      142 |   it('gotowe za 2 h przy programie 3 h 10 min: nie zdąży, najwcześniejsza godzina gotowości = teraz + czas programu', () => {
+    > 143 |     expect(startProgramu(teraz + 2 * H, 190, teraz)).toEqual({ ok: false, blad: 'za-wczesnie', najwczesniejGotoweMs: teraz + 190 * 60_000 });
+          |                                                      ^
+      144 |   });
+      145 |   it('start dokładnie teraz jest dozwolony (granica włączna); zły czas programu = błąd', () => {
+      146 |     expect(startProgramu(teraz + 190 * 60_000, 190, teraz)).toEqual({ ok: true, startMs: teraz, doGotowosciMin: 190 });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:143:54)
+
+  ● BR-MASZ-005: godzina startu programu z godziny gotowości i czasu programu › start dokładnie teraz jest dozwolony (granica włączna); zły czas programu = błąd
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "doGotowosciMin": 190,
+    +   "doGotowosciMin": 0,
+        "ok": true,
+    -   "startMs": 1793822400000,
+    +   "startMs": 0,
+      }
+
+      144 |   });
+      145 |   it('start dokładnie teraz jest dozwolony (granica włączna); zły czas programu = błąd', () => {
+    > 146 |     expect(startProgramu(teraz + 190 * 60_000, 190, teraz)).toEqual({ ok: true, startMs: teraz, doGotowosciMin: 190 });
+          |                                                             ^
+      147 |     expect(startProgramu(gotowe, 0, teraz)).toEqual({ ok: false, blad: 'zly-czas-programu' });
+      148 |   });
+      149 | });
+
+      at Object.toEqual (src/core/__tests__/maszyna-rd37-39.test.ts:146:61)
+
+Test Suites: 1 failed, 1 total
+Tests:       33 failed, 7 passed, 40 total
+Snapshots:   0 total
+Time:        1.197 s
+Ran all test suites matching /src\/core\/__tests__\/maszyna-rd37-39.test.ts/i.
