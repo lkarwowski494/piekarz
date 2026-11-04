@@ -1258,3 +1258,19 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** po buildzie 1022: rola 08 z modułem `dane-uzytkownika` (M2) i `sqlite-expo`: migracja w transakcji, test na kopii bazy poprzedniej wersji, STOP przed wdrożeniem; katalog +15 receptur (D-157) po akceptacji listy przez właściciela. Zostają w 1.0 (D-150 bez zmian).
 - **Odrzucone:** (b) po wydaniu 1.0.
 - **Status:** właściciel, 2026-11-04.
+
+### [D-222] 2026-11-04 — p7b: 04-004 wykonane; 04-005 STOP — pas Doktora zakwasu wymaga dopisania ekranu do testu czapki (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 w ramach D-219 i odstępstwo zgłoszone właścicielowi.
+- **04-004 (wykonane, 296007c):** stos receptur ukrywa pasek zakładek na trasie `harmonogram` jak na `receptura` (`app/(tabs)/_layout.tsx`). Pasek „Zacznij wypiek” (`PasekStartu`) już ma dolny margines systemu (`SafeAreaView edges={['bottom']}`), więc ekran planu bez zmian (drugi margines dałby podwójny odstęp). Test `tests/pasek-zakladek-receptura-106.test.tsx`: asercja `harmonogram` → pasek ukryty (czerwona przed: Expected "none", Received undefined) plus asercje stosu i powrotu, marginesu i wejść.
+- **04-005 (STOP):** pas O3a na Doktorze zakwasu dodaje `<PasZakladki` do `app/(tabs)/zakwasy/doktor-zakwasu.tsx`, a `src/__tests__/czapka-ekranow-p7.test.tsx:134` wymaga, by lista plików z pasem równała się liście `EKRANY` (linie 95–111). Próbna implementacja: `pas-zakladek-d10` zielony (13/13), 10 innych zestawów zielonych, pada tylko ta asercja (brak wpisu `app/(tabs)/zakwasy/doktor-zakwasu.tsx`). D-219 dopuszcza zmianę tylko `pas-zakladek-d10.test.tsx:136`.
+- **Opcje dla właściciela:** (a) **rekomendowana** — zgoda na dopisanie jednego wpisu do `EKRANY` (rozszerzenie: test czapki sprawdzi też Doktora zakwasu; żadna asercja nie znika); łatka gotowa w `docs/stan-08-p7b-2026-11-04.md`; (b) Doktor zakwasu zostaje z nagłówkiem systemowym do po 1.0 (stan dziś); odrzucona (c) pas bez literału `<PasZakladki` (ominięcie strażnika testu, zasada 11).
+- **Etykieta powrotu w łatce:** ikona z etykietą VoiceOver „Wstecz” jak Doktor Chleba (D-197); odrzucona „Zakwasy” jako tekst — poprzedni ekran pokazuje na pasie nazwę zakwasu, nie „Zakwasy”.
+- **Zależy od:** D-219.
+- **Status:** dzień, do weta.
+
+### [D-223] 2026-11-04 — p7b: wykonanie 04-005 po D-227 — Doktor zakwasu z pasem O3a, wpis w EKRANY testu czapki (rola 08, dzień, do weta)
+- **Rodzaj:** decyzja wykonawcza roli 08 po zgodzie koordynatora M3 (D-227, wiadomość sesji koordynatora 2026-11-04 ok. 05:19 UTC; nie właściciel, do weta) na opcję (a) z D-222.
+- **Wykonanie:** `app/(tabs)/zakwasy/_layout.tsx` — `doktor-zakwasu` z `headerShown: false`; `doktor-zakwasu.tsx` — `EkranZPasem` z `PasZakladki` (tytuł „Doktor zakwasu” nagłówkiem VoiceOver, powrót ikoną z etykietą „Wstecz”, jak Doktor Chleba), czapka paska stanu, jasny pasek stanu; treść i logika bez zmian.
+- **Testy:** `src/__tests__/pas-zakladek-d10.test.tsx` — asercja nagłówka Doktora zakwasu odwrócona na `headerShown: false` (zgoda D-219) i nowy test ekranu (pas, powrót, cel 44 pt, czapka, kolejność tytuł → objawy); `src/__tests__/czapka-ekranow-p7.test.tsx` — wpis w `EKRANY` i import (D-227). Czerwień przed łatką ekranu: 2 asercje (lista plików z pasem bez Doktora zakwasu; brak pasa i czapki).
+- **Zależy od:** D-219, D-222, D-227.
+- **Status:** dzień, do weta.

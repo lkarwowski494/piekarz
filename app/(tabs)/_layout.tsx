@@ -11,9 +11,11 @@ import { TabIcon, TabLabel } from '../../src/components/TabIcon';
 
 // Ekran receptury (push w stosie „Receptury”) ukrywa pasek zakładek (design-spec §11c 106); nazwa ekranu
 // ze stanu stosu zakładki przez getFocusedRouteNameFromRoute (stan dziecka nie leży w route.state). [M1-audytor-generalny-106]
+// Plan wypieku też bez paska: pod „Zacznij wypiek” tylko wskaźnik Home, jak strefa akcji receptury (04-004, D-219) [M3 p7b]
 const PASEK = { backgroundColor: theme.colors.powierzchnia, borderTopColor: theme.colors.linia };
+const BEZ_PASKA: readonly string[] = ['receptura', 'harmonogram'];
 const stylPaskaReceptur = (route: Parameters<typeof getFocusedRouteNameFromRoute>[0]) =>
-  getFocusedRouteNameFromRoute(route) === 'receptura' ? { ...PASEK, display: 'none' as const } : PASEK;
+  BEZ_PASKA.includes(getFocusedRouteNameFromRoute(route) ?? '') ? { ...PASEK, display: 'none' as const } : PASEK;
 
 export default function TabsLayout() {
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]

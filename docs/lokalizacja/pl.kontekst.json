@@ -1353,6 +1353,7 @@
   "Doktor zakwasu": {
     "gdzie": [
       "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tytul)",
       "src/components/zakwas/PasZakwasu.tsx (etykieta)"
     ]
   },
@@ -7660,6 +7661,7 @@
   },
   "Wstecz": {
     "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (etykieta)",
       "app/doktor.tsx (etykieta)",
       "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)"
     ],
