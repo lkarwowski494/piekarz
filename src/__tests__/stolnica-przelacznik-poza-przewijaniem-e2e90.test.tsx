@@ -1,7 +1,7 @@
 /**
  * E2E-90 (p7c): przełącznik wypieków (BR-KAL-016) nie leży w przewijanej treści pod pasem (pas ze spiralą zajmuje
  * ekran, przełącznik wypadał poniżej widocznego obszaru i jego środek trafiał pod dolną strefę akcji); stoi w stałym
- * rzędzie nad paskiem kciuka, segmenty mają nazwę i krok w jednej linii (cel ≥ 44 pt, bez wzrostu przy dużym tekście).
+ * rzędzie nad paskiem kciuka, segmenty mają cel ≥ 44 pt i tekst bez ucinania; przy dużym tekście (fontScale ≥ 2) przełącznik zostaje w treści.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
@@ -38,7 +38,7 @@ jest.mock('../lib/confirm', () => ({
 }));
 
 import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore, getBakeLogs } from '../data/sqlite-store';
@@ -75,6 +75,9 @@ async function render(): Promise<renderer.ReactTestRenderer> {
 }
 
 
+const ustawSkale = (width: number, height: number, fontScale: number) => Dimensions.set({ window: { width, height, scale: 2, fontScale }, screen: { width, height, scale: 2, fontScale } });
+const DOMYSLNE = Dimensions.get('window');
+
 describe('E2E-90: przełącznik wypieków poza przewijaną treścią', () => {
   const now = 1_800_000_000_000;
   const kroki = planBakeSteps({ startAt: now - 3_600_000, isHighRye: false });
@@ -98,12 +101,17 @@ describe('E2E-90: przełącznik wypieków poza przewijaną treścią', () => {
     setLang('pl');
     mockParams = { wypiek: 'bake_chleb' };
     jest.spyOn(Date, 'now').mockImplementation(() => now);
+    // Domyślny fontScale w środowisku testowym RN to 2 (duży tekst): zwykły tekst ustawiamy jawnie
+    ustawSkale(390, 844, 1);
     await initDatabase();
     await saveBakeSession(null);
     await saveBakeSession(wypiek('bake_chleb', 'Wiejski chleb codzienny na zakwasie', 2, now + 20 * 60_000));
     await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1, now + 45 * 60_000));
   });
-  afterEach(() => jest.restoreAllMocks());
+  afterEach(() => {
+    jest.restoreAllMocks();
+    Dimensions.set({ window: DOMYSLNE, screen: DOMYSLNE });
+  });
 
   it('przełącznik nie jest dzieckiem ScrollView (poza przewijaną treścią), a pasek kciuka dalej jest', async () => {
     const tree = await render();
@@ -115,16 +123,24 @@ describe('E2E-90: przełącznik wypieków poza przewijaną treścią', () => {
     act(() => tree.unmount());
   });
 
-  it('segment: cel co najmniej 44 pt, nazwa i krok w jednej linii z obcięciem, rozmiar tekstu ograniczony do 1,5×', async () => {
+  it('segment: cel co najmniej 44 pt, bez limitu linii i bez ograniczenia skali tekstu (design-spec §3)', async () => {
     const tree = await render();
     const segment = tree.root.findByProps({ testID: 'przelacznik-wypiek-bake_chleb' });
     expect(StyleSheet.flatten(segment.props.style).minHeight).toBeGreaterThanOrEqual(44);
     const teksty = segment.findAllByType(Text);
     expect(teksty).toHaveLength(2);
     for (const tekst of teksty) {
-      expect(tekst.props.numberOfLines).toBe(1);
-      expect(tekst.props.maxFontSizeMultiplier).toBeLessThanOrEqual(1.5);
+      expect(tekst.props.numberOfLines).toBeUndefined();
+      expect(tekst.props.maxFontSizeMultiplier).toBeUndefined();
     }
+    act(() => tree.unmount());
+  });
+
+  it('duży tekst (fontScale ≥ 2): stały rząd zająłby za dużo ekranu, przełącznik zostaje w przewijanej treści', async () => {
+    ustawSkale(320, 568, 3.1);
+    const tree = await render();
+    const w = tree.root.findAllByType(ScrollView).filter((s) => s.findAllByProps({ testID: 'przelacznik-wypiekow' }).length > 0);
+    expect(w.length).toBeGreaterThan(0);
     act(() => tree.unmount());
   });
 });

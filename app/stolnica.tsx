@@ -6,6 +6,7 @@
 // ============================================================================
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useWindowDimensions } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { getActiveBake, setActiveBake } from '../src/data/sqlite-store';
 import { idSesji, sesjeDoPokazania, type SesjaDoPokazania } from '../src/data/bake-session-store';
@@ -33,6 +34,8 @@ async function wczytaj(): Promise<SesjaDoPokazania[]> {
 
 export default function StolnicaScreen() {
   const router = useRouter();
+  // Duży tekst (fontScale ≥ 2, jak PasZakladki): stały rząd zająłby za dużo ekranu, przełącznik zostaje w treści [E2E-90]
+  const duzyTekst = useWindowDimensions().fontScale >= 2;
   const { wypiek } = useLocalSearchParams<{ wypiek?: string }>();
   const [lista, setLista] = useState<SesjaDoPokazania[] | null>(null);
   const [wybrany, setWybrany] = useState<string | null>(null);
@@ -99,6 +102,7 @@ export default function StolnicaScreen() {
           return { id, nazwa: sesja.recipeName, krok, doMs: krok === zapisany ? koniec : null };
         })}
         wybrany={wybrany}
+        staly={!duzyTekst}
         onWybierz={(id) => {
           // Przełączenie: odczyt z zapisu, żeby drugi wypiek wrócił na swoim kroku i zegarze
           if (id !== wybrany) void odswiez(id);
@@ -111,7 +115,8 @@ export default function StolnicaScreen() {
       key={`${wybrany}:${odczyt}`}
       start={biezacy.sesja}
       wersja={biezacy.wersja}
-      naglowek={naglowek}
+      naglowek={duzyTekst ? naglowek : undefined}
+      naglowekStaly={duzyTekst ? undefined : naglowek}
       onKoniec={onKoniec}
       onOdrzucony={onOdrzucony}
       onZapisano={zerujOdrzucenia}
