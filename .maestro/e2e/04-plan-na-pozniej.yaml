@@ -28,9 +28,20 @@ appId: com.apps4brew.baker
 - tapOn:
     id: "plan-start-bake-btn"
 # Zdanie "po co" przed prosba iOS o zgode i okno systemu (bez id) - oba opcjonalne, jak w flow 02
-- tapOn:
-    id: "zgoda-dalej-btn"
+# E2E-95: arkusz zgody otwiera sie po odpowiedzi systemu (run 42498413474: 7,15 s), wiec czekanie warunkowe
+# (optional: arkusza nie ma, gdy zgoda juz ustalona) i stukniecie bez optional, gdy arkusz jest
+- extendedWaitUntil:
+    visible:
+      id: "zgoda-dalej-btn"
+    timeout: 30000
     optional: true
+- runFlow:
+    when:
+      visible:
+        id: "zgoda-dalej-btn"
+    commands:
+      - tapOn:
+          id: "zgoda-dalej-btn"
 - tapOn:
     text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
     optional: true
