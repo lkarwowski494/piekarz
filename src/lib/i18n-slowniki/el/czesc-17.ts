@@ -44,12 +44,12 @@ export const CZESC: Record<string, string> = {
   'Wpisz czas programu z instrukcji maszyny.':
     'Εισαγάγετε τη διάρκεια του προγράμματος από τις οδηγίες της μηχανής σας.',
   'W tej recepturze: {skladniki}.': 'Σε αυτή τη συνταγή: {skladniki}.',
-  'Program rusza o {godzina}.': 'Το πρόγραμμα ξεκινά στις {godzina}.',
+  'Program rusza o {godzina}.': 'Το πρόγραμμα ξεκινά την ώρα {godzina}.',
   'Ustaw opóźniony start na {czas}.':
     'Ρυθμίστε την καθυστερημένη εκκίνηση σε {czas}.',
   'Od teraz do gotowości: {czas}.': 'Από τώρα μέχρι να είναι έτοιμο: {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.':
-    'Το πρόγραμμα δεν προλαβαίνει. Το νωρίτερο έτοιμο στις {godzina}.',
+    'Το πρόγραμμα δεν προλαβαίνει. Το νωρίτερο έτοιμο την ώρα {godzina}.',
   'Po programie': 'Μετά το πρόγραμμα',
   'ciasto|program maszyny': 'ζύμη',
   'słodki|program maszyny': 'γλυκό',

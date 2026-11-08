@@ -41,11 +41,11 @@ export const CZESC: Record<string, string> = {
     'Complete as farinhas da receita para ver a sugestão de programa.',
   'Wpisz czas programu z instrukcji maszyny.': 'Digite a duração do programa conforme o manual da máquina.',
   'W tej recepturze: {skladniki}.': 'Nesta receita: {skladniki}.',
-  'Program rusza o {godzina}.': 'O programa começa às {godzina}.',
+  'Program rusza o {godzina}.': 'O programa começa neste horário: {godzina}.',
   'Ustaw opóźniony start na {czas}.': 'Ajuste o início programado para {czas}.',
   'Od teraz do gotowości: {czas}.': 'A partir de agora até ficar pronto: {czas}.',
   'Program nie zdąży. Najwcześniej gotowe o {godzina}.':
-    'O programa não vai terminar a tempo. O mais cedo que fica pronto é às {godzina}.',
+    'O programa não vai terminar a tempo. O mais cedo que fica pronto é neste horário: {godzina}.',
   'Po programie': 'Depois do programa',
   'ciasto|program maszyny': 'massa',
   'słodki|program maszyny': 'doce',

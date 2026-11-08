@@ -52,7 +52,7 @@ export const CZESC: Record<string, string> = {
   'Wymieszanie z solą i zakwasem': 'Ανάμειξη με αλάτι και προζύμι',
   'Wymieszanie z solą i zakwasem (Bassinage)': 'Ανάμειξη με αλάτι και προζύμι (Bassinage)',
   'Wypiek bez receptury': 'Ψήσιμο χωρίς συνταγή',
-  'Wypiek gotowy na: {time}': 'Ψήσιμο έτοιμο στις: {time}',
+  'Wypiek gotowy na: {time}': 'Ψήσιμο έτοιμο: {time}',
   'Wypiek jednodniowy (Direct)': 'Αυθημερόν ψήσιμο (Direct)',
   'Wypiek w formie': 'Ψήσιμο σε φόρμα',
   'Wypiek w garnku z parą': 'Ψήσιμο σε γάστρα με ατμό',

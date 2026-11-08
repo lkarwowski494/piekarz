@@ -121,5 +121,5 @@ export const CZESC: Record<string, string> = {
   'Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.': 'Ψήστε μαζί με τη φόρμα στους 230 °C για 20 λεπτά με ατμό και στη συνέχεια 20 λεπτά στους 200 °C.',
   'Pieczenie': 'Ψήσιμο',
   'pieczenie bez pokrywy': 'ψήσιμο χωρίς καπάκι',
-  'Piekarnik zajęty o {h}': 'Φούρνος κατειλημμένος στις {h}',
+  'Piekarnik zajęty o {h}': 'Φούρνος κατειλημμένος την ώρα {h}',
 };
