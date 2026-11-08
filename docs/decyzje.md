@@ -1652,3 +1652,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dowód:** iOS E2E run 42511814430 na `d1524768` zielony (pl_PL, en_US, kontrola negatywna, Basic); verify kod 0 (574/6017) wg raportu roli 08. Plik stanu `docs/stan-08-e2e95-2026-11-08.md` (tam propozycja z numerem D-281 — numer zajęty przez regułę nocy, wpis ma D-282).
 - **Otwarte:** opcjonalne stuknięcie systemowego „Allow” — możliwy podobny wyścig (E2E-96, tor B). Do `master` z następnym kandydatem.
 - **Status:** koordynator, do weta.
+
+### [D-283] 2026-11-08 — Godzina w przekładach bez rodzajnika zależnego od godziny: es, es-419, pt, pt-BR, it, el (rola 09 fix, tor B; koordynator wg D-281)
+- **Decyzja:** wariant (a), tylko słowniki: 161 wpisów w 6 językach przeformułowano bez rodzajnika/przyimka, który zależy od godziny (es „a las {h}” → np. „({h})”, „hasta {h}”; pt „às” → bez; it „alle {h}” → „alle ore {h}”; el „στις” → „την ώρα”). Powód: `formatTime` (`src/lib/format.ts:89,101`, `hour: '2-digit'`) daje „01:30”, więc „a las 01:30” / „às 01:30” / „alle 01:30” / „στις 01:30” są błędne dla kroków nocnych 01:xx (realne). Źródło 09m (`docs/lokalizacja/przeklad-maszyna-09m-2026-11-04.json`, k30, k33) zsynchronizowane. Test `src/lib/__tests__/godzina-przyimek.test.ts` (czerwony 6/6 na `d6683559`, zielony po).
+- **Odrzucone:** (b) osobne klucze dla godziny 1 w kodzie (kilkadziesiąt form × PL/EN + logika, nieadekwatne do skali); (c) zostawić (błąd każdej nocy 01:xx).
+- **Dowód:** `npm run verify` kod 0 na `e6b69e0f` (`audit/M3-2026-11-08/dowody/verify-09-godzina.txt`, poza gitem); check:i18n 0 błędów. Plik stanu `docs/stan-09-godzina-2026-11-09.md` (języki „sprawdzone, brak”).
+- **Otwarte:** brzmienie nowych form bez recenzji natywnej (jak DEC-06); uk „о/об”, bg „във”, cs „ve” zostawione — do oceny natywnej.
+- **Status:** koordynator, do weta (D-281).
