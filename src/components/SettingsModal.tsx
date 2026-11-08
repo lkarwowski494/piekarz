@@ -43,13 +43,14 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   // Naczynie do wypieku; bez wyboru stylu wypieku [M1-audytor-generalny-101; BR-START-001]
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
 
-  // Ekran „Źródła wiedzy” (D-123, M3 T2) w tym samym arkuszu, bez drugiego arkusza modalnego (D-117);
+  // Podekran w tym samym arkuszu, bez drugiego arkusza modalnego (D-117): „Źródła wiedzy” (D-123, M3 T2);
   // każde otwarcie Ustawień zaczyna od listy ustawień
-  const [zrodla, setZrodla] = useState(false);
+  const [podekran, setPodekran] = useState<'zrodla' | null>(null);
+  const zrodla = podekran === 'zrodla';
 
   useEffect(() => {
     if (visible) {
-      setZrodla(false);
+      setPodekran(null);
       void getBakingVessel().then(setBakingVesselState);
     }
   }, [visible]);
@@ -77,12 +78,12 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const otworzPro = () => proPoArkuszu(onClose);
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={zrodla ? () => setZrodla(false) : onClose} onDismiss={poZamknieciu}>
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={podekran ? () => setPodekran(null) : onClose} onDismiss={poZamknieciu}>
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
           {zrodla ? (
-            <HeaderButton testID="zrodla-wstecz" title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setZrodla(false)} />
+            <HeaderButton testID="zrodla-wstecz" title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setPodekran(null)} />
           ) : (
             <CloseButton onPress={onClose} akcja="zamknij" />
           )}
@@ -126,7 +127,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           <ImportRecepturySection onPro={otworzPro} />
 
           {/* Źródła wiedzy: jedyne miejsce z nazwami źródeł porad (D-123, M3 T2) */}
-          <ZrodlaWiedzySection onOtworz={() => setZrodla(true)} />
+          <ZrodlaWiedzySection onOtworz={() => setPodekran('zrodla')} />
 
           {/* Apps4Craft Studio Family & Security */}
           <StudioEcosystemSection />
