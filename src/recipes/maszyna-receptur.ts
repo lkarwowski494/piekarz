@@ -17,6 +17,8 @@ export const DODATKI_MASZYNY: Readonly<Record<string, readonly SkladnikMaszyny[]
   baguette_tradition_poolish: [],
   ciabatta_con_biga: ['tluszcz'], // „Do ciasta właściwego dodaj 3% oliwy z oliwek” (06m, D-266)
   focaccia_genovese: ['tluszcz'], // „naoliwioną blachę”, „solanką z wody, oliwy i soli”
+  // świeży rozmaryn (opis): zioła nie są na liście RD-38 ani cukrem, ani tłuszczem; żadna instrukcja nie zalicza ich
+  // do warzyw (Panasonic SD-YR2550 opisuje zioła osobno od świeżych owoców i warzyw), więc bez wpisu (TORB-06-MASZ)
   no_knead_night: [],
   pizza_napoletana_48h: [],
   sweet_chalka: ['tluszcz', 'cukier', 'jajka'], // „z dodatkiem masła i cukru”, „posmaruj roztrzepanym jajkiem” (OP-73)
@@ -26,6 +28,7 @@ export const DODATKI_MASZYNY: Readonly<Record<string, readonly SkladnikMaszyny[]
   boiled_bread_ring: ['tluszcz', 'cukier'], // „2–3 kg tłuszczu i 2–4 kg cukru”
   milk_dinner_rolls: ['mleko', 'cukier', 'tluszcz', 'jajka'], // „mleko 55,8%… cukier… masło… jajko”
   cheese_crumble_yeast_cake: ['mleko', 'cukier', 'jajka', 'tluszcz', 'ser'], // „mleko… cukru… jaj… masła”, „twarogu”
+  // skórka cytryny w masie serowej: żadna instrukcja nie zalicza skórki do świeżych owoców; bez wpisu (TORB-06-MASZ)
   sweet_yeast_buns: ['mleko', 'cukier', 'tluszcz', 'jajka'], // „mleko 39,0%… cukier… olej… jajka”
   cinnamon_tea_ring: ['mleko', 'cukier', 'tluszcz'], // „mleko 39,0%”, nadzienie „cukier… masło… rodzynki” (suszone)
   // Receptury na zakwasie z wersją drożdżową (D-173): dodatki z receptury bazowej
