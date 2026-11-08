@@ -1,0 +1,3 @@
+Test Suites: 574 passed, 574 total
+Tests:       6017 passed, 6017 total
+kod: 0
