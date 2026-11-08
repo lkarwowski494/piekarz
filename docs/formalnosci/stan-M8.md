@@ -1,11 +1,15 @@
 # Stan M8 (formalności przed wydaniem 1.0) — Piekarz
 
-Aktualizacja: 2026-11-08 · Gałąź: `formalnosci/piekarz-2026-11-08` (od `redesign/piekarz-2026-10-22` @ `fb8b66a`) · Pula decyzji: D-290…D-299 (żadna jeszcze nie użyta).
+Aktualizacja: 2026-11-08 · Gałąź: `formalnosci/piekarz-2026-11-08` (od `redesign/piekarz-2026-10-22` @ `fb8b66a`) · Decyzje: D-290, D-291 (wolne z puli: D-292…D-299).
 
-## Stan
-- Etap: E0, E1, E2 zakończone (STOP 1: D-290; audyt roli 10: bez P0/P1; weryfikacja świeża: 5 rozbieżności poprawionych) → **STOP 2** (akceptacja dokumentów i zadania dla roli 08).
-- Wynik roboczy (inwentarz danych, stosowalność, licencje) jest w `audit/M8-2026-11-08/` poza gitem (zasada roli M8 nr 7: lista braków nie trafia do repo). W chmurze katalog znika z kontenerem — dlatego M8 pracuje w jednej sesji do STOP końcowego (wyjątek nazwany w prompcie roli).
-- Odtworzenie w nowej sesji: prompt `node <prompts>/tools/assemble.mjs M8-formalnosci --tryb build --galaz formalnosci/piekarz-2026-11-08`, E0 od nowa (ok. 30 min agenta).
+## Wynik (STOP końcowy)
+- P0 otwartych: brak. Audyt formularzy roli 10: bez P0/P1.
+- Dokumenty zaakceptowane (D-291): `docs/prawne/` — polityka v2 PL/EN, zmiany strony wsparcia, szablony wsparcia, procedura bezpieczeństwa.
+- Ekran „Licencje open source” (FOR-15) w kodzie: commity `2d31a78`, `cb4f4c3`, `91f5e72`, `8779cc6`; `check:licencje` w verify.
+- Kroki właściciela: `docs/formalnosci/kroki-wlasciciela.md`.
 
-## Następny krok
-Akceptacja na STOP 2 → E3: dokumenty w `docs/prawne/`, rola 08 (ekran licencji), poprawki `docs/wydanie/` (DSA) → E4 raport → STOP końcowy.
+## Dla koordynatora M3
+1. Scal gałąź do `redesign/` przed E2E i buildem zgłoszeniowym (ekran licencji zmienia kod).
+2. Znalezisko: `npm run verify` kod 1 już na `fb8b66a` (bez M8): basic-pro-pa, dzis-d4b, ekran-pro-pb, pro-po-arkuszu-w005, pro-wznowienie-w2; nie zależy od TZ; przyczyna niezbadana. Na 2026-11-04 te zestawy przechodziły.
+3. Publikacja polityki v2 i strony wsparcia w apps4brew-www (`piekarz/privacy.html`, `piekarz/support.html`) — za osobną zgodą właściciela.
+4. Biblioteki natywne ekranu licencji: uzupełnić z `Podfile.lock` po prebuild w CI; przekłady 6 kluczy (09), wygląd (04).
