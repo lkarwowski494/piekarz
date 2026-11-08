@@ -1,0 +1,12 @@
+$ node narzedzia/sprawdz-raport.mjs role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md /home/user/piekarz role/04-studio-projektowe --rola 04-studio-projektowe
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 04-studio-projektowe
+kod: 0
+$ node narzedzia/sprawdz-raport.mjs role/04-studio-projektowe/przeplywy-as-is.md /home/user/piekarz role/04-studio-projektowe
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+kod: 0
+$ node narzedzia/sprawdz-raport.mjs role/04-studio-projektowe/gesty.md /home/user/piekarz role/04-studio-projektowe
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+kod: 0
+$ node narzedzia/sprawdz-raport.mjs role/04-studio-projektowe/to-be.md /home/user/piekarz role/04-studio-projektowe
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+kod: 0

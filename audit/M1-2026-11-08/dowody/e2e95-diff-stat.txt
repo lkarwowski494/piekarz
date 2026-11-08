@@ -1,0 +1,9 @@
+ .maestro/e2e-basic/04-wypiek-teraz-basic.yaml   | 15 +++++++++--
+ .maestro/e2e/02-wypiek-na-stolnicy.yaml         | 15 +++++++++--
+ .maestro/e2e/03-prowadzenie-widok-skupiony.yaml | 15 +++++++++--
+ .maestro/e2e/04-plan-na-pozniej.yaml            | 15 +++++++++--
+ .maestro/e2e/05-dwa-wypieki.yaml                | 30 ++++++++++++++++++---
+ docs/stan-08-e2e95-2026-11-08.md                | 36 +++++++++++++++++++++++++
+ docs/wznowienie-M3.md                           |  1 +
+ 7 files changed, 115 insertions(+), 12 deletions(-)
+kod: 0

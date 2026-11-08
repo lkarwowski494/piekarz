@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/02-monetyzacja/02-monetyzacja-2026-11-08.md /home/user/piekarz role/02-monetyzacja --rola 02-monetyzacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 02-monetyzacja
+kod: 0

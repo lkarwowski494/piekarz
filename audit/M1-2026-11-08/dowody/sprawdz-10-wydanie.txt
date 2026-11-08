@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/10-wydanie/10-wydanie-2026-11-08.md /home/user/piekarz role/10-wydanie --rola 10-wydanie
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 10-wydanie
+kod: 0

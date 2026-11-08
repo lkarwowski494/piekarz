@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/09-lokalizacja/09-lokalizacja-2026-11-08.md /home/user/piekarz role/09-lokalizacja --rola 09-lokalizacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 09-lokalizacja
+kod: 0

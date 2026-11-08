@@ -1,0 +1,3 @@
+$ node M1-2026-11-08/narzedzia/sprawdz-raport.mjs M1-audytor-generalny-2026-11-08.md /home/user/piekarz M1-2026-11-08 --rola M1-audytor-generalny
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu M1-audytor-generalny
+kod: 0

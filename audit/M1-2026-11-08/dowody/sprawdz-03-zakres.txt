@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/03-zakres/03-zakres-2026-11-08.md /home/user/piekarz role/03-zakres --rola 03-zakres
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 03-zakres
+kod: 0

@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md /home/user/piekarz role/12-niezawodnosc --rola 12-niezawodnosc
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 12-niezawodnosc
+kod: 0

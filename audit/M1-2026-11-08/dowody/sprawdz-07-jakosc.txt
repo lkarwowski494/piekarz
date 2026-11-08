@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/07-jakosc/07-jakosc-2026-11-08.md /home/user/piekarz role/07-jakosc --rola 07-jakosc
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 07-jakosc
+kod: 0

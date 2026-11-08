@@ -1,7 +1,8 @@
-# Stan M1 — Piekarz — 2026-11-08 — E1 partia 1 w toku
-- Rola M1-audytor-generalny, tryb audit, baza 2ef8870a (tag v1.0.0-b1023). Prompt: prompty/M1.md (assemble.mjs, po regule uprawnień właściciela).
-- STOP 1 rozstrzygnięty (właściciel, 2026-11-08): wariant głęboki; reguły uprawnień dodane; bramka użyta ponownie (wyjątek nazwany). Szczegóły: plan-audytu.md, „Decyzje właściciela na STOP 1”.
-- K = /home/user/piekarz/audit/M1-2026-11-08 (exclude). Prompty i polecenia: prompty/ (14 ról z 05-architekt-b, 5 soczewek). Narzędzia: narzedzia/sprawdz-raport.mjs, sprawdz-plan.mjs.
-- Partia 1 uruchomiona: 01, 03, 06, 11, soczewka 1. Czekają w partii 1: soczewki 2–5. Partia 2: 02, 04, 05, 05-b, 08, 12. Partia 3: 09, 10, potem 07 sama.
-- Po każdym subagencie: sprawdz-raport.mjs --rola <rola> → dowody/, nagłówek „Commit” = 2ef8870a, zużycie → koszty.md.
-- Wznowienie po utracie kontenera: odtwórz K z gałęzi audit-m1/piekarz-2026-11-08, ponownie złóż prompty (polecenia w plan-audytu.md), uruchom role bez raportów.
+# Stan M1 — Piekarz — 2026-11-08 — STOP 2
+- Rola M1-audytor-generalny, tryb audit, wariant głęboki, baza 2ef8870a (tag v1.0.0-b1023). Prompt: prompty/M1.md.
+- Wykonane: E0, E0a (bramka użyta ponownie), E0b, E1 (5 soczewek, 13 przebiegów ról, kontrola dowodów M1 kod 0 dla wszystkich), E2 (scalanie 105 → 84, SYS-01…06, DEC-01…03, 9 grup weryfikacji przeciwnej kod 0), E3 (raport ../M1-audytor-generalny-2026-11-08.md kod 0; plan-napraw.json, sprawdz-plan kod 0).
+- Werdykt: kurs trafny, stan ZABLOKOWANE; 86 pozycji: P0 0, P1 18, P2 66, odrzucone 2; decyzje DEC-01…DEC-19 bez wyboru (DEC-20 = D-117).
+- Koszt: subagenci 7 428 658 tokenów; razem ok. 8,0–8,3 mln (plan 6,5–13,3).
+- Czeka na właściciela (STOP 2): wybory DEC-01…DEC-19, zatwierdzenie zadań (domyślnie: wszystkie otwarte), uwagi z testu telefonu (D-277) do dopisania jako zadania.
+- Po odpowiedzi: zapis wyborów i statusów w plan-napraw.json, sprawdz-plan.mjs, polecenie M2 (raport: „Proponowane polecenie naprawy”).
+- Pliki śledzone nietknięte: git status --porcelain = 0 (E0 i E3).

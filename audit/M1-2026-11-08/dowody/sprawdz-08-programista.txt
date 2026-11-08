@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/08-programista/08-programista-2026-11-08.md /home/user/piekarz role/08-programista --rola 08-programista
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 08-programista
+kod: 0

@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs role/05-architekt/05-architekt-2026-11-08.md /home/user/piekarz role/05-architekt --rola 05-architekt
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 05-architekt
+kod: 0

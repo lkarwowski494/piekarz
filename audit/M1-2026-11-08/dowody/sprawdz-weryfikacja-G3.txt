@@ -1,0 +1,3 @@
+$ node narzedzia/sprawdz-raport.mjs weryfikacja/G3-ratunek-awaria.md /home/user/piekarz weryfikacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone
+kod: 0
