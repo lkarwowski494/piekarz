@@ -45,9 +45,20 @@ appId: com.apps4brew.baker
     commands:
       - tapOn:
           id: "zgoda-dalej-btn"
-- tapOn:
-    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
-    optional: true
+      # E2E-96: okno systemu iOS (bez id) otwiera sie po odpowiedzi systemu na prosbe o zgode, wiec jak arkusz wyzej:
+      # czekanie warunkowe i stukniecie bez optional, gdy okno jest. Tylko po "Dalej": bez arkusza okna nie ma
+      - extendedWaitUntil:
+          visible:
+            text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          timeout: 30000
+          optional: true
+      - runFlow:
+          when:
+            visible:
+              text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          commands:
+            - tapOn:
+                text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
 - extendedWaitUntil:
     visible:
       id: "step-title"
