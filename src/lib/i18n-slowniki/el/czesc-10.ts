@@ -72,7 +72,7 @@ export const CZESC: Record<string, string> = {
   'W szacowanym oknie szczytu': 'Στο εκτιμώμενο παράθυρο κορύφωσης',
   'W szczycie': 'Σε κορύφωση',
   'W szczycie aktywności': 'Στην κορύφωση προζυμιού',
-  'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.': 'Αυτή την ημέρα αλλάζει η ώρα και η ώρα που επιλέξατε δεν υπάρχει. Το ψωμί θα είναι έτοιμο στις {godzina}.',
+  'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.': 'Αυτή την ημέρα αλλάζει η ώρα και η ώρα που επιλέξατε δεν υπάρχει. Το ψωμί θα είναι έτοιμο την ώρα {godzina}.',
   'w tym lód': 'εκ των οποίων πάγος',
   'Waga bochenka': 'Βάρος καρβελιού',
   'Waga bochenka po wypieku': 'Βάρος καρβελιού μετά το ψήσιμο',

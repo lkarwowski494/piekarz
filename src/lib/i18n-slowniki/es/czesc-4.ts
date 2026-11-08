@@ -111,7 +111,7 @@ export const CZESC: Record<string, string> = {
   'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.': 'El pan más sencillo del mundo. Se mezcla con una cuchara en 2 minutos, crece durante la noche en la encimera y se hornea en olla.',
   'Nakarm zakwas dziś': 'Alimenta tu masa madre hoy',
   'Napisz do nas': 'Escríbenos',
-  'Następne dokarmienie: {dzien} o {godzina}.': 'Siguiente refresco: {dzien} a las {godzina}.',
+  'Następne dokarmienie: {dzien} o {godzina}.': 'Siguiente refresco: {dzien}, {godzina}.',
   'Następne pytanie': 'Siguiente pregunta',
   'Następne: {lista}': 'Siguiente: {lista}',
   'Następny miesiąc': 'Mes siguiente',

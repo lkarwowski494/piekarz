@@ -116,7 +116,7 @@ export const CZESC: Record<string, string> = {
   'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.': 'Το πιο απλό ψωμί του κόσμου. Ανάμειξη με κουτάλι σε 2 λεπτά, φούσκωμα όλη τη νύχτα στον πάγκο και ψήσιμο σε γάστρα.',
   'Nakarm zakwas dziś': 'Ταΐστε το προζύμι σήμερα',
   'Napisz do nas': 'Γράψτε μας',
-  'Następne dokarmienie: {dzien} o {godzina}.': 'Επόμενο τάισμα: {dzien} στις {godzina}.',
+  'Następne dokarmienie: {dzien} o {godzina}.': 'Επόμενο τάισμα: {dzien} την ώρα {godzina}.',
   'Następne pytanie': 'Επόμενη ερώτηση',
   'Następne: {lista}': 'Επόμενα: {lista}',
   'Następny miesiąc': 'Επόμενος μήνας',

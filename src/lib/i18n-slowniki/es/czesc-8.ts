@@ -6,7 +6,7 @@ export const CZESC: Record<string, string> = {
   'W szacowanym oknie szczytu': 'En la ventana estimada del pico',
   'W szczycie': 'En el pico',
   'W szczycie aktywności': 'En el pico de actividad',
-  'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.': 'Ese día cambia la hora y la hora elegida no existe. El pan estará listo a las {godzina}.',
+  'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.': 'Ese día cambia la hora y la hora elegida no existe. El pan estará listo a esta hora: {godzina}.',
   'w tym lód': 'incluido hielo',
   'Waga bochenka': 'Peso de la hogaza',
   'Waga bochenka po wypieku': 'Peso de la hogaza horneada',

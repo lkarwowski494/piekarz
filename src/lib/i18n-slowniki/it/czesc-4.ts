@@ -116,7 +116,7 @@ export const CZESC: Record<string, string> = {
   'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.': 'Il pane più semplice del mondo. Si mescola con un cucchiaio in 2 minuti, lievita di notte sul piano e si cuoce in pentola.',
   'Nakarm zakwas dziś': 'Rinfresca il lievito madre oggi',
   'Napisz do nas': 'Scrivici',
-  'Następne dokarmienie: {dzien} o {godzina}.': 'Prossimo rinfresco: {dzien} alle {godzina}.',
+  'Następne dokarmienie: {dzien} o {godzina}.': 'Prossimo rinfresco: {dzien} alle ore {godzina}.',
   'Następne pytanie': 'Domanda successiva',
   'Następne: {lista}': 'In arrivo: {lista}',
   'Następny miesiąc': 'Mese successivo',

@@ -6,7 +6,7 @@ export const CZESC: Record<string, string> = {
   'Profil smakowy': 'Perfil de sabor',
   'Profil zakwasu': 'Perfil do fermento natural',
   'Profil, cykl dokarmiania i szczyt aktywności': 'Perfil, ciclo de alimentação e pico de atividade',
-  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Hora sugerida para misturar a massa: {dzien} às {godzina}.',
+  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Hora sugerida para misturar a massa: {dzien}, {godzina}.',
   'Proporcja': 'Proporção',
   'Proporcje (procent mąki)': 'Proporções (% da farinha)',
   'Proporcje dokarmiania': 'Proporções de alimentação',

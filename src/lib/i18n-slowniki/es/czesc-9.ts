@@ -114,7 +114,7 @@ export const CZESC: Record<string, string> = {
   'Zobacz źródła': 'Ver fuentes',
   'Zostaje wgłębienie i ciasto siada:': 'Queda la marca y la masa se hunde:',
   'zostało {czas}': 'quedan {czas}',
-  'zostało {czas}, do {godzina}': 'quedan {czas}, hasta las {godzina}',
+  'zostało {czas}, do {godzina}': 'quedan {czas}, hasta {godzina}',
   'zostanie trwale usunięta z bazy.': 'se eliminará de forma permanente de la base de datos.',
   'zostanie trwale usunięty wraz z całą historią dokarmiania.': 'se eliminará de forma permanente junto con todo el historial de refrescos.',
   'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.': 'Deja la masa en el molde hasta que su superficie llegue al borde del molde.',
