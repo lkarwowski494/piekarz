@@ -1623,3 +1623,14 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** (1) etap 1 (E2E-94, scalenie M8, przekład/przegląd kluczy licencji, E2E, build kandydata wg D-272, publikacja polityki v2 wg D-291) po kolei albo równolegle; (2) po pojawieniu się buildu w TestFlight równolegle: test telefonu właściciela (D-226) i pełny M1 (D-225) na tym buildzie; (3) M2 dostaje plan napraw M1 i uwagi właściciela z testu telefonu (jedna lista, priorytety na STOP 2 M1); (4) jeden reaudyt M1 po wszystkich poprawkach M2.
 - **Zmienia:** D-226 (test telefonu przed M1 → równolegle z M1). **Ryzyko:** błąd widoczny tylko na urządzeniu wychodzi w trakcie M1 — trafia na listę M2; plan M1 po STOP 2 zamrożony (D-053), uwagi właściciela dopisywane jako jego zadania.
 - **Status:** właściciel.
+
+### [D-278] 2026-11-08 — Drugi przegląd AI przekładu 6 kluczy ekranu „Licencje open source” (rola 09, partia 09l, do weta)
+- **Decyzja:** świeży kontekst roli 09 sprawdził 6 kluczy w EN i 33 językach; 8 poprawek w 6 językach (hr, sr: forma „ty”; lt: „Bakstelėkite”, „Natyviosios”; lv: „Natīvās”; es: „La app”; ko: 해요체), EN bez zmian; nagłówki słowników i `docs/lokalizacja/jezyki.md` zaktualizowane (`a97e5739`). Kontrole: `check:i18n` kod 0 (0 błędów), 110 zestawów i18n kod 0. Wykonuje D-277 pkt 1.
+- **Nieprzyjęte (niska pewność):** hr/sl/sr „izvorne” dla „native”, ms „Apl”, apostrof ’ w fr/it. **Niesprawdzone:** przegląd rodzimy (DEC-06), długość nagłówków el/fi (~40 znaków) przy 320 pt — dla M1/04.
+- **Zależy od:** D-291, DEC-06. **Status:** dzień, do weta.
+
+### [D-279] 2026-11-08 — E2E-94: wyścig scenariusza z arkuszem zgody na powiadomienia, nie regresja aplikacji; jedno ponowienie (koordynator M3, do weta)
+- **Dowód:** run 42498413474 (fb8b66a3), en_US `05-dwa-wypieki`: opcjonalne `tapOn zgoda-dalej-btn` czekało 10,5 s i zakończyło się „Element not found” (16:55:18→16:55:28), arkusz zgody pojawił się po nim (zrzut 16:55:29), więc `next-or-finish-step-btn` był pod arkuszem; odpowiedź systemu o stan zgody 7,15 s (zwykle 14–31 ms). `git diff 69a5bdd fb8b66a3` dla `ProwadzenieWypieku.tsx`, `ZgodaPowiadomien.tsx`, `notifications.ts` pusty; pl_PL 5/5 i pozostałe przebiegi en zielone. Plik stanu `docs/stan-08-e2e94-2026-11-08.md` (hipotezy H1–H5, H4 układ EN i H5 regresja p9b/p10 obalone).
+- **Decyzja:** jedno ponowienie `e2e-ios.yml` na HEAD (plan wydania 1.0 §1 pkt 1: „Jedno ponowienie scenariusza dozwolone”), dispatch 2026-11-08 ~17:17 UTC na `0e5fa7ef`; kod aplikacji bez zmian.
+- **Do właściciela:** E2E-95 — utwardzenie 6 miejsc z tym wzorcem (e2e/02:45, 03:35, 04:32, 05:31, 05:76, e2e-basic/04:33: czekanie na arkusz zamiast opcjonalnego stuknięcia); zmienia testy, wymaga zgody.
+- **Status:** koordynator, do weta.
