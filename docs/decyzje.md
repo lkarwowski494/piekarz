@@ -1593,3 +1593,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 ### [D-274] 2026-11-04 — Przegląd 3 zdań bezpieczeństwa maszyny zaakceptowany; bez weta D-239…D-271 (właściciel)
 - **Słowa właściciela (raport 20:00, 2026-11-04):** „Akceptuję, bez weta (Recommended)”.
 - **Decyzja:** pole `przeglad` MAS-002, MAS-062, MAS-084 z nowymi skrótami (`docs/tresci/przeglad/maszyna-06m-2026-11-04.md`); kontrola treści kod 0. Decyzje D-239…D-271 obowiązują. Nowa sesja koordynatora: „Nie”. **Status:** właściciel.
+
+### [D-275] 2026-11-08 — Testy zależne od zegara (Nightly czerwony w niedziele): stały zegar w testach (właściciel)
+- **Słowa właściciela (2026-11-08):** „Stały zegar w testach (Recommended)”.
+- **Kontekst:** Nightly na `master` @ `9c255a0` (run 42463983930, 2026-11-08, niedziela): 5 zestawów / 6 testów czerwonych na kodzie, który 2026-11-04 przechodził CI; np. `src/__tests__/pro-wznowienie-w2.test.tsx:102` szuka `pasek-dzien-<jutro>` na prawdziwym zegarze, a pasek pokazuje bieżący tydzień kalendarzowy (BR-KAL-008). Nightly 2026-11-01 (też niedziela): failure; 03–07.11: cancelled po 120 min. Ocena: realne dla wydania (blokuje `verify` przed scaleniem D-272), dla użytkownika brak błędu.
+- **Decyzja:** rola 08 (fix, ZEGAR-001, gałąź `wip/08-zegar-2026-11-08`) ustawia stały zegar w testach; kod aplikacji i asercje bez zmian; dowód czerwieni w niedzielę.
+- **Odrzucone:** pasek „7 dni od dziś” (zmiana BR-KAL-008 przez 03/04, nowy E2E); scalanie tylko w dni robocze (Nightly czerwony co niedzielę).
+- **Status:** właściciel. Szczegóły wykonania: plik stanu `docs/stan-08-zegar-2026-11-08.md`.
+
+### [D-276] 2026-11-08 — Wznowienie koordynatora M3: gałęzie, tory równoległe, tylko zakres 1.0 (właściciel)
+- **Słowa właściciela (2026-11-08):** gałęzie: „redesign/ i wip/ (Recommended)”; tory: „B: drobne poprawki, C: formalności M8, Tylko co idzie do 1.0”; wersja: „Aplikacja nie jest wydana więc nie ma jeszcze wersji 1.0. Co mamy w planie do zrobienia żeby wydać 1.0 i co żeby wydać 1.1”.
+- **Decyzja:** (1) partie na `wip/…-2026-11-08`, scalenia do `redesign/piekarz-2026-10-22`, do `master` tylko według D-272; (2) ścieżka krytyczna: iOS E2E na HEAD (dispatch 2026-11-08 ~16:07 UTC na `fb8b66a3`) + ZEGAR-001 → build kandydata (D-272; wyjątek nazwany: commit scalenia różni się od sprawdzonego w E2E tylko testami i dokumentami, precedens `9c255a0`) → test telefonu (D-226) → M1 (D-225) → M2 → reaudyt → rola 10; (3) tor B (es „a las {godzina}” 1:xx — 09; terminy maszyny pt/ja/lt, `DODATKI_MASZYNY` — 06) na `wip/` po buildzie kandydata; (4) tor C: M8 formalności w osobnej sesji na `formalnosci/piekarz-2026-11-08`, pula decyzji D-290…D-299; (5) bez prac nad 1.1 do wydania 1.0 (zakres 1.1 ustala rola 03 po 1.0).
+- **Odrzucone:** tor D (szkic zakresu 1.1 teraz); praca tylko na gałęzi sesji `claude/…`.
+- **Status:** właściciel.

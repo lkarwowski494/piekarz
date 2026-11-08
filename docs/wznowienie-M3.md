@@ -1,7 +1,13 @@
 # Wznowienie M3 (Redesigner): przekazanie
-Aktualizacja: 2026-11-04 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
+Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## PAUZA 2026-11-04 ~19:10 UTC (właściciel: „zapisz pracę i wstrzymaj dalsze kroki … bym mógł wznowić w dowolnym momencie”) — STAN BIEŻĄCY, czytaj najpierw
+## WZNOWIENIE 2026-11-08 ~16:15 UTC (nowy koordynator M3; poprzedni przerwał na limicie tygodniowym konta) — STAN BIEŻĄCY, czytaj najpierw
+- Baza `redesign/piekarz-2026-10-22` @ `fb8b66a3`; `master` @ `9c255a0` = build 1022. Prompt koordynatora: `node <prompts>/tools/assemble.mjs M3-redesigner --galaz redesign/piekarz-2026-10-22`; K = `audit/M3-2026-11-08/` (poza gitem).
+- **W toku:** iOS E2E (workflow_dispatch na `fb8b66a3`, ~16:07 UTC); rola 08 ZEGAR-001 (D-275) na `wip/08-zegar-2026-11-08` (subagent); M8 formalności w sesji `session_01T66VBxvEunyQiF4dR36h6c` na `formalnosci/piekarz-2026-11-08` (pula D-290…D-299).
+- **Następny krok:** E2E zielone + ZEGAR-001 scalone + `verify` kod 0 → D-272: merge --no-ff do `master`, `testflight.yml`, wiersz w `docs/wydanie/dziennik.md` (dopisać brakujące 1019, 1021). Potem tor B (D-276 pkt 3), test telefonu (D-226), M1 (D-225; limit tygodniowy konta odnawia się 2026-11-15 ~16:00 UTC).
+- Decyzje do D-276; wolne od D-277 (D-290…D-299 dla M8).
+
+## PAUZA 2026-11-04 ~19:10 UTC (właściciel: „zapisz pracę i wstrzymaj dalsze kroki … bym mógł wznowić w dowolnym momencie”) (historia)
 - `redesign/piekarz-2026-10-22` @ `ee733b46` = origin (verify kod 0, 570 zestawów / 5983 testów, kontrola treści kod 0). Drzewo czyste. Nic nie biegnie: wszystkie sesje ról zarchiwizowane, zaplanowane dyżury M3 usunięte (E2E 23:05 odwołany). `master` @ `9c255a0` = build 1022.
 - **Wznowienie (pierwszy krok):** iOS E2E — workflow_dispatch `e2e-ios.yml` na `redesign` HEAD, najlepiej poza 15–24 Warszawa (brak runnerów macOS; run 41864203833 anulowany bez logów). Zielony → wg **D-272** (zgoda właściciela): scal dokładnie sprawdzony commit do `master` (merge --no-ff), verify, push, `testflight.yml` na `master`, wiersz w `docs/wydanie/dziennik.md`. Czerwony → poprawka (rola 08 fix), nowy E2E, bez buildu.
 - **Potem:** test telefonu na kandydacie (D-226, `docs/wydanie/lista-kontrolna-telefonu.md`) → pełny M1 (D-225; w nim D-273: plik ratunkowy przy kasowaniu `bake_sessions`). Drobne do kolejnej partii: es „a las {godzina}” dla 1:xx (09); długie etykiety k20–k22 i segmenty przełącznika w 320 pt (04); terminy maszyny pt/ja/lt (06); rozmaryn focaccii, skórka cytryny kołocza w `DODATKI_MASZYNY` (06); otwarte OP-67/OP-73, DRO-PLN-900, studzenie żyta 1440 min (04/M1).
