@@ -1,0 +1,43 @@
+FAIL src/__tests__/piecz-ponownie-wersja-p9b.test.tsx
+  p9b: „Piecz ponownie” w zapisanej wersji
+    ✕ wpis na drożdżach: plan z formułą i krokami wersji drożdżowej (264 ms)
+    ✕ wpis na zakwasie: wersja na zakwasie z formułą receptury (34 ms)
+    ✓ wpis bez wersji (NULL, sprzed p9) i receptura bez przełącznika: bez wersji, formuła receptury (61 ms)
+
+  ● p9b: „Piecz ponownie” w zapisanej wersji › wpis na drożdżach: plan z formułą i krokami wersji drożdżowej
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "drozdze"
+    Received: undefined
+
+      91 |     expect(mockNavigate).toHaveBeenCalledWith('/receptury/harmonogram');
+      92 |     const r = recepturaPlanu()!;
+    > 93 |     expect(r.wersja).toBe('drozdze');
+         |                      ^
+      94 |     expect(r.recipeFormula).toMatchObject({ starterPercentage: 0, extraYeastPercentage: 2 });
+      95 |     expect(r.calculatedRecipe.starterGrams).toBe(0);
+      96 |     let plan!: renderer.ReactTestRenderer;
+
+
+  ● p9b: „Piecz ponownie” w zapisanej wersji › wpis na zakwasie: wersja na zakwasie z formułą receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "zakwas"
+    Received: undefined
+
+      111 |   it('wpis na zakwasie: wersja na zakwasie z formułą receptury', async () => {
+      112 |     await pieczPonownie({ ...wpis(graham.namePl, 'graham_bread_honey'), leaven: 'sourdough' });
+    > 113 |     expect(recepturaPlanu()?.wersja).toBe('zakwas');
+          |                                      ^
+      114 |     expect(recepturaPlanu()?.recipeFormula).toMatchObject({ starterPercentage: 20 });
+      115 |   });
+      116 |
+
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        2.338 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/piecz-ponownie-wersja-p9b.test.tsx/i.

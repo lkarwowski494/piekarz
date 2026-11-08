@@ -19,7 +19,7 @@ const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }
 const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
 type Raw = ReturnType<typeof openRaw>;
 
-const WERSJA_D1 = 6;
+const WERSJA_D1 = 7; // bieżąca wersja po starcie: v7 (D-242 Z3, zgoda D-250) [M3 p9b]
 const kolumny = (raw: Raw, t: string) => (raw.prepare(`PRAGMA table_info(${t})`).all() as Array<{ name: string }>).map((c) => c.name);
 const maTabele = (raw: Raw, t: string) => (raw.prepare("SELECT count(*) AS c FROM sqlite_master WHERE type='table' AND name = ?").get(t) as { c: number }).c === 1;
 const wersja = (raw: Raw) => (raw.prepare('PRAGMA user_version').get() as { user_version: number }).user_version;
@@ -76,7 +76,7 @@ describe('D1: migracja v6 na kopii bazy buildu 1014', () => {
       const po = tableCounts(raw);
       for (const t of Object.keys(przed)) {
         if (t === 'app_settings') expect(po[t]).toBe(przed[t] - 1); // tylko klucz starej sesji
-        else if (t === 'schema_migrations') expect(po[t]).toBe(przed[t] + 1);
+        else if (t === 'schema_migrations') expect(po[t]).toBe(przed[t] + 2); // z v5: migracje v6 i v7 (D-251)
         else expect({ t, n: po[t] }).toEqual({ t, n: przed[t] });
       }
       expect(raw.prepare('SELECT count(*) AS c FROM app_settings WHERE key = ?').get(KLUCZ_SESJI_1014)).toEqual({ c: 0 });

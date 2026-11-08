@@ -1,0 +1,39 @@
+(node:10645) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b-wybory.sqlite.test.ts
+  p9b: parser wersji receptur (Z1 b)
+    ✓ brak klucza = pusta mapa; poprawny JSON = mapa; zły kształt = błąd typowany (4 ms)
+  p9b: parser danych maszyny (Z4 a, BR-MASZ-002)
+    ✓ brak = null (prośba o dane), komplet i pola nieobowiązkowe jako null (1 ms)
+    ✓ zły kształt = błąd: inna wersja formatu, brak lub zero masy mąki, ujemne masy, nieznany układ, nie-JSON (1 ms)
+  p9b: zapis i odczyt wyborów w bazie
+    ✓ wersja receptury: zapis odstępstwa, powrót do zakwasu usuwa wpis z mapy, inne receptury bez zmian; po restarcie ta sama (168 ms)
+    ✓ dane maszyny: zapis i odczyt po restarcie; zły zapis w bazie = błąd, nie liczba domyślna (46 ms)
+  p9b: import kopii sprawdza kształt nowych kluczy (drugi przegląd ścieżek wrażliwych, P1)
+    ✕ zła wartość maszyna lub wersje_receptur w kopii jest pomijana jak nieznany klucz; telefon zostaje bez zmian (37 ms)
+
+  ● p9b: import kopii sprawdza kształt nowych kluczy (drugi przegląd ścieżek wrażliwych, P1) › zła wartość maszyna lub wersje_receptur w kopii jest pomijana jak nieznany klucz; telefon zostaje bez zmian
+
+    expect(received).not.toHaveProperty(path)
+
+    Expected path: not "maszyna"
+
+    Received value: "{\"v\":2,\"makaMaxG\":620}"
+
+      110 |     koperta.state.settings = { ...(koperta.state.settings ?? {}), maszyna: '{"v":2,"makaMaxG":620}', wersje_receptur: '[]' };
+      111 |     const kopia = app.backup.parseAndValidateBackup(JSON.stringify(koperta));
+    > 112 |     expect(kopia.state.settings).not.toHaveProperty('maszyna');
+          |                                      ^
+      113 |     expect(kopia.state.settings).not.toHaveProperty('wersje_receptur');
+      114 |     await app.store.restoreFromBackupData({ ...kopia.state, settings: { ...kopia.state.settings, maszyna: 'x', wersje_receptur: '{"a":"inna"}' } });
+      115 |     expect(await app.store.getAppSetting('maszyna')).toBe(dobraMaszyna);
+
+      at Object.toHaveProperty (src/data/__tests__/p9b-wybory.sqlite.test.ts:112:38)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 passed, 6 total
+Snapshots:   0 total
+Time:        1.194 s
+Ran all test suites matching /src\/data\/__tests__\/p9b-wybory.sqlite.test.ts/i.

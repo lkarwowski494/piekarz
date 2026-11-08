@@ -1,0 +1,85 @@
+{
+ "_opis": "Biblioteki natywne spoza npm, które React Native kompiluje do binarki iOS (podspec w node_modules/react-native/third-party-podspecs i SocketRocket z scripts/cocoapods/helpers.rb): Z-08-1 (FOR-15, D-291). Wersja — z podspec (scripts/licencje.mjs i tests/licencje-dane.test.ts porównują); licencja (SPDX), notki i adres pliku licencji w tej wersji — przepisane z listy repo trening (scripts/licenses-native.json, SEC2-06), gdzie sprawdzono je z plików licencji projektów w tych samych wersjach (RN 0.86.3 w obu aplikacjach). Treść BSL-1.0 w scripts/licencje-natywne/BSL-1.0.txt, pozostałe treści z pakietów npm. UWAGA: do uzupełnienia z Podfile.lock w CI — ios/ powstaje w CI przez expo prebuild (ios/ jest w .gitignore), więc lista jest stała i obejmuje tylko to, co wynika z podspec React Native; moduły Expo z własnym kodem natywnym spoza npm (jeśli prebuild doda pody spoza listy: np. Hermes) trzeba dopisać po sprawdzeniu ios/Podfile.lock z przebiegu CI. fast_float ma trzy licencje do wyboru (Apache-2.0 OR BSL-1.0 OR MIT) — wybrana MIT. glog: druga notka w COPYING dotyczy funkcji gettimeofday tylko dla Windows — poza binarką iOS. folly: plik LICENSE bez notki — notka z nagłówków źródeł. Lista fonts: kroje dołączone jako pliki (assets/fonts, bez pakietu npm): Sofia Sans Semi Condensed 4.101 (wersja z tabeli name pliku TTF), OFL-1.1; treść licencji z pliku licencji kroju w repo.",
+ "pods": [
+  {
+   "pod": "RCT-Folly",
+   "name": "folly",
+   "version": "2024.11.18.00",
+   "license": "Apache-2.0",
+   "copyright": [
+    "Copyright (c) Meta Platforms, Inc. and affiliates."
+   ],
+   "url": "https://github.com/facebook/folly/blob/v2024.11.18.00/LICENSE"
+  },
+  {
+   "pod": "glog",
+   "name": "glog",
+   "version": "0.3.5",
+   "license": "BSD-3-Clause",
+   "copyright": [
+    "Copyright (c) 2008, Google Inc."
+   ],
+   "url": "https://github.com/google/glog/blob/v0.3.5/COPYING"
+  },
+  {
+   "pod": "DoubleConversion",
+   "name": "double-conversion",
+   "version": "1.1.6",
+   "license": "BSD-3-Clause",
+   "copyright": [
+    "Copyright 2006-2011, the V8 project authors."
+   ],
+   "url": "https://github.com/google/double-conversion/blob/v1.1.6/LICENSE"
+  },
+  {
+   "pod": "fmt",
+   "name": "fmt",
+   "version": "12.1.0",
+   "license": "MIT",
+   "copyright": [
+    "Copyright (c) 2012 - present, Victor Zverovich and {fmt} contributors"
+   ],
+   "url": "https://github.com/fmtlib/fmt/blob/12.1.0/LICENSE"
+  },
+  {
+   "pod": "fast_float",
+   "name": "fast_float",
+   "version": "8.0.0",
+   "license": "MIT",
+   "copyright": [
+    "Copyright (c) 2021 The fast_float authors"
+   ],
+   "url": "https://github.com/fastfloat/fast_float/blob/v8.0.0/LICENSE-MIT"
+  },
+  {
+   "pod": "boost",
+   "name": "boost",
+   "version": "1.84.0",
+   "license": "BSL-1.0",
+   "copyright": [],
+   "url": "https://github.com/boostorg/boost/blob/boost-1.84.0/LICENSE_1_0.txt"
+  },
+  {
+   "pod": "SocketRocket",
+   "name": "SocketRocket",
+   "version": "0.7.1",
+   "license": "BSD-3-Clause",
+   "copyright": [
+    "Copyright (c) 2016-present, Facebook, Inc."
+   ],
+   "url": "https://github.com/facebookincubator/SocketRocket/blob/0.7.1/LICENSE"
+  }
+ ],
+ "fonts": [
+  {
+   "name": "Sofia Sans Semi Condensed",
+   "version": "4.101",
+   "license": "OFL-1.1",
+   "copyright": [
+    "Copyright 2019 The Sofia Sans Project Authors (https://github.com/lettersoup/Sofia-Sans)"
+   ],
+   "url": "https://github.com/lettersoup/Sofia-Sans",
+   "file": "assets/fonts/OFL-sofiasanssemicondensed.txt"
+  }
+ ]
+}

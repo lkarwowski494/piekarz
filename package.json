@@ -21,6 +21,8 @@
     "check:i18n": "node scripts/check-i18n.mjs --kod src,app",
     "i18n:kontekst": "node scripts/check-i18n.mjs --kod src,app --zapisz-kontekst",
     "check:licenses": "node scripts/check-licenses.mjs",
+    "licencje": "node scripts/licencje.mjs",
+    "check:licencje": "node scripts/licencje.mjs --check",
     "check:size": "node scripts/check-file-size.mjs",
     "check:metadane": "node scripts/sprawdz-metadane.mjs",
     "karty:ustawien": "node scripts/karty-ustawien.mjs",
@@ -30,7 +32,7 @@
     "verify:matrix": "node scripts/test-matrix.mjs --check",
     "test:mutation": "stryker run",
     "check:mutation": "stryker run",
-    "verify": "npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test"
+    "verify": "npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test"
   },
   "dependencies": {
     "@apps4craft/ui": "github:lkarwowski494/apps4craft-ui",

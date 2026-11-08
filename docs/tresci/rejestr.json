@@ -482,7 +482,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03). 06d (D-256): użyte też jako warunek końca rozrostu w formie wersji drożdżowej chleba żytniego (procedura źródła ma 10 g drożdży na 1000 g mąki obok zakwasu, ciasto żytnie w formie); test palca (DRO-MOD-013) dotyczy ciasta pszennego z siatką glutenu (ZYT-CIA-001) i nie jest dla żyta.",
     "krytyczne": false,
     "przeglad": null
   },
@@ -1927,7 +1927,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Zgodne kierunkowo z ZYT-STU-001 (24 h, ten sam wydawca, inny tekst); granica „do 24 godzin” to zalecenie, nie blokada.",
+    "uproszczenie": "Zgodne kierunkowo z ZYT-STU-001 (24 h, ten sam wydawca, inny tekst); granica „do 24 godzin” to zalecenie, nie blokada. 06d (D-256): dotyczy chlebów z dużym udziałem żyta bez względu na zaczyn, więc także wersji drożdżowej rye_100_pan; zgodne kierunkowo z ZYT-DRO-002 (chleby żytnie na drożdżach zbyt lepkie do oceny w dniu wypieku, szczebel 2). Odczyt dosłowny 2026-11-04 (curl, tekst strony).",
     "uwagi": "M1-audytor-generalny-100: rye_cool.",
     "krytyczne": false,
     "przeglad": null,
@@ -4623,7 +4623,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Warunki laboratoryjne (komora 37 °C). Przypisanie czasów do chlebów żytnich sprawdzone w XML tabeli (colspan: kolumny RB i WRB mają wspólne komórki 60 min 28 °C, 500 g, by hand, 60 min 37 °C, 240 °C 10 min + 220 °C 35 min), rola 06, 2026-11-03.",
+    "uproszczenie": "Warunki laboratoryjne (komora 37 °C). Przypisanie czasów do chlebów żytnich sprawdzone w XML tabeli (colspan: kolumny RB i WRB mają wspólne komórki 60 min 28 °C, 500 g, by hand, 60 min 37 °C, 240 °C 10 min + 220 °C 35 min), rola 06, 2026-11-03. 06d (D-256, 2026-11-04): para czas–temperatura pieczenia wersji drożdżowej pochodzi z tego źródła w całości (10 min 240 °C + 35 min 220 °C), nie z receptury na zakwasie (230/195 °C bez źródła w rejestrze); źródło piecze kęsy 500 g, receptura domyślnie 1000 g ciasta — dłuższy czas dla większego bochenka bez źródła [DO USTALENIA]. Mieszanie w tym samym wierszu tabeli: „Mixing 2 min slow + 4 min fast” (mikser, wszystkie chleby; odczyt 2026-11-04, Europe PMC fullTextXML, w XML spacje wąskie U+2009).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-11-03",
@@ -4890,9 +4890,9 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
-      "data": "2026-11-03",
-      "sha": "391507c2912d"
+      "kto": "właściciel (raport M3 20:00, 2026-11-04: „Akceptuję, bez weta (Recommended)”; zmiana „Piekarz” → „the app” w EN, docs/tresci/przeglad/maszyna-06m-2026-11-04.md)",
+      "data": "2026-11-04",
+      "sha": "d80387a202e5"
     },
     "wielkosc": "tefal_pf2208_maks_maka",
     "wartosc": 620,
@@ -5996,9 +5996,9 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
-      "data": "2026-11-03",
-      "sha": "60b664c8aa42"
+      "kto": "właściciel (raport M3 20:00, 2026-11-04: „Akceptuję, bez weta (Recommended)”; zmiana „Piekarz” → „the app” w EN, docs/tresci/przeglad/maszyna-06m-2026-11-04.md)",
+      "data": "2026-11-04",
+      "sha": "1557242fa7c5"
     },
     "wazne_do": "2027-11-03",
     "uwagi": "Krytyczne: mienie (przelanie). Aplikacja przy skalowaniu receptury do bochenka nie może przekroczyć limitu mąki maszyny — limit podaje instrukcja modelu (np. MAS-002, MAS-032)."
@@ -7504,11 +7504,98 @@
     "uproszczenie": "Wyjątek z jednej instrukcji (Cuisinart) stosowany w regule aplikacji D-175 dla wszystkich maszyn; inne przeczytane instrukcje zabraniają „mleka” bez rozróżnienia albo milczą o mleku w proszku.",
     "krytyczne": true,
     "przeglad": {
-      "kto": "właściciel (przez koordynatora M3: „1. Zdania krytyczne. Approved.”; przegląd 38 zdań PL/EN z cytatami, docs/tresci/przeglad/m3-zdania-2026-11-03.md)",
-      "data": "2026-11-03",
-      "sha": "df63a3878ecd"
+      "kto": "właściciel (raport M3 20:00, 2026-11-04: „Akceptuję, bez weta (Recommended)”; zmiana „Piekarz” → „the app” w EN, docs/tresci/przeglad/maszyna-06m-2026-11-04.md)",
+      "data": "2026-11-04",
+      "sha": "181463c2a5e3"
     },
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "MAS-085",
+    "twierdzenie": "Według czterech przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programach samego ciasta (bez pieczenia): Tefal Pain Plaisir — niedostępny m.in. w programie 11 (ciasto drożdżowe); Zojirushi BB-PDC20 — niedostępny w kursie DOUGH; Panasonic SD-YR2550 — niedostępny w menu ciast poza pizzą; Kenwood BM200 — niezalecany dla ciasta. Przeczytany fragment instrukcji Cuisinart CBK-110 o opóźnionym starcie o tym milczy.",
+    "zrodla": [
+      {
+        "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
+        "miejsce": "Tefal, „PAIN PLAISIR / PAIN & DELICES Instructions for Use” (PDF producenta, link „Download manual” na tefal.com/instructions-for-use/csp/7211002268, strona produktu wymienia PF220838); EN, „DELAYED START PROGRAM”, s. 113; kopia tefal-pf2208-IFU.pdf, sha256 ef4b947716d9",
+        "cytat": "The delayed start program is not available for: Programs 5,11, 12, 13, 14, 15, 16 and 17 (for “Pain Plaisir” model).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://cdn.shopify.com/s/files/1/0348/3467/7900/files/bbpdc_en.pdf?v=1793226626",
+        "miejsce": "Zojirushi BB-PDC20 Home Bakery Virtuoso Plus, Operating Instructions (PDF z zojirushi.com/products/bbpdc); HOW TO MAKE DOUGH, PDF s. 20; kopia zoj-bbpdc-en.pdf, sha256 05d8046b8246",
+        "cytat": "The timer function is not available for the DOUGH course.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bilder.quelle.de/v1/static/be27c6ec478999a4dd93915a7cea41fd",
+        "miejsce": "Panasonic SD-YR2550/SD-R2530, „OPERATING INSTRUCTIONS AND RECIPES” (© Panasonic Taiwan; EN, „Bread Dough”, PDF s. 8; kopia PDF producenta u sprzedawcy Quelle — panasonic.com zwraca 403)",
+        "cytat": "Timer is not available on doughs menus except Pizza.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://dls.delonghigroup.com/files/docs/5/A1-BM258.pdf",
+        "miejsce": "Kenwood BM200 Operating Instructions (PDF na serwerze De’Longhi Group, właściciela marki Kenwood; THE TIMER SET PADS, PDF s. 8; kopia kenwood-bm258-delonghigroup.pdf, sha256 997a631565ee",
+        "cytat": "The delayed start is not recommended for use with dough, jam or rapid bake settings.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04",
+    "uwagi": "06m (D-266 c): brakujące ograniczenie — ekran trybu maszyny proponuje „Gotowe o” (opóźnienie) także przy podpowiedzi programu „ciasto” (ProgramMaszynyKarta.tsx); zmiana logiki dla roli 08. Cuisinart: tabela cykli nie sprawdzona pod tym kątem."
+  },
+  {
+    "id": "MAS-086",
+    "twierdzenie": "Według pięciu przeczytanych instrukcji opóźniony start ustawia się jako czas, o którym chleb ma być gotowy (koniec programu), a nie jako czas startu programu: Tefal Pain Plaisir, Panasonic SD-YR2550, Cuisinart CBK-110 i Kenwood BM200 — czas od teraz do gotowości, w który maszyna sama wlicza czas programu; Zojirushi BB-PDC20 — godzina zakończenia programu.",
+    "zrodla": [
+      {
+        "adres": "https://dam.groupeseb.com/m/ae6aa196a5a491bf/original/1520016472-IFU.pdf?timestamp=20250530112047",
+        "miejsce": "Tefal, „PAIN PLAISIR / PAIN & DELICES Instructions for Use” (PDF producenta, link „Download manual” na tefal.com/instructions-for-use/csp/7211002268, strona produktu wymienia PF220838); EN, „DELAYED START PROGRAM”, s. 113; kopia tefal-pf2208-IFU.pdf, sha256 ef4b947716d9",
+        "cytat": "Calculate the time difference between the moment you start the programme and the time at which you want your recipe to be ready. The machine automatically includes the programme cycle duration.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://bilder.quelle.de/v1/static/72d0ef670c729c033dff0bb9614197d8",
+        "miejsce": "Panasonic SD-YR2550/SD-YR2540/SD-R2530/SD-B2510, „OPERATING INSTRUCTIONS” (© Panasonic Taiwan; EN, „Parts Names and Instructions”, Timer, s. GB7 (PDF s. 8); kopia PDF producenta hostowana u sprzedawcy Quelle — panasonic.com zwraca 403)",
+        "cytat": "Set delay timer (time until bread is ready).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b-e11c45f842df.pdf",
+        "miejsce": "Cuisinart CBK-110 Instruction Booklet (kopia PDF producenta u sprzedawcy Home Depot; Delay Start Timer, PDF s. 5; kopia cuisinart-cbk110-homedepot.pdf, sha256 b835d375c2d3",
+        "cytat": "Be sure to set your timer based on when you would like your bread to be complete.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://dls.delonghigroup.com/files/docs/5/A1-BM258.pdf",
+        "miejsce": "Kenwood BM200 Operating Instructions (PDF na serwerze De’Longhi Group, właściciela marki Kenwood; THE TIMER SET PADS, PDF s. 8; kopia kenwood-bm258-delonghigroup.pdf, sha256 997a631565ee",
+        "cytat": "You do not need to work out the difference between the setting time selected and the total hours required as the bread maker will automatically include the setting cycle time when the timer pad is first pressed.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://cdn.shopify.com/s/files/1/0348/3467/7900/files/bbpdc_en.pdf?v=1793226626",
+        "miejsce": "Zojirushi BB-PDC20 Home Bakery Virtuoso Plus, Operating Instructions (PDF z zojirushi.com/products/bbpdc); SETTING THE TIMER, s. 17; kopia zoj-bbpdc-en.pdf, sha256 05d8046b8246",
+        "cytat": "The timer function allows you to set the completion time up to 13 hours in the future in 10-minute increments.",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-04",
+    "uwagi": "06m (D-266 c): rozstrzyga OP-65. Tefal po pieczeniu utrzymuje ciepło jeszcze 1 godzinę („Keep warm”), więc „gotowe” = koniec pieczenia. Podgrzewania instrukcje nie wyodrębniają: liczy się cały program."
   },
   {
     "id": "KAT-WAG-001",
@@ -10310,5 +10397,29 @@
       "sha": "d3b15ef100c8"
     },
     "wazne_do": "2027-11-03"
+  },
+  {
+    "id": "DRO-PLN-900",
+    "twierdzenie": "[DO USTALENIA] Czasy kroków z rękami w planie wersji drożdżowej (src/core/yeast-stages.ts: mieszanie i wyrabianie 15 min, odgazowanie 10 min, kształtowanie 15 min, studzenie chleba pszennego 120 min) nie mają źródła. Źródła opisują te czynności bez czasu: Red Star „Kneading time varies depending on many factors”, „Completely cool breads before storing”; UK Extension „cool on a wire rack”. Jedyny czas ze źródła: wyrabianie ręczne około 8–10 minut (KAT-ILB-002, Illinois 4-H, szczebel 3); studzenie chleba żytniego: KRO-POC-016 (do 24 h).",
+    "zrodla": [
+      {
+        "adres": "https://redstaryeast.com/baking-with-yeast-guide/",
+        "miejsce": "Red Star, „Baking with Yeast: Step-by-Step Guide”, sekcje Kneading i Cooling & Storage; tekst strony (curl, znaczniki HTML zdjęte)",
+        "cytat": "Kneading time varies depending on many factors, including the recipe, ingredients, type of flour and kneading method (by hand, mixer, or bread machine).",
+        "odczyt": "2026-11-04",
+        "szczebel": 1
+      },
+      {
+        "adres": "https://4h.extension.illinois.edu/media/3386",
+        "miejsce": "Illinois 4-H „Cooking 301 State Fair Recipes”, przepis chleba, krok 4 (pdftotext)",
+        "cytat": "knead until dough is smooth, elastic, and does not stick to surface or hands, about 8 to 10 minutes.",
+        "odczyt": "2026-11-04",
+        "szczebel": 3
+      }
+    ],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła plan zostawia te czasy jako nazwane uproszczenie planu (D-256): to rezerwa czasu w harmonogramie, nie zalecenie; tekst kroku nie podaje tych liczb. Kierunek: 15 min mieszania i wyrabiania obejmuje 8–10 min wyrabiania ze źródła; krótsze odgazowanie i kształtowanie niż w planie nie skracają rośnięcia (czasy rośnięcia są ze źródeł).",
+    "krytyczne": false,
+    "przeglad": null
   }
 ]

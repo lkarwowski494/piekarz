@@ -57,12 +57,15 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
       startedAt,
       currentStageId: kroki[0]?.id ?? '',
       ...(tempWybrana ? { ambientTempC: ambientTemp } : {}),
-      isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
+      // Wersja drożdżowa: false, żeby build 1021 (nie zna `wersja`) nie zamienił kroków yeast_* na etapy żytnie [M3 p9b]
+      isHighRye: receptura && receptura.wersja !== 'drozdze' ? receptura.calculatedRecipe.isHighRye : false,
       steps: [...kroki],
       ...(zakwas ? { starterId: zakwas.id } : {}),
       ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       // Id receptury w sesji, przy końcu w bakes.recipe_id: „Piecz ponownie” po id (D-10, D1-7) [M3 D3a]
       ...(receptura?.recipeId !== undefined ? { recipeId: receptura.recipeId } : {}),
+      // Wersja receptury z przełącznikiem (D-242 Z2): prowadzenie i wpis Dziennika (bakes.leaven, Z3) [M3 p9b]
+      ...(receptura?.wersja !== undefined ? { wersja: receptura.wersja } : {}),
     };
   };
 

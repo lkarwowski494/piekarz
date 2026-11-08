@@ -46,7 +46,7 @@ export interface PiekarzBackupEnvelope {
 }
 
 /**
- * Koperta kopii. Pola v6 (recipeId wpisu, stały dzień zakwasu) zawsze jawnie, także null: import na drugim telefonie
+ * Koperta kopii. Pola v6 (recipeId wpisu, stały dzień zakwasu) i v7 (leaven wpisu, D-242 Z3) zawsze jawnie, także null: import na drugim telefonie
  * rozstrzyga je z kopii, a build sprzed D1 je pomija (format 2, pola opcjonalne, D1-2) [M3 D1].
  */
 export function buildBackup(state: PiekarzBackupData): PiekarzBackupEnvelope {
@@ -56,7 +56,7 @@ export function buildBackup(state: PiekarzBackupData): PiekarzBackupEnvelope {
     exportedAt: new Date().toISOString(),
     state: {
       ...state,
-      bakes: state.bakes.map((b) => ({ ...b, recipeId: b.recipeId ?? null })),
+      bakes: state.bakes.map((b) => ({ ...b, recipeId: b.recipeId ?? null, leaven: b.leaven ?? null, bakeMethod: b.bakeMethod ?? null })),
       starters: state.starters.map((s) => ({ ...s, fridgeFeedDay: s.fridgeFeedDay ?? null })),
     },
   };

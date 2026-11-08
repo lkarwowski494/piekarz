@@ -1,0 +1,181 @@
+(node:1061) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts
+  p9b-2: migracja v7 z bakes.bake_method na kopiach wydanych wersji (D-260)
+    ✕ 1021 (v6) → v7: stare wpisy z pustą metodą, liczności bez strat, integrity_check i foreign_key_check (1490 ms)
+    ✕ 1014 (v5) → v7 jednym startem: kolumna metody i wpisy bez strat (34 ms)
+    ✕ CHECK przyjmuje dokładnie wartości isBakeMethod (piekarnik, maszyna) i NULL (34 ms)
+    ✓ błąd w środku migracji v7: wycofanie całości — bez obu kolumn, wersja 6, liczności jak w 1021 (35 ms)
+  p9b-2: metoda wypieku w zapisie Dziennika i w kopii
+    ✕ koniec wypieku z maszyny: wpis z metodą maszyna; ocena po wypieku (zapis bez metody) jej nie zeruje (45 ms)
+    ✕ koniec wypieku z piekarnika: metoda piekarnik; sesja sprzed p9 (bez trybu): metoda pusta (41 ms)
+    ✕ wpisZSesji: metoda z sesji tylko, gdy wpis jej nie niesie (1 ms)
+    ✕ kopia: eksport niesie metodę jawnie (także null), import przenosi; kopia sprzed p9 bez pola zostawia wartość z telefonu (26 ms)
+
+  ● p9b-2: migracja v7 z bakes.bake_method na kopiach wydanych wersji (D-260) › 1021 (v6) → v7: stare wpisy z pustą metodą, liczności bez strat, integrity_check i foreign_key_check
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "kolumna": true,
+    +   "kolumna": false,
+        "wersja": 7,
+      }
+
+      24 |   const raw = openRaw(APP_DB());
+      25 |   // Pierwsza asercja: kolumna metody po migracji (czerwień przed kodem: brak kolumny)
+    > 26 |   expect({ wersja: wersja(raw), kolumna: kolumny(raw).includes(KOLUMNA) }).toEqual({ wersja: 7, kolumna: true });
+         |                                                                            ^
+      27 |   raw.close();
+      28 |   expect(app.status.getStorageState()).toBe('ok');
+      29 |   return { app, przed };
+
+      at toEqual (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:26:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b-2: migracja v7 z bakes.bake_method na kopiach wydanych wersji (D-260) › 1014 (v5) → v7 jednym startem: kolumna metody i wpisy bez strat
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "kolumna": true,
+    +   "kolumna": false,
+        "wersja": 7,
+      }
+
+      24 |   const raw = openRaw(APP_DB());
+      25 |   // Pierwsza asercja: kolumna metody po migracji (czerwień przed kodem: brak kolumny)
+    > 26 |   expect({ wersja: wersja(raw), kolumna: kolumny(raw).includes(KOLUMNA) }).toEqual({ wersja: 7, kolumna: true });
+         |                                                                            ^
+      27 |   raw.close();
+      28 |   expect(app.status.getStorageState()).toBe('ok');
+      29 |   return { app, przed };
+
+      at toEqual (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:26:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b-2: migracja v7 z bakes.bake_method na kopiach wydanych wersji (D-260) › CHECK przyjmuje dokładnie wartości isBakeMethod (piekarnik, maszyna) i NULL
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "kolumna": true,
+    +   "kolumna": false,
+        "wersja": 7,
+      }
+
+      24 |   const raw = openRaw(APP_DB());
+      25 |   // Pierwsza asercja: kolumna metody po migracji (czerwień przed kodem: brak kolumny)
+    > 26 |   expect({ wersja: wersja(raw), kolumna: kolumny(raw).includes(KOLUMNA) }).toEqual({ wersja: 7, kolumna: true });
+         |                                                                            ^
+      27 |   raw.close();
+      28 |   expect(app.status.getStorageState()).toBe('ok');
+      29 |   return { app, przed };
+
+      at toEqual (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:26:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b-2: metoda wypieku w zapisie Dziennika i w kopii › koniec wypieku z maszyny: wpis z metodą maszyna; ocena po wypieku (zapis bez metody) jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "maszyna"
+    Received: undefined
+
+      109 |   it('koniec wypieku z maszyny: wpis z metodą maszyna; ocena po wypieku (zapis bez metody) jej nie zeruje', async () => {
+      110 |     const { app, log } = await koniecWypieku('maszyna');
+    > 111 |     expect((await app.store.getBakeLogs()).find((b) => b.id === 'bake_live')?.bakeMethod).toBe('maszyna');
+          |                                                                                           ^
+      112 |     await app.store.saveBakeLog({ ...log, ratingStars: 4 });
+      113 |     const raw = openRaw(APP_DB());
+      114 |     expect(raw.prepare(`SELECT ${KOLUMNA} AS m, rating_stars AS r FROM bakes WHERE id = 'bake_live'`).get()).toEqual({ m: 'maszyna', r: 4 });
+
+      at Object.toBe (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:111:91)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b-2: metoda wypieku w zapisie Dziennika i w kopii › koniec wypieku z piekarnika: metoda piekarnik; sesja sprzed p9 (bez trybu): metoda pusta
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "piekarnik"
+    Received: undefined
+
+      118 |   it('koniec wypieku z piekarnika: metoda piekarnik; sesja sprzed p9 (bez trybu): metoda pusta', async () => {
+      119 |     const { app } = await koniecWypieku('piekarnik');
+    > 120 |     expect((await app.store.getBakeLogs()).find((b) => b.id === 'bake_live')?.bakeMethod).toBe('piekarnik');
+          |                                                                                           ^
+      121 |     useTempDbDir();
+      122 |     mockFiles.clear();
+      123 |     const { app: b } = await koniecWypieku(undefined);
+
+      at Object.toBe (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:120:91)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b-2: metoda wypieku w zapisie Dziennika i w kopii › wpisZSesji: metoda z sesji tylko, gdy wpis jej nie niesie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 0
+
+      Object {
+    -   "bakeMethod": "maszyna",
+        "id": "b",
+        "recipeName": "G",
+        "startedAt": 1,
+      }
+
+      132 |     const { wpisZSesji } = require('../wpisy-wypiekow') as typeof import('../wpisy-wypiekow');
+      133 |     const log = { id: 'b', recipeName: 'G', startedAt: 1 };
+    > 134 |     expect(wpisZSesji(log, { tryb: 'maszyna' })).toEqual({ ...log, bakeMethod: 'maszyna' });
+          |                                                  ^
+      135 |     expect(wpisZSesji({ ...log, bakeMethod: null }, { tryb: 'maszyna' })).toEqual({ ...log, bakeMethod: null });
+      136 |     expect(wpisZSesji(log, {})).toEqual(log);
+      137 |   });
+
+      at Object.toEqual (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:134:50)
+
+  ● p9b-2: metoda wypieku w zapisie Dziennika i w kopii › kopia: eksport niesie metodę jawnie (także null), import przenosi; kopia sprzed p9 bez pola zostawia wartość z telefonu
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "kolumna": true,
+    +   "kolumna": false,
+        "wersja": 7,
+      }
+
+      24 |   const raw = openRaw(APP_DB());
+      25 |   // Pierwsza asercja: kolumna metody po migracji (czerwień przed kodem: brak kolumny)
+    > 26 |   expect({ wersja: wersja(raw), kolumna: kolumny(raw).includes(KOLUMNA) }).toEqual({ wersja: 7, kolumna: true });
+         |                                                                            ^
+      27 |   raw.close();
+      28 |   expect(app.status.getStorageState()).toBe('ok');
+      29 |   return { app, przed };
+
+      at toEqual (src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts:26:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 1 passed, 8 total
+Snapshots:   0 total
+Time:        2.809 s
+Ran all test suites matching /src\/data\/__tests__\/p9b2-metoda-wypieku.sqlite.test.ts/i.

@@ -426,5 +426,192 @@
       },
       "twierdzenie": "MAS-002"
     }
-  ]
+  ],
+  "czasy_etapow_drozdzowych": {
+    "opis": "06d (D-256, 2026-11-04): czasy etapów receptur na drożdżach jako dane, z ID twierdzeń. Wersje drożdżowe 4 receptur (D-154/D-173) i 4 istniejące receptury drożdżowe z notatek (presety-drozdze.md, D-252 pkt 3). Kod: src/core/yeast-stages.ts (wersje); receptury drożdżowe nie mają planu (D-3). Żaden test dziś tego pliku nie czyta (rola 07). Kroki z rękami bez czasu w źródłach: DRO-PLN-900.",
+    "parametry": [
+      {
+        "parametr": "graham_bread_honey.yeast.bulkMin",
+        "jednostka": "min",
+        "wartosc": 15,
+        "granica": "wartość",
+        "twierdzenie": "DRO-WER-GR-001",
+        "uwagi": "20 °C; kod 15"
+      },
+      {
+        "parametr": "graham_bread_honey.yeast.benchMin",
+        "jednostka": "min",
+        "wartosc": 15,
+        "granica": "wartość",
+        "twierdzenie": "DRO-WER-GR-001",
+        "uwagi": "po podziale; kod 15"
+      },
+      {
+        "parametr": "graham_bread_honey.yeast.proofMin",
+        "jednostka": "min",
+        "wartosc": 70,
+        "granica": "wartość",
+        "twierdzenie": "DRO-WER-GR-001",
+        "uwagi": "32 °C, komora; kod 70"
+      },
+      {
+        "parametr": "rye_100_pan.yeast.bulkMin",
+        "jednostka": "min",
+        "wartosc": 60,
+        "granica": "wartość",
+        "twierdzenie": "ZYT-DRO-002",
+        "uwagi": "28 °C; kod 60"
+      },
+      {
+        "parametr": "rye_100_pan.yeast.proofMin",
+        "jednostka": "min",
+        "wartosc": 60,
+        "granica": "wartość",
+        "twierdzenie": "ZYT-DRO-002",
+        "uwagi": "37 °C, komora; koniec: powierzchnia przy brzegu formy (ZYT-ETA-005), nie test palca; kod 60"
+      },
+      {
+        "parametr": "rye_100_pan.yeast.bakeSteam",
+        "jednostka": "min @ °C",
+        "wartosc": "10 @ 240",
+        "granica": "wartość",
+        "twierdzenie": "ZYT-DRO-002",
+        "uwagi": "kod: czas 10 + 35 = 45 min; „O recepturze” pokazuje 230/195 °C receptury na zakwasie — rola 08"
+      },
+      {
+        "parametr": "rye_100_pan.yeast.bakeBrowning",
+        "jednostka": "min @ °C",
+        "wartosc": "35 @ 220",
+        "granica": "wartość",
+        "twierdzenie": "ZYT-DRO-002",
+        "uwagi": "kęsy 500 g w źródle"
+      },
+      {
+        "parametr": "rye_100_pan.yeast.coolMin",
+        "jednostka": "min",
+        "wartosc": 1440,
+        "granica": "najwyżej („do 24 h”); plan bierze górną granicę jak rye_cool",
+        "twierdzenie": "KRO-POC-016",
+        "uwagi": "kod 120 (szablon pszenny) — rola 08, zmiana testu yeast-stages-p9b"
+      },
+      {
+        "parametr": "tartine_high_hydration_80.yeast.bulkMin",
+        "jednostka": "min",
+        "wartosc": 480,
+        "granica": "co najmniej (noc)",
+        "twierdzenie": "DRO-WER-TA-001",
+        "uwagi": "kod 480; szczebel 4"
+      },
+      {
+        "parametr": "tartine_high_hydration_80.yeast.proofMin",
+        "jednostka": "min",
+        "wartosc": 90,
+        "granica": "około",
+        "twierdzenie": "DRO-WER-TA-001",
+        "uwagi": "kod 90"
+      },
+      {
+        "parametr": "spelt_ancient_seeded.yeast.mixToOvenMin",
+        "jednostka": "min",
+        "wartosc": 180,
+        "granica": "około, bez podziału na etapy",
+        "twierdzenie": "DRO-WER-SP-001",
+        "uwagi": "brak planu (kod null) do decyzji: jeden krok 180 min albo plan nieaktywny"
+      },
+      {
+        "parametr": "spelt_ancient_seeded.yeastRetard.roomAfterFridgeMin",
+        "jednostka": "min",
+        "wartosc": 180,
+        "granica": "wartość",
+        "twierdzenie": "DRO-WER-SP-002",
+        "uwagi": "po 18 h w 4 °C; tylko w notatce"
+      },
+      {
+        "parametr": "pizza_napoletana_48h.bulkH",
+        "jednostka": "h",
+        "wartosc": [
+          12,
+          24
+        ],
+        "granica": "co najmniej 12, najwyżej 24",
+        "twierdzenie": "DRO-PIZ-002",
+        "uwagi": "szczebel 4"
+      },
+      {
+        "parametr": "pizza_napoletana_48h.ballsMin",
+        "jednostka": "min",
+        "wartosc": [
+          45,
+          60
+        ],
+        "granica": "przedział",
+        "twierdzenie": "DRO-PIZ-002",
+        "uwagi": "po podziale, gdy nagrzewa się piekarnik"
+      },
+      {
+        "parametr": "baguette_tradition_poolish.poolishH",
+        "jednostka": "h",
+        "wartosc": 14,
+        "granica": "około",
+        "twierdzenie": "DRO-BAG-001",
+        "uwagi": "szczebel 4"
+      },
+      {
+        "parametr": "baguette_tradition_poolish.riseMin",
+        "jednostka": "min",
+        "wartosc": [
+          45,
+          45
+        ],
+        "granica": "dwa rośnięcia po 45 min",
+        "twierdzenie": "DRO-BAG-001"
+      },
+      {
+        "parametr": "sweet_chalka.bulkH",
+        "jednostka": "h",
+        "wartosc": 2,
+        "granica": "około",
+        "twierdzenie": "DRO-CHA-001",
+        "uwagi": "szczebel 4"
+      },
+      {
+        "parametr": "sweet_chalka.proofMin",
+        "jednostka": "min",
+        "wartosc": [
+          60,
+          90
+        ],
+        "granica": "przedział",
+        "twierdzenie": "DRO-CHA-001",
+        "uwagi": "zapleciona"
+      },
+      {
+        "parametr": "focaccia_genovese.bulkH",
+        "jednostka": "h",
+        "wartosc": [
+          1.5,
+          2
+        ],
+        "granica": "przedział",
+        "twierdzenie": "DRO-FOC-001",
+        "uwagi": "szczebel 4"
+      },
+      {
+        "parametr": "focaccia_genovese.proofMin",
+        "jednostka": "min",
+        "wartosc": 30,
+        "granica": "wartość",
+        "twierdzenie": "DRO-FOC-001",
+        "uwagi": "rozciągnięta na blasze"
+      },
+      {
+        "parametr": "ciabatta_biga / no_knead_overnight",
+        "jednostka": "h",
+        "wartosc": null,
+        "granica": "otwarte",
+        "twierdzenie": "DRO-PRE-900",
+        "uwagi": "czasy i procent drożdży [DO USTALENIA]"
+      }
+    ]
+  }
 }

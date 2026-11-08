@@ -8,6 +8,7 @@
 
 import * as FileSystem from 'expo-file-system/legacy';
 import { AUTO_DIR, RESCUE_DIR, stampOf } from '../lib/backup';
+import { StorageWriteError } from './storage-status';
 
 export interface UszkodzonyWiersz {
   tabela: string;
@@ -21,6 +22,8 @@ let plik: string | null = null;
 /** Wiersze już zapisane w pliku (także z poprzednich uruchomień). */
 let wPliku: UszkodzonyWiersz[] = [];
 let zapis: Promise<void> = Promise.resolve();
+/** Błąd ostatniego zapisu pliku ratunkowego; null = plik jest aktualny [M3 p9b2f P9B2F-5]. */
+let bladZapisu: unknown = null;
 
 const kluczTresci = (w: UszkodzonyWiersz) => `${w.tabela}/${w.id}/${w.surowe}`;
 const PLIK_RE = /^uszkodzone-wiersze-.*\.json$/;
@@ -62,10 +65,13 @@ async function zapiszPlik(): Promise<void> {
   const znane = new Set(wPliku.map(kluczTresci));
   const nowe = uszkodzoneWiersze().filter((w) => !znane.has(kluczTresci(w)));
   if (plik !== null && nowe.length === 0) return;
-  plik ??= `${dir}uszkodzone-wiersze-${stampOf(new Date())}.json`;
-  wPliku = [...wPliku, ...nowe];
-  const body = { format: 'piekarz-uszkodzone-wiersze', zapisano: new Date().toISOString(), wiersze: wPliku };
-  await FileSystem.writeAsStringAsync(plik, JSON.stringify(body, null, 2));
+  // Stan pliku zmienia się dopiero po udanym zapisie: nieudany zapis da się powtórzyć [M3 p9b2f P9B2F-5]
+  const nazwa = plik ?? `${dir}uszkodzone-wiersze-${stampOf(new Date())}.json`;
+  const wiersze = [...wPliku, ...nowe];
+  const body = { format: 'piekarz-uszkodzone-wiersze', zapisano: new Date().toISOString(), wiersze };
+  await FileSystem.writeAsStringAsync(nazwa, JSON.stringify(body, null, 2));
+  plik = nazwa;
+  wPliku = wiersze;
 }
 
 /** Zgłoszenie pominiętego wiersza; ten sam wiersz drugi raz niczego nie zmienia. */
@@ -73,7 +79,7 @@ export function zachowajUszkodzony(w: UszkodzonyWiersz): void {
   const klucz = `${w.tabela}/${w.id}`;
   if (zgloszone.has(klucz)) return;
   zgloszone.set(klucz, w);
-  zapis = zapis.then(zapiszPlik).catch(() => undefined);
+  zapis = zapis.then(zapiszPlik).then(() => { bladZapisu = null; }, (e: unknown) => { bladZapisu = e; });
 }
 
 /** Wiersze zgłoszone w tym uruchomieniu (do kopii zapasowej). */
@@ -84,4 +90,17 @@ export function uszkodzoneWiersze(): UszkodzonyWiersz[] {
 /** Obietnica ostatniego zapisu pliku ratunkowego (testy, kolejność przy kopii). */
 export function zapisUszkodzonych(): Promise<void> {
   return zapis;
+}
+
+/**
+ * Jak `zapisUszkodzonych`, ale błąd zapisu pliku nie jest połykany: po nieudanym zapisie próbuje raz jeszcze, a gdy
+ * nadal się nie da, rzuca StorageWriteError („Nie zapisano”). Wołają to ścieżki, które zaraz nadpiszą nieczytelną
+ * wartość: bez pliku ratunkowego nie wolno jej nadpisać [M3 p9b2f P9B2F-5; zasada 10].
+ */
+export async function zapisUszkodzonychLubBlad(): Promise<void> {
+  await zapis;
+  if (bladZapisu === null) return;
+  zapis = zapis.then(zapiszPlik).then(() => { bladZapisu = null; }, (e: unknown) => { bladZapisu = e; });
+  await zapis;
+  if (bladZapisu !== null) throw new StorageWriteError(bladZapisu);
 }

@@ -1,15 +1,20 @@
 // ============================================================================
-// Piekarz — pola v6 w zapisie i kopii: bakes.recipe_id i stały dzień karmienia zakwasu (D-102, D1-2, D1-5) [M3 D1]
+// Piekarz — pola v6 w zapisie i kopii: bakes.recipe_id i stały dzień karmienia zakwasu (D-102, D1-2, D1-5) [M3 D1];
+// pole v7 bakes.leaven (wersja wypieku, D-242 Z3) tą samą regułą [M3 p9b]; pole v7 bakes.bake_method (D-260) [M3 p9b2]
 // Kopia zostaje w formacie 2 z polami opcjonalnymi. Import robi DELETE + INSERT, więc pole, którego kopia nie niesie
 // (kopia sprzed D1), bierze wartość z telefonu sprzed importu; pole obecne (także null) rozstrzyga.
 // ============================================================================
 
 import type * as SQLite from 'expo-sqlite';
-import type { StalyDzienKarmienia, StoredBakeLog, StoredStarter } from './db';
-import { isNum, isStr } from './row-parsers';
+import type { BakeMethod, Leaven, StalyDzienKarmienia, StoredBakeLog, StoredStarter } from './db';
+import { isBakeMethod, isLeaven, isNum, isStr } from './row-parsers';
 
 export interface NowePolaTelefonu {
   recipeId: Map<string, string | null>;
+  /** Wersja wpisu (v7); brak mapy = jak brak wartości w telefonie. */
+  leaven?: Map<string, Leaven | null>;
+  /** Metoda wpisu (v7, D-260); brak mapy = jak brak wartości w telefonie. */
+  bakeMethod?: Map<string, BakeMethod | null>;
   dzien: Map<string, StalyDzienKarmienia | null>;
 }
 
@@ -20,20 +25,32 @@ export function dzienZKolumn(weekday: unknown, minute: unknown): StalyDzienKarmi
 
 /** Odczyt w transakcji importu, przed DELETE. */
 export async function czytajNowePola(db: SQLite.SQLiteDatabase): Promise<NowePolaTelefonu> {
-  const bakes = await db.getAllAsync<{ id: unknown; recipe_id: unknown }>('SELECT id, recipe_id FROM bakes;');
+  const bakes = await db.getAllAsync<{ id: unknown; recipe_id: unknown; leaven: unknown; bake_method: unknown }>('SELECT id, recipe_id, leaven, bake_method FROM bakes;');
   const starters = await db.getAllAsync<{ id: unknown; d: unknown; m: unknown }>(
     'SELECT id, fridge_feed_weekday AS d, fridge_feed_minute AS m FROM starters;'
   );
   const recipeId = new Map<string, string | null>();
-  for (const b of bakes) if (isStr(b.id)) recipeId.set(b.id, isStr(b.recipe_id) ? b.recipe_id : null);
+  const leaven = new Map<string, Leaven | null>();
+  const bakeMethod = new Map<string, BakeMethod | null>();
+  for (const b of bakes) {
+    if (!isStr(b.id)) continue;
+    recipeId.set(b.id, isStr(b.recipe_id) ? b.recipe_id : null);
+    leaven.set(b.id, isLeaven(b.leaven) ? b.leaven : null);
+    bakeMethod.set(b.id, isBakeMethod(b.bake_method) ? b.bake_method : null);
+  }
   const dzien = new Map<string, StalyDzienKarmienia | null>();
   for (const s of starters) if (isStr(s.id)) dzien.set(s.id, dzienZKolumn(s.d, s.m));
-  return { recipeId, dzien };
+  return { recipeId, leaven, bakeMethod, dzien };
 }
 
-/** Wpis z kopii z recipeId do zapisu: z kopii, gdy go niesie, inaczej z telefonu (brak w telefonie = null). */
+/** Wpis z kopii z recipeId i leaven do zapisu: z kopii, gdy je niesie, inaczej z telefonu (brak w telefonie = null). */
 export function wpisPoImporcie(b: StoredBakeLog, tel: NowePolaTelefonu): StoredBakeLog {
-  return b.recipeId !== undefined ? b : { ...b, recipeId: tel.recipeId.get(b.id) ?? null };
+  return {
+    ...b,
+    recipeId: b.recipeId !== undefined ? b.recipeId : tel.recipeId.get(b.id) ?? null,
+    leaven: b.leaven !== undefined ? b.leaven : tel.leaven?.get(b.id) ?? null,
+    bakeMethod: b.bakeMethod !== undefined ? b.bakeMethod : tel.bakeMethod?.get(b.id) ?? null,
+  };
 }
 
 /** Stały dzień zakwasu po imporcie, tą samą regułą co recipeId. */

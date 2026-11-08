@@ -21,3 +21,8 @@ W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oce
 ## tartine_high_hydration_80.yeastVersion.notesPl
 Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. [T:DRO-WER-TA-001]
 Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut. [T:DRO-WER-TA-001]
+
+## rye_100_pan.yeastVersion.planSteps
+<!-- 06d (D-256, 2026-11-04): instrukcje kroków planu żyta na drożdżach dla roli 08 (dziś src/core/yeast-stages.ts daje tu test palca i studzenie 2 h z planu pszennego). Oba zdania to istniejące klucze słownika (przekład 34 języków jest): drugie rośnięcie = rye_proof (chleb-zytni-etapy.md), studzenie = po-co-ten-krok.md. Parametr: studzenie 1440 min (KRO-POC-016, górna granica „do 24 h”, jak rye_cool). Pieczenie: 10 min w 240 °C i 35 min w 220 °C (ZYT-DRO-002), także w „O recepturze”. -->
+Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. [T:ZYT-ETA-005]
+Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin. [T:KRO-POC-016]

@@ -1,0 +1,320 @@
+(node:7583) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/receptura-maszyna-p9b2.test.tsx
+  F-72 tryb maszyny na ekranie receptury
+    ✕ BR-MASZ-001: segment w karcie „Ile pieczesz” przy recepturze drożdżowej, domyślnie piekarnik; zakwas bez wersji drożdżowej: bez segmentu (549 ms)
+    ✕ BR-MASZ-002 pierwsze użycie: prośba o granicę mąki, bez ilości przed jej wpisaniem (RD-37-W6); po zapisie granice zapamiętane, lista ilości (72 ms)
+    ✕ BR-MASZ-002 W3 i BR-MASZ-003: ilość przycięta do granicy z dopiskiem; płyny najpierw, drożdże na końcu, zdanie o instrukcji (80 ms)
+    ✕ BR-MASZ-003 bez układu: prośba o wybór układu zamiast kolejności (90 ms)
+    ✕ BR-MASZ-004: podpowiedź programu z dopiskiem „reguła Piekarza”; chałka (poza formą) → ciasto (43 ms)
+    ✕ BR-MASZ-005: jajka w recepturze (chałka) → bez godziny gotowości, zdanie blokady z nazwą składnika; chleb bez nich → godzina gotowości i start programu (42 ms)
+    ✕ BR-MASZ-005 bez Pro: ilości, kolejność i program działają, godzina gotowości pokazuje Pro (54 ms)
+    ✕ BR-MASZ-001 zakwas z wersją drożdżową: lista z wersji drożdżowej i zdanie o programach na zakwasie; bez przełącznika wersji (38 ms)
+    ✕ BR-MASZ-006: ostrzeżenie bezpieczeństwa z tekstem i rolą alert (nie tylko kolor) (45 ms)
+    ✕ „Zapisz plan” (Z6 a): zaplanowany wypiek z trybem maszyny, jeden krok programu z istniejącej kategorii, start = gotowe − czas programu (49 ms)
+    ✕ wybór trybu nie jest zapamiętany (Z5 a): po ponownym otwarciu piekarnik (68 ms)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-001: segment w karcie „Ile pieczesz” przy recepturze drożdżowej, domyślnie piekarnik; zakwas bez wersji drożdżowej: bez segmentu
+
+    expect(received).not.toHaveLength(expected)
+
+    Expected length: not 0
+    Received array:      []
+
+      109 |     root = await otworz('white_pan_loaf');
+      110 |     const karta = host(root, 'karta-ile-pieczesz')[0];
+    > 111 |     expect(karta.findAll((n) => n.props.testID === 'recipe-tryb')).not.toHaveLength(0);
+          |                                                                        ^
+      112 |     expect(tekst(host(root, 'recipe-tryb')[0])).toBe('Piekarnik Maszyna do chleba');
+      113 |     expect(host(root, 'recipe-tryb-oven')[0].props.accessibilityState).toMatchObject({ checked: true });
+      114 |     expect(host(root, 'karta-do-miski')).toHaveLength(1);
+
+      at Object.toHaveLength (src/__tests__/receptura-maszyna-p9b2.test.tsx:111:72)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-002 pierwsze użycie: prośba o granicę mąki, bez ilości przed jej wpisaniem (RD-37-W6); po zapisie granice zapamiętane, lista ilości
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:119:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-002 W3 i BR-MASZ-003: ilość przycięta do granicy z dopiskiem; płyny najpierw, drożdże na końcu, zdanie o instrukcji
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:135:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-003 bez układu: prośba o wybór układu zamiast kolejności
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:148:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-004: podpowiedź programu z dopiskiem „reguła Piekarza”; chałka (poza formą) → ciasto
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:156:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-005: jajka w recepturze (chałka) → bez godziny gotowości, zdanie blokady z nazwą składnika; chleb bez nich → godzina gotowości i start programu
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:170:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-005 bez Pro: ilości, kolejność i program działają, godzina gotowości pokazuje Pro
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:186:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-001 zakwas z wersją drożdżową: lista z wersji drożdżowej i zdanie o programach na zakwasie; bez przełącznika wersji
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:196:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › BR-MASZ-006: ostrzeżenie bezpieczeństwa z tekstem i rolą alert (nie tylko kolor)
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:205:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › „Zapisz plan” (Z6 a): zaplanowany wypiek z trybem maszyny, jeden krok programu z istniejącej kategorii, start = gotowe − czas programu
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:214:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● F-72 tryb maszyny na ekranie receptury › wybór trybu nie jest zapamiętany (Z5 a): po ponownym otwarciu piekarnik
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      55 | const nacisnij = async (root: renderer.ReactTestInstance, id: string) => {
+      56 |   await act(async () => {
+    > 57 |     root.findAll((n) => n.props.testID === id && typeof n.props.onPress === 'function')[0].props.onPress();
+         |                                                                                           ^
+      58 |   });
+      59 |   await settle();
+      60 | };
+
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:57:91
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at src/__tests__/receptura-maszyna-p9b2.test.tsx:56:12
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at apply (src/__tests__/receptura-maszyna-p9b2.test.tsx:55:15)
+      at Object.nacisnij (src/__tests__/receptura-maszyna-p9b2.test.tsx:231:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       11 failed, 11 total
+Snapshots:   0 total
+Time:        2.97 s
+Ran all test suites matching /src\/__tests__\/receptura-maszyna-p9b2.test.tsx/i.

@@ -15,6 +15,7 @@ import type { SessionStep } from '../core/bake-steps';
 import { markStorageUnavailable, markStorageNewer, markStorageReady } from './storage-status';
 import type { WierszSesji } from './bake-sessions-store';
 import { zapiszSesjePrzedMigracja, przeniesSesjeV6 } from './migracja-v6';
+import { MIGRACJA_V7 } from './migracja-v7';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -42,6 +43,9 @@ export interface ActiveBakeState {
   zaczetyZDostepem?: boolean;
   /** Receptura: przy końcu do bakes.recipe_id; brak = bez receptury [M3 D1]. */
   recipeId?: string;
+  /** Wersja i tryb (D-242 Z2); brak = wypiek sprzed p9. Wersja przy końcu do bakes.leaven [M3 p9b]. */
+  wersja?: 'zakwas' | 'drozdze';
+  tryb?: 'piekarnik' | 'maszyna';
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
@@ -334,6 +338,7 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
       await przeniesSesjeV6(db);
     },
   },
+  MIGRACJA_V7,
 ];
 
 export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {

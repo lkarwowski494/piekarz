@@ -659,9 +659,9 @@
           "do": 72.7
         },
         "sol_proc": {
-          "wartosc": null,
-          "twierdzenie": null,
-          "otwarte": "KAT-KAR-007"
+          "wartosc": 2.1,
+          "twierdzenie": "KAT-KAR-010",
+          "uwagi": "rachunek z przepisu Marttaliitto (KAT-KAR-009) przy wagach USDA, podstawa mąka żytnia ciemna (D-237); KAT-KAR-007 wycofane"
         },
         "drozdze_swieze_proc": {
           "wartosc": 0,

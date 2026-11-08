@@ -1,0 +1,57 @@
+(node:4940) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/maszyna-p9b2f.test.tsx
+  p9b2f: tryb maszyny, poprawki po 06m i przeglądzie
+    ✕ P9B2F-7: teraz 10:20:30, program 190 min (teraz + czas = pełne 30 min) → domyślny start nie jest w przeszłości, bez „Program nie zdąży” (461 ms)
+    ✕ P9B2F-7: teraz 10:20:0, program 190 min (teraz + czas = pełne 30 min) → domyślny start nie jest w przeszłości, bez „Program nie zdąży” (114 ms)
+    ○ skipped P9B2F-1 (MAS-085): program „ciasto” bez składników psujących (ciabatta) → bez „Gotowe o”, zdanie o braku opóźnienia, start teraz
+    ○ skipped P9B2F-1: program inny niż „ciasto” (chleb) zachowuje „Gotowe o”; zdania o ciaście tam nie ma
+    ○ skipped P9B2F-2 (MAS-086, OP-65): wektor — gotowość jutro 7:00, program 3 h 10 min, teraz 22:00 → start 3:50, w maszynie wpisujesz 9 h (czas od teraz do gotowości)
+    ○ skipped P9B2F-2: ekran — „Ustaw opóźniony start na {czas do gotowości}.” (teraz 10:00, program 190 min → gotowe 13:30 → 3 h 30 min), bez „Od teraz do gotowości”
+    ○ skipped P9B2F-3: „Zapisz plan” bez opóźnienia (chałka) liczy start z chwili stuknięcia, nie z ostatniego renderu
+    ○ skipped P9B2F-3: gotowość wybrana na ekranie, ale start wypadł już w przeszłość → plan nie zapisuje się, ekran pokazuje „Program nie zdąży”
+    ○ skipped P9B2F-4: domyślne „Gotowe o” przelicza się po wpisaniu czasu programu, dopóki użytkownik go nie zmienił
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-7: teraz 10:20:30, program 190 min (teraz + czas = pełne 30 min) → domyślny start nie jest w przeszłości, bez „Program nie zdąży”
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 1
+
+      200 |     const root = await otworz('white_pan_loaf');
+      201 |     await nacisnij(root, 'recipe-tryb-machine');
+    > 202 |     expect(host(root, 'maszyna-za-wczesnie').length).toBe(0);
+          |                                                      ^
+      203 |     expect(host(root, 'maszyna-start').length).toBe(1);
+      204 |     // Zapis przechodzi zaraz po otwarciu i start nie jest wcześniejszy niż teraz
+      205 |     jest.setSystemTime(new Date(2026, 10, 4, 10, 20, sek).getTime() + 45_000);
+
+      at toBe (src/__tests__/maszyna-p9b2f.test.tsx:202:54)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b2f: tryb maszyny, poprawki po 06m i przeglądzie › P9B2F-7: teraz 10:20:0, program 190 min (teraz + czas = pełne 30 min) → domyślny start nie jest w przeszłości, bez „Program nie zdąży”
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      207 |     await nacisnij(root, 'maszyna-zapisz-plan');
+      208 |     const plany = await loadPlannedBakes();
+    > 209 |     expect(plany.length).toBe(przed + 1);
+          |                          ^
+      210 |   });
+      211 | });
+      212 |
+
+      at toBe (src/__tests__/maszyna-p9b2f.test.tsx:209:26)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 7 skipped, 9 total
+Snapshots:   0 total
+Time:        2.178 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/maszyna-p9b2f.test.tsx/i with tests matching "P9B2F-7".

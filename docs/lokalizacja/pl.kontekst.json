@@ -273,6 +273,11 @@
   "Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:": {
     "gdzie": []
   },
+  "Aplikacja korzysta z bibliotek open source. Dotknij pozycji, by zobaczyć notkę o prawach autorskich i pełną treść licencji. Nazwy pakietów i treść licencji są w oryginale.": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
   "Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
@@ -454,6 +459,11 @@
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
+  "Biblioteki natywne iOS spoza npm ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tytul)"
+    ]
+  },
   "Biga (Sztywny zaczyn włoski 50%)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
@@ -541,6 +551,11 @@
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
   },
+  "Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Bułeczki ze słodkiego ciasta drożdżowego na mleku z jajkami; z przepisu wychodzą 24 sztuki.": {
     "gdzie": [
       "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
@@ -593,6 +608,11 @@
       "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
+  },
+  "CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "CSU Extension (Colorado State University), „Sourdough Starter Best Practices”": {
     "gdzie": [
@@ -828,6 +848,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: kod)"
+    ]
+  },
   "Ciasto jest już wymieszane, a odważona sól została na blacie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
@@ -1014,6 +1039,11 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "Cuisinart, instrukcja obsługi maszyny do chleba CBK-110": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -1035,6 +1065,12 @@
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
     ]
   },
+  "Czas programu": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (etykieta)"
+    ]
+  },
   "Czas w lodówce:": {
     "gdzie": [
       "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
@@ -1043,6 +1079,16 @@
   "Czas zdjąć pokrywkę z garnka i piec dalej bez pary.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czcionki ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tytul)"
     ]
   },
   "Czego unikać (typowe błędy):": {
@@ -1162,6 +1208,11 @@
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Dlatego w trybie maszyny ta receptura używa wersji na drożdżach.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
   },
   "Do ciasta dodaj proszek do pieczenia, a następnie delikatnie wmieszaj szpatułką ubitą pianę z białek.": {
     "gdzie": [
@@ -1521,6 +1572,11 @@
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
+  "Drugie rośnięcie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Drukuj": {
     "gdzie": [
       "src/lib/menu-receptury.ts (etykieta)",
@@ -1536,6 +1592,11 @@
   "Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: substitutionTipsPl)"
+    ]
+  },
+  "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
     ]
   },
   "Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.": {
@@ -1558,6 +1619,11 @@
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/dziennik/_layout.tsx (title)",
       "app/(tabs)/dziennik/index.tsx (tytul)"
+    ]
+  },
+  "Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Dzień gotowości:": {
@@ -1601,9 +1667,10 @@
       "app/(tabs)/(dzis)/_layout.tsx (title)",
       "app/(tabs)/(dzis)/index.tsx (title)",
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -2065,6 +2132,11 @@
       "src/components/receptury/SkladnikiSheet.tsx (title)"
     ]
   },
+  "Gotowe o": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Gotowe {dzien} o {godzina}": {
     "gdzie": [
       "src/lib/prowadzenie-teksty.ts (kod)"
@@ -2227,17 +2299,33 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
+  "Ile mililitrów ma amerykańska szklanka miarowa.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ile pieczesz": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tytul)"
+      "src/components/receptury/DoMiski.tsx (tytul)",
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)"
     ],
     "opis": "Nagłówek karty trybu na ekranie receptury (bochenki i masa bochenka albo masa mąki); pytanie do użytkownika, bez znaku zapytania; ok. 12 znaków; w nagłówku karty 20 pt, zawija się (README karty §6, D-185, D-206)."
+  },
+  "Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Ilości do dokarmienia": {
     "gdzie": [
@@ -2257,7 +2345,7 @@
       "src/recipes/katalog-m3-drozdzowe.ts (dane: notesPl)"
     ]
   },
-  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. Ryż gotuje się od pół godziny do godziny, kaszę dłużej. Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. Nadzienie nakłada się 1–2 cm od brzegu, a brzegi karbuje i zakłada na nadzienie, zostawiając środek otwarty. Pierogi piecze się w bardzo gorącym piecu, w około 250–300 °C, przez 15–20 minut.": {
+  "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli. Woda stanowi 57,1–72,7% masy mąki, a ilości soli specyfikacja nie podaje. W formule sól to 2,1% masy mąki, policzone z przepisu fińskiej organizacji doradztwa domowego na takie pierożki. W tym przepisie na 1 1/2 dl wody, 3 dl mąki żytniej i 1 dl mąki pszennej daje się 3/4 łyżeczki soli. Na nadzienie zagotowuje się 1 l wody, mleka lub napoju mlecznego z 2 dl (180 g) ryżu lub jęczmienia. Ryż gotuje się od pół godziny do godziny, kaszę dłużej. Ciasto rozwałkowuje się do przejrzystości i formuje pieróg o średnicy lub długości 10–24 cm. Nadzienie nakłada się 1–2 cm od brzegu, a brzegi karbuje i zakłada na nadzienie, zostawiając środek otwarty. Pierogi piecze się w bardzo gorącym piecu, w około 250–300 °C, przez 15–20 minut.": {
     "gdzie": [
       "src/recipes/katalog-m3-zakwas-zyto.ts (dane: notesPl)"
     ]
@@ -2277,10 +2365,35 @@
       "src/components/receptury/SkladnikiSheet.tsx (tytul)"
     ]
   },
+  "Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Ilość objętościowa:": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Ilość soli w otwartych pierożkach żytnich.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia.": {
@@ -2362,6 +2475,11 @@
   "Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Jak wygląda pleśń (bywa też biała) i dlaczego spleśniałego jedzenia się nie wącha.": {
@@ -2470,8 +2588,9 @@
   },
   "Jutro": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -2525,11 +2644,21 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Każde dotknięcie ciasta napina gluten, a odpoczynek go rozluźnia, więc potem łatwiej uformujesz bochenek.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: bench_rest)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Kenwood, instrukcja obsługi maszyny do chleba BM200": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Kiedy chleb ma być gotowy?": {
     "gdzie": [
@@ -2612,11 +2741,48 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
+  "Koistinen V.M. i in., Scientific Reports 2018": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Kolejne etapy wypieku chleba z razowej mąki żytniej.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ],
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
+  },
+  "Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Kolejność i ilości według instrukcji maszyny.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Kolejność wkładania": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
+    ]
+  },
+  "Kolejność wkładania składników podaje instrukcja Twojej maszyny.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Kolizja ze snem": {
     "gdzie": [
@@ -2627,6 +2793,11 @@
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: mold_signs)",
       "src/lib/zakwas-widok.ts (dane: mold_signs)"
+    ]
+  },
+  "Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Kompozycja Mąk": {
@@ -2833,6 +3004,11 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
+  "Kształtowanie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Który zakwas?": {
     "gdzie": [
       "src/lib/print-menu.ts (Alert.alert)"
@@ -2955,6 +3131,13 @@
       "src/core/preferments.ts (dane: namePl)"
     ]
   },
+  "Licencje open source": {
+    "gdzie": [
+      "src/components/SettingsModal.tsx (tekst w JSX)",
+      "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
+      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
+    ]
+  },
   "Licz od: {dzien}": {
     "gdzie": [
       "src/lib/staly-dzien-pytanie.ts (text)"
@@ -2981,6 +3164,11 @@
       "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
     ]
   },
+  "Longin C.F.H. i in., International Journal of Molecular Sciences 2023": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Maksymalna liczba mąk w mieszance wynosi 12": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
@@ -2989,6 +3177,11 @@
   "Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.": {
     "gdzie": [
       "src/components/start/WyborCzynnosci.tsx (kod)"
+    ]
+  },
+  "Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Masa": {
@@ -3028,6 +3221,12 @@
   "Masz już 5 planów": {
     "gdzie": [
       "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
+  "Maszyna do chleba": {
+    "gdzie": [
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Masło (roztopione)": {
@@ -3088,9 +3287,20 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
+  "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
+  },
   "Mieszanie ciasta": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: namePl)"
+      "src/core/rye-stages.ts (dane: namePl)",
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
+  "Mieszanie i wyrabianie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i zaszczepienie": {
@@ -3715,14 +3925,44 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Na 4–5 godzin przed pieczeniem podziel ciasto na kulki (panetti) po 260g i ułóż w szczelnych pojemnikach w temperaturze pokojowej.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Na drożdżach, bez zakwasu: 3% drożdży (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), 76% wody i 1,2% soli względem mąki. W badaniu ciasto odpoczywało 60 minut w 28 °C, a bochenki rosły w formie 60 minut w 37 °C w komorze garowniczej. Chleb pieczono 10 minut w 240 °C i 35 minut w 220 °C. W dniu wypieku chleby z pełnoziarnistej mąki żytniej były zbyt lepkie do oceny, dlatego badano je następnego dnia.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach: 2% drożdży świeżych względem mąki. W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C. W chłodniejszym pomieszczeniu ciasto rośnie dłużej, więc gotowość ocenia się wyglądem i testem palca, nie czasem.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
+  "Na drożdżach: 3% drożdży względem mąki (badanie nie podaje ich rodzaju, Piekarz liczy je jako świeże), a od zarobienia ciasta do wstawienia chleba do pieca mijają około 3 godziny w temperaturze pokojowej. Z nocą w lodówce: 1% drożdży, ciasto stoi 18 godzin w lodówce w 4 °C, a potem jeszcze 3 godziny w temperaturze pokojowej. Ilość drożdży i czasy pochodzą z badania chleba z pełnoziarnistej mąki orkiszowej. Czasy są wskazówką: gotowość ciasta ocenia się wyglądem i testem palca.": {
+    "gdzie": [
+      "src/recipes/wersje-drozdzowe.ts (dane: notesPl)"
+    ]
+  },
   "Na początku wypieku zapewnij parę w piekarniku.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)"
+    ]
+  },
+  "Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Na zakwasie": {
@@ -3814,6 +4054,27 @@
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
+  "Największa ilość mąki": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (etykieta)"
+    ]
+  },
+  "Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Największa masa ciasta": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "Największa masa drożdży suchych": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
     ]
   },
   "Nakarm zakwas dziś": {
@@ -3935,6 +4196,11 @@
   "Nie można otworzyć bazy danych": {
     "gdzie": [
       "src/components/StorageGate.tsx (tekst w JSX)"
+    ]
+  },
+  "Nie można wczytać listy licencji.": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
     ]
   },
   "Nie podwaja objętości": {
@@ -4314,9 +4580,19 @@
       "src/core/starter-log.ts (dane: day3)"
     ]
   },
+  "Od teraz do gotowości: {czas}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Odgazowanie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
     ]
   },
   "Odgazuj je, mocno dociskając, tak jak przy formowaniu.": {
@@ -4519,6 +4795,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -4616,6 +4897,16 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "Pakiety npm ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
+  "Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: lid_on)"
@@ -4703,6 +4994,12 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Piekarnik": {
+    "gdzie": [
+      "src/components/receptury/SegmentTrybu.tsx (etykieta)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarnik zajęty o {h}": {
     "gdzie": [
       "src/lib/confirm.ts (Alert.alert)",
@@ -4763,6 +5060,11 @@
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
+  "Pierwsze rośnięcie": {
+    "gdzie": [
+      "src/core/yeast-stages.ts (dane: name)"
+    ]
+  },
   "Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.": {
     "gdzie": [
       "src/recipes/katalog-m3-drozdzowe.ts (dane: descriptionPl)"
@@ -4789,6 +5091,11 @@
   "Placek z ciasta drożdżowego na mleku z masą serową i kruszonką, pieczony na blasze. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Kołocz śląski”.": {
     "gdzie": [
       "src/recipes/katalog-m3-slodkie.ts (dane: descriptionPl)"
+    ]
+  },
+  "Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -4886,6 +5193,11 @@
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
+  "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
+  },
   "Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/step-warnings.ts (dane: kod)"
@@ -4899,6 +5211,11 @@
   "Po prawidłowej autolizie ciasto z szorstkiej grudkowatej masy staje się gładkie i rozciągliwe jeszcze przed właściwym wyrabianiem!": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
+    ]
+  },
+  "Po programie": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
     ]
   },
   "Po szacowanym szczycie": {
@@ -4963,6 +5280,11 @@
   "Podnieś temperaturę fermentacji do optymalnych 26–28°C.": {
     "gdzie": []
   },
+  "Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Podpłomyki": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
@@ -4980,7 +5302,8 @@
   },
   "Podział i formowanie": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: namePl)"
+      "src/core/rye-stages.ts (dane: namePl)",
+      "src/core/yeast-stages.ts (dane: name)"
     ]
   },
   "Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).": {
@@ -4990,13 +5313,21 @@
   },
   "Podziel ciasto, uformuj je ręcznie i włóż do formy.": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: instructionsPl)"
+      "src/core/rye-stages.ts (dane: instructionsPl)",
+      "src/core/yeast-stages.ts (dane: instructions)"
+    ]
+  },
+  "Pojemność maszyny": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tytul)",
+      "src/components/receptury/TrybMaszyny.tsx (tytul)"
     ]
   },
   "Pojutrze": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -5312,6 +5643,51 @@
   "Profil, cykl dokarmiania i szczyt aktywności": {
     "gdzie": []
   },
+  "Program": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "Program i godzina": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tytul)"
+    ]
+  },
+  "Program nie zdąży. Najwcześniej gotowe o {godzina}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Program rusza o {godzina}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „francuski” podpowiadamy dla receptur bez cukru i tłuszczu, jak w opisie z instrukcji jednej z maszyn.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „pełnoziarnisty” podpowiadamy, gdy mąka pełnoziarnista i żytnia to razem co najmniej 50% mąki, jak w progu z instrukcji jednej z maszyn.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Program „słodki” podpowiadamy dla receptur słodkich, bo według opisu w instrukcji jednej z maszyn jest przeznaczony dla chlebów z dużą ilością cukru, tłuszczu i białka.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Proponowane mieszanie ciasta: {dzien} o {godzina}.": {
     "gdzie": [
       "src/components/zakwas/FridgeWakeStatus.tsx (tekst w JSX)"
@@ -5463,6 +5839,11 @@
       "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
+  "Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Przepisy na odrzut": {
     "gdzie": []
   },
@@ -5601,6 +5982,11 @@
   "Przy każdym dokarmieniu zostaw część zakwasu, dodaj mąkę i wodę w proporcji 1:1:1 wagowo, a resztę odrzuć.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
+  "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
     ]
   },
   "Przyczyna biologiczna / fizyczna": {
@@ -5889,6 +6275,11 @@
   },
   "Receptury mistrzowskie": {
     "gdzie": []
+  },
+  "Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
   },
   "Rhode Island Burn Center (Brown University Health), „Avoiding Scalds”": {
     "gdzie": [
@@ -6212,6 +6603,16 @@
       "src/components/settings/ZrodlaWiedzy.tsx (tekst w JSX)"
     ],
     "opis": "opis karty „Źródła wiedzy” w Ustawieniach (M3 T2, D-123)"
+  },
+  "Skład i sposób wypieku chleba z semoliny durum na zakwasie.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Składania": {
     "gdzie": [
@@ -6686,6 +7087,7 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (sol)",
@@ -6798,6 +7200,11 @@
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
+  "Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Tego dnia nic nie zaplanowano.": {
     "gdzie": [
       "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
@@ -6829,6 +7236,11 @@
       "src/core/zrodla-wiedzy.ts (dane: temat)"
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
+  },
+  "Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
   },
   "Temperatura mąki": {
     "gdzie": [
@@ -6924,6 +7336,11 @@
   "Test palca": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "To ostatnie rośnięcie ciasta przed pieczeniem.": {
@@ -7081,6 +7498,11 @@
     ],
     "opis": "nazwa źródła na ekranie „Źródła wiedzy” (instytucja, autorzy, tytuł): nazwy własne i tytuły zostają w oryginale, tłumaczy się tylko dopiski opisowe (np. „i in.” = et al.) (M3 T2, D-123)"
   },
+  "USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "UWAGA: Ciasta 100% żytniego NIGDY nie składamy ani nie rozciągamy! Zniszczyłoby to delikatne żele pentozanowe.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -7185,6 +7607,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -7221,6 +7648,11 @@
   "Urósł od kreski": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (dane: rose)"
+    ]
+  },
+  "Ustaw opóźniony start na {czas}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Ustaw tę godzinę": {
@@ -7351,6 +7783,11 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
+  "Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
@@ -7409,6 +7846,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Verdonck C. i in., Current Research in Food Science 2025": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: temperature)"
@@ -7419,6 +7861,11 @@
       "src/core/po-co-ten-krok.ts (dane: bulk_ferment)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (dane: kod)"
+    ]
   },
   "W dniu 3 zwykle widać już pęcherzyki, czuć świeży, owocowy zapach, a zakwas trochę rośnie.": {
     "gdzie": [
@@ -7447,6 +7894,12 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "W niektórych maszynach jest odwrotnie: najpierw suche drożdże, na nie mąka i suche składniki, a płyn na końcu.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
+  },
   "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
@@ -7467,6 +7920,16 @@
       "src/lib/recipe-sharing.ts (error)"
     ],
     "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
+  },
+  "W pozostałych recepturach podpowiadamy program podstawowy, według opisu w instrukcji jednej z maszyn przeznaczony głównie dla jasnej mąki pszennej.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: zdanie)"
+    ]
+  },
+  "W przeczytanych instrukcjach maszyn programy na zakwasie używają także drożdży piekarskich.": {
+    "gdzie": [
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
+    ]
   },
   "W przepisie mleko stanowi 39,0% masy mąki, woda 19,0%, cukier 16,0%, olej 8,7% albo masło 9,1%, jajka 16,0%, sól 1,9%, a drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza). Procenty przeliczono z miar objętościowych przepisu, który podaje około 5 szklanek mąki. Pierwsze wyrastanie trwa około 1 godziny. Bułeczki piecze się w 350 °F, czyli około 177 °C: w formie 25 minut, a pojedyncze 20 minut. Z tego samego ciasta piecze się też placek drożdżowy przez 30 minut.": {
     "gdzie": [
@@ -7519,6 +7982,11 @@
   "W szczycie aktywności": {
     "gdzie": []
   },
+  "W tej recepturze: {skladniki}.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "W trakcie wyrabiania ciasto magicznie przestanie kleić się do rąk i blatu, zamieniając się w lśniącą kulę.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
@@ -7532,6 +8000,12 @@
   "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+    ]
+  },
+  "W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
+      "src/components/receptury/TrybMaszyny.tsx (tekst w JSX)"
     ]
   },
   "Waga bochenka": {
@@ -7556,9 +8030,19 @@
   },
   "Wczoraj": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)",
+      "src/lib/plakietka-dnia.ts (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
+  "Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
+  "Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Według szacunku zakwas jest teraz w oknie szczytu.": {
@@ -7574,6 +8058,11 @@
   "Wersja aplikacji: {wersja}": {
     "gdzie": [
       "src/lib/zgloszenie.ts (kod)"
+    ]
+  },
+  "Wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
     ]
   },
   "Wiejski chleb codzienny na zakwasie": {
@@ -7605,6 +8094,11 @@
       "src/components/doktor/SymptomSelectorSection.tsx (kod)"
     ]
   },
+  "Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
@@ -7623,7 +8117,8 @@
   },
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
-      "src/core/po-co-ten-krok.ts (dane: rye_cool)"
+      "src/core/po-co-ten-krok.ts (dane: rye_cool)",
+      "src/core/yeast-stages.ts (dane: studzenieOpis)"
     ]
   },
   "Więcej": {
@@ -7686,6 +8181,7 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
+      "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (woda)",
@@ -7727,6 +8223,11 @@
       "src/lib/confirm.ts (message)"
     ]
   },
+  "Wpisz czas programu z instrukcji maszyny.": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
+    ]
+  },
   "Wpisz nazwę przepisu": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
@@ -7736,6 +8237,11 @@
   "Wpisz swoje uwagi (miękisz, skórka, czas pieca)...": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (placeholder)"
+    ]
+  },
+  "Wpisz z instrukcji swojej maszyny największą ilość mąki, a jeśli instrukcja ją podaje, także największą masę ciasta i drożdży; Piekarz nie przeliczy receptury ponad żadną z tych granic.": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Wpisz, ile zakwasu zostawiasz w słoiku.": {
@@ -8087,7 +8593,8 @@
   },
   "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
-      "src/core/rye-stages.ts (dane: instructionsPl)"
+      "src/core/rye-stages.ts (dane: instructionsPl)",
+      "src/core/yeast-stages.ts (dane: kod)"
     ]
   },
   "Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.": {
@@ -8592,7 +9099,7 @@
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
-    "opis": "Zakwas jako składnik receptury: etykieta obok masy albo procentu (Stolnica, podgląd importu, tekst receptury „Zakwas (20%): 200 g”). Termin glosariusza: EN „starter”. Krótka etykieta."
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "Zakładam zakwas": {
     "gdzie": [
@@ -8731,6 +9238,7 @@
   "Zapisz": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst)",
+      "src/components/receptury/DaneMaszynyKarta.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst)",
       "src/components/zakwas/AddStarterModal.tsx (tekst)",
       "src/components/zakwas/EditStarterModal.tsx (tekst)",
@@ -8762,6 +9270,11 @@
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
       "src/components/calculator/SaveRecipeModal.tsx (tytul)"
+    ]
+  },
+  "Zapisz plan": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "Zapisz w spiżarni": {
@@ -9107,6 +9620,11 @@
     ],
     "opis": "przycisk na karcie „Źródła wiedzy” w Ustawieniach, otwiera ekran źródeł (M3 T2, D-123)"
   },
+  "Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Zostaje wgłębienie i ciasto siada:": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -9280,6 +9798,12 @@
   "chłodnicza": {
     "gdzie": []
   },
+  "ciasto|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce": {
     "gdzie": [
       "src/core/preferments.ts (dane: fermentationTimeHours)"
@@ -9305,6 +9829,11 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "drożdże najpierw": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
   "dziś": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
@@ -9320,6 +9849,12 @@
     "gdzie": [
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
+  },
+  "francuski|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
   },
   "garnek żeliwny": {
     "gdzie": [
@@ -9343,6 +9878,18 @@
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (reszta)"
     ]
+  },
+  "jajka|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: jajka)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
+  "jogurt|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: jogurt)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "jutro": {
     "gdzie": [
@@ -9418,6 +9965,18 @@
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
   },
+  "na drożdżach|wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
+    ],
+    "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony z drożdżami piekarskimi zamiast zakwasu (D-241: „z drożdżami piekarskimi”, nie „zakwas drożdżowy”) [M3 p9b]."
+  },
+  "na zakwasie|wersja receptury": {
+    "gdzie": [
+      "src/components/receptury/SegmentWersji.tsx (etykieta)"
+    ],
+    "opis": "Opcja przełącznika wersji na ekranie receptury (D-154): ten sam chleb pieczony na zakwasie; para z „na drożdżach”. Mała litera, bez dopełnienia [M3 p9b]."
+  },
   "nieznana": {
     "gdzie": [
       "src/lib/zgloszenie.ts (kod)"
@@ -9468,6 +10027,12 @@
   "paź": {
     "gdzie": []
   },
+  "pełnoziarnisty|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "pieczenie bez pokrywy": {
     "gdzie": [
       "src/lib/prowadzenie-teksty.ts (nazwa)"
@@ -9477,6 +10042,12 @@
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
     ]
+  },
+  "podstawowy|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
   },
   "pojutrze": {
     "gdzie": [
@@ -9499,8 +10070,25 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
+  "płyny najpierw": {
+    "gdzie": [
+      "src/components/receptury/DaneMaszynyKarta.tsx (etykieta)"
+    ]
+  },
+  "ser|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: ser)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
   "sie": {
     "gdzie": []
+  },
+  "sok|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: sok)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "soli": {
     "gdzie": [
@@ -9532,6 +10120,12 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "słodki|program maszyny": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: nazwa)"
+    ],
+    "opis": "Nazwa programu maszyny do chleba w wierszu „Program” karty „Program i godzina” (podpowiedź RD-39, D-179); mała litera, mianownik, jak słowo na przycisku programu w maszynie [M3 p9b2]."
+  },
   "temp. {temp}": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
@@ -9561,6 +10155,12 @@
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
     ]
+  },
+  "warzywa|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: warzywa)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "wczoraj": {
     "gdzie": [
@@ -9837,7 +10437,8 @@
   },
   "{n} godziny": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)"
     ]
   },
   "{n} h temu": {
@@ -9867,6 +10468,7 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
+      "src/components/receptury/ProgramMaszynyKarta.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)",
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
@@ -10134,6 +10736,18 @@
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
+  },
+  "świeże mleko|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: mleko)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
+  },
+  "świeże owoce|składnik": {
+    "gdzie": [
+      "src/components/receptury/ProgramMaszynyKarta.tsx (dane: owoce)"
+    ],
+    "opis": "Nazwa łatwo psującego się składnika w zdaniu „W tej recepturze: {skladniki}.” (blokada opóźnionego startu, RD-38); mała litera, mianownik liczby jak w zdaniu machine.delayBlocked, lista łączona przecinkami [M3 p9b2]."
   },
   "świeże|drożdże": {
     "gdzie": [

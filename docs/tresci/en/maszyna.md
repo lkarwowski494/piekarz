@@ -2,7 +2,7 @@
 <!-- Role 06, E2, 2026-11-03. Same headers and claims as docs/tresci/pl/maszyna.md. Safety texts (critical) await the owner's sentence review: docs/tresci/przeglad/m3-zdania-2026-11-03.md. -->
 
 ## machine.capacity
-Enter the largest amount of flour from your machine's manual and, if the manual gives them, the largest dough and yeast amounts; Piekarz will not scale the recipe above any of these limits. [T:MAS-062,MAS-002,MAS-032]
+Enter the largest amount of flour from your machine's manual and, if the manual gives them, the largest dough and yeast amounts; the app will not scale the recipe above any of these limits. [T:MAS-062,MAS-002,MAS-032]
 For example, the Tefal PF220838 must not exceed 1000 g of dough, 620 g of bread flour and 10 g of dry instant yeast in total. [T:MAS-002]
 
 ## machine.order
@@ -14,7 +14,7 @@ In a machine with a yeast dispenser, for example the Panasonic SD-YR2550, dry ye
 ## machine.delayBlocked
 Delayed start is off because the recipe has eggs, fresh milk, cheese, yogurt, juice, fresh fruit or vegetables. [T:MAS-072]
 Each machine manual we read forbids delayed start with some of these ingredients because they spoil easily. [T:MAS-072,MAS-009,MAS-023,MAS-035,MAS-044]
-According to one manual, dry milk instead of fresh milk allows delayed start, so Piekarz does not block it. [T:MAS-084]
+According to one manual, dry milk instead of fresh milk allows delayed start, so the app does not block it. [T:MAS-084]
 
 ## machine.safety
 After baking, take the pan out with oven mitts, because the pan, its handle and the inside of the lid are hot. [T:MAS-010,MAS-024,MAS-036,MAS-053]
@@ -24,7 +24,7 @@ While the machine runs, do not touch or cover the steam vent. [T:MAS-026,MAS-038
 Keep children under 8 away from the machine and its cord, and let older children use it only under supervision. [T:MAS-014,MAS-026,MAS-038]
 
 ## machine.programHint
-The program hint is a Piekarz rule, not the maker's advice, so check it against your machine's manual. [T:-]
+The program hint is the app's rule, not the maker's advice, so check it against your machine's manual. [T:-]
 We suggest the dough program for breads shaped and baked in the oven, because in it the machine prepares the dough but does not bake it. [T:MAS-006,MAS-046]
 We suggest the sweet program for sweet recipes, because, as one machine's manual describes it, it is made for breads with a lot of sugar, fat and protein. [T:MAS-083]
 We suggest the whole wheat program when wholegrain and rye flour together make up at least 50% of the flour, as in the threshold from one machine's manual. [T:MAS-042]

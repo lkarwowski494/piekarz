@@ -1,0 +1,218 @@
+(node:2222) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b-wybory.sqlite.test.ts
+  ● p9b: parser wersji receptur (Z1 b) › brak klucza = pusta mapa; poprawny JSON = mapa; zły kształt = błąd typowany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "value": Object {
+    -     "graham_bread_honey": "drozdze",
+    -   },
+    +   "value": Object {},
+      }
+
+      16 |   it('brak klucza = pusta mapa; poprawny JSON = mapa; zły kształt = błąd typowany', () => {
+      17 |     expect(parseWersjeReceptur(undefined)).toEqual({ ok: true, value: {} });
+    > 18 |     expect(parseWersjeReceptur('{"graham_bread_honey":"drozdze"}')).toEqual({ ok: true, value: { graham_bread_honey: 'drozdze' } });
+         |                                                                     ^
+      19 |     expect(parseWersjeReceptur('nie json')).toEqual({ ok: false, error: { kind: 'storage', key: 'wersje_receptur', got: 'nie json' } });
+      20 |     expect(parseWersjeReceptur('["drozdze"]')).toEqual(expect.objectContaining({ ok: false }));
+      21 |     expect(parseWersjeReceptur('{"rye_100_pan":"yeast"}')).toEqual(expect.objectContaining({ ok: false }));
+
+      at Object.toEqual (src/data/__tests__/p9b-wybory.sqlite.test.ts:18:69)
+
+  ● p9b: parser danych maszyny (Z4 a, BR-MASZ-002) › brak = null (prośba o dane), komplet i pola nieobowiązkowe jako null
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 8
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "value": Object {
+    -     "ciastoMaxG": 1000,
+    -     "czasProgramuMin": 180,
+    -     "drozdzeSucheMaxG": 10,
+    -     "makaMaxG": 620,
+    -     "uklad": "plyny_najpierw",
+    -     "v": 1,
+    -   },
+    +   "value": null,
+      }
+
+      27 |   it('brak = null (prośba o dane), komplet i pola nieobowiązkowe jako null', () => {
+      28 |     expect(parseMaszyna(undefined)).toEqual({ ok: true, value: null });
+    > 29 |     expect(parseMaszyna(JSON.stringify(dobra))).toEqual({ ok: true, value: dobra });
+         |                                                 ^
+      30 |     expect(parseMaszyna('{"v":1,"makaMaxG":620}')).toEqual({
+      31 |       ok: true,
+      32 |       value: { v: 1, makaMaxG: 620, ciastoMaxG: null, drozdzeSucheMaxG: null, uklad: null, czasProgramuMin: null },
+
+      at Object.toEqual (src/data/__tests__/p9b-wybory.sqlite.test.ts:29:49)
+
+  ● p9b: parser danych maszyny (Z4 a, BR-MASZ-002) › zły kształt = błąd: inna wersja formatu, brak lub zero masy mąki, ujemne masy, nieznany układ, nie-JSON
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 3
+
+    @@ -1,8 +1,9 @@
+      Object {
+    -   "wynik": ObjectContaining {
+    -     "ok": false,
+    +   "wynik": Object {
+    +     "ok": true,
+    +     "value": null,
+        },
+        "zle": Object {
+          "ciastoMaxG": 1000,
+          "czasProgramuMin": 180,
+          "drozdzeSucheMaxG": 10,
+
+      43 |       { ...dobra, czasProgramuMin: 0 },
+      44 |     ]) {
+    > 45 |       expect({ zle, wynik: parseMaszyna(JSON.stringify(zle)) }).toEqual({ zle, wynik: expect.objectContaining({ ok: false }) });
+         |                                                                 ^
+      46 |     }
+      47 |     expect(parseMaszyna('{')).toEqual({ ok: false, error: { kind: 'storage', key: 'maszyna', got: '{' } });
+      48 |   });
+
+      at Object.toEqual (src/data/__tests__/p9b-wybory.sqlite.test.ts:45:65)
+
+  ● p9b: zapis i odczyt wyborów w bazie › wersja receptury: zapis odstępstwa, powrót do zakwasu usuwa wpis z mapy, inne receptury bez zmian; po restarcie ta sama
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "drozdze"
+    Received: "zakwas"
+
+      67 |     await app.schema.initDatabase();
+      68 |     w = require('../wybory-uzytkownika') as typeof import('../wybory-uzytkownika');
+    > 69 |     expect(await w.wczytajWersjeReceptury('graham_bread_honey')).toBe('drozdze');
+         |                                                                  ^
+      70 |     expect(await w.wczytajWersjeReceptury('rye_100_pan')).toBe('zakwas');
+      71 |     expect(await app.store.getAppSetting('wersje_receptur')).toBe('{"graham_bread_honey":"drozdze"}');
+      72 |   });
+
+      at Object.toBe (src/data/__tests__/p9b-wybory.sqlite.test.ts:69:66)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b: zapis i odczyt wyborów w bazie › dane maszyny: zapis i odczyt po restarcie; zły zapis w bazie = błąd, nie liczba domyślna
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 8
+    + Received  + 1
+
+      Object {
+        "ok": true,
+    -   "value": Object {
+    -     "ciastoMaxG": null,
+    -     "czasProgramuMin": null,
+    -     "drozdzeSucheMaxG": 10,
+    -     "makaMaxG": 620,
+    -     "uklad": "drozdze_najpierw",
+    -     "v": 1,
+    -   },
+    +   "value": null,
+      }
+
+      83 |     await app.schema.initDatabase();
+      84 |     w = require('../wybory-uzytkownika') as typeof import('../wybory-uzytkownika');
+    > 85 |     expect(await w.wczytajMaszyne()).toEqual({ ok: true, value: m });
+         |                                      ^
+      86 |     await app.store.setAppSetting('maszyna', '{"v":1}');
+      87 |     expect(await w.wczytajMaszyne()).toEqual(expect.objectContaining({ ok: false }));
+      88 |   });
+
+      at Object.toEqual (src/data/__tests__/p9b-wybory.sqlite.test.ts:85:38)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+(node:2223) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts
+  ● p9b: wersja i tryb w trwającym wypieku (Z2 a) › parser przyjmuje tylko wersję zakwas/drozdze i tryb piekarnik/maszyna; brak pola = wypiek sprzed p9
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      20 |     expect(isActiveBakeState({ ...baza, wersja: 'drozdze', tryb: 'maszyna' })).toBe(true);
+      21 |     expect(isActiveBakeState({ ...baza, wersja: 'zakwas', tryb: 'piekarnik' })).toBe(true);
+    > 22 |     expect(isActiveBakeState({ ...baza, wersja: 'yeast' })).toBe(false);
+         |                                                             ^
+      23 |     expect(isActiveBakeState({ ...baza, tryb: 'oven' })).toBe(false);
+      24 |     expect(isActiveBakeState({ ...baza, wersja: null })).toBe(false);
+      25 |   });
+
+      at Object.toBe (src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts:22:61)
+
+  ● p9b: wersja wypieku w Dzienniku (Z3 a) › koniec wypieku na drożdżach: wpis z wersją yeast; ocena po wypieku (zapis bez wersji) jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "yeast"
+    Received: undefined
+
+      50 |   it('koniec wypieku na drożdżach: wpis z wersją yeast; ocena po wypieku (zapis bez wersji) jej nie zeruje', async () => {
+      51 |     const { app, log } = await koniecWypieku('drozdze');
+    > 52 |     expect((await app.store.getBakeLogs()).find((b) => b.id === 'bake_live')?.leaven).toBe('yeast');
+         |                                                                                       ^
+      53 |     await app.store.saveBakeLog({ ...log, ratingStars: 5 });
+      54 |     const raw = openRaw(APP_DB());
+      55 |     expect(raw.prepare("SELECT leaven, rating_stars AS r FROM bakes WHERE id = 'bake_live'").get()).toEqual({ leaven: 'yeast', r: 5 });
+
+      at Object.toBe (src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts:52:87)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b: wersja wypieku w Dzienniku (Z3 a) › koniec wypieku na zakwasie: wersja sourdough
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "sourdough"
+    Received: undefined
+
+      59 |   it('koniec wypieku na zakwasie: wersja sourdough', async () => {
+      60 |     const { app } = await koniecWypieku('zakwas');
+    > 61 |     expect((await app.store.getBakeLogs()).find((b) => b.id === 'bake_live')?.leaven).toBe('sourdough');
+         |                                                                                       ^
+      62 |   });
+      63 |
+      64 |   it('koniec wypieku sprzed p9 (sesja bez wersji): wersja pusta, brak zostaje brakiem', async () => {
+
+      at Object.toBe (src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts:61:87)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● p9b: wersja wypieku w Dzienniku (Z3 a) › koniec wypieku sprzed p9 (sesja bez wersji): wersja pusta, brak zostaje brakiem
+
+    no such column: leaven
+
+      67 |     expect(wpis?.leaven).toBeUndefined();
+      68 |     const raw = openRaw(APP_DB());
+    > 69 |     expect(raw.prepare("SELECT leaven FROM bakes WHERE id = 'bake_live'").get()).toEqual({ leaven: null });
+         |                ^
+      70 |     raw.close();
+      71 |   });
+      72 | });
+
+      at Object.prepare (src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts:69:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 2 failed, 2 total
+Tests:       9 failed, 9 total
+Snapshots:   0 total
+Time:        1.756 s
+Ran all test suites matching /src\/data\/__tests__\/p9b-wersja-wypieku.sqlite.test.ts|src\/data\/__tests__\/p9b-wybory.sqlite.test.ts/i.

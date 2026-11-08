@@ -1,0 +1,7 @@
+> tsc --noEmit
+
+check:size: 850 plików, przekroczeń: 0
+✖ 2 problems (0 errors, 2 warnings)
+
+[test-matrix] Wyniki: 1618/1618 elementów (100%)
+0

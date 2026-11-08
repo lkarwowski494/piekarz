@@ -15,9 +15,11 @@ import { etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { useZakwasPlanu } from '../../../src/hooks/useZakwasPlanu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezPlanu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
+import { krokiDrozdzoweKonczaceSie } from '../../../src/core/yeast-stages';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
-import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
+import { formatTime as formatGodziny } from '../../../src/lib/format';
+import { plakietkaDnia } from '../../../src/lib/plakietka-dnia';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { useStartPlanu } from '../../../src/hooks/useStartPlanu';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
@@ -102,7 +104,10 @@ export default function HarmonogramScreen() {
   const { zakwas, zakwasWczytany } = useZakwasPlanu();
   // Receptura żytnia z „Ułóż plan”: etapy żytnie z czasami planu, studzenie kończy się o godzinie „gotowe”;
   // te same kroki dostaje Stolnica (DEC-04 a) [M1-audytor-generalny-030; 03-zakres-501]
-  const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
+  // Wersja drożdżowa (D-155): kroki z yeast-stages.ts kończą się o „gotowe”, bez zakwasu i lodówki [M3 p9b]
+  const [drozdzowa] = useState(() => (recepturaPlanu()?.wersja === 'drozdze' ? recepturaPlanu()?.recipeId ?? null : null));
+  const [zytni] = useState(() => !drozdzowa && (recepturaPlanu()?.calculatedRecipe.isHighRye ?? false));
+  const bezLodowki = zytni || drozdzowa !== null;
   // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
   const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
   // „Piecz ponownie” ze starego wpisu chałki albo bagietki: receptura bazowa ma teraz więcej drożdży (217) [M3 D3a]
@@ -110,9 +115,10 @@ export default function HarmonogramScreen() {
   // Receptura bez zakwasu (np. z „Piecz ponownie”): plan zakwasowy jej nie prowadzi, start nieaktywny z powodem (D-3)
   const [bezZakwasu] = useState(() => {
     const r = recepturaPlanu();
-    return r ? powodBezZakwasu(r.recipeFormula) : null;
+    return r ? powodBezPlanu(r.recipeFormula, r) : null;
   });
   const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
+    if (drozdzowa) return krokiDrozdzoweKonczaceSie(drozdzowa, celMs) ?? [];
     const zPlanu = stepsFromSchedule(plan);
     const bazowe = zytni ? ryeStepsEndingAt(zPlanu, celMs) : zPlanu;
     return zakwas ? withFridgeWake(bazowe, zakwas) : bazowe;
@@ -208,29 +214,18 @@ export default function HarmonogramScreen() {
   // Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]
   const formatTime = (d: Date) => formatGodziny(d);
 
-  const formatDayBadge = (d: Date) => {
-    const today = new Date();
-    const dDay = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
-    const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
-    const diffDays = Math.round((dDay - todayDay) / (1000 * 60 * 60 * 24));
-
-    if (diffDays === 0) return t('Dziś');
-    if (diffDays === 1) return t('Jutro');
-    if (diffDays === 2) return t('Pojutrze');
-    if (diffDays === -1) return t('Wczoraj');
-    // dzień tygodnia z datą przez Intl w języku aplikacji [audyt-niezalezny F-5]
-    return formatDzienData(d);
-  };
+  // Dzień kroku względem dziś: „Dziś”, „Jutro”, „Pojutrze”, „Wczoraj” albo dzień tygodnia z datą (src/lib/plakietka-dnia.ts)
+  const formatDayBadge = (d: Date) => plakietkaDnia(d, new Date());
 
   // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
-  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess, moze });
+  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas: drozdzowa ? null : zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess, moze });
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
     await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
       ambientTempC: tempPlanu,
       // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
-      ...(zytni ? {} : { coldRetardHours }),
+      ...(bezLodowki ? {} : { coldRetardHours }),
     });
   };
 
@@ -284,8 +279,8 @@ export default function HarmonogramScreen() {
           <SleepGuardBanner
             hasSleepCollision={kolizjePlanu.length > 0}
             sleepCollisions={kolizjePlanu}
-            suggestedActionPl={zytni ? undefined : schedule.suggestedActionPl}
-            autoResolved={zytni ? null : autoResolved}
+            suggestedActionPl={bezLodowki ? undefined : schedule.suggestedActionPl}
+            autoResolved={bezLodowki ? null : autoResolved}
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
             okno={oknoPlanu}
           />
@@ -317,7 +312,7 @@ export default function HarmonogramScreen() {
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
-          bezLodowki={zytni}
+          bezLodowki={bezLodowki}
         >
           {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
           <DodajDoKalendarza

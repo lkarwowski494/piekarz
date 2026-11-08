@@ -163,6 +163,11 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         opis: 'Strefa bez dzieci wokół kuchenki i piekarnika.',
         adres: 'shrinerschildrens.org',
       },
+      {
+        nazwa: 'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”',
+        opis: 'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.',
+        adres: 'cpsc.gov',
+      },
     ],
   },
   {
@@ -182,6 +187,104 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         nazwa: 'Bread Bakers Guild of America, „Formula Layout Standards” (Bread Lines 2009)',
         opis: 'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.',
         adres: 'bbga.org',
+      },
+      {
+        nazwa: 'Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”',
+        opis: 'Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.',
+        adres: 'redstaryeast.com',
+      },
+      {
+        nazwa: 'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)',
+        opis: 'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.',
+        adres: 'fcs.mgcafe.uky.edu',
+      },
+    ],
+  },
+  {
+    // D-247 (06z): źródła receptur katalogu p8 (docs/tresci/pl/katalog-m3.md) i przeliczania miar na gramy;
+    // D-255 (06d): badania wersji drożdżowych 3 receptur (docs/tresci/pl/wersje-drozdzowe.md)
+    temat: 'Receptury',
+    zrodla: [
+      {
+        nazwa: 'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”',
+        opis: 'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.',
+        adres: 'publications.europa.eu',
+      },
+      {
+        nazwa: 'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”',
+        opis: 'Skład i sposób wypieku chleba z semoliny durum na zakwasie.',
+        adres: 'ec.europa.eu',
+      },
+      {
+        nazwa: 'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”',
+        opis: 'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.',
+        adres: 'assets.publishing.service.gov.uk',
+      },
+      {
+        nazwa: 'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”',
+        opis: 'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.',
+        adres: '4h.extension.illinois.edu',
+      },
+      {
+        nazwa: 'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”',
+        opis: 'Ilość soli w otwartych pierożkach żytnich.',
+        adres: 'martat.fi',
+      },
+      {
+        nazwa: 'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy',
+        opis: 'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.',
+        adres: 'fdc.nal.usda.gov',
+      },
+      {
+        nazwa: 'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)',
+        opis: 'Ile mililitrów ma amerykańska szklanka miarowa.',
+        adres: 'doi.org/10.6028/NIST.HB.44-2025',
+      },
+      {
+        nazwa: 'Longin C.F.H. i in., International Journal of Molecular Sciences 2023',
+        opis: 'Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.',
+        adres: 'doi.org/10.3390/ijms24032770',
+      },
+      {
+        nazwa: 'Verdonck C. i in., Current Research in Food Science 2025',
+        opis: 'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.',
+        adres: 'doi.org/10.1016/j.crfs.2025.101208',
+      },
+      {
+        nazwa: 'Koistinen V.M. i in., Scientific Reports 2018',
+        opis: 'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.',
+        adres: 'doi.org/10.1038/s41598-018-24149-w',
+      },
+    ],
+  },
+  {
+    // D-265 (06m): instrukcje producentów maszyn do chleba, źródła trybu maszyny (docs/tresci/pl/maszyna.md)
+    temat: 'Maszyna do chleba',
+    zrodla: [
+      {
+        nazwa: 'Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)',
+        opis: 'Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.',
+        adres: 'dam.groupeseb.com',
+      },
+      {
+        nazwa: 'Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)',
+        opis: 'Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.',
+        adres: 'cdn.shopify.com',
+      },
+      {
+        nazwa: 'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550',
+        opis: 'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.',
+        adres: 'bilder.quelle.de',
+      },
+      {
+        nazwa: 'Cuisinart, instrukcja obsługi maszyny do chleba CBK-110',
+        opis: 'Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.',
+        adres: 'images.homedepot-static.com',
+      },
+      {
+        nazwa: 'Kenwood, instrukcja obsługi maszyny do chleba BM200',
+        opis: 'Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.',
+        adres: 'dls.delonghigroup.com',
       },
     ],
   },

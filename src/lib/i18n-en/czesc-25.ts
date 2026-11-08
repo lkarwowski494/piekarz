@@ -127,6 +127,80 @@ export const EN_25: Record<string, string> = {
     'Bread Bakers Guild of America, “Formula Layout Standards” (Bread Lines 2009)',
   'Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.':
     'What poolish, biga and pâte fermentée are and how long they ripen.',
+  'Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”':
+    'Marttaliitto (Finnish home economics advisory organization), recipe “Karjalanpiirakat”',
+  'Ilość soli w otwartych pierożkach żytnich.':
+    'Salt in open rye pasties.',
+  // D-247 (06z): grupa „Receptury” (klucz istniejący, EN 'Recipes' w czesc-12) i CPSC w „Bezpieczeństwo w kuchni”
+  'Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”':
+    'Official Journal of the European Union: specifications for “Salinātā rudzu rupjmaize”, “Karjalanpiirakka”, “Obwarzanek krakowski” and “Kołocz śląski”',
+  'Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.':
+    'Ingredients and baking method for the rye bread with scalded flour, open rye pasties, boiled bread rings and the yeasted sheet cake with cheese and crumble.',
+  'Komisja Europejska, rejestr eAmbrosia: specyfikacja „Pane di Altamura”':
+    'European Commission, eAmbrosia register: “Pane di Altamura” specification',
+  'Skład i sposób wypieku chleba z semoliny durum na zakwasie.':
+    'Ingredients and baking method for the durum semolina sourdough bread.',
+  'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”':
+    'UK register of protected food names (Defra): English translations of the “Obwarzanek krakowski” and “Kołocz śląski” applications',
+  'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.':
+    "Baking temperature and time for the bread rings and the sheet cake, and how long the sheet cake's sponge rises.",
+  'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”':
+    'Illinois 4-H (University of Illinois Extension), “Cooking 301 State Fair Recipes”',
+  'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.':
+    'Recipes for the pan loaves, milk dinner rolls, sweet yeast buns and cinnamon tea ring.',
+  'USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy':
+    'USDA FoodData Central (U.S. food composition database), SR Legacy',
+  'Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.':
+    'How much a cup or teaspoon of flour, sugar, salt and other ingredients weighs when a recipe uses measures instead of grams.',
+  'NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)':
+    'NIST (U.S. National Institute of Standards and Technology), Handbook 44 (2025)',
+  'Ile mililitrów ma amerykańska szklanka miarowa.':
+    'How many milliliters are in a U.S. measuring cup.',
+  'CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”':
+    'CPSC (U.S. Consumer Product Safety Commission), “Avoiding Tap Water Scalds”',
+  'Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.':
+    'How quickly hot water burns skin: when scalding flour and boiling bread rings.',
+  // D-255 (06d): źródła wersji drożdżowych (docs/tresci/en/wersje-drozdzowe.md, drozdze-plan-przelicznik.md)
+  'Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”':
+    'Red Star Yeast (yeast maker), “Baking with Yeast: Step-by-Step Guide”',
+  'Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.':
+    'The steps of a yeast bake and why recipe rise times are only a guide.',
+  'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)':
+    'University of Kentucky Cooperative Extension, “The Art of Baking Bread” (2010)',
+  'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.':
+    'The finger test: when yeast dough is ready and how much it may rise before baking.',
+  'Longin C.F.H. i in., International Journal of Molecular Sciences 2023':
+    'Longin C.F.H. et al., International Journal of Molecular Sciences 2023',
+  'Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.':
+    'How much yeast to use and the time from mixing to oven in the yeast version of the spelt bread.',
+  'Verdonck C. i in., Current Research in Food Science 2025':
+    'Verdonck C. et al., Current Research in Food Science 2025',
+  'Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.':
+    'How much yeast to use and the rise times in the yeast version of the whole wheat bread.',
+  'Koistinen V.M. i in., Scientific Reports 2018':
+    'Koistinen V.M. et al., Scientific Reports 2018',
+  'Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.':
+    'How much yeast, water and salt to use, and the rise and bake times in the yeast version of the rye bread.',
   'Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.':
     'The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.',
+  'Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)':
+    'Tefal, instructions for use and safety instructions for the Pain Plaisir bread maker (PF220838)',
+  'Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.':
+    'The most flour, dough and yeast, the order of ingredients, delayed start and taking the pan out safely.',
+  'Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)':
+    'Zojirushi, operating instructions for the BB-PDC20 bread maker (Home Bakery Virtuoso Plus)',
+  'Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.':
+    'The order of ingredients, delayed start, hot parts after baking and the sourdough course that also uses yeast.',
+  'Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550':
+    'Panasonic, operating instructions and recipes for the SD-YR2550 bread maker',
+  'Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.':
+    'Loaf size, the order of ingredients and the yeast dispenser, delayed start and taking the pan out safely.',
+  'Cuisinart, instrukcja obsługi maszyny do chleba CBK-110':
+    'Cuisinart, instruction booklet for the CBK-110 bread maker',
+  'Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.':
+    'The machine programs behind the program hint, delayed start with dry milk, and the hot kneading paddle.',
+  'Kenwood, instrukcja obsługi maszyny do chleba BM200':
+    'Kenwood, operating instructions for the BM200 bread maker',
+  'Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.':
+    'The order of ingredients, delayed start and taking out the hot pan.',
 };

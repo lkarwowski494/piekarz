@@ -120,7 +120,7 @@ describe('zakres bramek w CLAUDE.md i docs/20 zgodny z package.json (N-14)', () 
   const linie = blok.split('\n');
   const krokiVerify = [...(pkg.scripts.verify as string).matchAll(/npm (?:run ([\w:-]+)|test)/g)].map((m) => m[1] ?? 'test');
   const ETYKIETA: Record<string, RegExp> = {
-    typecheck: /Typecheck/i, 'check:i18n': /i18n/i, 'check:licenses': /Licencj/i, 'check:size': /Rozmiar/i,
+    typecheck: /Typecheck/i, 'check:i18n': /i18n/i, 'check:licenses': /Licencj/i, 'check:licencje': /Lista licencji/i, 'check:size': /Rozmiar/i,
     lint: /Lint|ESLint/i, 'verify:native': /iOS/i, 'verify:matrix': /Macierz/i, test: /Test/i,
   };
 

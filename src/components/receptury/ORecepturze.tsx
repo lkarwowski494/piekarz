@@ -11,6 +11,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import type { RecipePreset } from '../../recipes/presets';
+import type { PieczenieWersji } from '../../core/yeast-stages';
 import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { s } from './style-receptur';
 import { Karta } from '../../ui/karty/Karta';
@@ -23,23 +24,36 @@ function naczynie(v: RecipePreset['recommendedVessel']): string {
   return t('blacha piekarnika');
 }
 
-export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
+/** `wskazowki`: wskazówki wersji drożdżowej zamiast wskazówek receptury (D-154) [M3 p9b]. */
+/** `pieczenie`: pieczenie wersji drożdżowej ze źródła zamiast pary i rumienienia receptury (D-256). */
+export function ORecepturze({ receptura, wskazowki, pieczenie }: { receptura: RecipePreset; wskazowki?: string; pieczenie?: PieczenieWersji }) {
   const unitSystem = useUnitSystem();
   const r = receptura;
+  const notatka = wskazowki ?? r.notesPl;
   return (
     <Karta testID="karta-o-recepturze" tytul={t('O recepturze')} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <View testID="recipe-about" style={styles.tresc}>
         <Text style={s.etykieta}>{t(r.descriptionPl)}</Text>
         <Text style={styles.wiersz}>
-          <Text style={styles.mocny}>{t('Pieczenie')}:</Text> {formatTemperature(r.bakeTempSteamC, unitSystem)} ({t('{n} min', { n: r.bakeTimeSteamMinutes })} {t('para')} +{' '}
-          {t('{n} min w {temp}',{ n: r.bakeTimeBrowningMinutes, temp: formatTemperature(r.bakeTempBrowningC, unitSystem) })})
+          <Text style={styles.mocny}>{t('Pieczenie')}:</Text>{' '}
+          {pieczenie ? (
+            <>
+              {formatTemperature(pieczenie.temp1C, unitSystem)} ({t('{n} min', { n: pieczenie.min1 })} +{' '}
+              {t('{n} min w {temp}', { n: pieczenie.min2, temp: formatTemperature(pieczenie.temp2C, unitSystem) })})
+            </>
+          ) : (
+            <>
+              {formatTemperature(r.bakeTempSteamC, unitSystem)} ({t('{n} min', { n: r.bakeTimeSteamMinutes })} {t('para')} +{' '}
+              {t('{n} min w {temp}', { n: r.bakeTimeBrowningMinutes, temp: formatTemperature(r.bakeTempBrowningC, unitSystem) })})
+            </>
+          )}
         </Text>
         <Text style={styles.wiersz}>
           <Text style={styles.mocny}>{t('Naczynie')}:</Text> {naczynie(r.recommendedVessel)}
         </Text>
-        {r.notesPl ? (
+        {notatka ? (
           <Text style={styles.wiersz}>
-            <Text style={styles.mocny}>{t('Wskazówki')}:</Text> {t(r.notesPl)}
+            <Text style={styles.mocny}>{t('Wskazówki')}:</Text> {t(notatka)}
           </Text>
         ) : null}
       </View>
