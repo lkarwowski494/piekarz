@@ -3,6 +3,7 @@
 // dotknięcie pokazuje notkę o prawach autorskich, treść licencji i NOTICE. Osobno: biblioteki natywne spoza npm i czcionka
 // Sofia Sans (OFL-1.1). Nazwy pakietów i treść licencji w oryginale (prawnym), tłumaczone tylko etykiety.
 // Dane: assets/licencje.generated.json (scripts/licencje.mjs, poza limitem 20 480 B); wczytanie z `unknown` w src/lib/licencje.ts.
+// Etykieta wiersza = jego teksty (nazwa, wersja, licencja, notki): dane, nie napis do tłumaczenia (tests/voiceover-role-etykiety.test.ts).
 // Wygląd z istniejących tokenów i wzorca wiersza Ustawień; do akceptacji roli 04. Duży tekst: bez stałych wysokości.
 // ============================================================================
 
@@ -17,7 +18,8 @@ import { WIERSZ } from './wiersz-ustawien';
 
 type Teksty = DaneLicencji['teksty'];
 const klucz = (w: WpisLicencji) => `licencja-${w.nazwa}@${w.wersja}`;
-const opis = (w: WpisLicencji) => [w.licencja, ...w.notki].join(' · ');
+/** Licencja w pierwszym wierszu, notki o prawach autorskich w kolejnych (bez separatora „A · B”, wybory-domyslne-090). */
+const opis = (w: WpisLicencji) => [w.licencja, ...w.notki].join('\n');
 
 interface WierszProps {
   wpis: WpisLicencji;
@@ -35,7 +37,6 @@ export const WierszLicencji = memo(function WierszLicencji({ wpis, teksty, otwar
         style={styles.wiersz}
         onPress={onPrzelacz}
         accessibilityRole="button"
-        accessibilityLabel={`${tytul}, ${wpis.licencja}`}
         accessibilityState={{ expanded: otwarty }}
         testID={klucz(wpis)}
       >
