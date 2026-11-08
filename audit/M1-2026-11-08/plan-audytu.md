@@ -1,9 +1,9 @@
 # Plan audytu M1 — Piekarz — 2026-11-08
-Commit: 2ef8870a (tag v1.0.0-b1023, build 1023 w TestFlight) · Etap: TestFlight, testuje tylko właściciel na danych testowych · Wariant: **standardowy** (rekomendacja: pierwszy pełny audyt kandydata 1.0, D-225 „pełny M1”) · Subagenci: narzędzie Agent (w tle), do 5 naraz; ciężkie komendy (pełne testy) tylko 07 i tylko pojedynczo.
+Commit: 2ef8870a (tag v1.0.0-b1023, build 1023 w TestFlight) · Etap: TestFlight, testuje tylko właściciel na danych testowych · Wariant: **głęboki** (wybór właściciela na STOP 1, 2026-11-08; rekomendacja M1 była: standardowy) · Subagenci: narzędzie Agent (w tle), do 5 naraz; ciężkie komendy (pełne testy) tylko 07 i tylko pojedynczo.
 
 ## Wyjątki nazwane (zasada 7)
-1. **Prompt M1 złożony ręcznie.** Zablokowane uruchomienie `tools/assemble.mjs` (filtr uprawnień auto mode). Kontrola zastępcza: przeczytane w całości te same pliki w kolejności ze skryptu `assemble.mjs:239-252` (prompts @ c025063f, zasady 2026-10-18/2026-10-31). Brak `--statystyki`: rozmiary policzone z plików (ok. 72 tys. znaków, ok. 20 tys. tokenów).
-2. **Linia bazowa nie w pełni ślepa:** `CLAUDE.md` wczytał się automatycznie w całości. Kontrola zastępcza: soczewki 2–4 jako subagenci bez dostępu do repo.
+1. **Prompt M1 złożony ręcznie.** Zablokowane uruchomienie `tools/assemble.mjs` (filtr uprawnień auto mode). Kontrola zastępcza: przeczytane w całości te same pliki w kolejności ze skryptu składającego (funkcja assemble, prompts @ c025063f). Po STOP 1 właściciel dodał regułę uprawnień; prompt złożony narzędziem: `prompty/M1.md`, 65 997 znaków.
+2. **Linia bazowa nie w pełni ślepa:** `CLAUDE.md` wczytał się automatycznie w całości. Kontrola zastępcza: pięć soczewek jako subagenci bez dostępu do repo (wariant głęboki).
 3. **Brak artefaktów poprzedniego M1** (19.10, `audit/` poza gitem, nie ma go w tym kontenerze): kalibracja kosztu tylko z liczb we wzorcach biblioteki (≈ 7,0 mln tokenów na Piekarzu).
 
 ## Bramka opłacalności (E0a)
@@ -20,7 +20,7 @@ Główne prace to: policzyć ilości, zaplanować wypiek od godziny „gotowe”
 ## Stan na E0 (dowody w `wspolne/`)
 - `npm ci` kod 0, `typecheck` kod 0, `lint` kod 0, `npm test`: 574 zestawy, 6017 testów, kod 0. `git status --porcelain`: 0 linii.
 - **CI na master 2ef8870a (zasada 21):** CI, TZ i TestFlight zielone; **iOS E2E #96 czerwone** (`05-dwa-wypieki`: „next-or-finish-step-btn is visible”). Poprawka E2E-95 jest na `wip/08-e2e95-2026-11-08` (d1524768; E2E #97 zielone), poza buildem 1023. **Nightly** bez zielonego przebiegu od 2026-11-02 (anulowania po 2 h, 11-08 błąd). Oba trafiają do 07 jako pozycje do sprawdzenia (JAK-17).
-- **Znane otwarte do uwzględnienia (sprawdzone u źródła):** D-273 (`docs/decyzje.md:1588`, plik ratunkowy przy kasowaniu `bake_sessions`, ryzyko brzegowe, właściciel przekazał do M1) → 05/12; E2E-95, D-280 i opcjonalne stuknięcie „Allow” → 07; tor B (es „a las {godzina}” 1:xx → 09; terminy maszyny pt/ja/lt i `DODATKI_MASZYNY` → 06) zgłaszany jako znane, bez dublowania.
+- **Znane otwarte do uwzględnienia (sprawdzone u źródła):** D-273 (`docs/decyzje.md:1588`, plik ratunkowy przy kasowaniu `bake_sessions`, ryzyko brzegowe, właściciel przekazał do M1) → 05/12; E2E-95, D-280 i opcjonalne stuknięcie „Allow” → 07; tor B (es: godzina 1:xx w szablonie z a las → 09; terminy maszyny pt/ja/lt i `DODATKI_MASZYNY` → 06) zgłaszany jako znane, bez dublowania.
 - **Rozbieżność w poleceniu:** sekcji „19:30 UTC 2026-11-08” nie ma w `docs/wznowienie-M3.md` ani na master, ani na wip (najnowsza ok. 17:25 UTC na d1524768).
 - **Do sprawdzenia (02):** opis w `docs/wydanie/ceny.json` powołuje model stały D-038 („bez propozycji zmian”), a obowiązuje model D-112.
 
@@ -75,3 +75,13 @@ Filtr uprawnień auto mode zablokował w tej sesji uruchamianie skryptów biblio
 
 ## Decyzja
 (a) plan jak wyżej: standardowy, bramka użyta ponownie jako wyjątek nazwany, bez punktu kontrolnego, uprawnienia wariantem (a) (rekomendacja) · (b) wariant lekki: E0b + 02, 05, 06, 07, 10, 12, ok. 3,1–6,2 mln tokenów i 5–6 h, werdykt najwyżej „GOTOWE Z ZASTRZEŻENIAMI” · (c) zmiany właściciela (np. wariant głęboki: drugi przebieg 05 lub 12, +0,5–1,0 mln; odświeżenie bramki; punkt kontrolny po partii 1).
+
+## Decyzje właściciela na STOP 1 (2026-11-08)
+Słowa (przyciski): wariant „Głęboki”; uprawnienia „Dodam reguły (Recommended)”; bramka „Użyj istniejącej (Recommended)”.
+Wykonanie wariantu głębokiego:
+- **Drugi niezależny przebieg:** 05-architekt-b (`role/05-architekt-b/`, ID od 05-architekt-501), bo obszar najważniejszy krytycznie to dane i przypomnienia w tle (D-273, Sleep Guard); te same moduły, świeży kontekst, bez wiedzy o przebiegu a. Partia 2.
+- **Soczewki:** wszystkie 5 jako subagenci w partii 1 (1 i 5 także, choć M1 przeszedł je sam).
+- **Moduły:** wszystkie dotyczące, plus `przeplywy-i-gesty` dla 04 (przepływy AS IS głównej pracy w kuchni).
+- **Weryfikacja przeciwna:** P0, P1 i P2 w obszarach krytycznych (dane, prywatność, zakupy, przypomnienia, bezpieczeństwo żywności).
+- **Koszt po zmianie:** role 4,6–9,3 mln (prompty z `--statystyki` 58–80 tys. znaków); soczewki 0,5–0,75 mln; weryfikacja 0,6–1,7 mln; M1 0,8–1,5 mln; **razem 6,5–13,3 mln** tokenów, próg STOP wyjątkowego 1,5 × 13,3 = 20,0 mln. Czas agenta ok. 9–12 h. Punkt kontrolny po partii 1: wyłączony.
+- **Bramka:** istniejący wynik („przerobić”, 345/500) jako wyjątek nazwany; 02 sprawdza platformę w rachunku (iOS + Google Play wobec 1.0 tylko iOS).
