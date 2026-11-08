@@ -10,6 +10,7 @@
     { "tekst": "/Library/SQLite/piekarz.db", "powod": "sciezka pliku bazy (dane techniczne)" },
     { "tekst": "ACID / WAL mode", "powod": "nazwa techniczna trybu SQLite" },
     { "tekst": "{\"format\":\"piekarz-backup\",...}", "powod": "przyklad formatu JSON kopii (dane techniczne)" },
+    { "tekst": "NOTICE", "powod": "nazwa pliku prawnego NOTICE (Apache-2.0 §4d), oryginal prawny, nie tlumaczona (ekran Licencje open source, Z-08-1)" },
     { "tekst": "Polski", "powod": "nazwa jezyka w tym jezyku (przelacznik jezyka)" },
     { "tekst": "English", "powod": "nazwa jezyka w tym jezyku (przelacznik jezyka)" },
     { "tekst": "PL:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },

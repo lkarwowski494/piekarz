@@ -19,7 +19,7 @@ import { typografia } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
-export function StudioEcosystemSection() {
+export function StudioEcosystemSection({ onOtworzLicencje }: { onOtworzLicencje?: () => void } = {}) {
   return (
     <>
       {/* Rodzina Apps4Craft (F-52) PÓŹNIEJ: sekcja ukryta (ZM-14, D-034); karta bezpieczeństwa
@@ -87,6 +87,18 @@ export function StudioEcosystemSection() {
         <Text style={styles.privacyUrl} selectable testID="settings-privacy-url">
           {PRIVACY_URL}
         </Text>
+        {/* Licencje open source (Z-08-1, FOR-15): podekran Ustawień; wiersz tylko z obsługą otwarcia (SettingsModal) */}
+        {onOtworzLicencje && (
+          <Pressable
+            style={styles.wiersz}
+            onPress={onOtworzLicencje}
+            accessibilityRole="button"
+            accessibilityLabel={t('Licencje open source')}
+            testID="settings-licencje-btn"
+          >
+            <Text style={wierszUstawien.akcja}>{t('Licencje open source')}</Text>
+          </Pressable>
+        )}
         {/* Stały link do opinii (BR-OPIN-002); ukryty, dopóki Apple ID jest znacznikiem [M1-audytor-generalny-082] */}
         {/^\d+$/.test(APP_STORE_ID) && (
           <Pressable

@@ -28,6 +28,7 @@ import { ImportRecepturySection } from './settings/ImportRecepturySection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
 import { ZakupySection } from './settings/ZakupySection';
 import { ZrodlaWiedzySection, ZrodlaWiedzyEkran } from './settings/ZrodlaWiedzy';
+import { LicencjeEkran } from './settings/LicencjeEkran';
 import { HeaderButton } from './DraftHeader';
 
 import { typografia } from '../ui/tokeny';
@@ -43,10 +44,11 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   // Naczynie do wypieku; bez wyboru stylu wypieku [M1-audytor-generalny-101; BR-START-001]
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
 
-  // Podekran w tym samym arkuszu, bez drugiego arkusza modalnego (D-117): „Źródła wiedzy” (D-123, M3 T2);
-  // każde otwarcie Ustawień zaczyna od listy ustawień
-  const [podekran, setPodekran] = useState<'zrodla' | null>(null);
+  // Podekran w tym samym arkuszu, bez drugiego arkusza modalnego (D-117): „Źródła wiedzy” (D-123, M3 T2) i
+  // „Licencje open source” (Z-08-1, FOR-15); każde otwarcie Ustawień zaczyna od listy ustawień
+  const [podekran, setPodekran] = useState<'zrodla' | 'licencje' | null>(null);
   const zrodla = podekran === 'zrodla';
+  const licencje = podekran === 'licencje';
 
   useEffect(() => {
     if (visible) {
@@ -82,16 +84,18 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
-          {zrodla ? (
-            <HeaderButton testID="zrodla-wstecz" title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setPodekran(null)} />
+          {podekran ? (
+            <HeaderButton testID={zrodla ? 'zrodla-wstecz' : 'licencje-wstecz'} title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setPodekran(null)} />
           ) : (
             <CloseButton onPress={onClose} akcja="zamknij" />
           )}
-          <Text style={styles.headerTitle}>{zrodla ? t('Źródła wiedzy') : t('Ustawienia')}</Text>
+          <Text style={styles.headerTitle}>{zrodla ? t('Źródła wiedzy') : licencje ? t('Licencje open source') : t('Ustawienia')}</Text>
           <View style={styles.headerPlaceholder} />
         </View>
 
-        {zrodla ? (
+        {licencje ? (
+          <LicencjeEkran />
+        ) : zrodla ? (
           <ScrollView contentContainerStyle={styles.content}>
             <ZrodlaWiedzyEkran />
           </ScrollView>
@@ -130,7 +134,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           <ZrodlaWiedzySection onOtworz={() => setPodekran('zrodla')} />
 
           {/* Apps4Craft Studio Family & Security */}
-          <StudioEcosystemSection />
+          <StudioEcosystemSection onOtworzLicencje={() => setPodekran('licencje')} />
         </ScrollView>
         )}
       </SafeAreaView>
