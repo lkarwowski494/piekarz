@@ -1645,3 +1645,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** koordynator (i sesje ról) rozstrzyga sam decyzje, przy których zwykle pytałby właściciela: (1) pełna analogia z repo `lkarwowski494/trening` albo `oczko` (ta sama sprawa rozstrzygnięta tam przez właściciela) → przyjąć; (2) brak analogii → opcja rekomendowana; każda taka decyzja jako wpis „do weta” z odrzuconymi opcjami. Dotyczy także STOP 1 M1: wariant rekomendowany, jeśli mieści się w zakresie D-225/D-277 i w limicie tygodniowym konta.
 - **Wyjątki nazwane (bez zmian, osobna zgoda):** zgłoszenie do recenzji App Store, publikacja/zmiana strony, push na `master` poza D-272, nowy build poza D-272, usuwanie gałęzi i danych, zapis w App Store Connect, wiadomości do ludzi, wydatki. Sprawy merytoryczne nadal rozstrzygają źródła (rola 06), nie rekomendacja.
 - **Status:** właściciel.
+
+### [D-282] 2026-11-08 — E2E-95: warunkowe czekanie na arkusz zgody w 6 miejscach scenariuszy Maestro (rola 08 fix, koordynator; zgoda D-280 pkt 1)
+- **Decyzja:** 6 opcjonalnych stuknięć `zgoda-dalej-btn` (e2e/02, 03, 04, 05 ×2, e2e-basic/04) zastąpiono `extendedWaitUntil` visible z `optional` (30 s; 15 s przy drugim wypieku) i `runFlow when visible` ze stuknięciem bez `optional`. Kod aplikacji bez zmian.
+- **Odrzucone:** czekanie bezwarunkowe — arkusz pojawia się tylko przy zgodzie `undetermined` (`ProwadzenieWypieku.tsx:145`, `notifications.ts:47-56`), więc przy nadanej zgodzie scenariusz by padał; zostawić — wyścig z run 42498413474 (D-279) wraca przy wolnej odpowiedzi systemu.
+- **Dowód:** iOS E2E run 42511814430 na `d1524768` zielony (pl_PL, en_US, kontrola negatywna, Basic); verify kod 0 (574/6017) wg raportu roli 08. Plik stanu `docs/stan-08-e2e95-2026-11-08.md` (tam propozycja z numerem D-281 — numer zajęty przez regułę nocy, wpis ma D-282).
+- **Otwarte:** opcjonalne stuknięcie systemowego „Allow” — możliwy podobny wyścig (E2E-96, tor B). Do `master` z następnym kandydatem.
+- **Status:** koordynator, do weta.
