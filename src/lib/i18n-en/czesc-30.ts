@@ -1,6 +1,6 @@
 /**
  * Słownik EN, część 30 (Z-08-1, FOR-15, D-291: ekran „Licencje open source”). Etykiety interfejsu; nazwy pakietów i
- * treść licencji zostają w oryginale prawnym (bez tłumaczenia). Pozostałe 33 języki: część dopisana na końcu słownika.
+ * treść licencji zostają w oryginale prawnym (bez tłumaczenia). Pozostałe 33 języki: część dopisana na końcu słownika. Drugi przegląd AI 2026-11-08 (rola 09, świeży kontekst): EN bez zmian.
  */
 export const EN_30: Record<string, string> = {
   'Licencje open source': 'Open source licenses',

@@ -1,4 +1,4 @@
-// Słownik ro, część 15: 6 kluczy ekranu „Licencje open source” (Z-08-1, FOR-15, D-291). MT claude-opus-5-5 (rola 08, 2026-11-08), bez drugiego przeglądu AI; przegląd natywny: brak (DEC-06)
+// Słownik ro, część 15: 6 kluczy ekranu „Licencje open source” (Z-08-1, FOR-15, D-291). MT claude-opus-5-5 (rola 08, 2026-11-08), drugi przegląd AI 2026-11-08 (rola 09, świeży kontekst); przegląd natywny: brak (DEC-06)
 // Źródło: etykiety interfejsu; nazwy pakietów i treść licencji zostają w oryginale prawnym.
 export const CZESC: Record<string, string> = {
   'Licencje open source': 'Licențe open source',
