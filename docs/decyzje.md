@@ -1599,7 +1599,8 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Kontekst:** Nightly na `master` @ `9c255a0` (run 42463983930, 2026-11-08, niedziela): 5 zestawów / 6 testów czerwonych na kodzie, który 2026-11-04 przechodził CI; np. `src/__tests__/pro-wznowienie-w2.test.tsx:102` szuka `pasek-dzien-<jutro>` na prawdziwym zegarze, a pasek pokazuje bieżący tydzień kalendarzowy (BR-KAL-008). Nightly 2026-11-01 (też niedziela): failure; 03–07.11: cancelled po 120 min. Ocena: realne dla wydania (blokuje `verify` przed scaleniem D-272), dla użytkownika brak błędu.
 - **Decyzja:** rola 08 (fix, ZEGAR-001, gałąź `wip/08-zegar-2026-11-08`) ustawia stały zegar w testach; kod aplikacji i asercje bez zmian; dowód czerwieni w niedzielę.
 - **Odrzucone:** pasek „7 dni od dziś” (zmiana BR-KAL-008 przez 03/04, nowy E2E); scalanie tylko w dni robocze (Nightly czerwony co niedzielę).
-- **Status:** właściciel. Szczegóły wykonania: plik stanu `docs/stan-08-zegar-2026-11-08.md`.
+- **Wykonanie (2026-11-08):** `afa84bcd` — `jest.useFakeTimers` (tylko `Date`, środa 2026-11-04 12:00) w `pro-wznowienie-w2`, `pro-po-arkuszu-w005`, `basic-pro-pa`, `ekran-pro-pb`; stała północ środa→czwartek w `dzis-d4b` (BR-KAL-001). Przed: 5 zestawów / 6 testów czerwonych (niedziela); po: verify kod 0, 570/5983. Pozostałe testy z `Date.now()` ocenione jako brzegowe/teoretyczne (plik stanu). Otwarte dla M1: czy pasek przełącza tydzień o północy niedzieli (nie sprawdzono).
+- **Status:** właściciel. Plik stanu: `docs/stan-08-zegar-2026-11-08.md`.
 
 ### [D-276] 2026-11-08 — Wznowienie koordynatora M3: gałęzie, tory równoległe, tylko zakres 1.0 (właściciel)
 - **Słowa właściciela (2026-11-08):** gałęzie: „redesign/ i wip/ (Recommended)”; tory: „B: drobne poprawki, C: formalności M8, Tylko co idzie do 1.0”; wersja: „Aplikacja nie jest wydana więc nie ma jeszcze wersji 1.0. Co mamy w planie do zrobienia żeby wydać 1.0 i co żeby wydać 1.1”.
