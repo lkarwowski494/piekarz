@@ -382,7 +382,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
   it('BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {
     jest.useRealTimers(); // ten przypadek ma własny zegar (spy na Date.now)
     await pustaBaza();
-    const polnoc = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1).getTime();
+    const polnoc = new Date(2026, 10, 5).getTime(); // północ środa→czwartek w jednym tygodniu pasku (stała data, ZEGAR-001)
     let teraz = polnoc - 30_000;
     const spy = jest.spyOn(Date, 'now').mockImplementation(() => teraz);
     // Zegar ścienny z Date.now (spy wyżej); fałszywe tylko zegary odliczające (setInterval co minutę)
