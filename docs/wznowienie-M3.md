@@ -8,7 +8,7 @@ Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - **Nie robisz bez właściciela:** nowy build/push master (D-272 zużyte na 1023), zgłoszenie do recenzji, zapis w ASC, strona, usuwanie gałęzi.
 - Wolne numery decyzji od D-282. Proxy sesji odrzuca usuwanie gałęzi i push tagów.
 
-## PUNKT CZYSZCZENIA 2026-11-08 ~17:25 UTC (koordynator M3; właściciel: praca także w nocy) — STAN BIEŻĄCY, czytaj najpierw
+## PUNKT CZYSZCZENIA 2026-11-08 ~17:25 UTC (koordynator M3; właściciel: praca także w nocy) (historia)
 - `redesign/piekarz-2026-10-22` @ `ff5c79eb` (+ commit z tym wpisem i D-280) = kandydat 1.0: ZEGAR-001 (D-275), M8 formalności + ekran „Licencje open source” (D-290, D-291), przegląd przekładu 09l (D-278), diagnoza E2E-94 (D-279). `master` @ `9c255a0` = build 1022.
 - **Weryfikacja:** bramki po M8 kod 0; pełne `verify` na `ff5c79eb` uruchomione 17:20 UTC (wynik: `audit/M3-2026-11-08/dowody/verify-ff5c79eb.txt`, poza gitem; nowy kontener → uruchom ponownie). Poprzednio `verify` na `c0a18d15` kod 0 (570/5983).
 - **E2E:** run 42498413474 (fb8b66a3): pl 5/5, en `05-dwa-wypieki` czerwony = wyścig arkusza zgody (D-279). Ponowienie (plan wydania §1 pkt 1) dispatch ~17:17 UTC na `0e5fa7ef` (różnica do `ff5c79eb`: tylko słowniki 09l i docs — wyjątek nazwany jak D-276).
