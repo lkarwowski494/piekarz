@@ -65,7 +65,7 @@ Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w
 | D1 | Nazwa, podtytuł, opis, słowa kluczowe (≤ 100 **bajtów**), 34 lokalizacje | pliki `docs/wydanie/metadane/`, karty `docs/wydanie/ustawienia/`; skrypt `sprawdz-wydanie.mjs` z kodem 0 przed wysyłką | TAK | agent |
 | D2 | Zdanie „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” | w `pl`, `en-US`, `en-GB`, `en-AU`, `en-CA`; **29 lokalizacji bez przekładu akapitu „Dostęp i zakup”** (Z-8, `docs/monetyzacja.md`) | TAK (prawdziwość opisu, wytyczna 2.3) | M1 / rola 09 |
 | D3 | Opis zgodny z kodem: funkcje Pro oznaczone, brak obietnicy próby i „tylko historia” | Z-8: w opisie wszystkich lokalizacji zdania o funkcjach dziś Pro bez oznaczenia | TAK | rola 10 |
-| D4 | Adresy: polityka prywatności, wsparcie (kod 200 przed wysyłką) | `sklep.md` §2 krok 4.4; adres i telefon wsparcia (DSA) `[DO USTALENIA]`, właściciel | TAK | właściciel |
+| D4 | Adresy: polityka prywatności, wsparcie (kod 200 przed wysyłką) | `sklep.md` §2 krok 4.4; strona wsparcia bez adresu i telefonu (D-290 pkt 1); polityka v2: `docs/prawne/polityka-prywatnosci.pl.md`, publikacja w apps4brew-www | TAK | właściciel |
 | D5 | App Privacy „Data Not Collected”, kategoria wiekowa (D-058), eksport kryptografii | `instrukcja-ustawien.md` §7–9 | TAK | właściciel |
 | D6 | App Review: kontakt, notatki (EN) bez haseł | notatki: `docs/app-store-metadata-v2.md` §4.3; kontakt tylko w ASC | TAK | właściciel |
 | D7 | Opcja wydania „Manually release this version” (DEC-16 a) | `sklep.md` §6 krok 2 | nie | właściciel |
@@ -75,7 +75,7 @@ Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w
 
 | # | Pozycja | Stan | Blokuje | Kto |
 |---|---|---|---|---|
-| E1 | Status tradera DSA i dane kontaktowe na stronie wsparcia | `instrukcja-ustawien.md`, „Otwarte” | `[DO USTALENIA]` | właściciel |
+| E1 | Status tradera DSA i dane kontaktowe na stronie wsparcia | przedsiębiorca, zweryfikowany 20.10.2026 (konto); strona wsparcia bez telefonu (D-290 pkt 1); sprawdzić stan w ASC przed wysyłką | nie | właściciel |
 | E2 | ICP dla CHN (D-057) | `instrukcja-ustawien.md`, „Otwarte” | `[DO USTALENIA]` | właściciel |
 | E3 | Licencje zależności (`npm run check:licenses`) | część `npm run verify` | nie | agent |
 | E4 | Ekran „Źródła wiedzy” (D-123): nazwy źródeł tylko tam; nic w ASC nie przypisuje aplikacji źródeł | `tests/zrodla-poza-ekranem-t2.test.ts` | nie | agent |

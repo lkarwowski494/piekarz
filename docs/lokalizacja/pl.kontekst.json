@@ -273,6 +273,11 @@
   "Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:": {
     "gdzie": []
   },
+  "Aplikacja korzysta z bibliotek open source. Dotknij pozycji, by zobaczyć notkę o prawach autorskich i pełną treść licencji. Nazwy pakietów i treść licencji są w oryginale.": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
   "Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
@@ -452,6 +457,11 @@
   "Biały nalot lub kożuch na powierzchni": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Biblioteki natywne iOS spoza npm ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tytul)"
     ]
   },
   "Biga (Sztywny zaczyn włoski 50%)": {
@@ -1074,6 +1084,11 @@
   "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.": {
     "gdzie": [
       "src/core/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czcionki ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tytul)"
     ]
   },
   "Czego unikać (typowe błędy):": {
@@ -3116,6 +3131,13 @@
       "src/core/preferments.ts (dane: namePl)"
     ]
   },
+  "Licencje open source": {
+    "gdzie": [
+      "src/components/SettingsModal.tsx (tekst w JSX)",
+      "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
+      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
+    ]
+  },
   "Licz od: {dzien}": {
     "gdzie": [
       "src/lib/staly-dzien-pytanie.ts (text)"
@@ -4176,6 +4198,11 @@
       "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
+  "Nie można wczytać listy licencji.": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
   "Nie podwaja objętości": {
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: no_doubling)"
@@ -4868,6 +4895,11 @@
   "POZIOM": {
     "gdzie": [
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Pakiety npm ({n})": {
+    "gdzie": [
+      "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
     ]
   },
   "Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550": {
