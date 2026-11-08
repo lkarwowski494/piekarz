@@ -74,6 +74,8 @@ async function zamontuj() {
 }
 
 beforeEach(async () => {
+  // Stały zegar (środa 2026-11-04, 12:00; tylko Date): pasek dni pokazuje bieżący tydzień (BR-KAL-008), więc „jutro” musi wypadać w tym samym tygodniu niezależnie od dnia przebiegu [ZEGAR-001, D-275]
+  jest.useFakeTimers({ now: new Date(2026, 10, 4, 12, 0, 0, 0), doNotFake: ['nextTick', 'setImmediate', 'clearImmediate', 'queueMicrotask', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'hrtime', 'performance'] });
   jest.clearAllMocks();
   _resetMemStore();
   mockIap.reset(); // bez Pro
@@ -82,6 +84,7 @@ beforeEach(async () => {
   await initDatabase();
 });
 afterEach(() => {
+  jest.useRealTimers();
   if (tree) act(() => tree?.unmount());
   tree = null;
   ustawEkranZakupu(false);
