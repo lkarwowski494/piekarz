@@ -11,5 +11,5 @@ Aktualizacja: 2026-11-08 · Gałąź: `formalnosci/piekarz-2026-11-08` (od `rede
 ## Dla koordynatora M3
 1. Scal gałąź do `redesign/` przed E2E i buildem zgłoszeniowym (ekran licencji zmienia kod).
 2. Znalezisko: `npm run verify` kod 1 już na `fb8b66a` (bez M8): basic-pro-pa, dzis-d4b, ekran-pro-pb, pro-po-arkuszu-w005, pro-wznowienie-w2; nie zależy od TZ; przyczyna niezbadana. Na 2026-11-04 te zestawy przechodziły.
-3. Publikacja polityki v2 i strony wsparcia w apps4brew-www (`piekarz/privacy.html`, `piekarz/support.html`) — za osobną zgodą właściciela.
+3. Publikacja polityki v2 i strony wsparcia w apps4brew-www (`piekarz/privacy.html`, `piekarz/support.html`, adresy bez zmian) — **zgoda właściciela 2026-11-08: „Tak, przez koordynatora (Recommended)”**; treść: `docs/prawne/`.
 4. Biblioteki natywne ekranu licencji: uzupełnić z `Podfile.lock` po prebuild w CI; przekłady 6 kluczy (09), wygląd (04).
