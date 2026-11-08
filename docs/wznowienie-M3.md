@@ -1,7 +1,15 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
-## WZNOWIENIE 2026-11-08 ~16:15 UTC (nowy koordynator M3; poprzedni przerwał na limicie tygodniowym konta) — STAN BIEŻĄCY, czytaj najpierw
+## PUNKT CZYSZCZENIA 2026-11-08 ~17:25 UTC (koordynator M3; właściciel: praca także w nocy) — STAN BIEŻĄCY, czytaj najpierw
+- `redesign/piekarz-2026-10-22` @ `ff5c79eb` (+ commit z tym wpisem i D-280) = kandydat 1.0: ZEGAR-001 (D-275), M8 formalności + ekran „Licencje open source” (D-290, D-291), przegląd przekładu 09l (D-278), diagnoza E2E-94 (D-279). `master` @ `9c255a0` = build 1022.
+- **Weryfikacja:** bramki po M8 kod 0; pełne `verify` na `ff5c79eb` uruchomione 17:20 UTC (wynik: `audit/M3-2026-11-08/dowody/verify-ff5c79eb.txt`, poza gitem; nowy kontener → uruchom ponownie). Poprzednio `verify` na `c0a18d15` kod 0 (570/5983).
+- **E2E:** run 42498413474 (fb8b66a3): pl 5/5, en `05-dwa-wypieki` czerwony = wyścig arkusza zgody (D-279). Ponowienie (plan wydania §1 pkt 1) dispatch ~17:17 UTC na `0e5fa7ef` (różnica do `ff5c79eb`: tylko słowniki 09l i docs — wyjątek nazwany jak D-276).
+- **Następny krok:** E2E zielone + `verify` kod 0 → D-272: merge --no-ff kandydata do `master`, verify, push, `testflight.yml` na master, wiersz w `docs/wydanie/dziennik.md` (+ brakujące 1019, 1021). Build w TestFlight → D-277: M1 pełny (`M1-audytor-generalny --tryb audit`, STOP 1 z kosztem do właściciela) równolegle z testem telefonu właściciela; M2 = plan M1 + uwagi właściciela; jeden reaudyt na końcu. Po buildzie także E2E-95 (D-280, rola 08 fix, zmiana scenariuszy). E2E znów czerwony w tym samym miejscu → E2E-95 przed buildem (zgoda D-280 obejmuje zmianę).
+- **Strona:** repo `apps4brew-www` (dodane, push): gałąź `piekarz-polityka-v2-2026-11-08` (polityka v2 + strona wsparcia) — publikacja (merge do `main`) dopiero po diffie pokazanym właścicielowi i dacie obowiązywania (propozycja 9.11.2026), D-280.
+- Decyzje do D-280 i D-290, D-291; wolne od D-281 (D-292…D-299 rezerwa M8). Gałęzie: partie `wip/…-2026-11-08`, scalenia do `redesign/`, do `master` tylko wg D-272 (D-276).
+
+## WZNOWIENIE 2026-11-08 ~16:15 UTC (nowy koordynator M3; poprzedni przerwał na limicie tygodniowym konta) (historia)
 - Baza `redesign/piekarz-2026-10-22` @ `fb8b66a3`; `master` @ `9c255a0` = build 1022. Prompt koordynatora: `node <prompts>/tools/assemble.mjs M3-redesigner --galaz redesign/piekarz-2026-10-22`; K = `audit/M3-2026-11-08/` (poza gitem).
 - **W toku:** iOS E2E (workflow_dispatch na `fb8b66a3`, ~16:07 UTC); rola 08 ZEGAR-001 (D-275) na `wip/08-zegar-2026-11-08` (subagent); M8 formalności w sesji `session_01T66VBxvEunyQiF4dR36h6c` na `formalnosci/piekarz-2026-11-08` (pula D-290…D-299).
 - **Następny krok:** E2E zielone + ZEGAR-001 scalone + `verify` kod 0 → D-272: merge --no-ff do `master`, `testflight.yml`, wiersz w `docs/wydanie/dziennik.md` (dopisać brakujące 1019, 1021). Potem tor B (D-276 pkt 3), test telefonu (D-226), M1 (D-225; limit tygodniowy konta odnawia się 2026-11-15 ~16:00 UTC).

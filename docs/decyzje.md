@@ -1634,3 +1634,8 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** jedno ponowienie `e2e-ios.yml` na HEAD (plan wydania 1.0 §1 pkt 1: „Jedno ponowienie scenariusza dozwolone”), dispatch 2026-11-08 ~17:17 UTC na `0e5fa7ef`; kod aplikacji bez zmian.
 - **Do właściciela:** E2E-95 — utwardzenie 6 miejsc z tym wzorcem (e2e/02:45, 03:35, 04:32, 05:31, 05:76, e2e-basic/04:33: czekanie na arkusz zamiast opcjonalnego stuknięcia); zmienia testy, wymaga zgody.
 - **Status:** koordynator, do weta.
+
+### [D-280] 2026-11-08 — E2E-95 po buildzie kandydata; dostęp do repo apps4brew-www i publikacja polityki v2 po obejrzeniu diffu (właściciel)
+- **Słowa właściciela (2026-11-08):** „1a 2 a - zezwalam na dodanie repo”; „Btw sprawdz ale apps4brew am poloityke prywatnosci”.
+- **Decyzja:** (1) E2E-95 — utwardzenie 6 miejsc scenariuszy Maestro z opcjonalnym stuknięciem arkusza zgody (D-279) — rola 08 fix zaraz po buildzie kandydata, nie przed nim; (2) repo `lkarwowski494/apps4brew-www` dodane do sesji (push). Strona ma politykę v1 (20.10.2026), niezgodną z kodem i D-112/D-290 (okres próbny, model telefonu, AI i Porkbun jako odbiorcy, brak iCloud i raportów awarii) — aktualizacja do v2 (`docs/prawne/`, D-291) na gałęzi `piekarz-polityka-v2-2026-11-08`; scalenie do `main` (publikacja) po obejrzeniu diffu przez właściciela i potwierdzeniu daty obowiązywania.
+- **Status:** właściciel.
