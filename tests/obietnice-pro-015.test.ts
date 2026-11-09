@@ -124,4 +124,15 @@ describe('ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)', () => {
     expect(pr06).toMatch(/statystyki: ekran Pro/);
     expect(pr06).not.toMatch(/porówn/i);
   });
+  it('docs/monetyzacja.md: funkcje ukryte w 1.0 (spiżarnia, wysyłanie QR, druk, dalsza Akademia) oznaczone PÓŹNIEJ, nie w ofercie Pro 1.0 (M2-N1)', () => {
+    const pro = monetyzacja.split('\n').find((l) => l.startsWith('- **Pro:**')) ?? '';
+    const [oferta, poTem] = pro.split('Po 1.0');
+    for (const f of ['spiżarnia', 'QR', 'druk', 'Akademii']) {
+      expect([f, oferta.includes(f)]).toEqual([f, false]);
+      expect([f, (poTem ?? '').includes(f)]).toEqual([f, true]);
+    }
+    const tabela = monetyzacja.split('\n').find((l) => l.startsWith('| Receptury, dziennik, nauka')) ?? '';
+    expect(tabela).toMatch(/w 1\.0 PÓŹNIEJ[^|]*BR-WSP-003[^|]*BR-DRUK-001[^|]*BR-SPIZ-001/);
+  });
 });
+

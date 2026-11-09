@@ -7,7 +7,7 @@ Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jak
 „Tak. Wdrożymy ten model jako drugi bo to jednak najsensowniejsze rozwiązanie.” · „Samouczek i dziennik za darmo. Inteligetne wpsomaganja za pro.” → „Tak”.
 
 - **Basic, darmowy na zawsze:** nauka (założenie pierwszego zakwasu, Akademia: pierwszy poziom), podstawowe narzędzia (kalkulator receptury, prowadzenie wypieku krok po kroku z sygnałem przy zablokowanym telefonie), dziennik i wszystkie dane, bezpieczeństwo i pomoc w kryzysie.
-- **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, statystyki wypieków, spiżarnia, QR, druk, dalsza Akademia).
+- **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, statystyki wypieków). Po 1.0, gdy wrócą wejścia (w 1.0 PÓŹNIEJ, wejście ukryte: F-30 spiżarnia, F-08 wysyłanie QR, F-50 druk, dalsze poziomy Akademii), też w Pro — nie są częścią oferty Pro 1.0 (M2-N1, decyzja właściciela 2026-11-09).
 - **Bez próby i bez oferty wprowadzającej:** rolę próby pełni Basic. *Dlaczego:* właściciel odrzucił próbę, która sama zamienia się w opłatę („największy red flag”, D-110).
 - **Drugi model portfela:** Trening i Oczko stosują limit miesięczny dni głównej czynności; Piekarz nie, bo pieczenie i prowadzenie zakwasu da się robić bez aplikacji, więc limit użycia uczy omijania aplikacji (słowa właściciela w D-111, D-112).
 
@@ -47,7 +47,7 @@ Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacj
 | Planowanie | BR-HARMO-004 (przesunięcie kroku, „za późno”), BR-KAL-001…005, -008 (widok tygodnia, „Następne”, arkusz dnia, przeszłość); plan od teraz z ustawieniami nocy i lodówki (D-116, właściciel: „Wg rekomendacji”) | BR-HARMO-001…003 (plan wstecz, ochrona snu, czas fermentacji z temperatury), BR-KAL-009, -015 (wypieki na przyszłe dni), BR-KAL-016 (dwa wypieki naraz), BR-KAL-011…014 (jeśli w 1.0) |
 | Wypiek | BR-ETAP-001…006, BR-CZAS-002, -003, BR-REKA-001, garnek żeliwny | — |
 | Zakwas | BR-ZAKW-005 (założenie pierwszego zakwasu, przypomnienia tylko w czasie zakładania, na końcu „Gratulacje, Twój pierwszy zakwas jest gotowy…”), karta i zapis karmień pierwszego zakwasu, BR-ZAKW-007, ostrzeżenie RD-21, BR-DIAG-002, karta bezpieczeństwa; pierwsze karmienie budzące jako krok planu (`fridge_wake_feed`, D-116); przelicznik hydratacji zakwasu i wylewki (przepisy na resztki zakwasu), wydzielone z karty proporcji (właściciel przez M1, 2026-10-22: „2 zgodnie z rekomendacja”, D-117) | BR-ZAKW-004 (przypomnienia o dokarmianiu), BR-ZAKW-002 (proporcje), BR-KAL-010 (stały dzień w lodówce), BR-ZAKW-003 (gotowość, szczyt; poza zakładaniem), BR-ZAKW-006 (budzenie z lodówki: kolejne karmienia budzące — **rozbieżność z literą tabeli nazwana:** pierwsze karmienie budzące w planie jest w Basic, D-116, decyzja właściciela „Wg rekomendacji”, bo bez niego plan z zimnym zakwasem byłby błędny), BR-ZAKW-001 (drugi i kolejne zakwasy) |
-| Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (statystyki; porównanie dwóch wypieków to F-63 PÓŹNIEJ, poza ofertą Pro 1.0, DEC-04 a), BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |
+| Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (statystyki; porównanie dwóch wypieków to F-63 PÓŹNIEJ, poza ofertą Pro 1.0, DEC-04 a), po 1.0 (w 1.0 PÓŹNIEJ, bez wejścia): BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |
 | Zawsze | BR-DANE-001…004, BR-ZAK-001, -003, BR-UST-003, BR-PRYW-001, ustawienia | — |
 
 ### Reguły dostępu
@@ -71,11 +71,11 @@ Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacj
 | PR-05 dokarmianie, PR-11 założenie | założenie pierwszego zakwasu: Basic; przypomnienia, proporcje, lodówka, gotowość: ekran Pro | karta zakwasu, zapis karmień, RD-21 |
 | PR-06 dziennik | Basic; statystyki: ekran Pro | dziennik |
 | PR-07 dane | zawsze | wszystko |
-| PR-08 QR, druk | odczyt i import: Basic; wysłanie i druk: ekran Pro | eksport pliku |
+| PR-08 QR, druk | odczyt i import: Basic; wysłanie i druk: PÓŹNIEJ (w 1.0 bez wejścia), potem ekran Pro | eksport pliku |
 | PR-09 zakup, przywracanie, zarządzanie | zawsze | — |
 | PR-10 ustawienia, polityka | zawsze | — |
 | PR-12, PR-19 Dziś, kalendarz | widok Basic; planowanie przyszłych dni, dwa wypieki naraz: ekran Pro | przeszłość bez kłódek (BR-KAL-006) |
-| PR-13, PR-14 Akademia, Doktor | Doktor Basic; Akademia pierwszy poziom Basic, dalsze: ekran Pro | — |
+| PR-13, PR-14 Akademia, Doktor | Doktor Basic; Akademia w 1.0 tylko jako „Po co ten krok” (bez wejścia, PÓŹNIEJ); po powrocie pierwszy poziom Basic, dalsze: ekran Pro | — |
 | PR-16 koniec Pro | uprzedzenie i komunikat (wyżej) | wszystko do odczytu, eksport, import, usunięcie |
 
 ### Wektory dostępu (dla 07 i 08; `T` = teraz)
