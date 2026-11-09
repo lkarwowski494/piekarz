@@ -1,0 +1,36 @@
+FAIL tests/obietnice-pro-015.test.ts
+  ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)
+    ✓ mapa słów obejmuje każdy wiersz PÓŹNIEJ / NIE / TEST kontraktu i każde ukryte wejście (2 ms)
+    ✓ zdania „Co daje Pro” i opis pod tytułem nie nazywają funkcji bez wejścia w 1.0 (2 ms)
+    ✓ nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”) (1 ms)
+    ✓ docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06) (1 ms)
+    ✕ docs/monetyzacja.md: funkcje ukryte w 1.0 (spiżarnia, wysyłanie QR, druk, dalsza Akademia) oznaczone PÓŹNIEJ, nie w ofercie Pro 1.0 (M2-N1) (3 ms)
+
+  ● ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015) › docs/monetyzacja.md: funkcje ukryte w 1.0 (spiżarnia, wysyłanie QR, druk, dalsza Akademia) oznaczone PÓŹNIEJ, nie w ofercie Pro 1.0 (M2-N1)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "spiżarnia",
+    -   false,
+    +   true,
+      ]
+
+      129 |     const [oferta, poTem] = pro.split('Po 1.0');
+      130 |     for (const f of ['spiżarnia', 'QR', 'druk', 'Akademii']) {
+    > 131 |       expect([f, oferta.includes(f)]).toEqual([f, false]);
+          |                                       ^
+      132 |       expect([f, (poTem ?? '').includes(f)]).toEqual([f, true]);
+      133 |     }
+      134 |     const tabela = monetyzacja.split('\n').find((l) => l.startsWith('| Receptury, dziennik, nauka')) ?? '';
+
+      at Object.toEqual (tests/obietnice-pro-015.test.ts:131:39)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 4 passed, 5 total
+Snapshots:   0 total
+Time:        2.138 s
+Ran all test suites matching /tests\/obietnice-pro-015.test.ts/i.

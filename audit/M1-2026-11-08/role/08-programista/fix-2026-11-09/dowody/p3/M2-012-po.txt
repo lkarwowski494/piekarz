@@ -1,0 +1,12 @@
+(node:18055) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+PASS tests/plan-brioszki-m2-012.test.ts
+PASS tests/pieczenie-receptur-008.test.ts
+PASS src/__tests__/po-co-ten-krok-100.test.tsx
+
+Test Suites: 4 passed, 4 total
+Tests:       107 passed, 107 total
+Snapshots:   0 total
+Time:        2.67 s
+Ran all test suites matching /tests\/plan-brioszki-m2-012.test.ts|src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts|tests\/pieczenie-receptur-008.test.ts|src\/__tests__\/po-co-ten-krok-100.test.tsx/i.

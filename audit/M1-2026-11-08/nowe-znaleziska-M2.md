@@ -85,3 +85,30 @@
 - N-1 (P2, naprawione 287de811): test dzis-plany-d5 (i 3 podobne) zależny od pory dnia po 048 — redesign 3e51b342 ma verify czerwony po ok. 18:00 czasu lokalnego (UTC ok. 12:45 wg roli 03 — zależy od daty planu); poprawka wejdzie do redesign ze scaleniem partii 3. Wniosek procesowy: verify w dwóch strefach (UTC i +9) przed scaleniem.
 - N-2 (P2): F-43 „F-71 PÓŹNIEJ” i „Definicja ukończenia” nieaktualne — w 059.
 - Przekazania roli 03: 02 (monetyzacja.md l.10, 48, 70 „porównanie”), 01 (ER dla wymagania-dziennik.md:58, BR dla F-82, F-83, ZM-29), 04 (karta „Porównanie i statystyki” w docs/design/karty/inne.html:38), 10 (opis sklepu wg F-26, 080), 07 (6 testów kontraktu).
+- Przegląd 015 (zakupy + przekład): brak P0/P1/P2. P3 (1.0.1): martwe klucze „Porównanie i statystyki” i dawny długi klucz w EN + 33 słownikach; makieta inne.html:38; lista FUNKCJE_PRO w teście wpisana ręcznie; przecinek w ja/ko, rodzajnik fr („et les statistiques”). Propozycja tr recenzenta odrzucona (zniekształcona: „değil” = „nie”).
+
+## Rola 02 p3 (2026-11-09)
+- N1 (P2, P) — decyzja właściciela (zbieram do pytania): docs/monetyzacja.md:10, :50 podaje jako Pro funkcje ukryte w 1.0 (spiżarnia, QR, druk, dalsza Akademia); (a) oznaczyć PÓŹNIEJ + test 015 na wszystkie odłożone (rekomendacja), (b) zostawić jako docelowy zakres Pro z nagłówkiem.
+- N2 (P2→P3 wg D-288, klasa: dokumentacja/skrypt): scripts/asc-ustawienia.mjs:338, :351, :374 opisują ceny „ręczne z D-038” i usuwanie oferty razem z buildem (stan sprzed Z-1).
+- N3 (P2→P3, klasa: dokumentacja): docs/sztafeta.md:13 wymienia Z-1 jako krok właściciela.
+- Zastrzeżenie 057: Z-1 oznaczone na podstawie słów właściciela (docs/wznowienie-M3.md:230) bez zrzutu ASC — przekazanie do 07: sprawdzić w ASC w dniu zgłoszenia (instrukcja §4, 4.1–4.2).
+- Przegląd ścieżki wrażliwej (dokumenty cen): M2 sprawdził diff — wartości cen w ceny.json bez zmian (brak zmian liczb w diffie 287de811..9a692b21); tylko odwołania do decyzji.
+
+## Rola 08 p3 (2026-11-09): M2-012 bcf5ac2f, M2-013 7ba9198a, M2-014 4fa0359b
+- 08-p3-N1 (P2→P3 wg D-288, klasa: UX/treść): rada przy za zimnej wodzie („Zastąp część wody lodem”, domain-rules.ts:278) nie ma ekranu — receptura.tsx:357 przekazuje tylko zbyt gorącą; opcje (a) pokazać istniejący komunikat (rekomendacja), (b) z pełniejszą radą D-310 po akceptacji 04, (c) zostawić.
+- 08-p3-N2 (P2→P3): test palca przy rośnięciu brioszki, znak gotowości dla Lievito Madre [DO USTALENIA] (PIE-BRI-900).
+- 08-p3-N3 (P2→P3): „garowanie w lodówce” w podpowiedzi kolizji i „Garowanie chłodnicze” w kopii planu brioszki; spirala nie oznacza nocy dla brioche_cold.
+- 08-p3-N4 (P2→P3): „Po co ten krok” przy pizzy na stali mówi o garnku i nacięciu.
+- 08-p3-N5 (P2→P3, proces): generator przekładu z wejściem spoza repo odtworzyłby klucz usunięty w M2-013.
+
+## Przegląd M2-012 (2026-11-09)
+- Brak P0/P1. P2 (szablon brioszki po naczyniu łapał żytnią w keksówce przy życie ≤ 50%) → naprawione ede75863. P3 (1.0.1): kopia planu „Garowanie chłodnicze”, podpowiedź „wydłuż garowanie w lodówce”, spirala bez nocy dla brioche_cold, test palca przy brioche_proof, ok. 65 min rośnięcia z nagrzewaniem, dwa zdania o kratce (rola 06); przekład P3: ms/id „loyang”→„acuan/cetakan”, tr „kabarma”, hu, et, ru/uk „скатайте”, it „Impastare”.
+- Status M2-012/013/014: naprawione-do-weryfikacji (bcf5ac2f + ede75863; 7ba9198a; 4fa0359b) — poza plan-napraw.json (zadania dodatkowe D-308), stan w tym pliku i w raporcie końcowym.
+- Przegląd 016: brak P0/P1; P3 poprawione 5589c91e; tekst PL „Zapisz kopię ręcznie…” wobec przycisku „Eksportuj do pliku” — do akceptacji roli 04.
+
+## 070/071 (2026-11-09; wykonawca M2)
+- 070-N1 (P1? wymaganie BR-HARMO-001): 15 receptur drożdżowych katalogu (bagietka, chałka, pizza, 8 nowych…) bez planu i prowadzenia — „Ułóż plan” nieaktywne z komunikatem „tylko dla chleba na zakwasie”, czego scenariusz zabrania; orkisz na drożdżach też bez planu. Audyt uznawał scenariusze drożdżowe za spełnione — nie potwierdza się. Do roli 08/03 (decyzja właściciela: budować w 1.0 czy zmienić BR).
+- 070-N2 (P2): BR-ETAP-001 gotowość ciasta drożdżowego — żaden krok nie mówi „czas = wskazówka” i test palca razem (yeast-stages.ts).
+- 070-N3 (P2): BR-RECP-005 tartine — notatka bez „King Arthur Baking”, Źródła wiedzy bez tej wersji (rola 06/09).
+- 070-N4 (P2): BR-RECP-001 „Pizza w stylu neapolitańskim” z dopiskiem „w stylu” (D-097 vs D-177).
+- 070-N5 (P2): Stolnica w wersji drożdżowej — karta „Składniki do odważenia” pokazuje „Zakwas 0 g” i nie ma drożdży (SkladnikiKroku.tsx).

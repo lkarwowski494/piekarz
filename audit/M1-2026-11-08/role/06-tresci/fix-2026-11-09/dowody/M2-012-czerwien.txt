@@ -1,0 +1,33 @@
+Plan dla każdej receptury bierze szablon bochenka w koszyku; z recepturą podmienia tylko preheat_oven i bake:
+188:  // z recepturą kroki podmienia calculateReverseSchedule (options.pieczenie) [M1-audytor-generalny-008]
+230:  const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
+233:  if (options.pieczenie) {
+234:    const k = krokiPieczenia(options.pieczenie);
+237:    if (i >= 0) templates[i] = szablonPieczenia(k.nagrzewanie, 'preheat_oven');
+238:    if (j >= 0) templates[j] = szablonPieczenia(k.pieczenie, 'bake');
+
+Kroki szablonu (id, nazwa):
+107:    id: 'starter_feed',
+108:    namePl: 'Dokarmienie zakwasu (osiągnięcie szczytu)',
+117:    id: 'autolyse',
+118:    namePl: 'Autoliza (mąka + woda)',
+130:    id: 'mix',
+131:    namePl: 'Wymieszanie z solą i zakwasem',
+141:    id: 'bulk_ferment',
+142:    namePl: 'Fermentacja burzliwa ze składaniami',
+150:    id: 'pre_shape',
+151:    namePl: 'Formowanie wstępne',
+159:    id: 'bench_rest',
+160:    namePl: 'Odpoczynek na desce',
+168:    id: 'final_shape',
+169:    namePl: 'Formowanie ostateczne i koszyk',
+177:    id: 'final_proof',
+178:    namePl: 'Garowanie chłodnicze w lodówce',
+192:    id: 'cool',
+195:    namePl: 'Studzenie na kratce',
+
+Brioszka w keksówce:
+31:    recommendedVessel: 'bread_pan',
+Plan wersji drożdżowej nie obejmuje brioszki (CZASY w src/recipes/yeast-stages.ts):
+0
+Źródło (CIA, 2026-11-09): ciasto na noc w lodówce na blasze, formowanie w keksówce, rośnięcie w ciepłym miejscu — bez autolizy, składań, wstępnego formowania, koszyka i garowania w lodówce w koszyku.

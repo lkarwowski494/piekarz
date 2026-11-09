@@ -1,0 +1,13 @@
+PASS tests/dokumenty-wydania-057.test.ts
+PASS tests/oferta-dokumenty.test.ts
+PASS tests/instrukcja-ustawien.test.ts
+PASS tests/plan-wydania.test.ts
+PASS tests/obietnice-pro-015.test.ts
+PASS tests/monetyzacja-platforma-054.test.ts
+PASS tests/asc-ustawienia.test.ts (5.645 s)
+
+Test Suites: 7 passed, 7 total
+Tests:       121 passed, 121 total
+Snapshots:   0 total
+Time:        5.887 s, estimated 6 s
+Ran all test suites matching /tests\/dokumenty-wydania-057.test.ts|tests\/instrukcja-ustawien.test.ts|tests\/asc-ustawienia.test.ts|tests\/plan-wydania.test.ts|tests\/oferta-dokumenty.test.ts|tests\/monetyzacja-platforma-054.test.ts|tests\/obietnice-pro-015.test.ts/i.

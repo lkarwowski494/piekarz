@@ -1,0 +1,158 @@
+FAIL tests/brioszka-tylko-brioszka-m2-012.test.ts
+  M2-012: szablon brioszki tylko dla receptury brioszki
+    ✕ borodinsky_rye z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki (7 ms)
+    ✕ rye_100_pan z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki (1 ms)
+    ✕ brioszka nadal dostaje swoje kroki (1 ms)
+
+  ● M2-012: szablon brioszki tylko dla receptury brioszki › borodinsky_rye z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 46
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "category": "mix",
+    +     "durationMinutes": 20,
+    +     "endTime": 2026-11-11T17:35:00.000Z,
+    +     "id": "brioche_mix",
+    +     "instructionsPl": "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+    +     "isPassive": false,
+    +     "isSleepCollision": false,
+    +     "namePl": "Wyrabianie ciasta z masłem",
+    +     "startTime": 2026-11-11T17:15:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "bulk_ferment",
+    +     "durationMinutes": 840,
+    +     "endTime": 2026-11-12T07:35:00.000Z,
+    +     "id": "brioche_cold",
+    +     "instructionsPl": "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.",
+    +     "isPassive": true,
+    +     "isSleepCollision": false,
+    +     "namePl": "Ciasto na noc w lodówce",
+    +     "startTime": 2026-11-11T17:35:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "final_shape",
+    +     "durationMinutes": 15,
+    +     "endTime": 2026-11-12T07:50:00.000Z,
+    +     "id": "brioche_shape",
+    +     "instructionsPl": "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.",
+    +     "isPassive": false,
+    +     "isSleepCollision": false,
+    +     "namePl": "Formowanie w keksówce",
+    +     "startTime": 2026-11-12T07:35:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "final_proof",
+    +     "durationMinutes": 20,
+    +     "endTime": 2026-11-12T08:10:00.000Z,
+    +     "id": "brioche_proof",
+    +     "instructionsPl": "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.",
+    +     "isPassive": true,
+    +     "isSleepCollision": false,
+    +     "namePl": "Rośnięcie w keksówce",
+    +     "startTime": 2026-11-12T07:50:00.000Z,
+    +   },
+    + ]
+
+      12 |     expect(p?.szablon).toBeUndefined();
+      13 |     const plan = calculateReverseSchedule(new Date(2026, 10, 12, 12), { pieczenie: p });
+    > 14 |     expect(plan.stages.filter((s: { id: string }) => BRIOCHE_STAGE_IDS.includes(s.id) && s.id !== 'preheat_oven' && s.id !== 'cool' && s.id !== 'starter_feed')).toEqual([]);
+         |                                                                                                                                                                  ^
+      15 |   });
+      16 |   it('brioszka nadal dostaje swoje kroki', () => {
+      17 |     const p = pieczenieDlaId('lievito_madre_panettone_brioche', false);
+
+      at toEqual (tests/brioszka-tylko-brioszka-m2-012.test.ts:14:162)
+
+  ● M2-012: szablon brioszki tylko dla receptury brioszki › rye_100_pan z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 46
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "category": "mix",
+    +     "durationMinutes": 20,
+    +     "endTime": 2026-11-11T17:40:00.000Z,
+    +     "id": "brioche_mix",
+    +     "instructionsPl": "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+    +     "isPassive": false,
+    +     "isSleepCollision": false,
+    +     "namePl": "Wyrabianie ciasta z masłem",
+    +     "startTime": 2026-11-11T17:20:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "bulk_ferment",
+    +     "durationMinutes": 840,
+    +     "endTime": 2026-11-12T07:40:00.000Z,
+    +     "id": "brioche_cold",
+    +     "instructionsPl": "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.",
+    +     "isPassive": true,
+    +     "isSleepCollision": false,
+    +     "namePl": "Ciasto na noc w lodówce",
+    +     "startTime": 2026-11-11T17:40:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "final_shape",
+    +     "durationMinutes": 15,
+    +     "endTime": 2026-11-12T07:55:00.000Z,
+    +     "id": "brioche_shape",
+    +     "instructionsPl": "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.",
+    +     "isPassive": false,
+    +     "isSleepCollision": false,
+    +     "namePl": "Formowanie w keksówce",
+    +     "startTime": 2026-11-12T07:40:00.000Z,
+    +   },
+    +   Object {
+    +     "category": "final_proof",
+    +     "durationMinutes": 20,
+    +     "endTime": 2026-11-12T08:15:00.000Z,
+    +     "id": "brioche_proof",
+    +     "instructionsPl": "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.",
+    +     "isPassive": true,
+    +     "isSleepCollision": false,
+    +     "namePl": "Rośnięcie w keksówce",
+    +     "startTime": 2026-11-12T07:55:00.000Z,
+    +   },
+    + ]
+
+      12 |     expect(p?.szablon).toBeUndefined();
+      13 |     const plan = calculateReverseSchedule(new Date(2026, 10, 12, 12), { pieczenie: p });
+    > 14 |     expect(plan.stages.filter((s: { id: string }) => BRIOCHE_STAGE_IDS.includes(s.id) && s.id !== 'preheat_oven' && s.id !== 'cool' && s.id !== 'starter_feed')).toEqual([]);
+         |                                                                                                                                                                  ^
+      15 |   });
+      16 |   it('brioszka nadal dostaje swoje kroki', () => {
+      17 |     const p = pieczenieDlaId('lievito_madre_panettone_brioche', false);
+
+      at toEqual (tests/brioszka-tylko-brioszka-m2-012.test.ts:14:162)
+
+  ● M2-012: szablon brioszki tylko dla receptury brioszki › brioszka nadal dostaje swoje kroki
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ["lievito_madre_panettone_brioche"]
+    Received: undefined
+
+      17 |     const p = pieczenieDlaId('lievito_madre_panettone_brioche', false);
+      18 |     expect(p?.naczynie).toBe('bread_pan');
+    > 19 |     expect(BRIOCHE_RECIPE_IDS).toEqual(['lievito_madre_panettone_brioche']);
+         |                                ^
+      20 |     expect(p?.szablon).toBe('brioszka');
+      21 |     const plan = calculateReverseSchedule(new Date(2026, 10, 12, 12), { pieczenie: p });
+      22 |     expect(plan.stages.map((s: { id: string }) => s.id)).toContain('brioche_cold');
+
+      at Object.toEqual (tests/brioszka-tylko-brioszka-m2-012.test.ts:19:32)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        2.083 s
+Ran all test suites matching /tests\/brioszka-tylko-brioszka-m2-012.test.ts/i.

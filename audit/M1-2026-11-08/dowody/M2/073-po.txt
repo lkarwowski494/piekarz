@@ -1,0 +1,10 @@
+PASS tests/korpus-regresji-073.test.ts
+  073: korpus Pythona nazwany korpusem regresji
+    ✓ README nie nazywa korpusu niezależnym (2 ms)
+    ✓ nazwa testu korpusu bez „Independent” (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.38 s, estimated 1 s
+Ran all test suites matching /tests\/korpus-regresji-073.test.ts/i.

@@ -1,0 +1,26 @@
+# 070 — stan PRZED (HEAD cd6a097e): br-wyjatki.json bez zmian, bez nowych testów
+## node scripts/br-bez-testu.mjs (kod)
+br-bez-testu: 84 BR z kryteriami, 77 z testem, 7 bez testu, wyjątków 8
+  wyjątek BR-ETAP-003 (docs/brd/wymagania-wypiek.md): funkcja TEST w kontrakcie zakresu (ocena gotowości, treść bez źródła OP-46) [F-15, D-043]
+  wyjątek BR-KALK-007 (docs/brd/wymagania-liczenie.md): funkcja PÓŹNIEJ w kontrakcie zakresu (przelicznik objętości, masy bez źródła OP-44) [F-45, D-043]
+  wyjątek BR-KALK-008 (docs/brd/wymagania-liczenie.md): funkcja NIE w kontrakcie zakresu (masa lodu) [F-53, D-043]
+  wyjątek BR-RECP-004 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (porównanie wypieków, bez kodu) [F-63, D-043]
+  wyjątek BR-RECP-005 (docs/brd/wymagania-dziennik.md): funkcja w zakresie 1.0 (D-154, D-173) jeszcze bez kodu: receptury bazowe nie mają wersji drożdżowej; test z ID powstaje razem z kodem (rola 07/08), a wpis trzeba wtedy usunąć [F-26, D-154, D-187]
+  wyjątek BR-SPIZ-001 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (spiżarnia, wejście ukryte) [F-30, D-043]
+  wyjątek BR-WSP-003 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (QR, wejście ukryte) [F-08, D-043]
+  uwaga: BR-KAL-012 ma pełny wyjątek i test — wyjątek do usunięcia albo oznaczenia „czesciowe”
+  scenariusze bez testu (znaleziska, „czesciowe”): BR-CZAS-002, BR-DANE-002, BR-DIAG-001, BR-DIAG-003, BR-DIAG-004, BR-ETAP-001, BR-HARMO-001, BR-KAL-005, BR-KAL-009, BR-KAL-011, BR-KALK-010, BR-MASZ-005, BR-MASZ-006, BR-RECP-001, BR-RECP-003, BR-REKA-001, BR-ZAK-001
+kod=0
+
+## Testy z ID w nazwie (mapa --json) dla 5 BR
+BR-RECP-005 "BRAK TESTU Z ID"
+BR-HARMO-001 ["src/__tests__/basic-pro-pa.test.tsx","src/__tests__/plan-za-pozno-107.test.tsx","src/scheduler/__tests__/reverse-scheduler.test.ts"]
+BR-ETAP-001 ["src/__tests__/stolnica-screen.test.tsx","src/__tests__/stolnica-skladniki-130.test.tsx"]
+BR-RECP-001 ["src/__tests__/bramki-ekranow.test.tsx","src/__tests__/calculator-screen.test.tsx","tests/brd-katalog-037.test.ts"]
+BR-KAL-012 ["tests/kontrakt-zm28-058.test.ts"]
+
+## Ten sam stan bez wpisu BR-RECP-005 (wyjątek usunięty, bez testu): kod 1 = brak testu ukrywał wyjątek
+br-bez-testu: 1 BR bez testu i bez wyjątku
+br-bez-testu: 84 BR z kryteriami, 77 z testem, 7 bez testu, wyjątków 7
+  BRAK    BR-RECP-005 (docs/brd/wymagania-dziennik.md)
+kod=1

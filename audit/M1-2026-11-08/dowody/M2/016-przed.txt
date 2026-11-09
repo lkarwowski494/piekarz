@@ -1,0 +1,80 @@
+FAIL tests/koniec-wypieku-e2e-016.test.ts
+  ● Test suite failed to run
+
+    ENOENT: no such file or directory, open '/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed016/.maestro/e2e/06-koniec-wypieku.yaml'
+
+       7 |
+       8 | const ROOT = path.join(__dirname, '..');
+    >  9 | const czytaj = (p: string) => fs.readFileSync(path.join(ROOT, p), 'utf8');
+         |                                  ^
+      10 |
+      11 | describe('016: koniec wypieku w E2E i na liście telefonu', () => {
+      12 |   const flow = czytaj('.maestro/e2e/06-koniec-wypieku.yaml');
+
+      at readFileSync (tests/koniec-wypieku-e2e-016.test.ts:9:34)
+      at czytaj (tests/koniec-wypieku-e2e-016.test.ts:12:16)
+      at Object.describe (tests/koniec-wypieku-e2e-016.test.ts:11:1)
+
+(node:25761) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx (6.442 s)
+  ● 016: błąd kopii automatycznej po wypieku › kopia null → stan błędu zapisany i trwały po restarcie; udana kopia go czyści
+
+    Cannot find module '../../lib/kopia-auto-stan' from 'src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx'
+
+      14 | import type TR from 'react-test-renderer';
+      15 | import { useTempDbDir, restartApp } from './helpers/node-sqlite-adapter';
+    > 16 | const ka = () => require('../../lib/kopia-auto-stan') as typeof import('../../lib/kopia-auto-stan');
+         |                  ^
+      17 | import { t } from '../../lib/i18n';
+      18 |
+      19 | const log = (id: string) => ({ id, recipeName: 'X', startedAt: 1, finishedAt: 2, ratingStars: 5 });
+
+      at Resolver._throwModNotFoundError (../../../../../../home/user/piekarz/node_modules/jest-resolve/build/resolver.js:427:11)
+      at require (src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx:16:18)
+      at ka (src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx:31:18)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 016: błąd kopii automatycznej po wypieku › kopia rzuca → stan błędu zapisany i trwały po restarcie; udana kopia go czyści
+
+    Cannot find module '../../lib/kopia-auto-stan' from 'src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx'
+
+      14 | import type TR from 'react-test-renderer';
+      15 | import { useTempDbDir, restartApp } from './helpers/node-sqlite-adapter';
+    > 16 | const ka = () => require('../../lib/kopia-auto-stan') as typeof import('../../lib/kopia-auto-stan');
+         |                  ^
+      17 | import { t } from '../../lib/i18n';
+      18 |
+      19 | const log = (id: string) => ({ id, recipeName: 'X', startedAt: 1, finishedAt: 2, ratingStars: 5 });
+
+      at Resolver._throwModNotFoundError (../../../../../../home/user/piekarz/node_modules/jest-resolve/build/resolver.js:427:11)
+      at require (src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx:16:18)
+      at ka (src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx:31:18)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 016: błąd kopii automatycznej po wypieku › Ustawienia → Kopia zapasowa pokazują informację o nieudanej kopii
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej."
+    Received string:    "[{\"type\":\"View\",\"props\":{\"testID\":\"karta-kopia\",\"style\":[{\"backgroundColor\":{\"dynamic\":{\"light\":\"#FFFFFF\",\"dark\":\"#1F2729\",\"highContrastLight\":\"#FFFFFF\",\"highContrastDark\":\"#161C1E\"}},\"borderWidth\":1,\"borderColor\":{\"dynamic\":{\"light\":\"#E2E2DC\",\"dark\":\"#1F2729\",\"highContrastLight\":\"#8A8B84\",\"highContrastDark\":\"#7C878A\"}},\"borderRadius\":16,\"gap\":12,\"minWidth\":0},{\"padding\":12}]},\"children\":[{\"type\":\"View\",\"props\":{\"testID\":\"karta-kopia-naglowek\",\"style\":[{\"gap\":12},{\"flexDirection\":\"column\",\"alignItems\":\"stretch\"},false]},\"children\":[{\"type\":\"View\",\"props\":{\"style\":{\"flexDirection\":\"row\",\"alignItems\":\"center\",\"justifyContent\":\"space-between\",\"gap\":12}},\"children\":[{\"type\":\"View\",\"props\":{\"testID\":\"karta-kopia-ikona\",\"style\":{\"width\":24,\"height\":24,\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"importantForAccessibility\":\"no-hide-descendants\",\"accessibilityElementsHidden\":true},\"children\":[{\"type\":\"RNSVGSvgView\",\"props\":{\"width\":24,\"height\":24,\"accessible\":false,\"testID\":\"ikona-karty-dysk\",\"focusable\":false,\"style\":[{\"backgroundColor\":\"transparent\",\"borderWidth\":0},{\"width\":24,\"height\":24,\"flex\":0}],\"bbWidth\":24,\"bbHeight\":24,\"minX\":0,\"minY\":0,\"vbWidth\":24,\"vbHeight\":24,\"align\":\"xMidYMid\",\"meetOrSlice\":0},\"children\":[{\"type\":\"RNSVGGroup\",\"props\":{\"fill\":{\"type\":0,\"payload\":4278190080}},\"children\":[{\"type\":\"RNSVGPath\",\"props\":{\"fill\":null,\"stroke\":{\"type\":0,\"payload\":{\"dynamic\":{\"light\":4288441135,\"dark\":4292060260,\"highContrastLight\":4285418015,\"highContrastDark\":4293444494}}},\"strokeWidth\":1.8,\"strokeLinecap\":1,\"strokeLinejoin\":1,\"propList\":[\"fill\",\"stroke\",\"strokeWidth\",\"strokeLinecap\",\"strokeLinejoin\"],\"d\":\"M5 4h11l3 3v13H5z\"},\"children\":null},{\"type\":\"RNSVGPath\",\"props\":{\"fill\":null,\"stroke\":{\"type\":0,\"payload\":{\"dynamic\":{\"light\":4288441135,\"dark\":4292060260,\"highContrastLight\":4285418015,\"highContrastDark\":4293444494}}},\"strokeWidth\":1.8,\"strokeLinecap\":1,\"strokeLinejoin\":1,\"propList\":[\"fill\",\"stroke\",\"strokeWidth\",\"strokeLinecap\",\"strokeLinejoin\"],\"d\":\"M8 4v5h7V4M8 20v-6h8v6\"},\"children\":null}]}]}]}]},{\"type\":\"Text\",\"props\":{\"testID\":\"karta-kopia-tytul\",\"accessibilityRole\":\"header\",\"style\":[{\"fontFamily\":\"Sofia Sans Semi Condensed\",\"fontSize\":20,\"fontWeight\":\"700\",\"color\":{\"dynamic\":{\"light\":\"#1C1D1B\",\"dark\":\"#F1F1EC\",\"highContrastLight\":\"#000000\",\"highContrastDark\":\"#FFFFFF\"}}},false,{\"fontWeight\":\"700\"}]},\"children\":[\"Kopia zapasowa\"]}]},{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":13,\"color\":{\"dynamic\":{\"light\":\"#4B4D48\",\"dark\":\"#B9BDB8\",\"highContrastLight\":\"#2E302C\",\"highContrastDark\":\"#DADDD8\"}}}},\"children\":[\"Dane są zapisywane tylko w tym telefonie.\"]},{\"type\":\"View\",\"props\":{},\"children\":[{\"type\":\"View\",\"props\":{\"accessibilityRole\":\"button\",\"testID\":\"export-backup-btn\",\"accessible\":true,\"accessibilityState\":{\"disabled\":false},\"focusable\":true,\"accessibilityValue\":{},\"style\":{\"minHeight\":52,\"justifyContent\":\"center\",\"paddingVertical\":10,\"gap\":4,\"borderTopWidth\":1,\"borderTopColor\":{\"dynamic\":{\"light\":\"#D6D6CF\",\"dark\":\"#354044\",\"highContrastLight\":\"#8A8B84\",\"highContrastDark\":\"#7C878A\"}}},\"collapsable\":false},\"children\":[{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":17,\"fontWeight\":\"600\",\"color\":{\"dynamic\":{\"light\":\"#1E4954\",\"dark\":\"#8FB9C4\",\"highContrastLight\":\"#12323A\",\"highContrastDark\":\"#B5D6DE\"}}}},\"children\":[\"Eksportuj do pliku\"]}]},{\"type\":\"View\",\"props\":{\"accessibilityRole\":\"button\",\"testID\":\"delete-all-data-btn\",\"accessible\":true,\"accessibilityState\":{},\"focusable\":true,\"accessibilityValue\":{},\"style\":{\"minHeight\":52,\"justifyContent\":\"center\",\"paddingVertical\":10,\"gap\":4,\"borderTopWidth\":1,\"borderTopColor\":{\"dynamic\":{\"light\":\"#D6D6CF\",\"dark\":\"#354044\",\"highContrastLight\":\"#8A8B84\",\"highContrastDark\":\"#7C878A\"}}},\"collapsable\":false},\"children\":[{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":17,\"fontWeight\":\"600\",\"color\":{\"dynamic\":{\"light\":\"#B3261E\",\"dark\":\"#FF8A80\",\"highContrastLight\":\"#8C1D18\",\"highContrastDark\":\"#FFB4AB\"}}}},\"children\":[\"Usuń wszystkie dane\"]}]}]},{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":13,\"color\":{\"dynamic\":{\"light\":\"#4B4D48\",\"dark\":\"#B9BDB8\",\"highContrastLight\":\"#2E302C\",\"highContrastDark\":\"#DADDD8\"}}}},\"children\":[\"Trzymam 10 ostatnich kopii na tym telefonie.\"]}]},{\"type\":\"View\",\"props\":{\"testID\":\"karta-csv\",\"style\":[{\"backgroundColor\":{\"dynamic\":{\"light\":\"#FFFFFF\",\"dark\":\"#1F2729\",\"highContrastLight\":\"#FFFFFF\",\"highContrastDark\":\"#161C1E\"}},\"borderWidth\":1,\"borderColor\":{\"dynamic\":{\"light\":\"#E2E2DC\",\"dark\":\"#1F2729\",\"highContrastLight\":\"#8A8B84\",\"highContrastDark\":\"#7C878A\"}},\"borderRadius\":16,\"gap\":12,\"minWidth\":0},{\"padding\":12}]},\"children\":[{\"type\":\"View\",\"props\":{\"testID\":\"karta-csv-naglowek\",\"style\":[{\"gap\":12},{\"flexDirection\":\"column\",\"alignItems\":\"stretch\"},false]},\"children\":[{\"type\":\"View\",\"props\":{\"style\":{\"flexDirection\":\"row\",\"alignItems\":\"center\",\"justifyContent\":\"space-between\",\"gap\":12}},\"children\":[{\"type\":\"View\",\"props\":{\"testID\":\"karta-csv-ikona\",\"style\":{\"width\":24,\"height\":24,\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"importantForAccessibility\":\"no-hide-descendants\",\"accessibilityElementsHidden\":true},\"children\":[{\"type\":\"RNSVGSvgView\",\"props\":{\"width\":24,\"height\":24,\"accessible\":false,\"testID\":\"ikona-karty-lista\",\"focusable\":false,\"style\":[{\"backgroundColor\":\"transparent\",\"borderWidth\":0},{\"width\":24,\"height\":24,\"flex\":0}],\"bbWidth\":24,\"bbHeight\":24,\"minX\":0,\"minY\":0,\"vbWidth\":24,\"vbHeight\":24,\"align\":\"xMidYMid\",\"meetOrSlice\":0},\"children\":[{\"type\":\"RNSVGGroup\",\"props\":{\"fill\":{\"type\":0,\"payload\":4278190080}},\"children\":[{\"type\":\"RNSVGPath\",\"props\":{\"fill\":null,\"stroke\":{\"type\":0,\"payload\":{\"dynamic\":{\"light\":4288441135,\"dark\":4292060260,\"highContrastLight\":4285418015,\"highContrastDark\":4293444494}}},\"strokeWidth\":1.8,\"strokeLinecap\":1,\"strokeLinejoin\":1,\"propList\":[\"fill\",\"stroke\",\"strokeWidth\",\"strokeLinecap\",\"strokeLinejoin\"],\"d\":\"M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2\"},\"children\":null}]}]}]}]},{\"type\":\"Text\",\"props\":{\"testID\":\"karta-csv-tytul\",\"accessibilityRole\":\"header\",\"style\":[{\"fontFamily\":\"Sofia Sans Semi Condensed\",\"fontSize\":20,\"fontWeight\":\"700\",\"color\":{\"dynamic\":{\"light\":\"#1C1D1B\",\"dark\":\"#F1F1EC\",\"highContrastLight\":\"#000000\",\"highContrastDark\":\"#FFFFFF\"}}},false,{\"fontWeight\":\"700\"}]},\"children\":[\"Eksport arkuszy CSV\"]}]},{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":13,\"color\":{\"dynamic\":{\"light\":\"#4B4D48\",\"dark\":\"#B9BDB8\",\"highContrastLight\":\"#2E302C\",\"highContrastDark\":\"#DADDD8\"}}}},\"children\":[\"Eksportuj swoje dane do otwartego formatu CSV (zgodnego z Excel i arkuszami kalkulacyjnymi).\"]},{\"type\":\"View\",\"props\":{},\"children\":[{\"type\":\"View\",\"props\":{\"accessibilityRole\":\"button\",\"testID\":\"export-bakes-csv-btn\",\"accessible\":true,\"accessibilityState\":{\"disabled\":false},\"focusable\":true,\"accessibilityValue\":{},\"style\":{\"minHeight\":52,\"justifyContent\":\"center\",\"paddingVertical\":10,\"gap\":4,\"borderTopWidth\":1,\"borderTopColor\":{\"dynamic\":{\"light\":\"#D6D6CF\",\"dark\":\"#354044\",\"highContrastLight\":\"#8A8B84\",\"highContrastDark\":\"#7C878A\"}}},\"collapsable\":false},\"children\":[{\"type\":\"Text\",\"props\":{\"style\":{\"fontSize\":17,\"fontWeight\":\"600\",\"color\":{\"dynamic\":{\"light\":\"#1E4954\",\"dark\":\"#8FB9C4\",\"highContrastLight\":\"#12323A\",\"highContrastDark\":\"#B5D6DE\"}}}},\"children\":[\"Eksportuj historię wypieków (CSV)\"]}]}]}]}]"
+
+      52 |     let tree!: TR.ReactTestRenderer;
+      53 |     await act(async () => { tree = renderer.create(React.createElement(BackupAndDataSection)); await czekaj(); });
+    > 54 |     expect(JSON.stringify(tree.toJSON())).toContain(t('Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.'));
+         |                                           ^
+      55 |     act(() => tree.unmount());
+      56 |   });
+      57 | });
+
+      at Object.toContain (src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx:54:43)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 2 failed, 2 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        7.004 s
+Ran all test suites matching /tests\/koniec-wypieku-e2e-016.test.ts|src\/data\/__tests__\/kopia-auto-blad-016.sqlite.test.tsx/i.

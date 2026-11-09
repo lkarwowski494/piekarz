@@ -1,0 +1,12 @@
+PASS tests/monetyzacja-platforma-054.test.ts
+  bramka opłacalności dla platformy wydania 1.0 (054)
+    ✓ dane źródłowe: tabela E2e badania ma kolumnę „sam iOS” z 174 (Basic/Pro) i 218 (odczyt A) (3 ms)
+    ✓ „Opcje modelu” podaje wynik 1.0 dla samego iOS: 174–218 USD, 35–44% progu (1 ms)
+    ✓ 345 USD stoi przy założeniu portu na Google Play, nie jako wynik 1.0 (1 ms)
+    ✓ plan wydania 1.0 podaje wynik bramki dla samego iOS (174–218), 345 tylko z portem (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        0.486 s, estimated 1 s
+Ran all test suites matching /tests\/monetyzacja-platforma-054.test.ts/i.

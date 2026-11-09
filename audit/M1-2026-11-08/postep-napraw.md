@@ -97,6 +97,20 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 12:41 STOP p3: właściciel wg rekomendacji (D-308, 5f134962). 011: 13 poprawek zdań maszyny → 831199d7, verify 6450; status naprawione-do-weryfikacji (3e51b342 + 831199d7). Partia 3 na gałęzi p3.
 - 12:42 Partia 3 start: rola 03 (015, 058, 061, 062, 064, 065) w drzewie p3. Zadania dodatkowe M2-012…014 zapisane (D-308).
 - 13:26 Rola 03 p3: e8345215 (015), 7526830d (058), 6caf322b (062), e58a3ac1 (061), 7f520c7b (065), 1f5eac3a (064); sprawdz-raport OK; statusy 058, 061, 062, 065 naprawione-do-weryfikacji; 064 blokada (apetyt — decyzja właściciela); 015 po przeglądach (w toku). N-1 (test zależny od pory dnia po 048) naprawione 287de811, verify 6467 kod 0 (UTC) + jest Tokyo kod 0.
+- 13:27 015: przegląd ścieżki zakupów brak P0/P1, drugi przegląd przekładu bez P0–P2 (P3 do 1.0.1, propozycja tr odrzucona jako błędna). Status naprawione-do-weryfikacji (e8345215; dopisek docs/monetyzacja.md przez rolę 02 pod tym ID).
+- 13:45 Rola 02 p3: 69a1c258 (054), 69d895b8 (015 dok.), 9a692b21 (057); sprawdz-raport OK; verify 6476 kod 0 bez TZ (po 287de811). Ceny bez zmian (diff). Statusy 054, 057 naprawione-do-weryfikacji. N1 decyzja właściciela (zbieram), N2/N3 → P3. Start rola 06 (M2-012, M2-013).
+- 14:00 Rola 06 p3: cac65b73 (M2-012, D-309: plan brioszki ze źródła CIA, czasy Lievito Madre [DO USTALENIA] jako nazwana rezerwa), 09d8227a (M2-013, D-310: rada przy gorącej wodzie poprawna w kodzie od p2; do usunięcia martwy klucz). Brak decyzji właściciela (D-309/310 do weta). Start rola 08 p3 (M2-012 kod, M2-013 klucz+test, M2-014 ZgodaPowiadomien).
+- 14:26 Rola 08 p3: bcf5ac2f (M2-012), 7ba9198a (M2-013), 4fa0359b (M2-014); sprawdz-raport OK; verify 6517 wg roli. Przegląd ścieżki danych + drugi przegląd przekładu M2-012 w toku. Moje D partii 3 startują w drzewie.
+- 14:49 M2-012: przegląd brak P0/P1, P2 → ede75863 (verify 6527). M2-012/013/014 naprawione-do-weryfikacji. 016: f38f9e63 (kopia auto bez ciszy, E2E 06, PH-15), verify 6524; przegląd ścieżki wrażliwej + przekładu w toku.
+- 14:49 017: blokada (zrzuty wymagają buildu kandydata i urządzenia/narzędzia; test skrótu podpisów razem z nowymi obrazami).
+- 14:58 016: przegląd ścieżki wrażliwej brak P0/P1, P3 + przekład → 5589c91e, verify 6530; status naprawione-do-weryfikacji (E2E 06 na symulatorze: krok przed buildem). 060: 9174cd66, verify 6529, status naprawione-do-weryfikacji.
+- 15:02 069: cd6a097e — nr() w testach własnościowych; TDD; verify 6533. Status naprawione-do-weryfikacji.
+- 16:19 070: 6ed7109e (testy z ID BR, kontrola „bez kodu” z polem brak), 071: 221318bf (mutanty M2 i M8 zabite); verify kod 0 (6565). Statusy naprawione-do-weryfikacji. Znaleziska 070-N1…N5 (N1: 15 receptur drożdżowych bez planu wbrew BR-HARMO-001). Decyzje właściciela: N1 monetyzacja → PÓŹNIEJ; E2E teraz; 072 i 077 zgoda; 064 — prośba o listę „co jeszcze dobudować”.
+- 16:30 077: 86efd997 (pages.yml usunięty, zgoda), 072: 40c4a011 (tytuły z dopiskiem, zgoda); verify kod 0. E2E iOS uruchomione ręcznie na p3 @221318bf (zgoda właściciela).
+- 16:37 064: decyzja właściciela D-312 (97 h; dobudować 070-N2, 070-N5, 08-p3-N1 w partii 3; 070-N1 → ER zawężające BR-HARMO-001 + backlog 1.0.1). Status 064 naprawione-do-weryfikacji.
+- 16:40 073: 1590999f — korpus regresji; TDD; verify 6570.
+- 16:44 075: 550fc6b1 — niezależne kroki E2E i zrzuty; TDD; verify 6578. Działanie na macOS: następny przebieg E2E.
+- 16:45 075 zrobione. Rola 08 p3b (D-312: 070-N5, 08-p3-N1, 070-N2) w drzewie. Przygotowane polecenia: 01-odkrywanie-p3 (ER BR-HARMO-001 wg D-312, BR F-82/F-83, ZM-29), 03-zakres-p3b (059 + N-2 + BR-DANE-005 + D-312), 10/11/07-p3. E2E run 99 w toku.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

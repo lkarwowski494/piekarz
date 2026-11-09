@@ -1,0 +1,30 @@
+# 070 — znaleziska: scenariusze BR, których kod nie spełnia (bez zielonego testu na siłę; wpisy „czesciowe”)
+## BR-HARMO-001 / BR-ETAP-001: receptury drożdżowe katalogu bez planu i prowadzenia — powodBezPlanu(formuła, {recipeId}) w src/lib/plan-receptury.ts:
+    baguette_tradition_poolish: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    ciabatta_con_biga: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    focaccia_genovese: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    no_knead_night: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    pizza_napoletana_48h: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    sweet_chalka: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    half_rye_loaf: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    karelian_rye_pasties: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    white_pan_loaf: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    half_whole_wheat_loaf: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    boiled_bread_ring: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    milk_dinner_rolls: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    cheese_crumble_yeast_cake: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    sweet_yeast_buns: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    cinnamon_tea_ring: Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+    spelt_ancient_seeded (drozdze): Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.
+
+## BR-ETAP-001: kroki rośnięcia wersji drożdżowej (src/recipes/yeast-stages.ts): yeast_rise.instructions = CZASY_WSKAZOWKA (bez testu palca); yeast_proof.instructions = TEST_PALCA (bez zdania o wskazówce). Stolnica (graham na drożdżach), zrzut tekstu:
+  Krok 2 z 8 Pierwsze rośnięcie … Co zrobić: Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.
+  Krok 6 z 8 Drugie rośnięcie … Co zrobić: Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.
+
+## BR-RECP-005 Wersja ze źródła szczebla 4: notatka tartine (src/recipes/wersje-drozdzowe.ts) nie nazywa King Arthur Baking:
+    tartine notesPl: Na drożdżach, według jednego przepisu na chleb bez wyrabiania o podobnej ilości wody: 1 łyżeczka drożdży instant, czyli według przelicznika Piekarza około 1,7% drożdży świeżych względem mąki. Ciasto stoi w temperaturze pokojowej przez noc, co najmniej 8 godzin, a uformowany bochenek rośnie potem około 90 minut.
+  Źródła wiedzy (src/core/zrodla-wiedzy.ts:177): King Arthur Baking — „Większość porad o zakwasie, wyrabianiu, …” (bez wersji drożdżowej tartine).
+
+## BR-RECP-001 Katalog w 1.0 „każdą pod nazwą opisową”: src/recipes/presets-pizza-slodkie.ts:36 namePl 'Pizza w stylu neapolitańskim' (D-097) — D-177 odrzuca nazwy „w stylu …”; „Pizza Napoletana” to GTS (rejestr roli 06: rozp. (UE) 97/2010).
+
+## Poza scenariuszami zadania (do koordynatora): Stolnica, krok 1 wersji drożdżowej graham, „Składniki do odważenia”: Mąki 511 g, Woda 368 g, Zakwas 0 g, Sól 10,2 g — wiersz „Zakwas 0 g”, bez wiersza drożdży.

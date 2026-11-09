@@ -1,0 +1,10 @@
+PASS src/__tests__/naczynie-bez-skutku-060.test.tsx
+  060: bez wyboru naczynia w Ustawieniach
+    ✓ Ustawienia nie mają karty naczynia (307 ms)
+    ✓ kopia zapasowa nadal przyjmuje klucz selected_baking_vessel (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.364 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/naczynie-bez-skutku-060.test.tsx/i.

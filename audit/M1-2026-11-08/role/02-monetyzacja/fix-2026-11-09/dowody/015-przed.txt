@@ -1,0 +1,36 @@
+FAIL tests/obietnice-pro-015.test.ts
+  ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)
+    ✓ mapa słów obejmuje każdy wiersz PÓŹNIEJ / NIE / TEST kontraktu i każde ukryte wejście (3 ms)
+    ✓ zdania „Co daje Pro” i opis pod tytułem nie nazywają funkcji bez wejścia w 1.0 (2 ms)
+    ✓ nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”) (1 ms)
+    ✕ docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06) (2 ms)
+
+  ● ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015) › docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 5
+
+    - Array []
+    + Array [
+    +   "- **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, porównanie, spiżarnia, QR, druk, dalsza Akademia).",
+    +   "| Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (porównanie, statystyki), BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |",
+    +   "| PR-06 dziennik | Basic; porównanie i statystyki: ekran Pro | dziennik |",
+    + ]
+
+      117 |   it('docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06)', () => {
+      118 |     const wiersze = monetyzacja.split('\n').filter((l) => /porównani/i.test(l));
+    > 119 |     expect(wiersze.filter((l) => !(/F-63/.test(l) && /PÓŹNIEJ/.test(l)))).toEqual([]);
+          |                                                                           ^
+      120 |     const pro = monetyzacja.split('\n').find((l) => l.startsWith('- **Pro:**')) ?? '';
+      121 |     expect(pro).toMatch(/statystyki/);
+      122 |     expect(pro).not.toMatch(/porówn/i);
+
+      at Object.toEqual (tests/obietnice-pro-015.test.ts:119:75)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        0.816 s, estimated 1 s
+Ran all test suites matching /tests\/obietnice-pro-015.test.ts/i.

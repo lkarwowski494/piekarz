@@ -1,0 +1,228 @@
+FAIL tests/dokumenty-wydania-057.test.ts
+  dokumenty wydania po D-112 i po Z-1 (057)
+    ✕ ceny.json: opis i źródła z D-112 i przeglądem cen, bez D-038 i „bez propozycji zmian” (4 ms)
+    ✕ grep D-038 w docs/wydanie: tylko dziennik i zdania o usuniętej ofercie (54 ms)
+    ✕ Z-1 zrobione 2026-11-03: B2 i W1-05 z datą, wpis w dzienniku (1 ms)
+    ✕ żaden dokument wydania nie każe usuwać oferty drugi raz (10 ms)
+
+  ● dokumenty wydania po D-112 i po Z-1 (057) › ceny.json: opis i źródła z D-112 i przeglądem cen, bez D-038 i „bez propozycji zmian”
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /D-038/
+    Received string:      "Ceny produktów Piekarz Pro w App Store Connect: cena bazowa USD i storefronty z ceną ustawioną ręcznie (D-038, model stały DEC-01 d, bez propozycji zmian). Pozostałe storefronty: cena, którą App Store Connect proponuje od ceny bazowej, bez zmian. ID produktów: src/lib/platnosci/konfiguracja.ts (PRODUKTY). Kwoty w walucie storefrontu, kropka dziesiętna. Czyta to scripts/karty-ustawien.mjs [M1-audytor-generalny-119].
+    docs/decyzje.md D-038 (ceny US i PL, „ceny w innych krajach z wariant-a-wlasciciel.json”)
+    docs/monetyzacja.md, tabela „Kontrakt płatności”
+    audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json, pole ceny i sklepy[].waluta (2026-10-19; plik lokalny właściciela, poza gitem)"
+
+      27 |     const c = JSON.parse(read(`${WYDANIE}/ceny.json`)) as { opis: string; zrodla: string[]; bezOfertyWprowadzajacej: string };
+      28 |     const naglowek = [c.opis, ...c.zrodla].join('\n');
+    > 29 |     expect(naglowek).not.toMatch(/D-038/);
+         |                          ^
+      30 |     expect(naglowek).not.toMatch(/bez propozycji zmian/);
+      31 |     expect(c.opis).toMatch(/D-112/);
+      32 |     expect(c.opis).toMatch(/6 miesięcy|6 miesiącach/);
+
+      at Object.toMatch (tests/dokumenty-wydania-057.test.ts:29:26)
+
+  ● dokumenty wydania po D-112 i po Z-1 (057) › grep D-038 w docs/wydanie: tylko dziennik i zdania o usuniętej ofercie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 100
+
+    - Array []
+    + Array [
+    +   "docs/wydanie/ceny.json:2",
+    +   "docs/wydanie/ceny.json:4",
+    +   "docs/wydanie/ceny.json:20",
+    +   "docs/wydanie/instrukcja-ustawien.md:8",
+    +   "docs/wydanie/instrukcja-ustawien.md:61",
+    +   "docs/wydanie/instrukcja-ustawien.md:72",
+    +   "docs/wydanie/instrukcja-ustawien.md:196",
+    +   "docs/wydanie/ustawienia/cs.md:119",
+    +   "docs/wydanie/ustawienia/cs.md:123",
+    +   "docs/wydanie/ustawienia/da.md:119",
+    +   "docs/wydanie/ustawienia/da.md:123",
+    +   "docs/wydanie/ustawienia/de-DE.md:119",
+    +   "docs/wydanie/ustawienia/de-DE.md:123",
+    +   "docs/wydanie/ustawienia/de-DE.md:127",
+    +   "docs/wydanie/ustawienia/el.md:120",
+    +   "docs/wydanie/ustawienia/el.md:124",
+    +   "docs/wydanie/ustawienia/en-AU.md:119",
+    +   "docs/wydanie/ustawienia/en-AU.md:123",
+    +   "docs/wydanie/ustawienia/en-AU.md:127",
+    +   "docs/wydanie/ustawienia/en-CA.md:119",
+    +   "docs/wydanie/ustawienia/en-CA.md:123",
+    +   "docs/wydanie/ustawienia/en-CA.md:127",
+    +   "docs/wydanie/ustawienia/en-GB.md:120",
+    +   "docs/wydanie/ustawienia/en-GB.md:124",
+    +   "docs/wydanie/ustawienia/en-GB.md:125",
+    +   "docs/wydanie/ustawienia/en-GB.md:126",
+    +   "docs/wydanie/ustawienia/en-GB.md:127",
+    +   "docs/wydanie/ustawienia/en-GB.md:128",
+    +   "docs/wydanie/ustawienia/en-GB.md:129",
+    +   "docs/wydanie/ustawienia/en-GB.md:130",
+    +   "docs/wydanie/ustawienia/en-GB.md:134",
+    +   "docs/wydanie/ustawienia/en-US.md:119",
+    +   "docs/wydanie/ustawienia/en-US.md:123",
+    +   "docs/wydanie/ustawienia/en-US.md:127",
+    +   "docs/wydanie/ustawienia/es-ES.md:119",
+    +   "docs/wydanie/ustawienia/es-ES.md:123",
+    +   "docs/wydanie/ustawienia/es-ES.md:127",
+    +   "docs/wydanie/ustawienia/es-MX.md:119",
+    +   "docs/wydanie/ustawienia/es-MX.md:123",
+    +   "docs/wydanie/ustawienia/es-MX.md:124",
+    +   "docs/wydanie/ustawienia/es-MX.md:128",
+    +   "docs/wydanie/ustawienia/fi.md:119",
+    +   "docs/wydanie/ustawienia/fi.md:123",
+    +   "docs/wydanie/ustawienia/fr-CA.md:119",
+    +   "docs/wydanie/ustawienia/fr-CA.md:123",
+    +   "docs/wydanie/ustawienia/fr-CA.md:127",
+    +   "docs/wydanie/ustawienia/fr-FR.md:119",
+    +   "docs/wydanie/ustawienia/fr-FR.md:123",
+    +   "docs/wydanie/ustawienia/fr-FR.md:124",
+    +   "docs/wydanie/ustawienia/fr-FR.md:128",
+    +   "docs/wydanie/ustawienia/hr.md:119",
+    +   "docs/wydanie/ustawienia/hr.md:123",
+    +   "docs/wydanie/ustawienia/hu.md:119",
+    +   "docs/wydanie/ustawienia/hu.md:123",
+    +   "docs/wydanie/ustawienia/id.md:119",
+    +   "docs/wydanie/ustawienia/id.md:123",
+    +   "docs/wydanie/ustawienia/it.md:119",
+    +   "docs/wydanie/ustawienia/it.md:123",
+    +   "docs/wydanie/ustawienia/ja.md:119",
+    +   "docs/wydanie/ustawienia/ja.md:123",
+    +   "docs/wydanie/ustawienia/ko.md:119",
+    +   "docs/wydanie/ustawienia/ko.md:123",
+    +   "docs/wydanie/ustawienia/ko.md:127",
+    +   "docs/wydanie/ustawienia/ms.md:120",
+    +   "docs/wydanie/ustawienia/ms.md:124",
+    +   "docs/wydanie/ustawienia/nl-NL.md:119",
+    +   "docs/wydanie/ustawienia/nl-NL.md:123",
+    +   "docs/wydanie/ustawienia/no.md:119",
+    +   "docs/wydanie/ustawienia/no.md:123",
+    +   "docs/wydanie/ustawienia/pl.md:119",
+    +   "docs/wydanie/ustawienia/pl.md:123",
+    +   "docs/wydanie/ustawienia/pl.md:127",
+    +   "docs/wydanie/ustawienia/pt-BR.md:119",
+    +   "docs/wydanie/ustawienia/pt-BR.md:123",
+    +   "docs/wydanie/ustawienia/pt-BR.md:127",
+    +   "docs/wydanie/ustawienia/pt-PT.md:119",
+    +   "docs/wydanie/ustawienia/pt-PT.md:123",
+    +   "docs/wydanie/ustawienia/ro.md:119",
+    +   "docs/wydanie/ustawienia/ro.md:123",
+    +   "docs/wydanie/ustawienia/ru.md:120",
+    +   "docs/wydanie/ustawienia/ru.md:124",
+    +   "docs/wydanie/ustawienia/ru.md:128",
+    +   "docs/wydanie/ustawienia/sk.md:119",
+    +   "docs/wydanie/ustawienia/sk.md:123",
+    +   "docs/wydanie/ustawienia/sl.md:120",
+    +   "docs/wydanie/ustawienia/sl.md:124",
+    +   "docs/wydanie/ustawienia/sv.md:119",
+    +   "docs/wydanie/ustawienia/sv.md:123",
+    +   "docs/wydanie/ustawienia/tr.md:119",
+    +   "docs/wydanie/ustawienia/tr.md:123",
+    +   "docs/wydanie/ustawienia/uk.md:119",
+    +   "docs/wydanie/ustawienia/uk.md:123",
+    +   "docs/wydanie/ustawienia/vi.md:119",
+    +   "docs/wydanie/ustawienia/vi.md:123",
+    +   "docs/wydanie/ustawienia/vi.md:127",
+    +   "docs/wydanie/ustawienia/zh-Hant.md:119",
+    +   "docs/wydanie/ustawienia/zh-Hant.md:123",
+    +   "docs/wydanie/ustawienia/zh-Hant.md:127",
+    + ]
+
+      40 |       .flatMap((p) => read(p).split('\n').map((l, i) => ({ miejsce: `${relative(root, join(root, p))}:${i + 1}`, l })))
+      41 |       .filter(({ l }) => /D-038/.test(l) && !/usunięt/.test(l));
+    > 42 |     expect(trafienia.map((t) => t.miejsce)).toEqual([]);
+         |                                             ^
+      43 |   });
+      44 |
+      45 |   it('Z-1 zrobione 2026-11-03: B2 i W1-05 z datą, wpis w dzienniku', () => {
+
+      at Object.toEqual (tests/dokumenty-wydania-057.test.ts:42:45)
+
+  ● dokumenty wydania po D-112 i po Z-1 (057) › Z-1 zrobione 2026-11-03: B2 i W1-05 z datą, wpis w dzienniku
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /nie wykonane/
+    Received string:      "| B2 | **Z-1: usunąć Free Trial 2 Weeks** z obu subskrypcji, we wszystkich krajach, razem z buildem Basic/Pro | **nie wykonane**; właściciel 2026-11-02: „Nie, zrobię to rano” | TAK | właściciel |"
+
+      46 |     const droga = read(`${WYDANIE}/droga-do-app-store.md`);
+      47 |     const b2 = droga.split('\n').find((l) => l.startsWith('| B2 ')) ?? '';
+    > 48 |     expect(b2).not.toMatch(/nie wykonane/);
+         |                    ^
+      49 |     expect(b2).toMatch(/2026-11-03/);
+      50 |     expect(b2).toMatch(/Obie usuenięte/);
+      51 |     const plan = read(`${WYDANIE}/plan-wydania-1.0.md`);
+
+      at Object.toMatch (tests/dokumenty-wydania-057.test.ts:48:20)
+
+  ● dokumenty wydania po D-112 i po Z-1 (057) › żaden dokument wydania nie każe usuwać oferty drugi raz
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 41
+
+    - Array []
+    + Array [
+    +   "docs/wydanie/ceny.json:20",
+    +   "docs/wydanie/droga-do-app-store.md:12",
+    +   "docs/wydanie/droga-do-app-store.md:47",
+    +   "docs/wydanie/instrukcja-ustawien.md:61",
+    +   "docs/wydanie/opis-zmian-1.0.md:14",
+    +   "docs/wydanie/ustawienia/cs.md:123",
+    +   "docs/wydanie/ustawienia/da.md:123",
+    +   "docs/wydanie/ustawienia/de-DE.md:127",
+    +   "docs/wydanie/ustawienia/el.md:124",
+    +   "docs/wydanie/ustawienia/en-AU.md:127",
+    +   "docs/wydanie/ustawienia/en-CA.md:127",
+    +   "docs/wydanie/ustawienia/en-GB.md:134",
+    +   "docs/wydanie/ustawienia/en-US.md:127",
+    +   "docs/wydanie/ustawienia/es-ES.md:127",
+    +   "docs/wydanie/ustawienia/es-MX.md:128",
+    +   "docs/wydanie/ustawienia/fi.md:123",
+    +   "docs/wydanie/ustawienia/fr-CA.md:127",
+    +   "docs/wydanie/ustawienia/fr-FR.md:128",
+    +   "docs/wydanie/ustawienia/hr.md:123",
+    +   "docs/wydanie/ustawienia/hu.md:123",
+    +   "docs/wydanie/ustawienia/id.md:123",
+    +   "docs/wydanie/ustawienia/it.md:123",
+    +   "docs/wydanie/ustawienia/ja.md:123",
+    +   "docs/wydanie/ustawienia/ko.md:127",
+    +   "docs/wydanie/ustawienia/ms.md:124",
+    +   "docs/wydanie/ustawienia/nl-NL.md:123",
+    +   "docs/wydanie/ustawienia/no.md:123",
+    +   "docs/wydanie/ustawienia/pl.md:127",
+    +   "docs/wydanie/ustawienia/pt-BR.md:127",
+    +   "docs/wydanie/ustawienia/pt-PT.md:123",
+    +   "docs/wydanie/ustawienia/ro.md:123",
+    +   "docs/wydanie/ustawienia/ru.md:128",
+    +   "docs/wydanie/ustawienia/sk.md:123",
+    +   "docs/wydanie/ustawienia/sl.md:124",
+    +   "docs/wydanie/ustawienia/sv.md:123",
+    +   "docs/wydanie/ustawienia/tr.md:123",
+    +   "docs/wydanie/ustawienia/uk.md:123",
+    +   "docs/wydanie/ustawienia/vi.md:127",
+    +   "docs/wydanie/ustawienia/zh-Hant.md:127",
+    + ]
+
+      59 |       .flatMap((p) => read(p).split('\n').map((l, i) => ({ miejsce: `${p}:${i + 1}`, l })))
+      60 |       .filter(({ l }) => /usuwa M1 w App Store Connect|\*\*nie wykonane\*\*|prawdziwe w sklepie dopiero po Z-1|Krok ASC rano: usunięcie Free Trial/.test(l));
+    > 61 |     expect(zle.map((t) => t.miejsce)).toEqual([]);
+         |                                       ^
+      62 |   });
+      63 | });
+      64 |
+
+      at Object.toEqual (tests/dokumenty-wydania-057.test.ts:61:39)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 total
+Snapshots:   0 total
+Time:        0.797 s
+Ran all test suites matching /tests\/dokumenty-wydania-057.test.ts/i.

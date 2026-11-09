@@ -785,8 +785,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "ekran Pro nie obiecuje funkcji bez kodu (test: lista obietnic PaywallModal ↔ funkcje zablokowane w mapie Basic/Pro)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e8345215+69d895b8"
     },
     {
       "id": "M1-audytor-generalny-016",
@@ -804,8 +804,8 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "scenariusz E2E koniec wypieku → ocena → wpis w Dzienniku → kopia automatyczna; punkt na liście telefonu; błąd kopii automatycznej nie jest połykany",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "f38f9e63+5589c91e"
     },
     {
       "id": "M1-audytor-generalny-017",
@@ -826,7 +826,8 @@
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "zrzuty do wysyłki (pl, en-US i reszta) pokazują wygląd po M3 i plakietkę Pro tylko przy funkcjach Pro; kontrola obrazów, nie tylko JSON",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "blokada": "krok właściciela / narzędzie: nowe zrzuty wymagają buildu kandydata — (b) z urządzenia po teście telefonu dla 6,9″ i 6,3″ pl/en-US, (a) generacja pozostałych lokalizacji (Expo web + Playwright niedostępne w tym środowisku); test skrótu podpisów w sumy.json dopiero z nowymi obrazami (inaczej czerwony); nadpisanie zestawu pl w ASC tylko za zgodą właściciela"
     },
     {
       "id": "M1-audytor-generalny-018",
@@ -1555,8 +1556,8 @@
       "przyczyna": null,
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-002 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "69a1c258"
     },
     {
       "id": "M1-audytor-generalny-055",
@@ -1618,8 +1619,8 @@
       "przyczyna": "SYS-01",
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-005 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "9a692b21"
     },
     {
       "id": "M1-audytor-generalny-058",
@@ -1675,8 +1676,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "9174cd66"
     },
     {
       "id": "M1-audytor-generalny-061",
@@ -1754,9 +1755,8 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-008 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": "1f5eac3a",
-      "blokada": "decyzja właściciela: apetyt 1.0 po przeliczeniu (suma MVP 97 h wobec 60/68 h); opcje (a) przyjąć 97 h, (b) odłożyć miesiąc i rytm, (c) wrócić do 68 h — w wyniku roli 03 fix-2026-11-09"
+      "status": "naprawione-do-weryfikacji",
+      "commit": "1f5eac3a+f34b06fd"
     },
     {
       "id": "M1-audytor-generalny-065",
@@ -1861,8 +1861,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-005 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "cd6a097e"
     },
     {
       "id": "M1-audytor-generalny-070",
@@ -1881,8 +1881,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "6ed7109e"
     },
     {
       "id": "M1-audytor-generalny-071",
@@ -1900,8 +1900,8 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-007 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "221318bf"
     },
     {
       "id": "M1-audytor-generalny-072",
@@ -1919,8 +1919,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-008 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "40c4a011"
     },
     {
       "id": "M1-audytor-generalny-073",
@@ -1938,8 +1938,8 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-009 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "1590999f"
     },
     {
       "id": "M1-audytor-generalny-074",
@@ -1980,8 +1980,8 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-011 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "550fc6b1"
     },
     {
       "id": "M1-audytor-generalny-076",
@@ -2021,8 +2021,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-013 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "86efd997"
     },
     {
       "id": "M1-audytor-generalny-078",

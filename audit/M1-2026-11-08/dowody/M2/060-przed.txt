@@ -1,0 +1,30 @@
+FAIL src/__tests__/naczynie-bez-skutku-060.test.tsx (11.089 s)
+  060: bez wyboru naczynia w Ustawieniach
+    ✕ Ustawienia nie mają karty naczynia (3960 ms)
+    ✓ kopia zapasowa nadal przyjmuje klucz selected_baking_vessel
+
+  ● 060: bez wyboru naczynia w Ustawieniach › Ustawienia nie mają karty naczynia
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 4
+    Received array:  [{"_fiber": [FiberNode]}, {"_fiber": [FiberNode]}, {"_fiber": [FiberNode]}, {"_fiber": [FiberNode]}]
+
+      16 |     let tree!: renderer.ReactTestRenderer;
+      17 |     await act(async () => { tree = renderer.create(<SettingsModal visible onClose={() => {}} />); });
+    > 18 |     expect(tree.root.findAllByProps({ testID: 'karta-naczynie' })).toHaveLength(0);
+         |                                                                    ^
+      19 |     act(() => tree.unmount());
+      20 |   });
+      21 |   it('kopia zapasowa nadal przyjmuje klucz selected_baking_vessel', () => {
+
+      at Object.toHaveLength (src/__tests__/naczynie-bez-skutku-060.test.tsx:18:68)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        11.688 s
+Ran all test suites matching /src\/__tests__\/naczynie-bez-skutku-060.test.tsx/i.

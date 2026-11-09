@@ -1,0 +1,24 @@
+# 070 część (3) — CZERWONY: nowe testy tests/br-bez-testu.test.ts na skrypcie i br-wyjatki.json sprzed zmiany (HEAD cd6a097e)
+    ✓ każde BR z kryterium w docs/brd ma test z ID w nazwie albo wyjątek z powodem (kod 0) (84 ms)
+    ✓ skrypt widzi 75 BR z kryteriami z docs/brd (bez archiwum) (70 ms)
+    ✓ mutant: usunięcie ID z nazw testów jedynego pliku z tym BR daje kod 1 i to BR na liście (713 ms)
+    ✓ mutant: wpis „czesciowe” (znalezisko) nie zwalnia BR z testu — usunięcie jego ID z testów daje kod 1 (644 ms)
+    ✓ kopia do mutantów działa także, gdy repo leży pod katalogiem .claude (192) (948 ms)
+    ✓ pełny wyjątek tylko dla BR spoza MVP w kontrakcie zakresu (067) (3 ms)
+    ✓ mutant: pełny wyjątek dla BR z MVP daje kod 1 (067) (484 ms)
+    ✕ wpis „bez kodu” wskazuje w polu „brak” plik albo symbol, którego w repo nie ma (070) (3 ms)
+    ✕ mutant: wpis „bez kodu”, którego wskazany plik istnieje, daje kod 1 (070) (526 ms)
+    ✕ mutant: wpis „bez kodu” ze wskazanym symbolem, który jest w pliku, daje kod 1; symbolu nie ma — kod 0 (070) (529 ms)
+    ✕ mutant: wpis „bez kodu” bez pola „brak” (jak BR-RECP-005 przed 070) daje kod 1 (477 ms)
+    ✓ mutant: wyjątek bez powodu i źródła daje kod 1 (540 ms)
+    - Expected  - 1
+    + Received  + 1
+    -   "string",
+    +   "undefined",
+    Expected: 1
+    Received: 0
+    Expected: 1
+    Received: 0
+    Expected: 1
+    Received: 0
+Tests:       4 failed, 8 passed, 12 total

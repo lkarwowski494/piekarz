@@ -1,0 +1,11 @@
+PASS tests/fc-num-runs-069.test.ts
+  069: FC_NUM_RUNS działa przy lokalnym numRuns
+    ✓ przy FC_NUM_RUNS=1000 własność z lokalnym nr(100) biegnie ≥ 1000 razy (9 ms)
+    ✓ bez FC_NUM_RUNS lokalna liczba zostaje (1 ms)
+    ✓ żaden test nie ma gołego „numRuns: <liczba>” (bez nr) (20 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.544 s, estimated 1 s
+Ran all test suites matching /tests\/fc-num-runs-069.test.ts/i.

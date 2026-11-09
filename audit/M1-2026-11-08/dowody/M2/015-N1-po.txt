@@ -1,0 +1,13 @@
+PASS tests/obietnice-pro-015.test.ts
+  ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)
+    ✓ mapa słów obejmuje każdy wiersz PÓŹNIEJ / NIE / TEST kontraktu i każde ukryte wejście (3 ms)
+    ✓ zdania „Co daje Pro” i opis pod tytułem nie nazywają funkcji bez wejścia w 1.0 (2 ms)
+    ✓ nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”) (2 ms)
+    ✓ docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06) (1 ms)
+    ✓ docs/monetyzacja.md: funkcje ukryte w 1.0 (spiżarnia, wysyłanie QR, druk, dalsza Akademia) oznaczone PÓŹNIEJ, nie w ofercie Pro 1.0 (M2-N1) (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        0.539 s, estimated 1 s
+Ran all test suites matching /tests\/obietnice-pro-015.test.ts/i.

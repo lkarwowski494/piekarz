@@ -1,0 +1,12 @@
+RD-16 (w kodzie RD-05): Tw = 4·DDT − (Tm + Tp + Tz + Tt); progi kodu: >45 too_hot_danger, <4 requires_ice (DDT-WOD-900)
+typowy (RD-16-W2)                                              Tw = 24 normal
+za gorąca: zakwas z lodówki 5, mąka 15, kuchnia 18, tarcie 10  Tw = 52 too_hot_danger
+  stara rada: schłodź mąkę do 10                               Tw = 57 too_hot_danger
+  stara rada: obniż otoczenie do 15                            Tw = 55 too_hot_danger
+  nowa rada: mąka i zakwas do temp. pokojowej 18               Tw = 36 normal
+  nowa rada: niższa temp. ciasta 23                            Tw = 44 normal
+za zimna: kuchnia 30, mąka 30, zakwas 30, tarcie 12            Tw = -2 requires_ice
+  rada: schłodź mąkę do 18                                     Tw = 10 normal
+  rada: schłodź mąkę i zakwas do 18                            Tw = 22 normal
+Pochodne: ∂Tw/∂Tm = ∂Tw/∂Tp = ∂Tw/∂Tz = ∂Tw/∂Tt = −1; ∂Tw/∂DDT = 4 (3 bez zaczynu).
+Wniosek: przy za gorącej wodzie schłodzenie mąki albo otoczenia PODNOSI Tw (stara rada odwraca rachunek).

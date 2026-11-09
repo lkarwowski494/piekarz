@@ -1,0 +1,89 @@
+FAIL tests/ddt-woda-m2-013.test.ts
+  M2-013 (D-310): rada przy zbyt gorącej wodzie
+    ✓ wektor D-310: 52 °C, za gorąca (3 ms)
+    ✓ ogrzanie mąki obniża wynik stopień w stopień; schłodzenie go podnosi (1 ms)
+    ✓ komunikat too_hot_danger nie zawiera „Schłodź” ani „obniż temperaturę otoczenia” (1 ms)
+    ✕ martwy klucz ze starą radą usunięty ze słownika EN (3 ms)
+    ✕ martwy klucz ze starą radą usunięty z 33 słowników (31 ms)
+
+  ● M2-013 (D-310): rada przy zbyt gorącej wodzie › martwy klucz ze starą radą usunięty ze słownika EN
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
+    + ]
+
+      37 |
+      38 |   it('martwy klucz ze starą radą usunięty ze słownika EN', () => {
+    > 39 |     expect(Object.keys(EN).filter((k) => k.includes(STARA_RADA))).toEqual([]);
+         |                                                                   ^
+      40 |   });
+      41 |
+      42 |   it('martwy klucz ze starą radą usunięty z 33 słowników', () => {
+
+      at Object.toEqual (tests/ddt-woda-m2-013.test.ts:39:67)
+
+  ● M2-013 (D-310): rada przy zbyt gorącej wodzie › martwy klucz ze starą radą usunięty z 33 słowników
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 35
+
+    - Array []
+    + Array [
+    +   "bg",
+    +   "cs",
+    +   "da",
+    +   "de",
+    +   "el",
+    +   "es",
+    +   "es-419",
+    +   "et",
+    +   "fi",
+    +   "fr",
+    +   "hr",
+    +   "hu",
+    +   "id",
+    +   "it",
+    +   "ja",
+    +   "ko",
+    +   "lt",
+    +   "lv",
+    +   "ms",
+    +   "nb",
+    +   "nl",
+    +   "pt",
+    +   "pt-BR",
+    +   "ro",
+    +   "ru",
+    +   "sk",
+    +   "sl",
+    +   "sr",
+    +   "sv",
+    +   "tr",
+    +   "uk",
+    +   "vi",
+    +   "zh-Hant",
+    + ]
+
+      47 |       fs.readdirSync(path.join(kat, j)).some((f) => fs.readFileSync(path.join(kat, j, f), 'utf8').includes(STARA_RADA)),
+      48 |     );
+    > 49 |     expect(zKluczem).toEqual([]);
+         |                      ^
+      50 |   });
+      51 | });
+      52 |
+
+      at Object.toEqual (tests/ddt-woda-m2-013.test.ts:49:22)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 3 passed, 5 total
+Snapshots:   0 total
+Time:        0.851 s
+Ran all test suites matching /tests\/ddt-woda-m2-013.test.ts/i.

@@ -1,0 +1,9 @@
+PASS tests/workflow-pages-077.test.ts
+  077: bez workflowu bez szansy na sukces
+    ✓ nie ma pages.yml ani innego workflowu z actions/deploy-pages (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.378 s, estimated 1 s
+Ran all test suites matching /tests\/workflow-pages-077.test.ts/i.

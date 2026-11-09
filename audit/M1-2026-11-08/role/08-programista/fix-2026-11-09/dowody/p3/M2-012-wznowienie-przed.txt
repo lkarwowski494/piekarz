@@ -1,0 +1,48 @@
+(node:16968) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+  M2-012: wypiek brioszki zapisany przed zmianą wznawia się bez zmian
+    ✓ stare kroki (final_shape, final_proof w koszyku) mają w zapisie ids szablonu bochenka (3 ms)
+    ✓ po restarcie: ta sama sesja z bazy, te same kroki, krok i zegar; prowadzenie nie przelicza kroków (239 ms)
+    ✕ nowy wypiek brioszki bez migawki planu dostaje kroki brioszki (5 ms)
+
+  ● M2-012: wypiek brioszki zapisany przed zmianą wznawia się bez zmian › nowy wypiek brioszki bez migawki planu dostaje kroki brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 7
+
+      Array [
+        "starter_feed",
+    -   "brioche_mix",
+    -   "brioche_cold",
+    -   "brioche_shape",
+    -   "brioche_proof",
+    +   "autolyse",
+    +   "mix",
+    +   "bulk_ferment",
+    +   "pre_shape",
+    +   "bench_rest",
+    +   "final_shape",
+    +   "final_proof",
+        "preheat_oven",
+        "bake_forma",
+        "cool",
+      ]
+
+      65 |     const store: typeof import('../bake-session-store') = require('../bake-session-store');
+      66 |     const { steps: _s, ...bezKrokow } = bake;
+    > 67 |     expect(store.stepsForBake(bezKrokow).map((s) => s.id)).toEqual(
+         |                                                            ^
+      68 |       ['starter_feed', 'brioche_mix', 'brioche_cold', 'brioche_shape', 'brioche_proof', 'preheat_oven', 'bake_forma', 'cool'],
+      69 |     );
+      70 |   });
+
+      at Object.toEqual (src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts:67:60)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        0.953 s
+Ran all test suites matching /src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts/i.

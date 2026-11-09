@@ -1,0 +1,11 @@
+PASS tests/brioszka-tylko-brioszka-m2-012.test.ts
+  M2-012: szablon brioszki tylko dla receptury brioszki
+    ✓ borodinsky_rye z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki (2 ms)
+    ✓ rye_100_pan z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki
+    ✓ brioszka nadal dostaje swoje kroki (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.39 s, estimated 1 s
+Ran all test suites matching /tests\/brioszka-tylko-brioszka-m2-012.test.ts/i.

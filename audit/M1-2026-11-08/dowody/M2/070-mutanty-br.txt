@@ -1,0 +1,12 @@
+# 070 — testy BR (nowe) potrafią paść: mutant w kodzie (tymczasowo), potem przywrócony
+## M-T: plan drożdżowy przesunięty temperaturą: krokiDrozdzoweKonczaceSie(drozdzowa, celMs + (tempPlanu - 23) * 600_000)
+ app/(tabs)/receptury/harmonogram.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✓ BR-HARMO-001 Plan dla wersji drożdżowej: graham_bread_honey — kroki DRO-MOD-016 z czasami z receptury, bez komunikatu „tylko na zakwasie” (334 ms)
+    ✓ BR-HARMO-001 Plan dla wersji drożdżowej: tartine_high_hydration_80 — kroki DRO-MOD-016 z czasami z receptury, bez komunikatu „tylko na zakwasie” (135 ms)
+    ✕ BR-HARMO-001 Temperatura nie zmienia czasów drożdżowych: 20 °C i 26 °C dają ten sam plan wersji drożdżowej (195 ms)
+    ✓ BR-HARMO-001 Temperatura nie zmienia czasów drożdżowych: kontrola — plan tej receptury na zakwasie zmienia się z temperaturą (292 ms)
+    ✓ BR-ETAP-001 Gotowość ciasta drożdżowego (część): pierwsze rośnięcie — czas jest wskazówką; drugie rośnięcie — wgłębienie po palcu zostaje (316 ms)
+Tests:       1 failed, 4 passed, 5 total
+## przywrócony (git diff pusty: tak)
+Tests:       5 passed, 5 total

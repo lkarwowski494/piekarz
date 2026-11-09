@@ -1,0 +1,11 @@
+# 070 — ZIELONY po zmianie (staged)
+Test Suites: 4 passed, 4 total
+Tests:       34 passed, 34 total
+
+br-bez-testu: 84 BR z kryteriami, 78 z testem, 6 bez testu, wyjątków 7
+kod=0
+
+## npm run verify (po git add)
+Test Suites: 636 passed, 636 total
+Tests:       6559 passed, 6559 total
+verify kod=0

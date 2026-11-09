@@ -1,0 +1,10 @@
+Stara rada w słownikach (klucz bez użycia w kodzie):
+34
+68:  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.':
+Kod dziś (po roli 08 p2):
+66:  warningMessagePl?: string;
+270:      warningMessagePl: 'Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.',
+278:      warningMessagePl: 'Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.',
+Treść dziś: rada bez twierdzenia ([T:-]):
+19:Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta. [T:-]
+23:Zastąp część wody lodem. [T:-]

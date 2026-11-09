@@ -1,0 +1,81 @@
+FAIL tests/monetyzacja-platforma-054.test.ts
+  bramka opłacalności dla platformy wydania 1.0 (054)
+    ✓ dane źródłowe: tabela E2e badania ma kolumnę „sam iOS” z 174 (Basic/Pro) i 218 (odczyt A) (2 ms)
+    ✕ „Opcje modelu” podaje wynik 1.0 dla samego iOS: 174–218 USD, 35–44% progu (1 ms)
+    ✕ 345 USD stoi przy założeniu portu na Google Play, nie jako wynik 1.0
+    ✕ plan wydania 1.0 podaje wynik bramki dla samego iOS (174–218), 345 tylko z portem
+
+  ● bramka opłacalności dla platformy wydania 1.0 (054) › „Opcje modelu” podaje wynik 1.0 dla samego iOS: 174–218 USD, 35–44% progu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /1\.0[^\n]*sam iOS|sam iOS[^\n]*1\.0/
+    Received string:  "Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, iOS + Google Play, scen. norm.)
+    | Model | Wynik | Reguła sklepu | Ryzyko etyczne | Decyzja |
+    |---|---|---|---|---|
+    | **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
+    | D-038: próba 14 dni zamieniająca się w subskrypcję | 345 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
+    | V1 / V2: przepustki bez odnawiania | 191 / 200 | 3.1.1 „non-subscription apps” niepewne (MS-B01, Case 103004967270) | wygaśnięcie w trakcie życia zakwasu | odrzucone (D-112) |
+    | V3: limit 5 dni wypieku | 189 | „metered paywall” (MS-B08) | limit zniechęca do rejestrowania | odrzucony (D-112) |
+    | Sam zakup jednorazowy 14,99 / 19,99 | 322 / 369 | 3.1.1, przywracanie (MS-03) | brak | nie wybrany |
+    Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112): przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.·
+    "
+
+      26 |   it('„Opcje modelu” podaje wynik 1.0 dla samego iOS: 174–218 USD, 35–44% progu', () => {
+      27 |     expect(opcje.length).toBeGreaterThan(0);
+    > 28 |     expect(opcje).toMatch(/1\.0[^\n]*sam iOS|sam iOS[^\n]*1\.0/);
+         |                   ^
+      29 |     expect(opcje).toMatch(/174–218/);
+      30 |     expect(opcje).toMatch(/35–44%/);
+      31 |     const wybrany = opcje.split('\n').find((l) => l.startsWith('|') && /\*\*wybrany\*\*/.test(l)) ?? '';
+
+      at Object.toMatch (tests/monetyzacja-platforma-054.test.ts:28:19)
+
+  ● bramka opłacalności dla platformy wydania 1.0 (054) › 345 USD stoi przy założeniu portu na Google Play, nie jako wynik 1.0
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /port[^\n]*(Android|Google Play)|(Android|Google Play)[^\n]*port/i
+    Received string:  "Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, iOS + Google Play, scen. norm.)
+    | Model | Wynik | Reguła sklepu | Ryzyko etyczne | Decyzja |
+    |---|---|---|---|---|
+    | **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
+    | D-038: próba 14 dni zamieniająca się w subskrypcję | 345 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
+    | V1 / V2: przepustki bez odnawiania | 191 / 200 | 3.1.1 „non-subscription apps” niepewne (MS-B01, Case 103004967270) | wygaśnięcie w trakcie życia zakwasu | odrzucone (D-112) |
+    | V3: limit 5 dni wypieku | 189 | „metered paywall” (MS-B08) | limit zniechęca do rejestrowania | odrzucony (D-112) |
+    | Sam zakup jednorazowy 14,99 / 19,99 | 322 / 369 | 3.1.1, przywracanie (MS-03) | brak | nie wybrany |
+    Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112): przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.·
+    "
+
+      34 |
+      35 |   it('345 USD stoi przy założeniu portu na Google Play, nie jako wynik 1.0', () => {
+    > 36 |     expect(opcje).toMatch(/port[^\n]*(Android|Google Play)|(Android|Google Play)[^\n]*port/i);
+         |                   ^
+      37 |     const naglowek = opcje.split('\n')[0];
+      38 |     expect(naglowek).not.toMatch(/iOS \+ Google Play/);
+      39 |     expect(opcje).toMatch(/DEC-06 a/);
+
+      at Object.toMatch (tests/monetyzacja-platforma-054.test.ts:36:19)
+
+  ● bramka opłacalności dla platformy wydania 1.0 (054) › plan wydania 1.0 podaje wynik bramki dla samego iOS (174–218), 345 tylko z portem
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /174–218/
+    Received string:  "5. **Model płatności:** zgodny z `docs/monetyzacja.md`; **Free Trial usunięty z `.pro.monthly` i `.pro.yearly` w ASC (Z-1)** — warunek konieczny: bez tego sklep oferuje próbę, której aplikacja nie pokazuje (zgodność z wytyczną 3.1.2). Bramka opłacalności: wynik w `docs/monetyzacja.md` (ok. 345 USD netto/rok w scen. norm. wobec progu 500 USD: znana, nie blokuje wydania; decyzja D-112)."
+
+      43 |     const plan = read('docs/wydanie/plan-wydania-1.0.md');
+      44 |     const punkt5 = plan.split('\n').find((l) => /^5\. \*\*Model płatności/.test(l)) ?? '';
+    > 45 |     expect(punkt5).toMatch(/174–218/);
+         |                    ^
+      46 |     expect(punkt5).toMatch(/sam iOS/);
+      47 |     expect(punkt5).not.toMatch(/ok\. 345 USD netto\/rok w scen\. norm\. wobec/);
+      48 |   });
+
+      at Object.toMatch (tests/monetyzacja-platforma-054.test.ts:45:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 1 passed, 4 total
+Snapshots:   0 total
+Time:        0.723 s
+Ran all test suites matching /tests\/monetyzacja-platforma-054.test.ts/i.

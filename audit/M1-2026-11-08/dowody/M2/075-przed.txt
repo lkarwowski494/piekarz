@@ -1,0 +1,221 @@
+FAIL tests/e2e-niezalezne-kroki-075.test.ts
+  075: niezależne kroki E2E i zrzuty
+    ✕ krok „Run E2E flows (.maestro/e2e, en_US)” biegnie także po porażce wcześniejszego przebiegu (3 ms)
+    ✕ krok „Negative control must fail” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✕ krok „Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✕ krok „Install Basic build on simulator” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✕ krok „Run E2E flows in Basic (.maestro/e2e-basic)” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✕ raport zbiera zrzuty punktów kontrolnych
+    ✕ każdy scenariusz .maestro/e2e ma ≥ 1 takeScreenshot (3 ms)
+    ✕ każdy scenariusz .maestro/e2e-basic ma ≥ 1 takeScreenshot (1 ms)
+
+  ● 075: niezależne kroki E2E i zrzuty › krok „Run E2E flows (.maestro/e2e, en_US)” biegnie także po porażce wcześniejszego przebiegu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/
+    Received string:  "- name: Run E2E flows (.maestro/e2e, en_US)
+            run: |
+              xcrun simctl spawn \"$UDID\" defaults write -g AppleLanguages -array en-US
+              xcrun simctl spawn \"$UDID\" defaults write -g AppleLocale -string en_US
+              xcrun simctl shutdown \"$UDID\"
+              xcrun simctl boot \"$UDID\"
+              xcrun simctl bootstatus \"$UDID\" -b
+              maestro --device \"$UDID\" test .maestro/e2e --format junit --output maestro-e2e-en.xml
+    "
+
+      25 |     'Run E2E flows in Basic (.maestro/e2e-basic)',
+      26 |   ])('krok „%s” biegnie także po porażce wcześniejszego przebiegu', (n) => {
+    > 27 |     expect(krok(n)).toMatch(/if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/);
+         |                     ^
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+      30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+
+      at toMatch (tests/e2e-niezalezne-kroki-075.test.ts:27:21)
+
+  ● 075: niezależne kroki E2E i zrzuty › krok „Negative control must fail” biegnie także po porażce wcześniejszego przebiegu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/
+    Received string:  "- name: Negative control must fail
+            run: |
+              if ! maestro --device \"$UDID\" test .maestro/kontrola-negatywna; then
+                echo \"Kontrola negatywna padła zgodnie z oczekiwaniem.\"
+              else
+                echo \"::error::Kontrola negatywna przeszła — Maestro nie wykrywa brakującego elementu.\"
+                exit 1
+              fi·
+          # E2E w Basic (decyzja M1 2026-10-23, wariant a): drugi build Release BEZ EXPO_PUBLIC_E2E w tym samym jobie, żeby
+          # nie powtarzać npm ci, prebuild, kompilacji natywnej, bootu symulatora i instalacji narzędzi. Ten sam derivedData:
+          # natywny kod bez zmian, od nowa tylko bundle JS (flaga działa wyłącznie w JS, src/lib/app-access.ts). Bez furtki
+          # „wymuś Basic” w kodzie aplikacji [M3 E2E-basic]."
+
+      25 |     'Run E2E flows in Basic (.maestro/e2e-basic)',
+      26 |   ])('krok „%s” biegnie także po porażce wcześniejszego przebiegu', (n) => {
+    > 27 |     expect(krok(n)).toMatch(/if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/);
+         |                     ^
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+      30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+
+      at toMatch (tests/e2e-niezalezne-kroki-075.test.ts:27:21)
+
+  ● 075: niezależne kroki E2E i zrzuty › krok „Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)” biegnie także po porażce wcześniejszego przebiegu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/
+    Received string:  "- name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+            run: |
+              set -o pipefail
+              if [ -n \"${EXPO_PUBLIC_E2E:-}\" ]; then
+                echo \"::error::EXPO_PUBLIC_E2E jest ustawiona — build Basic musi być bez dostępu E2E.\"
+                exit 1
+              fi
+              # Bez pamięci transformacji Metro z buildu z flagą (wartość EXPO_PUBLIC_* jest wstawiana przy transformacji)
+              rm -rf \"${TMPDIR:-/tmp}\"/metro-* \"${TMPDIR:-/tmp}\"/haste-map-* node_modules/.cache/metro
+              WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+              xcodebuild -workspace \"$WORKSPACE\" -scheme \"$SCHEME\" -configuration Release \\
+                -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \\
+                -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -n 80
+              BUNDLE_BASIC_SHA=$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)
+              if [ \"$BUNDLE_BASIC_SHA\" = \"$BUNDLE_E2E_SHA\" ]; then
+                echo \"::error::main.jsbundle Basic jest taki sam jak w buildzie z EXPO_PUBLIC_E2E — bundle nie zbudował się od nowa.\"
+                exit 1
+              fi
+    "
+
+      25 |     'Run E2E flows in Basic (.maestro/e2e-basic)',
+      26 |   ])('krok „%s” biegnie także po porażce wcześniejszego przebiegu', (n) => {
+    > 27 |     expect(krok(n)).toMatch(/if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/);
+         |                     ^
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+      30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+
+      at toMatch (tests/e2e-niezalezne-kroki-075.test.ts:27:21)
+
+  ● 075: niezależne kroki E2E i zrzuty › krok „Install Basic build on simulator” biegnie także po porażce wcześniejszego przebiegu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/
+    Received string:  "- name: Install Basic build on simulator
+            run: |
+              BUNDLE_ID=$(node -p 'require(\"./app.json\").expo.ios.bundleIdentifier')
+              xcrun simctl uninstall \"$UDID\" \"$BUNDLE_ID\" || true
+              APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+              xcrun simctl install \"$UDID\" \"$APP\"·
+          # Scenariusze po id: jeden przebieg (język symulatora z poprzedniego kroku, en_US) wystarcza"
+
+      25 |     'Run E2E flows in Basic (.maestro/e2e-basic)',
+      26 |   ])('krok „%s” biegnie także po porażce wcześniejszego przebiegu', (n) => {
+    > 27 |     expect(krok(n)).toMatch(/if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/);
+         |                     ^
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+      30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+
+      at toMatch (tests/e2e-niezalezne-kroki-075.test.ts:27:21)
+
+  ● 075: niezależne kroki E2E i zrzuty › krok „Run E2E flows in Basic (.maestro/e2e-basic)” biegnie także po porażce wcześniejszego przebiegu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/
+    Received string:  "- name: Run E2E flows in Basic (.maestro/e2e-basic)
+            run: maestro --device \"$UDID\" test .maestro/e2e-basic --format junit --output maestro-e2e-basic.xml
+    "
+
+      25 |     'Run E2E flows in Basic (.maestro/e2e-basic)',
+      26 |   ])('krok „%s” biegnie także po porażce wcześniejszego przebiegu', (n) => {
+    > 27 |     expect(krok(n)).toMatch(/if: \(success\(\) \|\| failure\(\)\) && steps\.\w+\.outcome == 'success'/);
+         |                     ^
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+      30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+
+      at toMatch (tests/e2e-niezalezne-kroki-075.test.ts:27:21)
+
+  ● 075: niezależne kroki E2E i zrzuty › raport zbiera zrzuty punktów kontrolnych
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /zrzuty-e2e/
+    Received string:  "- name: Upload Maestro report and screenshots
+            if: always()
+            uses: actions/upload-artifact@v4
+            with:
+              name: maestro-e2e
+              path: |
+                maestro-e2e-pl.xml
+                maestro-e2e-en.xml
+                maestro-e2e-basic.xml
+                ~/.maestro/tests
+              if-no-files-found: ignore
+              retention-days: 7
+    "
+
+      28 |   });
+      29 |   it('raport zbiera zrzuty punktów kontrolnych', () => {
+    > 30 |     expect(krok('Upload Maestro report and screenshots')).toMatch(/zrzuty-e2e/);
+         |                                                           ^
+      31 |   });
+      32 |   it.each(['e2e', 'e2e-basic'])('każdy scenariusz .maestro/%s ma ≥ 1 takeScreenshot', (kat) => {
+      33 |     const d = path.join(ROOT, '.maestro', kat);
+
+      at Object.toMatch (tests/e2e-niezalezne-kroki-075.test.ts:30:59)
+
+  ● 075: niezależne kroki E2E i zrzuty › każdy scenariusz .maestro/e2e ma ≥ 1 takeScreenshot
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "01-pierwsze-uruchomienie.yaml",
+    -   true,
+    +   false,
+      ]
+
+      33 |     const d = path.join(ROOT, '.maestro', kat);
+      34 |     for (const f of fs.readdirSync(d).filter((x) => x.endsWith('.yaml'))) {
+    > 35 |       expect([f, /^- takeScreenshot:/m.test(fs.readFileSync(path.join(d, f), 'utf8'))]).toEqual([f, true]);
+         |                                                                                         ^
+      36 |     }
+      37 |   });
+      38 | });
+
+      at toEqual (tests/e2e-niezalezne-kroki-075.test.ts:35:89)
+
+  ● 075: niezależne kroki E2E i zrzuty › każdy scenariusz .maestro/e2e-basic ma ≥ 1 takeScreenshot
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "01-start-bez-ekranu-pro.yaml",
+    -   true,
+    +   false,
+      ]
+
+      33 |     const d = path.join(ROOT, '.maestro', kat);
+      34 |     for (const f of fs.readdirSync(d).filter((x) => x.endsWith('.yaml'))) {
+    > 35 |       expect([f, /^- takeScreenshot:/m.test(fs.readFileSync(path.join(d, f), 'utf8'))]).toEqual([f, true]);
+         |                                                                                         ^
+      36 |     }
+      37 |   });
+      38 | });
+
+      at toEqual (tests/e2e-niezalezne-kroki-075.test.ts:35:89)
+
+Test Suites: 1 failed, 1 total
+Tests:       8 failed, 8 total
+Snapshots:   0 total
+Time:        0.845 s
+Ran all test suites matching /tests\/e2e-niezalezne-kroki-075.test.ts/i.

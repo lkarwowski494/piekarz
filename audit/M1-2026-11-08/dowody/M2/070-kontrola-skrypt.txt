@@ -1,0 +1,12 @@
+# 070 część (3) — nowa kontrola w scripts/br-bez-testu.mjs na br-wyjatki.json SPRZED zmiany
+## a) json bez zmian (wpisy „bez kodu” bez pola „brak”)
+  błąd: wyjątek BR-RECP-004 „bez kodu” bez pola „brak” (plik albo plik#symbol, którego nie ma)
+  błąd: wyjątek BR-KAL-012 „bez kodu” bez pola „brak” (plik albo plik#symbol, którego nie ma)
+  błąd: wyjątek BR-RECP-005 „bez kodu” bez pola „brak” (plik albo plik#symbol, którego nie ma)
+br-bez-testu: 0 BR bez testu i bez wyjątku
+kod=1
+
+## b) stary wpis BR-RECP-005 („jeszcze bez kodu”) z polem brak = plik, który istnieje (src/recipes/wersje-drozdzowe.ts)
+  błąd: wyjątek BR-RECP-005 „bez kodu”, a src/recipes/wersje-drozdzowe.ts istnieje — test z ID i usunięcie albo poprawa wpisu (D-187)
+br-bez-testu: 0 BR bez testu i bez wyjątku
+kod=1

@@ -1,0 +1,57 @@
+# 071 — mutanty z role/07-jakosc/dowody/mutacje.txt zastosowane ręcznie (tymczasowo), potem kod przywrócony
+# HEAD 6ed7109e; ROLLBACK jest dziś w src/data/runner-migracji.ts (wydzielony z sqlite-schema.ts w 019)
+
+== M2-migracja-rollback: src/data/runner-migracji.ts :: "await db.execAsync('ROLLBACK;').catch(() => {});" -> '/* mutant: bez ROLLBACK */'
+-      await db.execAsync('ROLLBACK;').catch(() => {});
++      /* mutant: bez ROLLBACK */
+$ npx jest src/data/__tests__/starter-entries-v5-migration.sqlite.test.ts
+    ✓ liczności przed = po, wpis feeding dla każdego last_fed_at, integralność i klucze obce, kopia przed migracją (313 ms)
+    ✓ liczności przed = po, wpis feeding dla każdego last_fed_at, integralność i klucze obce, kopia przed migracją (66 ms)
+    ✓ liczności przed = po, wpis feeding dla każdego last_fed_at, integralność i klucze obce, kopia przed migracją (82 ms)
+    ✓ liczności przed = po, wpis feeding dla każdego last_fed_at, integralność i klucze obce, kopia przed migracją (60 ms)
+    ✓ liczności przed = po, wpis feeding dla każdego last_fed_at, integralność i klucze obce, kopia przed migracją (106 ms)
+    ✓ MigrationError, wersja i dane bez zmian, brak tabeli i kolumn v5, stan unavailable z kopią (41 ms)
+    ✕ po MigrationError połączenie aplikacji jest bez otwartej transakcji: wersja 4, zapis widoczny w drugim połączeniu (071) (52 ms)
+    Expected: true
+    Received: false
+Tests:       1 failed, 6 passed, 7 total
+kod=1
+-- przywrócony (git diff pusty: tak)
+Tests:       7 passed, 7 total
+kod=0
+
+== M8-uncje-granica: src/lib/unit-converter.ts :: 'return oz2 >= 1 ?' -> 'return oz2 >= 2 ?'
+-  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
++  return oz2 >= 2 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
+$ npx jest src/lib/__tests__/miary-usa-096.test.ts
+    ✕ en: 28.35 g → 1.0 oz (3 ms)
+    ✕ en: 30 g → 1.1 oz (1 ms)
+    ✕ en: 42.5 g → 1.5 oz (1 ms)
+    ✕ en: 56 g → 2.0 oz (1 ms)
+    Expected: "1.0 oz"
+    Received: "1.00 oz"
+    Expected: "1.1 oz"
+    Received: "1.06 oz"
+    Expected: "1.5 oz"
+    Received: "1.50 oz"
+    Expected: "2.0 oz"
+    Received: "1.98 oz"
+Tests:       4 failed, 24 passed, 28 total
+kod=1
+-- przywrócony (git diff pusty: tak)
+Tests:       28 passed, 28 total
+kod=0
+
+# 071 — PRZED: te same mutanty na testach z HEAD (bez nowych asercji)
+== M2 $ npx jest src/data/__tests__/starter-entries-v5-migration.sqlite.test.ts
+Tests:       6 passed, 6 total
+kod=0 (mutant przeżywa w teście błędu migracji v5)
+== M2 $ npx jest src/data/__tests__/runner-przebudowa-019.sqlite.test.ts (dodany po audycie w 019: zabija M2 tylko dla migracji z przebudową, przez foreign_keys)
+    ✕ przebudowa, która zostawia osierocone wpisy, jest wycofana (foreign_key_check przed COMMIT) (42 ms)
+Tests:       1 failed, 2 passed, 3 total
+kod=1
+== M8 $ npx jest src/lib/__tests__/miary-usa-096.test.ts
+Tests:       23 passed, 23 total
+kod=0 (mutant przeżywa)
+
+# 071 — npm run verify po git add: kod 0; Tests:       6565 passed, 6565 total

@@ -1,0 +1,13 @@
+PASS tests/ddt-woda-m2-013.test.ts
+  M2-013 (D-310): rada przy zbyt gorącej wodzie
+    ✓ wektor D-310: 52 °C, za gorąca (3 ms)
+    ✓ ogrzanie mąki obniża wynik stopień w stopień; schłodzenie go podnosi (2 ms)
+    ✓ komunikat too_hot_danger nie zawiera „Schłodź” ani „obniż temperaturę otoczenia” (1 ms)
+    ✓ martwy klucz ze starą radą usunięty ze słownika EN (1 ms)
+    ✓ martwy klucz ze starą radą usunięty z 33 słowników (49 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        0.902 s, estimated 1 s
+Ran all test suites matching /tests\/ddt-woda-m2-013.test.ts/i.

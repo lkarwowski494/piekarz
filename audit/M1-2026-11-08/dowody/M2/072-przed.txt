@@ -1,0 +1,59 @@
+FAIL tests/tytuly-a11y-072.test.ts
+  072: tytuły testów a11y mówią prawdę
+    ✕ tytuł z „44 pt”, „pole dotyku” albo „320 pt” ma dopisek „(styl, bez pomiaru)” (30 ms)
+
+  ● 072: tytuły testów a11y mówią prawdę › tytuł z „44 pt”, „pole dotyku” albo „320 pt” ma dopisek „(styl, bez pomiaru)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 31
+
+    - Array []
+    + Array [
+    +   "src/__tests__/dziennik-karty-p5.test.tsx: statystyki w karcie z ikoną; Doktor Chleba jako wiersz-karta z ikoną (cel ≥ 52 pt) prowadzący do /doktor",
+    +   "src/__tests__/dziennik-karty-p5.test.tsx: duży tekst (AX5 przy 320 pt): przyciski wpisu w kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach",
+    +   "src/__tests__/dzis-d4b.test.tsx: Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a)",
+    +   "src/__tests__/dzis-d4b.test.tsx: 320 pt: dni od krawędzi do krawędzi (bez marginesu), każdy dzień cały przycisk ≥ 44 pt; kafle bez ucinania tekstu",
+    +   "src/__tests__/dzis-kalendarz-d7.test.tsx: BR-KAL-013 320 pt: siatka od krawędzi do krawędzi, 7 dni w rzędzie, każdy dzień ≥ 44 pt wysokości",
+    +   "src/__tests__/ekran-pro-pb.test.tsx: 1 (PRZ-28, 320 pt): opcje z cenami stoją przed „Co daje Pro” i przed ujawnieniami; cena przed paskiem kciuka",
+    +   "src/__tests__/kalendarz-wiersz-ax5-w004.test.tsx: fontScale %f przy 320 pt: „‹ okres ›” w jednym rzędzie, „Dziś” i „Miesiąc” w drugim, zawijanym",
+    +   "src/__tests__/plan-prowadzenie-karty-p4.test.tsx: duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, w kartach bez maxFontSizeMultiplier",
+    +   "src/__tests__/plan-uklad-128b.test.tsx: 320 pt: ±30 min razem pod rzędem dni (poza przewijanym rzędem), rząd pola tylko z polem",
+    +   "src/__tests__/pro-pas-p5b.test.tsx: p5b §7a / D-142: Piekarz Pro przy AX5 i 320 pt",
+    +   "src/__tests__/receptury-karty-p3.test.tsx: duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, bez maxFontSizeMultiplier",
+    +   "src/__tests__/ustawienia-karty-p5.test.tsx: duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach",
+    +   "src/components/__tests__/NumInput.test.tsx: provides a touch target meeting RD-ENG-03 (>= 44pt)",
+    +   "src/components/__tests__/flour-blend-modal.test.tsx: przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11]",
+    +   "src/components/__tests__/flour-blend-modal.test.tsx: „✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]",
+    +   "src/components/__tests__/licencje-ekran-z081.test.tsx: wiersz w karcie „Kontakt” obok „Polityki prywatności”: przycisk z etykietą i celem ≥ 44 pt",
+    +   "src/components/__tests__/licencje-ekran-z081.test.tsx: powrót: „Ustawienia” w nagłówku (≥ 44 pt) wraca do listy ustawień; Źródła wiedzy nadal działają",
+    +   "src/components/__tests__/zrodla-wiedzy-t2.test.tsx: wejście w Ustawieniach: przycisk z etykietą i celem ≥ 44 pt",
+    +   "src/components/__tests__/zrodla-wiedzy-t2.test.tsx: powrót: „Ustawienia” w nagłówku (etykieta „Wróć do ustawień”, ≥ 44 pt) wraca do listy ustawień",
+    +   "src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx: pole dotyku ≥ 44 pt; duży tekst (AX5 przy 320 pt): każda opcja na całą szerokość (§7a)",
+    +   "src/guards/__tests__/interaction-guards.test.ts: defines minHeight and minWidth of 44pt for touch targets",
+    +   "src/guards/__tests__/interaction-guards.test.ts: HeaderButton component source code explicitly enforces 44pt minimum touch target",
+    +   "src/ui/__tests__/karty-p1.test.tsx: z onPress: przycisk z etykietą „etykieta, wartość”, wywołuje onPress, cel ≥ 44 pt",
+    +   "src/ui/__tests__/karty-p1.test.tsx: wiersz: obwódka 1,5 obwodka, promień pole 10, min 52 pt (≥ 44)",
+    +   "tests/audit-fixes.test.tsx: A11-01 & A11-02: NumInput touch target height is at least 44 pt",
+    +   "tests/matrix-dimensions.test.tsx: Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)",
+    +   "tests/matrix-dimensions.test.tsx: Compact Width 320pt Constraints (iPhone SE 1st gen)",
+    +   "tests/matrix-dimensions.test.tsx: NumInput renders inside a 320pt-wide container (presence only; layout not measured)",
+    +   "tests/quality-declarations.test.ts: %s nie obiecuje pomiaru 320 pt, AX5 ani 44 pt",
+    + ]
+
+      26 |       }
+      27 |     }
+    > 28 |     expect(zle).toEqual([]);
+         |                 ^
+      29 |   });
+      30 | });
+      31 |
+
+      at Object.toEqual (tests/tytuly-a11y-072.test.ts:28:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        2.058 s
+Ran all test suites matching /tests\/tytuly-a11y-072.test.ts/i.

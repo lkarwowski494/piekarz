@@ -1,0 +1,49 @@
+FAIL tests/fc-num-runs-069.test.ts
+  069: FC_NUM_RUNS działa przy lokalnym numRuns
+    ✓ przy FC_NUM_RUNS=1000 własność z lokalnym nr(100) biegnie ≥ 1000 razy (7 ms)
+    ✓ bez FC_NUM_RUNS lokalna liczba zostaje
+    ✕ żaden test nie ma gołego „numRuns: <liczba>” (bez nr) (21 ms)
+
+  ● 069: FC_NUM_RUNS działa przy lokalnym numRuns › żaden test nie ma gołego „numRuns: <liczba>” (bez nr)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 19
+
+    - Array []
+    + Array [
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/__tests__/do-miski-zaczyn-182.test.tsx",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/components/receptury/__tests__/DoMiski-suma-040.test.tsx",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/bake-statistics.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/baking-techniques.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/bread-school.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/domain-property-based.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/flour-equivalents.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/inventory.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/preferments.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/starter-converter.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/starter-peak-predictor.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/core/__tests__/volume-converter.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/lib/__tests__/recipe-sharing.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/recipes/__tests__/discard-recipes.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/src/recipes/__tests__/presets.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/tests/matrix-invariants.test.ts",
+    +   "/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/przed069/tests/quality-declarations.test.ts",
+    + ]
+
+      34 |     chodz(path.join(__dirname, '..', 'src'));
+      35 |     chodz(__dirname);
+    > 36 |     expect(zle).toEqual([]);
+         |                 ^
+      37 |   });
+      38 | });
+      39 |
+
+      at Object.toEqual (tests/fc-num-runs-069.test.ts:36:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 2 passed, 3 total
+Snapshots:   0 total
+Time:        2.095 s
+Ran all test suites matching /tests\/fc-num-runs-069.test.ts/i.

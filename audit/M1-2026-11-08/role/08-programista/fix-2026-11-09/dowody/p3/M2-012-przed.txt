@@ -1,0 +1,895 @@
+# HEAD 09d8227a (kod sprzed M2-012), test bez opisu szablonu brioche-stages.ts (moduł jeszcze nie istnieje)
+(node:17959) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+  ● M2-012: wypiek brioszki zapisany przed zmianą wznawia się bez zmian › nowy wypiek brioszki bez migawki planu dostaje kroki brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 7
+
+      Array [
+        "starter_feed",
+    -   "brioche_mix",
+    -   "brioche_cold",
+    -   "brioche_shape",
+    -   "brioche_proof",
+    +   "autolyse",
+    +   "mix",
+    +   "bulk_ferment",
+    +   "pre_shape",
+    +   "bench_rest",
+    +   "final_shape",
+    +   "final_proof",
+        "preheat_oven",
+        "bake_forma",
+        "cool",
+      ]
+
+      65 |     const store: typeof import('../bake-session-store') = require('../bake-session-store');
+      66 |     const { steps: _s, ...bezKrokow } = bake;
+    > 67 |     expect(store.stepsForBake(bezKrokow).map((s) => s.id)).toEqual(
+         |                                                            ^
+      68 |       ['starter_feed', 'brioche_mix', 'brioche_cold', 'brioche_shape', 'brioche_proof', 'preheat_oven', 'bake_forma', 'cool'],
+      69 |     );
+      70 |   });
+
+      at Object.toEqual (src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts:67:60)
+
+FAIL tests/plan-brioszki-m2-012.test.ts
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › kroki planu w kolejności wektora, z kategoriami i czasami wektora
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  7
+    + Received  + 22
+
+    @@ -3,28 +3,43 @@
+          "starter_feed",
+          "starter_feed",
+          360,
+        ],
+        Array [
+    -     "brioche_mix",
+    +     "autolyse",
+    +     "autolyse",
+    +     45,
+    +   ],
+    +   Array [
+          "mix",
+    -     20,
+    +     "mix",
+    +     15,
+        ],
+        Array [
+    -     "brioche_cold",
+    +     "bulk_ferment",
+          "bulk_ferment",
+    -     840,
+    +     240,
+    +   ],
+    +   Array [
+    +     "pre_shape",
+    +     "pre_shape",
+    +     10,
+        ],
+        Array [
+    -     "brioche_shape",
+    +     "bench_rest",
+    +     "bench_rest",
+    +     20,
+    +   ],
+    +   Array [
+          "final_shape",
+    +     "final_shape",
+          15,
+        ],
+        Array [
+    -     "brioche_proof",
+    +     "final_proof",
+          "final_proof",
+    -     20,
+    +     840,
+        ],
+        Array [
+          "preheat_oven",
+          "preheat_oven",
+          45,
+
+      65 |
+      66 |   it('kroki planu w kolejności wektora, z kategoriami i czasami wektora', () => {
+    > 67 |     expect(plan().map((s) => [s.id, s.category, s.durationMin])).toEqual(WEKTOR.kroki.map((k) => [k.id, k.kategoria, k.czasMin]));
+         |                                                                  ^
+      68 |   });
+      69 |
+      70 |   it('plan brioszki nie ma kroków szablonu bochenka w koszyku', () => {
+
+      at Object.toEqual (tests/plan-brioszki-m2-012.test.ts:67:66)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › plan brioszki nie ma kroków szablonu bochenka w koszyku
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "id": "autolyse",
+    -   "jest": false,
+    +   "jest": true,
+      }
+
+      70 |   it('plan brioszki nie ma kroków szablonu bochenka w koszyku', () => {
+      71 |     const ids = plan().map((s) => s.id);
+    > 72 |     for (const id of WEKTOR.nieobecne) expect({ id, jest: ids.includes(id) }).toEqual({ id, jest: false });
+         |                                                                               ^
+      73 |   });
+      74 |
+      75 |   it.each(['brioche_mix', 'brioche_cold', 'brioche_shape', 'brioche_proof'])('%s: nazwa i instrukcja dosłownie z plan-brioszki.md', (id) => {
+
+      at Object.toEqual (tests/plan-brioszki-m2-012.test.ts:72:79)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_mix: nazwa i instrukcja dosłownie z plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_mix",
+    -   "ids": "brioche_mix",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:76:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_cold: nazwa i instrukcja dosłownie z plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:76:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_shape: nazwa i instrukcja dosłownie z plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_shape",
+    -   "ids": "brioche_shape",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:76:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_proof: nazwa i instrukcja dosłownie z plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_proof",
+    -   "ids": "brioche_proof",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:76:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_mix: wpis EN dosłownie z en/plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_mix",
+    -   "ids": "brioche_mix",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:82:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_cold: wpis EN dosłownie z en/plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:82:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_shape: wpis EN dosłownie z en/plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_shape",
+    -   "ids": "brioche_shape",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:82:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_proof: wpis EN dosłownie z en/plan-brioszki.md
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_proof",
+    -   "ids": "brioche_proof",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:82:15)
+
+  ● M2-012 (D-309): plan brioszki = wektor roli 06 › brioche_cold: zakres czasu 480–1440 min z wektora
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at Object.krok (tests/plan-brioszki-m2-012.test.ts:99:12)
+
+  ● M2-012: lodówka, temperatura i noc w planie brioszki › temperatura kuchni (Q10) nie przelicza brioche_cold ani innych kroków brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 5
+
+      Array [
+        360,
+    +   45,
+    +   15,
+    +   578,
+    +   10,
+        20,
+    -   840,
+        15,
+    -   20,
+    +   840,
+        45,
+        28,
+        120,
+      ]
+
+      103 | describe('M2-012: lodówka, temperatura i noc w planie brioszki', () => {
+      104 |   it('temperatura kuchni (Q10) nie przelicza brioche_cold ani innych kroków brioszki', () => {
+    > 105 |     for (const t of [16, 20, 28]) expect(plan({ ambientTemperatureC: t }).map((s) => s.durationMin)).toEqual(WEKTOR.kroki.map((k) => k.czasMin));
+          |                                                                                                      ^
+      106 |   });
+      107 |
+      108 |   it('czas w lodówce (coldRetardHours) ustawia brioche_cold', () => {
+
+      at Object.toEqual (tests/plan-brioszki-m2-012.test.ts:105:102)
+
+  ● M2-012: lodówka, temperatura i noc w planie brioszki › czas w lodówce (coldRetardHours) ustawia brioche_cold
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at Object.krok (tests/plan-brioszki-m2-012.test.ts:109:12)
+
+  ● M2-012: lodówka, temperatura i noc w planie brioszki › podpowiedź kolizji ze snem zmienia czas brioche_cold i usuwa kolizję
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at Object.krok (tests/plan-brioszki-m2-012.test.ts:121:19)
+
+  ● M2-012: jedno źródło kroków dla planu i prowadzenia › Harmonogram („Ułóż plan”) dostaje kroki brioszki
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 7
+
+      Array [
+        "starter_feed",
+    -   "brioche_mix",
+    -   "brioche_cold",
+    -   "brioche_shape",
+    -   "brioche_proof",
+    +   "autolyse",
+    +   "mix",
+    +   "bulk_ferment",
+    +   "pre_shape",
+    +   "bench_rest",
+    +   "final_shape",
+    +   "final_proof",
+        "preheat_oven",
+        "bake_forma",
+        "cool",
+      ]
+
+      129 |     const r = { recipeId: ID, wersja: 'zakwas', calculatedRecipe: { isHighRye: false } } as unknown as RecepturaPlanu;
+      130 |     const kroki = stepsFromSchedule(calculateReverseSchedule(CEL, { pieczenie: pieczenieDlaPlanu(r) }));
+    > 131 |     expect(kroki.map((s) => s.id)).toEqual(WEKTOR.kroki.map((k) => k.id));
+          |                                    ^
+      132 |   });
+      133 |
+      134 |   it('prowadzenie bez migawki planu (start z receptury) ma te same kroki co plan', () => {
+
+      at Object.toEqual (tests/plan-brioszki-m2-012.test.ts:131:36)
+
+  ● M2-012: jedno źródło kroków dla planu i prowadzenia › prowadzenie bez migawki planu (start z receptury) ma te same kroki co plan
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  7
+    + Received  + 19
+
+    @@ -2,24 +2,36 @@
+        Array [
+          "starter_feed",
+          360,
+        ],
+        Array [
+    -     "brioche_mix",
+    -     20,
+    +     "autolyse",
+    +     45,
+        ],
+        Array [
+    -     "brioche_cold",
+    -     840,
+    +     "mix",
+    +     15,
+        ],
+        Array [
+    -     "brioche_shape",
+    -     15,
+    +     "bulk_ferment",
+    +     240,
+        ],
+        Array [
+    -     "brioche_proof",
+    +     "pre_shape",
+    +     10,
+    +   ],
+    +   Array [
+    +     "bench_rest",
+          20,
+    +   ],
+    +   Array [
+    +     "final_shape",
+    +     15,
+    +   ],
+    +   Array [
+    +     "final_proof",
+    +     840,
+        ],
+        Array [
+          "preheat_oven",
+          45,
+        ],
+
+      137 |     const zWypieku = stepsForBake({ id: 'b', recipeName: 'Brioszka', recipeId: ID, startedAt: startAt, currentStageId: '' });
+      138 |     expect(zWypieku).toEqual(zPlanu);
+    > 139 |     expect(zWypieku.map((s) => [s.id, s.durationMin])).toEqual(WEKTOR.kroki.map((k) => [k.id, k.czasMin]));
+          |                                                        ^
+      140 |     expect(zWypieku[0]!.plannedStart).toBe(startAt);
+      141 |   });
+      142 |
+
+      at Object.toEqual (tests/plan-brioszki-m2-012.test.ts:139:56)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › brioche_mix: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_mix",
+    -   "ids": "brioche_mix",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:163:15)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › brioche_cold: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_cold",
+    -   "ids": "brioche_cold",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:163:15)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › brioche_shape: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_shape",
+    -   "ids": "brioche_shape",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:163:15)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › brioche_proof: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_proof",
+    -   "ids": "brioche_proof",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at krok (tests/plan-brioszki-m2-012.test.ts:163:15)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › preheat_oven: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+        "id": "preheat_oven",
+    -   "zdania": Array [],
+    +   "zdania": Array [
+    +     "Garnek nagrzewasz pusty, żeby po włożeniu ciasta zrobiła się w nim para.",
+    +   ],
+      }
+
+      164 |     for (const r of NIE_DLA_BRIOSZKI) {
+      165 |       if (id === 'brioche_cold' && r.source === 'Chłód lodówki') continue;
+    > 166 |       expect({ id, zdania: zdania(s).filter((z) => r.test(z)) }).toEqual({ id, zdania: [] });
+          |                                                                  ^
+      167 |     }
+      168 |   });
+      169 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:166:66)
+      at _loop2 (tests/plan-brioszki-m2-012.test.ts:164:37)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › bake_forma: bez zdań o składaniu, koszyku, garnku, nacięciu i lodówce przy rośnięciu w cieple
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+        "id": "bake_forma",
+    -   "zdania": Array [],
+    +   "zdania": Array [
+    +     "Nacięcie wyznacza miejsce, w którym bochenek się rozejdzie, więc chleb trzyma kształt i nie pęka z boku.",
+    +   ],
+      }
+
+      164 |     for (const r of NIE_DLA_BRIOSZKI) {
+      165 |       if (id === 'brioche_cold' && r.source === 'Chłód lodówki') continue;
+    > 166 |       expect({ id, zdania: zdania(s).filter((z) => r.test(z)) }).toEqual({ id, zdania: [] });
+          |                                                                  ^
+      167 |     }
+      168 |   });
+      169 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:166:66)
+      at _loop2 (tests/plan-brioszki-m2-012.test.ts:164:37)
+
+  ● M2-012: „Po co ten krok” tylko dla kroków, które plan brioszki ma › dokarmienie, wyrabianie, fermentacja, rośnięcie i studzenie zachowują zdania swoich kroków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+      Object {
+        "id": "brioche_mix",
+    -   "ids": "brioche_mix",
+    +   "ids": Array [
+    +     "starter_feed",
+    +     "autolyse",
+    +     "mix",
+    +     "bulk_ferment",
+    +     "pre_shape",
+    +     "bench_rest",
+    +     "final_shape",
+    +     "final_proof",
+    +     "preheat_oven",
+    +     "bake_forma",
+    +     "cool",
+    +   ],
+      }
+
+      54 | function krok(kroki: SessionStep[], id: string): SessionStep {
+      55 |   const s = kroki.find((k) => k.id === id);
+    > 56 |   expect({ id, ids: s ? id : kroki.map((k) => k.id) }).toEqual({ id, ids: id });
+         |                                                        ^
+      57 |   return s!;
+      58 | }
+      59 |
+
+      at toEqual (tests/plan-brioszki-m2-012.test.ts:56:56)
+      at Object.krok (tests/plan-brioszki-m2-012.test.ts:173:19)
+
+Test Suites: 2 failed, 2 total
+Tests:       24 failed, 9 passed, 33 total
+Snapshots:   0 total
+Time:        1.309 s, estimated 4 s
+Ran all test suites matching /tests\/plan-brioszki-m2-012.test.ts|src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts/i.

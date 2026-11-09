@@ -1,0 +1,16 @@
+# Odczyt źródeł M2-012/M2-013, 2026-11-09 (curl -L, BeautifulSoup get_text, białe znaki scalone; grep -F)
+## ciafoodies.com/brioche  sha256 63c931215de8
+For the loaf pan, hand roll the dough out to the length of your pan. Grease the pan lightly with butter and place the dough in the pan. Cover with plastic wrap and let proof in a warm place for 20 minutes. :: 1
+Line a sheet pan with parchment paper, grease it with butter, and place the dough on top. Cover the dough tightly with plastic wrap and refrigerate overnight. :: 1
+gradually add a scant 1 1/4 cups of the butter :: 1
+After the butter is fully incorporated, mix on medium speed for 15 minutes, or until the dough pulls away from the bowl. :: 1
+Add 1/2 cup of the butter, the eggs, milk, sugar, and salt and mix on low speed for 4 minutes. :: 1
+1 tablespoon instant dry yeast :: 1
+For a pan loaf, preheat the oven to 400°F and then reduce the heat to 350°F. :: 1
+## kingarthurbaking.com/pro/reference/dough-temperature  sha256 30bb09273afd
+We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment. :: 1
+Once we have determined this factor, we subtract from it the sum of the known temperatures, and the result will be the required water temperature. :: 1
+establish the correct water temperature (the only variable over which we have control) :: 1
+## NIST pub_id=926353 (pdftotext)  sha256 38c21c7bcdf0
+∆fusH(0 °C) = 333.4 J/g :: 1
+## USGS specific heat: HTTP 403 (Do sprawdzenia; zostaje odczyt S-41 z 2026-10-19)

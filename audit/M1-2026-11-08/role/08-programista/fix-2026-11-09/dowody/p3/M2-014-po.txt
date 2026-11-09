@@ -1,0 +1,11 @@
+PASS tests/e2e-ios-workflow.test.ts
+(node:21904) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/arkusze-w-kartach-007.test.tsx
+PASS src/__tests__/stolnica-zgoda-130.test.tsx
+
+Test Suites: 3 passed, 3 total
+Tests:       33 passed, 33 total
+Snapshots:   0 total
+Time:        2.209 s
+Ran all test suites matching /src\/__tests__\/arkusze-w-kartach-007.test.tsx|src\/__tests__\/stolnica-zgoda-130.test.tsx|tests\/e2e-ios-workflow.test.ts/i.

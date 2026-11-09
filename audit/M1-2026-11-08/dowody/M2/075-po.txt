@@ -1,0 +1,16 @@
+PASS tests/e2e-niezalezne-kroki-075.test.ts
+  075: niezależne kroki E2E i zrzuty
+    ✓ krok „Run E2E flows (.maestro/e2e, en_US)” biegnie także po porażce wcześniejszego przebiegu (2 ms)
+    ✓ krok „Negative control must fail” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✓ krok „Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)” biegnie także po porażce wcześniejszego przebiegu
+    ✓ krok „Install Basic build on simulator” biegnie także po porażce wcześniejszego przebiegu (1 ms)
+    ✓ krok „Run E2E flows in Basic (.maestro/e2e-basic)” biegnie także po porażce wcześniejszego przebiegu
+    ✓ raport zbiera zrzuty punktów kontrolnych
+    ✓ każdy scenariusz .maestro/e2e ma ≥ 1 takeScreenshot (2 ms)
+    ✓ każdy scenariusz .maestro/e2e-basic ma ≥ 1 takeScreenshot (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        0.404 s, estimated 1 s
+Ran all test suites matching /tests\/e2e-niezalezne-kroki-075.test.ts/i.

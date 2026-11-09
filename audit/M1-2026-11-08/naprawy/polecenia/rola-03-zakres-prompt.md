@@ -99,7 +99,7 @@ Przykłady hierarchii dziedzinowej:
 
 # Tryb: FIX (naprawa zatwierdzonych znalezisk)
 
-Wdrażasz wyłącznie znaleziska zatwierdzone przez właściciela: `03-zakres-002,03-zakres-001,03-zakres-005,03-zakres-006,03-zakres-008`. Nowych problemów nie naprawiasz po drodze; dopisujesz je do raportu jako nowe znaleziska.
+Wdrażasz wyłącznie znaleziska zatwierdzone przez właściciela: `03-zakres-003`. Nowych problemów nie naprawiasz po drodze; dopisujesz je do raportu jako nowe znaleziska.
 
 1. **E0: Plan → STOP.**
    - Przeczytaj raport audytu i zatwierdzone ID.

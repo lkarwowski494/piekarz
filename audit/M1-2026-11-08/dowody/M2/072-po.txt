@@ -1,0 +1,9 @@
+PASS tests/tytuly-a11y-072.test.ts
+  072: tytuły testów a11y mówią prawdę
+    ✓ tytuł z „44 pt”, „pole dotyku” albo „320 pt” ma dopisek „(styl, bez pomiaru)” (25 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.722 s
+Ran all test suites matching /tests\/tytuly-a11y-072.test.ts/i.

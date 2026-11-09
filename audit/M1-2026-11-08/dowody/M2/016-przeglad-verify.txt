@@ -1,0 +1,700 @@
+
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+
+i18n: 922 tekstów t('…') w kodzie, 2215 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 1398 plików, przekroczeń: 0
+
+> piekarz@1.0.0 lint
+> eslint app src
+
+
+/home/user/piekarz/src/hooks/usePendingRecipeLoader.ts
+  34:6  warning  React Hook useEffect was passed a dependency list that is not an array literal. This means we can't statically verify whether you've passed the correct dependencies                                                                                react-hooks/exhaustive-deps
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1683/1683 elementów (100%)
+
+> piekarz@1.0.0 test
+> jest
+
+(node:5671) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5670) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/asc-zgloszenie.test.ts (14.222 s)
+PASS src/__tests__/prosba-o-ocene-138.test.tsx (19.686 s)
+PASS src/__tests__/plan-bez-nocy-129.test.tsx (9.969 s)
+PASS src/__tests__/do-miski-zaczyn-182.test.tsx (8.483 s)
+PASS tests/quality-gates.test.ts (5.951 s)
+PASS tests/asc-ustawienia.test.ts (5.862 s)
+PASS tests/check-i18n-gate.test.ts (6.129 s)
+PASS src/__tests__/zakwas-104-ekrany.test.tsx (5.896 s)
+PASS src/core/__tests__/domain-property-based.test.ts
+PASS src/__tests__/prosba-o-ocene-po-doktorze-n12.test.tsx (43.418 s)
+PASS src/__tests__/wypiek-po-wygasnieciu-125.test.tsx
+PASS src/__tests__/dziennik-bez-zgadywania-plan-017.test.tsx (5.361 s)
+PASS tests/br-bez-testu.test.ts
+PASS tests/wybory-domyslne-090.test.ts
+PASS src/__tests__/plan-zmiana-czasu-d13-nowy-jork.test.tsx
+PASS src/__tests__/gotowe-dwie-godziny-n1.test.tsx
+PASS src/lib/__tests__/prosba-o-ocene.test.ts
+PASS src/__tests__/harmonogram-screen.test.tsx
+PASS src/__tests__/start-przy-trwajacym-a1b.test.tsx
+PASS src/__tests__/reka-na-starcie-d6.test.tsx
+PASS src/__tests__/plan-zmiana-czasu-d13.test.tsx
+PASS src/__tests__/basic-pro-pafix.test.tsx
+(node:5672) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/quality-declarations.test.ts
+PASS tests/matrix-kolejnosc-plikow.test.ts
+PASS src/__tests__/miary-usa-ekrany-096.test.tsx
+PASS src/__tests__/stolnica-plan-steps.test.tsx
+PASS src/__tests__/import-zawsze-d039.test.tsx
+PASS src/__tests__/plan-za-pozno-107.test.tsx
+PASS tests/tresci-tlumaczen-135.test.ts
+PASS src/__tests__/dzis-d4b.test.tsx
+PASS src/__tests__/bramki-ekranow.test.tsx
+PASS tests/i18n-starter-safety-langs.test.tsx
+PASS src/__tests__/dzis-plany-d5.test.tsx
+PASS src/__tests__/harmonogram-plany-d5.test.tsx
+PASS src/__tests__/harmonogram-rytm-d7.test.tsx
+PASS src/__tests__/zakwas-screen.test.tsx
+PASS src/__tests__/import-z-pliku-113.test.tsx
+PASS src/__tests__/harmonogram-piekarnik-d6.test.tsx
+PASS src/__tests__/calculator-screen.test.tsx
+PASS src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx
+PASS src/__tests__/basic-pro-pa.test.tsx
+PASS tests/emoji-teksty-techniczne.test.ts
+PASS src/__tests__/uprzedzenie-proby-ekran-126.test.tsx
+PASS tests/check-data-tests.test.ts
+PASS src/lib/__tests__/plural-intl.test.ts
+PASS src/__tests__/garnek-kciuk-fazy-w002.test.tsx
+PASS src/__tests__/plan-wersja-drozdzowa-p9b.test.tsx
+PASS src/__tests__/import-bez-uprawnienia.test.tsx
+PASS src/__tests__/kalendarz-telefonu-d8.test.tsx
+PASS src/__tests__/receptury-uklad-106.test.tsx
+PASS src/__tests__/plan-prowadzenie-karty-p4.test.tsx
+PASS src/__tests__/stolnica-screen.test.tsx
+PASS src/__tests__/dzis-kalendarz-d7.test.tsx
+PASS src/__tests__/czapka-ekranow-p7.test.tsx
+PASS src/components/receptury/__tests__/DoMiski-suma-040.test.tsx
+PASS src/__tests__/plan-z-lodowki-104.test.tsx
+PASS src/__tests__/piecz-ponownie-recp003-146.test.tsx
+PASS src/__tests__/gratulacje-zakwasu-pb.test.tsx
+PASS src/__tests__/pro-po-arkuszu-w005.test.tsx
+PASS src/__tests__/finish-bake-doctor-suggestion.test.tsx
+PASS tests/matrix-invariants.test.ts
+PASS src/__tests__/piecz-ponownie-id-d3a.test.tsx
+PASS tests/duzy-tekst-kroj.test.ts
+PASS src/__tests__/start-co-dzis.test.tsx
+PASS src/__tests__/ekran-pro-pb.test.tsx
+PASS src/__tests__/plan-spirala-058.test.tsx
+PASS src/__tests__/receptura-maszyna-p9b2.test.tsx
+PASS src/__tests__/stolnica-dwa-wypieki-d3a.test.tsx
+PASS src/__tests__/przypomnienia-karmienia-179.test.tsx
+PASS tests/matrix-a11y.test.tsx
+PASS src/__tests__/dane-pokazowe-003.sqlite.test.tsx
+PASS src/__tests__/zakwas-staly-dzien-d7.test.tsx
+PASS src/__tests__/prowadzenie-teksty-114.test.tsx
+PASS src/__tests__/receptura-akcje-057.test.tsx
+PASS src/__tests__/temperatura-kuchni-plan-d4.test.tsx
+PASS src/__tests__/dostep-po-powrocie-144.test.tsx
+PASS src/__tests__/plan-uklad-128.test.tsx
+PASS src/__tests__/pas-zakladek-d10.test.tsx
+PASS src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx
+PASS src/data/__tests__/resync-w-trakcie-startu-022.sqlite.test.ts
+PASS src/__tests__/kopia-planu-zyto-197.test.tsx
+PASS src/lib/__tests__/plan-bez-nocy.test.ts
+PASS src/__tests__/maszyna-p9b2f.test.tsx
+PASS src/__tests__/bake-journal-no-guess.test.tsx
+PASS src/__tests__/zapis-sesji-wypieku-120.sqlite.test.tsx
+PASS src/__tests__/prosba-o-ocene-ekran.test.tsx
+PASS src/__tests__/harmonogram-dzien-intl-f5.test.tsx
+PASS src/__tests__/temperatura-wody-kalk004-146.test.tsx
+PASS src/__tests__/stolnica-dwie-instancje-d3a.test.tsx
+PASS src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx
+PASS src/components/__tests__/licencje-ekran-z081.test.tsx
+PASS src/__tests__/ratunek-limit-141.test.ts
+PASS src/__tests__/calculator-thermal-warning.test.tsx
+PASS src/__tests__/zyto-bez-lodowki-d7.test.tsx
+PASS src/__tests__/jeden-ekran-zakupu.test.tsx
+PASS src/__tests__/notifications-pending.test.tsx
+PASS src/__tests__/dwie-stolnice-p1.sqlite.test.tsx
+PASS src/__tests__/receptury-karty-p3.test.tsx
+PASS src/__tests__/usun-dwie-receptury-n1.sqlite.test.tsx
+PASS src/data/__tests__/wypieki-per-id-d3a.sqlite.test.ts
+PASS src/__tests__/arkusz-dnia-otworz-n3.test.tsx
+PASS tests/public-repo.test.ts
+PASS src/__tests__/blokada-czytelna-108.test.tsx
+PASS src/components/__tests__/settings-modal.test.tsx
+PASS src/__tests__/stolnica-restart.test.tsx
+PASS src/data/__tests__/migracja-d1-1014.sqlite.test.ts
+PASS src/ui/__tests__/kroj-tytulow-jezyki-171.test.ts
+PASS src/__tests__/pro-wznowienie-w2.test.tsx
+PASS src/__tests__/plan-bez-zakwasu-d3.test.tsx
+PASS src/__tests__/zapis-drozdzy-d2.sqlite.test.tsx
+PASS src/__tests__/zakwas-feeding-ratio.test.tsx
+PASS src/__tests__/zakwasy-karty-p2.test.tsx
+PASS tests/i18n-en-main-flow.test.tsx
+PASS tests/gitattributes.test.ts
+PASS tests/wstawki-wzorzec-112.test.ts
+PASS src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx
+PASS src/__tests__/doktor-screen.test.tsx
+PASS src/__tests__/start-aplikacji-p11.test.tsx
+PASS src/__tests__/skok-przywroc-006.test.tsx
+PASS tests/wstawki-angielskie-112.test.ts
+PASS src/__tests__/receptura-wersja-drozdzowa-p9b.test.tsx
+PASS src/__tests__/druk-menu.test.tsx
+PASS tests/teksty-glos-116.test.ts
+PASS src/__tests__/zakwas-narzedzia-basic-pb2.test.tsx
+PASS src/__tests__/wejscia-pozniej.test.tsx
+PASS src/components/__tests__/zrodla-wiedzy-t2.test.tsx
+PASS src/__tests__/finish-bake-atomic.test.tsx
+PASS src/__tests__/usun-recepture-cofnij-161.test.tsx
+PASS src/__tests__/prowadzenie-056.test.tsx
+PASS src/__tests__/delete-after-trial.test.tsx
+PASS src/data/__tests__/starter-feeding-ratio.sqlite.test.ts
+PASS src/__tests__/start-wypieku-teraz-d5.test.tsx
+PASS src/__tests__/ratunek-prowadzenie-d3a.test.tsx
+PASS tests/ikona-ekran-startowy.test.ts
+PASS src/__tests__/ratunek-odczytu-187.sqlite.test.tsx
+PASS src/__tests__/prowadzenie-102.test.tsx
+PASS src/__tests__/puste-pole-masy-d1.test.tsx
+PASS src/__tests__/dzis-zrobione-d4b.test.tsx
+PASS tests/stolnica-jedna-instancja-p1.test.tsx
+PASS src/__tests__/godziny-snu-130.test.tsx
+PASS src/__tests__/teksty-116.test.tsx
+PASS src/data/__tests__/starter-entries-v5-migration.sqlite.test.ts
+PASS src/__tests__/plan-uklad-128b.test.tsx
+PASS src/__tests__/skaner-qr-brak-modulu.test.tsx
+PASS src/__tests__/pro-po-arkuszu-n2.test.tsx
+PASS src/__tests__/dane-przykladowe-087.test.tsx
+PASS src/__tests__/br-scenariusze-193-start-zakwas.test.tsx
+PASS tests/zrodla-poza-ekranem-t2.test.ts
+PASS src/__tests__/do-miski-receptura.test.tsx
+PASS src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts
+PASS src/__tests__/pas-plan-prowadzenie-p4b.test.tsx
+PASS src/__tests__/dzis-powiadomienia-wylaczone-w2.test.tsx
+PASS tests/sieroty-slownikow-p13a.test.ts
+PASS tests/metadane-sklepu.test.ts
+PASS src/__tests__/doktor-objawy-p5b.test.tsx
+PASS src/data/__tests__/d1b-przeglad-danych.sqlite.test.ts
+PASS src/__tests__/przeplywy-117.test.tsx
+PASS tests/voiceover-role-etykiety.test.ts
+PASS src/__tests__/zyto-rozrost-zrodlo-d7.test.tsx
+PASS src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts
+PASS src/__tests__/piecz-ponownie-wersja-p9b.test.tsx
+PASS tests/slownik-akcji.test.ts
+PASS src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx
+PASS src/__tests__/karta-szczytu-bez-okna-004.test.tsx
+PASS src/lib/__tests__/zakwas-dni-liczba-mnoga-071.test.ts
+PASS tests/stolnica-naglowek-prz07.test.tsx
+PASS src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx
+PASS tests/jednostki-w-tekscie-013.test.ts
+PASS src/__tests__/stolnica-zgoda-130.test.tsx
+PASS src/__tests__/gotowe-wszedzie-n4.test.tsx
+PASS src/lib/__tests__/plany-akcje-d5.test.ts
+PASS src/lib/__tests__/sr-latinica-f11.test.ts
+PASS src/__tests__/ostrzezenia-krokow-103.test.tsx
+PASS src/__tests__/po-co-ten-krok-100.test.tsx
+PASS src/__tests__/stolnica-noc-130.test.tsx
+PASS src/__tests__/br-scenariusze-193-plan.test.tsx
+PASS src/__tests__/katalog-ekrany-p8.test.tsx
+PASS src/data/__tests__/p9a-migracja-v7-czerwone.sqlite.test.ts
+PASS src/__tests__/podwojne-stukniecie-028.test.tsx
+PASS src/components/__tests__/flour-blend-modal.test.tsx
+PASS src/data/__tests__/eksport-ustawien-139.sqlite.test.ts
+PASS src/__tests__/zakwasy-bez-statystyk-111.test.tsx
+PASS src/__tests__/ustawienia-karty-p5.test.tsx
+PASS src/__tests__/podwojny-zapis-oceny-d11.test.tsx
+PASS src/__tests__/receptura-podtytul-pasa-p6b.test.tsx
+PASS tests/jest-config.test.ts
+PASS src/__tests__/skok-kroku-d8.test.tsx
+PASS src/__tests__/stolnica-przelacznik-poza-przewijaniem-e2e90.test.tsx
+PASS src/data/__tests__/baza-nowsza.sqlite.test.ts
+PASS src/__tests__/przywracanie-zakupow.test.tsx
+PASS src/data/__tests__/sqlite-migration.test.ts
+PASS src/__tests__/stolnica-przeglad-d4b.test.tsx
+PASS src/__tests__/piecz-ponownie-d10.test.tsx
+PASS tests/czeka-na-przeklad-093.test.ts
+PASS src/lib/__tests__/miary-imperialne-35-096.test.ts
+PASS src/__tests__/odrzucic-zmiany-p7.test.tsx
+PASS src/__tests__/arkusze-w-kartach-007.test.tsx
+PASS tests/nawigacja-d051.test.tsx
+PASS src/__tests__/suma-mak-150.test.tsx
+PASS src/__tests__/stolnica-skladniki-130.test.tsx
+PASS src/__tests__/receptura-zyto-drozdze-pieczenie-d256.test.tsx
+PASS src/__tests__/kalendarz-polnoc-025.test.tsx
+PASS src/data/__tests__/row-validation.sqlite.test.tsx
+PASS tests/e2e-ios-workflow.test.ts
+PASS src/data/__tests__/kalendarz-d4a.sqlite.test.ts
+PASS src/components/__tests__/oferta-piekarz-pro-127.test.tsx
+PASS src/components/__tests__/flour-inventory-chip-452.test.tsx
+PASS src/data/__tests__/blad-odczytu-ustawien-b8.sqlite.test.ts
+PASS src/data/__tests__/plany-d5.sqlite.test.ts
+PASS src/lib/__tests__/miary-parametry-213.test.ts
+PASS src/data/__tests__/starter-entries-fk.sqlite.test.ts
+PASS src/__tests__/pogrubiony-tekst-158.test.tsx
+PASS src/lib/__tests__/format-intl.test.ts
+PASS tests/app-locales-permissions.test.ts
+PASS src/__tests__/stolnica-keep-awake.test.tsx
+PASS src/__tests__/storage-write-failure-screen.test.tsx
+PASS src/components/__tests__/bread-academy-modal.test.tsx
+PASS tests/osiagalnosc-149.test.ts
+PASS src/components/__tests__/share-recipe-qr-modal.test.tsx
+PASS src/__tests__/kopia-receptury-bez-straty-199.test.tsx
+PASS src/__tests__/arkusze-karty-p7.test.tsx
+PASS src/components/__tests__/flour-inventory-modal.test.tsx
+PASS src/components/__tests__/discard-recipes-modal.test.tsx
+PASS tests/instrukcja-ustawien.test.ts
+PASS src/lib/__tests__/i18n-35-jezykow.test.ts
+PASS src/__tests__/gotowe-dzien-151.test.tsx
+PASS src/__tests__/doktor-kolejnosc-p7.test.tsx
+PASS src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts
+PASS tests/liczby-w-tekstach-010.test.ts
+PASS src/__tests__/br-kalk-130-reszta.test.tsx
+PASS src/components/__tests__/import-recipe-modal.test.tsx
+PASS src/lib/__tests__/spirala-geometria.test.ts
+PASS src/lib/__tests__/i18n-kontekst.test.ts
+PASS tests/koniec-wypieku-e2e-016.test.ts
+PASS src/__tests__/dziennik-recp003-146.test.tsx
+PASS src/data/__tests__/starter-entry-edit.sqlite.test.ts
+PASS src/core/__tests__/preferments.test.ts
+PASS tests/przeklad-a5d.test.ts
+PASS tests/ekran-awaryjny-jezyk-012.test.tsx
+PASS src/data/__tests__/starter-entries-backup.sqlite.test.ts
+PASS src/lib/__tests__/bialko-procent-f8.test.ts
+PASS src/__tests__/doktor-pas-p5.test.tsx
+PASS src/__tests__/prowadzenie-numer-kroku-p6b.test.tsx
+PASS src/__tests__/dziennik-wpis-d7.test.tsx
+PASS src/__tests__/brak-to-brak-026.test.tsx
+PASS src/components/__tests__/ustawienia-bez-stylu.test.tsx
+PASS tests/licencje-dane.test.ts
+PASS src/__tests__/pro-pas-p5b.test.tsx
+PASS tests/tokeny-literaly-038.test.ts
+PASS tests/build-config.test.ts
+PASS src/__tests__/startup-rescue.test.tsx
+PASS tests/godzina-12h-047.test.ts
+PASS src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx
+PASS src/data/__tests__/kopia-przed-importem-dziennik.sqlite.test.tsx
+PASS src/core/__tests__/zaczyny-131.test.ts
+PASS src/data/__tests__/testflight-migration.sqlite.test.ts
+PASS src/__tests__/dziennik-karty-p5.test.tsx
+PASS src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx
+PASS src/data/__tests__/platnosci-pamiec.sqlite.test.ts
+PASS src/data/__tests__/p9a-baza-1021.sqlite.test.ts
+PASS src/__tests__/naczynie-bez-skutku-060.test.tsx
+PASS tests/pasek-zakladek-receptura-106.test.tsx
+PASS tests/etykiety-pol-g7.test.ts
+PASS src/__tests__/tytul-ostrzezenia-109.test.tsx
+PASS src/data/__tests__/auto-backup.sqlite.test.ts
+PASS src/__tests__/dziennik-data-ocena-p6b.test.tsx
+PASS src/__tests__/dziennik-usun-przywroc-w2.test.tsx
+PASS src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx
+PASS src/__tests__/jezyk-powiadomienia-n10.test.tsx
+PASS src/core/__tests__/starter-one-peak-model.test.ts
+PASS src/__tests__/ustawienia-jezyk-jednostki-p6b.test.tsx
+PASS tests/granice-modulow.test.ts
+PASS tests/close-button-guard.test.tsx
+PASS src/components/__tests__/import-ddt-051.test.tsx
+PASS src/components/receptury/__tests__/DoMiski.test.tsx
+PASS src/data/__tests__/baza-1014-fixture.sqlite.test.ts
+PASS src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts
+PASS src/lib/__tests__/recipe-sharing.test.ts
+PASS src/data/__tests__/flour-inventory-backup.sqlite.test.ts
+PASS src/components/__tests__/target-ready-dni-prz10.test.tsx
+PASS src/core/__tests__/flour-atlas-typy.test.ts
+PASS src/__tests__/eksport-csv-bom-152.test.tsx
+PASS src/lib/__tests__/prosba-o-ocene-odlozona.test.ts
+PASS src/components/__tests__/volume-converter-modal.test.tsx
+PASS tests/kontakt-przeklad-f1.test.ts
+PASS src/data/__tests__/runner-przebudowa-019.sqlite.test.ts
+PASS src/components/__tests__/paywall-modal.test.tsx
+PASS tests/interaction-guards.test.ts
+PASS src/__tests__/share-no-foreign-domain.test.tsx
+PASS src/components/__tests__/o-recepturze-minuty-f4.test.tsx
+PASS src/data/__tests__/p9b2f-ratunek-zapis.sqlite.test.ts
+PASS tests/protokoly-pozniej-032.test.tsx
+PASS src/__tests__/czas-ax5-201.test.tsx
+PASS src/data/__tests__/pre-migration-backup.sqlite.test.ts
+PASS src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx
+PASS src/data/__tests__/dokarmienie-jedna-droga-002.sqlite.test.ts
+PASS src/components/__tests__/starter-converter-modal.test.tsx
+PASS tests/przeklad-a5.test.ts
+PASS src/scheduler/__tests__/reverse-scheduler-dst-new-york.test.ts
+PASS src/components/calculator/__tests__/brak-lodu.test.tsx
+PASS src/components/receptury/__tests__/drozdze-procent-d14.test.tsx
+PASS tests/z3-teksty-jezyka-093.test.tsx
+PASS src/__tests__/karta-dokarmienia-160.test.tsx
+PASS src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+PASS src/components/__tests__/flour-inventory-chip-164.test.tsx
+PASS src/__tests__/zakwas-zostawiam-130.test.tsx
+PASS src/scheduler/__tests__/reverse-scheduler-dst.test.ts
+PASS src/core/__tests__/porada-zytnia-134.test.ts
+PASS src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts
+PASS tests/br-kryteria-067.test.tsx
+PASS src/__tests__/ogloszenie-kroku-g1.test.tsx
+PASS src/components/calculator/__tests__/TemperaturaWodySheet.test.tsx
+PASS src/components/__tests__/dziennik-metoda-p9b2f.test.tsx
+PASS src/data/__tests__/write-failure.sqlite.test.ts
+PASS src/components/__tests__/spirala.test.tsx
+PASS src/core/__tests__/baking-physics-corpus.test.ts
+PASS tests/audit-fixes.test.tsx
+PASS src/__tests__/gotowe-dwie-godziny-w2.test.tsx
+PASS src/__tests__/arkusz-oceny-przewijanie-w001.test.tsx
+PASS src/__tests__/przelacznik-systemowy-039.test.tsx
+PASS src/lib/__tests__/wartosci-domeny-093.test.ts
+PASS src/data/__tests__/p9b-wybory.sqlite.test.ts
+PASS src/lib/__tests__/notifications.test.tsx
+PASS src/components/__tests__/flour-equivalents-modal.test.tsx
+PASS src/__tests__/maki-opis-ogolny-094.test.tsx
+PASS tests/maki-nazwy-041.test.ts
+PASS tests/public-links.test.tsx
+PASS src/components/__tests__/okno-szczytu-intl-f2.test.tsx
+PASS src/lib/__tests__/i18n-persist-detect.test.ts
+PASS src/data/__tests__/sqlite-resilience-exhaustive.test.ts
+PASS src/__tests__/eksport-awaryjny-123.sqlite.test.tsx
+PASS src/components/receptury/__tests__/do-miski-podpis-p6b.test.tsx
+PASS src/core/__tests__/kalendarz-d4a.test.ts
+PASS tests/matrix-logic.test.ts
+PASS src/lib/__tests__/recipe-formatter-tekst-172.test.ts
+PASS src/data/__tests__/flour-store.sqlite.test.ts
+PASS src/components/__tests__/starter-hooch-advice.test.tsx
+PASS src/data/__tests__/restore.sqlite.test.ts
+PASS src/lib/__tests__/kopia-planu-p13a.test.ts
+PASS src/components/__tests__/bake-history-wykres-prz42.test.tsx
+PASS src/__tests__/voiceover-jezyk-170.test.tsx
+PASS src/lib/__tests__/backup.test.ts
+PASS src/lib/__tests__/wektory-dostepu-pa.test.ts
+PASS tests/martwe-klucze-oferty-203.test.ts
+PASS src/components/__tests__/oferta-ax5-200.test.tsx
+PASS src/core/__tests__/bakers-corpus.test.ts
+PASS tests/matrix-dimensions.test.tsx
+PASS src/components/__tests__/NumInput.test.tsx
+PASS src/doctor/__tests__/ddt-fahrenheit-208.test.ts
+PASS src/components/__tests__/okno-pelnoekranowe-obszar.test.tsx
+PASS src/lib/__tests__/unit-converter.test.ts
+PASS src/components/__tests__/piekarnik-d6.test.tsx
+PASS tests/plan-brioszki-m2-012.test.ts
+PASS src/data/__tests__/odczyt-z-polaczenia-003.sqlite.test.ts
+PASS src/data/__tests__/sprawdzenie-kopii-033.sqlite.test.ts
+PASS src/ui/__tests__/kontrast-motywu.test.ts
+PASS src/components/__tests__/czas-lodowki-f4.test.tsx
+PASS tests/repo-sekrety.test.ts
+PASS src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+PASS src/__tests__/kontakt-ukryty.test.tsx
+PASS tests/retired-safety-verdicts.test.ts
+PASS tests/kolory-poza-motywem.test.ts
+PASS tests/wzrost-hipotezy.test.ts
+PASS src/__tests__/import-jezyk-jednostki-502.test.ts
+PASS tests/matrix-ui-text.test.tsx
+PASS src/components/calculator/__tests__/bialko-ukryte-e7.test.tsx
+PASS src/lib/__tests__/sr-latinica-t-f11.test.ts
+PASS src/__tests__/kontakt-adres-wsparcia.test.tsx
+PASS src/__tests__/powiadomienia-dwa-wypieki-d2.test.ts
+PASS tests/kolejka-zapisow-tx.test.ts
+PASS src/lib/__tests__/recipe-formatter.test.ts
+PASS src/core/__tests__/fridge-wake-plan.test.ts
+PASS src/data/__tests__/bake-session-store.sqlite.test.ts
+PASS src/__tests__/stolnica-ostrzezenie-pokrywki.test.tsx
+PASS src/components/__tests__/zakupy-section-prz33.test.tsx
+PASS src/lib/__tests__/nazwy-pro-pb.test.ts
+PASS src/lib/__tests__/platnosci-hook.test.tsx
+PASS src/ui/__tests__/karty-p1.test.tsx
+PASS src/data/__tests__/spizarnia-dawna-nazwa-041.sqlite.test.ts
+PASS src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx
+PASS src/__tests__/pas-prowadzenia-005.test.tsx
+PASS tests/zaleznosci.test.ts
+PASS src/data/__tests__/jedno-zrodlo-schematu.test.ts
+PASS src/components/__tests__/sensory-radar-chart.test.tsx
+PASS src/core/__tests__/flour-atlas-ogolne.test.ts
+PASS src/components/__tests__/starter-safety-contrast.test.tsx
+PASS src/data/__tests__/p9b2-dane-maszyny.sqlite.test.ts
+PASS src/components/__tests__/o-recepturze-zyto-drozdze-d256.test.tsx
+PASS tests/store-metadata.test.ts
+PASS src/core/__tests__/flour-equivalents.test.ts
+PASS src/lib/__tests__/schedule-formatter.test.ts
+PASS src/lib/__tests__/miary-usa-096.test.ts
+PASS tests/makiety-nazwa-en-n15.test.ts
+PASS src/__tests__/dzis-karty-p7.test.tsx
+PASS src/data/__tests__/suma-mak-import-n8.sqlite.test.ts
+PASS src/__tests__/polityka-offline-ust003.test.tsx
+PASS src/lib/__tests__/recipe-formatter-en.test.ts
+PASS tests/crust-odmiana-f6.test.ts
+PASS src/__tests__/zakresy-receptury-027.test.ts
+PASS tests/pasek-zakladek.test.tsx
+PASS src/lib/__tests__/platnosci-stan.test.ts
+PASS src/lib/__tests__/feeding-formatter.test.ts
+PASS src/lib/__tests__/app-access.test.ts
+PASS src/__tests__/tresci-069.test.ts
+PASS src/lib/__tests__/zakwas-widok.test.tsx
+PASS tests/teksty-sklepu.test.ts
+PASS src/__tests__/ocen-w-app-store-link.test.tsx
+PASS src/lib/__tests__/nazwa-receptury.test.tsx
+PASS src/__tests__/baza-nowsza-ekran.test.tsx
+PASS src/__tests__/kontakt-z-adresem.test.tsx
+PASS tests/zrodla-katalogu-06z.test.ts
+PASS src/lib/__tests__/jezyki-rejestr.test.tsx
+PASS src/lib/__tests__/platnosci-start-c3-c6-c7.test.ts
+PASS src/lib/__tests__/kopia-dokarmienia-n5.test.ts
+PASS src/__tests__/kalendarz-wiersz-ax5-w004.test.tsx
+PASS src/ui/__tests__/naglowek-wariant-a1.test.tsx
+PASS src/data/__tests__/sqlite-store.test.ts
+PASS src/components/__tests__/qr-code-svg.test.tsx
+PASS src/lib/__tests__/plan-do-kopii-197.test.ts
+PASS src/__tests__/zakwas-karta-pusta-115.test.tsx
+PASS src/components/__tests__/karta-lodowki-503.test.tsx
+PASS src/recipes/__tests__/presets.test.ts
+PASS tests/kontrola-a-011.test.ts
+PASS tests/dokumenty-wydania-057.test.ts
+PASS src/data/__tests__/kroki-drozdzowe-sesji-p9b.test.ts
+PASS src/data/__tests__/staly-dzien-d7.sqlite.test.ts
+PASS src/__tests__/ratunek-plikow-bazy-122.sqlite.test.tsx
+PASS src/data/__tests__/sesje-do-pokazania-d3a.test.ts
+PASS src/doctor/__tests__/temperatura-zyta-e4.test.ts
+PASS src/components/__tests__/qr-scanner-modal.test.tsx
+PASS src/lib/__tests__/data-planu-intl-f3.test.ts
+PASS src/lib/__tests__/corrupt-state.test.ts
+PASS src/scheduler/__tests__/reverse-scheduler-exhaustive.test.ts
+PASS tests/oferta-dokumenty.test.ts
+PASS src/lib/__tests__/diagnosis-formatter.test.ts
+PASS src/recipes/__tests__/katalog-m3-p8.test.ts
+PASS src/components/__tests__/spirala-tory-d4b.test.tsx
+PASS tests/data-w-zdaniu-048.test.ts
+PASS src/core/__tests__/bake-statistics.test.ts
+PASS src/lib/__tests__/kalendarz-widok-d7.test.ts
+PASS src/lib/__tests__/kalendarz-akcje-d4b.test.ts
+PASS src/core/__tests__/volume-converter.test.ts
+PASS src/lib/__tests__/plan-maszyny-p9b2.test.ts
+PASS src/doctor/__tests__/doktor-tresci-133.test.ts
+PASS src/components/doktor/__tests__/objaw-gumowaty-148.test.ts
+PASS src/lib/__tests__/kalendarz-telefonu-d8.test.ts
+PASS src/core/__tests__/nazwy-mak-presets-451.test.ts
+PASS src/core/__tests__/starter-converter.test.ts
+PASS src/components/__tests__/pasek-cofnij-czytnik-b9.test.tsx
+PASS tests/i18n-en-ui-texts.test.ts
+PASS src/__tests__/plan-za-pozno-ios-g8.test.tsx
+PASS src/data/__tests__/row-parsers.test.ts
+PASS tests/nawigacja-jezyk-093.test.tsx
+PASS tests/ddt-woda-m2-013.test.ts
+PASS tests/plan-wydania.test.ts
+PASS src/__tests__/w-fix-p2-m3.test.tsx
+PASS src/core/__tests__/domain-error-branches.test.ts
+PASS tests/bledy-mt-f7.test.ts
+PASS tests/kontrakt-ranking-064.test.ts
+PASS tests/f71-br-diag.test.ts
+PASS src/core/__tests__/notification-plan.test.ts
+PASS src/core/__tests__/starter-peak-predictor.test.ts
+PASS src/lib/__tests__/csv-exporter.test.ts
+PASS src/lib/__tests__/godzina-przyimek.test.ts
+PASS tests/czasy-skroty-162.test.ts
+PASS src/core/__tests__/starter-metabolic-exhaustive.test.ts
+PASS src/core/__tests__/inventory.test.ts
+PASS src/__tests__/os-czasu-duzy-tekst-g5.test.tsx
+PASS src/core/__tests__/bread-school.test.ts
+PASS src/lib/__tests__/teksty-bez-klucza-147.test.ts
+PASS src/__tests__/zakwasy-lista-130.test.tsx
+PASS src/core/__tests__/baking-techniques.test.ts
+PASS src/__tests__/pas-duzy-tekst-w2.test.tsx
+PASS src/core/__tests__/powiadomienia-wypiekow-d2.test.ts
+PASS src/ui/__tests__/theme-contrast.test.ts
+PASS src/guards/__tests__/interaction-guards.test.ts
+PASS src/core/__tests__/domain-math-exhaustive.test.ts
+PASS src/data/__tests__/kolejka-zapisow.test.ts
+PASS tests/zrzuty-sklepu.test.ts
+PASS src/__tests__/pas-tytul-skala-w003.test.tsx
+PASS src/core/__tests__/sourdough-safety-vectors.test.ts
+PASS src/lib/__tests__/spirala-tory-d4b.test.ts
+PASS src/core/__tests__/nazwy-razowa-453.test.ts
+PASS src/lib/__tests__/kalendarz-pasek-d4b.test.ts
+PASS src/core/__tests__/zaczyn-w-formule-rd28-195.test.ts
+PASS tests/pieczenie-receptur-008.test.ts
+PASS src/core/__tests__/plany-d5.test.ts
+PASS src/__tests__/maszyna-teksty-p9b2.test.ts
+PASS tests/maestro-flows.test.tsx
+PASS src/core/__tests__/flour-atlas.test.ts
+PASS src/core/__tests__/step-confirm.test.ts
+PASS src/lib/__tests__/dzien-data-intl-f5.test.ts
+PASS tests/i18n-no-polish-in-en.test.tsx
+PASS src/core/__tests__/maszyna-rd37-39.test.ts
+PASS src/lib/__tests__/nazwa-maki-mieszanki.test.ts
+PASS src/lib/__tests__/corrupt-rescue.test.tsx
+PASS src/scheduler/__tests__/reverse-scheduler.test.ts
+PASS tests/obietnice-pro-015.test.ts
+PASS src/core/__tests__/domain-rules.test.ts
+PASS src/lib/__tests__/en-kontrola-074.test.ts
+PASS src/components/__tests__/licencje-blad-z081.test.tsx
+PASS tests/design-spec-pasek-cofnij-n18.test.ts
+PASS src/lib/__tests__/plan-dzien-zalozony-tz.test.ts
+PASS src/lib/__tests__/timer-audio.test.ts
+PASS tests/design-spec-teksty-en-642.test.ts
+PASS src/core/__tests__/rytm-staly-dzien-d7.test.ts
+PASS src/core/__tests__/brd-test-vectors.test.ts
+PASS src/core/__tests__/bake-loss.test.ts
+PASS src/lib/__tests__/przypomnienia-po-imporcie-b6.test.ts
+PASS src/lib/__tests__/i18n-locales.test.ts
+PASS src/__tests__/podpisy-zakladek-g9.test.tsx
+PASS src/recipes/__tests__/dodatki-maszyny-06m.test.ts
+PASS src/core/__tests__/piekarnik-d6.test.ts
+PASS src/core/__tests__/bake-steps.test.ts
+PASS src/lib/__tests__/plan-drozdzowy-p9b.test.ts
+PASS src/lib/__tests__/menu-receptury.test.ts
+PASS tests/fontsize-tokeny-159.test.ts
+PASS src/core/__tests__/plan-ics-d8.test.ts
+PASS src/core/__tests__/priorytet-powiadomien-030.test.ts
+PASS src/core/__tests__/step-warnings.test.ts
+PASS src/lib/__tests__/confirm-piekarnik-d6.test.ts
+PASS src/lib/__tests__/uprzedzenie-proby-126.test.ts
+PASS tests/brd-katalog-037.test.ts
+PASS tests/teksty-glownego-przeplywu-010.test.ts
+PASS src/core/__tests__/dzien-lokalny.test.ts
+PASS src/core/__tests__/starter-setup.test.ts
+PASS src/lib/__tests__/spirala-etykieta.test.ts
+PASS tests/dokumenty-bez-team-id.test.ts
+PASS tests/asc-zgloszenie-workflow.test.ts
+PASS src/core/__tests__/manitoba-bez-w-209.test.ts
+PASS src/lib/__tests__/rodzaj-drozdzy-wyscig-p6b.test.tsx
+PASS src/lib/__tests__/basic-tylko-rosnie-pa.test.ts
+PASS src/ui/__tests__/motyw.test.tsx
+PASS src/core/__tests__/rada-hydratacji-210.test.ts
+PASS src/ui/__tests__/kroj-tytulow-cyrylica-137.test.ts
+PASS src/core/__tests__/lesson-no-health-claims.test.ts
+PASS tests/kontrakt-zm.test.ts
+PASS src/lib/__tests__/i18n.test.ts
+PASS src/core/__tests__/karmienie-zakladania-d4b.test.ts
+PASS src/core/__tests__/nazwy-atlasu-091.test.ts
+PASS src/core/__tests__/karmienie-lodowka-dst.test.ts
+PASS src/lib/__tests__/confirm.test.ts
+PASS src/recipes/__tests__/discard-recipes.test.ts
+PASS src/core/__tests__/numer-dnia-zakladania.test.ts
+PASS tests/presety-drozdze-217.test.ts
+PASS src/doctor/__tests__/diagnostics-exhaustive.test.ts
+PASS tests/tresci-f71.test.ts
+PASS tests/brd-aktualnosc.test.ts
+PASS tests/kontrakt-lista-odciec.test.ts
+PASS src/core/__tests__/pate-fermentee-zakres-206.test.ts
+PASS src/core/__tests__/etap-zakladania.test.ts
+PASS src/core/__tests__/feeding-ratio.test.ts
+PASS tests/kontrakt-wyjatki-h-062.test.ts
+PASS src/lib/__tests__/kalendarz-teksty-d4a.test.ts
+PASS src/lib/__tests__/zgloszenie.test.ts
+PASS src/recipes/__tests__/wersje-drozdzowe-p9b.test.ts
+PASS src/lib/__tests__/csv-nazwy-f9.test.ts
+PASS tests/kontrakt-zm28-058.test.ts
+PASS src/core/__tests__/rye-rest-one-value.test.ts
+PASS tests/brioszka-tylko-brioszka-m2-012.test.ts
+PASS src/core/__tests__/zyto-drozdze-d256-p9b.test.ts
+PASS src/core/__tests__/zakwas-lodowka-132.test.ts
+PASS src/lib/__tests__/zalegly-otworz-w2.test.ts
+PASS src/lib/__tests__/pdf-sheet-generator.test.ts
+PASS tests/kontrakt-receptury-plan-061.test.ts
+PASS tests/wzrost-dokument.test.ts
+PASS tests/katalog-wektor-sol-06z.test.ts
+PASS tests/testflight-workflow.test.ts
+PASS src/lib/__tests__/czas-trwania.test.ts
+PASS src/__tests__/numer-buildu-031.test.tsx
+PASS src/recipes/__tests__/presets-bez-twierdzen-zdrowotnych-e8.test.ts
+PASS src/lib/__tests__/haptics.test.ts
+PASS src/doctor/__tests__/dough-recovery.test.ts
+PASS src/recipes/__tests__/presets-zachowanie-p8.test.ts
+PASS tests/br-dane-005-csv.test.ts
+PASS tests/nazwa-d053.test.ts
+PASS tests/wiek-i-szyfrowanie-177.test.ts
+PASS src/lib/__tests__/format-strefa-d2.test.ts
+PASS src/lib/__tests__/platnosci-dostep.test.ts
+PASS src/data/__tests__/starter-entry-row.test.ts
+PASS tests/makiety-204.test.ts
+PASS tests/instrukcja-przycisk-proby-214.test.ts
+PASS tests/brands.contract.test.ts
+PASS src/core/__tests__/bake-session.test.ts
+PASS src/core/__tests__/fermentation-q10-source.test.ts
+PASS src/core/__tests__/pominiecia-d4a.test.ts
+PASS src/core/__tests__/ostrzezenia-bezpieczenstwa.test.ts
+PASS src/core/__tests__/baking-phases.test.ts
+PASS tests/pizza-pieczenie-009.test.ts
+PASS tests/monetyzacja-platforma-054.test.ts
+PASS src/__tests__/nauka-bez-zrodla-146.test.ts
+PASS src/core/__tests__/yeast-stages-p9b.test.ts
+PASS tests/testflight-strefy-workflow.test.ts
+PASS src/recipes/__tests__/maszyna-receptur-p9b2.test.ts
+PASS tests/tresci-produkt-044.test.ts
+PASS src/doctor/__tests__/sour-temperature-one-rule.test.ts
+PASS src/ui/__tests__/tokeny-karty-p1.test.ts
+PASS tests/brd-bez-proby-034.test.ts
+PASS tests/ci-galezie-napraw.test.ts
+PASS tests/rejestr-decyzji-196.test.ts
+PASS tests/opis-sklepu-631.test.ts
+PASS tests/brd-opin-001-d067.test.ts
+PASS src/core/__tests__/starter-doctor.test.ts
+PASS src/scheduler/__tests__/studzenie-kro-poc-015-e3.test.ts
+PASS src/lib/__tests__/hydratacja-zakwasu-641.test.ts
+PASS src/lib/__tests__/pierwszy-dzien-tygodnia.test.ts
+PASS src/doctor/__tests__/diagnostics.test.ts
+PASS src/data/__tests__/migracja-v6-parser.test.ts
+PASS tests/architektura-dokumenty-024.test.ts
+PASS tests/strona-bez-protokolow-198.test.ts
+PASS src/core/__tests__/sol-br-kalk-011.test.ts
+PASS src/core/__tests__/bake-steps-zyto-plan.test.ts
+PASS src/lib/__tests__/licencje.test.ts
+PASS tests/kontrakt-f14-194.test.ts
+PASS tests/asc-ustawienia-workflow.test.ts
+PASS src/core/__tests__/gotowy-bez-plam-e5.test.ts
+PASS src/core/__tests__/cel-powiadomienia-d3a.test.ts
+PASS src/lib/__tests__/start-stan.test.ts
+PASS src/lib/__tests__/godzina-gotowe-n1.test.ts
+PASS tests/strona-jedno-zrodlo-174.test.ts
+PASS src/lib/__tests__/recipe-navigation.test.ts
+PASS src/doctor/__tests__/kwasny-bez-acetobacter-163.test.ts
+PASS tests/brd-zakw-004-d068.test.ts
+PASS src/lib/__tests__/db-path.test.ts
+PASS src/lib/__tests__/piecz-ponownie-katalog-p9b.test.ts
+PASS tests/wzorce-oferty-202.test.ts
+PASS src/lib/__tests__/wstrzymana-akcja-w2.test.ts
+PASS src/lib/__tests__/plakietka-dnia.test.ts
+PASS tests/kontrakt-odlozone-065.test.ts
+PASS tests/f48-powrot-184.test.ts
+PASS src/data/__tests__/row-parsers-rows.test.ts
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+
+Test Suites: 632 passed, 632 total
+Tests:       6530 passed, 6530 total
+Snapshots:   0 total
+Time:        150.367 s
+Ran all test suites.
+kod=0

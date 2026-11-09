@@ -1,0 +1,10 @@
+PASS tests/koniec-wypieku-e2e-016.test.ts
+(node:5425) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx
+
+Test Suites: 2 passed, 2 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        1.356 s, estimated 2 s
+Ran all test suites matching /tests\/koniec-wypieku-e2e-016.test.ts|src\/data\/__tests__\/kopia-auto-blad-016.sqlite.test.tsx/i.
