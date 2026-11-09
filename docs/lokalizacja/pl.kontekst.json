@@ -1985,9 +1985,7 @@
     ]
   },
   "Foremka z pokrywą": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Forma": {
     "gdzie": []
@@ -2083,9 +2081,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Garnek żeliwny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Garowanie chłodnicze": {
     "gdzie": [
@@ -2826,9 +2822,7 @@
     "gdzie": []
   },
   "Klosz ceramiczny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Kluczem jest pewność i prędkość — gluten buduje się dzięki energii kinetycznej uderzenia o blat.": {
     "gdzie": [
@@ -7005,9 +6999,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Sprzęt i naczynie do wypieku": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tytul)"
-    ]
+    "gdzie": []
   },
   "Spróbuj ponownie": {
     "gdzie": [
@@ -7025,9 +7017,7 @@
     "gdzie": []
   },
   "Stal / Kamień szamotowy": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Standard": {
     "gdzie": [
@@ -8708,9 +8698,7 @@
     "gdzie": []
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wybierz objawy bochenka": {
     "gdzie": [
