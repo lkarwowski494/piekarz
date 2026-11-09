@@ -9,6 +9,7 @@ import { t } from './i18n';
 import { przesuniecieDnia } from '../core/plany-wypiekow';
 import { maPlanDrozdzowy } from '../recipes/yeast-stages';
 import { wersjaDrozdzowa } from '../recipes/wersje-drozdzowe';
+import { BRIOCHE_RECIPE_IDS } from '../core/brioche-stages';
 import type { WersjaWypieku } from '../data/wybory-parsery';
 
 export interface RecepturaPlanu {
@@ -70,7 +71,8 @@ export const TEMPERATURA_MODELU_PLANU_C = 23.0;
 
 /**
  * Powód braku planu dla receptury i wersji (D-155): wersja drożdżowa z czasami etapów ma plan; orkisz na drożdżach
- * (źródło bez podziału 3 h na etapy, DRO-WER-SP-001) ma własny powód; reszta jak powodBezZakwasu (D-3) [M3 p9b].
+ * (źródło bez podziału 3 h na etapy, DRO-WER-SP-001) ma własny powód; brioszka na zakwasie też (PIE-BRI-900, 089);
+ * reszta jak powodBezZakwasu (D-3) [M3 p9b].
  */
 export function powodBezPlanu(
   formula: Pick<DoughRecipeInput, 'starterPercentage'>,
@@ -78,6 +80,11 @@ export function powodBezPlanu(
 ): string | null {
   if (r.wersja === 'drozdze' && wersjaDrozdzowa(r.recipeId)) {
     return maPlanDrozdzowy(r.recipeId) ? null : t('Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.');
+  }
+  // Brioszka na Lievito Madre: czasy rośnięcia bez źródła (PIE-BRI-900), plan do czasu źródła zablokowany
+  // (D-309 → opcja d, DEC-21 a, do weta D-289) [M1-audytor-generalny-089; 06-tresci-602]
+  if (r.recipeId && BRIOCHE_RECIPE_IDS.includes(r.recipeId) && formula.starterPercentage > 0) {
+    return t('Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.');
   }
   return powodBezZakwasu(formula);
 }

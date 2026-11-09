@@ -30,4 +30,8 @@ export const EN_31: Record<string, string> = {
   // Ekran Pro bez obietnicy porównania wypieków (F-63 PÓŹNIEJ, DEC-04 a) [M1-audytor-generalny-015];
   // 33 języki: docs/lokalizacja/przeklad-m2-015-2026-11-09.json
   'Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.': 'Recipes and Journal: more of your own recipes, plus baking statistics.',
+  // Brioszka na Lievito Madre bez planu do czasu źródła czasów rośnięcia (PIE-BRI-900, D-309 → d) [M1-audytor-generalny-089];
+  // 33 języki: docs/lokalizacja/przeklad-m2-089-2026-11-09.json
+  'Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.':
+    'The plan for this sourdough recipe is waiting for dough rising times. Amounts and tips are above.',
 };

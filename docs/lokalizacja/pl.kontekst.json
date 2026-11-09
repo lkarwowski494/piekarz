@@ -5305,6 +5305,11 @@
       "src/lib/plan-receptury.ts (kod)"
     ]
   },
+  "Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
+    ]
+  },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)"

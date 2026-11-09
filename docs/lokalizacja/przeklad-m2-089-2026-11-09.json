@@ -1,0 +1,107 @@
+{
+ "_opis": "Przekład 1 klucza M1-audytor-generalny-089 (06-tresci-602; brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900, D-309 → opcja d): MT claude-opus-5-5 (rola 06, M2 p4, 2026-11-09) wzorowany w każdym języku na przetłumaczonych kluczach „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.” (drugie zdanie) i „Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.” (termin zakwasu); drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06). Tekst PL do akceptacji roli 04.",
+ "pl": [
+  "Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej."
+ ],
+ "jezyki": {
+  "cs": [
+   "Plán pro tento recept na kvásku čeká na doby kynutí těsta. Množství a tipy jsou výše."
+  ],
+  "sk": [
+   "Plán pre túto receptúru na kvásku čaká na časy kysnutia cesta. Množstvá a tipy sú vyššie."
+  ],
+  "hu": [
+   "Ennek a kovászos receptnek a terve a tészta kelesztési idejére vár. A mennyiségek és a tippek feljebb találhatók."
+  ],
+  "ro": [
+   "Planul pentru această rețetă cu maia așteaptă timpii de dospire a aluatului. Cantitățile și sfaturile sunt mai sus."
+  ],
+  "bg": [
+   "Планът за тази рецепта с квас чака времената за втасване на тестото. Количествата и съветите са по-горе."
+  ],
+  "hr": [
+   "Plan za ovu recepturu na kvasu čeka vremena dizanja tijesta. Količine i savjeti su iznad."
+  ],
+  "sl": [
+   "Načrt za ta recept s kislim testom čaka na čase vzhajanja testa. Količine in nasveti so zgoraj."
+  ],
+  "sr": [
+   "План за ову рецептуру на киселом квасцу чека на времена дизања теста. Количине и савети су изнад."
+  ],
+  "lt": [
+   "Šios natūralaus raugo receptūros planui dar trūksta tešlos kilimo laikų. Kiekiai ir patarimai pateikti aukščiau."
+  ],
+  "lv": [
+   "Šīs receptūras ar dabīgo ieraugu plānam vēl trūkst mīklas rūgšanas laiku. Daudzumi un padomi ir augstāk."
+  ],
+  "et": [
+   "Selle juuretisega retsepti plaan ootab taigna kerkimise aegu. Kogused ja nõuanded on ülalpool."
+  ],
+  "uk": [
+   "План для цієї рецептури на заквасці чекає на час підйому тіста. Кількості й підказки — вище."
+  ],
+  "es": [
+   "El plan de esta receta con masa madre está esperando los tiempos de levado de la masa. Las cantidades y los consejos están más arriba."
+  ],
+  "es-419": [
+   "El plan de esta fórmula con masa madre está esperando los tiempos de levado de la masa. Las cantidades y los consejos están más arriba."
+  ],
+  "pt": [
+   "O plano desta receita com massa-mãe aguarda os tempos de levedação da massa. As quantidades e as dicas estão acima."
+  ],
+  "pt-BR": [
+   "O plano desta receita com fermento natural está esperando os tempos de crescimento da massa. As quantidades e as dicas estão acima."
+  ],
+  "de": [
+   "Der Plan für dieses Sauerteigrezept wartet auf die Gehzeiten des Teigs. Mengen und Tipps stehen oben."
+  ],
+  "fr": [
+   "Le plan de cette recette au levain attend les temps de pousse de la pâte. Les quantités et les conseils sont plus haut."
+  ],
+  "it": [
+   "Il piano per questa ricetta con lievito madre attende i tempi di lievitazione dell'impasto. Quantità e consigli sono sopra."
+  ],
+  "nl": [
+   "Het plan voor dit zuurdesemrecept wacht op de rijstijden van het deeg. De hoeveelheden en tips staan hierboven."
+  ],
+  "sv": [
+   "Planen för det här surdegsreceptet väntar på jästider för degen. Mängder och tips finns ovan."
+  ],
+  "da": [
+   "Planen for denne surdejsopskrift venter på hævetider for dejen. Mængder og tips står ovenfor."
+  ],
+  "nb": [
+   "Planen for denne surdeigsoppskriften venter på hevetider for deigen. Mengder og tips står ovenfor."
+  ],
+  "fi": [
+   "Tämän hapanjuurireseptin suunnitelma odottaa taikinan kohoamisaikoja. Määrät ja vinkit ovat ylempänä."
+  ],
+  "tr": [
+   "Bu ekşi mayalı tarifin planı hamurun mayalanma sürelerini bekliyor. Miktarlar ve ipuçları yukarıda."
+  ],
+  "el": [
+   "Το πλάνο για αυτή τη συνταγή με προζύμι περιμένει τους χρόνους φουσκώματος της ζύμης. Οι ποσότητες και οι συμβουλές είναι παραπάνω."
+  ],
+  "id": [
+   "Rencana untuk resep sourdough ini menunggu waktu pengembangan adonan. Takaran dan saran ada di atas."
+  ],
+  "ms": [
+   "Pelan untuk resipi sourdough ini menunggu masa naik doh. Sukatan dan petua ada di atas."
+  ],
+  "vi": [
+   "Kế hoạch cho công thức men tự nhiên này đang chờ thời gian ủ nở của bột. Lượng nguyên liệu và gợi ý ở phía trên."
+  ],
+  "ru": [
+   "План для этой рецептуры на закваске ждёт времени подъёма теста. Количества и советы выше."
+  ],
+  "ja": [
+   "このサワードウレシピのプランは、生地の発酵時間が入るのを待っています。分量とヒントは上にあります。"
+  ],
+  "ko": [
+   "이 사워도우 레시피의 계획에는 아직 반죽 발효 시간이 없어요. 재료 양과 팁은 위에 있어요."
+  ],
+  "zh-Hant": [
+   "這份天然酵母配方的計畫正在等待麵團的發酵時間。用量與提示請見上方。"
+  ]
+ }
+}

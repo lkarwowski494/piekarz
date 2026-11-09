@@ -17,6 +17,9 @@ const wiersz = (f: string) => kontrakt.split('\n').find((l) => l.startsWith(`| $
 
 const wszystkie = CATALOG_RECIPES.length;
 const zPlanem = CATALOG_RECIPES.filter((r) => powodBezPlanu(r.formula, { recipeId: r.id }) === null).length;
+const bezZakwasu = CATALOG_RECIPES.filter((r) => r.formula.starterPercentage <= 0).length;
+// Receptury z zakwasem bez planu (brioszka na Lievito Madre do czasu źródła czasów rośnięcia, PIE-BRI-900) [M1-audytor-generalny-089]
+const zZakwasemBezPlanu = wszystkie - zPlanem - bezZakwasu;
 const zWersja = CATALOG_RECIPES.filter((r) => wersjaDrozdzowa(r.id) !== null);
 const wersjeZPlanem = zWersja.filter((r) => powodBezPlanu(r.formula, { recipeId: r.id, wersja: 'drozdze' }) === null).length;
 
@@ -24,7 +27,8 @@ describe('kontrakt: receptury bazowe z planem i bez planu w 1.0 (061)', () => {
   it('F-26 podaje liczbę receptur bazowych i ile z nich ma plan i prowadzenie (liczone z katalogu)', () => {
     expect(wszystkie).toBeGreaterThan(0);
     expect(wiersz('F-26')).toContain(`${wszystkie} receptur bazowych, z czego ${zPlanem} z planem i prowadzeniem krok po kroku`);
-    expect(wiersz('F-26')).toContain(`${wszystkie - zPlanem} bez zakwasu`);
+    expect(wiersz('F-26')).toContain(`${bezZakwasu} bez zakwasu`);
+    expect(wiersz('F-26')).toContain(`${zZakwasemBezPlanu} z zakwasem bez planu: brioszka na Lievito Madre`);
   });
 
   it('F-26 podaje wersje drożdżowe z przełącznikiem i ile z nich ma plan', () => {
