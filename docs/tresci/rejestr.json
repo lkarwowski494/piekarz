@@ -10536,14 +10536,48 @@
     "uwagi": "M1-audytor-generalny-008 (06-tresci-001). Ta sama strona: „Remove from the pan immediately and transfer to a wire rack to cool.” Czas nagrzewania piekarnika: źródło go nie podaje (PIE-BRI-900)."
   },
   {
-    "id": "PIE-BRI-900",
-    "twierdzenie": "[DO USTALENIA] Czas nagrzewania piekarnika przed pieczeniem brioszki w keksówce (krok planu „preheat_oven”, dziś 45 min) oraz kroki planu brioszki na Lievito Madre od zarobienia do formy (plan dziś bierze szablon bochenka w koszyku: składania, koszyk, garowanie w lodówce).",
-    "zrodla": [],
-    "status": "otwarte",
-    "uproszczenie": "Do czasu źródła czas nagrzewania zostaje jako nazwane uproszczenie planu (rezerwa w harmonogramie, nie zalecenie; tekst kroku nie podaje liczby), jak DRO-PLN-900.",
+    "id": "PIE-BRI-002",
+    "twierdzenie": "Według The Culinary Institute of America ciasto brioszki wyrabia się mikserem: mąkę z drożdżami, częścią masła, jajkami, mlekiem, cukrem i solą miesza się 4 minuty na niskich obrotach, resztę masła dodaje się stopniowo na średnich obrotach, a gdy masło całkiem połączy się z ciastem, miesza się jeszcze 15 minut albo do chwili, gdy ciasto odchodzi od misy; ciasto kładzie się na blasze wyłożonej papierem posmarowanym masłem, szczelnie przykrywa folią i trzyma przez noc w lodówce; do keksówki ciasto rozwałkowuje się dłońmi na długość formy, wkłada do formy lekko posmarowanej masłem, przykrywa folią i zostawia do wyrośnięcia w ciepłym miejscu na 20 minut; potem smaruje się je jajkiem i piecze (PIE-BRI-001).",
+    "zrodla": [
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "The Culinary Institute of America (CIA Foodies), „Brioche”, Directions (wyrabianie); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 63c931215de8",
+        "cytat": "Increase the speed to medium and, with the mixer running, gradually add a scant 1 1/4 cups of the butter, scraping down the sides of the bowl as necessary. After the butter is fully incorporated, mix on medium speed for 15 minutes, or until the dough pulls away from the bowl.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (ciasto na noc w lodówce)",
+        "cytat": "Line a sheet pan with parchment paper, grease it with butter, and place the dough on top. Cover the dough tightly with plastic wrap and refrigerate overnight.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (keksówka: formowanie i rośnięcie)",
+        "cytat": "For the loaf pan, hand roll the dough out to the length of your pan. Grease the pan lightly with butter and place the dough in the pan. Cover with plastic wrap and let proof in a warm place for 20 minutes.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Do planu brioszki Piekarza (Lievito Madre, w recepturze mąka, woda, sól, zakwas i masło; bez jajek, mleka i cukru) przeniesione tylko czynności i ich kolejność: masło stopniowo, wyrabianie do odchodzenia od misy, ciasto na noc w lodówce na blasze, formowanie w keksówce, rośnięcie w ciepłym miejscu pod folią. Nie przeniesione jako zalecenie: czasy (4 + 15 min miksera, 20 min rośnięcia) — dotyczą miksera i ciasta na drożdżach instant (DRO-WER-BR-001); tekst kroków nie podaje liczb, a czasy w logice planu to nazwana rezerwa (PIE-BRI-900, wektor plan-brioszki-2026-11-09.json). Źródło dodaje część masła na początku; notesPl receptury (REC-BAZ-900) każe dodawać masło pod koniec wyrabiania — zdanie kroku („stopniowo, porcjami”, potem wyrabianie do odchodzenia od misy) jest zgodne z oboma.",
     "krytyczne": false,
     "przeglad": null,
-    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09: kroki formowania planu nie pasują do brioszki w keksówce)."
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-012 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2: plan brioszki brał kroki bochenka w koszyku). Zgodne: DRO-WER-BR-002 (20 min w ciepłym miejscu, odczyt 2026-11-03). Teksty: docs/tresci/pl|en/plan-brioszki.md."
+  },
+  {
+    "id": "PIE-BRI-900",
+    "twierdzenie": "[DO USTALENIA] Czasy planu brioszki na Lievito Madre, których źródło receptury (CIA, PIE-BRI-002: ciasto na drożdżach instant, mikser) nie daje dla zaczynu: (1) czy ciasto po wyrobieniu potrzebuje rośnięcia w cieple przed lodówką i jak długo, (2) jak długo ciasto leży w lodówce („przez noc”), (3) jak długo rośnie w keksówce w ciepłym miejscu i po czym poznać gotowość, (4) czas wyrabiania ręcznego, (5) czas nagrzewania piekarnika przed keksówką (krok preheat_oven, dziś 45 min).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła czasy zostają w logice planu jako nazwana rezerwa w harmonogramie (nie zalecenie; tekst kroków nie podaje liczb), jak PLN-KRO-900 i DRO-PLN-900: brioche_mix 20 min (rachunek z PIE-BRI-002: 4 + 15 = 19 min miksera, w górę do 20), brioche_cold 840 min w zakresie 480–1440 (czas i zakres kroku final_proof szablonu, PLN-KRO-900; „na noc” z PIE-BRI-002), brioche_shape 15 min (szablon final_shape), brioche_proof 20 min (czas źródła dla ciasta na drożdżach instant, PIE-BRI-002; dla Lievito Madre zwykle dłużej — dolna rezerwa, tekst każe czekać do wyrośnięcia), preheat_oven 45 min (rezerwa D-304). Kroki (kolejność i czynności) mają źródło: PIE-BRI-002, PIE-BRI-001.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09); M2-012 (fix p3 2026-11-09): kroki rozstrzygnięte źródłem (PIE-BRI-002, plan-brioszki.md), otwarte zostają czasy. Szukane 2026-11-09: przepisów brioszki na zakwasie ze szczebla 1–4 nie znaleziono (wyszukiwarka: King Arthur bez takiego przepisu, adresy sourdough-brioche-recipe 404; pozostałe wyniki to blogi, szczebel 5, czasy rośnięcia od ok. 1,5 do 5 h, nie potwierdzają)."
   },
   {
     "id": "PLN-KRO-900",
