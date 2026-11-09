@@ -84,15 +84,17 @@ describe('kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, 
   });
 });
 
-describe('kontrakt zakresu: apetyt D-312, backlog 1.0.1 i aktualny wynik zakres.mjs (059)', () => {
+describe('kontrakt zakresu: apetyt D-313 (98 h), backlog 1.0.1 i aktualny wynik zakres.mjs (059)', () => {
   const ranking = kontrakt.split('\n## Ranking')[1]?.split('\n## ')[0] ?? '';
   const zm = kontrakt.split('## Zmiany zakresu')[1]?.split('\n## ')[0] ?? '';
   const definicja = kontrakt.split('\n## Definicja ukończenia')[1]?.split('\n## ')[0] ?? '';
 
-  it('apetyt 1.0 zapisany przy rankingu z datą i decyzją D-312; w „Główna praca i pętla” bez „otwarta”', () => {
-    expect(ranking).toMatch(/Apetyt 1\.0: 97 h \(D-312, 2026-11-09\)/);
+  it('apetyt 1.0 = 98 h przy rankingu z datą i decyzją D-313; w „Główna praca i pętla” bez „otwarta”; brak otwartej decyzji 98/97 h', () => {
+    expect(ranking).toMatch(/Apetyt 1\.0: 98 h \(D-313, 2026-11-09\)/);
+    expect(ranking).not.toMatch(/Otwarte \(059, decyzja właściciela\)/);
+    expect(ranking).not.toMatch(/poza apetytem 97 h/);
     const apetyt = linie.find((l) => l.startsWith('- Apetyt wersji 1:')) ?? '';
-    expect(apetyt).toMatch(/D-312/);
+    expect(apetyt).toMatch(/D-313/);
     expect(apetyt).not.toMatch(/otwarta/);
   });
 
@@ -113,6 +115,7 @@ describe('kontrakt zakresu: apetyt D-312, backlog 1.0.1 i aktualny wynik zakres.
     const oczekiwane = `${funkcje.length} funkcji (MVP ${ile('MVP')}, PÓŹNIEJ ${ile('PÓŹNIEJ')}, TEST ${ile('TEST')}, NIE ${ile('NIE')}), ${br} BR · 0 błędów`;
     const wyniki = ranking.match(/^\d+ funkcji \(.*$/gm) ?? [];
     expect(wyniki[wyniki.length - 1]).toContain(oczekiwane);
+    expect(wyniki[wyniki.length - 1]).toContain('0 błędów, 0 uwag');
     const wiersz1 = definicja.split('\n').find((l) => /zakres\.mjs --brd/.test(l)) ?? '';
     expect(wiersz1).toContain(`${br} BR, ${funkcje.length} funkcji, 0 błędów, kod 0`);
     expect(wiersz1).not.toMatch(/2026-10-20/);

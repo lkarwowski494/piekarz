@@ -1792,3 +1792,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** plan i prowadzenie 15 receptur drożdżowych w 1.0 (czasy ze źródeł roli 06 dla każdej, przekład, koszt nieoszacowany); wszystkie braki do 1.0.1.
 - **Status:** właściciel.
 
+
+### [D-313] 2026-11-09 — Apetyt 1.0 = 98 h (zastępuje 97 h z D-312 pkt 1; M1-audytor-generalny-059, -064)
+- **Słowa właściciela (2026-11-09, przycisk):** „98 h (Recommended)”.
+- **Decyzja:** apetyt 1.0 = 98 h; F-82 („Źródła wiedzy”) i F-83 (licencje, OG-13) wpisane do tabeli w 059 po 0,5 h każda mieszczą się w apetycie; nic nie wypada. Wynik `zakres.mjs --brd docs/brd --apetyt 98`: 0 błędów, 0 uwag (`docs/scope-contract.md`, pod „Ranking”). Pozostałe punkty D-312 bez zmian.
+- **Odrzucone:** apetyt 97 h z F-82 i F-83 jako obowiązkiem poza apetytem (uwagi skryptu zostałyby na stałe).
+- **Status:** właściciel.
