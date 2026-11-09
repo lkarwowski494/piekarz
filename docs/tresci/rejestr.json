@@ -10452,5 +10452,97 @@
     "wazne_do": "2027-11-09",
     "decyzja": "D-303",
     "uwagi": "M1-audytor-generalny-009 (06-tresci-002). Zastępuje 450 °C / 2 min z presetu (bez źródła; ten sam przepis jest źródłem drożdży i czasów receptury, DRO-PIZ-002). Ta sama strona: „Make sure your oven is at the required temperature for at least 30 minutes before baking, so the steel or stone can fully preheat.” oraz „even if you can't use a broiler you can simply bake your pie for a few minutes longer”."
+  },
+  {
+    "id": "PIE-GAR-001",
+    "twierdzenie": "Według King Arthur Baking (przepis „Pain de Campagne”: dwa duże bochenki na zakwasie z 900 g mąki chlebowej, 100 g mąki pełnoziarnistej, 800 g wody, 20 g soli i 40 g zakwasu) garnki nagrzewa się w piekarniku 45 minut w 500 °F; bochenek przekłada się na papier do pieczenia, nacina, na papierze przenosi do garnka i przykrywa pokrywką, a temperaturę od razu obniża do 450 °F i w niej piecze: 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa (rachunek: 500 °F = 260 °C, 450 °F ≈ 232 °C; ciasto 1860 g, czyli ok. 930 g na bochenek).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/pain-de-campagne-recipe",
+        "miejsce": "King Arthur Baking, „Pain de Campagne”, Instructions (pieczenie w garnkach); tekst strony (python urllib + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F",
+        "cytat": "Immediately reduce the oven temperature to 450°F and bake the covered loaves for 20 minutes. Remove the lids from the Dutch ovens and bake the loaves for 20 to 25 minutes uncovered, until they're a deep golden brown.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/pain-de-campagne-recipe",
+        "miejsce": "jw., Instructions (nagrzewanie) i Ingredients („Yield 2 large loaves”; 900 g, 100 g, 800 g, 20 g, 40 g)",
+        "cytat": "Preheat the oven (and Dutch ovens) to 500°F for 45 minutes",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Jeden profil pieczenia dla sześciu receptur bazowych na zakwasie pieczonych w garnku (ciasto 900–950 g na jeden bochenek, jak ok. 930 g bochenka źródła): 232 °C w obu fazach, 20 min pod pokrywką, bez pokrywki wartość receptury z przedziału 20–25 min; nagrzewanie garnka 45 min w 260 °C. Różnice temperatur między recepturami (235–245/205–210 °C) nie miały źródła. Rachunek: (450 − 32) × 5/9 = 232,2 ≈ 232 °C; (500 − 32) × 5/9 = 260 °C; 900 + 100 + 800 + 20 + 40 = 1860 g.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "garnek_zakwas_temp_pieczenia",
+    "wartosc": 232,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-304",
+    "uwagi": "M1-audytor-generalny-008 (06-tresci-001), DEC-03 a. Zgodne co do 450 °F i 20 min pod pokrywką: PIE-GAR-002 (inny przepis KA). Ten przepis ma też 3 serie składań w 45 min i garowanie w lodówce 8–12 h — nie przenoszone do planu (inny proces: 2% zakwasu i 12 h w misce)."
+  },
+  {
+    "id": "PIE-GAR-002",
+    "twierdzenie": "Według King Arthur Baking (przepis „Naturally Leavened Sourdough Bread”, wskazówka o pieczeniu w garnku) pusty garnek nagrzewa się około 30 minut w piekarniku nagrzanym do 450 °F; nacięty bochenek piecze się 20 minut pod pokrywką, potem 10–15 minut bez niej, aż będzie chrupiący i złoty (rachunek: 450 °F ≈ 232 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/naturally-leavened-sourdough-bread-recipe",
+        "miejsce": "King Arthur Baking, „Naturally Leavened Sourdough Bread”, Tips („Want to bake in a Dutch oven?”); tekst strony (python urllib + BeautifulSoup get_text), cytat sprawdzony grep -F",
+        "cytat": "About 30 minutes before the bread is ready to bake, preheat an empty Dutch oven or bread and potato pot in the 450°F oven.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/naturally-leavened-sourdough-bread-recipe",
+        "miejsce": "jw.",
+        "cytat": "bake with the lid on for 20 minutes. Carefully remove the lid and bake for an additional 10 to 15 minutes, until the bread is crusty and golden.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "Potwierdza część wspólną z PIE-GAR-001 (450 °F, 20 min pod pokrywką); krótsza faza bez pokrywki i nagrzewanie 30 min w 450 °F to inny przepis (receptury Piekarza biorą PIE-GAR-001, bochenek tej samej wielkości). Nagrzewanie około 30 min: też KRO-POC-011."
+  },
+  {
+    "id": "PIE-BRI-001",
+    "twierdzenie": "Według The Culinary Institute of America brioszkę w keksówce piecze się tak: piekarnik nagrzewa się do 400 °F, a potem obniża do 350 °F; bochenek smaruje się roztrzepanym jajkiem, piecze 20 minut, obraca i piecze jeszcze 8–10 minut, do złotobrązowego koloru, a po upieczeniu od razu wyjmuje z formy na kratkę (rachunek: 400 °F ≈ 204 °C, 350 °F ≈ 177 °C; razem 28–30 minut).",
+    "zrodla": [
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "The Culinary Institute of America (CIA Foodies), „Brioche”, Directions („For a pan loaf”); tekst strony (python urllib + BeautifulSoup get_text), cytat sprawdzony grep -F",
+        "cytat": "For a pan loaf, preheat the oven to 400°F and then reduce the heat to 350°F. Brush the loaf with egg wash, then bake for 20 minutes. Rotate and bake for an additional 8 to 10 minutes, until golden brown.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Brioszka receptury Piekarza rośnie na Lievito Madre, a źródło na drożdżach instant (DRO-WER-BR-001): parametry pieczenia brioszki w keksówce przeniesione bez zmian (to samo ciasto maślane w tej samej formie; zaczyn dotyczy rośnięcia, nie pieczenia). Wartość dla receptury: 177 °C, bez fazy z parą, 28 min (dolna granica 28–30). Rachunek: (400 − 32) × 5/9 = 204,4 ≈ 204 °C; (350 − 32) × 5/9 = 176,7 ≈ 177 °C; 20 + 8 = 28, 20 + 10 = 30.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "brioszka_keksowka_temp_pieczenia",
+    "wartosc": 177,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-304",
+    "uwagi": "M1-audytor-generalny-008 (06-tresci-001). Ta sama strona: „Remove from the pan immediately and transfer to a wire rack to cool.” Czas nagrzewania piekarnika: źródło go nie podaje (PIE-BRI-900)."
+  },
+  {
+    "id": "PIE-BRI-900",
+    "twierdzenie": "[DO USTALENIA] Czas nagrzewania piekarnika przed pieczeniem brioszki w keksówce (krok planu „preheat_oven”, dziś 45 min) oraz kroki planu brioszki na Lievito Madre od zarobienia do formy (plan dziś bierze szablon bochenka w koszyku: składania, koszyk, garowanie w lodówce).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła czas nagrzewania zostaje jako nazwane uproszczenie planu (rezerwa w harmonogramie, nie zalecenie; tekst kroku nie podaje liczby), jak DRO-PLN-900.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09: kroki formowania planu nie pasują do brioszki w keksówce)."
   }
 ]
