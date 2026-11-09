@@ -1,6 +1,11 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## 2026-11-09 ~04:22 UTC — wznowienie po /clear (koordynator M3, ta sama sesja)
+- Wyjątek nazwany (zasada wspólna 7): wysiłek **medium** zamiast zalecanego high — właściciel: „dzisiaj w medium” (2026-11-09).
+- Przypomnienia `trig_015hxSw43WH5iRpgPscUArsX` (04:52) i `trig_01CXDssUa66JeTDaQtCWjzND` (06:25) odpalają do **tej samej** sesji (/clear nie zmienia ID) — nie tworzyć duplikatów.
+- M2 04:20 UTC: pisze STOP przed partią 1 (dane, 18 zadań; pytania 001 (a)+(b), 021 wyjątek w wydanej migracji v6) — `audit/M1-2026-11-08/stop-p1-M2-2026-11-09.md` w sesji M2; odpowiada właściciel w tamtej sesji.
+
 ## PUNKT CZYSZCZENIA 2026-11-09 ~04:15 UTC (koordynator M3; właściciel: /clear i przekazanie) — STAN BIEŻĄCY, czytaj najpierw
 - `master` @ `2ef8870a` = build 1023 w TestFlight. `redesign` @ HEAD = master + tor B (D-282…D-285, `verify` kod 0 na `492d968a`) + docs (D-286).
 - **M1 zakończony na STOP 2** (D-286: wszystkie rekomendacje, M2 na 84 zadaniach): plan `audit-m1/piekarz-2026-11-08` @ `68116bf8` (plan-napraw.json, raport, raporty ról — wypchnięte za zgodą właściciela 2026-11-09). Sesja M1 `session_01T66VBywjUPA4m3hXCFNdYr` bezczynna — archiwizacja po potwierdzeniu właściciela.
