@@ -23,12 +23,12 @@
     ],
     "ro": [
       "Nu șterge aplicația. Ștergerea ei elimină datele și copiile de rezervă salvate în telefon.",
-      "Păstrează fișierul copiei, de exemplu în Fișiere. Când aplicația funcționează din nou, îl imporți din Setări: Importă din fișier.",
+      "Păstrează fișierul copiei, de exemplu în Fișiere. Când aplicația va funcționa din nou, îl poți importa din Setări: Importă din fișier.",
       "Nu am putut citi datele din această copie a bazei de date. Păstrează fișierul și scrie-ne."
     ],
     "bg": [
       "Не изтривайте приложението. Изтриването му ще премахне данните и резервните копия, запазени в телефона.",
-      "Запазете файла с копието, напр. във Файлове. Когато приложението отново работи, импортирайте го от Настройки: Импортирайте от файл.",
+      "Запазете файла с копието, напр. във Файлове. Когато приложението заработи отново, импортирайте го от Настройки: Импортирайте от файл.",
       "Не успях да прочета данните от това копие на базата данни. Запазете файла и ни пишете."
     ],
     "hr": [
@@ -57,7 +57,7 @@
       "Neizdevās nolasīt datus no šīs datubāzes kopijas. Saglabājiet failu un rakstiet mums."
     ],
     "et": [
-      "Ära kustuta rakendust. Kustutamine kaotab andmed ja telefoni salvestatud varukoopiad.",
+      "Ära kustuta rakendust. Kustutamisel kaovad andmed ja telefoni salvestatud varukoopiad.",
       "Hoia koopiafail alles, nt rakenduses Failid. Kui rakendus jälle töötab, impordi see seadetes: Impordi failist.",
       "Ma ei saanud selle andmebaasi koopia andmeid lugeda. Hoia fail alles ja kirjuta meile."
     ],
@@ -83,12 +83,12 @@
     ],
     "pt-BR": [
       "Não apague o aplicativo. Apagá-lo exclui seus dados e os backups salvos no telefone.",
-      "Guarde o arquivo do backup, por exemplo em Arquivos. Quando o aplicativo voltar a funcionar, importe-o em Ajustes: Importar de arquivo.",
+      "Guarde o arquivo de backup, por exemplo em Arquivos. Quando o aplicativo voltar a funcionar, importe-o em Ajustes: Importar de arquivo.",
       "Não consegui ler os dados desta cópia do banco de dados. Guarde o arquivo e fale conosco."
     ],
     "de": [
-      "Lösch die App nicht. Dabei werden deine Daten und die auf dem Telefon gespeicherten Kopien gelöscht.",
-      "Bewahre die Kopie-Datei auf, z. B. in der Dateien-App. Wenn die App wieder läuft, importierst du sie in den Einstellungen: Aus Datei importieren.",
+      "Lösch die App nicht. Dabei werden deine Daten und die auf dem Telefon gespeicherten Sicherungskopien gelöscht.",
+      "Bewahre die Sicherungsdatei auf, z. B. in der Dateien-App. Wenn die App wieder läuft, importierst du sie in den Einstellungen: Aus Datei importieren.",
       "Ich konnte die Daten aus dieser Datenbankkopie nicht lesen. Bewahre die Datei auf und schreib uns."
     ],
     "fr": [
@@ -173,8 +173,17 @@
     ]
   },
   "drugi_przeglad": {
-    "data": null,
-    "kto": null,
-    "status": "nieodbyty — do uruchomienia przez M2 w świeżym subagencie"
+    "data": "2026-11-09",
+    "kto": "subagent M2 w świeżym kontekście (model, nie rodzimy użytkownik)",
+    "przyjete": [
+      "de 1",
+      "de 2",
+      "et 1",
+      "bg 2",
+      "ro 2",
+      "pt-BR 2"
+    ],
+    "pominiete": "pt-BR 1 „o app” i wielka litera nazwy ekranu w lt/lv/et/fi — opcjonalne, poprawne gramatycznie",
+    "bez_uwag": "pozostałe języki"
   }
 }
