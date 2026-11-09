@@ -14,6 +14,7 @@ import { WEJSCIA_WIDOCZNE, type WejsciePozniej } from '../src/lib/wejscia-poznie
 const root = path.resolve(__dirname, '..');
 const kontrakt = fs.readFileSync(path.join(root, 'docs/scope-contract.md'), 'utf8').replace(/\r\n/g, '\n');
 const paywall = fs.readFileSync(path.join(root, 'src/components/PaywallModal.tsx'), 'utf8');
+const monetyzacja = fs.readFileSync(path.join(root, 'docs/monetyzacja.md'), 'utf8').replace(/\r\n/g, '\n');
 
 /** Słowa (PL, klucze tekstów) funkcji bez wejścia w 1.0: wiersz kontraktu → wzorzec. */
 const SLOWA_FUNKCJI: Record<string, RegExp> = {
@@ -109,5 +110,18 @@ describe('ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)', () => {
     const wzorce = odlozoneWKontrakcie().map((f) => [f, SLOWA_FUNKCJI[f]] as const);
     const naruszenia = FUNKCJE_PRO.flatMap((f) => wzorce.filter(([, r]) => r.test(nazwaBlokady(f))).map(([id]) => `${f} → ${id}: ${nazwaBlokady(f)}`));
     expect(naruszenia).toEqual([]);
+  });
+
+  // Przekazanie roli 03 (commit e8345215) do roli 02: kontrakt płatności nie obiecuje porównania jako funkcji Pro;
+  // wzmianka o porównaniu wolna tylko jako F-63 PÓŹNIEJ (poza ofertą Pro 1.0, DEC-04 a) [M1-audytor-generalny-015]
+  it('docs/monetyzacja.md nie wymienia porównania wypieków jako funkcji Pro (lista Pro, tabela Basic/Pro, przepływ PR-06)', () => {
+    const wiersze = monetyzacja.split('\n').filter((l) => /porównani/i.test(l));
+    expect(wiersze.filter((l) => !(/F-63/.test(l) && /PÓŹNIEJ/.test(l)))).toEqual([]);
+    const pro = monetyzacja.split('\n').find((l) => l.startsWith('- **Pro:**')) ?? '';
+    expect(pro).toMatch(/statystyki/);
+    expect(pro).not.toMatch(/porówn/i);
+    const pr06 = monetyzacja.split('\n').find((l) => l.startsWith('| PR-06')) ?? '';
+    expect(pr06).toMatch(/statystyki: ekran Pro/);
+    expect(pr06).not.toMatch(/porówn/i);
   });
 });
