@@ -93,7 +93,7 @@ const OBSZARY = [
   'Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.',
   'Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
   'Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.',
-  'Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.',
+  'Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.',
 ];
 const DOZYWOTNI = 'Jedna opłata, bez odnawiania.';
 const ODNAWIANIE = 'Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.';
@@ -300,11 +300,11 @@ describe('oznaczenie „Pro” zamiast kłódki (P2-4; BR-ZAK-005 Funkcja Pro, B
     expect(kal.props.accessibilityLabel).toBe(t('{funkcja}, Pro', { funkcja: t('Dodaj do kalendarza') }));
   });
 
-  it('Dziennik: porównanie i statystyki bez treści, z nazwą i „Pro”; wpisy w Basic', async () => {
+  it('Dziennik: statystyki bez treści, z nazwą i „Pro” (bez obietnicy porównania, 015); wpisy w Basic', async () => {
     await saveBakeLog({ id: 'bake_pb', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const root = await zamontuj(<DziennikScreen />);
     expect(caly(root)).toContain('Chleb z historii');
-    await sprawdzBlokade(root, 'porownanie', 'Porównanie i statystyki', false);
+    await sprawdzBlokade(root, 'porownanie', 'Statystyki piekarni domowej', false);
   });
 
   it('Dziś: „Miesiąc” i „Zaplanuj wypiek na ten dzień” z „Pro”; z Pro bez oznaczenia', async () => {

@@ -288,11 +288,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Pro` | `src/components/OznaczeniePro.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/asc-zgloszenie.test.ts |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
+| `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/obietnice-pro-015.test.ts |
 | `TEKST` | `Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
-| `TEKST` | `Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
+| `TEKST` | `Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.` | `src/components/PaywallModal.tsx` | ✅ | src/__tests__/ekran-pro-pb.test.tsx |
 | `UI` | `Zakup czeka na zatwierdzenie` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-zgloszenie.test.ts, tests/matrix-ui-text.test.tsx |

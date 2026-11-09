@@ -1,0 +1,107 @@
+{
+  "_opis": "Przekład 1 klucza M1-audytor-generalny-015 (ekran Pro bez obietnicy „porównania”, DEC-04 a, D-286): MT claude-opus-5-5 (M2, rola 03 fix, 2026-11-09) — zdanie wycięte z przetłumaczonego klucza „Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.” w każdym języku (usunięte tylko „porównanie”, słownictwo bez zmian); nazwa blokady Dziennika to istniejący klucz „Statystyki piekarni domowej” (bez przekładu); drugi przegląd AI: nieodbyty (rola 03 jako subagent bez narzędzia subagentów, uruchomi M2); przegląd natywny: brak (DEC-06). Tekst PL do akceptacji roli 04.",
+  "pl": [
+    "Receptury i Dziennik: więcej własnych receptur i statystyki wypieków."
+  ],
+  "jezyki": {
+    "bg": [
+      "Рецепти и Дневник: повече собствени рецепти и статистика на изпичанията."
+    ],
+    "cs": [
+      "Recepty a Deník: více vlastních receptů a statistiky pečení."
+    ],
+    "da": [
+      "Opskrifter og Bagedagbog: flere egne opskrifter samt statistik over bagninger."
+    ],
+    "de": [
+      "Rezepturen und Backtagebuch: mehr eigene Rezepturen und Statistiken deiner Backvorgänge."
+    ],
+    "el": [
+      "Συνταγές και Ημερολόγιο ψησίματος: περισσότερες δικές σας συνταγές και στατιστικά ψησιμάτων."
+    ],
+    "es": [
+      "Recetas y Diario: más recetas propias y estadísticas de horneados."
+    ],
+    "es-419": [
+      "Fórmulas y Diario: más fórmulas propias y estadísticas de horneados."
+    ],
+    "et": [
+      "Retseptid ja päevik: rohkem omaretsepte ja küpsetiste statistika."
+    ],
+    "fi": [
+      "Reseptit ja Päiväkirja: enemmän omia reseptejä ja leivontojen tilastot."
+    ],
+    "fr": [
+      "Recettes et Journal : davantage de recettes personnelles et statistiques des fournées."
+    ],
+    "hr": [
+      "Recepture i Dnevnik: više vlastitih receptura i statistika pečenja."
+    ],
+    "hu": [
+      "Receptek és Napló: több saját recept és a sütések statisztikái."
+    ],
+    "id": [
+      "Resep dan Jurnal: lebih banyak resep sendiri dan statistik hasil panggangan."
+    ],
+    "it": [
+      "Ricette e Diario: più ricette personali e statistiche delle sfornate."
+    ],
+    "ja": [
+      "配合と焼成記録：より多くの自分の配合と焼成の統計。"
+    ],
+    "ko": [
+      "배합표 및 베이킹 기록: 더 많은 나만의 배합표와 베이킹 통계."
+    ],
+    "lt": [
+      "Receptūros ir Dienoraštis: daugiau savų receptūrų ir kepinių statistika."
+    ],
+    "lv": [
+      "Receptūras un dienasgrāmata: vairāk savu receptūru un cepienu statistika."
+    ],
+    "ms": [
+      "Resipi dan Jurnal: lebih banyak resipi sendiri dan statistik bakaran."
+    ],
+    "nb": [
+      "Oppskrifter og dagbok: flere egne oppskrifter og statistikk over bakster."
+    ],
+    "nl": [
+      "Recepten en Bakdagboek: meer eigen recepten en statistieken van baksels."
+    ],
+    "pt": [
+      "Receitas e Diário: mais receitas próprias e estatísticas das fornadas."
+    ],
+    "pt-BR": [
+      "Receitas e Diário: mais receitas próprias e estatísticas das fornadas."
+    ],
+    "ro": [
+      "Rețete și Jurnal: mai multe rețete proprii și statisticile coacerilor."
+    ],
+    "ru": [
+      "Рецептуры и Дневник: больше собственных рецептур и статистика выпечки."
+    ],
+    "sk": [
+      "Receptúry a Denník: viac vlastných receptúr a štatistiky pečenia."
+    ],
+    "sl": [
+      "Recepti in Dnevnik: več lastnih receptov in statistika pek."
+    ],
+    "sr": [
+      "Рецептуре и Дневник: више сопствених рецептура и статистика печења."
+    ],
+    "sv": [
+      "Recept och Dagbok: fler egna recept och statistik för dina bak."
+    ],
+    "tr": [
+      "Tarifler ve Günlük: daha fazla kendi tarifiniz ve pişirme istatistikleri."
+    ],
+    "uk": [
+      "Рецептури та журнал: більше власних рецептур і статистика випічки."
+    ],
+    "vi": [
+      "Công thức và Nhật ký: thêm công thức riêng và thống kê mẻ bánh."
+    ],
+    "zh-Hant": [
+      "配方與日誌：更多自訂配方，以及烘焙成品的統計。"
+    ]
+  }
+}
