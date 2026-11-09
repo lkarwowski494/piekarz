@@ -286,7 +286,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kup dostęp dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
 | `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Pro` | `src/components/OznaczeniePro.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/asc-zgloszenie.test.ts |
+| `TEKST` | `Pro` | `src/components/OznaczeniePro.tsx` | ✅ | tests/asc-klucz-082.test.ts, tests/asc-ustawienia.test.ts |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/obietnice-pro-015.test.ts |
 | `TEKST` | `Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |

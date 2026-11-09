@@ -1,4 +1,4 @@
-# Procedura: podatności, naruszenia ochrony danych i żądania RODO (Piekarz)
+# Procedura: podatności, naruszenia ochrony danych, żądania RODO i klucz App Store Connect (Piekarz)
 
 Stan 2026-11-08 (M8 Formalności; D-290, analogia z Treningiem — decyzja właściciela z 21.10.2026: bez prawnika, bezpieczniejsze opcje we własnym zakresie). Dokument krótki
 z założenia: aplikacja nie ma serwera ani konta, dane użytkownika są tylko na jego urządzeniu; twórca przetwarza wyłącznie e-maile wysłane na adres wsparcia.
@@ -39,3 +39,31 @@ Dotyczy tylko danych u twórcy: skrzynka wsparcia (Google Workspace) i ewentualn
 Ocena 21.10.2026 (Trening; ta sama skrzynka i to samo przetwarzanie dla Piekarza): przetwarzanie e-maili wsparcia jest sporadyczne i bez danych szczególnych, ale ciągłe w czasie — bezpieczniejsza opcja: krótki
 rejestr jednej czynności („obsługa wiadomości do wsparcia”: cel, podstawa, kategorie danych, odbiorcy, przekazanie, okres) prowadzony prywatnie przez
 właściciela; wzór — polityka prywatności, sekcja „Gdy do nas piszesz”.
+
+## 5. Klucz App Store Connect: unieważnienie i wymiana (D-314, M1-audytor-generalny-082)
+
+Stan 2026-11-09. Jeden klucz zespołu App Store Connect API, wspólny dla Piekarza i Napar (`docs/TESTFLIGHT_DEPLOYMENT.md:43`). Rola: tyle, ile wymaga
+podpis w chmurze przy eksporcie w `testflight.yml` (`-allowProvisioningUpdates`); Apple: „Upload builds” dla App Manager i Developer
+„Requires access to Certificates, Identifiers & Profiles”, a roli klucza zespołu nie da się zmienić: „Once you generate an API key, you can’t edit its
+name or access level. If you need to make changes, revoke the key and generate a new one.” (developer.apple.com/help/account/access/roles/ i
+developer.apple.com/help/app-store-connect/get-started/app-store-connect-api/, odczyt 2026-11-09). Klucz zespołu działa dla wszystkich aplikacji zespołu
+(„Team API keys are applied across all apps”), więc wyciek dotyczy obu aplikacji naraz. W GitHubie klucz trafia tylko do zadań w środowisku `release`
+(akceptuje właściciel) i do przebiegów tylko do odczytu: na sucho w `asc-ustawienia.yml` i `asc-zgloszenie.yml` oraz `asc-kontrola.yml`.
+
+1. **Kiedy unieważnić (od razu, bez czekania na pewność):** podejrzenie wycieku pliku `.p8` albo sekretu (plik poza menedżerem haseł, zgubiony
+   komputer, alert skanowania sekretów GitHub); identyfikator albo treść klucza w logu przebiegu, artefakcie, zrzucie ekranu, commicie lub zgłoszeniu;
+   odejście współpracownika, który miał dostęp do sekretów repozytoriów albo do pliku klucza; przebieg z kluczem, którego właściciel nie uruchamiał
+   (np. prośba o akceptację w środowisku `release`, której się nie spodziewał); nieznana aktywność w App Store Connect (build, zmiana metadanych, cen, użytkowników).
+2. **Unieważnienie (właściciel, App Store Connect, rola Account Holder albo Admin):** Users and Access → Integrations (otwiera się App Store Connect API)
+   → Team Keys → Edit → zaznacz klucz → Revoke Key → Revoke. Apple: „An API key can't be reinstated once it's been revoked.” Zapisz datę i godzinę.
+3. **Nowy klucz:** w tym samym miejscu „+” (Generate API Key), nazwa z datą, rola jak wyżej; plik `.p8` pobiera się jeden raz („can only be downloaded
+   once”) — od razu do menedżera haseł, nigdy do repozytorium ani na czat.
+4. **Wymiana sekretów w obu repozytoriach, które dzielą klucz — Piekarz i Napar** (GitHub → Settings → Secrets and variables → Actions):
+   `ASC_KEY_ID`, `ASC_ISSUER_ID` (issuer zwykle bez zmian), `ASC_KEY_P8_BASE64` (base64 pliku `.p8`, czyta `testflight.yml`, `asc-ustawienia.yml`,
+   `asc-zgloszenie.yml`) i `ASC_KEY_P8` (surowa treść pliku `.p8`, czyta `asc-kontrola.yml` przez workflow wspólny studia). Sekretu, który zostaje
+   ze starym kluczem, nie zostawiaj: usuń go albo nadpisz. Jeśli sekrety są na poziomie konta lub organizacji, wymiana tam obejmuje oba repozytoria.
+5. **Sprawdzenie po wymianie:** w Piekarzu Actions → „ASC kontrola ustawień” → Run workflow (`asc-kontrola.yml`, tylko odczyt): przebieg bez błędu
+   „BŁĄD” odczytu potwierdza nowy klucz; to samo w Napar jego odpowiednikiem. Stary klucz w sekcji „Revoked” strony App Store Connect API.
+6. **Okno ekspozycji (zasada roli 10):** od chwili możliwego ujawnienia (`git log -S` przy commicie, data logu albo odejścia) do unieważnienia;
+   w tym oknie właściciel przegląda w App Store Connect buildy TestFlight, zmiany metadanych i cen oraz listę użytkowników obu aplikacji. Wynik do
+   `docs/wydanie/dziennik.md`; aktywność, której nikt nie zlecił, to incydent (sekcja 1 i moduł incydentu roli 12).

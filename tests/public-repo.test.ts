@@ -23,8 +23,12 @@ describe('Bezpieczeństwo publicznego repozytorium i potoku CI/CD (NFR-SEC)', ()
       expect(content).not.toMatch(/pull_request_target/);
       // 2. Jawne permissions na poziomie głównym
       expect(content).toMatch(/^permissions:\s*\n\s+(contents|pages):\s*(read|write)/m);
-      // 3. Jawne timeout-minutes
-      expect(content).toMatch(/timeout-minutes:\s*\d+/);
+      // 3. Jawne timeout-minutes. Wyjątek: zadanie wywołujące workflow wielokrotnego użytku (`uses:` na poziomie zadania)
+      // nie może mieć timeout-minutes (GitHub, „Supported keywords for jobs that call a reusable workflow”, odczyt 2026-11-09);
+      // limit czasu ma wtedy workflow wywoływany, przypięty do SHA (punkt 5) [M1-audytor-generalny-082; D-314]
+      const zadania = /\njobs:\n/.test(content) ? content.split(/\njobs:\n/)[1].match(/^  [\w-]+:\n(?:    [^\n]*\n)*/gm) ?? [] : [];
+      const tylkoWywolania = zadania.length > 0 && zadania.every((job) => /^    uses: /m.test(job));
+      if (!tylkoWywolania) expect(content).toMatch(/timeout-minutes:\s*\d+/);
       // 4. Zakaz bezpośredniej interpolacji danych wejściowych użytkownika w blokach run:
       const runBlocks = content.split(/\n\s*-\s+name:/);
       for (const block of runBlocks) {

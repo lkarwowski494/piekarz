@@ -59,6 +59,9 @@ jobs:
   build:
     name: Archive & Upload (.ipa -> TestFlight)
     needs: tz-matrix
+    # Klucz App Store Connect (podpis w chmurze i wysyłka) tylko po akceptacji właściciela: środowisko GitHub
+    # `release` z wymaganym recenzentem (D-314, M1-audytor-generalny-082). Bramka stref czasu biegnie wcześniej, bez środowiska.
+    environment: release
     runs-on: macos-26
     timeout-minutes: 60
     outputs:
