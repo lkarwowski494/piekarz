@@ -21,6 +21,7 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| C (M2 p4 cz. 2) | `session_01T66VBxPQkXtF6hFvYsPtHe` | M2-koordynator-napraw, fix (prompt przekazania 09c) | `naprawy/M2-koordynator-napraw-2026-11-09-p4` @ `d04c94ca` | 0 (22:56) | 0 | start 22:56: przeglądy 088/089, 005, koniec partii 4 |
 | A (M2 p3 cz. 2) | `session_01T66VBx5s4zkdFqT2gZ5CDQ` | M2-koordynator-napraw, fix (prompt przekazania) | `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a` | 23,5 (21:40) | 12,64 | idle, review_ready; przypomnienie własne 21:44. 21:40 send_message: nowy koordynator + KO-005 (merge commit) |
 | B (reaudyt M1) | `session_01T66VBysWUJuh8AKDtwNsWx` | M1-audytor-generalny, reaudit | `audit-m1/piekarz-2026-11-08` @ `5e835a92` | 26,5 | 62,81 | zarchiwizowana 22:30 |
 | — (M2 p1–p3 cz. 1) | `session_01T66VBy48fpemgf7wQvUkU4` | M2 | p3 @ `991586dd` | 25 | 225,98 | zarchiwizowana 19:49 po starcie A |
@@ -46,7 +47,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Od M2 (stara sesja, przy archiwizacji 19:49): scalić `asc-kontrola-brak-ofert` → `main` w `apps4brew-narzedzia` (polecenie właściciela; zwykły merge albo rebase, nie squash; sesja nie miała prawa zapisu — nie obchodzone); podać rolę klucza ASC (D-314).
 - Sprzątanie gałęzi: `docs/wydanie/sprzatanie-galezi-2026-11-08.txt` (proxy sesji nie pozwala usuwać) + gałąź `koordynacja` zostaje.
 - Pułapy kosztu (mandat [DO USTALENIA]).
-- Archiwizacja poprzednika `session_01T66VBwuR25xmeQCZYdPG2r` (M3): `archive_session` odrzucony przez klasyfikator 22:41 — krok właściciela albo zgoda/reguła.
+- Archiwizacja (odrzucona przez klasyfikator; krok właściciela albo reguła dla `archive_session`): poprzednik M3 `session_01T66VBwuR25xmeQCZYdPG2r`, sesja A `session_01T66VBx5s4zkdFqT2gZ5CDQ` (praca na GitHubie, idle).
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
@@ -81,3 +82,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 22:30 | M9 | B koniec: K @ `5e835a92` (sprawdzone ls; plan: reaudyty pętla 1 @ ea249c9c, ZABLOKOWANE, otwarte P1 005/087/088/089 — odczyt plan-napraw.json); KO-007 → A partia 4; B zarchiwizowana (62,81 USD, pułap +4,7%) | kontrola 22:40 |
 | 09.11 22:41 | M9 | Kontrola: A 30,0% (300k), 20,35 USD, p4 w toku (087 recenzja, rola 06 dla 088/089) → polecenie PRZEKAZANIA; E2E #101 in_progress; koordynator 25,0%, wysiłek medium potwierdzony (`get_session` effort_level); archiwizacja poprzednika odrzucona (klasyfikator) | kontrola 23:12 |
 | 09.11 22:43 | M9 | PRZEKAZANIE A: p4 @ `bb162ddf` (087 naprawione, verify 6801 kod 0 wg A), prompt `prompt-przekazania-M2-2026-11-09c.md` (K @ `26f7dc38`); subagent roli 06 (088/089) z niezacommitowaną pracą w kontenerze A → A dokańcza commit/push (wyjątek do ~38%); następczyni po pushu | kontrola 23:12 |
+| 09.11 22:57 | M9 | A: p4 @ `d04c94ca` (089 `3e05396e`, 088 `d04c94ca`; sprawdzone: log, przodek `bb162ddf`), K @ `4723a98d`; następczyni C `session_01T66VBxPQkXtF6hFvYsPtHe` (prompt 09c dosłownie + dopisek); A 31,4%, 23,88 USD, archiwizacja odrzucona | kontrola 23:12 |
