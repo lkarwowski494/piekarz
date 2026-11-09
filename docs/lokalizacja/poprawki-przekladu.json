@@ -984,6 +984,22 @@
     { "jezyk": "zh-Hant", "rodzaj": "D-307", "klucz": "Mąka żytnia typ 1400", "z": "裸麥粉（中等研磨程度）", "na": "裸麥粉（波蘭類型 1400）", "powod": "D-307 (M1-audytor-generalny-041): nazwa mąki = przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku; jedna mąka = jedna nazwa (docs/tresci/wektory/maki-nazwy-2026-11-09.json)" },
     { "jezyk": "zh-Hant", "rodzaj": "D-307", "klucz": "Mąka żytnia typ 2000", "z": "裸麥粉", "na": "裸麥粉（波蘭類型 2000）", "powod": "D-307 (M1-audytor-generalny-041): nazwa mąki = przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku; jedna mąka = jedna nazwa (docs/tresci/wektory/maki-nazwy-2026-11-09.json)" },
     { "jezyk": "zh-Hant", "rodzaj": "D-307", "klucz": "Mąka żytnia typ 500", "z": "淺色裸麥粉", "na": "裸麥粉（波蘭類型 500）", "powod": "D-307 (M1-audytor-generalny-041): nazwa mąki = przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku; jedna mąka = jedna nazwa (docs/tresci/wektory/maki-nazwy-2026-11-09.json)" },
-    { "jezyk": "zh-Hant", "rodzaj": "D-307", "klucz": "Mąka żytnia typ 720", "z": "裸麥粉（中等研磨程度）", "na": "裸麥粉（波蘭類型 720）", "powod": "D-307 (M1-audytor-generalny-041): nazwa mąki = przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku; jedna mąka = jedna nazwa (docs/tresci/wektory/maki-nazwy-2026-11-09.json)" }
+    { "jezyk": "zh-Hant", "rodzaj": "D-307", "klucz": "Mąka żytnia typ 720", "z": "裸麥粉（中等研磨程度）", "na": "裸麥粉（波蘭類型 720）", "powod": "D-307 (M1-audytor-generalny-041): nazwa mąki = przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku; jedna mąka = jedna nazwa (docs/tresci/wektory/maki-nazwy-2026-11-09.json)" },
+    {
+      "jezyk": "ja",
+      "rodzaj": "spacja",
+      "klucz": "Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.",
+      "z": "アルコールのにおいがする液体の層は問題ありません。酵母が働いてできる副産物です。捨てても、混ぜ込んでもかまいません。表面の膜や変色も見られる場合、または腐ったにおいがする場合は、上の項目でチェックしてください。",
+      "na": "アルコールのにおいがする液体の層は問題ありません。酵母が働いてできる副産物です。 捨てても、混ぜ込んでもかまいません。 表面の膜や変色も見られる場合、または腐ったにおいがする場合は、上の項目でチェックしてください。",
+      "powod": "M1-audytor-generalny-044: zdania akapitu hooch rozdzielone w docs/tresci (znaczniki ZAK-HOO-001 i T:-); spacja po „。” jak w pozostałych sekcjach werdyktu tego języka"
+    },
+    {
+      "jezyk": "zh-Hant",
+      "rodzaj": "spacja",
+      "klucz": "Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.",
+      "z": "一層帶有酒精味的液體沒有問題：這是酵母活動的副產物。你可以倒掉或拌回去。若你同時看到表層覆膜或變色，或聞到腐臭味，請在上方勾選。",
+      "na": "一層帶有酒精味的液體沒有問題：這是酵母活動的副產物。 你可以倒掉或拌回去。 若你同時看到表層覆膜或變色，或聞到腐臭味，請在上方勾選。",
+      "powod": "M1-audytor-generalny-044: zdania akapitu hooch rozdzielone w docs/tresci (znaczniki ZAK-HOO-001 i T:-); spacja po „。” jak w pozostałych sekcjach werdyktu tego języka"
+    }
   ]
 }

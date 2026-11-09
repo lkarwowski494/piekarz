@@ -1,5 +1,5 @@
 // kontrole-tresci.mjs — kontrole mechaniczne treści względem rejestru twierdzeń. Bez zależności.
-// Użycie: node kontrole-tresci.mjs <rejestr.json> <plik.md|katalog>... [--konfiguracja konf.json] [--przed-przegladem] [--skroty] [--inwentarz]
+// Użycie: node kontrole-tresci.mjs <rejestr.json> <plik.md|katalog>... [--konfiguracja konf.json] [--przed-przegladem] [--przeglad zastępczy] [--skroty] [--inwentarz]
 // Kod wyjścia: 0 bez błędów, 1 są błędy, 2 złe wywołanie.
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
@@ -79,6 +79,7 @@ export function sprawdzTekst(tekst, rejestr, plik = '') {
 // Skrót zdań, w których użyto twierdzenia: przegląd człowieka dotyczy tej wersji tekstu (pole przeglad.sha).
 export const skrot = (zd) => createHash('sha256').update([...zd].sort().join('\n')).digest('hex').slice(0, 12);
 
+export const ZASTEPCZY = 'weryfikacja zastępcza (subagent)'; // D-027: ważny tylko z opcją przeglad „zastępczy”
 // Rejestr: źródła, szczeble, przegląd krytycznych, jedna wartość wielkości, konfiguracja = rejestr.
 export function sprawdzRejestr(rejestr, konfiguracja = [], opcje = {}, uwagi = []) {
   const bledy = [], wg = new Map(), wielk = new Map();
@@ -89,7 +90,8 @@ export function sprawdzRejestr(rejestr, konfiguracja = [], opcje = {}, uwagi = [
     const zr = t.zrodla ?? [];
     if (!zr.length || zr.some((z) => !z.adres || !(z.cytat || z.miejsce) || !/^\d{4}-\d\d-\d\d$/.test(z.odczyt ?? '') || ![1, 2, 3, 4, 5].includes(z.szczebel))) bledy.push(`rejestr ${t.id}: źródło bez adresu, cytatu lub miejsca, daty odczytu albo szczebla`);
     else if (zr.every((z) => z.szczebel === 5)) bledy.push(`rejestr ${t.id}: jedyne źródła ze szczebla 5`);
-    if (t.krytyczne && !(t.przeglad?.kto && !/^</.test(t.przeglad.kto) && /^\d{4}-\d\d-\d\d$/.test(t.przeglad?.data ?? '') && /^[0-9a-f]{12}$/.test(t.przeglad?.sha ?? ''))) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${t.id}: krytyczne bez przeglądu człowieka`);
+    const p = t.przeglad, zast = p?.kto === ZASTEPCZY && !/^zast[eę]pczy$/.test(opcje.przeglad ?? '');
+    if (t.krytyczne && (zast || !(p?.kto && !/^</.test(p.kto) && /^\d{4}-\d\d-\d\d$/.test(p?.data ?? '') && /^[0-9a-f]{12}$/.test(p?.sha ?? '')))) (opcje.przedPrzegladem ? uwagi : bledy).push(`rejestr ${t.id}: krytyczne bez przeglądu człowieka${zast ? ' (zastępczy bez polityki D-027)' : ''}`);
     if (t.krytyczne && t.wartosc != null && !t.decyzja && zr.length && !zr.some((z) => z.szczebel <= 3)) bledy.push(`rejestr ${t.id}: liczba krytyczna bez źródła ze szczebla 1–3`);
     if (t.wielkosc) wielk.set(t.wielkosc, [...(wielk.get(t.wielkosc) ?? []), t]);
   }
@@ -111,7 +113,7 @@ export function main(argv) {
   for (let i = 0; i < argv.length; i++) ['--inwentarz', '--przed-przegladem', '--skroty'].includes(argv[i]) ? (a[argv[i].slice(2)] = true) : argv[i].startsWith('--') ? (a[argv[i].slice(2)] = argv[++i]) : a._.push(argv[i]);
   if (a._.length < 2) { console.error('Użycie: node kontrole-tresci.mjs <rejestr.json> <plik|katalog>... [opcje z nagłówka]'); return 2; }
   const rejestr = JSON.parse(readFileSync(a._[0], 'utf8'));
-  const uwagi = [], uzycia = [], bledy = sprawdzRejestr(rejestr, a.konfiguracja ? JSON.parse(readFileSync(a.konfiguracja, 'utf8')) : [], { przedPrzegladem: a['przed-przegladem'] }, uwagi);
+  const uwagi = [], uzycia = [], bledy = sprawdzRejestr(rejestr, a.konfiguracja ? JSON.parse(readFileSync(a.konfiguracja, 'utf8')) : [], { przedPrzegladem: a['przed-przegladem'], przeglad: a.przeglad }, uwagi);
   for (const f of a._.slice(1).flatMap(pliki)) {
     const t = readFileSync(f, 'utf8');
     if (a.inwentarz) { for (const z of zdania(t.replace(ZNACZNIK, ''))) console.log(`${f}\t${liczby(z).map((n) => (n.granica ?? '') + n.surowa).join(' ')}\t${z}`); continue; }
@@ -119,6 +121,7 @@ export function main(argv) {
   }
   for (const t of rejestr.filter((x) => x.krytyczne && x.status === 'potwierdzone')) {
     const s = skrot(uzycia.filter(([id]) => id === t.id).map(([, z]) => z));
+    if (!a.skroty && t.przeglad?.kto) console.log(`PRZEGLĄD ${t.id} ${t.przeglad.kto === ZASTEPCZY ? 'zastępczy' : 'człowiek'}`);
     if (a.skroty) console.log(`SKRÓT ${t.id} ${s}`);
     else if (t.przeglad?.sha && t.przeglad.sha !== s) (a['przed-przegladem'] ? uwagi : bledy).push(`rejestr ${t.id}: przegląd dotyczy innej wersji zdań (${t.przeglad.sha}, teraz ${s})`);
   }

@@ -16,11 +16,8 @@ const ROOT = join(__dirname, '..');
  * więc automat nie przypisze znaczników bez ryzyka złego dopasowania. Do rozstrzygnięcia przez rolę 06 z człowiekiem
  * znającym język (przegląd DEC-06). Test pada, gdy błąd zniknie albo się zmieni — wtedy usuń język z listy.
  */
-const WYJATKI: Record<string, string[]> = {
-  ja: ['nieznane twierdzenie -'],
-  ko: ['nieznane twierdzenie -'],
-  'zh-Hant': ['nieznane twierdzenie -'],
-};
+// ja, ko, zh-Hant: akapit hooch ze znacznikiem „[T:ZAK-HOO-001,-]” rozdzielony na zdania [M1-audytor-generalny-044]
+const WYJATKI: Record<string, string[]> = {};
 const JEZYKI = getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en');
 
 function kontrola(kod: string) {
@@ -41,8 +38,8 @@ describe('135: znaczniki zdań treści krytycznej w 33 językach', () => {
     expect(status).toBe(0);
   });
 
-  it.each(Object.keys(WYJATKI))('%s (wyjątek nazwany): tylko znany błąd znacznika mieszanego', (kod) => {
-    expect(kontrola(kod).bledy).toEqual(WYJATKI[kod]);
+  it('bez wyjątków nazwanych: każdy język przechodzi kontrolę (044)', () => {
+    expect(Object.keys(WYJATKI)).toEqual([]);
   });
 
   it.each(JEZYKI.filter((k) => !WYJATKI[k]))('%s: bez znacznika mieszanego [T:ID,-]', (kod) => {
