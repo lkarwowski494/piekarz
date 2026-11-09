@@ -1,0 +1,93 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstów języka (M1-audytor-generalny-037, 07-jakosc-501).
+# Koniec wypieku: przejście do ostatniego kroku z "Plan wypieku", "Zakończ" -> ocena -> zapis -> wpis w Dzienniku
+# (M1-audytor-generalny-016, 07-jakosc-003). Kopia automatyczna (plik piekarz-kopia-*) na telefonie: PH-15.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "tab-receptury"
+# Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106).
+# Receptura z zakwasem: "Uloz plan" aktywny takze po D-3 (receptura bez zakwasu - nieaktywny).
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- assertVisible:
+    id: "start-bake-btn"
+- tapOn:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+# Zdanie "po co" przed prosba iOS o zgode (ZgodaPowiadomien, M1-audytor-generalny-130) pokazuje sie, gdy zgoda
+# jest nieustalona - na runnerze macos-26 mimo launchApp permissions (przebieg 39688253940, zrzut z chwili bledu).
+# "Dalej" wywoluje systemowe okno zgody; jego przycisk nie ma id (okno iOS, nie aplikacji), stad tekst systemu
+# w obu jezykach przebiegu. Oba kroki opcjonalne: przy zgodzie juz nadanej okien nie ma.
+# E2E-95: arkusz zgody otwiera sie po odpowiedzi systemu (run 42498413474: 7,15 s), wiec czekanie warunkowe
+# (optional: arkusza nie ma, gdy zgoda juz ustalona) i stukniecie bez optional, gdy arkusz jest
+- extendedWaitUntil:
+    visible:
+      id: "zgoda-dalej-btn"
+    timeout: 30000
+    optional: true
+- runFlow:
+    when:
+      visible:
+        id: "zgoda-dalej-btn"
+    commands:
+      - tapOn:
+          id: "zgoda-dalej-btn"
+      # E2E-96: okno systemu iOS (bez id) otwiera sie po odpowiedzi systemu na prosbe o zgode, wiec jak arkusz wyzej:
+      # czekanie warunkowe i stukniecie bez optional, gdy okno jest. Tylko po "Dalej": bez arkusza okna nie ma
+      - extendedWaitUntil:
+          visible:
+            text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          timeout: 30000
+          optional: true
+      - runFlow:
+          when:
+            visible:
+              text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          commands:
+            - tapOn:
+                text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+- extendedWaitUntil:
+    visible:
+      id: "step-title"
+    timeout: 15000
+- tapOn:
+    id: "bake-plan-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-krok-ostatni"
+- tapOn:
+    id: "plan-krok-ostatni"
+- extendedWaitUntil:
+    visible:
+      id: "next-or-finish-step-btn"
+    timeout: 15000
+- tapOn:
+    id: "next-or-finish-step-btn"
+- extendedWaitUntil:
+    visible:
+      id: "finish-rating-star-4"
+    timeout: 15000
+- tapOn:
+    id: "finish-rating-star-4"
+- tapOn:
+    id: "finish-save-btn"
+- tapOn:
+    id: "tab-dziennik"
+- extendedWaitUntil:
+    visible:
+      id: "bake-log-card-.*"
+    timeout: 15000
+- assertNotVisible:
+    id: "karta-dziennik-pusty"

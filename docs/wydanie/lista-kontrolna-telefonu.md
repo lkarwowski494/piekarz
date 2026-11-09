@@ -28,11 +28,13 @@ Pole „Dlaczego nie automat” wskazuje brak w CI. Pole „Zastępcze pokrycie�
 - [ ] **PH-10** „Dodaj do kalendarza” → plik `.ics` przez arkusz udostępniania → import do Kalendarza iOS: zdarzenia mają właściwe godziny w strefie telefonu (poprawka TZ `5125bcd`). Zmiana planu po dodaniu: aplikacja mówi, że wydarzenie w kalendarzu się nie zmieniło. Dlaczego nie automat: arkusz udostępniania i Kalendarz to aplikacje systemowe. Dodatkowo `tests-tz.yml` sprawdza strefy.
 - [ ] **PH-11** Zmiana strefy czasowej telefonu w trakcie trwającego wypieku: plan i sygnały dalej na właściwe godziny `[DO USTALENIA: oczekiwany wynik wg rozstrzygnięcia roli 08]`.
 
-## 4. Dane: kopia i przywracanie (PH-12…PH-14)
+## 4. Dane: kopia i przywracanie (PH-12…PH-15)
 
 - [ ] **PH-12** Eksport kopii zapasowej przez arkusz udostępniania (Zapisz w Plikach), „Wyczyść dane” (powstaje kopia `piekarz-przed-czyszczeniem-*`), import tej kopii: dane identyczne (wypieki, zakwas, receptury). **Najważniejszy punkt listy: utrata danych ma pierwszeństwo.** Dlaczego nie automat: Pliki i arkusz udostępniania to okna systemowe. Zastępcze: `src/lib/__tests__/backup.test.ts`, `src/data/__tests__/auto-backup.sqlite.test.ts`.
 - [ ] **PH-13** Po ponownej instalacji aplikacji: kopia z Plików przywraca dane; Pro wraca dopiero po „Przywróć zakupy” (kopia danych nie niesie zakupów; pamięć dostępu jest poza kopią, `docs/monetyzacja.md`).
 - [ ] **PH-14** Tryb samolotowy przez cały test PH-04…PH-12: aplikacja działa bez zmian (zasada offline-first); brak ekranów „brak sieci” poza zakupem i przywracaniem.
+
+- [ ] **PH-15** Koniec wypieku na telefonie: krótki wypiek do końca (z „Plan wypieku” przejdź do ostatniego kroku), „Zakończ”, ocena, „Zapisz” → wpis w Dzienniku z oceną; w aplikacji Pliki, w folderze Piekarza, nowy plik `piekarz-kopia-*` z chwili zapisu; w Ustawieniach → Kopia zapasowa brak informacji „Ostatnia kopia automatyczna po wypieku nie zapisała się” [M1-audytor-generalny-016]. Dlaczego nie automat: plik w aplikacji Pliki i zapis na prawdziwym dysku telefonu. Zastępcze: `.maestro/e2e/06-koniec-wypieku.yaml` (wpis w Dzienniku), `src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx` (błąd kopii nie jest cichy).
 
 ## 5. Zakupy StoreKit w piaskownicy (PH-20…PH-24)
 

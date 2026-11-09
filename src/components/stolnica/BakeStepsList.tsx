@@ -64,6 +64,7 @@ export function BakeStepsList({
               accessibilityRole="button"
               accessibilityState={{ selected: !!(isCurrent) }}
               key={step.id}
+              testID={idx === steps.length - 1 ? 'plan-krok-ostatni' : `plan-krok-${idx}`}
               onPress={() => onGoToStep(idx)}
               style={({ pressed }) => [styles.stepRow, idx > 0 && styles.stepRowLinia, isPast && styles.stepRowPast, pressed && styles.nacisniety]}
             >

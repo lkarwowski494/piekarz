@@ -22,7 +22,9 @@ import { typografia } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
+import { useBladKopiiAuto } from '../../lib/kopia-auto-stan';
 export function BackupAndDataSection() {
+  const bladKopii = useBladKopiiAuto();
   const [isExporting, setIsExporting] = useState<boolean>(false);
   const [isExportingCsv, setIsExportingCsv] = useState<boolean>(false);
 
@@ -97,6 +99,12 @@ export function BackupAndDataSection() {
         <Text style={styles.cardDescription}>
           {t('Dane są zapisywane tylko w tym telefonie.')}
         </Text>
+        {/* Nieudana kopia automatyczna po wypieku nie jest cicha [M1-audytor-generalny-016] */}
+        {bladKopii !== null && (
+          <Text style={styles.cardDescription} testID="kopia-auto-blad">
+            {t('Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.')}
+          </Text>
+        )}
         {/* Import kopii i receptury: jedno wejście „Importuj z pliku” (ImportRecepturySection) [M1-audytor-generalny-113] */}
         <View>
           <Pressable

@@ -5007,6 +5007,11 @@
       "src/lib/ostatni-wypiek.ts (kod)"
     ]
   },
+  "Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
   "Ostatnie dokarmienie": {
     "gdzie": [
       "src/components/zakwas/StarterProfileCard.tsx (etykieta)"

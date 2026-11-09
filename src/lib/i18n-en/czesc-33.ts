@@ -17,4 +17,7 @@ export const EN_33: Record<string, string> = {
   'Rośnięcie w keksówce': 'Rising in the loaf pan',
   'Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.':
     'Cover the loaf pan with plastic wrap and leave the dough to rise in a warm place.',
+  // Kopia automatyczna po wypieku nie zapisała się [M1-audytor-generalny-016]
+  'Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.':
+    "The last automatic backup after a bake wasn't saved. Save a backup manually with the button below.",
 };
