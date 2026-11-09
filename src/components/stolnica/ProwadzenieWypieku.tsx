@@ -99,18 +99,19 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
   const endAtMsRef = useRef<number | null>(null);
   // Koniec zegara bieżącego kroku także po jego upływie: termin kroku dla „Zrobione” (BR-HARMO-005) [M1-audytor-generalny-102]
   const ostatniKoniecRef = useRef<number | null>(null);
-  // Migawka „Cofnij poprzedni” i pasek z „Przywróć” (po cofnięciu i po skoku, 006) w pamięci ekranu, nie w zapisie
+  // „Cofnij poprzedni”, pasek „Przywróć” (też po skoku, 006) tylko w pamięci
   const [undo, setUndo] = useState<StepUndo | null>(null);
   const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo | null; skok?: true } | null>(null);
   const ukryjCofniete = useCallback(() => setCofniete(null), []);
 
-  // Czas kroku biegnie od planu, bez „Start”/„Wstrzymaj” (design-spec §11b „056”) [M1-audytor-generalny-056]
+  // Czas kroku od planu, bez „Start”/„Wstrzymaj” (§11b „056”) [M1-audytor-generalny-056]; nowy zegar chowa pasek (006)
   const runFor = (sec: number) => {
     endAtMsRef.current = sec > 0 ? Date.now() + sec * 1000 : null;
     ostatniKoniecRef.current = endAtMsRef.current;
     setTimeLeftSec(sec);
     setIsRunning(sec > 0);
     setIsCompleted(false);
+    setCofniete(null);
   };
 
   /** Postęp z ekranu na wejście logiki kroków (src/core/step-confirm.ts). */
@@ -228,7 +229,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
     if (idx < 0 || idx >= steps.length || idx === currentStepIdx) return; // bieżący: zegar bez zmian (006)
     // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
     const przed = postep();
-    const skok = skokDoKroku(postep(), idx, Date.now());
+    const skok = skokDoKroku(przed, idx, Date.now());
     setSteps(skok.steps);
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');

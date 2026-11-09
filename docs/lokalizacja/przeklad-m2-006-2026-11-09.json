@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 1 klucza M1-audytor-generalny-006 (pasek „Przywróć” po skoku do kroku z „Plan wypieku”): MT M2 (2026-11-09) z EN i istniejącego przekładu siostrzanego klucza „Cofnięto „{krok}”…” (cudzysłowy i forma jak w danym języku); parametr {krok} zachowany; tekst PL do akceptacji roli 04; drugi przegląd AI: do wykonania przez M2.",
+ "_opis": "Przekład 1 klucza M1-audytor-generalny-006 (pasek „Przywróć” po skoku do kroku z „Plan wypieku”): MT M2 (2026-11-09) z EN i istniejącego przekładu siostrzanego klucza „Cofnięto „{krok}”…” (cudzysłowy i forma jak w danym języku); parametr {krok} zachowany; tekst PL do akceptacji roli 04; drugi przegląd AI: M2 2026-11-09, bez P0/P1; poprawione et (P2), ja, fi, es, es-419, it, da (P3).",
  "pl": [
   "Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte."
  ],
@@ -11,7 +11,7 @@
    "Přechod na krok „{krok}“: další kroky a oznámení se posunuly."
   ],
   "da": [
-   "Gået til »{krok}«: de næste trin og notifikationerne er flyttet."
+   "Skiftet til »{krok}«: de næste trin og notifikationerne er rykket."
   ],
   "de": [
    "Zu „{krok}“ gewechselt: Die weiteren Schritte und Mitteilungen wurden verschoben."
@@ -20,16 +20,16 @@
    "Μετάβαση στο «{krok}»: τα επόμενα βήματα και οι ειδοποιήσεις μετακινήθηκαν."
   ],
   "es": [
-   "Se ha pasado a «{krok}»: los pasos siguientes y las notificaciones se han movido."
+   "Se ha pasado a «{krok}»: los pasos siguientes y las notificaciones se han reprogramado."
   ],
   "es-419": [
-   "Se pasó a “{krok}”: los pasos siguientes y las notificaciones se movieron."
+   "Se pasó a “{krok}”: los pasos siguientes y las notificaciones se reprogramaron."
   ],
   "et": [
-   "Mindi sammu „{krok}“: järgmised sammud ja teavitused nihkusid."
+   "Liiguti sammule „{krok}“: järgmised sammud ja teavitused nihkusid."
   ],
   "fi": [
-   "Siirrytty: ”{krok}”. Seuraavat vaiheet ja ilmoitukset siirtyivät."
+   "Siirrytty: ”{krok}”. Seuraavien vaiheiden ja ilmoitusten ajat muuttuivat."
   ],
   "fr": [
    "Passage à « {krok} » : les étapes suivantes et les notifications ont été décalées."
@@ -44,10 +44,10 @@
    "Pindah ke “{krok}”: langkah berikutnya dan notifikasi bergeser."
   ],
   "it": [
-   "Passato a «{krok}»: i passaggi successivi e le notifiche sono stati spostati."
+   "Passaggio a «{krok}»: i passaggi successivi e le notifiche sono stati spostati."
   ],
   "ja": [
-   "「{krok}」に移動しました。以降の工程と通知の時刻がずれました。"
+   "「{krok}」に移動しました。以降の工程と通知の時刻を調整しました。"
   ],
   "ko": [
    "“{krok}” 단계로 이동했어요. 이후 단계와 알림 시간이 바뀌었어요."

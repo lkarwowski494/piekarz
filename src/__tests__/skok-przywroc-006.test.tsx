@@ -31,7 +31,7 @@ import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { loadBakeSession, saveBakeSession } from '../data/bake-session-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
-import { planBakeSteps } from '../core/bake-steps';
+import { planBakeSteps, isDutchOvenStep } from '../core/bake-steps';
 import { PlanWypiekuArkusz } from '../components/stolnica/PlanWypiekuArkusz';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { setLang, t } from '../lib/i18n';
@@ -102,6 +102,21 @@ describe('006: skok do kroku z „Przywróć”', () => {
     const po = (await loadBakeSession())!;
     expect(po.timerEndsAt).toBe(przed.timerEndsAt);
     expect(po.steps).toEqual(przed.steps);
+    expect(tree.root.findAllByType(PasekCofnijKroku)).toHaveLength(0);
+    act(() => tree.unmount());
+  });
+
+  it('zdjęcie pokrywki po skoku chowa pasek: „Przywróć” nie cofa późniejszej akcji (przegląd 006, P2-1)', async () => {
+    const tree = await ekran();
+    const kroki = (await loadBakeSession())!.steps;
+    const garnek = kroki.findIndex((k) => isDutchOvenStep(k));
+    expect(garnek).toBeGreaterThan(0);
+    await act(async () => { tree.root.findByType(PlanWypiekuArkusz).props.onGoToStep(garnek); });
+    await settle();
+    expect(tree.root.findAllByType(PasekCofnijKroku)).toHaveLength(1);
+    await act(async () => { tree.root.findByType(PasekKciuka).props.onZrobione(); });
+    await settle();
+    expect((await loadBakeSession())!.dutchOvenPhase).toBe('lid_off');
     expect(tree.root.findAllByType(PasekCofnijKroku)).toHaveLength(0);
     act(() => tree.unmount());
   });
