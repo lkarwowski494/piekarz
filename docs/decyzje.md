@@ -1673,3 +1673,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) grant przy `launchApp` — już jest, okno i tak wychodzi; (c) zostawić — wyścig możliwy jak w D-279.
 - **Dowód:** iOS E2E run 42520804896 na `22e6e522` zielony (pl_PL, en_US, kontrola negatywna, Basic; 20:34–21:29 UTC); `verify` kod 0 (575/6024) na `22e6e522` (`audit/M3-2026-11-08/dowody/verify-e2e96.txt`, poza gitem). Po scaleniu (różnica: D-284 i docs) testy E2E-workflow, maestro, deklaracje i `src/recipes` 209/209, typecheck kod 0 — wyjątek nazwany zamiast pełnego verify.
 - **Status:** koordynator, do weta (D-281). Do `master` z następnym kandydatem.
+
+### [D-286] 2026-11-09 — STOP 2 M1 (build 1023): wszystkie rekomendacje, M2 na wszystkich otwartych zadaniach (właściciel)
+- **Słowa właściciela (2026-11-09, ~04:00 UTC):** „Wszystkie rekomendacje M1, zakres M2: wszystkie otwarte, mozesz startowac role M2”.
+- **Decyzja:** DEC-01…DEC-19 z raportu M1 (`audit/M1-audytor-generalny-2026-11-08.md` na `audit-m1/piekarz-2026-11-08`) według rekomendacji, w tym DEC-12 → 1.0.1, DEC-19 → 1.1 (odłożone), DEC-18: build TestFlight tylko po zielonym E2E na tym samym SHA. Zakres M2: wszystkie otwarte zadania (84: P1 18, P2 66). Uwagi z testu telefonu (D-277) dopisze właściciel później jako zadania. M2 startuje w osobnej sesji z planem M1.
+- **Odrzucone (opcje z pytania M1):** rekomendacje z wyjątkami, omówienie; zakres tylko P1 albo P1 + P2 danych i sklepu.
+- **Status:** właściciel.
