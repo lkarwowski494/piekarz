@@ -21,8 +21,16 @@ describe('M3 p8: 15 istniejących receptur bazowych bez zmian po podziale moduł
 
   it('treść wszystkich 15 receptur jest bajt w bajt taka jak przed podziałem (sha256)', () => {
     // Zmiany pól z decyzji po podziale, wyliczone jawnie: odcisk liczy się na danych z cofniętymi tylko tymi polami,
-    // więc każda inna zmiana dalej go psuje. D-303 (pizza, PIE-PIZ-001) [M1-audytor-generalny-009].
+    // więc każda inna zmiana dalej go psuje. D-303 (pizza, PIE-PIZ-001) [M1-audytor-generalny-009]; D-304 (garnek
+    // PIE-GAR-001, brioszka PIE-BRI-001) [M1-audytor-generalny-008].
     const PRZED_DECYZJAMI: Record<string, Record<string, unknown>> = {
+      country_loaf_72: { bakeTempSteamC: 240, bakeTempBrowningC: 210 },
+      tartine_high_hydration_80: { bakeTimeSteamMinutes: 22, bakeTempSteamC: 245, bakeTempBrowningC: 210 },
+      san_francisco_sourdough: { bakeTempSteamC: 240, bakeTempBrowningC: 210 },
+      pain_de_campagne: { bakeTempSteamC: 240, bakeTempBrowningC: 210 },
+      spelt_ancient_seeded: { bakeTempSteamC: 235, bakeTempBrowningC: 205 },
+      graham_bread_honey: { bakeTempSteamC: 235, bakeTempBrowningC: 205 },
+      lievito_madre_panettone_brioche: { bakeTempSteamC: 175, bakeTempBrowningC: 175 },
       pizza_napoletana_48h: {
         bakeTimeBrowningMinutes: 2, bakeTempSteamC: 450, bakeTempBrowningC: 450,
         notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',

@@ -686,6 +686,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Chleb piecze się bez pokrywki, aż w pełni się zrumieni.": {
+    "gdzie": [
+      "src/core/baking-phases.ts (dane: tipPl)"
+    ]
+  },
   "Chleb pszenny foremkowy": {
     "gdzie": [
       "src/recipes/katalog-m3-drozdzowe.ts (dane: namePl)"
@@ -4041,6 +4046,16 @@
       "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
+  "Nagrzej piekarnik do 204 °C, a przed włożeniem keksówki obniż temperaturę do 177 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
+  "Nagrzej piekarnik ze stalą do 250 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
   "Nagrzewaj pusty garnek około 30 minut przed włożeniem ciasta, żeby zrobiła się w nim para.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -4048,8 +4063,16 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Nagrzewanie pieca i garnka żeliwnego": {
+    "gdzie": []
+  },
+  "Nagrzewanie piekarnika": {
     "gdzie": [
-      "src/core/reverse-scheduler.ts (dane: namePl)"
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
+    ]
+  },
+  "Nagrzewanie piekarnika i garnka": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
     ]
   },
   "Najbliższe dni": {
@@ -4506,9 +4529,7 @@
     ]
   },
   "Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.": {
-    "gdzie": [
-      "src/core/baking-phases.ts (dane: tipPl)"
-    ]
+    "gdzie": []
   },
   "Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.": {
     "gdzie": [
@@ -4942,6 +4963,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Para w garnku dłużej utrzymuje skórkę miękką, więc bochenek może jeszcze rosnąć.": {
+    "gdzie": [
+      "src/core/baking-phases.ts (dane: tipPl)"
+    ]
+  },
   "Parametry Rzemieślnicze & Mąki": {
     "gdzie": []
   },
@@ -4998,6 +5024,11 @@
   },
   "Piecz w 220°C przez 25–30 minut do złocistego koloru.": {
     "gdzie": []
+  },
+  "Piecz w 250 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
   },
   "Piecz w garnku pod pokrywą: para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.": {
     "gdzie": [
@@ -5386,11 +5417,17 @@
     ]
   },
   "Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.": {
+    "gdzie": []
+  },
+  "Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.": {
+    "gdzie": []
+  },
+  "Pokrywka zamknięta: 20 minut w 232 °C.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
   },
-  "Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.": {
+  "Pokrywka zdjęta: 20–25 minut w 232 °C, aż skórka będzie głęboko złotobrązowa.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
@@ -5501,6 +5538,11 @@
   "Posiekaj zimne masło z mąką, cukrem i solą, aż powstaną drobne okruchy.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Posmaruj brioszkę roztrzepanym jajkiem i piecz 20 minut, potem obróć keksówkę i piecz jeszcze 8–10 minut, aż brioszka będzie złotobrązowa. Od razu wyjmij brioszkę z keksówki na kratkę.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
   },
   "Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.": {
@@ -5943,10 +5985,13 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
-  "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
+  "Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa.": {
     "gdzie": [
-      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
+  },
+  "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
+    "gdzie": []
   },
   "Przełóż bochenek szwem do dołu, aby nie pękał od spodu.": {
     "gdzie": [
@@ -8366,10 +8411,13 @@
   "Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.": {
     "gdzie": []
   },
-  "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
+  "Wstaw garnek do piekarnika i nagrzewaj go 45 minut w 260 °C.": {
     "gdzie": [
-      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
+  },
+  "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
+    "gdzie": []
   },
   "Wstaw gotową mieszankę": {
     "gdzie": [
@@ -8725,7 +8773,7 @@
   },
   "Wypiek z parą i rumienienie": {
     "gdzie": [
-      "src/core/reverse-scheduler.ts (dane: namePl)"
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
     ]
   },
   "Wypiek: {wypiek}.": {
@@ -8795,9 +8843,7 @@
     ]
   },
   "Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).": {
-    "gdzie": [
-      "src/core/baking-phases.ts (dane: tipPl)"
-    ]
+    "gdzie": []
   },
   "Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.": {
     "gdzie": [
@@ -9556,19 +9602,20 @@
     ]
   },
   "Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.": {
-    "gdzie": [
-      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zdejmij pokrywkę": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
     ]
   },
-  "Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.": {
+  "Zdejmij pokrywkę garnka i piecz dalej w tej samej temperaturze.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: alertHeadlinePl)"
     ]
+  },
+  "Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.": {
+    "gdzie": []
   },
   "Zdejmij pokrywkę garnka. Wypuść parę.": {
     "gdzie": [

@@ -16,7 +16,7 @@ import { t } from '../../lib/i18n';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 import { SessionStep, isDutchOvenStep } from '../../core/bake-steps';
 import { stepHasTimer } from '../../core/bake-session';
-import type { DutchOvenBakePhase } from '../../core/baking-phases';
+import { fazyGarnka, type DutchOvenBakePhase } from '../../core/baking-phases';
 import { PokeTestEntry } from './PokeTestEntry';
 import { DutchOvenController } from './DutchOvenController';
 import { styles } from './stolnica-screen.styles';
@@ -113,6 +113,7 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
       {/* Dutch Oven Two-Phase Controller for the bake step */}
       {isDutchOvenStep(step) && (
         <DutchOvenController
+          fazy={fazyGarnka(step)}
           dutchOvenPhase={dutchOvenPhase}
           onSwitchPhase={onSwitchPhase}
           unitSystem={unitSystem}

@@ -1,5 +1,6 @@
 import { Q10_FERMENTATION } from './fermentation-q10';
 import { DOMYSLNY_PROFIL_SNU, oknoSnu } from './profile-snu';
+import { krokiPieczenia, PIECZENIE_DOMYSLNE, type KrokPieczenia, type PieczenieReceptury } from './pieczenie-receptury';
 
 // Domena bez i18n i formatowania (ADR-006) [M1-audytor-generalny-020]: godzinę kolizji formatuje wstrzyknięta funkcja
 // (fasada src/scheduler/reverse-scheduler.ts podaje formatTime języka aplikacji); bez niej HH:MM.
@@ -84,12 +85,21 @@ export interface ScheduleOptions {
   coldRetardHours?: number;     // default 14.0 (14h in fridge)
   /** Format godziny kolizji ze snem (fasada: formatTime języka aplikacji) [M1-audytor-generalny-020]. */
   formatujGodzine?: (d: Date) => string;
+  /** Pieczenie z danych receptury (D-304): kroki „preheat_oven” i „bake”; brak = profil garnka PIECZENIE_DOMYSLNE. */
+  pieczenie?: PieczenieReceptury;
 }
 
 export interface AutoResolveResult {
   resolvedSchedule: ReverseScheduleResult;
   adjustedColdRetardHours: number;
   originalColdRetardHours: number;
+}
+
+/** Szablon etapu z kroku pieczenia: nagrzewanie bierne z rękami na starcie (rozciągane), pieczenie czynne. */
+function szablonPieczenia(k: KrokPieczenia, category: 'preheat_oven' | 'bake'): StageTemplate {
+  return category === 'preheat_oven'
+    ? { ...k, category, isPassive: true, rekaNaStarcie: true, canStretch: true }
+    : { ...k, category, isPassive: false, canStretch: false };
 }
 
 export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
@@ -171,25 +181,10 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     maxDurationMinutes: 1440, // 24h
     instructionsPl: 'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.',
   },
-  {
-    id: 'preheat_oven',
-    namePl: 'Nagrzewanie pieca i garnka żeliwnego',
-    category: 'preheat_oven',
-    durationMinutes: 45,
-    isPassive: true,
-    rekaNaStarcie: true,
-    canStretch: true,
-    instructionsPl: 'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.',
-  },
-  {
-    id: 'bake',
-    namePl: 'Wypiek z parą i rumienienie',
-    category: 'bake',
-    durationMinutes: 45,
-    isPassive: false,
-    canStretch: false,
-    instructionsPl: 'Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).',
-  },
+  // Nagrzewanie i pieczenie: profil garnka ze źródła (PIE-GAR-001, D-304) zamiast szablonu 240/210 °C bez źródła;
+  // z recepturą kroki podmienia calculateReverseSchedule (options.pieczenie) [M1-audytor-generalny-008]
+  szablonPieczenia(krokiPieczenia(PIECZENIE_DOMYSLNE).nagrzewanie, 'preheat_oven'),
+  szablonPieczenia(krokiPieczenia(PIECZENIE_DOMYSLNE).pieczenie, 'bake'),
   {
     id: 'cool',
     // bez wykrzyknika w nazwie kroku (§11c 116); zdanie o krojeniu przenosi do treści kroku rola 06. Stary klucz
@@ -230,6 +225,15 @@ export function calculateReverseSchedule(
   const sleepEnd = options.sleepEndHour ?? DOMYSLNE_OKNO_SNU.koniecH;
 
   const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
+
+  // Pieczenie z danych receptury: naczynie, czas i teksty kroków (D-304) [M1-audytor-generalny-008]
+  if (options.pieczenie) {
+    const k = krokiPieczenia(options.pieczenie);
+    const i = templates.findIndex((t) => t.category === 'preheat_oven');
+    const j = templates.findIndex((t) => t.category === 'bake');
+    if (i >= 0) templates[i] = szablonPieczenia(k.nagrzewanie, 'preheat_oven');
+    if (j >= 0) templates[j] = szablonPieczenia(k.pieczenie, 'bake');
+  }
 
   // Adjust cold retard if specified
   if (options.coldRetardHours && options.coldRetardHours > 0) {

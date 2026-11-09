@@ -16,6 +16,7 @@ import { useZakwasPlanu } from '../../../src/hooks/useZakwasPlanu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezPlanu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
+import { pieczenieDlaPlanu } from '../../../src/lib/pieczenie-planu';
 import { krokiDrozdzoweKonczaceSie } from '../../../src/recipes/yeast-stages';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny } from '../../../src/lib/format';
@@ -89,15 +90,10 @@ export default function HarmonogramScreen() {
   const zTemperatura = planWstecz || loading;
   const tempPlanu = zTemperatura ? ambientTemp : TEMPERATURA_MODELU_PLANU_C;
 
-  // Reverse schedule calculation
-  const schedule = useMemo(() => {
-    return calculateReverseSchedule(targetDate, {
-      ambientTemperatureC: tempPlanu,
-      coldRetardHours,
-      sleepStartHour,
-      sleepEndHour,
-    });
-  }, [targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
+  // Pieczenie z danych receptury (D-304) [M1-audytor-generalny-008]
+  const [pieczenie] = useState(() => pieczenieDlaPlanu(recepturaPlanu()));
+  const opcje = { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour, pieczenie };
+  const schedule = useMemo(() => calculateReverseSchedule(targetDate, opcje), [targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
@@ -164,7 +160,7 @@ export default function HarmonogramScreen() {
     if (!godzinaDomyslna.current || !planWstecz) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     const kroki = (celMs: number) =>
-      krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
+      krokiDla(calculateReverseSchedule(new Date(celMs), opcje), celMs);
     // Dzień ze skrótu (BR-KAL-015) albo rytmu (BR-KAL-014) nie zmienia się po cichu (src/lib/plan-bez-nocy.ts) [M3 TZ]
     const z = godzinaPrzyOtwarciu({
       terazMs: Date.now(), najwczesniejMs: stanCzasu.najwczesniejMs, zaPozno: stanCzasu.zaPozno, krokiNaEkranie: steps, kroki, okno,
@@ -194,13 +190,8 @@ export default function HarmonogramScreen() {
   // Automatic sleep collision resolution helper
   const autoResolved = useMemo(() => {
     if (!schedule.hasSleepCollision) return null;
-    return autoResolveSleepCollision(targetDate, {
-      ambientTemperatureC: tempPlanu,
-      coldRetardHours,
-      sleepStartHour,
-      sleepEndHour,
-    });
-  }, [schedule.hasSleepCollision, targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
+    return autoResolveSleepCollision(targetDate, opcje);
+  }, [schedule.hasSleepCollision, targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ±30 min do pełnej lub połówkowej godziny, ±2 h wprost; przez północ zmienia się dzień (src/lib/godzina-gotowe.ts) [128, N1]
   const adjustTargetTime = (deltaMinutes: number) => {

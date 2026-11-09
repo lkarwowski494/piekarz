@@ -16,7 +16,7 @@
 
 import type { SessionStep } from '../core/bake-steps';
 import { isDutchOvenStep } from '../core/bake-steps';
-import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase } from '../core/baking-phases';
+import { fazyGarnka, type DutchOvenBakePhase } from '../core/baking-phases';
 import { stepDurationSec, stepHasTimer } from '../core/bake-session';
 import { gotoweMs } from './gotowe';
 import { lang, t, tPlural } from './i18n';
@@ -60,7 +60,7 @@ function wSrodkuZdania(nazwa: string): string {
 function nastepny(steps: readonly SessionStep[], stepIdx: number, faza: DutchOvenBakePhase): { nazwa: string; sec: number } | null {
   const krok = steps[stepIdx];
   if (krok && isDutchOvenStep(krok) && faza === 'lid_on') {
-    return { nazwa: t('pieczenie bez pokrywy'), sec: DUTCH_OVEN_PHASES.lid_off.durationMin * 60 };
+    return { nazwa: t('pieczenie bez pokrywy'), sec: fazyGarnka(krok).lid_off.durationMin * 60 }; // czas receptury (D-304)
   }
   const dalej = steps[stepIdx + 1];
   if (!dalej) return null;

@@ -22,10 +22,11 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
       targetDoughWeightGrams: 800,
     },
     targetDDT: 25.0,
+    // Keksówka 177 °C, 28 min (20 + 8–10), bez pary (PIE-BRI-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 0,
     bakeTimeBrowningMinutes: 28,
-    bakeTempSteamC: 175,
-    bakeTempBrowningC: 175,
+    bakeTempSteamC: 177,
+    bakeTempBrowningC: 177,
     recommendedVessel: 'bread_pan',
     notesPl: 'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.',
   },

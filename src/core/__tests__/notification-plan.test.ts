@@ -37,7 +37,7 @@ describe('notification plan (006, ADR-006)', () => {
   });
 
   it('the Dutch oven step is Time Sensitive with phase-specific text', () => {
-    expect(TIME_SENSITIVE_STEPS).toEqual(['step_8', 'bake']);
+    expect(TIME_SENSITIVE_STEPS).toEqual(['step_8', 'bake', 'bake_forma', 'bake_stal']); // + keksówka i stal (D-304) [M1-audytor-generalny-008]
     const on = planBakeNotification({ ...W, steps, stepIdx: step8, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1 }, now);
     const off = planBakeNotification({ ...W, steps, stepIdx: step8, dutchOvenPhase: 'lid_off', timerEndsAt: now + 1 }, now);
     expect(on).toEqual(expect.objectContaining({ level: 'timeSensitive', textKey: 'krok.zdejmijPokrywke' }));

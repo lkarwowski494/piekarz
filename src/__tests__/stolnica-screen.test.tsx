@@ -362,7 +362,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
       let fullText = extractCleanText(tree?.toJSON());
       expect(fullText).toContain('Faza 1: Pod pokrywką');
-      expect(fullText).toContain('240°C');
+      expect(fullText).toContain('232°C'); // PIE-GAR-001 (D-304) [M1-audytor-generalny-008]
       expect(fullText).toContain('20 min'); // 114
 
       // Switch manually to Phase 2 (Bez pokrywki)
@@ -373,7 +373,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
       fullText = extractCleanText(tree?.toJSON());
       expect(fullText).toContain('Faza 2: Bez pokrywki');
-      expect(fullText).toContain('210°C');
+      expect(fullText).toContain('232°C'); // dalej w tej samej temperaturze (PIE-GAR-001, D-304)
       expect(fullText).toContain('25 min'); // 114
 
       // Switch back to Phase 1

@@ -22,7 +22,7 @@ describe('D-155 kroki planu wersji drożdżowej', () => {
 
   it('tartine: noc, co najmniej 8 h, i 90 min po uformowaniu', () => {
     expect(min(krokiDrozdzowe('tartine_high_hydration_80', START))).toEqual([
-      ['mix', 15], ['bulk_ferment', 480], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 90], ['bake', 47], ['cool', 120],
+      ['mix', 15], ['bulk_ferment', 480], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 90], ['bake', 45], ['cool', 120], // bake 22 + 25 → 20 + 25: tartine 20 min pod pokrywką (D-304) [M1-audytor-generalny-008]
     ]);
   });
 

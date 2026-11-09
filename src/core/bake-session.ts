@@ -5,7 +5,7 @@
 // Kroki pochodzą z sesji (plan Harmonogramu/receptury), nie ze stałej listy [M1-audytor-generalny-030].
 // ============================================================================
 
-import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from './baking-phases';
+import { fazyGarnka, DutchOvenBakePhase } from './baking-phases';
 import { SessionStep, isDutchOvenStep } from './bake-steps';
 
 export interface BakeProgress {
@@ -28,7 +28,8 @@ export interface TimerState {
 /** Pełny czas kroku w sekundach (krok w garnku: czas bieżącej fazy); krok bez czasu (null) = 0, bez minutnika. */
 export function stepDurationSec(step: SessionStep | undefined, phase: DutchOvenBakePhase): number {
   if (!step) return 0;
-  if (isDutchOvenStep(step)) return DUTCH_OVEN_PHASES[phase].durationMin * 60;
+  // Faza bez pokrywki: reszta czasu kroku z danych receptury (D-304) [M1-audytor-generalny-008]
+  if (isDutchOvenStep(step)) return fazyGarnka(step)[phase].durationMin * 60;
   return step.durationMin === null ? 0 : step.durationMin * 60;
 }
 

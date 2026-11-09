@@ -6,19 +6,20 @@ import {
 } from '../baking-phases';
 
 describe('Dutch Oven Two-Phase Baking Physics (core/baking-phases)', () => {
-  it('defines Phase 1 (lid on) with 20 min @ 240°C', () => {
+  // 240/210 °C bez źródła → 232 °C w obu fazach (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
+  it('defines Phase 1 (lid on) with 20 min @ 232°C', () => {
     const p1 = getDutchOvenPhase('lid_on');
     expect(p1.phaseNumber).toBe(1);
     expect(p1.durationMin).toBe(20);
-    expect(p1.temperatureC).toBe(240);
+    expect(p1.temperatureC).toBe(232);
     expect(p1.namePl).toContain('Pod pokrywką');
   });
 
-  it('defines Phase 2 (lid off) with 25 min @ 210°C and steam alert', () => {
+  it('defines Phase 2 (lid off) with 25 min @ 232°C and steam alert', () => {
     const p2 = getDutchOvenPhase('lid_off');
     expect(p2.phaseNumber).toBe(2);
     expect(p2.durationMin).toBe(25);
-    expect(p2.temperatureC).toBe(210);
+    expect(p2.temperatureC).toBe(232);
     expect(p2.alertHeadlinePl).toContain('Zdejmij pokrywkę');
   });
 

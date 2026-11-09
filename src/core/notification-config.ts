@@ -38,6 +38,7 @@ export const MAX_PENDING_NOTIFICATIONS = 40;
 export const OKNO_PIERWSZENSTWA_MS = 24 * 60 * 60 * 1000;
 /**
  * Kroki, których przegapienie psuje chleb w minutach: poziom Time Sensitive (DEC-02 a).
- * Wypiek w garnku: `step_8` ze starego zapisu (LEGACY_STEPS_V1) i etap planu `bake` [M1-audytor-generalny-030].
+ * Wypiek w garnku: `step_8` ze starego zapisu (LEGACY_STEPS_V1) i etap planu `bake` [M1-audytor-generalny-030];
+ * pieczenie w keksówce i na stali z danych receptury: `bake_forma`, `bake_stal` (D-304) [M1-audytor-generalny-008].
  */
-export const TIME_SENSITIVE_STEPS: readonly string[] = ['step_8', 'bake'];
+export const TIME_SENSITIVE_STEPS: readonly string[] = ['step_8', 'bake', 'bake_forma', 'bake_stal'];

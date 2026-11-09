@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 669 | 669 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 663 | 663 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 256 | 256 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 668 | 668 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 668 | 668 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 258 | 258 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1659** | Pokrytych: **1659** | Brakujących: **0**
+Łącznie elementów: **1665** | Pokrytych: **1665** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -34,7 +34,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dziennik` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
 | `TEKST` | `Doktor Chleba` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Plan wypieku` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
-| `TEKST` | `Receptura` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
+| `TEKST` | `Receptura` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/pieczenie-receptur-008.test.ts |
 | `TEKST` | `Godziny snu` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Klasyczny chleb rzemieślniczy` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/harmonogram-piekarnik-d6.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1359 kolejnych elementów w pełnym wykazie)*
+*(... i 1365 kolejnych elementów w pełnym wykazie)*

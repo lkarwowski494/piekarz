@@ -32,7 +32,7 @@ import { confirmDiscardBake } from '../../lib/confirm';
 import type { ActiveBakeState } from '../../data/sqlite-store';
 import { useUnitSystem } from '../../lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../lib/timer-audio';
-import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../core/baking-phases';
+import type { DutchOvenBakePhase } from '../../core/baking-phases';
 import { SessionStep, isDutchOvenStep } from '../../core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../../core/bake-session';
 import { StepUndo, canUndoConfirm, confirmStep, skokDoKroku, undoConfirm } from '../../core/step-confirm';
@@ -244,20 +244,20 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
   const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
     if (phase === dutchOvenPhase) return; // aktywna faza: bez zerowania zegara [04-studio-projektowe-019]
     setDutchOvenPhase(phase);
-    runFor(DUTCH_OVEN_PHASES[phase].durationMin * 60);
+    runFor(stepDurationSec(currentStep, phase)); // czas fazy z receptury (D-304)
     tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   const handleStartPhase2AfterSteamAlert = () => {
     setDutchOvenPhase('lid_off');
-    runFor(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
+    runFor(stepDurationSec(currentStep, 'lid_off'));
     void zapytajOZgode();
     tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
 
   // „Zrobione” przed terminem przesuwa dalsze kroki i powiadomienia wcześniej, po terminie — później (BR-HARMO-005)
   const handleNextStep = () => {
-    // Krok w garnku: kciuk prowadzi przez fazy (DUTCH_OVEN_PHASES); z pokrywką „Zrobione” zdejmuje pokrywkę, a krok
+    // Krok w garnku: kciuk prowadzi przez fazy (fazyGarnka); z pokrywką „Zrobione” zdejmuje pokrywkę, a krok
     // kończy dopiero w fazie bez pokrywki, z jej zegarem i powiadomieniem [04-studio-projektowe-002]
     if (currentStep && isDutchOvenStep(currentStep) && dutchOvenPhase === 'lid_on') {
       handleStartPhase2AfterSteamAlert();

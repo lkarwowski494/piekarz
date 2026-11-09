@@ -9,6 +9,7 @@ import { stepHasTimer } from '../core/bake-session';
 import { SessionStep, areRyeSteps, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
 import type { ActiveBakeState } from './sqlite-schema';
 import type { BakeSession } from './sesja-parsery';
+import { pieczenieDlaId } from '../lib/pieczenie-planu';
 
 // Format i parsowanie sesji w sesja-parsery.ts (bez cyklu z bake-sessions-store.ts) [M1-audytor-generalny-021]
 export { BAKE_SESSION_KEY, ID_SESJI_BEZ_WYPIEKU, isSessionStep, isActiveBakeState, parseBakeSession, idSesji, type BakeSession } from './sesja-parsery';
@@ -41,7 +42,9 @@ export function stepsForBake(bake: ActiveBakeState): SessionStep[] {
     if (bake.wersja === 'drozdze') return bake.steps;
     return isHighRyeBake(bake) && !areRyeSteps(bake.steps) ? ryeStepsFromPlan(bake.steps, bake.startedAt) : bake.steps;
   }
-  return planBakeSteps({ startAt: bake.startedAt, isHighRye: isHighRyeBake(bake), ambientTempC: bake.ambientTempC });
+  // Pieczenie z danych receptury bazowej (D-304) [M1-audytor-generalny-008]
+  const zytni = isHighRyeBake(bake);
+  return planBakeSteps({ startAt: bake.startedAt, isHighRye: zytni, ambientTempC: bake.ambientTempC, pieczenie: pieczenieDlaId(bake.recipeId, zytni) });
 }
 
 /**
