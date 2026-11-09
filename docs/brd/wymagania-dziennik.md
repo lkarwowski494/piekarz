@@ -17,7 +17,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
   - Scenariusz: Katalog w 1.0
     - Zakładając, że użytkownik ma wersję 1.0
     - Gdy przegląda receptury bazowe
-    - Wtedy widzi około 30 receptur: 15 dotychczasowych i kandydatów zatwierdzonych przez właściciela (11 i 3 warunkowo po domknięciu luk), każdą pod nazwą opisową (D-157, D-177)
+    - Wtedy widzi 26 receptur: 15 dotychczasowych i 11 kandydatów zatwierdzonych przez właściciela, każdą pod nazwą opisową (D-157, D-177); trzy warunkowe (piadina, Stollen, szybki chleb orkiszowy) zostają w rezerwie do źródła szczebla 1–3 albo decyzji właściciela (D-236; ER-81)
   - Scenariusz: Nazwa chroniona tylko jako pochodzenie
     - Zakładając, że formuła receptury pochodzi ze specyfikacji nazwy chronionej (ChNP, ChOG, GTS)
     - Gdy użytkownik czyta recepturę
