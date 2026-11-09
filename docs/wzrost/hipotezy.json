@@ -1,6 +1,6 @@
 {
   "z": 1.645,
-  "opis": "Hipotezy wzrostu z progami (DEC-13 a). Opis i reguła rozstrzygania: docs/wzrost.md, sekcja Pomiar. Zmierzone dane (pole dane) trzyma się poza publicznym repo; do oceny wpisuje się je w kopii lokalnej. Zadanie M1-audytor-generalny-085 (11-wzrost-007).",
+  "opis": "Hipotezy wzrostu z progami (DEC-13 a). Opis i reguła rozstrzygania: docs/wzrost.md, sekcja Pomiar. Zmierzone dane (pole dane) trzyma się poza publicznym repo; do oceny wpisuje się je w kopii lokalnej. Zadanie M1-audytor-generalny-085 (11-wzrost-007); minimalna próba i data oceny: M1-audytor-generalny-084 (11-wzrost-005, D-315).",
   "hipotezy": [
     {
       "id": "H-01",
@@ -16,14 +16,16 @@
       },
       "miara_pomocnicza": "zakupy Pro ÷ pierwsze pobrania (App Store Connect)",
       "prog": { "wartosc": 0.085, "kierunek": ">=", "decyzja": "D-112, D-113 (kryterium po 90 dniach z docs/monetyzacja.md: ok. 8,5% przy ok. 83 pobraniach iOS/mies.; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku), DEC-13 a" },
-      "min_proba": 100,
+      "min_proba": 1,
+      "min_proba_decyzja": "D-315 (DEC-16 a, D-286): bez osobnej minimalnej próby, rozstrzyga kryterium liczbowe; 1 to najmniejsza wartość przyjmowana przez hipotezy.mjs",
       "mierzalnosc": {
         "oczekiwane_n": 166,
         "metoda": "[OCENA] 993 pobrania iOS/rok z bramki opłacalności roli 02 ≈ 83/mies. × 2 mies. (dni 30–90)",
         "zastepnik": "liczby bezwzględne z kryterium (nowi płacący/mies., wpływ USD/mies.) z raportów sprzedaży; nie wymagają progu prywatności App Analytics"
       },
-      "data_oceny": "2027-01-19",
-      "data_oceny_regula": "data wydania w App Store + 90 dni; 2027-01-19 to najwcześniejsza możliwa (wydanie nie wcześniej niż 2026-10-21); w dniu wydania przestawić według docs/wydanie/dziennik.md"
+      "data_wydania": null,
+      "data_oceny": "2027-02-07",
+      "data_oceny_regula": "D-315: data wydania w App Store z docs/wydanie/dziennik.md + 90 dni; do wydania data_wydania = null, a data_oceny nie wcześniej niż ostatni wiersz dziennika + 90 dni (2027-02-07: wydanie nie wcześniej niż 2026-11-09); w dniu wydania wpisać data_wydania i przeliczyć"
     }
   ]
 }

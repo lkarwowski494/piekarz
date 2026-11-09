@@ -97,7 +97,7 @@ Pętla opinii F-69 (BR-OPIN-001…003): `docs/wzrost/petla-opinii.md` (zadania 0
 
 | H | Pytanie (decyzja, od której zależy) | Metryka i źródło | Mierzalność: oczekiwane n, zastępnik | Próg (ID decyzji) | Min. próba | Data oceny | Werdykt |
 |---|---|---|---|---|---|---|---|
-| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby bezwzględne z kryterium | **kryterium:** średnio ≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; zamrożenie przy ≤ 3,5 albo ≤ 21 USD/mies. (D-038, `docs/monetyzacja.md` roli 02); w skrypcie ≥ 8,5% | 100 pobrań (propozycja roli 11, do potwierdzenia) | wydanie + 90 dni (najwcześniej 2027-01-19) | czeka na dane |
+| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby bezwzględne z kryterium | **kryterium:** średnio ≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; zamrożenie przy ≤ 3,5 albo ≤ 21 USD/mies. (D-038, `docs/monetyzacja.md` roli 02); w skrypcie ≥ 8,5% | bez osobnej minimalnej próby, rozstrzyga kryterium (D-315; w skrypcie 1) | data wydania z `docs/wydanie/dziennik.md` + 90 dni; do wydania najwcześniej 2027-02-07 (D-315) | czeka na dane |
 
 Dane: `docs/wzrost/hipotezy.json`, skrypt `docs/wzrost/hipotezy.mjs` (`node docs/wzrost/hipotezy.mjs docs/wzrost/hipotezy.json`, kod 0; test `tests/wzrost-hipotezy.test.ts`). Zmierzone wartości (`dane`) wpisuje się w kopii lokalnej, poza publicznym repo.
 

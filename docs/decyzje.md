@@ -1806,3 +1806,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** osobny klucz Developer albo App Manager do buildu (DEC-14 a); dodatkowo osobny klucz Piekarza zamiast wspólnego z Napar (do rozważenia później); podział na 4 pliki teraz.
 - **Kroki właściciela:** Settings → Environments → `release` → Required reviewers (siebie); sprawdzić rolę klucza w ASC.
 - **Status:** właściciel.
+
+### [D-315] 2026-11-09 — H-01: bez osobnej minimalnej próby (rozstrzyga kryterium liczbowe), data oceny = data wydania + 90 dni z dziennika wydań (DEC-16 a; M1-audytor-generalny-084, 11-wzrost-005)
+- **Źródło:** D-286 (właściciel 2026-11-09: „Wszystkie rekomendacje M1”) → DEC-16 a planu M1 „decyzja z ID i nowa data oceny po premierze”; wartość z rekomendacji znaleziska 11-wzrost-005, opcja (c) „bez minimum, rozstrzyga sam próg liczbowy z `docs/monetyzacja.md`”. Zapis roli 11 fix w M2 p3.
+- **Decyzja:** (1) H-01 nie ma osobnej minimalnej próby: o wyniku po 90 dniach rozstrzyga kryterium liczbowe z `docs/monetyzacja.md` (≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; ≤ 3,5 albo ≤ 21 USD/mies. → przegląd), a odsetek w `hipotezy.mjs` jest pomocniczy; w danych `min_proba: 1` (najmniejsza wartość, którą przyjmuje skrypt) z polem `min_proba_decyzja: D-315`. (2) `data_oceny` = data wydania w App Store z `docs/wydanie/dziennik.md` + 90 dni; do wydania pole `data_wydania` = null, a `data_oceny` nie wcześniej niż ostatni wiersz dziennika + 90 dni (dziś 2027-02-07, bo wydanie nie nastąpi przed 2026-11-09); test `tests/wzrost-hipotezy.test.ts` pilnuje obu reguł.
+- **Odrzucone:** (a) 100 pierwszych pobrań — szeroki przedział przy małej liczbie, a kryterium 02 to liczby bezwzględne; (b) 166 (oczekiwane n) — ocena tylko przy przewidywanym ruchu; DEC-16 b (usunąć H-01) — brak kryterium po premierze.
+- **Zależy od:** D-286, D-112, D-113 (kryterium w `docs/monetyzacja.md`), daty wydania 1.0.
+- **Status:** właściciel przez D-286 (DEC-16 a, rekomendacja c); wartość wybrana z rekomendacji źródła, nie słowami właściciela — do weta.
