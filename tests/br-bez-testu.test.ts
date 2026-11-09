@@ -40,6 +40,13 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
     expect(r.status).toBe(0);
   });
 
+  // 07-przek-3 (03-p3b-N-3): test kontraktu zakresu z ID BR w nazwie (kontrakt-zm28-058, widżet z wyjątkiem PÓŹNIEJ)
+  // liczył się jako test kryterium. Pełny wyjątek zwalnia BR z testu, więc „test” takiego BR jest fałszywy.
+  it('pełny wyjątek nie ma testu z ID w nazwie (wyjatkiZTestem puste; 03-p3b-N-3)', () => {
+    const raport = JSON.parse(uruchom(['--json']).stdout) as Raport & { wyjatkiZTestem: string[] };
+    expect(raport.wyjatkiZTestem).toEqual([]);
+  });
+
   // 55 + 16 BR-KAL i BR-ETAP-006 z badania kalendarza (ER-62…ER-64) + BR-DIAG-003…005 dla F-71 (ER-70); liczbę potwierdza też kontrola-brd.mjs roli 01
   it('skrypt widzi 75 BR z kryteriami z docs/brd (bez archiwum)', () => {
     const r = uruchom(['--json']);

@@ -56,7 +56,8 @@ describe('kontrakt zakresu: pakiet D-092 przez bramkę ZM (058)', () => {
     expect(Object.keys(BEZ_DECYZJI_POZA_058).filter((id) => zakres.has(id) || !brd.has(id))).toEqual([]);
   });
 
-  it('BR-KAL-001…016 i BR-ETAP-006 mają wiersze F-nn; widżet BR-KAL-012 PÓŹNIEJ z „Powrót:”', () => {
+  // Bez ID BR w nazwie: to test kontraktu zakresu, nie kryterium BRD (br-bez-testu liczył go jako test widżetu; 03-p3b-N-3)
+  it('kalendarz (KAL 001…016) i ETAP 006 mają wiersze F-nn; widżet kalendarza (KAL 012) PÓŹNIEJ z „Powrót:”', () => {
     const zakres = brWKontrakcie();
     const kal = Array.from({ length: 16 }, (_, i) => `BR-KAL-${String(i + 1).padStart(3, '0')}`);
     expect([...kal, 'BR-ETAP-006'].filter((id) => !zakres.has(id))).toEqual([]);
