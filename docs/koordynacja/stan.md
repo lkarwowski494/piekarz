@@ -13,15 +13,16 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 - Gałąź robocza: `redesign/piekarz-2026-10-22` (integracja 1.0); gałąź stanu: `koordynacja`.
 
 ## Teraz
-- Partia 3 M2 skończona w kodzie: `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a`; **iOS E2E #100 run 42691065882 zielone na `6a412c9a`** (sprawdzone przez koordynatora `actions_get`, 21:36 UTC). Verify wg M2 kod 0 (6757 testów na `991586dd`) — **niesprawdzone** przez koordynatora na `6a412c9a`.
-- M2-następczyni (sesja A) ma: scalenie p3 → `redesign` (nie-FF: `redesign` ma commit stanu M3 `9007adeb`), raport końcowy partii, polecenie reaudytu M1, kopię K, send_message do koordynatora z SHA kandydata.
-- 21:40 KO-005 (do weta D-289): scalenie p3 → `redesign` merge commitem (nie-FF, różnica `redesign` tylko `docs/wznowienie-M3.md`; bez squash/force) — polecone sesji A przez send_message; E2E na SHA scalenia uruchamia koordynator.
-- Następny krok koordynatora: kontrola 22:40 UTC — odbiór partii 3 (SHA po scaleniu, verify na tym SHA, E2E na tym samym SHA = kandydat DEC-18), potem reaudyt M1 (D-277; uruchamia M2).
+- Partia 3 przyjęta: `redesign` @ `ea249c9c` (merge `6a412c9a`, KO-005), verify UTC/Tokyo 6800 kod 0 wg dowodów A w K (`dowody/M2/redesign-ea249c9c-verify-*.txt`, K @ `66c43970`) — niesprawdzone bezpośrednio.
+- E2E iOS na `ea249c9c`: run 42705979446 (workflow_dispatch 21:48, ~60 min) → zielone = kandydat DEC-18.
+- Reaudyt M1: sesja B od 21:49 (polecenie `polecenia/B.md` @ `fdc23ab1`). A czeka bezczynnie na P0/P1.
+- Następny krok: kontrola 22:40 (E2E, B, archiwizacja poprzednika).
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | A (M2 p3 cz. 2) | `session_01T66VBx5s4zkdFqT2gZ5CDQ` | M2-koordynator-napraw, fix (prompt przekazania) | `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a` | 23,5 (21:40) | 12,64 | idle, review_ready; przypomnienie własne 21:44. 21:40 send_message: nowy koordynator + KO-005 (merge commit) |
+| B (reaudyt M1) | `session_01T66VBysWUJuh8AKDtwNsWx` | M1-audytor-generalny, reaudit (opus/high; wysiłek nieustawialny → [DO USTALENIA]) | `audit-m1/piekarz-2026-11-08` @ `66c43970` | 0 (21:49) | 0 | start 21:49 |
 | — (M2 p1–p3 cz. 1) | `session_01T66VBy48fpemgf7wQvUkU4` | M2 | p3 @ `991586dd` | 25 | 225,98 | zarchiwizowana 19:49 po starcie A |
 | — (M1) | `session_01T66VBywjUPA4m3hXCFNdYr` | M1 | `audit-m1/…` | — | [DO USTALENIA] | zarchiwizowana (od 04:10) |
 
@@ -55,7 +56,8 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 
 ## Pule numerów decyzji
 - Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005 zajęte (21:40, wpis w `decyzje.md` koordynacji); KO następny: KO-006.
-- M2 (sesja A i następczynie): od D-300; zajęte do D-316; następny wolny: **D-317**.
+- M2 (sesja A i następczynie): od D-300; zajęte do D-316; pula D-317…D-319; następny wolny: **D-317**.
+- B (reaudyt M1): D-320…D-329.
 
 ## Dziennik (najnowsze na dole)
 | UTC | Sesja | Zdarzenie z dowodem (SHA, run, plik) | Następny krok |
@@ -72,3 +74,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 21:42 | M9 | Przejęcie (E6 pkt 5): wpis w mandacie, 3 przypomnienia, send_message do A (delivered), KO-005; brak wiadomości do poprzednika po 21:38 (`list_events`). Rola M9 nie złożona: klonowanie `prompts` bez dostępu, `add_repo` i uruchomienie `assemble.mjs` odrzucone przez klasyfikator → działam wg stan.md; prośba w raporcie porannym | kontrola 22:40 |
 | 09.11 21:50 | M9 | Właściciel: „Zgadzam sie na dolaczenie repo” → `add_repo` prompts OK, klon @ `a9a07dc`; assemble odrzucony (wyjątek w „Czeka na właściciela”); rdzeń M9 przeczytany | kontrola 22:40 (archiwizacja poprzednika po jego 22:09) |
 | 09.11 21:55 | M9 | Rola M9 złożona (`a9a07dc`, 49 444 zn.) i przeczytana; `delete_trigger` `trig_015Tr2EdGSTL9trcxrq3Fumc` ponownie odrzucony (zostaje; sam się wyłączy u poprzednika 22:09) | kontrola 22:40: archiwizacja poprzednika |
+| 09.11 21:49 | M9 | A: partia 3 scalona `ea249c9c` (verify 6800 kod 0 ×2 wg A); sprawdzone: merge-base, diff 1 plik docs, autor; E2E run 42705979446 wyzwolony; sesja B `session_01T66VBysWUJuh8AKDtwNsWx` (reaudyt M1) | kontrola 22:40 |
