@@ -1,0 +1,15 @@
+    ✕ domena src/core nie importuje i18n, formatowania, katalogu receptur ani harmonogramu (poza import type) (72 ms)
+    - Expected  -  1
+    + Received  + 10
+    - Array []
+    + Array [
+    +   "DOMENA core/bake-statistics.ts importuje '../data/db'",
+    +   "DOMENA core/bake-steps.ts importuje '../scheduler/reverse-scheduler'",
+    +   "DOMENA core/domain-rules.ts importuje '../lib/i18n'",
+    +   "DOMENA core/domain-rules.ts importuje '../lib/format'",
+    +   "DOMENA core/inventory.ts importuje '../data/db'",
+    +   "DOMENA core/rye-stages.ts importuje '../scheduler/reverse-scheduler'",
+    +   "DOMENA core/yeast-stages.ts importuje '../scheduler/reverse-scheduler'",
+    +   "DOMENA core/yeast-stages.ts importuje '../recipes/katalog'",
+    + ]
+Tests:       1 failed, 1 total

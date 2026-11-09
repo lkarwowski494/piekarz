@@ -1,0 +1,2155 @@
+
+> piekarz@1.0.0 test
+> jest
+
+(node:5139) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:5138) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/asc-zgloszenie.test.ts (13.009 s)
+PASS src/__tests__/prosba-o-ocene-138.test.tsx (19.164 s)
+PASS src/__tests__/do-miski-zaczyn-182.test.tsx (7.159 s)
+PASS tests/quality-gates.test.ts (5.438 s)
+PASS src/__tests__/plan-bez-nocy-129.test.tsx (6.428 s)
+PASS tests/check-i18n-gate.test.ts (5.239 s)
+PASS tests/asc-ustawienia.test.ts (5.29 s)
+PASS src/lib/__tests__/prosba-o-ocene.test.ts
+PASS src/__tests__/zakwas-104-ekrany.test.tsx (5.151 s)
+PASS src/core/__tests__/domain-property-based.test.ts
+PASS src/__tests__/dziennik-bez-zgadywania-plan-017.test.tsx
+PASS tests/wybory-domyslne-090.test.ts
+PASS tests/matrix-kolejnosc-plikow.test.ts
+PASS src/__tests__/prosba-o-ocene-po-doktorze-n12.test.tsx (42.783 s)
+FAIL src/__tests__/basic-pro-pafix.test.tsx
+  ● W-06: kopia 8 receptur i 3 zakwasy bez Pro › import kopii wnosi wszystko; trzeci zakwas karmiony bez ekranu Pro; dodanie kolejnej receptury → ekran Pro
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1794196269473
+    Received:   1794192669373
+
+      426 |     await nacisnij(root, 'zakwas-dokarm-btn');
+      427 |     expect(ekranPro(root)).toBe(false);
+    > 428 |     expect((await getStarters()).find((s) => s.id === 's3')?.lastFedAt).toBeGreaterThan(Date.now() - H);
+          |                                                                         ^
+      429 |     act(() => tree?.unmount());
+      430 |     const rec = await zamontuj(<RecepturaScreen />);
+      431 |     await nacisnij(rec, 'save-custom-recipe-btn');
+
+      at Object.toBeGreaterThan (src/__tests__/basic-pro-pafix.test.tsx:428:73)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/plan-zmiana-czasu-d13.test.tsx
+PASS src/__tests__/stolnica-plan-steps.test.tsx
+PASS tests/quality-declarations.test.ts
+PASS src/__tests__/import-zawsze-d039.test.tsx
+PASS src/__tests__/plan-za-pozno-107.test.tsx
+PASS tests/tresci-tlumaczen-135.test.ts
+PASS src/__tests__/harmonogram-screen.test.tsx
+PASS src/__tests__/wypiek-po-wygasnieciu-125.test.tsx
+PASS tests/br-bez-testu.test.ts
+PASS src/__tests__/gotowe-dwie-godziny-n1.test.tsx
+PASS src/__tests__/reka-na-starcie-d6.test.tsx
+PASS src/__tests__/miary-usa-ekrany-096.test.tsx
+PASS src/__tests__/start-przy-trwajacym-a1b.test.tsx
+PASS src/__tests__/plan-zmiana-czasu-d13-nowy-jork.test.tsx
+FAIL src/__tests__/zakwas-screen.test.tsx
+  ● ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx) › after 8.5 h without doubling the card advises feeding every 12 h (BR-ZAKW-003 Brak podwojenia w 8 h)
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu."
+    Received string:    "EdytujDoktorZakwas żytni (Bolesław)Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.na blacieZakwas żytni (Bolesław)na blacie8 godzin 30 minut od dokarmienia+ Dodaj nowy zakwasProfil zakwasuŻytnia typ 2000Hydratacja 100%Wiek zakwasu120 dniOstatnie dokarmienie8 h temuMiejsce przechowywaniaTemperatura pokojowaCykl dokarmianiaPodwoił objętośćZaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.Zapisz dokarmienieCoś mnie niepokoi● Po szacowanym szczycieSzczyt aktywnościZakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.Temperatura otoczenia: 22°C19°C22°C25°C28°CIlości do dokarmieniaWybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.Zostawiam w słoikuWpisz, ile zakwasu zostawiasz w słoiku.Cykl dokarmiania (Proporcja)1:1:1 (szybki, 3–4 h)1:2:2 (klasyczny, 6–8 h)1:3:3 (8–10 h)1:5:5 (na noc, 12 h)Potrzebny zakwas: 150 g100 g150 g200 g250 g300 gStary zakwas1 cz.30 gMąka2 cz.60 gWoda (~28°C)2 cz.60 gWskazówka: Z powstałych 150 g pobierz wymaganą ilość do ciasta, a resztkę (~20 g–25 g) schowaj do lodówki jako matkę na kolejny wypiek.Kopiuj jako tekstKonwerter zakwasu & Lievito MadrePrzepisy na Odrzut ZakwasuKontrola biologiczna (Bezpieczeństwo)Zaznacz, co widzisz albo czujesz w słoiku.Płyn na powierzchni o zapachu alkoholu (hooch)Biały nalot lub kożuch na powierzchniPuszysty nalot w dowolnym kolorze, także białyRóżowe, pomarańczowe lub inne przebarwienia, smugi albo plamyNieprzyjemny, zgniły zapachNie zaznaczono żadnego objawuOcena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.Odznacz objawyAplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem."
+
+      365 |     await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 8.5 * 3_600_000 });
+      366 |     await renderScreen();
+    > 367 |     expect(extractCleanText(tree?.toJSON())).toContain('Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.');
+          |                                              ^
+      368 |
+      369 |     act(() => tree?.unmount());
+      370 |     await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * 3_600_000 });
+
+      at Object.toContain (src/__tests__/zakwas-screen.test.tsx:367:46)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS tests/emoji-teksty-techniczne.test.ts
+PASS src/__tests__/dzis-plany-d5.test.tsx
+(node:5145) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/harmonogram-piekarnik-d6.test.tsx
+FAIL src/__tests__/dzis-d4b.test.tsx
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › BR-KAL-002 Przejścia z arkusza dnia: krok wypieku → Stolnica tego wypieku, karmienie → karta zakwasu, wpis → Dziennik (BR-KAL-004 Dzień ze zdarzeniami)
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      354 |     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
+      355 |     const karmienie = root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('arkusz-zdarzenie-wpis:') && typeof n.props.onPress === 'function')[0];
+    > 356 |     await act(async () => karmienie.props.onPress());
+          |                                     ^
+      357 |     expect(mockPush).toHaveBeenLastCalledWith('/zakwasy');
+      358 |     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
+      359 |     await act(async () => przycisk(root, 'arkusz-zdarzenie-dziennik:wpis-1')[0].props.onPress());
+
+      at props (src/__tests__/dzis-d4b.test.tsx:356:37)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at Object.<anonymous> (src/__tests__/dzis-d4b.test.tsx:356:14)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      371 |     const pas = host(root, 'pas-dzis')[0];
+      372 |     expect(pas.findAll((n) => n.props.testID === 'glif-dziennik').length).toBeGreaterThan(0);
+    > 373 |     expect(pas.findAll((n) => n.props.testID === 'glif-karmienie').length).toBeGreaterThan(0);
+          |                                                                            ^
+      374 |     const naPasie = pas.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
+      375 |     expect(naPasie).not.toContain('wymaga Piekarz Pro');
+      376 |     expect(naPasie).not.toContain('Zaległe:');
+
+      at Object.toBeGreaterThan (src/__tests__/dzis-d4b.test.tsx:373:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/basic-pro-pa.test.tsx
+PASS tests/i18n-starter-safety-langs.test.tsx
+PASS src/__tests__/garnek-kciuk-fazy-w002.test.tsx
+PASS tests/check-data-tests.test.ts
+PASS src/__tests__/uprzedzenie-proby-ekran-126.test.tsx
+PASS src/__tests__/harmonogram-rytm-d7.test.tsx
+PASS src/__tests__/calculator-screen.test.tsx
+PASS src/__tests__/stolnica-dwa-wypieki-d3a.test.tsx
+PASS src/__tests__/stolnica-screen.test.tsx
+PASS src/__tests__/import-z-pliku-113.test.tsx
+PASS tests/duzy-tekst-kroj.test.ts
+PASS src/__tests__/plan-prowadzenie-karty-p4.test.tsx
+PASS src/__tests__/bramki-ekranow.test.tsx
+PASS src/__tests__/start-co-dzis.test.tsx
+PASS src/__tests__/dzis-kalendarz-d7.test.tsx
+PASS src/__tests__/blokada-czytelna-108.test.tsx
+PASS src/__tests__/plan-wersja-drozdzowa-p9b.test.tsx
+PASS src/__tests__/ekran-pro-pb.test.tsx
+PASS src/__tests__/harmonogram-plany-d5.test.tsx
+PASS src/__tests__/dostep-po-powrocie-144.test.tsx
+PASS src/__tests__/gratulacje-zakwasu-pb.test.tsx
+PASS src/__tests__/receptury-uklad-106.test.tsx
+PASS src/ui/__tests__/kroj-tytulow-jezyki-171.test.ts
+PASS src/__tests__/plan-spirala-058.test.tsx
+PASS src/__tests__/kalendarz-telefonu-d8.test.tsx
+PASS src/__tests__/receptura-maszyna-p9b2.test.tsx
+PASS src/__tests__/piecz-ponownie-recp003-146.test.tsx
+PASS src/lib/__tests__/miary-imperialne-35-096.test.ts
+PASS src/__tests__/finish-bake-doctor-suggestion.test.tsx
+PASS src/__tests__/import-bez-uprawnienia.test.tsx
+PASS src/__tests__/stolnica-dwie-instancje-d3a.test.tsx
+PASS src/__tests__/maszyna-p9b2f.test.tsx
+PASS tests/wstawki-angielskie-112.test.ts
+PASS tests/stolnica-jedna-instancja-p1.test.tsx
+PASS src/__tests__/zakwas-staly-dzien-d7.test.tsx
+PASS src/__tests__/pro-wznowienie-w2.test.tsx
+PASS tests/gitattributes.test.ts
+PASS src/__tests__/receptura-akcje-057.test.tsx
+PASS src/__tests__/czapka-ekranow-p7.test.tsx
+PASS src/__tests__/plan-z-lodowki-104.test.tsx
+PASS tests/matrix-invariants.test.ts
+PASS src/__tests__/bake-journal-no-guess.test.tsx
+PASS src/__tests__/dane-pokazowe-003.sqlite.test.tsx
+PASS src/__tests__/prosba-o-ocene-ekran.test.tsx
+FAIL src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx
+  ● kontrola bezpieczeństwa zakwasu bez zakupu (E-1) › Basic: karta zakwasu i zapis karmienia bez ekranu Pro, bez blokady całej karty („blokada-zakwas”) (D-113)
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not 1794027104866
+
+      128 |     await flush();
+      129 |     expect(tree!.root.findAllByType(PaywallModal).some((p) => p.props.visible === true)).toBe(false);
+    > 130 |     expect((await getStarters())[0]?.lastFedAt).not.toBe(przed);
+          |                                                     ^
+      131 |     alert.mockRestore();
+      132 |     act(() => tree!.unmount());
+      133 |   });
+
+      at Object.toBe (src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx:130:53)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/jeden-ekran-zakupu.test.tsx
+PASS src/data/__tests__/dokarmienie-jedna-droga-002.sqlite.test.ts
+PASS src/__tests__/dzis-powiadomienia-wylaczone-w2.test.tsx
+PASS src/__tests__/harmonogram-dzien-intl-f5.test.tsx
+PASS tests/ikona-ekran-startowy.test.ts
+PASS src/__tests__/ratunek-odczytu-187.sqlite.test.tsx
+PASS src/__tests__/plan-uklad-128.test.tsx
+FAIL src/__tests__/przypomnienia-karmienia-179.test.tsx
+  ● Przypomnienia o karmieniu, zegar 08:00 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793174400000
+    Received: 1793001600000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Przypomnienia o karmieniu, zegar 14:00 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793196000000
+    Received: 1793023200000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Przypomnienia o karmieniu, zegar 23:55 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793231700000
+    Received: 1793058900000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/data/__tests__/starter-feeding-ratio.sqlite.test.ts
+  ● baza z wydanego buildu 70fd81a › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu adfe1fa › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu b21c194 › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu ebd8471 › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/data/__tests__/migracja-d1-1014.sqlite.test.ts
+PASS src/components/__tests__/settings-modal.test.tsx
+PASS src/__tests__/pro-po-arkuszu-w005.test.tsx
+PASS src/__tests__/arkusz-dnia-otworz-n3.test.tsx
+PASS src/__tests__/kopia-planu-zyto-197.test.tsx
+PASS src/__tests__/usun-dwie-receptury-n1.sqlite.test.tsx
+FAIL src/__tests__/notifications-pending.test.tsx
+  ● Pending notifications follow the saved state (006) › import replaces reminders: new starters get them, removed ones lose them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+    - Array [
+    -   "piekarz.karmienie.stary.1",
+    - ]
+    + Array []
+
+      135 |     await saveStarter({ id: 'stary', name: 'Stary', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now });
+      136 |     await resyncNotifications();
+    > 137 |     expect(ids()).toEqual(['piekarz.karmienie.stary.1']);
+          |                   ^
+      138 |     const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
+      139 |     const tree = await mount(React.createElement(ImportRecepturySection));
+      140 |     await act(async () => {
+
+      at Object.toEqual (src/__tests__/notifications-pending.test.tsx:137:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/pas-zakladek-d10.test.tsx
+PASS src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx
+PASS src/__tests__/receptura-wersja-drozdzowa-p9b.test.tsx
+PASS tests/wstawki-wzorzec-112.test.ts
+PASS tests/teksty-glos-116.test.ts
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An update to ZakwasScreen inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14402:19
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14401:9)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12086:9)
+      at dispatchSetStateInternal (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6208:13)
+      at dispatchSetState (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6165:7)
+      at Timeout._onTimeout (src/hooks/useCofnijDokarmienie.ts:28:45)
+
+
+ReferenceError: You are trying to `import` a file after the Jest environment has been torn down. From src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx.
+
+      219 |             zDostepem={(akcja) => void akcja()}
+      220 |             blokadaGotowosci={blokada('gotowosc-zakwasu')}
+    > 221 |             zPro={moze('przypomnienia-zakwasu')}
+          |                                                 ^
+      222 |             onZmianaZakwasu={() => loadStarterData(starter.id)}
+      223 |           />
+      224 |         )}
+
+      at Object.require [as View] (node_modules/react-native/index.js:149:12)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:221:52)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+ReferenceError: You are trying to `import` a file after the Jest environment has been torn down. From src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx.
+
+      32 |   return (
+      33 |     <>
+    > 34 |       <ScrollView
+         |        ^
+      35 |         ref={przewijanieRef}
+      36 |         style={style}
+      37 |         contentContainerStyle={contentContainerStyle}
+
+      at Object.require [as ScrollView] (node_modules/react-native/index.js:110:12)
+      at ScrollView (src/components/nawigacja/EkranZPasem.tsx:34:8)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <EkranZPasem> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+PASS src/components/__tests__/licencje-ekran-z081.test.tsx
+
+ReferenceError: You are trying to `import` a file after the Jest environment has been torn down. From src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx.
+
+       96 |       return () => {
+       97 |         ekranyZPasem = Math.max(0, ekranyZPasem - 1);
+    >  98 |         if (ekranyZPasem === 0) StatusBar.setBarStyle('default', true);
+          |                                 ^
+       99 |       };
+      100 |     }, [])
+      101 |   );
+
+      at Object.require [as StatusBar] (node_modules/react-native/index.js:116:12)
+      at StatusBar (src/components/nawigacja/PasZakladki.tsx:98:33)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15767:13)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitHookEffectListUnmount (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9597:17)
+      at commitHookPassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9628:11)
+      at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11939:13)
+      at recursivelyTraversePassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11760:13)
+      at commitPassiveUnmountOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11802:11)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14082:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performSyncWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2923:7)
+      at flushSyncWorkAcrossRoots_impl (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2764:21)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14128:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+PASS src/__tests__/prowadzenie-teksty-114.test.tsx
+PASS src/__tests__/piecz-ponownie-id-d3a.test.tsx
+PASS src/__tests__/zakwasy-karty-p2.test.tsx
+PASS src/__tests__/receptury-karty-p3.test.tsx
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An update to ZakwasScreen inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14402:19
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14401:9)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12086:9)
+      at dispatchSetStateInternal (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6208:13)
+      at dispatchSetState (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6165:7)
+      at Timeout._onTimeout (src/hooks/useCofnijDokarmienie.ts:28:45)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12253:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+PASS src/__tests__/doktor-screen.test.tsx
+PASS src/__tests__/zakwas-narzedzia-basic-pb2.test.tsx
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An update to ZakwasScreen inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14402:19
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14401:9)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12086:9)
+      at dispatchSetStateInternal (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6208:13)
+      at dispatchSetState (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6165:7)
+      at Timeout._onTimeout (src/hooks/useCofnijDokarmienie.ts:28:45)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An update to ZakwasScreen inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14402:19
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14401:9)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12086:9)
+      at dispatchSetStateInternal (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6208:13)
+      at dispatchSetState (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6165:7)
+      at Timeout._onTimeout (src/hooks/useCofnijDokarmienie.ts:28:45)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12253:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+    > 22 |   originalError(...args);
+         |   ^
+      23 | };
+      24 |
+      25 | beforeEach(() => {
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.originalError [as error] (jest.app-after-env.js:22:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12253:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+ReferenceError: You are trying to `import` a file after the Jest environment has been torn down. From src/__tests__/przypomnienia-karmienia-179.test.tsx.
+
+       96 |       return () => {
+       97 |         ekranyZPasem = Math.max(0, ekranyZPasem - 1);
+    >  98 |         if (ekranyZPasem === 0) StatusBar.setBarStyle('default', true);
+          |                                 ^
+       99 |       };
+      100 |     }, [])
+      101 |   );
+
+      at Object.require [as StatusBar] (node_modules/react-native/index.js:116:12)
+      at StatusBar (src/components/nawigacja/PasZakladki.tsx:98:33)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15767:13)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitHookEffectListUnmount (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9597:17)
+      at commitHookPassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9628:11)
+      at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11939:13)
+      at recursivelyTraversePassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11760:13)
+      at commitPassiveUnmountOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11802:11)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14082:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performSyncWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2923:7)
+      at flushSyncWorkAcrossRoots_impl (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2764:21)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14128:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+PASS src/__tests__/dwie-stolnice-p1.sqlite.test.tsx
+PASS src/__tests__/skaner-qr-brak-modulu.test.tsx
+PASS src/__tests__/zapis-sesji-wypieku-120.sqlite.test.tsx
+FAIL src/__tests__/zakwas-feeding-ratio.test.tsx
+  ● proporcja dokarmiania na ekranie Zakwas › zapisuje wybraną proporcję przy dokarmieniu i predyktor używa jej po ponownym otwarciu
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      54 |     await pressByText(tree, '1:5:5');
+      55 |     await pressByText(tree, 'Zapisz dokarmienie');
+    > 56 |     expect((await getStarters())[0].feedingRatio).toBe('1:5:5');
+         |                                                   ^
+      57 |     act(() => tree.unmount());
+      58 |
+      59 |     spy.mockClear();
+
+      at Object.toBe (src/__tests__/zakwas-feeding-ratio.test.tsx:56:51)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/components/receptury/__tests__/DoMiski-suma-040.test.tsx
+PASS tests/metadane-sklepu.test.ts
+PASS src/lib/__tests__/plan-bez-nocy.test.ts
+PASS src/__tests__/calculator-thermal-warning.test.tsx
+PASS src/__tests__/temperatura-wody-kalk004-146.test.tsx
+PASS src/__tests__/dane-przykladowe-087.test.tsx
+PASS src/__tests__/wejscia-pozniej.test.tsx
+PASS tests/zrodla-poza-ekranem-t2.test.ts
+PASS src/__tests__/start-aplikacji-p11.test.tsx
+PASS src/__tests__/temperatura-kuchni-plan-d4.test.tsx
+PASS src/__tests__/prowadzenie-056.test.tsx
+PASS src/__tests__/pro-po-arkuszu-n2.test.tsx
+PASS src/__tests__/usun-recepture-cofnij-161.test.tsx
+PASS tests/i18n-en-main-flow.test.tsx
+PASS src/__tests__/stolnica-restart.test.tsx
+PASS src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx
+PASS src/__tests__/doktor-objawy-p5b.test.tsx
+PASS src/__tests__/zapis-drozdzy-d2.sqlite.test.tsx
+PASS src/__tests__/finish-bake-atomic.test.tsx
+FAIL src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+  ● M1-audytor-generalny-001: jedna kolejka zapisów › dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "app_settings": 0,
+        "bakes": 2,
+    -   "starter_entries": 2,
+    +   "starter_entries": 0,
+        "starters": 3,
+      }
+
+      82 |     ]);
+      83 |     expect(wyniki.map((w) => w.status)).toEqual(['fulfilled', 'fulfilled']);
+    > 84 |     expect(liczności()).toEqual({ ...przed, starters: przed.starters + 2, starter_entries: przed.starter_entries + 2 });
+         |                         ^
+      85 |   });
+      86 |
+      87 |   it('ustawienie zapisane w trakcie nieudanego importu nie ginie z jego wycofaniem', async () => {
+
+      at Object.toEqual (src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts:84:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/lib/__tests__/miary-parametry-213.test.ts
+PASS src/__tests__/plan-uklad-128b.test.tsx
+PASS tests/public-repo.test.ts
+PASS src/__tests__/druk-menu.test.tsx
+PASS src/__tests__/ratunek-prowadzenie-d3a.test.tsx
+PASS tests/matrix-a11y.test.tsx
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An update to ZakwasScreen inside a test was not wrapped in act(...).
+
+    When testing, code that causes React state updates should be wrapped into act(...):
+
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act".
+
+      17 |       actWarnings.push(text.split('\n')[0].replace('%s', String(args[1] ?? '')));
+      18 |     }
+    > 19 |   } else {
+         |   ^
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+      22 |   originalError(...args);
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.Object.<anonymous>.console.error (jest.app-after-env.js:19:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14402:19
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14401:9)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12086:9)
+      at dispatchSetStateInternal (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6208:13)
+      at dispatchSetState (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6165:7)
+      at Timeout._onTimeout (src/hooks/useCofnijDokarmienie.ts:28:45)
+
+PASS tests/sieroty-slownikow-p13a.test.ts
+PASS tests/slownik-akcji.test.ts
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      17 |       actWarnings.push(text.split('\n')[0].replace('%s', String(args[1] ?? '')));
+      18 |     }
+    > 19 |   } else {
+         |   ^
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+      22 |   originalError(...args);
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.Object.<anonymous>.console.error (jest.app-after-env.js:19:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12181:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+    1. You might have mismatching versions of React and the renderer (such as React DOM)
+    2. You might be breaking the Rules of Hooks
+    3. You might have more than one copy of React in the same app
+    See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.".
+
+      17 |       actWarnings.push(text.split('\n')[0].replace('%s', String(args[1] ?? '')));
+      18 |     }
+    > 19 |   } else {
+         |   ^
+      20 |     consoleErrors.push(args.map((a) => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' '));
+      21 |   }
+      22 |   originalError(...args);
+
+      at console.error (node_modules/@jest/console/build/BufferedConsole.js:127:10)
+      at console.Object.<anonymous>.console.error (jest.app-after-env.js:19:3)
+      at resolveDispatcher (node_modules/react/cjs/react.development.js:518:17)
+      at Object.<anonymous>.process.env.NODE_ENV.exports.useEffect (node_modules/react/cjs/react.development.js:1225:14)
+      at useEffect (jest.setup.js:218:11)
+      at usePasekStanuJasny (src/components/nawigacja/PasZakladki.tsx:92:17)
+      at ZakwasScreen (/home/user/piekarz/app/(tabs)../../../zakwasy/index.tsx:65:21)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15670:20)
+      at renderWithHooks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4863:22)
+      at updateFunctionComponent (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7018:19)
+      at beginWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:8499:18)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at performUnitOfWork (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13224:22)
+      at workLoopSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13068:41)
+      at renderRootSync (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13049:11)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12253:39)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2908:7)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+
+ReferenceError: You are trying to `import` a file after the Jest environment has been torn down. From src/__tests__/zakwas-feeding-ratio.test.tsx.
+
+       96 |       return () => {
+       97 |         ekranyZPasem = Math.max(0, ekranyZPasem - 1);
+    >  98 |         if (ekranyZPasem === 0) StatusBar.setBarStyle('default', true);
+          |                                 ^
+       99 |       };
+      100 |     }, [])
+      101 |   );
+
+      at Object.require [as StatusBar] (node_modules/react-native/index.js:116:12)
+      at StatusBar (src/components/nawigacja/PasZakladki.tsx:98:33)
+      at Object.react_stack_bottom_frame (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15767:13)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitHookEffectListUnmount (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9597:17)
+      at commitHookPassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:9628:11)
+      at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11939:13)
+      at recursivelyTraversePassiveUnmountEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11760:13)
+      at commitPassiveUnmountOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11802:11)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14082:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+  ●  Cannot log after tests are done. Did you forget to wait for something async in your test?
+    Attempted to log "An error occurred in the <ZakwasScreen> component.
+
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+    ".
+
+      at console.warn (node_modules/@jest/console/build/BufferedConsole.js:191:10)
+      at defaultOnUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6400:15)
+      at logUncaughtError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6460:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at lane.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6490:9)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4625:16)
+      at commitCallbacks (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:4645:11)
+      at runWithFiberInDEV (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2315:13)
+      at commitLayoutEffectOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10103:15)
+      at flushLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13774:15)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13697:9)
+      at commitRootWhenReady (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12444:7)
+      at performWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:12391:15)
+      at performSyncWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2923:7)
+      at flushSyncWorkAcrossRoots_impl (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2764:21)
+      at flushPendingEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14128:11)
+      at performWorkOnRootViaSchedulerTask (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2896:11)
+      at Immediate.performWorkUntilDeadline [as _onImmediate] (node_modules/react-test-renderer/node_modules/scheduler/cjs/scheduler.native.development.js:45:48)
+
+PASS src/__tests__/przywracanie-zakupow.test.tsx
+PASS src/__tests__/start-wypieku-teraz-d5.test.tsx
+PASS src/__tests__/delete-after-trial.test.tsx
+PASS src/__tests__/godziny-snu-130.test.tsx
+PASS src/components/__tests__/zrodla-wiedzy-t2.test.tsx
+FAIL src/__tests__/dzis-zrobione-d4b.test.tsx
+  ● D4b: „Zrobione” przy zaległym karmieniu (SQLite) › BR-KAL-003 Zrobione: zapis dokarmienia z godziną teraz, „Zaległe” znika, „Przywróć” cofa wpis; BR-KAL-007 bez zmiany user_version
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Zaległe: karmienie zakwasu Żytni \(\d\d:\d\d\)/
+    Received string:  "Co dziś robisz? | 19–25 października | Miesiąc | środa, 21 października, dziś | Nic w planach | Pokaż cały tydzień | Środa, 21 października | Zakładam zakwas | Piekę na zakwasie | Piekę na drożdżach albo pizzę | Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz."
+
+      89 |     });
+      90 |     await flush();
+    > 91 |     expect(teksty(tree.root)).toMatch(/Zaległe: karmienie zakwasu Żytni \(\d\d:\d\d\)/);
+         |                               ^
+      92 |     const [zrobione] = przycisk(tree.root, (id) => id.startsWith('zalegle-zrobione-'));
+      93 |     expect(zrobione.props.accessibilityLabel).toMatch(/^karmienie zakwasu Żytni z \d\d:\d\d: zrobione$/);
+      94 |     await act(async () => zrobione.props.onPress());
+
+      at Object.toMatch (src/__tests__/dzis-zrobione-d4b.test.tsx:91:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D4b: „Zrobione” przy zaległym karmieniu (SQLite) › BR-KAL-010 Karmienie w inny dzień z „Dziś”: „Zrobione” przy zaległym stałym dniu pyta „Zostaw / Licz od”, „Licz od” zapisuje dzień dokarmienia [M3 D7]
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      120 |     await flush();
+      121 |     const [zrobione] = przycisk(tree.root, (id) => id.startsWith('zalegle-zrobione-'));
+    > 122 |     expect(zrobione).toBeDefined();
+          |                      ^
+      123 |     await act(async () => zrobione.props.onPress());
+      124 |     await flush();
+      125 |     const pytanie = alertSpy.mock.calls.find((c) => c[0] === 'Stały dzień karmienia');
+
+      at Object.toBeDefined (src/__tests__/dzis-zrobione-d4b.test.tsx:122:22)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/ustawienia-karty-p5.test.tsx
+PASS src/__tests__/po-co-ten-krok-100.test.tsx
+PASS src/__tests__/plan-bez-zakwasu-d3.test.tsx
+PASS src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts
+PASS src/__tests__/zakwasy-bez-statystyk-111.test.tsx
+PASS src/__tests__/prowadzenie-102.test.tsx
+PASS src/__tests__/zyto-bez-lodowki-d7.test.tsx
+PASS src/data/__tests__/wypieki-per-id-d3a.sqlite.test.ts
+PASS src/__tests__/ostrzezenia-krokow-103.test.tsx
+PASS src/__tests__/br-scenariusze-193-start-zakwas.test.tsx
+PASS tests/voiceover-role-etykiety.test.ts
+PASS tests/stolnica-naglowek-prz07.test.tsx
+PASS tests/jest-config.test.ts
+PASS src/__tests__/zyto-rozrost-zrodlo-d7.test.tsx
+PASS src/data/__tests__/d1b-przeglad-danych.sqlite.test.ts
+PASS src/__tests__/stolnica-zgoda-130.test.tsx
+PASS src/__tests__/stolnica-noc-130.test.tsx
+PASS src/__tests__/odrzucic-zmiany-p7.test.tsx
+PASS src/__tests__/gotowe-wszedzie-n4.test.tsx
+PASS src/__tests__/piecz-ponownie-wersja-p9b.test.tsx
+PASS src/__tests__/stolnica-przelacznik-poza-przewijaniem-e2e90.test.tsx
+PASS src/lib/__tests__/plural-intl.test.ts
+PASS src/__tests__/katalog-ekrany-p8.test.tsx
+PASS src/__tests__/do-miski-receptura.test.tsx
+PASS src/components/__tests__/import-recipe-modal.test.tsx
+PASS src/__tests__/teksty-116.test.tsx
+PASS tests/nawigacja-d051.test.tsx
+PASS src/data/__tests__/kalendarz-d4a.sqlite.test.ts
+PASS src/__tests__/podwojny-zapis-oceny-d11.test.tsx
+PASS src/__tests__/br-scenariusze-193-plan.test.tsx
+PASS src/__tests__/stolnica-skladniki-130.test.tsx
+PASS src/__tests__/pas-plan-prowadzenie-p4b.test.tsx
+PASS src/data/__tests__/starter-entries-v5-migration.sqlite.test.ts
+PASS src/data/__tests__/p9a-migracja-v7-czerwone.sqlite.test.ts
+PASS src/__tests__/przeplywy-117.test.tsx
+PASS src/__tests__/kopia-receptury-bez-straty-199.test.tsx
+PASS src/__tests__/puste-pole-masy-d1.test.tsx
+PASS src/data/__tests__/starter-entries-backup.sqlite.test.ts
+PASS src/__tests__/receptura-podtytul-pasa-p6b.test.tsx
+PASS src/__tests__/gotowe-dzien-151.test.tsx
+PASS src/__tests__/skok-kroku-d8.test.tsx
+PASS src/__tests__/suma-mak-150.test.tsx
+PASS src/components/__tests__/paywall-modal.test.tsx
+PASS src/__tests__/receptura-zyto-drozdze-pieczenie-d256.test.tsx
+PASS src/data/__tests__/sqlite-migration.test.ts
+PASS src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx
+PASS src/__tests__/arkusze-karty-p7.test.tsx
+PASS src/lib/__tests__/format-intl.test.ts
+PASS src/components/__tests__/oferta-piekarz-pro-127.test.tsx
+PASS src/data/__tests__/baza-nowsza.sqlite.test.ts
+PASS src/components/__tests__/flour-blend-modal.test.tsx
+PASS src/lib/__tests__/i18n-kontekst.test.ts
+PASS src/__tests__/prowadzenie-numer-kroku-p6b.test.tsx
+PASS src/__tests__/arkusz-oceny-przewijanie-w001.test.tsx
+PASS tests/app-locales-permissions.test.ts
+PASS src/__tests__/stolnica-przeglad-d4b.test.tsx
+FAIL src/__tests__/storage-write-failure-screen.test.tsx
+  ● Write failure is visible on screen (003) › Zakwas: logging a feeding on a full disk shows "Nie zapisano" and not the success message
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1700000000000
+    Received: undefined
+
+      85 |     expect(titles).not.toContain('Dokarmiono zakwas');
+      86 |     control().failWrites = false;
+    > 87 |     expect((await getStarters()).find((s) => s.id === 'starter_user_1')?.lastFedAt).toBe(1700000000000);
+         |                                                                                     ^
+      88 |     act(() => tree!.unmount());
+      89 |     alert.mockRestore();
+      90 |   });
+
+      at Object.toBe (src/__tests__/storage-write-failure-screen.test.tsx:87:85)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/stolnica-keep-awake.test.tsx
+PASS src/data/__tests__/eksport-ustawien-139.sqlite.test.ts
+PASS src/components/__tests__/bread-academy-modal.test.tsx
+PASS tests/pasek-zakladek-receptura-106.test.tsx
+PASS src/__tests__/share-no-foreign-domain.test.tsx
+PASS src/data/__tests__/p9b2-metoda-wypieku.sqlite.test.ts
+PASS src/core/__tests__/zaczyny-131.test.ts
+PASS src/core/__tests__/bakers-corpus.test.ts
+PASS src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx
+PASS src/__tests__/br-kalk-130-reszta.test.tsx
+PASS src/components/__tests__/flour-inventory-chip-452.test.tsx
+PASS src/data/__tests__/starter-entries-fk.sqlite.test.ts
+PASS src/lib/__tests__/kopia-planu-p13a.test.ts
+PASS src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts
+PASS src/components/__tests__/flour-inventory-modal.test.tsx
+PASS src/data/__tests__/row-validation.sqlite.test.tsx
+PASS src/__tests__/doktor-kolejnosc-p7.test.tsx
+PASS src/components/__tests__/starter-converter-modal.test.tsx
+PASS src/data/__tests__/flour-inventory-backup.sqlite.test.ts
+PASS src/__tests__/dziennik-usun-przywroc-w2.test.tsx
+PASS tests/protokoly-pozniej-032.test.tsx
+PASS src/__tests__/dziennik-karty-p5.test.tsx
+PASS src/__tests__/dziennik-recp003-146.test.tsx
+PASS src/components/__tests__/share-recipe-qr-modal.test.tsx
+PASS src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx
+PASS src/__tests__/dziennik-wpis-d7.test.tsx
+PASS src/data/__tests__/p9b-wersja-wypieku.sqlite.test.ts
+PASS tests/e2e-ios-workflow.test.ts
+PASS src/__tests__/jezyk-powiadomienia-n10.test.tsx
+PASS tests/licencje-dane.test.ts
+PASS src/data/__tests__/kopia-przed-importem-dziennik.sqlite.test.tsx
+PASS src/lib/__tests__/app-access.test.ts
+PASS tests/close-button-guard.test.tsx
+PASS src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx
+PASS src/__tests__/piecz-ponownie-d10.test.tsx
+PASS src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx
+PASS src/__tests__/dziennik-data-ocena-p6b.test.tsx
+PASS src/components/__tests__/target-ready-dni-prz10.test.tsx
+PASS src/__tests__/pro-pas-p5b.test.tsx
+PASS src/data/__tests__/plany-d5.sqlite.test.ts
+PASS src/components/__tests__/flour-inventory-chip-164.test.tsx
+PASS src/__tests__/stolnica-ostrzezenie-pokrywki.test.tsx
+PASS tests/build-config.test.ts
+PASS src/components/__tests__/ustawienia-bez-stylu.test.tsx
+PASS src/__tests__/doktor-pas-p5.test.tsx
+PASS src/__tests__/ustawienia-jezyk-jednostki-p6b.test.tsx
+PASS tests/czeka-na-przeklad-093.test.ts
+PASS tests/instrukcja-ustawien.test.ts
+PASS tests/przeklad-a5d.test.ts
+PASS src/__tests__/startup-rescue.test.tsx
+PASS src/core/__tests__/flour-atlas-typy.test.ts
+PASS src/data/__tests__/starter-entry-edit.sqlite.test.ts
+PASS src/data/__tests__/p9a-baza-1021.sqlite.test.ts
+PASS src/lib/__tests__/bialko-procent-f8.test.ts
+PASS src/core/__tests__/preferments.test.ts
+PASS src/__tests__/pogrubiony-tekst-158.test.tsx
+PASS src/components/__tests__/discard-recipes-modal.test.tsx
+PASS src/core/__tests__/starter-one-peak-model.test.ts
+PASS src/data/__tests__/baza-1014-fixture.sqlite.test.ts
+PASS tests/osiagalnosc-149.test.ts
+PASS src/lib/__tests__/spirala-geometria.test.ts
+PASS src/components/receptury/__tests__/DoMiski.test.tsx
+PASS tests/kontakt-przeklad-f1.test.ts
+PASS tests/z3-teksty-jezyka-093.test.tsx
+PASS src/__tests__/gotowe-dwie-godziny-w2.test.tsx
+PASS tests/etykiety-pol-g7.test.ts
+PASS src/lib/__tests__/i18n-persist-detect.test.ts
+PASS src/components/__tests__/flour-equivalents-modal.test.tsx
+PASS src/components/receptury/__tests__/drozdze-procent-d14.test.tsx
+PASS src/data/__tests__/blad-odczytu-ustawien-b8.sqlite.test.ts
+PASS src/lib/__tests__/i18n-35-jezykow.test.ts
+PASS src/data/__tests__/pre-migration-backup.sqlite.test.ts
+PASS src/data/__tests__/platnosci-pamiec.sqlite.test.ts
+PASS src/data/__tests__/testflight-migration.sqlite.test.ts
+PASS src/ui/__tests__/kontrast-motywu.test.ts
+PASS src/components/__tests__/o-recepturze-minuty-f4.test.tsx
+PASS src/__tests__/czas-ax5-201.test.tsx
+PASS src/scheduler/__tests__/reverse-scheduler-dst-new-york.test.ts
+PASS src/components/__tests__/volume-converter-modal.test.tsx
+PASS src/__tests__/zakwas-zostawiam-130.test.tsx
+PASS src/core/__tests__/porada-zytnia-134.test.ts
+PASS src/components/__tests__/o-recepturze-zyto-drozdze-d256.test.tsx
+PASS src/__tests__/maki-opis-ogolny-094.test.tsx
+PASS src/__tests__/eksport-csv-bom-152.test.tsx
+PASS src/lib/__tests__/recipe-formatter-en.test.ts
+PASS src/data/__tests__/p9b-wybory.sqlite.test.ts
+PASS tests/teksty-sklepu.test.ts
+PASS tests/przeklad-a5.test.ts
+PASS src/components/calculator/__tests__/TemperaturaWodySheet.test.tsx
+PASS src/components/receptury/__tests__/do-miski-podpis-p6b.test.tsx
+PASS src/__tests__/eksport-awaryjny-123.sqlite.test.tsx
+FAIL src/data/__tests__/write-failure.sqlite.test.ts
+  ● Failed writes are reported, not hidden (003) › with a full disk every user-data write rejects, memory does not pretend, and earlier data survives a restart (BR-RECP-002 Przerwany zapis)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1700000000000
+    Received: undefined
+
+      58 |
+      59 |     // W tej samej sesji ekran nie widzi niezapisanych zmian
+    > 60 |     expect((await first.store.getStarters()).find((s) => s.id === starter.id)?.lastFedAt).toBe(1700000000000);
+         |                                                                                           ^
+      61 |     expect(await first.store.getBakeLogs()).toEqual([]);
+      62 |
+      63 |     control().failWrites = false;
+
+      at Object.toBe (src/data/__tests__/write-failure.sqlite.test.ts:60:91)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/__tests__/tytul-ostrzezenia-109.test.tsx
+PASS src/components/__tests__/dziennik-metoda-p9b2f.test.tsx
+PASS src/__tests__/karta-dokarmienia-160.test.tsx
+PASS tests/interaction-guards.test.ts
+PASS tests/zrzuty-sklepu.test.ts
+PASS src/components/__tests__/spirala.test.tsx
+PASS src/components/__tests__/czas-lodowki-f4.test.tsx
+PASS src/components/__tests__/oferta-ax5-200.test.tsx
+PASS src/components/__tests__/starter-hooch-advice.test.tsx
+PASS src/core/__tests__/flour-equivalents.test.ts
+PASS src/components/__tests__/starter-safety-contrast.test.tsx
+PASS src/lib/__tests__/wartosci-domeny-093.test.ts
+PASS src/data/__tests__/auto-backup.sqlite.test.ts
+PASS src/lib/__tests__/zakwas-dni-liczba-mnoga-071.test.ts
+PASS src/doctor/__tests__/ddt-fahrenheit-208.test.ts
+PASS src/__tests__/kontakt-ukryty.test.tsx
+PASS src/components/__tests__/okno-szczytu-intl-f2.test.tsx
+PASS tests/matrix-dimensions.test.tsx
+PASS src/components/__tests__/bake-history-wykres-prz42.test.tsx
+PASS src/__tests__/voiceover-jezyk-170.test.tsx
+PASS tests/martwe-klucze-oferty-203.test.ts
+PASS src/data/__tests__/sqlite-store.test.ts
+PASS src/data/__tests__/p9b2f-ratunek-zapis.sqlite.test.ts
+PASS src/data/__tests__/p9b2-dane-maszyny.sqlite.test.ts
+PASS src/scheduler/__tests__/reverse-scheduler-dst.test.ts
+PASS src/core/__tests__/baking-physics-corpus.test.ts
+PASS src/__tests__/kontakt-z-adresem.test.tsx
+PASS tests/repo-sekrety.test.ts
+PASS src/__tests__/ogloszenie-kroku-g1.test.tsx
+PASS tests/matrix-logic.test.ts
+PASS tests/audit-fixes.test.tsx
+PASS src/lib/__tests__/sr-latinica-t-f11.test.ts
+PASS src/components/__tests__/okno-pelnoekranowe-obszar.test.tsx
+PASS tests/br-kryteria-067.test.tsx
+PASS src/__tests__/polityka-offline-ust003.test.tsx
+PASS tests/zaleznosci.test.ts
+FAIL src/data/__tests__/staly-dzien-d7.sqlite.test.ts
+  ● D7: stały dzień karmienia w saveStarter (node:sqlite) › BR-KAL-010 zapis dnia, zmiana, brak pola bez zmian, null czyści; wpisy zakwasu nietknięte; restart czyta dzień
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      31 |     const przed = kolumny();
+      32 |     expect(przed.r).toEqual({ d: null, m: null });
+    > 33 |     expect(przed.wpisy).toHaveLength(1);
+         |                         ^
+      34 |
+      35 |     await app.store.saveStarter(zakwas({ fridgeFeedDay: { weekday: 7, minuteOfDay: 600 } }));
+      36 |     expect(kolumny().r).toEqual({ d: 7, m: 600 });
+
+      at Object.toHaveLength (src/data/__tests__/staly-dzien-d7.sqlite.test.ts:33:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+PASS src/lib/__tests__/sr-latinica-f11.test.ts
+PASS src/__tests__/ocen-w-app-store-link.test.tsx
+PASS tests/wzrost-hipotezy.test.ts
+PASS src/lib/__tests__/notifications.test.tsx
+PASS tests/public-links.test.tsx
+PASS tests/kolory-poza-motywem.test.ts
+PASS src/lib/__tests__/data-planu-intl-f3.test.ts
+PASS src/components/__tests__/NumInput.test.tsx
+PASS src/lib/__tests__/recipe-sharing.test.ts
+PASS src/lib/__tests__/platnosci-start-c3-c6-c7.test.ts
+PASS src/__tests__/dzis-karty-p7.test.tsx
+PASS tests/zrodla-katalogu-06z.test.ts
+PASS src/lib/__tests__/platnosci-hook.test.tsx
+PASS src/lib/__tests__/miary-usa-096.test.ts
+PASS src/components/calculator/__tests__/bialko-ukryte-e7.test.tsx
+PASS src/components/__tests__/sensory-radar-chart.test.tsx
+PASS tests/kolejka-zapisow-tx.test.ts
+PASS src/scheduler/__tests__/reverse-scheduler-exhaustive.test.ts
+PASS src/data/__tests__/bake-session-store.sqlite.test.ts
+PASS src/data/__tests__/suma-mak-import-n8.sqlite.test.ts
+PASS src/lib/__tests__/platnosci-stan.test.ts
+PASS src/data/__tests__/sqlite-resilience-exhaustive.test.ts
+PASS src/components/calculator/__tests__/brak-lodu.test.tsx
+PASS src/lib/__tests__/recipe-formatter-tekst-172.test.ts
+PASS src/lib/__tests__/wektory-dostepu-pa.test.ts
+PASS src/__tests__/kontakt-adres-wsparcia.test.tsx
+PASS src/data/__tests__/restore.sqlite.test.ts
+PASS src/core/__tests__/flour-atlas-ogolne.test.ts
+PASS src/lib/__tests__/feeding-formatter.test.ts
+PASS src/lib/__tests__/zakwas-widok.test.tsx
+PASS tests/pasek-zakladek.test.tsx
+PASS src/lib/__tests__/schedule-formatter.test.ts
+PASS src/components/__tests__/karta-lodowki-503.test.tsx
+PASS src/lib/__tests__/recipe-formatter.test.ts
+PASS src/doctor/__tests__/temperatura-zyta-e4.test.ts
+PASS src/__tests__/import-jezyk-jednostki-502.test.ts
+PASS src/components/__tests__/zakupy-section-prz33.test.tsx
+PASS src/core/__tests__/fridge-wake-plan.test.ts
+PASS src/lib/__tests__/plany-akcje-d5.test.ts
+PASS src/lib/__tests__/kopia-dokarmienia-n5.test.ts
+PASS tests/retired-safety-verdicts.test.ts
+PASS src/__tests__/powiadomienia-dwa-wypieki-d2.test.ts
+PASS src/lib/__tests__/plan-do-kopii-197.test.ts
+PASS src/data/__tests__/jedno-zrodlo-schematu.test.ts
+PASS src/__tests__/ratunek-limit-141.test.ts
+PASS src/__tests__/tresci-069.test.ts
+PASS src/lib/__tests__/plan-maszyny-p9b2.test.ts
+PASS src/data/__tests__/flour-store.sqlite.test.ts
+PASS src/data/__tests__/sesje-do-pokazania-d3a.test.ts
+PASS src/components/__tests__/spirala-tory-d4b.test.tsx
+PASS src/__tests__/zakwas-karta-pusta-115.test.tsx
+PASS src/lib/__tests__/kalendarz-widok-d7.test.ts
+PASS src/data/__tests__/kroki-drozdzowe-sesji-p9b.test.ts
+PASS src/lib/__tests__/godzina-przyimek.test.ts
+PASS tests/matrix-ui-text.test.tsx
+PASS src/core/__tests__/starter-converter.test.ts
+PASS src/lib/__tests__/nazwy-pro-pb.test.ts
+PASS src/lib/__tests__/kalendarz-akcje-d4b.test.ts
+PASS src/components/__tests__/licencje-blad-z081.test.tsx
+PASS src/lib/__tests__/unit-converter.test.ts
+PASS src/recipes/__tests__/presets.test.ts
+PASS src/__tests__/baza-nowsza-ekran.test.tsx
+PASS src/__tests__/kalendarz-wiersz-ax5-w004.test.tsx
+PASS src/components/__tests__/qr-scanner-modal.test.tsx
+PASS src/lib/__tests__/nazwa-receptury.test.tsx
+PASS tests/rejestr-decyzji-196.test.ts
+PASS src/lib/__tests__/jezyki-rejestr.test.tsx
+PASS tests/oferta-dokumenty.test.ts
+PASS src/components/__tests__/piekarnik-d6.test.tsx
+PASS src/ui/__tests__/karty-p1.test.tsx
+PASS src/__tests__/pas-duzy-tekst-w2.test.tsx
+PASS src/__tests__/ratunek-plikow-bazy-122.sqlite.test.tsx
+PASS src/core/__tests__/bake-steps.test.ts
+PASS tests/crust-odmiana-f6.test.ts
+PASS src/core/__tests__/domain-math-exhaustive.test.ts
+PASS src/core/__tests__/maszyna-rd37-39.test.ts
+PASS tests/store-metadata.test.ts
+PASS src/core/__tests__/bake-statistics.test.ts
+PASS src/__tests__/pas-tytul-skala-w003.test.tsx
+PASS src/lib/__tests__/diagnosis-formatter.test.ts
+PASS src/components/__tests__/qr-code-svg.test.tsx
+PASS src/__tests__/plan-za-pozno-ios-g8.test.tsx
+PASS tests/nawigacja-jezyk-093.test.tsx
+PASS src/components/__tests__/pasek-cofnij-czytnik-b9.test.tsx
+PASS src/core/__tests__/kalendarz-d4a.test.ts
+PASS tests/bledy-mt-f7.test.ts
+PASS src/recipes/__tests__/katalog-m3-p8.test.ts
+PASS src/core/__tests__/plan-ics-d8.test.ts
+PASS src/lib/__tests__/spirala-tory-d4b.test.ts
+PASS src/lib/__tests__/kalendarz-telefonu-d8.test.ts
+PASS src/lib/__tests__/backup.test.ts
+PASS src/ui/__tests__/naglowek-wariant-a1.test.tsx
+PASS src/core/__tests__/starter-peak-predictor.test.ts
+PASS src/__tests__/os-czasu-duzy-tekst-g5.test.tsx
+PASS src/core/__tests__/starter-metabolic-exhaustive.test.ts
+PASS src/core/__tests__/inventory.test.ts
+PASS src/lib/__tests__/corrupt-rescue.test.tsx
+PASS src/recipes/__tests__/discard-recipes.test.ts
+PASS src/core/__tests__/volume-converter.test.ts
+PASS src/core/__tests__/step-confirm.test.ts
+PASS tests/czasy-skroty-162.test.ts
+PASS src/core/__tests__/bake-loss.test.ts
+PASS src/lib/__tests__/pdf-sheet-generator.test.ts
+PASS src/core/__tests__/bread-school.test.ts
+PASS src/__tests__/w-fix-p2-m3.test.tsx
+PASS src/core/__tests__/nazwy-mak-presets-451.test.ts
+PASS src/components/doktor/__tests__/objaw-gumowaty-148.test.ts
+PASS src/guards/__tests__/interaction-guards.test.ts
+PASS src/core/__tests__/dzien-lokalny.test.ts
+PASS src/ui/__tests__/theme-contrast.test.ts
+PASS src/core/__tests__/bake-steps-zyto-plan.test.ts
+PASS src/doctor/__tests__/doktor-tresci-133.test.ts
+PASS src/core/__tests__/starter-setup.test.ts
+PASS tests/i18n-en-ui-texts.test.ts
+PASS src/core/__tests__/sourdough-safety-vectors.test.ts
+PASS src/core/__tests__/baking-techniques.test.ts
+PASS src/lib/__tests__/teksty-bez-klucza-147.test.ts
+PASS tests/fontsize-tokeny-159.test.ts
+PASS src/core/__tests__/pominiecia-d4a.test.ts
+PASS src/core/__tests__/karmienie-lodowka-dst.test.ts
+PASS src/lib/__tests__/kalendarz-teksty-d4a.test.ts
+PASS src/core/__tests__/plany-d5.test.ts
+PASS src/__tests__/podpisy-zakladek-g9.test.tsx
+PASS src/core/__tests__/powiadomienia-wypiekow-d2.test.ts
+PASS src/core/__tests__/domain-error-branches.test.ts
+PASS src/data/__tests__/kolejka-zapisow.test.ts
+PASS src/ui/__tests__/motyw.test.tsx
+PASS src/recipes/__tests__/dodatki-maszyny-06m.test.ts
+PASS src/lib/__tests__/nazwa-maki-mieszanki.test.ts
+PASS src/lib/__tests__/dzien-data-intl-f5.test.ts
+PASS src/core/__tests__/zaczyn-w-formule-rd28-195.test.ts
+PASS tests/i18n-no-polish-in-en.test.tsx
+PASS src/core/__tests__/nazwy-atlasu-091.test.ts
+PASS src/core/__tests__/domain-rules.test.ts
+PASS src/__tests__/maszyna-teksty-p9b2.test.ts
+PASS src/core/__tests__/cel-powiadomienia-d3a.test.ts
+PASS src/lib/__tests__/kalendarz-pasek-d4b.test.ts
+PASS tests/presety-drozdze-217.test.ts
+PASS src/core/__tests__/bake-session.test.ts
+PASS src/core/__tests__/brd-test-vectors.test.ts
+PASS src/core/__tests__/step-warnings.test.ts
+PASS src/core/__tests__/piekarnik-d6.test.ts
+PASS src/lib/__tests__/timer-audio.test.ts
+PASS src/lib/__tests__/format-strefa-d2.test.ts
+PASS src/lib/__tests__/menu-receptury.test.ts
+PASS src/lib/__tests__/csv-nazwy-f9.test.ts
+PASS src/lib/__tests__/en-kontrola-074.test.ts
+PASS src/lib/__tests__/zgloszenie.test.ts
+PASS src/__tests__/zakwasy-lista-130.test.tsx
+PASS src/lib/__tests__/rodzaj-drozdzy-wyscig-p6b.test.tsx
+PASS src/ui/__tests__/tokeny-karty-p1.test.ts
+PASS src/doctor/__tests__/dough-recovery.test.ts
+PASS src/core/__tests__/yeast-stages-p9b.test.ts
+PASS tests/dokumenty-bez-team-id.test.ts
+PASS src/lib/__tests__/czas-trwania.test.ts
+PASS src/lib/__tests__/zalegly-otworz-w2.test.ts
+PASS tests/tresci-f71.test.ts
+PASS src/data/__tests__/row-parsers-rows.test.ts
+PASS src/scheduler/__tests__/reverse-scheduler.test.ts
+PASS src/lib/__tests__/confirm.test.ts
+PASS tests/katalog-wektor-sol-06z.test.ts
+PASS tests/wiek-i-szyfrowanie-177.test.ts
+PASS tests/brd-aktualnosc.test.ts
+PASS src/doctor/__tests__/kwasny-bez-acetobacter-163.test.ts
+PASS tests/kontrakt-lista-odciec.test.ts
+PASS src/ui/__tests__/kroj-tytulow-cyrylica-137.test.ts
+PASS src/doctor/__tests__/diagnostics-exhaustive.test.ts
+PASS tests/maestro-flows.test.tsx
+PASS src/core/__tests__/rytm-staly-dzien-d7.test.ts
+PASS src/core/__tests__/zakwas-lodowka-132.test.ts
+PASS src/lib/__tests__/hydratacja-zakwasu-641.test.ts
+PASS src/lib/__tests__/i18n-locales.test.ts
+PASS src/recipes/__tests__/presets-bez-twierdzen-zdrowotnych-e8.test.ts
+PASS src/core/__tests__/flour-atlas.test.ts
+PASS tests/wzrost-dokument.test.ts
+PASS src/core/__tests__/rada-hydratacji-210.test.ts
+PASS src/lib/__tests__/confirm-piekarnik-d6.test.ts
+PASS src/recipes/__tests__/wersje-drozdzowe-p9b.test.ts
+PASS src/recipes/__tests__/maszyna-receptur-p9b2.test.ts
+PASS tests/opis-sklepu-631.test.ts
+PASS src/core/__tests__/starter-doctor.test.ts
+PASS src/core/__tests__/zyto-drozdze-d256-p9b.test.ts
+PASS src/core/__tests__/nazwy-razowa-453.test.ts
+PASS tests/testflight-strefy-workflow.test.ts
+PASS src/core/__tests__/ostrzezenia-bezpieczenstwa.test.ts
+PASS src/core/__tests__/karmienie-zakladania-d4b.test.ts
+PASS src/lib/__tests__/start-stan.test.ts
+PASS tests/strona-jedno-zrodlo-174.test.ts
+PASS tests/kontrakt-zm.test.ts
+PASS tests/brd-opin-001-d067.test.ts
+PASS src/lib/__tests__/plan-drozdzowy-p9b.test.ts
+PASS src/lib/__tests__/spirala-etykieta.test.ts
+PASS src/data/__tests__/starter-entry-row.test.ts
+PASS src/lib/__tests__/recipe-navigation.test.ts
+PASS src/recipes/__tests__/presets-zachowanie-p8.test.ts
+PASS src/core/__tests__/pate-fermentee-zakres-206.test.ts
+PASS tests/makiety-nazwa-en-n15.test.ts
+PASS src/core/__tests__/notification-plan.test.ts
+PASS src/core/__tests__/sol-br-kalk-011.test.ts
+PASS tests/nazwa-d053.test.ts
+PASS src/lib/__tests__/csv-exporter.test.ts
+PASS tests/kontrakt-f14-194.test.ts
+PASS src/core/__tests__/etap-zakladania.test.ts
+PASS src/core/__tests__/numer-dnia-zakladania.test.ts
+PASS src/core/__tests__/fermentation-q10-source.test.ts
+PASS src/scheduler/__tests__/studzenie-kro-poc-015-e3.test.ts
+PASS src/__tests__/nauka-bez-zrodla-146.test.ts
+PASS src/lib/__tests__/przypomnienia-po-imporcie-b6.test.ts
+PASS src/lib/__tests__/plan-dzien-zalozony-tz.test.ts
+PASS src/lib/__tests__/licencje.test.ts
+PASS src/doctor/__tests__/diagnostics.test.ts
+PASS tests/ci-galezie-napraw.test.ts
+PASS src/core/__tests__/manitoba-bez-w-209.test.ts
+PASS src/lib/__tests__/corrupt-state.test.ts
+PASS src/lib/__tests__/db-path.test.ts
+PASS tests/testflight-workflow.test.ts
+PASS tests/design-spec-teksty-en-642.test.ts
+PASS tests/asc-ustawienia-workflow.test.ts
+PASS tests/instrukcja-przycisk-proby-214.test.ts
+PASS src/lib/__tests__/haptics.test.ts
+PASS src/lib/__tests__/uprzedzenie-proby-126.test.ts
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+PASS src/lib/__tests__/pierwszy-dzien-tygodnia.test.ts
+PASS src/lib/__tests__/godzina-gotowe-n1.test.ts
+PASS src/lib/__tests__/plakietka-dnia.test.ts
+PASS src/doctor/__tests__/sour-temperature-one-rule.test.ts
+PASS tests/brd-zakw-004-d068.test.ts
+PASS src/core/__tests__/baking-phases.test.ts
+PASS src/lib/__tests__/i18n.test.ts
+PASS src/lib/__tests__/wstrzymana-akcja-w2.test.ts
+PASS tests/f71-br-diag.test.ts
+PASS tests/plan-wydania.test.ts
+PASS src/core/__tests__/rye-rest-one-value.test.ts
+PASS src/core/__tests__/gotowy-bez-plam-e5.test.ts
+PASS src/lib/__tests__/basic-tylko-rosnie-pa.test.ts
+PASS tests/asc-zgloszenie-workflow.test.ts
+PASS tests/makiety-204.test.ts
+PASS src/core/__tests__/lesson-no-health-claims.test.ts
+PASS src/data/__tests__/row-parsers.test.ts
+PASS tests/strona-bez-protokolow-198.test.ts
+PASS src/lib/__tests__/platnosci-dostep.test.ts
+PASS tests/wzorce-oferty-202.test.ts
+PASS tests/brands.contract.test.ts
+PASS tests/f48-powrot-184.test.ts
+PASS src/core/__tests__/feeding-ratio.test.ts
+PASS src/lib/__tests__/prosba-o-ocene-odlozona.test.ts
+PASS src/lib/__tests__/piecz-ponownie-katalog-p9b.test.ts
+PASS tests/design-spec-pasek-cofnij-n18.test.ts
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+
+Summary of all failing tests
+FAIL src/__tests__/basic-pro-pafix.test.tsx
+  ● W-06: kopia 8 receptur i 3 zakwasy bez Pro › import kopii wnosi wszystko; trzeci zakwas karmiony bez ekranu Pro; dodanie kolejnej receptury → ekran Pro
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1794196269473
+    Received:   1794192669373
+
+      426 |     await nacisnij(root, 'zakwas-dokarm-btn');
+      427 |     expect(ekranPro(root)).toBe(false);
+    > 428 |     expect((await getStarters()).find((s) => s.id === 's3')?.lastFedAt).toBeGreaterThan(Date.now() - H);
+          |                                                                         ^
+      429 |     act(() => tree?.unmount());
+      430 |     const rec = await zamontuj(<RecepturaScreen />);
+      431 |     await nacisnij(rec, 'save-custom-recipe-btn');
+
+      at Object.toBeGreaterThan (src/__tests__/basic-pro-pafix.test.tsx:428:73)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/zakwas-screen.test.tsx
+  ● ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx) › after 8.5 h without doubling the card advises feeding every 12 h (BR-ZAKW-003 Brak podwojenia w 8 h)
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu."
+    Received string:    "EdytujDoktorZakwas żytni (Bolesław)Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.na blacieZakwas żytni (Bolesław)na blacie8 godzin 30 minut od dokarmienia+ Dodaj nowy zakwasProfil zakwasuŻytnia typ 2000Hydratacja 100%Wiek zakwasu120 dniOstatnie dokarmienie8 h temuMiejsce przechowywaniaTemperatura pokojowaCykl dokarmianiaPodwoił objętośćZaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.Zapisz dokarmienieCoś mnie niepokoi● Po szacowanym szczycieSzczyt aktywnościZakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.Temperatura otoczenia: 22°C19°C22°C25°C28°CIlości do dokarmieniaWybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.Zostawiam w słoikuWpisz, ile zakwasu zostawiasz w słoiku.Cykl dokarmiania (Proporcja)1:1:1 (szybki, 3–4 h)1:2:2 (klasyczny, 6–8 h)1:3:3 (8–10 h)1:5:5 (na noc, 12 h)Potrzebny zakwas: 150 g100 g150 g200 g250 g300 gStary zakwas1 cz.30 gMąka2 cz.60 gWoda (~28°C)2 cz.60 gWskazówka: Z powstałych 150 g pobierz wymaganą ilość do ciasta, a resztkę (~20 g–25 g) schowaj do lodówki jako matkę na kolejny wypiek.Kopiuj jako tekstKonwerter zakwasu & Lievito MadrePrzepisy na Odrzut ZakwasuKontrola biologiczna (Bezpieczeństwo)Zaznacz, co widzisz albo czujesz w słoiku.Płyn na powierzchni o zapachu alkoholu (hooch)Biały nalot lub kożuch na powierzchniPuszysty nalot w dowolnym kolorze, także białyRóżowe, pomarańczowe lub inne przebarwienia, smugi albo plamyNieprzyjemny, zgniły zapachNie zaznaczono żadnego objawuOcena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.Odznacz objawyAplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem."
+
+      365 |     await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 8.5 * 3_600_000 });
+      366 |     await renderScreen();
+    > 367 |     expect(extractCleanText(tree?.toJSON())).toContain('Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.');
+          |                                              ^
+      368 |
+      369 |     act(() => tree?.unmount());
+      370 |     await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * 3_600_000 });
+
+      at Object.toContain (src/__tests__/zakwas-screen.test.tsx:367:46)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/dzis-d4b.test.tsx
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › BR-KAL-002 Przejścia z arkusza dnia: krok wypieku → Stolnica tego wypieku, karmienie → karta zakwasu, wpis → Dziennik (BR-KAL-004 Dzień ze zdarzeniami)
+
+    TypeError: Cannot read properties of undefined (reading 'props')
+
+      354 |     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
+      355 |     const karmienie = root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('arkusz-zdarzenie-wpis:') && typeof n.props.onPress === 'function')[0];
+    > 356 |     await act(async () => karmienie.props.onPress());
+          |                                     ^
+      357 |     expect(mockPush).toHaveBeenLastCalledWith('/zakwasy');
+      358 |     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
+      359 |     await act(async () => przycisk(root, 'arkusz-zdarzenie-dziennik:wpis-1')[0].props.onPress());
+
+      at props (src/__tests__/dzis-d4b.test.tsx:356:37)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:22:7
+      at node_modules/@babel/runtime/helpers/asyncToGenerator.js:14:12
+      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/react/cjs/react.development.js:814:22)
+      at Object.<anonymous> (src/__tests__/dzis-d4b.test.tsx:356:14)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      371 |     const pas = host(root, 'pas-dzis')[0];
+      372 |     expect(pas.findAll((n) => n.props.testID === 'glif-dziennik').length).toBeGreaterThan(0);
+    > 373 |     expect(pas.findAll((n) => n.props.testID === 'glif-karmienie').length).toBeGreaterThan(0);
+          |                                                                            ^
+      374 |     const naPasie = pas.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
+      375 |     expect(naPasie).not.toContain('wymaga Piekarz Pro');
+      376 |     expect(naPasie).not.toContain('Zaległe:');
+
+      at Object.toBeGreaterThan (src/__tests__/dzis-d4b.test.tsx:373:76)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx
+  ● kontrola bezpieczeństwa zakwasu bez zakupu (E-1) › Basic: karta zakwasu i zapis karmienia bez ekranu Pro, bez blokady całej karty („blokada-zakwas”) (D-113)
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not 1794027104866
+
+      128 |     await flush();
+      129 |     expect(tree!.root.findAllByType(PaywallModal).some((p) => p.props.visible === true)).toBe(false);
+    > 130 |     expect((await getStarters())[0]?.lastFedAt).not.toBe(przed);
+          |                                                     ^
+      131 |     alert.mockRestore();
+      132 |     act(() => tree!.unmount());
+      133 |   });
+
+      at Object.toBe (src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx:130:53)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/przypomnienia-karmienia-179.test.tsx
+  ● Przypomnienia o karmieniu, zegar 08:00 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793174400000
+    Received: 1793001600000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Przypomnienia o karmieniu, zegar 14:00 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793196000000
+    Received: 1793023200000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Przypomnienia o karmieniu, zegar 23:55 (179; BR-ZAKW-004 Zakwas w lodówce) › dokarmienie zakwasu w lodówce: jedno oczekujące przypomnienie na cykl, w terminie 7 dni
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1793231700000
+    Received: 1793058900000
+
+      108 |     // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+      109 |     const f = new Date(teraz);
+    > 110 |     expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
+          |                                                 ^
+      111 |     act(() => tree.unmount());
+      112 |   });
+      113 |
+
+      at Object.toBe (src/__tests__/przypomnienia-karmienia-179.test.tsx:110:49)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/data/__tests__/starter-feeding-ratio.sqlite.test.ts
+  ● baza z wydanego buildu 70fd81a › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu adfe1fa › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu b21c194 › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● baza z wydanego buildu ebd8471 › proporcja zapisana przy dokarmianiu wraca po restarcie; zapis profilu jej nie zeruje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      66 |     await app.schema.initDatabase();
+      67 |     const reloaded = (await app.store.getStarters()).find((s) => s.id === first.id)!;
+    > 68 |     expect(reloaded.feedingRatio).toBe('1:5:5');
+         |                                   ^
+      69 |     expect(reloaded.lastFedAt).toBe(5000);
+      70 |
+      71 |     await app.store.saveStarter({ ...reloaded, name: 'Nowa nazwa' });
+
+      at Object.toBe (src/data/__tests__/starter-feeding-ratio.sqlite.test.ts:68:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/notifications-pending.test.tsx
+  ● Pending notifications follow the saved state (006) › import replaces reminders: new starters get them, removed ones lose them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 1
+
+    - Array [
+    -   "piekarz.karmienie.stary.1",
+    - ]
+    + Array []
+
+      135 |     await saveStarter({ id: 'stary', name: 'Stary', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now });
+      136 |     await resyncNotifications();
+    > 137 |     expect(ids()).toEqual(['piekarz.karmienie.stary.1']);
+          |                   ^
+      138 |     const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
+      139 |     const tree = await mount(React.createElement(ImportRecepturySection));
+      140 |     await act(async () => {
+
+      at Object.toEqual (src/__tests__/notifications-pending.test.tsx:137:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/zakwas-feeding-ratio.test.tsx
+  ● proporcja dokarmiania na ekranie Zakwas › zapisuje wybraną proporcję przy dokarmieniu i predyktor używa jej po ponownym otwarciu
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "1:5:5"
+    Received: undefined
+
+      54 |     await pressByText(tree, '1:5:5');
+      55 |     await pressByText(tree, 'Zapisz dokarmienie');
+    > 56 |     expect((await getStarters())[0].feedingRatio).toBe('1:5:5');
+         |                                                   ^
+      57 |     act(() => tree.unmount());
+      58 |
+      59 |     spy.mockClear();
+
+      at Object.toBe (src/__tests__/zakwas-feeding-ratio.test.tsx:56:51)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+  ● M1-audytor-generalny-001: jedna kolejka zapisów › dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "app_settings": 0,
+        "bakes": 2,
+    -   "starter_entries": 2,
+    +   "starter_entries": 0,
+        "starters": 3,
+      }
+
+      82 |     ]);
+      83 |     expect(wyniki.map((w) => w.status)).toEqual(['fulfilled', 'fulfilled']);
+    > 84 |     expect(liczności()).toEqual({ ...przed, starters: przed.starters + 2, starter_entries: przed.starter_entries + 2 });
+         |                         ^
+      85 |   });
+      86 |
+      87 |   it('ustawienie zapisane w trakcie nieudanego importu nie ginie z jego wycofaniem', async () => {
+
+      at Object.toEqual (src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts:84:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/dzis-zrobione-d4b.test.tsx
+  ● D4b: „Zrobione” przy zaległym karmieniu (SQLite) › BR-KAL-003 Zrobione: zapis dokarmienia z godziną teraz, „Zaległe” znika, „Przywróć” cofa wpis; BR-KAL-007 bez zmiany user_version
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Zaległe: karmienie zakwasu Żytni \(\d\d:\d\d\)/
+    Received string:  "Co dziś robisz? | 19–25 października | Miesiąc | środa, 21 października, dziś | Nic w planach | Pokaż cały tydzień | Środa, 21 października | Zakładam zakwas | Piekę na zakwasie | Piekę na drożdżach albo pizzę | Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz."
+
+      89 |     });
+      90 |     await flush();
+    > 91 |     expect(teksty(tree.root)).toMatch(/Zaległe: karmienie zakwasu Żytni \(\d\d:\d\d\)/);
+         |                               ^
+      92 |     const [zrobione] = przycisk(tree.root, (id) => id.startsWith('zalegle-zrobione-'));
+      93 |     expect(zrobione.props.accessibilityLabel).toMatch(/^karmienie zakwasu Żytni z \d\d:\d\d: zrobione$/);
+      94 |     await act(async () => zrobione.props.onPress());
+
+      at Object.toMatch (src/__tests__/dzis-zrobione-d4b.test.tsx:91:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D4b: „Zrobione” przy zaległym karmieniu (SQLite) › BR-KAL-010 Karmienie w inny dzień z „Dziś”: „Zrobione” przy zaległym stałym dniu pyta „Zostaw / Licz od”, „Licz od” zapisuje dzień dokarmienia [M3 D7]
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      120 |     await flush();
+      121 |     const [zrobione] = przycisk(tree.root, (id) => id.startsWith('zalegle-zrobione-'));
+    > 122 |     expect(zrobione).toBeDefined();
+          |                      ^
+      123 |     await act(async () => zrobione.props.onPress());
+      124 |     await flush();
+      125 |     const pytanie = alertSpy.mock.calls.find((c) => c[0] === 'Stały dzień karmienia');
+
+      at Object.toBeDefined (src/__tests__/dzis-zrobione-d4b.test.tsx:122:22)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/__tests__/storage-write-failure-screen.test.tsx
+  ● Write failure is visible on screen (003) › Zakwas: logging a feeding on a full disk shows "Nie zapisano" and not the success message
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1700000000000
+    Received: undefined
+
+      85 |     expect(titles).not.toContain('Dokarmiono zakwas');
+      86 |     control().failWrites = false;
+    > 87 |     expect((await getStarters()).find((s) => s.id === 'starter_user_1')?.lastFedAt).toBe(1700000000000);
+         |                                                                                     ^
+      88 |     act(() => tree!.unmount());
+      89 |     alert.mockRestore();
+      90 |   });
+
+      at Object.toBe (src/__tests__/storage-write-failure-screen.test.tsx:87:85)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/data/__tests__/write-failure.sqlite.test.ts
+  ● Failed writes are reported, not hidden (003) › with a full disk every user-data write rejects, memory does not pretend, and earlier data survives a restart (BR-RECP-002 Przerwany zapis)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1700000000000
+    Received: undefined
+
+      58 |
+      59 |     // W tej samej sesji ekran nie widzi niezapisanych zmian
+    > 60 |     expect((await first.store.getStarters()).find((s) => s.id === starter.id)?.lastFedAt).toBe(1700000000000);
+         |                                                                                           ^
+      61 |     expect(await first.store.getBakeLogs()).toEqual([]);
+      62 |
+      63 |     control().failWrites = false;
+
+      at Object.toBe (src/data/__tests__/write-failure.sqlite.test.ts:60:91)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL src/data/__tests__/staly-dzien-d7.sqlite.test.ts
+  ● D7: stały dzień karmienia w saveStarter (node:sqlite) › BR-KAL-010 zapis dnia, zmiana, brak pola bez zmian, null czyści; wpisy zakwasu nietknięte; restart czyta dzień
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      31 |     const przed = kolumny();
+      32 |     expect(przed.r).toEqual({ d: null, m: null });
+    > 33 |     expect(przed.wpisy).toHaveLength(1);
+         |                         ^
+      34 |
+      35 |     await app.store.saveStarter(zakwas({ fridgeFeedDay: { weekday: 7, minuteOfDay: 600 } }));
+      36 |     expect(kolumny().r).toEqual({ d: 7, m: 600 });
+
+      at Object.toHaveLength (src/data/__tests__/staly-dzien-d7.sqlite.test.ts:33:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+
+Test Suites: 13 failed, 566 passed, 579 total
+Tests:       20 failed, 6017 passed, 6037 total
+Snapshots:   0 total
+Time:        126.414 s
+Ran all test suites.
+kod 1

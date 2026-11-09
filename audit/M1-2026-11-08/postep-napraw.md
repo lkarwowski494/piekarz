@@ -9,6 +9,8 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 - 2026-11-09: dodanie repo `lkarwowski494/prompts` do sesji (odczyt) — odpowiedź właściciela „Dodaj repo prompts (Recommended)”.
 - 2026-11-09 STOP start (odpowiedzi właściciela): zakres „Cały plan, 3 partie (Recommended)”; sesje ról „Subagenci po kolei (Recommended)”; „Push + scalenie do redesign (Recommended)” (push gałęzi partii po każdym commicie, scalenie partii do redesign po verify kod 0; master, build, sklep wykluczone); kopia K „Push na gałąź audit-m1 (Recommended)”.
 
+- 2026-11-09 STOP przed partią 1 (`stop-p1-M2-2026-11-09.md`): 001 „Kolejka + osłona teraz (Recommended)”; 021 „Wyjątek nazwany (Recommended)” (zamrożenie parsera w wydanej migracji v6, dowód: testy 1014 i 1021 identyczne przed/po). Zapis: D-300.
+
 ## Ograniczenia (z polecenia M3, zapisane w D-286 i wcześniejszych)
 - Baza napraw = `redesign/piekarz-2026-10-22`, nie `master`. Scalenie partii do redesign po `npm run verify` kod 0.
 - Bez osobnej zgody: push na master, build TestFlight, zgłoszenie do recenzji, zapis w App Store Connect, strona, usuwanie gałęzi i danych (D-272 zużyte; DEC-18: build tylko po zielonym E2E na tym samym SHA).
@@ -17,7 +19,7 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 ## Partie
 | Partia | Gałąź | Od | Do | STOP przed | Stan |
 |---|---|---|---|---|---|
-| 1 | naprawy/M2-koordynator-napraw-2026-11-09-p1 | dd824eee | — | tak (P/M: 003, 023, 024; dane użytkownika) | czeka na STOP przed partią 1 |
+| 1 | naprawy/M2-koordynator-napraw-2026-11-09-p1 | dd824eee | — | tak (P/M: 003, 023, 024; dane użytkownika) | w toku |
 | 2 | naprawy/M2-koordynator-napraw-2026-11-09-p2 | — | — | tak (P/M: 004, 007–010, 040–043, 045, 049, 053) | czeka |
 | 3 | naprawy/M2-koordynator-napraw-2026-11-09-p3 | — | — | tak (P/M: 015, 018, 054, 055, 057, 058, 061–065, 068, 078, 080, 082, 084) | czeka |
 
@@ -32,6 +34,11 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 2026-11-09 E0: bramka D-025: `docs/monetyzacja.md:152` werdykt „przerobić” → przechodzi.
 - 2026-11-09 E0: CI na master: E2E #96 czerwone na 2ef8870a, nightly czerwone/anulowane — w planie (066, 067, 068), nie nowe znaleziska.
 - 2026-11-09 E0: stan wyjściowy: typecheck kod 0, lint kod 0 (2 ostrzeżenia), jest kod 0 (575/6024, 152 s).
+- 04:48 001 test czerwony (`dowody/M2/001-przed.txt`: import tracił 2 wypieki, 2 równoległe saveStarter odrzucone) → kolejka zapisów `src/data/kolejka-zapisow.ts`, 9 transakcji przez tx, strażnik `tests/kolejka-zapisow-tx.test.ts` → verify kod 0 (578/6034, `dowody/M2/001-verify.txt`) → commit b069827f, status naprawione-do-weryfikacji. Reguły: 08 rdzen (Zasady, Tryb fix), 08 sqlite-expo (Port bazy), 05 dane-lokalne-sqlite (Transakcje). Uwaga: runner migracji nadal BEGIN przez execAsync (każda instrukcja osobno w kolejce) — poza mechanizmem 001; osłona (b) w 028. Test „Usuń wszystkie dane” zielony też przed poprawką (kopia przed czyszczeniem kończy się przed zapisem) — kontrola, nie odtworzenie.
+- 05:01 002 test czerwony (`dowody/M2/002-przed.txt`: usunięty wpis feed-… wracał) → saveStarter bez wpisów, dokarmienie przez addStarterEntry/createStarterWithEntry, tryb pamięci z dziennika → verify kod 0 (579/6037, `dowody/M2/002-verify.txt`) → commit 9feae565. Przygotowanie danych w 9 testach przez dziennik (asercje bez zmian). Reguły: jak 001 + 08 sqlite-expo „Zapis rodzica i dzieci”.
+- 05:16 019: refactor ea7efb2f (runner do runner-migracji.ts) — BŁĄD WŁASNY: po śledzeniu pliku padał test 062 (git ls-files), verify przed commitem tego nie widział; naprawa ae7d36c7 (DDL w sqlite-schema, parametr). Od teraz verify po git add. Test czerwony (`dowody/M2/019-przed.txt`: 5 wpisów → 0) → flaga przebudowa → verify kod 0 (6040, `dowody/M2/019-verify.txt`) → commit d59f8226. Reguły: 05 dane-lokalne-sqlite „Migracje schematu”, „Runner migracji”.
+- 05:28 020 test czerwony (`dowody/M2/020-przed.txt`: 8× DOMENA) → scheduler i profile-snu do core (fasady), yeast-stages do recipes, import type, komunikat adaptacji bez tekstu → verify kod 0 (6041, `dowody/M2/020-verify.txt`) → commit 259f0880. Nowe znalezisko M2-koordynator-napraw-001: komunikat adaptacji fermentacji (RD-08) nigdy nie pokazywany w aplikacji; klucze zostają w słownikach. Reguły: 05 wzorce „Granice modułów”, rdzen zasada 7.
+- 05:35 021 test czerwony (`dowody/M2/021-przed.txt`: 2 cykle data) → zamrożony parser migracja-v6-parser.ts (D-300), sesja-parsery.ts → migracje 1014/1021 identyczne (`dowody/M2/021-migracje-przed.txt`, `021-migracje-po.txt`), równoważność (`021-rownowaznosc-parsera.txt`) → verify kod 0 (6045) → commit 91a26110. Reguły: 05 dane-lokalne-sqlite „Migracje schematu” (wydanej nie zmieniasz — wyjątek D-300).
 
 ## Czekające zgody i kroki właściciela
-- STOP przed partią 1 (dane użytkownika, P/M 003, 023, 024).
+- brak (partia 1 w toku)

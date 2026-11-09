@@ -1,0 +1,2 @@
+  ✓ równoważność (5 ms)
+Tests:       1 passed, 1 total

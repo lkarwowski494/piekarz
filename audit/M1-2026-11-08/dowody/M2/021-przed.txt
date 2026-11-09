@@ -1,0 +1,10 @@
+    ✕ warstwa danych src/data bez cykli importów (cykl tylko z plików data) (90 ms)
+    ✓ domena src/core nie importuje i18n, formatowania, katalogu receptur ani harmonogramu (poza import type) (78 ms)
+    - Expected  - 1
+    + Received  + 4
+    - Array []
+    + Array [
+    +   "data/sqlite-schema.ts -> data/migracja-v6.ts -> data/bake-session-store.ts -> data/bake-sessions-store.ts -> data/sqlite-schema.ts",
+    +   "data/bake-session-store.ts -> data/bake-sessions-store.ts -> data/bake-session-store.ts",
+    + ]
+Tests:       1 failed, 1 passed, 2 total

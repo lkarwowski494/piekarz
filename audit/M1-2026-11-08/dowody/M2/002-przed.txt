@@ -1,0 +1,60 @@
+FAIL src/data/__tests__/dokarmienie-jedna-droga-002.sqlite.test.ts
+  M1-audytor-generalny-002: dokarmienie tylko przez dziennik
+    ✕ usunięte dokarmienie nie wraca po zapisie profilu obiektem sprzed usunięcia (198 ms)
+    ✕ poprawa godziny dokarmienia: zapis stałego dnia obiektem sprzed poprawy zostawia 2 wpisy (31 ms)
+    ✕ trwała kontrola: saveStarter z lastFedAt nie wstawia wierszy do starter_entries (30 ms)
+
+  ● M1-audytor-generalny-002: dokarmienie tylko przez dziennik › usunięte dokarmienie nie wraca po zapisie profilu obiektem sprzed usunięcia
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 4
+
+      Array [
+        Object {
+          "id": "w1",
+          "occurred_at": 1700000000000,
+        },
+    +   Object {
+    +     "id": "feed-starter_user_1-1700021600000",
+    +     "occurred_at": 1700021600000,
+    +   },
+      ]
+
+      47 |     await wpisy.deleteStarterEntry('w2');
+      48 |     await app.store.saveStarter({ ...stary, name: 'Zakwas po edycji' });
+    > 49 |     expect(wpisyWBazie()).toEqual([{ id: 'w1', occurred_at: T1 }]);
+         |                           ^
+      50 |   });
+      51 |
+      52 |   it('poprawa godziny dokarmienia: zapis stałego dnia obiektem sprzed poprawy zostawia 2 wpisy', async () => {
+
+      at Object.toEqual (src/data/__tests__/dokarmienie-jedna-droga-002.sqlite.test.ts:49:27)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● M1-audytor-generalny-002: dokarmienie tylko przez dziennik › poprawa godziny dokarmienia: zapis stałego dnia obiektem sprzed poprawy zostawia 2 wpisy
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 4
+
+    @@ -5,6 +5,10 @@
+        },
+        Object {
+          "id": "w2",
+          "occurred_at": 1700018000000,
+        },
+    +   Object {
+    +     "id": "feed-starter_user_1-1700021600000",
+    +     "occurred_at": 1700021600000,
+    +   },
+      ]
+
+      54 |     await wpisy.updateStarterEntry({ ...wpis('w2', T2 - 3600000), updatedAt: T2 + 1 });
+      55 |     await app.store.saveStarter({ ...stary, fridgeFeedDay: { weekday: 6, minuteOfDay: 480 } });
+    > 56 |     expect(wpisyWBazie()).toEqual([{ id: 'w1', occurred_at: T1 }, { id: 'w2', occurred_at: T2 - 3600000 }]);
+         |                           ^
+      57 |   });

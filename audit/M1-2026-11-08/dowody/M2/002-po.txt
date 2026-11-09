@@ -1,0 +1,4 @@
+    ✓ usunięte dokarmienie nie wraca po zapisie profilu obiektem sprzed usunięcia (216 ms)
+    ✓ poprawa godziny dokarmienia: zapis stałego dnia obiektem sprzed poprawy zostawia 2 wpisy (33 ms)
+    ✓ trwała kontrola: saveStarter z lastFedAt nie wstawia wierszy do starter_entries (34 ms)
+Tests:       3 passed, 3 total

@@ -1,0 +1,80 @@
+FAIL src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+  M1-audytor-generalny-001: jedna kolejka zapisów
+    ✕ nieudany import przy równoległym zapisie zakwasu wraca w całości; zakwas zapisany albo zgłoszony (679 ms)
+    ✕ dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia (34 ms)
+    ✕ ustawienie zapisane w trakcie nieudanego importu nie ginie z jego wycofaniem (32 ms)
+    ✓ „Usuń wszystkie dane” przy równoległym zapisie zakwasu: wszystko albo nic, bez połowicznego stanu (80 ms)
+
+  ● M1-audytor-generalny-001: jedna kolejka zapisów › nieudany import przy równoległym zapisie zakwasu wraca w całości; zakwas zapisany albo zgłoszony
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 3
+    + Received  + 3
+
+      Object {
+        "app_settings": 0,
+    -   "bakes": 2,
+    -   "starter_entries": 1,
+    -   "starters": 1,
+    +   "bakes": 0,
+    +   "starter_entries": 2,
+    +   "starters": 2,
+      }
+
+      71 |     const po = liczności();
+      72 |     const dodany = wZap.status === 'fulfilled' ? 1 : 0;
+    > 73 |     expect(po).toEqual({ ...przed, starters: przed.starters + dodany });
+         |                ^
+      74 |   });
+      75 |
+      76 |   it('dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia', async () => {
+
+      at Object.toEqual (src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts:73:16)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● M1-audytor-generalny-001: jedna kolejka zapisów › dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   "fulfilled",
+    -   "fulfilled",
+    +   "rejected",
+    +   "rejected",
+      ]
+
+      81 |       app.store.saveStarter(starter(4, 1700000400000)),
+      82 |     ]);
+    > 83 |     expect(wyniki.map((w) => w.status)).toEqual(['fulfilled', 'fulfilled']);
+         |                                         ^
+      84 |     expect(liczności()).toEqual({ ...przed, starters: przed.starters + 2, starter_entries: przed.starter_entries + 2 });
+      85 |   });
+      86 |
+
+      at Object.toEqual (src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts:83:41)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● M1-audytor-generalny-001: jedna kolejka zapisów › ustawienie zapisane w trakcie nieudanego importu nie ginie z jego wycofaniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "app_settings": 1,
+    +   "app_settings": 0,
+        "bakes": 2,
+        "starter_entries": 1,
+        "starters": 1,
+      }
+
+       96 |     expect(wImp.status).toBe('rejected');
+       97 |     expect(wUst.status).toBe('fulfilled');
+    >  98 |     expect(liczności()).toEqual({ ...przed, app_settings: przed.app_settings + 1 });

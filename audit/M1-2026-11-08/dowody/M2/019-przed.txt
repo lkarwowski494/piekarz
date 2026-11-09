@@ -1,0 +1,56 @@
+FAIL src/data/__tests__/runner-przebudowa-019.sqlite.test.ts
+  M1-audytor-generalny-019: runner migracji
+    ✓ uruchomMigracje z listą aplikacji na zmigrowanej bazie nic nie zmienia (284 ms)
+    ✕ migracja z przebudową tabeli zakwasów zachowuje dziennik, klucze obce sprawdzone i włączone po migracji (52 ms)
+    ✕ przebudowa, która zostawia osierocone wpisy, jest wycofana (foreign_key_check przed COMMIT) (63 ms)
+
+  ● M1-audytor-generalny-019: runner migracji › migracja z przebudową tabeli zakwasów zachowuje dziennik, klucze obce sprawdzone i włączone po migracji
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "starter_entries": 5,
+    +   "starter_entries": 0,
+        "starters": 1,
+      }
+
+      63 |     const po = openRaw(APP_DB());
+      64 |     const liczby = tableCounts(po);
+    > 65 |     expect({ starters: liczby.starters, starter_entries: liczby.starter_entries }).toEqual({ starters: przed.starters, starter_entries: 5 });
+         |                                                                                    ^
+      66 |     expect(po.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
+      67 |     po.close();
+      68 |     expect(await db.getFirstAsync('PRAGMA foreign_keys')).toEqual({ foreign_keys: 1 });
+
+      at Object.toEqual (src/data/__tests__/runner-przebudowa-019.sqlite.test.ts:65:84)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● M1-audytor-generalny-019: runner migracji › przebudowa, która zostawia osierocone wpisy, jest wycofana (foreign_key_check przed COMMIT)
+
+    expect(received).rejects.toBeInstanceOf()
+
+    Received promise resolved instead of rejected
+    Resolved to value: undefined
+
+      74 |     const { uruchomMigracje, MigrationError } = require('../runner-migracji') as typeof import('../runner-migracji');
+      75 |     const zla = { version: 8, description: 'test: przebudowa gubi zakwas', przebudowa: true, run: async (d: Parameters<SchemaMigration['run']>[0]) => { await przebuduj(d); await d.execAsync("DELETE FROM starters WHERE id = 'z1';"); } } as SchemaMigration;
+    > 76 |     await expect(uruchomMigracje(db, [...app.schema.SCHEMA_MIGRATIONS, zla], app.schema.PRZYGOTOWANIE_MIGRACJI)).rejects.toBeInstanceOf(MigrationError);
+         |           ^
+      77 |     const po = openRaw(APP_DB());
+      78 |     expect(tableCounts(po).starter_entries).toBe(5);
+      79 |     expect(tableCounts(po).starters).toBe(1);
+
+      at expect (node_modules/expect/build/index.js:113:15)
+      at Object.expect (src/data/__tests__/runner-przebudowa-019.sqlite.test.ts:76:11)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        1.165 s
+Ran all test suites matching /src\/data\/__tests__\/runner-przebudowa-019.sqlite.test.ts/i.

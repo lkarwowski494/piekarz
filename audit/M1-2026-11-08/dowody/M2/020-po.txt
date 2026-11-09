@@ -1,0 +1,2 @@
+    ✓ domena src/core nie importuje i18n, formatowania, katalogu receptur ani harmonogramu (poza import type) (78 ms)
+Tests:       1 passed, 1 total

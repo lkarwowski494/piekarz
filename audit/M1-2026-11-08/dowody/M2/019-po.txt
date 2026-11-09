@@ -1,0 +1,4 @@
+    ✓ uruchomMigracje z listą aplikacji na zmigrowanej bazie nic nie zmienia (743 ms)
+    ✓ migracja z przebudową tabeli zakwasów zachowuje dziennik, klucze obce sprawdzone i włączone po migracji (67 ms)
+    ✓ przebudowa, która zostawia osierocone wpisy, jest wycofana (foreign_key_check przed COMMIT) (54 ms)
+Tests:       3 passed, 3 total
