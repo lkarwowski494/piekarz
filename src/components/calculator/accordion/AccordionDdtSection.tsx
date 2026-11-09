@@ -17,7 +17,7 @@ export interface AccordionDdtSectionProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
-  /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
+  /** Ostrzeżenie reguły RD-05 (status too_hot_danger albo requires_ice); brak = woda w zakresie [M1-audytor-generalny-039; 08-p3-N1]. */
   waterTempWarning?: string;
   hydrationDifficulty?: HydrationDifficultyInfo;
   blendAbsorption?: BlendAbsorptionAnalysis;

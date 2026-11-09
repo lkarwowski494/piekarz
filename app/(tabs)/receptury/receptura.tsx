@@ -354,7 +354,7 @@ export default function EkranReceptury() {
         targetDdt={targetDdt}
         onTargetDdtChange={setTargetDdt}
         waterTempTarget={ddtResult.waterTempTarget}
-        waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
+        waterTempWarning={ddtResult.status !== 'normal' ? ddtResult.warningMessagePl : undefined} // 08-p3-N1
         temperatury={{
           wartosci: temperatury,
           zZaczynem,
