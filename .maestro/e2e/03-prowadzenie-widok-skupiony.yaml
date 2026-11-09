@@ -65,6 +65,9 @@ appId: com.apps4brew.baker
     timeout: 15000
 - assertVisible:
     id: "step-time"
+# Karta "Co zrobic" w pierwszym ekranie bez przewijania: mala spirala na pasie (M1-audytor-generalny-005)
+- assertVisible:
+    id: "karta-kroku"
 - assertVisible:
     id: "thumb-bar"
 - assertVisible:
