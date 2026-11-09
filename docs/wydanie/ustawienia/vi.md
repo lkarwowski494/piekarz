@@ -44,7 +44,7 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Thợ Bánh Mì tính lượng nguyên liệu và báo khi mỗi bước kết thúc. Lịch trình ngược từ giờ bạn muốn bánh xong (Pro). Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3737 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3746 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
@@ -62,7 +62,7 @@ HƯỚNG DẪN TỪNG BƯỚC
 Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Ở bước cần bạn trực tiếp làm, màn hình hướng dẫn không tắt. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột. Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.
 
 MEN TỰ NHIÊN
-Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi. Chăm sóc men tự nhiên (Pro): nhiều men tự nhiên, lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5, đánh dấu sẵn sàng khi men nở gấp đôi thể tích và nhắc nhở sau 12 giờ trên bàn bếp mà chưa cho ăn.
+Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi. Chăm sóc men tự nhiên (Pro): nhiều men tự nhiên, lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5, đánh dấu sẵn sàng khi men tự nhiên nở gấp đôi thể tích và nhắc nhở sau 12 giờ trên bàn bếp mà chưa cho ăn.
 
 BÁC SĨ BÁNH MÌ
 Ruột bánh đặc, vỏ bánh nhợt màu? Đánh dấu các triệu chứng, Bác sĩ Bánh mì sẽ chỉ ra một trong 9 lỗi, giải thích nguyên nhân và cho biết cần thay đổi gì vào lần sau. Bốn quy trình cứu nguy giúp bạn khi bột gặp vấn đề trong lúc lên men. Bác sĩ Men tự nhiên giúp bạn khi có điều gì ở men tự nhiên khiến bạn lo lắng.

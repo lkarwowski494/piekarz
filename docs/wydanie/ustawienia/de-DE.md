@@ -44,7 +44,7 @@ anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,
 Bäcker berechnet die Mengen und meldet sich am Ende jedes Schritts. Plan rückwärts ab der Fertig-Uhrzeit deines Brots (Pro). Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3990 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3988 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
@@ -53,7 +53,7 @@ REZEPTUREN UND MENGEN
 Wähle eine von 26 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene; 11 Sauerteigrezepturen haben einen Plan und eine Begleitung Schritt für Schritt. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig (Vorteig: Pro). Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
 
 HEFEVERSION UND BROTBACKAUTOMAT
-Vier Sauerteigrezepturen gibt es auch mit Hefe, drei davon mit Plan. Hefe-Rezepturen backst du auch im Brotbackautomaten: Bäcker passt die Mengen an, nennt die Reihenfolge der Zutaten und das Programm und die Startzeit für deine Fertig-Uhrzeit (Pro).
+Vier Sauerteigrezepturen gibt es auch mit Hefe, drei davon mit Plan. Hefe-Rezepturen backst du auch im Brotbackautomaten: Bäcker passt die Mengen an, nennt die Reihenfolge der Zutaten , das Programm und die Startzeit für deine Fertig-Uhrzeit (Pro).
 
 PLAN AB DER „FERTIG“-UHRZEIT (Pro)
 Wähle, wann das Brot fertig sein soll, und Bäcker rechnet für jeden Schritt die Startzeit rückwärts aus. Die Gärzeit hängt von der Temperatur in deiner Küche ab. Fällt ein Schritt, bei dem du selbst Hand anlegen musst, in die Nacht (standardmäßig zwischen 23:00 und 07:00), schlägt Bäcker eine längere Zeit im Kühlschrank vor. Reicht die Zeit nicht, nennt Bäcker die frühestmögliche Uhrzeit.

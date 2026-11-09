@@ -44,7 +44,7 @@ hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,may
 Fırıncı miktarları hesaplar ve her adımın sonunu haber verir. Ekmeğin hazır olacağı saatten geriye doğru plan (Pro). Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3734 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3741 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
@@ -68,7 +68,7 @@ EKMEK DOKTORU
 Ekmek içi sıkı, kabuk soluk mu? Belirtileri işaretlersiniz; Ekmek Doktoru 9 kusurdan birini belirler, nedenini açıklar ve bir dahaki sefere neyi değiştirmeniz gerektiğini söyler. Dört kurtarma protokolü, fermantasyon sırasında hamurda sorun çıktığında yardımcı olur. Ekşi maya doktoru, ekşi mayanızda sizi endişelendiren bir şey olduğunda yardımcı olur.
 
 GÜNLÜK
-Her somunu değerlendirirsiniz: yıldızlar, ekmek içi, kabuk ve lezzet profili. Günlük istatistikleri (Pro) gösterir; “Tekrar Pişir” aynı tarifi açar.
+Her somunu değerlendirirsiniz: yıldızlar, ekmek içi, kabuk ve lezzet profili. Günlük ekranı istatistikleri (Pro) gösterir; “Tekrar Pişir” aynı tarifi açar.
 
 VERİLERİNİZ
 Fırıncı son 10 otomatik yedeği telefonunuzda saklar. Tüm verilerinizi bir dosyaya dışa aktarabilir ve dosyadan içe aktarabilir, pişirme geçmişinizi CSV olarak dışa aktarabilirsiniz. Birimler: gram ve °C ya da ons ve °F.
