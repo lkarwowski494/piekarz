@@ -7,6 +7,8 @@ import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
 import { PolaTemperaturDdt, PolaTemperaturDdtProps } from './PolaTemperaturDdt';
+import { Karta } from '../../../ui/karty/Karta';
+import { IkonaKarty } from '../../../ui/karty/IkonaKarty';
 
 import { typografia } from '../../../ui/tokeny';
 // Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
@@ -38,15 +40,10 @@ export function AccordionDdtSection({
   const unitSystem = useUnitSystem();
 
   return (
-    <View style={styles.sectionBlock}>
-      <Text style={styles.sectionHeaderTitle}>
-        {t('Temperatura wody')}
-      </Text>
-      <Text style={styles.sectionDesc}>
-        {t(
-          'Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.'
-        )}
-      </Text>
+    // Karta systemu (README §2): nagłówek z ikoną zamiast własnego tytułu 14 pt i obwódki `linia`
+    // [M1-audytor-generalny-007; 04-studio-projektowe-003]
+    <Karta testID="karta-temperatury-wody" tytul={t('Temperatura wody')} ikona={<IkonaKarty nazwa="termometr" />}
+      podpis={t('Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.')}>
 
       <View style={styles.ddtResultCard}>
         {brakPola ? (
@@ -124,31 +121,11 @@ export function AccordionDdtSection({
           </Text>
         </View>
       )}
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionBlock: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionHeaderTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  sectionDesc: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    marginBottom: theme.spacing.sm,
-    lineHeight: 16,
-  },
   ddtResultCard: {
     backgroundColor: theme.colors.powierzchnia,
     padding: theme.spacing.sm,

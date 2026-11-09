@@ -240,6 +240,7 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
+      "src/components/ImportRecipeModal.tsx (tekst)",
       "src/components/QrScannerModal.tsx (accessibilityLabel)",
       "src/components/QrScannerModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
@@ -248,7 +249,7 @@
       "src/components/receptury/stos-receptur.ts (options)",
       "src/components/receptury/stos-receptur.ts (text)",
       "src/components/settings/BackupAndDataSection.tsx (text)",
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst)",
       "src/components/zakwas/AddStarterModal.tsx (tekst)",
       "src/components/zakwas/EditStarterModal.tsx (tekst)",
@@ -1293,7 +1294,7 @@
   },
   "Dodaj": {
     "gdzie": [
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst)"
     ]
   },
   "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
@@ -2430,7 +2431,7 @@
   },
   "Importuj recepturę": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tytul)"
     ]
   },
   "Importuj z pliku": {
@@ -3918,7 +3919,7 @@
   "Mąki": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (maka)"
     ]
   },
@@ -5147,7 +5148,7 @@
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (tytul)",
-      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tytul)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
       "src/lib/kalendarz-telefonu.ts (tytul)",
@@ -5200,7 +5201,7 @@
   "Po co ten krok": {
     "gdzie": [
       "src/components/stolnica/PasekKciuka.tsx (tekst)",
-      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst w JSX)"
+      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tytul)"
     ]
   },
   "Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.": {
@@ -5466,7 +5467,7 @@
   },
   "Poprawna formuła": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tytul)"
     ]
   },
   "Poprzedni miesiąc": {
@@ -6687,7 +6688,7 @@
   },
   "Składniki do odważenia": {
     "gdzie": [
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (tytul)",
       "src/components/stolnica/SkladnikiKroku.tsx (tytul)"
     ]
   },
@@ -7114,7 +7115,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (sol)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
@@ -7301,8 +7302,7 @@
   "Temperatura wody": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/TemperaturaWodySheet.tsx (tekst w JSX)",
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (tytul)"
     ]
   },
   "Temperatura wody i zaczyny": {
@@ -8185,7 +8185,7 @@
   },
   "Wklej kod JSON udostępniony przez innego piekarza": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (podpis)"
     ]
   },
   "Wklej zawartość pliku JSON kopii zapasowej:": {
@@ -8194,7 +8194,7 @@
   "Wklej zawartość pliku receptury albo kopii zapasowej.": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (accessibilityLabel)",
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (podpis)"
     ]
   },
   "Wklej ze schowka": {
@@ -8217,7 +8217,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (woda)",
       "src/components/zakwas/StarterFeedingCard.tsx (etykieta)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
@@ -8418,7 +8418,7 @@
   },
   "Wszystkie etapy wypieku": {
     "gdzie": [
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStepsList.tsx (tytul)"
     ]
   },
   "Wszystkie mąki z tej receptury są w spiżarni.": {
@@ -8859,7 +8859,7 @@
   },
   "Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (podpis)"
     ]
   },
   "Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)": {
@@ -9135,7 +9135,7 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
@@ -9199,8 +9199,13 @@
       "src/components/PaywallModal.tsx (tekst)",
       "src/components/StarterConverterModal.tsx (tekst)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
+      "src/components/calculator/TemperaturaWodySheet.tsx (tekst)",
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
+      "src/components/start/ArkuszPlanu.tsx (tekst)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst)",
+      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },

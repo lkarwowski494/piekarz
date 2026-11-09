@@ -2,21 +2,19 @@
 // Piekarz (Crust) — Import Recipe Modal (BR-DANE-003)
 // Paste, validate, and import artisan formulas from JSON.
 // Apps4Brew Studio — 100% Offline-First.
+// Na systemie kart: „Anuluj” w pasku arkusza, wklejanie w karcie „Importuj recepturę”, podgląd w karcie „Poprawna
+// formuła” (README §1, §3); zapis i przyciski na dole bez zmian [M1-audytor-generalny-007; 04-studio-projektowe-003].
 // ============================================================================
 
 import React, { useState, useMemo } from 'react';
 import {
   View,
   Text,
-  Modal,
-  ScrollView,
   Pressable,
   TextInput,
   StyleSheet,
   Alert,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
@@ -28,6 +26,9 @@ import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
 import { useAppAccess } from '../lib/app-access';
 import { useProPoArkuszu } from '../hooks/useProPoArkuszu';
+import { ArkuszKart } from './arkusz/ArkuszKart';
+import { Karta } from '../ui/karty/Karta';
+import { IkonaKarty } from '../ui/karty/IkonaKarty';
 
 import { typografia } from '../ui/tokeny';
 export interface ImportRecipeModalProps {
@@ -99,218 +100,151 @@ export function ImportRecipeModal({
   };
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={pro.poZamknieciu}>
-      <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.modalCard} testID="import-recipe-modal">
-          {/* Header */}
-          <View style={styles.header}>
-            <View style={styles.flex1}>
-              <Text style={styles.title}>{t('Importuj recepturę')}</Text>
-              <Text style={styles.subtitle}>{t('Wklej kod JSON udostępniony przez innego piekarza')}</Text>
-            </View>
+    <ArkuszKart visible={visible} onRequestClose={onClose} onDismiss={pro.poZamknieciu} trescTestID="import-recipe-modal"
+      lewy={{ tekst: t('Anuluj'), onPress: onClose, testID: 'close-import-btn' }}>
+      <Karta testID="karta-importu-receptury" tytul={t('Importuj recepturę')} ikona={<IkonaKarty nazwa="receptury" />}
+        podpis={t('Wklej kod JSON udostępniony przez innego piekarza')}>
+        {/* Action Bar (Paste / Clear) */}
+        <View style={styles.actionRow}>
+          <Pressable
+            testID="paste-clipboard-btn"
+            accessibilityRole="button"
+            accessibilityLabel={t('Wklej ze schowka')}
+            style={styles.actionBtn}
+            onPress={handlePasteClipboard}
+          >
+            <Text style={styles.actionBtnText}>{t('Wklej ze schowka')}</Text>
+          </Pressable>
+          {jsonInput.length > 0 && (
             <Pressable
-              testID="close-import-btn"
+              testID="clear-json-btn"
               accessibilityRole="button"
-              accessibilityLabel={t('Anuluj')}
-              onPress={onClose}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-              style={styles.closeBtn}
+              accessibilityLabel={t('Wyczyść wklejony tekst')}
+              style={[styles.actionBtn, styles.clearBtn]}
+              onPress={handleClear}
             >
-              <Text style={styles.closeBtnText}>{t('Anuluj')}</Text>
+              <Text style={styles.clearBtnText}>{t('Wyczyść')}</Text>
             </Pressable>
+          )}
+        </View>
+
+        {/* JSON Text Input */}
+        <TextInput
+          accessibilityLabel={t('Wklej kod JSON receptury tutaj...')}
+          testID="recipe-json-input"
+          style={styles.jsonInput}
+          multiline
+          placeholder={t('Wklej kod JSON receptury tutaj...')}
+          placeholderTextColor={theme.colors.tusz3}
+          value={jsonInput}
+          onChangeText={setJsonInput}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+
+        {/* Validation States */}
+        {validation === null && (
+          <View style={styles.hintBox}>
+            <Text style={styles.hintText}>
+              {t('Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.')}
+            </Text>
           </View>
+        )}
 
-          <ScrollView style={styles.scrollArea} keyboardShouldPersistTaps="handled">
-            {/* Action Bar (Paste / Clear) */}
-            <View style={styles.actionRow}>
-              <Pressable
-                testID="paste-clipboard-btn"
-                accessibilityRole="button"
-                accessibilityLabel={t('Wklej ze schowka')}
-                style={styles.actionBtn}
-                onPress={handlePasteClipboard}
-              >
-                <Text style={styles.actionBtnText}>{t('Wklej ze schowka')}</Text>
-              </Pressable>
-              {jsonInput.length > 0 && (
-                <Pressable
-                  testID="clear-json-btn"
-                  accessibilityRole="button"
-                  accessibilityLabel={t('Wyczyść wklejony tekst')}
-                  style={[styles.actionBtn, styles.clearBtn]}
-                  onPress={handleClear}
-                >
-                  <Text style={styles.clearBtnText}>{t('Wyczyść')}</Text>
-                </Pressable>
-              )}
-            </View>
+        {validation && !validation.success && (
+          <View style={styles.errorBox} testID="import-error-box">
+            <Text style={styles.errorTitle}>{t('Nieprawidłowy format')}</Text>
+            <Text style={styles.errorText}>{validation.error}</Text>
+          </View>
+        )}
 
-            {/* JSON Text Input */}
-            <TextInput
-              accessibilityLabel={t('Wklej kod JSON receptury tutaj...')}
-              testID="recipe-json-input"
-              style={styles.jsonInput}
-              multiline
-              placeholder={t('Wklej kod JSON receptury tutaj...')}
-              placeholderTextColor={theme.colors.tusz3}
-              value={jsonInput}
-              onChangeText={setJsonInput}
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
+      </Karta>
 
-            {/* Validation States */}
-            {validation === null && (
-              <View style={styles.hintBox}>
-                <Text style={styles.hintText}>
-                  {t('Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.')}
+        {validation && validation.success && (
+          <View testID="import-preview-card">
+          <Karta testID="karta-podgladu-importu" tytul={t('Poprawna formuła')} ikona={<IkonaKarty nazwa="ptaszek" />}>
+            <Text style={styles.previewDdt}>DDT: {formatTemperature(validation.recipe.targetDDT, getUnitSystem())}</Text>
+
+            <Text style={styles.previewName}>{validation.recipe.name}</Text>
+            {validation.recipe.notes ? (
+              <Text style={styles.previewNotes}>{validation.recipe.notes}</Text>
+            ) : null}
+
+            <View style={styles.divider} />
+
+            <Text style={styles.previewSectionTitle}>{t('Mieszanka mąk (100%):')}</Text>
+            {validation.recipe.formula.flours.map((f, idx) => (
+              <View key={idx} style={styles.flourRow}>
+                <Text style={styles.flourBullet}>•</Text>
+                <Text style={styles.flourName}>{nazwaMakiMieszanki(f)}</Text>
+                <Text style={styles.flourPct}>{formatFixed(f.percentage, 1)}%</Text>
+              </View>
+            ))}
+
+            <View style={styles.divider} />
+
+            <View style={styles.metricsRow}>
+              <View style={styles.metricItem}>
+                <Text style={styles.metricLabel}>{t('Woda')}</Text>
+                <Text style={styles.metricValue}>
+                  {formatFixed(validation.recipe.formula.waterPercentage, 1)}%
                 </Text>
               </View>
-            )}
-
-            {validation && !validation.success && (
-              <View style={styles.errorBox} testID="import-error-box">
-                <Text style={styles.errorTitle}>{t('Nieprawidłowy format')}</Text>
-                <Text style={styles.errorText}>{validation.error}</Text>
+              <View style={styles.metricItem}>
+                <Text style={styles.metricLabel}>{t('Sól')}</Text>
+                <Text style={styles.metricValue}>
+                  {formatFixed(validation.recipe.formula.saltPercentage, 1)}%
+                </Text>
               </View>
-            )}
-
-            {validation && validation.success && (
-              <View style={styles.previewCard} testID="import-preview-card">
-                <View style={styles.previewHeader}>
-                  <Text style={styles.previewBadge}>{t('Poprawna formuła')}</Text>
-                  <Text style={styles.previewDdt}>DDT: {formatTemperature(validation.recipe.targetDDT, getUnitSystem())}</Text>
-                </View>
-
-                <Text style={styles.previewName}>{validation.recipe.name}</Text>
-                {validation.recipe.notes ? (
-                  <Text style={styles.previewNotes}>{validation.recipe.notes}</Text>
-                ) : null}
-
-                <View style={styles.divider} />
-
-                <Text style={styles.previewSectionTitle}>{t('Mieszanka mąk (100%):')}</Text>
-                {validation.recipe.formula.flours.map((f, idx) => (
-                  <View key={idx} style={styles.flourRow}>
-                    <Text style={styles.flourBullet}>•</Text>
-                    <Text style={styles.flourName}>{nazwaMakiMieszanki(f)}</Text>
-                    <Text style={styles.flourPct}>{formatFixed(f.percentage, 1)}%</Text>
-                  </View>
-                ))}
-
-                <View style={styles.divider} />
-
-                <View style={styles.metricsRow}>
-                  <View style={styles.metricItem}>
-                    <Text style={styles.metricLabel}>{t('Woda')}</Text>
-                    <Text style={styles.metricValue}>
-                      {formatFixed(validation.recipe.formula.waterPercentage, 1)}%
-                    </Text>
-                  </View>
-                  <View style={styles.metricItem}>
-                    <Text style={styles.metricLabel}>{t('Sól')}</Text>
-                    <Text style={styles.metricValue}>
-                      {formatFixed(validation.recipe.formula.saltPercentage, 1)}%
-                    </Text>
-                  </View>
-                  <View style={styles.metricItem}>
-                    <Text style={styles.metricLabel}>{t('Zakwas|składnik')}</Text>
-                    <Text style={styles.metricValue}>
-                      {formatFixed(validation.recipe.formula.starterPercentage, 1)}%
-                    </Text>
-                  </View>
-                </View>
+              <View style={styles.metricItem}>
+                <Text style={styles.metricLabel}>{t('Zakwas|składnik')}</Text>
+                <Text style={styles.metricValue}>
+                  {formatFixed(validation.recipe.formula.starterPercentage, 1)}%
+                </Text>
               </View>
-            )}
-          </ScrollView>
-
-          {/* Footer Actions */}
-          <View style={styles.footer}>
-            <Pressable
-              testID="cancel-import-btn"
-              accessibilityRole="button"
-              accessibilityLabel={t('Anuluj')}
-              style={styles.cancelBtn}
-              onPress={onClose}
-            >
-              <Text style={styles.cancelBtnText}>{t('Anuluj')}</Text>
-            </Pressable>
-
-            <Pressable
-              testID="confirm-import-btn"
-              accessibilityRole="button"
-              accessibilityLabel={t('Zaimportuj przepis')}
-              disabled={!validation || !validation.success}
-              style={[
-                styles.confirmBtn,
-                (!validation || !validation.success) && styles.confirmBtnDisabled,
-              ]}
-              onPress={handleConfirmImport}
-            >
-              <Text
-                style={[
-                  styles.confirmBtnText,
-                  (!validation || !validation.success) && styles.confirmBtnTextDisabled,
-                ]}
-              >
-                {t('Zaimportuj przepis')}
-              </Text>
-            </Pressable>
+            </View>
+          </Karta>
           </View>
-        </View>
-      </SafeAreaView>
-    </Modal>
+        )}
+
+      {/* Footer Actions */}
+      <View style={styles.footer}>
+        <Pressable
+          testID="cancel-import-btn"
+          accessibilityRole="button"
+          accessibilityLabel={t('Anuluj')}
+          style={styles.cancelBtn}
+          onPress={onClose}
+        >
+          <Text style={styles.cancelBtnText}>{t('Anuluj')}</Text>
+        </Pressable>
+
+        <Pressable
+          testID="confirm-import-btn"
+          accessibilityRole="button"
+          accessibilityLabel={t('Zaimportuj przepis')}
+          disabled={!validation || !validation.success}
+          style={[
+            styles.confirmBtn,
+            (!validation || !validation.success) && styles.confirmBtnDisabled,
+          ]}
+          onPress={handleConfirmImport}
+        >
+          <Text
+            style={[
+              styles.confirmBtnText,
+              (!validation || !validation.success) && styles.confirmBtnTextDisabled,
+            ]}
+          >
+            {t('Zaimportuj przepis')}
+          </Text>
+        </Pressable>
+      </View>
+    </ArkuszKart>
   );
 }
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-    justifyContent: 'flex-end',
-  },
-  modalCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 34,
-    maxHeight: '90%',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  flex1: {
-    flex: 1,
-  },
-  title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  subtitle: {
-    fontSize: typografia.style.przypis.pt,
-    color: theme.colors.tusz2,
-    marginTop: 2,
-  },
-  closeBtn: {
-    minWidth: 44,
-    minHeight: 44,
-    paddingHorizontal: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  closeBtnText: {
-    fontSize: typografia.style.tresc.pt,
-    color: theme.colors.akcentTekst,
-  },
-  scrollArea: {
-    maxHeight: 450,
-  },
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -385,25 +319,6 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
     lineHeight: 18,
-  },
-  previewCard: {
-    marginTop: 14,
-    padding: 16,
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 14,
-    borderWidth: 1.5,
-    borderColor: theme.colors.akcent,
-  },
-  previewHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 6,
-  },
-  previewBadge: {
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
   },
   previewDdt: {
     fontSize: typografia.style.podpis.pt,

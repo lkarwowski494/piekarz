@@ -1,20 +1,24 @@
 // ============================================================================
-// Apps4Craft Studio — BakeStepsList Component
-// Steps progression timeline and active dough batch ingredients card.
-// 100% Offline-First.
+// Piekarz — treść arkusza „Plan wypieku”: karta „Składniki do odważenia” i karta „Wszystkie etapy wypieku”
+// (README systemu kart §1–§2, makieta docs/design/karty/wypiek.html: składniki jako wiersze karty, oś czasu jako
+// wiersze z linią). Wybór kroku przenosi do niego (zachowanie bez zmian). Bieżący krok: wypełnione kółko z numerem
+// i pogrubiona nazwa (nie sam kolor), krok miniony: znak „✓”. [M1-audytor-generalny-007; 04-studio-projektowe-003]
 // ============================================================================
 
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
+import { odstepy, typografia } from '../../ui/tokeny';
 import { formatWeight, formatDoseWeight, UnitSystem } from '../../lib/unit-converter';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
+import { Karta } from '../../ui/karty/Karta';
+import { WierszKarty } from '../../ui/karty/WierszKarty';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 import type { SessionStep } from '../../core/bake-steps';
 import type { DoughRecipeResult } from '../../core/domain-rules';
 
-import { typografia } from '../../ui/tokeny';
 export interface BakeStepsListProps {
   steps: readonly SessionStep[];
   currentStepIdx: number;
@@ -22,6 +26,10 @@ export interface BakeStepsListProps {
   calculatedRecipe?: DoughRecipeResult;
   unitSystem: UnitSystem;
 }
+
+/** Odstęp pionowy wiersza karty (README §2: 10/16), jak w `WierszKarty`. */
+const ODSTEP_PIONOWY = 10;
+const KOLKO = 28;
 
 export function BakeStepsList({
   steps,
@@ -31,183 +39,101 @@ export function BakeStepsList({
   unitSystem,
 }: BakeStepsListProps) {
   return (
-    <View testID="bake-steps-list">
-      {/* Active Recipe Ingredients Card */}
+    <View testID="bake-steps-list" style={styles.lista}>
       {calculatedRecipe && (
-        <View style={styles.ingredientsCard}>
-          <Text style={styles.ingredientsTitle}>{t('Składniki do odważenia')}</Text>
-          <View style={styles.ingredientsGrid}>
-            <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>{t('Mąki')}</Text>
-              <Text style={styles.ingredientValue}>
-                {formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)}
-              </Text>
-            </View>
-            <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>{t('Woda')}</Text>
-              <Text style={styles.ingredientValue}>
-                {formatWeight(calculatedRecipe.waterGrams, unitSystem)}
-              </Text>
-            </View>
-            <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>{t('Zakwas|składnik')}</Text>
-              <Text style={styles.ingredientValue}>
-                {formatWeight(calculatedRecipe.starterGrams, unitSystem)}
-              </Text>
-            </View>
-            <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>{t('Sól')}</Text>
-              <Text style={styles.ingredientValue}>
-                {formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)}
-              </Text>
-            </View>
-          </View>
-          <Text style={styles.ingredientsCaption}>
+        <Karta testID="karta-skladnikow-planu" tytul={t('Składniki do odważenia')} ikona={<IkonaKarty nazwa="waga" />} bezWypelnienia>
+          <WierszKarty testID="plan-skladnik-maka" linia={false} etykieta={t('Mąki')} wartosc={formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)} />
+          <WierszKarty testID="plan-skladnik-woda" etykieta={t('Woda')} wartosc={formatWeight(calculatedRecipe.waterGrams, unitSystem)} />
+          <WierszKarty testID="plan-skladnik-zakwas" etykieta={t('Zakwas|składnik')} wartosc={formatWeight(calculatedRecipe.starterGrams, unitSystem)} />
+          <WierszKarty testID="plan-skladnik-sol" etykieta={t('Sól')} wartosc={formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)} />
+          <Text style={styles.przypis}>
             {t('Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%', {
               masa: formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem),
               hydratacja: formatFixed(calculatedRecipe.overallHydrationPercent, 1),
             })}
           </Text>
-        </View>
+        </Karta>
       )}
 
-      {/* Steps Overview (Clickable) */}
-      <Text style={styles.sectionHeading}>{t('Wszystkie etapy wypieku')}</Text>
-      {steps.map((step, idx) => {
-        const isPast = idx < currentStepIdx;
-        const isCurrent = idx === currentStepIdx;
-        return (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ selected: !!(isCurrent) }}
-            key={step.id}
-            onPress={() => onGoToStep(idx)}
-            style={[
-              styles.stepRow,
-              isCurrent && styles.stepRowCurrent,
-              isPast && styles.stepRowPast,
-            ]}
-          >
-            <Text style={[styles.stepNumber, isCurrent && styles.stepNumberCurrent]}>
-              {isPast ? '✓' : `${idx + 1}`}
-            </Text>
-            <View style={styles.stepInfo}>
-              <Text style={[styles.stepName, isCurrent && styles.stepNameCurrent]}>
-                {t(step.name)}
+      <Karta testID="karta-etapow-planu" tytul={t('Wszystkie etapy wypieku')} ikona={<IkonaKarty nazwa="lista" />} bezWypelnienia>
+        {steps.map((step, idx) => {
+          const isPast = idx < currentStepIdx;
+          const isCurrent = idx === currentStepIdx;
+          return (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isCurrent) }}
+              key={step.id}
+              onPress={() => onGoToStep(idx)}
+              style={({ pressed }) => [styles.stepRow, idx > 0 && styles.stepRowLinia, isPast && styles.stepRowPast, pressed && styles.nacisniety]}
+            >
+              <Text style={[styles.stepNumber, isCurrent && styles.stepNumberCurrent]}>
+                {isPast ? '✓' : `${idx + 1}`}
               </Text>
-              {step.durationMin !== null && <Text style={styles.stepTime}>{t('{n} min', { n: step.durationMin })}</Text>}
-            </View>
-          </Pressable>
-        );
-      })}
+              <View style={styles.stepInfo}>
+                <Text style={[styles.stepName, isCurrent && styles.stepNameCurrent]}>
+                  {t(step.name)}
+                </Text>
+                {step.durationMin !== null && <Text style={styles.stepTime}>{t('{n} min', { n: step.durationMin })}</Text>}
+              </View>
+            </Pressable>
+          );
+        })}
+      </Karta>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  ingredientsCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.akcent,
-  },
-  ingredientsTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-    marginBottom: 8,
-  },
-  ingredientsGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 6,
-    marginBottom: 8,
-  },
-  ingredientPill: {
-    flex: 1,
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 8,
-    paddingHorizontal: 6,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  ingredientLabel: {
-    fontSize: 11,
-    fontWeight: '600',
+  lista: { gap: odstepy.m },
+  przypis: {
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
-    marginBottom: 2,
-  },
-  ingredientValue: {
-    fontSize: typografia.style.objasnienie.pt,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-  },
-  ingredientsCaption: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    textAlign: 'center',
-  },
-  sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 10,
-    marginTop: 6,
+    paddingHorizontal: odstepy.l,
+    paddingTop: odstepy.xs,
+    paddingBottom: odstepy.m,
   },
   stepRow: {
     minHeight: theme.cele.glownyPrzeplyw,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    padding: 12,
-    borderRadius: theme.radius.md,
-    marginBottom: 6,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
+    gap: odstepy.m,
+    paddingVertical: ODSTEP_PIONOWY,
+    paddingHorizontal: odstepy.l,
+    borderTopColor: theme.colors.linia,
   },
-  stepRowCurrent: {
-    borderColor: theme.colors.akcent,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  stepRowPast: {
-    opacity: 0.6,
-  },
+  stepRowLinia: { borderTopWidth: 1 },
+  stepRowPast: { opacity: 0.6 },
+  nacisniety: { backgroundColor: theme.colors.tloGrupa },
   stepNumber: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    minWidth: KOLKO,
+    minHeight: KOLKO,
+    borderRadius: KOLKO / 2,
+    overflow: 'hidden',
     backgroundColor: theme.colors.powierzchnia,
     textAlign: 'center',
-    lineHeight: 28,
-    fontSize: 14,
+    textAlignVertical: 'center',
+    lineHeight: KOLKO,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
+    fontVariant: ['tabular-nums'],
     color: theme.colors.tusz2,
-    marginRight: 10,
   },
   stepNumberCurrent: {
     backgroundColor: theme.colors.akcent,
     color: theme.colors.naAkcencie,
   },
-  stepInfo: {
-    flex: 1,
-  },
+  stepInfo: { flex: 1, flexShrink: 1, gap: 2 },
   stepName: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz,
   },
   stepNameCurrent: {
-    fontWeight: '800',
+    fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
   stepTime: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz3,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
   },
 });
