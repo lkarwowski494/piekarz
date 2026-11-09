@@ -1,0 +1,5 @@
+    ✓ po minucie zegara pasek pokazuje tydzień z poniedziałkiem jako dziś, bez przycisku „Dziś” (28 ms)
+    ✓ przesunięty tydzień zostaje przesunięty po północy (8 ms)
+    ✓ po minucie zegara pasek pokazuje tydzień z poniedziałkiem jako dziś, bez przycisku „Dziś” (4 ms)
+    ✓ przesunięty tydzień zostaje przesunięty po północy (6 ms)
+Tests:       4 passed, 4 total

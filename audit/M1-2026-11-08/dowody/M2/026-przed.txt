@@ -1,0 +1,10 @@
+    ✕ karta zakwasu bez wpisu dokarmienia nie pokazuje „przed chwilą” (276 ms)
+    ✕ średnia ocena tylko z ocenionych wpisów; same wpisy bez oceny → brak (2 ms)
+    ✕ import receptury: masa jako tekst, drożdże 12% i brak udziału zakwasu → błąd z nazwą pola (5 ms)
+    Expected substring: not "przed chwilą"
+    Received string:        "  Edytuj Doktor Bez karmienia     Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas. na blacie Bez karmienia na blacie +  Dodaj nowy zakwas   Prof
+    Expected: 1
+    Received: 3
+    - Expected  -  2
+    + Received  + 24
+Tests:       3 failed, 3 total

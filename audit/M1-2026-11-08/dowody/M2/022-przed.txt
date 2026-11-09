@@ -1,0 +1,9 @@
+    ✕ stan po starcie „ok” przy uzgadnianiu na każdym kroku pętli zdarzeń (zgoda granted) (939 ms)
+    - Expected  - 1
+    + Received  + 3
+    - Array []
+    + Array [
+    +   "k=0: unavailable (Error: no such column: bake_method)",
+    + ]
+      34 |       if (stan !== 'ok') zle.push(`k=${k}: ${stan} (${app.status.getStorageError() ?? ''})`);
+Tests:       1 failed, 1 total

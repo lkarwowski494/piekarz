@@ -1,0 +1,4 @@
+    ✓ karta zakwasu bez wpisu dokarmienia nie pokazuje „przed chwilą” (226 ms)
+    ✓ średnia ocena tylko z ocenionych wpisów; same wpisy bez oceny → brak (3 ms)
+    ✓ import receptury: masa jako tekst, drożdże 12% i brak udziału zakwasu → błąd z nazwą pola (2 ms)
+Tests:       3 passed, 3 total

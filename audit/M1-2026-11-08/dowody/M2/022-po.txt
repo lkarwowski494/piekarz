@@ -1,0 +1,4 @@
+    ✓ stan po starcie „ok” przy uzgadnianiu na każdym kroku pętli zdarzeń (zgoda granted) (908 ms)
+    ✓ poStarcieBazy: w trakcie startu czeka na koniec, po starcie zwraca stan od razu (22 ms)
+    ✓ powrót z tła w app/_layout.tsx uzgadnia dopiero po poStarcieBazy() i przy stanie „ok” (1 ms)
+Tests:       3 passed, 3 total
