@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, AppState } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
+import { usePasekStanuJasny } from '../nawigacja/PasZakladki';
 import { EkranZPasem } from '../nawigacja/EkranZPasem';
 import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
@@ -37,13 +37,14 @@ import { ostrzezeniaKroku } from '../../core/ostrzezenia-kroku';
 import { useAppAccess } from '../../lib/app-access';
 import { BlokadaFunkcji } from '../BlokadaFunkcji';
 import { FinishBakeModal } from './FinishBakeModal';
-import { CzasKrokuNaPasie, StrefaKroku } from './StrefaKroku';
+import { StrefaKroku } from './StrefaKroku';
+import { PasProwadzenia } from './PasProwadzenia';
+import { useNiskiEkran } from '../../ui/niski-ekran';
 import { StolnicaKeepAwake } from './StolnicaKeepAwake';
 import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
 import { PasekCofnijKroku } from './PasekCofnijKroku';
 import { PoCoTenKrokArkusz } from './PoCoTenKrokArkusz';
-import { PrzyciskiProwadzenia } from './PrzyciskiProwadzenia';
 import { StrefaPlanu } from './StrefaPlanu';
 import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
@@ -310,22 +311,20 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
 
   // „Gotowe {dzień} o {godzina}”, czas kroku, „do {godzina}, potem …”, „Ekran nie zgaśnie…” (makieta prowadzenia, 114)
   const teksty = useTekstyProwadzenia({ steps, stepIdx: currentStepIdx, dutchOvenPhase, koniecKrokuMs: ostatniKoniecRef.current, poCzasie: isCompleted });
+  // Niski ekran: pas zwarty, karta kroku 8 pt pod pasem (005, rola 04 p4b)
+  const niski = useNiskiEkran();
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      {/* Pas: wstecz · „Doktor” i „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku (nagłówek VoiceOver), czas
-          i „potem …”; Spirala z „Gotowe …” pod kartą kroku (005, D-318) */}
+      {/* Pas: tytuł kroku, czas i „potem …”; niski ekran: pas zwarty (005, rola 04 p4b); Spirala z „Gotowe …” pod kartą (D-318) */}
       <EkranZPasem gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} contentContainerStyle={styles.container} pas={(onLayout) => (
-        <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
-          podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
-          wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout}
-          akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
-          {aktywny && <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />}
-        </PasZakladki>
+        <PasProwadzenia gora={gora} krok={aktywny ? currentStep : undefined} numer={{ n: currentStepIdx + 1, m: steps.length }}
+          czas={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} onLayout={onLayout}
+          onWstecz={() => router.back()} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />
       )}>
-        <View style={styles.tresc}>
+        <View style={[styles.tresc, niski && styles.trescZwarta]}>
         {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
@@ -375,6 +374,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
             cofnijDostepne={cofnijDostepne}
             onPoCo={() => setPoCoOpen(true)}
             poCoDostepne={poCo !== null}
+            przyPrzelaczniku={!!naglowekStaly}
           />
         </BlokadaFunkcji>
       )}

@@ -69,15 +69,37 @@ function szerokoscTekstu(n: Wezel): number {
   return tekst(n).length * rozmiarTekstu(s) * znakTekstu(s);
 }
 
-/** Szerokość własna dziecka w rzędzie: liczba, gdy znana; null = rośnie (flex) albo nieznana. */
+/**
+ * Szerokość treści węzła w jednym wierszu (Yoga: element bez flex i bez szerokości ma rozmiar treści): tekst, wcięcia,
+ * obwódka, dzieci obok siebie (rząd) albo najszersze (kolumna); co najmniej minWidth. Rola 04 p4b: przycisk pasa
+ * („Plan wypieku”) w rzędzie nawigacji nie dzieli się już po równo z przyciskiem wstecz (zrzut web 320: 44 pt, nie 66).
+ */
+function szerokoscTresci(n: Wezel): number {
+  const s = styl(n);
+  const stala = num(s.width) ?? num(n.props?.width);
+  if (stala !== undefined) return stala;
+  const wciecia = bok(s, 'Left', 'padding') + bok(s, 'Right', 'padding') + 2 * (num(s.borderWidth) ?? 0);
+  let tresc: number;
+  if (typ(n) === 'Text') tresc = szerokoscTekstu(n);
+  else {
+    const dzieci = dzieciHost(n).filter((d) => !pominiety(d));
+    const miary = dzieci.map((d) => szerokoscTresci(d) + bok(styl(d), 'Left', 'margin') + bok(styl(d), 'Right', 'margin'));
+    tresc = s.flexDirection === 'row'
+      ? miary.reduce((a, m) => a + m, 0) + (num(s.columnGap) ?? num(s.gap) ?? 0) * Math.max(0, miary.length - 1)
+      : Math.max(0, ...miary);
+  }
+  return Math.max(tresc + wciecia, num(s.minWidth) ?? 0);
+}
+
+/** Szerokość własna dziecka w rzędzie: podstawa (flexBasis, szerokość albo treść) i czy rośnie (flex, flexGrow). */
 function szerokoscWRzedzie(n: Wezel): { podstawa: number; rosnie: boolean } {
   const s = styl(n);
   const stala = num(s.width) ?? num(n.props?.width);
   if (stala !== undefined) return { podstawa: stala + bok(s, 'Left', 'margin') + bok(s, 'Right', 'margin'), rosnie: false };
   const rosnie = (num(s.flex) ?? 0) > 0 || (num(s.flexGrow) ?? 0) > 0;
   if (num(s.flexBasis) !== undefined) return { podstawa: num(s.flexBasis)!, rosnie };
-  if (typ(n) === 'Text' && !rosnie) return { podstawa: szerokoscTekstu(n), rosnie: false };
-  return { podstawa: rosnie ? 0 : num(s.minWidth) ?? 0, rosnie: true };
+  if (rosnie) return { podstawa: 0, rosnie: true };
+  return { podstawa: szerokoscTresci(n), rosnie: false };
 }
 
 /**

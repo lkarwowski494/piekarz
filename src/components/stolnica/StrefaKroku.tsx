@@ -49,25 +49,29 @@ export interface StrefaKrokuProps {
 
 type CzasKrokuProps = Pick<StrefaKrokuProps, 'step' | 'formattedTime' | 'czasEtykieta' | 'potem'>;
 
-/** Czas kroku na pasie prowadzenia (D-194): kolory pasa, waga z „Pogrubionego tekstu” jak tytuł pasa. */
-export function CzasKrokuNaPasie(p: CzasKrokuProps) {
-  return <CzasKroku {...p} waga={{ fontWeight: wagaTytulu(usePogrubionyTekst()) }} naPasie />;
+/**
+ * Czas kroku na pasie prowadzenia (D-194): kolory pasa, waga z „Pogrubionego tekstu” jak tytuł pasa. Zwarty (niski
+ * ekran, rola 04 p4b, 005): czas 28 pt i „potem …” obok niego w jednym rzędzie, zawija się pod czas, gdy brak miejsca.
+ */
+export function CzasKrokuNaPasie({ zwarty = false, ...p }: CzasKrokuProps & { zwarty?: boolean }) {
+  const czas = <CzasKroku {...p} waga={{ fontWeight: wagaTytulu(usePogrubionyTekst()) }} naPasie zwarty={zwarty} />;
+  return zwarty ? <View testID="czas-rzad" style={styles.czasRzad}>{czas}</View> : czas;
 }
 
 /** Czas kroku i „do {godzina}, potem …”; waga od rodzica (jeden słuchacz „Pogrubionego tekstu” na strefę). */
-function CzasKroku({ step, formattedTime, czasEtykieta, potem = null, naPasie = false, waga }: CzasKrokuProps & { naPasie?: boolean; waga: { fontWeight: ReturnType<typeof wagaTytulu> } }) {
+function CzasKroku({ step, formattedTime, czasEtykieta, potem = null, naPasie = false, zwarty = false, waga }: CzasKrokuProps & { naPasie?: boolean; zwarty?: boolean; waga: { fontWeight: ReturnType<typeof wagaTytulu> } }) {
   return (
     <>
       {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt); „1:05:00” przy 320 pt zmniejsza się w jednym
           wierszu zamiast łamać cyfry [M1-audytor-generalny-201; reaudit-noc N-2] */}
       {stepHasTimer(step) && (
-        <Text testID="step-time" style={[styles.czas, waga, naPasie && styles.naPasie]} accessibilityLabel={czasEtykieta}
+        <Text testID="step-time" style={[styles.czas, zwarty && styles.czasZwarty, waga, naPasie && styles.naPasie]} accessibilityLabel={czasEtykieta}
           maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
           numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
           {formattedTime}
         </Text>
       )}
-      {potem !== null && <Text testID="step-next" style={[styles.potem, naPasie && styles.naPasie2]}>{potem}</Text>}
+      {potem !== null && <Text testID="step-next" style={[styles.potem, zwarty && styles.potemZwarty, naPasie && styles.naPasie2]}>{potem}</Text>}
     </>
   );
 }

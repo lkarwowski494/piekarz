@@ -2,7 +2,7 @@
 // Moduł jest kopią wygenerowanego docs/design/tokeny.ts; test pilnuje, żeby się nie rozjechał.
 import * as fs from 'fs';
 import * as path from 'path';
-import { kolory, typografia, odstepy, promienie, cele, ruch, haptyka } from '../tokeny';
+import { kolory, typografia, odstepy, promienie, cele, uklad, ruch, haptyka } from '../tokeny';
 
 const zrodlo = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../../../docs/design/tokeny.json'), 'utf8'),
@@ -27,6 +27,8 @@ describe('src/ui/tokeny.ts zgodny z docs/design/tokeny.json', () => {
     expect(odstepy).toEqual(zrodlo.odstepy);
     expect(promienie).toEqual(zrodlo.promienie);
     expect(cele).toEqual(zrodlo.cele);
+    // Próg niskiego ekranu (zwarty pas prowadzenia i pasek kciuka, M1-audytor-generalny-005, rola 04 p4b)
+    expect(uklad).toEqual(zrodlo.uklad);
   });
 
   it('typografia', () => {

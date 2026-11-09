@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
   tresc: {
     padding: theme.spacing.md,
   },
+  // Niski ekran (005, rola 04 p4b): karta kroku bliżej zwartego pasa
+  trescZwarta: { paddingTop: odstepy.s },
   // Tekst na pasie prowadzenia (tokeny pasa, D-194)
   naPasie: { color: theme.colors.naPasie },
   naPasie2: { color: theme.colors.naPasie2 },
@@ -70,6 +72,10 @@ export const styles = StyleSheet.create({
     color: theme.colors.tusz,
     marginBottom: odstepy.s,
   },
+  // Niski ekran (rola 04 p4b, 005): czas tytulKroku 28 pt i „potem …” obok w jednym rzędzie (zawija się pod czas)
+  czasRzad: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: odstepy.m },
+  czasZwarty: { fontSize: typografia.style.tytulKroku.pt, marginBottom: 0 },
+  potemZwarty: { flexGrow: 1, flexShrink: 1, flexBasis: 150, marginBottom: 0, fontSize: typografia.style.objasnienie.pt },
   activeStepDesc: {
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,

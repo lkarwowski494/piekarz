@@ -70,5 +70,12 @@ Poprawione: (1) liczby w wierszach nie skalowały się przy AX5 („850 g” 13 
 ## 7a. Duży tekst przy 320 pt (D-142)
 Bez dzielenia wyrazów; przy AX5 stos w jednej kolumnie i mniejsze wcięcia (CSS w `karty.css`, sekcja „AX5”). Dla 08: `flexWrap: 'wrap'` i `flexBasis` zależne od `fontScale` zamiast stałych rzędów; nie ustawiać `maxFontSizeMultiplier` w kartach. Słowo dłuższe niż cały wiersz łamie się systemowo. Kontrola: `node docs/design/narzedzia/slowa.mjs docs/design/karty/*.html` (Playwright ze scratchpadu): 0 elementów poza ekranem.
 
+## 7b. Niski ekran: prowadzenie (rola 04 p4b, M1-audytor-generalny-005; D-319 do weta)
+Token `uklad.niskiEkran` = 700 (`tokeny.json`): okno niższe niż 700 pt (iPhone SE 568 i 667 pt, „Powiększenie ekranu” 320×568) przy tekście mniejszym niż AX (`fontScale` < 2) dostaje na prowadzeniu układ zwarty (`src/ui/niski-ekran.ts`):
+- **pas zwarty** (`PasZakladki zwarty`, `PasProwadzenia`): „Krok n z m” w rzędzie nawigacji między wstecz a „Doktor”/„Plan wypieku”; tytuł kroku 20 pt jak nagłówek karty; czas 28 pt (`tytulKroku`) z „potem …” (15 pt) obok, zawija się pod czas; odstępy `xs`, dół `m`; karta kroku 8 pt pod pasem;
+- **pasek kciuka w jednym rzędzie** (`PasekKciuka`): „Zrobione” (akcent, pierwszy w kolejności czytania), „Cofnij poprzedni”, „Po co ten krok”, cel 48 pt (`cele.glownyPrzeplyw`), rząd się zawija przy długich tekstach. Ten sam pasek, gdy nad nim stoi przełącznik wypieków (dwa trwające), także przy 393×852.
+
+Przy dużym tekście (AX) układ zwykły: zawija się i przewija, nic nie znika. Bez nowych tekstów i kolorów. *Dlaczego:* przy 320×568 karta kroku z ostrzeżeniem bezpieczeństwa była w całości pod paskiem kciuka (dół ostrzeżenia 720 pt przy górze „Zrobione” 376 pt, Expo web); ostrzeżenie ma być widać bez przewijania (005). Dowód: `src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx` (rachunek) i zrzuty Expo web 320×568, 375×667, 393×852 (raport roli 04, fix 2026-11-09, wynik-p4b).
+
 ## 8. Czego nie sprawdzono
 Expo web (brak `react-native-web`, zależności nie dopisuję): „przed” to zrzuty właściciela i wzorce z 2026-10-20, nie bieżący build dla każdego ekranu. Krój treści w makiecie: Noto Sans zastępczo (na iOS SF Pro). Szerokość 430 pt: zrzuty wzorcowe 5 ekranów (E4). Najdłuższy język: nie renderowany — makiety kart nie mają przekładów; pomiar długości języków z `docs/design/pomiar-jezykow.md` obowiązuje dalej, sprawdzenie na zbudowanych ekranach w audycie roli 04 po 08. `warsztat.mjs` nie uruchomiony.

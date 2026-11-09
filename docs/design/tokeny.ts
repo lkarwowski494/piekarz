@@ -186,6 +186,8 @@ export const promienie = {"_zasada":"hierarchia: im większy i ważniejszy obiek
 
 export const cele = {"glownyPrzeplyw":48,"pozostale":44,"przyciskKciuka":64,"_zrodlo":"DEC-15 a, NFR-INT-001"} as const;
 
+export const uklad = {"niskiEkran":700,"_zasada":"okno niższe niż niskiEkran pt (iPhone SE 568 i 667, Powiększenie ekranu 320×568) przy tekście mniejszym niż AX (fontScale < 2): zwarty pas prowadzenia i pasek kciuka w jednym rzędzie; przy dużym tekście układ zwykły, zawija się i przewija","_zrodlo":"M1-audytor-generalny-005, rola 04 p4b (D-319 do weta)"} as const;
+
 export const ruch = {
   "zwoj": {
     "ms": 300,

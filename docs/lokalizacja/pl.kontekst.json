@@ -3053,7 +3053,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
-      "src/components/stolnica/ProwadzenieWypieku.tsx (podtytul)",
+      "src/components/stolnica/PasProwadzenia.tsx (kod)",
       "src/components/stolnica/StrefaKroku.tsx (tytul)"
     ]
   },
@@ -7121,6 +7121,7 @@
   "Stolnica": {
     "gdzie": [
       "app/_layout.tsx (title)",
+      "src/components/stolnica/PasProwadzenia.tsx (tytul)",
       "src/components/stolnica/ProwadzenieWypieku.tsx (tytul)"
     ]
   },
@@ -8673,7 +8674,7 @@
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (etykieta)",
       "app/doktor.tsx (etykieta)",
-      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)"
+      "src/components/stolnica/PasProwadzenia.tsx (etykieta)"
     ],
     "opis": "Etykieta dostępności (VoiceOver) przycisku powrotu na pasie ekranów Prowadzenie wypieku i Doktor Chleba; przycisk ma tylko ikonę strzałki. Powrót do poprzedniego ekranu, nie zamknięcie okna; jedno słowo (D-195, D-198, D-206)."
   },
