@@ -82,7 +82,7 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Σύμφωνα με τέσσερις από τις πέντε οδηγίες που διαβάσαμε, η καθυστερημένη εκκίνηση δεν λειτουργεί ή δεν συνιστάται στο πρόγραμμα μόνο για ζύμη, γι\' αυτό ο Αρτοποιός δεν την προτείνει.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια κουζίνας, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.',
+    'Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια φούρνου, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'Ο αναδευτήρας που έμεινε στο καρβέλι μπορεί να είναι πολύ καυτός: βγάλτε τον μόνο αφού κρυώσει το ψωμί, με το εργαλείο του σετ ή με πλαστική σπάτουλα, χωρίς μαχαίρι και πιρούνι, και συνεχίστε να προσέχετε μην καείτε.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':

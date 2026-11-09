@@ -78,7 +78,7 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Okuduğumuz beş kılavuzdan dördüne göre gecikmeli başlatma yalnızca hamur programında çalışmaz ya da önerilmez; bu yüzden Fırıncı bunu önermez.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Pişirmeden sonra kabı mutfak eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.',
+    'Pişirmeden sonra kabı fırın eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'Ekmeğin içinde kalan karıştırıcı çok sıcak olabilir: ekmek soğuduktan sonra, setteki aletle veya plastik bir spatulayla çıkarın; bıçak ve çatal kullanmayın ve yanık riskine karşı dikkatli olmaya devam edin.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':

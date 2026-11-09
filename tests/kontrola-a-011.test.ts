@@ -1,7 +1,7 @@
 /**
  * Kontrola (a) tłumaczenia zwrotnego tekstów krytycznych [M1-audytor-generalny-011; 09-lokalizacja-001]: każdy klucz
  * z twierdzeniem krytycznym z partii 09m i p8 (7 zdań trybu maszyny, 2 notatki z BEZ-WRZ-001) ma w 21 językach wpis
- * w rejestrze; wdrożona poprawka jest w słowniku; nierozstrzygnięta czeka tylko na nazwaną decyzję właściciela.
+ * w rejestrze; każda poprawka jest wdrożona w słowniku (zdania maszyny: wyjątek od D-287 decyzją D-308).
  */
 import fs from 'fs';
 import path from 'path';
@@ -21,13 +21,13 @@ describe('011: kontrola (a) tekstów krytycznych w 21 językach', () => {
       expect([l, id, !!w?.zwrotne_pl, ['zgodne', 'drobna', 'poprawka'].includes(w?.wynik ?? '')]).toEqual([l, id, true, true]);
     }
   });
-  it('poprawka wdrożona = tekst w słowniku; niewdrożona tylko z decyzją właściciela D-287 (zdania maszyny)', async () => {
+  it('poprawka wdrożona = tekst w słowniku; wszystkie wdrożone (zdania maszyny decyzją D-308)', async () => {
     for (const w of rej.wpisy.filter((x) => x.wynik === 'poprawka')) {
-      if (w.stan === 'wdrożona') {
+      if (w.stan.startsWith('wdrożona')) {
         const slownik = await LADOWANIE_SLOWNIKOW[w.jezyk as keyof typeof LADOWANIE_SLOWNIKOW]();
         expect([w.jezyk, w.id, slownik[w.klucz]]).toEqual([w.jezyk, w.id, w.poprawiony]);
       } else {
-        expect([w.jezyk, w.id, w.id.startsWith('k'), /D-287/.test(w.stan)]).toEqual([w.jezyk, w.id, true, true]);
+        throw new Error(`nierozstrzygnięta poprawka ${w.jezyk} ${w.id}: ${w.stan}`);
       }
     }
   });

@@ -89,7 +89,7 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Під час роботи не торкайтеся отвору для пари й не закривайте його.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Дітей віком до 8 років тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.',
+    'Дітей, молодших за 8 років, тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'Підказка програми — це правило Пекаря, а не рекомендація виробника, тому перевірте її в інструкції вашої хлібопічки.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':

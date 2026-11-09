@@ -1,5 +1,5 @@
 {
- "_opis": "Kontrola (a) — tłumaczenie zwrotne tekstów krytycznych (warunek 7 rejestru języków) dla 9 kluczy (k52, k53, k56–k60 trybu maszyny; notatki Rupjmaize i obwarzanka z BEZ-WRZ-001) w 21 językach bez wcześniejszej kontroli [M1-audytor-generalny-011; 09-lokalizacja-001]. Metoda M2 2026-11-09: trzy osobne sesje tłumaczenia zwrotnego na PL bez dostępu do źródła (7 języków każda), potem osobna sesja porównania sensu ze źródłem PL/EN. Wynik: zgodne / drobna (bez wpływu na bezpieczeństwo) / poprawka. Poprawki notatek wdrożone (poprawki-przekladu.json); poprawki zdań maszyny czekają na decyzję właściciela (D-287). Przegląd natywny: brak (DEC-06).",
+ "_opis": "Kontrola (a) — tłumaczenie zwrotne tekstów krytycznych (warunek 7 rejestru języków) dla 9 kluczy (k52, k53, k56–k60 trybu maszyny; notatki Rupjmaize i obwarzanka z BEZ-WRZ-001) w 21 językach bez wcześniejszej kontroli [M1-audytor-generalny-011; 09-lokalizacja-001]. Metoda M2 2026-11-09: trzy osobne sesje tłumaczenia zwrotnego na PL bez dostępu do źródła (7 języków każda), potem osobna sesja porównania sensu ze źródłem PL/EN. Wynik: zgodne / drobna (bez wpływu na bezpieczeństwo) / poprawka. Poprawki notatek wdrożone (poprawki-przekladu.json); poprawki zdań maszyny wdrożone decyzją właściciela D-308 (wyjątek od D-287). Przegląd natywny: brak (DEC-06).",
  "wpisy": [
   {
    "jezyk": "cs",
@@ -209,7 +209,7 @@
    "wynik": "poprawka",
    "opis": "„γάντια κουζίνας” może oznaczać gumowe rękawice kuchenne; do gorącej formy — „γάντια φούρνου” (rękawice do piekarnika). „δοχείο” to standardowa nazwa formy w el instrukcjach — OK.",
    "poprawiony": "Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια φούρνου, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "el",
@@ -379,7 +379,7 @@
    "wynik": "poprawka",
    "opis": "Szyk „keelab viivitatud stardi osa nende koostisosadega” można odczytać „zabrania części opóźnionego startu z tymi składnikami” — niejasne, czego dotyczy zakaz. Zmieniono na „mõne nende koostisosaga” (z niektórymi z tych składników).",
    "poprawiony": "Iga loetud masinajuhend keelab viivitatud stardi mõne nende koostisosaga, sest need riknevad kergesti.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "et",
@@ -569,7 +569,7 @@
    "wynik": "poprawka",
    "opis": "„sarung tangan dapur” — niejasne, czy żaroodporne; do gorącej formy „sarung tangan oven”. „loyang” — w id instrukcjach maszyn do chleba to standardowa nazwa formy (loyang roti) — OK.",
    "poprawiony": "Setelah memanggang, keluarkan loyang dengan sarung tangan oven, karena loyang, gagangnya, dan bagian dalam tutup panas.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "id",
@@ -599,7 +599,7 @@
    "wynik": "poprawka",
    "opis": "„jangan tutup” bez dopełnienia — dwuznaczne („nie zamykaj [pokrywy]” / „pokrywa”); zakaz zasłaniania otworu pary niejasny. Zmieniono na „jangan menutupinya”.",
    "poprawiony": "Saat mesin bekerja, jangan sentuh lubang uap dan jangan menutupinya.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "id",
@@ -669,7 +669,7 @@
    "wynik": "poprawka",
    "opis": "„gancio impastatore” = hak do ciasta (mikser planetarny); w maszynie do chleba to „pala impastatrice” (mieszadło/łopatka) — zła część maszyny. Zmieniono z uzgodnieniem rodzaju.",
    "poprawiony": "La pala impastatrice rimasta nel pane può essere molto calda: toglila solo dopo che il pane si è raffreddato, con l'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "it",
@@ -789,7 +789,7 @@
    "wynik": "poprawka",
    "opis": "„Vaikus iki 8 metų” = „do 8 lat” — niejasne, czy 8-latek jest objęty zakazem; źródło: poniżej 8 lat (EN under 8). Zmieniono na „jaunesnius nei 8 metų”.",
    "poprawiony": "Jaunesnius nei 8 metų vaikus laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "lt",
@@ -839,7 +839,7 @@
    "wynik": "poprawka",
    "opis": "„sarung tangan dapur” — niejasne, czy żaroodporne; do gorącej formy „sarung tangan ketuhar” (ketuhar jak w n1/n2). „loyang” — standardowa nazwa formy maszyny (loyang roti) — OK.",
    "poprawiony": "Selepas membakar, keluarkan loyang dengan sarung tangan ketuhar, kerana loyang, pemegangnya dan bahagian dalam penutup panas.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "ms",
@@ -869,7 +869,7 @@
    "wynik": "poprawka",
    "opis": "„jangan tutupnya” niegramatyczne (można czytać jako rzeczownik „tutup” = pokrywa); poprawnie „jangan menutupnya”.",
    "poprawiony": "Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan menutupnya.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "ms",
@@ -1369,7 +1369,7 @@
    "wynik": "poprawka",
    "opis": "„pekač” w sl to zwykle blacha/naczynie do pieczenia, nie maszyna do chleba — zła rzecz. Dodano „kruha”. („hitro” = szybko zamiast łatwo — drobne.)",
    "poprawiony": "Vsako od prebranih navodil pekačev kruha prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "sl",
@@ -1419,7 +1419,7 @@
    "wynik": "poprawka",
    "opis": "„od pekača” = od blachy/naczynia do pieczenia, a ostrzeżenie dotyczy maszyny i jej przewodu — zła rzecz w ostrzeżeniu dla dzieci. Wiek „mlajše od 8 let” poprawny.",
    "poprawiony": "Otroke, mlajše od 8 let, držite stran od pekača kruha in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "sl",
@@ -1649,7 +1649,7 @@
    "wynik": "poprawka",
    "opis": "„mutfak eldiveni” może oznaczać zwykłe/gumowe rękawice kuchenne; do gorącej formy potrzebne rękawice do piekarnika — „fırın eldiveni”. („kap” = pojemnik — akceptowalne.)",
    "poprawiony": "Pişirmeden sonra kabı fırın eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "tr",
@@ -1779,7 +1779,7 @@
    "wynik": "poprawka",
    "opis": "„Дітей віком до 8 років” = „do 8 lat” — niejasne, czy 8-latek jest objęty zakazem; źródło: poniżej 8 lat. Zmieniono na „молодших за 8 років”.",
    "poprawiony": "Дітей, молодших за 8 років, тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "uk",
@@ -1829,7 +1829,7 @@
    "wynik": "poprawka",
    "opis": "„găng tay nhà bếp” — niejasne, czy żaroodporne; do gorącej formy „găng tay chống nóng” (rękawice żaroodporne). „khuôn” = forma — OK.",
    "poprawiony": "Sau khi nướng, hãy lấy khuôn ra bằng găng tay chống nóng, vì khuôn, tay cầm và mặt trong nắp đều nóng.",
-   "stan": "czeka na decyzję właściciela (D-287: zdania bezpieczeństwa maszyny bez zmian przed 1.0)"
+   "stan": "wdrożona (D-308)"
   },
   {
    "jezyk": "vi",
