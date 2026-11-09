@@ -6,10 +6,13 @@ import React from 'react';
 import { PasekCofnij } from '../PasekCofnij';
 import { t } from '../../lib/i18n';
 
-export function PasekCofnijKroku({ nazwa, onPrzywroc, onUkryj }: { nazwa: string; onPrzywroc: () => void; onUkryj: () => void }) {
+// `skok`: po przejściu do kroku z „Plan wypieku” — „Przywróć” wraca do stanu sprzed skoku [M1-audytor-generalny-006]
+export function PasekCofnijKroku({ nazwa, skok, onPrzywroc, onUkryj }: { nazwa: string; skok?: boolean; onPrzywroc: () => void; onUkryj: () => void }) {
   return (
     <PasekCofnij
-      tekst={t('Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.', { krok: nazwa })}
+      tekst={skok
+        ? t('Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte.', { krok: nazwa })
+        : t('Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.', { krok: nazwa })}
       onPrzywroc={onPrzywroc}
       onUkryj={onUkryj}
     />

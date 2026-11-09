@@ -1,13 +1,9 @@
 // ============================================================================
 // Piekarz — prowadzenie jednego wypieku (Stolnica), wydzielone z app/stolnica.tsx (limit 20 KB) [M3 D3a]: ekran
-// wybiera wypiek z listy trwających (id z trasy, przełącznik), a ten komponent prowadzi tylko jego; zapis kroku,
-// koniec i przerwanie dotyczą tylko tego wypieku (BR-KAL-016 Koniec jednego).
+// wybiera trwający wypiek (id z trasy, przełącznik); zapis kroku, koniec i przerwanie tylko jego (BR-KAL-016).
 // ============================================================================
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import {
-  View,
-  AppState,
-} from 'react-native';
+import { View, AppState } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
@@ -103,9 +99,9 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
   const endAtMsRef = useRef<number | null>(null);
   // Koniec zegara bieżącego kroku także po jego upływie: termin kroku dla „Zrobione” (BR-HARMO-005) [M1-audytor-generalny-102]
   const ostatniKoniecRef = useRef<number | null>(null);
-  // Migawka do „Cofnij poprzedni” w pamięci ekranu (bez nowego pola w zapisie sesji) i pasek „Cofnięto …” z „Przywróć”
+  // Migawka „Cofnij poprzedni” i pasek z „Przywróć” (po cofnięciu i po skoku, 006) w pamięci ekranu, nie w zapisie
   const [undo, setUndo] = useState<StepUndo | null>(null);
-  const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo } | null>(null);
+  const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo | null; skok?: true } | null>(null);
   const ukryjCofniete = useCallback(() => setCofniete(null), []);
 
   // Czas kroku biegnie od planu, bez „Start”/„Wstrzymaj” (design-spec §11b „056”) [M1-audytor-generalny-056]
@@ -229,15 +225,16 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
 
   // Jump to or advance step
   const goToStep = (idx: number) => {
-    if (idx < 0 || idx >= steps.length) return;
+    if (idx < 0 || idx >= steps.length || idx === currentStepIdx) return; // bieżący: zegar bez zmian (006)
     // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
+    const przed = postep();
     const skok = skokDoKroku(postep(), idx, Date.now());
     setSteps(skok.steps);
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
     runFor(stepDurationSec(skok.steps[idx], 'lid_on'));
     setUndo(null);
-    setCofniete(null);
+    setCofniete({ nazwa: t(skok.steps[idx].name), ponow: przed, undo, skok: true });
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
@@ -370,7 +367,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
         </View>
       </EkranZPasem>
 
-      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
+      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} skok={cofniete.skok} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
       {aktywny ? naglowekStaly : null}
       {aktywny && (
         <BlokadaFunkcji {...blokadaWypieku}>

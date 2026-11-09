@@ -5988,6 +5988,11 @@
       "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
     ]
   },
+  "Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte.": {
+    "gdzie": [
+      "src/components/stolnica/PasekCofnijKroku.tsx (tekst)"
+    ]
+  },
   "Przekwaszenie / Przerośnięcie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"

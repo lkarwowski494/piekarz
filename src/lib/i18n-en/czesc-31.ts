@@ -18,4 +18,6 @@ export const EN_31: Record<string, string> = {
   'Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.':
     'Keep the backup file, e.g. in Files. When the app works again, import it in Settings: Import from File.',
   'Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.': "I couldn't read the data in this database copy. Keep the file and email us.",
+  // Pasek po skoku do kroku z „Plan wypieku” [M1-audytor-generalny-006]
+  'Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte.': 'Moved to “{krok}”: later steps and notifications have shifted.',
 };
