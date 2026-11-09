@@ -1,0 +1,169 @@
+FAIL tests/czeka-na-przeklad-093.test.ts
+  093: 12 kluczy po małym przebiegu przekładu
+    ✕ lista czekających na przekład jest pusta, bez wyjątków (po małym przebiegu M2 p2, 014) (5 ms)
+    ○ skipped cs: 15 kluczy 014 ma własny tekst
+    ○ skipped sk: 15 kluczy 014 ma własny tekst
+    ○ skipped hu: 15 kluczy 014 ma własny tekst
+    ○ skipped ro: 15 kluczy 014 ma własny tekst
+    ○ skipped bg: 15 kluczy 014 ma własny tekst
+    ○ skipped hr: 15 kluczy 014 ma własny tekst
+    ○ skipped sl: 15 kluczy 014 ma własny tekst
+    ○ skipped sr: 15 kluczy 014 ma własny tekst
+    ○ skipped lt: 15 kluczy 014 ma własny tekst
+    ○ skipped lv: 15 kluczy 014 ma własny tekst
+    ○ skipped et: 15 kluczy 014 ma własny tekst
+    ○ skipped uk: 15 kluczy 014 ma własny tekst
+    ○ skipped es: 15 kluczy 014 ma własny tekst
+    ○ skipped es-419: 15 kluczy 014 ma własny tekst
+    ○ skipped pt: 15 kluczy 014 ma własny tekst
+    ○ skipped pt-BR: 15 kluczy 014 ma własny tekst
+    ○ skipped de: 15 kluczy 014 ma własny tekst
+    ○ skipped fr: 15 kluczy 014 ma własny tekst
+    ○ skipped it: 15 kluczy 014 ma własny tekst
+    ○ skipped nl: 15 kluczy 014 ma własny tekst
+    ○ skipped sv: 15 kluczy 014 ma własny tekst
+    ○ skipped da: 15 kluczy 014 ma własny tekst
+    ○ skipped nb: 15 kluczy 014 ma własny tekst
+    ○ skipped fi: 15 kluczy 014 ma własny tekst
+    ○ skipped tr: 15 kluczy 014 ma własny tekst
+    ○ skipped el: 15 kluczy 014 ma własny tekst
+    ○ skipped id: 15 kluczy 014 ma własny tekst
+    ○ skipped ms: 15 kluczy 014 ma własny tekst
+    ○ skipped vi: 15 kluczy 014 ma własny tekst
+    ○ skipped ru: 15 kluczy 014 ma własny tekst
+    ○ skipped ja: 15 kluczy 014 ma własny tekst
+    ○ skipped ko: 15 kluczy 014 ma własny tekst
+    ○ skipped zh-Hant: 15 kluczy 014 ma własny tekst
+    ○ skipped cs: każdy z 12 kluczy ma własny tekst
+    ○ skipped sk: każdy z 12 kluczy ma własny tekst
+    ○ skipped hu: każdy z 12 kluczy ma własny tekst
+    ○ skipped ro: każdy z 12 kluczy ma własny tekst
+    ○ skipped bg: każdy z 12 kluczy ma własny tekst
+    ○ skipped hr: każdy z 12 kluczy ma własny tekst
+    ○ skipped sl: każdy z 12 kluczy ma własny tekst
+    ○ skipped sr: każdy z 12 kluczy ma własny tekst
+    ○ skipped lt: każdy z 12 kluczy ma własny tekst
+    ○ skipped lv: każdy z 12 kluczy ma własny tekst
+    ○ skipped et: każdy z 12 kluczy ma własny tekst
+    ○ skipped uk: każdy z 12 kluczy ma własny tekst
+    ○ skipped es: każdy z 12 kluczy ma własny tekst
+    ○ skipped es-419: każdy z 12 kluczy ma własny tekst
+    ○ skipped pt: każdy z 12 kluczy ma własny tekst
+    ○ skipped pt-BR: każdy z 12 kluczy ma własny tekst
+    ○ skipped de: każdy z 12 kluczy ma własny tekst
+    ○ skipped fr: każdy z 12 kluczy ma własny tekst
+    ○ skipped it: każdy z 12 kluczy ma własny tekst
+    ○ skipped nl: każdy z 12 kluczy ma własny tekst
+    ○ skipped sv: każdy z 12 kluczy ma własny tekst
+    ○ skipped da: każdy z 12 kluczy ma własny tekst
+    ○ skipped nb: każdy z 12 kluczy ma własny tekst
+    ○ skipped fi: każdy z 12 kluczy ma własny tekst
+    ○ skipped tr: każdy z 12 kluczy ma własny tekst
+    ○ skipped el: każdy z 12 kluczy ma własny tekst
+    ○ skipped id: każdy z 12 kluczy ma własny tekst
+    ○ skipped ms: każdy z 12 kluczy ma własny tekst
+    ○ skipped vi: każdy z 12 kluczy ma własny tekst
+    ○ skipped ru: każdy z 12 kluczy ma własny tekst
+    ○ skipped ja: każdy z 12 kluczy ma własny tekst
+    ○ skipped ko: każdy z 12 kluczy ma własny tekst
+    ○ skipped zh-Hant: każdy z 12 kluczy ma własny tekst
+
+  ● 093: 12 kluczy po małym przebiegu przekładu › lista czekających na przekład jest pusta, bez wyjątków (po małym przebiegu M2 p2, 014)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 75
+
+    - Array []
+    + Array [
+    +   "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.",
+    +   "Mąka niskowyciągowa. Białko: np. 9,8%.",
+    +   "Mąka niskowyciągowa. Białko: np. 10,6–14,3%.",
+    +   "Mąka niskowyciągowa. Białko: np. 10,2–13,8%.",
+    +   "Mąka wysokowyciągowa. Białko: np. 12,4–15,5%.",
+    +   "Mąka wysokowyciągowa. Białko: np. 11,9%.",
+    +   "Mąka wysokowyciągowa. Białko: np. 13,1%.",
+    +   "Mąka razowa. Białko: np. 8,7–9,6%. Popiół: najwyżej 2%.",
+    +   "Białko: np. 6,3%. Popiół: 0,59–0,78%.",
+    +   "Białko: np. 8,4%. Popiół: najwyżej 2%.",
+    +   "Białko: np. 12,6%. Popiół: najwyżej 2%.",
+    +   "Białko: np. 13,8%.",
+    +   "Mąka niskowyciągowa. Białko: np. 7,8–14,8%. Popiół: 0,51–0,58%.",
+    +   "Białko: np. 8,1%. Popiół: 1,31–1,60%.",
+    +   "Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.",
+    +   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.",
+    +   "The Culinary Institute of America, przepis „Brioche”",
+    +   "Temperatura i czas pieczenia brioszki w keksówce.",
+    +   "Nagrzewanie piekarnika i garnka",
+    +   "Wstaw garnek do piekarnika i nagrzewaj go 45 minut w 260 °C.",
+    +   "Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa.",
+    +   "Nagrzewanie piekarnika",
+    +   "Nagrzej piekarnik do 204 °C, a przed włożeniem keksówki obniż temperaturę do 177 °C.",
+    +   "Posmaruj brioszkę roztrzepanym jajkiem i piecz 20 minut, potem obróć keksówkę i piecz jeszcze 8–10 minut, aż brioszka będzie złotobrązowa. Od razu wyjmij brioszkę z keksówki na kratkę.",
+    +   "Nagrzej piekarnik ze stalą do 250 °C.",
+    +   "Piecz w 250 °C.",
+    +   "Pokrywka zamknięta: 20 minut w 232 °C.",
+    +   "Para w garnku dłużej utrzymuje skórkę miękką, więc bochenek może jeszcze rosnąć.",
+    +   "Pokrywka zdjęta: 20–25 minut w 232 °C, aż skórka będzie głęboko złotobrązowa.",
+    +   "Chleb piecze się bez pokrywki, aż w pełni się zrumieni.",
+    +   "Zdejmij pokrywkę garnka i piecz dalej w tej samej temperaturze.",
+    +   "Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.",
+    +   "Rozciągaj i składaj ciasto w czasie fermentacji.",
+    +   "Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.",
+    +   "Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.",
+    +   "Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.",
+    +   "Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.",
+    +   "Bochenek pszenno-żytni na zakwasie.",
+    +   "Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.",
+    +   "Bochenek na zakwasie o wysokiej hydratacji.",
+    +   "Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.",
+    +   "Chleb na zakwasie w stylu San Francisco.",
+    +   "Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.",
+    +   "Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.",
+    +   "Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.",
+    +   "Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.",
+    +   "Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.",
+    +   "Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.",
+    +   "Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.",
+    +   "Maślana brioszka na sztywnym zakwasie Lievito Madre.",
+    +   "Słodka chałka zaplatana w warkocz, z kruszonką.",
+    +   "Focaccia z oliwą, rozmarynem i solą morską.",
+    +   "Razowiec żytni w keksówce, bez składania.",
+    +   "Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.",
+    +   "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).",
+    +   "Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.",
+    +   "Procent drożdży w recepturze to drożdże świeże.",
+    +   "Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.",
+    +   "To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.",
+    +   "Drożdże instant można wsypać prosto do mąki.",
+    +   "Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.",
+    +   "Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”",
+    +   "Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”",
+    +   "Fleischmann's Yeast (producent drożdży), najczęstsze pytania",
+    +   "Ile drożdży suszonych zastępuje drożdże świeże.",
+    +   "Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.",
+    +   "Mąka orkiszowa typ 630",
+    +   "Mąka pszenna typ 750 (chlebowa)",
+    +   "Mąka pszenna typ 1850 (graham)",
+    +   "Mąka pszenna typ 550 (luksusowa)",
+    +   "Mąka pszenna typ 450 (tortowa)",
+    +   "Mąka pszenna typ 500 (wrocławska)",
+    +   "Mąka pszenna typ 650 (bułkowa)",
+    + ]
+
+      51 |   it('lista czekających na przekład jest pusta, bez wyjątków (po małym przebiegu M2 p2, 014)', () => {
+      52 |     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8').replace(/^\uFEFF/, ''));
+    > 53 |     expect((j.klucze as { klucz: string }[]).map((x) => x.klucz)).toEqual([]);
+         |                                                                   ^
+      54 |   });
+      55 |
+      56 |   // 014: 15 kluczy z dawnych wyjątków D-126 i D-132 mają w każdym z 33 języków własny tekst, nie angielski
+
+      at Object.toEqual (tests/czeka-na-przeklad-093.test.ts:53:67)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 66 skipped, 67 total
+Snapshots:   0 total
+Time:        0.496 s, estimated 1 s
+Ran all test suites matching /tests\/czeka-na-przeklad-093.test.ts/i with tests matching "pusta".

@@ -1,0 +1,634 @@
+FAIL tests/pieczenie-receptur-008.test.ts
+  008 (D-304): dane receptury = wektor roli 06
+    ✓ wektor obejmuje 6 receptur w garnku, brioszkę, durum i pizzę (3 ms)
+    ✓ pizza_napoletana_48h.bakeTempSteamC zgodne z wektorem (1 ms)
+    ✓ pizza_napoletana_48h.bakeTempBrowningC zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ pizza_napoletana_48h.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ pizza_napoletana_48h.recommendedVessel zgodne z wektorem
+    ✕ country_loaf_72.bakeTempSteamC zgodne z wektorem (2 ms)
+    ✕ country_loaf_72.bakeTempBrowningC zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.recommendedVessel zgodne z wektorem
+    ✕ tartine_high_hydration_80.bakeTempSteamC zgodne z wektorem
+    ✕ tartine_high_hydration_80.bakeTempBrowningC zgodne z wektorem
+    ✕ tartine_high_hydration_80.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ tartine_high_hydration_80.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ tartine_high_hydration_80.recommendedVessel zgodne z wektorem
+    ✕ san_francisco_sourdough.bakeTempSteamC zgodne z wektorem
+    ✕ san_francisco_sourdough.bakeTempBrowningC zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ san_francisco_sourdough.recommendedVessel zgodne z wektorem
+    ✕ pain_de_campagne.bakeTempSteamC zgodne z wektorem
+    ✕ pain_de_campagne.bakeTempBrowningC zgodne z wektorem (1 ms)
+    ✓ pain_de_campagne.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ pain_de_campagne.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ pain_de_campagne.recommendedVessel zgodne z wektorem
+    ✕ spelt_ancient_seeded.bakeTempSteamC zgodne z wektorem
+    ✕ spelt_ancient_seeded.bakeTempBrowningC zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ spelt_ancient_seeded.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ spelt_ancient_seeded.recommendedVessel zgodne z wektorem
+    ✕ graham_bread_honey.bakeTempSteamC zgodne z wektorem
+    ✕ graham_bread_honey.bakeTempBrowningC zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ graham_bread_honey.recommendedVessel zgodne z wektorem
+    ✕ lievito_madre_panettone_brioche.bakeTempSteamC zgodne z wektorem
+    ✕ lievito_madre_panettone_brioche.bakeTempBrowningC zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.recommendedVessel zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTempSteamC zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTempBrowningC zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ durum_semolina_sourdough.recommendedVessel zgodne z wektorem
+  008 (D-304): plan bierze nagrzewanie i pieczenie z receptury
+    ✕ country_loaf_72: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✕ tartine_high_hydration_80: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ san_francisco_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ pain_de_campagne: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✕ spelt_ancient_seeded: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ graham_bread_honey: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ lievito_madre_panettone_brioche: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ durum_semolina_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✕ country_loaf_72 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (2 ms)
+    ✕ tartine_high_hydration_80 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+    ✕ san_francisco_sourdough (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✕ pain_de_campagne (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✕ spelt_ancient_seeded (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✕ graham_bread_honey (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+    ✕ brioszka (keksówka): nagrzewanie do 204 °C, pieczenie 177 °C, bez faz garnka (PIE-BRI-001) (1 ms)
+    ✕ durum (stal): 250 °C z danych receptury, bez faz garnka (KAT-ALT-005) (1 ms)
+    ✕ plan bez receptury: profil garnka ze źródła, bez szablonu 240/210 °C (odrzucony w D-304) (3 ms)
+    ✕ pieczenieDlaId: receptura żytnia, na drożdżach albo nieznana nie zmienia planu (bez pieczenia z receptury) (2 ms)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › country_loaf_72.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 240
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › country_loaf_72.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 210
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › tartine_high_hydration_80.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 245
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › tartine_high_hydration_80.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 210
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › tartine_high_hydration_80.bakeTimeSteamMinutes zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 20
+    Received: 22
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › san_francisco_sourdough.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 240
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › san_francisco_sourdough.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 210
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › pain_de_campagne.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 240
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › pain_de_campagne.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 210
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › spelt_ancient_seeded.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 235
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › spelt_ancient_seeded.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 205
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › graham_bread_honey.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 235
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › graham_bread_honey.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 232
+    Received: 205
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › lievito_madre_panettone_brioche.bakeTempSteamC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 177
+    Received: 175
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): dane receptury = wektor roli 06 › lievito_madre_panettone_brioche.bakeTempBrowningC zgodne z wektorem
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 177
+    Received: 175
+
+      60 |       expect(v).toBeLessThanOrEqual(p.max!);
+      61 |     } else {
+    > 62 |       expect(v).toBe(p.wartosc);
+         |                 ^
+      63 |     }
+      64 |   });
+      65 | });
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:62:17)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › country_loaf_72: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 42
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › tartine_high_hydration_80: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 47
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › san_francisco_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 44
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › pain_de_campagne: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 43
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › spelt_ancient_seeded: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 42
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › graham_bread_honey: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 43
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › lievito_madre_panettone_brioche: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 28
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › durum_semolina_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 60
+    Received: 45
+
+      68 |   it.each(Z_PLANEM)('%s: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury', (id) => {
+      69 |     const r = receptura(id);
+    > 70 |     expect(krok(planDla(r), 'bake').durationMin).toBe(r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes);
+         |                                                  ^
+      71 |   });
+      72 |
+      73 |   it.each(Z_PLANEM.filter((id) => receptura(id).recommendedVessel === 'dutch_oven'))('%s (garnek): kroki i fazy z PIE-GAR-001 i danych receptury', (id) => {
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:70:50)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › country_loaf_72 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › tartine_high_hydration_80 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › san_francisco_sourdough (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › pain_de_campagne (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › spelt_ancient_seeded (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › graham_bread_honey (garnek): kroki i fazy z PIE-GAR-001 i danych receptury
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika i garnka"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      76 |     const nag = krok(kroki, 'preheat_oven');
+      77 |     const piec = krok(kroki, 'bake');
+    > 78 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (namePl)'));
+         |                      ^
+      79 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, receptury w garnku (instructionsPl)'));
+      80 |     expect(nag.durationMin).toBe(wektor('plan.preheat_oven.dutch_oven.durationMinutes').wartosc);
+      81 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.dutch_oven.tempC').wartosc} °C`);
+
+      at toBe (tests/pieczenie-receptur-008.test.ts:78:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › brioszka (keksówka): nagrzewanie do 204 °C, pieczenie 177 °C, bez faz garnka (PIE-BRI-001)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzewanie piekarnika"
+    Received: "Nagrzewanie pieca i garnka żeliwnego"
+
+      100 |     const nag = krok(kroki, 'preheat_oven');
+      101 |     const piec = krok(kroki, 'bake');
+    > 102 |     expect(nag.name).toBe(sekcja('plan, krok preheat_oven, brioszka w keksówce (namePl)'));
+          |                      ^
+      103 |     expect(nag.instructions).toBe(sekcja('plan, krok preheat_oven, brioszka w keksówce (instructionsPl)'));
+      104 |     expect(nag.instructions).toContain(`${wektor('plan.preheat_oven.bread_pan.tempC').wartosc} °C`);
+      105 |     expect(nag.instructions).toContain(`${r.bakeTempSteamC} °C`);
+
+      at Object.toBe (tests/pieczenie-receptur-008.test.ts:102:22)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › durum (stal): 250 °C z danych receptury, bez faz garnka (KAT-ALT-005)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Nagrzej piekarnik ze stalą do 250 °C."
+    Received: "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C."
+
+      113 |     const kroki = planDla(r);
+      114 |     const tekst = sekcja('plan, krok preheat_oven i bake, chleb z semoliny durum na stali').split('. ');
+    > 115 |     expect(krok(kroki, 'preheat_oven').instructions).toBe(`${tekst[0]}.`);
+          |                                                      ^
+      116 |     expect(krok(kroki, 'bake').instructions).toBe(tekst[1]);
+      117 |     expect(krok(kroki, 'preheat_oven').instructions).toContain(`${r.bakeTempSteamC} °C`);
+      118 |     expect(isDutchOvenStep(krok(kroki, 'bake'))).toBe(false);
+
+      at Object.toBe (tests/pieczenie-receptur-008.test.ts:115:54)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › plan bez receptury: profil garnka ze źródła, bez szablonu 240/210 °C (odrzucony w D-304)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa."
+    Received: "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C)."
+
+      122 |   it('plan bez receptury: profil garnka ze źródła, bez szablonu 240/210 °C (odrzucony w D-304)', () => {
+      123 |     const kroki = stepsFromSchedule(calculateReverseSchedule(new Date(2026, 10, 10, 12, 0)));
+    > 124 |     expect(krok(kroki, 'bake').instructions).toBe(sekcja('plan, krok bake, receptury w garnku'));
+          |                                              ^
+      125 |     expect(JSON.stringify(DEFAULT_STAGE_TEMPLATES)).not.toMatch(/240°C|210°C/);
+      126 |     expect(fazyGarnka(krok(kroki, 'bake')).lid_off.durationMin).toBe(krok(kroki, 'bake').durationMin! - 20);
+      127 |   });
+
+      at Object.toBe (tests/pieczenie-receptur-008.test.ts:124:46)
+
+  ● 008 (D-304): plan bierze nagrzewanie i pieczenie z receptury › pieczenieDlaId: receptura żytnia, na drożdżach albo nieznana nie zmienia planu (bez pieczenia z receptury)
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"minPara": 20, "minRumienienie": 23, "naczynie": "dutch_oven", "tempParaC": 240, "tempRumienienieC": 210}
+    Received: undefined
+
+      132 |     expect(pieczenieDlaId('nie-ma-takiej', false)).toBeUndefined();
+      133 |     expect(pieczenieDlaId(undefined, false)).toBeUndefined();
+    > 134 |     expect(pieczenieDlaId('pain_de_campagne', false)).toEqual(pieczenieZReceptury(receptura('pain_de_campagne')));
+          |                                                       ^
+      135 |   });
+      136 | });
+      137 |
+
+      at Object.toEqual (tests/pieczenie-receptur-008.test.ts:134:55)
+
+Test Suites: 1 failed, 1 total
+Tests:       33 failed, 31 passed, 64 total
+Snapshots:   0 total
+Time:        1.082 s
+Ran all test suites matching /tests\/pieczenie-receptur-008.test.ts/i.

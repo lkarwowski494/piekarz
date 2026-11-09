@@ -1,0 +1,45 @@
+PASS tests/maki-nazwy-041.test.ts
+  041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku
+    ✓ nazwy mąk z typem w danych aplikacji (receptury, atlas, mieszanki) są kanonem D-307 (4 ms)
+    ✓ nazwy sprzed zmiany prowadzą do tego samego profilu atlasu co kanon (zapisane receptury i zapasy) (4 ms)
+    ✓ EN: każdy klucz mapy (stary i kanon) ma nazwę EN z wektora (15 ms)
+    ✓ en: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (3 ms)
+    ✓ bg: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ cs: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ da: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ de: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ el: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (3 ms)
+    ✓ es: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ es-419: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (11 ms)
+    ✓ et: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ fi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ fr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ hr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ hu: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ id: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ it: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ ja: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ ko: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ lt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ lv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ ms: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ nb: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ nl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ pt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ pt-BR: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ ro: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ ru: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ sk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ sl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✓ sr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ sv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ tr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ uk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ vi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✓ zh-Hant: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       37 passed, 37 total
+Snapshots:   0 total
+Time:        0.789 s, estimated 1 s
+Ran all test suites matching /tests\/maki-nazwy-041.test.ts/i.

@@ -53,3 +53,16 @@
 
 ## M2-006 (P3, klasa: dokumentacja) — błędne odwołanie „D-280 pkt 5”
 Źródło: rola 09 (049). D-302 i dopisek M2 powołują się na „D-280 pkt 5”, a D-280 ma pkt 1–2; zasada „bez prac nad 1.1” to D-276 pkt 5. Poprawka: przy najbliższym wpisie do `docs/decyzje.md` (sprostowanie D-302, bez zmiany treści decyzji).
+
+## Znaleziska roli 08 (przekazanie 06→08, 2026-11-09) — bez naprawy, do rozstrzygnięcia
+- 08-p2-N1 (P1): plan brioszki nadal ma kroki bochenka w koszyku (PIE-BRI-900); pokrywa się z P1 roli 06 „brioche plan uses loaf steps”.
+- 08-p2-N2 (P2→P3 wg D-288, klasa: treść): „Wymaga 3–4 standardowych składań.” bez twierdzenia; na liście wyjątków testu 010.
+- 08-p2-N3 (P2→P3, klasa: treść/i18n): 2 klucze z kilkoma mąkami („… albo typ …”) sprzeczne z regułą 2 sprawdz-maki.mjs; rekomendacja roli: zostawić.
+- 08-p2-N4 (P2→P3, klasa: treść): lekcja z 240 °C w bread-school-lessons.ts; zdanie o nacięciu przy brioszce.
+- 08-p2-N5 (P2→P3, klasa: proces): generator słowników wymaga wejścia spoza repo; poprawki D-307 naniesione ręcznie w plikach generowanych.
+- Kroki właściciela: zrzuty przed/po (brak Xcode w środowisku); przegląd człowieka: streszczenie polityki prywatności i zdanie o zdejmowaniu pokrywki w 33 językach.
+
+## Przeglądy przekazania 06→08 (2026-11-09)
+- Ścieżka danych: brak P0/P1. P2 regresja 041 (odliczanie mąki ze spiżarni pod dawną nazwą) i P3 (edytor dubluje mąkę) — naprawione ef9dd782 (test spizarnia-dawna-nazwa-041).
+- M2-007 (P3, klasa: dane-brzegowe): wypiek trwający w chwili aktualizacji pokazuje w zapisanym kroku starą instrukcję 240/210 °C, a zegar garnka 232 °C; czasy bez zmian. Dotyczy tylko sesji w toku podczas aktualizacji (etap: tylko właściciel na danych testowych).
+- Drugi przegląd AI przekładu: brak P0/P1; 4 P2 naprawione 8f90a72e. P3 (bez naprawy, do 1.0.1 / przeglądu natywnego): ro „vas”→„tuci”, sk „pokrievka”→„poklop” i myślnik ze spacjami, ms „tutup”, ja „ふた”/styl, niejednoznaczne „obróć formę” (sv, da, nb, hu, tr, ro, fi), uk rodzaj „бріош”, bg „квас”/„стартер”, fi „juuri”, Biga (lt, el, bg), it 010[18], hu 009[0]/010[22], grill vi/zh, 040[5–6] bez objaśnienia tytułu produktu; informacyjnie 3 nazwy mąk tylko EN (F-45/F-47).

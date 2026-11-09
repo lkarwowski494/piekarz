@@ -1,0 +1,8 @@
+PASS tests/liczby-w-tekstach-010.test.ts
+PASS tests/teksty-glownego-przeplywu-010.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       37 passed, 37 total
+Snapshots:   0 total
+Time:        0.878 s, estimated 1 s
+Ran all test suites matching /tests\/teksty-glownego-przeplywu-010.test.ts|tests\/liczby-w-tekstach-010.test.ts/i.

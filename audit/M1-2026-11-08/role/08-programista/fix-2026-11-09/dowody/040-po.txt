@@ -1,0 +1,12 @@
+PASS src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx
+  040 (D-306): przelicznik drożdży zdaniami z docs/tresci i jego źródła na ekranie
+    ✓ plik treści ma 4 zdania przelicznika (te same co w kodzie) (3 ms)
+    ✓ PL: karta mówi 4 zdaniami pliku dosłownie i zdaniem D-100, bez starego zdania przelicznika (322 ms)
+    ✓ EN: karta mówi zdaniami docs/tresci/en (21 ms)
+    ✓ ekran „Źródła wiedzy” ma oetker.pl, lesaffre.pl i fleischmannsyeast.com (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.032 s
+Ran all test suites matching /src\/components\/receptury\/__tests__\/przelicznik-drozdzy-040.test.tsx/i.

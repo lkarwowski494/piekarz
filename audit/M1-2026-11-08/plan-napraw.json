@@ -649,8 +649,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "temperatury, czasy i naczynie w planie i prowadzeniu zgodne z danymi receptury dla 8 receptur pszennych na zakwasie; test porównujący plan z kartą receptury",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "49a83170"
     },
     {
       "id": "M1-audytor-generalny-009",
@@ -668,8 +668,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "pizza: temperatura i czas zgodne ze źródłem receptury i domowym piekarnikiem, twierdzenie w rejestrze",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "944c1808"
     },
     {
       "id": "M1-audytor-generalny-010",
@@ -687,8 +687,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "kontrole-tresci w kierunku odwrotnym (tekst → twierdzenie) dają 0 tekstów z liczbą bez twierdzenia w częściach widocznych w 1.0",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e57cef29"
     },
     {
       "id": "M1-audytor-generalny-011",
@@ -765,8 +765,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "15 tekstów przetłumaczonych w 33 językach; check:i18n wykrywa tekst EN równy PL-owemu przekładowi angielskiemu",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "8f90a72e"
     },
     {
       "id": "M1-audytor-generalny-015",
@@ -1271,8 +1271,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-005 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d1f2166f"
     },
     {
       "id": "M1-audytor-generalny-041",
@@ -1290,8 +1290,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "ef9dd782"
     },
     {
       "id": "M1-audytor-generalny-042",

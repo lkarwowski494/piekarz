@@ -1,0 +1,16 @@
+PASS tests/pizza-pieczenie-009.test.ts
+  009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001)
+    ✓ wektor ma 5 pól pizzy na potwierdzonym twierdzeniu PIE-PIZ-001 (2 ms)
+    ✓ pizza_napoletana_48h.bakeTempSteamC = wektor (1 ms)
+    ✓ pizza_napoletana_48h.bakeTempBrowningC = wektor
+    ✓ pizza_napoletana_48h.bakeTimeSteamMinutes = wektor (1 ms)
+    ✓ pizza_napoletana_48h.bakeTimeBrowningMinutes = wektor
+    ✓ pizza_napoletana_48h.recommendedVessel = wektor
+    ✓ notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN (1 ms)
+    ✓ stara wartość bez źródła (450 °C, 2 min) zniknęła z danych receptury (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        0.539 s, estimated 1 s
+Ran all test suites matching /tests\/pizza-pieczenie-009.test.ts/i.

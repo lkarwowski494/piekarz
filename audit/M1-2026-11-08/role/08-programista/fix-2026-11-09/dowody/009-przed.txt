@@ -1,0 +1,101 @@
+FAIL tests/pizza-pieczenie-009.test.ts
+  009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001)
+    ✓ wektor ma 5 pól pizzy na potwierdzonym twierdzeniu PIE-PIZ-001 (2 ms)
+    ✕ pizza_napoletana_48h.bakeTempSteamC = wektor (2 ms)
+    ✕ pizza_napoletana_48h.bakeTempBrowningC = wektor
+    ✓ pizza_napoletana_48h.bakeTimeSteamMinutes = wektor
+    ✕ pizza_napoletana_48h.bakeTimeBrowningMinutes = wektor
+    ✓ pizza_napoletana_48h.recommendedVessel = wektor
+    ✕ notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN (1 ms)
+    ✕ stara wartość bez źródła (450 °C, 2 min) zniknęła z danych receptury
+
+  ● 009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001) › pizza_napoletana_48h.bakeTempSteamC = wektor
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 260
+    Received: 450
+
+      37 |   it.each(PIZZA.map((p) => [p.parametr, p] as const))('%s = wektor', (_n, p) => {
+      38 |     const pole = p.parametr.split('.')[1] as keyof RecipePreset;
+    > 39 |     expect(pizza[pole]).toBe(p.wartosc);
+         |                         ^
+      40 |   });
+      41 |
+      42 |   it('notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN', () => {
+
+      at toBe (tests/pizza-pieczenie-009.test.ts:39:25)
+
+  ● 009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001) › pizza_napoletana_48h.bakeTempBrowningC = wektor
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 260
+    Received: 450
+
+      37 |   it.each(PIZZA.map((p) => [p.parametr, p] as const))('%s = wektor', (_n, p) => {
+      38 |     const pole = p.parametr.split('.')[1] as keyof RecipePreset;
+    > 39 |     expect(pizza[pole]).toBe(p.wartosc);
+         |                         ^
+      40 |   });
+      41 |
+      42 |   it('notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN', () => {
+
+      at toBe (tests/pizza-pieczenie-009.test.ts:39:25)
+
+  ● 009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001) › pizza_napoletana_48h.bakeTimeBrowningMinutes = wektor
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 2
+
+      37 |   it.each(PIZZA.map((p) => [p.parametr, p] as const))('%s = wektor', (_n, p) => {
+      38 |     const pole = p.parametr.split('.')[1] as keyof RecipePreset;
+    > 39 |     expect(pizza[pole]).toBe(p.wartosc);
+         |                         ^
+      40 |   });
+      41 |
+      42 |   it('notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN', () => {
+
+      at toBe (tests/pizza-pieczenie-009.test.ts:39:25)
+
+  ● 009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001) › notesPl kończy się zdaniem o stali i grillu z pieczenie-receptur.md, EN z pliku EN
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      44 |     const en = sekcja('en/pieczenie-receptur.md', 'pizza_napoletana_48h.notesPl');
+      45 |     expect(pl).toContain('2–3 minuty');
+    > 46 |     expect(pizza.notesPl.endsWith(pl)).toBe(true);
+         |                                        ^
+      47 |     setLang('en');
+      48 |     try {
+      49 |       expect(t(pizza.notesPl).endsWith(en)).toBe(true);
+
+      at Object.toBe (tests/pizza-pieczenie-009.test.ts:46:40)
+
+  ● 009 (D-303): pizza 260 °C, 0 + 6 min na stali (PIE-PIZ-001) › stara wartość bez źródła (450 °C, 2 min) zniknęła z danych receptury
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Expected value: not 450
+    Received array:     [450, 450]
+
+      54 |
+      55 |   it('stara wartość bez źródła (450 °C, 2 min) zniknęła z danych receptury', () => {
+    > 56 |     expect([pizza.bakeTempSteamC, pizza.bakeTempBrowningC]).not.toContain(450);
+         |                                                                 ^
+      57 |     expect(pizza.bakeTimeBrowningMinutes).not.toBe(2);
+      58 |   });
+      59 | });
+
+      at Object.toContain (tests/pizza-pieczenie-009.test.ts:56:65)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 3 passed, 8 total
+Snapshots:   0 total
+Time:        0.879 s
+Ran all test suites matching /tests\/pizza-pieczenie-009.test.ts/i.

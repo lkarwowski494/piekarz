@@ -1,0 +1,1052 @@
+WIELE NAZW en: pszenna 500 → „Wheat flour type 500”, „Wheat flour type 500 (Wroclawska)”
+WIELE NAZW en: pszenna 650 → „Wheat flour type 650 (Bread roll)”, „Light wheat bread flour (Polish type 650)”, „Light wheat flour (Polish type 650)”
+WIELE NAZW en: pszenna 1850 → „Wheat flour type 1850 (Graham)”, „Graham wheat flour (coarse, Polish type 1850)”
+WIELE NAZW en: pszenna 2000 → „Whole wheat flour type 2000”, „Wholemeal wheat flour (Polish type 2000)”
+WIELE NAZW en: żytnia 720 → „Rye bread flour type 720”, „Light rye flour (Polish type 720)”
+WIELE NAZW en: żytnia 2000 → „Whole rye flour type 2000”, „Rye flour type 2000”
+WIELE NAZW en: orkiszowa 2000 → „Whole spelt flour type 2000”, „Spelt flour type 2000”
+WIELE NAZW en: pszenna 550 → „Wheat flour type 550 (luksusowa)”, „Fine light wheat flour (Polish type 550)”
+BEZ NUMERU bg: „Mąka orkiszowa jasna typ 630” → „Светло брашно от спелта”
+BEZ NUMERU bg: „Mąka orkiszowa razowa typ 2000” → „Интегрално брашно от спелта”
+BEZ NUMERU bg: „Mąka orkiszowa typ 2000” → „Брашно от лимец”
+BEZ NUMERU bg: „Mąka pszenna chlebowa typ 750” → „Пшенично брашно за хляб (средно)”
+BEZ NUMERU bg: „Mąka pszenna graham typ 1850” → „Пшенично брашно грахам (пълнозърнесто)”
+BEZ NUMERU bg: „Mąka pszenna luksusowa typ 550” → „Бяло пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna pełnoziarnista typ 2000” → „Пълнозърнесто пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna razowa typ 2000” → „Интегрално пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna typ 1050” → „Тъмно пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna typ 1850 (Graham)” → „Пшенично брашно Греъм”
+BEZ NUMERU bg: „Mąka pszenna typ 405” → „Пшенично брашно, най-светло”
+BEZ NUMERU bg: „Mąka pszenna typ 450 (Tortowa)” → „Много светло пшенично брашно (за торти)”
+BEZ NUMERU bg: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Светло универсално пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna typ 550 (Luksusowa)” → „Светло пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna typ 650” → „Светло пшенично брашно”
+BEZ NUMERU bg: „Mąka pszenna typ 650 (Bułkowa)” → „Светло пшенично брашно за хлебчета”
+BEZ NUMERU bg: „Mąka pszenna typ 650 (chlebowa jasna)” → „Светло пшенично брашно за хляб”
+BEZ NUMERU bg: „Mąka pszenna typ 850” → „По-тъмно пшенично брашно за хляб”
+BEZ NUMERU bg: „Mąka żytnia chlebowa typ 720” → „Ръжено брашно за хляб (средно)”
+BEZ NUMERU bg: „Mąka żytnia razowa typ 2000” → „Интегрално ръжено брашно”
+BEZ NUMERU bg: „Mąka żytnia typ 1400” → „Тъмно ръжено брашно”
+BEZ NUMERU bg: „Mąka żytnia typ 2000” → „Ръжено брашно”
+BEZ NUMERU bg: „Mąka żytnia typ 500” → „Светло ръжено брашно”
+BEZ NUMERU bg: „Mąka żytnia typ 720” → „Светло ръжено брашно”
+WIELE NAZW bg: orkiszowa 2000 → „Интегрално брашно от спелта”, „Брашно от лимец”
+WIELE NAZW bg: pszenna 1850 → „Пшенично брашно грахам (пълнозърнесто)”, „Пшенично брашно Греъм”
+WIELE NAZW bg: pszenna 550 → „Бяло пшенично брашно”, „Светло пшенично брашно”
+WIELE NAZW bg: pszenna 2000 → „Пълнозърнесто пшенично брашно”, „Интегрално пшенично брашно”
+WIELE NAZW bg: pszenna 500 → „Светло универсално пшенично брашно”, „Пшенично брашно тип 500 (Wrocławska)”
+WIELE NAZW bg: pszenna 650 → „Светло пшенично брашно”, „Светло пшенично брашно за хлебчета”, „Светло пшенично брашно за хляб”
+WIELE NAZW bg: żytnia 720 → „Ръжено брашно за хляб (средно)”, „Светло ръжено брашно”
+WIELE NAZW bg: żytnia 2000 → „Интегрално ръжено брашно”, „Ръжено брашно”
+BEZ NUMERU cs: „Mąka orkiszowa jasna typ 630” → „Světlá špaldová mouka”
+BEZ NUMERU cs: „Mąka orkiszowa razowa typ 2000” → „Celozrnná špaldová mouka”
+BEZ NUMERU cs: „Mąka orkiszowa typ 2000” → „Špaldová mouka”
+BEZ NUMERU cs: „Mąka pszenna chlebowa typ 750” → „Pšeničná chlebová mouka”
+BEZ NUMERU cs: „Mąka pszenna graham typ 1850” → „Pšeničná grahamová mouka (celozrnná, hrubě mletá)”
+BEZ NUMERU cs: „Mąka pszenna luksusowa typ 550” → „Pšeničná mouka (světlá, jemně mletá)”
+BEZ NUMERU cs: „Mąka pszenna pełnoziarnista typ 2000” → „Celozrnná pšeničná mouka”
+BEZ NUMERU cs: „Mąka pszenna razowa typ 2000” → „Celozrnná pšeničná mouka”
+BEZ NUMERU cs: „Mąka pszenna typ 1050” → „Tmavá pšeničná mouka”
+BEZ NUMERU cs: „Mąka pszenna typ 1850 (Graham)” → „Grahamová pšeničná mouka (celozrnná)”
+BEZ NUMERU cs: „Mąka pszenna typ 405” → „Nejsvětlejší pšeničná mouka”
+BEZ NUMERU cs: „Mąka pszenna typ 450 (Tortowa)” → „Velmi světlá pšeničná mouka (dortová)”
+BEZ NUMERU cs: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Světlá pšeničná mouka (univerzální)”
+BEZ NUMERU cs: „Mąka pszenna typ 550 (Luksusowa)” → „Světlá pšeničná mouka”
+BEZ NUMERU cs: „Mąka pszenna typ 650” → „Pšeničná mouka (světlá)”
+BEZ NUMERU cs: „Mąka pszenna typ 650 (Bułkowa)” → „Polosvětlá pšeničná mouka (na housky)”
+BEZ NUMERU cs: „Mąka pszenna typ 650 (chlebowa jasna)” → „Pšeničná mouka (světlá, na chléb)”
+BEZ NUMERU cs: „Mąka pszenna typ 850” → „Tmavší pšeničná chlebová mouka”
+BEZ NUMERU cs: „Mąka żytnia chlebowa typ 720” → „Žitná chlebová mouka”
+BEZ NUMERU cs: „Mąka żytnia razowa typ 2000” → „Celozrnná žitná mouka”
+BEZ NUMERU cs: „Mąka żytnia typ 1400” → „Tmavá žitná mouka”
+BEZ NUMERU cs: „Mąka żytnia typ 2000” → „Žitná mouka”
+BEZ NUMERU cs: „Mąka żytnia typ 500” → „Světlá žitná mouka”
+BEZ NUMERU cs: „Mąka żytnia typ 720” → „Žitná mouka (středně světlá)”
+WIELE NAZW cs: orkiszowa 2000 → „Celozrnná špaldová mouka”, „Špaldová mouka”
+WIELE NAZW cs: pszenna 1850 → „Pšeničná grahamová mouka (celozrnná, hrubě mletá)”, „Grahamová pšeničná mouka (celozrnná)”
+WIELE NAZW cs: pszenna 550 → „Pšeničná mouka (světlá, jemně mletá)”, „Světlá pšeničná mouka”
+WIELE NAZW cs: pszenna 500 → „Světlá pšeničná mouka (univerzální)”, „Pšeničná mouka typ 500 (Wrocławska)”
+WIELE NAZW cs: pszenna 650 → „Pšeničná mouka (světlá)”, „Polosvětlá pšeničná mouka (na housky)”, „Pšeničná mouka (světlá, na chléb)”
+WIELE NAZW cs: żytnia 720 → „Žitná chlebová mouka”, „Žitná mouka (středně světlá)”
+WIELE NAZW cs: żytnia 2000 → „Celozrnná žitná mouka”, „Žitná mouka”
+BEZ NUMERU da: „Mąka orkiszowa jasna typ 630” → „Lyst speltmel”
+BEZ NUMERU da: „Mąka orkiszowa razowa typ 2000” → „Groftmalet speltmel”
+BEZ NUMERU da: „Mąka orkiszowa typ 2000” → „Speltmel”
+BEZ NUMERU da: „Mąka pszenna chlebowa typ 750” → „Halvlyst hvedemel til brød”
+BEZ NUMERU da: „Mąka pszenna graham typ 1850” → „Grahamsmel (groftmalet hvedemel)”
+BEZ NUMERU da: „Mąka pszenna luksusowa typ 550” → „Ekstra lyst, fint hvedemel”
+BEZ NUMERU da: „Mąka pszenna pełnoziarnista typ 2000” → „Fuldkornshvedemel”
+BEZ NUMERU da: „Mąka pszenna razowa typ 2000” → „Groftmalet hvedemel”
+BEZ NUMERU da: „Mąka pszenna typ 1050” → „Mørkt hvedemel”
+BEZ NUMERU da: „Mąka pszenna typ 1850 (Graham)” → „Grahamsmel (hvede)”
+BEZ NUMERU da: „Mąka pszenna typ 405” → „Meget lyst hvedemel”
+BEZ NUMERU da: „Mąka pszenna typ 450 (Tortowa)” → „Lyst hvedemel til kager”
+BEZ NUMERU da: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Lyst hvedemel, alsidigt”
+BEZ NUMERU da: „Mąka pszenna typ 550 (Luksusowa)” → „Lyst hvedemel”
+BEZ NUMERU da: „Mąka pszenna typ 650” → „Lyst hvedemel”
+BEZ NUMERU da: „Mąka pszenna typ 650 (Bułkowa)” → „Lyst hvedemel til boller”
+BEZ NUMERU da: „Mąka pszenna typ 650 (chlebowa jasna)” → „Lyst hvedemel (til brød)”
+BEZ NUMERU da: „Mąka pszenna typ 850” → „Halvmørkt hvedemel”
+BEZ NUMERU da: „Mąka żytnia chlebowa typ 720” → „Rugmel til brød”
+BEZ NUMERU da: „Mąka żytnia razowa typ 2000” → „Groftmalet rugmel”
+BEZ NUMERU da: „Mąka żytnia typ 1400” → „Mørkt rugmel”
+BEZ NUMERU da: „Mąka żytnia typ 2000” → „Rugmel”
+BEZ NUMERU da: „Mąka żytnia typ 500” → „Lyst rugmel”
+BEZ NUMERU da: „Mąka żytnia typ 720” → „Rugmel, mellem formalingsgrad”
+WIELE NAZW da: orkiszowa 2000 → „Groftmalet speltmel”, „Speltmel”
+WIELE NAZW da: pszenna 1850 → „Grahamsmel (groftmalet hvedemel)”, „Grahamsmel (hvede)”
+WIELE NAZW da: pszenna 550 → „Ekstra lyst, fint hvedemel”, „Lyst hvedemel”
+WIELE NAZW da: pszenna 2000 → „Fuldkornshvedemel”, „Groftmalet hvedemel”
+WIELE NAZW da: pszenna 500 → „Lyst hvedemel, alsidigt”, „Hvedemel type 500 (Wrocławska)”
+WIELE NAZW da: pszenna 650 → „Lyst hvedemel”, „Lyst hvedemel til boller”, „Lyst hvedemel (til brød)”
+WIELE NAZW da: żytnia 720 → „Rugmel til brød”, „Rugmel, mellem formalingsgrad”
+WIELE NAZW da: żytnia 2000 → „Groftmalet rugmel”, „Rugmel”
+BEZ NUMERU de: „Mąka orkiszowa jasna typ 630” → „Helles Dinkelmehl”
+BEZ NUMERU de: „Mąka orkiszowa razowa typ 2000” → „Dinkelvollkornmehl”
+BEZ NUMERU de: „Mąka orkiszowa typ 2000” → „Dinkelmehl”
+BEZ NUMERU de: „Mąka pszenna chlebowa typ 750” → „Weizenmehl für Brot (mittel)”
+BEZ NUMERU de: „Mąka pszenna graham typ 1850” → „Weizen-Grahammehl (Vollkornmehl)”
+BEZ NUMERU de: „Mąka pszenna luksusowa typ 550” → „Sehr helles, feines Weizenmehl”
+BEZ NUMERU de: „Mąka pszenna pełnoziarnista typ 2000” → „Weizenvollkornmehl”
+BEZ NUMERU de: „Mąka pszenna razowa typ 2000” → „Weizenvollkornmehl”
+BEZ NUMERU de: „Mąka pszenna typ 1050” → „Dunkles Weizenmehl”
+BEZ NUMERU de: „Mąka pszenna typ 1850 (Graham)” → „Weizen-Grahammehl (Graham)”
+BEZ NUMERU de: „Mąka pszenna typ 405” → „Sehr helles Weizenmehl”
+BEZ NUMERU de: „Mąka pszenna typ 450 (Tortowa)” → „Sehr helles Weizenmehl (für Torten)”
+BEZ NUMERU de: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Helles Weizenmehl (Wrocławska / Poznańska)”
+BEZ NUMERU de: „Mąka pszenna typ 550 (Luksusowa)” → „Helles Weizenmehl (Luksusowa)”
+BEZ NUMERU de: „Mąka pszenna typ 650” → „Helles Weizenmehl”
+BEZ NUMERU de: „Mąka pszenna typ 650 (Bułkowa)” → „Helles Weizenmehl (für Brötchen)”
+BEZ NUMERU de: „Mąka pszenna typ 650 (chlebowa jasna)” → „Helles Weizenmehl”
+BEZ NUMERU de: „Mąka pszenna typ 850” → „Halbdunkles Weizenmehl”
+BEZ NUMERU de: „Mąka żytnia chlebowa typ 720” → „Mittleres Roggenmehl für Brot”
+BEZ NUMERU de: „Mąka żytnia razowa typ 2000” → „Roggenvollkornmehl”
+BEZ NUMERU de: „Mąka żytnia typ 1400” → „Dunkles Roggenmehl”
+BEZ NUMERU de: „Mąka żytnia typ 2000” → „Roggenmehl”
+BEZ NUMERU de: „Mąka żytnia typ 500” → „Helles Roggenmehl”
+BEZ NUMERU de: „Mąka żytnia typ 720” → „Helles Roggenmehl”
+WIELE NAZW de: orkiszowa 2000 → „Dinkelvollkornmehl”, „Dinkelmehl”
+WIELE NAZW de: pszenna 1850 → „Weizen-Grahammehl (Vollkornmehl)”, „Weizen-Grahammehl (Graham)”
+WIELE NAZW de: pszenna 550 → „Sehr helles, feines Weizenmehl”, „Helles Weizenmehl (Luksusowa)”
+WIELE NAZW de: pszenna 500 → „Helles Weizenmehl (Wrocławska / Poznańska)”, „Weizenmehl Typ 500 (Wrocławska)”
+WIELE NAZW de: pszenna 650 → „Helles Weizenmehl”, „Helles Weizenmehl (für Brötchen)”
+WIELE NAZW de: żytnia 720 → „Mittleres Roggenmehl für Brot”, „Helles Roggenmehl”
+WIELE NAZW de: żytnia 2000 → „Roggenvollkornmehl”, „Roggenmehl”
+BEZ NUMERU el: „Mąka orkiszowa jasna typ 630” → „Λευκό αλεύρι ζέας”
+BEZ NUMERU el: „Mąka orkiszowa razowa typ 2000” → „Αλεύρι ζέας ολικής άλεσης”
+BEZ NUMERU el: „Mąka orkiszowa typ 2000” → „Αλεύρι ζέας”
+BEZ NUMERU el: „Mąka pszenna chlebowa typ 750” → „Αλεύρι σίτου για ψωμί”
+BEZ NUMERU el: „Mąka pszenna graham typ 1850” → „Αλεύρι σίτου Graham (ολικής άλεσης)”
+BEZ NUMERU el: „Mąka pszenna luksusowa typ 550” → „Λευκό αλεύρι σίτου ψιλής άλεσης”
+BEZ NUMERU el: „Mąka pszenna pełnoziarnista typ 2000” → „Αλεύρι σίτου ολόκληρου κόκκου”
+BEZ NUMERU el: „Mąka pszenna razowa typ 2000” → „Αλεύρι σίτου ολικής άλεσης”
+BEZ NUMERU el: „Mąka pszenna typ 1050” → „Σκούρο αλεύρι σίτου”
+BEZ NUMERU el: „Mąka pszenna typ 1850 (Graham)” → „Αλεύρι σίτου ολικής άλεσης, χοντρό (Graham)”
+BEZ NUMERU el: „Mąka pszenna typ 405” → „Πολύ λευκό αλεύρι σίτου”
+BEZ NUMERU el: „Mąka pszenna typ 450 (Tortowa)” → „Λευκό αλεύρι σίτου για κέικ”
+BEZ NUMERU el: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Λευκό αλεύρι σίτου για αρτοσκευάσματα”
+BEZ NUMERU el: „Mąka pszenna typ 550 (Luksusowa)” → „Λευκό αλεύρι σίτου, εκλεκτό”
+BEZ NUMERU el: „Mąka pszenna typ 650” → „Λευκό αλεύρι σίτου”
+BEZ NUMERU el: „Mąka pszenna typ 650 (Bułkowa)” → „Ανοιχτόχρωμο αλεύρι σίτου για ψωμάκια”
+BEZ NUMERU el: „Mąka pszenna typ 650 (chlebowa jasna)” → „Λευκό αλεύρι σίτου (για ψωμί)”
+BEZ NUMERU el: „Mąka pszenna typ 850” → „Πιο σκούρο αλεύρι σίτου για ψωμί”
+BEZ NUMERU el: „Mąka żytnia chlebowa typ 720” → „Ανοιχτόχρωμο αλεύρι σίκαλης για ψωμί”
+BEZ NUMERU el: „Mąka żytnia razowa typ 2000” → „Αλεύρι σίκαλης ολικής άλεσης”
+BEZ NUMERU el: „Mąka żytnia typ 1400” → „Σκούρο αλεύρι σίκαλης (μέτριας άλεσης)”
+BEZ NUMERU el: „Mąka żytnia typ 2000” → „Αλεύρι σίκαλης”
+BEZ NUMERU el: „Mąka żytnia typ 500” → „Λευκό αλεύρι σίκαλης”
+BEZ NUMERU el: „Mąka żytnia typ 720” → „Αλεύρι σίκαλης μεσαίας άλεσης”
+WIELE NAZW el: orkiszowa 2000 → „Αλεύρι ζέας ολικής άλεσης”, „Αλεύρι ζέας”
+WIELE NAZW el: pszenna 1850 → „Αλεύρι σίτου Graham (ολικής άλεσης)”, „Αλεύρι σίτου ολικής άλεσης, χοντρό (Graham)”
+WIELE NAZW el: pszenna 550 → „Λευκό αλεύρι σίτου ψιλής άλεσης”, „Λευκό αλεύρι σίτου, εκλεκτό”
+WIELE NAZW el: pszenna 2000 → „Αλεύρι σίτου ολόκληρου κόκκου”, „Αλεύρι σίτου ολικής άλεσης”
+WIELE NAZW el: pszenna 500 → „Λευκό αλεύρι σίτου για αρτοσκευάσματα”, „Αλεύρι σίτου τύπου 500 (Wrocławska)”
+WIELE NAZW el: pszenna 650 → „Λευκό αλεύρι σίτου”, „Ανοιχτόχρωμο αλεύρι σίτου για ψωμάκια”, „Λευκό αλεύρι σίτου (για ψωμί)”
+WIELE NAZW el: żytnia 720 → „Ανοιχτόχρωμο αλεύρι σίκαλης για ψωμί”, „Αλεύρι σίκαλης μεσαίας άλεσης”
+WIELE NAZW el: żytnia 2000 → „Αλεύρι σίκαλης ολικής άλεσης”, „Αλεύρι σίκαλης”
+BEZ NUMERU es: „Mąka orkiszowa jasna typ 630” → „Harina de espelta blanca”
+BEZ NUMERU es: „Mąka orkiszowa razowa typ 2000” → „Harina de espelta integral”
+BEZ NUMERU es: „Mąka orkiszowa typ 2000” → „Harina de espelta”
+BEZ NUMERU es: „Mąka pszenna chlebowa typ 750” → „Harina de trigo para pan”
+BEZ NUMERU es: „Mąka pszenna graham typ 1850” → „Harina de trigo Graham (de grano entero)”
+BEZ NUMERU es: „Mąka pszenna luksusowa typ 550” → „Harina de trigo blanca”
+BEZ NUMERU es: „Mąka pszenna pełnoziarnista typ 2000” → „Harina de trigo de grano entero”
+BEZ NUMERU es: „Mąka pszenna razowa typ 2000” → „Harina de trigo integral”
+BEZ NUMERU es: „Mąka pszenna typ 1050” → „Harina de trigo oscura”
+BEZ NUMERU es: „Mąka pszenna typ 1850 (Graham)” → „Harina de trigo graham”
+BEZ NUMERU es: „Mąka pszenna typ 405” → „Harina de trigo extrablanca”
+BEZ NUMERU es: „Mąka pszenna typ 450 (Tortowa)” → „Harina de trigo blanca de repostería”
+BEZ NUMERU es: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Harina de trigo blanca para bollería”
+BEZ NUMERU es: „Mąka pszenna typ 550 (Luksusowa)” → „Harina de trigo blanca fina”
+BEZ NUMERU es: „Mąka pszenna typ 650” → „Harina de trigo blanca”
+BEZ NUMERU es: „Mąka pszenna typ 650 (Bułkowa)” → „Harina de trigo blanca para panecillos”
+BEZ NUMERU es: „Mąka pszenna typ 650 (chlebowa jasna)” → „Harina de trigo blanca”
+BEZ NUMERU es: „Mąka pszenna typ 850” → „Harina de trigo para pan, más oscura”
+BEZ NUMERU es: „Mąka żytnia chlebowa typ 720” → „Harina de centeno media para pan”
+BEZ NUMERU es: „Mąka żytnia razowa typ 2000” → „Harina de centeno integral”
+BEZ NUMERU es: „Mąka żytnia typ 1400” → „Harina de centeno semiintegral”
+BEZ NUMERU es: „Mąka żytnia typ 2000” → „Harina de centeno”
+BEZ NUMERU es: „Mąka żytnia typ 500” → „Harina de centeno blanca”
+BEZ NUMERU es: „Mąka żytnia typ 720” → „Harina de centeno de molienda media”
+WIELE NAZW es: orkiszowa 2000 → „Harina de espelta integral”, „Harina de espelta”
+WIELE NAZW es: pszenna 1850 → „Harina de trigo Graham (de grano entero)”, „Harina de trigo graham”
+WIELE NAZW es: pszenna 550 → „Harina de trigo blanca”, „Harina de trigo blanca fina”
+WIELE NAZW es: pszenna 2000 → „Harina de trigo de grano entero”, „Harina de trigo integral”
+WIELE NAZW es: pszenna 500 → „Harina de trigo blanca para bollería”, „Harina de trigo tipo 500 (Wrocławska)”
+WIELE NAZW es: pszenna 650 → „Harina de trigo blanca”, „Harina de trigo blanca para panecillos”
+WIELE NAZW es: żytnia 720 → „Harina de centeno media para pan”, „Harina de centeno de molienda media”
+WIELE NAZW es: żytnia 2000 → „Harina de centeno integral”, „Harina de centeno”
+BEZ NUMERU es-419: „Mąka orkiszowa jasna typ 630” → „Harina de espelta blanca”
+BEZ NUMERU es-419: „Mąka orkiszowa razowa typ 2000” → „Harina de espelta integral”
+BEZ NUMERU es-419: „Mąka orkiszowa typ 2000” → „Harina de espelta”
+BEZ NUMERU es-419: „Mąka pszenna chlebowa typ 750” → „Harina de trigo para pan”
+BEZ NUMERU es-419: „Mąka pszenna graham typ 1850” → „Harina de trigo graham (integral)”
+BEZ NUMERU es-419: „Mąka pszenna luksusowa typ 550” → „Harina de trigo blanca de molienda fina”
+BEZ NUMERU es-419: „Mąka pszenna pełnoziarnista typ 2000” → „Harina de trigo de grano entero”
+BEZ NUMERU es-419: „Mąka pszenna razowa typ 2000” → „Harina de trigo integral”
+BEZ NUMERU es-419: „Mąka pszenna typ 1050” → „Harina de trigo semiintegral”
+BEZ NUMERU es-419: „Mąka pszenna typ 1850 (Graham)” → „Harina de trigo Graham”
+BEZ NUMERU es-419: „Mąka pszenna typ 405” → „Harina de trigo extrablanca”
+BEZ NUMERU es-419: „Mąka pszenna typ 450 (Tortowa)” → „Harina de trigo blanca para repostería”
+BEZ NUMERU es-419: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Harina de trigo blanca”
+BEZ NUMERU es-419: „Mąka pszenna typ 550 (Luksusowa)” → „Harina de trigo blanca fina”
+BEZ NUMERU es-419: „Mąka pszenna typ 650” → „Harina de trigo blanca”
+BEZ NUMERU es-419: „Mąka pszenna typ 650 (Bułkowa)” → „Harina de trigo blanca para bollos”
+BEZ NUMERU es-419: „Mąka pszenna typ 650 (chlebowa jasna)” → „Harina de trigo blanca (para pan)”
+BEZ NUMERU es-419: „Mąka pszenna typ 850” → „Harina de trigo para pan, más oscura”
+BEZ NUMERU es-419: „Mąka żytnia chlebowa typ 720” → „Harina de centeno para pan”
+BEZ NUMERU es-419: „Mąka żytnia razowa typ 2000” → „Harina de centeno integral”
+BEZ NUMERU es-419: „Mąka żytnia typ 1400” → „Harina de centeno semiintegral”
+BEZ NUMERU es-419: „Mąka żytnia typ 2000” → „Harina de centeno”
+BEZ NUMERU es-419: „Mąka żytnia typ 500” → „Harina de centeno blanca”
+BEZ NUMERU es-419: „Mąka żytnia typ 720” → „Harina de centeno clara”
+WIELE NAZW es-419: orkiszowa 2000 → „Harina de espelta integral”, „Harina de espelta”
+WIELE NAZW es-419: pszenna 1850 → „Harina de trigo graham (integral)”, „Harina de trigo Graham”
+WIELE NAZW es-419: pszenna 550 → „Harina de trigo blanca de molienda fina”, „Harina de trigo blanca fina”
+WIELE NAZW es-419: pszenna 2000 → „Harina de trigo de grano entero”, „Harina de trigo integral”
+WIELE NAZW es-419: pszenna 500 → „Harina de trigo blanca”, „Harina de trigo tipo 500 (Wrocławska)”
+WIELE NAZW es-419: pszenna 650 → „Harina de trigo blanca”, „Harina de trigo blanca para bollos”, „Harina de trigo blanca (para pan)”
+WIELE NAZW es-419: żytnia 720 → „Harina de centeno para pan”, „Harina de centeno clara”
+WIELE NAZW es-419: żytnia 2000 → „Harina de centeno integral”, „Harina de centeno”
+BEZ NUMERU et: „Mąka orkiszowa jasna typ 630” → „Hele speltajahu”
+BEZ NUMERU et: „Mąka orkiszowa razowa typ 2000” → „Täistera speltajahu”
+BEZ NUMERU et: „Mąka orkiszowa typ 2000” → „Speltajahu”
+BEZ NUMERU et: „Mąka pszenna chlebowa typ 750” → „Keskmise heledusega nisujahu (leivale)”
+BEZ NUMERU et: „Mąka pszenna graham typ 1850” → „Graham-nisujahu (jämedalt jahvatatud täisterajahu)”
+BEZ NUMERU et: „Mąka pszenna luksusowa typ 550” → „Väga hele peenjahvatusega nisujahu”
+BEZ NUMERU et: „Mąka pszenna pełnoziarnista typ 2000” → „Nisu täisterajahu”
+BEZ NUMERU et: „Mąka pszenna razowa typ 2000” → „Täistera nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 1050” → „Tume nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 1850 (Graham)” → „Grahami nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 405” → „Väga hele nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 450 (Tortowa)” → „Väga hele nisujahu (kookideks)”
+BEZ NUMERU et: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Hele nisujahu (pärmitaignad)”
+BEZ NUMERU et: „Mąka pszenna typ 550 (Luksusowa)” → „Hele nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 650” → „Hele nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 650 (Bułkowa)” → „Hele nisujahu (kuklid)”
+BEZ NUMERU et: „Mąka pszenna typ 650 (chlebowa jasna)” → „Hele nisujahu”
+BEZ NUMERU et: „Mąka pszenna typ 850” → „Tumedam nisujahu”
+BEZ NUMERU et: „Mąka żytnia chlebowa typ 720” → „Keskmise heledusega rukkijahu (leivale)”
+BEZ NUMERU et: „Mąka żytnia razowa typ 2000” → „Täistera rukkijahu”
+BEZ NUMERU et: „Mąka żytnia typ 1400” → „Tume rukkijahu”
+BEZ NUMERU et: „Mąka żytnia typ 2000” → „Rukkijahu”
+BEZ NUMERU et: „Mąka żytnia typ 500” → „Hele rukkijahu”
+BEZ NUMERU et: „Mąka żytnia typ 720” → „Hele rukkijahu”
+WIELE NAZW et: orkiszowa 2000 → „Täistera speltajahu”, „Speltajahu”
+WIELE NAZW et: pszenna 1850 → „Graham-nisujahu (jämedalt jahvatatud täisterajahu)”, „Grahami nisujahu”
+WIELE NAZW et: pszenna 550 → „Väga hele peenjahvatusega nisujahu”, „Hele nisujahu”
+WIELE NAZW et: pszenna 2000 → „Nisu täisterajahu”, „Täistera nisujahu”
+WIELE NAZW et: pszenna 500 → „Hele nisujahu (pärmitaignad)”, „Nisujahu tüüp 500 (Wrocławska)”
+WIELE NAZW et: pszenna 650 → „Hele nisujahu”, „Hele nisujahu (kuklid)”
+WIELE NAZW et: żytnia 720 → „Keskmise heledusega rukkijahu (leivale)”, „Hele rukkijahu”
+WIELE NAZW et: żytnia 2000 → „Täistera rukkijahu”, „Rukkijahu”
+BEZ NUMERU fi: „Mąka orkiszowa jasna typ 630” → „Vaalea spelttijauho”
+BEZ NUMERU fi: „Mąka orkiszowa razowa typ 2000” → „Karkea täysjyväspelttijauho”
+BEZ NUMERU fi: „Mąka orkiszowa typ 2000” → „Spelttijauho”
+BEZ NUMERU fi: „Mąka pszenna chlebowa typ 750” → „Keskitumma vehnäjauho (leipään)”
+BEZ NUMERU fi: „Mąka pszenna graham typ 1850” → „Grahamjauho (vehnän täysjyväjauho)”
+BEZ NUMERU fi: „Mąka pszenna luksusowa typ 550” → „Erittäin vaalea vehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna pełnoziarnista typ 2000” → „Vehnän täysjyväjauho”
+BEZ NUMERU fi: „Mąka pszenna razowa typ 2000” → „Karkea täysjyvävehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna typ 1050” → „Tumma vehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna typ 1850 (Graham)” → „Grahamjauho (täysjyvävehnä)”
+BEZ NUMERU fi: „Mąka pszenna typ 405” → „Hyvin vaalea vehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna typ 450 (Tortowa)” → „Hyvin vaalea vehnäjauho (kakkuihin)”
+BEZ NUMERU fi: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Vaalea vehnäjauho (Wrocławska / Poznańska)”
+BEZ NUMERU fi: „Mąka pszenna typ 550 (Luksusowa)” → „Vaalea vehnäjauho (Luksusowa)”
+BEZ NUMERU fi: „Mąka pszenna typ 650” → „Vaalea vehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna typ 650 (Bułkowa)” → „Keskivaalea vehnäjauho (sämpylöihin)”
+BEZ NUMERU fi: „Mąka pszenna typ 650 (chlebowa jasna)” → „Vaalea vehnäjauho”
+BEZ NUMERU fi: „Mąka pszenna typ 850” → „Tummahko vehnäjauho”
+BEZ NUMERU fi: „Mąka żytnia chlebowa typ 720” → „Keskivaalea ruisjauho (leipään)”
+BEZ NUMERU fi: „Mąka żytnia razowa typ 2000” → „Karkea täysjyväruisjauho”
+BEZ NUMERU fi: „Mąka żytnia typ 1400” → „Tumma ruisjauho”
+BEZ NUMERU fi: „Mąka żytnia typ 2000” → „Ruisjauho”
+BEZ NUMERU fi: „Mąka żytnia typ 500” → „Vaalea ruisjauho”
+BEZ NUMERU fi: „Mąka żytnia typ 720” → „Ruisjauho (vaalea)”
+WIELE NAZW fi: orkiszowa 2000 → „Karkea täysjyväspelttijauho”, „Spelttijauho”
+WIELE NAZW fi: pszenna 1850 → „Grahamjauho (vehnän täysjyväjauho)”, „Grahamjauho (täysjyvävehnä)”
+WIELE NAZW fi: pszenna 550 → „Erittäin vaalea vehnäjauho”, „Vaalea vehnäjauho (Luksusowa)”
+WIELE NAZW fi: pszenna 2000 → „Vehnän täysjyväjauho”, „Karkea täysjyvävehnäjauho”
+WIELE NAZW fi: pszenna 500 → „Vaalea vehnäjauho (Wrocławska / Poznańska)”, „Vehnäjauho tyyppi 500 (Wrocławska)”
+WIELE NAZW fi: pszenna 650 → „Vaalea vehnäjauho”, „Keskivaalea vehnäjauho (sämpylöihin)”
+WIELE NAZW fi: żytnia 720 → „Keskivaalea ruisjauho (leipään)”, „Ruisjauho (vaalea)”
+WIELE NAZW fi: żytnia 2000 → „Karkea täysjyväruisjauho”, „Ruisjauho”
+BEZ NUMERU fr: „Mąka orkiszowa jasna typ 630” → „Farine d\'épeautre blanche”
+BEZ NUMERU fr: „Mąka orkiszowa razowa typ 2000” → „Farine d\'épeautre complète”
+BEZ NUMERU fr: „Mąka orkiszowa typ 2000” → „Farine d’épeautre”
+BEZ NUMERU fr: „Mąka pszenna chlebowa typ 750” → „Farine de blé à pain”
+BEZ NUMERU fr: „Mąka pszenna graham typ 1850” → „Farine de blé Graham (intégrale)”
+BEZ NUMERU fr: „Mąka pszenna luksusowa typ 550” → „Farine de blé blanche”
+BEZ NUMERU fr: „Mąka pszenna pełnoziarnista typ 2000” → „Farine de blé intégrale”
+BEZ NUMERU fr: „Mąka pszenna razowa typ 2000” → „Farine de blé complète”
+BEZ NUMERU fr: „Mąka pszenna typ 1050” → „Farine de blé bise”
+BEZ NUMERU fr: „Mąka pszenna typ 1850 (Graham)” → „Farine de blé graham”
+BEZ NUMERU fr: „Mąka pszenna typ 405” → „Farine de blé extra-blanche”
+BEZ NUMERU fr: „Mąka pszenna typ 450 (Tortowa)” → „Farine de blé blanche pâtissière”
+BEZ NUMERU fr: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Farine de blé blanche polyvalente”
+BEZ NUMERU fr: „Mąka pszenna typ 550 (Luksusowa)” → „Farine de blé blanche fine”
+BEZ NUMERU fr: „Mąka pszenna typ 650” → „Farine de blé blanche”
+BEZ NUMERU fr: „Mąka pszenna typ 650 (Bułkowa)” → „Farine de blé blanche pour petits pains”
+BEZ NUMERU fr: „Mąka pszenna typ 650 (chlebowa jasna)” → „Farine de blé blanche (à pain)”
+BEZ NUMERU fr: „Mąka pszenna typ 850” → „Farine de blé à pain plus foncée”
+BEZ NUMERU fr: „Mąka żytnia chlebowa typ 720” → „Farine de seigle à pain”
+BEZ NUMERU fr: „Mąka żytnia razowa typ 2000” → „Farine de seigle complète”
+BEZ NUMERU fr: „Mąka żytnia typ 1400” → „Farine de seigle semi-complète”
+BEZ NUMERU fr: „Mąka żytnia typ 2000” → „Farine de seigle”
+BEZ NUMERU fr: „Mąka żytnia typ 500” → „Farine de seigle blanche”
+BEZ NUMERU fr: „Mąka żytnia typ 720” → „Farine de seigle (mouture claire à moyenne)”
+WIELE NAZW fr: orkiszowa 2000 → „Farine d\'épeautre complète”, „Farine d’épeautre”
+WIELE NAZW fr: pszenna 1850 → „Farine de blé Graham (intégrale)”, „Farine de blé graham”
+WIELE NAZW fr: pszenna 550 → „Farine de blé blanche”, „Farine de blé blanche fine”
+WIELE NAZW fr: pszenna 2000 → „Farine de blé intégrale”, „Farine de blé complète”
+WIELE NAZW fr: pszenna 500 → „Farine de blé blanche polyvalente”, „Farine de blé type 500 (Wrocławska)”
+WIELE NAZW fr: pszenna 650 → „Farine de blé blanche”, „Farine de blé blanche pour petits pains”, „Farine de blé blanche (à pain)”
+WIELE NAZW fr: żytnia 720 → „Farine de seigle à pain”, „Farine de seigle (mouture claire à moyenne)”
+WIELE NAZW fr: żytnia 2000 → „Farine de seigle complète”, „Farine de seigle”
+BEZ NUMERU hr: „Mąka orkiszowa jasna typ 630” → „Svijetlo pirovo brašno”
+BEZ NUMERU hr: „Mąka orkiszowa razowa typ 2000” → „Integralno pirovo brašno”
+BEZ NUMERU hr: „Mąka orkiszowa typ 2000” → „Pirovo brašno”
+BEZ NUMERU hr: „Mąka pszenna chlebowa typ 750” → „Pšenično brašno za kruh”
+BEZ NUMERU hr: „Mąka pszenna graham typ 1850” → „Pšenično graham brašno (cjelovito zrno, krupna meljava)”
+BEZ NUMERU hr: „Mąka pszenna luksusowa typ 550” → „Fino svijetlo pšenično brašno”
+BEZ NUMERU hr: „Mąka pszenna pełnoziarnista typ 2000” → „Pšenično brašno od cjelovitog zrna”
+BEZ NUMERU hr: „Mąka pszenna razowa typ 2000” → „Integralno pšenično brašno”
+BEZ NUMERU hr: „Mąka pszenna typ 1050” → „Tamno pšenično brašno”
+BEZ NUMERU hr: „Mąka pszenna typ 1850 (Graham)” → „Grubo mljeveno pšenično brašno (graham)”
+BEZ NUMERU hr: „Mąka pszenna typ 405” → „Vrlo svijetlo pšenično brašno”
+BEZ NUMERU hr: „Mąka pszenna typ 450 (Tortowa)” → „Svijetlo pšenično brašno (za torte)”
+BEZ NUMERU hr: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Svijetlo pšenično brašno (Wrocławska / Poznańska)”
+BEZ NUMERU hr: „Mąka pszenna typ 550 (Luksusowa)” → „Svijetlo pšenično brašno (Luksusowa)”
+BEZ NUMERU hr: „Mąka pszenna typ 650” → „Svijetlo pšenično brašno”
+BEZ NUMERU hr: „Mąka pszenna typ 650 (Bułkowa)” → „Svijetlo pšenično brašno (za peciva)”
+BEZ NUMERU hr: „Mąka pszenna typ 650 (chlebowa jasna)” → „Svijetlo pšenično brašno (za kruh)”
+BEZ NUMERU hr: „Mąka pszenna typ 850” → „Tamnije pšenično brašno za kruh”
+BEZ NUMERU hr: „Mąka żytnia chlebowa typ 720” → „Raženo brašno za kruh”
+BEZ NUMERU hr: „Mąka żytnia razowa typ 2000” → „Integralno raženo brašno”
+BEZ NUMERU hr: „Mąka żytnia typ 1400” → „Tamnije raženo brašno”
+BEZ NUMERU hr: „Mąka żytnia typ 2000” → „Raženo brašno”
+BEZ NUMERU hr: „Mąka żytnia typ 500” → „Svijetlo raženo brašno”
+BEZ NUMERU hr: „Mąka żytnia typ 720” → „Svijetlo raženo brašno”
+WIELE NAZW hr: orkiszowa 2000 → „Integralno pirovo brašno”, „Pirovo brašno”
+WIELE NAZW hr: pszenna 1850 → „Pšenično graham brašno (cjelovito zrno, krupna meljava)”, „Grubo mljeveno pšenično brašno (graham)”
+WIELE NAZW hr: pszenna 550 → „Fino svijetlo pšenično brašno”, „Svijetlo pšenično brašno (Luksusowa)”
+WIELE NAZW hr: pszenna 2000 → „Pšenično brašno od cjelovitog zrna”, „Integralno pšenično brašno”
+WIELE NAZW hr: pszenna 500 → „Svijetlo pšenično brašno (Wrocławska / Poznańska)”, „Pšenično brašno tip 500 (Wrocławska)”
+WIELE NAZW hr: pszenna 650 → „Svijetlo pšenično brašno”, „Svijetlo pšenično brašno (za peciva)”, „Svijetlo pšenično brašno (za kruh)”
+WIELE NAZW hr: żytnia 720 → „Raženo brašno za kruh”, „Svijetlo raženo brašno”
+WIELE NAZW hr: żytnia 2000 → „Integralno raženo brašno”, „Raženo brašno”
+BEZ NUMERU hu: „Mąka orkiszowa jasna typ 630” → „Világos tönkölyliszt”
+BEZ NUMERU hu: „Mąka orkiszowa razowa typ 2000” → „Teljes kiőrlésű tönkölyliszt”
+BEZ NUMERU hu: „Mąka orkiszowa typ 2000” → „Tönkölyliszt”
+BEZ NUMERU hu: „Mąka pszenna chlebowa typ 750” → „Kenyérsütő búzaliszt (közepes kiőrlés)”
+BEZ NUMERU hu: „Mąka pszenna graham typ 1850” → „Graham-búzaliszt (teljes kiőrlésű)”
+BEZ NUMERU hu: „Mąka pszenna luksusowa typ 550” → „Világos búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna pełnoziarnista typ 2000” → „Teljes kiőrlésű búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna razowa typ 2000” → „Teljes kiőrlésű búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna typ 1050” → „Félbarna búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna typ 1850 (Graham)” → „Grahamliszt (durvára őrölt, teljes kiőrlésű búza)”
+BEZ NUMERU hu: „Mąka pszenna typ 405” → „Nagyon világos búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna typ 450 (Tortowa)” → „Nagyon világos, finom búzaliszt (süteményekhez)”
+BEZ NUMERU hu: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Világos búzaliszt (univerzális)”
+BEZ NUMERU hu: „Mąka pszenna typ 550 (Luksusowa)” → „Világos búzaliszt (prémium)”
+BEZ NUMERU hu: „Mąka pszenna typ 650” → „Világos búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna typ 650 (Bułkowa)” → „Világos búzaliszt péksüteményekhez”
+BEZ NUMERU hu: „Mąka pszenna typ 650 (chlebowa jasna)” → „Világos búzaliszt”
+BEZ NUMERU hu: „Mąka pszenna typ 850” → „Sötétebb, közepes kiőrlésű búzaliszt”
+BEZ NUMERU hu: „Mąka żytnia chlebowa typ 720” → „Kenyérsütő rozsliszt (világosabb)”
+BEZ NUMERU hu: „Mąka żytnia razowa typ 2000” → „Teljes kiőrlésű rozsliszt”
+BEZ NUMERU hu: „Mąka żytnia typ 1400” → „Közepes kiőrlésű rozsliszt”
+BEZ NUMERU hu: „Mąka żytnia typ 2000” → „Rozsliszt”
+BEZ NUMERU hu: „Mąka żytnia typ 500” → „Világos rozsliszt”
+BEZ NUMERU hu: „Mąka żytnia typ 720” → „Világos rozsliszt”
+WIELE NAZW hu: orkiszowa 2000 → „Teljes kiőrlésű tönkölyliszt”, „Tönkölyliszt”
+WIELE NAZW hu: pszenna 1850 → „Graham-búzaliszt (teljes kiőrlésű)”, „Grahamliszt (durvára őrölt, teljes kiőrlésű búza)”
+WIELE NAZW hu: pszenna 550 → „Világos búzaliszt”, „Világos búzaliszt (prémium)”
+WIELE NAZW hu: pszenna 500 → „Világos búzaliszt (univerzális)”, „500-as típusú búzaliszt (Wrocławska)”
+WIELE NAZW hu: pszenna 650 → „Világos búzaliszt”, „Világos búzaliszt péksüteményekhez”
+WIELE NAZW hu: żytnia 720 → „Kenyérsütő rozsliszt (világosabb)”, „Világos rozsliszt”
+WIELE NAZW hu: żytnia 2000 → „Teljes kiőrlésű rozsliszt”, „Rozsliszt”
+BEZ NUMERU id: „Mąka orkiszowa jasna typ 630” → „Tepung spelt terang”
+BEZ NUMERU id: „Mąka orkiszowa razowa typ 2000” → „Tepung spelt utuh giling kasar”
+BEZ NUMERU id: „Mąka pszenna chlebowa typ 750” → „Tepung terigu untuk roti (tingkat sedang)”
+BEZ NUMERU id: „Mąka pszenna graham typ 1850” → „Tepung terigu Graham (biji utuh)”
+BEZ NUMERU id: „Mąka pszenna luksusowa typ 550” → „Tepung terigu putih halus”
+BEZ NUMERU id: „Mąka pszenna pełnoziarnista typ 2000” → „Tepung terigu biji utuh”
+BEZ NUMERU id: „Mąka pszenna razowa typ 2000” → „Tepung terigu utuh giling kasar”
+BEZ NUMERU id: „Mąka pszenna typ 1050” → „Tepung terigu semi-gelap”
+BEZ NUMERU id: „Mąka pszenna typ 1850 (Graham)” → „Tepung terigu Graham (biji utuh)”
+BEZ NUMERU id: „Mąka pszenna typ 405” → „Tepung terigu sangat putih”
+BEZ NUMERU id: „Mąka pszenna typ 450 (Tortowa)” → „Tepung terigu putih untuk kue”
+BEZ NUMERU id: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Tepung terigu putih”
+BEZ NUMERU id: „Mąka pszenna typ 550 (Luksusowa)” → „Tepung terigu putih premium”
+BEZ NUMERU id: „Mąka pszenna typ 650” → „Tepung terigu putih”
+BEZ NUMERU id: „Mąka pszenna typ 650 (Bułkowa)” → „Tepung terigu terang untuk roti kecil”
+BEZ NUMERU id: „Mąka pszenna typ 650 (chlebowa jasna)” → „Tepung terigu putih untuk roti”
+BEZ NUMERU id: „Mąka pszenna typ 850” → „Tepung terigu agak gelap untuk roti”
+BEZ NUMERU id: „Mąka żytnia chlebowa typ 720” → „Tepung gandum hitam untuk roti”
+BEZ NUMERU id: „Mąka żytnia razowa typ 2000” → „Tepung gandum hitam utuh giling kasar”
+BEZ NUMERU id: „Mąka żytnia typ 1400” → „Tepung gandum hitam semi-gelap”
+BEZ NUMERU id: „Mąka żytnia typ 500” → „Tepung gandum hitam terang”
+BEZ NUMERU id: „Mąka żytnia typ 720” → „Tepung gandum hitam (penggilingan sedang)”
+WIELE NAZW id: orkiszowa 2000 → „Tepung spelt utuh giling kasar”, „Tepung spelt tipe 2000”
+WIELE NAZW id: pszenna 550 → „Tepung terigu putih halus”, „Tepung terigu putih premium”
+WIELE NAZW id: pszenna 2000 → „Tepung terigu biji utuh”, „Tepung terigu utuh giling kasar”
+WIELE NAZW id: pszenna 500 → „Tepung terigu putih”, „Tepung terigu tipe 500 (Wrocławska)”
+WIELE NAZW id: pszenna 650 → „Tepung terigu putih”, „Tepung terigu terang untuk roti kecil”, „Tepung terigu putih untuk roti”
+WIELE NAZW id: żytnia 720 → „Tepung gandum hitam untuk roti”, „Tepung gandum hitam (penggilingan sedang)”
+WIELE NAZW id: żytnia 2000 → „Tepung gandum hitam utuh giling kasar”, „Tepung gandum hitam tipe 2000”
+BEZ NUMERU it: „Mąka orkiszowa jasna typ 630” → „Farina di farro spelta chiara”
+BEZ NUMERU it: „Mąka orkiszowa razowa typ 2000” → „Farina di farro spelta integrale”
+BEZ NUMERU it: „Mąka orkiszowa typ 2000” → „Farina di farro spelta”
+BEZ NUMERU it: „Mąka pszenna chlebowa typ 750” → „Farina di frumento media da pane”
+BEZ NUMERU it: „Mąka pszenna graham typ 1850” → „Farina di frumento Graham (integrale)”
+BEZ NUMERU it: „Mąka pszenna luksusowa typ 550” → „Farina di frumento bianca molto raffinata”
+BEZ NUMERU it: „Mąka pszenna pełnoziarnista typ 2000” → „Farina integrale di frumento”
+BEZ NUMERU it: „Mąka pszenna razowa typ 2000” → „Farina di frumento integrale”
+BEZ NUMERU it: „Mąka pszenna typ 1050” → „Farina di frumento scura (semi-integrale)”
+BEZ NUMERU it: „Mąka pszenna typ 1850 (Graham)” → „Farina di frumento Graham (integrale, macinatura grossa)”
+BEZ NUMERU it: „Mąka pszenna typ 405” → „Farina di frumento extra chiara”
+BEZ NUMERU it: „Mąka pszenna typ 450 (Tortowa)” → „Farina di frumento molto chiara (per dolci)”
+BEZ NUMERU it: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Farina di frumento chiara (uso generale)”
+BEZ NUMERU it: „Mąka pszenna typ 550 (Luksusowa)” → „Farina di frumento chiara (raffinata)”
+BEZ NUMERU it: „Mąka pszenna typ 650” → „Farina di frumento chiara”
+BEZ NUMERU it: „Mąka pszenna typ 650 (Bułkowa)” → „Farina di frumento chiara per panini”
+BEZ NUMERU it: „Mąka pszenna typ 650 (chlebowa jasna)” → „Farina di frumento chiara (per pane)”
+BEZ NUMERU it: „Mąka pszenna typ 850” → „Farina di frumento medio-scura”
+BEZ NUMERU it: „Mąka żytnia chlebowa typ 720” → „Farina di segale chiara da pane”
+BEZ NUMERU it: „Mąka żytnia razowa typ 2000” → „Farina di segale integrale”
+BEZ NUMERU it: „Mąka żytnia typ 1400” → „Farina di segale semi-integrale”
+BEZ NUMERU it: „Mąka żytnia typ 2000” → „Farina di segale”
+BEZ NUMERU it: „Mąka żytnia typ 500” → „Farina di segale molto chiara”
+BEZ NUMERU it: „Mąka żytnia typ 720” → „Farina di segale a raffinazione media”
+WIELE NAZW it: orkiszowa 2000 → „Farina di farro spelta integrale”, „Farina di farro spelta”
+WIELE NAZW it: pszenna 1850 → „Farina di frumento Graham (integrale)”, „Farina di frumento Graham (integrale, macinatura grossa)”
+WIELE NAZW it: pszenna 550 → „Farina di frumento bianca molto raffinata”, „Farina di frumento chiara (raffinata)”
+WIELE NAZW it: pszenna 2000 → „Farina integrale di frumento”, „Farina di frumento integrale”
+WIELE NAZW it: pszenna 500 → „Farina di frumento chiara (uso generale)”, „Farina di grano tenero tipo 500 (Wrocławska)”
+WIELE NAZW it: pszenna 650 → „Farina di frumento chiara”, „Farina di frumento chiara per panini”, „Farina di frumento chiara (per pane)”
+WIELE NAZW it: żytnia 720 → „Farina di segale chiara da pane”, „Farina di segale a raffinazione media”
+WIELE NAZW it: żytnia 2000 → „Farina di segale integrale”, „Farina di segale”
+BEZ NUMERU ja: „Mąka orkiszowa jasna typ 630” → „スペルト小麦粉 (白)”
+BEZ NUMERU ja: „Mąka orkiszowa razowa typ 2000” → „スペルト小麦全粒粉 (粗挽き)”
+BEZ NUMERU ja: „Mąka orkiszowa typ 2000” → „スペルト小麦粉”
+BEZ NUMERU ja: „Mąka pszenna chlebowa typ 750” → „パン用小麦粉 (精製度中)”
+BEZ NUMERU ja: „Mąka pszenna graham typ 1850” → „グラハム粉（小麦の全粒粉）”
+BEZ NUMERU ja: „Mąka pszenna luksusowa typ 550” → „小麦粉（精製度の高い白い粉）”
+BEZ NUMERU ja: „Mąka pszenna pełnoziarnista typ 2000” → „小麦全粒粉”
+BEZ NUMERU ja: „Mąka pszenna razowa typ 2000” → „小麦全粒粉 (粗挽き)”
+BEZ NUMERU ja: „Mąka pszenna typ 1050” → „小麦粉 (精製度低・濃色)”
+BEZ NUMERU ja: „Mąka pszenna typ 1850 (Graham)” → „小麦粉 (グラハム)”
+BEZ NUMERU ja: „Mąka pszenna typ 405” → „小麦粉 (精製度最高・白)”
+BEZ NUMERU ja: „Mąka pszenna typ 450 (Tortowa)” → „小麦粉 (精製度高・製菓用)”
+BEZ NUMERU ja: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „小麦粉 (精製度高・汎用)”
+BEZ NUMERU ja: „Mąka pszenna typ 550 (Luksusowa)” → „小麦粉 (精製度高・特選)”
+BEZ NUMERU ja: „Mąka pszenna typ 650” → „小麦粉（白い粉）”
+BEZ NUMERU ja: „Mąka pszenna typ 650 (Bułkowa)” → „小麦粉 (精製度中・ロールパン用)”
+BEZ NUMERU ja: „Mąka pszenna typ 650 (chlebowa jasna)” → „小麦粉（パン用の白い粉）”
+BEZ NUMERU ja: „Mąka pszenna typ 850” → „小麦粉 (精製度やや低)”
+BEZ NUMERU ja: „Mąka żytnia chlebowa typ 720” → „パン用ライ麦粉 (精製度中)”
+BEZ NUMERU ja: „Mąka żytnia razowa typ 2000” → „ライ麦全粒粉 (粗挽き)”
+BEZ NUMERU ja: „Mąka żytnia typ 1400” → „ライ麦粉 (精製度低・濃色)”
+BEZ NUMERU ja: „Mąka żytnia typ 2000” → „ライ麦粉”
+BEZ NUMERU ja: „Mąka żytnia typ 500” → „ライ麦粉 (精製度高・白)”
+BEZ NUMERU ja: „Mąka żytnia typ 720” → „ライ麦粉（中程度の精製度）”
+WIELE NAZW ja: orkiszowa 2000 → „スペルト小麦全粒粉 (粗挽き)”, „スペルト小麦粉”
+WIELE NAZW ja: pszenna 1850 → „グラハム粉（小麦の全粒粉）”, „小麦粉 (グラハム)”
+WIELE NAZW ja: pszenna 550 → „小麦粉（精製度の高い白い粉）”, „小麦粉 (精製度高・特選)”
+WIELE NAZW ja: pszenna 2000 → „小麦全粒粉”, „小麦全粒粉 (粗挽き)”
+WIELE NAZW ja: pszenna 500 → „小麦粉 (精製度高・汎用)”, „小麦粉 タイプ500（Wrocławska）”
+WIELE NAZW ja: pszenna 650 → „小麦粉（白い粉）”, „小麦粉 (精製度中・ロールパン用)”, „小麦粉（パン用の白い粉）”
+WIELE NAZW ja: żytnia 720 → „パン用ライ麦粉 (精製度中)”, „ライ麦粉（中程度の精製度）”
+WIELE NAZW ja: żytnia 2000 → „ライ麦全粒粉 (粗挽き)”, „ライ麦粉”
+BEZ NUMERU ko: „Mąka orkiszowa jasna typ 630” → „밝은 스펠트 밀가루”
+BEZ NUMERU ko: „Mąka orkiszowa razowa typ 2000” → „스펠트 통가루”
+BEZ NUMERU ko: „Mąka orkiszowa typ 2000” → „스펠트 밀가루”
+BEZ NUMERU ko: „Mąka pszenna chlebowa typ 750” → „제빵용 밀가루 (중간 제분도)”
+BEZ NUMERU ko: „Mąka pszenna graham typ 1850” → „그레이엄 밀가루 (전립분)”
+BEZ NUMERU ko: „Mąka pszenna luksusowa typ 550” → „밀가루 (고운 백색)”
+BEZ NUMERU ko: „Mąka pszenna pełnoziarnista typ 2000” → „밀 전립분”
+BEZ NUMERU ko: „Mąka pszenna razowa typ 2000” → „통밀가루”
+BEZ NUMERU ko: „Mąka pszenna typ 1050” → „밀가루 (어두운 편)”
+BEZ NUMERU ko: „Mąka pszenna typ 1850 (Graham)” → „그레이엄 밀가루 (굵은 통가루)”
+BEZ NUMERU ko: „Mąka pszenna typ 405” → „아주 밝은 밀가루”
+BEZ NUMERU ko: „Mąka pszenna typ 450 (Tortowa)” → „케이크용 밀가루 (아주 밝음)”
+BEZ NUMERU ko: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „밝은 밀가루 (Wrocławska / Poznańska)”
+BEZ NUMERU ko: „Mąka pszenna typ 550 (Luksusowa)” → „밝은 밀가루 (Luksusowa)”
+BEZ NUMERU ko: „Mąka pszenna typ 650” → „밀가루 (백색)”
+BEZ NUMERU ko: „Mąka pszenna typ 650 (Bułkowa)” → „롤빵용 밀가루 (밝은 편)”
+BEZ NUMERU ko: „Mąka pszenna typ 650 (chlebowa jasna)” → „밀가루 (빵용 백색 밀가루)”
+BEZ NUMERU ko: „Mąka pszenna typ 850” → „밀가루 (약간 어두운 편)”
+BEZ NUMERU ko: „Mąka żytnia chlebowa typ 720” → „제빵용 호밀가루”
+BEZ NUMERU ko: „Mąka żytnia razowa typ 2000” → „호밀 통가루”
+BEZ NUMERU ko: „Mąka żytnia typ 1400” → „호밀가루 (중간 제분도)”
+BEZ NUMERU ko: „Mąka żytnia typ 2000” → „호밀가루”
+BEZ NUMERU ko: „Mąka żytnia typ 500” → „밝은 호밀가루”
+BEZ NUMERU ko: „Mąka żytnia typ 720” → „호밀가루 (중간 제분도)”
+WIELE NAZW ko: orkiszowa 2000 → „스펠트 통가루”, „스펠트 밀가루”
+WIELE NAZW ko: pszenna 1850 → „그레이엄 밀가루 (전립분)”, „그레이엄 밀가루 (굵은 통가루)”
+WIELE NAZW ko: pszenna 550 → „밀가루 (고운 백색)”, „밝은 밀가루 (Luksusowa)”
+WIELE NAZW ko: pszenna 2000 → „밀 전립분”, „통밀가루”
+WIELE NAZW ko: pszenna 500 → „밝은 밀가루 (Wrocławska / Poznańska)”, „밀가루 타입 500 (Wrocławska)”
+WIELE NAZW ko: pszenna 650 → „밀가루 (백색)”, „롤빵용 밀가루 (밝은 편)”, „밀가루 (빵용 백색 밀가루)”
+WIELE NAZW ko: żytnia 720 → „제빵용 호밀가루”, „호밀가루 (중간 제분도)”
+WIELE NAZW ko: żytnia 2000 → „호밀 통가루”, „호밀가루”
+BEZ NUMERU lt: „Mąka orkiszowa jasna typ 630” → „Šviesūs speltos miltai”
+BEZ NUMERU lt: „Mąka orkiszowa razowa typ 2000” → „Rupaus malimo speltos miltai”
+BEZ NUMERU lt: „Mąka orkiszowa typ 2000” → „Speltos miltai”
+BEZ NUMERU lt: „Mąka pszenna chlebowa typ 750” → „Kvietiniai miltai duonai”
+BEZ NUMERU lt: „Mąka pszenna graham typ 1850” → „Kvietiniai Graham miltai (rupaus malimo)”
+BEZ NUMERU lt: „Mąka pszenna luksusowa typ 550” → „Labai šviesūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna pełnoziarnista typ 2000” → „Kvietiniai viso grūdo miltai”
+BEZ NUMERU lt: „Mąka pszenna razowa typ 2000” → „Rupaus malimo kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 1050” → „Tamsūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 1850 (Graham)” → „Kvietiniai Graham miltai (viso grūdo)”
+BEZ NUMERU lt: „Mąka pszenna typ 405” → „Labai šviesūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 450 (Tortowa)” → „Labai šviesūs kvietiniai miltai (tortams)”
+BEZ NUMERU lt: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Šviesūs universalūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 550 (Luksusowa)” → „Šviesūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 650” → „Šviesūs kvietiniai miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 650 (Bułkowa)” → „Vidutinio šviesumo kvietiniai miltai (bandelėms)”
+BEZ NUMERU lt: „Mąka pszenna typ 650 (chlebowa jasna)” → „Šviesūs kvietiniai duonos miltai”
+BEZ NUMERU lt: „Mąka pszenna typ 850” → „Tamsesni kvietiniai miltai duonai”
+BEZ NUMERU lt: „Mąka żytnia chlebowa typ 720” → „Šviesesni ruginiai miltai duonai”
+BEZ NUMERU lt: „Mąka żytnia razowa typ 2000” → „Rupaus malimo ruginiai miltai”
+BEZ NUMERU lt: „Mąka żytnia typ 1400” → „Pusiau rupaus malimo ruginiai miltai”
+BEZ NUMERU lt: „Mąka żytnia typ 2000” → „Ruginiai miltai”
+BEZ NUMERU lt: „Mąka żytnia typ 500” → „Šviesūs ruginiai miltai”
+BEZ NUMERU lt: „Mąka żytnia typ 720” → „Šviesūs ruginiai miltai”
+WIELE NAZW lt: orkiszowa 2000 → „Rupaus malimo speltos miltai”, „Speltos miltai”
+WIELE NAZW lt: pszenna 1850 → „Kvietiniai Graham miltai (rupaus malimo)”, „Kvietiniai Graham miltai (viso grūdo)”
+WIELE NAZW lt: pszenna 550 → „Labai šviesūs kvietiniai miltai”, „Šviesūs kvietiniai miltai”
+WIELE NAZW lt: pszenna 2000 → „Kvietiniai viso grūdo miltai”, „Rupaus malimo kvietiniai miltai”
+WIELE NAZW lt: pszenna 500 → „Šviesūs universalūs kvietiniai miltai”, „Kvietiniai miltai, tipas 500 (Wrocławska)”
+WIELE NAZW lt: pszenna 650 → „Šviesūs kvietiniai miltai”, „Vidutinio šviesumo kvietiniai miltai (bandelėms)”, „Šviesūs kvietiniai duonos miltai”
+WIELE NAZW lt: żytnia 720 → „Šviesesni ruginiai miltai duonai”, „Šviesūs ruginiai miltai”
+WIELE NAZW lt: żytnia 2000 → „Rupaus malimo ruginiai miltai”, „Ruginiai miltai”
+BEZ NUMERU lv: „Mąka orkiszowa jasna typ 630” → „Gaišie speltas milti”
+BEZ NUMERU lv: „Mąka orkiszowa razowa typ 2000” → „Rupja maluma speltas milti”
+BEZ NUMERU lv: „Mąka orkiszowa typ 2000” → „Speltas milti”
+BEZ NUMERU lv: „Mąka pszenna chlebowa typ 750” → „Kviešu milti maizei”
+BEZ NUMERU lv: „Mąka pszenna graham typ 1850” → „Grahama pilngraudu kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna luksusowa typ 550” → „Augstākā labuma gaiši kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna pełnoziarnista typ 2000” → „Pilngraudu kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna razowa typ 2000” → „Rupja maluma kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna typ 1050” → „Tumšie kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna typ 1850 (Graham)” → „Graham kviešu milti (pilngraudu)”
+BEZ NUMERU lv: „Mąka pszenna typ 405” → „Ļoti gaiši kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna typ 450 (Tortowa)” → „Ļoti gaiši kviešu milti (kūkām)”
+BEZ NUMERU lv: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Gaišie kviešu milti (rauga mīklām)”
+BEZ NUMERU lv: „Mąka pszenna typ 550 (Luksusowa)” → „Gaišie kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna typ 650” → „Gaiši kviešu milti”
+BEZ NUMERU lv: „Mąka pszenna typ 650 (Bułkowa)” → „Gaišie kviešu milti (maizītēm)”
+BEZ NUMERU lv: „Mąka pszenna typ 650 (chlebowa jasna)” → „Gaiši kviešu maizes milti”
+BEZ NUMERU lv: „Mąka pszenna typ 850” → „Tumšāki kviešu milti maizei”
+BEZ NUMERU lv: „Mąka żytnia chlebowa typ 720” → „Rudzu milti maizei”
+BEZ NUMERU lv: „Mąka żytnia razowa typ 2000” → „Rupja maluma rudzu milti”
+BEZ NUMERU lv: „Mąka żytnia typ 1400” → „Vidēja maluma rudzu milti”
+BEZ NUMERU lv: „Mąka żytnia typ 2000” → „Rudzu milti”
+BEZ NUMERU lv: „Mąka żytnia typ 500” → „Gaišie rudzu milti”
+BEZ NUMERU lv: „Mąka żytnia typ 720” → „Gaiši rudzu milti”
+WIELE NAZW lv: orkiszowa 2000 → „Rupja maluma speltas milti”, „Speltas milti”
+WIELE NAZW lv: pszenna 1850 → „Grahama pilngraudu kviešu milti”, „Graham kviešu milti (pilngraudu)”
+WIELE NAZW lv: pszenna 550 → „Augstākā labuma gaiši kviešu milti”, „Gaišie kviešu milti”
+WIELE NAZW lv: pszenna 2000 → „Pilngraudu kviešu milti”, „Rupja maluma kviešu milti”
+WIELE NAZW lv: pszenna 500 → „Gaišie kviešu milti (rauga mīklām)”, „Kviešu milti, tips 500 (Wrocławska)”
+WIELE NAZW lv: pszenna 650 → „Gaiši kviešu milti”, „Gaišie kviešu milti (maizītēm)”, „Gaiši kviešu maizes milti”
+WIELE NAZW lv: żytnia 720 → „Rudzu milti maizei”, „Gaiši rudzu milti”
+WIELE NAZW lv: żytnia 2000 → „Rupja maluma rudzu milti”, „Rudzu milti”
+BEZ NUMERU ms: „Mąka orkiszowa jasna typ 630” → „Tepung spelt cerah”
+BEZ NUMERU ms: „Mąka orkiszowa razowa typ 2000” → „Tepung spelt mil penuh”
+BEZ NUMERU ms: „Mąka orkiszowa typ 2000” → „Tepung spelt”
+BEZ NUMERU ms: „Mąka pszenna chlebowa typ 750” → „Tepung gandum untuk roti (sederhana)”
+BEZ NUMERU ms: „Mąka pszenna graham typ 1850” → „Tepung gandum graham (bijirin penuh)”
+BEZ NUMERU ms: „Mąka pszenna luksusowa typ 550” → „Tepung gandum putih halus”
+BEZ NUMERU ms: „Mąka pszenna pełnoziarnista typ 2000” → „Tepung gandum bijirin penuh”
+BEZ NUMERU ms: „Mąka pszenna razowa typ 2000” → „Tepung gandum mil penuh”
+BEZ NUMERU ms: „Mąka pszenna typ 1050” → „Tepung gandum separa gelap”
+BEZ NUMERU ms: „Mąka pszenna typ 1850 (Graham)” → „Tepung gandum Graham (kisaran kasar)”
+BEZ NUMERU ms: „Mąka pszenna typ 405” → „Tepung gandum paling cerah”
+BEZ NUMERU ms: „Mąka pszenna typ 450 (Tortowa)” → „Tepung gandum sangat cerah (Kek)”
+BEZ NUMERU ms: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Tepung gandum cerah (Pastri yis)”
+BEZ NUMERU ms: „Mąka pszenna typ 550 (Luksusowa)” → „Tepung gandum cerah (Premium)”
+BEZ NUMERU ms: „Mąka pszenna typ 650” → „Tepung gandum putih”
+BEZ NUMERU ms: „Mąka pszenna typ 650 (Bułkowa)” → „Tepung gandum cerah sederhana (Roti bun)”
+BEZ NUMERU ms: „Mąka pszenna typ 650 (chlebowa jasna)” → „Tepung gandum putih”
+BEZ NUMERU ms: „Mąka pszenna typ 850” → „Tepung gandum untuk roti, lebih gelap”
+BEZ NUMERU ms: „Mąka żytnia chlebowa typ 720” → „Tepung rai untuk roti (cerah sederhana)”
+BEZ NUMERU ms: „Mąka żytnia razowa typ 2000” → „Tepung rai mil penuh”
+BEZ NUMERU ms: „Mąka żytnia typ 1400” → „Tepung rai separa mil penuh”
+BEZ NUMERU ms: „Mąka żytnia typ 2000” → „Tepung rai”
+BEZ NUMERU ms: „Mąka żytnia typ 500” → „Tepung rai cerah”
+BEZ NUMERU ms: „Mąka żytnia typ 720” → „Tepung rai (kisaran sederhana)”
+WIELE NAZW ms: orkiszowa 2000 → „Tepung spelt mil penuh”, „Tepung spelt”
+WIELE NAZW ms: pszenna 1850 → „Tepung gandum graham (bijirin penuh)”, „Tepung gandum Graham (kisaran kasar)”
+WIELE NAZW ms: pszenna 550 → „Tepung gandum putih halus”, „Tepung gandum cerah (Premium)”
+WIELE NAZW ms: pszenna 2000 → „Tepung gandum bijirin penuh”, „Tepung gandum mil penuh”
+WIELE NAZW ms: pszenna 500 → „Tepung gandum cerah (Pastri yis)”, „Tepung gandum jenis 500 (Wrocławska)”
+WIELE NAZW ms: pszenna 650 → „Tepung gandum putih”, „Tepung gandum cerah sederhana (Roti bun)”
+WIELE NAZW ms: żytnia 720 → „Tepung rai untuk roti (cerah sederhana)”, „Tepung rai (kisaran sederhana)”
+WIELE NAZW ms: żytnia 2000 → „Tepung rai mil penuh”, „Tepung rai”
+BEZ NUMERU nb: „Mąka orkiszowa jasna typ 630” → „Lyst speltmel”
+BEZ NUMERU nb: „Mąka orkiszowa razowa typ 2000” → „Sammalt speltmel”
+BEZ NUMERU nb: „Mąka orkiszowa typ 2000” → „Speltmel”
+BEZ NUMERU nb: „Mąka pszenna chlebowa typ 750” → „Hvetemel til brød, middels lyst”
+BEZ NUMERU nb: „Mąka pszenna graham typ 1850” → „Grahamsmel (sammalt hvetemel)”
+BEZ NUMERU nb: „Mąka pszenna luksusowa typ 550” → „Fint, ekstra lyst hvetemel”
+BEZ NUMERU nb: „Mąka pszenna pełnoziarnista typ 2000” → „Fullkornsmel av hvete”
+BEZ NUMERU nb: „Mąka pszenna razowa typ 2000” → „Sammalt hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 1050” → „Mørkt hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 1850 (Graham)” → „Grahamsmel (grovt sammalt hvetemel)”
+BEZ NUMERU nb: „Mąka pszenna typ 405” → „Svært lyst hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 450 (Tortowa)” → „Lyst hvetemel til kaker”
+BEZ NUMERU nb: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Lyst, allsidig hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 550 (Luksusowa)” → „Lyst, finsiktet hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 650” → „Lyst hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 650 (Bułkowa)” → „Halvlyst hvetemel til rundstykker”
+BEZ NUMERU nb: „Mąka pszenna typ 650 (chlebowa jasna)” → „Lyst hvetemel”
+BEZ NUMERU nb: „Mąka pszenna typ 850” → „Mørkere hvetemel til brød”
+BEZ NUMERU nb: „Mąka żytnia chlebowa typ 720” → „Halvlyst rugmel til brød”
+BEZ NUMERU nb: „Mąka żytnia razowa typ 2000” → „Sammalt rugmel”
+BEZ NUMERU nb: „Mąka żytnia typ 1400” → „Mørkt rugmel”
+BEZ NUMERU nb: „Mąka żytnia typ 2000” → „Rugmel”
+BEZ NUMERU nb: „Mąka żytnia typ 500” → „Lyst rugmel”
+BEZ NUMERU nb: „Mąka żytnia typ 720” → „Lyst rugmel”
+WIELE NAZW nb: orkiszowa 2000 → „Sammalt speltmel”, „Speltmel”
+WIELE NAZW nb: pszenna 1850 → „Grahamsmel (sammalt hvetemel)”, „Grahamsmel (grovt sammalt hvetemel)”
+WIELE NAZW nb: pszenna 550 → „Fint, ekstra lyst hvetemel”, „Lyst, finsiktet hvetemel”
+WIELE NAZW nb: pszenna 2000 → „Fullkornsmel av hvete”, „Sammalt hvetemel”
+WIELE NAZW nb: pszenna 500 → „Lyst, allsidig hvetemel”, „Hvetemel type 500 (Wrocławska)”
+WIELE NAZW nb: pszenna 650 → „Lyst hvetemel”, „Halvlyst hvetemel til rundstykker”
+WIELE NAZW nb: żytnia 720 → „Halvlyst rugmel til brød”, „Lyst rugmel”
+WIELE NAZW nb: żytnia 2000 → „Sammalt rugmel”, „Rugmel”
+BEZ NUMERU nl: „Mąka orkiszowa jasna typ 630” → „Licht speltmeel”
+BEZ NUMERU nl: „Mąka orkiszowa razowa typ 2000” → „Grof volkoren speltmeel”
+BEZ NUMERU nl: „Mąka orkiszowa typ 2000” → „Speltmeel”
+BEZ NUMERU nl: „Mąka pszenna chlebowa typ 750” → „Tarwemeel voor brood (middel)”
+BEZ NUMERU nl: „Mąka pszenna graham typ 1850” → „Grahammeel (tarwevolkorenmeel)”
+BEZ NUMERU nl: „Mąka pszenna luksusowa typ 550” → „Fijn wit tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna pełnoziarnista typ 2000” → „Volkoren tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna razowa typ 2000” → „Grof volkoren tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna typ 1050” → „Donker tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna typ 1850 (Graham)” → „Volkoren tarwemeel (graham)”
+BEZ NUMERU nl: „Mąka pszenna typ 405” → „Zeer licht tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna typ 450 (Tortowa)” → „Licht tarwemeel voor gebak”
+BEZ NUMERU nl: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Licht tarwemeel, universeel”
+BEZ NUMERU nl: „Mąka pszenna typ 550 (Luksusowa)” → „Licht tarwemeel (luxe)”
+BEZ NUMERU nl: „Mąka pszenna typ 650” → „Licht tarwemeel”
+BEZ NUMERU nl: „Mąka pszenna typ 650 (Bułkowa)” → „Licht tarwemeel voor broodjes”
+BEZ NUMERU nl: „Mąka pszenna typ 650 (chlebowa jasna)” → „Licht tarwemeel voor brood”
+BEZ NUMERU nl: „Mąka pszenna typ 850” → „Iets donkerder tarwemeel”
+BEZ NUMERU nl: „Mąka żytnia chlebowa typ 720” → „Licht roggemeel voor brood”
+BEZ NUMERU nl: „Mąka żytnia razowa typ 2000” → „Grof volkoren roggemeel”
+BEZ NUMERU nl: „Mąka żytnia typ 1400” → „Halfvolkoren roggemeel”
+BEZ NUMERU nl: „Mąka żytnia typ 2000” → „Roggemeel”
+BEZ NUMERU nl: „Mąka żytnia typ 500” → „Zeer licht roggemeel”
+BEZ NUMERU nl: „Mąka żytnia typ 720” → „Licht roggemeel”
+WIELE NAZW nl: orkiszowa 2000 → „Grof volkoren speltmeel”, „Speltmeel”
+WIELE NAZW nl: pszenna 1850 → „Grahammeel (tarwevolkorenmeel)”, „Volkoren tarwemeel (graham)”
+WIELE NAZW nl: pszenna 550 → „Fijn wit tarwemeel”, „Licht tarwemeel (luxe)”
+WIELE NAZW nl: pszenna 2000 → „Volkoren tarwemeel”, „Grof volkoren tarwemeel”
+WIELE NAZW nl: pszenna 500 → „Licht tarwemeel, universeel”, „Tarwebloem type 500 (Wrocławska)”
+WIELE NAZW nl: pszenna 650 → „Licht tarwemeel”, „Licht tarwemeel voor broodjes”, „Licht tarwemeel voor brood”
+WIELE NAZW nl: żytnia 720 → „Licht roggemeel voor brood”, „Licht roggemeel”
+WIELE NAZW nl: żytnia 2000 → „Grof volkoren roggemeel”, „Roggemeel”
+BEZ NUMERU pt: „Mąka orkiszowa jasna typ 630” → „Farinha de espelta branca”
+BEZ NUMERU pt: „Mąka orkiszowa razowa typ 2000” → „Farinha de espelta integral”
+BEZ NUMERU pt: „Mąka orkiszowa typ 2000” → „Farinha de espelta”
+BEZ NUMERU pt: „Mąka pszenna chlebowa typ 750” → „Farinha de trigo clara (para pão)”
+BEZ NUMERU pt: „Mąka pszenna graham typ 1850” → „Farinha de trigo Graham (integral)”
+BEZ NUMERU pt: „Mąka pszenna luksusowa typ 550” → „Farinha de trigo branca fina”
+BEZ NUMERU pt: „Mąka pszenna pełnoziarnista typ 2000” → „Farinha de trigo de grão inteiro”
+BEZ NUMERU pt: „Mąka pszenna razowa typ 2000” → „Farinha de trigo integral”
+BEZ NUMERU pt: „Mąka pszenna typ 1050” → „Farinha de trigo escura (alta extração)”
+BEZ NUMERU pt: „Mąka pszenna typ 1850 (Graham)” → „Farinha de trigo Graham (grão inteiro)”
+BEZ NUMERU pt: „Mąka pszenna typ 405” → „Farinha de trigo branca extrafina”
+BEZ NUMERU pt: „Mąka pszenna typ 450 (Tortowa)” → „Farinha de trigo extra branca (para bolos)”
+BEZ NUMERU pt: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Farinha de trigo branca”
+BEZ NUMERU pt: „Mąka pszenna typ 550 (Luksusowa)” → „Farinha de trigo branca fina”
+BEZ NUMERU pt: „Mąka pszenna typ 650” → „Farinha de trigo branca”
+BEZ NUMERU pt: „Mąka pszenna typ 650 (Bułkowa)” → „Farinha de trigo branca (para pãezinhos)”
+BEZ NUMERU pt: „Mąka pszenna typ 650 (chlebowa jasna)” → „Farinha de trigo branca (clara, para pão)”
+BEZ NUMERU pt: „Mąka pszenna typ 850” → „Farinha de trigo média”
+BEZ NUMERU pt: „Mąka żytnia chlebowa typ 720” → „Farinha de centeio clara (para pão)”
+BEZ NUMERU pt: „Mąka żytnia razowa typ 2000” → „Farinha de centeio integral”
+BEZ NUMERU pt: „Mąka żytnia typ 1400” → „Farinha de centeio semi-integral”
+BEZ NUMERU pt: „Mąka żytnia typ 2000” → „Farinha de centeio”
+BEZ NUMERU pt: „Mąka żytnia typ 500” → „Farinha de centeio branca”
+BEZ NUMERU pt: „Mąka żytnia typ 720” → „Farinha de centeio clara”
+WIELE NAZW pt: orkiszowa 2000 → „Farinha de espelta integral”, „Farinha de espelta”
+WIELE NAZW pt: pszenna 1850 → „Farinha de trigo Graham (integral)”, „Farinha de trigo Graham (grão inteiro)”
+WIELE NAZW pt: pszenna 2000 → „Farinha de trigo de grão inteiro”, „Farinha de trigo integral”
+WIELE NAZW pt: pszenna 500 → „Farinha de trigo branca”, „Farinha de trigo tipo 500 (Wrocławska)”
+WIELE NAZW pt: pszenna 650 → „Farinha de trigo branca”, „Farinha de trigo branca (para pãezinhos)”, „Farinha de trigo branca (clara, para pão)”
+WIELE NAZW pt: żytnia 720 → „Farinha de centeio clara (para pão)”, „Farinha de centeio clara”
+WIELE NAZW pt: żytnia 2000 → „Farinha de centeio integral”, „Farinha de centeio”
+BEZ NUMERU pt-BR: „Mąka orkiszowa jasna typ 630” → „Farinha de espelta clara”
+BEZ NUMERU pt-BR: „Mąka orkiszowa razowa typ 2000” → „Farinha de espelta integral”
+BEZ NUMERU pt-BR: „Mąka orkiszowa typ 2000” → „Farinha de espelta”
+BEZ NUMERU pt-BR: „Mąka pszenna chlebowa typ 750” → „Farinha de trigo para pão (média)”
+BEZ NUMERU pt-BR: „Mąka pszenna graham typ 1850” → „Farinha de trigo Graham (integral)”
+BEZ NUMERU pt-BR: „Mąka pszenna luksusowa typ 550” → „Farinha de trigo extra clara”
+BEZ NUMERU pt-BR: „Mąka pszenna pełnoziarnista typ 2000” → „Farinha de trigo de grão inteiro”
+BEZ NUMERU pt-BR: „Mąka pszenna razowa typ 2000” → „Farinha de trigo integral”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 1050” → „Farinha de trigo escura”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 1850 (Graham)” → „Farinha de trigo graham (semi-integral)”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 405” → „Farinha de trigo muito clara”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 450 (Tortowa)” → „Farinha de trigo extra clara (para bolos)”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Farinha de trigo clara”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 550 (Luksusowa)” → „Farinha de trigo clara (refinada)”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 650” → „Farinha de trigo clara”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 650 (Bułkowa)” → „Farinha de trigo clara (para pãezinhos)”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 650 (chlebowa jasna)” → „Farinha de trigo clara”
+BEZ NUMERU pt-BR: „Mąka pszenna typ 850” → „Farinha de trigo média-escura”
+BEZ NUMERU pt-BR: „Mąka żytnia chlebowa typ 720” → „Farinha de centeio para pão”
+BEZ NUMERU pt-BR: „Mąka żytnia razowa typ 2000” → „Farinha de centeio integral”
+BEZ NUMERU pt-BR: „Mąka żytnia typ 1400” → „Farinha de centeio semi-integral”
+BEZ NUMERU pt-BR: „Mąka żytnia typ 2000” → „Farinha de centeio”
+BEZ NUMERU pt-BR: „Mąka żytnia typ 500” → „Farinha de centeio clara”
+BEZ NUMERU pt-BR: „Mąka żytnia typ 720” → „Farinha de centeio de moagem média”
+WIELE NAZW pt-BR: orkiszowa 2000 → „Farinha de espelta integral”, „Farinha de espelta”
+WIELE NAZW pt-BR: pszenna 1850 → „Farinha de trigo Graham (integral)”, „Farinha de trigo graham (semi-integral)”
+WIELE NAZW pt-BR: pszenna 550 → „Farinha de trigo extra clara”, „Farinha de trigo clara (refinada)”
+WIELE NAZW pt-BR: pszenna 2000 → „Farinha de trigo de grão inteiro”, „Farinha de trigo integral”
+WIELE NAZW pt-BR: pszenna 500 → „Farinha de trigo clara”, „Farinha de trigo tipo 500 (Wrocławska)”
+WIELE NAZW pt-BR: pszenna 650 → „Farinha de trigo clara”, „Farinha de trigo clara (para pãezinhos)”
+WIELE NAZW pt-BR: żytnia 720 → „Farinha de centeio para pão”, „Farinha de centeio de moagem média”
+WIELE NAZW pt-BR: żytnia 2000 → „Farinha de centeio integral”, „Farinha de centeio”
+BEZ NUMERU ro: „Mąka orkiszowa jasna typ 630” → „Făină albă de spelt”
+BEZ NUMERU ro: „Mąka orkiszowa razowa typ 2000” → „Făină integrală de spelt”
+BEZ NUMERU ro: „Mąka pszenna chlebowa typ 750” → „Făină de grâu pentru pâine”
+BEZ NUMERU ro: „Mąka pszenna graham typ 1850” → „Făină de grâu Graham (integrală)”
+BEZ NUMERU ro: „Mąka pszenna luksusowa typ 550” → „Făină de grâu albă, fină”
+BEZ NUMERU ro: „Mąka pszenna pełnoziarnista typ 2000” → „Făină de grâu din bob întreg”
+BEZ NUMERU ro: „Mąka pszenna razowa typ 2000” → „Făină integrală de grâu”
+BEZ NUMERU ro: „Mąka pszenna typ 1050” → „Făină de grâu închisă”
+BEZ NUMERU ro: „Mąka pszenna typ 1850 (Graham)” → „Făină de grâu Graham (măcinată grosier)”
+BEZ NUMERU ro: „Mąka pszenna typ 405” → „Făină de grâu foarte albă”
+BEZ NUMERU ro: „Mąka pszenna typ 450 (Tortowa)” → „Făină albă de grâu (pentru prăjituri)”
+BEZ NUMERU ro: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Făină albă de grâu, universală”
+BEZ NUMERU ro: „Mąka pszenna typ 550 (Luksusowa)” → „Făină albă de grâu, fină”
+BEZ NUMERU ro: „Mąka pszenna typ 650” → „Făină de grâu albă”
+BEZ NUMERU ro: „Mąka pszenna typ 650 (Bułkowa)” → „Făină albă de grâu (pentru chifle)”
+BEZ NUMERU ro: „Mąka pszenna typ 650 (chlebowa jasna)” → „Făină de grâu albă”
+BEZ NUMERU ro: „Mąka pszenna typ 850” → „Făină de grâu semiînchisă”
+BEZ NUMERU ro: „Mąka żytnia chlebowa typ 720” → „Făină de secară pentru pâine (deschisă)”
+BEZ NUMERU ro: „Mąka żytnia razowa typ 2000” → „Făină integrală de secară”
+BEZ NUMERU ro: „Mąka żytnia typ 1400” → „Făină de secară semiintegrală”
+BEZ NUMERU ro: „Mąka żytnia typ 500” → „Făină albă de secară”
+BEZ NUMERU ro: „Mąka żytnia typ 720” → „Făină de secară cu grad mediu de măcinare”
+WIELE NAZW ro: orkiszowa 2000 → „Făină integrală de spelt”, „Făină de spelt tip 2000”
+WIELE NAZW ro: pszenna 1850 → „Făină de grâu Graham (integrală)”, „Făină de grâu Graham (măcinată grosier)”
+WIELE NAZW ro: pszenna 550 → „Făină de grâu albă, fină”, „Făină albă de grâu, fină”
+WIELE NAZW ro: pszenna 2000 → „Făină de grâu din bob întreg”, „Făină integrală de grâu”
+WIELE NAZW ro: pszenna 500 → „Făină albă de grâu, universală”, „Făină de grâu tip 500 (Wrocławska)”
+WIELE NAZW ro: pszenna 650 → „Făină de grâu albă”, „Făină albă de grâu (pentru chifle)”
+WIELE NAZW ro: żytnia 720 → „Făină de secară pentru pâine (deschisă)”, „Făină de secară cu grad mediu de măcinare”
+WIELE NAZW ro: żytnia 2000 → „Făină integrală de secară”, „Făină de secară tip 2000”
+BEZ NUMERU ru: „Mąka orkiszowa jasna typ 630” → „Полбяная мука, светлая”
+BEZ NUMERU ru: „Mąka orkiszowa razowa typ 2000” → „Полбяная обойная мука”
+BEZ NUMERU ru: „Mąka orkiszowa typ 2000” → „Полбяная мука”
+BEZ NUMERU ru: „Mąka pszenna chlebowa typ 750” → „Пшеничная мука для хлеба, средняя”
+BEZ NUMERU ru: „Mąka pszenna graham typ 1850” → „Пшеничная мука грэм (цельнозерновая)”
+BEZ NUMERU ru: „Mąka pszenna luksusowa typ 550” → „Пшеничная мука (очень светлая)”
+BEZ NUMERU ru: „Mąka pszenna pełnoziarnista typ 2000” → „Цельнозерновая пшеничная мука”
+BEZ NUMERU ru: „Mąka pszenna razowa typ 2000” → „Пшеничная обойная мука”
+BEZ NUMERU ru: „Mąka pszenna typ 1050” → „Пшеничная мука, тёмная”
+BEZ NUMERU ru: „Mąka pszenna typ 1850 (Graham)” → „Пшеничная мука грэхем (цельнозерновая)”
+BEZ NUMERU ru: „Mąka pszenna typ 405” → „Пшеничная мука, очень светлая”
+BEZ NUMERU ru: „Mąka pszenna typ 450 (Tortowa)” → „Пшеничная мука, светлая (для тортов)”
+BEZ NUMERU ru: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Пшеничная мука, светлая (универсальная)”
+BEZ NUMERU ru: „Mąka pszenna typ 550 (Luksusowa)” → „Пшеничная мука, светлая (люкс)”
+BEZ NUMERU ru: „Mąka pszenna typ 650” → „Пшеничная мука (светлая)”
+BEZ NUMERU ru: „Mąka pszenna typ 650 (Bułkowa)” → „Пшеничная мука, светлая (для булочек)”
+BEZ NUMERU ru: „Mąka pszenna typ 650 (chlebowa jasna)” → „Пшеничная мука (светлая, хлебопекарная)”
+BEZ NUMERU ru: „Mąka pszenna typ 850” → „Пшеничная мука, средне-тёмная”
+BEZ NUMERU ru: „Mąka żytnia chlebowa typ 720” → „Ржаная мука для хлеба, средняя”
+BEZ NUMERU ru: „Mąka żytnia razowa typ 2000” → „Ржаная обойная мука”
+BEZ NUMERU ru: „Mąka żytnia typ 1400” → „Ржаная мука, тёмная”
+BEZ NUMERU ru: „Mąka żytnia typ 2000” → „Ржаная мука”
+BEZ NUMERU ru: „Mąka żytnia typ 500” → „Ржаная мука, светлая”
+BEZ NUMERU ru: „Mąka żytnia typ 720” → „Ржаная мука (светлая)”
+WIELE NAZW ru: orkiszowa 2000 → „Полбяная обойная мука”, „Полбяная мука”
+WIELE NAZW ru: pszenna 1850 → „Пшеничная мука грэм (цельнозерновая)”, „Пшеничная мука грэхем (цельнозерновая)”
+WIELE NAZW ru: pszenna 550 → „Пшеничная мука (очень светлая)”, „Пшеничная мука, светлая (люкс)”
+WIELE NAZW ru: pszenna 2000 → „Цельнозерновая пшеничная мука”, „Пшеничная обойная мука”
+WIELE NAZW ru: pszenna 500 → „Пшеничная мука, светлая (универсальная)”, „Пшеничная мука тип 500 (Wrocławska)”
+WIELE NAZW ru: pszenna 650 → „Пшеничная мука (светлая)”, „Пшеничная мука, светлая (для булочек)”, „Пшеничная мука (светлая, хлебопекарная)”
+WIELE NAZW ru: żytnia 720 → „Ржаная мука для хлеба, средняя”, „Ржаная мука (светлая)”
+WIELE NAZW ru: żytnia 2000 → „Ржаная обойная мука”, „Ржаная мука”
+BEZ NUMERU sk: „Mąka orkiszowa jasna typ 630” → „Svetlá špaldová múka”
+BEZ NUMERU sk: „Mąka orkiszowa razowa typ 2000” → „Celozrnná špaldová múka”
+BEZ NUMERU sk: „Mąka orkiszowa typ 2000” → „Špaldová múka”
+BEZ NUMERU sk: „Mąka pszenna chlebowa typ 750” → „Stredne svetlá pšeničná chlebová múka”
+BEZ NUMERU sk: „Mąka pszenna graham typ 1850” → „Pšeničná grahamová múka (celozrnná)”
+BEZ NUMERU sk: „Mąka pszenna luksusowa typ 550” → „Svetlá pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna pełnoziarnista typ 2000” → „Celozrnná pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna razowa typ 2000” → „Celozrnná pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna typ 1050” → „Tmavá pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna typ 1850 (Graham)” → „Pšeničná múka graham (hrubo mletá celozrnná)”
+BEZ NUMERU sk: „Mąka pszenna typ 405” → „Veľmi svetlá pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna typ 450 (Tortowa)” → „Veľmi svetlá pšeničná múka (na torty)”
+BEZ NUMERU sk: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Svetlá pšeničná múka (univerzálna)”
+BEZ NUMERU sk: „Mąka pszenna typ 550 (Luksusowa)” → „Svetlá pšeničná múka (luxusná)”
+BEZ NUMERU sk: „Mąka pszenna typ 650” → „Svetlá pšeničná múka”
+BEZ NUMERU sk: „Mąka pszenna typ 650 (Bułkowa)” → „Svetlá pšeničná múka (na pečivo)”
+BEZ NUMERU sk: „Mąka pszenna typ 650 (chlebowa jasna)” → „Svetlá pšeničná múka (chlebová)”
+BEZ NUMERU sk: „Mąka pszenna typ 850” → „Stredne tmavá pšeničná múka”
+BEZ NUMERU sk: „Mąka żytnia chlebowa typ 720” → „Ražná chlebová múka”
+BEZ NUMERU sk: „Mąka żytnia razowa typ 2000” → „Celozrnná ražná múka”
+BEZ NUMERU sk: „Mąka żytnia typ 1400” → „Tmavšia ražná múka”
+BEZ NUMERU sk: „Mąka żytnia typ 2000” → „Ražná múka”
+BEZ NUMERU sk: „Mąka żytnia typ 500” → „Svetlá ražná múka”
+BEZ NUMERU sk: „Mąka żytnia typ 720” → „Ražná múka (chlebová, stredne svetlá)”
+WIELE NAZW sk: orkiszowa 2000 → „Celozrnná špaldová múka”, „Špaldová múka”
+WIELE NAZW sk: pszenna 1850 → „Pšeničná grahamová múka (celozrnná)”, „Pšeničná múka graham (hrubo mletá celozrnná)”
+WIELE NAZW sk: pszenna 550 → „Svetlá pšeničná múka”, „Svetlá pšeničná múka (luxusná)”
+WIELE NAZW sk: pszenna 500 → „Svetlá pšeničná múka (univerzálna)”, „Pšeničná múka typ 500 (Wrocławska)”
+WIELE NAZW sk: pszenna 650 → „Svetlá pšeničná múka”, „Svetlá pšeničná múka (na pečivo)”, „Svetlá pšeničná múka (chlebová)”
+WIELE NAZW sk: żytnia 720 → „Ražná chlebová múka”, „Ražná múka (chlebová, stredne svetlá)”
+WIELE NAZW sk: żytnia 2000 → „Celozrnná ražná múka”, „Ražná múka”
+BEZ NUMERU sl: „Mąka orkiszowa jasna typ 630” → „Svetla pirina moka”
+BEZ NUMERU sl: „Mąka orkiszowa razowa typ 2000” → „Grobo mleta polnozrnata pirina moka”
+BEZ NUMERU sl: „Mąka orkiszowa typ 2000” → „Pirina moka”
+BEZ NUMERU sl: „Mąka pszenna chlebowa typ 750” → „Pšenična moka za kruh”
+BEZ NUMERU sl: „Mąka pszenna graham typ 1850” → „Pšenična moka graham (polnozrnata moka)”
+BEZ NUMERU sl: „Mąka pszenna luksusowa typ 550” → „Svetla pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna pełnoziarnista typ 2000” → „Pšenična polnozrnata moka”
+BEZ NUMERU sl: „Mąka pszenna razowa typ 2000” → „Grobo mleta polnozrnata pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna typ 1050” → „Srednje temna pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna typ 1850 (Graham)” → „Grobo mleta pšenična moka (graham)”
+BEZ NUMERU sl: „Mąka pszenna typ 405” → „Zelo svetla pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna typ 450 (Tortowa)” → „Svetla pšenična moka (za torte)”
+BEZ NUMERU sl: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Svetla pšenična moka (univerzalna)”
+BEZ NUMERU sl: „Mąka pszenna typ 550 (Luksusowa)” → „Svetla pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna typ 650” → „Svetla pšenična moka”
+BEZ NUMERU sl: „Mąka pszenna typ 650 (Bułkowa)” → „Svetla pšenična moka (za žemlje)”
+BEZ NUMERU sl: „Mąka pszenna typ 650 (chlebowa jasna)” → „Svetla pšenična moka (za kruh)”
+BEZ NUMERU sl: „Mąka pszenna typ 850” → „Temnejša pšenična moka”
+BEZ NUMERU sl: „Mąka żytnia chlebowa typ 720” → „Ržena moka za kruh, srednje svetla”
+BEZ NUMERU sl: „Mąka żytnia razowa typ 2000” → „Grobo mleta polnozrnata ržena moka”
+BEZ NUMERU sl: „Mąka żytnia typ 1400” → „Temnejša ržena moka”
+BEZ NUMERU sl: „Mąka żytnia typ 2000” → „Ržena moka”
+BEZ NUMERU sl: „Mąka żytnia typ 500” → „Svetla ržena moka”
+BEZ NUMERU sl: „Mąka żytnia typ 720” → „Svetla ržena moka”
+WIELE NAZW sl: orkiszowa 2000 → „Grobo mleta polnozrnata pirina moka”, „Pirina moka”
+WIELE NAZW sl: pszenna 1850 → „Pšenična moka graham (polnozrnata moka)”, „Grobo mleta pšenična moka (graham)”
+WIELE NAZW sl: pszenna 2000 → „Pšenična polnozrnata moka”, „Grobo mleta polnozrnata pšenična moka”
+WIELE NAZW sl: pszenna 500 → „Svetla pšenična moka (univerzalna)”, „Pšenična moka tip 500 (Wrocławska)”
+WIELE NAZW sl: pszenna 650 → „Svetla pšenična moka”, „Svetla pšenična moka (za žemlje)”, „Svetla pšenična moka (za kruh)”
+WIELE NAZW sl: żytnia 720 → „Ržena moka za kruh, srednje svetla”, „Svetla ržena moka”
+WIELE NAZW sl: żytnia 2000 → „Grobo mleta polnozrnata ržena moka”, „Ržena moka”
+BEZ NUMERU sr: „Mąka orkiszowa jasna typ 630” → „Светло спелтино брашно”
+BEZ NUMERU sr: „Mąka orkiszowa razowa typ 2000” → „Интегрално спелтино брашно”
+BEZ NUMERU sr: „Mąka orkiszowa typ 2000” → „Брашно од спелте”
+BEZ NUMERU sr: „Mąka pszenna chlebowa typ 750” → „Пшенично брашно за хлеб”
+BEZ NUMERU sr: „Mąka pszenna graham typ 1850” → „Пшенично грахам брашно (од целог зрна)”
+BEZ NUMERU sr: „Mąka pszenna luksusowa typ 550” → „Фино млевено светло пшенично брашно”
+BEZ NUMERU sr: „Mąka pszenna pełnoziarnista typ 2000” → „Пшенично брашно од целог зрна”
+BEZ NUMERU sr: „Mąka pszenna razowa typ 2000” → „Интегрално пшенично брашно”
+BEZ NUMERU sr: „Mąka pszenna typ 1050” → „Тамно пшенично брашно”
+BEZ NUMERU sr: „Mąka pszenna typ 1850 (Graham)” → „Пшенично брашно грахам (крупно, од целог зрна)”
+BEZ NUMERU sr: „Mąka pszenna typ 405” → „Веома светло пшенично брашно”
+BEZ NUMERU sr: „Mąka pszenna typ 450 (Tortowa)” → „Светло пшенично брашно за торте”
+BEZ NUMERU sr: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Светло пшенично брашно (универзално)”
+BEZ NUMERU sr: „Mąka pszenna typ 550 (Luksusowa)” → „Светло пшенично брашно (фино)”
+BEZ NUMERU sr: „Mąka pszenna typ 650” → „Светло пшенично брашно”
+BEZ NUMERU sr: „Mąka pszenna typ 650 (Bułkowa)” → „Пшенично брашно за пецива”
+BEZ NUMERU sr: „Mąka pszenna typ 650 (chlebowa jasna)” → „Светло пшенично брашно (за хлеб)”
+BEZ NUMERU sr: „Mąka pszenna typ 850” → „Тамније пшенично брашно”
+BEZ NUMERU sr: „Mąka żytnia chlebowa typ 720” → „Ражано брашно за хлеб”
+BEZ NUMERU sr: „Mąka żytnia razowa typ 2000” → „Интегрално ражано брашно”
+BEZ NUMERU sr: „Mąka żytnia typ 1400” → „Полуинтегрално ражано брашно”
+BEZ NUMERU sr: „Mąka żytnia typ 2000” → „Ражано брашно”
+BEZ NUMERU sr: „Mąka żytnia typ 500” → „Светло ражано брашно”
+BEZ NUMERU sr: „Mąka żytnia typ 720” → „Светло ражано брашно”
+WIELE NAZW sr: orkiszowa 2000 → „Интегрално спелтино брашно”, „Брашно од спелте”
+WIELE NAZW sr: pszenna 1850 → „Пшенично грахам брашно (од целог зрна)”, „Пшенично брашно грахам (крупно, од целог зрна)”
+WIELE NAZW sr: pszenna 550 → „Фино млевено светло пшенично брашно”, „Светло пшенично брашно (фино)”
+WIELE NAZW sr: pszenna 2000 → „Пшенично брашно од целог зрна”, „Интегрално пшенично брашно”
+WIELE NAZW sr: pszenna 500 → „Светло пшенично брашно (универзално)”, „Пшенично брашно тип 500 (Wrocławska)”
+WIELE NAZW sr: pszenna 650 → „Светло пшенично брашно”, „Пшенично брашно за пецива”, „Светло пшенично брашно (за хлеб)”
+WIELE NAZW sr: żytnia 720 → „Ражано брашно за хлеб”, „Светло ражано брашно”
+WIELE NAZW sr: żytnia 2000 → „Интегрално ражано брашно”, „Ражано брашно”
+BEZ NUMERU sv: „Mąka orkiszowa jasna typ 630” → „Ljust dinkelmjöl”
+BEZ NUMERU sv: „Mąka orkiszowa razowa typ 2000” → „Sammalet dinkelmjöl”
+BEZ NUMERU sv: „Mąka orkiszowa typ 2000” → „Dinkelmjöl”
+BEZ NUMERU sv: „Mąka pszenna chlebowa typ 750” → „Vetemjöl för bröd, mellanljust”
+BEZ NUMERU sv: „Mąka pszenna graham typ 1850” → „Grahamsmjöl (fullkornsvetemjöl)”
+BEZ NUMERU sv: „Mąka pszenna luksusowa typ 550” → „Mycket ljust vetemjöl”
+BEZ NUMERU sv: „Mąka pszenna pełnoziarnista typ 2000” → „Fullkornsvetemjöl”
+BEZ NUMERU sv: „Mąka pszenna razowa typ 2000” → „Sammalet vetemjöl”
+BEZ NUMERU sv: „Mąka pszenna typ 1050” → „Vetemjöl, mörkt”
+BEZ NUMERU sv: „Mąka pszenna typ 1850 (Graham)” → „Grahamsmjöl (vete)”
+BEZ NUMERU sv: „Mąka pszenna typ 405” → „Vetemjöl, extra ljust”
+BEZ NUMERU sv: „Mąka pszenna typ 450 (Tortowa)” → „Vetemjöl, mycket ljust (bakverk)”
+BEZ NUMERU sv: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Vetemjöl, ljust (allround)”
+BEZ NUMERU sv: „Mąka pszenna typ 550 (Luksusowa)” → „Vetemjöl, ljust”
+BEZ NUMERU sv: „Mąka pszenna typ 650” → „Ljust vetemjöl”
+BEZ NUMERU sv: „Mąka pszenna typ 650 (Bułkowa)” → „Vetemjöl, ljust (småbröd)”
+BEZ NUMERU sv: „Mąka pszenna typ 650 (chlebowa jasna)” → „Ljust vetemjöl (för bröd)”
+BEZ NUMERU sv: „Mąka pszenna typ 850” → „Vetemjöl, mellanmörkt”
+BEZ NUMERU sv: „Mąka żytnia chlebowa typ 720” → „Rågmjöl för bröd, mellanljust”
+BEZ NUMERU sv: „Mąka żytnia razowa typ 2000” → „Sammalet rågmjöl”
+BEZ NUMERU sv: „Mąka żytnia typ 1400” → „Rågmjöl, mellanmörkt”
+BEZ NUMERU sv: „Mąka żytnia typ 2000” → „Rågmjöl”
+BEZ NUMERU sv: „Mąka żytnia typ 500” → „Rågmjöl, ljust”
+BEZ NUMERU sv: „Mąka żytnia typ 720” → „Ljust rågmjöl”
+WIELE NAZW sv: orkiszowa 2000 → „Sammalet dinkelmjöl”, „Dinkelmjöl”
+WIELE NAZW sv: pszenna 1850 → „Grahamsmjöl (fullkornsvetemjöl)”, „Grahamsmjöl (vete)”
+WIELE NAZW sv: pszenna 550 → „Mycket ljust vetemjöl”, „Vetemjöl, ljust”
+WIELE NAZW sv: pszenna 2000 → „Fullkornsvetemjöl”, „Sammalet vetemjöl”
+WIELE NAZW sv: pszenna 500 → „Vetemjöl, ljust (allround)”, „Vetemjöl typ 500 (Wrocławska)”
+WIELE NAZW sv: pszenna 650 → „Ljust vetemjöl”, „Vetemjöl, ljust (småbröd)”, „Ljust vetemjöl (för bröd)”
+WIELE NAZW sv: żytnia 720 → „Rågmjöl för bröd, mellanljust”, „Ljust rågmjöl”
+WIELE NAZW sv: żytnia 2000 → „Sammalet rågmjöl”, „Rågmjöl”
+BEZ NUMERU tr: „Mąka orkiszowa jasna typ 630” → „Açık renkli spelt unu”
+BEZ NUMERU tr: „Mąka orkiszowa razowa typ 2000” → „Kepekli spelt unu”
+BEZ NUMERU tr: „Mąka orkiszowa typ 2000” → „Kavılca unu”
+BEZ NUMERU tr: „Mąka pszenna chlebowa typ 750” → „Buğday unu (orta, ekmek için)”
+BEZ NUMERU tr: „Mąka pszenna graham typ 1850” → „Graham buğday unu (tam tahıllı)”
+BEZ NUMERU tr: „Mąka pszenna luksusowa typ 550” → „Çok açık renkli buğday unu”
+BEZ NUMERU tr: „Mąka pszenna pełnoziarnista typ 2000” → „Tam tahıllı buğday unu”
+BEZ NUMERU tr: „Mąka pszenna razowa typ 2000” → „Kepekli buğday unu”
+BEZ NUMERU tr: „Mąka pszenna typ 1050” → „Buğday unu (koyu)”
+BEZ NUMERU tr: „Mąka pszenna typ 1850 (Graham)” → „Graham buğday unu”
+BEZ NUMERU tr: „Mąka pszenna typ 405” → „Buğday unu (çok açık)”
+BEZ NUMERU tr: „Mąka pszenna typ 450 (Tortowa)” → „Buğday unu (çok açık, pasta için)”
+BEZ NUMERU tr: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Buğday unu (açık, çok yönlü)”
+BEZ NUMERU tr: „Mąka pszenna typ 550 (Luksusowa)” → „Buğday unu (açık)”
+BEZ NUMERU tr: „Mąka pszenna typ 650” → „Beyaz buğday unu”
+BEZ NUMERU tr: „Mąka pszenna typ 650 (Bułkowa)” → „Buğday unu (orta açık)”
+BEZ NUMERU tr: „Mąka pszenna typ 650 (chlebowa jasna)” → „Açık renkli buğday unu”
+BEZ NUMERU tr: „Mąka pszenna typ 850” → „Buğday unu (orta koyu)”
+BEZ NUMERU tr: „Mąka żytnia chlebowa typ 720” → „Ekmek için çavdar unu”
+BEZ NUMERU tr: „Mąka żytnia razowa typ 2000” → „Kepekli çavdar unu”
+BEZ NUMERU tr: „Mąka żytnia typ 1400” → „Çavdar unu (orta koyulukta)”
+BEZ NUMERU tr: „Mąka żytnia typ 2000” → „Çavdar unu”
+BEZ NUMERU tr: „Mąka żytnia typ 500” → „Açık renkli çavdar unu”
+BEZ NUMERU tr: „Mąka żytnia typ 720” → „Açık renkli çavdar unu”
+WIELE NAZW tr: orkiszowa 2000 → „Kepekli spelt unu”, „Kavılca unu”
+WIELE NAZW tr: pszenna 1850 → „Graham buğday unu (tam tahıllı)”, „Graham buğday unu”
+WIELE NAZW tr: pszenna 550 → „Çok açık renkli buğday unu”, „Buğday unu (açık)”
+WIELE NAZW tr: pszenna 2000 → „Tam tahıllı buğday unu”, „Kepekli buğday unu”
+WIELE NAZW tr: pszenna 500 → „Buğday unu (açık, çok yönlü)”, „Buğday unu tip 500 (Wrocławska)”
+WIELE NAZW tr: pszenna 650 → „Beyaz buğday unu”, „Buğday unu (orta açık)”, „Açık renkli buğday unu”
+WIELE NAZW tr: żytnia 720 → „Ekmek için çavdar unu”, „Açık renkli çavdar unu”
+WIELE NAZW tr: żytnia 2000 → „Kepekli çavdar unu”, „Çavdar unu”
+BEZ NUMERU uk: „Mąka orkiszowa jasna typ 630” → „Спельтове борошно світле”
+BEZ NUMERU uk: „Mąka orkiszowa razowa typ 2000” → „Спельтове борошно грубого помелу”
+BEZ NUMERU uk: „Mąka orkiszowa typ 2000” → „Спельтове борошно”
+BEZ NUMERU uk: „Mąka pszenna chlebowa typ 750” → „Пшеничне борошно для хліба”
+BEZ NUMERU uk: „Mąka pszenna graham typ 1850” → „Пшеничне борошно Грехем (цільнозернове)”
+BEZ NUMERU uk: „Mąka pszenna luksusowa typ 550” → „Пшеничне борошно, світле”
+BEZ NUMERU uk: „Mąka pszenna pełnoziarnista typ 2000” → „Цільнозернове пшеничне борошно”
+BEZ NUMERU uk: „Mąka pszenna razowa typ 2000” → „Пшеничне борошно грубого помелу”
+BEZ NUMERU uk: „Mąka pszenna typ 1050” → „Пшеничне борошно темне”
+BEZ NUMERU uk: „Mąka pszenna typ 1850 (Graham)” → „Пшеничне борошно грехем (цільнозернове)”
+BEZ NUMERU uk: „Mąka pszenna typ 405” → „Пшеничне борошно дуже світле”
+BEZ NUMERU uk: „Mąka pszenna typ 450 (Tortowa)” → „Пшеничне борошно світле (для тортів)”
+BEZ NUMERU uk: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Пшеничне борошно світле універсальне”
+BEZ NUMERU uk: „Mąka pszenna typ 550 (Luksusowa)” → „Пшеничне борошно світле”
+BEZ NUMERU uk: „Mąka pszenna typ 650” → „Пшеничне борошно, світле”
+BEZ NUMERU uk: „Mąka pszenna typ 650 (Bułkowa)” → „Пшеничне борошно світле (для булок)”
+BEZ NUMERU uk: „Mąka pszenna typ 650 (chlebowa jasna)” → „Пшеничне борошно, світле”
+BEZ NUMERU uk: „Mąka pszenna typ 850” → „Пшеничне борошно середнього помелу”
+BEZ NUMERU uk: „Mąka żytnia chlebowa typ 720” → „Житнє борошно для хліба (світліше)”
+BEZ NUMERU uk: „Mąka żytnia razowa typ 2000” → „Житнє борошно грубого помелу”
+BEZ NUMERU uk: „Mąka żytnia typ 1400” → „Житнє борошно середнього помелу”
+BEZ NUMERU uk: „Mąka żytnia typ 2000” → „Житнє борошно”
+BEZ NUMERU uk: „Mąka żytnia typ 500” → „Житнє борошно світле”
+BEZ NUMERU uk: „Mąka żytnia typ 720” → „Житнє борошно середнього помелу”
+WIELE NAZW uk: orkiszowa 2000 → „Спельтове борошно грубого помелу”, „Спельтове борошно”
+WIELE NAZW uk: pszenna 1850 → „Пшеничне борошно Грехем (цільнозернове)”, „Пшеничне борошно грехем (цільнозернове)”
+WIELE NAZW uk: pszenna 550 → „Пшеничне борошно, світле”, „Пшеничне борошно світле”
+WIELE NAZW uk: pszenna 2000 → „Цільнозернове пшеничне борошно”, „Пшеничне борошно грубого помелу”
+WIELE NAZW uk: pszenna 500 → „Пшеничне борошно світле універсальне”, „Пшеничне борошно тип 500 (Wrocławska)”
+WIELE NAZW uk: pszenna 650 → „Пшеничне борошно, світле”, „Пшеничне борошно світле (для булок)”
+WIELE NAZW uk: żytnia 720 → „Житнє борошно для хліба (світліше)”, „Житнє борошно середнього помелу”
+WIELE NAZW uk: żytnia 2000 → „Житнє борошно грубого помелу”, „Житнє борошно”
+BEZ NUMERU vi: „Mąka orkiszowa jasna typ 630” → „Bột lúa mì spelt trắng”
+BEZ NUMERU vi: „Mąka orkiszowa razowa typ 2000” → „Bột lúa mì spelt nguyên cám xay thô”
+BEZ NUMERU vi: „Mąka pszenna chlebowa typ 750” → „Bột mì sáng màu làm bánh mì”
+BEZ NUMERU vi: „Mąka pszenna graham typ 1850” → „Bột mì Graham (nguyên cám)”
+BEZ NUMERU vi: „Mąka pszenna luksusowa typ 550” → „Bột mì trắng xay mịn”
+BEZ NUMERU vi: „Mąka pszenna pełnoziarnista typ 2000” → „Bột mì nguyên cám”
+BEZ NUMERU vi: „Mąka pszenna razowa typ 2000” → „Bột mì nguyên cám xay thô”
+BEZ NUMERU vi: „Mąka pszenna typ 1050” → „Bột mì nửa nguyên cám”
+BEZ NUMERU vi: „Mąka pszenna typ 1850 (Graham)” → „Bột mì Graham (nguyên cám xay thô)”
+BEZ NUMERU vi: „Mąka pszenna typ 405” → „Bột mì rất trắng”
+BEZ NUMERU vi: „Mąka pszenna typ 450 (Tortowa)” → „Bột mì trắng mịn (làm bánh ngọt)”
+BEZ NUMERU vi: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „Bột mì trắng dùng chung”
+BEZ NUMERU vi: „Mąka pszenna typ 550 (Luksusowa)” → „Bột mì trắng tinh”
+BEZ NUMERU vi: „Mąka pszenna typ 650” → „Bột mì trắng”
+BEZ NUMERU vi: „Mąka pszenna typ 650 (Bułkowa)” → „Bột mì trắng làm bánh mì nhỏ”
+BEZ NUMERU vi: „Mąka pszenna typ 650 (chlebowa jasna)” → „Bột mì trắng”
+BEZ NUMERU vi: „Mąka pszenna typ 850” → „Bột mì làm bánh mì, màu sẫm hơn”
+BEZ NUMERU vi: „Mąka żytnia chlebowa typ 720” → „Bột lúa mạch đen sáng màu làm bánh mì”
+BEZ NUMERU vi: „Mąka żytnia razowa typ 2000” → „Bột lúa mạch đen nguyên cám xay thô”
+BEZ NUMERU vi: „Mąka żytnia typ 1400” → „Bột lúa mạch đen xay vừa”
+BEZ NUMERU vi: „Mąka żytnia typ 500” → „Bột lúa mạch đen trắng”
+BEZ NUMERU vi: „Mąka żytnia typ 720” → „Bột lúa mạch đen (độ xay trung bình)”
+WIELE NAZW vi: orkiszowa 2000 → „Bột lúa mì spelt nguyên cám xay thô”, „Bột mì spelt loại 2000”
+WIELE NAZW vi: pszenna 1850 → „Bột mì Graham (nguyên cám)”, „Bột mì Graham (nguyên cám xay thô)”
+WIELE NAZW vi: pszenna 550 → „Bột mì trắng xay mịn”, „Bột mì trắng tinh”
+WIELE NAZW vi: pszenna 2000 → „Bột mì nguyên cám”, „Bột mì nguyên cám xay thô”
+WIELE NAZW vi: pszenna 500 → „Bột mì trắng dùng chung”, „Bột mì loại 500 (Wrocławska)”
+WIELE NAZW vi: pszenna 650 → „Bột mì trắng”, „Bột mì trắng làm bánh mì nhỏ”
+WIELE NAZW vi: żytnia 720 → „Bột lúa mạch đen sáng màu làm bánh mì”, „Bột lúa mạch đen (độ xay trung bình)”
+WIELE NAZW vi: żytnia 2000 → „Bột lúa mạch đen nguyên cám xay thô”, „Bột lúa mạch đen loại 2000”
+BEZ NUMERU zh-Hant: „Mąka orkiszowa jasna typ 630” → „淺色斯佩爾特小麥粉”
+BEZ NUMERU zh-Hant: „Mąka orkiszowa razowa typ 2000” → „斯佩爾特小麥粉（粗磨，全穀）”
+BEZ NUMERU zh-Hant: „Mąka orkiszowa typ 2000” → „斯佩爾特小麥粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna chlebowa typ 750” → „麵包用小麥麵粉（中等研磨程度）”
+BEZ NUMERU zh-Hant: „Mąka pszenna graham typ 1850” → „Graham 粗磨全麥粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna luksusowa typ 550” → „特級精製淺色小麥麵粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna pełnoziarnista typ 2000” → „小麥全穀粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna razowa typ 2000” → „粗磨全麥粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 1050” → „小麥麵粉（深色）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 1850 (Graham)” → „小麥麵粉（Graham，粗磨）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 405” → „小麥麵粉（極淺色）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 450 (Tortowa)” → „小麥麵粉（極淺色，蛋糕用）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 500 (Wrocławska / Poznańska)” → „小麥麵粉（淺色，通用）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 550 (Luksusowa)” → „小麥麵粉（淺色，精製）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 650” → „淺色小麥麵粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 650 (Bułkowa)” → „小麥麵粉（淺色，餐包用）”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 650 (chlebowa jasna)” → „淺色小麥麵粉”
+BEZ NUMERU zh-Hant: „Mąka pszenna typ 850” → „小麥麵粉（中深色）”
+BEZ NUMERU zh-Hant: „Mąka żytnia chlebowa typ 720” → „麵包用裸麥粉（淺色）”
+BEZ NUMERU zh-Hant: „Mąka żytnia razowa typ 2000” → „裸麥粉（粗磨，全穀）”
+BEZ NUMERU zh-Hant: „Mąka żytnia typ 1400” → „裸麥粉（中等研磨程度）”
+BEZ NUMERU zh-Hant: „Mąka żytnia typ 2000” → „裸麥粉”
+BEZ NUMERU zh-Hant: „Mąka żytnia typ 500” → „淺色裸麥粉”
+BEZ NUMERU zh-Hant: „Mąka żytnia typ 720” → „裸麥粉（中等研磨程度）”
+WIELE NAZW zh-Hant: orkiszowa 2000 → „斯佩爾特小麥粉（粗磨，全穀）”, „斯佩爾特小麥粉”
+WIELE NAZW zh-Hant: pszenna 1850 → „Graham 粗磨全麥粉”, „小麥麵粉（Graham，粗磨）”
+WIELE NAZW zh-Hant: pszenna 550 → „特級精製淺色小麥麵粉”, „小麥麵粉（淺色，精製）”
+WIELE NAZW zh-Hant: pszenna 2000 → „小麥全穀粉”, „粗磨全麥粉”
+WIELE NAZW zh-Hant: pszenna 500 → „小麥麵粉（淺色，通用）”, „小麥麵粉 500 型（Wrocławska）”
+WIELE NAZW zh-Hant: pszenna 650 → „淺色小麥麵粉”, „小麥麵粉（淺色，餐包用）”
+WIELE NAZW zh-Hant: żytnia 720 → „麵包用裸麥粉（淺色）”, „裸麥粉（中等研磨程度）”
+WIELE NAZW zh-Hant: żytnia 2000 → „裸麥粉（粗磨，全穀）”, „裸麥粉”
+języki: 34; przekłady bez numeru typu: 786; mąki z więcej niż jedną nazwą w języku: 265

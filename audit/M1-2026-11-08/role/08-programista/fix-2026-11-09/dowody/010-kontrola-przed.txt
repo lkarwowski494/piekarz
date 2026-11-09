@@ -1,0 +1,139 @@
+FAIL tests/liczby-w-tekstach-010.test.ts
+  010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze
+    ✓ zdania z twierdzeniami są (test ma na czym działać) (2 ms)
+    ✓ wyjątek z ID rejestru wskazuje twierdzenie otwarte (zamknięcie źródłem = zdanie do docs/tresci i koniec wyjątku) (1 ms)
+    ✓ kontrola łapie literał z liczbą bez twierdzenia i przepuszcza zdanie z rejestru (3 ms)
+    ✕ src/core/reverse-scheduler.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (30 ms)
+    ✓ src/core/baking-phases.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (3 ms)
+    ✓ src/core/pieczenie-receptury.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (2 ms)
+    ✕ src/core/domain-rules.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (14 ms)
+    ✕ src/recipes/presets-zakwas.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (3 ms)
+    ✓ src/recipes/presets-drozdzowe.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (3 ms)
+    ✕ src/recipes/presets-zytnie.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (3 ms)
+    ✕ src/recipes/presets-pizza-slodkie.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (3 ms)
+    ✓ src/components/stolnica/DutchOvenController.tsx: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany (9 ms)
+
+  ● 010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze › src/core/reverse-scheduler.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 5
+
+    - Array []
+    + Array [
+    +   "src/core/reverse-scheduler.ts:144 Wykonaj 4 serie składań co 30–45 minut.",
+    +   "src/core/reverse-scheduler.ts:182 Wstaw koszyk w szczelnej torbie do lodówki (4–6°C).",
+    +   "src/core/reverse-scheduler.ts:311 Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.",
+    + ]
+
+      103 |       }
+      104 |     }
+    > 105 |     expect(bez).toEqual([]);
+          |                 ^
+      106 |   });
+      107 | });
+      108 |
+
+      at toEqual (tests/liczby-w-tekstach-010.test.ts:105:17)
+
+  ● 010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze › src/core/domain-rules.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "src/core/domain-rules.ts:268 Obliczona temperatura wody przekracza 45°C.",
+    +   "src/core/domain-rules.ts:276 Obliczona temperatura wody jest poniżej 4°C.",
+    + ]
+
+      103 |       }
+      104 |     }
+    > 105 |     expect(bez).toEqual([]);
+          |                 ^
+      106 |   });
+      107 | });
+      108 |
+
+      at toEqual (tests/liczby-w-tekstach-010.test.ts:105:17)
+
+  ● 010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze › src/recipes/presets-zakwas.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "src/recipes/presets-zakwas.ts:32 Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut.",
+    +   "src/recipes/presets-zakwas.ts:32 Garowanie w lodówce 12–16 godzin.",
+    +   "src/recipes/presets-zakwas.ts:57 Wymaga mąki o zawartości białka minimum 13%.",
+    +   "src/recipes/presets-zakwas.ts:82 Wydłużona fermentacja w chłodzie (18–24 h w 4°C).",
+    +   "src/recipes/presets-zakwas.ts:108 Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.",
+    +   "src/recipes/presets-zakwas.ts:133 Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji.",
+    +   "src/recipes/presets-zakwas.ts:158 Grube otręby z Grahama wymagają 45-minutowej autolizy.",
+    + ]
+
+      103 |       }
+      104 |     }
+    > 105 |     expect(bez).toEqual([]);
+          |                 ^
+      106 |   });
+      107 | });
+      108 |
+
+      at toEqual (tests/liczby-w-tekstach-010.test.ts:105:17)
+
+  ● 010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze › src/recipes/presets-zytnie.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "src/recipes/presets-zytnie.ts:30 Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h).",
+    + ]
+
+      103 |       }
+      104 |     }
+    > 105 |     expect(bez).toEqual([]);
+          |                 ^
+      106 |   });
+      107 | });
+      108 |
+
+      at toEqual (tests/liczby-w-tekstach-010.test.ts:105:17)
+
+  ● 010 (06-tresci-003, „Powraca”): literał z liczbą w głównym przepływie ma twierdzenie w rejestrze › src/recipes/presets-pizza-slodkie.ts: każdy literał z liczbą = zdania z potwierdzonym twierdzeniem albo wyjątek nazwany
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "src/recipes/presets-pizza-slodkie.ts:13 Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).",
+    + ]
+
+      103 |       }
+      104 |     }
+    > 105 |     expect(bez).toEqual([]);
+          |                 ^
+      106 |   });
+      107 | });
+      108 |
+
+      at toEqual (tests/liczby-w-tekstach-010.test.ts:105:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 7 passed, 12 total
+Snapshots:   0 total
+Time:        0.865 s, estimated 1 s
+Ran all test suites matching /tests\/liczby-w-tekstach-010.test.ts/i.

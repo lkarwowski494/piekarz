@@ -1,0 +1,1014 @@
+FAIL tests/teksty-glownego-przeplywu-010.test.ts
+  010 (D-305): teksty głównego przepływu z wersji zweryfikowanej
+    ✕ plan, krok autolyse: instrukcja = plik treści (5 ms)
+    ✕ plan, krok bulk_ferment: instrukcja = plik treści (1 ms)
+    ✕ plan, krok final_proof: instrukcja = plik treści (1 ms)
+    ✕ podpowiedź kolizji ze snem = plik treści (2 ms)
+    ✕ komunikaty temperatury wody = plik treści (bez „ugotowania drożdży” i bez rady odwracającej RD-05) (2 ms)
+    ✕ plik ma pola 13 receptur bazowych (1 ms)
+    ✕ country_loaf_72.descriptionPl = plik treści (1 ms)
+    ✕ country_loaf_72.notesPl = plik treści (1 ms)
+    ✕ tartine_high_hydration_80.descriptionPl = plik treści
+    ✕ tartine_high_hydration_80.notesPl = plik treści (1 ms)
+    ✕ san_francisco_sourdough.descriptionPl = plik treści (1 ms)
+    ✕ san_francisco_sourdough.notesPl = plik treści (1 ms)
+    ✕ pain_de_campagne.descriptionPl = plik treści (1 ms)
+    ✕ pain_de_campagne.notesPl = plik treści (1 ms)
+    ✕ spelt_ancient_seeded.descriptionPl = plik treści (1 ms)
+    ✕ spelt_ancient_seeded.notesPl = plik treści
+    ✕ graham_bread_honey.descriptionPl = plik treści
+    ✕ graham_bread_honey.notesPl = plik treści (1 ms)
+    ✕ lievito_madre_panettone_brioche.descriptionPl = plik treści
+    ✕ sweet_chalka.descriptionPl = plik treści
+    ✕ focaccia_genovese.descriptionPl = plik treści (1 ms)
+    ✕ rye_100_pan.descriptionPl = plik treści
+    ✕ rye_100_pan.notesPl = plik treści
+    ✕ ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900) (1 ms)
+    ✕ zdania usunięte w D-305 nie występują w kodzie receptur, planu i kalkulatora wody (1 ms)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › plan, krok autolyse: instrukcja = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten."
+    Received: "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu."
+
+      30 | describe('010 (D-305): teksty głównego przepływu z wersji zweryfikowanej', () => {
+      31 |   it.each(['autolyse', 'bulk_ferment', 'final_proof'])('plan, krok %s: instrukcja = plik treści', (id) => {
+    > 32 |     expect(etap(id).instructionsPl).toBe(PL[`plan, krok ${id} (instructionsPl)`]);
+         |                                     ^
+      33 |   });
+      34 |
+      35 |   it('podpowiedź kolizji ze snem = plik treści', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:32:37)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › plan, krok bulk_ferment: instrukcja = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Rozciągaj i składaj ciasto w czasie fermentacji."
+    Received: "Wykonaj 4 serie składań co 30–45 minut."
+
+      30 | describe('010 (D-305): teksty głównego przepływu z wersji zweryfikowanej', () => {
+      31 |   it.each(['autolyse', 'bulk_ferment', 'final_proof'])('plan, krok %s: instrukcja = plik treści', (id) => {
+    > 32 |     expect(etap(id).instructionsPl).toBe(PL[`plan, krok ${id} (instructionsPl)`]);
+         |                                     ^
+      33 |   });
+      34 |
+      35 |   it('podpowiedź kolizji ze snem = plik treści', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:32:37)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › plan, krok final_proof: instrukcja = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak."
+    Received: "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat."
+
+      30 | describe('010 (D-305): teksty głównego przepływu z wersji zweryfikowanej', () => {
+      31 |   it.each(['autolyse', 'bulk_ferment', 'final_proof'])('plan, krok %s: instrukcja = plik treści', (id) => {
+    > 32 |     expect(etap(id).instructionsPl).toBe(PL[`plan, krok ${id} (instructionsPl)`]);
+         |                                     ^
+      33 |   });
+      34 |
+      35 |   it('podpowiedź kolizji ze snem = plik treści', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:32:37)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › podpowiedź kolizji ze snem = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe."
+    Received: "Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe."
+
+      36 |     const plan = calculateReverseSchedule(new Date(2026, 10, 10, 3, 0), { sleepStartHour: 23, sleepEndHour: 7 });
+      37 |     expect(plan.hasSleepCollision).toBe(true);
+    > 38 |     expect(plan.suggestedActionPl).toBe(PL['plan, podpowiedź kolizji ze snem (autoResolve, suggestion)']);
+         |                                    ^
+      39 |   });
+      40 |
+      41 |   it('komunikaty temperatury wody = plik treści (bez „ugotowania drożdży” i bez rady odwracającej RD-05)', () => {
+
+      at Object.toBe (tests/teksty-glownego-przeplywu-010.test.ts:38:36)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › komunikaty temperatury wody = plik treści (bez „ugotowania drożdży” i bez rady odwracającej RD-05)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta."
+    Received: "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia."
+
+      43 |     const zimna = calculateDDTWaterTemp({ targetDDT: 20, flourTemp: 30, roomTemp: 30, frictionFactor: 0 });
+      44 |     expect(goraca.status).toBe('too_hot_danger');
+    > 45 |     expect(goraca.warningMessagePl).toBe(PL['calculateDDTWaterTemp, status too_hot_danger (warningMessagePl)']);
+         |                                     ^
+      46 |     expect(zimna.status).toBe('requires_ice');
+      47 |     expect(zimna.warningMessagePl).toBe(PL['calculateDDTWaterTemp, status requires_ice (warningMessagePl)']);
+      48 |   });
+
+      at Object.toBe (tests/teksty-glownego-przeplywu-010.test.ts:45:37)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › plik ma pola 13 receptur bazowych
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 13
+    Received: 10
+
+      50 |   const pola = Object.keys(PL).filter((k) => /^\w+\.(descriptionPl|notesPl)$/.test(k));
+      51 |   it('plik ma pola 13 receptur bazowych', () => {
+    > 52 |     expect(new Set(pola.map((k) => k.split('.')[0])).size).toBe(13);
+         |                                                            ^
+      53 |   });
+      54 |
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+
+      at Object.toBe (tests/teksty-glownego-przeplywu-010.test.ts:52:60)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › country_loaf_72.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Bochenek pszenno-żytni na zakwasie."
+    Received: "Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › country_loaf_72.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce."
+    Received: "Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › tartine_high_hydration_80.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Bochenek na zakwasie o wysokiej hydratacji."
+    Received: "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › tartine_high_hydration_80.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji."
+    Received: "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › san_francisco_sourdough.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Chleb na zakwasie w stylu San Francisco."
+    Received: "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › san_francisco_sourdough.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym."
+    Received: "Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › pain_de_campagne.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej."
+    Received: "Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › pain_de_campagne.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku."
+    Received: "Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › spelt_ancient_seeded.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem."
+    Received: "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › spelt_ancient_seeded.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta."
+    Received: "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › graham_bread_honey.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym."
+    Received: "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › graham_bread_honey.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę."
+    Received: "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › lievito_madre_panettone_brioche.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Maślana brioszka na sztywnym zakwasie Lievito Madre."
+    Received: "Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%)."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › sweet_chalka.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Słodka chałka zaplatana w warkocz, z kruszonką."
+    Received: "Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › focaccia_genovese.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Focaccia z oliwą, rozmarynem i solą morską."
+    Received: "Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › rye_100_pan.descriptionPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Razowiec żytni w keksówce, bez składania."
+    Received: "Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › rye_100_pan.notesPl = plik treści
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku."
+    Received: "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku."
+
+      55 |   it.each(pola)('%s = plik treści', (klucz) => {
+      56 |     const [id, pole] = klucz.split('.') as [string, 'descriptionPl' | 'notesPl'];
+    > 57 |     expect(preset(id)[pole]).toBe(PL[klucz]);
+         |                              ^
+      58 |   });
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+
+      at toBe (tests/teksty-glownego-przeplywu-010.test.ts:57:30)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%)."
+    Received: "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury."
+
+      59 |
+      60 |   it('ciabatta i chleb bez wyrabiania: usunięte tylko zdania-superlatywy (DRO-PRE-900)', () => {
+    > 61 |     expect(preset('ciabatta_con_biga').descriptionPl).toBe('Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).');
+         |                                                       ^
+      62 |     expect(preset('no_knead_night').descriptionPl).toBe('Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.');
+      63 |   });
+      64 |
+
+      at Object.toBe (tests/teksty-glownego-przeplywu-010.test.ts:61:55)
+
+  ● 010 (D-305): teksty głównego przepływu z wersji zweryfikowanej › zdania usunięte w D-305 nie występują w kodzie receptur, planu i kalkulatora wody
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Expected substring: not "Najprostszy chleb świata."
+    Received string:        "Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.
+    Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.
+    Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.
+    Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.
+    Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.
+    Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.
+    Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.
+    Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.
+    Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.
+    Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.
+    Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.
+    Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.
+    Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.
+    Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.
+    Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.
+    Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.
+    Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.
+    Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.
+    Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.
+    Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.
+    Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).
+    Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.
+    Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.
+    Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.
+    Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.
+    Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.
+    Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.
+    Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.
+    Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.
+    Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.
+    Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.
+    Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.
+    Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+    Wykonaj 4 serie składań co 30–45 minut.
+    Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.
+    Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.
+    Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.
+    Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.
+    Wstaw garnek do piekarnika i nagrzewaj go 45 minut w 260 °C.
+    Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa.
+    Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.
+    // ============================================================================
+    // Piekarz (Crust) — Core Domain Rules (RD-00…RD-15)
+    // Deterministic baking math, True Baker's %, DDT, and fermentation physics.
+    // Apps4Craft Studio — 100% Offline-First, Zero Cloud Dependencies.
+    // Scientific & Artisanal Literature Citations: docs/BAKING_PHYSICS_BIBLIOGRAPHY.md
+    // References: Hamelman (2012), Calvel (2001), DiMuzio (2009), Buehler (2006).
+    // ============================================================================
+
+    export * from './bake-loss';
+    export * from './sourdough-physics';
+    import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
+    import type { PoziomKomunikatu } from './poziom-komunikatu';
+    import { Q10_FERMENTATION } from './fermentation-q10';
+
+    export interface FlourItemInput {
+      name: string;
+      percentage: number; // e.g. 80.0 for 80%
+      type?: string;      // e.g. 'pszenna_750', 'zytnia_2000'
+    }
+
+    export interface FlourItemCalculated {
+      name: string;
+      percentage: number;
+      weightGrams: number;
+    }
+
+    export interface DoughRecipeInput {
+      flours: FlourItemInput[];
+      waterPercentage: number;     // Water added directly (e.g. 70.0 for 70%)
+      saltPercentage: number;      // e.g. 2.0 for 2%
+      starterPercentage: number;   // e.g. 20.0 for 20%
+      starterHydration?: number;   // default 100% (equal flour and water)
+      extraYeastPercentage?: number; // e.g. 0.0 or 0.2%
+      targetDoughWeightGrams: number; // Target total batch weight
+    }
+
+    export interface DoughRecipeResult {
+      targetDoughWeightGrams: number;
+      baseFlourWeightGrams: number;
+      flours: FlourItemCalculated[];
+      waterGrams: number;
+      saltGrams: number;
+      starterGrams: number;
+      starterFlourGrams: number;
+      starterWaterGrams: number;
+      yeastGrams: number;
+      totalFlourGrams: number;     // Including flour in starter
+      totalWaterGrams: number;     // Including water in starter
+      overallHydrationPercent: number; // True Baker's % (total water / total flour * 100)
+      sumCheckGrams: number;
+      isHighRye: boolean;          // True if rye flours > 50% (ZYT-GRA-001)
+      ryePercentage?: number;      // Udział mąki żytniej w mąkach [%] (RD-20, BR-KALK-005)
+    }
+
+    export interface DDTSettings {
+      targetDDT: number;      // Desired Dough Temperature (°C), e.g. 25.0
+      flourTemp: number;      // Flour temperature (°C), e.g. 20.0
+      roomTemp: number;       // Ambient kitchen temperature (°C), e.g. 22.0
+      starterTemp?: number;   // Sourdough starter temperature (°C), e.g. 22.0
+      frictionFactor: number; // Friction temperature increase (°C), e.g. 2.0
+    }
+
+    export interface DDTResult {
+      waterTempTarget: number;
+      status: 'normal' | 'too_hot_danger' | 'requires_ice';
+      warningMessagePl?: string;
+    }
+
+    export interface IceCalculationResult {
+      iceGrams: number;
+      waterGrams: number;
+      totalWaterGrams: number;
+    }
+
+    export interface FermentationAdaptationResult {
+      baseHours: number;
+      adaptedHours: number;
+      adaptedMinutesFormatted: string;
+      diffMinutes: number;
+      temperatureCelsius: number;
+      /** Rodzaj komunikatu i liczby; domena nie składa tekstu (bez i18n, ADR-006). Tekst nie był pokazywany w aplikacji
+       * (znalezisko M2-koordynator-napraw-001) [M1-audytor-generalny-020]. */
+      komunikat: KomunikatAdaptacji;
+    }
+
+    /** Komunikat adaptacji czasu fermentacji: zgodny z recepturą, skrócony (ciepło) albo wydłużony (chłodno). */
+    export interface KomunikatAdaptacji {
+      rodzaj: 'optymalna' | 'cieplo' | 'chlodno';
+      temperaturaC: number;
+      /** Różnica czasu w minutach (bez znaku). */
+      minuty: number;
+    }
+
+    /** Tolerancja sumy udziałów mąk przy wczytaniu receptury: jak import JSON (recipe-sharing.ts, 95–105%). */
+    export const TOLERANCJA_SUMY_MAK: readonly [number, number] = [95, 105];
+
+    /**
+     * Udziały mąk przeskalowane do sumy 100% (ostatnia mąka domyka sumę); null, gdy suma jest poza 95–105%
+     * albo listy nie ma [M1-audytor-generalny-150; 08-programista-502].
+     */
+    export function normalizujMaki<T extends { percentage: number }>(flours: readonly T[]): T[] | null {
+      const suma = flours.reduce((s, f) => s + f.percentage, 0);
+      if (flours.length === 0 || suma < TOLERANCJA_SUMY_MAK[0] || suma > TOLERANCJA_SUMY_MAK[1]) return null;
+      if (Math.abs(suma - 100) <= 0.01) return flours.map((f) => ({ ...f }));
+      const skalowane = flours.map((f) => ({ ...f, percentage: (f.percentage * 100) / suma }));
+      const reszta = skalowane.slice(0, -1).reduce((s, f) => s + f.percentage, 0);
+      skalowane[skalowane.length - 1].percentage = 100 - reszta;
+      return skalowane;
+    }
+
+    /**
+     * Rachunek receptury z walidacją sumy mąk: błąd walidacji zamiast wyjątku (ekran nie wywraca się).
+     * Suma 95–105% liczy się po normalizacji bez błędu; inna suma (> 0) liczy się proporcjonalnie, z błędem
+     * `sumaMak` do pokazania [M1-audytor-generalny-150; 08-programista-502].
+     */
+    export function obliczRecepture(input: DoughRecipeInput): { wynik: DoughRecipeResult; blad: { sumaMak: number } | null; bladMasy: boolean } {
+      const suma = input.flours.reduce((s, f) => s + f.percentage, 0);
+      const sumaBlad = (n: number) => ({ sumaMak: Math.round(n * 10) / 10 });
+      // Masa ciasta ≤ 0 albo nie-liczba: błąd walidacji i wynik zerowy zamiast wyjątku w renderze [audyt-niezalezny D-1]
+      if (!(input.targetDoughWeightGrams > 0)) {
+        return { wynik: wynikZerowy(input), blad: normalizujMaki(input.flours) ? null : sumaBlad(suma), bladMasy: true };
+      }
+      const wTolerancji = normalizujMaki(input.flours);
+      if (wTolerancji) return { wynik: calculateDoughRecipe({ ...input, flours: wTolerancji }), blad: null, bladMasy: false };
+      const proporcjonalnie = suma > 0 ? input.flours.map((f) => ({ ...f, percentage: (f.percentage * 100) / suma })) : [{ name: '—', percentage: 100 }];
+      return { wynik: calculateDoughRecipe({ ...input, flours: proporcjonalnie }), blad: sumaBlad(suma), bladMasy: false };
+    }
+
+    function wynikZerowy(input: DoughRecipeInput): DoughRecipeResult {
+      return {
+        targetDoughWeightGrams: 0, baseFlourWeightGrams: 0,
+        flours: input.flours.map((f) => ({ name: f.name, percentage: f.percentage, weightGrams: 0 })),
+        waterGrams: 0, saltGrams: 0, starterGrams: 0, starterFlourGrams: 0, starterWaterGrams: 0, yeastGrams: 0,
+        totalFlourGrams: 0, totalWaterGrams: 0, overallHydrationPercent: 0, sumCheckGrams: 0, isHighRye: false, ryePercentage: 0,
+      };
+    }
+
+    /**
+     * RD-00 & RD-02: True Baker's Percentage & Mass Balance Scaling
+     * Scales dough recipe strictly to the desired total dough weight without intermediate rounding drift.
+     */
+    export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult {
+      if (input.targetDoughWeightGrams <= 0) {
+        throw new Error('Docelowa waga ciasta musi być większa od zera');
+      }
+
+      // Validate flour blend sum
+      const flourSumPercent = input.flours.reduce((sum, f) => sum + f.percentage, 0);
+      if (Math.abs(flourSumPercent - 100.0) > 0.01) {
+        throw new Error(`Suma procentów mąk musi wynosić 100% (aktualnie: ${flourSumPercent.toFixed(1)}%)`);
+      }
+
+      const starterHydr = input.starterHydration ?? 100.0;
+      const yeastPct = input.extraYeastPercentage ?? 0.0;
+
+      // Total baker's percentage sum:
+      // Base Flour (100%) + Water% + Salt% + Starter% + Yeast%
+      const totalFormulaPercentage = 100.0 + input.waterPercentage + input.saltPercentage + input.starterPercentage + yeastPct;
+
+      // Base flour mass in grams
+      const baseFlourWeight = input.targetDoughWeightGrams / (totalFormulaPercentage / 100.0);
+
+      // Calculate each component
+      const waterWeight = (baseFlourWeight * input.waterPercentage) / 100.0;
+      const saltWeight = (baseFlourWeight * input.saltPercentage) / 100.0;
+      const starterWeight = (baseFlourWeight * input.starterPercentage) / 100.0;
+      const yeastWeight = (baseFlourWeight * yeastPct) / 100.0;
+
+      // Breakdown of starter into flour and water:
+      // starterHydration = (starterWater / starterFlour) * 100 => starterWeight = starterFlour * (1 + starterHydr / 100)
+      const starterFlour = starterWeight / (1.0 + starterHydr / 100.0);
+      const starterWater = starterWeight - starterFlour;
+
+      // Total flour & water in batch
+      const totalFlour = baseFlourWeight + starterFlour;
+      const totalWater = waterWeight + starterWater;
+
+      // True Overall Hydration
+      const overallHydration = (totalWater / totalFlour) * 100.0;
+
+      // Detect rye ratio
+      const ryePercentage = input.flours
+        .filter((f) => f.name.toLowerCase().includes('żyt') || (f.type && f.type.toLowerCase().includes('zytn')))
+        .reduce((sum, f) => sum + f.percentage, 0);
+      // Wariant żytni: więcej niż 50% mąki żytniej (ZYT-GRA-001; było >= 50) [M1-audytor-generalny-030]
+      const isHighRye = ryePercentage > RYE_VARIANT_THRESHOLD_PCT;
+
+      const saltRounded = Number(saltWeight.toFixed(1));
+      const yeastRounded = Number(yeastWeight.toFixed(1));
+      // [mąka bazowa, woda, zakwas]: wartość dokładna i zaokrąglona do 1 g
+      const exact = [baseFlourWeight, waterWeight, starterWeight];
+      const grams = exact.map((g) => Math.round(g));
+
+      // DEC-11 (a), bloker BRD C4a nr 1 [M1-audytor-generalny-040]: suma pokazanych gramów (sól i drożdże
+      // z 0,1 g) ma się różnić od masy docelowej o ≤ 1 g. Gdy różnica jest większa, korekta ±1 g składnika
+      // o największej reszcie zaokrąglenia w potrzebnym kierunku; każdy składnik zostaje < 1 g od wartości dokładnej.
+      const dosesTenths = Math.round(saltRounded * 10) + Math.round(yeastRounded * 10);
+      const shownTenths = () => 10 * (grams[0] + grams[1] + grams[2]) + dosesTenths;
+      const offTenths = Math.round(input.targetDoughWeightGrams * 10) - shownTenths();
+      if (Math.abs(offTenths) > 10) {
+        const dir = Math.sign(offTenths);
+        const errs = grams.map((g, i) => (g - exact[i]) * dir);
+        grams[errs.indexOf(Math.min(...errs))] += dir;
+      }
+      const [baseFlourRounded, waterRounded, starterRounded] = grams;
+
+      // Mąki osobno (karta „Do miski” pokazuje każdą): metoda największej reszty, więc suma wierszy mąk
+      // równa się mące bazowej po korekcie DEC-11, a każda mąka jest < 1 g od wartości dokładnej.
+      const flourExact = input.flours.map((f) => (baseFlourWeight * f.percentage) / 100.0);
+      const flourGrams = flourExact.map((g) => Math.floor(g));
+      const reszta = (i: number) => flourExact[i] - flourGrams[i];
+      let flourLeft = baseFlourRounded - flourGrams.reduce((a, g) => a + g, 0);
+      const byRemainder = flourExact.map((_, i) => i).sort((i, j) => reszta(j) - reszta(i));
+      for (const i of byRemainder) {
+        if (flourLeft <= 0) break;
+        flourGrams[i] += 1;
+        flourLeft -= 1;
+      }
+      const floursCalculated: FlourItemCalculated[] = input.flours.map((f, i) => ({
+        name: f.name,
+        percentage: f.percentage,
+        weightGrams: flourGrams[i],
+      }));
+
+      const sumCheck = Math.round(shownTenths() / 10);
+
+      return {
+        targetDoughWeightGrams: input.targetDoughWeightGrams,
+        baseFlourWeightGrams: baseFlourRounded,
+        flours: floursCalculated,
+        waterGrams: waterRounded,
+        saltGrams: saltRounded,
+        starterGrams: starterRounded,
+        starterFlourGrams: Math.round(starterFlour),
+        starterWaterGrams: Math.round(starterWater),
+        yeastGrams: yeastRounded,
+        totalFlourGrams: Math.round(totalFlour),
+        totalWaterGrams: Math.round(totalWater),
+        overallHydrationPercent: Number(overallHydration.toFixed(2)),
+        sumCheckGrams: sumCheck,
+        isHighRye,
+        ryePercentage,
+      };
+    }
+
+    /**
+     * RD-05: Desired Dough Temperature (DDT) Calculation
+     * Calculates required water temperature using 4-factor formula (with starter) or 3-factor (without starter).
+     */
+    export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
+      const hasStarter = settings.starterTemp !== undefined;
+      let targetWater: number;
+
+      if (hasStarter) {
+        // 4-factor formula
+        targetWater = 4 * settings.targetDDT - (settings.flourTemp + settings.roomTemp + settings.starterTemp! + settings.frictionFactor);
+      } else {
+        // 3-factor formula
+        targetWater = 3 * settings.targetDDT - (settings.flourTemp + settings.roomTemp + settings.frictionFactor);
+      }
+
+      const roundedWater = Number(targetWater.toFixed(1));
+
+      if (roundedWater > 45.0) {
+        return {
+          waterTempTarget: roundedWater,
+          status: 'too_hot_danger',
+          warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.',
+        };
+      }
+
+      if (roundedWater < 4.0) {
+        return {
+          waterTempTarget: roundedWater,
+          status: 'requires_ice',
+          warningMessagePl: 'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.',
+        };
+      }
+
+      return {
+        waterTempTarget: roundedWater,
+        status: 'normal',
+      };
+    }
+
+    export const calculateDDT = calculateDDTWaterTemp;
+
+    /**
+     * RD-07: Ice Calculation for Cold Water Requirement
+     * Calculates grams of ice to melt in tap water to reach target low water temperature.
+     * Formula: IceGrams = TotalWater * (TapTemp - TargetTemp) / (80 + TapTemp)
+     */
+    export function calculateIceRequirement(
+      totalWaterGrams: number,
+      tapWaterTempC: number,
+      targetWaterTempC: number
+    ): IceCalculationResult {
+      if (targetWaterTempC >= tapWaterTempC) {
+        return {
+          iceGrams: 0,
+          waterGrams: totalWaterGrams,
+          totalWaterGrams,
+        };
+      }
+
+      const latentHeatFactor = 80.0 + tapWaterTempC;
+      const ice = totalWaterGrams * ((tapWaterTempC - targetWaterTempC) / latentHeatFactor);
+      const iceRounded = Math.round(ice);
+      const remainingWater = totalWaterGrams - iceRounded;
+
+      return {
+        iceGrams: iceRounded,
+        waterGrams: remainingWater,
+        totalWaterGrams,
+      };
+    }
+
+    export const calculateIceWaterMath = calculateIceRequirement;
+
+    /**
+     * RD-08: Temperature-Dependent Fermentation Time Adaptation (Q10 = 3,0 w 20–26 °C, FER-Q10-002)
+     * Adapts fermentation duration based on actual dough/ambient temperature.
+     */
+    export function calculateFermentationAdaptation(
+      baseHours: number,
+      actualTempC: number,
+      baseCalibrationTempC = 24.0,
+      q10Factor = Q10_FERMENTATION
+    ): FermentationAdaptationResult {
+      if (baseHours <= 0 || actualTempC <= 0) {
+        throw new Error('Czas bazowy i temperatura muszą być większe od zera');
+      }
+
+      // Q10 factor formula: time(T) = baseTime * q10Factor^((baseT - actualT) / 10)
+      const exponent = (baseCalibrationTempC - actualTempC) / 10.0;
+      const factor = Math.pow(q10Factor, exponent);
+      const adaptedUnrounded = baseHours * factor;
+      const adaptedHours = Number(adaptedUnrounded.toFixed(2));
+
+      const diffHours = adaptedUnrounded - baseHours;
+      const rawDiffMinutes = Math.round(diffHours * 60);
+      const diffMinutes = rawDiffMinutes === 0 ? 0 : rawDiffMinutes;
+
+      const totalMinutes = Math.round(adaptedHours * 60);
+      const h = Math.floor(totalMinutes / 60);
+      const m = totalMinutes % 60;
+      const formatted = h > 0 ? `${h}h ${m}m` : `${m}m`;
+
+      const rodzaj: KomunikatAdaptacji['rodzaj'] = Math.abs(diffMinutes) < 5 ? 'optymalna' : diffMinutes < 0 ? 'cieplo' : 'chlodno';
+
+      return {
+        baseHours,
+        adaptedHours: Number(adaptedHours.toFixed(2)),
+        adaptedMinutesFormatted: formatted,
+        diffMinutes,
+        temperatureCelsius: actualTempC,
+        komunikat: { rodzaj, temperaturaC: actualTempC, minuty: Math.abs(diffMinutes) },
+      };
+    }
+
+    export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
+
+    /** Świeże → suche (RD-19, D-172); też RD-37. */
+    export const WSP_SWIEZE_NA_SUCHE = 0.35;
+
+    /**
+     * RD-19: drożdże świeże na suche i odwrotnie (aktywne i instant) × 0,35, odwrotnie ÷ 0,35 (D-205, D-172, RD-19-W2;
+     * wcześniej × 0,4 z S-40, S-39 [M1-audytor-generalny-130]). Producent na opakowaniu może podawać inaczej (D-172).
+     */
+    export function convertYeast(
+      amountGrams: number,
+      from: 'fresh' | 'instant'
+    ): { freshGrams: number; instantGrams: number } {
+      if (amountGrams < 0) {
+        throw new Error('Masa drożdży nie może być ujemna');
+      }
+
+      if (from === 'fresh') {
+        const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(2));
+        return { freshGrams: amountGrams, instantGrams: instant };
+      } else {
+        const fresh = Number((amountGrams / WSP_SWIEZE_NA_SUCHE).toFixed(1));
+        return { freshGrams: fresh, instantGrams: amountGrams };
+      }
+    }
+
+    /**
+     * RD-16: Calculate recipe scaling from given base flour weight
+     */
+    export function calculateDoughRecipeFromFlour(
+      flourGrams: number,
+      input: Omit<DoughRecipeInput, 'targetDoughWeightGrams'>
+    ): DoughRecipeResult {
+      if (flourGrams <= 0) {
+        throw new Error('Waga mąki musi być większa od zera');
+      }
+      const yeastPct = input.extraYeastPercentage ?? 0.0;
+      const totalFormulaPercentage = 100.0 + input.waterPercentage + input.saltPercentage + input.starterPercentage + yeastPct;
+      const targetDoughWeightGrams = Math.round(flourGrams * (totalFormulaPercentage / 100.0));
+      return calculateDoughRecipe({
+        ...input,
+        targetDoughWeightGrams,
+      });
+    }
+
+    /**
+     * RD-17: Calculate recipe scaling from target number and weight of loaves
+     */
+    export function calculateDoughRecipeForLoaves(
+      loavesCount: number,
+      loafWeightGrams: number,
+      input: Omit<DoughRecipeInput, 'targetDoughWeightGrams'>
+    ): DoughRecipeResult {
+      if (loavesCount <= 0 || loafWeightGrams <= 0) {
+        throw new Error('Liczba bochenków i gramatura muszą być większe od zera');
+      }
+      const targetDoughWeightGrams = Math.round(loavesCount * loafWeightGrams);
+      return calculateDoughRecipe({
+        ...input,
+        targetDoughWeightGrams,
+      });
+    }
+
+    export type HydrationDifficulty = 'easy' | 'artisan_standard' | 'high_open_crumb' | 'expert_sticky';
+
+    export interface HydrationDifficultyInfo {
+      level: HydrationDifficulty;
+      labelPl: string;
+      /** Poziom komunikatu; kolor nadaje komponent (mapa-rol.md §3). */
+      poziom: PoziomKomunikatu;
+      tipPl: string;
+    }
+
+    /**
+     * RD-18: Practical handling difficulty classification based on water percentage
+     */
+    export function getHydrationDifficulty(waterPercentage: number): HydrationDifficultyInfo {
+      if (waterPercentage < 68) {
+        return {
+          level: 'easy',
+          labelPl: 'Łatwe w prowadzeniu',
+          poziom: 'info',
+          tipPl: 'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.',
+        };
+      }
+      if (waterPercentage <= 75) {
+        return {
+          level: 'artisan_standard',
+          labelPl: 'Klasyk rzemieślniczy',
+          poziom: 'info',
+          tipPl: 'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.',
+        };
+      }
+      if (waterPercentage <= 82) {
+        return {
+          level: 'high_open_crumb',
+          labelPl: 'Wysoka hydratacja (Otwarty miękisz)',
+          poziom: 'info',
+          tipPl: 'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.',
+        };
+      }
+      return {
+        level: 'expert_sticky',
+        labelPl: 'Ekstremalna hydratacja (Ekspert)',
+        poziom: 'info',
+        tipPl: 'Bardzo lejące ciasto. Wymaga mocnej mąki (np. Manitoba) i precyzyjnego budowania siły ciasta.',
+      };
+    }
+
+    export interface FlourBlendPreset {
+      id: string;
+      namePl: string;
+      flours: FlourItemInput[];
+    }
+
+    export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
+      {
+        id: 'blend_100_wheat',
+        namePl: '100% Pszenna chlebowa',
+        flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+      },
+      {
+        id: 'blend_classic_rye_touch',
+        namePl: '80% Pszenna + 20% Żytnia (Klasyk)',
+        flours: [
+          { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+          { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
+        ],
+      },
+      {
+        id: 'blend_artisan_three_flours',
+        namePl: '70% Pszenna + 20% Orkisz + 10% Żytnia',
+        flours: [
+          { name: 'Mąka pszenna chlebowa typ 750', percentage: 70.0, type: 'pszenna_750' },
+          { name: 'Mąka orkiszowa', percentage: 20.0, type: 'orkiszowa' },
+          { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
+        ],
+      },
+      {
+        id: 'blend_wheat_graham',
+        namePl: '80% Pszenna + 20% Graham (Pełne ziarno)',
+        flours: [
+          { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+          { name: 'Mąka pszenna graham typ 1850', percentage: 20.0, type: 'graham' },
+        ],
+      },
+      {
+        id: 'blend_half_half',
+        namePl: '50% Pszenna + 50% Żytnia (Pół na pół)',
+        flours: [
+          { name: 'Mąka pszenna chlebowa typ 750', percentage: 50.0, type: 'pszenna_750' },
+          { name: 'Mąka żytnia typ 720', percentage: 50.0, type: 'zytnia_720' },
+        ],
+      },
+    ];
+    "
+
+      74 |       'Grozi to ugotowaniem drożdży', 'Długa fermentacja nada chlebowi głęboki aromat.', 'Wymaga mąki o zawartości białka minimum 13%.',
+      75 |       'Schłodź mąkę lub obniż temperaturę otoczenia.',
+    > 76 |     ]) expect(kod).not.toContain(z);
+         |                        ^
+      77 |   });
+      78 | });
+      79 |
+
+      at Object.toContain (tests/teksty-glownego-przeplywu-010.test.ts:76:24)
+
+Test Suites: 1 failed, 1 total
+Tests:       25 failed, 25 total
+Snapshots:   0 total
+Time:        0.717 s
+Ran all test suites matching /tests\/teksty-glownego-przeplywu-010.test.ts/i.

@@ -1,0 +1,1627 @@
+FAIL tests/maki-nazwy-041.test.ts
+  041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku
+    ✕ nazwy mąk z typem w danych aplikacji (receptury, atlas, mieszanki) są kanonem D-307 (5 ms)
+    ✕ nazwy sprzed zmiany prowadzą do tego samego profilu atlasu co kanon (zapisane receptury i zapasy) (1 ms)
+    ✕ EN: każdy klucz mapy (stary i kanon) ma nazwę EN z wektora (1 ms)
+    ✕ en: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ bg: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ cs: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ da: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ de: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ el: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (7 ms)
+    ✕ es: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ es-419: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ et: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ fi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ fr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ hr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ hu: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ id: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ it: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ ja: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ ko: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (3 ms)
+    ✕ lt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ lv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ ms: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ nb: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ nl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ pt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ pt-BR: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ ro: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ ru: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ sk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ sl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ sr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (4 ms)
+    ✕ sv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ tr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ uk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+    ✕ vi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (2 ms)
+    ✕ zh-Hant: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę (1 ms)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › nazwy mąk z typem w danych aplikacji (receptury, atlas, mieszanki) są kanonem D-307
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "Mąka pszenna chlebowa typ 750",
+    +   "Mąka pszenna typ 1850 (Graham)",
+    +   "Mąka pszenna typ 650 (Bułkowa)",
+    +   "Mąka pszenna typ 550 (Luksusowa)",
+    +   "Mąka pszenna typ 450 (Tortowa)",
+    +   "Mąka pszenna typ 500 (Wrocławska)",
+    +   "Mąka pszenna graham typ 1850",
+    + ]
+
+      49 |     ].filter((n) => MAKA.test(n));
+      50 |     expect(nazwy.length).toBeGreaterThan(40);
+    > 51 |     expect([...new Set(nazwy)].filter((n) => !KANON.has(n))).toEqual([]);
+         |                                                              ^
+      52 |   });
+      53 |
+      54 |   it('nazwy sprzed zmiany prowadzą do tego samego profilu atlasu co kanon (zapisane receptury i zapasy)', () => {
+
+      at Object.toEqual (tests/maki-nazwy-041.test.ts:51:62)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › nazwy sprzed zmiany prowadzą do tego samego profilu atlasu co kanon (zapisane receptury i zapasy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "Mąka orkiszowa razowa typ 2000",
+    -   "spelt_2000",
+    +   undefined,
+      ]
+
+      57 |       const kanon = profilPoNazwie(w.kanonPl);
+      58 |       if (!kanon) continue; // kanon spoza atlasu (np. orkisz 630, MAK-TYP-902): nazwa przez słownik
+    > 59 |       expect([w.kluczPl, profilPoNazwie(w.kluczPl)?.id]).toEqual([w.kluczPl, kanon.id]);
+         |                                                          ^
+      60 |     }
+      61 |     expect(Object.keys(DAWNE_NAZWY_ATLASU)).toContain('Mąka pszenna typ 650 (Bułkowa)');
+      62 |     expect(nazwaMakiMieszanki({ name: 'Mąka pszenna chlebowa typ 750' }, 'de')).toBe(nazwaMakiMieszanki({ name: 'Mąka pszenna typ 750 (chlebowa)' }, 'de'));
+
+      at Object.toEqual (tests/maki-nazwy-041.test.ts:59:58)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › EN: każdy klucz mapy (stary i kanon) ma nazwę EN z wektora
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "Mąka orkiszowa jasna typ 630",
+    -   "Spelt flour (Polish type 630)",
+    +   "Light spelt flour type 630",
+      ]
+
+      66 |     setLang('en');
+      67 |     for (const w of WEKTOR.klucze) {
+    > 68 |       expect([w.kluczPl, t(w.kluczPl)]).toEqual([w.kluczPl, w.en]);
+         |                                         ^
+      69 |       expect([w.kanonPl, t(w.kanonPl)]).toEqual([w.kanonPl, w.en]);
+      70 |     }
+      71 |   });
+
+      at Object.toEqual (tests/maki-nazwy-041.test.ts:68:41)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › en: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "pszenna 500: Wheat flour type 500 | Wheat flour type 500 (Wroclawska)",
+    +   "pszenna 650: Wheat flour type 650 (Bread roll) | Light wheat bread flour (Polish type 650) | Light wheat flour (Polish type 650)",
+    +   "pszenna 1850: Wheat flour type 1850 (Graham) | Graham wheat flour (coarse, Polish type 1850)",
+    +   "pszenna 2000: Whole wheat flour type 2000 | Wholemeal wheat flour (Polish type 2000)",
+    +   "żytnia 720: Rye bread flour type 720 | Light rye flour (Polish type 720)",
+    +   "żytnia 2000: Whole rye flour type 2000 | Rye flour type 2000",
+    +   "orkiszowa 2000: Whole spelt flour type 2000 | Spelt flour type 2000",
+    +   "pszenna 550: Wheat flour type 550 (luksusowa) | Fine light wheat flour (Polish type 550)",
+    + ]
+
+      82 |     }
+      83 |     expect(bezNumeru).toEqual([]);
+    > 84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+         |                                                                                                  ^
+      85 |   });
+      86 | });
+      87 |
+
+      at toEqual (tests/maki-nazwy-041.test.ts:84:98)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › bg: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Светло брашно от спелта",
+    +   "Mąka orkiszowa razowa typ 2000 → Интегрално брашно от спелта",
+    +   "Mąka orkiszowa typ 2000 → Брашно от лимец",
+    +   "Mąka pszenna chlebowa typ 750 → Пшенично брашно за хляб (средно)",
+    +   "Mąka pszenna graham typ 1850 → Пшенично брашно грахам (пълнозърнесто)",
+    +   "Mąka pszenna luksusowa typ 550 → Бяло пшенично брашно",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Пълнозърнесто пшенично брашно",
+    +   "Mąka pszenna razowa typ 2000 → Интегрално пшенично брашно",
+    +   "Mąka pszenna typ 1050 → Тъмно пшенично брашно",
+    +   "Mąka pszenna typ 1850 (Graham) → Пшенично брашно Греъм",
+    +   "Mąka pszenna typ 405 → Пшенично брашно, най-светло",
+    +   "Mąka pszenna typ 450 (Tortowa) → Много светло пшенично брашно (за торти)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Светло универсално пшенично брашно",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Светло пшенично брашно",
+    +   "Mąka pszenna typ 650 → Светло пшенично брашно",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Светло пшенично брашно за хлебчета",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Светло пшенично брашно за хляб",
+    +   "Mąka pszenna typ 850 → По-тъмно пшенично брашно за хляб",
+    +   "Mąka żytnia chlebowa typ 720 → Ръжено брашно за хляб (средно)",
+    +   "Mąka żytnia razowa typ 2000 → Интегрално ръжено брашно",
+    +   "Mąka żytnia typ 1400 → Тъмно ръжено брашно",
+    +   "Mąka żytnia typ 2000 → Ръжено брашно",
+    +   "Mąka żytnia typ 500 → Светло ръжено брашно",
+    +   "Mąka żytnia typ 720 → Светло ръжено брашно",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › cs: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Světlá špaldová mouka",
+    +   "Mąka orkiszowa razowa typ 2000 → Celozrnná špaldová mouka",
+    +   "Mąka orkiszowa typ 2000 → Špaldová mouka",
+    +   "Mąka pszenna chlebowa typ 750 → Pšeničná chlebová mouka",
+    +   "Mąka pszenna graham typ 1850 → Pšeničná grahamová mouka (celozrnná, hrubě mletá)",
+    +   "Mąka pszenna luksusowa typ 550 → Pšeničná mouka (světlá, jemně mletá)",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Celozrnná pšeničná mouka",
+    +   "Mąka pszenna razowa typ 2000 → Celozrnná pšeničná mouka",
+    +   "Mąka pszenna typ 1050 → Tmavá pšeničná mouka",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamová pšeničná mouka (celozrnná)",
+    +   "Mąka pszenna typ 405 → Nejsvětlejší pšeničná mouka",
+    +   "Mąka pszenna typ 450 (Tortowa) → Velmi světlá pšeničná mouka (dortová)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Světlá pšeničná mouka (univerzální)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Světlá pšeničná mouka",
+    +   "Mąka pszenna typ 650 → Pšeničná mouka (světlá)",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Polosvětlá pšeničná mouka (na housky)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Pšeničná mouka (světlá, na chléb)",
+    +   "Mąka pszenna typ 850 → Tmavší pšeničná chlebová mouka",
+    +   "Mąka żytnia chlebowa typ 720 → Žitná chlebová mouka",
+    +   "Mąka żytnia razowa typ 2000 → Celozrnná žitná mouka",
+    +   "Mąka żytnia typ 1400 → Tmavá žitná mouka",
+    +   "Mąka żytnia typ 2000 → Žitná mouka",
+    +   "Mąka żytnia typ 500 → Světlá žitná mouka",
+    +   "Mąka żytnia typ 720 → Žitná mouka (středně světlá)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › da: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Lyst speltmel",
+    +   "Mąka orkiszowa razowa typ 2000 → Groftmalet speltmel",
+    +   "Mąka orkiszowa typ 2000 → Speltmel",
+    +   "Mąka pszenna chlebowa typ 750 → Halvlyst hvedemel til brød",
+    +   "Mąka pszenna graham typ 1850 → Grahamsmel (groftmalet hvedemel)",
+    +   "Mąka pszenna luksusowa typ 550 → Ekstra lyst, fint hvedemel",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Fuldkornshvedemel",
+    +   "Mąka pszenna razowa typ 2000 → Groftmalet hvedemel",
+    +   "Mąka pszenna typ 1050 → Mørkt hvedemel",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamsmel (hvede)",
+    +   "Mąka pszenna typ 405 → Meget lyst hvedemel",
+    +   "Mąka pszenna typ 450 (Tortowa) → Lyst hvedemel til kager",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Lyst hvedemel, alsidigt",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Lyst hvedemel",
+    +   "Mąka pszenna typ 650 → Lyst hvedemel",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Lyst hvedemel til boller",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Lyst hvedemel (til brød)",
+    +   "Mąka pszenna typ 850 → Halvmørkt hvedemel",
+    +   "Mąka żytnia chlebowa typ 720 → Rugmel til brød",
+    +   "Mąka żytnia razowa typ 2000 → Groftmalet rugmel",
+    +   "Mąka żytnia typ 1400 → Mørkt rugmel",
+    +   "Mąka żytnia typ 2000 → Rugmel",
+    +   "Mąka żytnia typ 500 → Lyst rugmel",
+    +   "Mąka żytnia typ 720 → Rugmel, mellem formalingsgrad",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › de: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Helles Dinkelmehl",
+    +   "Mąka orkiszowa razowa typ 2000 → Dinkelvollkornmehl",
+    +   "Mąka orkiszowa typ 2000 → Dinkelmehl",
+    +   "Mąka pszenna chlebowa typ 750 → Weizenmehl für Brot (mittel)",
+    +   "Mąka pszenna graham typ 1850 → Weizen-Grahammehl (Vollkornmehl)",
+    +   "Mąka pszenna luksusowa typ 550 → Sehr helles, feines Weizenmehl",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Weizenvollkornmehl",
+    +   "Mąka pszenna razowa typ 2000 → Weizenvollkornmehl",
+    +   "Mąka pszenna typ 1050 → Dunkles Weizenmehl",
+    +   "Mąka pszenna typ 1850 (Graham) → Weizen-Grahammehl (Graham)",
+    +   "Mąka pszenna typ 405 → Sehr helles Weizenmehl",
+    +   "Mąka pszenna typ 450 (Tortowa) → Sehr helles Weizenmehl (für Torten)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Helles Weizenmehl (Wrocławska / Poznańska)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Helles Weizenmehl (Luksusowa)",
+    +   "Mąka pszenna typ 650 → Helles Weizenmehl",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Helles Weizenmehl (für Brötchen)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Helles Weizenmehl",
+    +   "Mąka pszenna typ 850 → Halbdunkles Weizenmehl",
+    +   "Mąka żytnia chlebowa typ 720 → Mittleres Roggenmehl für Brot",
+    +   "Mąka żytnia razowa typ 2000 → Roggenvollkornmehl",
+    +   "Mąka żytnia typ 1400 → Dunkles Roggenmehl",
+    +   "Mąka żytnia typ 2000 → Roggenmehl",
+    +   "Mąka żytnia typ 500 → Helles Roggenmehl",
+    +   "Mąka żytnia typ 720 → Helles Roggenmehl",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › el: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Λευκό αλεύρι ζέας",
+    +   "Mąka orkiszowa razowa typ 2000 → Αλεύρι ζέας ολικής άλεσης",
+    +   "Mąka orkiszowa typ 2000 → Αλεύρι ζέας",
+    +   "Mąka pszenna chlebowa typ 750 → Αλεύρι σίτου για ψωμί",
+    +   "Mąka pszenna graham typ 1850 → Αλεύρι σίτου Graham (ολικής άλεσης)",
+    +   "Mąka pszenna luksusowa typ 550 → Λευκό αλεύρι σίτου ψιλής άλεσης",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Αλεύρι σίτου ολόκληρου κόκκου",
+    +   "Mąka pszenna razowa typ 2000 → Αλεύρι σίτου ολικής άλεσης",
+    +   "Mąka pszenna typ 1050 → Σκούρο αλεύρι σίτου",
+    +   "Mąka pszenna typ 1850 (Graham) → Αλεύρι σίτου ολικής άλεσης, χοντρό (Graham)",
+    +   "Mąka pszenna typ 405 → Πολύ λευκό αλεύρι σίτου",
+    +   "Mąka pszenna typ 450 (Tortowa) → Λευκό αλεύρι σίτου για κέικ",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Λευκό αλεύρι σίτου για αρτοσκευάσματα",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Λευκό αλεύρι σίτου, εκλεκτό",
+    +   "Mąka pszenna typ 650 → Λευκό αλεύρι σίτου",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Ανοιχτόχρωμο αλεύρι σίτου για ψωμάκια",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Λευκό αλεύρι σίτου (για ψωμί)",
+    +   "Mąka pszenna typ 850 → Πιο σκούρο αλεύρι σίτου για ψωμί",
+    +   "Mąka żytnia chlebowa typ 720 → Ανοιχτόχρωμο αλεύρι σίκαλης για ψωμί",
+    +   "Mąka żytnia razowa typ 2000 → Αλεύρι σίκαλης ολικής άλεσης",
+    +   "Mąka żytnia typ 1400 → Σκούρο αλεύρι σίκαλης (μέτριας άλεσης)",
+    +   "Mąka żytnia typ 2000 → Αλεύρι σίκαλης",
+    +   "Mąka żytnia typ 500 → Λευκό αλεύρι σίκαλης",
+    +   "Mąka żytnia typ 720 → Αλεύρι σίκαλης μεσαίας άλεσης",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › es: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Harina de espelta blanca",
+    +   "Mąka orkiszowa razowa typ 2000 → Harina de espelta integral",
+    +   "Mąka orkiszowa typ 2000 → Harina de espelta",
+    +   "Mąka pszenna chlebowa typ 750 → Harina de trigo para pan",
+    +   "Mąka pszenna graham typ 1850 → Harina de trigo Graham (de grano entero)",
+    +   "Mąka pszenna luksusowa typ 550 → Harina de trigo blanca",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Harina de trigo de grano entero",
+    +   "Mąka pszenna razowa typ 2000 → Harina de trigo integral",
+    +   "Mąka pszenna typ 1050 → Harina de trigo oscura",
+    +   "Mąka pszenna typ 1850 (Graham) → Harina de trigo graham",
+    +   "Mąka pszenna typ 405 → Harina de trigo extrablanca",
+    +   "Mąka pszenna typ 450 (Tortowa) → Harina de trigo blanca de repostería",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Harina de trigo blanca para bollería",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Harina de trigo blanca fina",
+    +   "Mąka pszenna typ 650 → Harina de trigo blanca",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Harina de trigo blanca para panecillos",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Harina de trigo blanca",
+    +   "Mąka pszenna typ 850 → Harina de trigo para pan, más oscura",
+    +   "Mąka żytnia chlebowa typ 720 → Harina de centeno media para pan",
+    +   "Mąka żytnia razowa typ 2000 → Harina de centeno integral",
+    +   "Mąka żytnia typ 1400 → Harina de centeno semiintegral",
+    +   "Mąka żytnia typ 2000 → Harina de centeno",
+    +   "Mąka żytnia typ 500 → Harina de centeno blanca",
+    +   "Mąka żytnia typ 720 → Harina de centeno de molienda media",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › es-419: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Harina de espelta blanca",
+    +   "Mąka orkiszowa razowa typ 2000 → Harina de espelta integral",
+    +   "Mąka orkiszowa typ 2000 → Harina de espelta",
+    +   "Mąka pszenna chlebowa typ 750 → Harina de trigo para pan",
+    +   "Mąka pszenna graham typ 1850 → Harina de trigo graham (integral)",
+    +   "Mąka pszenna luksusowa typ 550 → Harina de trigo blanca de molienda fina",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Harina de trigo de grano entero",
+    +   "Mąka pszenna razowa typ 2000 → Harina de trigo integral",
+    +   "Mąka pszenna typ 1050 → Harina de trigo semiintegral",
+    +   "Mąka pszenna typ 1850 (Graham) → Harina de trigo Graham",
+    +   "Mąka pszenna typ 405 → Harina de trigo extrablanca",
+    +   "Mąka pszenna typ 450 (Tortowa) → Harina de trigo blanca para repostería",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Harina de trigo blanca",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Harina de trigo blanca fina",
+    +   "Mąka pszenna typ 650 → Harina de trigo blanca",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Harina de trigo blanca para bollos",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Harina de trigo blanca (para pan)",
+    +   "Mąka pszenna typ 850 → Harina de trigo para pan, más oscura",
+    +   "Mąka żytnia chlebowa typ 720 → Harina de centeno para pan",
+    +   "Mąka żytnia razowa typ 2000 → Harina de centeno integral",
+    +   "Mąka żytnia typ 1400 → Harina de centeno semiintegral",
+    +   "Mąka żytnia typ 2000 → Harina de centeno",
+    +   "Mąka żytnia typ 500 → Harina de centeno blanca",
+    +   "Mąka żytnia typ 720 → Harina de centeno clara",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › et: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Hele speltajahu",
+    +   "Mąka orkiszowa razowa typ 2000 → Täistera speltajahu",
+    +   "Mąka orkiszowa typ 2000 → Speltajahu",
+    +   "Mąka pszenna chlebowa typ 750 → Keskmise heledusega nisujahu (leivale)",
+    +   "Mąka pszenna graham typ 1850 → Graham-nisujahu (jämedalt jahvatatud täisterajahu)",
+    +   "Mąka pszenna luksusowa typ 550 → Väga hele peenjahvatusega nisujahu",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Nisu täisterajahu",
+    +   "Mąka pszenna razowa typ 2000 → Täistera nisujahu",
+    +   "Mąka pszenna typ 1050 → Tume nisujahu",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahami nisujahu",
+    +   "Mąka pszenna typ 405 → Väga hele nisujahu",
+    +   "Mąka pszenna typ 450 (Tortowa) → Väga hele nisujahu (kookideks)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Hele nisujahu (pärmitaignad)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Hele nisujahu",
+    +   "Mąka pszenna typ 650 → Hele nisujahu",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Hele nisujahu (kuklid)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Hele nisujahu",
+    +   "Mąka pszenna typ 850 → Tumedam nisujahu",
+    +   "Mąka żytnia chlebowa typ 720 → Keskmise heledusega rukkijahu (leivale)",
+    +   "Mąka żytnia razowa typ 2000 → Täistera rukkijahu",
+    +   "Mąka żytnia typ 1400 → Tume rukkijahu",
+    +   "Mąka żytnia typ 2000 → Rukkijahu",
+    +   "Mąka żytnia typ 500 → Hele rukkijahu",
+    +   "Mąka żytnia typ 720 → Hele rukkijahu",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › fi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Vaalea spelttijauho",
+    +   "Mąka orkiszowa razowa typ 2000 → Karkea täysjyväspelttijauho",
+    +   "Mąka orkiszowa typ 2000 → Spelttijauho",
+    +   "Mąka pszenna chlebowa typ 750 → Keskitumma vehnäjauho (leipään)",
+    +   "Mąka pszenna graham typ 1850 → Grahamjauho (vehnän täysjyväjauho)",
+    +   "Mąka pszenna luksusowa typ 550 → Erittäin vaalea vehnäjauho",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Vehnän täysjyväjauho",
+    +   "Mąka pszenna razowa typ 2000 → Karkea täysjyvävehnäjauho",
+    +   "Mąka pszenna typ 1050 → Tumma vehnäjauho",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamjauho (täysjyvävehnä)",
+    +   "Mąka pszenna typ 405 → Hyvin vaalea vehnäjauho",
+    +   "Mąka pszenna typ 450 (Tortowa) → Hyvin vaalea vehnäjauho (kakkuihin)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Vaalea vehnäjauho (Wrocławska / Poznańska)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Vaalea vehnäjauho (Luksusowa)",
+    +   "Mąka pszenna typ 650 → Vaalea vehnäjauho",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Keskivaalea vehnäjauho (sämpylöihin)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Vaalea vehnäjauho",
+    +   "Mąka pszenna typ 850 → Tummahko vehnäjauho",
+    +   "Mąka żytnia chlebowa typ 720 → Keskivaalea ruisjauho (leipään)",
+    +   "Mąka żytnia razowa typ 2000 → Karkea täysjyväruisjauho",
+    +   "Mąka żytnia typ 1400 → Tumma ruisjauho",
+    +   "Mąka żytnia typ 2000 → Ruisjauho",
+    +   "Mąka żytnia typ 500 → Vaalea ruisjauho",
+    +   "Mąka żytnia typ 720 → Ruisjauho (vaalea)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › fr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Farine d\\'épeautre blanche",
+    +   "Mąka orkiszowa razowa typ 2000 → Farine d\\'épeautre complète",
+    +   "Mąka orkiszowa typ 2000 → Farine d’épeautre",
+    +   "Mąka pszenna chlebowa typ 750 → Farine de blé à pain",
+    +   "Mąka pszenna graham typ 1850 → Farine de blé Graham (intégrale)",
+    +   "Mąka pszenna luksusowa typ 550 → Farine de blé blanche",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Farine de blé intégrale",
+    +   "Mąka pszenna razowa typ 2000 → Farine de blé complète",
+    +   "Mąka pszenna typ 1050 → Farine de blé bise",
+    +   "Mąka pszenna typ 1850 (Graham) → Farine de blé graham",
+    +   "Mąka pszenna typ 405 → Farine de blé extra-blanche",
+    +   "Mąka pszenna typ 450 (Tortowa) → Farine de blé blanche pâtissière",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Farine de blé blanche polyvalente",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Farine de blé blanche fine",
+    +   "Mąka pszenna typ 650 → Farine de blé blanche",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Farine de blé blanche pour petits pains",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Farine de blé blanche (à pain)",
+    +   "Mąka pszenna typ 850 → Farine de blé à pain plus foncée",
+    +   "Mąka żytnia chlebowa typ 720 → Farine de seigle à pain",
+    +   "Mąka żytnia razowa typ 2000 → Farine de seigle complète",
+    +   "Mąka żytnia typ 1400 → Farine de seigle semi-complète",
+    +   "Mąka żytnia typ 2000 → Farine de seigle",
+    +   "Mąka żytnia typ 500 → Farine de seigle blanche",
+    +   "Mąka żytnia typ 720 → Farine de seigle (mouture claire à moyenne)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › hr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Svijetlo pirovo brašno",
+    +   "Mąka orkiszowa razowa typ 2000 → Integralno pirovo brašno",
+    +   "Mąka orkiszowa typ 2000 → Pirovo brašno",
+    +   "Mąka pszenna chlebowa typ 750 → Pšenično brašno za kruh",
+    +   "Mąka pszenna graham typ 1850 → Pšenično graham brašno (cjelovito zrno, krupna meljava)",
+    +   "Mąka pszenna luksusowa typ 550 → Fino svijetlo pšenično brašno",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Pšenično brašno od cjelovitog zrna",
+    +   "Mąka pszenna razowa typ 2000 → Integralno pšenično brašno",
+    +   "Mąka pszenna typ 1050 → Tamno pšenično brašno",
+    +   "Mąka pszenna typ 1850 (Graham) → Grubo mljeveno pšenično brašno (graham)",
+    +   "Mąka pszenna typ 405 → Vrlo svijetlo pšenično brašno",
+    +   "Mąka pszenna typ 450 (Tortowa) → Svijetlo pšenično brašno (za torte)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Svijetlo pšenično brašno (Wrocławska / Poznańska)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Svijetlo pšenično brašno (Luksusowa)",
+    +   "Mąka pszenna typ 650 → Svijetlo pšenično brašno",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Svijetlo pšenično brašno (za peciva)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Svijetlo pšenično brašno (za kruh)",
+    +   "Mąka pszenna typ 850 → Tamnije pšenično brašno za kruh",
+    +   "Mąka żytnia chlebowa typ 720 → Raženo brašno za kruh",
+    +   "Mąka żytnia razowa typ 2000 → Integralno raženo brašno",
+    +   "Mąka żytnia typ 1400 → Tamnije raženo brašno",
+    +   "Mąka żytnia typ 2000 → Raženo brašno",
+    +   "Mąka żytnia typ 500 → Svijetlo raženo brašno",
+    +   "Mąka żytnia typ 720 → Svijetlo raženo brašno",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › hu: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Világos tönkölyliszt",
+    +   "Mąka orkiszowa razowa typ 2000 → Teljes kiőrlésű tönkölyliszt",
+    +   "Mąka orkiszowa typ 2000 → Tönkölyliszt",
+    +   "Mąka pszenna chlebowa typ 750 → Kenyérsütő búzaliszt (közepes kiőrlés)",
+    +   "Mąka pszenna graham typ 1850 → Graham-búzaliszt (teljes kiőrlésű)",
+    +   "Mąka pszenna luksusowa typ 550 → Világos búzaliszt",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Teljes kiőrlésű búzaliszt",
+    +   "Mąka pszenna razowa typ 2000 → Teljes kiőrlésű búzaliszt",
+    +   "Mąka pszenna typ 1050 → Félbarna búzaliszt",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamliszt (durvára őrölt, teljes kiőrlésű búza)",
+    +   "Mąka pszenna typ 405 → Nagyon világos búzaliszt",
+    +   "Mąka pszenna typ 450 (Tortowa) → Nagyon világos, finom búzaliszt (süteményekhez)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Világos búzaliszt (univerzális)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Világos búzaliszt (prémium)",
+    +   "Mąka pszenna typ 650 → Világos búzaliszt",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Világos búzaliszt péksüteményekhez",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Világos búzaliszt",
+    +   "Mąka pszenna typ 850 → Sötétebb, közepes kiőrlésű búzaliszt",
+    +   "Mąka żytnia chlebowa typ 720 → Kenyérsütő rozsliszt (világosabb)",
+    +   "Mąka żytnia razowa typ 2000 → Teljes kiőrlésű rozsliszt",
+    +   "Mąka żytnia typ 1400 → Közepes kiőrlésű rozsliszt",
+    +   "Mąka żytnia typ 2000 → Rozsliszt",
+    +   "Mąka żytnia typ 500 → Világos rozsliszt",
+    +   "Mąka żytnia typ 720 → Világos rozsliszt",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › id: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 24
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Tepung spelt terang",
+    +   "Mąka orkiszowa razowa typ 2000 → Tepung spelt utuh giling kasar",
+    +   "Mąka pszenna chlebowa typ 750 → Tepung terigu untuk roti (tingkat sedang)",
+    +   "Mąka pszenna graham typ 1850 → Tepung terigu Graham (biji utuh)",
+    +   "Mąka pszenna luksusowa typ 550 → Tepung terigu putih halus",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Tepung terigu biji utuh",
+    +   "Mąka pszenna razowa typ 2000 → Tepung terigu utuh giling kasar",
+    +   "Mąka pszenna typ 1050 → Tepung terigu semi-gelap",
+    +   "Mąka pszenna typ 1850 (Graham) → Tepung terigu Graham (biji utuh)",
+    +   "Mąka pszenna typ 405 → Tepung terigu sangat putih",
+    +   "Mąka pszenna typ 450 (Tortowa) → Tepung terigu putih untuk kue",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Tepung terigu putih",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Tepung terigu putih premium",
+    +   "Mąka pszenna typ 650 → Tepung terigu putih",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Tepung terigu terang untuk roti kecil",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Tepung terigu putih untuk roti",
+    +   "Mąka pszenna typ 850 → Tepung terigu agak gelap untuk roti",
+    +   "Mąka żytnia chlebowa typ 720 → Tepung gandum hitam untuk roti",
+    +   "Mąka żytnia razowa typ 2000 → Tepung gandum hitam utuh giling kasar",
+    +   "Mąka żytnia typ 1400 → Tepung gandum hitam semi-gelap",
+    +   "Mąka żytnia typ 500 → Tepung gandum hitam terang",
+    +   "Mąka żytnia typ 720 → Tepung gandum hitam (penggilingan sedang)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › it: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Farina di farro spelta chiara",
+    +   "Mąka orkiszowa razowa typ 2000 → Farina di farro spelta integrale",
+    +   "Mąka orkiszowa typ 2000 → Farina di farro spelta",
+    +   "Mąka pszenna chlebowa typ 750 → Farina di frumento media da pane",
+    +   "Mąka pszenna graham typ 1850 → Farina di frumento Graham (integrale)",
+    +   "Mąka pszenna luksusowa typ 550 → Farina di frumento bianca molto raffinata",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Farina integrale di frumento",
+    +   "Mąka pszenna razowa typ 2000 → Farina di frumento integrale",
+    +   "Mąka pszenna typ 1050 → Farina di frumento scura (semi-integrale)",
+    +   "Mąka pszenna typ 1850 (Graham) → Farina di frumento Graham (integrale, macinatura grossa)",
+    +   "Mąka pszenna typ 405 → Farina di frumento extra chiara",
+    +   "Mąka pszenna typ 450 (Tortowa) → Farina di frumento molto chiara (per dolci)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Farina di frumento chiara (uso generale)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Farina di frumento chiara (raffinata)",
+    +   "Mąka pszenna typ 650 → Farina di frumento chiara",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Farina di frumento chiara per panini",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Farina di frumento chiara (per pane)",
+    +   "Mąka pszenna typ 850 → Farina di frumento medio-scura",
+    +   "Mąka żytnia chlebowa typ 720 → Farina di segale chiara da pane",
+    +   "Mąka żytnia razowa typ 2000 → Farina di segale integrale",
+    +   "Mąka żytnia typ 1400 → Farina di segale semi-integrale",
+    +   "Mąka żytnia typ 2000 → Farina di segale",
+    +   "Mąka żytnia typ 500 → Farina di segale molto chiara",
+    +   "Mąka żytnia typ 720 → Farina di segale a raffinazione media",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › ja: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → スペルト小麦粉 (白)",
+    +   "Mąka orkiszowa razowa typ 2000 → スペルト小麦全粒粉 (粗挽き)",
+    +   "Mąka orkiszowa typ 2000 → スペルト小麦粉",
+    +   "Mąka pszenna chlebowa typ 750 → パン用小麦粉 (精製度中)",
+    +   "Mąka pszenna graham typ 1850 → グラハム粉（小麦の全粒粉）",
+    +   "Mąka pszenna luksusowa typ 550 → 小麦粉（精製度の高い白い粉）",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → 小麦全粒粉",
+    +   "Mąka pszenna razowa typ 2000 → 小麦全粒粉 (粗挽き)",
+    +   "Mąka pszenna typ 1050 → 小麦粉 (精製度低・濃色)",
+    +   "Mąka pszenna typ 1850 (Graham) → 小麦粉 (グラハム)",
+    +   "Mąka pszenna typ 405 → 小麦粉 (精製度最高・白)",
+    +   "Mąka pszenna typ 450 (Tortowa) → 小麦粉 (精製度高・製菓用)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → 小麦粉 (精製度高・汎用)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → 小麦粉 (精製度高・特選)",
+    +   "Mąka pszenna typ 650 → 小麦粉（白い粉）",
+    +   "Mąka pszenna typ 650 (Bułkowa) → 小麦粉 (精製度中・ロールパン用)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → 小麦粉（パン用の白い粉）",
+    +   "Mąka pszenna typ 850 → 小麦粉 (精製度やや低)",
+    +   "Mąka żytnia chlebowa typ 720 → パン用ライ麦粉 (精製度中)",
+    +   "Mąka żytnia razowa typ 2000 → ライ麦全粒粉 (粗挽き)",
+    +   "Mąka żytnia typ 1400 → ライ麦粉 (精製度低・濃色)",
+    +   "Mąka żytnia typ 2000 → ライ麦粉",
+    +   "Mąka żytnia typ 500 → ライ麦粉 (精製度高・白)",
+    +   "Mąka żytnia typ 720 → ライ麦粉（中程度の精製度）",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › ko: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → 밝은 스펠트 밀가루",
+    +   "Mąka orkiszowa razowa typ 2000 → 스펠트 통가루",
+    +   "Mąka orkiszowa typ 2000 → 스펠트 밀가루",
+    +   "Mąka pszenna chlebowa typ 750 → 제빵용 밀가루 (중간 제분도)",
+    +   "Mąka pszenna graham typ 1850 → 그레이엄 밀가루 (전립분)",
+    +   "Mąka pszenna luksusowa typ 550 → 밀가루 (고운 백색)",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → 밀 전립분",
+    +   "Mąka pszenna razowa typ 2000 → 통밀가루",
+    +   "Mąka pszenna typ 1050 → 밀가루 (어두운 편)",
+    +   "Mąka pszenna typ 1850 (Graham) → 그레이엄 밀가루 (굵은 통가루)",
+    +   "Mąka pszenna typ 405 → 아주 밝은 밀가루",
+    +   "Mąka pszenna typ 450 (Tortowa) → 케이크용 밀가루 (아주 밝음)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → 밝은 밀가루 (Wrocławska / Poznańska)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → 밝은 밀가루 (Luksusowa)",
+    +   "Mąka pszenna typ 650 → 밀가루 (백색)",
+    +   "Mąka pszenna typ 650 (Bułkowa) → 롤빵용 밀가루 (밝은 편)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → 밀가루 (빵용 백색 밀가루)",
+    +   "Mąka pszenna typ 850 → 밀가루 (약간 어두운 편)",
+    +   "Mąka żytnia chlebowa typ 720 → 제빵용 호밀가루",
+    +   "Mąka żytnia razowa typ 2000 → 호밀 통가루",
+    +   "Mąka żytnia typ 1400 → 호밀가루 (중간 제분도)",
+    +   "Mąka żytnia typ 2000 → 호밀가루",
+    +   "Mąka żytnia typ 500 → 밝은 호밀가루",
+    +   "Mąka żytnia typ 720 → 호밀가루 (중간 제분도)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › lt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Šviesūs speltos miltai",
+    +   "Mąka orkiszowa razowa typ 2000 → Rupaus malimo speltos miltai",
+    +   "Mąka orkiszowa typ 2000 → Speltos miltai",
+    +   "Mąka pszenna chlebowa typ 750 → Kvietiniai miltai duonai",
+    +   "Mąka pszenna graham typ 1850 → Kvietiniai Graham miltai (rupaus malimo)",
+    +   "Mąka pszenna luksusowa typ 550 → Labai šviesūs kvietiniai miltai",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Kvietiniai viso grūdo miltai",
+    +   "Mąka pszenna razowa typ 2000 → Rupaus malimo kvietiniai miltai",
+    +   "Mąka pszenna typ 1050 → Tamsūs kvietiniai miltai",
+    +   "Mąka pszenna typ 1850 (Graham) → Kvietiniai Graham miltai (viso grūdo)",
+    +   "Mąka pszenna typ 405 → Labai šviesūs kvietiniai miltai",
+    +   "Mąka pszenna typ 450 (Tortowa) → Labai šviesūs kvietiniai miltai (tortams)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Šviesūs universalūs kvietiniai miltai",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Šviesūs kvietiniai miltai",
+    +   "Mąka pszenna typ 650 → Šviesūs kvietiniai miltai",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Vidutinio šviesumo kvietiniai miltai (bandelėms)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Šviesūs kvietiniai duonos miltai",
+    +   "Mąka pszenna typ 850 → Tamsesni kvietiniai miltai duonai",
+    +   "Mąka żytnia chlebowa typ 720 → Šviesesni ruginiai miltai duonai",
+    +   "Mąka żytnia razowa typ 2000 → Rupaus malimo ruginiai miltai",
+    +   "Mąka żytnia typ 1400 → Pusiau rupaus malimo ruginiai miltai",
+    +   "Mąka żytnia typ 2000 → Ruginiai miltai",
+    +   "Mąka żytnia typ 500 → Šviesūs ruginiai miltai",
+    +   "Mąka żytnia typ 720 → Šviesūs ruginiai miltai",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › lv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Gaišie speltas milti",
+    +   "Mąka orkiszowa razowa typ 2000 → Rupja maluma speltas milti",
+    +   "Mąka orkiszowa typ 2000 → Speltas milti",
+    +   "Mąka pszenna chlebowa typ 750 → Kviešu milti maizei",
+    +   "Mąka pszenna graham typ 1850 → Grahama pilngraudu kviešu milti",
+    +   "Mąka pszenna luksusowa typ 550 → Augstākā labuma gaiši kviešu milti",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Pilngraudu kviešu milti",
+    +   "Mąka pszenna razowa typ 2000 → Rupja maluma kviešu milti",
+    +   "Mąka pszenna typ 1050 → Tumšie kviešu milti",
+    +   "Mąka pszenna typ 1850 (Graham) → Graham kviešu milti (pilngraudu)",
+    +   "Mąka pszenna typ 405 → Ļoti gaiši kviešu milti",
+    +   "Mąka pszenna typ 450 (Tortowa) → Ļoti gaiši kviešu milti (kūkām)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Gaišie kviešu milti (rauga mīklām)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Gaišie kviešu milti",
+    +   "Mąka pszenna typ 650 → Gaiši kviešu milti",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Gaišie kviešu milti (maizītēm)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Gaiši kviešu maizes milti",
+    +   "Mąka pszenna typ 850 → Tumšāki kviešu milti maizei",
+    +   "Mąka żytnia chlebowa typ 720 → Rudzu milti maizei",
+    +   "Mąka żytnia razowa typ 2000 → Rupja maluma rudzu milti",
+    +   "Mąka żytnia typ 1400 → Vidēja maluma rudzu milti",
+    +   "Mąka żytnia typ 2000 → Rudzu milti",
+    +   "Mąka żytnia typ 500 → Gaišie rudzu milti",
+    +   "Mąka żytnia typ 720 → Gaiši rudzu milti",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › ms: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Tepung spelt cerah",
+    +   "Mąka orkiszowa razowa typ 2000 → Tepung spelt mil penuh",
+    +   "Mąka orkiszowa typ 2000 → Tepung spelt",
+    +   "Mąka pszenna chlebowa typ 750 → Tepung gandum untuk roti (sederhana)",
+    +   "Mąka pszenna graham typ 1850 → Tepung gandum graham (bijirin penuh)",
+    +   "Mąka pszenna luksusowa typ 550 → Tepung gandum putih halus",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Tepung gandum bijirin penuh",
+    +   "Mąka pszenna razowa typ 2000 → Tepung gandum mil penuh",
+    +   "Mąka pszenna typ 1050 → Tepung gandum separa gelap",
+    +   "Mąka pszenna typ 1850 (Graham) → Tepung gandum Graham (kisaran kasar)",
+    +   "Mąka pszenna typ 405 → Tepung gandum paling cerah",
+    +   "Mąka pszenna typ 450 (Tortowa) → Tepung gandum sangat cerah (Kek)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Tepung gandum cerah (Pastri yis)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Tepung gandum cerah (Premium)",
+    +   "Mąka pszenna typ 650 → Tepung gandum putih",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Tepung gandum cerah sederhana (Roti bun)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Tepung gandum putih",
+    +   "Mąka pszenna typ 850 → Tepung gandum untuk roti, lebih gelap",
+    +   "Mąka żytnia chlebowa typ 720 → Tepung rai untuk roti (cerah sederhana)",
+    +   "Mąka żytnia razowa typ 2000 → Tepung rai mil penuh",
+    +   "Mąka żytnia typ 1400 → Tepung rai separa mil penuh",
+    +   "Mąka żytnia typ 2000 → Tepung rai",
+    +   "Mąka żytnia typ 500 → Tepung rai cerah",
+    +   "Mąka żytnia typ 720 → Tepung rai (kisaran sederhana)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › nb: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Lyst speltmel",
+    +   "Mąka orkiszowa razowa typ 2000 → Sammalt speltmel",
+    +   "Mąka orkiszowa typ 2000 → Speltmel",
+    +   "Mąka pszenna chlebowa typ 750 → Hvetemel til brød, middels lyst",
+    +   "Mąka pszenna graham typ 1850 → Grahamsmel (sammalt hvetemel)",
+    +   "Mąka pszenna luksusowa typ 550 → Fint, ekstra lyst hvetemel",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Fullkornsmel av hvete",
+    +   "Mąka pszenna razowa typ 2000 → Sammalt hvetemel",
+    +   "Mąka pszenna typ 1050 → Mørkt hvetemel",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamsmel (grovt sammalt hvetemel)",
+    +   "Mąka pszenna typ 405 → Svært lyst hvetemel",
+    +   "Mąka pszenna typ 450 (Tortowa) → Lyst hvetemel til kaker",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Lyst, allsidig hvetemel",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Lyst, finsiktet hvetemel",
+    +   "Mąka pszenna typ 650 → Lyst hvetemel",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Halvlyst hvetemel til rundstykker",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Lyst hvetemel",
+    +   "Mąka pszenna typ 850 → Mørkere hvetemel til brød",
+    +   "Mąka żytnia chlebowa typ 720 → Halvlyst rugmel til brød",
+    +   "Mąka żytnia razowa typ 2000 → Sammalt rugmel",
+    +   "Mąka żytnia typ 1400 → Mørkt rugmel",
+    +   "Mąka żytnia typ 2000 → Rugmel",
+    +   "Mąka żytnia typ 500 → Lyst rugmel",
+    +   "Mąka żytnia typ 720 → Lyst rugmel",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › nl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Licht speltmeel",
+    +   "Mąka orkiszowa razowa typ 2000 → Grof volkoren speltmeel",
+    +   "Mąka orkiszowa typ 2000 → Speltmeel",
+    +   "Mąka pszenna chlebowa typ 750 → Tarwemeel voor brood (middel)",
+    +   "Mąka pszenna graham typ 1850 → Grahammeel (tarwevolkorenmeel)",
+    +   "Mąka pszenna luksusowa typ 550 → Fijn wit tarwemeel",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Volkoren tarwemeel",
+    +   "Mąka pszenna razowa typ 2000 → Grof volkoren tarwemeel",
+    +   "Mąka pszenna typ 1050 → Donker tarwemeel",
+    +   "Mąka pszenna typ 1850 (Graham) → Volkoren tarwemeel (graham)",
+    +   "Mąka pszenna typ 405 → Zeer licht tarwemeel",
+    +   "Mąka pszenna typ 450 (Tortowa) → Licht tarwemeel voor gebak",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Licht tarwemeel, universeel",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Licht tarwemeel (luxe)",
+    +   "Mąka pszenna typ 650 → Licht tarwemeel",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Licht tarwemeel voor broodjes",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Licht tarwemeel voor brood",
+    +   "Mąka pszenna typ 850 → Iets donkerder tarwemeel",
+    +   "Mąka żytnia chlebowa typ 720 → Licht roggemeel voor brood",
+    +   "Mąka żytnia razowa typ 2000 → Grof volkoren roggemeel",
+    +   "Mąka żytnia typ 1400 → Halfvolkoren roggemeel",
+    +   "Mąka żytnia typ 2000 → Roggemeel",
+    +   "Mąka żytnia typ 500 → Zeer licht roggemeel",
+    +   "Mąka żytnia typ 720 → Licht roggemeel",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › pt: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Farinha de espelta branca",
+    +   "Mąka orkiszowa razowa typ 2000 → Farinha de espelta integral",
+    +   "Mąka orkiszowa typ 2000 → Farinha de espelta",
+    +   "Mąka pszenna chlebowa typ 750 → Farinha de trigo clara (para pão)",
+    +   "Mąka pszenna graham typ 1850 → Farinha de trigo Graham (integral)",
+    +   "Mąka pszenna luksusowa typ 550 → Farinha de trigo branca fina",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Farinha de trigo de grão inteiro",
+    +   "Mąka pszenna razowa typ 2000 → Farinha de trigo integral",
+    +   "Mąka pszenna typ 1050 → Farinha de trigo escura (alta extração)",
+    +   "Mąka pszenna typ 1850 (Graham) → Farinha de trigo Graham (grão inteiro)",
+    +   "Mąka pszenna typ 405 → Farinha de trigo branca extrafina",
+    +   "Mąka pszenna typ 450 (Tortowa) → Farinha de trigo extra branca (para bolos)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Farinha de trigo branca",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Farinha de trigo branca fina",
+    +   "Mąka pszenna typ 650 → Farinha de trigo branca",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Farinha de trigo branca (para pãezinhos)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Farinha de trigo branca (clara, para pão)",
+    +   "Mąka pszenna typ 850 → Farinha de trigo média",
+    +   "Mąka żytnia chlebowa typ 720 → Farinha de centeio clara (para pão)",
+    +   "Mąka żytnia razowa typ 2000 → Farinha de centeio integral",
+    +   "Mąka żytnia typ 1400 → Farinha de centeio semi-integral",
+    +   "Mąka żytnia typ 2000 → Farinha de centeio",
+    +   "Mąka żytnia typ 500 → Farinha de centeio branca",
+    +   "Mąka żytnia typ 720 → Farinha de centeio clara",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › pt-BR: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Farinha de espelta clara",
+    +   "Mąka orkiszowa razowa typ 2000 → Farinha de espelta integral",
+    +   "Mąka orkiszowa typ 2000 → Farinha de espelta",
+    +   "Mąka pszenna chlebowa typ 750 → Farinha de trigo para pão (média)",
+    +   "Mąka pszenna graham typ 1850 → Farinha de trigo Graham (integral)",
+    +   "Mąka pszenna luksusowa typ 550 → Farinha de trigo extra clara",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Farinha de trigo de grão inteiro",
+    +   "Mąka pszenna razowa typ 2000 → Farinha de trigo integral",
+    +   "Mąka pszenna typ 1050 → Farinha de trigo escura",
+    +   "Mąka pszenna typ 1850 (Graham) → Farinha de trigo graham (semi-integral)",
+    +   "Mąka pszenna typ 405 → Farinha de trigo muito clara",
+    +   "Mąka pszenna typ 450 (Tortowa) → Farinha de trigo extra clara (para bolos)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Farinha de trigo clara",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Farinha de trigo clara (refinada)",
+    +   "Mąka pszenna typ 650 → Farinha de trigo clara",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Farinha de trigo clara (para pãezinhos)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Farinha de trigo clara",
+    +   "Mąka pszenna typ 850 → Farinha de trigo média-escura",
+    +   "Mąka żytnia chlebowa typ 720 → Farinha de centeio para pão",
+    +   "Mąka żytnia razowa typ 2000 → Farinha de centeio integral",
+    +   "Mąka żytnia typ 1400 → Farinha de centeio semi-integral",
+    +   "Mąka żytnia typ 2000 → Farinha de centeio",
+    +   "Mąka żytnia typ 500 → Farinha de centeio clara",
+    +   "Mąka żytnia typ 720 → Farinha de centeio de moagem média",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › ro: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 24
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Făină albă de spelt",
+    +   "Mąka orkiszowa razowa typ 2000 → Făină integrală de spelt",
+    +   "Mąka pszenna chlebowa typ 750 → Făină de grâu pentru pâine",
+    +   "Mąka pszenna graham typ 1850 → Făină de grâu Graham (integrală)",
+    +   "Mąka pszenna luksusowa typ 550 → Făină de grâu albă, fină",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Făină de grâu din bob întreg",
+    +   "Mąka pszenna razowa typ 2000 → Făină integrală de grâu",
+    +   "Mąka pszenna typ 1050 → Făină de grâu închisă",
+    +   "Mąka pszenna typ 1850 (Graham) → Făină de grâu Graham (măcinată grosier)",
+    +   "Mąka pszenna typ 405 → Făină de grâu foarte albă",
+    +   "Mąka pszenna typ 450 (Tortowa) → Făină albă de grâu (pentru prăjituri)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Făină albă de grâu, universală",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Făină albă de grâu, fină",
+    +   "Mąka pszenna typ 650 → Făină de grâu albă",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Făină albă de grâu (pentru chifle)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Făină de grâu albă",
+    +   "Mąka pszenna typ 850 → Făină de grâu semiînchisă",
+    +   "Mąka żytnia chlebowa typ 720 → Făină de secară pentru pâine (deschisă)",
+    +   "Mąka żytnia razowa typ 2000 → Făină integrală de secară",
+    +   "Mąka żytnia typ 1400 → Făină de secară semiintegrală",
+    +   "Mąka żytnia typ 500 → Făină albă de secară",
+    +   "Mąka żytnia typ 720 → Făină de secară cu grad mediu de măcinare",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › ru: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Полбяная мука, светлая",
+    +   "Mąka orkiszowa razowa typ 2000 → Полбяная обойная мука",
+    +   "Mąka orkiszowa typ 2000 → Полбяная мука",
+    +   "Mąka pszenna chlebowa typ 750 → Пшеничная мука для хлеба, средняя",
+    +   "Mąka pszenna graham typ 1850 → Пшеничная мука грэм (цельнозерновая)",
+    +   "Mąka pszenna luksusowa typ 550 → Пшеничная мука (очень светлая)",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Цельнозерновая пшеничная мука",
+    +   "Mąka pszenna razowa typ 2000 → Пшеничная обойная мука",
+    +   "Mąka pszenna typ 1050 → Пшеничная мука, тёмная",
+    +   "Mąka pszenna typ 1850 (Graham) → Пшеничная мука грэхем (цельнозерновая)",
+    +   "Mąka pszenna typ 405 → Пшеничная мука, очень светлая",
+    +   "Mąka pszenna typ 450 (Tortowa) → Пшеничная мука, светлая (для тортов)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Пшеничная мука, светлая (универсальная)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Пшеничная мука, светлая (люкс)",
+    +   "Mąka pszenna typ 650 → Пшеничная мука (светлая)",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Пшеничная мука, светлая (для булочек)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Пшеничная мука (светлая, хлебопекарная)",
+    +   "Mąka pszenna typ 850 → Пшеничная мука, средне-тёмная",
+    +   "Mąka żytnia chlebowa typ 720 → Ржаная мука для хлеба, средняя",
+    +   "Mąka żytnia razowa typ 2000 → Ржаная обойная мука",
+    +   "Mąka żytnia typ 1400 → Ржаная мука, тёмная",
+    +   "Mąka żytnia typ 2000 → Ржаная мука",
+    +   "Mąka żytnia typ 500 → Ржаная мука, светлая",
+    +   "Mąka żytnia typ 720 → Ржаная мука (светлая)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › sk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Svetlá špaldová múka",
+    +   "Mąka orkiszowa razowa typ 2000 → Celozrnná špaldová múka",
+    +   "Mąka orkiszowa typ 2000 → Špaldová múka",
+    +   "Mąka pszenna chlebowa typ 750 → Stredne svetlá pšeničná chlebová múka",
+    +   "Mąka pszenna graham typ 1850 → Pšeničná grahamová múka (celozrnná)",
+    +   "Mąka pszenna luksusowa typ 550 → Svetlá pšeničná múka",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Celozrnná pšeničná múka",
+    +   "Mąka pszenna razowa typ 2000 → Celozrnná pšeničná múka",
+    +   "Mąka pszenna typ 1050 → Tmavá pšeničná múka",
+    +   "Mąka pszenna typ 1850 (Graham) → Pšeničná múka graham (hrubo mletá celozrnná)",
+    +   "Mąka pszenna typ 405 → Veľmi svetlá pšeničná múka",
+    +   "Mąka pszenna typ 450 (Tortowa) → Veľmi svetlá pšeničná múka (na torty)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Svetlá pšeničná múka (univerzálna)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Svetlá pšeničná múka (luxusná)",
+    +   "Mąka pszenna typ 650 → Svetlá pšeničná múka",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Svetlá pšeničná múka (na pečivo)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Svetlá pšeničná múka (chlebová)",
+    +   "Mąka pszenna typ 850 → Stredne tmavá pšeničná múka",
+    +   "Mąka żytnia chlebowa typ 720 → Ražná chlebová múka",
+    +   "Mąka żytnia razowa typ 2000 → Celozrnná ražná múka",
+    +   "Mąka żytnia typ 1400 → Tmavšia ražná múka",
+    +   "Mąka żytnia typ 2000 → Ražná múka",
+    +   "Mąka żytnia typ 500 → Svetlá ražná múka",
+    +   "Mąka żytnia typ 720 → Ražná múka (chlebová, stredne svetlá)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › sl: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Svetla pirina moka",
+    +   "Mąka orkiszowa razowa typ 2000 → Grobo mleta polnozrnata pirina moka",
+    +   "Mąka orkiszowa typ 2000 → Pirina moka",
+    +   "Mąka pszenna chlebowa typ 750 → Pšenična moka za kruh",
+    +   "Mąka pszenna graham typ 1850 → Pšenična moka graham (polnozrnata moka)",
+    +   "Mąka pszenna luksusowa typ 550 → Svetla pšenična moka",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Pšenična polnozrnata moka",
+    +   "Mąka pszenna razowa typ 2000 → Grobo mleta polnozrnata pšenična moka",
+    +   "Mąka pszenna typ 1050 → Srednje temna pšenična moka",
+    +   "Mąka pszenna typ 1850 (Graham) → Grobo mleta pšenična moka (graham)",
+    +   "Mąka pszenna typ 405 → Zelo svetla pšenična moka",
+    +   "Mąka pszenna typ 450 (Tortowa) → Svetla pšenična moka (za torte)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Svetla pšenična moka (univerzalna)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Svetla pšenična moka",
+    +   "Mąka pszenna typ 650 → Svetla pšenična moka",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Svetla pšenična moka (za žemlje)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Svetla pšenična moka (za kruh)",
+    +   "Mąka pszenna typ 850 → Temnejša pšenična moka",
+    +   "Mąka żytnia chlebowa typ 720 → Ržena moka za kruh, srednje svetla",
+    +   "Mąka żytnia razowa typ 2000 → Grobo mleta polnozrnata ržena moka",
+    +   "Mąka żytnia typ 1400 → Temnejša ržena moka",
+    +   "Mąka żytnia typ 2000 → Ržena moka",
+    +   "Mąka żytnia typ 500 → Svetla ržena moka",
+    +   "Mąka żytnia typ 720 → Svetla ržena moka",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › sr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Светло спелтино брашно",
+    +   "Mąka orkiszowa razowa typ 2000 → Интегрално спелтино брашно",
+    +   "Mąka orkiszowa typ 2000 → Брашно од спелте",
+    +   "Mąka pszenna chlebowa typ 750 → Пшенично брашно за хлеб",
+    +   "Mąka pszenna graham typ 1850 → Пшенично грахам брашно (од целог зрна)",
+    +   "Mąka pszenna luksusowa typ 550 → Фино млевено светло пшенично брашно",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Пшенично брашно од целог зрна",
+    +   "Mąka pszenna razowa typ 2000 → Интегрално пшенично брашно",
+    +   "Mąka pszenna typ 1050 → Тамно пшенично брашно",
+    +   "Mąka pszenna typ 1850 (Graham) → Пшенично брашно грахам (крупно, од целог зрна)",
+    +   "Mąka pszenna typ 405 → Веома светло пшенично брашно",
+    +   "Mąka pszenna typ 450 (Tortowa) → Светло пшенично брашно за торте",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Светло пшенично брашно (универзално)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Светло пшенично брашно (фино)",
+    +   "Mąka pszenna typ 650 → Светло пшенично брашно",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Пшенично брашно за пецива",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Светло пшенично брашно (за хлеб)",
+    +   "Mąka pszenna typ 850 → Тамније пшенично брашно",
+    +   "Mąka żytnia chlebowa typ 720 → Ражано брашно за хлеб",
+    +   "Mąka żytnia razowa typ 2000 → Интегрално ражано брашно",
+    +   "Mąka żytnia typ 1400 → Полуинтегрално ражано брашно",
+    +   "Mąka żytnia typ 2000 → Ражано брашно",
+    +   "Mąka żytnia typ 500 → Светло ражано брашно",
+    +   "Mąka żytnia typ 720 → Светло ражано брашно",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › sv: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Ljust dinkelmjöl",
+    +   "Mąka orkiszowa razowa typ 2000 → Sammalet dinkelmjöl",
+    +   "Mąka orkiszowa typ 2000 → Dinkelmjöl",
+    +   "Mąka pszenna chlebowa typ 750 → Vetemjöl för bröd, mellanljust",
+    +   "Mąka pszenna graham typ 1850 → Grahamsmjöl (fullkornsvetemjöl)",
+    +   "Mąka pszenna luksusowa typ 550 → Mycket ljust vetemjöl",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Fullkornsvetemjöl",
+    +   "Mąka pszenna razowa typ 2000 → Sammalet vetemjöl",
+    +   "Mąka pszenna typ 1050 → Vetemjöl, mörkt",
+    +   "Mąka pszenna typ 1850 (Graham) → Grahamsmjöl (vete)",
+    +   "Mąka pszenna typ 405 → Vetemjöl, extra ljust",
+    +   "Mąka pszenna typ 450 (Tortowa) → Vetemjöl, mycket ljust (bakverk)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Vetemjöl, ljust (allround)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Vetemjöl, ljust",
+    +   "Mąka pszenna typ 650 → Ljust vetemjöl",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Vetemjöl, ljust (småbröd)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Ljust vetemjöl (för bröd)",
+    +   "Mąka pszenna typ 850 → Vetemjöl, mellanmörkt",
+    +   "Mąka żytnia chlebowa typ 720 → Rågmjöl för bröd, mellanljust",
+    +   "Mąka żytnia razowa typ 2000 → Sammalet rågmjöl",
+    +   "Mąka żytnia typ 1400 → Rågmjöl, mellanmörkt",
+    +   "Mąka żytnia typ 2000 → Rågmjöl",
+    +   "Mąka żytnia typ 500 → Rågmjöl, ljust",
+    +   "Mąka żytnia typ 720 → Ljust rågmjöl",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › tr: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Açık renkli spelt unu",
+    +   "Mąka orkiszowa razowa typ 2000 → Kepekli spelt unu",
+    +   "Mąka orkiszowa typ 2000 → Kavılca unu",
+    +   "Mąka pszenna chlebowa typ 750 → Buğday unu (orta, ekmek için)",
+    +   "Mąka pszenna graham typ 1850 → Graham buğday unu (tam tahıllı)",
+    +   "Mąka pszenna luksusowa typ 550 → Çok açık renkli buğday unu",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Tam tahıllı buğday unu",
+    +   "Mąka pszenna razowa typ 2000 → Kepekli buğday unu",
+    +   "Mąka pszenna typ 1050 → Buğday unu (koyu)",
+    +   "Mąka pszenna typ 1850 (Graham) → Graham buğday unu",
+    +   "Mąka pszenna typ 405 → Buğday unu (çok açık)",
+    +   "Mąka pszenna typ 450 (Tortowa) → Buğday unu (çok açık, pasta için)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Buğday unu (açık, çok yönlü)",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Buğday unu (açık)",
+    +   "Mąka pszenna typ 650 → Beyaz buğday unu",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Buğday unu (orta açık)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Açık renkli buğday unu",
+    +   "Mąka pszenna typ 850 → Buğday unu (orta koyu)",
+    +   "Mąka żytnia chlebowa typ 720 → Ekmek için çavdar unu",
+    +   "Mąka żytnia razowa typ 2000 → Kepekli çavdar unu",
+    +   "Mąka żytnia typ 1400 → Çavdar unu (orta koyulukta)",
+    +   "Mąka żytnia typ 2000 → Çavdar unu",
+    +   "Mąka żytnia typ 500 → Açık renkli çavdar unu",
+    +   "Mąka żytnia typ 720 → Açık renkli çavdar unu",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › uk: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Спельтове борошно світле",
+    +   "Mąka orkiszowa razowa typ 2000 → Спельтове борошно грубого помелу",
+    +   "Mąka orkiszowa typ 2000 → Спельтове борошно",
+    +   "Mąka pszenna chlebowa typ 750 → Пшеничне борошно для хліба",
+    +   "Mąka pszenna graham typ 1850 → Пшеничне борошно Грехем (цільнозернове)",
+    +   "Mąka pszenna luksusowa typ 550 → Пшеничне борошно, світле",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Цільнозернове пшеничне борошно",
+    +   "Mąka pszenna razowa typ 2000 → Пшеничне борошно грубого помелу",
+    +   "Mąka pszenna typ 1050 → Пшеничне борошно темне",
+    +   "Mąka pszenna typ 1850 (Graham) → Пшеничне борошно грехем (цільнозернове)",
+    +   "Mąka pszenna typ 405 → Пшеничне борошно дуже світле",
+    +   "Mąka pszenna typ 450 (Tortowa) → Пшеничне борошно світле (для тортів)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Пшеничне борошно світле універсальне",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Пшеничне борошно світле",
+    +   "Mąka pszenna typ 650 → Пшеничне борошно, світле",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Пшеничне борошно світле (для булок)",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Пшеничне борошно, світле",
+    +   "Mąka pszenna typ 850 → Пшеничне борошно середнього помелу",
+    +   "Mąka żytnia chlebowa typ 720 → Житнє борошно для хліба (світліше)",
+    +   "Mąka żytnia razowa typ 2000 → Житнє борошно грубого помелу",
+    +   "Mąka żytnia typ 1400 → Житнє борошно середнього помелу",
+    +   "Mąka żytnia typ 2000 → Житнє борошно",
+    +   "Mąka żytnia typ 500 → Житнє борошно світле",
+    +   "Mąka żytnia typ 720 → Житнє борошно середнього помелу",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › vi: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 24
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → Bột lúa mì spelt trắng",
+    +   "Mąka orkiszowa razowa typ 2000 → Bột lúa mì spelt nguyên cám xay thô",
+    +   "Mąka pszenna chlebowa typ 750 → Bột mì sáng màu làm bánh mì",
+    +   "Mąka pszenna graham typ 1850 → Bột mì Graham (nguyên cám)",
+    +   "Mąka pszenna luksusowa typ 550 → Bột mì trắng xay mịn",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → Bột mì nguyên cám",
+    +   "Mąka pszenna razowa typ 2000 → Bột mì nguyên cám xay thô",
+    +   "Mąka pszenna typ 1050 → Bột mì nửa nguyên cám",
+    +   "Mąka pszenna typ 1850 (Graham) → Bột mì Graham (nguyên cám xay thô)",
+    +   "Mąka pszenna typ 405 → Bột mì rất trắng",
+    +   "Mąka pszenna typ 450 (Tortowa) → Bột mì trắng mịn (làm bánh ngọt)",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → Bột mì trắng dùng chung",
+    +   "Mąka pszenna typ 550 (Luksusowa) → Bột mì trắng tinh",
+    +   "Mąka pszenna typ 650 → Bột mì trắng",
+    +   "Mąka pszenna typ 650 (Bułkowa) → Bột mì trắng làm bánh mì nhỏ",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → Bột mì trắng",
+    +   "Mąka pszenna typ 850 → Bột mì làm bánh mì, màu sẫm hơn",
+    +   "Mąka żytnia chlebowa typ 720 → Bột lúa mạch đen sáng màu làm bánh mì",
+    +   "Mąka żytnia razowa typ 2000 → Bột lúa mạch đen nguyên cám xay thô",
+    +   "Mąka żytnia typ 1400 → Bột lúa mạch đen xay vừa",
+    +   "Mąka żytnia typ 500 → Bột lúa mạch đen trắng",
+    +   "Mąka żytnia typ 720 → Bột lúa mạch đen (độ xay trung bình)",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+  ● 041 (D-307): nazwy mąk — kanon PL w danych, numer typu i jedna nazwa w każdym języku › zh-Hant: przekład nazwy z „typ NNN” ma numer typu i jedna mąka ma jedną nazwę
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "Mąka orkiszowa jasna typ 630 → 淺色斯佩爾特小麥粉",
+    +   "Mąka orkiszowa razowa typ 2000 → 斯佩爾特小麥粉（粗磨，全穀）",
+    +   "Mąka orkiszowa typ 2000 → 斯佩爾特小麥粉",
+    +   "Mąka pszenna chlebowa typ 750 → 麵包用小麥麵粉（中等研磨程度）",
+    +   "Mąka pszenna graham typ 1850 → Graham 粗磨全麥粉",
+    +   "Mąka pszenna luksusowa typ 550 → 特級精製淺色小麥麵粉",
+    +   "Mąka pszenna pełnoziarnista typ 2000 → 小麥全穀粉",
+    +   "Mąka pszenna razowa typ 2000 → 粗磨全麥粉",
+    +   "Mąka pszenna typ 1050 → 小麥麵粉（深色）",
+    +   "Mąka pszenna typ 1850 (Graham) → 小麥麵粉（Graham，粗磨）",
+    +   "Mąka pszenna typ 405 → 小麥麵粉（極淺色）",
+    +   "Mąka pszenna typ 450 (Tortowa) → 小麥麵粉（極淺色，蛋糕用）",
+    +   "Mąka pszenna typ 500 (Wrocławska / Poznańska) → 小麥麵粉（淺色，通用）",
+    +   "Mąka pszenna typ 550 (Luksusowa) → 小麥麵粉（淺色，精製）",
+    +   "Mąka pszenna typ 650 → 淺色小麥麵粉",
+    +   "Mąka pszenna typ 650 (Bułkowa) → 小麥麵粉（淺色，餐包用）",
+    +   "Mąka pszenna typ 650 (chlebowa jasna) → 淺色小麥麵粉",
+    +   "Mąka pszenna typ 850 → 小麥麵粉（中深色）",
+    +   "Mąka żytnia chlebowa typ 720 → 麵包用裸麥粉（淺色）",
+    +   "Mąka żytnia razowa typ 2000 → 裸麥粉（粗磨，全穀）",
+    +   "Mąka żytnia typ 1400 → 裸麥粉（中等研磨程度）",
+    +   "Mąka żytnia typ 2000 → 裸麥粉",
+    +   "Mąka żytnia typ 500 → 淺色裸麥粉",
+    +   "Mąka żytnia typ 720 → 裸麥粉（中等研磨程度）",
+    + ]
+
+      81 |       wg.set(klucz, new Set([...(wg.get(klucz) ?? []), v]));
+      82 |     }
+    > 83 |     expect(bezNumeru).toEqual([]);
+         |                       ^
+      84 |     expect([...wg].filter(([, n]) => n.size > 1).map(([k, n]) => `${k}: ${[...n].join(' | ')}`)).toEqual([]);
+      85 |   });
+      86 | });
+
+      at toEqual (tests/maki-nazwy-041.test.ts:83:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       37 failed, 37 total
+Snapshots:   0 total
+Time:        1.144 s
+Ran all test suites matching /tests\/maki-nazwy-041.test.ts/i.

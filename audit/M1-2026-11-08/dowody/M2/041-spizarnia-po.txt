@@ -1,0 +1,14 @@
+(node:29002) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/spizarnia-dawna-nazwa-041.sqlite.test.ts
+  041: zapas mąki pod dawną nazwą
+    ✓ zapas „Mąka pszenna chlebowa typ 750”, receptura „Mąka pszenna typ 750 (chlebowa)” → koniec wypieku odlicza 400 g (224 ms)
+    ✓ zapas „Mąka pszenna typ 750 (chlebowa)”, receptura „Mąka pszenna chlebowa typ 750” → koniec wypieku odlicza 400 g (31 ms)
+    ✓ znajdzZapasMaki: dokładna nazwa, dawna nazwa kanonu; inna mąka nie pasuje (bez dopasowania rozmytego) (1 ms)
+    ✓ toTenProfil: mąka pod dawną nazwą to już ten profil — edytor nie proponuje jej drugi raz (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        0.638 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/spizarnia-dawna-nazwa-041.sqlite.test.ts/i.

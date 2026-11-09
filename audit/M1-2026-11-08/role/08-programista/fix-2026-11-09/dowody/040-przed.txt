@@ -1,0 +1,67 @@
+FAIL src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx
+  040 (D-306): przelicznik drożdży zdaniami z docs/tresci i jego źródła na ekranie
+    ✓ plik treści ma 4 zdania przelicznika (2 ms)
+    ✕ PL: karta mówi 4 zdaniami pliku dosłownie i zdaniem D-100, bez starego zdania przelicznika (344 ms)
+    ✕ EN: karta mówi zdaniami docs/tresci/en (21 ms)
+    ✕ ekran „Źródła wiedzy” ma oetker.pl, lesaffre.pl i fleischmannsyeast.com (1 ms)
+
+  ● 040 (D-306): przelicznik drożdży zdaniami z docs/tresci i jego źródła na ekranie › PL: karta mówi 4 zdaniami pliku dosłownie i zdaniem D-100, bez starego zdania przelicznika
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych."
+    Received string:    "Drożdże do odważenia świeże suche Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik."
+
+      76 |     const k = await karta();
+      77 |     expect(k).toContain('Procent drożdży w recepturze to drożdże świeże.');
+    > 78 |     for (const z of ZDANIA_PL) expect(k).toContain(z);
+         |                                          ^
+      79 |     expect(k).not.toContain('odważysz 0,35 tej masy');
+      80 |   });
+      81 |
+
+      at Object.toContain (src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx:78:42)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 040 (D-306): przelicznik drożdży zdaniami z docs/tresci i jego źródła na ekranie › EN: karta mówi zdaniami docs/tresci/en
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "The app counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast."
+    Received string:    "Yeast to weigh fresh dry The yeast percentage in the recipe is fresh yeast. For dry yeast (instant or active), weigh 0.35 of that amount. The manufacturer may give a different ratio on the package."
+
+      83 |     setLang('en');
+      84 |     const k = await karta();
+    > 85 |     for (const z of ZDANIA_EN) expect(k).toContain(z);
+         |                                          ^
+      86 |   });
+      87 |
+      88 |   it('ekran „Źródła wiedzy” ma oetker.pl, lesaffre.pl i fleischmannsyeast.com', () => {
+
+      at Object.toContain (src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx:85:42)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 040 (D-306): przelicznik drożdży zdaniami z docs/tresci i jego źródła na ekranie › ekran „Źródła wiedzy” ma oetker.pl, lesaffre.pl i fleischmannsyeast.com
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: "oetker.pl"
+    Received array: ["extension.colostate.edu", "extension.sdstate.edu", "doi.org/10.7717/peerj.11389", "doi.org/10.7554/eLife.61644", "cordis.europa.eu", "doi.org/10.1128/aem.64.7.2616-2623.1998", "sklep.pkn.pl", "sklep.pkn.pl", "wydawnictwo.pttz.org", "pmc.ncbi.nlm.nih.gov/articles/PMC5294222", …]
+
+      88 |   it('ekran „Źródła wiedzy” ma oetker.pl, lesaffre.pl i fleischmannsyeast.com', () => {
+      89 |     const adresy = ZRODLA_WIEDZY.flatMap((g) => g.zrodla.map((z) => z.adres));
+    > 90 |     for (const a of ['oetker.pl', 'lesaffre.pl', 'fleischmannsyeast.com']) expect(adresy).toContain(a);
+         |                                                                                           ^
+      91 |     for (const z of ZRODLA_WIEDZY.flatMap((g) => g.zrodla)) expect(t(z.nazwa)).toBeTruthy();
+      92 |   });
+      93 | });
+
+      at Object.toContain (src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx:90:91)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 1 passed, 4 total
+Snapshots:   0 total
+Time:        1.636 s
+Ran all test suites matching /src\/components\/receptury\/__tests__\/przelicznik-drozdzy-040.test.tsx/i.

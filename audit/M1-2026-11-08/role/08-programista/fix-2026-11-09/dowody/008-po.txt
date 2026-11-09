@@ -1,0 +1,75 @@
+PASS tests/pieczenie-receptur-008.test.ts
+  008 (D-304): dane receptury = wektor roli 06
+    ✓ wektor obejmuje 6 receptur w garnku, brioszkę, durum i pizzę (3 ms)
+    ✓ pizza_napoletana_48h.bakeTempSteamC zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTempBrowningC zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ pizza_napoletana_48h.recommendedVessel zgodne z wektorem
+    ✓ country_loaf_72.bakeTempSteamC zgodne z wektorem
+    ✓ country_loaf_72.bakeTempBrowningC zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ country_loaf_72.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.recommendedVessel zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTempSteamC zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTempBrowningC zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ tartine_high_hydration_80.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ tartine_high_hydration_80.recommendedVessel zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTempSteamC zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTempBrowningC zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ san_francisco_sourdough.recommendedVessel zgodne z wektorem
+    ✓ pain_de_campagne.bakeTempSteamC zgodne z wektorem
+    ✓ pain_de_campagne.bakeTempBrowningC zgodne z wektorem
+    ✓ pain_de_campagne.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ pain_de_campagne.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ pain_de_campagne.recommendedVessel zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTempSteamC zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTempBrowningC zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ spelt_ancient_seeded.recommendedVessel zgodne z wektorem
+    ✓ graham_bread_honey.bakeTempSteamC zgodne z wektorem
+    ✓ graham_bread_honey.bakeTempBrowningC zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ graham_bread_honey.recommendedVessel zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTempSteamC zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTempBrowningC zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.recommendedVessel zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTempSteamC zgodne z wektorem (1 ms)
+    ✓ durum_semolina_sourdough.bakeTempBrowningC zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ durum_semolina_sourdough.recommendedVessel zgodne z wektorem
+  008 (D-304): plan bierze nagrzewanie i pieczenie z receptury
+    ✓ country_loaf_72: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ tartine_high_hydration_80: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ san_francisco_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ pain_de_campagne: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ spelt_ancient_seeded: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ graham_bread_honey: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ lievito_madre_panettone_brioche: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ durum_semolina_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ country_loaf_72 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (3 ms)
+    ✓ tartine_high_hydration_80 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (2 ms)
+    ✓ san_francisco_sourdough (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✓ pain_de_campagne (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (4 ms)
+    ✓ spelt_ancient_seeded (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (2 ms)
+    ✓ graham_bread_honey (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✓ brioszka (keksówka): nagrzewanie do 204 °C, pieczenie 177 °C, bez faz garnka (PIE-BRI-001) (1 ms)
+    ✓ durum (stal): 250 °C z danych receptury, bez faz garnka (KAT-ALT-005) (1 ms)
+    ✓ plan bez receptury: profil garnka ze źródła, bez szablonu 240/210 °C (odrzucony w D-304) (1 ms)
+    ✓ pieczenieDlaId: receptura żytnia, na drożdżach albo nieznana nie zmienia planu (bez pieczenia z receptury) (1 ms)
+    ✓ krokiPieczenia: id pieczenia według naczynia (garnek „bake”, keksówka i stal bez faz garnka)
+    ✓ pieczenieDlaPlanu: receptura z „Ułóż plan”; wersja drożdżowa i żyto bez pieczenia z receptury
+
+Test Suites: 1 passed, 1 total
+Tests:       66 passed, 66 total
+Snapshots:   0 total
+Time:        0.514 s, estimated 1 s
+Ran all test suites matching /tests\/pieczenie-receptur-008.test.ts/i.
