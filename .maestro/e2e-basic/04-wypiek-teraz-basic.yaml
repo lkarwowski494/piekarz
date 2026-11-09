@@ -69,3 +69,5 @@ appId: com.apps4brew.baker
     id: "next-or-finish-step-btn"
 - assertNotVisible:
     id: "restore-purchases-btn"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-04-wypiek-teraz-basic"

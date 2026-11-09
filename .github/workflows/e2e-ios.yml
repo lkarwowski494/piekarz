@@ -85,6 +85,7 @@ jobs:
           echo "BUNDLE_E2E_SHA=$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)" >> "$GITHUB_ENV"
 
       - name: Boot simulator and install app
+        id: instalacja
         run: |
           UDID=$(xcrun simctl list devices available -j | node -e '
             const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
@@ -108,6 +109,7 @@ jobs:
           applesimutils --version
 
       - name: Install Maestro CLI
+        id: maestro
         run: |
           curl -fsSL "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
@@ -120,18 +122,21 @@ jobs:
           xcrun simctl shutdown "$UDID"
           xcrun simctl boot "$UDID"
           xcrun simctl bootstatus "$UDID" -b
-          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-pl.xml
+          mkdir -p zrzuty-e2e && maestro --device "$UDID" test .maestro/e2e -e JEZYK=pl --format junit --output maestro-e2e-pl.xml
 
+      # Niezależne przebiegi: po porażce pl_PL wynik en_US, kontroli negatywnej i Basic nadal widać [M1-audytor-generalny-075]
       - name: Run E2E flows (.maestro/e2e, en_US)
+        if: (success() || failure()) && steps.maestro.outcome == 'success'
         run: |
           xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array en-US
           xcrun simctl spawn "$UDID" defaults write -g AppleLocale -string en_US
           xcrun simctl shutdown "$UDID"
           xcrun simctl boot "$UDID"
           xcrun simctl bootstatus "$UDID" -b
-          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-en.xml
+          mkdir -p zrzuty-e2e && maestro --device "$UDID" test .maestro/e2e -e JEZYK=en --format junit --output maestro-e2e-en.xml
 
       - name: Negative control must fail
+        if: (success() || failure()) && steps.maestro.outcome == 'success'
         run: |
           if ! maestro --device "$UDID" test .maestro/kontrola-negatywna; then
             echo "Kontrola negatywna padła zgodnie z oczekiwaniem."
@@ -145,6 +150,8 @@ jobs:
       # natywny kod bez zmian, od nowa tylko bundle JS (flaga działa wyłącznie w JS, src/lib/app-access.ts). Bez furtki
       # „wymuś Basic” w kodzie aplikacji [M3 E2E-basic].
       - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+        id: basic_build
+        if: (success() || failure()) && steps.instalacja.outcome == 'success'
         run: |
           set -o pipefail
           if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then
@@ -164,6 +171,8 @@ jobs:
           fi
 
       - name: Install Basic build on simulator
+        id: basic_install
+        if: (success() || failure()) && steps.basic_build.outcome == 'success'
         run: |
           BUNDLE_ID=$(node -p 'require("./app.json").expo.ios.bundleIdentifier')
           xcrun simctl uninstall "$UDID" "$BUNDLE_ID" || true
@@ -172,7 +181,8 @@ jobs:
 
       # Scenariusze po id: jeden przebieg (język symulatora z poprzedniego kroku, en_US) wystarcza
       - name: Run E2E flows in Basic (.maestro/e2e-basic)
-        run: maestro --device "$UDID" test .maestro/e2e-basic --format junit --output maestro-e2e-basic.xml
+        if: (success() || failure()) && steps.basic_install.outcome == 'success' && steps.maestro.outcome == 'success'
+        run: maestro --device "$UDID" test .maestro/e2e-basic -e JEZYK=basic --format junit --output maestro-e2e-basic.xml
 
       - name: Upload Maestro report and screenshots
         if: always()
@@ -184,5 +194,7 @@ jobs:
             maestro-e2e-en.xml
             maestro-e2e-basic.xml
             ~/.maestro/tests
+            zrzuty-e2e
+            .maestro/**/zrzuty-e2e
           if-no-files-found: ignore
           retention-days: 7

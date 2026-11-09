@@ -110,3 +110,5 @@ appId: com.apps4brew.baker
     id: "plan-wiersz-.*"
 - assertNotVisible:
     id: "start-plan-spirala"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-04-plan-na-pozniej"
