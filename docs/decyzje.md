@@ -1679,3 +1679,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** DEC-01…DEC-19 z raportu M1 (`audit/M1-audytor-generalny-2026-11-08.md` na `audit-m1/piekarz-2026-11-08`) według rekomendacji, w tym DEC-12 → 1.0.1, DEC-19 → 1.1 (odłożone), DEC-18: build TestFlight tylko po zielonym E2E na tym samym SHA. Zakres M2: wszystkie otwarte zadania (84: P1 18, P2 66). Uwagi z testu telefonu (D-277) dopisze właściciel później jako zadania. M2 startuje w osobnej sesji z planem M1.
 - **Odrzucone (opcje z pytania M1):** rekomendacje z wyjątkami, omówienie; zakres tylko P1 albo P1 + P2 danych i sklepu.
 - **Status:** właściciel.
+
+### [D-287] 2026-11-09 — Weto po nocy (D-281): bez weta D-282…D-285 i D-032; D-284 terminy maszyny zostają (b) (właściciel)
+- **Słowa właściciela (2026-11-09, ~06:30 UTC, przyciski):** „Bez weta (Recommended)”; D-284 (a): „Zostaw do przeglądu natywnego (Recommended)”.
+- **Decyzja:** D-282, D-283, D-284, D-285 i D-032 (nazwa EN „Baker” na stronie) zatwierdzone bez zmian. 10 terminów trybu maszyny pt/pt-BR/ja/lt [DO USTALENIA] zostaje do przeglądu natywnego (DEC-06); zdania bezpieczeństwa maszyny (D-177) bez zmian przed 1.0.
+- **Odrzucone:** weto części decyzji; D-284 (a) zamiana terminów na nazwy producentów przez rolę 09 z ponownym przeglądem zdań bezpieczeństwa (koszt czasu właściciela, terminy różnią się między markami).
+- **Status:** właściciel.
