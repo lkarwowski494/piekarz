@@ -1,0 +1,57 @@
+$ npx jest src/data/__tests__/sonda-05-przebudowa.sqlite.test.ts (worktree w scratchpadzie; hipotetyczna migracja v8 dopięta w teście, kod aplikacji bez zmian; treść niżej)
+SONDA [OFF w run() (w transakcji runnera)] przed: {"starters":1,"wpisy":5,"fk":0}
+SONDA [OFF w run() (w transakcji runnera)] stan magazynu: ok; po: {"starters":1,"wpisy":0,"fk":0}; PRAGMA foreign_keys na połączeniu aplikacji po migracji: {"foreign_keys":1}
+SONDA [OFF w przed (przed BEGIN)] przed: {"starters":1,"wpisy":5,"fk":0}
+SONDA [OFF w przed (przed BEGIN)] stan magazynu: ok; po: {"starters":1,"wpisy":5,"fk":0}; PRAGMA foreign_keys na połączeniu aplikacji po migracji: {"foreign_keys":0}
+PASS src/data/__tests__/sonda-05-przebudowa.sqlite.test.ts
+  ✓ v8 z przebudową starters: OFF w run() (w transakcji runnera) (185 ms)
+  ✓ v8 z przebudową starters: OFF w przed (przed BEGIN) (43 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.743 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-05-przebudowa.sqlite.test.ts/i.
+kod: 0
+--- treść sondy ---
+/**
+ * Sonda audytu 05-architekt (scratchpad): przyszła migracja z przebudową tabeli rodzica (starters) w obecnym runnerze.
+ * Hipotetyczna v8 robi kroki 4–7 procedury 12 kroków; wariant 1 z PRAGMA foreign_keys=OFF w run() (w transakcji runnera),
+ * wariant 2 z OFF w kroku `przed` (przed BEGIN, jedyne miejsce, jakie runner daje).
+ */
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+import { useTempDbDir, restartApp, openRaw, dbFilePath } from './helpers/node-sqlite-adapter';
+import type { SQLiteDatabase } from 'expo-sqlite';
+const log = (s: string) => process.stdout.write(`SONDA ${s}\n`);
+const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+const PRZEBUDOWA = async (db: SQLiteDatabase, offWRun: boolean) => {
+  if (offWRun) await db.execAsync('PRAGMA foreign_keys = OFF;');
+  // Krok 4: nowa tabela w tym samym kształcie (DDL z sqlite_master), krok 5: kopia, 6: DROP, 7: RENAME
+  const ddl = (await db.getFirstAsync<{ sql: string }>("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'starters'"))!.sql;
+  await db.execAsync(ddl.replace(/CREATE TABLE "?starters"?/, 'CREATE TABLE new_starters') + ';');
+  await db.execAsync('INSERT INTO new_starters SELECT * FROM starters; DROP TABLE starters; ALTER TABLE new_starters RENAME TO starters;');
+};
+async function przygotuj() {
+  useTempDbDir();
+  let app = restartApp();
+  await app.schema.initDatabase();
+  const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  await entries.createStarterWithEntry({ id: 's', name: 's', flourType: 'Ż', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP' },
+    { id: 'e0', starterId: 's', kind: 'feeding', occurredAt: 1, signs: [], createdAt: 1, updatedAt: 1 });
+  for (let i = 1; i < 5; i++) await entries.addStarterEntry({ id: `e${i}`, starterId: 's', kind: 'feeding', occurredAt: 1 + i, signs: [], createdAt: 1, updatedAt: 1 });
+  app = restartApp();
+  return app;
+}
+const policz = () => { const r = openRaw(APP_DB()); const o = { starters: (r.prepare('SELECT count(*) c FROM starters').get() as { c: number }).c, wpisy: (r.prepare('SELECT count(*) c FROM starter_entries').get() as { c: number }).c, fk: (r.prepare('PRAGMA foreign_key_check').all()).length }; r.close(); return o; };
+it.each([['OFF w run() (w transakcji runnera)', true, false], ['OFF w przed (przed BEGIN)', false, true]])('v8 z przebudową starters: %s', async (nazwa, offWRun, offPrzed) => {
+  const app = await przygotuj();
+  log(`[${nazwa}] przed: ${JSON.stringify(policz())}`);
+  app.schema.SCHEMA_MIGRATIONS.push({
+    version: 8, description: 'sonda: przebudowa starters',
+    ...(offPrzed ? { przed: async (db: SQLiteDatabase) => { await db.execAsync('PRAGMA foreign_keys = OFF;'); } } : {}),
+    run: (db: SQLiteDatabase) => PRZEBUDOWA(db, offWRun),
+  });
+  await app.schema.initDatabase();
+  const db = await app.schema.getDb();
+  log(`[${nazwa}] stan magazynu: ${app.status.getStorageState()}; po: ${JSON.stringify(policz())}; PRAGMA foreign_keys na połączeniu aplikacji po migracji: ${JSON.stringify(await db!.getFirstAsync('PRAGMA foreign_keys'))}`);
+});

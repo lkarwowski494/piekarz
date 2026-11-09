@@ -1,0 +1,77 @@
+$ git ls-files | grep -Ei "\.env|\.p8$|\.p12$|\.pem$|\.key$|\.jks$|\.keystore$|\.mobileprovision$"
+kod: 1
+
+$ git grep -nE -- "-----BEGIN|sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|api_key|apiKey" -- . ":!package-lock.json" | cut -c1-160
+tests/instrukcja-ustawien.test.ts:129:    expect(wszystko).not.toMatch(/-----BEGIN [A-Z ]*PRIVATE KEY-----/);
+tests/public-repo.test.ts:81:        expect(body).not.toMatch(/-----BEGIN [A-Z ]*PRIVATE KEY-----/);
+kod: 0
+
+$ git log --all -p -G "-----BEGIN [A-Z ]*PRIVATE KEY|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}" --format="%h %s" | grep -E "^[0-9a-f]{7,} |BEGIN|AKIA|gh[pousr]_" | head
+b21c194d feat(release): complete role-model BRD-QA-REL 1.0 hardening and verification gates (v1.0.0)
+-| `ASC_KEY_P8` | Plik `.p8` pobrany jednorazowo przy tworzeniu klucza | Cała zawartość pliku tekstowego wraz z liniami `-----BEGIN PRIVATE KEY-----` i `----
+70fd81aa ci: add native Apple TestFlight GitHub Actions workflow and iOS configuration
++| `ASC_KEY_P8` | Plik `.p8` pobrany jednorazowo przy tworzeniu klucza | Cała zawartość pliku tekstowego wraz z liniami `-----BEGIN PRIVATE KEY-----` i `----
+kod: 0
+
+$ git grep -n EXPO_PUBLIC_
+.github/workflows/e2e-ios.yml:75:          EXPO_PUBLIC_E2E: "1"
+.github/workflows/e2e-ios.yml:143:      # E2E w Basic (decyzja M1 2026-10-23, wariant a): drugi build Release BEZ EXPO_PUBLIC_E2E w tym samym jobie, żeby
+.github/workflows/e2e-ios.yml:147:      - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+.github/workflows/e2e-ios.yml:150:          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then
+.github/workflows/e2e-ios.yml:151:            echo "::error::EXPO_PUBLIC_E2E jest ustawiona — build Basic musi być bez dostępu E2E."
+.github/workflows/e2e-ios.yml:154:          # Bez pamięci transformacji Metro z buildu z flagą (wartość EXPO_PUBLIC_* jest wstawiana przy transformacji)
+.github/workflows/e2e-ios.yml:162:            echo "::error::main.jsbundle Basic jest taki sam jak w buildzie z EXPO_PUBLIC_E2E — bundle nie zbudował się od
+.github/workflows/testflight.yml:97:          for var in EXPO_PUBLIC_STORE_FAKE EXPO_PUBLIC_E2E EXPO_PUBLIC_MOCK_AUTH EXPO_PUBLIC_DEMO_MODE; do
+.github/workflows/testflight.yml:132:          echo "EXPO_PUBLIC_BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+.maestro/e2e-basic/01-start-bez-ekranu-pro.yaml:1:# Prawdziwe E2E w Basic: build Release BEZ EXPO_PUBLIC_E2E (.github/workflows/e2e-ios.yml, decyzja M1 2026-10-
+.maestro/e2e-basic/02-miesiac-ekran-pro.yaml:1:# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+.maestro/e2e-basic/03-arkusz-dnia-zaplanuj-pro.yaml:1:# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id
+.maestro/e2e-basic/04-wypiek-teraz-basic.yaml:1:# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+.maestro/e2e-basic/05-drugi-zakwas-pro.yaml:1:# Prawdziwe E2E w Basic (build bez EXPO_PUBLIC_E2E, decyzja M1 2026-10-23 wariant a); elementy tylko po id.
+.maestro/e2e/04-plan-na-pozniej.yaml:3:# EXPO_PUBLIC_E2E=1 (src/lib/app-access.ts; TestFlight odrzuca flage, P-037 a). Trwa jeden wypiek -> Harmonogram ->
+.maestro/e2e/05-dwa-wypieki.yaml:3:# EXPO_PUBLIC_E2E=1 (src/lib/app-access.ts; TestFlight odrzuca flage, P-037 a). Wypiek 1 -> drugi start przy trwajacym
+docs/wydanie/droga-do-app-store.md:9:1. **iOS E2E na HEAD gałęzi** (`.github/workflows/e2e-ios.yml`: pełny katalog `.maestro/e2e` w buildzie z `EXPO_PUBLIC_E
+docs/wydanie/plan-wydania-1.0.md:9:1. **Testy:** `npm run verify` kod 0 na SHA kandydata; iOS E2E (`e2e-ios.yml`) zielony na tym SHA: pełny katalog `.maestro/e
+docs/wznowienie-M3.md:165:- Na gałęzi po scaleniu (7 commitów, 2026-10-23…29): T2 teksty bez nazw źródeł i ekran „Źródła wiedzy” (D-123, `0960427
+src/lib/app-access.ts:30: * Build E2E na symulatorze bez StoreKit (.github/workflows/e2e-ios.yml, EXPO_PUBLIC_E2E=1 wstawiane przez Metro przy
+src/lib/app-access.ts:34:const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
+tests/e2e-ios-workflow.test.ts:16:// Scenariusze w Basic: drugi build Release bez EXPO_PUBLIC_E2E (decyzja M1 2026-10-23, wariant a) [M3 E2E-basic]
+tests/e2e-ios-workflow.test.ts:117:  // Scenariusze 1.0 (M3): plan na później i dwa trwające wypieki to funkcje Pro; build E2E ma dostęp przez EXPO_PUBLIC_E
+tests/e2e-ios-workflow.test.ts:131:  // Decyzja M1 2026-10-23 (wariant a): E2E w Basic na drugim buildzie Release bez EXPO_PUBLIC_E2E, bez furtki w kodzie
+tests/e2e-ios-workflow.test.ts:157:  it('drugi build Release bez EXPO_PUBLIC_E2E, potem Maestro dla .maestro/e2e-basic; flaga tylko w kroku pierwszego buildu', 
+tests/e2e-ios-workflow.test.ts:163:    expect(przedKrokami).not.toMatch(/EXPO_PUBLIC_E2E/);
+tests/e2e-ios-workflow.test.ts:164:    expect(zFlaga).toMatch(/\n {8}env:\n(?: {10}.*\n)*? {10}EXPO_PUBLIC_E2E:\s*["']1["']/);
+tests/e2e-ios-workflow.test.ts:165:    expect(bezFlagi).not.toMatch(/EXPO_PUBLIC_E2E\s*[:=]\s*["']?1/);
+tests/e2e-ios-workflow.test.ts:167:    expect(bezFlagi).toMatch(/if \[ -n "\$\{EXPO_PUBLIC_E2E:-\}" \]; then[\s\S]*?exit 1/);
+tests/e2e-ios-workflow.test.ts:218:  it('build E2E ma dostęp przez EXPO_PUBLIC_E2E=1 tylko w tym workflow; wydanie TestFlight odrzuca tę flagę (P-037 a)', ()
+tests/e2e-ios-workflow.test.ts:219:    expect(workflow).toMatch(/EXPO_PUBLIC_E2E:\s*["']1["']/);
+tests/e2e-ios-workflow.test.ts:221:    expect(testflight).toMatch(/for var in [^\n]*EXPO_PUBLIC_E2E/);
+tests/e2e-ios-workflow.test.ts:222:    expect(testflight).not.toMatch(/EXPO_PUBLIC_E2E\s*[:=]\s*["']?1/);
+tests/e2e-ios-workflow.test.ts:224:    expect(access).toMatch(/process\.env\.EXPO_PUBLIC_E2E === '1'/);
+tests/e2e-ios-workflow.test.ts:226:    expect(process.env.EXPO_PUBLIC_E2E ?? '').not.toBe('1');
+tests/public-repo.test.ts:59:    expect(tf).toContain('EXPO_PUBLIC_STORE_FAKE');
+kod: 0
+
+$ cat .gitignore
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+credentials.json
+*.orig.*
+web-build/
+.DS_Store
+coverage/
+.idea/
+.vscode/
+ios/
+android/
+.env
+.env.*
+.stryker-tmp/
+reports/

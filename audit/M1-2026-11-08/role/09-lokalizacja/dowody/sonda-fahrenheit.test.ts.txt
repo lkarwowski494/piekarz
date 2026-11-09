@@ -1,0 +1,12 @@
+import { setLang, t } from '../../src/lib/i18n';
+import { setUnitSystem } from '../../src/lib/unit-converter';
+const EN = require('../../src/lib/i18n.en').EN as Record<string, string>;
+test('sonda: klucze z °F w tekście źródłowym w trybie imperialnym', () => {
+  setUnitSystem('imperial');
+  const klucze = Object.keys(EN).filter((k) => /°F/.test(k));
+  for (const l of ['pl', 'en', 'de', 'es'] as const) {
+    setLang(l);
+    // eslint-disable-next-line no-console
+    for (const k of klucze) console.log(l, '=>', t(k).match(/[^.]*°F[^.]*/g)?.join(' … '));
+  }
+});

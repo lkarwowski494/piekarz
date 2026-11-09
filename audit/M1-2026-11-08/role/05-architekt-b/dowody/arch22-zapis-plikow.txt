@@ -1,0 +1,45 @@
+$ grep -rn "from 'expo-file-system" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/data/kopie-przed-migracja.ts:11:import * as FileSystem from 'expo-file-system/legacy';
+src/data/uszkodzone-wiersze.ts:9:import * as FileSystem from 'expo-file-system/legacy';
+src/data/migracja-v6.ts:9:import * as FileSystem from 'expo-file-system/legacy';
+src/lib/kalendarz-telefonu.ts:8:import * as FileSystem from 'expo-file-system/legacy';
+src/lib/kopia-plikow-bazy.ts:8:import * as FileSystem from 'expo-file-system/legacy';
+src/lib/csv-exporter.ts:7:import * as FileSystem from 'expo-file-system/legacy';
+src/lib/backup.ts:1:import * as FileSystem from 'expo-file-system/legacy';
+src/lib/startup-guard.ts:1:import * as FileSystem from 'expo-file-system/legacy';
+kod: 0
+
+$ sed -n 85,113p node_modules/expo-file-system/ios/Legacy/FileSystemLegacyModule.swift (wersja 57.0.7)
+    AsyncFunction("writeAsStringAsync") { (url: URL, string: String, options: WritingOptions) in
+      try ensurePathPermission(appContext, path: url.path, flag: .write)
+
+      let data: Data?
+      if options.encoding == .base64 {
+        data = Data(base64Encoded: string, options: .ignoreUnknownCharacters)
+      } else {
+        data = string.data(using: options.encoding.toStringEncoding() ?? .utf8)
+      }
+
+      guard let data else {
+        throw FileNotWritableException(url.path)
+      }
+
+      do {
+        if options.append {
+          if !FileManager.default.fileExists(atPath: url.path) {
+            try data.write(to: url, options: .atomic)
+          } else {
+            let fileHandle = try FileHandle(forWritingTo: url)
+            defer {
+              fileHandle.closeFile()
+            }
+            fileHandle.seekToEndOfFile()
+            fileHandle.write(data)
+          }
+        } else {
+          try data.write(to: url, options: .atomic)
+        }
+kod: 0
+
+$ grep -n "atomically" node_modules/expo-file-system/ios/FileSystemFile.swift (nowe API, nieużywane przez aplikację)
+92:        try content.write(to: url, atomically: false, encoding: .utf8) // TODO: better error handling

@@ -1,0 +1,98 @@
+$ cat src/lib/wejscia-pozniej.ts | sed -n 23,36p
+export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
+  'slownik-mak': false,
+  'odrzut-zakwasu': false,
+  'strata-piecowa': false,
+  'konwerter-zakwasu': false,
+  druk: false,
+  qr: false,
+  'rodzina-apps4craft': false,
+  spizarnia: false,
+  'przelicznik-objetosci': false,
+  akademia: false,
+  'protokoly-ratunkowe': true,
+  'test-palca': false,
+};
+kod: 0
+
+$ grep -n '<[A-Z][A-Za-z]*Section\|<ZrodlaWiedzy\|<LicencjeEkran' src/components/SettingsModal.tsx
+97:          <LicencjeEkran />
+100:            <ZrodlaWiedzyEkran />
+105:          <BakerRitualSection
+111:          <PreferencesSection
+119:          <GodzinySnuSection />
+122:          <PrzypomnieniaKarmieniaSection />
+125:          <ZakupySection onOtworzPro={otworzPro} />
+128:          <BackupAndDataSection />
+131:          <ImportRecepturySection onPro={otworzPro} />
+134:          <ZrodlaWiedzySection onOtworz={() => setPodekran('zrodla')} />
+137:          <StudioEcosystemSection onOtworzLicencje={() => setPodekran('licencje')} />
+kod: 0
+
+$ sed -n 31,63p src/lib/platnosci/konfiguracja.ts
+export type Funkcja =
+  // Basic
+  | 'historia' // dziennik: przegląd, usunięcie, „Piecz ponownie” (BR-RECP-003)
+  | 'dane' // odczyt, eksport i usunięcie własnych danych (BR-DANE-001…004)
+  | 'import' // import kopii i receptury z pliku, bez limitu (BR-DANE-003, D-039 pkt 1)
+  | 'kalkulator' // liczenie receptury (BR-KALK-001…005, -007, -009, -011, BR-UST-001)
+  | 'harmonogram' // plan wypieku: przesunięcie kroku, „za późno”, start (BR-HARMO-004)
+  | 'stolnica' // prowadzenie wypieku krok po kroku z sygnałem (BR-ETAP-001…006, BR-CZAS-002, -003, BR-REKA-001)
+  | 'zakwas' // pierwszy zakwas: założenie, karta, zapis karmień, RD-21 (BR-ZAKW-005, -007, BR-DIAG-002)
+  | 'doktor' // Doktor i protokoły (BR-DIAG-001, -003…005)
+  | 'receptury' // receptury bazowe i do LIMITY_BASIC.wlasneReceptury własnych (BR-RECP-001, -002)
+  | 'akademia' // Akademia: pierwszy poziom (BR-NAUK-001)
+  // Pro
+  | 'plan-wstecz' // „gotowe o…”, ochrona snu, czas fermentacji z temperatury (BR-HARMO-001…003)
+  | 'plany-przyszle' // wypieki zaplanowane na przyszłe dni (BR-KAL-009, -015)
+  | 'dwa-wypieki' // start drugiego trwającego wypieku (BR-KAL-016)
+  | 'kalendarz-telefonu' // plan w kalendarzu telefonu, plik .ics (BR-KAL-011)
+  | 'miesiac' // widok miesiąca (BR-KAL-013)
+  | 'rytm' // podpowiedź dnia z rytmu Dziennika (BR-KAL-014)
+  | 'staly-dzien' // stały dzień karmienia w lodówce (BR-KAL-010)
+  | 'zaczyn' // poolish, biga, levain (BR-KALK-010)
+  | 'lod' // masa lodu (BR-KALK-008); w 1.0 bez wejścia
+  | 'przypomnienia-zakwasu' // przypomnienia o dokarmianiu poza zakładaniem (BR-ZAKW-004)
+  | 'proporcje-zakwasu' // dokarmianie z proporcją (BR-ZAKW-002)
+  | 'gotowosc-zakwasu' // gotowość i szczyt (BR-ZAKW-003)
+  | 'budzenie-zakwasu' // kolejne karmienia budzące z lodówki (BR-ZAKW-006, RD-33)
+  | 'kolejny-zakwas' // drugi i kolejne zakwasy ponad LIMITY_BASIC.zakwasy (BR-ZAKW-001)
+  | 'receptury-ponad-limit' // własne receptury ponad LIMITY_BASIC.wlasneReceptury (BR-RECP-002)
+  | 'porownanie' // porównanie i statystyki dziennika (BR-RECP-004)
+  | 'druk' // druk receptury (BR-DRUK-001); w 1.0 bez wejścia
+  | 'qr-wysylanie' // wysłanie receptury kodem QR (BR-WSP-003); w 1.0 bez wejścia
+  | 'spizarnia' // spiżarnia mąk (BR-SPIZ-001); w 1.0 bez wejścia
+  | 'akademia-dalej'; // Akademia: dalsze poziomy (BR-NAUK-001)
+kod: 0
+
+$ grep -rn 'onLongPress\|PanResponder\|Swipeable\|onTouchStart' app src --include=*.tsx | grep -v __tests__
+src/components/kalendarz/NawigacjaKalendarza.tsx:5:// (kierunekGestu). Gest nie przejmuje dotyku (onTouchStart/End), więc dni paska zostają przyciskami.
+src/components/kalendarz/NawigacjaKalendarza.tsx:70:        onTouchStart={(e) => { start.current = { x: e.nativeEvent.pageX, y: e.nativeEvent.pageY }; }}
+kod: 0
+
+$ grep -rn 'SegmentTrybu\|trybMaszynyDostepny' app --include=*.tsx
+app/(tabs)/receptury/receptura.tsx:45:import { SegmentTrybu, TrybMaszyny } from '../../../src/components/receptury/SegmentTrybu';
+app/(tabs)/receptury/receptura.tsx:46:import { trybMaszynyDostepny } from '../../../src/recipes/maszyna-receptur';
+app/(tabs)/receptury/receptura.tsx:174:  const maszyna = trybMaszynyDostepny(currentMasterPreset) ? currentMasterPreset : undefined;
+app/(tabs)/receptury/receptura.tsx:304:              segmentTrybu={maszyna && <SegmentTrybu tryb={tryb} onWybierz={setTryb} />}
+kod: 0
+
+$ sed -n 64,76p src/components/PaywallModal.tsx
+  return (
+    // Karta z ikoną (README §1, makieta „Co daje Pro”); teksty i kolejność bez zmian
+    <Karta testID="pro-obszary" tytul={t('Co daje Pro')} ikona={<IkonaKarty nazwa="gwiazda" />}>
+      <Lista
+        testID="pro-obszary-lista"
+        teksty={[
+          t('Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.'),
+          t('Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.'),
+          t('Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.'),
+          t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
+        ]}
+      />
+    </Karta>
+kod: 0
+
+$ grep -n 'react-native-web' package.json
+kod: 1
+

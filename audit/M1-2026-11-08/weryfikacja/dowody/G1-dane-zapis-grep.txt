@@ -1,0 +1,100 @@
+# Weryfikacja G1-dane-zapis, 2026-11-08T21:45:39Z; repo /home/user/piekarz, HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42; tylko odczyt
+
+$ git rev-parse HEAD
+2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+## kod wyjścia: 0
+
+$ grep -rnE "withTransactionAsync\(" src app
+src/data/sqlite-store.ts:200:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:231:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:277:  await writeOrThrow(() => db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:359:    db.withTransactionAsync(async () => {
+src/data/usun-wszystko.ts:25:      db.withTransactionAsync(async () => {
+src/data/__tests__/starter-entries-fk.sqlite.test.ts:37:    await a!.withTransactionAsync(async () => {
+src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts:197:    await db.withTransactionAsync(async () => {
+src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts:273:    await db.withTransactionAsync(() => zapiszStalyDzien(db, 'starter_lodowka', { weekday: 6, minuteOfDay: 480 }));
+src/data/starter-entries-store.ts:85:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:102:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:152:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:175:      db.withTransactionAsync(async () => {
+## kod wyjścia: 0
+
+$ grep -rniE "kolejk|queue|mutex|lock" src/data src/lib/save-guard.ts
+## kod wyjścia: 1
+
+$ grep -rniE "kolejk|queue|mutex|lock" src/data src/lib/save-guard.ts | grep -v __tests__ | wc -l
+0
+## kod wyjścia: 0
+
+$ grep -n "BEGIN" src/data/sqlite-schema.ts
+144:  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
+374:      await db.execAsync('BEGIN TRANSACTION;');
+## kod wyjścia: 0
+
+$ grep -rn "useRef(false)" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/calculator/accordion/PolaTemperaturDdt.tsx:56:  const pusty = useRef(false);
+src/components/PaywallModal.tsx:115:  const trwa = useRef(false);
+src/hooks/useDodajDoKalendarza.ts:21:  const zajety = useRef(false);
+src/hooks/useBakeSession.ts:38:  const zatrzymany = useRef(false);
+src/hooks/useProPoArkuszu.ts:13:  const czeka = useRef(false);
+src/hooks/useFinishBake.ts:45:  const zapisuje = useRef(false);
+app/_layout.tsx:59:  const kamien = useRef(false);
+## kod wyjścia: 0
+
+$ grep -rn "saveStarter(" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/zakwas/useAkcjeZakwasu.ts:60:      await saveStarter(updated);
+src/components/zakwas/useAkcjeZakwasu.ts:92:      await saveStarter(updated);
+src/components/zakwas/useAkcjeZakwasu.ts:114:      await saveStarter(newStarter);
+src/components/zakwas/useAkcjeZakwasu.ts:150:    await saveStarter(updated);
+src/hooks/useCofnijDokarmienie.ts:41:      if (teraz) await saveStarter({ ...teraz, lastFedAt: c.poprzedni.lastFedAt, feedingRatio: c.poprzedni.feedingRatio });
+src/data/sqlite-store.ts:191:export async function saveStarter(starter: StoredStarter): Promise<void> {
+src/lib/staly-dzien-pytanie.ts:35:    await saveStarter({ ...s, fridgeFeedDay: stalyDzienPoDecyzji(s, fedAt, decyzja) });
+## kod wyjścia: 0
+
+$ grep -rn "Dokarmione" src app; grep -rn "Zapisz dokarmienie" src/components/zakwas/StarterCycleCard.tsx
+2:// Piekarz — karta zakwasu: Spirala jednego cyklu dokarmienia, „Podwoił objętość”, „Zapisz dokarmienie”,
+42:          <Text style={[styles.pusty, naPasie && styles.naPasie2]}>{t('Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.')}</Text>
+106:          <Text style={styles.drugiTekst}>{t('Zapisz dokarmienie')}</Text>
+## kod wyjścia: 0
+
+$ grep -rn "onZmianaZakwasu\|loadStarterData(" "app/(tabs)/zakwasy/index.tsx" src/components/zakwas/ZakwasDziennik.tsx
+app/(tabs)/zakwasy/index.tsx:93:    loadStarterData();
+app/(tabs)/zakwasy/index.tsx:96:    await loadStarterData(id);
+app/(tabs)/zakwasy/index.tsx:197:            await loadStarterData();
+app/(tabs)/zakwasy/index.tsx:222:            onZmianaZakwasu={() => loadStarterData(starter.id)}
+src/components/zakwas/ZakwasDziennik.tsx:35:export function ZakwasDziennik({ starter, log, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci, zPro = true }: {
+src/components/zakwas/ZakwasDziennik.tsx:49:  onZmianaZakwasu: () => Promise<void>;
+src/components/zakwas/ZakwasDziennik.tsx:87:        await onZmianaZakwasu();
+src/components/zakwas/ZakwasDziennik.tsx:100:        await onZmianaZakwasu();
+src/components/zakwas/ZakwasDziennik.tsx:108:      await onZmianaZakwasu();
+## kod wyjścia: 0
+
+$ grep -rn "useFocusEffect" "app/(tabs)/zakwasy/index.tsx" src/components/zakwas | wc -l
+0
+## kod wyjścia: 0
+
+$ grep -n "\"version\"" node_modules/expo-sqlite/package.json; sed -n 140,149p node_modules/expo-sqlite/src/SQLiteDatabase.ts
+3:  "version": "57.0.4",
+  public async withTransactionAsync(task: () => Promise<void>): Promise<void> {
+    try {
+      await this.execAsync('BEGIN');
+      await task();
+      await this.execAsync('COMMIT');
+    } catch (e) {
+      await this.execAsync('ROLLBACK');
+      throw e;
+    }
+  }
+## kod wyjścia: 0
+
+$ grep -rniE "kolejk|współbież|równoleg.{0,30}zapis|withExclusiveTransaction" docs/decyzje.md docs/DECISIONS.md docs/adr CLAUDE.md | grep -iE "zapis|transakc|sqlite|baz" 
+docs/adr/ADR-003_trwalosc_offline_i_kolejka_outbox.md:26:- **Opis:** Trzymanie kolejki zdarzeń w pamięci ulotnej i zapis do pliku dopiero przy wyjściu z aplikacji.
+## kod wyjścia: 0
+
+$ grep -rnE "35[–-]120|0[–-]6 ?%" docs/decyzje.md docs/DECISIONS.md docs/adr CLAUDE.md
+## kod wyjścia: 1
+
+$ grep -rn "Zero Partial Writes" docs/adr
+docs/adr/ADR-003_trwalosc_offline_i_kolejka_outbox.md:20:  - 100% odporność na awarie zasilania — transakcja SQLite albo wykonuje się w całości, albo cofa zmiany (Zero Partial Writes).
+## kod wyjścia: 0
+

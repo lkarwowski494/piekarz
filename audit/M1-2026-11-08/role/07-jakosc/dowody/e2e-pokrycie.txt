@@ -1,0 +1,81 @@
+$ grep -rhoE "id: \"[a-z0-9-]+\"" .maestro/e2e .maestro/e2e-basic | sort -u   (identyfikatory, których dotykają scenariusze E2E)
+id: "add-starter-btn"
+id: "arkusz-dnia"
+id: "arkusz-zaplanuj-btn"
+id: "close-modal"
+id: "discard-bake-btn"
+id: "dziennik-doktor-btn"
+id: "kalendarz-tryb-miesiac"
+id: "karta-otworz"
+id: "loaves-count-display"
+id: "miesiac-siatka"
+id: "new-starter-name-input"
+id: "next-or-finish-step-btn"
+id: "pasek-tygodnia"
+id: "plan-dzien-2"
+id: "plan-dzien-3"
+id: "plan-start-bake-btn"
+id: "plan-zaplanuj-btn"
+id: "privacy-policy-btn"
+id: "przelacznik-wypiekow"
+id: "recipe-hydration"
+id: "recipe-list"
+id: "restore-purchases-btn"
+id: "spirala-otworz"
+id: "start-bake-btn"
+id: "start-czynnosci"
+id: "start-pieke-na-drozdzach"
+id: "start-pieke-na-zakwasie"
+id: "start-plan-spirala"
+id: "start-plany"
+id: "start-trwa-wypiek"
+id: "start-zakladam-zakwas"
+id: "step-time"
+id: "step-title"
+id: "step-undo-btn"
+id: "step-why-btn"
+id: "tab-dziennik"
+id: "tab-dzis"
+id: "tab-receptury"
+id: "tab-zakwasy"
+id: "terms-of-use-btn"
+id: "thumb-bar"
+id: "zakladanie-pierwsze-dokarmienie-btn"
+id: "zakladanie-start"
+id: "zakwas-doctor-shortcut-btn"
+id: "zgoda-dalej-btn"
+
+$ grep -c takeScreenshot .maestro/e2e/*.yaml .maestro/e2e-basic/*.yaml
+.maestro/e2e/01-pierwsze-uruchomienie.yaml:0
+.maestro/e2e/02-wypiek-na-stolnicy.yaml:0
+.maestro/e2e/03-prowadzenie-widok-skupiony.yaml:0
+.maestro/e2e/04-plan-na-pozniej.yaml:0
+.maestro/e2e/05-dwa-wypieki.yaml:0
+.maestro/e2e-basic/01-start-bez-ekranu-pro.yaml:0
+.maestro/e2e-basic/02-miesiac-ekran-pro.yaml:0
+.maestro/e2e-basic/03-arkusz-dnia-zaplanuj-pro.yaml:0
+.maestro/e2e-basic/04-wypiek-teraz-basic.yaml:0
+.maestro/e2e-basic/05-drugi-zakwas-pro.yaml:0
+
+$ grep -n "Dziennik\|ocen\|Zakończ\|zakończ\|piekarz-kopia\|kopia automatyczna" docs/wydanie/lista-kontrolna-telefonu.md
+kod: 1 (1 = brak trafień)
+
+$ grep -rn "autoBackup(" src app (kod produkcyjny)
+src/data/sqlite-store.ts:70:      .then((data) => autoBackup(data))
+src/data/sqlite-store.ts:381:      .then((data) => autoBackup(data))
+src/lib/backup.ts:179:export async function autoBackup(state: PiekarzBackupData): Promise<string | null> {
+
+$ sed -n 64,72p src/data/sqlite-store.ts
+    memStore.logs.unshift(log);
+  }
+
+  // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
+  if (log.finishedAt) {
+    void collectBackupData()
+      .then((data) => autoBackup(data))
+      .catch(() => null);
+  }
+
+# e2e-ios.yml: kroki po „Run E2E flows (.maestro/e2e, pl_PL)” nie mają if: always(); job 128824910988 (run 42511355281, 2ef8870a):
+Run E2E flows pl_PL: failure 19:04:47-19:12:57; en_US: skipped; Negative control: skipped; Build Basic: skipped; Install Basic: skipped; Run E2E flows in Basic: skipped (MCP actions_get get_workflow_job)
+Log: "1/5 Flow Failed"; "##[error]Process completed with exit code 1." (get_job_logs failed_only)

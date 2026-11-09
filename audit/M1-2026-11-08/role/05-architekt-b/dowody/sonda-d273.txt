@@ -1,0 +1,57 @@
+# Sonda (kopia kodu w scratchpadzie: git worktree 2ef8870a, plik testu poza repo; adapter node:sqlite z repo src/data/__tests__/helpers/node-sqlite-adapter.ts)
+# Treść sondy:
+  | /** Sonda audytu 05-architekt-b (scratchpad): D-273 — koniec wypieku z nieczytelnym wierszem sesji przy nieudanym zapisie pliku. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import * as FileSystem from 'expo-file-system/legacy';
+  | import { useTempDbDir, restartApp, dbFilePath, openRaw } from './helpers/node-sqlite-adapter';
+  | import { zalozBaze1021 } from './helpers/baza-1021';
+  | 
+  | const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | const SUROWE = '{"version":2,"steps":"NIECZYTELNE-D273"}';
+  | 
+  | describe('sonda D-273', () => {
+  |   const zapis = FileSystem.writeAsStringAsync as unknown as jest.Mock;
+  |   let oryginal: (uri: string, content: string) => Promise<void>;
+  |   beforeEach(() => { useTempDbDir(); mockFiles.clear(); oryginal = zapis.getMockImplementation() as typeof oryginal; });
+  |   afterEach(() => zapis.mockImplementation(oryginal));
+  | 
+  |   it('finishBake(sessionId) przy błędzie zapisu pliku: wiersz skasowany, surowej treści nie ma w żadnym pliku', async () => {
+  |     zalozBaze1021(APP_DB());
+  |     let app = restartApp();
+  |     await app.schema.initDatabase();
+  |     const raw = openRaw(APP_DB());
+  |     raw.prepare("INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('wyp-d273', 'active', ?, 1, 1)").run(SUROWE);
+  |     const przed = raw.prepare("SELECT count(*) AS c FROM bake_sessions WHERE id = 'wyp-d273'").get();
+  |     raw.close();
+  |     zapis.mockImplementation(async () => { throw new Error('ENOSPC: brak miejsca'); });
+  |     const wynik = await app.store.finishBake({ id: 'wyp-d273', recipeName: 'Chleb', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'wyp-d273', wymagajSesji: true });
+  |     await new Promise((r) => setTimeout(r, 50));
+  |     const raw2 = openRaw(APP_DB());
+  |     const po = raw2.prepare("SELECT count(*) AS c FROM bake_sessions WHERE id = 'wyp-d273'").get();
+  |     const wpis = raw2.prepare("SELECT count(*) AS c FROM bakes WHERE id = 'wyp-d273'").get();
+  |     raw2.close();
+  |     const wPlikach = [...mockFiles.values()].filter((v) => v.includes('NIECZYTELNE-D273')).length;
+  |     console.log('D273', JSON.stringify({ wynik, wierszSesjiPrzed: przed, wierszSesjiPo: po, wpisDziennika: wpis, plikiZTrescia: wPlikach }));
+  |     zapis.mockImplementation(oryginal);
+  |     app = restartApp();
+  |     await app.schema.initDatabase();
+  |     const kopia = await app.store.collectBackupData();
+  |     console.log('D273 po restarcie: uszkodzoneWiersze w kopii =', JSON.stringify(kopia.uszkodzoneWiersze ?? []));
+  |   });
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-d273.sqlite.test.ts
+  console.log
+    D273 {"wynik":"zapisano","wierszSesjiPrzed":{"c":1},"wierszSesjiPo":{"c":0},"wpisDziennika":{"c":1},"plikiZTrescia":0}
+  console.log
+    D273 po restarcie: uszkodzoneWiersze w kopii = []
+PASS src/data/__tests__/sonda-b-d273.sqlite.test.ts
+  sonda D-273
+    ✓ finishBake(sessionId) przy błędzie zapisu pliku: wiersz skasowany, surowej treści nie ma w żadnym pliku (226 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.478 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-d273.sqlite.test.ts/i.
+kod: 0

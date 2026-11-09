@@ -1,0 +1,87 @@
+$ git diff 9c255a0 2ef8870a -- src/data/sqlite-schema.ts src/data/migracja-v6.ts src/data/kopie-przed-migracja.ts  (build 1022 = v6 → kandydat 1023)
+ src/data/migracja-v7.ts   | 23 +++++++++++++++++++++++
+ src/data/sqlite-schema.ts |  5 +++++
+ 2 files changed, 28 insertions(+)
+diff --git a/src/data/sqlite-schema.ts b/src/data/sqlite-schema.ts
+index c1d6de2a..bc3ee6e4 100644
+--- a/src/data/sqlite-schema.ts
++++ b/src/data/sqlite-schema.ts
+@@ -15,6 +15,7 @@ import type { SessionStep } from '../core/bake-steps';
+ import { markStorageUnavailable, markStorageNewer, markStorageReady } from './storage-status';
+ import type { WierszSesji } from './bake-sessions-store';
+ import { zapiszSesjePrzedMigracja, przeniesSesjeV6 } from './migracja-v6';
++import { MIGRACJA_V7 } from './migracja-v7';
+ 
+ export const DB_NAME = 'piekarz.db';
+ 
+@@ -42,6 +43,9 @@ export interface ActiveBakeState {
+   zaczetyZDostepem?: boolean;
+   /** Receptura: przy końcu do bakes.recipe_id; brak = bez receptury [M3 D1]. */
+   recipeId?: string;
++  /** Wersja i tryb (D-242 Z2); brak = wypiek sprzed p9. Wersja przy końcu do bakes.leaven [M3 p9b]. */
++  wersja?: 'zakwas' | 'drozdze';
++  tryb?: 'piekarnik' | 'maszyna';
+ }
+ 
+ let dbInstance: SQLite.SQLiteDatabase | null = null;
+@@ -334,6 +338,7 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
+       await przeniesSesjeV6(db);
+     },
+   },
++  MIGRACJA_V7,
+ ];
+ 
+ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
+kod: 0
+
+$ git diff 39f3890 9c255a0 --stat -- src/data/sqlite-schema.ts src/data/migracja-v6.ts (1021 → 1022)
+$ git diff f42c0d8 39f3890 -- src/data/sqlite-schema.ts | grep -E "^[-+]" w zakresie migracji 1–5 (1014 → 1021)
+-import { PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
++import { kopiaPrzedMigracja } from './kopie-przed-migracja';
++import type { WierszSesji } from './bake-sessions-store';
++import { zapiszSesjePrzedMigracja, przeniesSesjeV6 } from './migracja-v6';
++  /** Receptura: przy końcu do bakes.recipe_id; brak = bez receptury [M3 D1]. */
++  recipeId?: string;
++  bakeSessions: [] as WierszSesji[],
++  memStore.bakeSessions = [];
++  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
++  przed?: (db: SQLite.SQLiteDatabase) => Promise<void>;
++  {
++    // D-102: wiersz na wypiek, recipe_id (NULL dla starych), stały dzień karmienia (ISO 1–7, minuta dnia); dane: migracja-v6.ts
++    version: 6,
++    description: 'Bake sessions list, bake recipe id, fixed fridge feeding day',
++    przed: zapiszSesjePrzedMigracja,
++    run: async (db) => {
++      await db.execAsync(`
++        CREATE TABLE IF NOT EXISTS bake_sessions (
++          id TEXT PRIMARY KEY NOT NULL,
++          status TEXT NOT NULL CHECK (status IN ('active', 'planned')),
++          session_json TEXT NOT NULL,
++          created_at INTEGER NOT NULL,
++          updated_at INTEGER NOT NULL
++        );
++        CREATE INDEX IF NOT EXISTS idx_bake_sessions_status ON bake_sessions(status, created_at);
++      `);
++      const bakesCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
++      if (!bakesCols.some((c) => c.name === 'recipe_id')) await db.execAsync('ALTER TABLE bakes ADD COLUMN recipe_id TEXT;');
++      const st = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
++      if (!st.some((c) => c.name === 'fridge_feed_weekday')) {
++        await db.execAsync('ALTER TABLE starters ADD COLUMN fridge_feed_weekday INTEGER CHECK (fridge_feed_weekday IS NULL OR fridge_feed_weekday BETWEEN 1 AND 7);');
++      }
++      if (!st.some((c) => c.name === 'fridge_feed_minute')) {
++        await db.execAsync(`ALTER TABLE starters ADD COLUMN fridge_feed_minute INTEGER
++          CHECK (fridge_feed_minute IS NULL OR (fridge_feed_minute BETWEEN 0 AND 1439 AND fridge_feed_weekday IS NOT NULL));`);
++      }
++      await przeniesSesjeV6(db);
++    },
++  },
+-  const backupPath = preMigrationBackupPath(db.databasePath, currentVersion);
+-  await db.runAsync('VACUUM INTO ?;', backupPath);
++  const backupPath = await kopiaPrzedMigracja(db, currentVersion);
++      if (m.przed) await m.przed(db);
+-/** Ścieżka kopii obok pliku bazy: backup_pre_migration-v<wersja>-<czas>.db. */
+-export function preMigrationBackupPath(databasePath: string, fromVersion: number, now: number = Date.now()): string {
+-  const cut = Math.max(databasePath.lastIndexOf('/'), databasePath.lastIndexOf('\\'));
+-  return `${databasePath.slice(0, cut + 1)}${PRE_MIGRATION_BACKUP_NAME}-v${fromVersion}-${now}.db`;
+-}
++export { preMigrationBackupPath } from './kopie-przed-migracja';

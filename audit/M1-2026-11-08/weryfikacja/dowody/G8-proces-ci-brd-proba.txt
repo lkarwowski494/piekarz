@@ -1,0 +1,56 @@
+$ grep -n "próba\|próbn\|14 dni" docs/brd/wymagania*.md
+docs/brd/wymagania-dane.md:56:    - Zakładając, że próba się skończyła bez zakupu
+docs/brd/wymagania-dane.md:60:    - Zakładając, że próba się skończyła bez zakupu
+docs/brd/wymagania-dane.md:73:    - Zakładając, że próba się skończyła bez zakupu
+docs/brd/wymagania-dane.md:103:    - Zakładając, że użytkownik widzi ofertę 14 dni próby
+docs/brd/wymagania-dane.md:113:- Dowód potrzeby: model D-112, D-113 (Basic darmowy na zawsze, Pro bez próby; kontrakt `docs/monetyzacja.md` „Reguły dostępu”, wdrożenie D-116; poprzednio DEC-0
+docs/brd/wymagania-dane.md:130:- Dowód potrzeby: D-112 (bez próby i bez oferty wprowadzającej; poprzednio DEC-01 d: oferta „Wypróbuj 14 dni” przy pierwszym użyciu), kontrakt „Reguły dostę
+docs/brd/wymagania-dziennik.md:14:    - Zakładając, że użytkownik ma dostęp do funkcji (próba albo zakup)
+docs/brd/wymagania-dziennik.md:56:    - Zakładając, że próba się skończyła bez zakupu
+docs/brd/wymagania-dziennik.md:194:    - Zakładając, że okres próbny minął bez zakupu
+docs/brd/wymagania-dziennik.md:270:- Dowód potrzeby: J-12; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku); decyzja D-067 (DEC-20 a planu napraw M1: po 3. ukończonym wypieku
+docs/brd/wymagania-dziennik.md:273:    - Zakładając, że dziennik ma co najmniej 3 ukończone wypieki (z właśnie zapisanym), ostatnia prośba o ocenę była co najmniej 14 dni temu, a w ostatnich 
+docs/brd/wymagania-dziennik.md:280:  - Scenariusz: Odstęp krótszy niż 14 dni
+docs/brd/wymagania-kalendarz.md:206:- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); H-15 (b
+docs/brd/wymagania-kalendarz.md:214:    - Gdy użytkownik dotyka dnia dalej niż 14 dni od dziś
+docs/brd/wymagania-kalendarz.md:215:    - Wtedy arkusz dnia nie ma skrótu do planu (zasięg dnia „gotowe” w Harmonogramie: dziś + 14 dni, D-108)
+docs/brd/wymagania.md:41:- Kroki: przy pierwszym użyciu dowolnej funkcji widzi ofertę 14 dni próby z ceną po próbie i sposobem anulowania → wybiera plan albo zakup dożywotni → po zakupie fun
+docs/brd/wymagania.md:67:### PR-16: Zakończyć okres próbny bez zakupu
+docs/brd/wymagania.md:68:- Kto: wszyscy · Praca: J-10, J-04 · Częstotliwość: raz · Kontekst: koniec 14 dni.
+docs/brd/wymagania.md:69:- Kroki: przed końcem próby widzi, co zostanie bez zakupu → po końcu przegląda historię, eksportuje i usuwa dane bez opłaty → próba odblokowania innej funkcji pokaz
+docs/brd/wymagania.md:116:- Miara: kanały sygnału kroku. Próg: powiadomienie z tekstem kroku i haptyka obok dźwięku (DEC-02). Metoda: test planowania powiadomień i próba na urządzeniu (krok w�
+exit=0
+
+$ sed -n 55,58p docs/brd/wymagania-dziennik.md
+  - Scenariusz: Przegląd historii bez zakupu
+    - Zakładając, że próba się skończyła bez zakupu
+    - Gdy użytkownik otwiera historię
+    - Wtedy widzi wszystkie wpisy, ale nie może dodać nowego (DEC-01 d, BR-ZAK-004)
+exit=0
+
+$ sed -n 101,106p docs/brd/wymagania-dane.md  (BR-ZAK-003, nie wymienione w znalezisku)
+- Kryteria akceptacji:
+  - Scenariusz: Przed startem próby
+    - Zakładając, że użytkownik widzi ofertę 14 dni próby
+    - Gdy czyta ofertę
+    - Wtedy widzi długość próby, cenę po próbie, okres odnowienia i jak anulować w ustawieniach App Store
+  - Scenariusz: Zamknięcie oferty
+exit=0
+
+$ grep -n "Status: wycofane\|wycofan" docs/brd/wymagania.md docs/brd/wymagania-dziennik.md docs/brd/wymagania-dane.md
+exit=1
+
+$ sed -n 69,80p src/lib/platnosci/konfiguracja.ts
+export const BASIC: readonly Funkcja[] = [
+  'historia',
+  'dane',
+  'import',
+  'kalkulator',
+  'harmonogram',
+  'stolnica',
+  'zakwas',
+  'doktor',
+  'receptury',
+  'akademia',
+];
+exit=0

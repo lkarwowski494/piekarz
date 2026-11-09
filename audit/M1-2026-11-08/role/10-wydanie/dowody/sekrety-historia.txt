@@ -1,0 +1,8 @@
+$ node sprawdz-wydanie.mjs sekrety <pelny klon z mirror github.com/lkarwowski494/piekarz, HEAD 2ef8870a, 1201 commitow, 190 refow> --historia
+BŁĄD IDENTYFIKATOR tests/asc-ustawienia.test.ts:43: ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR tests/asc-zgloszenie.test.ts:46: ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR w historii (4b0b3c37): ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR w historii (bdb854be): ASC_ISSUER_ID = WY…CA
+BŁĄD SEKRET klucz prywatny w historii (70fd81aa)
+BŁĘDY: 5
+kod=1

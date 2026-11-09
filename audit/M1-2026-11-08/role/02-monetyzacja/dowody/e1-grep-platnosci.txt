@@ -1,0 +1,54 @@
+$ grep -rnE "expo-iap|react-native-iap|react-native-purchases|StoreKit" package.json app.json app.config.*
+package.json:50:    "expo-iap": "6.1.1",
+app.json:128:      "expo-iap",
+kod: 2
+
+$ grep -rnE "currentEntitlements|getAvailablePurchases|getCustomerInfo|purchaseUpdatedListener|addCustomerInfoUpdateListener|Transaction\.updates|finishTransaction|restorePurchases|syncIOS|AppStore\.sync|originalAppVersion" src app --include=*.ts --include=*.tsx (bez __tests__)
+src/components/AppAccessProvider.tsx:16:  const { access, isPaywallVisible, setPaywallVisible, subscribe, restorePurchases } = useAppAccess();
+src/components/AppAccessProvider.tsx:35:        onRestore={restorePurchases}
+src/components/przywroc-zakupy.ts:4:// (AppStore.sync w adapterze); błąd połączenia to nie brak zakupu, więc ma osobny komunikat.
+src/lib/app-access.ts:141:  const restorePurchases = useCallback(przywrocZakupy, []);
+src/lib/app-access.ts:154:    restorePurchases,
+src/lib/platnosci/stan.ts:4:// subskrybują ją przez useAppAccess. Kolejność: odczyt sklepu → zapis pamięci → finishTransaction.
+src/lib/platnosci/stan.ts:110: * finishTransaction dopiero po zapisie pamięci z udanego odczytu; przy błędzie odczytu transakcja
+src/lib/platnosci/sklep.ts:4:// (Transaction.currentEntitlements: getAvailablePurchases z onlyIncludeActiveItemsIOS) na Uprawnienie[].
+src/lib/platnosci/sklep.ts:104:    const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
+src/lib/platnosci/sklep.ts:164:/** Przywracanie na wyraźne żądanie użytkownika (AppStore.sync), potem bieżące uprawnienia. */
+src/lib/platnosci/sklep.ts:167:  await Iap.restorePurchases();
+src/lib/platnosci/sklep.ts:194:  return Iap.purchaseUpdatedListener(fn);
+src/lib/platnosci/sklep.ts:198:  await Iap.finishTransaction({ purchase: p, isConsumable: false });
+kod: 0
+
+$ grep -rnE "isPro|setPro|premium|unlock|odblok|maDostep|trial|proba|__DEV__|EXPO_PUBLIC_E2E" src app (bez __tests__)
+src/components/zakwas/ZakwasDziennik.tsx:136:        {pokazGotowosc && !blokadaGotowosci.odblokowane && <BlokadaFunkcji {...blokadaGotowosci}>{null}</BlokadaFunkcji>}
+src/components/zakwas/ZakwasDziennik.tsx:137:        {pokazGotowosc && blokadaGotowosci.odblokowane && stan.gotowy && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta.')}</Text>
+src/components/zakwas/ZakwasDziennik.tsx:140:        {pokazGotowosc && blokadaGotowosci.odblokowane && radaKarmienia && (
+src/components/PaywallModal.tsx:82:  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+src/components/PaywallModal.tsx:114:  // Blokada przed drugim stuknięciem, zanim stan isProcessing zdąży się wyrenderować [audyt-niezalezny C-5]
+src/components/PaywallModal.tsx:247:              accessibilityState={{ disabled: stan === 'ladowanie' || isProcessing, busy: isProcessing }}
+src/components/PaywallModal.tsx:249:              style={[styles.glowny, (stan === 'ladowanie' || isProcessing) && styles.nieaktywny]}
+src/components/PaywallModal.tsx:250:              disabled={stan === 'ladowanie' || isProcessing}
+src/components/BlokadaFunkcji.tsx:23:  odblokowane: boolean;
+src/components/BlokadaFunkcji.tsx:33:export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, podglad = false, ikonaKarty, children }: BlokadaFunkcjiProps) {
+src/components/BlokadaFunkcji.tsx:35:  if (odblokowane) return <>{children}</>;
+src/data/sqlite-schema.ts:202:          trial_started_at INTEGER NOT NULL,
+src/data/sqlite-schema.ts:203:          trial_days INTEGER NOT NULL DEFAULT 14,
+src/lib/i18n-en/czesc-25.ts:70:    'Rye flour from Polish industrial mills.',
+src/lib/app-access.ts:5:// nie nadaje dostępu: kolumny app_access z dawnej symulacji i triala nie są czytane.
+src/lib/app-access.ts:30: * Build E2E na symulatorze bez StoreKit (.github/workflows/e2e-ios.yml, EXPO_PUBLIC_E2E=1 wstawiane przez Metro przy
+src/lib/app-access.ts:34:const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
+src/lib/app-access.ts:53: * więc zakup na jednym ekranie odblokowuje pozostałe bez restartu.
+src/lib/app-access.ts:110:    (funkcja: Funkcja) => ({ funkcja, odblokowane: moze(funkcja), onZablokowane: () => requireActionAccess(funkcja) }),
+src/lib/platnosci/dostep.ts:25:export function decyzja(odczyt: Odczyt, pamiec: Pamiec, teraz: number, odblokowuja: readonly string[]): Decyzja {
+src/lib/platnosci/dostep.ts:29:      (u) => !u.odebrane && odblokowuja.includes(u.produkt) && (u.wygasa === null || u.wygasa > teraz)
+src/lib/platnosci/dostep.ts:42:    pamiec.produkty.some((p) => odblokowuja.includes(p)) &&
+src/lib/platnosci/konfiguracja.ts:24:/** Produkty, które odblokowują Piekarz Pro. */
+src/lib/i18n-slowniki/es-419/czesc-4.ts:53:  'Mąka żytnia z polskich młynów przemysłowych.': 'Harina de centeno de molinos industriales polacos.',
+src/lib/i18n-slowniki/ro/czesc-4.ts:53:  'Mąka żytnia z polskich młynów przemysłowych.': 'Făină de secară de la morile industriale din Polonia.',
+src/lib/i18n-slowniki/es/czesc-4.ts:53:  'Mąka żytnia z polskich młynów przemysłowych.': 'Harina de centeno de molinos industriales polacos.',
+src/lib/i18n-slowniki/id/czesc-4.ts:28:  'Mąka pszenna typ 550 (Luksusowa)': 'Tepung terigu putih premium',
+src/lib/i18n-slowniki/it/czesc-4.ts:58:  'Mąka żytnia z polskich młynów przemysłowych.': 'Farina di segale dei mulini industriali polacchi.',
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:46:  const odblokowany = moze('doktor');
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:60:  const aktywne = useMemo(() => (odblokowany ? objawy : objawy.filter((s) => s === PLAMY)), [objawy, odblokowany]);
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:86:        {odblokowany ? (
+kod: 0

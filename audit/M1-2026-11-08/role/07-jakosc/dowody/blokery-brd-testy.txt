@@ -1,0 +1,30 @@
+BR-DANE-001 testy=4 wyjatek=0 src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts src/data/__tests__/pre-migration-backup.sqlite.test.ts src/data/__tests__/testflight-migration.sqlite.test.ts 
+BR-DANE-003 testy=7 wyjatek=0 src/components/__tests__/settings-modal.test.tsx src/__tests__/import-zawsze-d039.test.tsx src/__tests__/import-jezyk-jednostki-502.test.ts 
+BR-DANE-004 testy=2 wyjatek=0 src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx src/__tests__/delete-after-trial.test.tsx 
+NFR-DANE-003 testy=0 wyjatek=0 
+NFR-DANE-004 testy=0 wyjatek=0 
+BR-ETAP-005 testy=2 wyjatek=0 src/__tests__/stolnica-restart.test.tsx src/__tests__/stolnica-plan-steps.test.tsx 
+BR-ETAP-006 testy=3 wyjatek=0 src/__tests__/start-przy-trwajacym-a1b.test.tsx src/data/__tests__/migracja-d1-1014.sqlite.test.ts tests/br-bez-testu.test.ts 
+BR-CZAS-002 testy=4 wyjatek=1 src/__tests__/notifications-pending.test.tsx src/__tests__/prowadzenie-102.test.tsx src/lib/__tests__/notifications.test.tsx 
+BR-CZAS-003 testy=3 wyjatek=0 src/__tests__/notifications-pending.test.tsx src/__tests__/stolnica-zgoda-130.test.tsx src/lib/__tests__/notifications.test.tsx 
+BR-HARMO-001 testy=5 wyjatek=1 src/__tests__/plan-za-pozno-107.test.tsx src/__tests__/basic-pro-pa.test.tsx src/__tests__/bramki-ekranow.test.tsx 
+BR-ETAP-001 testy=3 wyjatek=1 src/__tests__/stolnica-screen.test.tsx src/__tests__/stolnica-skladniki-130.test.tsx src/__tests__/bramki-ekranow.test.tsx 
+BR-KALK-001 testy=3 wyjatek=0 src/core/__tests__/domain-error-branches.test.ts tests/br-kryteria-067.test.tsx tests/br-bez-testu.test.ts 
+BR-KALK-002 testy=2 wyjatek=0 src/__tests__/br-kalk-130-reszta.test.tsx tests/br-kryteria-067.test.tsx 
+BR-ZAKW-004 testy=7 wyjatek=0 src/__tests__/br-scenariusze-193-start-zakwas.test.tsx src/__tests__/przypomnienia-karmienia-179.test.tsx src/__tests__/zakwas-screen.test.tsx 
+BR-ZAKW-005 testy=7 wyjatek=0 src/__tests__/zakwas-104-ekrany.test.tsx src/__tests__/gratulacje-zakwasu-pb.test.tsx src/__tests__/bramki-ekranow.test.tsx 
+BR-DIAG-002 testy=3 wyjatek=0 src/__tests__/zakwas-104-ekrany.test.tsx src/__tests__/bramki-ekranow.test.tsx src/core/__tests__/starter-doctor.test.ts 
+BR-ETAP-004 testy=2 wyjatek=0 src/__tests__/ostrzezenia-krokow-103.test.tsx src/core/__tests__/step-warnings.test.ts 
+BR-DIAG-004 testy=2 wyjatek=1 src/__tests__/ratunek-prowadzenie-d3a.test.tsx tests/f71-br-diag.test.ts 
+BR-ZAK-001 testy=5 wyjatek=1 src/components/__tests__/paywall-modal.test.tsx src/__tests__/przywracanie-zakupow.test.tsx src/__tests__/jeden-ekran-zakupu.test.tsx 
+BR-ZAK-003 testy=2 wyjatek=0 src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx src/__tests__/ekran-pro-pb.test.tsx 
+BR-ZAK-004 testy=6 wyjatek=0 src/__tests__/import-zawsze-d039.test.tsx src/__tests__/uprzedzenie-proby-ekran-126.test.tsx src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx 
+BR-ZAK-005 testy=2 wyjatek=0 src/__tests__/bramki-ekranow.test.tsx src/__tests__/ekran-pro-pb.test.tsx 
+BR-UST-003 testy=3 wyjatek=0 src/__tests__/polityka-offline-ust003.test.tsx tests/czeka-na-przeklad-093.test.ts tests/public-links.test.tsx 
+BR-OPIN-001 testy=4 wyjatek=0 src/__tests__/prosba-o-ocene-ekran.test.tsx src/__tests__/prosba-o-ocene-138.test.tsx src/lib/__tests__/prosba-o-ocene.test.ts 
+BR-OPIN-002 testy=3 wyjatek=0 src/__tests__/ocen-w-app-store-link.test.tsx src/__tests__/prosba-o-ocene-ekran.test.tsx tests/brd-opin-001-d067.test.ts 
+BR-PRYW-001 testy=2 wyjatek=0 src/components/__tests__/oferta-piekarz-pro-127.test.tsx tests/public-repo.test.ts 
+NFR-OFF-001 testy=0 wyjatek=0 
+NFR-PRYW-001 testy=0 wyjatek=0 
+BR-KAL-007 testy=5 wyjatek=0 src/__tests__/dzis-zrobione-d4b.test.tsx src/__tests__/dzis-d4b.test.tsx src/data/__tests__/kalendarz-d4a.sqlite.test.ts 
+BR-KAL-009 testy=9 wyjatek=1 src/__tests__/dzis-plany-d5.test.tsx src/__tests__/basic-pro-pa.test.tsx src/__tests__/harmonogram-plany-d5.test.tsx 

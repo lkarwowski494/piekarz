@@ -6,3 +6,4 @@
 - STOP 2 (2026-11-09): wszystkie rekomendacje DEC-01…DEC-19, zatwierdzone 84 zadania; uwagi z telefonu właściciel dopisze przed M2.
 - Następny krok: M2 według polecenia z raportu („Proponowane polecenie naprawy”), po dopisaniu uwag z telefonu.
 - Pliki śledzone nietknięte: git status --porcelain = 0 (E0 i E3).
+- Wyjątek nazwany (2026-11-09): raporty ról, weryfikacja i soczewki wypchnięte na gałąź audit-m1/piekarz-2026-11-08 w publicznym repo, wbrew domyślnej regule trybu audit; decyzja właściciela (przycisk „Tak, wypchnij (Recommended)”, potwierdzona bezpośrednio). Kontrola zastępcza: wzorce sekretów (2 trafienia to opisy formatu i komenda grep), brak e-maili; pominięty plik > 1 MB: role/09-lokalizacja/dowody/sprawdz-i18n-rola.txt (1,6 MB).

@@ -1,0 +1,54 @@
+$ gh run list -R lkarwowski494/piekarz --workflow e2e-ios.yml -L 6 --json ...
+98 42520804896 22e6e522 wip/08-e2e96-2026-11-09 workflow_dispatch success 2026-11-08T20:34:20Z
+97 42511814430 d1524768 wip/08-e2e95-2026-11-08 workflow_dispatch success 2026-11-08T18:48:22Z
+96 42511355281 2ef8870a master push failure 2026-11-08T18:42:44Z
+95 42504224949 0e5fa7ef redesign/piekarz-2026-10-22 workflow_dispatch success 2026-11-08T17:17:38Z
+94 42498413474 fb8b66a3 redesign/piekarz-2026-10-22 workflow_dispatch failure 2026-11-08T16:09:12Z
+93 41864203833 4869d682 redesign/piekarz-2026-10-22 workflow_dispatch failure 2026-11-04T16:06:47Z
+exit=0
+
+$ gh run view 42511355281 --log-failed | grep -E "\[(Passed|Failed)\]|Flow Failed"
+[Passed] 03-prowadzenie-widok-skupiony (1m 8s)
+[Passed] 01-pierwsze-uruchomienie (23s)
+[Passed] 04-plan-na-pozniej (54s)
+[Passed] 02-wypiek-na-stolnicy (42s)
+[Failed] 05-dwa-wypieki (37s) (Assertion is false: id: next-or-finish-step-btn is visible)
+1/5 Flow Failed
+exit=0
+
+$ git merge-base --is-ancestor 2ef8870a d1524768; echo $?
+exit=1
+
+$ git diff --stat 2ef8870a d1524768
+ .maestro/e2e-basic/04-wypiek-teraz-basic.yaml   | 15 +++++++++--
+ .maestro/e2e/02-wypiek-na-stolnicy.yaml         | 15 +++++++++--
+ .maestro/e2e/03-prowadzenie-widok-skupiony.yaml | 15 +++++++++--
+ .maestro/e2e/04-plan-na-pozniej.yaml            | 15 +++++++++--
+ .maestro/e2e/05-dwa-wypieki.yaml                | 30 ++++++++++++++++++---
+ docs/stan-08-e2e95-2026-11-08.md                | 36 +++++++++++++++++++++++++
+ docs/wznowienie-M3.md                           |  1 +
+ 7 files changed, 115 insertions(+), 12 deletions(-)
+exit=0
+
+$ git diff --stat 2ef8870a d1524768 -- app src package.json package-lock.json app.json  (pusty = kod aplikacji identyczny)
+exit=0
+
+$ gh run view 42511814430 (E2E #97, d1524768 = 2ef8870a + E2E-95) kroki 10-15
+headSha=d1524768a70b5c10f69622f9b42a7af8cd7720a8 conclusion=success
+  10 Run E2E flows (.maestro/e2e, pl_PL): success
+  11 Run E2E flows (.maestro/e2e, en_US): success
+  12 Negative control must fail: success
+  13 Build Release for simulator (Basic, without EXPO_PUBLIC_E2E): success
+  14 Install Basic build on simulator: success
+  15 Run E2E flows in Basic (.maestro/e2e-basic): success
+exit=0
+
+$ gh run list --workflow testflight.yml -L 2
+23 42511360071 2ef8870a success 2026-11-08T18:42:48Z
+22 41797022837 9c255a0a success 2026-11-04T08:06:55Z
+exit=0
+
+$ git diff --stat 0e5fa7ef 2ef8870a -- app src .maestro package.json package-lock.json app.json | grep -v i18n-slowniki  (E2E #95 zielony na 0e5fa7ef)
+ src/lib/i18n-en/czesc-30.ts               | 2 +-
+ 34 files changed, 42 insertions(+), 42 deletions(-)
+exit=0

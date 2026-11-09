@@ -1,0 +1,23 @@
+# Odczyt źródeł 2026-11-08 (curl, surowy tekst; HTML odarty ze znaczników, dokumentacja Apple przez JSON DocC)
+$ curl -sS -L https://www.sqlite.org/wal.html | (odarcie znaczników) | grep -o "If a database file is separated from its WAL file[^.]*\."
+If a database file is separated from its WAL file, then transactions that were previously committed to the database might be lost, or the database file might become corrupted.
+kod: 0
+$ curl https://www.sqlite.org/lang_vacuum.html | grep "consistent snapshot" / "twice the size"
+the generated output database is a consistent snapshot of the original database
+as much as twice the size of the original database file is required in free disk space
+kod: 0
+$ curl https://www.sqlite.org/howtocorrupt.html | grep "Overwriting a database file"
+Overwriting a database file with another without also deleting any hot journal associated with the original database
+kod: 0
+$ curl https://developer.apple.com/help/app-store-connect/test-a-beta-version/view-tester-feedback | grep "120 days"
+Crash reports are available for download for 120 days
+kod: 0
+$ curl https://developer.apple.com/tutorials/data/documentation/xcode/acquiring-crash-reports-and-diagnostic-logs.json | (tekst) | grep
+OK  TestFlight users of your app automatically share crash reports with you, regardless of the device settings for sharing diagnostic and use data
+OK  The Crashes organizer presents crash reports from customers who share diagnostic and usage information
+OK  Crash reports automatically contain identifiable symbol information if you include symbol information when submitting a build to the App Store
+OK  ask the customer to e-mail you the crash report from their device
+kod: 0
+$ curl https://developer.apple.com/tutorials/data/documentation/metrickit.json | grep "Diagnostic reports arrive immediately"
+Diagnostic reports arrive immediately in iOS 15 and later
+kod: 0

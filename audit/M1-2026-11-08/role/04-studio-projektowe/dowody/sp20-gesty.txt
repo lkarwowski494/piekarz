@@ -1,0 +1,41 @@
+$ grep -rnE "onLongPress|Swipeable|PanResponder|react-native-gesture-handler|GestureDetector|gestureEnabled|onSwipe|pagingEnabled|onScrollEndDrag|onMomentumScrollEnd|fullScreenGestureEnabled|presentation:|onRequestClose|ScrollView horizontal|horizontal" app src (bez testów)
+src/components/doktor/SymptomSelectorSection.tsx:114:        horizontal={!duzy}
+src/components/doktor/EmergencyRecoverySection.tsx:47:        horizontal={!duzy}
+src/components/DiscardRecipesModal.tsx:48:            horizontal
+src/components/harmonogram/TargetReadyCard.tsx:149:          <ScrollView ref={rzadDni} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">{chipy}</ScrollView>
+src/components/FlourBlendModal.tsx:222:                horizontal
+src/components/FlourInventoryModal.tsx:262:                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
+src/components/academy/TechniquesLibrarySection.tsx:34:        horizontal
+src/lib/i18n-en/czesc-9.ts:62:    'In over-proofed dough, protease enzymes have weakened the gluten network, making it impossible to hold an upright shape. The horizontal shape of the pan supports the structure, and the accumulated gas creates a fluffy, moist focaccia interior.',
+src/lib/i18n-slowniki/es-419/czesc-8.ts:5:  'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.': 'En la masa sobrefermentada, las enzimas proteasas debilitaron la red de gluten y le impiden mantener una forma vertical. La forma horizontal de la bandeja sostiene la estructura, y el gas acumulado crea el interior esponjoso y húmedo de la focaccia.',
+src/lib/i18n-slowniki/pt-BR/czesc-7.ts:185:  'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.': 'Na massa fermentada demais, as enzimas proteases enfraqueceram a rede de glúten, impedindo que ela mantenha a forma vertical. A forma horizontal da assadeira sustenta a estrutura, e o gás acumulado cria um interior fofo e úmido de focaccia.',
+src/lib/i18n-slowniki/es/czesc-8.ts:4:  'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.': 'En una masa sobrefermentada, las enzimas proteasas han debilitado la red de gluten y ya no puede mantener una forma vertical. La forma horizontal de la bandeja sostiene la estructura y el gas acumulado crea el interior esponjoso y jugoso de la focaccia.',
+src/lib/i18n-slowniki/pt/czesc-8.ts:5:  'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.': 'Na massa com excesso de fermentação, as enzimas proteases enfraqueceram a rede de glúten, impedindo que mantenha a forma vertical. A forma horizontal do tabuleiro sustenta a estrutura e o gás acumulado cria um interior fofo e húmido na focaccia.',
+kod: 0
+
+$ grep -rn "onRequestClose" app src
+src/components/stolnica/ZgodaPowiadomien.tsx:23:    <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={onDalej}>
+src/components/stolnica/PlanWypiekuArkusz.tsx:32:    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose}>
+src/components/stolnica/PoCoTenKrokArkusz.tsx:17:    <Modal visible={zdania !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+src/components/stolnica/FinishBakeModal.tsx:83:    <ArkuszKart visible={visible} onRequestClose={onClose} zmieniony={zmieniony} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave }}>
+src/components/BreadAcademyModal.tsx:64:      onRequestClose={onClose}
+src/components/SettingsModal.tsx:83:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={podekran ? () => setPodekran(null) : onClose} onDismiss={poZamknieciu}>
+src/components/kalendarz/ArkuszDnia.tsx:112:    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
+src/components/arkusz/ArkuszKart.tsx:56:export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, tytul, lewy, prawy, zmieniony, contentContainerStyle, children }: {
+src/components/arkusz/ArkuszKart.tsx:59:  onRequestClose: () => void;
+src/components/arkusz/ArkuszKart.tsx:77:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={pytaj(onRequestClose)} onDismiss={onDismiss}>
+src/components/DiscardRecipesModal.tsx:42:    <ArkuszKart visible={visible} onRequestClose={onClose}
+src/components/receptury/SkladnikiSheet.tsx:170:    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose} onDismiss={p.onDismiss}>
+src/components/start/ArkuszPlanu.tsx:34:    <Modal visible={plan !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
+src/components/StarterConverterModal.tsx:81:    <ArkuszKart visible={visible} onRequestClose={onClose} trescTestID="starter-converter-modal"
+src/components/FlourEquivalentsModal.tsx:38:      onRequestClose={onClose}
+src/components/ImportRecipeModal.tsx:102:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={pro.poZamknieciu}>
+src/components/settings/ImportZPlikuArkusz.tsx:95:    <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+src/components/VolumeConverterModal.tsx:61:      onRequestClose={onClose}
+src/components/FlourBlendModal.tsx:106:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+src/components/zakwas/StarterEntriesList.tsx:78:      <Modal visible={edytowany !== null} animationType="slide" presentationStyle="formSheet" onRequestClose={() => setEdytowany(null)}>
+src/components/zakwas/EditStarterModal.tsx:56:      onRequestClose={onClose}
+src/components/zakwas/AddStarterModal.tsx:46:      onRequestClose={onClose}
+src/components/calculator/TemperaturaWodySheet.tsx:24:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+src/components/calculator/SaveRecipeModal.tsx:37:      onRequestClose={onClose}
+src/components/FlourInventoryModal.tsx:145:    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>

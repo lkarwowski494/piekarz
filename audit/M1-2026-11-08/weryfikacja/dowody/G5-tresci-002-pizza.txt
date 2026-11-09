@@ -1,0 +1,41 @@
+$ (cd /home/user/piekarz && grep -n "bakeTempSteamC: 4[0-9][0-9]" src/recipes/*.ts; sed -n 33,53p src/recipes/presets-pizza-slodkie.ts)
+src/recipes/presets-pizza-slodkie.ts:50:    bakeTempSteamC: 450,
+    id: 'pizza_napoletana_48h',
+    namePl: 'Pizza w stylu neapolitańskim',
+    category: 'pizza',
+    descriptionPl: 'Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.',
+    formula: {
+      flours: [
+        { name: 'Mąka pszenna włoska Tipo 00', percentage: 100.0, type: 'tipo_00' },
+      ],
+      waterPercentage: 65.0,
+      saltPercentage: 2.8,
+      starterPercentage: 0.0,
+      extraYeastPercentage: 0.4, // drożdże świeże, DRO-PIZ-002 (217, D-100)
+      targetDoughWeightGrams: 1000,
+    },
+    targetDDT: 23.0,
+    bakeTimeSteamMinutes: 0,
+    bakeTimeBrowningMinutes: 2,
+    bakeTempSteamC: 450,
+    bakeTempBrowningC: 450,
+    recommendedVessel: 'baking_steel',
+    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && python3 -c "import json;L=json.load(open(\"docs/tresci/rejestr.json\"));print([(t[\"id\"],t.get(\"wielkosc\")) for t in L if t[\"id\"].startswith(\"DRO-PIZ\")]);print(\"twierdzenia z pieczeniem pizzy (450/oven/bake):\",[t[\"id\"] for t in L if t[\"id\"].startswith(\"DRO-PIZ\") and any(w in json.dumps(t) for w in (\"450\",\"Bake the pizza\",\"preheat the oven\"))])")
+[('DRO-PIZ-001', None), ('DRO-PIZ-002', 'drozdze_pizza_neapolitanska_swieze'), ('DRO-PIZ-003', 'drozdze_pizza_neapolitanska_swieze_d172')]
+twierdzenia z pieczeniem pizzy (450/oven/bake): []
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -n "485 °C" docs/decyzje.md | cut -c1-120)
+426:- **Odrzucone:** (b) etykieta „orientacyjne” przy wartościach bez źródła — przeczy zasadzie liczb tylko z 
+kod wyjścia: 0
+
+$ (cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/ka && curl -sS -L -A "Mozilla/5.0" -o ka2.html -w "HTTP %{http_code}\n" https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe && python3 -I ../skrypty/ka.py ka2.html)
+HTTP 200
+>> Place a rack in the center of your oven and preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside.
+>> Bake the pizza for approximately 6 minutes on the steel or 7 minutes on the stone (give or take).
+>> Turn on the oven’s top broiler and continue cooking the pizza for 2 to 3 minutes or until bubbly and charred around the edges.
+kod wyjścia: 0
+

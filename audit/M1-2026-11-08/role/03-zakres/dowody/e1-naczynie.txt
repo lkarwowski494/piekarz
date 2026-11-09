@@ -1,0 +1,39 @@
+$ grep -rn 'selected_baking_vessel\|getBakingVessel\|setBakingVessel' app src --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/SettingsModal.tsx:17:  getBakingVessel,
+src/components/SettingsModal.tsx:18:  setBakingVessel,
+src/components/SettingsModal.tsx:45:  const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
+src/components/SettingsModal.tsx:56:      void getBakingVessel().then(setBakingVesselState);
+src/components/SettingsModal.tsx:61:    setBakingVesselState(v);
+src/components/SettingsModal.tsx:62:    await guardSave(() => setBakingVessel(v))();
+src/data/ustawienia-kopii.ts:21:  'selected_baking_vessel',
+src/data/settings-store.ts:141:export async function getBakingVessel(): Promise<BakingVessel> {
+src/data/settings-store.ts:142:  const val = await getAppSetting('selected_baking_vessel', 'dutch_oven');
+src/data/settings-store.ts:147:export async function setBakingVessel(vessel: BakingVessel): Promise<void> {
+src/data/settings-store.ts:148:  await setAppSetting('selected_baking_vessel', vessel);
+kod: 0
+
+$ sed -n 24,30p src/components/settings/BakerRitualSection.tsx
+      {/* Baking Equipment Section */}
+      {/* Karta z ikoną; naczynia jako wiersze z ✓ zamiast kafli z obwódką (M3 p5, inne.html #ustawienia) */}
+      <Karta testID="karta-naczynie" tytul={t('Sprzęt i naczynie do wypieku')} ikona={<IkonaKarty nazwa="bochenek" />}>
+        <Text style={styles.cardDescription}>
+          {t('Wybierz domyślne naczynie piecowe dla procedury Stolnicy:')}
+        </Text>
+        <View style={styles.optionsCol}>
+kod: 0
+
+$ sed -n 42,49p src/core/bake-steps.ts
+/**
+ * Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). Chleb żytni piecze się w formie (ZYT-ETA-001); wersja
+ * drożdżowa (`yeast_*`, src/core/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
+ * (`maszyna_*`, src/lib/plan-maszyny.ts) piecze w maszynie [M3 p9b2].
+ */
+export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boolean {
+  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !step.id.startsWith('yeast_') && !step.id.startsWith('maszyna_');
+}
+kod: 0
+
+$ grep -n 'F-12' docs/scope-contract.md
+81:| F-12 formy, F-17 kilka wypieków naraz, F-19 Action Button, F-21 Centrum sterowania, F-29 zdjęcia przekroju, F-34 karta PNG, F-39 motywy | bez BR w nowym BRD (ER-38): nie budować | BR z dowodem od roli 01 (ER-38) i wpis ZM |
+kod: 0
+

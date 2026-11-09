@@ -1,0 +1,61 @@
+# G3-ratunek-awaria — sonda języka ekranu awaryjnego (09-lokalizacja-002)
+# Repo: /home/user/piekarz @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42; worktree w scratchpadzie: /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g3
+# Plik sondy (tylko w worktree): src/__tests__/sonda-g3-awaryjny-jezyk.test.tsx
+# Treść sondy:
+    /** Sonda G3 (scratchpad): język ekranu awaryjnego na telefonie de-DE i en-US. */
+    jest.mock('react-native-safe-area-context', () => {
+      const React = require('react');
+      return {
+        SafeAreaView: ({ children, style }: { children: React.ReactNode; style?: unknown }) => React.createElement('View', { style }, children),
+        useSafeAreaInsets: () => ({ top: 0, left: 0, right: 0, bottom: 0 }),
+      };
+    });
+    const textOf = (n: unknown): string => {
+      if (typeof n === 'string') return n;
+      if (Array.isArray(n)) return n.map(textOf).join(' | ');
+      if (n && typeof n === 'object' && 'children' in n) return textOf((n as { children: unknown }).children);
+      return '';
+    };
+    const flush = async () => { for (let i = 0; i < 50; i++) await new Promise((r) => setImmediate(r)); };
+    for (const tag of ['de-DE', 'en-US']) {
+      it(`tryb awaryjny, telefon ${tag}`, async () => {
+        jest.resetModules();
+        jest.doMock('expo-localization', () => ({ getLocales: () => [{ languageTag: tag, languageCode: tag.slice(0, 2), regionCode: tag.slice(3) }] }));
+        jest.doMock('../lib/startup-guard', () => ({ beginStartup: async () => ({ rescue: true }), markStartupSucceeded: async () => undefined }));
+        const React = require('react');
+        const TR = require('react-test-renderer');
+        const Layout = require('../../app/_layout').default;
+        const i18n = require('../lib/i18n');
+        let tree: any;
+        await TR.act(async () => { tree = TR.create(React.createElement(Layout)); await flush(); });
+        const txt = textOf(tree.toJSON());
+        // eslint-disable-next-line no-console
+        console.log(`SONDA ${tag}: jezyk aplikacji=${i18n.lang()}; tekst ekranu: ${txt}`);
+        // Dla porównania: słownik ma przekład tytułu
+        expect(i18n.lang()).toBe('pl'); // znalezisko: język źródłowy mimo telefonu ${tag}
+        expect(txt).toContain('Piekarz nie uruchomił się poprawnie');
+        await TR.act(async () => { i18n.setLang(tag.slice(0, 2)); });
+        expect(i18n.t('Piekarz nie uruchomił się poprawnie')).not.toBe('Piekarz nie uruchomił się poprawnie'); // przekład istnieje
+        console.log(`SONDA ${tag}: przeklad tytulu w slowniku=${i18n.t('Piekarz nie uruchomił się poprawnie')}`);
+        await TR.act(async () => tree.unmount());
+      });
+    }
+
+$ cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g3 && npx jest src/__tests__/sonda-g3-awaryjny-jezyk.test.tsx
+  console.log
+    SONDA de-DE: jezyk aplikacji=pl; tekst ekranu: Piekarz nie uruchomił się poprawnie | Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię. | Eksportuj kopię danych | Spróbuj ponownie
+  console.log
+    SONDA de-DE: przeklad tytulu w slowniku=Bäcker wurde nicht korrekt gestartet
+  console.log
+    SONDA en-US: jezyk aplikacji=pl; tekst ekranu: Piekarz nie uruchomił się poprawnie | Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię. | Eksportuj kopię danych | Spróbuj ponownie
+  console.log
+    SONDA en-US: przeklad tytulu w slowniku=The app did not start correctly
+PASS src/__tests__/sonda-g3-awaryjny-jezyk.test.tsx
+  ✓ tryb awaryjny, telefon de-DE (716 ms)
+  ✓ tryb awaryjny, telefon en-US (130 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.442 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/sonda-g3-awaryjny-jezyk.test.tsx/i.
+kod wyjścia: 0 (asercje sondy kodują znalezisko: lang()==='pl' na telefonie de-DE/en-US)

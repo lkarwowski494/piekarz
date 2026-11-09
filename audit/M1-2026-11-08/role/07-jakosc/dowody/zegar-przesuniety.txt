@@ -1,0 +1,96 @@
+# JAK-05/JAK-06: powtarzalność testów z zegarem rzeczywistym — sonda przesuniętego zegara (kopia robocza 2ef8870a w scratchpadzie)
+# Pliki: testy z Date.now()/new Date() bez useFakeTimers/setSystemTime (grep), 47 plików:
+src/components/__tests__/starter-hooch-advice.test.tsx
+src/__tests__/receptury-uklad-106.test.tsx
+src/__tests__/import-zawsze-d039.test.tsx
+src/__tests__/dzis-powiadomienia-wylaczone-w2.test.tsx
+src/__tests__/basic-pro-pafix.test.tsx
+src/__tests__/druk-menu.test.tsx
+src/__tests__/dzis-karty-p7.test.tsx
+src/__tests__/przeplywy-117.test.tsx
+src/__tests__/start-wypieku-teraz-d5.test.tsx
+src/__tests__/br-scenariusze-193-start-zakwas.test.tsx
+src/__tests__/garnek-kciuk-fazy-w002.test.tsx
+src/__tests__/stolnica-skladniki-130.test.tsx
+src/__tests__/czapka-ekranow-p7.test.tsx
+src/__tests__/stolnica-zgoda-130.test.tsx
+src/__tests__/dzis-kalendarz-d7.test.tsx
+src/__tests__/pas-plan-prowadzenie-p4b.test.tsx
+src/__tests__/pro-po-arkuszu-n2.test.tsx
+src/__tests__/prowadzenie-numer-kroku-p6b.test.tsx
+src/__tests__/jeden-ekran-zakupu.test.tsx
+src/__tests__/start-przy-trwajacym-a1b.test.tsx
+src/__tests__/harmonogram-plany-d5.test.tsx
+src/__tests__/zakwas-screen.test.tsx
+src/__tests__/gratulacje-zakwasu-pb.test.tsx
+src/__tests__/calculator-screen.test.tsx
+src/__tests__/po-co-ten-krok-100.test.tsx
+src/__tests__/plan-prowadzenie-karty-p4.test.tsx
+src/__tests__/start-co-dzis.test.tsx
+src/__tests__/skok-kroku-d8.test.tsx
+src/__tests__/pas-zakladek-d10.test.tsx
+src/__tests__/zakwas-karta-pusta-115.test.tsx
+src/__tests__/bramki-ekranow.test.tsx
+src/__tests__/zakwas-staly-dzien-d7.test.tsx
+src/__tests__/receptury-karty-p3.test.tsx
+src/__tests__/stolnica-keep-awake.test.tsx
+src/__tests__/miary-usa-ekrany-096.test.tsx
+src/data/__tests__/sqlite-store.test.ts
+src/data/__tests__/sqlite-resilience-exhaustive.test.ts
+src/lib/__tests__/feeding-formatter.test.ts
+src/lib/__tests__/zakwas-widok.test.tsx
+src/lib/__tests__/platnosci-hook.test.tsx
+src/lib/__tests__/kalendarz-akcje-d4b.test.ts
+tests/maestro-flows.test.tsx
+tests/matrix-invariants.test.ts
+tests/stolnica-naglowek-prz07.test.tsx
+tests/matrix-logic.test.ts
+tests/i18n-en-main-flow.test.tsx
+tests/audit-fixes.test.tsx
+
+# Shim (setupFiles, kopia robocza): przesuwa Date.now/new Date() na ZEGAR_ISO; zegar biegnie dalej.
+// Sonda roli 07: przesuwa zegar (Date.now / new Date()) na chwilę z ZEGAR_ISO; zegar biegnie dalej od tej chwili.
+const RealDate = Date;
+const cel = RealDate.parse(process.env.ZEGAR_ISO);
+const delta = cel - RealDate.now();
+class FakeDate extends RealDate {
+  constructor(...a) { if (a.length === 0) super(RealDate.now() + delta); else super(...a); }
+  static now() { return RealDate.now() + delta; }
+}
+FakeDate.parse = RealDate.parse; FakeDate.UTC = RealDate.UTC;
+global.Date = FakeDate;
+
+# Konfiguracja: jest.config.js kopii + shim
+const base = require('/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia/jest.config.js');
+module.exports = { ...base, rootDir: '/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia', setupFiles: [...base.setupFiles.map((p) => p.replace('./', '/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia/')), '/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia/sonda-zegar-shim.js'], setupFilesAfterEnv: base.setupFilesAfterEnv.map((p) => p.replace('./', '/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia/')) };
+
+== sroda
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== niedziela-przed-polnoca
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== sroda-przed-polnoca
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== niedziela-rano
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== warszawa-przed-dst-wiosna
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== nowy-jork-przed-dst-wiosna
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== warszawa-przed-dst-jesien
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== warszawa-dst-wiosna-0158
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+== auckland-sylwester
+Test Suites: 47 passed, 47 total
+Tests:       341 passed, 341 total
+
+# Komenda (każdy przypadek osobno, jeden proces naraz): cd <kopia>; ZEGAR_ISO=<chwila lokalna> TZ=<strefa> npx jest --ci --config <sondy>/jest.zegar.config.js <47 plików>; wszystkie kod 0
+# Przypadki: środa 2026-11-11 10:00 Warszawa; niedziela 2026-11-15 23:59 i 10:00 Warszawa; środa 23:59:30 Warszawa; 2027-03-27 22:30 i 2027-03-28 01:58 Warszawa (DST wiosna); 2027-03-13 22:30 Nowy Jork; 2027-10-30 23:30 Warszawa (DST jesień); 2026-12-31 23:59 Auckland

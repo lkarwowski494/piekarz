@@ -1,0 +1,53 @@
+$ curl -sS "https://itunes.apple.com/search?term=sourdough&entity=software&country={pl,us}&limit=15" (odczyt 2026-11-08 ~20:50 UTC); kod 0
+country pl resultCount 15
+  1536202410 Sourdough Hydration Calc | oceny 0 | cena Free | wersja z 2025-08-22 | zrzuty iPhone/iPad 2 1 | jezyki 1
+  6797501483 Sourdough Simplified | oceny 0 | cena Free | wersja z 2026-10-22 | zrzuty iPhone/iPad 7 0 | jezyki 1
+  6755709217 Sourdough Starter Tracker | oceny 0 | cena Free | wersja z 2026-11-03 | zrzuty iPhone/iPad 10 10 | jezyki 5
+  6736766728 Loaflo: Sourdough Starter | oceny 0 | cena Free | wersja z 2026-09-07 | zrzuty iPhone/iPad 6 5 | jezyki 1
+  1515369685 Rise: Baking & Bread Recipes | oceny 5 | cena Free | wersja z 2026-10-20 | zrzuty iPhone/iPad 9 10 | jezyki 1
+  1521410011 breadly - Sourdough Scheduler | oceny 0 | cena Free | wersja z 2021-03-24 | zrzuty iPhone/iPad 4 0 | jezyki 1
+  6760153512 Crumbly: Sourdough Starter | oceny 0 | cena Free | wersja z 2026-08-11 | zrzuty iPhone/iPad 8 4 | jezyki 1
+  1534576984 Kneady: Bread & Baking Recipes | oceny 2 | cena Free | wersja z 2026-07-15 | zrzuty iPhone/iPad 8 8 | jezyki 1
+  6812466978 Flourwise: Sourdough & Baking | oceny 1 | cena Free | wersja z 2026-10-08 | zrzuty iPhone/iPad 8 8 | jezyki 6
+  6748180011 Yeasta: Sourdough Tracker | oceny 0 | cena Free | wersja z 2026-09-28 | zrzuty iPhone/iPad 8 8 | jezyki 9
+  6738346798 Sourdough Feeding Calculator | oceny 0 | cena Free | wersja z 2026-08-04 | zrzuty iPhone/iPad 4 2 | jezyki 1
+  6785357199 BakeReady - Sourdough Tracker | oceny 0 | cena Free | wersja z 2026-07-08 | zrzuty iPhone/iPad 5 0 | jezyki 1
+  6752309546 Sourdough Buddy | oceny 0 | cena Free | wersja z 2026-07-09 | zrzuty iPhone/iPad 7 4 | jezyki 1
+  6760582503 Sourdough Tracker: Starter Log | oceny 0 | cena Free | wersja z 2026-09-25 | zrzuty iPhone/iPad 7 1 | jezyki 1
+  6817087296 LoafCoach: Sourdough Bread | oceny 0 | cena Free | wersja z 2026-11-07 | zrzuty iPhone/iPad 6 0 | jezyki 1
+country us resultCount 15
+  6736766728 Loaflo: Sourdough Starter | oceny 564 | cena Free | wersja z 2026-09-07 | zrzuty iPhone/iPad 6 5 | jezyki 1
+  6755709217 Sourdough Starter Tracker | oceny 33 | cena Free | wersja z 2026-11-03 | zrzuty iPhone/iPad 10 10 | jezyki 5
+  1515369685 Rise: Baking & Bread Recipes | oceny 337 | cena Free | wersja z 2026-10-20 | zrzuty iPhone/iPad 9 10 | jezyki 1
+  6797501483 Sourdough Simplified | oceny 0 | cena Free | wersja z 2026-10-22 | zrzuty iPhone/iPad 7 0 | jezyki 1
+  6747842855 SourdoughGuru: AI Baking Coach | oceny 1 | cena Free | wersja z 2026-10-22 | zrzuty iPhone/iPad 8 8 | jezyki 1
+  6756316343 Breadlify | oceny 0 | cena Free | wersja z 2025-12-20 | zrzuty iPhone/iPad 7 4 | jezyki 1
+  6813598256 Ovenbell: Home Bakery Business | oceny 4 | cena Free | wersja z 2026-09-28 | zrzuty iPhone/iPad 6 4 | jezyki 1
+  6752309546 Sourdough Buddy | oceny 1 | cena Free | wersja z 2026-07-09 | zrzuty iPhone/iPad 7 4 | jezyki 1
+  6817087296 LoafCoach: Sourdough Bread | oceny 7 | cena Free | wersja z 2026-11-07 | zrzuty iPhone/iPad 6 0 | jezyki 1
+  6738346798 Sourdough Feeding Calculator | oceny 0 | cena Free | wersja z 2026-08-04 | zrzuty iPhone/iPad 4 2 | jezyki 1
+  6769946306 Sourdough Sanity: Bake Guide | oceny 0 | cena Free | wersja z 2026-10-17 | zrzuty iPhone/iPad 7 6 | jezyki 1
+  6758812333 The Dough Lab - Bread Baking | oceny 9 | cena Free | wersja z 2026-10-21 | zrzuty iPhone/iPad 7 6 | jezyki 4
+  1521173993 West Coast Sourdough | oceny 1679 | cena Free | wersja z 2024-10-03 | zrzuty iPhone/iPad 6 0 | jezyki 3
+  1534576984 Kneady: Bread & Baking Recipes | oceny 732 | cena Free | wersja z 2026-07-15 | zrzuty iPhone/iPad 8 8 | jezyki 1
+  6751040790 Sourdough AI | oceny 5 | cena Free | wersja z 2026-11-03 | zrzuty iPhone/iPad 6 3 | jezyki 1
+===== Loaflo: Sourdough Starter https://apps.apple.com/us/app/loaflo-sourdough-starter/id6736766728 | wiek 4+ | min iOS 16.0 | jezyki ['EN']
+OPIS (poczatek): Loaflo: Sourdough Starter is your all-in-one, AI-powered bread-baking companion. Track your starter, analyze your loaves, and perfect every bake—no sign-up required! /  / · AI Analysis: Snap a photo of your loaf or starter and get instant feedback on crust, crumb, and overall bake quality. / · Recipes: Learn how to bake new recipes with in-depth explanations. / · Starter Tracker: Log feedings, track hydration, and monitor growth so your sourdough is always at its bubbly best. / · Calculators: Forecast bread rise, adjust ratios, and convert units! / · Mr. Crumb: Chat with your built-in baking assistant for
+CO NOWEGO: Fixed a problem that could leave recipe bake planning stuck on Saving. Also includes improvements to subscription analytics.
+===== Rise: Baking & Bread Recipes https://apps.apple.com/us/app/rise-baking-bread-recipes/id1515369685 | wiek 4+ | min iOS 26.0 | jezyki ['EN']
+OPIS (poczatek): Rise is devoted to every aspect of making yummy bread! It includes great recipes, makes planning & scheduling easy, and serves as a baking journal. Rise syncs across all of your devices and supports sharing recipes with others. /  / Rise has everything you need to bake bread for both beginners and experts. Beginners can use our easy to follow recipes and articles, while experts can use Rise’s powerful editing tools to perfect their bread. /  / Rise helps you plan your recipe with a schedule overview from start to finish, so you know exactly when you’ll perform each step at a glance. Schedule notificat
+CO NOWEGO: - iPhone Duo support / - Buttermilk now counts toward hydration / - Minor improvements to starter reminders
+===== Kneady: Bread & Baking Recipes https://apps.apple.com/us/app/kneady-bread-baking-recipes/id1534576984 | wiek 4+ | min iOS 13.0 | jezyki ['EN']
+OPIS (poczatek): Kneady is the #1 home-baking app, made for bakers of all levels. Discover 600+ award-winning recipes from professional bakers, save your favourite recipes, join a passionate global community & much more. /  / ** About Kneady ** /  / - The #1 home-baking app, suitable for bakers of all levels / - Professional recipes perfected for home cooking, with clear step-by-step guidance / - Join a buzzing community, share your culinary masterpieces and learn from others! / - Save your favourite recipes for easier repeat bakes / - Set handy timers for rise phases, kneading time, oven time and more / - Toggle between metric
+CO NOWEGO: Welcome to Kneady 5.2.0, bakers! This update includes some exciting improvements: / - A major overhaul of the app's design, bringing enhancements to many screens across the app. / - Bug fixes and performance optimisations to keep everything running smoothly.
+
+$ curl -sSL https://apps.apple.com/us/app/id<ID> | sekcje App Privacy i Accessibility (tekst bez znacznikow); kod 0
+<stdin>:6: SyntaxWarning: invalid escape sequence '\.'
+app-6736766728.html PRIVACY: App Privacy App Privacy The developer, No Worries! Lifestyle, LLC , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy . To help you better understand the developer’s responses, see Privacy Definitions and Examples . Privacy practices may vary, for example, based on the features you use or your age. Learn More Data Linked to You The following data, which may be collected and linked to your identity, may be used for the following purposes: Analytics User Content Photos or Videos Other User Content Identifiers User ID Device ID Usage Data Product In
+ACCESSIBILITY: Accessibility The developer has not yet indicated which accessibility features this app supports.
+<stdin>:6: SyntaxWarning: invalid escape sequence '\.'
+app-1515369685.html PRIVACY: App Privacy App Privacy The developer, Made by Windmill, LLC , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy . To help you better understand the developer’s responses, see Privacy Definitions and Examples . Privacy practices may vary, for example, based on the features you use or your age. Learn More Data Not Linked to You The following data, which may be collected but is not linked to your identity, may be used for the following purposes: Analytics Purchases Purchase History Identifiers Device ID Usage Data Product Interaction Other Purposes
+ACCESSIBILITY: Accessibility The developer has not yet indicated which accessibility features this app supports.
+<stdin>:6: SyntaxWarning: invalid escape sequence '\.'
+app-1534576984.html PRIVACY: App Privacy App Privacy The developer, Quillbound Studios Ltd , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy . To help you better understand the developer’s responses, see Privacy Definitions and Examples . Privacy practices may vary, for example, based on the features you use or your age. Learn More Data Linked to You The following data, which may be collected and linked to your identity, may be used for the following purposes: Analytics Purchases Purchase History Location Coarse Location App Functionality Purchases Purchase History Locatio
+ACCESSIBILITY: Accessibility The developer has not yet indicated which accessibility features this app supports.

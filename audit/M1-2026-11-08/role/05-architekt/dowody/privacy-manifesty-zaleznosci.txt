@@ -1,0 +1,38 @@
+$ find node_modules -name PrivacyInfo.xcprivacy -not -path "*/example/*" (+ kategorie NSPrivacyAccessedAPIType i powody)
+== node_modules/expo-application/ios/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   tracking: False  collected: []
+== node_modules/expo-constants/ios/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryUserDefaults ['CA92.1']
+   tracking: False  collected: []
+== node_modules/expo-file-system/ios/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['0A2A.1', '3B52.1']
+   NSPrivacyAccessedAPICategoryDiskSpace ['E174.1', '85F4.1']
+   tracking: False  collected: []
+== node_modules/expo-localization/ios/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryUserDefaults ['CA92.1']
+   tracking: False  collected: []
+== node_modules/expo-notifications/ios/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryUserDefaults ['CA92.1']
+   tracking: False  collected: []
+== node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   NSPrivacyAccessedAPICategoryUserDefaults ['CA92.1']
+   tracking: False  collected: []
+== node_modules/react-native/ReactCommon/cxxreact/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   tracking: False  collected: []
+== node_modules/react-native/ReactCommon/react/timing/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategorySystemBootTime ['35F9.1']
+   tracking: False  collected: []
+== node_modules/react-native/third-party-podspecs/RCT-Folly/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   tracking: False  collected: []
+== node_modules/react-native/third-party-podspecs/boost/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   NSPrivacyAccessedAPICategorySystemBootTime ['35F9.1']
+   tracking: False  collected: []
+== node_modules/react-native/third-party-podspecs/glog/PrivacyInfo.xcprivacy
+   NSPrivacyAccessedAPICategoryFileTimestamp ['C617.1']
+   tracking: False  collected: []
+kod: 0

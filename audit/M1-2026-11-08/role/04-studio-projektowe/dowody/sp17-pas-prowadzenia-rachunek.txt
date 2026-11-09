@@ -1,0 +1,14 @@
+Rachunek [OCENA] wysokości pasa prowadzenia i widocznej treści pod nim (domyślny rozmiar tekstu, bez ekranu urządzenia).
+Źródła wartości (odczyt kodu 2026-11-08, commit 2ef8870a):
+- PasZakladki: paddingBottom 16, gap 8, tytuł tytulDuzy 34 pt (src/components/nawigacja/PasZakladki.tsx, styles.pas/tytul), podtytuł „Krok {n} z {m}” 15 pt, rząd „gora” z przyciskami 44 pt.
+- CzasKrokuNaPasie: czas 56 pt (tokeny typografia.style.czas), „potem …” 17 pt (1–2 wiersze).
+- StrefaPlanu naPasie: nazwa receptury, SpiralaWypieku (Spirala.tsx useRozmiar: pełna min(220, max(150, 150×fontScale)) = 150 pt), legenda 1–2 rzędy 13 pt, „Gotowe …”, gap 8, marginBottom 12.
+- PasekKciuka (stały, poza przewijaniem): 12 + 64 + 10 + 48 + 12 = 146 pt + wskaźnik Home 34 pt.
+- D-238 (docs/decyzje.md:1369): „pas zajmuje prawie cały ekran (iPhone 17 Pro)” (zrzut E2E e2e-90-step-031.png, poza repo).
+Suma pasa (wysokość wiersza ≈ 1,2 × rozmiar): wcięcie górne 59 + rząd 44 + 8 + tytuł 41 + podtytuł 16 + 8 + czas 67 + 8 + „potem” 22–44 + 8 + nazwa 18 + 8 + spirala 150 + 8 + legenda 18–40 + 8 + „Gotowe” 18 + 12 + 16 ≈ 545–590 pt.
+Widoczna treść pod pasem (karta „Co zrobić”, ostrzeżenie, składniki):
+- iPhone 17 Pro (402×874): 874 − ~560 − 180 ≈ 130 pt → nagłówek karty (≈52 pt) i 3–4 wiersze instrukcji; ostrzeżenie pod kartą poza ekranem.
+- iPhone SE 3. gen. (375×667, wcięcie 20, bez wskaźnika Home): 667 − ~520 − 146 ≈ 0 pt → karta instrukcji i ostrzeżenie w całości poza pierwszym ekranem.
+- Dwa wypieki: stały rząd przełącznika +64…130 pt (D-238) → na 17 Pro ≈ 0–70 pt.
+- Powiadomienia wyłączone: NotificationsOffBanner nad kartą (ProwadzenieWypieku.tsx:342) przesuwa kartę o kolejne ~120 pt.
+Wniosek: przybliżenie; do potwierdzenia zrzutem z iPhone’a (lista zrzutów dla właściciela w raporcie).

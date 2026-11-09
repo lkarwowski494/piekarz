@@ -1,0 +1,23 @@
+$ uname -a; node -v; git status --porcelain; gh --version; npx playwright --version; echo PLAYWRIGHT_BROWSERS_PATH; ls browsers; curl apps.apple.com; grep react-native-web package.json
+Linux vm 6.18.44-fc-v310 #1 SMP @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+git status --porcelain:
+kod 0
+gh version 2.89.0 (2026-03-26)
+github.com
+  X Failed to log in to github.com using token (GH_TOKEN)
+  - Active account: true
+PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+chromium
+chromium-1243
+chromium_headless_shell-1243
+ffmpeg-1011
+Version 1.63.0
+apps.apple.com HTTP 404
+developer.apple.com HTTP 200
+6:  "expo": {
+41:    "expo": "~57.0.26",
+57:    "expo-router": "~57.0.24",
+64:    "react-native": "0.86.3",
+origin	https://github.com/lkarwowski494/piekarz (fetch)
+origin	https://github.com/lkarwowski494/piekarz (push)

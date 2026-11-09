@@ -1,0 +1,96 @@
+# Wejście weryfikacji G1-dane-zapis (M1 2026-11-08, commit 2ef8870a)
+Pozycje do obalenia; uwaga: kilka ID z różnych ról może opisywać ten sam mechanizm (oceniasz każde ID osobno).
+
+### 05-architekt-001 · Zapisy bez jednej kolejki: równoległy zapis łamie atomowość importu, „Usuń wszystkie dane” i zapisu zakwasu
+- Pozycja listy kontrolnej: ARCH-12
+- Poziom: P1
+- Realność: brzegowy   · Pewność: wysoka
+- Rodzaj: D
+- Dowód: `dowody/sonda-wspolbieznosc.txt` (kod 0, adapter `node:sqlite` projektu odwzorowujący `withTransactionAsync` z expo-sqlite 57.0.4). Scenariusz D: import kopii (1 wpis z kopii, błąd zapisu przy wpisie Dziennika) i równoległy `saveStarter` — przed: 3 wpisy Dziennika, 1 zakwas, 1 wpis dziennika zakwasu; po: 0 wpisów Dziennika, zakwas i wpis z kopii, a obie operacje kończą się `StorageWriteError` („Nie zapisano”). Kontrola K: ten sam import z tym samym błędem bez równoległego zapisu nie zmienia danych (3 wpisy, zakwas `s1`). Scenariusz A: dwa równoległe `saveStarter` (dwa stuknięcia „Zapisz dokarmienie”) — oba zwracają błąd, a wpis karmienia `feed-z-2000` jest zapisany. Scenariusz B: `setAppSetting` (np. pamięć zakupu z nasłuchu StoreKit) w trakcie importu, który się nie udaje — `setAppSetting` zwraca sukces, wartości w bazie nie ma.
+- Mechanizm: `withTransactionAsync` to `BEGIN`, zadanie, `COMMIT`, a przy błędzie `ROLLBACK` na wspólnym połączeniu (`node_modules/expo-sqlite/src/SQLiteDatabase.ts:140-149`); druga transakcja w trakcie pierwszej dostaje błąd `BEGIN`, jej `ROLLBACK` wycofuje cudzą transakcję, a pierwsza dalej zapisuje bez transakcji (każda instrukcja zatwierdzona osobno), po czym jej `COMMIT` i `ROLLBACK` zawodzą. Pojedyncze instrukcje spoza transakcji wchodzą do cudzej transakcji i giną z jej wycofaniem. Kolejki zapisów nie ma: `grep -rniE "kolejk|queue|mutex|lock" src/data src/lib/save-guard.ts` → 0 trafień; `grep -rnE "withTransactionAsync\(" src/data` → 9 trafień: `src/data/sqlite-store.ts:200`, `:231`, `:277`, `:359`, `src/data/usun-wszystko.ts:25`, `src/data/starter-entries-store.ts:85`, `:102`, `:152`, `:175`. `guardSave` nie blokuje ponownego wejścia (`src/lib/save-guard.ts:16-27`), a przycisk Zapisz dokarmienie nie jest wyłączany w trakcie zapisu (`src/components/zakwas/StarterCycleCard.tsx:105`, `src/components/zakwas/useAkcjeZakwasu.ts:52-60`). Zapisy w tle bez akcji użytkownika: `setAppSetting` z nasłuchu StoreKit i powrotu na pierwszy plan (`src/lib/platnosci/stan.ts:60-63`).
+- Powraca: tak — ten sam mechanizm znalazł przegląd danych D1 (P2-1) i naprawiono go lokalnie, jedną instrukcją bez transakcji w `bake-sessions-store` (`src/data/bake-sessions-store.ts:166-170`), a nie kolejką; trwała kontrola: test z dwiema równoległymi operacjami zapisu przez port bazy (test akceptacyjny niżej) w `npm test`.
+- Kroki w aplikacji: (1) szybkie dwa stuknięcia „Zapisz dokarmienie” na karcie zakwasu — dwa komunikaty „Nie zapisano”, choć karmienie jest zapisane; ponowne stuknięcie dodaje drugi wpis kilka sekund później. (2) import kopii albo „Usuń wszystkie dane”, w trakcie którego trafi inny zapis z transakcją (drugi ekran, powiadomienie otwierające akcję) i błąd zapisu — dane częściowo skasowane, komunikat „Nie zapisano”; kopia przed importem/czyszczeniem w Plikach pozwala odzyskać dane ręcznie.
+- Test akceptacyjny: test na prawdziwym SQLite w Node (adapter projektu): import kopii równolegle z `saveStarter` i z błędem zapisu w środku importu → liczności po = liczności przed (import wycofany w całości), `saveStarter` zapisany albo zgłoszony; dwa równoległe `saveStarter` → oba kończą się sukcesem, liczba wpisów zgodna z regułą; `setAppSetting` w trakcie nieudanego importu → wartość w bazie albo błąd zgłoszony wywołującemu. Test czerwony na 2ef8870a z właściwego powodu (scenariusze z `dowody/sonda-wspolbieznosc.txt`).
+
+### 05-architekt-502 · Dwa zapisy naraz cofają sobie transakcje; dane zapisują się częściowo przy komunikacie „Nie zapisano”
+- Pozycja listy kontrolnej: ARCH-12
+- Poziom: P1
+- Realność: brzegowy · Pewność: wysoka
+- Rodzaj: D
+- Dowód:
+  - sqlite.org: „An attempt to invoke the BEGIN command within a transaction will fail with an error” (`dowody/zrodla-sqlite.txt`, odczyt 2026-11-08).
+  - `withTransactionAsync` przy każdym błędzie, także nieudanym `BEGIN` w cudzej transakcji, wykonuje `ROLLBACK` na wspólnym połączeniu: `node_modules/expo-sqlite/src/SQLiteDatabase.ts:146` (expo-sqlite 57.0.4, `dowody/arch12-transakcje.txt`).
+  - Odtworzenie na kopii (`dowody/sonda-kolejka.txt`), przypadek A: dwa `saveStarter` naraz → oba kończą się StorageWriteError (cannot rollback - no transaction is active; cannot start a transaction within a transaction), a wpis `feed-z-2000` jest w bazie: użytkownik widzi „Nie zapisano”, dane zapisane.
+  - Przypadek B: import kopii i zapis zakwasu naraz → import zgłasza błąd, a w bazie jest już stan z kopii (wpis i zakwas z telefonu skasowane; `bakes` 1 → 1 z kopii, `starters` 1 → 1 z kopii), zapis zakwasu przepadł; kasowanie i wstawianie wykonały się poza transakcją, więc błąd w środku importu zostawiłby stan pośredni.
+- Mechanizm: brak jednej kolejki zapisów na wspólnym połączeniu; `grep -rn "withTransactionAsync(" src app` → 9 trafień: `src/data/sqlite-store.ts:200`, `src/data/sqlite-store.ts:231`, `src/data/sqlite-store.ts:277`, `src/data/sqlite-store.ts:359`, `src/data/usun-wszystko.ts:25`, `src/data/starter-entries-store.ts:85`, `src/data/starter-entries-store.ts:102`, `src/data/starter-entries-store.ts:152`, `src/data/starter-entries-store.ts:175`; pojedyncze zapisy w czasie cudzej transakcji wchodzą do niej i giną przy jej `ROLLBACK`. Strażnik drugiego stuknięcia jest tylko w końcu wypieku (`src/hooks/useFinishBake.ts:45`), nie np. w zapisie dokarmienia z karty zakwasu (`src/components/zakwas/useAkcjeZakwasu.ts:53`).
+- Powraca: tak — M3 D1b, przegląd danych D1 P2-1 („cofał cudzą transakcję”, `src/data/bake-sessions-store.ts:166-170`): naprawione tylko dla zapisów `bake_sessions` (jedna instrukcja), reszta zapisów bez zmian → trwała kontrola w teście akceptacyjnym.
+- Kroki w aplikacji: dwa zapisy w tym samym oknie kilku–kilkunastu ms: podwójne stuknięcie przycisku zapisu bez strażnika, zapis z „Dziś” w trakcie importu albo czyszczenia. Na telefonie okno jest krótkie (kilka wywołań mostka), stąd brzegowe; skutek, gdy trafi: fałszywe „Nie zapisano”, zapis częściowy, podwójny wpis przy ponowieniu.
+- Test akceptacyjny: na prawdziwym SQLite dwa `saveStarter` naraz i import z równoległym zapisem kończą się oba sukcesem, stan = zapis sekwencyjny; test, że repozytoria nie wołają `withTransactionAsync` ani `runAsync` poza kolejką (grep w teście).
+- Weryfikacja przeciwna (E2): szukałem kolejki zapisów — jest tylko kolejka uzgadniania powiadomień (`serial` w `src/lib/notifications.ts`) i kolejka zapisów jednej Stolnicy (`useBakeSession.ts`); natywne wykonywanie po kolei nie pomaga, bo przeplot następuje między `await` w JS (ostrzega o tym sam opis `withTransactionAsync` w expo-sqlite). Realność obniżona do brzegowej, bo okno to kilka wywołań mostka. Znalezisko utrzymane.
+
+### 08-programista-001 · Równoległe transakcje na jednym połączeniu cofają się nawzajem: zapis z komunikatem „Nie zapisano” bywa zapisany, import kopii wchodzi bez transakcji
+- Pozycja listy kontrolnej: DEV-05
+- Poziom: P1
+- Realność: brzegowy · Pewność: wysoka (mechanizm odtworzony na prawdziwym SQLite)
+- Rodzaj: D
+- Dowód: `node_modules/expo-sqlite/src/SQLiteDatabase.ts:140-149` — catch woła „await this.execAsync('ROLLBACK');” także wtedy, gdy nie udało się samo BEGIN. Druga transakcja na tym samym połączeniu dostaje błąd „cannot start a transaction within a transaction” i swoim ROLLBACK cofa pierwszą. Pierwsza dalej wykonuje instrukcje już poza transakcją, a jej COMMIT i ROLLBACK padają. Zespół zna ten mechanizm (`src/data/bake-sessions-store.ts:166-170`, „po nieudanym BEGIN”), ale ominął go tylko w zapisach sesji. Sonda (`dowody/sonda-kolejka-transakcji.txt`, adapter `node:sqlite` odwzorowujący expo-sqlite 57.0.4): (A) dwa `saveStarter` naraz dają dwa błędy `StorageWriteError`, a mimo to w bazie zostaje wpis `feed-z-2000`; (B) import kopii i dokarmienie naraz dają dwa błędy, a w bazie są wyłącznie dane z kopii (stare wpisy i zakwas skasowane), dokarmienie przepada, a import nie był atomowy.
+- Mechanizm: każda operacja wielowierszowa woła `withTransactionAsync` na wspólnym połączeniu bez kolejki zapisów; `grep -rn withTransactionAsync src` → 10 wywołań: `src/data/sqlite-store.ts:200` (saveStarter), `src/data/sqlite-store.ts:231` (deleteStarter), `src/data/sqlite-store.ts:277` (restoreFromBackupData), `src/data/sqlite-store.ts:359` (finishBake), `src/data/starter-entries-store.ts:85`, `src/data/starter-entries-store.ts:102`, `src/data/starter-entries-store.ts:152`, `src/data/starter-entries-store.ts:175`, `src/data/usun-wszystko.ts:25`, migracje ręcznym BEGIN (`src/data/sqlite-schema.ts:374`). Pojedyncze zapisy w tle trafiają do cudzej transakcji i znikają razem z nią: pamięć zakupu (`src/lib/platnosci/stan.ts:60-63`, nasłuch StoreKit) i postęp kroku (`src/hooks/useBakeSession.ts:79`); ekran ma wtedy nową wersję wiersza, której baza nie ma.
+- Powraca: tak — przegląd danych D1 P2-1 (komentarz w `bake-sessions-store.ts`) naprawił jedno wystąpienie → trwała kontrola: test współbieżności w `src/data/__tests__` i reguła w warstwie danych (jedna kolejka), żeby nowe ścieżki nie omijały portu.
+- Kroki w aplikacji: (1) Zakwasy → dwa szybkie stuknięcia „Dokarmione” w trakcie zapisu (dwie transakcje `saveStarter`) → dwa komunikaty „Nie zapisano”, a dokarmienie jest w dzienniku po ponownym wejściu. (2) Import kopii, gdy w tle przychodzi zapis z innej transakcji (np. „Zrobione” na „Dziś” z drugiej instancji ekranu) → „Nie zapisano”, a dane z telefonu już są zastąpione (kopia przed importem istnieje). (3) Koniec wypieku nieudany (pełny dysk) wycofuje też zapis kroku drugiego wypieku z tego samego czasu.
+- Test akceptacyjny: test na adapterze `node:sqlite` uruchamia `Promise.all([restoreFromBackupData(kopia), addStarterEntry(wpis)])` oraz dwa `saveStarter`; oba wywołania kończą się sukcesem albo jedno jawnym błędem, a stan bazy to stan po wykonaniu ich po kolei (żadnych „Nie zapisano” przy zapisanych danych, import w całości albo wcale); test pada na kodzie sprzed poprawki (jak sonda).
+
+### 05-architekt-501 · Usunięte albo poprawione dokarmienie wraca po zapisie profilu lub stałego dnia zakwasu
+- Pozycja listy kontrolnej: ARCH-02
+- Poziom: P1
+- Realność: realny · Pewność: wysoka
+- Rodzaj: D
+- Dowód: `src/data/sqlite-store.ts:195` „fedAt !== undefined && fedAt > 0 && fedAt > latest” — `saveStarter` traktuje `lastFedAt` z obiektu jako nowe dokarmienie i wstawia wpis `feed-<id>-<lastFedAt>`, gdy jest późniejsze niż najnowszy wpis w bazie. Ekran po „Usuń wpis” i „Edytuj” wpisu przeładowuje tylko listę wpisów (`src/components/zakwas/ZakwasDziennik.tsx:150`, `src/components/zakwas/useStarterLog.ts:63`), a `starter` z ekranu zostaje ze starym `lastFedAt`; „Zapisz” profilu i stały dzień zapisują `...starter` (`src/components/zakwas/useAkcjeZakwasu.ts:87`, `src/components/zakwas/useAkcjeZakwasu.ts:149`). Odtworzenie na kopii (`dowody/sonda-wpis.txt`): wpisy w1, w2 → usunięcie w2 → zapis profilu → w1 i `feed-z-2000000` (usunięte dokarmienie wróciło); poprawa godziny w2 z 2 000 000 na 1 500 000 → zapis stałego dnia → 3 dokarmienia zamiast 2.
+- Mechanizm: dwie drogi zapisu tego samego rodzaju danych (wpis dokarmienia): ścieżka zgodności w `saveStarter` (komentarz `src/data/sqlite-store.ts:186-188`: „do czasu przejścia ekranu na addStarterEntry”) i `addStarterEntry`; `grep -rn "saveStarter(" src app` → 6 wywołań; ze stanem ekranu: `src/components/zakwas/useAkcjeZakwasu.ts:87`, `src/components/zakwas/useAkcjeZakwasu.ts:149`; świeże z bazy albo z nowym czasem (bez skutku): `useAkcjeZakwasu.ts` 56 i 114, `src/lib/staly-dzien-pytanie.ts:35`, `src/hooks/useCofnijDokarmienie.ts:41`.
+- Powraca: nie
+- Kroki w aplikacji: Zakwasy → „Ostatnie wpisy” → „Usuń wpis” przy najnowszym dokarmieniu (albo „Edytuj” i wcześniejsza godzina) → „Edytuj” profil → „Zapisz” (albo zmiana stałego dnia karmienia). Usunięte dokarmienie wraca, poprawione jest podwójne; od niego liczą się szczyt, „Gotowość” i przypomnienia o karmieniu.
+- Test akceptacyjny: test na prawdziwym SQLite: dokarmienia w1, w2; usunięcie w2, potem `saveStarter` obiektu odczytanego przed usunięciem → w bazie tylko w1; poprawa godziny w2 → dalej 2 wpisy `feeding`; test kontrolny, że `saveStarter` nie wstawia wierszy do `starter_entries` (trwała kontrola mechanizmu).
+- Weryfikacja przeciwna (E2): szukałem odświeżenia zakwasu po zmianie dziennika — ekran przeładowuje `starter` tylko przy montowaniu, wyborze zakwasu, „Cofnij” dokarmienia i gotowości zakładania (`loadStarterData` w `app/(tabs)/zakwasy/index.tsx`), nie po usunięciu ani poprawie wpisu; brak `useFocusEffect`. Ścieżka zgodności nie sprawdza, czy wpis o tym czasie był usunięty. Znalezisko utrzymane.
+
+### 08-programista-006 · Dwa stuknięcia „Dokarmione” zapisują dwa dokarmienia
+- Pozycja listy kontrolnej: DEV-05
+- Poziom: P2
+- Realność: realny (mokre ręce, przycisk nie gaśnie w trakcie zapisu) · Pewność: wysoka
+- Rodzaj: D
+- Dowód: `src/components/zakwas/StarterCycleCard.tsx:105` (przycisk bez `disabled`) → `src/components/zakwas/useAkcjeZakwasu.ts:52-60`, gdzie każde wywołanie tworzy wpis z nowym znacznikiem czasu. Sonda na ekranie Zakwasy z prawdziwym SQLite (`dowody/sonda-dwa-stukniecia-dokarmione.txt`): dwa stuknięcia w odstępie 150 ms albo 2 ms dają 3 wpisy feeding (start + 2), bez komunikatu. Koniec wypieku ma tę ochronę (`src/hooks/useFinishBake.ts:45-47`).
+- Mechanizm: akcje zapisu bez blokady w trakcie zapisu; `grep -rn "useRef(false)"` → blokada tylko w `useFinishBake`, `PaywallModal`, `useDodajDoKalendarza`, `useProPoArkuszu`; bez niej: dokarmienie (`src/components/zakwas/useAkcjeZakwasu.ts:52`), obserwacja "Podwoił objętość" (`src/components/zakwas/useStarterLog.ts:45-49`), dodanie zakwasu (`src/components/zakwas/useAkcjeZakwasu.ts:101`).
+- Powraca: tak — audyt niezależny D-11 naprawił to samo przy końcu wypieku → trwała kontrola: test dwóch stuknięć dla każdej akcji zapisu z karty zakwasu.
+- Kroki w aplikacji: Zakwasy → „Dokarmione” dwa razy szybko → dwa dokarmienia w dzienniku, „Przywróć” cofa tylko ostatnie.
+- Test akceptacyjny: dwa stuknięcia „Dokarmione” w odstępie poniżej czasu zapisu dają jeden nowy wpis; test pada na obecnym kodzie.
+
+### 08-programista-003 · Brakujące dane zastępowane zgadniętą wartością: „Ostatnie dokarmienie: przed chwilą” bez dokarmienia, brak oceny liczony jako 5★, domyślne liczby przy imporcie receptury
+- Pozycja listy kontrolnej: DEV-07
+- Poziom: P1
+- Realność: realny dla etykiety zakwasu (usunięcie wpisu dokarmienia w dzienniku); brzegowy dla średniej (wpisy bez oceny z importu albo starszych buildów); teoretyczny dla importu receptury (tylko plik spoza Piekarza) · Pewność: wysoka
+- Rodzaj: D
+- Dowód:
+  - (1) `app/(tabs)/zakwasy/index.tsx:145-146` daje „if (diffHours < 1) return t('przed chwilą');”, bo brak `lastFedAt` zamienia się na `Date.now()`.
+  - Sonda (`dowody/sonda-profil-bez-dokarmienia.txt`): po usunięciu jedynego dokarmienia karta profilu pokazuje "Ostatnie dokarmienie | przed chwilą", a karta szczytu na tym samym ekranie mówi „Brak danych o karmieniu” (`src/core/sourdough-physics.ts:106`).
+  - (2) `src/core/bake-statistics.ts:55` liczy „ratingSum += log.ratingStars ?? 5;”; sonda daje średnią 3 dla wpisów 1★ i bez oceny (`dowody/sonda-srednia-oceny.txt`).
+  - Karta Dziennika pokazuje tę wartość jako średnią ocen: `src/components/stolnica/BakeStatsCard.tsx:27`. Lista wpisów pokazuje wpis bez oceny jako wpis bez oceny: `src/components/stolnica/BakeHistorySection.tsx:96`.
+  - (3) Import receptury z pliku albo QR: brak albo zły udział zakwasu daje 0 (`src/lib/recipe-sharing.ts:201-204`), a drożdże poza 0–10% znikają bez komunikatu (`src/lib/recipe-sharing.ts:222-229`).
+  - Zła masa ciasta daje 850 g: `src/lib/recipe-sharing.ts:234`, „let targetDoughWeightGrams = 850;”. Dla wody i soli ten sam kod zwraca błąd. Podgląd importu pokazuje zakwas, ale nie drożdże ani masę.
+- Mechanizm: brak wartości zamieniony na literał w kodzie ekranu i logiki zamiast `null` i stanu „brak”; `dowody/dev07-grep.txt` (77 linii przejrzanych) → 6 trafień w tym znalezisku: `app/(tabs)/zakwasy/index.tsx:145`, `src/core/bake-statistics.ts:55`, `src/core/bake-statistics.ts:119` (filtr minimalnej oceny, dziś nieużywany w UI), `src/lib/recipe-sharing.ts:204`, `src/lib/recipe-sharing.ts:227`, `src/lib/recipe-sharing.ts:234`. Pozostałe trafienia to wartości domyślne ze schematu (DDT 25, hydratacja zakwasu 100), preferencje interfejsu albo zabezpieczenia typu bez skutku na ekranie.
+- Powraca: nie → trwała kontrola: test każdego z trzech miejsc z danymi bez wartości.
+- Kroki w aplikacji: Zakwasy → dziennik → usuń wpis dokarmienia → karta profilu „przed chwilą”. Ustawienia → import kopii z wpisem bez oceny → Dziennik → „Średnia ocena” zawyżona. Import z pliku receptury z `"targetDoughWeightGrams": "900"` → receptura zapisana z masą 850 g bez słowa.
+- Test akceptacyjny: ekran Zakwasy bez wpisu dokarmienia nie pokazuje „przed chwilą”; `calculateBakeStatistics` dla [1★, bez oceny] daje 1, a dla samych wpisów bez oceny daje brak; `decodeRecipeFromShareUrl` z masą „900” jako tekst, drożdżami 12 i bez `starterPercentage` zwraca błąd z nazwą pola. Każdy test pada na obecnym kodzie.
+
+### 08-programista-004 · Zakresy pól receptury w dwóch miejscach z różnymi wartościami: receptury zapisanej w aplikacji nie da się udostępnić ani zaimportować
+- Pozycja listy kontrolnej: DEV-13
+- Poziom: P1
+- Realność: brzegowy (woda powyżej 120% albo poniżej 35%, sól powyżej 6%) · Pewność: wysoka
+- Rodzaj: D
+- Dowód:
+  - Arkusz "Składniki" pozwala zapisać wodę 0–150: `src/components/receptury/SkladnikiSheet.tsx:205`, „wartosc={p.waterPct} min={0} max={150}”.
+  - Sól 0–10: `src/components/receptury/SkladnikiSheet.tsx:210`, „wartosc={p.saltPct} min={0} max={10}”.
+  - Walidacja pliku i QR odrzuca wodę poza 35–120: `src/lib/recipe-sharing.ts:189`, „waterPct < 35 || waterPct > 120”.
+  - Sól powyżej 6: `src/lib/recipe-sharing.ts:197`, „saltPct < 0 || saltPct > 6”.
+  - Sonda eksport→import (`dowody/sonda-eksport-import-zakresy.txt`): woda 75% i sól 2% dają „receptura”; woda 125%, woda 30% albo sól 7% dają „nierozpoznany”. Ekran mówi wtedy, że plik nie jest rozpoznany, i nie podaje powodu (`src/lib/import-z-pliku.ts:46` gubi komunikat walidacji).
+- Mechanizm: ta sama wielkość (dopuszczalny zakres pola receptury) zdefiniowana w komponencie i w parserze z różnymi wartościami; zakwas ma 0–100 w arkuszu i 0–150 w imporcie; hydratacja zakwasu 20–200 i drożdże 0–10 są zgodne; 2 pliki, 5 par wartości.
+- Powraca: nie → trwała kontrola: jeden moduł zakresów importowany przez arkusz i parser + test, że każda receptura z granic arkusza przechodzi eksport→import.
+- Kroki w aplikacji: Receptura → Składniki → woda 125% → Zapisz jako moją → Więcej → Udostępnij plik → na drugim telefonie Importuj z pliku → „nierozpoznany”.
+- Test akceptacyjny: dla wartości granicznych arkusza (woda 0 i 150, sól 10, zakwas 100) `rozpoznajPlik(exportRecipeToJson(r))` daje „receptura”; zakresy są zdefiniowane w jednym miejscu (grep nie znajduje drugiej definicji).

@@ -1,0 +1,13 @@
+import { setLang, t } from '../../src/lib/i18n';
+import { dzienSlownie } from '../../src/lib/spirala-etykieta';
+import { formatTime } from '../../src/lib/format';
+test('sonda: dzień słownie w zdaniu (plan za 4 dni) i godzina 1:30 / 13:30', () => {
+  const teraz = new Date(2026, 10, 8, 10, 0);
+  const g = new Date(2026, 10, 12, 13, 30);
+  const g1 = new Date(2026, 10, 9, 1, 30);
+  for (const l of ['pl', 'en', 'de', 'es', 'es-419', 'it', 'pt-BR', 'el', 'ru', 'cs'] as const) {
+    setLang(l);
+    // eslint-disable-next-line no-console
+    console.log(l, '=>', t('Gotowe {dzien} o {godzina}.', { dzien: dzienSlownie(g, teraz), godzina: formatTime(g) }), '|', t('Start {dzien} o {godzina}', { dzien: dzienSlownie(g1, teraz), godzina: formatTime(g1) }), '|', t('{krok} wypada o {godzina} w nocy', { krok: t('Fermentacja burzliwa ze składaniami'), godzina: formatTime(g1) }));
+  }
+});

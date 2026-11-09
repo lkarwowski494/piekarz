@@ -1,0 +1,21 @@
+$ python3: <Pressable|Touchable*> bez accessibilityRole / bez tekstu i bez accessibilityLabel (app/, src/, bez testów)
+src/components/NotificationsOffBanner.tsx:35 bez accessibilityRole
+src/components/PaywallModal.tsx:167 bez accessibilityRole
+src/components/PaywallModal.tsx:170 bez accessibilityRole
+src/components/StorageGate.tsx:95 bez accessibilityRole
+src/components/harmonogram/TargetReadyCard.tsx:68 bez accessibilityRole
+src/components/settings/StudioEcosystemSection.tsx:73 bez accessibilityRole
+src/components/settings/StudioEcosystemSection.tsx:104 bez accessibilityRole
+src/components/settings/StudioEcosystemSection.tsx:120 bez accessibilityRole
+trafień: 8
+
+$ grep -rn "accessibilityLabel={.*Plus\|✕" (etykiety przycisków-ikon)
+src/components/FlourBlendModal.tsx:205: <Text style={styles.removeBtnText}>✕</Text>
+src/components/SensoryRadarChart.tsx:225: <Text style={styles.stepperBtnText}>+</Text>
+src/components/academy/AcademyHeader.tsx:32: <Text style={styles.closeBtnText}>✕</Text>
+src/components/academy/TechniquesLibrarySection.tsx:125: <Text style={styles.crossBullet}>✕</Text>
+src/components/calculator/accordion/AccordionDdtSection.tsx:95: <Text style={styles.miniBtnText}>+</Text>
+src/components/doktor/EmergencyRecoverySection.tsx:85: <Text style={styles.closeRecoveryBtnText}>✕</Text>
+src/components/receptury/DoMiski.tsx:183: <Text style={styles.krokTekst}>+</Text>
+src/components/receptury/ListaReceptur.tsx:104: <Text style={styles.usunTekst}>✕</Text>
+src/components/receptury/SkladnikiSheet.tsx:100: <Text style={s.szewron} accessible={false}>›</Text>

@@ -1,0 +1,58 @@
+$ node <scratchpad>/skrypty/klucze.cjs (terminy maszyny pt, pt-BR, ja, lt)
+pt	Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, s	=> O início diferido está desativado porque a receita leva ovos, leite fresco, queijo, iogurte, sumo, fruta fresca ou legumes.
+pt	Maszyna do chleba	=> Máquina de pão
+pt	Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze m	=> Mantenha as crianças com menos de 8 anos longe da máquina e do cabo; as mais velhas só a podem usar sob supervisão.
+pt	W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.	=> Durante o funcionamento, não toque na saída de vapor nem a tape.
+pt-BR	Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, s	=> O início programado está desativado porque a receita leva ovos, leite fresco, queijo, iogurte, suco, fruta fresca ou legumes.
+pt-BR	Maszyna do chleba	=> Panificadora
+pt-BR	Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze m	=> Mantenha as crianças com menos de 8 anos longe da máquina e do cabo; as mais velhas só podem usá-la sob supervisão.
+pt-BR	W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.	=> Durante o funcionamento, não toque na saída de vapor nem a cubra.
+ja	Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, s	=> この配合に卵、新鮮な牛乳、チーズ、ヨーグルト、ジュース、新鮮な果物、野菜のいずれかが含まれているため、予約タイマーはオフになっています。
+ja	Maszyna do chleba	=> ホームベーカリー
+ja	Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze m	=> 8歳未満の子どもは本体とコードに近づけないでください。それ以上の子どもは、大人の監督のもとでのみ使えます。
+ja	W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.	=> 運転中は、蒸気口に触れたり、ふさいだりしないでください。
+lt	Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, s	=> Atidėtas paleidimas išjungtas, nes receptūroje yra kiaušinių, šviežio pieno, sūrio, jogurto, sulčių, šviežių vaisių arba daržovių.
+lt	Maszyna do chleba	=> Duonkepė
+lt	Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze m	=> Vaikus iki 8 metų laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.
+lt	W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.	=> Duonkepei veikiant, nelieskite garų angos ir jos neuždenkite.
+$ pdftotext -raw Tefal PAIN PLAISIR IFU (dam.groupeseb.com …1520016472-IFU.pdf, pobrany 2026-11-08) | grep -n -i "atidėt|duonos kep|duonos keptuv"
+9869:d. Atidėto paleidimo nustatymo
+9875:3. Duonos keptuvė
+9907:• Įdėkite duonos keptuvę - G .
+9915:atjunkite duonos kepimo aparatą. Išimkite
+9916:duonos keptuvę. Visada naudokite
+9979:DUONOS KEPIMO APARATO NAUDOJIMAS
+10047:duonos kepimo aparatui:
+10083:atšaukti nustatytą atidėtą paleidimą.
+10103:Tešla tampa duonos kepalu ir
+10117:Atidėto paleidimo programos negalima
+10129:trukmę. Norėdami įjungti atidėtą paleidimą,
+10134:, norėdami pradėti atidėto paleidimo
+$ ten sam PDF | grep -c -i "pão|início"
+0
+$ grep DODATKI_MASZYNY src/recipes/maszyna-receptur.ts; ProgramMaszynyKarta ciasto
+export const DODATKI_MASZYNY: Readonly<Record<string, readonly SkladnikMaszyny[]>> = {
+  baguette_tradition_poolish: [],
+  ciabatta_con_biga: ['tluszcz'], // „Do ciasta właściwego dodaj 3% oliwy z oliwek” (06m, D-266)
+  focaccia_genovese: ['tluszcz'], // „naoliwioną blachę”, „solanką z wody, oliwy i soli”
+  no_knead_night: [],
+  pizza_napoletana_48h: [],
+  sweet_chalka: ['tluszcz', 'cukier', 'jajka'], // „z dodatkiem masła i cukru”, „posmaruj roztrzepanym jajkiem” (OP-73)
+  half_rye_loaf: [],
+  white_pan_loaf: ['cukier', 'tluszcz'], // „cukier 2,9%, olej 3,1%”
+  half_whole_wheat_loaf: [],
+  boiled_bread_ring: ['tluszcz', 'cukier'], // „2–3 kg tłuszczu i 2–4 kg cukru”
+  milk_dinner_rolls: ['mleko', 'cukier', 'tluszcz', 'jajka'], // „mleko 55,8%… cukier… masło… jajko”
+  cheese_crumble_yeast_cake: ['mleko', 'cukier', 'jajka', 'tluszcz', 'ser'], // „mleko… cukru… jaj… masła”, „twarogu”
+  sweet_yeast_buns: ['mleko', 'cukier', 'tluszcz', 'jajka'], // „mleko 39,0%… cukier… olej… jajka”
+  cinnamon_tea_ring: ['mleko', 'cukier', 'tluszcz'], // „mleko 39,0%”, nadzienie „cukier… masło… rodzynki” (suszone)
+  // Receptury na zakwasie z wersją drożdżową (D-173): dodatki z receptury bazowej
+  graham_bread_honey: ['cukier'], // „Dodatek łyżki miodu”
+  rye_100_pan: [],
+  spelt_ancient_seeded: [], // prażone ziarna (siemię, słonecznik, sezam): nie z listy RD-38, nie cukier ani tłuszcz
+  tartine_high_hydration_80: [],
+};
+  // Program „ciasto”: 4 z 5 przeczytanych instrukcji wyłączają albo odradzają opóźniony start (MAS-085, P9B2F-1)
+  const ciasto = program.ok && program.program === 'ciasto';
+  const zOpoznieniem = opoz.ok && opoz.dostepny && !ciasto;
+kod wyjścia: 0

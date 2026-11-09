@@ -1,0 +1,20 @@
+$ python3 (zliczenie słowa „Pro” w tekstPromocyjny, ramkach i opisie docs/wydanie/metadane/*.json)
+lokalizacji: 34 | bez słowa Pro w promo i ramkach: 34 | opis ze słowem Pro (akapit dostępu): 34
+pl promo: Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.
+pl ramka1: {'naglowek': 'Chleb gotowy na twoją godzinę', 'podtytul': 'Plan wstecz bez kroków w środku nocy'}
+pl ramka5: {'naglowek': 'Zakwas zawsze gotowy na czas', 'podtytul': 'Ilości do dokarmienia i przypomnienie po 12 godzinach'}
+en-US nazwa: Baker: Sourdough Bread Planner
+kod=0
+
+$ grep -n "PLAN OD GODZINY\|^ZAKWASY\|^DZIENNIK\|DOSTĘP I ZAKUP" docs/app-store-metadata-v2.md | head -4
+35:PLAN OD GODZINY „GOTOWE”
+41:ZAKWASY
+47:DZIENNIK
+56:DOSTĘP I ZAKUP
+kod=0
+
+$ python3 (oznaczenie w podpisy.json pl, en-US, nl-NL)
+pl [('01-plan.png', 'wymaga Piekarz Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'wymaga Piekarz Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+en-US [('01-plan.png', 'requires Baker Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'requires Baker Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+nl-NL [('01-plan.png', 'vereist Bakker Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'vereist Bakker Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+kod=0

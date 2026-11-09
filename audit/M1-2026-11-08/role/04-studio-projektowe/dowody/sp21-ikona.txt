@@ -1,0 +1,7 @@
+$ python3 PIL: rozmiar, tryb, przezroczystość, narożniki ikon iOS (assets/icon*.png)
+assets/icon.png (1024, 1024) RGB alfa min/max 255 255 narożniki [(30, 73, 84, 255), (30, 73, 84, 255), (30, 73, 84, 255), (30, 73, 84, 255)]
+assets/icon-dark.png (1024, 1024) RGB alfa min/max 255 255 narożniki [(14, 19, 21, 255), (14, 19, 21, 255), (14, 19, 21, 255), (14, 19, 21, 255)]
+assets/icon-tinted.png (1024, 1024) RGB alfa min/max 255 255 narożniki [(0, 0, 0, 255), (0, 0, 0, 255), (0, 0, 0, 255), (0, 0, 0, 255)]
+assets/splash-icon.png (600, 600) RGBA alfa min/max 0 255 narożniki [(0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0)]
+assets/splash-icon-dark.png (600, 600) RGBA alfa min/max 0 255 narożniki [(0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0), (0, 0, 0, 0)]
+kod: 0

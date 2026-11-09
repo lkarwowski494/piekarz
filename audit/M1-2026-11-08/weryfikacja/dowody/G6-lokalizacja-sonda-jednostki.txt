@@ -1,0 +1,113 @@
+# Repo: /home/user/piekarz @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42, kopia: git worktree w scratchpadzie ($S/wt), node_modules dowiązane
+# Komenda: npx jest tests/sonda/g6-sonda.test.ts (cwd: kopia)
+# Kod wyjścia: 0
+# Źródło sondy (tests/sonda/g6-sonda.test.ts):
+    import { EN } from '../../src/lib/i18n.en';
+    import { ACTIVE_LANGS, setLang, t, Lang } from '../../src/lib/i18n';
+    import { setUnitSystem } from '../../src/lib/unit-converter';
+    
+    const ZDANIE_MAS = 'Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 1000 g ciasta, 620 g mąki chlebowej i 10 g suchych drożdży instant.';
+    
+    it('sonda 003a: klucze z °F w tekście źródłowym, tryb imperialny', () => {
+      setUnitSystem('imperial');
+      const klucze = Object.keys(EN).filter((k) => /\d\s*°F/.test(k.split('|')[0]));
+      const out: string[] = [`kluczy z °F w PL: ${klucze.length}`];
+      let zlych = 0; const zleJ = new Set<string>();
+      for (const k of klucze) {
+        for (const l of ACTIVE_LANGS as readonly Lang[]) {
+          setLang(l);
+          const s = t(k);
+          // fragmenty „X °F … Y °F” w odległości do 40 znaków
+          const m = [...s.matchAll(/(\d+(?:[–-]\d+)?)\s*°F([^°]{0,40}?)(\d+(?:[–-]\d+)?)\s*°F/g)];
+          if (m.length) { zlych++; zleJ.add(l); if (l === 'en' || l === 'pl' || l === 'de') out.push(`${l} | ${m.map((x) => x[0]).join(' || ')}`); }
+        }
+      }
+      out.push(`par (klucz×język) z dwiema °F obok siebie: ${zlych}; języki: ${zleJ.size}`);
+      console.log(out.join('\n'));
+    });
+    
+    it('sonda 003b: zdanie MAS-002 w trybie imperialnym', () => {
+      setUnitSystem('imperial');
+      const out: string[] = [];
+      for (const l of ACTIVE_LANGS as readonly Lang[]) {
+        setLang(l);
+        out.push(`${l} | ${t(ZDANIE_MAS)}`);
+      }
+      console.log(out.join('\n'));
+      setUnitSystem('metric'); setLang('pl');
+    });
+# Wyjście:
+    kluczy z °F w PL: 8
+    pl | 400 °F, czyli około 399 °F
+    en | 400 °F, which is about 399 °F
+    de | 400 °F, also etwa 399 °F
+    pl | 150 °F, czyli około 151 °F || 536–662 °F, potem w 392–482 °F
+    en | 185–203 °F. Water this hot scalds: even water at 150 °F || 536–662 °F, then at 392–482 °F
+    de | 150 °F, also etwa 151 °F || 536–662 °F, dann bei 392–482 °F
+    pl | 100–110 °F, czyli około 100–109 °F || 400 °F, czyli około 399 °F
+    en | 100–110 °F, about 100–109 °F || 400 °F, which is about 399 °F
+    de | 100–110 °F, also etwa 100–109 °F || 400 °F, also etwa 399 °F
+    pl | 400 °F, czyli około 399 °F
+    en | 400 °F, which is about 399 °F
+    de | 400 °F, also etwa 399 °F
+    pl | 150 °F, czyli około 151 °F
+    en | 150 °F, about 151 °F
+    de | 150 °F, also etwa 151 °F
+    pl | 100–110 °F, czyli około 100–109 °F || 400–425 °F, czyli około 399–424 °F
+    en | 100–110 °F, about 100–109 °F || 400–425 °F, which is about 399–424 °F
+    de | 100–110 °F, also etwa 100–109 °F || 400–425 °F, also etwa 399–424 °F
+    pl | 350 °F, czyli około 351 °F
+    en | 350 °F, which is about 351 °F
+    de | 350 °F, also etwa 351 °F
+    pl | 375 °F, czyli około 376 °F
+    en | 375 °F, about 376 °F
+    de | 375 °F, also etwa 376 °F
+    par (klucz×język) z dwiema °F obok siebie: 280; języki: 35
+
+
+    pl | Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 2 lb 3,3 oz ciasta, 1 lb 5,9 oz mąki chlebowej i 0,35 oz suchych drożdży instant.
+    en | For example, the Tefal PF220838 must not exceed 2 lb 3.3 oz of dough, 1 lb 5.9 oz of bread flour and 0.35 oz of dry instant yeast in total.
+    cs | Například u Tefal PF220838 nesmí celkem překročit 2 lb 3,3 oz těsta, 1 lb 5,9 oz chlebové mouky a 0,35 oz sušeného instantního droždí.
+    sk | Napríklad pri Tefal PF220838 sa nesmie celkovo prekročiť 2 lb 3,3 oz cesta, 1 lb 5,9 oz chlebovej múky a 0,35 oz sušeného instantného droždia.
+    hu | Például a Tefal PF220838 esetében összesen legfeljebb 2 lb 3,3 oz tészta, 1 lb 5,9 oz kenyérliszt és 0,35 oz szárított instant élesztő használható.
+    ro | De exemplu, la Tefal PF220838 nu se pot depăși în total 2 lb 3,3 oz de aluat, 1 lb 5,9 oz de făină pentru pâine și 0,35 oz de drojdie uscată instant.
+    bg | Например при Tefal PF220838 общо не бива да се надвишават 2 lb 3,3 oz тесто, 1 lb 5,9 oz хлебно брашно и 0,35 oz суха мая instant.
+    hr | Na primjer, kod Tefal PF220838 ukupno se ne smije prijeći 2 lb 3,3 oz tijesta, 1 lb 5,9 oz kruhnog brašna i 0,35 oz suhog instant kvasca.
+    sl | Na primer pri Tefal PF220838 skupno ne smete preseči 2 lb 3,3 oz testa, 1 lb 5,9 oz kruhne moke in 0,35 oz suhih instant kvasovk.
+    sr | На пример, код Tefal PF220838 укупно се не сме прећи 2 lb 3,3 oz теста, 1 lb 5,9 oz хлебног брашна и 0,35 oz сувог инстант квасца.
+    lt | Pavyzdžiui, Tefal PF220838 negalima viršyti iš viso 2 lb 3,3 oz tešlos, 1 lb 5,9 oz duoninių miltų ir 0,35 oz sausų greitai veikiančių mielių.
+    lv | Piemēram, Tefal PF220838 kopā nedrīkst pārsniegt 2 lb 3,3 oz mīklas, 1 lb 5,9 oz maizes miltu un 0,35 oz sausā tūlītējā rauga.
+    et | Näiteks Tefal PF220838 puhul ei tohi kokku ületada 2 lb 3,3 oz taignat, 1 lb 5,9 oz leivajahu ja 0,35 oz kuivkiirpärmi.
+    uk | Наприклад, у Tefal PF220838 не можна перевищувати загалом 2 lb 3,3 oz тіста, 1 lb 5,9 oz хлібного борошна та 0,35 oz сухих інстантних дріжджів.
+    es | Por ejemplo, en la Tefal PF220838 no se pueden superar en total 2 lb 3,3 oz de masa, 1 lb 5,9 oz de harina de fuerza y 0,35 oz de levadura seca instantánea.
+    es-419 | Por ejemplo, en la Tefal PF220838 no se pueden superar en total 2 lb 3.3 oz de masa, 1 lb 5.9 oz de harina para pan y 0.35 oz de levadura seca instantánea.
+    pt | Por exemplo, na Tefal PF220838 não se podem ultrapassar, no total, 2 lb 3,3 oz de massa, 1 lb 5,9 oz de farinha de pão e 0,35 oz de fermento seco instantâneo.
+    pt-BR | Por exemplo, na Tefal PF220838 não se podem ultrapassar, no total, 2 lb 3,3 oz de massa, 1 lb 5,9 oz de farinha de pão e 0,35 oz de fermento seco instantâneo.
+    de | Zum Beispiel dürfen beim Tefal PF220838 insgesamt höchstens 2 lb 3,3 oz Teig, 1 lb 5,9 oz Brotmehl und 0,35 oz Trockenhefe (Instant) verwendet werden.
+    fr | Par exemple, avec la Tefal PF220838, il ne faut pas dépasser au total 2 lb 3,3 oz de pâte, 1 lb 5,9 oz de farine à pain et 0,35 oz de levure sèche instantanée.
+    it | Ad esempio, con la Tefal PF220838 non si possono superare in totale 2 lb 3,3 oz di impasto, 1 lb 5,9 oz di farina per pane e 0,35 oz di lievito secco istantaneo.
+    nl | Bij de Tefal PF220838 mag je bijvoorbeeld in totaal niet meer dan 2 lb 3,3 oz deeg, 1 lb 5,9 oz broodmeel en 0,35 oz droge instantgist gebruiken.
+    sv | Till exempel får man i Tefal PF220838 inte överskrida sammanlagt 1 0,00 oz deg, 1 lb 5,9 oz brödmjöl och 0,35 oz instant-torrjäst.
+    da | For eksempel må man i Tefal PF220838 ikke overskride i alt 0,04 oz dej, 1 lb 5,9 oz brødmel og 0,35 oz instant tørgær.
+    nb | For eksempel må man i Tefal PF220838 ikke overskride til sammen 1 0,00 oz deig, 1 lb 5,9 oz brødmel og 0,35 oz instant tørrgjær.
+    fi | Esimerkiksi Tefal PF220838 -koneessa ei saa ylittää yhteensä 1 0,00 oz taikinaa, 1 lb 5,9 oz leipäjauhoja eikä 0,35 oz instant-kuivahiivaa.
+    tr | Örneğin Tefal PF220838 makinesinde toplamda 2 lb 3,3 oz hamuru, 1 lb 5,9 oz ekmek ununu ve 0,35 oz kuru instant mayayı aşmamalısınız.
+    el | Για παράδειγμα, στην Tefal PF220838 δεν επιτρέπεται να ξεπεράσετε συνολικά 2 lb 3,3 oz ζύμης, 1 lb 5,9 oz αλευριού για ψωμί και 0,35 oz ξηρής στιγμιαίας μαγιάς.
+    id | Misalnya pada Tefal PF220838, total tidak boleh melebihi 2 lb 3,3 oz adonan, 1 lb 5,9 oz tepung roti, dan 0,35 oz ragi kering instan.
+    ms | Contohnya, pada Tefal PF220838 jumlah tidak boleh melebihi 2 lb 3.3 oz doh, 1 lb 5.9 oz tepung roti dan 0.35 oz yis kering segera.
+    vi | Ví dụ, với Tefal PF220838, tổng cộng không được vượt quá 2 lb 3,3 oz bột nhào, 1 lb 5,9 oz bột làm bánh mì và 0,35 oz men khô instant.
+    ru | Например, для Tefal PF220838 в сумме нельзя превышать 2 lb 3,3 oz теста, 1 lb 5,9 oz хлебной муки и 0,35 oz сухих быстродействующих дрожжей.
+    ja | たとえばTefal PF220838では、生地は合計2 lb 3.3 oz、強力粉は1 lb 5.9 oz、ドライイースト（インスタント）は0.35 ozを超えてはいけません。
+    ko | 예를 들어 Tefal PF220838은 반죽 2 lb 3.3 oz, 강력분 1 lb 5.9 oz, 인스턴트 드라이 이스트 0.35 oz을 합계로 넘기면 안 돼요.
+    zh-Hant | 例如 Tefal PF220838 的總量不得超過 2 lb 3.3 oz 麵團、1 lb 5.9 oz 高筋麵粉與 0.35 oz 即發乾酵母。
+
+
+PASS tests/sonda/g6-sonda.test.ts
+  ✓ sonda 003a: klucze z °F w tekście źródłowym, tryb imperialny (3614 ms)
+  ✓ sonda 003b: zdanie MAS-002 w trybie imperialnym (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        4.691 s
+Ran all test suites matching /tests\/sonda\/g6-sonda.test.ts/i.

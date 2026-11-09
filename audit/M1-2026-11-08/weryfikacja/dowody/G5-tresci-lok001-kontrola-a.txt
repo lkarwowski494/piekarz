@@ -1,0 +1,67 @@
+$ (cd /home/user/piekarz && python3 -c "
+import json
+L=json.load(open(\"docs/tresci/rejestr.json\"))
+k=[t[\"id\"] for t in L if t.get(\"krytyczne\")]
+print(\"krytyczne:\",len(k),\"MAS:\",len([i for i in k if i.startswith(\"MAS\")]),\"BEZ-WRZ-001:\",\"BEZ-WRZ-001\" in k, \"MAS-014/026/038:\", all(i in k for i in (\"MAS-014\",\"MAS-026\",\"MAS-038\")))
+")
+krytyczne: 58 MAS: 25 BEZ-WRZ-001: True MAS-014/026/038: True
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && for f in docs/lokalizacja/przeklad-maszyna-09m-2026-11-04.json docs/lokalizacja/przeklad-katalog-p8-2026-11-04.json docs/lokalizacja/przeklad-drozdze-zrodla-09d-2026-11-04.json; do echo "$f: zwrotn=$(grep -o zwrotn $f | wc -l) back-transl=$(grep -oi "back.\?transl" $f | wc -l)"; done)
+docs/lokalizacja/przeklad-maszyna-09m-2026-11-04.json: zwrotn=0 back-transl=0
+docs/lokalizacja/przeklad-katalog-p8-2026-11-04.json: zwrotn=0 back-transl=0
+docs/lokalizacja/przeklad-drozdze-zrodla-09d-2026-11-04.json: zwrotn=0 back-transl=0
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -rln "zwrotn\|back.translat" tests src scripts)
+src/lib/__tests__/en-kontrola-074.test.ts
+src/lib/__tests__/jezyki-rejestr.test.tsx
+scripts/wepnij-przeklad.mjs
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && sed -n 110p docs/lokalizacja/jezyki.md; sed -n 133p docs/lokalizacja/jezyki.md | cut -c1-330; sed -n 145p docs/lokalizacja/jezyki.md | cut -c1-520)
+7. Treści krytyczne zakwasu według DEC-10 (a) z tłumaczeniem zwrotnym na polski w świeżej sesji i porównaniem sensu (tabela wyżej); typy mąk bez sprawdzonej mapy: opis ogólny (094).
+33 klucze (nazwa, opis, notatka × 11 receptur katalogu p8) w PL, EN i 33 językach = 1 089 przekładów. Tłumaczenie maszynowe (claude-sonnet-5-5, 8 podagentów po 4–5 języków, sesja roli 09, 2026-11-04). Drugi przegląd AI w świeżym kontekście na 12 z 33 języków (de, fr, es, ja, ko, zh-Hant, ru, tr, el, hu, fi, sr; a
+68 kluczy (56 z p9b-2, 10 z 06m, 2 z p9b2f) w 33 językach = 2244 przekładów, nowa ostatnia część słownika każdego języka. Tłumaczenie maszynowe (claude-sonnet-5-5, 8 podagentów po 4–5 języków, sesja roli 09). Drugi przegląd AI w świeżym kontekście 2026-11-04 na 12 z 33 języków (de, fr, es, ja, fi, hu, ru, ko, zh-Hant, ro, bg, lv): 27 uwag, 25 przyjętych, 2 odrzucone (powody w D-267); ostrzeżenia bezpieczeństwa wierne we wszystkich 12. Pozostałe 21 języków: tylko skrypt (check:i18n), bez d
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && sed -n 1553p docs/decyzje.md; sed -n 1321p docs/decyzje.md)
+- **Odrzucone:** wszystkie 33 języki drugim przeglądem (koszt, DEC-06 wymaga próbki); przebudowa generatora pod ten plik (poza zakresem partii, D-207).
+- **Odrzucone:** przebudowa generatora `wepnij-przeklad.mjs` pod nowe wejście (zakaz D-207), dlatego wpięcie jednorazowym skryptem poza repo; przegląd wszystkich 33 języków (koszt, DEC-06 wymaga próbki).
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && python3 -c "
+all_=set(\"bg cs da de el es es-419 et fi fr hr hu id it ja ko lt lv ms nb nl pt pt-BR ro ru sk sl sr sv tr uk vi zh-Hant\".split())
+m09=set(\"de fr es ja fi hu ru ko zh-Hant ro bg lv\".split()); p8=set(\"de fr es ja ko zh-Hant ru tr el hu fi sr\".split())
+print(\"33 =\",len(all_)); print(\"09m bez 2. przeglądu (\",len(all_-m09),\"):\",\" \".join(sorted(all_-m09)))
+print(\"p8 bez 2. przeglądu (\",len(all_-p8),\"):\",\" \".join(sorted(all_-p8)))
+"; ls src/lib/i18n-slowniki | grep -v "\.ts$" | tr "\n" " ")
+33 = 33
+09m bez 2. przeglądu ( 21 ): cs da el es-419 et hr id it lt ms nb nl pt pt-BR sk sl sr sv tr uk vi
+p8 bez 2. przeglądu ( 21 ): bg cs da es-419 et hr id it lt lv ms nb nl pt pt-BR ro sk sl sv uk vi
+bg cs da de el es es-419 et fi fr hr hu id it ja ko lt lv ms nb nl pt pt-BR ro ru sk sl sr sv tr uk vi zh-Hant 
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && python3 -c "
+import json
+d=json.load(open(\"docs/lokalizacja/przeklad-maszyna-09m-2026-11-04.json\"))
+for k in (\"k57\",\"k60\"): print(\"pl\",k,d[\"pl\"][k])
+for lang in (\"cs\",\"it\",\"nl\",\"pt-BR\",\"es-419\",\"sv\"):
+  for k in (\"k57\",\"k60\"): print(lang,k,d[\"jezyki\"][lang][k])
+")
+pl k57 Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.
+pl k60 Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.
+cs k57 Míchací lopatka, která zůstala v bochníku, může být velmi horká: vyjměte ji až po vychladnutí chleba, nástrojem ze sady nebo plastovou stěrkou, bez nože a vidličky, a dál dávejte pozor na popálení.
+cs k60 Děti mladší 8 let držte mimo dosah pekárny a přívodního kabelu, starší děti ji smějí používat jen pod dohledem.
+it k57 Il gancio impastatore rimasto nel pane può essere molto caldo: toglilo solo dopo che il pane si è raffreddato, con l'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.
+it k60 Tieni i bambini sotto gli 8 anni lontani dalla macchina e dal cavo; i più grandi possono usarla solo sotto sorveglianza.
+nl k57 De kneedhaak die in het brood is blijven zitten, kan erg heet zijn: haal hem er pas uit als het brood is afgekoeld, met het meegeleverde gereedschap of een kunststof spatel, niet met een mes of vork, en let nog steeds op brandwonden.
+nl k60 Houd kinderen jonger dan 8 jaar uit de buurt van de machine en het snoer; oudere kinderen mogen de machine alleen onder toezicht gebruiken.
+pt-BR k57 A pá de amassar que ficou no pão pode estar muito quente: retire-a só depois que o pão esfriar, com a ferramenta que acompanha a máquina ou uma espátula de plástico, sem faca nem garfo, e continue tomando cuidado com queimaduras.
+pt-BR k60 Mantenha as crianças com menos de 8 anos longe da máquina e do cabo; as mais velhas só podem usá-la sob supervisão.
+es-419 k57 La paleta amasadora que quedó en la hogaza puede estar muy caliente: sácala solo cuando el pan se haya enfriado, con la herramienta incluida o una espátula de plástico, sin cuchillo ni tenedor, y sigue teniendo cuidado de no quemarte.
+es-419 k60 Mantén a los niños menores de 8 años lejos de la máquina y del cable; los mayores solo pueden usarla bajo supervisión.
+sv k57 Knådaren som blev kvar i brödet kan vara mycket het: ta ut den först när brödet har svalnat, med verktyget som medföljer eller en plastspatel, inte med kniv eller gaffel, och se fortfarande upp så att du inte bränner dig.
+sv k60 Håll barn under 8 år borta från maskinen och sladden; äldre barn får använda den bara under uppsikt.
+kod wyjścia: 0
+

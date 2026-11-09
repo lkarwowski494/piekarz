@@ -1,0 +1,53 @@
+$ for id in <lista BR>; do grep -rn "\(it\|test\|describe\)(['\"\`][^'\"\`]*$id" src tests --include=*.test.ts --include=*.test.tsx | head -1; done
+BR-START-001 src/__tests__/br-scenariusze-193-start-zakwas.test.tsx:48
+BR-KALK-001 src/core/__tests__/domain-error-branches.test.ts:46
+BR-KALK-004 src/__tests__/temperatura-wody-kalk004-146.test.tsx:73
+BR-KALK-005 src/__tests__/br-kalk-130-reszta.test.tsx:141
+BR-KALK-009 src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx:80
+BR-KALK-011 src/__tests__/br-kalk-130-reszta.test.tsx:78
+BR-KALK-012 src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx:99
+BR-HARMO-001 src/__tests__/plan-za-pozno-107.test.tsx:162
+BR-HARMO-003 src/__tests__/basic-pro-pafix.test.tsx:275
+BR-ETAP-001 src/__tests__/stolnica-screen.test.tsx:132
+BR-ETAP-003 BRAK testu z ID w nazwie
+BR-ETAP-004 src/__tests__/ostrzezenia-krokow-103.test.tsx:90
+BR-ETAP-005 src/__tests__/stolnica-restart.test.tsx:65
+BR-ETAP-006 src/data/__tests__/migracja-d1-1014.sqlite.test.ts:224
+BR-CZAS-002 src/__tests__/notifications-pending.test.tsx:99
+BR-REKA-001 src/__tests__/stolnica-keep-awake.test.tsx:73
+BR-RECP-001 src/__tests__/calculator-screen.test.tsx:417
+BR-RECP-002 src/data/__tests__/write-failure.sqlite.test.ts:42
+BR-RECP-003 src/__tests__/dziennik-recp003-146.test.tsx:52
+BR-RECP-004 BRAK testu z ID w nazwie
+BR-RECP-005 BRAK testu z ID w nazwie
+BR-ZAKW-001 src/__tests__/zakwas-screen.test.tsx:287
+BR-ZAKW-002 src/__tests__/zakwas-narzedzia-basic-pb2.test.tsx:98
+BR-ZAKW-003 src/__tests__/basic-pro-pafix.test.tsx:249
+BR-ZAKW-004 src/__tests__/br-scenariusze-193-start-zakwas.test.tsx:48
+BR-ZAKW-005 src/__tests__/zakwas-104-ekrany.test.tsx:117
+BR-ZAKW-006 src/__tests__/plan-z-lodowki-104.test.tsx:70
+BR-ZAKW-007 src/__tests__/zakwas-104-ekrany.test.tsx:349
+BR-DIAG-001 src/doctor/__tests__/diagnostics.test.ts:3
+BR-DIAG-002 src/__tests__/zakwas-104-ekrany.test.tsx:414
+BR-DIAG-003 src/__tests__/stolnica-przeglad-d4b.test.tsx:102
+BR-NAUK-001 src/__tests__/basic-pro-pa.test.tsx:243
+BR-DANE-001 src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts:46
+BR-DANE-002 src/data/__tests__/auto-backup.sqlite.test.ts:59
+BR-DANE-003 src/components/__tests__/settings-modal.test.tsx:210
+BR-DANE-004 src/__tests__/delete-after-trial.test.tsx:64
+BR-ZAK-001 src/components/__tests__/paywall-modal.test.tsx:42
+BR-ZAK-003 src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx:63
+BR-ZAK-004 src/__tests__/import-zawsze-d039.test.tsx:103
+BR-PRYW-001 src/components/__tests__/oferta-piekarz-pro-127.test.tsx:136
+BR-UST-001 src/__tests__/miary-usa-ekrany-096.test.tsx:109
+BR-OPIN-001 src/__tests__/prosba-o-ocene-ekran.test.tsx:142
+BR-KAL-001 src/__tests__/dzis-d4b.test.tsx:147
+BR-KAL-009 src/__tests__/dzis-plany-d5.test.tsx:120
+BR-KAL-011 src/__tests__/kalendarz-telefonu-d8.test.tsx:89
+BR-KAL-012 BRAK testu z ID w nazwie
+BR-KAL-013 src/__tests__/dziennik-wpis-d7.test.tsx:69
+BR-KAL-014 src/__tests__/harmonogram-rytm-d7.test.tsx:102
+BR-KAL-016 src/components/__tests__/spirala-tory-d4b.test.tsx:41
+BR-MASZ-001 src/recipes/__tests__/maszyna-receptur-p9b2.test.ts:19
+BR-MASZ-005 src/__tests__/receptura-maszyna-p9b2.test.tsx:167
+kod: 0

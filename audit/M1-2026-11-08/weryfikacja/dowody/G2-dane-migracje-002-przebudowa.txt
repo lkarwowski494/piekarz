@@ -1,0 +1,78 @@
+# Sonda 05-architekt-002: hipotetyczna migracja v8 przebudowuje starters w obecnym runnerze, baza 1021 po migracji v7 (worktree 2ef8870a w scratchpadzie)
+# Komenda: npx jest src/data/__tests__/sonda-g2-002.sqlite.test.ts
+# Treść sondy:
+# | /** Sonda G2 05-architekt-002: hipotetyczna migracja v8 przebudowuje starters (12 kroków) w obecnym runnerze. */
+# | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+# | 
+# | import { useTempDbDir, restartApp, openRaw, dbFilePath, tableCounts } from './helpers/node-sqlite-adapter';
+# | import { zalozBaze1021 } from './helpers/baza-1021';
+# | 
+# | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+# | 
+# | type Db = { execAsync: (s: string) => Promise<void>; getAllAsync: <T>(s: string) => Promise<T[]>; getFirstAsync: <T>(s: string) => Promise<T | null> };
+# | 
+# | async function przebuduj(db: Db) {
+# |   const sql = (await db.getFirstAsync<{ sql: string }>("SELECT sql FROM sqlite_master WHERE name='starters'"))!.sql;
+# |   await db.execAsync(sql.replace(/CREATE TABLE "?starters"?/, 'CREATE TABLE starters_new') + ';');
+# |   const kol = (await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);')).map((c) => c.name).join(', ');
+# |   await db.execAsync(`INSERT INTO starters_new (${kol}) SELECT ${kol} FROM starters;`);
+# |   await db.execAsync('DROP TABLE starters;');
+# |   await db.execAsync('ALTER TABLE starters_new RENAME TO starters;');
+# | }
+# | 
+# | const WARIANTY: Array<[string, 'run' | 'przed' | 'brak']> = [
+# |   ['OFF w run (w transakcji)', 'run'],
+# |   ['OFF w przed (przed BEGIN)', 'przed'],
+# |   ['bez OFF', 'brak'],
+# | ];
+# | 
+# | describe.each(WARIANTY)('v8 przebudowa starters: %s', (_n, gdzie) => {
+# |   beforeEach(() => useTempDbDir());
+# |   it('liczności i stan', async () => {
+# |     zalozBaze1021(APP_DB());
+# |     let app = restartApp();
+# |     await app.schema.initDatabase();
+# |     let raw = openRaw(APP_DB());
+# |     const przed = tableCounts(raw);
+# |     raw.close();
+# |     app = restartApp();
+# |     app.schema.SCHEMA_MIGRATIONS.push({
+# |       version: 8,
+# |       description: 'sonda',
+# |       ...(gdzie === 'przed' ? { przed: async (db) => { await db.execAsync('PRAGMA foreign_keys = OFF;'); } } : {}),
+# |       run: async (db) => {
+# |         if (gdzie === 'run') await db.execAsync('PRAGMA foreign_keys = OFF;');
+# |         await przebuduj(db as unknown as Db);
+# |       },
+# |     });
+# |     await app.schema.initDatabase();
+# |     const db = (await app.schema.getDb())!;
+# |     const fk = await db.getFirstAsync<{ foreign_keys: number }>('PRAGMA foreign_keys;');
+# |     const fkc = await db.getAllAsync('PRAGMA foreign_key_check;');
+# |     raw = openRaw(APP_DB());
+# |     const po = tableCounts(raw);
+# |     const uv = raw.prepare('PRAGMA user_version').get();
+# |     raw.close();
+# |     // eslint-disable-next-line no-console
+# |     console.log(JSON.stringify({ wariant: gdzie, przed: { starters: przed.starters, starter_entries: przed.starter_entries }, po: { starters: po.starters, starter_entries: po.starter_entries }, stan: app.status.getStorageState(), blad: app.status.getStorageError(), user_version: uv, foreign_keys_na_polaczeniu: fk, foreign_key_check: fkc.length }));
+# |   });
+# | });
+  console.log
+    {"wariant":"run","przed":{"starters":2,"starter_entries":5},"po":{"starters":2,"starter_entries":0},"stan":"ok","blad":null,"user_version":{"user_version":8},"foreign_keys_na_polaczeniu":{"foreign_keys":1},"foreign_key_check":0}
+  console.log
+    {"wariant":"przed","przed":{"starters":2,"starter_entries":5},"po":{"starters":2,"starter_entries":5},"stan":"ok","blad":null,"user_version":{"user_version":8},"foreign_keys_na_polaczeniu":{"foreign_keys":0},"foreign_key_check":0}
+  console.log
+    {"wariant":"brak","przed":{"starters":2,"starter_entries":5},"po":{"starters":2,"starter_entries":0},"stan":"ok","blad":null,"user_version":{"user_version":8},"foreign_keys_na_polaczeniu":{"foreign_keys":1},"foreign_key_check":0}
+PASS src/data/__tests__/sonda-g2-002.sqlite.test.ts
+  v8 przebudowa starters: OFF w run (w transakcji)
+    ✓ liczności i stan (253 ms)
+  v8 przebudowa starters: OFF w przed (przed BEGIN)
+    ✓ liczności i stan (39 ms)
+  v8 przebudowa starters: bez OFF
+    ✓ liczności i stan (44 ms)
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.67 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-g2-002.sqlite.test.ts/i.
+kod wyjścia: 0

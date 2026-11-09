@@ -1,0 +1,40 @@
+# cwd: worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g9 (git worktree add --detach 2ef8870a); sonda src/__tests__/sonda-g9-h3.test.tsx tylko w worktree (nagłówek z notifications-pending.test.tsx + scenariusz niżej)
+$ npx jest src/__tests__/sonda-g9-h3.test.tsx
+    SONDA zgoda: baner false oczekujące 12 zdanie o powiadomieniu false
+    SONDA odmowa: baner true oczekujące 0 zdanie o powiadomieniu false
+    ✓ zgoda → baneru brak; odmowa w Ustawieniach + powrót (uzgodnienie jak na „active”) → baner i zero oczekujących (327 ms)
+Tests:       1 passed, 1 total
+exit=0
+
+## treść sondy (od linii 76)
+describe('SONDA G9-H3: cofnięcie zgody w Ustawieniach przy otwartym prowadzeniu', () => {
+  let now = Date.UTC(2026, 9, 19, 10, 0);
+  beforeAll(() => { useTempDbDir(); });
+  beforeEach(async () => {
+    zUprawnieniem();
+    mock.pending.clear();
+    mock.iosStatus = 2;
+    mock.grantOnRequest = true;
+    jest.spyOn(Date, 'now').mockImplementation(() => now);
+    jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    await initDatabase();
+    await odswiezDostep();
+  });
+  afterEach(() => { jest.restoreAllMocks(); });
+
+  it('zgoda → baneru brak; odmowa w Ustawieniach + powrót (uzgodnienie jak na „active”) → baner i zero oczekujących', async () => {
+    setActiveBake({ id: 'bake_z', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
+    const tree = await mount(<StolnicaScreen />);
+    const przed = textOf(tree.toJSON());
+    console.log('SONDA zgoda: baner', przed.includes('Powiadomienia wyłączone'), 'oczekujące', ids().length, 'zdanie o powiadomieniu', przed.includes('Powiadomienie o'));
+    expect(przed).not.toContain('Powiadomienia wyłączone');
+    mock.iosStatus = 1; // DENIED: użytkownik wyłączył w Ustawieniach iOS
+    await act(async () => { await resyncNotifications(); }); // app/_layout.tsx:89 woła to przy AppState 'active'
+    await settle();
+    const po = textOf(tree.toJSON());
+    console.log('SONDA odmowa: baner', po.includes('Powiadomienia wyłączone'), 'oczekujące', ids().length, 'zdanie o powiadomieniu', po.includes('Powiadomienie o'));
+    expect(po).toContain('Powiadomienia wyłączone');
+    expect(ids()).toEqual([]);
+    act(() => tree.unmount());
+  });
+});

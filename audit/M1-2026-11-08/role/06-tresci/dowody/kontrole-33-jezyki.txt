@@ -1,0 +1,125 @@
+$ node <scratchpad>/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/bg/
+docs/tresci/cs/
+docs/tresci/da/
+docs/tresci/de/
+docs/tresci/el/
+docs/tresci/es-419/
+docs/tresci/es/
+docs/tresci/et/
+docs/tresci/fi/
+docs/tresci/fr/
+docs/tresci/hr/
+docs/tresci/hu/
+docs/tresci/id/
+docs/tresci/it/
+docs/tresci/ja/
+docs/tresci/ko/
+docs/tresci/lt/
+docs/tresci/lv/
+docs/tresci/ms/
+docs/tresci/nb/
+docs/tresci/nl/
+docs/tresci/pt-BR/
+docs/tresci/pt/
+docs/tresci/ro/
+docs/tresci/ru/
+docs/tresci/sk/
+docs/tresci/sl/
+docs/tresci/sr/
+docs/tresci/sv/
+docs/tresci/tr/
+docs/tresci/uk/
+docs/tresci/vi/
+docs/tresci/zh-Hant/
+PRZEGLĄD ZAK-PLE-002 człowiek
+PRZEGLĄD ZAK-PLE-003 człowiek
+PRZEGLĄD ZAK-PLE-004 człowiek
+PRZEGLĄD ZAK-NAL-001 człowiek
+PRZEGLĄD ZAK-KOL-001 człowiek
+PRZEGLĄD ZAK-WAC-001 człowiek
+PRZEGLĄD ZAK-NAC-001 człowiek
+PRZEGLĄD ZAK-HOO-001 człowiek
+PRZEGLĄD ZAK-SUR-001 człowiek
+PRZEGLĄD DOK-PIE-002 człowiek
+PRZEGLĄD BEZ-SUR-001 człowiek
+PRZEGLĄD BEZ-SUR-002 człowiek
+PRZEGLĄD BEZ-SUR-003 człowiek
+PRZEGLĄD BEZ-OPA-001 człowiek
+PRZEGLĄD BEZ-OPA-002 człowiek
+PRZEGLĄD BEZ-OPA-003 człowiek
+PRZEGLĄD BEZ-OPA-004 człowiek
+PRZEGLĄD BEZ-OPA-005 człowiek
+PRZEGLĄD MAS-002 człowiek
+PRZEGLĄD MAS-009 człowiek
+PRZEGLĄD MAS-010 człowiek
+PRZEGLĄD MAS-011 człowiek
+PRZEGLĄD MAS-012 człowiek
+PRZEGLĄD MAS-013 człowiek
+PRZEGLĄD MAS-014 człowiek
+PRZEGLĄD MAS-023 człowiek
+PRZEGLĄD MAS-024 człowiek
+PRZEGLĄD MAS-025 człowiek
+PRZEGLĄD MAS-026 człowiek
+PRZEGLĄD MAS-035 człowiek
+PRZEGLĄD MAS-036 człowiek
+PRZEGLĄD MAS-037 człowiek
+PRZEGLĄD MAS-038 człowiek
+PRZEGLĄD MAS-044 człowiek
+PRZEGLĄD MAS-045 człowiek
+PRZEGLĄD MAS-052 człowiek
+PRZEGLĄD MAS-053 człowiek
+PRZEGLĄD MAS-062 człowiek
+PRZEGLĄD MAS-070 człowiek
+PRZEGLĄD MAS-071 człowiek
+PRZEGLĄD MAS-072 człowiek
+PRZEGLĄD KAT-OBW-006 człowiek
+PRZEGLĄD KAT-RUP-001 człowiek
+PRZEGLĄD MAS-084 człowiek
+PRZEGLĄD KAT-KOL-006 człowiek
+PRZEGLĄD BEZ-WRZ-001 człowiek
+BŁĄD docs/tresci/ja/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+BŁĄD docs/tresci/ko/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+BŁĄD docs/tresci/zh-Hant/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+BŁĄD rejestr ZAK-PLE-002: przegląd dotyczy innej wersji zdań (1c7c4e005203, teraz 99ab34387dff)
+BŁĄD rejestr ZAK-PLE-003: przegląd dotyczy innej wersji zdań (7b7c894bd8e0, teraz 358f28045f70)
+BŁĄD rejestr ZAK-PLE-004: przegląd dotyczy innej wersji zdań (5d958fd66999, teraz 222d8c449370)
+BŁĄD rejestr ZAK-NAL-001: przegląd dotyczy innej wersji zdań (76010751432e, teraz 2e201066eeea)
+BŁĄD rejestr ZAK-KOL-001: przegląd dotyczy innej wersji zdań (1c7c4e005203, teraz 99ab34387dff)
+BŁĄD rejestr ZAK-WAC-001: przegląd dotyczy innej wersji zdań (bdd5bcb7cdf2, teraz 7861c6381786)
+BŁĄD rejestr ZAK-NAC-001: przegląd dotyczy innej wersji zdań (190d8c186774, teraz 0b3463abcab3)
+BŁĄD rejestr ZAK-HOO-001: przegląd dotyczy innej wersji zdań (c20925957600, teraz cafd8ce9b920)
+BŁĄD rejestr ZAK-SUR-001: przegląd dotyczy innej wersji zdań (bee99ed06b7d, teraz 449ee5dd7083)
+BŁĄD rejestr DOK-PIE-002: przegląd dotyczy innej wersji zdań (3e10eb07410a, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-SUR-001: przegląd dotyczy innej wersji zdań (6f98f500ae33, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-SUR-002: przegląd dotyczy innej wersji zdań (42712601a01f, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-OPA-001: przegląd dotyczy innej wersji zdań (e59fc24f1d71, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-OPA-002: przegląd dotyczy innej wersji zdań (e59fc24f1d71, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-OPA-003: przegląd dotyczy innej wersji zdań (ac829a4446e3, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-OPA-004: przegląd dotyczy innej wersji zdań (f00055ce23bc, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-OPA-005: przegląd dotyczy innej wersji zdań (31f4ec7d786b, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-002: przegląd dotyczy innej wersji zdań (d80387a202e5, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-009: przegląd dotyczy innej wersji zdań (a8b555ee66d9, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-010: przegląd dotyczy innej wersji zdań (447ce226066b, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-011: przegląd dotyczy innej wersji zdań (14c2c5b0ffb4, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-013: przegląd dotyczy innej wersji zdań (cbbe24da43b7, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-014: przegląd dotyczy innej wersji zdań (2e4846296896, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-023: przegląd dotyczy innej wersji zdań (a8b555ee66d9, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-024: przegląd dotyczy innej wersji zdań (447ce226066b, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-025: przegląd dotyczy innej wersji zdań (cbbe24da43b7, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-026: przegląd dotyczy innej wersji zdań (f0934085c5f6, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-035: przegląd dotyczy innej wersji zdań (a8b555ee66d9, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-036: przegląd dotyczy innej wersji zdań (447ce226066b, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-037: przegląd dotyczy innej wersji zdań (cbbe24da43b7, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-038: przegląd dotyczy innej wersji zdań (f0934085c5f6, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-044: przegląd dotyczy innej wersji zdań (a8b555ee66d9, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-045: przegląd dotyczy innej wersji zdań (cbbe24da43b7, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-053: przegląd dotyczy innej wersji zdań (447ce226066b, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-062: przegląd dotyczy innej wersji zdań (1557242fa7c5, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-072: przegląd dotyczy innej wersji zdań (2c4091952f16, teraz e3b0c44298fc)
+BŁĄD rejestr KAT-OBW-006: przegląd dotyczy innej wersji zdań (ceb0af82294c, teraz e3b0c44298fc)
+BŁĄD rejestr KAT-RUP-001: przegląd dotyczy innej wersji zdań (7c397c1e861c, teraz e3b0c44298fc)
+BŁĄD rejestr MAS-084: przegląd dotyczy innej wersji zdań (181463c2a5e3, teraz e3b0c44298fc)
+BŁĄD rejestr KAT-KOL-006: przegląd dotyczy innej wersji zdań (fbd826602bed, teraz e3b0c44298fc)
+BŁĄD rejestr BEZ-WRZ-001: przegląd dotyczy innej wersji zdań (d3b15ef100c8, teraz e3b0c44298fc)
+44 błędów, 0 uwag
+kod wyjścia: 1

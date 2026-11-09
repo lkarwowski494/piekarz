@@ -1,0 +1,113 @@
+$ MCP GitHub actions_list list_workflow_run_artifacts 42511355281 → artefakt 13630142877 „maestro-e2e” (head_sha 2ef8870a…, master); pobrany i rozpakowany w scratchpadzie (poza repo), odczyt 2026-11-08 ~20:37 UTC
+$ python3: statusy poleceń commands.json każdego scenariusza
+== 01-pierwsze-uruchomienie
+0 launchApp  COMPLETED 
+1 assertCondition start-czynnosci COMPLETED 
+2 assertCondition start-zakladam-zakwas COMPLETED 
+3 assertCondition start-pieke-na-drozdzach COMPLETED 
+4 tapOnElement start-pieke-na-zakwasie COMPLETED 
+5 assertCondition recipe-list COMPLETED 
+6 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+7 assertCondition loaves-count-display COMPLETED 
+8 assertCondition start-bake-btn COMPLETED 
+9 scrollUntilVisible recipe-hydration COMPLETED 
+== 02-wypiek-na-stolnicy
+0 launchApp  COMPLETED 
+1 assertCondition start-czynnosci COMPLETED 
+2 tapOnElement tab-zakwasy COMPLETED 
+3 assertCondition zakwas-doctor-shortcut-btn COMPLETED 
+4 tapOnElement tab-dziennik COMPLETED 
+5 assertCondition dziennik-doktor-btn COMPLETED 
+6 tapOnElement tab-receptury COMPLETED 
+7 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+8 assertCondition start-bake-btn COMPLETED 
+9 tapOnElement start-bake-btn COMPLETED 
+10 scrollUntilVisible plan-start-bake-btn COMPLETED 
+11 tapOnElement plan-start-bake-btn COMPLETED 
+12 tapOnElement zgoda-dalej-btn COMPLETED 
+13 tapOnElement Pozwalaj|Zezwalaj|Zezwól|Allow COMPLETED 
+14 assertCondition next-or-finish-step-btn COMPLETED 
+15 tapOnElement next-or-finish-step-btn COMPLETED 
+16 assertCondition next-or-finish-step-btn COMPLETED 
+17 launchApp  COMPLETED 
+18 assertCondition spirala-otworz COMPLETED 
+19 tapOnElement spirala-otworz COMPLETED 
+20 assertCondition next-or-finish-step-btn COMPLETED 
+== 03-prowadzenie-widok-skupiony
+0 launchApp  COMPLETED 
+1 assertCondition start-czynnosci COMPLETED 
+2 tapOnElement tab-receptury COMPLETED 
+3 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+4 assertCondition start-bake-btn COMPLETED 
+5 tapOnElement start-bake-btn COMPLETED 
+6 scrollUntilVisible plan-start-bake-btn COMPLETED 
+7 tapOnElement plan-start-bake-btn COMPLETED 
+8 tapOnElement zgoda-dalej-btn COMPLETED 
+9 tapOnElement Pozwalaj|Zezwalaj|Zezwól|Allow COMPLETED 
+10 assertCondition step-title COMPLETED 
+11 assertCondition step-time COMPLETED 
+12 assertCondition thumb-bar COMPLETED 
+13 assertCondition next-or-finish-step-btn COMPLETED 
+14 assertCondition step-undo-btn COMPLETED 
+15 assertCondition step-why-btn COMPLETED 
+16 assertCondition  COMPLETED 
+== 04-plan-na-pozniej
+0 launchApp  COMPLETED 
+1 assertCondition start-czynnosci COMPLETED 
+2 tapOnElement tab-receptury COMPLETED 
+3 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+4 tapOnElement start-bake-btn COMPLETED 
+5 scrollUntilVisible plan-start-bake-btn COMPLETED 
+6 tapOnElement plan-start-bake-btn COMPLETED 
+7 tapOnElement zgoda-dalej-btn COMPLETED 
+8 tapOnElement Pozwalaj|Zezwalaj|Zezwól|Allow COMPLETED 
+9 assertCondition next-or-finish-step-btn COMPLETED 
+10 tapOnElement next-or-finish-step-btn COMPLETED 
+11 launchApp  COMPLETED 
+12 assertCondition start-czynnosci COMPLETED 
+13 tapOnElement tab-receptury COMPLETED 
+14 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+15 tapOnElement start-bake-btn COMPLETED 
+16 assertCondition plan-dzien-2 COMPLETED 
+17 swipe LEFT COMPLETED 
+18 tapOnElement plan-dzien-3 COMPLETED 
+19 assertCondition plan-zaplanuj-btn COMPLETED 
+20 tapOnElement plan-zaplanuj-btn COMPLETED 
+21 assertCondition start-czynnosci COMPLETED 
+22 scrollUntilVisible spirala-otworz COMPLETED 
+23 scrollUntilVisible start-plany COMPLETED 
+24 assertCondition plan-wiersz-.* COMPLETED 
+25 assertCondition  COMPLETED 
+== 05-dwa-wypieki
+0 launchApp  COMPLETED 
+1 assertCondition start-czynnosci COMPLETED 
+2 tapOnElement tab-receptury COMPLETED 
+3 tapOnElement recipe-row-country_loaf_72 COMPLETED 
+4 tapOnElement start-bake-btn COMPLETED 
+5 scrollUntilVisible plan-start-bake-btn COMPLETED 
+6 tapOnElement plan-start-bake-btn COMPLETED 
+7 tapOnElement zgoda-dalej-btn COMPLETED 
+8 tapOnElement Pozwalaj|Zezwalaj|Zezwól|Allow WARNED 
+9 assertCondition next-or-finish-step-btn FAILED Assertion is false: id: next-or-finish-step-btn is visible
+
+$ grep logs/maestro.log 05-dwa-wypieki (stuknięcie „Dalej” i dalsze polecenia)
+19:12:33.438 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on (Optional) id: zgoda-dalej-btn RUNNING
+19:12:34.181 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={accessibilityText=Dalej, title=, value=, text=, hintText=, resource-id=zgoda-dalej-btn, bounds=[20,798][382,862], enabl
+19:12:34.872 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via trusted pre-wait hierarchy (null settle, no recent scroll)
+19:12:34.873 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (201, 830) using hierarchy based logic for wait
+19:12:34.874 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to byte array
+19:12:34.874 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:12:35.617 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Something have changed in the UI judging by view hierarchy. Proceed.
+19:12:35.617 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on (Optional) id: zgoda-dalej-btn COMPLETED
+19:12:35.617 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on (Optional) "Pozwalaj|Zezwalaj|Zezwól|Allow" RUNNING
+19:12:42.777 [ INFO] maestro.orchestra.Orchestra.executeCommands: [Command execution] CommandWarned: Element not found: Text matching regex: Pozwalaj|Zezwalaj|Zezwól|Allow
+19:12:42.962 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+19:12:42.963 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:12:43.164 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on (Optional) "Pozwalaj|Zezwalaj|Zezwól|Allow" WARNED
+19:12:43.165 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that id: next-or-finish-step-btn is visible RUNNING
+
+Zrzuty: 05-dwa-wypieki/screenshots/step-011…png i step-012…png — arkusz „Dam znać o każdym kroku” z „Dalej” widoczny w obu (19:12:42 i po 15 s czekania); para w scratchpadzie: e2e96-para.png
+$ grep resource-id screen-hierarchy/step-012…json
+"resource-id" : "zgoda-dalej-btn"
+"resource-id" : "3 z 3 paski sygnału Wi‑Fi"
+kod: 0

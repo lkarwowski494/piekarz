@@ -1,0 +1,19 @@
+$ uname -a; node -v; git --version; git rev-parse HEAD; git status --porcelain | wc -l; which gh; gh auth status; npx --no-install playwright --version; which xcodebuild; python3 -c "import sqlite3;print(sqlite3.sqlite_version)"; node -e "console.log(require(\"node:sqlite\").DatabaseSync?\"node:sqlite ok\":\"\")"
+Linux vm 6.18.44-fc-v310 #1 SMP @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+git version 2.43.0
+2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+porcelain lines: 0
+/usr/local/bin/gh
+gh exit 0
+github.com
+  X Failed to log in to github.com using token (GH_TOKEN)
+  - Active account: true
+  - The token in GH_TOKEN is invalid.
+gh auth exit 1
+Version 1.63.0
+playwright exit 0
+xcodebuild exit 1
+python sqlite 3.53.1
+node:sqlite 3.53.4
+(Use `node --trace-warnings ...` to show where the warning was created)

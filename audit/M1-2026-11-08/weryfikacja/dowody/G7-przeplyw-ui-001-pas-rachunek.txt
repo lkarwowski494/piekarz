@@ -1,0 +1,43 @@
+# G7-przeplyw-ui / 04-studio-projektowe-001: pas prowadzenia nad treścią kroku (commit 2ef8870a525485cc1ac57e5abe9d97d9937dfe42)
+
+$ grep -n "PasZakladki gora\|StrefaPlanu naPasie\|NotificationsOffBanner />\|<StrefaKroku" src/components/stolnica/ProwadzenieWypieku.tsx
+323:        <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
+330:              <StrefaPlanu naPasie recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
+342:            <NotificationsOffBanner />
+344:            <StrefaKroku
+kod wyjścia: 0
+
+$ grep -n "<Karta testID=\"karta-kroku\"\|<Ostrzezenie" src/components/stolnica/StrefaKroku.tsx
+98:      <Karta testID="karta-kroku" tytul={naglowekNaPasie ? t('Co zrobić') : numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
+110:      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
+kod wyjścia: 0
+
+$ grep -n "<ScrollView\|{pas(setWysokoscPasa)}\|{children}" src/components/nawigacja/EkranZPasem.tsx   # pas jest dzieckiem ScrollView, nie zwija się
+26:  przewijanieRef?: React.Ref<ScrollView>;
+34:      <ScrollView
+48:        {pas(setWysokoscPasa)}
+49:        {children}
+kod wyjścia: 0
+
+$ grep -n "Math.min(220" src/components/Spirala.tsx; grep -rn "useWindowDimensions().height\|height: wys" src/components/stolnica src/components/nawigacja src/components/Spirala.tsx   # brak zwijania zależnego od wysokości ekranu
+60:  return Math.min(220, Math.max(150, Math.round(150 * fontScale)));
+kod wyjścia: 0
+kod wyjścia: 1 (1 = brak trafień)
+
+$ grep -n "pasek: {\|minHeight: theme.cele" src/components/stolnica/PasekKciuka.tsx
+63:  pasek: { paddingTop: odstepy.m, paddingHorizontal: odstepy.xl, paddingBottom: odstepy.m, gap: 10 },
+65:    minHeight: theme.cele.przyciskKciuka,
+78:    minHeight: theme.cele.glownyPrzeplyw,
+kod wyjścia: 0
+
+$ grep -rn "karta-kroku" .maestro/e2e   # brak asercji widoczności karty kroku bez przewijania
+kod wyjścia: 1 (1 = brak trafień)
+
+Rachunek [OCENA] z tokenów (odstepy xs4 s8 m12 l16; tytulDuzy 34 pt, czas 56 pt; cele 44/48/64), bez symulatora:
+pas = paddingTop(gora+4) + rząd przycisków 44 + tytuł ~41 + „Krok n z m” ~14 + czas i „potem” ~95 + nazwa receptury ~18
+      + Spirala 150 z legendą ~35 + „Gotowe …” ~22 + 6 odstępów gap 8 (48) + paddingBottom 16
+    = gora + 4 + 483 ≈ 549 pt na iPhonie 17 Pro (gora ≈ 62), ≈ 507 pt na iPhonie SE 3 (gora 20)
+pasek kciuka = 12 + 64 + 10 + 48 + 12 = 146 pt + dolny obszar bezpieczny (34 na 17 Pro, 0 na SE)
+widoczna treść pod pasem: 17 Pro 874 − 549 − 180 ≈ 145 pt (minus odstęp kontenera ≈ 130 pt: nagłówek karty „Co zrobić” i 2–4 wiersze);
+                          SE 667 − 507 − 146 ≈ 14 pt (praktycznie 0); przy dwóch wypiekach stały rząd przełącznika −64…−130 pt (D-238).
+Wynik zgodny z rachunkiem znaleziska (ok. 130 pt / ok. 0 pt); ostrzeżenie (StrefaKroku.tsx:110) leży pod kartą, więc poza pierwszym ekranem.

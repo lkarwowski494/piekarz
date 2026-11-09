@@ -1,0 +1,38 @@
+# cwd: /home/user/piekarz (commit 2ef8870a)
+$ grep -rn -i "diagnos\|doktor\|doctor" src/data src/recipes src/components/receptury src/components/harmonogram app/(tabs)/receptury --include=*.ts --include=*.tsx | grep -v __tests__
+exit=1 (1 = brak trafień: warstwa danych, receptury i plan nie znają diagnozy)
+
+$ grep -rn "router.push('/doktor')" src app --include=*.tsx | grep -v __tests__
+src/components/stolnica/ProwadzenieWypieku.tsx:100:    openDoctor: chron('doktor', () => router.push('/doktor')),
+src/components/stolnica/ProwadzenieWypieku.tsx:326:          akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
+app/(tabs)/dziennik/index.tsx:81:        onPress={() => router.push('/doktor')}
+exit=0
+
+$ grep -n "useState<BreadInspectionCriteria>\|diagnoseBreadDefect(symptoms)" app/doktor.tsx
+46:  const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({});
+70:    return diagnoseBreadDefect(symptoms);
+exit=0
+
+$ grep -rn "updateBakeNotes\|zapiszNotatk\|edytujWpis\|updateBakeLog\|aktualizujWpis" src app --include=*.ts --include=*.tsx | grep -v __tests__
+exit=1 (1 = brak edycji notatki po zapisie wpisu)
+
+$ sed -n 15,24p src/components/harmonogram/NotatkiPlanu.tsx
+export function NotatkiPlanu({ notatka, bazowaZmieniona }: { notatka: string | null; bazowaZmieniona: boolean }) {
+  if (!notatka && !bazowaZmieniona) return null;
+  return (
+    <Karta testID="karta-receptury-planu" tytul={t('Receptura')} ikona={<IkonaKarty nazwa="info" />}>
+      {notatka ? (
+        <Text style={styles.tekst} testID="plan-notatka-poprzednia">{t('Notatka z poprzedniego wypieku: {notatka}', { notatka })}</Text>
+      ) : null}
+      {bazowaZmieniona ? (
+        <Text style={styles.tekst} testID="plan-bazowa-zmieniona">{t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}</Text>
+      ) : null}
+exit=0
+
+$ sed -n 105p src/components/doktor/DiagnosisResultCard.tsx
+      <Text style={styles.checklistTitle}>{t('Co zrobić przy następnym wypieku:')}</Text>
+exit=0
+
+$ sed -n 1224p docs/decyzje.md | cut -c1-300
+- **Decyzja:** karta wyniku przeniesiona pod karty objawów; protokoły ratunkowe zostają nad objawami. Ekran nie wie, skąd wszedł użytkownik (`router.push('/doktor')` z prowadzenia i z Dziennika), a parametr wejścia wymagałby zmiany `ProwadzenieWypieku.tsx` (25 B pod limitem 20 480 B) i aserc
+exit=0

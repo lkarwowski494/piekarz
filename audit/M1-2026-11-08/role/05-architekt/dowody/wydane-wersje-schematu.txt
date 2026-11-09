@@ -1,0 +1,38 @@
+$ wersja schematu (najwyższe version:) i DDL w wydanych buildach TestFlight (tagi z docs/wydanie/dziennik.md)
+adfe1fa max_version=brak listy (user_version 0)
+276ba2f max_version=brak listy (user_version 0)
+0016299 max_version=brak listy (user_version 0)
+ebd8471 max_version=3
+f42c0d8 max_version=5
+2b0db0f max_version=5
+37edbfb max_version=5
+49ab67a max_version=6
+3df3da3 max_version=6
+d8a0b40 max_version=6
+39f3890 max_version=6
+9c255a0 max_version=6
+2ef8870a max_version=7
+$ zmiany DDL między buildami o tej samej wersji (liczba linii CREATE/ALTER/version w diffie)
+adfe1fa..276ba2f: 0
+b21c194..0016299: 0
+f42c0d8..2b0db0f: 0
+f42c0d8..37edbfb: 0
+49ab67a..3df3da3: 0
+49ab67a..d8a0b40: 0
+49ab67a..39f3890: 0
+49ab67a..9c255a0: 0
+$ fikstury testów migracji
+schema-70fd81a.sql
+schema-adfe1fa.sql
+schema-b21c194.sql
+schema-ebd8471.sql
+baza-1014-f42c0d8.sql
+baza-1021-39f3890.sql
+$ git diff --stat 49ab67a 39f3890 -- src/data/bake-session-store.ts (parser używany przez wydaną migrację v6)
+ src/data/bake-session-store.ts | 53 ++++++++++++++++++++++++++++++------------
+ 1 file changed, 38 insertions(+), 15 deletions(-)
+ src/core/bake-steps.ts         | 17 ++++++++++++-----
+ src/data/bake-session-store.ts |  5 +++++
+ src/data/row-parsers.ts        |  9 ++++++++-
+ 3 files changed, 25 insertions(+), 6 deletions(-)
+kod: 0

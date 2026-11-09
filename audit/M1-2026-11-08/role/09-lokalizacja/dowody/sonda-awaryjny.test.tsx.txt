@@ -1,0 +1,29 @@
+/* Sonda roli 09: telefon po niemiecku (de-DE), dwa nieudane starty → tryb awaryjny z app/_layout.tsx. Jaki język ma ekran? */
+jest.mock('expo-localization', () => ({
+  getLocales: () => [{ languageTag: 'de-DE', languageCode: 'de', regionCode: 'DE' }],
+  getCalendars: () => [{ firstWeekday: 2, uses24hourClock: true }],
+}));
+jest.mock('../../src/lib/startup-guard', () => ({
+  ...jest.requireActual('../../src/lib/startup-guard'),
+  beginStartup: jest.fn().mockResolvedValue({ rescue: true }),
+}));
+jest.mock('react-native-safe-area-context', () => {
+  const React = require('react');
+  return {
+    SafeAreaView: ({ children, style }: { children: React.ReactNode; style?: unknown }) => React.createElement('View', { style }, children),
+    useSafeAreaInsets: () => ({ top: 0, left: 0, right: 0, bottom: 0 }),
+  };
+});
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
+import { lang } from '../../src/lib/i18n';
+
+test('sonda: tryb awaryjny na telefonie de-DE', async () => {
+  const RootLayout = require('../../app/_layout').default;
+  let tree: renderer.ReactTestRenderer | null = null;
+  await act(async () => { tree = renderer.create(<RootLayout />); });
+  await act(async () => { for (let i = 0; i < 30; i++) await Promise.resolve(); });
+  const teksty = tree!.root.findAll((n) => (n.type as unknown) === 'Text').map((n) => n.children.filter((c) => typeof c === 'string').join(''));
+  // eslint-disable-next-line no-console
+  console.log('język aplikacji:', lang(), '\nteksty ekranu:', JSON.stringify(teksty.filter(Boolean)));
+});

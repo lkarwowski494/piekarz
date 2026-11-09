@@ -1,0 +1,14 @@
+# Wytyczne App Store 4.2 i 4.3, odczyt 2026-11-08 ok. 20:20 UTC
+$ curl -sS -L "https://developer.apple.com/app-store/review/guidelines/" (HTTP 200, kod 0); tekst po zdjęciu znaczników:
+4.2 Minimum Functionality Your app should include features, content, and UI that elevate it beyond a repackaged website. If your app is not particularly useful, unique, or “app-like,” it doesn’t belong on the App Store. If your App doesn’t provide some sort of lasting entertainment value or adequate utility, it may not be accepted. Apps that are simply a song or movie should be submitted to the iTunes Store. Apps that are simply a book or game guide should be submitted to the Apple Books Store. 4.2.1 Apps using ARKit should provide rich and integrated augmented reality experiences; merely dropping a model into an AR view or replaying animation is not enough. 4.2.2 Other than catalogs, apps shouldn’t primarily be marketing materials, advertisements, web clippings, content aggregators, or a collection of links. 4.2.3 (i) Your app should work on its own without requiring installation of another app to function. (ii) If your app needs to download additional resources in order to function on initial launch, disclose the size of the download and prompt users before doing so. 4.2.4 Intentio
+
+4.3 Spam (a) Don’t create multiple Bundle IDs of the same app (for example, submitting a separate map app for every city in the world instead of a single worldwide map that allows users to search any city). This practice results in unnecessary apps, which makes it hard for users to find the apps they want. If your app has different versions for specific locations, sports teams, universities, etc., consider submitting a single app and providing the variations using in-app purchase. (b) Don’t submit apps that are indistinguishable from what's already widely available. Opportunistically creating variants of existing app categories or popular apps degrades App Store discovery, reduces overall app quality, and harms both users and developers. Certain kinds of apps, such as dating, flashlight, sound effects, wallpaper, simple timers, and fortune telling, are well established on the App Store and we will not accept new submissions unless they offer a meaningfully different or improved experience. We may remove these apps from the App Store going forward if they are not updated, improved, or
+
+# Aplikacje właściciela w sklepie (iTunes Search, term=apps4brew | apps4brew studio | apps4craft, country=pl i us, 2026-11-08)
+a-pl-apps4brew+studio.json wyników 2 | sprzedawca Apps4…: brak
+a-pl-apps4brew.json wyników 22 | sprzedawca Apps4…: brak
+a-pl-apps4craft.json wyników 49 | sprzedawca Apps4…: brak
+a-us-apps4brew+studio.json wyników 38 | sprzedawca Apps4…: brak
+a-us-apps4brew.json wyników 36 | sprzedawca Apps4…: brak
+a-us-apps4craft.json wyników 42 | sprzedawca Apps4…: brak
+kod: 0

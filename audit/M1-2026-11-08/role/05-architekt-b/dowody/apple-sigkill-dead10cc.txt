@@ -1,0 +1,3 @@
+TERM: 0xdead10cc (3735883980) — pronounced “dead lock”
+DEF: The operating system terminated the app because it held on to a file lock or SQLite database lock during suspension. Request additional background execution time on the main thread with [beginBackgroundTask(withName:expirationHandler:)]. Make this request well before starting to write to the file in order to complete those operations and relinquish the lock before the app suspends. In an app extension, use [beginActivity(options:reason:)] to manage this work.
+URL: https://developer.apple.com/documentation/xcode/sigkill (JSON: /tutorials/data/documentation/xcode/sigkill.json), odczyt 2026-11-08

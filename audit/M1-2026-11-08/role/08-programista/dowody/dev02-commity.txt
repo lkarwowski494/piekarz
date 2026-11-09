@@ -1,0 +1,42 @@
+$ git log --no-merges --format="%h %ad %s" --date=short -- app src ":!*__tests__*" ":!src/lib/i18n-slowniki" ":!src/lib/i18n-en" ":!src/lib/i18n.en.ts" | head -40
+8779cc6b 2026-11-08 [M8] fix(licencje): zgodność z bramkami projektu (separator, etykieta VoiceOver, opis verify)
+91f5e721 2026-11-08 [M8] feat(ustawienia): ekran „Licencje open source” (Z-08-1, FOR-15, D-291)
+cb4f4c39 2026-11-08 [M8] refactor(ustawienia): jeden stan podekranu w SettingsModal (bez zmiany zachowania)
+2d31a787 2026-11-08 [M8] feat(licencje): dane i generator licencji open source (Z-08-1, FOR-15)
+75de19fc 2026-11-04 [M3 p9b2f] P9B2F-7: domyslne "Gotowe o" liczone z sekundami i zapasem 1 min
+e28537d1 2026-11-04 [M3 p9b2f] P9B2F-6 (D-260): Dziennik pokazuje metodę wypieku
+c694861f 2026-11-04 [M3 p9b2f] P9B2F-3: "Zapisz plan" liczy start z chwili stuknięcia
+80276b42 2026-11-04 [M3 p9b2f] P9B2F-4: domyślne "Gotowe o" przelicza się po zmianie czasu programu
+21ebdb3c 2026-11-04 [M3 p9b2f] P9B2F-2 (OP-65 → MAS-086): "Ustaw opóźniony start na {czas}." = czas od teraz do gotowości
+47677614 2026-11-04 [M3 p9b2f] P9B2F-1 (MAS-085): przy programie "ciasto" bez "Gotowe o" i opóźnionego startu
+e658ae8c 2026-11-04 [M3 p9b2f] P9B2F-5: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytelnej wartości
+35a6bd51 2026-11-04 [M3 06m] ekran Źródła wiedzy: 5 instrukcji producentów maszyn, maszyna.md zdjęta z CZEKAJA_NA_WPIECIE (D-265)
+0254fb50 2026-11-04 [M3 06m] dane treści: ciabatta z oliwą w DODATKI_MASZYNY, test dodatków z notatek receptur (D-266 a)
+6a26a4dc 2026-11-04 [M3 p9b2] poprawki bramek ekranu maszyny: pola dotyku, fontSize z tokenu, słownik akcji
+9efd5d19 2026-11-04 [M3 p9b2] ekran: tryb maszyny do chleba na recepturze (F-72, D-138)
+ded2572c 2026-11-04 [M3 p9b2] zapiszMaszyne: nieczytelna wartość do pliku ratunkowego przed nadpisaniem
+1021d86a 2026-11-04 [M3 p9b2] struktura: SegmentOpcji — wspólny segment dla wersji i trybu receptury
+208c4758 2026-11-04 [M3 p9b2] poprawka: domain-rules.ts w limicie 20 480 B (krótszy komentarz stałej)
+92829a62 2026-11-04 [M3 p9b2] logika trybu maszyny: RD-37, RD-38, RD-39, kolejność i godzina startu
+d937a314 2026-11-04 [M3 p9b2] struktura: stała WSP_SWIEZE_NA_SUCHE (RD-19) w domain-rules
+04e6e808 2026-11-04 [M3 p9b2] bakes.bake_method w migracji v7 (D-260): metoda wypieku w Dzienniku
+287c53ba 2026-11-04 [M3 p9b] żyto na drożdżach według źródeł: rośnięcie ZYT-ETA-005 bez testu palca, studzenie 24 h, pieczenie 240/220 °C (D-256)
+95b792a1 2026-11-04 [M3 06d] ekran „Źródła wiedzy”: 5 źródeł wersji drożdżowej, przelicznik wydzielony z treści planu (D-255)
+d0aa79b7 2026-11-04 [M3 p9b] żyto na drożdżach bez zamiany kroków na etapy żytnie na zakwasie (przegląd P1, D-253)
+90b7b744 2026-11-04 [M3 p9b] plan i prowadzenie wersji drożdżowej, wersja przy starcie, w Dzienniku i w „Piecz ponownie” (D-155, D-242 Z2/Z3)
+96f19a17 2026-11-04 [M3 p9b] struktura: plakietka dnia planu do src/lib/plakietka-dnia.ts
+68129e40 2026-11-04 [M3 p9b] przełącznik wersji drożdżowej na recepturze i kroki planu drożdżowego (D-154, D-155, D-173, D-174)
+2d8218c2 2026-11-04 [M3 p9b] import kopii: maszyna i wersje_receptur tylko w poprawnym ksztalcie (przeglad sciezek wrazliwych, P1)
+6ebb9012 2026-11-04 [M3 p9b] struktura: czyste parsery wyborow do wybory-parsery.ts
+c2625ca6 2026-11-04 [M3 p9b] D-250: klucze maszyna i wersje_receptur w kopii, G5 z lista kluczy 1021, Piecz ponownie z kodu; STOP D-246
+2947d3c2 2026-11-04 [M3 p9b] dane p9 (D-242): migracja v7 bakes.leaven, wersja/tryb w sesji, wybory w app_settings; STOP na testach G3/G5
+cccf8719 2026-11-04 [M3 06z] Źródła wiedzy: 7 źródeł katalogu p8, grupa „Receptury”, Marttaliitto przeniesione (D-247)
+6a2ba396 2026-11-04 [M3 p9b] struktura: odczyt i zapis wiersza Dziennika do wpisy-wypiekow.ts
+d96d36f6 2026-11-04 [M3 p10] Źródła wiedzy: Marttaliitto (KAT-KAR-009), EN, asercja na ekranie (D-126, D-237)
+8423442d 2026-11-04 [M3 p10] karelian_rye_pasties: sól 2,1% (KAT-KAR-010) i dwa zdania notatki (D-237)
+846444be 2026-11-04 [M3 p7c] E2E-90: bez ucinania tekstu, duży tekst zostaje w treści, pasek Cofnięto wydzielony
+0660d8a7 2026-11-04 [M3 p7c] E2E-90: przełącznik wypieków w stałym rzędzie nad paskiem kciuka
+725537b2 2026-11-04 [M3 p8] lista, ekran receptury, nazwy i "Piecz ponownie" czytaja katalog (CATALOG_RECIPES)
+22d949f7 2026-11-04 [M3 p8] katalog: 11 receptur "wchodzi" (D-157, D-177) z tekstami PL i EN z docs/tresci
+7793b7c1 2026-11-04 [M3 p8] struktura: podział presets.ts na moduły według rodzaju (D-157), bez zmiany zachowania
+kod: 0

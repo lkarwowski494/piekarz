@@ -1,0 +1,51 @@
+$ node <scratchpad>/kontrole-tresci.mjs (wersja z promptu modułu) docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en
+PRZEGLĄD ZAK-PLE-002 człowiek
+PRZEGLĄD ZAK-PLE-003 człowiek
+PRZEGLĄD ZAK-PLE-004 człowiek
+PRZEGLĄD ZAK-NAL-001 człowiek
+PRZEGLĄD ZAK-KOL-001 człowiek
+PRZEGLĄD ZAK-WAC-001 człowiek
+PRZEGLĄD ZAK-NAC-001 człowiek
+PRZEGLĄD ZAK-HOO-001 człowiek
+PRZEGLĄD ZAK-SUR-001 człowiek
+PRZEGLĄD DOK-PIE-002 człowiek
+PRZEGLĄD BEZ-SUR-001 człowiek
+PRZEGLĄD BEZ-SUR-002 człowiek
+PRZEGLĄD BEZ-SUR-003 człowiek
+PRZEGLĄD BEZ-OPA-001 człowiek
+PRZEGLĄD BEZ-OPA-002 człowiek
+PRZEGLĄD BEZ-OPA-003 człowiek
+PRZEGLĄD BEZ-OPA-004 człowiek
+PRZEGLĄD BEZ-OPA-005 człowiek
+PRZEGLĄD MAS-002 człowiek
+PRZEGLĄD MAS-009 człowiek
+PRZEGLĄD MAS-010 człowiek
+PRZEGLĄD MAS-011 człowiek
+PRZEGLĄD MAS-012 człowiek
+PRZEGLĄD MAS-013 człowiek
+PRZEGLĄD MAS-014 człowiek
+PRZEGLĄD MAS-023 człowiek
+PRZEGLĄD MAS-024 człowiek
+PRZEGLĄD MAS-025 człowiek
+PRZEGLĄD MAS-026 człowiek
+PRZEGLĄD MAS-035 człowiek
+PRZEGLĄD MAS-036 człowiek
+PRZEGLĄD MAS-037 człowiek
+PRZEGLĄD MAS-038 człowiek
+PRZEGLĄD MAS-044 człowiek
+PRZEGLĄD MAS-045 człowiek
+PRZEGLĄD MAS-052 człowiek
+PRZEGLĄD MAS-053 człowiek
+PRZEGLĄD MAS-062 człowiek
+PRZEGLĄD MAS-070 człowiek
+PRZEGLĄD MAS-071 człowiek
+PRZEGLĄD MAS-072 człowiek
+PRZEGLĄD KAT-OBW-006 człowiek
+PRZEGLĄD KAT-RUP-001 człowiek
+PRZEGLĄD MAS-084 człowiek
+PRZEGLĄD KAT-KOL-006 człowiek
+PRZEGLĄD BEZ-WRZ-001 człowiek
+UWAGA docs/tresci/pl/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+UWAGA docs/tresci/en/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+0 błędów, 2 uwag
+kod wyjścia: 0

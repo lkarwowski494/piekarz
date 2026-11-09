@@ -1,0 +1,11 @@
+$ grep -rnE "scheduleNotificationAsync|requestPermissionsAsync|interruptionLevel|timeSensitive|critical|getPermissionsAsync" app src --include=*.ts --include=*.tsx | grep -v __tests__
+src/lib/notifications.ts:48:  const s = await Notifications.getPermissionsAsync();
+src/lib/notifications.ts:160:        await Notifications.scheduleNotificationAsync({
+src/lib/notifications.ts:165:            interruptionLevel: p.level,
+src/lib/notifications.ts:212:      await Notifications.requestPermissionsAsync({ ios: { allowAlert: true, allowSound: true, allowBadge: false } });
+src/core/notification-plan.ts:22:export type NotificationLevel = 'active' | 'timeSensitive';
+src/core/notification-plan.ts:123:    level: TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active',
+src/core/notification-plan.ts:171:    const level: NotificationLevel = TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active';
+kod: 0
+$ grep -n "UIBackgroundModes\|time-sensitive\|usernotifications" app.json ios -r
+app.json:105:        "com.apple.developer.usernotifications.time-sensitive": true

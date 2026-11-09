@@ -1,0 +1,11 @@
+$ npx jest tests/sonda09/jednostki.test.ts (kopia robocza; plik sondy: dowody/sonda-jednostki.test.ts.txt)
+pl => Na przykład w Tefal PF220838 nie wolno przekroczyć łącznie 2 lb 3,3 oz ciasta, 1 lb 5,9 oz mąki chlebowej i 0,35 oz suchych drożdży instant.
+en => For example, the Tefal PF220838 must not exceed 2 lb 3.3 oz of dough, 1 lb 5.9 oz of bread flour and 0.35 oz of dry instant yeast in total.
+de => Zum Beispiel dürfen beim Tefal PF220838 insgesamt höchstens 2 lb 3,3 oz Teig, 1 lb 5,9 oz Brotmehl und 0,35 oz Trockenhefe (Instant) verwendet werden.
+da => For eksempel må man i Tefal PF220838 ikke overskride i alt 0,04 oz dej, 1 lb 5,9 oz brødmel og 0,35 oz instant tørgær.
+fi => Esimerkiksi Tefal PF220838 -koneessa ei saa ylittää yhteensä 1 0,00 oz taikinaa, 1 lb 5,9 oz leipäjauhoja eikä 0,35 oz instant-kuivahiivaa.
+nb => For eksempel må man i Tefal PF220838 ikke overskride til sammen 1 0,00 oz deig, 1 lb 5,9 oz brødmel og 0,35 oz instant tørrgjær.
+sv => Till exempel får man i Tefal PF220838 inte överskrida sammanlagt 1 0,00 oz deg, 1 lb 5,9 oz brödmjöl och 0,35 oz instant-torrjäst.
+fr => Par exemple, avec la Tefal PF220838, il ne faut pas dépasser au total 2 lb 3,3 oz de pâte, 1 lb 5,9 oz de farine à pain et 0,35 oz de levure sèche instantanée.
+Tests:       1 passed, 1 total
+kod: 0

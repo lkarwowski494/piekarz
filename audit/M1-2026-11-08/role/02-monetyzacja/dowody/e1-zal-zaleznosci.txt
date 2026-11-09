@@ -1,0 +1,23 @@
+$ grep -rln "ZAL-043" docs src tests scripts
+docs/brd/odkrywanie.md
+docs/brd/wymagania-dane.md
+docs/monetyzacja-badanie-2026-10.md
+docs/design/00-rozpoznanie.md
+docs/archiwum/monetyzacja-d038-2026-10-19.md
+docs/zalozenia.md
+kod: 0
+$ grep -rln "ZAL-044" docs src tests scripts
+docs/brd/odkrywanie.md
+docs/monetyzacja-badanie-2026-10.md
+docs/monetyzacja.md
+docs/archiwum/monetyzacja-d038-2026-10-19.md
+docs/zalozenia.md
+kod: 0
+$ grep -rln "ZAL-050" docs src tests scripts
+docs/monetyzacja-badanie-2026-10.md
+docs/scope-contract.md
+docs/decyzje.md
+docs/archiwum/monetyzacja-d038-2026-10-19.md
+docs/archiwum/scope-contract-2026-10-20-robocze.md
+docs/zalozenia.md
+kod: 0

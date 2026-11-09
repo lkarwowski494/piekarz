@@ -1,0 +1,18 @@
+$ grep -rnE "saveRecipe\(|saveStarter\(|createStarterWithEntry\(|saveActiveBakeSession\(|savePlannedBake\(" src app --include=*.ts --include=*.tsx | grep -v __tests__ | grep -v "^src/data/"
+src/components/ImportRecipeModal.tsx:85:        await saveRecipe(recipe);
+src/components/zakwas/ZakladanieStart.tsx:28:    await createStarterWithEntry(s, nowyWpis(s.id, 'feeding', at));
+src/components/zakwas/useAkcjeZakwasu.ts:60:      await saveStarter(updated);
+src/components/zakwas/useAkcjeZakwasu.ts:92:      await saveStarter(updated);
+src/components/zakwas/useAkcjeZakwasu.ts:114:      await saveStarter(newStarter);
+src/components/zakwas/useAkcjeZakwasu.ts:150:    await saveStarter(updated);
+src/hooks/useCofnijDokarmienie.ts:41:      if (teraz) await saveStarter({ ...teraz, lastFedAt: c.poprzedni.lastFedAt, feedingRatio: c.poprzedni.feedingRatio });
+src/hooks/useStartPlanu.ts:123:        const r = await savePlannedBake(plan);
+src/lib/import-z-pliku.ts:91:  await saveRecipe(receptura);
+src/lib/staly-dzien-pytanie.ts:35:    await saveStarter({ ...s, fridgeFeedDay: stalyDzienPoDecyzji(s, fedAt, decyzja) });
+src/lib/plan-maszyny.ts:65:  return savePlannedBake(planMaszyny(w));
+src/lib/plany-akcje.ts:37:  const r = await savePlannedBake(p);
+src/lib/calculator-actions.ts:117:  await saveRecipe(cloned);
+src/lib/calculator-actions.ts:128:  await saveRecipe(zmieniona);
+src/lib/calculator-actions.ts:150:  await saveRecipe(newCustom);
+app/(tabs)/receptury/index.tsx:104:    await saveRecipe(r);
+kod: 0

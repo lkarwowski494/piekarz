@@ -1,0 +1,25 @@
+$ node <scratchpad>/sondy/fc-numruns.cjs /home/user/piekarz  (sonda w scratchpadzie, treść niżej)
+fast-check 4.10.2
+global numRuns=1000 + lokalne {numRuns:500} -> wywołań: 500
+global numRuns=1000, bez lokalnego -> wywołań: 1000
+kod: 0
+
+--- sonda:
+const fc = require(process.argv[2] + '/node_modules/fast-check');
+const { resolveFastCheckConfig } = require(process.argv[2] + '/tests/helpers/fc-config');
+fc.configureGlobal(resolveFastCheckConfig({ PROP_SEED: 'random', FC_NUM_RUNS: '1000' }));
+let a = 0; fc.assert(fc.property(fc.integer(), () => { a++; return true; }), { numRuns: 500 });
+let b = 0; fc.assert(fc.property(fc.integer(), () => { b++; return true; }));
+console.log('fast-check', require(process.argv[2] + '/node_modules/fast-check/package.json').version);
+console.log('global numRuns=1000 + lokalne {numRuns:500} -> wywołań:', a);
+console.log('global numRuns=1000, bez lokalnego -> wywołań:', b);
+
+$ grep -c "fc.assert" / "numRuns" w plikach kroku nightly "Deep Stateful Fuzzing"
+tests/matrix-invariants.test.ts: fc.assert=1 numRuns=1
+src/core/__tests__/domain-property-based.test.ts: fc.assert=1 numRuns=11
+
+$ sed -n 44,47p .github/workflows/nightly.yml
+          FC_NUM_RUNS: 1000
+        run: npx jest tests/matrix-invariants.test.ts src/core/__tests__/domain-property-based.test.ts
+
+      - name: Full Quality Gate (npm run verify)

@@ -1,0 +1,254 @@
+# Weryfikacja G1-dane-zapis, 2026-11-08T21:45:22Z; kopia robocza: git worktree add --detach /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 (HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42), node_modules = dowiązanie do repo
+# Adapter: src/data/__tests__/helpers/node-sqlite-adapter.ts (withTransactionAsync jak expo-sqlite 57.0.4: BEGIN, zadanie, COMMIT, przy błędzie ROLLBACK)
+# Plik sondy (tylko w kopii roboczej, poza repo): src/data/__tests__/g1-sonda-wspolbieznosc.sqlite.test.ts
+# Komenda (2 przebiegi; E2 zależy od przeplotu mikrozadań z kopią bezpieczeństwa, wynik zmienia się między przebiegami): cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 && npx jest src/data/__tests__/g1-sonda-wspolbieznosc.sqlite.test.ts
+
+## Źródło sondy
+     1	/** Sonda weryfikacji G1 (M1 2026-11-08): równoległe zapisy na jednym połączeniu. Tylko w kopii roboczej w scratchpadzie. */
+     2	jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+     3	
+     4	import { useTempDbDir, restartApp, openRaw, dbFilePath, control } from './helpers/node-sqlite-adapter';
+     5	import type { StoredStarter, StoredStarterEntry, StoredBakeLog } from '../db';
+     6	import type { PiekarzBackupData } from '../../lib/backup';
+     7	
+     8	const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+     9	const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({ id, name: id, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra });
+    10	const feed = (id: string, starterId: string, at: number): StoredStarterEntry => ({ id, starterId, kind: 'feeding', occurredAt: at, feedRatio: '1:1:1', signs: [], createdAt: at, updatedAt: at });
+    11	const bake = (id: string): StoredBakeLog => ({ id, recipeName: id, startedAt: 1, finishedAt: 2 });
+    12	
+    13	function stan() {
+    14	  const raw = openRaw(APP_DB());
+    15	  const q = (sql: string) => raw.prepare(sql).all();
+    16	  const out = {
+    17	    bakes: q('SELECT id FROM bakes ORDER BY id').map((r: any) => r.id),
+    18	    starters: q('SELECT id, name FROM starters ORDER BY id').map((r: any) => `${r.id}:${r.name}`),
+    19	    entries: q('SELECT id FROM starter_entries ORDER BY id').map((r: any) => r.id),
+    20	    ustawienie: (raw.prepare("SELECT value FROM app_settings WHERE key = 'g1_sonda'").get() as any)?.value ?? null,
+    21	  };
+    22	  raw.close();
+    23	  return out;
+    24	}
+    25	const wynik = (r: PromiseSettledResult<unknown>) => (r.status === 'fulfilled' ? 'OK' : `BŁĄD ${(r.reason as Error).constructor.name}: ${String((r.reason as any)?.cause?.message ?? (r.reason as Error).message)}`);
+    26	
+    27	async function przygotuj() {
+    28	  const app = restartApp();
+    29	  await app.schema.initDatabase();
+    30	  const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    31	  await entries.createStarterWithEntry(starter('s1'), feed('s1-e1', 's1', 1000));
+    32	  for (const id of ['b1', 'b2', 'b3']) await app.store.saveBakeLog(bake(id));
+    33	  const base = await app.store.collectBackupData();
+    34	  const kopia: PiekarzBackupData = { ...base, bakes: [bake('kopia-b')], starters: [starter('k1')], starterEntries: [feed('k1-e1', 'k1', 500)], customRecipes: [] };
+    35	  return { app, entries, kopia };
+    36	}
+    37	
+    38	const log: string[] = [];
+    39	afterAll(() => {
+    40	  // eslint-disable-next-line no-console
+    41	  console.log(log.join('\n'));
+    42	});
+    43	
+    44	describe('G1 sonda współbieżności', () => {
+    45	  beforeEach(() => useTempDbDir());
+    46	
+    47	  it('K: import z błędem zapisu (INSERT INTO bakes) bez równoległego zapisu', async () => {
+    48	    const { app, kopia } = await przygotuj();
+    49	    const przed = stan();
+    50	    control().failWritesMatching = /INSERT INTO bakes/;
+    51	    const [r] = await Promise.allSettled([app.store.restoreFromBackupData(kopia)]);
+    52	    control().failWritesMatching = null;
+    53	    log.push(`K przed=${JSON.stringify(przed)}\nK import=${wynik(r)}\nK po=${JSON.stringify(stan())}`);
+    54	  });
+    55	
+    56	  it('D: import z błędem zapisu i równoległy saveStarter (dokarmienie 5000)', async () => {
+    57	    const { app, kopia } = await przygotuj();
+    58	    const przed = stan();
+    59	    control().failWritesMatching = /INSERT INTO bakes/;
+    60	    const [r1, r2] = await Promise.allSettled([app.store.restoreFromBackupData(kopia), app.store.saveStarter(starter('s1', { lastFedAt: 5000 }))]);
+    61	    control().failWritesMatching = null;
+    62	    log.push(`D przed=${JSON.stringify(przed)}\nD import=${wynik(r1)} saveStarter=${wynik(r2)}\nD po=${JSON.stringify(stan())}`);
+    63	  });
+    64	
+    65	  it('B: import bez błędu i równoległy saveStarter', async () => {
+    66	    const { app, kopia } = await przygotuj();
+    67	    const przed = stan();
+    68	    const [r1, r2] = await Promise.allSettled([app.store.restoreFromBackupData(kopia), app.store.saveStarter(starter('s1', { lastFedAt: 5000 }))]);
+    69	    log.push(`B przed=${JSON.stringify(przed)}\nB import=${wynik(r1)} saveStarter=${wynik(r2)}\nB po=${JSON.stringify(stan())}`);
+    70	  });
+    71	
+    72	  it('A: dwa równoległe saveStarter (lastFedAt 2000 i 2001)', async () => {
+    73	    const { app } = await przygotuj();
+    74	    const przed = stan();
+    75	    const [r1, r2] = await Promise.allSettled([app.store.saveStarter(starter('s1', { lastFedAt: 2000 })), app.store.saveStarter(starter('s1', { lastFedAt: 2001 }))]);
+    76	    log.push(`A przed=${JSON.stringify(przed)}\nA saveStarter1=${wynik(r1)} saveStarter2=${wynik(r2)}\nA po=${JSON.stringify(stan())}`);
+    77	  });
+    78	
+    79	  it('A2: dwa saveStarter po kolei (kontrola sekwencyjna)', async () => {
+    80	    const { app } = await przygotuj();
+    81	    await app.store.saveStarter(starter('s1', { lastFedAt: 2000 }));
+    82	    await app.store.saveStarter(starter('s1', { lastFedAt: 2001 }));
+    83	    log.push(`A2 po kolei po=${JSON.stringify(stan())}`);
+    84	  });
+    85	
+    86	  it('C: setAppSetting w trakcie nieudanego importu', async () => {
+    87	    const { app, kopia } = await przygotuj();
+    88	    control().failWritesMatching = /INSERT INTO bakes/;
+    89	    const settings = require('../settings-store') as typeof import('../settings-store');
+    90	    const [r1, r2] = await Promise.allSettled([app.store.restoreFromBackupData(kopia), (async () => { await Promise.resolve(); await Promise.resolve(); await settings.setAppSetting('g1_sonda', 'zapisane'); })()]);
+    91	    control().failWritesMatching = null;
+    92	    log.push(`C import=${wynik(r1)} setAppSetting=${wynik(r2)}\nC po=${JSON.stringify(stan())}`);
+    93	  });
+    94	
+    95	  it('E: usunWszystkieDane i równoległy addStarterEntry', async () => {
+    96	    const { entries } = await przygotuj();
+    97	    const przed = stan();
+    98	    const usun = require('../usun-wszystko') as typeof import('../usun-wszystko');
+    99	    const [r1, r2] = await Promise.allSettled([usun.usunWszystkieDane(), (async () => { for (let i = 0; i < 30; i++) await Promise.resolve(); await entries.addStarterEntry(feed('s1-e2', 's1', 3000)); })()]);
+   100	    log.push(`E przed=${JSON.stringify(przed)}\nE usun=${wynik(r1)} addStarterEntry=${wynik(r2)}\nE po=${JSON.stringify(stan())}`);
+   101	  });
+   102	});
+   103	
+   104	describe('G1 sonda E2: okno czyszczenia', () => {
+   105	  it('E2: usunWszystkieDane z błędem zapisu (DELETE FROM bake_sessions) i równoległy saveStarter po n mikrozadaniach', async () => {
+   106	    for (const n of [0, 10, ...Array.from({ length: 21 }, (_, i) => 12 + i), 40, 80]) {
+   107	      useTempDbDir();
+   108	      await przygotuj();
+   109	      const app = restartApp();
+   110	      const przed = stan();
+   111	      const usun = require('../usun-wszystko') as typeof import('../usun-wszystko');
+   112	      control().failWritesMatching = /DELETE FROM bake_sessions/;
+   113	      const [r1, r2] = await Promise.allSettled([usun.usunWszystkieDane(), (async () => { for (let i = 0; i < n; i++) await Promise.resolve(); await app.store.saveStarter(starter('s1', { lastFedAt: 7000 })); })()]);
+   114	      control().failWritesMatching = null;
+   115	      log.push(`E2 n=${n} przed=${JSON.stringify(przed)} usun=${wynik(r1)} saveStarter=${wynik(r2)} po=${JSON.stringify(stan())}`);
+   116	    }
+   117	  });
+   118	});
+## Wynik, przebieg 1
+  console.log
+    K przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    K import=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full
+    K po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    D przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    D import=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    D po={"bakes":[],"starters":["k1:k1"],"entries":["k1-e1"],"ustawienie":null}
+    B przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    B import=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    B po={"bakes":["kopia-b"],"starters":["k1:k1"],"entries":["k1-e1"],"ustawienie":null}
+    A przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    A saveStarter1=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter2=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    A po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-2000","s1-e1"],"ustawienie":null}
+    A2 po kolei po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-2000","feed-s1-2001","s1-e1"],"ustawienie":null}
+    C import=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full setAppSetting=OK
+    C po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E usun=OK addStarterEntry=BŁĄD StorageWriteError: Error: FOREIGN KEY constraint failed
+    E po={"bakes":[],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=0 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=10 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=12 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=13 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=14 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=15 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=16 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=17 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=18 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=19 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=20 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=21 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=22 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=23 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=24 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=25 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=26 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=27 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=28 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=29 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=30 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=31 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=32 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=40 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=80 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+
+
+PASS src/data/__tests__/g1-sonda-wspolbieznosc.sqlite.test.ts
+  G1 sonda współbieżności
+    ✓ K: import z błędem zapisu (INSERT INTO bakes) bez równoległego zapisu (210 ms)
+    ✓ D: import z błędem zapisu i równoległy saveStarter (dokarmienie 5000) (43 ms)
+    ✓ B: import bez błędu i równoległy saveStarter (58 ms)
+    ✓ A: dwa równoległe saveStarter (lastFedAt 2000 i 2001) (33 ms)
+    ✓ A2: dwa saveStarter po kolei (kontrola sekwencyjna) (41 ms)
+    ✓ C: setAppSetting w trakcie nieudanego importu (78 ms)
+    ✓ E: usunWszystkieDane i równoległy addStarterEntry (31 ms)
+  G1 sonda E2: okno czyszczenia
+    ✓ E2: usunWszystkieDane z błędem zapisu (DELETE FROM bake_sessions) i równoległy saveStarter po n mikrozadaniach (1552 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        2.362 s, estimated 4 s
+Ran all test suites matching /src\/data\/__tests__\/g1-sonda-wspolbieznosc.sqlite.test.ts/i.
+## Kod wyjścia przebiegu 1: 0
+## Wynik, przebieg 2
+  console.log
+    K przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    K import=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full
+    K po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    D przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    D import=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    D po={"bakes":[],"starters":["k1:k1"],"entries":["k1-e1"],"ustawienie":null}
+    B przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    B import=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    B po={"bakes":["kopia-b"],"starters":["k1:k1"],"entries":["k1-e1"],"ustawienie":null}
+    A przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    A saveStarter1=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter2=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction
+    A po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-2000","s1-e1"],"ustawienie":null}
+    A2 po kolei po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-2000","feed-s1-2001","s1-e1"],"ustawienie":null}
+    C import=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full setAppSetting=OK
+    C po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E usun=OK addStarterEntry=BŁĄD StorageWriteError: Error: FOREIGN KEY constraint failed
+    E po={"bakes":[],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=0 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=10 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=12 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=13 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=14 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=15 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=16 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=17 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=18 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null}
+    E2 n=19 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=20 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=21 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=22 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=23 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=24 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=25 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=26 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=27 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=28 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: Error: cannot rollback - no transaction is active saveStarter=BŁĄD StorageWriteError: Error: cannot start a transaction within a transaction po={"bakes":["b1","b2","b3"],"starters":[],"entries":[],"ustawienie":null}
+    E2 n=29 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=30 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=31 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=32 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=40 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+    E2 n=80 przed={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["s1-e1"],"ustawienie":null} usun=BŁĄD StorageWriteError: SQLITE_FULL: database or disk is full saveStarter=OK po={"bakes":["b1","b2","b3"],"starters":["s1:s1"],"entries":["feed-s1-7000","s1-e1"],"ustawienie":null}
+
+
+PASS src/data/__tests__/g1-sonda-wspolbieznosc.sqlite.test.ts
+  G1 sonda współbieżności
+    ✓ K: import z błędem zapisu (INSERT INTO bakes) bez równoległego zapisu (378 ms)
+    ✓ D: import z błędem zapisu i równoległy saveStarter (dokarmienie 5000) (234 ms)
+    ✓ B: import bez błędu i równoległy saveStarter (193 ms)
+    ✓ A: dwa równoległe saveStarter (lastFedAt 2000 i 2001) (131 ms)
+    ✓ A2: dwa saveStarter po kolei (kontrola sekwencyjna) (213 ms)
+    ✓ C: setAppSetting w trakcie nieudanego importu (89 ms)
+    ✓ E: usunWszystkieDane i równoległy addStarterEntry (146 ms)
+  G1 sonda E2: okno czyszczenia
+    ✓ E2: usunWszystkieDane z błędem zapisu (DELETE FROM bake_sessions) i równoległy saveStarter po n mikrozadaniach (2126 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        3.924 s
+Ran all test suites matching /src\/data\/__tests__\/g1-sonda-wspolbieznosc.sqlite.test.ts/i.
+## Kod wyjścia przebiegu 2: 0

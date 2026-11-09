@@ -1,0 +1,13 @@
+$ grep -rliE "twitter|mastodon|reddit\.com/api|facebook\.com|graph\.facebook|slack|discord|webhook|smtp|sendgrid|mailgun|nodemailer|tiktok|instagram|bsky|bluesky" scripts .github tools 2>/dev/null
+kod: 2 (katalog tools nie istnieje; w scripts i .github brak trafień)
+$ ls docs/wzrost/dziennik.md
+ls: cannot access 'docs/wzrost/dziennik.md': No such file or directory
+$ grep -n "Lista startowa" -A4 docs/wzrost.md
+3:Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/archiwum/2.0-craft/A4.md`, rozdz. 15.1). Plan wydania i dziennik są w `docs/wydanie/` (rola 10); tu ich nie powtarzam. Każde działanie zewnętrzne (wpis, wiadomość, odpowiedź na recenzję, kod w App Store Connect) wykonuje właściciel po osobnej zgodzie, wpisanej jego słowami do dziennika działań (sekcja „Lista startowa”).
+4-
+5-*Dlaczego jeden dokument:* plan, który właściciel wykonuje sam w małym budżecie czasu, ma się mieścić na jednej stronie i mieć regułę przy każdym kanale.
+6-
+7-## Budżet i horyzont
+--
+68:## Lista startowa
+69-

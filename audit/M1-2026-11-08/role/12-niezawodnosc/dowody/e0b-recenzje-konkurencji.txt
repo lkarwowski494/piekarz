@@ -1,0 +1,12 @@
+# Recenzje konkurencji (App Store US, kanał RSS customerreviews, strony 1-10, odczyt 2026-11-08)
+$ curl "https://itunes.apple.com/search?term=sourdough&entity=software&country=us&limit=10"  (wybór: dwie aplikacje z największą liczbą ocen)
+6736766728 Loaflo: Sourdough Starter ocen 564
+6755709217 Sourdough Starter Tracker ocen 33
+6797501483 Sourdough Simplified ocen 0
+1515369685 Rise: Baking & Bread Recipes ocen 337
+$ curl "https://itunes.apple.com/us/rss/customerreviews/page=N/id=ID/sortby=mostrecent/json" ; filtr: crash|lost (all|my)|data (loss|gone|lost)|deleted|disappear|wiped|won.t open|backup|restore|freez
+6736766728 recenzji w kanale 28 trafień 0
+1515369685 recenzji w kanale 37 trafień 1
+   ('1', '2026-01-24', 'App Doesn’t Work :: I’ve downloaded and deleted this twice today and once I click “continue” on the opening welcome page the app just idles without ever loading.')
+kod: 0
+Ograniczenie: kanał RSS daje tylko najnowsze recenzje (tu 28 i 37); rynek globalny bez rynku głównego (Stan projektu), więc odczyt US jako próbka, nie pomiar.

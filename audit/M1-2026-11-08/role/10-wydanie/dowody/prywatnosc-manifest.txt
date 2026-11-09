@@ -1,0 +1,100 @@
+$ npx expo config --type introspect --json > introspect.json (kopia git worktree 2ef8870a, node_modules z npm ci wspolne/); kod 0
+$ node sprawdz-wydanie.mjs prywatnosc introspect.json node_modules
+OK
+kod=0
+
+== ios.infoPlist z introspect
+{
+ "CFBundleDevelopmentRegion": "$(DEVELOPMENT_LANGUAGE)",
+ "CFBundleExecutable": "$(EXECUTABLE_NAME)",
+ "CFBundleIdentifier": "$(PRODUCT_BUNDLE_IDENTIFIER)",
+ "CFBundleName": "$(PRODUCT_NAME)",
+ "CFBundlePackageType": "$(PRODUCT_BUNDLE_PACKAGE_TYPE)",
+ "CFBundleInfoDictionaryVersion": "6.0",
+ "CFBundleSignature": "????",
+ "LSMinimumSystemVersion": "12.0",
+ "LSRequiresIPhoneOS": true,
+ "NSAppTransportSecurity": {
+  "NSAllowsArbitraryLoads": true,
+  "NSExceptionDomains": {
+   "localhost": {
+    "NSExceptionAllowsInsecureHTTPLoads": true
+   }
+  }
+ },
+ "UILaunchStoryboardName": "SplashScreen",
+ "UIRequiredDeviceCapabilities": [
+  "armv7"
+ ],
+ "UIViewControllerBasedStatusBarAppearance": false,
+ "UIStatusBarStyle": "UIStatusBarStyleDefault",
+ "CADisableMinimumFrameDurationOnPhone": true,
+ "UIFileSharingEnabled": true,
+ "LSSupportsOpeningDocumentsInPlace": true,
+ "ITSAppUsesNonExemptEncryption": false,
+ "CFBundleAllowMixedLocalizations": true,
+ "ExpoLocalization_supportsRTL": false,
+ "CFBundleLocalizations": [
+  "pl",
+  "en",
+  "cs",
+  "sk",
+  "hu",
+  "ro",
+  "bg",
+  "hr",
+  "sl",
+  "sr",
+  "lt",
+  "lv",
+  "et",
+  "uk",
+  "es",
+  "es-419",
+  "pt",
+  "pt-BR",
+  "de",
+  "fr",
+  "it",
+  "nl",
+  "sv",
+  "da",
+  "nb",
+  "fi",
+  "tr",
+  "el",
+  "id",
+  "ms",
+  "vi",
+  "ru",
+  "ja",
+  "ko",
+  "zh-Hant"
+ ],
+ "CFBundleShortVersionString": "1.0.0",
+ "CFBundleVersion": "1",
+ "RCTMetroPort": "$(RCT_METRO_PORT)",
+ "CFBundleURLTypes": [
+  {
+   "CFBundleURLSchemes": [
+    "piekarz",
+    "com.apps4brew.baker"
+   ]
+  }
+ ],
+ "UIRequiresFullScreen": false,
+ "UISupportedInterfaceOrientations": [
+  "UIInterfaceOrientationPortrait",
+  "UIInterfaceOrientationPortraitUpsideDown"
+ ],
+ "CFBundleDisplayName": "Piekarz",
+ "UIUserInterfaceStyle": "Automatic",
+ "UIAppFonts": [
+  "SofiaSansSemiCondensed-wght.ttf"
+ ],
+ "NSUserActivityTypes": [
+  "$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route"
+ ]
+}
+entitlements {'com.apple.developer.usernotifications.time-sensitive': True, 'aps-environment': 'development'}
+supportsTablet False buildNumber None version 1.0.0

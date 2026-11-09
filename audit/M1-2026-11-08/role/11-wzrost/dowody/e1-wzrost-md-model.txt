@@ -1,0 +1,22 @@
+$ node docs/wzrost/hipotezy.mjs docs/wzrost/hipotezy.json
+| H | Metryka | Próg | Dane | Przedział (z = 1.645) | Werdykt |
+|---|---|---|---|---|---|
+| H-01 | nowi płacący iOS ÷ pobrania pierwszorazowe iOS, dni 30–90 od wydania | ≥ 8,5% (D-112, D-113 (kryterium po 90 dniach z docs/monetyzacja.md: ok. 8,5% przy ok. 83 pobraniach iOS/mies.; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku), DEC-13 a) | — | — | przed terminem, bez oceny |
+kod: 0
+
+$ grep -nE "DEC-01 d|D-038|14 dni pełnej|zamrożenie" docs/wzrost.md
+15:Dla kogo, jaka praca i różnica: z kontraktu zakresu (`docs/scope-contract.md`, wariant B, D-043) i BRD roli 01; ten plik nie dodaje twierdzeń. Wpis o aplikacji mówi tylko o tym, co robi wydana wersja (WZR-01), fakty dziedzinowe z rejestru treści (`docs
+42:Piekarz to aplikacja bezpłatna do pobrania z subskrypcjami i zakupem dożywotnim (D-038), więc mechanizmem są **kody ofert**, nie kody promocyjne.
+51:Zasady: kody to narzędzie marketingu, nie zmiana modelu płatności (D-038 bez zmian). Rodzaj oferty, okres i liczbę kodów dla danej współpracy ustala właściciel w ramach D-038; utworzenie oferty w App Store Connect i wysłanie kodu to kroki właści
+75:Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja <praca, którą wykonuje, słowami społeczności>. Co robi: <2–3 punkty z wydanej wersji>. Ograniczenia: tylko iPhone, 14 dni pełnej wersji, potem płatnie. Prywatność: <
+87:| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby 
+92:1. Rozstrzyga **kryterium liczbowe** z `docs/monetyzacja.md`: ≥ 7 płacących/mies. albo ≥ 42 USD/mies. → próg osiągnięty; ≤ 3,5 albo ≤ 21 USD/mies. → zamrożenie rozwoju; pomiędzy → wynik pośredni, decyzja właściciela.
+94:3. Kryterium mierzy model, nie otwiera go: wynik nie jest podstawą do zmiany cen, modelu, próby ani podziału (D-038).
+kod: 0
+
+$ grep -nE "D-112|D-113|Basic" docs/wzrost.md
+kod: 1 (1 = brak trafień)
+
+$ git log -1 --format="%h %ad" --date=short -- docs/wzrost.md docs/wzrost/hipotezy.json
+6aa85862 2026-10-21 fix(start): nasłuch powrotu na pierwszy plan uzgadnia powiadomienia dopiero po wyniku beginStartup 
+a859dc1f 2026-10-22 [M3 PRZ] feat(platnosci, teksty): PRZ-28 ceny przed

@@ -1,0 +1,25 @@
+$ python3 (MD5 PNG pl, en-US, nl-NL wobec docs/wydanie/zrzuty/sumy.json)
+pl zgodne 14 niezgodne 0
+en-US zgodne 14 niezgodne 0
+nl-NL zgodne 14 niezgodne 0
+lokalizacji w sumy.json: 34
+kod=0
+
+$ git log -1 --format="%h %ad" --date=short -- docs/wydanie/zrzuty/pl/iphone-6.3/01-plan.png
+6aa85862 2026-10-21
+kod=0
+$ git log -1 --format="%h %ad" --date=short -- docs/wydanie/zrzuty/pl/podpisy.json
+a859dc1f 2026-10-22
+kod=0
+
+$ sed -n 25,29p tests/zrzuty-sklepu.test.ts
+/**
+ * Kolejność §5.2 i obszary strażnika dostępu, które obiecuje podpis ramki (ramka 6: ocena po wypieku i „Piecz ponownie”).
+ * Przepisane z kontraktu D-038 [M3 P-a]: funkcje według kontraktu Basic/Pro (D-112, D-113) — ramka 1 to plan wstecz
+ * (Pro), ramka 5 ilości do dokarmienia i przypomnienie (Pro), reszta Basic. Pliki PNG z dawnym oznaczeniem na ramkach
+ * 2, 3, 4 i 6 wygeneruje ponownie rola 10 (Z-8 w docs/monetyzacja.md).
+kod=0
+
+Oględziny (PIL, sklejka 7 ramek pl/iphone-6.3 i en-US/iphone-6.9 w scratchpadzie weryfikatora, obejrzane okiem 2026-11-08):
+  pl: plakietka „wymaga Piekarz Pro” na ramkach 01-06, brak na 07; en-US: „requires Baker Pro” na 01-06, brak na 07.
+  Ekrany bez ikon kart systemu M3 (np. Dziennik: karta statystyk i lista bez ikon kart, Doktor Chleba jako zwykły tekst).

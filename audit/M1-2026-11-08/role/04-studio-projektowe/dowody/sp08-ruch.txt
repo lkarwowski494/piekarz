@@ -1,0 +1,57 @@
+$ grep ruch/haptyka/dźwięk: Animated|LayoutAnimation|animationType|isReduceMotionEnabled|useReducedMotion|Haptics|expo-haptics|Vibration|expo-audio|useAudioPlayer|sound
+src/components/stolnica/ProwadzenieWypieku.tsx:15:import * as Haptics from 'expo-haptics';
+src/components/stolnica/ProwadzenieWypieku.tsx:241:    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+src/components/stolnica/ProwadzenieWypieku.tsx:248:    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/components/stolnica/ProwadzenieWypieku.tsx:255:    tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
+src/components/stolnica/ProwadzenieWypieku.tsx:274:    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/components/stolnica/ProwadzenieWypieku.tsx:286:    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+src/components/receptury/DoMiski.tsx:14:import * as Haptics from 'expo-haptics';
+src/components/receptury/DoMiski.tsx:57:function haptyka(styl: Haptics.ImpactFeedbackStyle) {
+src/components/receptury/DoMiski.tsx:59:    void Haptics.impactAsync(styl);
+src/components/receptury/DoMiski.tsx:129:        haptyka(Haptics.ImpactFeedbackStyle.Light);
+src/components/receptury/DoMiski.tsx:139:    haptyka(Haptics.ImpactFeedbackStyle.Medium);
+src/components/Spirala.tsx:40:    AccessibilityInfo.isReduceMotionEnabled()
+src/components/Spirala.tsx:45:    const sub = AccessibilityInfo.addEventListener('reduceMotionChanged', (v: boolean) => ustaw(v));
+src/components/Spirala.tsx:160:      Animated.timing(przejscie, { toValue: 1, duration: czas, easing: Easing.out(Easing.ease), useNativeDriver: false }).start();
+src/hooks/useBakeHistory.ts:8:import * as Haptics from 'expo-haptics';
+src/hooks/useBakeHistory.ts:49:      tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/lib/feeding-formatter.ts:2:import * as Haptics from 'expo-haptics';
+src/lib/feeding-formatter.ts:41:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/timer-audio.ts:1:import { createAudioPlayer, AudioPlayer } from 'expo-audio';
+src/lib/timer-audio.ts:2:import * as Haptics from 'expo-haptics';
+src/lib/timer-audio.ts:19:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/timer-audio.ts:43:    const player = createAudioPlayer(audioDataUri);
+src/lib/timer-audio.ts:60:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+src/lib/recipe-formatter.ts:2:import * as Haptics from 'expo-haptics';
+src/lib/recipe-formatter.ts:131:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+src/lib/notifications.ts:164:            sound: 'default',
+src/lib/schedule-formatter.ts:2:import * as Haptics from 'expo-haptics';
+src/lib/schedule-formatter.ts:118:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/diagnosis-formatter.ts:2:import * as Haptics from 'expo-haptics';
+src/lib/diagnosis-formatter.ts:36:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/haptics.ts:6:import * as Haptics from 'expo-haptics';
+src/lib/haptics.ts:8:export function tapHaptic(style: Haptics.ImpactFeedbackStyle): void {
+src/lib/haptics.ts:10:    void Haptics.impactAsync(style);
+kod: 0
+
+$ grep -rn "animationType=" app src
+      1 src/components/zakwas/StarterEntriesList.tsx:78:animationType="slide"
+      1 src/components/stolnica/ZgodaPowiadomien.tsx:23:animationType="slide"
+      1 src/components/stolnica/PoCoTenKrokArkusz.tsx:17:animationType="slide"
+      1 src/components/stolnica/PlanWypiekuArkusz.tsx:32:animationType="slide"
+      1 src/components/start/ArkuszPlanu.tsx:34:animationType="slide"
+      1 src/components/settings/ImportZPlikuArkusz.tsx:95:animationType="slide"
+      1 src/components/receptury/SkladnikiSheet.tsx:170:animationType="slide"
+      1 src/components/kalendarz/ArkuszDnia.tsx:112:animationType="slide"
+      1 src/components/calculator/TemperaturaWodySheet.tsx:24:animationType="slide"
+      1 src/components/arkusz/ArkuszKart.tsx:77:animationType="slide"
+      1 src/components/VolumeConverterModal.tsx:59:animationType="slide"
+      1 src/components/ShareRecipeQrModal.tsx:61:animationType="slide"
+      1 src/components/SettingsModal.tsx:83:animationType="slide"
+      1 src/components/QrScannerModal.tsx:59:animationType="slide"
+      1 src/components/PaywallModal.tsx:177:animationType="slide"
+      1 src/components/ImportRecipeModal.tsx:102:animationType="slide"
+      1 src/components/FlourInventoryModal.tsx:145:animationType="slide"
+      1 src/components/FlourEquivalentsModal.tsx:36:animationType="slide"
+      1 src/components/FlourBlendModal.tsx:106:animationType="slide"
+      1 src/components/BreadAcademyModal.tsx:62:animationType="slide"

@@ -1,0 +1,61 @@
+# Przywracanie: błąd odczytu po synchronizacji kończy się komunikatem „Nie znaleziono aktywnych zakupów”
+$ sed -n '46,49p' src/lib/app-access.ts
+export async function przywrocZakupy(): Promise<boolean> {
+  const d = await ustalDostep(await przywroc());
+  return d.dostep;
+}
+kod: 0
+$ sed -n '164,169p' src/lib/platnosci/sklep.ts
+/** Przywracanie na wyraźne żądanie użytkownika (AppStore.sync), potem bieżące uprawnienia. */
+export async function przywroc(): Promise<Odczyt> {
+  await polacz();
+  await Iap.restorePurchases();
+  return odczytajSklep();
+}
+kod: 0
+$ sed -n '88,111p' src/lib/platnosci/sklep.ts
+/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu i brak odpowiedzi w limicie czasu to „blad”. */
+export async function odczytajSklep(): Promise<Odczyt> {
+  let zegar: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<Odczyt>((r) => {
+    zegar = setTimeout(() => r({ zrodlo: 'blad' }), LIMIT_ODCZYTU_SKLEPU_MS);
+  });
+  try {
+    return await Promise.race([odczytBezLimitu(), limit]);
+  } finally {
+    clearTimeout(zegar);
+  }
+}
+
+async function odczytBezLimitu(): Promise<Odczyt> {
+  try {
+    await polacz();
+    const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
+    const uprawnienia = zakupy.map(uprawnienieZTransakcji).filter((u): u is Uprawnienie => u !== null);
+    if (!uprawnienia.some((u) => SUBSKRYPCJE.includes(u.produkt))) uprawnienia.push(...(await karencja()));
+    return { zrodlo: 'sklep', uprawnienia };
+  } catch {
+    return { zrodlo: 'blad' };
+  }
+}
+kod: 0
+$ sed -n '39,44p' src/lib/platnosci/dostep.ts
+  // Błąd odczytu to nie brak zakupu: ostatni znany stan, ale nie dłużej niż do końca opłaconego okresu.
+  const ok =
+    pamiec !== null &&
+    pamiec.produkty.some((p) => odblokowuja.includes(p)) &&
+    (pamiec.wygasa === null || pamiec.wygasa > teraz);
+  return { dostep: ok, powod: ok ? 'pamiec' : 'brak', pamiec };
+kod: 0
+$ sed -n '57,66p' src/components/przywroc-zakupy.ts
+kod: 0
+
+Wektor (dowody/e1-wektory-dostepu.txt): „brak sieci, nigdy nie kupił” → {"dostep":false,"powod":"brak"} — ten sam wynik daje odczyt „blad” po udanym restorePurchases() na nowym telefonie (pamięć pusta), więc przywrocZakupy() zwraca false i ekran mówi „Nie znaleziono aktywnych zakupów”.
+$ grep -n "it(" src/__tests__/przywracanie-zakupow.test.tsx
+81:  it('Settings: empty database and an entitlement in the store gives access after restore (BR-ZAK-001 Przywrócenie na nowym telefonie)', async () => {
+93:  it('Settings: no transaction in the store shows a message and gives no access', async () => {
+102:  it('purchase screen: restore with an entitlement in the store gives access and closes the screen', async () => {
+114:  it('purchase screen: restore without a transaction keeps the screen open and gives no access', async () => {
+126:  it('przywrocZakupy syncs with the store once and returns access only for a store entitlement', async () => {
+133:  it('a store error during restore is not a missing purchase: no access is granted and the user is told', async () => {
+(test 133 rzuca wyjątek z restorePurchases, nie z odczytu po synchronizacji; przypadku „sync OK, odczyt blad/limit 15 s” brak)

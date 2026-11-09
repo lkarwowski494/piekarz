@@ -1,0 +1,146 @@
+# E0b: najlepsi w niszy, odczyt 2026-11-08 ok. 20:13-20:15 UTC
+$ curl "https://itunes.apple.com/search?term=<sourdough|bread|sourdough starter|bread baking|...>&entity=software&country=<us|pl|gb|de>&limit=25..100"  (kod 0, HTTP 200)
+$ curl "https://itunes.apple.com/lookup?id=<id>&country=<us|pl>"; curl "https://itunes.apple.com/<us|gb>/rss/customerreviews/page=<1|2>/id=<id>/sortBy=mostRecent/json"  (kod 0)
+Kryterium wyboru: userRatingCount w sklepie US (rynek globalny, największy sklep anglojęzyczny), gatunek Food & Drink, opis obejmuje domowy wypiek chleba/zakwasu (bez restauracji, sklepów, gier). Sklep PL: w niszy pojedyncze oceny (Kneady 2, Gluten Morgen 7, Rise 5), więc nie rozstrzyga.
+
+## Gluten Morgen (id 1525239805) · v3.0.9 2026-11-03 · ocen US 756 śr. 4.8 · ocen PL 7
+description (pierwsze 1500 zn.): Gluten Morgen is the definitive app for home and professional bakers. Calculate baker's percentages, organize your recipes, and learn with the largest Spanish-speaking sourdough community. /  / Created by Ramón Garriga (Gluten Morgen), a world reference in artisan baking and co-author of the book Masa Madre (Editorial Sudamericana). With over a decade sharing technique and the science of fermentation, Ramón guides thousands of bakers worldwide to perfect their bread. /  / WHAT YOU'LL FIND: /  / • BAKER'S CALCULATOR / Work with professional percentages. Scale any recipe without losing hydration or balance. Save your recipes, edit them any time, and share with the community. /  / • SOURDOUGH RECIPES / From the basic loaf to brioche, focaccia, whole-wheat, and Neapolitan pizza. Each catalog recipe explains the reason behind every step. /  / • BAKERS COMMUNITY / Share your bakes, get advice, give likes, and follow other bakers. No hostile algorithms. /  / • WEEKLY CHALLENGE / A new recipe every week. Bake, share your result, and earn recognition from the community. /  / • YOUTUBE VIDEOS / More than a decade of tutorials from Ramón's official channel. Practical shorts and long classes integrated in the app. /  / • PREMIUM / Exclusive recipes, full premium videos, ad-free experience. /  / Passionate about good bread? Join the largest Spanish-speaking home baking community. /  / Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+releaseNotes: • Bug fixes and stability improvements.
+
+## Kneady: Bread & Baking Recipes (id 1534576984) · v5.2.1 2026-07-15 · ocen US 733 śr. 4.8 · ocen PL 2
+description (pierwsze 1500 zn.): Kneady is the #1 home-baking app, made for bakers of all levels. Discover 600+ award-winning recipes from professional bakers, save your favourite recipes, join a passionate global community & much more. /  / ** About Kneady ** /  / - The #1 home-baking app, suitable for bakers of all levels / - Professional recipes perfected for home cooking, with clear step-by-step guidance / - Join a buzzing community, share your culinary masterpieces and learn from others! / - Save your favourite recipes for easier repeat bakes / - Set handy timers for rise phases, kneading time, oven time and more / - Toggle between metric/imperial measures for all recipes / - Distraction-free Baking Mode / - Use advanced filters to narrow your search /  / ** Our Mission ** /  / We’re on a mission to help you take your home baking to the next level. Many people love bread and love baking, but bread recipes are often unnecessarily complex and buried deep in recipe books. /  / Kneady combines inspiring, time-tested recipes with simplicity and convenience. Follow step-by-step instructions on your smartphone, from the comfort of your home kitchen. /  / ** Collaboration & Support ** /  / Looking to collaborate, or have a question or suggestion? Pop us a message at team@kneady.io and we'll be in touch as soon as possible. /  / ** About Kneady Pro ** /  / In addition to a free plan, Kneady offers two auto-renewing subscription options. Subscription will automatically renew unless turned off in your iTunes Account Settings at least 24 hours before the current p
+releaseNotes: Welcome to Kneady 5.2.0, bakers! This update includes some exciting improvements: / - A major overhaul of the app's design, bringing enhancements to many screens across the app. / - Bug fixes and performance optimisations to keep everything running smoothly.
+
+## Loaflo: Sourdough Starter (id 6736766728) · v6.0.11 2026-09-07 · ocen US 567 śr. 4.69 · ocen PL 0
+description (pierwsze 1500 zn.): Loaflo: Sourdough Starter is your all-in-one, AI-powered bread-baking companion. Track your starter, analyze your loaves, and perfect every bake—no sign-up required! /  / · AI Analysis: Snap a photo of your loaf or starter and get instant feedback on crust, crumb, and overall bake quality. / · Recipes: Learn how to bake new recipes with in-depth explanations. / · Starter Tracker: Log feedings, track hydration, and monitor growth so your sourdough is always at its bubbly best. / · Calculators: Forecast bread rise, adjust ratios, and convert units! / · Mr. Crumb: Chat with your built-in baking assistant for step-by-step guidance, troubleshooting tips, and recipe inspiration. / · No Account Needed: Dive right into baking without any account sign-up. /  / Whether you’re a sourdough newbie or an experienced home baker, Loaflo makes it simple to level up your bread game. Download now and experience the joy of perfectly baked loaves—with less guesswork and more delicious results! /  / For detailed information, please visit our Terms of Use and Privacy Policy: https://loaflo.app/eula and https://loaflo.app/privacy-policy
+releaseNotes: Fixed a problem that could leave recipe bake planning stuck on Saving. Also includes improvements to subscription analytics.
+
+## Rise: Baking & Bread Recipes (id 1515369685) · v4.0.3 2026-10-20 · ocen US 337 śr. 4.87 · ocen PL 5
+description (pierwsze 1500 zn.): Rise is devoted to every aspect of making yummy bread! It includes great recipes, makes planning & scheduling easy, and serves as a baking journal. Rise syncs across all of your devices and supports sharing recipes with others. /  / Rise has everything you need to bake bread for both beginners and experts. Beginners can use our easy to follow recipes and articles, while experts can use Rise’s powerful editing tools to perfect their bread. /  / Rise helps you plan your recipe with a schedule overview from start to finish, so you know exactly when you’ll perform each step at a glance. Schedule notifications alert you when it’s time to complete each task. Rise even takes the guesswork out of fermentation by dynamically calculating bulk rise and proof times using your dough’s temperature and ingredients. /  / FEATURED RECIPES / • Recipes created in-house, from our favorite bakers, and from the community / • Easily customize any recipe before making by adjusting weight, hydration, and yield /  / MAGIC IMPORT / • Import recipes from any website, photos, or from your own text / • Our AI scans the recipe and imports all ingredients & steps in the Rise format / • Describe changes to any recipe and our AI will make a new one with those changes! /  / CREATE YOUR OWN RECIPES / • Add your own recipes to Rise using its intuitive card-based interface / • Ingredients can be adjusted by total weight, yield, or baker’s percentages / • Each step card can have any number of tasks, timers, and other useful widgets /  / SCHEDULING & MAK
+releaseNotes: - iPhone Duo support / - Buttermilk now counts toward hydration / - Minor improvements to starter reminders
+
+## King Arthur Baking (id 6753083711) · v1.1.85 2026-10-21 · ocen US 998 śr. 4.77 · ocen PL brak w sklepie PL
+description (pierwsze 1500 zn.): Explore over 2,000 meticulously tested recipes from King Arthur Baking, designed for bakers of all levels. From crusty artisan breads and soft dinner rolls to decadent cakes and irresistible sweet treats, there’s something for every craving. With built-in timers based on recipe steps, you’ll never miss a beat. Create an account to save your favorite recipes to your personal recipe box to access them anytime and track your bakes. /  / Features: / - Search and browse 2,000+ tested recipes / - Set custom timers directly from recipe steps / - Save favorites to your private recipe box / - Create an account for easy access across devices / - Discover a wide variety of recipes: breads, rolls, cakes, cookies, and more
+releaseNotes: Make every bake your own! /  / • Save private recipe notes for your tips and tweaks. / • Tap a recipe author's name to explore more of their recipes. / • Find fresh inspiration with recommended recipes. / • Enjoy improved layouts for larger text. / • Fixes for saving recipes, review search, video thumbnails, and Bake of the Year links. / • Smoother Android onboarding navigation.
+
+## BreadMe - Sourdough planner (id 1522824861) · v1.3 2026-07-29 · ocen US 40 śr. 4.7 · ocen PL 0
+description (pierwsze 1500 zn.): Do you love baking bread? Have you struggled planning your bread? Do you want to get rid of your stained recipe notes and have your recipes with you on the go, so you can bake at a friend's place as well? BreadMe might be the app for you! / No matter if you're already an expert or just getting started, "BreadMe" might just be your best new bread baking buddy. /  / BreadMe allows you to easily / - SCHEDULE your bread so it's ready at the time you need it. / - keep TRACK of your progress in any recipe. / - COLLECT your recipes in your pocket and take them anywhere. / - SHARE your favorite recipes with friends, family, and other baking enthusiasts. / - keep TRACK of your SOURDOUGHS. / - receive REMINDERS for feeding your sourdoughs. / - receive REMINDERS for progressing with your running recipes. /  / I've always been a little intimidated by baking bread for family or friends, because the risk of forgetting something is high, and making sure your bread is ready at the exact time you need it can be difficult to plan. / Still, I've been baking bread for over 4 years now and finally tackled the problem with planning recipes once and for all. /  / After sharing it with a couple of friends and online, I realized just how many people craved such an app, so I decided to add some more features to the beta and release it. So now, here we are. I sincerely hope you will enjoy the app! /  / If you have any questions, ideas, or want to get in touch, head over to https://breadme.app. /  / Looking forward to hearing from you, / Ferd
+releaseNotes: Fixed Bugs with Saving Settings
+
+# Tematy w recenzjach (regex po treści, próbka RSS mostRecent z 2026-11-08)
+== Rise: 37 recenzji
+   plan/harmonogram/powiadomienia: 10 z 37
+   zakwas (starter): 4 z 37
+   dziennik/notatki/powtórka: 6 z 37
+   kalkulator/% piekarski/hydratacja: 8 z 37
+   paywall/subskrypcja (skarga): 1 z 37
+   sieć/niezawodność (skarga): 3 z 37
+   diagnoza wad/AI: 0 z 37
+   jednostki metric/imperial: 1 z 37
+== Loaflo: 28 recenzji
+   plan/harmonogram/powiadomienia: 2 z 28
+   zakwas (starter): 11 z 28
+   dziennik/notatki/powtórka: 4 z 28
+   kalkulator/% piekarski/hydratacja: 1 z 28
+   paywall/subskrypcja (skarga): 15 z 28
+   sieć/niezawodność (skarga): 1 z 28
+   diagnoza wad/AI: 11 z 28
+   jednostki metric/imperial: 1 z 28
+== Kneady: 67 recenzji
+   plan/harmonogram/powiadomienia: 2 z 67
+   zakwas (starter): 0 z 67
+   dziennik/notatki/powtórka: 3 z 67
+   kalkulator/% piekarski/hydratacja: 1 z 67
+   paywall/subskrypcja (skarga): 11 z 67
+   sieć/niezawodność (skarga): 6 z 67
+   diagnoza wad/AI: 0 z 67
+   jednostki metric/imperial: 3 z 67
+== GlutenMorgen: 87 recenzji
+   plan/harmonogram/powiadomienia: 0 z 87
+   zakwas (starter): 0 z 87
+   dziennik/notatki/powtórka: 5 z 87
+   kalkulator/% piekarski/hydratacja: 9 z 87
+   paywall/subskrypcja (skarga): 0 z 87
+   sieć/niezawodność (skarga): 1 z 87
+   diagnoza wad/AI: 0 z 87
+   jednostki metric/imperial: 3 z 87
+== KingArthur: 101 recenzji
+   plan/harmonogram/powiadomienia: 1 z 101
+   zakwas (starter): 0 z 101
+   dziennik/notatki/powtórka: 10 z 101
+   kalkulator/% piekarski/hydratacja: 2 z 101
+   paywall/subskrypcja (skarga): 0 z 101
+   sieć/niezawodność (skarga): 3 z 101
+   diagnoza wad/AI: 0 z 101
+   jednostki metric/imperial: 1 z 101
+== BreadMe: 12 recenzji
+   plan/harmonogram/powiadomienia: 1 z 12
+   zakwas (starter): 4 z 12
+   dziennik/notatki/powtórka: 1 z 12
+   kalkulator/% piekarski/hydratacja: 1 z 12
+   paywall/subskrypcja (skarga): 1 z 12
+   sieć/niezawodność (skarga): 0 z 12
+   diagnoza wad/AI: 0 z 12
+   jednostki metric/imperial: 1 z 12
+
+# Rise: Version History (apps.apple.com/us/app/rise-baking-bread-recipes/id1515369685, odczyt 2026-11-08, curl -L, HTTP 200), fragment
+Version History - iPhone Duo support
+- Buttermilk now counts toward hydration
+- Minor improvements to starter reminders 4.0.3 Oct 20 - Better ingredients card layout on smaller iPads
+- The Scale Recipe button is now available even when not in Edit mode
+- Better units handling of imported recipes
+- Fixed a problem on iPad where the list selection could get lost
+- Fixed a problem when running on Mac where the Print dialog wouldn't appear
+- Bold / italics text in task titles could sometimes be lost
+- Exported recipes were missing ingredient notes
+- Ingredient percentages are now displayed without a trailing "0"
+- The toolbar could be lost on iPhone after importing a "describe changes" recipe 4.0.2 Sep 13 New in 4.0.1:
+
+- Fixed a bug where photos would show up twice
+- Changing ingredient amounts is now undoable
+- Adding markdown in task titles is easier
+
+New in 4.0:
+
+New Features
+
+- Community Recipes — You can now submit your recipes to the community gallery and, once approved, will appear in the Featured tab, credited to you. Community-shared recipes are always free for everyone.
+- Describe Changes to This Recipe — For any recipe, type what you want changed, and Rise saves the result as a new recipe. (Available to paid users.)
+- Recipe ratings — Featured recipes now display a "% liked" badge and you can like/dislike featured recipes that you make.
+- Scale Recipe — a dedicated scaling UI allows you to scale in 4 different ways: by percentage, with a ½x–2x slider, to a total dough weight, or to a yield.
+- Shake to Undo – Destructive actions in the app are now undoable.
+
+UI Changes
+
+- Redesigned for iOS 26 — Liquid Glass tab bar, toolbars, filter buttons, and an integrated search bar.
+- Recipes split into two tabs — Your recipes and rises now appear together in My Baking. Curated and community recipes moved to a new Featured tab.
+- On iPad, tabs and nav buttons now share one top row with the actions grouped and the sidebar toggle in a sensible place.
+
+Workflow Improvements
+
+- New recipes, whether added from scratch, added from Featured Recipes, or imported from the web, now always begin in My Recipes.
+- You can now begin making a recipe directly from My Recipes, eliminating a step.
+
+Smaller Improvements
+
+- The Filter menu remains open through multiple selections, making it easier to use.
+- Tapping a photo now opens the photo browser on *that* photo.
+- Added a Remove Source button to the recipe source alert.
+- Better task title editing - Return now splits or starts a new task and deleting an empty title removes it.
+- Contacting support now works without Apple Mail configured.
+
+Bugs fixed
+
+- Fixed crashes: tapping an empty photo slot on iPad/Mac, and overlapping table refreshes in the rise detail view.
+- Fixed onboarding hanging forever on a first launch with no network.
+- Tapping a locked recipe in search results now shows the paywall instead of doing nothing.
+- Fixed a runaway timer once a bake's schedule ran out.
+- Fixed purchases not unlocking in some cases, and a "no trial available" error.
+- Light/dark appearance now stays consistent after changing the setting.
+- Fixed the missing icon on the Scale Recipe button.
+- The recipes list shows proper loading and error states instead of appearing empty. 4.0.1 Aug 30 New Features
+
+- Community Recipes — You can now submit your recipes to the community gallery and, once approved, will appear in the Featured tab, credited to you. Community-shared recipes are always free for everyone.
+- Describe Chan
+
+kod: 0

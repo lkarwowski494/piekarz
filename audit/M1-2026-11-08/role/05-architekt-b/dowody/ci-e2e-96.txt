@@ -1,0 +1,16 @@
+$ gh api repos/lkarwowski494/piekarz/actions/runs/42511355281 --jq "{status,conclusion,head_sha,event,created_at,name}"
+{"conclusion":"failure","created_at":"2026-11-08T18:42:44Z","event":"push","head_sha":"2ef8870a525485cc1ac57e5abe9d97d9937dfe42","name":"iOS E2E (Maestro na symulatorze)","status":"completed"}
+kod: 0
+$ gh api "repos/lkarwowski494/piekarz/actions/workflows/e2e-ios.yml/runs?branch=master&per_page=3" --jq ".workflow_runs[] | {run_number,conclusion,head_sha,created_at}"
+{"conclusion":"failure","created_at":"2026-11-08T18:42:44Z","head_sha":"2ef8870a525485cc1ac57e5abe9d97d9937dfe42","run_number":96}
+{"conclusion":"success","created_at":"2026-11-04T08:06:45Z","head_sha":"9c255a0aa7bb919366ed89d46772e88e2b21719f","run_number":92}
+{"conclusion":"success","created_at":"2026-11-03T06:23:45Z","head_sha":"39f3890a31c90e2043af5aadac47a80857dee0bb","run_number":87}
+kod: 0
+$ gh api repos/lkarwowski494/piekarz/actions/jobs/128824910988/logs | grep "Passed\]\|Failed\]\|Flow Failed"
+2026-11-08T19:10:15.6295980Z [Passed] 03-prowadzenie-widok-skupiony (1m 8s)
+2026-11-08T19:10:39.1352350Z [Passed] 01-pierwsze-uruchomienie (23s)
+2026-11-08T19:11:32.7780640Z [Passed] 04-plan-na-pozniej (54s)
+2026-11-08T19:12:14.7062500Z [Passed] 02-wypiek-na-stolnicy (42s)
+2026-11-08T19:12:51.4945720Z [Failed] 05-dwa-wypieki (37s) (Assertion is false: id: next-or-finish-step-btn is visible)
+2026-11-08T19:12:51.4986340Z 1/5 Flow Failed
+kod: 0

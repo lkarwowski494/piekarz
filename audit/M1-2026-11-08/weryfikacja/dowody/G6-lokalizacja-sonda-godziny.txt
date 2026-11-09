@@ -1,0 +1,104 @@
+# Repo: /home/user/piekarz @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42, kopia: git worktree w scratchpadzie ($S/wt), node_modules dowiązane
+# Komenda: npx jest tests/sonda/g6-godz.test.ts && npx jest tests/sonda/g6-godz2.test.ts (cwd: kopia); node -e Intl.DateTimeFormat(l,{hour:'2-digit',minute:'2-digit'}) dla es, es-419, pt, pt-BR, it, el (kod 0): es 01:30|13:30 h23; es-419 01:30 a.m.|01:30 p.m. h12; pt 01:30|13:30 h23; pt-BR 01:30|13:30 h23; it 01:30|13:30 h23; el 01:30 π.μ.|01:30 μ.μ. h12
+# Kod wyjścia: 0 i 0
+# Wyjście:
+    kluczy z {godzina}: 22
+    es | formatTime 1:30=01:30 13:30=13:30 | kluczy z przyimkiem l.mn. przed {godzina}: 19/22
+       Listo jueves a las 01:30.
+       La etapa «{etap}» cae de noche, a las 01:30
+       quedan {czas}, hasta las 01:30
+    es-419 | formatTime 1:30=01:30 a.m. 13:30=01:30 p.m. | kluczy z przyimkiem l.mn. przed {godzina}: 18/22
+       Listo jueves a las 01:30 a.m..
+       La etapa "{etap}" cae de noche (01:30 a.m.)
+       faltan {czas}, hasta las 01:30 a.m.
+    pt | formatTime 1:30=01:30 13:30=13:30 | kluczy z przyimkiem l.mn. przed {godzina}: 7/22
+       Pronto jueves às 01:30.
+       A etapa «{etap}» calha de noite: 01:30
+       faltam {czas}, até às 01:30
+    pt-BR | formatTime 1:30=01:30 13:30=13:30 | kluczy z przyimkiem l.mn. przed {godzina}: 0/22
+       Pronto jueves às 01:30.
+       A etapa "{etap}" cai durante a noite, às 01:30
+       tempo restante: {czas}, até 01:30
+    it | formatTime 1:30=01:30 13:30=13:30 | kluczy z przyimkiem l.mn. przed {godzina}: 20/22
+       Pronto jueves alle 01:30.
+       La fase «{etap}» cade di notte alle ore 01:30
+       ancora {czas}, fino alle 01:30
+    el | formatTime 1:30=01:30 π.μ. 13:30=01:30 μ.μ. | kluczy z przyimkiem l.mn. przed {godzina}: 21/22
+       Έτοιμο jueves στις 01:30 π.μ..
+       Το στάδιο «{etap}» πέφτει μέσα στη νύχτα, στις 01:30 π.μ.
+       υπόλοιπο {czas}, έως τις 01:30 π.μ.
+
+
+PASS tests/sonda/g6-godz.test.ts
+  ✓ sonda 004 (208 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.883 s
+Ran all test suites matching /tests\/sonda\/g6-godz.test.ts/i.
+    kluczy z {godzina}: 22
+    es: rodzajnik l.mn. tuż przed {godzina} w 20/22; bez: {dzien} {godzina} ¦ Inicio: {dzien}, {godzina}
+    es-419: rodzajnik l.mn. tuż przed {godzina} w 19/22; bez: a "{etap}" cae de noche ({godzina} ¦ {dzien} {godzina} ¦ Inicio: {dzien}, {godzina}
+    pt: rodzajnik l.mn. tuż przed {godzina} w 20/22; bez: «{etap}» calha de noite: {godzina} ¦ {dzien} {godzina}
+    pt-BR: rodzajnik l.mn. tuż przed {godzina} w 15/22; bez: po restante: {czas}, até {godzina} ¦ {dzien} {godzina} ¦  ele dobra de volume até {godzina} ¦ até {godzina} ¦ até {godzina} ¦ ois: {krok}, {czas}, até {godzina} ¦ Até {godzina}
+    it: rodzajnik l.mn. tuż przed {godzina} w 20/22; bez: » cade di notte alle ore {godzina} ¦ {dzien} {godzina}
+    el: rodzajnik l.mn. tuż przed {godzina} w 21/22; bez: {dzien} {godzina}
+
+
+PASS tests/sonda/g6-godz2.test.ts
+  ✓ sonda 004 licznik (149 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.742 s
+Ran all test suites matching /tests\/sonda\/g6-godz2.test.ts/i.
+    import { EN } from '../../src/lib/i18n.en';
+    import { setLang, t, Lang } from '../../src/lib/i18n';
+    import { formatTime } from '../../src/lib/format';
+    it('sonda 004', () => {
+      const klucze = Object.keys(EN).filter((k) => k.includes('{godzina}'));
+      const out: string[] = [`kluczy z {godzina}: ${klucze.length}`];
+      for (const l of ['es', 'es-419', 'pt', 'pt-BR', 'it', 'el'] as Lang[]) {
+        setLang(l);
+        const g1 = formatTime(new Date(2026, 10, 12, 1, 30));
+        const g13 = formatTime(new Date(2026, 10, 12, 13, 30));
+        const re = /(\b(a las|hasta las|de las|desde las|às|até às|das|alle|fino alle|dalle|entro le|le)|στις|έως τις|ως τις|μέχρι τις|τις)\s+\{godzina\}/iu;
+        let zPlural = 0;
+        const przyklady: string[] = [];
+        for (const k of klucze) {
+          const raw = (require('../../src/lib/i18n') as any);
+          const s1 = t(k, { godzina: '§' , dzien: 'jueves', n: 2, min: 5, data: 'x' });
+          const sur = s1.replace('§', '{godzina}');
+          if (re.test(sur)) zPlural++;
+          if (przyklady.length < 3) przyklady.push(t(k, { godzina: g1, dzien: 'jueves', n: 2, min: 5, data: 'x' }));
+        }
+        out.push(`${l} | formatTime 1:30=${g1} 13:30=${g13} | kluczy z przyimkiem l.mn. przed {godzina}: ${zPlural}/${klucze.length}`);
+        for (const p of przyklady) out.push(`   ${p}`);
+      }
+      setLang('pl');
+      console.log(out.join('\n'));
+    });
+    import { EN } from '../../src/lib/i18n.en';
+    import { setLang, t, Lang } from '../../src/lib/i18n';
+    it('sonda 004 licznik', () => {
+      const klucze = Object.keys(EN).filter((k) => k.includes('{godzina}'));
+      const art: Record<string, RegExp> = {
+        es: /(?:^|\s)(las)\s*$/u, 'es-419': /(?:^|\s)(las)\s*$/u, pt: /(?:^|\s)(às|das|as)\s*$/u, 'pt-BR': /(?:^|\s)(às|das|as)\s*$/u,
+        it: /(?:^|\s)(alle|dalle|le)\s*$/u, el: /(?:^|\s)(στις|τις)\s*$/u,
+      };
+      const out: string[] = [`kluczy z {godzina}: ${klucze.length}`];
+      for (const l of Object.keys(art) as Lang[]) {
+        setLang(l);
+        let n = 0; const bez: string[] = [];
+        for (const k of klucze) {
+          const s = t(k);
+          const i = s.indexOf('{godzina}');
+          if (i >= 0 && art[l].test(s.slice(0, i))) n++; else bez.push(s.slice(Math.max(0, i - 25), i + 9));
+        }
+        out.push(`${l}: rodzajnik l.mn. tuż przed {godzina} w ${n}/${klucze.length}; bez: ${bez.join(' ¦ ')}`);
+      }
+      setLang('pl');
+      console.log(out.join('\n'));
+    });

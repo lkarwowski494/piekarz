@@ -1,0 +1,13 @@
+$ node -e "const {getConfig}=require('expo/config');const {exp}=getConfig(process.cwd(),{isPublicConfig:true,skipSDKVersionRequirement:true});console.log('version',exp.version,'ios.buildNumber',exp.ios&&exp.ios.buildNumber)"
+🔍 [expo-iap] Config values: horizonAppId=undefined, pinnedStore=auto, amazonAppstoreKey=none, vega=auto, onside=false
+📦 [expo-iap] Using OpenIAP from CocoaPods
+version 1.0.0 ios.buildNumber undefined
+kod: 0
+
+$ grep -n "buildNumber" src/lib/zgloszenie-wyslanie.ts src/__tests__/kontakt-z-adresem.test.tsx scripts/verify-native.mjs
+src/lib/zgloszenie-wyslanie.ts:34:    build: Constants.expoConfig?.ios?.buildNumber ?? null,
+src/__tests__/kontakt-z-adresem.test.tsx:17:  default: { expoConfig: { version: '1.0.0', ios: { buildNumber: '1014' } } },
+scripts/verify-native.mjs:33:// źródło numeru buildu: liczy go workflow testflight.yml, więc app.json nie ma buildNumber [M1-audytor-generalny-077]
+scripts/verify-native.mjs:40:  appJson.ios?.buildNumber === undefined,
+scripts/verify-native.mjs:41:  'app.json nie może mieć ios.buildNumber: numer buildu ustawia wyłącznie workflow testflight.yml'
+kod: 0

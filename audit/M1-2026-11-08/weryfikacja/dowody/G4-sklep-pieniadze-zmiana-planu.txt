@@ -1,0 +1,24 @@
+$ grep -n "aktywny\|zPro" src/components/AppAccessProvider.tsx src/components/PaywallModal.tsx
+src/components/AppAccessProvider.tsx:27:  const aktywny = access.status === 'dostep' ? { subskrypcja: access.zakup.pamiec?.produkty.some((p) => SUBSKRYPCJE.includes(p)) ?? false } : null;
+src/components/AppAccessProvider.tsx:36:        aktywny={aktywny}
+src/components/PaywallModal.tsx:9:// z Ustawień): „Piekarz Pro jest aktywny.” i dla subskrybenta „Zarządzaj subskrypcją”, bez opcji zakupu.
+src/components/PaywallModal.tsx:11:// Basic (albo stanem „aktywny”), „Co daje Pro” w karcie z ikoną, komunikat bez sieci na powierzchni karty; ujawnienia,
+src/components/PaywallModal.tsx:43:  /** Piekarz Pro aktywny (ekran otwarty z Ustawień): status zamiast zakupu; subskrypcja: „Zarządzaj subskrypcją”. */
+src/components/PaywallModal.tsx:44:  aktywny?: { subskrypcja: boolean } | null;
+src/components/PaywallModal.tsx:80:export function PaywallModal({ visible, onClose, onSubscribe, onRestore, aktywny = null }: PaywallModalProps) {
+src/components/PaywallModal.tsx:88:  const zPro = aktywny !== null;
+src/components/PaywallModal.tsx:90:    if (!visible || zPro) return;
+src/components/PaywallModal.tsx:104:  }, [visible, odczyt, zPro]);
+src/components/PaywallModal.tsx:188:          {/* Pas O3a: „Zamknij” bez pytania (ujawnienie 5), tytuł (nagłówek VoiceOver), zdanie Basic albo stan „aktywny” */}
+src/components/PaywallModal.tsx:192:            podtytul={zPro ? t('Piekarz Pro jest aktywny.') : bezOferty ? undefined : t('Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.')}
+src/components/PaywallModal.tsx:193:            podtytulTestID={zPro ? 'pro-aktywny' : 'pro-opis'}
+src/components/PaywallModal.tsx:197:          {zPro ? (
+src/components/PaywallModal.tsx:199:              {aktywny?.subskrypcja && (
+src/components/PaywallModal.tsx:240:          {zPro ? null : bezOferty ? (
+src/components/PaywallModal.tsx:249:              style={[styles.glowny, (stan === 'ladowanie' || isProcessing) && styles.nieaktywny]}
+src/components/PaywallModal.tsx:300:  nieaktywny: { opacity: 0.6 },
+kod=0
+
+$ sed -n 570p docs/decyzje.md | grep -o "Z Pro (wejście z Ustawień)[^;]*; dożywotni bez zarządzania"
+Z Pro (wejście z Ustawień) ekran mówi „Piekarz Pro jest aktywny.”, subskrybent ma „Zarządzaj subskrypcją” (arkusz systemowy przez `deepLinkToSubscriptions` → `deepLinkToSubscriptionsIOS`), bez opcji zakupu; dożywotni bez zarządzania
+kod=0

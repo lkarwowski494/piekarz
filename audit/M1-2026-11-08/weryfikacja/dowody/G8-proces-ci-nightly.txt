@@ -1,0 +1,52 @@
+$ gh run list -R lkarwowski494/piekarz --workflow nightly.yml -L 40 --json ... (numer id gałąź sha zdarzenie wynik start koniec)
+25 42463983930 master 9c255a0a schedule failure 2026-11-08T08:41:18Z 2026-11-08T08:46:02Z
+24 42355597277 master 9c255a0a schedule cancelled 2026-11-07T08:27:57Z 2026-11-07T10:28:15Z
+23 42191618121 master 9c255a0a schedule cancelled 2026-11-06T08:59:21Z 2026-11-06T10:59:49Z
+22 41999616925 master 9c255a0a schedule cancelled 2026-11-05T09:06:12Z 2026-11-05T11:06:38Z
+21 41801766742 master 9c255a0a schedule cancelled 2026-11-04T08:44:02Z 2026-11-04T10:44:23Z
+20 41608502065 master 39f3890a schedule cancelled 2026-11-03T09:07:50Z 2026-11-03T11:08:25Z
+19 41379393352 master d8a0b404 schedule cancelled 2026-11-02T02:45:16Z 2026-11-02T04:45:45Z
+18 41266207599 master d8a0b404 schedule failure 2026-11-01T02:41:09Z 2026-11-01T02:45:38Z
+17 41161061627 master d8a0b404 schedule cancelled 2026-10-31T02:40:32Z 2026-10-31T04:41:22Z
+16 40993078534 master d8a0b404 schedule cancelled 2026-10-30T02:40:43Z 2026-10-30T04:41:13Z
+15 40807789563 master d8a0b404 schedule cancelled 2026-10-29T02:40:51Z 2026-10-29T04:41:13Z
+14 40622099483 master d8a0b404 schedule cancelled 2026-10-28T02:38:13Z 2026-10-28T04:38:43Z
+13 40438347058 master d8a0b404 schedule cancelled 2026-10-27T02:25:37Z 2026-10-27T04:26:07Z
+12 40259241563 master d8a0b404 schedule cancelled 2026-10-26T02:28:10Z 2026-10-26T04:28:38Z
+11 40154330056 master d8a0b404 schedule failure 2026-10-25T02:24:38Z 2026-10-25T02:28:26Z
+10 40053929885 master d8a0b404 schedule cancelled 2026-10-24T02:22:58Z 2026-10-24T04:23:22Z
+9 39889414546 master 80de19be schedule cancelled 2026-10-23T02:24:40Z 2026-10-23T04:25:12Z
+8 39711304062 master f151bcac schedule cancelled 2026-10-22T02:25:36Z 2026-10-22T04:26:02Z
+7 39532893268 master ebd8471c schedule failure 2026-10-21T02:25:05Z 2026-10-21T03:04:45Z
+6 39376900849 naprawy/M2-koordynator-napraw-2026-10-19-p4 671742f4 workflow_dispatch success 2026-10-20T05:48:52Z 2026-10-20T07:07:34Z
+5 39358670414 master ebd8471c schedule failure 2026-10-20T02:23:46Z 2026-10-20T03:22:50Z
+4 39351363780 naprawy/M2-koordynator-napraw-2026-10-19-p4 8c3ecab6 workflow_dispatch cancelled 2026-10-20T01:04:24Z 2026-10-20T02:04:50Z
+3 39349317487 naprawy/M2-koordynator-napraw-2026-10-19-p4 3c810e7e workflow_dispatch failure 2026-10-20T00:43:21Z 2026-10-20T00:44:12Z
+2 39189782593 master ebd8471c schedule failure 2026-10-19T02:24:06Z 2026-10-19T03:08:53Z
+1 39089873864 master 6896d2a3 schedule failure 2026-10-18T02:22:50Z 2026-10-18T03:08:01Z
+exit=0
+
+$ ... | master: liczba przebiegów / zielonych
+master: 22 przebiegów, success: 0
+exit=0
+
+$ gh run view 42355597277 --json jobs --jq kroki
+  4 Install JS dependencies: success 2026-11-07T08:28:08Z–2026-11-07T08:28:55Z
+  5 Deep Stateful Fuzzing (1000 runs, random seed): success 2026-11-07T08:28:55Z–2026-11-07T08:29:03Z
+  6 Full Quality Gate (npm run verify): success 2026-11-07T08:29:03Z–2026-11-07T08:32:22Z
+  7 Stryker Mutation Verification: cancelled 2026-11-07T08:32:22Z–2026-11-07T10:28:12Z
+exit=0
+
+$ gh run view 42463983930 --json jobs --jq kroki
+  4 Install JS dependencies: success 2026-11-08T08:41:29Z–2026-11-08T08:42:18Z
+  5 Deep Stateful Fuzzing (1000 runs, random seed): success 2026-11-08T08:42:18Z–2026-11-08T08:42:26Z
+  6 Full Quality Gate (npm run verify): failure 2026-11-08T08:42:26Z–2026-11-08T08:46:01Z
+  7 Stryker Mutation Verification: skipped 2026-11-08T08:46:01Z–2026-11-08T08:46:01Z
+exit=0
+
+$ gh run view 41266207599 --json jobs --jq kroki
+  4 Install JS dependencies: success 2026-11-01T02:41:20Z–2026-11-01T02:42:11Z
+  5 Deep Stateful Fuzzing (1000 runs, random seed): success 2026-11-01T02:42:11Z–2026-11-01T02:42:19Z
+  6 Full Quality Gate (npm run verify): failure 2026-11-01T02:42:19Z–2026-11-01T02:45:36Z
+  7 Stryker Mutation Verification: skipped 2026-11-01T02:45:36Z–2026-11-01T02:45:36Z
+exit=0

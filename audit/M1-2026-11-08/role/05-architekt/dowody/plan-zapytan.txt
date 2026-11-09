@@ -1,0 +1,85 @@
+$ npx jest src/data/__tests__/sonda-05-plan-zapytan.sqlite.test.ts (worktree w scratchpadzie; treść sondy niżej)
+SONDA liczności: {"app_access":0,"app_settings":0,"bake_sessions":7,"bakes":312,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":3300,"starters":3}
+SONDA dziennik: SCAN bakes USING INDEX idx_bakes_started_at
+SONDA zakwasy: SCAN s USING COVERING INDEX sqlite_autoindex_starters_1 | CORRELATED SCALAR SUBQUERY 1 | SEARCH e USING COVERING INDEX idx_starter_entries_starter_kind_at (starter_id=? AND kind=?)
+SONDA wpisyZakwasu: SEARCH starter_entries USING INDEX idx_starter_entries_starter_kind_at (starter_id=?) | USE TEMP B-TREE FOR ORDER BY
+SONDA maxKarmienia: SEARCH starter_entries USING COVERING INDEX idx_starter_entries_starter_kind_at (starter_id=? AND kind=?)
+SONDA sesjeTrwajace: SEARCH bake_sessions USING INDEX idx_bake_sessions_status (status=?) | USE TEMP B-TREE FOR LAST TERM OF ORDER BY
+SONDA limitSesji: SCAN bake_sessions
+SONDA receptury: SCAN recipes | USE TEMP B-TREE FOR ORDER BY
+SONDA ustawienie: SEARCH app_settings USING INDEX sqlite_autoindex_app_settings_1 (key=?)
+SONDA wpisPoId: SEARCH bakes USING COVERING INDEX sqlite_autoindex_bakes_1 (id=?)
+SONDA czas getBakeLogs+getStarters (laptop, Node, 1 pomiar, NIE budżet): 3.0 ms
+SONDA VACUUM INTO: 5.0 ms
+SONDA restoreFromBackupData (312 wpisów, 3300 wpisów zakwasu): 83.0 ms
+PASS src/data/__tests__/sonda-05-plan-zapytan.sqlite.test.ts
+  ✓ plan zapytań (281 ms)
+  ✓ czas najdłuższych zapisów na danych z 3 lat (laptop, NIE budżet): VACUUM INTO i import kopii (189 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.041 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-05-plan-zapytan.sqlite.test.ts/i.
+kod: 0
+--- treść sondy ---
+/** Sonda audytu 05-architekt: EXPLAIN QUERY PLAN zapytań głównych ekranów na danych z szacunku 3 lat (scratchpad). */
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+import { useTempDbDir, restartApp, openRaw, dbFilePath, tableCounts } from './helpers/node-sqlite-adapter';
+const log = (s: string) => process.stdout.write(`SONDA ${s}\n`);
+it('plan zapytań', async () => {
+  useTempDbDir();
+  const app = restartApp();
+  await app.schema.initDatabase();
+  const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
+  // Szacunek 3 lat: 2 wypieki/tydzień = ok. 312 wpisów, 3 zakwasy z dokarmieniem raz dziennie = ok. 3300 wpisów dziennika
+  raw.exec('BEGIN');
+  for (let i = 0; i < 312; i++) raw.prepare('INSERT INTO bakes (id, recipe_name, started_at, finished_at, notes) VALUES (?, ?, ?, ?, ?)').run(`b${i}`, 'Chleb', 1e12 + i * 3.5 * 864e5, 1e12 + i * 3.5 * 864e5 + 864e5, 'notatka '.repeat(20));
+  for (let s = 0; s < 3; s++) {
+    raw.prepare('INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state) VALUES (?, ?, ?, 100, 1, ?)').run(`s${s}`, `Z${s}`, 'Żytnia', 'ROOM_TEMP');
+    for (let d = 0; d < 1100; d++) raw.prepare("INSERT INTO starter_entries (id, starter_id, kind, occurred_at, feed_ratio, signs, created_at, updated_at) VALUES (?, ?, 'feeding', ?, '1:1:1', '[]', ?, ?)").run(`e${s}-${d}`, `s${s}`, 1e12 + d * 864e5, 1, 1);
+  }
+  for (let i = 0; i < 7; i++) raw.prepare('INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(`p${i}`, i < 2 ? 'active' : 'planned', '{}', i, i);
+  raw.exec('COMMIT; ANALYZE;');
+  log(`liczności: ${JSON.stringify(tableCounts(raw))}`);
+  const q: Record<string, string> = {
+    dziennik: 'SELECT id, recipe_name, started_at FROM bakes ORDER BY started_at DESC',
+    zakwasy: `SELECT s.id, (SELECT e.occurred_at FROM starter_entries e WHERE e.starter_id = s.id AND e.kind = 'feeding' ORDER BY e.occurred_at DESC LIMIT 1) AS lastFedAt FROM starters s`,
+    wpisyZakwasu: 'SELECT id FROM starter_entries WHERE starter_id = ? ORDER BY occurred_at DESC, id DESC LIMIT ?',
+    maxKarmienia: "SELECT max(occurred_at) AS at FROM starter_entries WHERE starter_id = ? AND kind = 'feeding'",
+    sesjeTrwajace: "SELECT id FROM bake_sessions WHERE status = ? ORDER BY created_at, id",
+    limitSesji: "SELECT count(*) FROM bake_sessions WHERE status = ? AND id <> ? AND json_valid(session_json)",
+    receptury: 'SELECT * FROM recipes ORDER BY created_at ASC',
+    ustawienie: 'SELECT value FROM app_settings WHERE key = ?',
+    wpisPoId: 'SELECT 1 FROM bakes WHERE id = ?',
+  };
+  for (const [n, sql] of Object.entries(q)) {
+    const plan = raw.prepare(`EXPLAIN QUERY PLAN ${sql}`).all().map((r) => (r as { detail: string }).detail);
+    log(`${n}: ${plan.join(' | ')}`);
+  }
+  raw.close();
+  const t0 = performance.now();
+  await app.store.getBakeLogs(); await app.store.getStarters();
+  log(`czas getBakeLogs+getStarters (laptop, Node, 1 pomiar, NIE budżet): ${(performance.now() - t0).toFixed(1)} ms`);
+});
+it('czas najdłuższych zapisów na danych z 3 lat (laptop, NIE budżet): VACUUM INTO i import kopii', async () => {
+  useTempDbDir();
+  const app = restartApp();
+  await app.schema.initDatabase();
+  const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
+  raw.exec('BEGIN');
+  for (let i = 0; i < 312; i++) raw.prepare('INSERT INTO bakes (id, recipe_name, started_at, finished_at, notes) VALUES (?, ?, ?, ?, ?)').run(`b${i}`, 'Chleb', 1e12 + i * 3.5 * 864e5, 1e12 + i * 3.5 * 864e5 + 864e5, 'notatka '.repeat(20));
+  for (let s = 0; s < 3; s++) {
+    raw.prepare('INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state) VALUES (?, ?, ?, 100, 1, ?)').run(`s${s}`, `Z${s}`, 'Żytnia', 'ROOM_TEMP');
+    for (let d = 0; d < 1100; d++) raw.prepare("INSERT INTO starter_entries (id, starter_id, kind, occurred_at, feed_ratio, signs, created_at, updated_at) VALUES (?, ?, 'feeding', ?, '1:1:1', '[]', ?, ?)").run(`e${s}-${d}`, `s${s}`, 1e12 + d * 864e5, 1, 1);
+  }
+  raw.exec('COMMIT');
+  const t0 = performance.now();
+  raw.prepare('VACUUM INTO ?').run(`${dbFilePath('kopia-sonda.db', '/Library/SQLite')}`);
+  log(`VACUUM INTO: ${(performance.now() - t0).toFixed(1)} ms`);
+  raw.close();
+  const dane = await app.store.collectBackupData();
+  const t1 = performance.now();
+  await app.store.restoreFromBackupData(dane);
+  log(`restoreFromBackupData (${dane.bakes.length} wpisów, ${dane.starterEntries?.length} wpisów zakwasu): ${(performance.now() - t1).toFixed(1)} ms`);
+});

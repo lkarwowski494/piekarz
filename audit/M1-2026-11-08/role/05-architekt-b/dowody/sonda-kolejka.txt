@@ -1,0 +1,76 @@
+# Sonda (kopia kodu w scratchpadzie: git worktree 2ef8870a, plik testu poza repo; adapter node:sqlite z repo src/data/__tests__/helpers/node-sqlite-adapter.ts)
+# Treść sondy:
+  | /** Sonda audytu 05-architekt-b (scratchpad): dwa zapisy withTransactionAsync naraz na jednym połączeniu. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import { useTempDbDir, restartApp, openRaw, dbFilePath, tableCounts } from './helpers/node-sqlite-adapter';
+  | import type { StoredStarter, StoredStarterEntry } from '../db';
+  | 
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({ id, name: id, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra });
+  | const feed = (id: string, starterId: string, at: number): StoredStarterEntry => ({ id, starterId, kind: 'feeding', occurredAt: at, feedRatio: '1:1:1', signs: [], createdAt: at, updatedAt: at });
+  | 
+  | describe('sonda: brak kolejki zapisów', () => {
+  |   beforeEach(() => useTempDbDir());
+  | 
+  |   it('A: dwa saveStarter naraz (dwa stuknięcia „Zapisz dokarmienie”)', async () => {
+  |     const app = restartApp();
+  |     await app.schema.initDatabase();
+  |     const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  |     await entries.createStarterWithEntry(starter('z'), feed('z0', 'z', 1000));
+  |     const raw0 = openRaw(APP_DB());
+  |     console.log('PRZED', JSON.stringify(tableCounts(raw0)));
+  |     raw0.close();
+  |     const wyniki = await Promise.allSettled([
+  |       app.store.saveStarter(starter('z', { lastFedAt: 2000, feedingRatio: '1:2:2' })),
+  |       app.store.saveStarter(starter('z', { lastFedAt: 2100, feedingRatio: '1:2:2' })),
+  |     ]);
+  |     console.log('WYNIKI', JSON.stringify(wyniki.map((w) => (w.status === 'fulfilled' ? 'ok' : `${(w.reason as Error).name}: ${(w.reason as Error).message}`))));
+  |     const raw = openRaw(APP_DB());
+  |     console.log('PO', JSON.stringify(tableCounts(raw)), JSON.stringify(raw.prepare('SELECT id, occurred_at FROM starter_entries ORDER BY occurred_at').all()));
+  |     raw.close();
+  |   });
+  | 
+  |   it('B: import kopii (restoreFromBackupData) i zapis zakwasu naraz', async () => {
+  |     const app = restartApp();
+  |     await app.schema.initDatabase();
+  |     const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  |     await entries.createStarterWithEntry(starter('tel'), feed('t0', 'tel', 1000));
+  |     await app.store.saveBakeLog({ id: 'b-tel', recipeName: 'Z telefonu', startedAt: 1, finishedAt: 2 });
+  |     const raw0 = openRaw(APP_DB());
+  |     console.log('B PRZED', JSON.stringify(tableCounts(raw0)));
+  |     raw0.close();
+  |     const kopia = { bakes: [{ id: 'b-kop', recipeName: 'Z kopii', startedAt: 3, finishedAt: 4 }], starters: [starter('kop')], customRecipes: [], starterEntries: [feed('k0', 'kop', 500)] };
+  |     const wyniki = await Promise.allSettled([
+  |       app.store.restoreFromBackupData(kopia),
+  |       app.store.saveStarter(starter('tel', { name: 'Nowa nazwa' })),
+  |     ]);
+  |     console.log('B WYNIKI', JSON.stringify(wyniki.map((w) => (w.status === 'fulfilled' ? 'ok' : `${(w.reason as Error).name}: ${(w.reason as Error).message}`))));
+  |     const raw = openRaw(APP_DB());
+  |     console.log('B PO', JSON.stringify(tableCounts(raw)), JSON.stringify(raw.prepare('SELECT id, recipe_name FROM bakes').all()), JSON.stringify(raw.prepare('SELECT id, name FROM starters').all()));
+  |     raw.close();
+  |   });
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-kolejka.sqlite.test.ts
+  console.log
+    PRZED {"app_access":0,"app_settings":0,"bake_sessions":0,"bakes":0,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":1,"starters":1}
+  console.log
+    WYNIKI ["StorageWriteError: Error: cannot rollback - no transaction is active","StorageWriteError: Error: cannot start a transaction within a transaction"]
+  console.log
+    PO {"app_access":0,"app_settings":0,"bake_sessions":0,"bakes":0,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":2,"starters":1} [{"id":"z0","occurred_at":1000},{"id":"feed-z-2000","occurred_at":2000}]
+  console.log
+    B PRZED {"app_access":0,"app_settings":0,"bake_sessions":0,"bakes":1,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":1,"starters":1}
+  console.log
+    B WYNIKI ["StorageWriteError: Error: cannot rollback - no transaction is active","StorageWriteError: Error: cannot start a transaction within a transaction"]
+  console.log
+    B PO {"app_access":0,"app_settings":0,"bake_sessions":0,"bakes":1,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":1,"starters":1} [{"id":"b-kop","recipe_name":"Z kopii"}] [{"id":"kop","name":"kop"}]
+PASS src/data/__tests__/sonda-b-kolejka.sqlite.test.ts
+  sonda: brak kolejki zapisów
+    ✓ A: dwa saveStarter naraz (dwa stuknięcia „Zapisz dokarmienie”) (228 ms)
+    ✓ B: import kopii (restoreFromBackupData) i zapis zakwasu naraz (39 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.581 s, estimated 4 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-kolejka.sqlite.test.ts/i.
+kod: 0

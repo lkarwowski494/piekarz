@@ -1,0 +1,25 @@
+$ sed -n 9p docs/wzrost.md; sed -n 59,62p; sed -n 66p; sed -n 70,73p
+- Budżet godzin tygodniowo: `[DO USTALENIA: decyzja właściciela]`. Do decyzji plan ma najwyżej 3 działania naraz (zasada roli 1).
+| r/Sourdough (reddit.com/r/Sourdough) | z BRD 0.1, bez wątków z datą `[DO USTALENIA]` | regulamin społeczności nieodczytany: `reddit.com/r/Sourdough/about/rules.json` zwrócił 403 (2026-10-20) 
+| r/Breadit (reddit.com/r/Breadit) | jak wyżej | 403 (2026-10-20) | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
+| r/Pizza (reddit.com/r/Pizza) | jak wyżej | nieodczytany | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
+| Polskie grupy piekarskie na Facebooku (nazwy z BRD 0.1) | jak wyżej | regulaminy grup wymagają logowania | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
+Krok właściciela (ok. 1–2 h): zalogowany odczyt regulaminów r/Sourdough, r/Breadit, r/Pizza i wybranych grup; do tabeli wklejasz adres, datę i zdanie o autopromocji. Rola 11 w trybie build wybiera wtedy jeden kanał na start (rekomendacja z audytu 11-wzrost-006, opcja a).
+| Krok | Kanał (adres) | Szkic (miejsce poza repo) | Link kampanii `ct=` | Kto publikuje | Zgoda (słowa, data) | Wynik (adres, data) |
+|---|---|---|---|---|---|---|
+
+Pusta do wydania i do odczytu regulaminów. Link kampanii tylko z `pt` z App Store Connect („You can't create one manually”, moduł `pomiar-prywatny`); bez `pt` wpis bez linku kampanii.
+exit=0
+
+$ grep -n "przyjęci\|krytyk" docs/wzrost.md
+exit=1
+
+$ sed -n 54,56p docs/wydanie/plan-wydania-1.0.md  (budżet po premierze i odpowiedź na recenzje: tylko propozycja)
+## 6. Po premierze: budżet czasu właściciela
+
+`[DO USTALENIA]` przez właściciela. W `trening` przyjęto 2 h tygodniowo przez 8 tygodni i odpowiedź na recenzje w 48 h (decyzja tamtego właściciela, 2026-10-23); dla Piekarza proponuję to samo okno i rytm, bo kryterium po 90 dniach (`docs/monetyzacja.md`: ≥ 7 nowych płacących miesięcznie w dniach 30–90) wymaga cotygodniowego odczytu raportów subskrypcji. Agent przygotowuje szkice odpowiedzi i zestawienie tygodniowe, publikuje właściciel.
+exit=0
+
+$ curl -sS -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0" https://www.reddit.com/r/Sourdough/about/rules.json
+403
+exit=0

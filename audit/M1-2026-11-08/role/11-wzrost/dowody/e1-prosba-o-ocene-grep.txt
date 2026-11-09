@@ -1,0 +1,10 @@
+$ grep -rnE "requestReview|StoreReview|RequestReviewAction|SKStoreReview|write-review|isAvailableAsync|hasAction" app src --include=*.ts --include=*.tsx | grep -v __tests__
+src/lib/prosba-o-ocene.ts:18:  /** Daty poprzednich wywołań requestReview() w ms od epoki (NaN = uszkodzony zapis). */
+src/lib/links.ts:20: * do napisania opinii: parametr `action=write-review` (Apple, RequestReviewAction; format jak w Expo SDK 57).
+src/lib/links.ts:25:export const APP_STORE_REVIEW_URL = `https://apps.apple.com/app/apple-store/id${APP_STORE_ID}?action=write-review`;
+src/lib/prosba-o-ocene-wywolanie.ts:7:import * as StoreReview from 'expo-store-review';
+src/lib/prosba-o-ocene-wywolanie.ts:38:    if (!(await StoreReview.isAvailableAsync()) || !(await StoreReview.hasAction())) return;
+src/lib/prosba-o-ocene-wywolanie.ts:44:    await StoreReview.requestReview();
+kod: 0
+$ grep -n expo-store-review package.json app.json app.config.*
+package.json:61:    "expo-store-review": "~57.0.3",

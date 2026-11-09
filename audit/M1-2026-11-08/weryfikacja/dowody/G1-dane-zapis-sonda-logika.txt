@@ -1,0 +1,80 @@
+# Weryfikacja G1-dane-zapis, 2026-11-08T21:44:50Z; kopia robocza: git worktree add --detach /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 (HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42), node_modules = dowiązanie do repo
+# Plik sondy (tylko w kopii roboczej, poza repo): src/__tests__/g1-sonda-logika.test.ts
+# Komenda: cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 && npx jest src/__tests__/g1-sonda-logika.test.ts
+
+## Źródło sondy
+     1	/** Sonda weryfikacji G1: 08-programista-003 (2,3) i 08-programista-004. Tylko w kopii roboczej. */
+     2	import { calculateBakeStatistics } from '../core/bake-statistics';
+     3	import { exportRecipeToJson, decodeRecipeFromShareUrl, parseAndValidateRecipeJson } from '../lib/recipe-sharing';
+     4	import { rozpoznajPlik } from '../lib/import-z-pliku';
+     5	import type { StoredRecipe } from '../data/db';
+     6	
+     7	const out: string[] = [];
+     8	afterAll(() => { console.log(out.join('\n')); });
+     9	const log = (id: string, ratingStars?: number) => ({ id, recipeName: 'x', startedAt: 1, finishedAt: 2, ...(ratingStars !== undefined ? { ratingStars } : {}) });
+    10	const recepta = (f: Partial<StoredRecipe['formula']>): StoredRecipe => ({
+    11	  id: 'r1', name: 'Moja', isBuiltIn: false, createdAt: 1, targetDDT: 25,
+    12	  formula: { flours: [{ name: 'Mąka pszenna chlebowa t750', percentage: 100 } as any], waterPercentage: 75, saltPercentage: 2, starterPercentage: 20, starterHydration: 100, targetDoughWeightGrams: 900, ...f } as any,
+    13	});
+    14	
+    15	it('003(2) średnia ocen', () => {
+    16	  out.push(`003(2) [1★, bez oceny] averageRating=${calculateBakeStatistics([log('a', 1), log('b')] as any).averageRating}`);
+    17	  out.push(`003(2) [bez oceny] averageRating=${calculateBakeStatistics([log('b')] as any).averageRating}`);
+    18	});
+    19	
+    20	it('003(3) import receptury z brakami', () => {
+    21	  const base = JSON.parse(exportRecipeToJson(recepta({})));
+    22	  const zmien = (fn: (o: any) => void) => { const o = JSON.parse(JSON.stringify(base)); fn(o); return parseAndValidateRecipeJson(JSON.stringify(o)); };
+    23	  const opis = (r: any) => (r.success ? `success masa=${r.recipe.formula.targetDoughWeightGrams} zakwas=${r.recipe.formula.starterPercentage} drożdże=${r.recipe.formula.extraYeastPercentage}` : `błąd: ${r.error}`);
+    24	  const f = (o: any) => o.recipe?.formula ?? o.formula ?? o;
+    25	  out.push(`003(3) klucze eksportu: ${JSON.stringify(Object.keys(base))} formula=${JSON.stringify(Object.keys(f(base)))}`);
+    26	  out.push(`003(3) masa "900" (tekst): ${opis(zmien((o) => { f(o).targetDoughWeightGrams = '900'; }))}`);
+    27	  out.push(`003(3) drożdże 12: ${opis(zmien((o) => { f(o).extraYeastPercentage = 12; }))}`);
+    28	  out.push(`003(3) bez starterPercentage: ${opis(zmien((o) => { delete f(o).starterPercentage; }))}`);
+    29	  out.push(`003(3) woda "75" (tekst) dla porównania: ${opis(zmien((o) => { f(o).waterPercentage = '75'; }))}`);
+    30	  out.push(`003(3) decodeRecipeFromShareUrl(masa "900"): ${opis(decodeRecipeFromShareUrl(JSON.stringify(((o) => { f(o).targetDoughWeightGrams = '900'; return o; })(JSON.parse(JSON.stringify(base))))))}`);
+    31	});
+    32	
+    33	it('004 eksport → rozpoznajPlik dla granic arkusza', () => {
+    34	  const przypadki: Array<[string, Partial<StoredRecipe['formula']>]> = [
+    35	    ['woda 75 sól 2', {}], ['woda 125', { waterPercentage: 125 }], ['woda 150', { waterPercentage: 150 }], ['woda 30', { waterPercentage: 30 }], ['woda 0', { waterPercentage: 0 }],
+    36	    ['sól 7', { saltPercentage: 7 }], ['sól 10', { saltPercentage: 10 }], ['zakwas 100', { starterPercentage: 100 }],
+    37	  ];
+    38	  for (const [n, f] of przypadki) {
+    39	    const r = rozpoznajPlik(exportRecipeToJson(recepta(f)));
+    40	    const bezp = parseAndValidateRecipeJson(exportRecipeToJson(recepta(f)));
+    41	    out.push(`004 ${n}: rozpoznajPlik=${r?.rodzaj}; walidacja=${bezp.success ? 'OK' : bezp.error}`);
+    42	  }
+    43	});
+
+## Wynik
+  console.log
+    003(2) [1★, bez oceny] averageRating=3
+    003(2) [bez oceny] averageRating=5
+    003(3) klucze eksportu: ["schema","exportedAt","appName","recipe"] formula=["flours","waterPercentage","saltPercentage","starterPercentage","starterHydration","targetDoughWeightGrams"]
+    003(3) masa "900" (tekst): success masa=850 zakwas=20 drożdże=undefined
+    003(3) drożdże 12: success masa=900 zakwas=20 drożdże=undefined
+    003(3) bez starterPercentage: success masa=900 zakwas=0 drożdże=undefined
+    003(3) woda "75" (tekst) dla porównania: błąd: Hydratacja wody musi mieścić się w zakresie 35–120%
+    003(3) decodeRecipeFromShareUrl(masa "900"): success masa=850 zakwas=20 drożdże=undefined
+    004 woda 75 sól 2: rozpoznajPlik=receptura; walidacja=OK
+    004 woda 125: rozpoznajPlik=nierozpoznany; walidacja=Hydratacja wody musi mieścić się w zakresie 35–120%
+    004 woda 150: rozpoznajPlik=nierozpoznany; walidacja=Hydratacja wody musi mieścić się w zakresie 35–120%
+    004 woda 30: rozpoznajPlik=nierozpoznany; walidacja=Hydratacja wody musi mieścić się w zakresie 35–120%
+    004 woda 0: rozpoznajPlik=nierozpoznany; walidacja=Hydratacja wody musi mieścić się w zakresie 35–120%
+    004 sól 7: rozpoznajPlik=nierozpoznany; walidacja=Udział soli musi mieścić się w zakresie 0–6%
+    004 sól 10: rozpoznajPlik=nierozpoznany; walidacja=Udział soli musi mieścić się w zakresie 0–6%
+    004 zakwas 100: rozpoznajPlik=receptura; walidacja=OK
+
+
+PASS src/__tests__/g1-sonda-logika.test.ts
+  ✓ 003(2) średnia ocen (1 ms)
+  ✓ 003(3) import receptury z brakami (1 ms)
+  ✓ 004 eksport → rozpoznajPlik dla granic arkusza (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.746 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/g1-sonda-logika.test.ts/i.
+## Kod wyjścia: 0

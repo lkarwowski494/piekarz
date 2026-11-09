@@ -1,0 +1,61 @@
+Commit: 2ef8870a525485cc1ac57e5abe9d97d9937dfe42; sonda w git worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt (node_modules = dowiązanie do repo).
+
+$ (cd /home/user/piekarz && grep -rn "bakeTemp\|recommendedVessel\|bakeTime" "app/(tabs)/receptury/harmonogram.tsx" app/stolnica.tsx src/components/stolnica src/components/harmonogram src/core/bake-steps.ts src/scheduler/reverse-scheduler.ts src/core/baking-phases.ts src/data/bake-session-store.ts)
+kod wyjścia: 1
+
+$ (cd /home/user/piekarz && grep -rn "bakeTemp\|recommendedVessel" app src --include=*.ts --include=*.tsx | grep -v __tests__ | grep -v "src/recipes/" )
+src/components/receptury/ORecepturze.tsx:20:function naczynie(v: RecipePreset['recommendedVessel']): string {
+src/components/receptury/ORecepturze.tsx:46:              {formatTemperature(r.bakeTempSteamC, unitSystem)} ({t('{n} min', { n: r.bakeTimeSteamMinutes })} {t('para')} +{' '}
+src/components/receptury/ORecepturze.tsx:47:              {t('{n} min w {temp}', { n: r.bakeTimeBrowningMinutes, temp: formatTemperature(r.bakeTempBrowningC, unitSystem) })})
+src/components/receptury/ORecepturze.tsx:52:          <Text style={styles.mocny}>{t('Naczynie')}:</Text> {naczynie(r.recommendedVessel)}
+kod wyjścia: 0
+
+--- sonda tests/sonda-g5-001.test.ts (tylko w worktree, poza repo):
+import { CATALOG_RECIPES } from '../src/recipes/katalog';
+import { calculateDoughRecipe } from '../src/core/domain-rules';
+import { planBakeSteps, isDutchOvenStep } from '../src/core/bake-steps';
+import { DUTCH_OVEN_PHASES } from '../src/core/baking-phases';
+import { powodBezZakwasu } from '../src/lib/plan-receptury';
+
+test('sonda 06-tresci-001', () => {
+  const steps = planBakeSteps({ startAt: Date.UTC(2026, 10, 8, 8), isHighRye: false });
+  const pre = steps.find((s) => s.category === 'preheat_oven');
+  const bake = steps.find((s) => s.category === 'bake');
+  console.log('PLAN preheat:', pre?.instructions, '| bake:', bake?.instructions, bake?.durationMin, 'dutch:', bake && isDutchOvenStep(bake));
+  console.log('FAZY:', DUTCH_OVEN_PHASES.lid_on.temperatureC, DUTCH_OVEN_PHASES.lid_on.durationMin, DUTCH_OVEN_PHASES.lid_off.temperatureC, DUTCH_OVEN_PHASES.lid_off.durationMin);
+  const rows: string[] = [];
+  let rozne = 0;
+  for (const r of CATALOG_RECIPES) {
+    if (powodBezZakwasu(r.formula) !== null) continue;
+    const rye = calculateDoughRecipe(r.formula as any).isHighRye;
+    const zgodne = !rye && r.bakeTempSteamC === 240 && r.bakeTempBrowningC === 210 && r.bakeTimeSteamMinutes === 20 && r.bakeTimeBrowningMinutes === 25 && r.recommendedVessel === 'dutch_oven';
+    if (!rye && !zgodne) rozne++;
+    rows.push(`${r.id} | zyto=${rye} | ${r.bakeTempSteamC}/${r.bakeTempBrowningC} C | ${r.bakeTimeSteamMinutes}+${r.bakeTimeBrowningMinutes} min | ${r.recommendedVessel} | plan=240/210,20+25,garnek ${rye ? '(plan zytni)' : zgodne ? 'ZGODNE' : 'ROZNE'}`);
+  }
+  console.log(rows.join('\n') + `\nNIE-ZYTNIE Z ZAKWASEM ROZNE OD PLANU: ${rozne}`);
+});
+
+$ (cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt && npx jest tests/sonda-g5-001.test.ts)
+    PLAN preheat: Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C. | bake: Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C). 45 dutch: true
+    FAZY: 240 20 210 25
+    country_loaf_72 | zyto=false | 240/210 C | 20+22 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    tartine_high_hydration_80 | zyto=false | 245/210 C | 22+25 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    san_francisco_sourdough | zyto=false | 240/210 C | 20+24 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    pain_de_campagne | zyto=false | 240/210 C | 20+23 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    rye_100_pan | zyto=true | 230/195 C | 15+45 min | bread_pan | plan=240/210,20+25,garnek (plan zytni)
+    borodinsky_rye | zyto=true | 230/190 C | 15+50 min | bread_pan | plan=240/210,20+25,garnek (plan zytni)
+    spelt_ancient_seeded | zyto=false | 235/205 C | 20+22 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    lievito_madre_panettone_brioche | zyto=false | 175/175 C | 0+28 min | bread_pan | plan=240/210,20+25,garnek ROZNE
+    graham_bread_honey | zyto=false | 235/205 C | 20+23 min | dutch_oven | plan=240/210,20+25,garnek ROZNE
+    durum_semolina_sourdough | zyto=false | 250/250 C | 0+60 min | baking_steel | plan=240/210,20+25,garnek ROZNE
+    latvian_scalded_rye | zyto=true | 225/225 C | 0+90 min | baking_steel | plan=240/210,20+25,garnek (plan zytni)
+    NIE-ZYTNIE Z ZAKWASEM ROZNE OD PLANU: 8
+PASS tests/sonda-g5-001.test.ts
+  ✓ sonda 06-tresci-001 (27 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.505 s, estimated 1 s
+Ran all test suites matching /tests\/sonda-g5-001.test.ts/i.
+kod wyjścia: 0
+

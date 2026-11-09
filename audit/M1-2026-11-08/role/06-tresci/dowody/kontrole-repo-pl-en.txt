@@ -1,0 +1,5 @@
+$ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en (wersja w repo)
+UWAGA docs/tresci/pl/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+UWAGA docs/tresci/en/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+0 błędów, 2 uwag
+kod wyjścia: 0

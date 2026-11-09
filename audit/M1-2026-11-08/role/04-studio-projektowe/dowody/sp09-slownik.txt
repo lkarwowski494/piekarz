@@ -1,0 +1,28 @@
+$ grep -rnoE "t\(\x27(Anuluj|Zamknij|Gotowe|Zapisz|Dodaj|Usuń[^\x27]*|Cofnij[^\x27]*|Przywróć[^\x27]*|Wróć[^\x27]*|Wstecz|OK|Dalej|Zrobione|Otwórz|Pomiń)\x27" app src (bez testów) | sort | uniq -c
+5	 {nazwa}'	 src/components/FlourBlendModal.tsx src/components/FlourInventoryModal.tsx src/components/receptury/ListaReceptur.tsx src/components/start/WypiekiNaSpirali.tsx src/lib/confirm.ts
+1	 {opis}'	 src/components/zakwas/StarterEntriesList.tsx
+25	t('Anuluj'	 src/components/CloseButton.tsx src/components/FlourBlendModal.tsx src/components/FlourInventoryModal.tsx src/components/ImportRecipeModal.tsx src/components/ImportRecipeModal.tsx src/components/ImportRecipeModal.tsx src/components/ImportRecipeModal.tsx src/components/QrScannerModal.tsx src/components/QrScannerModal.tsx src/components/ShareRecipeQrModal.tsx src/components/ShareRecipeQrModal.tsx src/components/calculator/SaveRecipeModal.tsx src/components/receptury/stos-receptur.ts src/components/receptury/stos-receptur.ts src/components/settings/BackupAndDataSection.tsx src/components/settings/ImportZPlikuArkusz.tsx src/components/stolnica/FinishBakeModal.tsx src/components/zakwas/AddStarterModal.tsx src/components/zakwas/EditStarterModal.tsx src/components/zakwas/StarterEntriesList.tsx src/lib/confirm.ts src/lib/menu-receptury.ts src/lib/menu-receptury.ts src/lib/print-menu.ts src/lib/print-menu.ts
+1	t('Cofnij poprzedni'	 src/components/stolnica/PasekKciuka.tsx
+1	t('Dalej'	 src/components/stolnica/ZgodaPowiadomien.tsx
+1	t('Dodaj'	 src/components/settings/ImportZPlikuArkusz.tsx
+1	t('Gotowe'	 src/components/receptury/SkladnikiSheet.tsx
+1	t('OK'	 src/lib/confirm.ts
+1	t('Otwórz'	 src/lib/kalendarz-teksty.ts
+1	t('Pomiń'	 src/lib/kalendarz-teksty.ts
+4	t('Przywróć zakupy'	 src/components/PaywallModal.tsx src/components/przywroc-zakupy.ts src/components/przywroc-zakupy.ts src/components/settings/ZakupySection.tsx
+1	t('Przywróć'	 src/components/PasekCofnij.tsx
+2	t('Usuń plan'	 src/components/start/ArkuszPlanu.tsx src/components/start/ArkuszPlanu.tsx
+1	t('Usuń recepturę'	 src/lib/confirm.ts
+3	t('Usuń wpis'	 src/components/stolnica/BakeHistorySection.tsx src/components/stolnica/BakeHistorySection.tsx src/components/zakwas/StarterEntriesList.tsx
+1	t('Usuń wszystkie dane'	 src/components/settings/BackupAndDataSection.tsx
+1	t('Usuń wszystko'	 src/components/settings/BackupAndDataSection.tsx
+2	t('Usuń zakwas'	 src/components/zakwas/EditStarterModal.tsx src/lib/confirm.ts
+1	t('Usuń'	 src/components/FlourInventoryModal.tsx
+1	t('Wróć do edycji'	 src/lib/confirm.ts
+1	t('Wróć do ustawień'	 src/components/SettingsModal.tsx
+5	t('Wróć do wypieku'	 src/components/doktor/DiagnosisResultCard.tsx src/components/start/WypiekiNaSpirali.tsx src/components/start/WypiekiNaSpirali.tsx src/lib/confirm.ts src/lib/confirm.ts
+3	t('Wstecz'	 app/(tabs)/zakwasy/doktor-zakwasu.tsx app/doktor.tsx src/components/stolnica/ProwadzenieWypieku.tsx
+12	t('Zamknij'	 src/components/CloseButton.tsx src/components/DiscardRecipesModal.tsx src/components/FlourEquivalentsModal.tsx src/components/FlourInventoryModal.tsx src/components/PaywallModal.tsx src/components/PaywallModal.tsx src/components/StarterConverterModal.tsx src/components/VolumeConverterModal.tsx src/components/settings/ImportZPlikuArkusz.tsx src/components/settings/ImportZPlikuArkusz.tsx src/components/start/UprzedzenieKoncaPro.tsx src/lib/zgloszenie-wyslanie.ts
+6	t('Zapisz'	 src/components/calculator/SaveRecipeModal.tsx src/components/receptury/DaneMaszynyKarta.tsx src/components/stolnica/FinishBakeModal.tsx src/components/zakwas/AddStarterModal.tsx src/components/zakwas/EditStarterModal.tsx src/components/zakwas/StarterEntriesList.tsx
+2	t('Zrobione'	 src/components/stolnica/PasekKciuka.tsx src/lib/kalendarz-teksty.ts
+kod: 0

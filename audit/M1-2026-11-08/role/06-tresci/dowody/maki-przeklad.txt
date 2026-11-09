@@ -1,0 +1,22 @@
+$ node <scratchpad>/skrypty/klucze.cjs (przekład nazw mąk typ 720 i 1050)
+en	Mąka żytnia typ 720	=> Light rye flour (Polish type 720)
+en	Mąka żytnia chlebowa typ 720	=> Rye bread flour type 720
+en	Mąka pszenna typ 1050	=> Wheat flour type 1050
+de	Mąka żytnia typ 720	=> Helles Roggenmehl
+de	Mąka żytnia chlebowa typ 720	=> Mittleres Roggenmehl für Brot
+de	Mąka pszenna typ 1050	=> Dunkles Weizenmehl
+fr	Mąka żytnia typ 720	=> Farine de seigle (mouture claire à moyenne)
+fr	Mąka żytnia chlebowa typ 720	=> Farine de seigle à pain
+fr	Mąka pszenna typ 1050	=> Farine de blé bise
+it	Mąka żytnia typ 720	=> Farina di segale a raffinazione media
+it	Mąka żytnia chlebowa typ 720	=> Farina di segale chiara da pane
+it	Mąka pszenna typ 1050	=> Farina di frumento scura (semi-integrale)
+cs	Mąka żytnia typ 720	=> Žitná mouka (středně světlá)
+cs	Mąka żytnia chlebowa typ 720	=> Žitná chlebová mouka
+cs	Mąka pszenna typ 1050	=> Tmavá pšeničná mouka
+ja	Mąka żytnia typ 720	=> ライ麦粉（中程度の精製度）
+ja	Mąka żytnia chlebowa typ 720	=> パン用ライ麦粉 (精製度中)
+ja	Mąka pszenna typ 1050	=> 小麦粉 (精製度低・濃色)
+$ rejestr MAK-EN-900
+MAK-EN-900 otwarte Polskim typom mąki odpowiadają typy francuskie (T45–T150), włoskie (Tipo 00–Integrale), niemieckie (Type 405–Vollkornmehl) i kategorie USA (Cake/Pastry, All-Purpose, Bread Flour, Whole Wheat), np. typ 650 ≈ T65 / Tipo 0 / Type 812 / French Style Bread Flour.
+kod wyjścia: 0

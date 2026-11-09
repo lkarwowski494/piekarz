@@ -1,0 +1,79 @@
+$ grep -rnE "(it|test)\(.*(≥ ?44|>= ?44 ?pt|44 ?× ?44|≥ ?48|cel ≥|pole dotyku|touch target|320 ?pt)" src tests --include=*.test.*
+src/components/__tests__/NumInput.test.tsx:112:  it('provides a touch target meeting RD-ENG-03 (>= 44pt)', () => {
+src/components/__tests__/flour-blend-modal.test.tsx:185:  it('przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11]', async () => {
+src/components/__tests__/flour-blend-modal.test.tsx:196:  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]', async () => {
+src/components/__tests__/zrodla-wiedzy-t2.test.tsx:58:  it('wejście w Ustawieniach: przycisk z etykietą i celem ≥ 44 pt', async () => {
+src/components/__tests__/zrodla-wiedzy-t2.test.tsx:112:  it('powrót: „Ustawienia” w nagłówku (etykieta „Wróć do ustawień”, ≥ 44 pt) wraca do listy ustawień', async () => {
+src/components/__tests__/licencje-ekran-z081.test.tsx:63:  it('wiersz w karcie „Kontakt” obok „Polityki prywatności”: przycisk z etykietą i celem ≥ 44 pt', async () => {
+src/components/__tests__/licencje-ekran-z081.test.tsx:187:  it('powrót: „Ustawienia” w nagłówku (≥ 44 pt) wraca do listy ustawień; Źródła wiedzy nadal działają', async () => {
+src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx:200:  it('pole dotyku ≥ 44 pt; duży tekst (AX5 przy 320 pt): każda opcja na całą szerokość (§7a)', async () => {
+src/ui/__tests__/karty-p1.test.tsx:136:  it('z onPress: przycisk z etykietą „etykieta, wartość”, wywołuje onPress, cel ≥ 44 pt', () => {
+src/ui/__tests__/karty-p1.test.tsx:228:  it('wiersz: obwódka 1,5 obwodka, promień pole 10, min 52 pt (≥ 44)', () => {
+src/__tests__/dzis-d4b.test.tsx:201:  it('Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a)', async () => {
+src/__tests__/dzis-d4b.test.tsx:325:  it('320 pt: dni od krawędzi do krawędzi (bez marginesu), każdy dzień cały przycisk ≥ 44 pt; kafle bez ucinania tekstu', async () => {
+src/__tests__/ustawienia-karty-p5.test.tsx:131:  it('duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach', async () => {
+src/__tests__/dzis-kalendarz-d7.test.tsx:206:  it('BR-KAL-013 320 pt: siatka od krawędzi do krawędzi, 7 dni w rzędzie, każdy dzień ≥ 44 pt wysokości', async () => {
+src/__tests__/plan-uklad-128b.test.tsx:113:  it('320 pt: ±30 min razem pod rzędem dni (poza przewijanym rzędem), rząd pola tylko z polem', () => {
+src/__tests__/plan-prowadzenie-karty-p4.test.tsx:200:  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, w kartach bez maxFontSizeMultiplier', async () => {
+src/__tests__/receptury-karty-p3.test.tsx:183:  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, bez maxFontSizeMultiplier', async () => {
+src/__tests__/ekran-pro-pb.test.tsx:167:  it('1 (PRZ-28, 320 pt): opcje z cenami stoją przed „Co daje Pro” i przed ujawnieniami; cena przed paskiem kciuka', async () => {
+src/__tests__/dziennik-karty-p5.test.tsx:130:  it('statystyki w karcie z ikoną; Doktor Chleba jako wiersz-karta z ikoną (cel ≥ 52 pt) prowadzący do /doktor', async () => {
+src/__tests__/dziennik-karty-p5.test.tsx:148:  it('duży tekst (AX5 przy 320 pt): przyciski wpisu w kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach', async () => {
+src/guards/__tests__/interaction-guards.test.ts:39:    it('defines minHeight and minWidth of 44pt for touch targets', () => {
+src/guards/__tests__/interaction-guards.test.ts:45:    it('HeaderButton component source code explicitly enforces 44pt minimum touch target', () => {
+tests/matrix-dimensions.test.tsx:39:    it('NumInput renders inside a 320pt-wide container (presence only; layout not measured)', () => {
+tests/audit-fixes.test.tsx:215:  test('A11-01 & A11-02: NumInput touch target height is at least 44 pt', () => {
+kod: 0
+
+liczba: 24
+
+$ sed -n 105,125p src/components/__tests__/NumInput.test.tsx
+    });
+    act(() => {
+      textInput.props.onBlur({} as any);
+    });
+    expect(onChangeNumber).toHaveBeenCalledWith(100); // clamped to max
+  });
+
+  it('provides a touch target meeting RD-ENG-03 (>= 44pt)', () => {
+    let tree!: renderer.ReactTestRenderer;
+    act(() => {
+      tree = renderer.create(<NumInput value={1} testID="test-num-input" />);
+    });
+    const textInput = tree.root.findByType(TextInput);
+    const flatStyle = Array.isArray(textInput.props.style)
+      ? Object.assign({}, ...textInput.props.style)
+      : textInput.props.style;
+    expect(flatStyle.minHeight).toBeGreaterThanOrEqual(44);
+  });
+});
+
+$ sed -n 190,210p src/components/__tests__/flour-blend-modal.test.tsx
+  });
+
+  it('przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11]', async () => {
+    await act(async () => {
+      tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
+    });
+    const { StyleSheet } = jest.requireActual('react-native');
+    const grupa = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'flour-stepper-0');
+    expect(grupa).toHaveLength(1);
+    const s = StyleSheet.flatten(grupa[0].props.style);
+    expect({ flexDirection: s.flexDirection, flexWrap: s.flexWrap }).toEqual({ flexDirection: 'row', flexWrap: 'wrap' });
+  });
+
+  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]', async () => {
+    await act(async () => {
+      tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
+    });
+    const { StyleSheet } = jest.requireActual('react-native');
+    // G-10: przyciski -10/-5/+5/+10 miały minWidth 38 pt [audyt-niezalezny G-10]
+    const przyciski = tree!.root.findAll((n) => typeof n.props.testID === 'string' && /^flour-(remove|minus-\d+|plus-\d+)-\d+$/.test(n.props.testID) && n.props.style);
+    expect(przyciski.length).toBeGreaterThan(2);
+    expect(przyciski.length).toBeGreaterThan(0);
+    for (const p of przyciski) {
+      const s = StyleSheet.flatten(p.props.style);
+      expect({ minWidth: s.minWidth >= 44, minHeight: s.minHeight >= 44 }).toEqual({ minWidth: true, minHeight: true });
+    }
+  });
+});

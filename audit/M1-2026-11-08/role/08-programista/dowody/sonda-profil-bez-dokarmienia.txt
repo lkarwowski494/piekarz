@@ -1,0 +1,31 @@
+$ npx jest --ci src/__tests__/sonda-08-bez-dokarmienia.test.tsx (worktree scratchpad wt-08 @ 2ef8870a; harness z src/__tests__/zakwas-104-ekrany.test.tsx:1-96)
+    lastFedAt w bazie: [null]
+    profil: Ostatnie dokarmienie | przed chwilą | Miejsce przechowywania
+    faza „Brak danych o karmieniu” widoczna: true
+    ✓ wpis dokarmienia usunięty -> profil (328 ms)
+Tests:       1 passed, 1 total
+kod: 0
+--- test sondy (bez harness) ---
+
+describe('sonda 08: zakwas bez dokarmienia', () => {
+  beforeAll(() => {
+    useTempDbDir();
+    restartApp();
+    require('react-test-renderer');
+    require('../../app/(tabs)/zakwasy/index');
+  });
+  beforeEach(() => useTempDbDir());
+  it('wpis dokarmienia usunięty -> profil', async () => {
+    const at = Date.now() - 3 * 24 * 3600_000;
+    const s = await start(async (e) => {
+      await e.createStarterWithEntry(starter('z'), feed('f1', 'z', at));
+      await e.deleteStarterEntry('f1');
+    });
+    const t = s.tekst();
+    console.log('lastFedAt w bazie:', JSON.stringify((await s.app.store.getStarters()).map((x) => x.lastFedAt)));
+    const i = t.indexOf('Ostatnie dokarmienie');
+    console.log('profil:', t.slice(i, i + 60));
+    console.log('faza „Brak danych o karmieniu” widoczna:', t.includes('Brak danych o karmieniu'));
+    s.done();
+  });
+});

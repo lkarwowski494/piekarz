@@ -1,0 +1,20 @@
+$ node granice.mjs /home/user/piekarz/src core 20   (kopia skryptu z promptu w scratchpadzie)
+DOMENA core/bake-statistics.ts importuje '../data/db'
+DOMENA core/bake-steps.ts importuje '../scheduler/reverse-scheduler'
+DOMENA core/domain-rules.ts importuje '../lib/i18n'
+DOMENA core/domain-rules.ts importuje '../lib/format'
+DOMENA core/inventory.ts importuje '../data/db'
+DOMENA core/rye-stages.ts importuje '../scheduler/reverse-scheduler'
+DOMENA core/yeast-stages.ts importuje '../scheduler/reverse-scheduler'
+DOMENA core/yeast-stages.ts importuje '../recipes/katalog'
+CYKL data/settings-store.ts -> data/sqlite-schema.ts -> data/kopie-przed-migracja.ts -> lib/backup.ts -> lib/i18n.ts -> data/settings-store.ts
+CYKL data/sqlite-schema.ts -> data/migracja-v6.ts -> data/bake-session-store.ts -> data/bake-sessions-store.ts -> data/sqlite-schema.ts
+CYKL data/bake-session-store.ts -> data/bake-sessions-store.ts -> data/bake-session-store.ts
+CYKL core/baking-techniques.ts -> core/techniques/prep-ferment-techniques.ts -> core/baking-techniques.ts
+CYKL core/baking-techniques.ts -> core/techniques/shaping-baking-techniques.ts -> core/baking-techniques.ts
+13 naruszeń w 904 plikach
+kod: 1
+
+$ node granice.mjs /home/user/piekarz/app core 20
+OK: 15 plików, bez naruszeń
+kod: 0

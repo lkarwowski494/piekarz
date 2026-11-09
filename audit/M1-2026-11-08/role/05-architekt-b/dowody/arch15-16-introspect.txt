@@ -1,0 +1,7 @@
+$ (worktree w scratchpadzie, commit 2ef8870a) npx expo config --type introspect --json  → wybrane pola ios
+kod: 0
+ios.infoPlist.UIBackgroundModes = None
+ios.infoPlist klucze *UsageDescription = []
+ios.entitlements = {'com.apple.developer.usernotifications.time-sensitive': True, 'aps-environment': 'development'}
+ios.privacyManifests.NSPrivacyAccessedAPITypes = [('NSPrivacyAccessedAPICategoryUserDefaults', ['CA92.1']), ('NSPrivacyAccessedAPICategoryFileTimestamp', ['C617.1', '3B52.1']), ('NSPrivacyAccessedAPICategorySystemBootTime', ['35F9.1']), ('NSPrivacyAccessedAPICategoryDiskSpace', ['E174.1', '85F4.1'])]
+plugins = ['expo-router', 'expo-sqlite', 'expo-notifications', 'expo-iap', 'expo-audio', 'expo-font', 'expo-splash-screen', 'expo-localization']

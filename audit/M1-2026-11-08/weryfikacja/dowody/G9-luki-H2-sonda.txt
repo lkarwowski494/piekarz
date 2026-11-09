@@ -1,0 +1,33 @@
+# cwd: worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g9 (git worktree add --detach 2ef8870a); sonda src/__tests__/sonda-g9-h2.test.ts tylko w worktree (treść niżej)
+$ npx jest src/__tests__/sonda-g9-h2.test.ts
+    SONDA H2 łącznie 40 kroki 24 starty 5 karmienia/budzenia 11 z popytu 17 | najpóźniejszy zachowany krok za h 29.25 | karmienia za 1 h odrzucone 0
+  ✓ SONDA G9-H2: najgorszy przypadek — 2 trwające, 5 zaplanowanych, 10 zakwasów na blacie z karmieniem za 1 h (26 ms)
+Tests:       1 passed, 1 total
+exit=0
+
+## źródło limitu iOS 64: https://developer.apple.com/documentation/uikit/uilocalnotification (deprecated API): 'the system keeps the soonest-firing 64 notifications (with automatically rescheduled notifications counting as a single notification) and discards the rest'
+$ grep -n 'MAX_PENDING_NOTIFICATIONS = \|najbliższe 64' src/core/notification-config.ts
+30: * najbliższe 64 (OP-56: dokumentacja wycofanego API, S-74), więc zostaje zapas na powiadomienia innego pochodzenia.
+33:export const MAX_PENDING_NOTIFICATIONS = 40;
+exit=0
+
+## treść sondy
+import { planNotifications } from '../core/notification-plan';
+import { planBakeSteps } from '../core/bake-steps';
+
+it('SONDA G9-H2: najgorszy przypadek — 2 trwające, 5 zaplanowanych, 10 zakwasów na blacie z karmieniem za 1 h', () => {
+  const now = Date.UTC(2026, 10, 8, 18, 0);
+  const sesja = (id: string) => ({ id, recipeName: id, steps: planBakeSteps({ startAt: now, isHighRye: false }), stepIdx: 0, dutchOvenPhase: 'lid_on' as const, timerEndsAt: now + 3600_000 });
+  const planned = Array.from({ length: 5 }, (_, i) => ({ id: `p${i}`, recipeName: `p${i}`, plannedStartAt: now + (i + 1) * 86400_000, steps: planBakeSteps({ startAt: now + (i + 1) * 86400_000, isHighRye: false }) }));
+  const starters = Array.from({ length: 10 }, (_, i) => ({ id: `z${i}`, name: `z${i}`, storageState: 'ROOM_TEMP' as const, lastFedAt: now - 11 * 3600_000 }));
+  const budzace = [...['a', 'b'], ...planned.map((p) => p.id)].map((w) => ({ wypiekId: w, at: now + 2 * 3600_000, starterId: 'z0', starterName: 'z0', recipeName: w }));
+  const bez = { sessions: [sesja('a'), sesja('b')], planned, starters, budzace } as never;
+  const wynik = planNotifications(bez, now);
+  const kroki = wynik.filter((p) => p.kind === 'krok' && !p.id.endsWith('.start'));
+  const starty = wynik.filter((p) => p.id.endsWith('.start'));
+  const karm = wynik.filter((p) => p.kind === 'karmienie');
+  const najpozniejszyKrok = Math.max(...kroki.map((p) => p.triggerAt));
+  console.log('SONDA H2 łącznie', wynik.length, 'kroki', kroki.length, 'starty', starty.length, 'karmienia/budzenia', karm.length, 'z popytu', 10 + 7,
+    '| najpóźniejszy zachowany krok za h', (najpozniejszyKrok - now) / 3600_000, '| karmienia za 1 h odrzucone', 10 - karm.filter((p) => p.triggerAt === now + 3600_000).length);
+  expect(wynik.length).toBeLessThanOrEqual(40);
+});

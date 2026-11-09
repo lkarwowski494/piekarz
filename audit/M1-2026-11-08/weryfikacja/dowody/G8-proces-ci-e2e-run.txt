@@ -1,0 +1,36 @@
+$ gh run view 42511355281 -R lkarwowski494/piekarz --json headSha,status,conclusion,name,number,jobs --jq ...
+headSha=2ef8870a525485cc1ac57e5abe9d97d9937dfe42 number=96 conclusion=failure
+job 128824910988 failure
+  1 Set up job: success 2026-11-08T18:42:48Z–2026-11-08T18:42:49Z
+  2 Checkout: success 2026-11-08T18:42:49Z–2026-11-08T18:42:55Z
+  3 Setup Node 22: success 2026-11-08T18:42:55Z–2026-11-08T18:43:00Z
+  4 Install dependencies: success 2026-11-08T18:43:00Z–2026-11-08T18:43:48Z
+  5 Expo prebuild (iOS): success 2026-11-08T18:43:48Z–2026-11-08T18:45:11Z
+  6 Build Release for simulator: success 2026-11-08T18:45:11Z–2026-11-08T18:59:41Z
+  7 Boot simulator and install app: success 2026-11-08T18:59:41Z–2026-11-08T19:02:51Z
+  8 Install applesimutils: success 2026-11-08T19:02:52Z–2026-11-08T19:03:40Z
+  9 Install Maestro CLI: success 2026-11-08T19:03:40Z–2026-11-08T19:04:47Z
+  10 Run E2E flows (.maestro/e2e, pl_PL): failure 2026-11-08T19:04:47Z–2026-11-08T19:12:57Z
+  11 Run E2E flows (.maestro/e2e, en_US): skipped 2026-11-08T19:12:57Z–2026-11-08T19:12:57Z
+  12 Negative control must fail: skipped 2026-11-08T19:12:57Z–2026-11-08T19:12:57Z
+  13 Build Release for simulator (Basic, without EXPO_PUBLIC_E2E): skipped 2026-11-08T19:12:57Z–2026-11-08T19:12:57Z
+  14 Install Basic build on simulator: skipped 2026-11-08T19:12:57Z–2026-11-08T19:12:57Z
+  15 Run E2E flows in Basic (.maestro/e2e-basic): skipped 2026-11-08T19:12:57Z–2026-11-08T19:12:57Z
+  16 Upload Maestro report and screenshots: success 2026-11-08T19:12:57Z–2026-11-08T19:13:00Z
+  31 Post Setup Node 22: skipped 2026-11-08T19:13:00Z–2026-11-08T19:13:00Z
+  32 Post Checkout: success 2026-11-08T19:13:00Z–2026-11-08T19:13:00Z
+  33 Complete job: success 2026-11-08T19:13:00Z–2026-11-08T19:13:09Z
+exit=0
+
+$ grep -nE "if: always|continue-on-error" .github/workflows/e2e-ios.yml  (tylko upload ma if: always(); kroki 11-15 bez warunku => pominięte po porażce)
+178:        if: always()
+exit=0
+
+$ grep -n "optional: true" -B1 .maestro/e2e/05-dwa-wypieki.yaml .maestro/e2e/0[234]*.yaml .maestro/e2e-basic/04*.yaml | grep -i zgoda
+.maestro/e2e/05-dwa-wypieki.yaml-31-    id: "zgoda-dalej-btn"
+.maestro/e2e/05-dwa-wypieki.yaml-76-    id: "zgoda-dalej-btn"
+.maestro/e2e/02-wypiek-na-stolnicy.yaml-45-    id: "zgoda-dalej-btn"
+.maestro/e2e/03-prowadzenie-widok-skupiony.yaml-35-    id: "zgoda-dalej-btn"
+.maestro/e2e/04-plan-na-pozniej.yaml-32-    id: "zgoda-dalej-btn"
+.maestro/e2e-basic/04-wypiek-teraz-basic.yaml-33-    id: "zgoda-dalej-btn"
+exit=0

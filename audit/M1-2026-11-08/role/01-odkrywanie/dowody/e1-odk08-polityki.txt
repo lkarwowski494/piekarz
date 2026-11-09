@@ -1,0 +1,11 @@
+# ODK-08: cytaty OG (S-30…S-35, S-62, S-72, S-75) w tekście App Review Guidelines i ActivityKit pobranych 2026-11-08 (grep -F); strona: Last Updated: October 16, 2026
+ZGODNY  S-30: „you must provide ongoing value to the customer, and the subscription period must last at least seven days and be available across all of the user’s devices”
+ZGODNY  S-31: „Apps may not use their own mechanisms to unlock content or functionality”
+ZGODNY  S-32: „All apps must include a link to their privacy policy in the App Store Connect metadata field and within the app in an easily accessible manner.”
+ZGODNY  S-33: „accurately reflect the app’s core experience”
+ZGODNY  S-34: „simple timers, and fortune telling, are well established on the App Store”
+ZGODNY  S-35: „you should make sure you have a restore mechanism for any restorable in-app purchases”
+ZGODNY  S-62: „Use the provided API to prompt users to review your app; this functionality allows customers to provide an App Store rating and review without the inconvenience of leaving your app, and we will disallow custom review prompts.”
+ZGODNY  S-72: „Widgets, extensions, and notifications should be related to the content and functionality of your app.”
+ZGODNY  S-75: „A Live Activity can be active for up to eight hours unless its app or a person ends it before this limit.”
+kod: 0

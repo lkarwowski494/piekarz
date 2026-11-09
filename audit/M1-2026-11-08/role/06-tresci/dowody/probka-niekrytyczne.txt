@@ -1,0 +1,81 @@
+$ node -e <losowanie LCG ziarno 20261108, 15 z 179 niekrytycznych użytych w docs/tresci/pl>
+pula 179 ziarno 20261108 LCG, 15 ID: PIE-ZAJ-001,RAT-SOL-002,MAK-OGL-006,MAS-046,DRO-WER-GR-001,RAT-ZIM-005,KAT-SLO-004,RAT-PRZ-002,KAT-OBW-001,KAT-ALT-002,KAT-ILB-005,RAT-PRZ-005,KRO-POC-005,RAT-ZIM-002,ZYT-ETA-006
+
+## PIE-ZAJ-001 | Według King Arthur Baking kamień do pieczenia nagrzewa się zwykle około 60 minut; w przepisie na chleb na zakwasie piekarnik z kamieniem nagrzewa się około 60 minut przed pieczeniem. | upr: 
+  APP: kalendarz-m0.md:7 Nagrzewanie też zajmuje piekarnik: pusty garnek nagrzewa się około 30 minut, a kamień zwykle około 60 minut.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2026/01/21/fix-oven-hot-spots | Baking stone heated for 60 minutes (the usual recommended time for heating a stone)
+  SRC: 4 https://www.kingarthurbaking.com/learn/guides/sourdough/bake | About 60 minutes before the bread is ready to bake, preheat the oven with a baking stone in it (if you have a stone) to 450°F.
+
+## RAT-SOL-002 | Według King Arthur Baking sól spowalnia fermentację (drożdże wolniej zużywają cukier); przy cieście drożdżowym brak soli lepiej wychwycić wcześnie, bo ciasto bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę. | upr: 
+  APP: doktor-ratunek.md:82 Dodaj sól przed pierwszym rośnięciem: ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.
+  APP: doktor-ratunek.md:103 Sól spowalnia fermentację, wiąże wilgoć i napina gluten.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast- | Without salt, your dough will rise faster than it normally would, leading to less flavor development and a weaker structure.
+  SRC: 4 https://www.kingarthurbaking.com/learn/guides/sourdough/faq | Not only does salt add flavor to bread, it controls the rate of fermentation by slowing down how quickly yeast consumes sugar.
+
+## MAK-OGL-006 | W badaniu Szwedziak i in. (2018) próbki mąki pszennej z jednego młyna zawierały białko: typ 405 13,8%, typ 500 14,3%, typ 550 14,8%, typ 650 13,8%, typ 750 15,5%, oraz popiół: typ 405 0,44%, typ 500 0,52%, typ 550 0,56%, typ 650 0,61%, typ 750 0,79%. | upr: Jedna próbka na typ z jednego młyna; białko oznaczone metodą NIR (Inframatic), bez podanej bazy (sucha masa czy masa pro
+  APP: maki-ogolne.md:10 Mąka pszenna niskowyciągowa, białko 10,6–14,3%
+  APP: maki-ogolne.md:12 Mąka niskowyciągowa.  Białko: np. 10,6–14,3%.
+  SRC: 3 https://bibliotekanauki.pl/articles/227508.pdf | Tabela 1. Wyniki analizy jakości mąki pszennej typ 405 […] Popiół 0,44% Białko 13,8%
+
+## MAS-046 | Według instrukcji Cuisinart CBK-110 program Artisan Dough to wyłącznie ciasto z kilkoma długimi, wolnymi, chłodnymi wyrastaniami; ciasto piecze się potem programem Bake albo w piekarniku. | upr: 
+  APP: maszyna.md:28 Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.
+  SRC: 1 https://images.homedepot-static.com/catalog/pdfImages/e5/e54352c6-2b26-44fa-981b | This is a dough ONLY program. The dough can be baked using the Bake program, or shaped and baked in a conventional oven.
+
+## DRO-WER-GR-001 | Według badania pilotażowego (Curr. Res. Food Sci. 2025) chleb drożdżowy z mąki pszennej razowej (100%) w procesie krótkim ma 2,0% drożdży prasowanych, 68% wody, 6,0% glutenu, 1,7% soli i 0,002% kwasu askorbinowego względem mąki; ciasto po wyrobieniu fermentuje 15 min w 20 °C, po podziale (920 g) dru | upr: Proces przemysłowy (komora garownicza 32 °C, dodatek glutenu i kwasu askorbinowego) — daleko od warunków domowych. Drożd
+  APP: wersje-drozdzowe.md:11 Na drożdżach: 2% drożdży świeżych względem mąki.
+  APP: wersje-drozdzowe.md:12 W badaniu chleba z mąki pszennej razowej ciasto fermentowało 15 minut, po podziale jeszcze 15 minut, a w formie rosło 70 minut w komorze o temperaturze 32 °C.
+  SRC: 2 https://doi.org/10.1016/j.crfs.2025.101208 | The final proof in the fermentation cabinet (Hein, Strassen, Luxembourg) lasted 70 min (32 °C, 80 % RH).
+  SRC: 2 https://doi.org/10.1016/j.crfs.2025.101208 | bulk-fermented in a closed container for 15 min at room temperature (20 °C)
+
+## RAT-ZIM-005 | Według King Arthur Baking czasy rośnięcia w przepisie to tylko wskazówka, bo na tempo wpływa m.in. temperatura wody i powietrza; gdy powietrze jest zimne i suche, ciasto rośnie dłużej. | upr: 
+  APP: doktor-ratunek.md:70 Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2022/08/22/how-to-tell-if-bread-dough-has- | expect longer rise times when the air is cold and dry.
+
+## KAT-SLO-004 | Według University of Illinois Extension (4-H) słodkie ciasto drożdżowe (Basic Sweet Dough) w procentach piekarskich (rachunek, mąka uniwersalna ok. 5 szklanek = 625 g = 100%): mleko 39,0%, woda 19,0%, cukier 16,0%, olej 8,7% (albo masło 9,1%), jajka 16,0%, sól 1,9%, drożdże świeże 6,6% (suche 2,30%) | upr: Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka „ok.
+  APP: katalog-m3.md:157 W przepisie mleko stanowi 39,0% masy mąki, woda 19,0%, cukier 16,0%, olej 8,7% albo masło 9,1%, jajka 16,0%, sól 1,9%, a drożdże 6,6% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza).
+  APP: katalog-m3.md:158 Procenty przeliczono z miar objętościowych przepisu, który podaje około 5 szklanek mąki.
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 5 cups all-purpose flour,
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 2 packages yeast
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 2 teaspoons salt
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 1/2 cup water, heated to
+  SRC: 1 https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-0 | "83944","168894","1","1","9999","","cup","125","","",""
+  SRC: 1 https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-0 | "93024","173647","2","1","9999","","serving 8 fl oz","237","","",""
+
+## RAT-PRZ-002 | Według King Arthur Baking mocno przerośnięty drożdżowy bochenek w formie, upieczony bez ratowania, nie ma już zapasu na rośnięcie w piecu: rośnie, opada i się zapada, choć nadal dobrze smakuje. | upr: 
+  APP: doktor-ratunek.md:11 Ciasto drożdżowe uformuj ponownie: mocno przerośnięty bochenek drożdżowy upieczony od razu opada w piecu, choć nadal dobrze smakuje.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2018/02/21/over-proofed-bread | It rose; it fell; it collapsed.
+
+## KAT-OBW-001 | Według jednolitego dokumentu ChOG „Obwarzanek krakowski” do produkcji używa się mąki pszennej; dopuszczalne jest zastąpienie 30% mąki pszennej mąką żytnią. | upr: 
+  APP: katalog-m3.md:104 Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie.
+  APP: katalog-m3.md:105 Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.
+  SRC: 1 https://publications.europa.eu/resource/oj/JOC_2010_038_R_0008_01 | dopuszczalne jest zastąpienie 30 % mąki pszennej mąką żytnią.
+
+## KAT-ALT-002 | Według specyfikacji ChNP „Pane di Altamura” zakwas uzyskuje się co najmniej trzema odświeżeniami wodą i semoliną durum w ilości 20% semoliny przeznaczonej do ciasta. | upr: 
+  APP: katalog-m3.md:15 Zakwas przed użyciem odświeża się co najmniej trzy razy wodą i semoliną durum.
+  SRC: 1 https://ec.europa.eu/geographical-indications-register/eambrosia-public-api/api/ | il lievito madre viene ottenuto con minimo tre rinnovi per aumentare la massa fermentata mediante l'aggiunta di acqua e semola di grano duro, nella percentuale del 20%
+
+## KAT-ILB-005 | Według University of Illinois Extension (4-H) chleb podstawowy (Basic loaf) w procentach piekarskich (rachunek, mąka = 100%): mąka uniwersalna 100% (1 szklanka = 125 g); woda 67,7% (przedział 59,2–79,0% dla 3–4 szklanek mąki), sól 1,4% (1,2–1,6%), drożdże suche 1,65%, czyli świeże 4,7% (4,1–5,5%), c | upr: Drożdże świeże = suche ÷ 0,35 (D-172, zmienia RD-19 z ZASAD: ÷ 0,4); opakowanie suchych = 7,2 g (KAT-WAG-018). Mąka: śro
+  APP: katalog-m3.md:27 W przepisie woda stanowi 67,7% masy mąki, sól 1,4%, cukier 2,9%, olej 3,1%, a drożdże 4,7% (w przepisie drożdże suche, przeliczone na świeże przelicznikiem Piekarza).
+  APP: katalog-m3.md:28 Procenty przeliczono z miar objętościowych przepisu, który podaje 3–4 szklanki mąki uniwersalnej lub chlebowej.
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 1 1/4 cups water, heated to 100 to 110 degrees F
+  SRC: 3 https://4h.extension.illinois.edu/media/3386 | 3 to 4 cups all-purpose or bread flour
+  SRC: 1 https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-0 | "93024","173647","2","1","9999","","serving 8 fl oz","237","","",""
+  SRC: 1 https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-0 | "95491","175043","3","1","9999","","packet","7.2","3","",""
+  SRC: 1 https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-0 | "92594","173468","1","1","9999","","tsp","6","","",""
+
+## RAT-PRZ-005 | Według King Arthur Baking ratowanie przerośniętego ciasta przez ponowne formowanie i rośnięcie zwykle nie działa przy chlebie na zakwasie, bo przed ostatnim rośnięciem fermentował on już długo. | upr: 
+  APP: doktor-ratunek.md:14 Ciasta na zakwasie zwykle nie da się tak uratować: ten sposób najczęściej zawodzi, a spróbować warto tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2018/02/21/over-proofed-bread | Note: This technique generally doesn't work with sourdough bread, which has usually already undergone quite a long fermentation process before its final rise.
+
+## KRO-POC-005 | Według King Arthur Baking podczas fermentacji w jednej masie powstają kwasy organiczne, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje objętość i lekkość. | upr: 
+  APP: po-co-ten-krok.md:16 W czasie fermentacji powstają kwasy, które dają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2019/07/22/bulk-fermentation | Organic acids are primarily what give the dough flavor and strength (acids help condition the gluten network) and carbon dioxide gives the dough volume and lightness.
+
+## RAT-ZIM-002 | Według King Arthur Baking drożdże najlepiej rosną, a smak najlepiej się rozwija w 75–78 °F (rachunek: 23,9–25,6 °C; w tekście ok. 24–25,5 °C). | upr: Rachunek °F→°C: (75−32)·5/9 = 23,9; (78−32)·5/9 = 25,6; w tekście „ok. 24–25,5 °C” jak DIA-DDT-001 (górna granica zaokrą
+  APP: doktor-ratunek.md:59 Przenieś ciasto w cieplejsze miejsce: drożdże najlepiej rosną w ok. 24–25,5 °C.
+  SRC: 4 https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise | Studies have shown that the optimum temperature for yeast to grow and flavor to develop is 75°F to 78°F.
+
+## ZYT-ETA-006 | W tej procedurze kęsy 350 g piekły się 40 min: z parą na początku, przez pierwsze 10 min w 260 °C, potem w 220 °C; następnie chleb studzono w temperaturze pokojowej. | upr: Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g 
+  APP: chleb-zytni-etapy.md:40 Na początku wypieku zapewnij parę w piekarniku.
+  SRC: 2 https://doi.org/10.3390/foods8080331 | During the first 10 min of baking, the temperature was 260 °C, and the temperature was then decreased to 220 °C. After 40 min of baking, the breads were cooled at room temperature, and stored in polye
+kod wyjścia: 0

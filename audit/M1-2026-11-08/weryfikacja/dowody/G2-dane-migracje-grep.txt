@@ -1,0 +1,4 @@
+$ grep -n "foreign_key_check" src/data/sqlite-schema.ts
+kod wyjścia: 1
+$ grep -rn "integrity_check\|quick_check" app src --include=*.ts --include=*.tsx | grep -v __tests__
+kod wyjścia (grep): 0, wynik po filtrze: pusty

@@ -1,0 +1,17 @@
+# Stan CI na master 2ef8870a (kandydat 1023)
+# Źródło 1: audit/M1-2026-11-08/wspolne/ci.txt (E0 wspólne, MCP GitHub actions_list):
+- CI #117 success; TZ Matrix #77 success; TestFlight #23 (run 42511360071) success
+- iOS E2E #96 (run 42511355281, push) FAILURE: "[Failed] 05-dwa-wypieki (37s) (Assertion is false: id: next-or-finish-step-btn is visible)"; 4/5 flows passed
+- iOS E2E #95 (0e5fa7ef, redesign) success; #97 (d1524768, wip/08-e2e95, E2E-95) success
+- Nightly Deep Verification: #25 2026-11-08 failure (na 9c255a0, przed scaleniem)
+# Źródło 2: MCP GitHub get_job_logs run_id=42511355281 failed_only=true (odczyt 2026-11-08): 1 nieudane zadanie
+  „Maestro E2E on iOS Simulator” (job 128824910988), artefakt maestro-e2e (ID 13630142877), koniec 19:13 UTC.
+# Kolejność: E2E #96 i TestFlight #23 ruszyły z tego samego push na 2ef8870a; build 1023 wysłany 19:21 UTC mimo czerwonego E2E
+# (testflight.yml nie ma zależności od e2e-ios.yml). D-272: „Po zielonym E2E” — zgoda na build kandydata po zielonym E2E na HEAD redesign.
+
+$ git diff --stat 0e5fa7ef 2ef8870a -- app src .maestro | tail -1   (różnica kodu między zielonym E2E #95 a czerwonym #96)
+ 34 files changed, 42 insertions(+), 42 deletions(-)
+kod: 0
+$ git diff 0e5fa7ef 2ef8870a --name-only -- app src .maestro | grep -v i18n-slowniki
+src/lib/i18n-en/czesc-30.ts
+kod: 0 (1 = brak plików spoza słowników)

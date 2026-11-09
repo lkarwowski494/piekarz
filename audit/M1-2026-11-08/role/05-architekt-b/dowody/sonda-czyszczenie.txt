@@ -1,0 +1,45 @@
+# Sonda (worktree 2ef8870a w scratchpadzie; adapter node:sqlite i makieta plików z repo)
+  | /** Sonda audytu 05-architekt-b (scratchpad): „Usuń wszystkie dane” — co jest w kopii przed czyszczeniem, a co znika. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import * as FileSystem from 'expo-file-system/legacy';
+  | import { useTempDbDir, restartApp, dbFilePath, openRaw, tableCounts } from './helpers/node-sqlite-adapter';
+  | import { zalozBaze1021 } from './helpers/baza-1021';
+  | const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | 
+  | it('usunWszystkieDane: kopia przed czyszczeniem vs skasowane tabele', async () => {
+  |   useTempDbDir(); mockFiles.clear();
+  |   zalozBaze1021(APP_DB());
+  |   const app = restartApp();
+  |   await app.schema.initDatabase();
+  |   let raw = openRaw(APP_DB());
+  |   const przed = tableCounts(raw);
+  |   const sesje = raw.prepare('SELECT id, status FROM bake_sessions').all();
+  |   raw.close();
+  |   const { usunWszystkieDane } = require('../usun-wszystko');
+  |   await usunWszystkieDane();
+  |   raw = openRaw(APP_DB());
+  |   const po = tableCounts(raw);
+  |   raw.close();
+  |   const [nazwa, tresc] = [...mockFiles.entries()].find(([k]) => /piekarz-przed-czyszczeniem-.*\.json$/.test(k)) ?? ['', '{}'];
+  |   const stan = JSON.parse(tresc).state ?? {};
+  |   console.log('PRZED', JSON.stringify(przed), 'sesje:', JSON.stringify(sesje));
+  |   console.log('PO', JSON.stringify(po));
+  |   console.log('KOPIA', nazwa.split('/').pop(), 'klucze stanu:', JSON.stringify(Object.keys(stan)), 'wypieki:', stan.bakes?.length, 'zakwasy:', stan.starters?.length, 'czy zawiera bake_sessions/sesje/plany:', /bake_sessions|plannedStartAt|"stepIdx"/.test(tresc));
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-czyszczenie.sqlite.test.ts
+  console.log
+    PRZED {"app_access":0,"app_settings":7,"bake_sessions":2,"bakes":4,"flour_inventory":2,"lesson_progress":2,"pending_ops":0,"recipes":17,"schema_migrations":7,"starter_entries":5,"starters":2} sesje: [{"id":"bake_live","status":"active"},{"id":"plan_sobota","status":"planned"}]
+  console.log
+    PO {"app_access":0,"app_settings":7,"bake_sessions":0,"bakes":0,"flour_inventory":0,"lesson_progress":0,"pending_ops":0,"recipes":15,"schema_migrations":7,"starter_entries":0,"starters":0}
+  console.log
+    KOPIA piekarz-przed-czyszczeniem-2026-11-08-203820.json klucze stanu: ["bakes","starters","customRecipes","starterEntries","flourInventory","settings","lessonProgress"] wypieki: 4 zakwasy: 2 czy zawiera bake_sessions/sesje/plany: false
+PASS src/data/__tests__/sonda-b-czyszczenie.sqlite.test.ts
+  ✓ usunWszystkieDane: kopia przed czyszczeniem vs skasowane tabele (286 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.879 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-czyszczenie.sqlite.test.ts/i.
+kod: 0

@@ -1,0 +1,8 @@
+$ npm run check:licenses
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+kod: 0

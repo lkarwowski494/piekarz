@@ -1,0 +1,56 @@
+# G7-przeplyw-ui / 04-studio-projektowe-003: arkusze poza systemem kart (commit 2ef8870a525485cc1ac57e5abe9d97d9937dfe42)
+
+$ for f in <9 plików + SkladnikiSheet>; do echo "$f $(grep -c "<Karta\|wygladKarty\|ArkuszKart" $f)"; done
+src/components/stolnica/PlanWypiekuArkusz.tsx 0
+src/components/stolnica/BakeStepsList.tsx 0
+src/components/stolnica/PoCoTenKrokArkusz.tsx 0
+src/components/calculator/TemperaturaWodySheet.tsx 0
+src/components/calculator/accordion/AccordionDdtSection.tsx 0
+src/components/kalendarz/ArkuszDnia.tsx 0
+src/components/start/ArkuszPlanu.tsx 0
+src/components/ImportRecipeModal.tsx 0
+src/components/settings/ImportZPlikuArkusz.tsx 0
+src/components/receptury/SkladnikiSheet.tsx 5
+kod wyjścia pętli: 0
+(uwaga: AccordionDdtSection leży w src/components/calculator/accordion/, nie w calculator/ — ścieżka w znalezisku skrócona; wynik ten sam)
+
+$ grep -c "Karta" src/components/kalendarz/LiniaNastepne.tsx src/components/harmonogram/DodajDoKalendarza.tsx   # komponenty dzieci arkuszy dnia i planu
+src/components/kalendarz/LiniaNastepne.tsx:0
+src/components/harmonogram/DodajDoKalendarza.tsx:0
+kod wyjścia: 1 (1 = 0 trafień w obu plikach)
+
+$ sed -n 75p src/components/stolnica/BakeStepsList.tsx; sed -n 155,157p src/components/stolnica/BakeStepsList.tsx; sed -n 114p src/components/stolnica/BakeStepsList.tsx
+      <Text style={styles.sectionHeading}>{t('Wszystkie etapy wypieku')}</Text>
+  sectionHeading: {
+    get fontFamily() { return theme.typography.krojTytulow; },
+    fontSize: 16,
+    borderColor: theme.colors.akcent,
+kod wyjścia: 0
+
+$ grep -n "goły nagłówek" docs/design/karty/README.md
+6:Każdy ekran ma dwie warstwy: **pas** w kolorze marki z tytułem i stanem ekranu oraz **treść wyłącznie w kartach**. Na tle ekranu nie leży żaden goły nagłówek ani akapit (wyjątek: jedna l
+kod wyjścia: 0
+
+$ grep -n "PlanWypiekuArkusz\|PoCoTenKrokArkusz\|TemperaturaWodySheet\|ArkuszDnia\|ArkuszPlanu\|ImportRecipeModal\|ImportZPlikuArkusz" docs/decyzje.md docs/DECISIONS.md docs/design/karty/README.md docs/adr/*.md
+kod wyjścia: 1 (1 = brak wyjątku z decyzji)
+
+$ grep -rln "pageSheet" src app --include=*.tsx | grep -v __tests__ | while read f; do echo "$f $(grep -c "<Karta\|wygladKarty\|ArkuszKart" "$f")"; done   # kontekst: inne pageSheet też 0 (mogą mieć karty w dzieciach; poza zakresem ID)
+src/components/BezpiecznyObszarOkna.tsx 0
+src/components/stolnica/ZgodaPowiadomien.tsx 0
+src/components/stolnica/PlanWypiekuArkusz.tsx 0
+src/components/stolnica/PoCoTenKrokArkusz.tsx 0
+src/components/BreadAcademyModal.tsx 0
+src/components/SettingsModal.tsx 0
+src/components/kalendarz/ArkuszDnia.tsx 0
+src/components/arkusz/ArkuszKart.tsx 2
+src/components/receptury/SkladnikiSheet.tsx 5
+src/components/start/ArkuszPlanu.tsx 0
+src/components/FlourEquivalentsModal.tsx 0
+src/components/ImportRecipeModal.tsx 0
+src/components/settings/ImportZPlikuArkusz.tsx 0
+src/components/VolumeConverterModal.tsx 0
+src/components/FlourBlendModal.tsx 0
+src/components/calculator/TemperaturaWodySheet.tsx 0
+src/components/FlourInventoryModal.tsx 0
+app/(tabs)/(dzis)/index.tsx 0
+kod wyjścia: 0

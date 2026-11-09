@@ -1,0 +1,31 @@
+# Wektory modułu storekit-expo na kopii src/lib/platnosci/{dostep,konfiguracja,uprzedzenie}.ts z 2ef8870a (worktree w scratchpadzie; zmiana tylko: rozszerzenia .ts w importach, 'type' przy imporcie typów)
+$ node --experimental-strip-types wektory.ts
+OK  zakup jednorazowy {"dostep":true,"powod":"sklep","pamiec":{"produkty":["com.apps4brew.baker.pro.lifetime"],"wygasa":null}}
+OK  ponowna instalacja {"dostep":true,"powod":"sklep","pamiec":{"produkty":["com.apps4brew.baker.pro.lifetime"],"wygasa":null}}
+OK  brak sieci po zakupie {"dostep":true,"powod":"pamiec","pamiec":{"produkty":["com.apps4brew.baker.pro.lifetime"],"wygasa":null}}
+OK  brak sieci, nigdy nie kupił {"dostep":false,"powod":"brak","pamiec":null}
+OK  zwrot {"dostep":false,"powod":"brak","pamiec":null}
+OK  subskrypcja wygasła, brak sieci {"dostep":false,"powod":"brak","pamiec":{"produkty":["com.apps4brew.baker.pro.yearly"],"wygasa":1799999999999}}
+OK  subskrypcja aktywna {"dostep":true,"powod":"sklep","pamiec":{"produkty":["com.apps4brew.baker.pro.monthly"],"wygasa":1800000000001}}
+OK  subskrypcja minęła (sklep) {"dostep":false,"powod":"brak","pamiec":null}
+OK  napiwek/obcy produkt {"dostep":false,"powod":"brak","pamiec":null}
+OK  przywracanie bez zakupu {"dostep":false,"powod":"brak","pamiec":null}
+OK  Family Sharing odebrane {"dostep":false,"powod":"brak","pamiec":null}
+zwrot czyści pamięć: true
+OK  limit: 5 receptur, Basic false
+OK  limit: 4 receptury, Basic true
+OK  limit: 1 zakwas, Basic false
+OK  limit: 0 zakwasów, Basic true
+OK  limit: 8 receptur z importu, Pro true
+pamiec "" -> null
+pamiec "x" -> null
+pamiec "{\"produkty\":\"a\"}" -> null
+pamiec "{\"produkty\":[],\"wygasa\":\"1\"}" -> null
+pamiec 42 -> null
+wygaslPro po zwrocie: true
+wygaslPro przy błędzie: false
+uprzedzenie T+2d bez odnowienia: {"koniec":1800172800000}
+uprzedzenie odnawia nieznane: null
+uprzedzenie z dożywotnim: null
+BLEDY: 0
+kod: 0

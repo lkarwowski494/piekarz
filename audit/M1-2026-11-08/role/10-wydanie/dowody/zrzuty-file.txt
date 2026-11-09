@@ -1,0 +1,86 @@
+$ file */iphone-*/*.png; python: wyszukanie chunku tRNS (przezroczystosc palety) w kazdym PNG
+./en-US/iphone-6.3/01-plan.png:               PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/02-receptura.png:          PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/03-prowadzenie-ciemny.png: PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/04-doktor.png:             PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/05-zakwasy.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/06-dziennik.png:           PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.3/07-offline.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/01-plan.png:               PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/02-receptura.png:          PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/03-prowadzenie-ciemny.png: PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/04-doktor.png:             PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/05-zakwasy.png:            PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/06-dziennik.png:           PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./en-US/iphone-6.9/07-offline.png:            PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/01-plan.png:               PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/02-receptura.png:          PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/03-prowadzenie-ciemny.png: PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/04-doktor.png:             PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/05-zakwasy.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/06-dziennik.png:           PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.3/07-offline.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/01-plan.png:               PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/02-receptura.png:          PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/03-prowadzenie-ciemny.png: PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/04-doktor.png:             PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/05-zakwasy.png:            PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/06-dziennik.png:           PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./nl-NL/iphone-6.9/07-offline.png:            PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/01-plan.png:                  PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/02-receptura.png:             PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/03-prowadzenie-ciemny.png:    PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/04-doktor.png:                PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/05-zakwasy.png:               PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/06-dziennik.png:              PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.3/07-offline.png:               PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/01-plan.png:                  PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/02-receptura.png:             PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/03-prowadzenie-ciemny.png:    PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/04-doktor.png:                PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/05-zakwasy.png:               PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/06-dziennik.png:              PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+./pl/iphone-6.9/07-offline.png:               PNG image data, 1320 x 2868, 8-bit colormap, non-interlaced
+en-US/iphone-6.3/01-plan.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/02-receptura.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/04-doktor.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/05-zakwasy.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/06-dziennik.png bez tRNS IHDR color type 3
+en-US/iphone-6.3/07-offline.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/01-plan.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/02-receptura.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/04-doktor.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/05-zakwasy.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/06-dziennik.png bez tRNS IHDR color type 3
+en-US/iphone-6.9/07-offline.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/01-plan.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/02-receptura.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/04-doktor.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/05-zakwasy.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/06-dziennik.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.3/07-offline.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/01-plan.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/02-receptura.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/04-doktor.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/05-zakwasy.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/06-dziennik.png bez tRNS IHDR color type 3
+nl-NL/iphone-6.9/07-offline.png bez tRNS IHDR color type 3
+pl/iphone-6.3/01-plan.png bez tRNS IHDR color type 3
+pl/iphone-6.3/02-receptura.png bez tRNS IHDR color type 3
+pl/iphone-6.3/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+pl/iphone-6.3/04-doktor.png bez tRNS IHDR color type 3
+pl/iphone-6.3/05-zakwasy.png bez tRNS IHDR color type 3
+pl/iphone-6.3/06-dziennik.png bez tRNS IHDR color type 3
+pl/iphone-6.3/07-offline.png bez tRNS IHDR color type 3
+pl/iphone-6.9/01-plan.png bez tRNS IHDR color type 3
+pl/iphone-6.9/02-receptura.png bez tRNS IHDR color type 3
+pl/iphone-6.9/03-prowadzenie-ciemny.png bez tRNS IHDR color type 3
+pl/iphone-6.9/04-doktor.png bez tRNS IHDR color type 3
+pl/iphone-6.9/05-zakwasy.png bez tRNS IHDR color type 3
+pl/iphone-6.9/06-dziennik.png bez tRNS IHDR color type 3
+pl/iphone-6.9/07-offline.png bez tRNS IHDR color type 3
+kod=0

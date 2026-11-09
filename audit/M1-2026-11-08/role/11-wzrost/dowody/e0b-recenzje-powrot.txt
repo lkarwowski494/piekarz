@@ -1,0 +1,23 @@
+$ grep -oiE (zdania o powiadomieniach, przypomnieniach, seriach, dzienniku, historii, harmonogramie) w p-<ID>.html; odczyt 2026-11-08
+=== id6736766728
+ * 13789192381 : At first, it appears like you can use it without a subscription, but everything you click on results in a pop-up, trying to force you into the sub subscription.
+ * 13789192381 : The pop-up that comes up has a little countdown, and you must look at the premium upgrade until it counts all the way down.
+ * 12427537602 : If the subscription portion was tied to being able to utilize the journal or other parts of the app I could understand that..
+ * 14207280110 : “…this will help determine the best time to feed…” “ok, then what?” Make me a schedule I can put in my phone to tell me what to do AND WHEN.
+ * 14207280110 : And how about remembering/logging what I was told to do/did last time and building upon that.
+ * 12133709008 : Definitely think this is great to help track my starter because I’m still kind of new to baking sourdough.
+=== id1534576984
+ * 8055676059 : Finding recipes is a lot easier and faster and you don’t have to go through a 5 page blog to get to them.
+=== id1515369685
+ * 13535920699 : I’ve watched plenty of tutorials about the process and techniques, but TRACKING all the details is what has kept me from baking.
+ * 13535920699 : There’s so much to keep track of in terms of measurements, timing, dough handling, etc.
+ * 13535920699 : And if you need to make any adjustments, then keeping track of everything is that much harder.
+ * 13535920699 : And you can set reminders for each step.
+ * 13535920699 : And there are lots of areas where you can take notes (along with pictures) to track your results with each bake.
+ * 13535920699 : With the app tracking timings and measurements, I was able to focus on the experience of working the dough.
+ * 6912317758 : The app makes it easy to track your progress throughout a bake, and in turn makes it easy to go back and make little changes to study their effect.
+ * 6784607403 : The simple utility of having dynamic timers and instructions makes such a difference over static recipes.
+ * 6384160131 : I can store favorite recipes and change and adapt as i go for the next bake.
+ * 6254028490 : I’ve worked a bit with dough before (my family has a history of baking), so when the sourdough craze started I wanted to hop on and see what I could turn out.
+ * 6254028490 : I’m looking forward to baking more sourdough and using this app as a diary of notes to help me become the next Paul Hollywood!
+kod: 0

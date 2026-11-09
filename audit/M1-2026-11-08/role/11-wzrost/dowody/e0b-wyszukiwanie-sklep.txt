@@ -1,0 +1,52 @@
+$ curl -sS "https://itunes.apple.com/search?term=<fraza>&country=<kraj>&entity=software&limit=15" (odczyt 2026-11-08); id | nazwa | userRatingCount | ocena | cena | currentVersionReleaseDate | sprzedawca; kod 0
+== s-sourdough-us.json
+6736766728 | Loaflo: Sourdough Starter | 564 | 4.69 | 0 | 2026-09-07 | No Worries Lifestyle, LLC
+6755709217 | Sourdough Starter Tracker | 33 | 4.82 | 0 | 2026-11-03 | MyQuietSpot Inc.
+1515369685 | Rise: Baking & Bread Recipes | 337 | 4.87 | 0 | 2026-10-20 | Made by Windmill, LLC
+6797501483 | Sourdough Simplified | 0 | 0.00 | 0 | 2026-10-22 | Rene Herteux
+6747842855 | SourdoughGuru: AI Baking Coach | 1 | 5.00 | 0 | 2026-10-22 | Gil Leibovitz
+6756316343 | Breadlify | 0 | 0.00 | 0 | 2025-12-20 | Thibault Ricci
+6813598256 | Ovenbell: Home Bakery Business | 4 | 4.75 | 0 | 2026-09-28 | East Frisia LLC
+6752309546 | Sourdough Buddy | 1 | 5.00 | 0 | 2026-07-09 | Steve Rose
+6817087296 | LoafCoach: Sourdough Bread | 7 | 5.00 | 0 | 2026-11-07 | Nick Shaw
+6738346798 | Sourdough Feeding Calculator | 0 | 0.00 | 0 | 2026-08-04 | NFP SOFTWARE
+6769946306 | Sourdough Sanity: Bake Guide | 0 | 0.00 | 0 | 2026-10-17 | Jason Diehl
+6758812333 | The Dough Lab - Bread Baking | 9 | 4.89 | 0 | 2026-10-21 | Sabri Sonmez
+1521173993 | West Coast Sourdough | 1679 | 4.75 | 0 | 2024-10-03 | WCSD Inc
+1534576984 | Kneady: Bread & Baking Recipes | 732 | 4.80 | 0 | 2026-07-15 | Quillbound Studios Ltd
+6751040790 | Sourdough AI | 5 | 4.40 | 0 | 2026-11-03 | Bryan Ellis
+== s-sourdough-pl.json
+1536202410 | Sourdough Hydration Calc | 0 | 0.00 | 0 | 2025-08-22 | Evan Winograd
+6797501483 | Sourdough Simplified | 0 | 0.00 | 0 | 2026-10-22 | Rene Herteux
+6755709217 | Sourdough Starter Tracker | 0 | 0.00 | 0 | 2026-11-03 | MyQuietSpot Inc.
+6736766728 | Loaflo: Sourdough Starter | 0 | 0.00 | 0 | 2026-09-07 | No Worries Lifestyle, LLC
+1515369685 | Rise: Baking & Bread Recipes | 5 | 5.00 | 0 | 2026-10-20 | Made by Windmill, LLC
+1521410011 | breadly - Sourdough Scheduler | 0 | 0.00 | 0 | 2021-03-24 | Paul Abrudan
+6760153512 | Crumbly: Sourdough Starter | 0 | 0.00 | 0 | 2026-08-11 | Rebecca Dahl
+1534576984 | Kneady: Bread & Baking Recipes | 2 | 5.00 | 0 | 2026-07-15 | Quillbound Studios Ltd
+6812466978 | Flourwise: Sourdough & Baking | 1 | 5.00 | 0 | 2026-10-08 | Mariusz Lasak
+6748180011 | Yeasta: Sourdough Tracker | 0 | 0.00 | 0 | 2026-09-28 | Mor Almalach
+6738346798 | Sourdough Feeding Calculator | 0 | 0.00 | 0 | 2026-08-04 | NFP SOFTWARE
+6785357199 | BakeReady - Sourdough Tracker | 0 | 0.00 | 0 | 2026-07-08 | 艳梅 陈
+6752309546 | Sourdough Buddy | 0 | 0.00 | 0 | 2026-07-09 | Steve Rose
+6760582503 | Sourdough Tracker: Starter Log | 0 | 0.00 | 0 | 2026-09-25 | CREATIVE ADVENTURES LAB
+6817087296 | LoafCoach: Sourdough Bread | 0 | 0.00 | 0 | 2026-11-07 | Nick Shaw
+== s-zakwas-pl.json
+6760582503 | Sourdough Tracker: Starter Log | 0 | 0.00 | 0 | 2026-09-25 | CREATIVE ADVENTURES LAB
+6812466978 | Flourwise: Sourdough & Baking | 1 | 5.00 | 0 | 2026-10-08 | Mariusz Lasak
+6794852624 | SourTime: Sourdough & Bread | 0 | 0.00 | 0 | 2026-11-05 | Rupert Andreas Maier
+6771559099 | Sourdough: Starter Companion | 0 | 0.00 | 14.99 | 2026-05-26 | Henrik Wirak Onsrud
+6787479343 | Wirtualny Piekarz | 2 | 5.00 | 0 | 2026-08-26 | Stowarzyszenie Rzemieslnik
+6766092580 | Sourdough Starter – Surdeg | 0 | 0.00 | 0 | 2026-10-27 | Alexander Bergqvist
+6759510215 | The Daily Crumb: Sourdough | 0 | 0.00 | 0 | 2026-09-27 | Gregory Hogan
+6779179300 | Brinepost: Sourdough & Ferment | 0 | 0.00 | 0 | 2026-10-27 | Rizk Corsight, LLC
+6812950497 | Sourdough Bread Timer: Levain | 0 | 0.00 | 0 | 2026-11-02 | YI SHIH LIU
+6779931291 | Doughwell: Sourdough Starter | 0 | 0.00 | 0 | 2026-06-17 | PRIOMAT LLC
+6772273223 | Pizza Dough Calculator Grams | 0 | 0.00 | 0 | 2026-08-29 | Phuc Pham
+1537955145 | Just Bread | 8 | 5.00 | 0 | 2020-12-29 | Oskar Poprawski
+
+$ curl -sS "https://itunes.apple.com/lookup?id=6736766728,1534576984,1515369685&country=us"
+6736766728 Loaflo: Sourdough Starter |ratings 567 |ver 6.0.11 2026-09-07T19:39:35Z |released 2024-10-23 |notes: Fixed a problem that could leave recipe bake planning stuck on Saving. Also includes improvements to subscription analytics.
+1534576984 Kneady: Bread & Baking Recipes |ratings 733 |ver 5.2.1 2026-07-15T18:10:17Z |released 2020-10-05 |notes: Welcome to Kneady 5.2.0, bakers! This update includes some exciting improvements: - A major overhaul of the app's design, bringing enhancements to many screens across the app. - Bug fixes and performa
+1515369685 Rise: Baking & Bread Recipes |ratings 337 |ver 4.0.3 2026-10-20T18:41:32Z |released 2020-07-27 |notes: - iPhone Duo support - Buttermilk now counts toward hydration - Minor improvements to starter reminders
+Wybór: 3 aplikacje tej samej pracy z największą liczbą ocen w US; West Coast Sourdough (1679 ocen) to restauracja, odrzucona.

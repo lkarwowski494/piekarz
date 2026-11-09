@@ -1,0 +1,22 @@
+$ grep -nE "DEC-01 d|D-038|14 dni pełnej|zamrożenie" docs/wzrost.md
+15:Dla kogo, jaka praca i różnica: z kontraktu zakresu (`docs/scope-contract.md`, wariant B, D-043) i BRD roli 01; ten plik nie dodaje twierdzeń. Wpis o apli
+42:Piekarz to aplikacja bezpłatna do pobrania z subskrypcjami i zakupem dożywotnim (D-038), więc mechanizmem są **kody ofert**, nie kody promocyjne.
+51:Zasady: kody to narzędzie marketingu, nie zmiana modelu płatności (D-038 bez zmian). Rodzaj oferty, okres i liczbę kodów dla danej współpracy ustala w
+75:Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja <praca, którą wykonuje, słowami społeczności>. Co robi: <2–3 punkty z
+87:| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 
+92:1. Rozstrzyga **kryterium liczbowe** z `docs/monetyzacja.md`: ≥ 7 płacących/mies. albo ≥ 42 USD/mies. → próg osiągnięty; ≤ 3,5 albo ≤ 21 USD/m
+94:3. Kryterium mierzy model, nie otwiera go: wynik nie jest podstawą do zmiany cen, modelu, próby ani podziału (D-038).
+exit=0
+
+$ grep -nE "D-112|D-113|Basic" docs/wzrost.md
+exit=1
+
+$ git log -1 --format="%h %ad %s" --date=short -- docs/wzrost.md
+6aa85862 2026-10-21 fix(start): nasłuch powrotu na pierwszy plan uzgadnia powiadomienia dopiero po wyniku beginStartup [reaudit-noc N-16; M1-audytor-generalny-215]
+exit=0
+
+$ grep -rn "wzrost.md" docs/decyzje.md | cut -c1-200
+exit=1
+
+$ grep -n "wzrost.md\|pytanie" tests/wzrost-hipotezy.test.ts
+exit=1

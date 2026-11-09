@@ -1,0 +1,31 @@
+# DEV-02 próbka: 10 ostatnich commitów zmieniających zachowanie (bez „struktura/refactor” i samych danych tekstów); pliki testów w commicie
+== 8779cc6b [M8] fix(licencje): zgodność z bramkami projektu (separator, etykieta VoiceOver, opis verify)
+    tests/quality-declarations.test.ts        | 2 +-
+== 91f5e721 [M8] feat(ustawienia): ekran „Licencje open source” (Z-08-1, FOR-15, D-291)
+    docs/22-macierz-testow.md                          |  10 +-
+    .../__tests__/licencje-blad-z081.test.tsx          |  35 ++++
+    .../__tests__/licencje-ekran-z081.test.tsx         | 226 +++++++++++++++++++++
+    src/lib/__tests__/licencje.test.ts                 |  42 ++++
+== 2d31a787 [M8] feat(licencje): dane i generator licencji open source (Z-08-1, FOR-15)
+    tests/licencje-dane.test.ts          | 159 +++++++++++++++++++++++++++++++++++
+== 75de19fc [M3 p9b2f] P9B2F-7: domyslne "Gotowe o" liczone z sekundami i zapasem 1 min
+== e28537d1 [M3 p9b2f] P9B2F-6 (D-260): Dziennik pokazuje metodę wypieku
+    .../__tests__/dziennik-metoda-p9b2f.test.tsx       | 51 ++++++++++++++++++++++
+== c694861f [M3 p9b2f] P9B2F-3: "Zapisz plan" liczy start z chwili stuknięcia
+    src/__tests__/maszyna-p9b2f.test.tsx             | 3 ++-
+== 80276b42 [M3 p9b2f] P9B2F-4: domyślne "Gotowe o" przelicza się po zmianie czasu programu
+== 21ebdb3c [M3 p9b2f] P9B2F-2 (OP-65 → MAS-086): "Ustaw opóźniony start na {czas}." = czas od teraz do gotowości
+    src/__tests__/maszyna-teksty-p9b2.test.ts        |  1 +
+== 47677614 [M3 p9b2f] P9B2F-1 (MAS-085): przy programie "ciasto" bez "Gotowe o" i opóźnionego startu
+    src/__tests__/maszyna-teksty-p9b2.test.ts        | 1 +
+== e658ae8c [M3 p9b2f] P9B2F-5: błąd zapisu pliku ratunkowego nie pozwala nadpisać nieczytelnej wartości
+    .../__tests__/p9b2f-ratunek-zapis.sqlite.test.ts   | 65 ++++++++++++++++++++++
+
+# Commity bez testu w samym commicie: test we wcześniejszym commicie
+$ git log --format="%h %ad %s" --date=iso -- src/__tests__/maszyna-p9b2f.test.tsx
+7b24d2f2 2026-11-04 17:27:49 +0000 [M3 p9b2f] test czerwony P9B2F-7: domyslne "Gotowe o" bez sekund daje start sprzed teraz
+c694861f 2026-11-04 17:21:10 +0000 [M3 p9b2f] P9B2F-3: "Zapisz plan" liczy start z chwili stuknięcia
+a089a255 2026-11-04 17:18:31 +0000 [M3 p9b2f] testy czerwone P9B2F-1…4 (ekran maszyny, zegar przesunięty przez Date)
+75de19fc 2026-11-04 17:28:06 +0000 (po 7b24d2f2: test czerwony P9B2F-7)
+80276b42 2026-11-04 17:21:10 +0000 (po a089a255: testy czerwone P9B2F-1…4)
+Wynik DEV-02: 10/10

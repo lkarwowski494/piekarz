@@ -1,0 +1,15 @@
+== Ocena trafien sekrety-historia.txt (okiem, wartosci zamaskowane)
+1-2. tests/asc-ustawienia.test.ts:43, tests/asc-zgloszenie.test.ts:46: ASC_ISSUER_ID = stala WYSTAWCA, atrapa UUID zdefiniowana w tescie (linie 32 i 35), klucz generowany generateKeyPairSync; falszywy alarm.
+3-4. historia 4b0b3c37, bdb854be: te same linie testow przy dodaniu; falszywy alarm.
+5. historia 70fd81aa: docs/TESTFLIGHT_DEPLOYMENT.md, wiersz tabeli opisujacy format sekretu ASC_KEY_P8 z tekstem naglowka BEGIN PRIVATE KEY, bez tresci klucza; falszywy alarm.
+Dodatkowo: git log --all -p | grep UUID: 57246542-96fe-... to przyklad z dokumentacji Apple; pozostale UUID to adresy PDF, sciezki scratchpadu, id aplikacji Garmin. AuthKey_*.p8 w historii tylko AuthKey_XXXX.p8.
+Identyfikator 10-znakowy w historii (docs/15-app-store.md i docs/TESTFLIGHT_DEPLOYMENT.md jako "np. `2X…HG`", commity 70fd81aa i b21c194d, usuniety w 421b6ff3 2026-10-20): nie jest przykladem Apple (Apple uzywa 2X9R4HXF34); czy to prawdziwy Key ID — nie da sie ustalic bez ASC (krok wlasciciela).
+
+$ md5 PNG pl vs docs/wydanie/zrzuty/sumy.json: 14/14 zgodne (pliki w repo = pliki planowane do wysylki)
+$ git log -- pl/iphone-6.3/02-receptura.png → 6aa85862 2026-10-21; podpisy.json i metadane/pl.json → a859dc1f 2026-10-22 (M3 PRZ, model Basic/Pro)
+Ogledziny PNG pl/iphone-6.3 (Read, gorne 700 px kazdej ramki): plakietka "wymaga Piekarz Pro" na ramkach 01, 02, 03, 04, 05, 06; ramka 07 bez plakietki.
+podpisy.json (pl, en-US): oznaczenie tylko 01 (plan-wstecz) i 05 (proporcje i przypomnienia zakwasu); 02 kalkulator, 03 stolnica, 04 doktor, 06 dziennik: brak oznaczenia (Basic wg docs/monetyzacja.md, D-112/D-113).
+pl [('01-plan.png', 'wymaga Piekarz Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'wymaga Piekarz Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+en-US [('01-plan.png', 'requires Baker Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'requires Baker Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+nl-NL [('01-plan.png', 'vereist Bakker Pro'), ('02-receptura.png', None), ('03-prowadzenie-ciemny.png', None), ('04-doktor.png', None), ('05-zakwasy.png', 'vereist Bakker Pro'), ('06-dziennik.png', None), ('07-offline.png', None)]
+Ogledziny en-US i nl-NL iphone-6.9 ramki 02, 04, 06 (gorne 400 px): plakietka "requires Baker Pro" / "vereist Bakker Pro" na wszystkich trzech — ten sam rozjazd co pl. Pozostale 31 lokalizacji poza repo (K poprzedniego M1): nie obejrzano; sumy.json z tej samej generacji 2026-10-21.

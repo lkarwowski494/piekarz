@@ -1,0 +1,18 @@
+import { readFileSync, readdirSync } from 'node:fs';
+const kat = process.argv[2];
+const sl = {}; for (const f of readdirSync(kat)) if (f.endsWith('.json')) sl[f.slice(0,-5)] = JSON.parse(readFileSync(kat + '/' + f, 'utf8'));
+const sep = (j) => { let g=',',d='.'; for (const p of new Intl.NumberFormat(j).formatToParts(12345.6)) p.type==='group'?g=p.value:p.type==='decimal'?d=p.value:0; return [g,d]; };
+const nums = (s, j) => { const [g,d]=sep(j); s=s.replace(/\{[^}]*\}/g,' ').replace(/(\d)[\s  ](?=\d{3}\b)/g,'$1'); return (s.match(/\d+(?:[.,]\d+)*/g)||[]).map(x=>{ if (x.includes(d) || x.includes(g)) { const t = x.split(g).join('').replace(d,'.'); return String(Number(t)); } return String(Number(x)); }); };
+const ms = (a) => a.slice().sort().join(',');
+const pomin = /typ \d|t750|\(np\. 450|typu 850|Typu 850|typ 850|typy mąk|850\)/i;
+const only = process.argv[3];
+for (const [j, d] of Object.entries(sl)) {
+  if (j==='pl'||j==='en') continue; if (only && j!==only) continue;
+  for (const [k, v] of Object.entries(d)) {
+    if (k.includes('#')) continue; const src = k.split('|')[0]; if (pomin.test(src)) continue;
+    const a = nums(src,'pl'), b = nums(v,j);
+    // brakujące albo dodane liczby
+    const A=[...a], B=[...b]; for (const x of a) { const i=B.indexOf(x); if (i>=0) { B.splice(i,1); A.splice(A.indexOf(x),1);} }
+    if (A.length||B.length) console.log(`${j}\t-${A.join(',')}\t+${B.join(',')}\t${src.slice(0,120)}\t=>\t${v.slice(0,160)}`);
+  }
+}

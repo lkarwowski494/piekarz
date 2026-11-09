@@ -1,0 +1,143 @@
+# Sonda w git worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-12 (HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42); plik sondy poza repo, treść niżej
+$ npx jest src/data/__tests__/sonda-12-niezawodnosc.sqlite.test.ts
+S1 przed (zrzut bazy 1021, v6): {"app_access":0,"app_settings":7,"bake_sessions":2,"bakes":4,"flour_inventory":2,"lesson_progress":2,"pending_ops":0,"recipes":17,"schema_migrations":6,"starter_entries":5,"starters":2}
+start 1: stan=unavailable plikDoUdostepnienia=backup_pre_migration-v6-1794170193178.db rodzaj=przed-migracja kamien=false
+  po starcie 1: oryginał {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5} kopie sprzed migracji: 1
+start 2: stan=unavailable plikDoUdostepnienia=backup_pre_migration-v6-1794170193192.db rodzaj=przed-migracja kamien=false
+  po starcie 2: oryginał {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5} kopie sprzed migracji: 2
+start 3: TRYB AWARYJNY (bez otwierania bazy)
+  po starcie 3: oryginał {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5} kopie sprzed migracji: 2
+  pakiet trybu awaryjnego: ["piekarz.db","piekarz.db-wal","piekarz.db-shm"] → baza z pakietu {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5}
+  baza otwarta w trybie awaryjnym? 2 otwarć łącznie (2 starty normalne)
+S1 kopia sprzed migracji backup_pre_migration-v6-1794170193178.db {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5}
+S1 pliki w Backup/: ["kopie-ratunkowe/piekarz-pliki-bazy-2026-11-08-203633.json"]
+S2 bake_sessions przed 3 po 2 wynik ok pliki uszkodzone-wiersze 0
+S2 po restarcie: wiersze w pamięci 0 ; treść "zly" w plikach makiety: false
+start 1: stan=ok plikDoUdostepnienia=null rodzaj=przed-migracja kamien=true
+S3 przed {"bakes":4,"bake_sessions":2} po {"v":7,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5} kopie ["backup_pre_migration-v6-1794170193249.db"] {"v":6,"ic":"ok","bakes":4,"starters":2,"recipes":17,"bake_sessions":2,"starter_entries":5} rescue false
+PASS src/data/__tests__/sonda-12-niezawodnosc.sqlite.test.ts
+  Sonda 12
+    ✓ S1: migracja v7 rzuca przy każdym starcie — liczności, kopia sprzed migracji, tryb awaryjny i pakiet (193 ms)
+    ✓ S2 (D-273): nieczytelny wiersz bake_sessions, nieudany zapis pliku ratunkowego → deleteBakeSession (26 ms)
+    ✓ S3: udana migracja v6→v7 — kopia sprzed migracji zostaje, liczności kopii = oryginał przed (19 ms)
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.514 s, estimated 3 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-12-niezawodnosc.sqlite.test.ts/i.
+kod: 0
+
+--- treść sondy ---
+/**
+ * Sonda roli 12 (audyt M1 2026-11-08), tylko w scratchpadzie, nie w repo.
+ * S1 (NIE-14 + NIE-04 + NIE-05): baza buildu 1021 (v6, WAL), migracja v7 rzuca błąd przy każdym starcie.
+ *     Sekwencja startów jak app/_layout.tsx:64-69 (beginStartup → initDatabase; kamień milowy tylko, gdy StorageGate
+ *     pokazuje ekrany: stan 'ok' albo 'newer'). Liczności przed i po, kopia sprzed migracji, tryb awaryjny, pakiet.
+ * S2 (D-273): nieczytelny wiersz bake_sessions + nieudany zapis pliku ratunkowego → deleteBakeSession kasuje wiersz.
+ * S3 (NIE-14): po udanej migracji kopia sprzed migracji zostaje (nie jest kasowana po sukcesie).
+ */
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as FileSystem from 'expo-file-system/legacy';
+import { useTempDbDir, restartApp, dbFilePath, control, openRaw, tableCounts } from './helpers/node-sqlite-adapter';
+import { zalozBaze1021 } from './helpers/baza-1021';
+
+const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+const log = (...a: unknown[]) => process.stdout.write(a.map((x) => (typeof x === 'string' ? x : JSON.stringify(x))).join(' ') + '\n');
+const kopieSprzed = () => fs.readdirSync(path.dirname(APP_DB())).filter((f) => /^backup_pre_migration.*\.db$/.test(f));
+const liczbyBazy = (plik: string) => {
+  const r = openRaw(plik);
+  const c = tableCounts(r);
+  const v = (r.prepare('PRAGMA user_version').get() as { user_version: number }).user_version;
+  const ic = (r.prepare('PRAGMA integrity_check').get() as { integrity_check: string }).integrity_check;
+  r.close();
+  return { v, ic, bakes: c.bakes, starters: c.starters, recipes: c.recipes, bake_sessions: c.bake_sessions, starter_entries: c.starter_entries };
+};
+
+/** Jeden start: kod RootLayout (app/_layout.tsx:64-69, 76-80) i StorageGate (renderuje ekrany tylko w 'ok' / 'newer'). */
+async function start(nr: number) {
+  jest.resetModules();
+  const guard = require('../../lib/startup-guard') as typeof import('../../lib/startup-guard');
+  const { rescue } = await guard.beginStartup();
+  if (rescue) {
+    log(`start ${nr}: TRYB AWARYJNY (bez otwierania bazy)`);
+    return { rescue: true as const };
+  }
+  const app = restartApp();
+  await app.schema.initDatabase();
+  const stan = app.status.getStorageState();
+  const kamien = stan === 'ok' || stan === 'newer';
+  if (kamien) await guard.markStartupSucceeded();
+  log(`start ${nr}: stan=${stan} plikDoUdostepnienia=${app.status.getRescueFile()?.split('/').pop() ?? null} rodzaj=${app.status.getRescueKind()} kamien=${kamien}`);
+  return { rescue: false as const, app };
+}
+
+describe('Sonda 12', () => {
+  beforeEach(() => {
+    useTempDbDir();
+    mockFiles.clear();
+  });
+
+  it('S1: migracja v7 rzuca przy każdym starcie — liczności, kopia sprzed migracji, tryb awaryjny i pakiet', async () => {
+    const przed = zalozBaze1021(APP_DB());
+    log('S1 przed (zrzut bazy 1021, v6):', przed);
+    control().failWritesMatching = /schema_migrations/; // migracja v7 nie zapisze się (każdy start)
+    for (let nr = 1; nr <= 3; nr++) {
+      const s = await start(nr);
+      log(`  po starcie ${nr}: oryginał`, liczbyBazy(APP_DB()), 'kopie sprzed migracji:', kopieSprzed().length);
+      if (s.rescue) {
+        // „Eksportuj kopię danych” w trybie awaryjnym (RescueScreen bezMigracji → pakietPlikowBazy(dbFileUri()))
+        const schema = require('../sqlite-schema') as typeof import('../sqlite-schema');
+        const uri = String(schema.dbFileUri());
+        for (const s2 of ['', '-wal', '-shm']) if (fs.existsSync(APP_DB() + s2)) mockFiles.set(uri + s2, fs.readFileSync(APP_DB() + s2).toString('base64'));
+        const { pakietPlikowBazy } = require('../../lib/kopia-plikow-bazy') as typeof import('../../lib/kopia-plikow-bazy');
+        const p = await pakietPlikowBazy(uri);
+        const pak = JSON.parse(String(mockFiles.get(String(p)))) as { pliki: Array<{ nazwa: string; base64: string }> };
+        const out = fs.mkdtempSync(path.join(control().dir, 'z-pakietu-'));
+        for (const f of pak.pliki) fs.writeFileSync(path.join(out, f.nazwa), Buffer.from(f.base64, 'base64'));
+        log('  pakiet trybu awaryjnego:', pak.pliki.map((f) => f.nazwa), '→ baza z pakietu', liczbyBazy(path.join(out, 'piekarz.db')));
+        log('  baza otwarta w trybie awaryjnym?', control().opened.length, 'otwarć łącznie (2 starty normalne)');
+      }
+    }
+    const kopia = kopieSprzed()[0];
+    log('S1 kopia sprzed migracji', kopia, liczbyBazy(path.join(path.dirname(APP_DB()), kopia)));
+    log('S1 pliki w Backup/:', [...mockFiles.keys()].filter((k) => k.includes('/Backup/')).map((k) => k.split('/Backup/')[1]));
+    expect(true).toBe(true);
+  });
+
+  it('S2 (D-273): nieczytelny wiersz bake_sessions, nieudany zapis pliku ratunkowego → deleteBakeSession', async () => {
+    zalozBaze1021(APP_DB());
+    const raw = openRaw(APP_DB());
+    raw.prepare("INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('zly', 'active', '{\"v\":2,\"bake\":', 1, 1)").run();
+    raw.close();
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const przed = liczbyBazy(APP_DB());
+    const zapis = FileSystem.writeAsStringAsync as unknown as jest.Mock;
+    const oryginal = zapis.getMockImplementation();
+    zapis.mockImplementation(async () => { throw new Error('brak miejsca'); });
+    const bss = require('../bake-sessions-store') as typeof import('../bake-sessions-store');
+    let wynik = 'ok';
+    try { await bss.deleteBakeSession('zly'); } catch (e) { wynik = `błąd: ${(e as Error).message}`; }
+    zapis.mockImplementation(oryginal);
+    const po = liczbyBazy(APP_DB());
+    const pliki = [...mockFiles.keys()].filter((k) => /uszkodzone-wiersze-/.test(k));
+    log('S2 bake_sessions przed', przed.bake_sessions, 'po', po.bake_sessions, 'wynik', wynik, 'pliki uszkodzone-wiersze', pliki.length);
+    // Restart: czy surowa treść jest gdziekolwiek (pamięć znika, kopie JSON nie mają sesji)
+    jest.resetModules();
+    const u = require('../uszkodzone-wiersze') as typeof import('../uszkodzone-wiersze');
+    log('S2 po restarcie: wiersze w pamięci', u.uszkodzoneWiersze().length, '; treść "zly" w plikach makiety:', [...mockFiles.values()].some((v) => String(v).includes('"bake":')));
+    expect(true).toBe(true);
+  });
+
+  it('S3: udana migracja v6→v7 — kopia sprzed migracji zostaje, liczności kopii = oryginał przed', async () => {
+    const przed = zalozBaze1021(APP_DB());
+    const s = await start(1);
+    const kopia = kopieSprzed();
+    log('S3 przed', { bakes: przed.bakes, bake_sessions: przed.bake_sessions }, 'po', liczbyBazy(APP_DB()), 'kopie', kopia, kopia[0] ? liczbyBazy(path.join(path.dirname(APP_DB()), kopia[0])) : null, 'rescue', s.rescue);
+    expect(true).toBe(true);
+  });
+});

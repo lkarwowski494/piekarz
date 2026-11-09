@@ -1,0 +1,80 @@
+$ grep -rnE "moze\(|chron\(|blokada\(|requireActionAccess\(|dodaj\(|canCreateNewBake|access\.status|BlokadaFunkcji" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/stolnica/ProwadzenieWypieku.tsx:100:    openDoctor: chron('doktor', () => router.push('/doktor')),
+src/components/stolnica/ProwadzenieWypieku.tsx:226:  const blokadaWypieku = blokada('stolnica');
+src/components/stolnica/ProwadzenieWypieku.tsx:340:          <BlokadaFunkcji {...blokadaWypieku}>
+src/components/stolnica/ProwadzenieWypieku.tsx:376:        <BlokadaFunkcji {...blokadaWypieku}>
+src/components/stolnica/PokeTestEntry.tsx:28:        onPress={chron('stolnica', () => setOpen((v) => !v))}
+src/components/AppAccessProvider.tsx:18:  const pro = access.canCreateNewBake;
+src/components/AppAccessProvider.tsx:27:  const aktywny = access.status === 'dostep' ? { subskrypcja: access.zakup.pamiec?.produkty.some((p) => SUBSKRYPCJE.includes(p)) ?? false } : null;
+src/components/receptury/ProgramMaszynyKarta.tsx:86:  const zPlanemGotowosci = zOpoznieniem && moze('plan-wstecz');
+src/components/receptury/ProgramMaszynyKarta.tsx:97:    requireActionAccess('plany-przyszle', () =>
+src/components/receptury/ProgramMaszynyKarta.tsx:136:          <BlokadaFunkcji {...blokada('plan-wstecz')}>
+src/components/harmonogram/DodajDoKalendarza.tsx:32:  const dostep = moze('kalendarz-telefonu');
+src/components/harmonogram/DodajDoKalendarza.tsx:37:        style={styles.przycisk} onPress={!dostep && onPro ? () => onPro(dodaj) : chron('kalendarz-telefonu', dodaj)}>
+src/components/ImportRecipeModal.tsx:83:    await dodaj('wlasneReceptury', async () => {
+src/components/settings/PrzypomnieniaKarmieniaSection.tsx:28:  const pro = !stan.gotowe || dozwolona('przypomnienia-zakwasu', evaluateAppAccess(stan.decyzja).canCreateNewBake);
+src/components/settings/ImportZPlikuArkusz.tsx:52:    dodaj('wlasneReceptury', async () => {
+src/components/zakwas/useAkcjeZakwasu.ts:102:    dodaj('zakwasy', guardSave(async () => {
+src/components/zakwas/useAkcjeZakwasu.ts:160:    otworzDodawanie: () => dodaj('zakwasy', () => setIsAddModalOpen(true)),
+src/components/zakwas/ZakwasDziennik.tsx:38:  /** Strażnik gotowości poza zakładaniem (blokada('gotowosc-zakwasu') ekranu; BR-ZAKW-003 w Pro). */
+src/components/zakwas/ZakwasDziennik.tsx:39:  blokadaGotowosci: Omit<BlokadaFunkcjiProps, 'children'>;
+src/components/zakwas/ZakwasDziennik.tsx:136:        {pokazGotowosc && !blokadaGotowosci.odblokowane && <BlokadaFunkcji {...blokadaGotowosci}>{null}</BlokadaFunkcji>}
+src/components/FlourInventoryModal.tsx:87:    requireActionAccess('spizarnia', guardSave(async () => {
+src/components/FlourInventoryModal.tsx:108:    requireActionAccess('spizarnia', guardSave(async () => {
+src/components/FlourInventoryModal.tsx:132:    requireActionAccess('spizarnia', guardSave(async () => {
+src/hooks/useStartPlanu.ts:84:    requireActionAccess('harmonogram', () => {
+src/hooks/useStartPlanu.ts:88:        const przesun = (po: readonly SessionStep[]) => requireActionAccess('plany-przyszle', () => zapiszPlan(po, inne));
+src/hooks/useStartPlanu.ts:93:          requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => {
+src/hooks/useStartPlanu.ts:139:    requireActionAccess('plany-przyszle', () => {
+src/hooks/useBakeHistory.ts:48:    requireActionAccess('historia', async () => {
+src/hooks/usePlanyDzis.ts:50:    requireActionAccess('harmonogram', () => {
+src/hooks/usePlanyDzis.ts:61:          : requireActionAccess('dwa-wypieki', prowadzOba));
+src/lib/app-access.ts:26:  canCreateNewBake: boolean;
+src/lib/app-access.ts:39:  return { status: dostep ? 'dostep' : 'bez_uprawnienia', zakup, canCreateNewBake: dostep };
+src/lib/app-access.ts:73:  const pro = access.canCreateNewBake;
+src/lib/app-access.ts:87:      if (moze(funkcja)) {
+src/lib/app-access.ts:103:      requireActionAccess(funkcja, action);
+src/lib/app-access.ts:110:    (funkcja: Funkcja) => ({ funkcja, odblokowane: moze(funkcja), onZablokowane: () => requireActionAccess(funkcja) }),
+src/lib/notifications.ts:138:      const pro = !nieustalony && evaluateAppAccess(stanDostepu.decyzja).canCreateNewBake;
+src/lib/notifications.ts:191:  return !s.gotowe || evaluateAppAccess(s.decyzja).canCreateNewBake;
+src/lib/spirala-geometria.ts:118:  for (let i = 0; i < n; i++) dodaj(T0 + i * KROK_KATA);
+src/lib/spirala-geometria.ts:119:  dodaj(t1);
+src/lib/doctor-suggestion.ts:20: * `openDoctor` przychodzi przez strażnika dostępu (chron('doktor', …)). `onNotNow`: „Nie teraz” zamyka propozycję
+app/doktor.tsx:100:          onPress={chron('akademia', () => setIsAcademyOpen(true))}
+app/doktor.tsx:106:        <BlokadaFunkcji {...blokada('doktor')}>
+app/doktor.tsx:162:          otworzLekcje={(poziom, otworz) => chron(funkcjaLekcji(poziom), otworz)()}
+app/(tabs)/dziennik/index.tsx:59:      <BlokadaFunkcji {...blokada('historia')} ikonaKarty={<IkonaKarty nazwa="lista" />}>
+app/(tabs)/dziennik/index.tsx:61:          <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
+app/(tabs)/receptury/receptura.tsx:206:    await dodaj('wlasneReceptury', guardSave(async () => {
+app/(tabs)/receptury/receptura.tsx:244:      udostepnijQr: chron('qr-wysylanie', () => setIsShareQrOpen(true)),
+app/(tabs)/receptury/receptura.tsx:245:      drukuj: chron('druk', () => openPrintMenu(handlePrintRecipePdf)),
+app/(tabs)/receptury/receptura.tsx:262:          else await dodaj('wlasneReceptury', otworz);
+app/(tabs)/receptury/receptura.tsx:265:      onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
+app/(tabs)/receptury/receptura.tsx:266:      onEditIngredients={chron('kalkulator', () => setIsIngredientsOpen(true))}
+app/(tabs)/receptury/receptura.tsx:281:          <BlokadaFunkcji {...blokada('kalkulator')}>
+app/(tabs)/receptury/receptura.tsx:339:        onPrefermentTypeChange={(typ) => (typ === 'direct' || moze('zaczyn') ? setPrefermentType(typ) : proSkladniki.otworzPro(() => setIsIngredientsOpen(false), () => setPrefermentType(typ))
+app/(tabs)/receptury/receptura.tsx:341:        zaczynPro={!moze('zaczyn')}
+app/(tabs)/receptury/receptura.tsx:347:        onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
+app/(tabs)/receptury/harmonogram.tsx:87:  const planWstecz = moze('plan-wstecz');
+app/(tabs)/receptury/harmonogram.tsx:154:    if (rytm && godzinaDomyslna.current && moze('rytm')) setTargetDayOffset(rytm.offset);
+app/(tabs)/receptury/harmonogram.tsx:253:        <BlokadaFunkcji {...blokada('plan-wstecz')} podglad>
+app/(tabs)/receptury/harmonogram.tsx:261:          podpowiedz={moze('rytm') && !rytmPoza ? rytm?.tekst : undefined}
+app/(tabs)/receptury/index.tsx:112:    if (moze('kalkulator')) otworzMoja(r);
+app/(tabs)/receptury/index.tsx:132:            {wejscieWidoczne('przelicznik-objetosci') && pigulka('open-volume-converter-btn', t('Przelicznik objętości'), chron('kalkulator', () => setPrzelicznikOtwarty(true)))}
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:46:  const odblokowany = moze('doktor');
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:66:      onZmien={s === PLAMY ? () => przelacz(s) : chron('doktor', () => przelacz(s))} />
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:90:            <BlokadaFunkcji {...blokada('doktor')}>
+app/(tabs)/zakwasy/index.tsx:175:      dodajPro={startersList.length >= LIMITY_BASIC.zakwasy && !moze('kolejny-zakwas')}
+app/(tabs)/zakwasy/index.tsx:194:          <ZakladanieStart onZapisz={(nowy) => dodaj('zakwasy', guardSave(async () => {
+app/(tabs)/zakwasy/index.tsx:220:            blokadaGotowosci={blokada('gotowosc-zakwasu')}
+app/(tabs)/zakwasy/index.tsx:221:            zPro={moze('przypomnienia-zakwasu')}
+app/(tabs)/zakwasy/index.tsx:228:          <BlokadaFunkcji {...blokada('gotowosc-zakwasu')} ikonaKarty={<IkonaKarty nazwa="zegar" />}>
+app/(tabs)/zakwasy/index.tsx:244:          <BlokadaFunkcji {...blokada('staly-dzien')} ikonaKarty={<IkonaKarty nazwa="kalendarz" />}>
+app/(tabs)/zakwasy/index.tsx:250:        <BlokadaFunkcji {...blokada('proporcje-zakwasu')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
+app/(tabs)/(dzis)/index.tsx:54:  const kal = useKalendarz(`${access.canCreateNewBake}:${loading}`);
+app/(tabs)/(dzis)/index.tsx:63:    ustawTryb: (tryb: typeof kal.widok.tryb) => (tryb === 'miesiac' ? chron('miesiac', () => kal.widok.ustawTryb(tryb))() : kal.widok.ustawTryb(tryb)),
+app/(tabs)/(dzis)/index.tsx:64:    miesiacPro: !moze('miesiac'),
+app/(tabs)/(dzis)/index.tsx:90:    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null), zaplanuj);
+app/(tabs)/(dzis)/index.tsx:91:    chron('plany-przyszle', zaplanuj)();
+app/(tabs)/(dzis)/index.tsx:180:        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={poZamknieciuDnia} />
+kod: 0

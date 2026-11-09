@@ -1,0 +1,54 @@
+# Sonda (worktree 2ef8870a w scratchpadzie)
+  | /** Sonda audytu 05-architekt-b (scratchpad): odczyt danych (jak collectBackupData w resyncNotifications) w trakcie initDatabase na bazie 1021 (v6 → v7), przesunięty o k kroków pętli zdarzeń. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import { useTempDbDir, restartApp, dbFilePath } from './helpers/node-sqlite-adapter';
+  | import { zalozBaze1021 } from './helpers/baza-1021';
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | 
+  | it('okno odczytu przed końcem migracji', async () => {
+  |   const wyniki: string[] = [];
+  |   for (let k = 0; k <= 40; k += 2) {
+  |     useTempDbDir();
+  |     zalozBaze1021(APP_DB());
+  |     const app = restartApp();
+  |     const init = app.schema.initDatabase();
+  |     for (let i = 0; i < k; i++) await Promise.resolve();
+  |     let odczyt = 'ok';
+  |     await app.store.collectBackupData().catch((e: Error) => { odczyt = `${e.name}: ${e.message}`; });
+  |     await init;
+  |     wyniki.push(`k=${k}: odczyt=${odczyt}; stan po initDatabase=${app.status.getStorageState()}${app.status.getStorageError() ? ` (${app.status.getStorageError()})` : ''}`);
+  |   }
+  |   console.log(wyniki.join('\n'));
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-start2.sqlite.test.ts
+  console.log
+    k=0: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=2: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=4: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=6: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=8: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=10: odczyt=StorageReadError: Error: no such column: leaven; stan po initDatabase=unavailable (Error: no such column: leaven)
+    k=12: odczyt=ok; stan po initDatabase=ok
+    k=14: odczyt=ok; stan po initDatabase=ok
+    k=16: odczyt=ok; stan po initDatabase=ok
+    k=18: odczyt=ok; stan po initDatabase=ok
+    k=20: odczyt=ok; stan po initDatabase=ok
+    k=22: odczyt=ok; stan po initDatabase=ok
+    k=24: odczyt=ok; stan po initDatabase=ok
+    k=26: odczyt=ok; stan po initDatabase=ok
+    k=28: odczyt=ok; stan po initDatabase=ok
+    k=30: odczyt=ok; stan po initDatabase=ok
+    k=32: odczyt=ok; stan po initDatabase=ok
+    k=34: odczyt=ok; stan po initDatabase=ok
+    k=36: odczyt=ok; stan po initDatabase=ok
+    k=38: odczyt=ok; stan po initDatabase=ok
+    k=40: odczyt=ok; stan po initDatabase=ok
+PASS src/data/__tests__/sonda-b-start2.sqlite.test.ts
+  ✓ okno odczytu przed końcem migracji (610 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.149 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-start2.sqlite.test.ts/i.
+kod: 0

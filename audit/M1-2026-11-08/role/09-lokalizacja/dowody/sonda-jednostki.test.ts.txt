@@ -1,0 +1,13 @@
+import { formatTextUnits } from '../../src/lib/unit-converter';
+import { setLang, t } from '../../src/lib/i18n';
+import { setUnitSystem } from '../../src/lib/unit-converter';
+
+const KLUCZ = Object.keys(require('../../src/lib/i18n-slowniki/da').SLOWNIK).find((k) => k.startsWith('Na przykład w Tefal PF220838'))!;
+test('sonda: tekst o pojemności maszyny w trybie imperialnym', () => {
+  setUnitSystem('imperial');
+  for (const l of ['pl', 'en', 'de', 'da', 'fi', 'nb', 'sv', 'fr'] as const) {
+    setLang(l);
+    // eslint-disable-next-line no-console
+    console.log(l, '=>', t(KLUCZ));
+  }
+});

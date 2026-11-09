@@ -1,0 +1,989 @@
+$ node <scratchpad>/skrypty/tre01.mjs /home/user/piekarz   # literały PL >= 25 znaków w src/ i app/ (bez testów i słowników przekładu) bez odpowiednika w docs/tresci/pl
+literały PL >= 25 znaków: 1232; bez odpowiednika w docs/tresci/pl: 986; z liczbą: 280
+src/components/CorruptStateRecoveryBanner.tsx:32	-	Baza danych nie otworzyła się przy poprzednim uruchomieniu
+src/components/CorruptStateRecoveryBanner.tsx:35	-	Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.
+src/components/CorruptStateRecoveryBanner.tsx:36	-	Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.
+src/components/DiscardRecipesModal.tsx:43	-	Zamknij przepisy na odrzut
+src/components/DiscardRecipesModal.tsx:44	-	tytul={t('Przepisy na Odrzut Zakwasu')} ikona={<IkonaKarty nazwa=
+src/components/DiscardRecipesModal.tsx:45	-	Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu
+src/components/FlourBlendModal.tsx:112	LICZBA	Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.
+src/components/FlourBlendModal.tsx:162	-	Zmniejsz udział mąki {nazwa} o {n}%
+src/components/FlourBlendModal.tsx:171	-	Zmniejsz udział mąki {nazwa} o {n}%
+src/components/FlourBlendModal.tsx:180	-	Zwiększ udział mąki {nazwa} o {n}%
+src/components/FlourBlendModal.tsx:189	-	Zwiększ udział mąki {nazwa} o {n}%
+src/components/FlourEquivalentsModal.tsx:43	-	Słownik Odpowiedników Mąk
+src/components/FlourEquivalentsModal.tsx:56	-	Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK
+src/components/FlourEquivalentsModal.tsx:75	-	Nie znaleziono odpowiednika dla podanej frazy.
+src/components/FlourInventoryModal.tsx:140	-	Zasoby mąki w spiżarni zostały zaktualizowane.
+src/components/FlourInventoryModal.tsx:151	-	Kontrola zapasów mąk i powiadomienia o brakach
+src/components/FlourInventoryModal.tsx:172	-	Wszystkie mąki z tej receptury są w spiżarni.
+src/components/FlourInventoryModal.tsx:181	-	, { ...i.substituteParams, nazwa: t(i.substituteParams?.nazwa ??
+src/components/FlourInventoryModal.tsx:193	-	Odlicz zużycie z magazynu
+src/components/FlourInventoryModal.tsx:218	-	Odejmij {g} g mąki {nazwa}
+src/components/FlourInventoryModal.tsx:261	-	Wybierz z Atlasu lub wpisz własną
+src/components/FlourInventoryModal.tsx:279	LICZBA	Nazwa mąki (np. Pszenna typ 750)
+src/components/FlourInventoryModal.tsx:282	LICZBA	Nazwa mąki (np. Pszenna typ 750)
+src/components/FlourInventoryModal.tsx:288	-	Początkowy stan zapasów (g)
+src/components/FlourInventoryModal.tsx:290	-	Początkowy stan zapasów (g)
+src/components/ImportRecipeModal.tsx:67	-	Nie udało się odczytać zawartości schowka.
+src/components/ImportRecipeModal.tsx:91	-	Przepis „{name}” został pomyślnie dodany do Twojej bazy.
+src/components/ImportRecipeModal.tsx:96	-	Nie zapisałem receptury. Spróbuj jeszcze raz.
+src/components/ImportRecipeModal.tsx:109	-	Wklej kod JSON udostępniony przez innego piekarza
+src/components/ImportRecipeModal.tsx:166	-	Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.
+src/components/NotificationsOffBanner.tsx:33	-	Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.
+src/components/PaywallModal.tsx:70	-	Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.
+src/components/PaywallModal.tsx:71	-	Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.
+src/components/PaywallModal.tsx:72	-	Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.
+src/components/PaywallModal.tsx:73	-	Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.
+src/components/PaywallModal.tsx:122	-	Zakup czeka na zatwierdzenie
+src/components/PaywallModal.tsx:122	-	Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.
+src/components/PaywallModal.tsx:125	-	Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.
+src/components/PaywallModal.tsx:151	-	Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.
+src/components/PaywallModal.tsx:153	-	Zakup wymaga połączenia z App Store.
+src/components/PaywallModal.tsx:192	-	Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.
+src/components/PaywallModal.tsx:221	-	Jedna opłata, bez odnawiania.
+src/components/QrScannerModal.tsx:83	LICZBA	Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.
+src/components/QrScannerModal.tsx:90	-	Zezwól na dostęp do aparatu
+src/components/QrScannerModal.tsx:92	-	Zezwól na dostęp do aparatu
+src/components/QrScannerModal.tsx:115	-	Skieruj obiektyw na kod QR receptury
+src/components/RescueScreen.tsx:46	-	Nie udało się wyeksportować kopii
+src/components/RescueScreen.tsx:48	-	Nie udało się wyeksportować kopii
+src/components/RescueScreen.tsx:57	-	Piekarz nie uruchomił się poprawnie
+src/components/RescueScreen.tsx:60	-	Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.
+src/components/ShareRecipeQrModal.tsx:104	-	Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.
+src/components/StarterConverterModal.tsx:84	-	Przelicznik hydratacji i zamiennik w recepturze
+src/components/StarterConverterModal.tsx:118	-	tytul={t('Zamiennik w przepisie')} ikona={<IkonaKarty nazwa=
+src/components/StarterConverterModal.tsx:227	-	Mąka ze sfermentowanego zaczynu
+src/components/StarterConverterModal.tsx:329	-	Uzyskana masa i hydratacja
+src/components/StorageGate.tsx:53	-	Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.
+src/components/StorageGate.tsx:73	-	Nie można otworzyć bazy danych
+src/components/StorageGate.tsx:76	-	Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.
+src/components/StorageGate.tsx:92	-	Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.
+src/components/StorageGate.tsx:93	-	Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.
+src/components/VolumeConverterModal.tsx:79	LICZBA	Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)
+src/components/academy/BreadSchoolSection.tsx:28	-	Sześć etapów nauki: od prostego chleba bez wyrabiania po wiejski chleb na zakwasie i pizzę neapolitańską.
+src/components/academy/BreadSchoolSection.tsx:84	-	Fermentacja i prowadzenie:
+src/components/academy/BreadSchoolSection.tsx:125	-	Lekcja ukończona (stuknij, aby cofnąć)
+src/components/academy/BreadSchoolSection.tsx:126	-	Oznacz lekcję jako zaliczoną
+src/components/academy/TechniquesLibrarySection.tsx:28	LICZBA	12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.
+src/components/academy/TechniquesLibrarySection.tsx:122	-	Czego unikać (typowe błędy):
+src/components/arkusz/ArkuszKart.tsx:74	-	Wpisane zmiany nie zostaną zapisane.
+src/components/calculator/CalculatorModalsProvider.tsx:75	-	Skaner QR jest niedostępny w tej wersji aplikacji.
+src/components/calculator/SaveRecipeModal.tsx:42	-	tytul={t('Zapisz jako moją')} ikona={<IkonaKarty nazwa=
+src/components/calculator/SaveRecipeModal.tsx:43	-	Wprowadź unikalną nazwę dla tej proporcji składników
+src/components/calculator/accordion/AccordionDdtSection.tsx:47	-	Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.
+src/components/calculator/accordion/AccordionDdtSection.tsx:54	-	Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.
+src/components/calculator/accordion/AccordionDdtSection.tsx:80	-	Obniż docelową temperaturę ciasta
+src/components/calculator/accordion/AccordionDdtSection.tsx:90	-	Podnieś docelową temperaturę ciasta
+src/components/doktor/DiagnosisResultCard.tsx:40	-	Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.
+src/components/doktor/DiagnosisResultCard.tsx:105	-	Co zrobić przy następnym wypieku:
+src/components/doktor/EmergencyRecoverySection.tsx:40	-	tytul={t('Protokoły ratunkowe (Pogotowie ciasta)')} ikona={<IkonaKarty nazwa=
+src/components/doktor/EmergencyRecoverySection.tsx:42	-	Szybkie interwencje w trakcie fermentacji
+src/components/doktor/EmergencyRecoverySection.tsx:80	-	Zamknij protokół ratunkowy
+src/components/doktor/KitchenTestsGuideSection.tsx:41	-	Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia
+src/components/doktor/KitchenTestsGuideSection.tsx:47	LICZBA	Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.
+src/components/doktor/KitchenTestsGuideSection.tsx:51	-	Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.
+src/components/doktor/KitchenTestsGuideSection.tsx:54	-	Zostaje wgłębienie i ciasto siada:
+src/components/doktor/KitchenTestsGuideSection.tsx:55	-	Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.
+src/components/doktor/KitchenTestsGuideSection.tsx:75	-	Ocena rozwoju siatki glutenowej po autolizie i składaniach
+src/components/doktor/KitchenTestsGuideSection.tsx:80	-	Ciasto rwie się przy rozciąganiu:
+src/components/doktor/KitchenTestsGuideSection.tsx:81	-	Słaby gluten. Wykonaj dodatkową serię składań coil fold.
+src/components/doktor/KitchenTestsGuideSection.tsx:85	-	Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.
+src/components/doktor/SymptomSelectorSection.tsx:32	-	Płaski dysk (Przerośnięty)
+src/components/doktor/SymptomSelectorSection.tsx:37	-	Gumowaty (Krojony na gorąco)
+src/components/doktor/SymptomSelectorSection.tsx:68	-	Wielkie dziury pod skórką i zbity dół (Jaskinie)
+src/components/doktor/SymptomSelectorSection.tsx:69	-	Drobne, jednolite pęcherzyki jak gąbka/pianka
+src/components/doktor/SymptomSelectorSection.tsx:70	-	Mokry, lepki miękisz, brudzi nóż
+src/components/doktor/SymptomSelectorSection.tsx:71	-	Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)
+src/components/doktor/SymptomSelectorSection.tsx:74	-	Chleb płaski jak dysk (rozlał się na boki)
+src/components/doktor/SymptomSelectorSection.tsx:75	-	Opadł / zapadł się natychmiast po nacięciu żyletką
+src/components/doktor/SymptomSelectorSection.tsx:77	-	Blada skórka, brak złocisto-karmelowego rumienia
+src/components/doktor/SymptomSelectorSection.tsx:78	-	Brak otwartego ucha (nacięcie się zasklepiło)
+src/components/doktor/SymptomSelectorSection.tsx:79	-	Krojony gorący, prosto po wyjęciu z piekarnika
+src/components/doktor/SymptomSelectorSection.tsx:83	-	Płaski smak bez głębi (jałowy)
+src/components/doktor/SymptomSelectorSection.tsx:112	-	tytul={t('Szybkie szablony typowych problemów')} ikona={<IkonaKarty nazwa=
+src/components/doktor/SymptomSelectorSection.tsx:132	-	tytul={t('Miękisz (Wnętrze bochenka)')} ikona={<IkonaKarty nazwa=
+src/components/doktor/SymptomSelectorSection.tsx:136	-	tytul={t('Skórka i Kształt bochenka')} ikona={<IkonaKarty nazwa=
+src/components/doktor/SymptomSelectorSection.tsx:140	-	tytul={t('Smak i Aromat')} ikona={<IkonaKarty nazwa=
+src/components/doktor/SymptomSelectorSection.tsx:147	-	Wyczyść zaznaczone objawy
+src/components/harmonogram/DodajDoKalendarza.tsx:27	-	Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.
+src/components/harmonogram/DodajDoKalendarza.tsx:36	-	accessibilityLabel={etykietaPro(t('Dodaj do kalendarza'), dostep)} testID=
+src/components/harmonogram/DodajDoKalendarza.tsx:42	-	Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.
+src/components/harmonogram/NotatkiPlanu.tsx:20	-	Notatka z poprzedniego wypieku: {notatka}
+src/components/harmonogram/NotatkiPlanu.tsx:23	-	Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.
+src/components/harmonogram/SleepGuardBanner.tsx:31	-	{n} kroki wypadają w nocy
+src/components/harmonogram/SleepGuardBanner.tsx:38	-	{krok} wypada o {godzina} w nocy
+src/components/harmonogram/SleepGuardBanner.tsx:83	-	Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).
+src/components/harmonogram/TargetReadyCard.tsx:120	-	tytul={t('Kiedy chleb ma być gotowy?')} ikona={<IkonaKarty nazwa=
+src/components/harmonogram/TargetReadyCard.tsx:158	-	W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.
+src/components/harmonogram/TimelineStagesList.tsx:43	-	tytul={t('Oś czasu przygotowania')} ikona={<IkonaKarty nazwa=
+src/components/harmonogram/UstawieniaPlanu.tsx:56	-	Elastyczny bufor regulujący porę formowania i pieczenia
+src/components/kalendarz/ArkuszDnia.tsx:77	-	Zaplanuj wypiek na ten dzień
+src/components/kalendarz/ArkuszDnia.tsx:78	-	Zaplanuj wypiek na ten dzień
+src/components/kalendarz/ArkuszDnia.tsx:85	-	Tego dnia nic nie zaplanowano.
+src/components/kalendarz/LiniaPiekarnika.tsx:23	-	{dzien}: piekarnik zajęty o {h}
+src/components/kalendarz/PasekTygodnia.tsx:49	-	accessibilityLabel={t('Ten tydzień')} testID=
+src/components/oferta/KomunikatBezSieci.tsx:23	-	Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.
+src/components/oferta/KomunikatBezSieci.tsx:24	-	Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.
+src/components/przywroc-zakupy.ts:16	-	Zakupy zostały pomyślnie przywrócone
+src/components/przywroc-zakupy.ts:16	-	Nie znaleziono aktywnych zakupów
+src/components/przywroc-zakupy.ts:19	-	Nie udało się połączyć z App Store. Spróbuj ponownie.
+src/components/receptury/DaneMaszynyKarta.tsx:68	-	tytul={t('Pojemność maszyny')} ikona={<IkonaKarty nazwa=
+src/components/receptury/DaneMaszynyKarta.tsx:73	-	etykieta={t('Największa ilość mąki')} jednostka=
+src/components/receptury/DaneMaszynyKarta.tsx:74	-	etykieta={t('Największa masa ciasta')} jednostka=
+src/components/receptury/DaneMaszynyKarta.tsx:75	-	etykieta={t('Największa masa drożdży suchych')} jednostka=
+src/components/receptury/DoMiski.tsx:150	-	Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.
+src/components/receptury/DoMiski.tsx:152	-	Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.
+src/components/receptury/DoMiski.tsx:153	-	Hydratacja całkowita {n}%.
+src/components/receptury/DoMiski.tsx:158	-	Udział żyta {n}%: wariant żytni, plan bez składań.
+src/components/receptury/DoMiski.tsx:159	-	Udział żyta {n}%: wariant pszenny.
+src/components/receptury/DoMiski.tsx:206	-	tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa=
+src/components/receptury/DoMiski.tsx:219	-	tytul={t('Do miski')} podpis={t('Odhaczaj przy ważeniu.')} ikona={<IkonaKarty nazwa=
+src/components/receptury/ProgramMaszynyKarta.tsx:38	-	pełnoziarnisty|program maszyny
+src/components/receptury/ProgramMaszynyKarta.tsx:107	-	tytul={t('Program i godzina')} ikona={<IkonaKarty nazwa=
+src/components/receptury/ProgramMaszynyKarta.tsx:117	-	Uzupełnij mąki w recepturze, żeby zobaczyć podpowiedź programu.
+src/components/receptury/ProgramMaszynyKarta.tsx:121	-	Wpisz czas programu z instrukcji maszyny.
+src/components/receptury/ProgramMaszynyKarta.tsx:125	-	W tej recepturze: {skladniki}.
+src/components/receptury/ProgramMaszynyKarta.tsx:132	-	Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.
+src/components/receptury/ProgramMaszynyKarta.tsx:158	-	Ustaw opóźniony start na {czas}.
+src/components/receptury/ProgramMaszynyKarta.tsx:160	-	Od teraz do gotowości: {czas}.
+src/components/receptury/ProgramMaszynyKarta.tsx:165	-	Program nie zdąży. Najwcześniej gotowe o {godzina}.
+src/components/receptury/SegmentWersji.tsx:21	-	na zakwasie|wersja receptury
+src/components/receptury/SegmentWersji.tsx:22	-	na drożdżach|wersja receptury
+src/components/receptury/SkladnikiSheet.tsx:90	LICZBA	Sól {procent} to więcej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:91	LICZBA	Sól {procent} to mniej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:178	-	tytul={t('Ilości liczę od')} ikona={<IkonaKarty nazwa=
+src/components/receptury/SkladnikiSheet.tsx:185	LICZBA	tytul={t('Mąki (razem 100%)')} ikona={<IkonaKarty nazwa=
+src/components/receptury/SkladnikiSheet.tsx:192	-	Spiżarnia mąk & Stan zapasów
+src/components/receptury/SkladnikiSheet.tsx:195	-	Słownik Odpowiedników Mąk
+src/components/receptury/SkladnikiSheet.tsx:198	LICZBA	Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.
+src/components/receptury/SkladnikiSheet.tsx:204	-	tytul={t('Proporcje (procent mąki)')} ikona={<IkonaKarty nazwa=
+src/components/receptury/SkladnikiSheet.tsx:222	-	tytul={t('Drożdże do odważenia')} ikona={<IkonaKarty nazwa=
+src/components/receptury/SkladnikiSheet.tsx:227	LICZBA	Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.
+src/components/receptury/SkladnikiSheet.tsx:240	-	Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.
+src/components/receptury/TrybMaszyny.tsx:84	-	tytul={t('Pojemność maszyny')} ikona={<IkonaKarty nazwa=
+src/components/receptury/TrybMaszyny.tsx:103	-	Ilość ograniczyła granica Twojej maszyny; procenty receptury są te same.
+src/components/receptury/TrybMaszyny.tsx:108	-	Kolejność i ilości według instrukcji maszyny.
+src/components/receptury/nazwy-receptur.ts:76	-	Receptura bazowa, na zakwasie
+src/components/receptury/nazwy-receptur.ts:80	-	Receptura bazowa, na drożdżach
+src/components/settings/BackupAndDataSection.tsx:35	-	Nie udało się wyeksportować kopii
+src/components/settings/BackupAndDataSection.tsx:38	-	Nie udało się wyeksportować kopii
+src/components/settings/BackupAndDataSection.tsx:52	-	Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.
+src/components/settings/BackupAndDataSection.tsx:64	-	Eksportuj historię wypieków (CSV)
+src/components/settings/BackupAndDataSection.tsx:66	-	Nie udało się wyeksportować pliku CSV
+src/components/settings/BackupAndDataSection.tsx:69	-	Nie udało się wyeksportować pliku CSV
+src/components/settings/BackupAndDataSection.tsx:81	-	Eksportuj spiżarnię mąk (CSV)
+src/components/settings/BackupAndDataSection.tsx:83	-	Nie udało się wyeksportować pliku CSV
+src/components/settings/BackupAndDataSection.tsx:86	-	Nie udało się wyeksportować pliku CSV
+src/components/settings/BackupAndDataSection.tsx:98	-	Dane są zapisywane tylko w tym telefonie.
+src/components/settings/BackupAndDataSection.tsx:118	LICZBA	Trzymam 10 ostatnich kopii na tym telefonie.
+src/components/settings/BackupAndDataSection.tsx:125	-	Eksportuj swoje dane do otwartego formatu CSV (zgodnego z Excel i arkuszami kalkulacyjnymi).
+src/components/settings/BackupAndDataSection.tsx:136	-	Eksportuj historię wypieków (CSV)
+src/components/settings/BackupAndDataSection.tsx:149	-	Eksportuj spiżarnię mąk (CSV)
+src/components/settings/BakerRitualSection.tsx:26	-	tytul={t('Sprzęt i naczynie do wypieku')} ikona={<IkonaKarty nazwa=
+src/components/settings/BakerRitualSection.tsx:28	-	Wybierz domyślne naczynie piecowe dla procedury Stolnicy:
+src/components/settings/GodzinySnuSection.tsx:26	-	Kroki z pracą przy cieście planuję poza tymi godzinami.
+src/components/settings/ImportZPlikuArkusz.tsx:44	-	Nie udało się odczytać zawartości schowka.
+src/components/settings/ImportZPlikuArkusz.tsx:58	-	Receptura „{nazwa}” jest w Moich recepturach.
+src/components/settings/ImportZPlikuArkusz.tsx:60	-	Nie zapisałem receptury. Spróbuj jeszcze raz.
+src/components/settings/ImportZPlikuArkusz.tsx:77	-	Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.
+src/components/settings/ImportZPlikuArkusz.tsx:78	-	Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.
+src/components/settings/ImportZPlikuArkusz.tsx:116	-	Wklej zawartość pliku receptury albo kopii zapasowej.
+src/components/settings/ImportZPlikuArkusz.tsx:122	-	Wklej zawartość pliku receptury albo kopii zapasowej.
+src/components/settings/ImportZPlikuArkusz.tsx:143	-	Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.
+src/components/settings/ImportZPlikuArkusz.tsx:151	-	Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.
+src/components/settings/ImportZPlikuArkusz.tsx:170	-	Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.
+src/components/settings/ImportZPlikuArkusz.tsx:181	-	Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.
+src/components/settings/LicencjeEkran.tsx:84	-	Nie można wczytać listy licencji.
+src/components/settings/LicencjeEkran.tsx:90	-	Aplikacja korzysta z bibliotek open source. Dotknij pozycji, by zobaczyć notkę o prawach autorskich i pełną treść licencji. Nazwy pakietów i treść licencji są w oryginale.
+src/components/settings/PreferencesSection.tsx:34	-	tytul={t('Język i jednostki')} ikona={<IkonaKarty nazwa=
+src/components/settings/PreferencesSection.tsx:84	-	Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.
+src/components/settings/PrzypomnieniaKarmieniaSection.tsx:46	-	Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.
+src/components/settings/PrzypomnieniaKarmieniaSection.tsx:49	-	Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.
+src/components/settings/StudioEcosystemSection.tsx:30	LICZBA	Rzemieślnicze aplikacje kulinarne offline-first. Zero chmury, zero telemetrii, 100% pasji:
+src/components/settings/StudioEcosystemSection.tsx:85	-	Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.
+src/components/settings/StudioEcosystemSection.tsx:108	-	Ocena wymaga połączenia z App Store.
+src/components/settings/ZakupySection.tsx:37	-	Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.
+src/components/settings/ZrodlaWiedzy.tsx:21	-	tytul={t('Źródła wiedzy')} ikona={<IkonaKarty nazwa=
+src/components/settings/ZrodlaWiedzy.tsx:22	-	Skąd pochodzą porady, liczby i ostrzeżenia w aplikacji.
+src/components/start/PasDzis.tsx:69	-	Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.
+src/components/start/UprzedzenieKoncaPro.tsx:67	-	Piekarz Pro kończy się {data}
+src/components/start/UprzedzenieKoncaPro.tsx:68	-	Piekarz Pro nie jest aktywny
+src/components/start/UprzedzenieKoncaPro.tsx:72	-	Subskrypcja się nie odnowi. Potem przypomnienia o dokarmianiu wyłączą się, a Twoje receptury, zakwasy i dziennik zostaną.
+src/components/start/UprzedzenieKoncaPro.tsx:73	-	Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.
+src/components/start/UprzedzenieKoncaPro.tsx:83	-	Zamknij informację o Piekarz Pro
+src/components/start/WyborCzynnosci.tsx:22	-	Od mąki i wody do pierwszego bochenka, dzień po dniu.
+src/components/start/WyborCzynnosci.tsx:27	-	Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.
+src/components/start/WyborCzynnosci.tsx:31	-	Piekę na drożdżach albo pizzę
+src/components/start/WyborCzynnosci.tsx:32	-	Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.
+src/components/start/WypiekiNaSpirali.tsx:37	-	zostało {czas}, do {godzina}
+src/components/start/WypiekiNaSpirali.tsx:47	-	Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.
+src/components/start/WypiekiNaSpirali.tsx:58	-	{wypiek}: {krok}. Otwórz prowadzenie wypieku
+src/components/start/WypiekiNaSpirali.tsx:107	-	{wypiek}: {krok}. Otwórz prowadzenie wypieku
+src/components/stolnica/BakeHistorySection.tsx:63	-	tytul={t('Historia wypieków')} ikona={<IkonaKarty nazwa=
+src/components/stolnica/BakeHistorySection.tsx:70	-	tytul={t('Tu zapiszą się twoje wypieki')} ikona={<IkonaKarty nazwa=
+src/components/stolnica/BakeHistorySection.tsx:71	-	Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.
+src/components/stolnica/BakeStepsList.tsx:66	-	Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%
+src/components/stolnica/DutchOvenController.tsx:50	LICZBA	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:80	LICZBA	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:101	-	Zdejmij pokrywkę garnka. Wypuść parę.
+src/components/stolnica/DutchOvenController.tsx:104	LICZBA	Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.
+src/components/stolnica/FinishBakeModal.tsx:88	-	Oceń bochenek i zapisz notatki do historii piekarskiej
+src/components/stolnica/FinishBakeModal.tsx:117	-	Wpisz swoje uwagi (miękisz, skórka, czas pieca)...
+src/components/stolnica/FinishBakeModal.tsx:140	-	Blada, miękka skórka — zwiększ parę lub temperaturę
+src/components/stolnica/FinishBakeModal.tsx:140	-	Perfekcyjna chrupiąca skórka z pęcherzykami
+src/components/stolnica/FinishBakeModal.tsx:140	-	Dobra skórka z lekkim połyskiem
+src/components/stolnica/PasekCofnijKroku.tsx:12	-	Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.
+src/components/stolnica/PokeTestEntry.tsx:30	-	Sprawdź gotowość: test palca
+src/components/stolnica/ProwadzenieWypieku.tsx:205	-	Wypiek w garnku zakończony. Wyjmij chleb na kratkę.
+src/components/stolnica/SkladnikiKroku.tsx:50	-	tytul={t('Składniki do odważenia')} ikona={<IkonaKarty nazwa=
+src/components/stolnica/StrefaKroku.tsx:98	-	tytul={naglowekNaPasie ? t('Co zrobić') : numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa=
+src/components/stolnica/ZgodaPowiadomien.tsx:27	-	Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.
+src/components/zakwas/AddStarterModal.tsx:51	-	Utwórz profil dla nowej kultury zakwasu
+src/components/zakwas/AddStarterModal.tsx:72	LICZBA	np. Mąka pszenna chlebowa t750
+src/components/zakwas/EditStarterModal.tsx:61	-	Zmień parametry swojego zakwasu
+src/components/zakwas/FridgeWakeStatus.tsx:22	-	Sprawdź, czy podwoi objętość do {godzina}.
+src/components/zakwas/NarzedziaZakwasu.tsx:28	-	Przepisy na Odrzut Zakwasu
+src/components/zakwas/PasZakwasu.tsx:38	-	Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.
+src/components/zakwas/StalyDzienKarmienia.tsx:42	-	tytul={t('Stały dzień karmienia')} ikona={<IkonaKarty nazwa=
+src/components/zakwas/StalyDzienKarmienia.tsx:44	LICZBA	Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.
+src/components/zakwas/StalyDzienKarmienia.tsx:48	LICZBA	Bez stałego dnia: następne karmienie 7 dni po ostatnim.
+src/components/zakwas/StalyDzienKarmienia.tsx:69	LICZBA	Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.
+src/components/zakwas/StarterCycleCard.tsx:42	-	Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.
+src/components/zakwas/StarterCycleCard.tsx:49	-	dokarmiony o {godzina}, następne o {nastepne}
+src/components/zakwas/StarterCycleCard.tsx:55	-	Następne dokarmienie: {dzien} o {godzina}.
+src/components/zakwas/StarterCycleCard.tsx:101	-	Zaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.
+src/components/zakwas/StarterEntriesList.tsx:93	LICZBA	Godzina od 0 do 23, minuty od 0 do 59.
+src/components/zakwas/StarterFeedingCard.tsx:59	-	tytul={t('Ilości do dokarmienia')} ikona={<IkonaKarty nazwa=
+src/components/zakwas/StarterFeedingCard.tsx:61	-	Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.
+src/components/zakwas/StarterFeedingCard.tsx:83	-	Wpisz, ile zakwasu zostawiasz w słoiku.
+src/components/zakwas/StarterFeedingCard.tsx:141	-	Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.
+src/components/zakwas/StarterSafetyCard.tsx:55	-	tytul={t('Kontrola biologiczna (Bezpieczeństwo)')} ikona={<IkonaKarty nazwa=
+src/components/zakwas/StarterSetupCard.tsx:46	-	tytul={t('Dzień {n}', { n: dzien })} ikona={<IkonaKarty nazwa=
+src/components/zakwas/StarterSetupCard.tsx:60	-	tytul={t('Dzień {n}', { n: dzien })} ikona={<IkonaKarty nazwa=
+src/components/zakwas/StarterSetupCard.tsx:62	-	Dzień {n} zakładania zakwasu
+src/components/zakwas/StarterSetupCard.tsx:76	-	Następne dokarmienie: {dzien} o {godzina}.
+src/components/zakwas/StarterSetupCard.tsx:82	-	Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.
+src/components/zakwas/StarterSetupCard.tsx:85	-	Przypomnienia o dokarmianiu są w Piekarz Pro.
+src/components/zakwas/ZakladanieStart.tsx:33	-	tytul={t('Zakładam zakwas')} ikona={<IkonaKarty nazwa=
+src/components/zakwas/useAkcjeZakwasu.ts:43	LICZBA	Mąka pszenna chlebowa t750
+src/components/zakwas/useAkcjeZakwasu.ts:119	-	Kultura „{name}” została utworzona.
+src/core/bake-loss.ts:21	-	Chleb wiejski / Batard / Boule (garnek/kamień)
+src/core/bake-loss.ts:25	LICZBA	Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.
+src/core/bake-loss.ts:33	-	Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.
+src/core/bake-loss.ts:37	-	Bagietki / Bułki (duża powierzchnia odparowania)
+src/core/bake-loss.ts:41	-	Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.
+src/core/bake-loss.ts:45	-	Focaccia / Pizza na blasze
+src/core/bake-loss.ts:49	-	Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.
+src/core/bake-loss.ts:57	-	Ręcznie zdefiniowany procent utraty masy po pieczeniu i pełnym wystudzeniu.
+src/core/bake-loss.ts:94	-	Masa ciasta musi być większa od zera
+src/core/bake-loss.ts:97	LICZBA	Strata piecowa musi mieścić się w przedziale 1% - 49%
+src/core/bake-loss.ts:118	LICZBA	Wysoka retencja wilgoci. Odczekaj min. 4–6 godzin na kratce przed krojeniem, by uniknąć kleistości noża i zakalca.
+src/core/bake-loss.ts:121	-	Równomierny / rzemieślniczy (Balanced)
+src/core/bake-loss.ts:122	LICZBA	Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.
+src/core/bake-loss.ts:126	-	Niska wilgotność miękiszu (styl bagietkowy). Skórka bardzo krucha, krótszy czas zachowania świeżości.
+src/core/bake-loss.ts:154	-	Docelowa waga upieczonego chleba musi być większa od zera
+src/core/bake-loss.ts:157	LICZBA	Strata piecowa musi mieścić się w przedziale 1% - 49%
+src/core/baking-phases.ts:29	LICZBA	Faza 1: Pod pokrywką (Para)
+src/core/baking-phases.ts:32	-	Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.
+src/core/baking-phases.ts:33	-	Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).
+src/core/baking-phases.ts:41	-	Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.
+src/core/baking-phases.ts:42	LICZBA	Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.
+src/core/baking-phases.ts:43	LICZBA	Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.
+src/core/bread-school-lessons.ts:33	LICZBA	Lekcja 1: Chleb nocny z garnka żeliwnego (No-Knead)
+src/core/bread-school-lessons.ts:35	-	Zrozumienie roli czasu w autogenicznej budowie siatki glutenowej oraz potęgi pieczenia w zamkniętym garnku.
+src/core/bread-school-lessons.ts:37	LICZBA	100% mąka pszenna typ 650 (Bułkowa)
+src/core/bread-school-lessons.ts:42	LICZBA	14h powolna fermentacja w temperaturze pokojowej (20–22°C)
+src/core/bread-school-lessons.ts:45	LICZBA	Zmieszaj mąkę, wodę, drożdże instant i sól w misce łyżką (zajmie to zaledwie 2 minuty — zero wyrabiania!).
+src/core/bread-school-lessons.ts:46	LICZBA	Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.
+src/core/bread-school-lessons.ts:47	-	Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.
+src/core/bread-school-lessons.ts:48	LICZBA	Rozgrzej piekarnik wraz z żeliwnym garnkiem do 240°C przez minimum 45 minut.
+src/core/bread-school-lessons.ts:49	-	Wyłóż ciasto na papier do pieczenia i ostrożnie przełóż do rozgrzanego garnka.
+src/core/bread-school-lessons.ts:50	LICZBA	Piecz 30 minut pod szczelną pokrywką, następnie zdejmij pokrywkę i piecz 15 minut w 220°C do uzyskania złocisto-brązowej skórki.
+src/core/bread-school-lessons.ts:60	-	Upieczenie pierwszego bochenka z cienką, chrupiącą skórką i słyszalnym trzaskaniem podczas studzenia.
+src/core/bread-school-lessons.ts:62	-	Enzymy proteolityczne i woda spontanicznie łączą cząsteczki gliadyny i gluteniny w siatkę bez użycia rąk.
+src/core/bread-school-lessons.ts:70	LICZBA	Lekcja 2: Prosty chleb pszenno-żytni na zakwasie
+src/core/bread-school-lessons.ts:72	-	Opanowanie pracy z żywym zakwasem, wyczucie szczytu aktywności (Peak) oraz techniki składania stretch & fold.
+src/core/bread-school-lessons.ts:74	LICZBA	80% mąka pszenna chlebowa t750 + 20% mąka żytnia t720
+src/core/bread-school-lessons.ts:79	LICZBA	Fermentacja burzliwa 4–5h w 24°C ze składaniami + garowanie w koszyku
+src/core/bread-school-lessons.ts:82	LICZBA	Dokarm zakwas w proporcji 1:2:2 i odczekaj do osiągnięcia szczytu (podwojenie objętości, wypukła kopuła).
+src/core/bread-school-lessons.ts:83	LICZBA	Wymieszaj mąkę z wodą (autoliza 30 min), następnie dodaj aktywny zakwas i sól.
+src/core/bread-school-lessons.ts:84	LICZBA	Wykonaj 3 serie składań rozciąganych (stretch & fold) co 45 minut, wyciągając ciasto w górę z 4 stron.
+src/core/bread-school-lessons.ts:85	LICZBA	Po wzroście o ok. 50% uformuj kulę (boule) i przełóż szwem do góry do oprószonego koszyka rozrostowego.
+src/core/bread-school-lessons.ts:86	LICZBA	Garuj w koszyku ok. 2–2,5h lub wstaw na noc do lodówki (4°C).
+src/core/bread-school-lessons.ts:87	LICZBA	Netnij wierzch żyletką pod kątem i piecz w garnku: 20 min pod pokrywką (230°C) + 20 min bez (200°C).
+src/core/bread-school-lessons.ts:97	-	Prawidłowo wyrośnięty bochenek bez oznak spłaszczenia z wyraźnym otwarciem nacięcia.
+src/core/bread-school-lessons.ts:99	-	Mąka żytnia dostarcza enzymów i minerałów przyspieszających namnażanie dzikich drożdży i bakterii kwasu mlekowego.
+src/core/bread-school-lessons.ts:109	-	Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).
+src/core/bread-school-lessons.ts:111	LICZBA	90% mąka pszenna Manitoba + 10% mąka pszenna razowa typ 2000
+src/core/bread-school-lessons.ts:116	LICZBA	Fermentacja burzliwa 5h + 16h garowania chłodniczego w 4°C (Cold Retard)
+src/core/bread-school-lessons.ts:119	LICZBA	Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.
+src/core/bread-school-lessons.ts:120	-	Wprowadź młody zaczyn (Levain) i sól rozpuszczoną w pozostałej wodzie (metoda bassinage).
+src/core/bread-school-lessons.ts:121	LICZBA	Zastosuj 4 serie składania zwojowego (coil fold) co 30 minut, dbając o nienaruszenie pęcherzy gazu.
+src/core/bread-school-lessons.ts:122	LICZBA	Formowanie wstępne (pre-shape) -> 20 minut odpoczynku na desce (bench rest).
+src/core/bread-school-lessons.ts:123	-	Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).
+src/core/bread-school-lessons.ts:124	LICZBA	16 godzin retardacji chłodniczej w lodówce w 4°C w celu wzmocnienia profilu kwasowego.
+src/core/bread-school-lessons.ts:125	LICZBA	Nacięcie pod kątem 30° wzdłuż bochenka na głębokość 8 mm i pieczenie w piecu z parą.
+src/core/bread-school-lessons.ts:136	-	Uzyskanie dzikiego, otwartego miękiszu (open crumb) oraz uniesionego, chrupiącego ucha (ear).
+src/core/bread-school-lessons.ts:138	LICZBA	Niska temperatura 4°C wyhamowuje drożdże, umożliwiając bakteriom mlekowym powolną produkcję kwasu mlekowego i enzymów.
+src/core/bread-school-lessons.ts:146	LICZBA	Lekcja 4: Tradycyjny razowiec 100% żytni w keksówce
+src/core/bread-school-lessons.ts:148	-	Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.
+src/core/bread-school-lessons.ts:150	LICZBA	100% mąka żytnia typ 2000
+src/core/bread-school-lessons.ts:155	LICZBA	Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce
+src/core/bread-school-lessons.ts:158	-	Przygotuj silny trójfazowy kwas żytni o intensywnym owocowo-octowym aromacie.
+src/core/bread-school-lessons.ts:159	LICZBA	Wymieszaj mąkę żytnią razową, wodę, kwas żytni i sól — tylko do połączenia składników (1–2 minuty).
+src/core/bread-school-lessons.ts:160	LICZBA	UWAGA: Ciasta 100% żytniego NIGDY nie składamy ani nie rozciągamy! Zniszczyłoby to delikatne żele pentozanowe.
+src/core/bread-school-lessons.ts:161	-	Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.
+src/core/bread-school-lessons.ts:162	LICZBA	Wygładź wierzch mokrą łyżką, posyp ziarnami lub mąką i odstaw w ciepłe miejsce (26–28°C) do wyrośnięcia (ok. 3h).
+src/core/bread-school-lessons.ts:163	LICZBA	Gdy ciasto podwoi objętość i na wierzchu pojawią się małe kraterki, wstaw do pieca (240°C przez 15 min z parą, potem 200°C przez 45 min).
+src/core/bread-school-lessons.ts:175	LICZBA	Jednolity, sprężysty miękisz bez lepkiego zakalca pod skórką po 24 godzinach od wypieku.
+src/core/bread-school-lessons.ts:177	LICZBA	Amylazy w życie są neutralizowane jedynie przez odpowiednie zakwaszenie ciasta (pH < 4.5); bez kwasu chleb zamienia się w papkę.
+src/core/bread-school-lessons.ts:185	LICZBA	Lekcja 5: Tradycyjna bagietka paryska na poolish
+src/core/bread-school-lessons.ts:187	LICZBA	Przygotowanie płynnego zaczynu Poolish (100% hydratacji), formowanie cylindryczne bez wybijania gazu i nacinanie osiowe.
+src/core/bread-school-lessons.ts:189	LICZBA	100% mąka pszenna francuska T65 (Tradition)
+src/core/bread-school-lessons.ts:194	LICZBA	12h fermentacja zaczynu Poolish + krótka fermentacja właściwa 2h
+src/core/bread-school-lessons.ts:197	LICZBA	Dzień wcześniej przygotuj Poolish: 30% mąki z przepisu + równa ilość wody (100% hydratacji) + szczypta drożdży (12h w 20°C).
+src/core/bread-school-lessons.ts:198	-	Zmieszaj Poolish z resztą mąki, wody i soli; delikatne składanie metodą slap & fold.
+src/core/bread-school-lessons.ts:199	LICZBA	Fermentacja burzliwa 90 minut z jednym delikatnym złożeniem.
+src/core/bread-school-lessons.ts:200	LICZBA	Dzielenie na porcje (ok. 300g każda) i wstępne formowanie w wałeczki; 15 min odpoczynku.
+src/core/bread-school-lessons.ts:201	LICZBA	Formowanie bagietki: zagięcie 1/3 do środka, ponowne zagięcie, zrolowanie dłońmi na długość 45 cm z zaostrzonymi końcami.
+src/core/bread-school-lessons.ts:202	LICZBA	Rozrost w płótnie lnianym (couche) fałdowanym między bagietkami (45 minut).
+src/core/bread-school-lessons.ts:203	LICZBA	Nacinanie: 5–6 szybkich, płytkich nacięć wzdłuż osi bagietki nachodzących na siebie na 1/3 długości.
+src/core/bread-school-lessons.ts:204	LICZBA	Wypiek na rozgrzanym kamieniu szamotowym w 250°C z intensywnym zaparowaniem pieca przez pierwsze 10 minut.
+src/core/bread-school-lessons.ts:216	-	Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.
+src/core/bread-school-lessons.ts:224	-	Mistrz Rzemiosła Piekarskiego
+src/core/bread-school-lessons.ts:226	LICZBA	Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)
+src/core/bread-school-lessons.ts:228	LICZBA	Dozowanie mikrogramów drożdży, panowanie nad elastycznością glutenu po 48h w chłodzie, otwieranie placka dłońmi bez wałka.
+src/core/bread-school-lessons.ts:235	LICZBA	2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek
+src/core/bread-school-lessons.ts:238	LICZBA	Rozpuść sól w chłodnej wodzie, dodaj mikrodawkę drożdży i stopniowo wprowadzaj mąkę Tipo 00.
+src/core/bread-school-lessons.ts:239	LICZBA	Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.
+src/core/bread-school-lessons.ts:240	LICZBA	Odstaw całe ciasto na 2 godziny w temperaturze pokojowej pod przykryciem.
+src/core/bread-school-lessons.ts:241	LICZBA	Przenieś do lodówki (4°C) na 44 godziny powolnego dojrzewania enzymatycznego.
+src/core/bread-school-lessons.ts:242	LICZBA	Na 4–5 godzin przed pieczeniem podziel ciasto na kulki (panetti) po 260g i ułóż w szczelnych pojemnikach w temperaturze pokojowej.
+src/core/bread-school-lessons.ts:243	-	Otwieranie placka: oprósz kulkę semoliną, wypchnij gaz palcami ze środka ku brzegom (tworząc cornicione) i rozciągaj techniką slap.
+src/core/bread-school-lessons.ts:244	-	NIGDY nie używaj wałka — zniszczyłby napompowane brzegi!
+src/core/bread-school-lessons.ts:245	LICZBA	Piecz w najwyższej możliwej temperaturze (piec do pizzy 450°C przez 90s lub piekarnik domowy z grillem i rozgrzaną stalą w 275°C przez 4–5 min).
+src/core/bread-school-lessons.ts:257	-	Wyrośnięty, napompowany brzeg (cornicione) z lamparcimi przypaleniami (leopard spots) i elastyczny spód dający się złożyć w trójkąt.
+src/core/bread-school-lessons.ts:259	LICZBA	48 godzin w 4°C powoduje głęboki rozkład białek przez proteazy.
+src/core/domain-rules.ts:137	-	Docelowa waga ciasta musi być większa od zera
+src/core/domain-rules.ts:261	LICZBA	Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.
+src/core/domain-rules.ts:269	LICZBA	Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.
+src/core/domain-rules.ts:324	-	Czas bazowy i temperatura muszą być większe od zera
+src/core/domain-rules.ts:346	-	Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.
+src/core/domain-rules.ts:348	-	Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).
+src/core/domain-rules.ts:350	-	Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).
+src/core/domain-rules.ts:377	-	Masa drożdży nie może być ujemna
+src/core/domain-rules.ts:397	-	Waga mąki musi być większa od zera
+src/core/domain-rules.ts:417	-	Liczba bochenków i gramatura muszą być większe od zera
+src/core/domain-rules.ts:445	-	Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.
+src/core/domain-rules.ts:453	LICZBA	Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.
+src/core/domain-rules.ts:459	-	Wysoka hydratacja (Otwarty miękisz)
+src/core/domain-rules.ts:461	-	Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.
+src/core/domain-rules.ts:468	-	Bardzo lejące ciasto. Wymaga mocnej mąki (np. Manitoba) i precyzyjnego budowania siły ciasta.
+src/core/domain-rules.ts:482	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:486	LICZBA	80% Pszenna + 20% Żytnia (Klasyk)
+src/core/domain-rules.ts:488	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:494	LICZBA	70% Pszenna + 20% Orkisz + 10% Żytnia
+src/core/domain-rules.ts:496	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:503	LICZBA	80% Pszenna + 20% Graham (Pełne ziarno)
+src/core/domain-rules.ts:505	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:506	LICZBA	Mąka pszenna graham typ 1850
+src/core/domain-rules.ts:511	LICZBA	50% Pszenna + 50% Żytnia (Pół na pół)
+src/core/domain-rules.ts:513	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/dzien-lokalny.ts:66	-	AG AS BD BR BS BT BW BZ CA CO DM DO ET GT GU HK HN ID IL IN IS JM JP KE KH KR LA MH MM MO MT MX MZ NI NP PA PE PH PK PR PT PY SA SG SV TH TT TW UM US VE VI WS YE ZA ZW
+src/core/flour-atlas.ts:32	LICZBA	Mąka pszenna typ 450 (Tortowa)
+src/core/flour-atlas.ts:39	-	Niska zawartość popiołu i białka. Szybka autoliza, delikatny gluten, mała chłonność wody.
+src/core/flour-atlas.ts:43	LICZBA	Mąka pszenna typ 500 (Wrocławska)
+src/core/flour-atlas.ts:50	-	Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.
+src/core/flour-atlas.ts:54	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/core/flour-atlas.ts:61	-	Średnia zawartość minerałów, elastyczny gluten. Bardzo dobra do chlebów pszennych i bagietek.
+src/core/flour-atlas.ts:65	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/flour-atlas.ts:72	-	Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.
+src/core/flour-atlas.ts:84	LICZBA	Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.
+src/core/flour-atlas.ts:95	-	Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.
+src/core/flour-atlas.ts:99	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/core/flour-atlas.ts:105	-	Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.
+src/core/flour-atlas.ts:109	LICZBA	Mąka pszenna razowa typ 2000
+src/core/flour-atlas.ts:115	-	Pełny przemiał pszenicy. Potężna chłonność wody, przyspieszona fermentacja dzięki obfitości minerałów.
+src/core/flour-atlas.ts:125	LICZBA	Brak struktury glutenowej (funkcję szkieletu pełnią śluzy arabinoksylany). Wymaga zakwasu (pH < 4.5).
+src/core/flour-atlas.ts:135	-	Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.
+src/core/flour-atlas.ts:146	LICZBA	Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.
+src/core/flour-atlas.ts:156	-	Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.
+src/core/flour-atlas.ts:166	-	Pełnoziarnisty orkisz. Wyraźny orzechowo-słodki smak, wysokie zapotrzebowanie na wodę.
+src/core/flour-atlas.ts:185	LICZBA	Mąka pszenna typ 550 (Luksusowa)
+src/core/flour-atlas.ts:356	-	Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.
+src/core/flour-atlas.ts:364	-	Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.
+src/core/flour-atlas.ts:396	-	Mieszanka musi zawierać co najmniej jedną mąkę.
+src/core/flour-atlas.ts:397	-	Mieszanka musi zawierać co najmniej jedną mąkę.
+src/core/flour-atlas.ts:411	-	Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.
+src/core/flour-atlas.ts:414	LICZBA	Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.
+src/core/flour-equivalents.ts:41	-	Mąka cukiernicza / tortowa (bielona)
+src/core/flour-equivalents.ts:52	-	Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.
+src/core/flour-equivalents.ts:54	-	Niski gluten. Przy chlebach nie używać solo — ciasto rozleje się z powodu słabej siatki.
+src/core/flour-equivalents.ts:55	-	Low gluten. Do not use alone for bread — dough will flatten due to weak gluten matrix.
+src/core/flour-equivalents.ts:60	-	Mąka uniwersalna / pszenna jasna
+src/core/flour-equivalents.ts:66	LICZBA	Typ 500 / 550 (Poznańska / Luksusowa)
+src/core/flour-equivalents.ts:71	-	Bułki, chałki, focaccia, ciasta drożdżowe, pizza domowa na blasze.
+src/core/flour-equivalents.ts:73	LICZBA	Wszechstronna mąka. Przy chlebach wiejskich warto połączyć z 10-15% mąki razowej lub żytniej.
+src/core/flour-equivalents.ts:79	-	Mąka pszenna bułkowa / bagietkowa
+src/core/flour-equivalents.ts:90	-	Bagietki tradycyjne, bułki pszenne, chleby rzemieślnicze o chrupiącej, szklistej skórce.
+src/core/flour-equivalents.ts:92	-	Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.
+src/core/flour-equivalents.ts:98	-	Mąka pszenna chlebowa / wysoki gluten
+src/core/flour-equivalents.ts:106	LICZBA	Tipo 1 / Manitoba (W>300)
+src/core/flour-equivalents.ts:109	LICZBA	Chleby na zakwasie o wysokiej hydratacji (75–85%), pizza neapolitańska 48 h, brioszki.
+src/core/flour-equivalents.ts:111	-	Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.
+src/core/flour-equivalents.ts:117	-	Mąka pszenna sitkowa / graham
+src/core/flour-equivalents.ts:128	-	Chleby graham, rustykalne bochenki wiejskie (Campagne), dodatek do chlebów mieszanych.
+src/core/flour-equivalents.ts:130	LICZBA	Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.
+src/core/flour-equivalents.ts:136	LICZBA	Mąka pełnoziarnista / razowa (100%)
+src/core/flour-equivalents.ts:141	LICZBA	Typ 2000 (Razowa pełnoziarnista)
+src/core/flour-equivalents.ts:146	LICZBA	Ciemne chleby razowe, zakwas żytni i pszenny razowy, chleb 100% z keksówki.
+src/core/flour-equivalents.ts:148	LICZBA	Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).
+src/core/fridge-wake.ts:31	-	Dokarmienie zakwasu z lodówki
+src/core/inventory.ts:96	-	W spiżarni posiadasz {nazwa} ({g}g) — możesz użyć jej jako zamiennika.
+src/core/inventory.ts:101	-	Sugerowany zamiennik ze Spiżarni: {nazwa}.
+src/core/inventory.ts:129	-	Uwaga: W spiżarni brakuje {g}g mąki ({lista}).
+src/core/kalendarz-zdarzenia.ts:172	-	, at: gotoweAt, zrodlo, nazwa: w.recipeName, stan:
+src/core/legacy-steps-v1.ts:19	-	Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.
+src/core/legacy-steps-v1.ts:20	-	Mieszanie i zaszczepienie
+src/core/legacy-steps-v1.ts:21	-	Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.
+src/core/legacy-steps-v1.ts:22	LICZBA	Składanie 1 (Stretch & Fold)
+src/core/legacy-steps-v1.ts:23	LICZBA	Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.
+src/core/legacy-steps-v1.ts:25	-	Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.
+src/core/legacy-steps-v1.ts:27	-	Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.
+src/core/legacy-steps-v1.ts:28	-	Formowanie wstępne (Pre-shape)
+src/core/legacy-steps-v1.ts:29	LICZBA	Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.
+src/core/legacy-steps-v1.ts:30	-	Formowanie do koszyka i chłód
+src/core/legacy-steps-v1.ts:31	LICZBA	Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.
+src/core/legacy-steps-v1.ts:33	LICZBA	20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.
+src/core/preferments.ts:26	-	Metoda bezpośrednia (Brak zaczynu)
+src/core/preferments.ts:32	-	Świeży, prosty smak pszenny bez rozwiniętej kwasowości.
+src/core/preferments.ts:42	-	Słodkawy, orzechowy aromat, lekki maślany miękisz i cienka, chrupiąca skórka.
+src/core/preferments.ts:52	-	Głęboki, winny aromat, wysoka wytrzymałość ciasta i spektakularny piecowy skok.
+src/core/preferments.ts:64	-	Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.
+src/core/preferments.ts:78	LICZBA	Tangzhong (Zaparzana mąka 1:5 w 65°C)
+src/core/preferments.ts:81	-	Do ostygnięcia do temp. pokojowej
+src/core/preferments.ts:84	-	Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.
+src/core/preferments.ts:88	LICZBA	Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)
+src/core/preferments.ts:91	LICZBA	Min. 4h lub przez noc w lodówce
+src/core/preferments.ts:94	-	Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.
+src/core/preferments.ts:147	LICZBA	Całkowita masa mąki musi być większa od 0
+src/core/preferments.ts:150	LICZBA	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/core/rye-stages.ts:38	-	Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+src/core/sourdough-physics.ts:40	-	Parametry dokarmiania muszą być większe od zera
+src/core/sourdough-physics.ts:108	-	Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.
+src/core/sourdough-physics.ts:125	-	Uśpiony w lodówce ({dni})
+src/core/sourdough-physics.ts:138	-	Wymaga odświeżenia ({dni} w chłodzie)
+src/core/starter-converter.ts:19	-	Tradycyjny włoski gęsty zakwas. Łagodna kwasowość mlekowa, idealny do panettone, chałek i pizzy.
+src/core/starter-converter.ts:23	LICZBA	Sztywny zakwas żytni (60%)
+src/core/starter-converter.ts:25	-	Gęsty zakwas żytni do ciężkich chlebów razowych. Wzmacnia strukturę miękiszu i chroni enzymy.
+src/core/starter-converter.ts:31	LICZBA	Klasyczny rzemieślniczy zakwas 1:1. Zrównoważony profil kwasowy, łatwy do dozowania.
+src/core/starter-converter.ts:37	-	Umiarkowanie gęsty zaczyn pszenny do pieczywa tostowego i bagietek.
+src/core/starter-converter.ts:43	-	Wysokouwodniony zaczyn o szybkiej fermentacji i wyraźniejszej kwasowości octowej.
+src/core/starter-converter.ts:102	-	Masa zakwasu w przepisie musi być większa od zera
+src/core/starter-converter.ts:105	-	Hydratacja zakwasu musi być większa od zera
+src/core/starter-converter.ts:123	-	Hydratacja zakwasu jest identyczna — brak konieczności korekty wody w cieście.
+src/core/starter-converter.ts:135	-	Twój zakwas ({twoj}%) jest gęstszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i DODAJ {woda}g wody do ciasta właściwego.
+src/core/starter-converter.ts:139	-	Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.
+src/core/starter-converter.ts:168	-	Docelowa masa zakwasu musi być większa od zera
+src/core/starter-converter.ts:171	-	Hydratacje muszą być większe od zera
+src/core/starter-converter.ts:195	-	Masa zakwasu matki jest zbyt duża w stosunku do docelowej masy lub hydratacji. Zmniejsz masę matki.
+src/core/starter-converter.ts:207	-	Wymieszaj {matka}g zakwasu matki ({hydratacja}%) z {maka}g mąki i {woda}g wody.
+src/core/starter-converter.ts:216	-	Konsystencja będzie zwarta (Lievito Madre) — zagnieć kulę i nacinij krzyżem lub zroluj.
+src/core/starter-converter.ts:218	-	Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.
+src/core/techniques/prep-ferment-techniques.ts:10	-	Spontaniczne rozwinięcie łańcuchów glutenu bez wysiłku mechanicznego; proteazy rozluźniają wiązania, a cząsteczki skrobi w pełni absorbują wodę.
+src/core/techniques/prep-ferment-techniques.ts:13	LICZBA	Zmieszaj całą mąkę z receptury z 90–95% przewidzianej wody, aż nie będzie suchych grudek.
+src/core/techniques/prep-ferment-techniques.ts:14	-	NIE dodawaj soli na tym etapie — sól działa higroskopijnie, wyciąga wodę i hamuje działanie enzymów.
+src/core/techniques/prep-ferment-techniques.ts:15	LICZBA	Odstaw miskę pod przykryciem na 30–90 minut w temperaturze 22–26°C.
+src/core/techniques/prep-ferment-techniques.ts:16	LICZBA	Dla mąk pełnoziarnistych (graham, razowa) wydłuż autolizę do 60–90 minut.
+src/core/techniques/prep-ferment-techniques.ts:17	-	Fermentoliza: polega na dodaniu zakwasu od razu do mąki i wody (z pominięciem soli), skracając późniejszy czas mieszania.
+src/core/techniques/prep-ferment-techniques.ts:21	-	Do NOT add salt now — salt is hygroscopic, tightens gluten and inhibits enzymatic hydration.
+src/core/techniques/prep-ferment-techniques.ts:27	-	Dodanie soli na początku autolizy (drastycznie wydłuża czas hydratacji białek).
+src/core/techniques/prep-ferment-techniques.ts:28	LICZBA	Zbyt długa autoliza (>2h w cieple), która prowadzi do nadmiernego rozpadu siatki glutenowej przez proteazy.
+src/core/techniques/prep-ferment-techniques.ts:34	-	Po prawidłowej autolizie ciasto z szorstkiej grudkowatej masy staje się gładkie i rozciągliwe jeszcze przed właściwym wyrabianiem!
+src/core/techniques/prep-ferment-techniques.ts:41	-	Składanie rozciągane (Stretch & Fold)
+src/core/techniques/prep-ferment-techniques.ts:43	-	Równoległe ukierunkowanie nici glutenowych oraz równomierne rozprowadzenie temperatury i drożdży w objętości ciasta.
+src/core/techniques/prep-ferment-techniques.ts:46	-	Zwilż dłonie wodą (nie podsypuj mąką — dodatkowa mąka obniżyłaby faktyczną hydratację ciasta).
+src/core/techniques/prep-ferment-techniques.ts:47	-	Chwyć ciasto od spodu po stronie północnej (góra miski) i unieś delikatnie w górę, rozciągając je bez rwania.
+src/core/techniques/prep-ferment-techniques.ts:48	-	Załóż wyciągnięty płat przez wierzch na przeciwną stronę ciasta.
+src/core/techniques/prep-ferment-techniques.ts:49	LICZBA	Obróć misę o 90° i powtórz czynność ze strony wschodniej, południowej i zachodniej (łącznie 4 naciągnięcia).
+src/core/techniques/prep-ferment-techniques.ts:50	LICZBA	Odstaw ciasto pod przykryciem na 30–45 minut do kolejnego cyklu.
+src/core/techniques/prep-ferment-techniques.ts:60	-	Szarpnięcie i rozerwanie siatki glutenowej zamiast płynnego rozciągania.
+src/core/techniques/prep-ferment-techniques.ts:61	-	Używanie mąki na dłoniach, która tworzy wewnątrz ciasta niepożądane suche smugi.
+src/core/techniques/prep-ferment-techniques.ts:67	LICZBA	Dla ciast o średniej hydratacji (65–72%) wystarczą 3–4 serie składań w pierwszych 2 godzinach fermentacji burzliwej.
+src/core/techniques/prep-ferment-techniques.ts:74	-	Składanie zwojowe (Coil Fold)
+src/core/techniques/prep-ferment-techniques.ts:76	LICZBA	Wzmacnianie delikatnej struktury w luźnych ciastach wysokiej hydratacji (>75%) z wykorzystaniem grawitacji, bez miażdżenia pęcherzyków gazu.
+src/core/techniques/prep-ferment-techniques.ts:79	-	Umieść ciasto w prostokątnym, płaskim pojemniku (np. szklanym naczyniu żaroodpornym).
+src/core/techniques/prep-ferment-techniques.ts:80	-	Zwilż obie dłonie wodą i wsuń palce pod środek ciasta z obu stron.
+src/core/techniques/prep-ferment-techniques.ts:81	-	Unieś ciasto pionowo w górę — oba końce swobodnie opadną i podwiną się pod spód ciasta.
+src/core/techniques/prep-ferment-techniques.ts:82	-	Opuść ciasto delikatnie na dno naczynia.
+src/core/techniques/prep-ferment-techniques.ts:83	LICZBA	Obróć pojemnik o 90° i powtórz uniesienie w osi poprzecznej.
+src/core/techniques/prep-ferment-techniques.ts:93	-	Zbyt gwałtowne pociągnięcie, które wyciska nagromadzony dwutlenek węgla.
+src/core/techniques/prep-ferment-techniques.ts:94	-	Wykonywanie składania w wąskiej, głębokiej misce (wymaga płaskiego pojemnika).
+src/core/techniques/prep-ferment-techniques.ts:100	-	Z każdym kolejnym coil foldem poczujesz, jak ciasto staje się coraz bardziej zwarte, poduszkowe i samoistnie trzyma kształt.
+src/core/techniques/prep-ferment-techniques.ts:109	-	Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.
+src/core/techniques/prep-ferment-techniques.ts:112	-	Wyłóż lepkie ciasto na czysty, nienatłuszczony i nieoprószony blat.
+src/core/techniques/prep-ferment-techniques.ts:113	-	Wsuń palce obu dłoni pod boki ciasta, kciukami obejmując wierzch.
+src/core/techniques/prep-ferment-techniques.ts:114	-	Unieś ciasto, energicznie uderz dolną częścią o blat (slap), rozciągnij w przód i zawiń przez wierzch na siebie (fold).
+src/core/techniques/prep-ferment-techniques.ts:115	LICZBA	Obróć o 90°, ponownie podchwyć i powtarzaj płynny rytm przez 3–5 minut.
+src/core/techniques/prep-ferment-techniques.ts:116	-	W trakcie wyrabiania ciasto magicznie przestanie kleić się do rąk i blatu, zamieniając się w lśniącą kulę.
+src/core/techniques/prep-ferment-techniques.ts:126	-	Podsypywanie blatu mąką podczas wyrabiania (blokuje przywieranie ciasta potrzebne do rozciągania).
+src/core/techniques/prep-ferment-techniques.ts:127	-	Zbyt wolne, niepewne ruchy powodujące przyklejanie się ciasta do dłoni.
+src/core/techniques/prep-ferment-techniques.ts:133	-	Kluczem jest pewność i prędkość — gluten buduje się dzięki energii kinetycznej uderzenia o blat.
+src/core/techniques/prep-ferment-techniques.ts:140	-	Laminacja ciasta i dodatki
+src/core/techniques/prep-ferment-techniques.ts:142	-	Ekstremalne rozciągnięcie siatki glutenowej w przezroczystą błonę w celu równomiernego ułożenia nasion, ziół lub sera.
+src/core/techniques/prep-ferment-techniques.ts:145	-	Zwilż blat kuchenny mgiełką wody (woda zapobiega przywieraniu ciasta lepiej niż mąka).
+src/core/techniques/prep-ferment-techniques.ts:146	LICZBA	Wyłóż ciasto po 2. lub 3. składaniu na blat.
+src/core/techniques/prep-ferment-techniques.ts:147	LICZBA	Delikatnie chwytaj krawędzie ciasta od spodu i rozciągaj je we wszystkie strony, tworząc prostokąt o grubości 2–3 mm.
+src/core/techniques/prep-ferment-techniques.ts:148	-	Rozsyp równomiernie ulubione dodatki (prażony słonecznik, rozmaryn, ser cheddar, suszone pomidory).
+src/core/techniques/prep-ferment-techniques.ts:149	LICZBA	Złóż ciasto w 1/3 jak list biznesowy od lewej i prawej strony, posyp kolejną warstwę dodatków i zroluj od góry do dołu.
+src/core/techniques/prep-ferment-techniques.ts:150	-	Przełóż z powrotem do pojemnika na dokończenie fermentacji burzliwej.
+src/core/techniques/prep-ferment-techniques.ts:161	-	Dodawanie mokrych dodatków (np. oliwek) bez uprzedniego odsączenia (rozbija strukturę ciasta).
+src/core/techniques/prep-ferment-techniques.ts:162	-	Zbyt wczesna laminacja, zanim gluten osiągnie odpowiednią elastyczność.
+src/core/techniques/prep-ferment-techniques.ts:168	LICZBA	Laminacja pozwala na wprowadzenie nawet do 25% wagi dodatków bez niszczenia napowietrzenia miękiszu.
+src/core/techniques/prep-ferment-techniques.ts:175	-	Formowanie wstępne (Pre-shape) i Bench Rest
+src/core/techniques/prep-ferment-techniques.ts:177	-	Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.
+src/core/techniques/prep-ferment-techniques.ts:180	-	Wysyp ciasto na lekko oprószony blat za pomocą zaokrąglonej skrobki.
+src/core/techniques/prep-ferment-techniques.ts:181	-	Za pomocą skrobki i oprószonej dłoni podciągaj ciasto ku sobie, formując gładką kulę.
+src/core/techniques/prep-ferment-techniques.ts:182	LICZBA	Pozostaw ciasto na blacie na 15–25 minut (Bench Rest) bez przykrycia (przy dużej wilgotności) lub pod ściereczką.
+src/core/techniques/prep-ferment-techniques.ts:183	-	W tym czasie na powierzchni ciasta powstanie cieniutka skórka ułatwiająca ostateczne formowanie.
+src/core/techniques/prep-ferment-techniques.ts:192	-	Pominięcie bench restu — gluten jest zbyt napięty i rwie się przy ostatecznym formowaniu.
+src/core/techniques/prep-ferment-techniques.ts:193	-	Zbyt mocne naciągnięcie na etapie wstępnym.
+src/core/techniques/prep-ferment-techniques.ts:199	LICZBA	Jeśli po 20 minutach ciasto rozlało się jak kałuża, jego gluten jest słaby — formuj ciaśniej. Jeśli stoi w pionie, jest gotowe do formowania batarda.
+src/core/techniques/shaping-baking-techniques.ts:8	-	Formowanie bochenka podłużnego (Batard)
+src/core/techniques/shaping-baking-techniques.ts:10	-	Wytworzenie silnego napięcia powierzchniowego (Surface Tension) zapobiegającego rozlewaniu się bochenka na boki w piecu.
+src/core/techniques/shaping-baking-techniques.ts:13	-	Oprósz wierzch ciasta mąką, odwróć skrobką na drugą stronę (strona gładka dotyka blatu).
+src/core/techniques/shaping-baking-techniques.ts:14	-	Rozklep delikatnie dłońmi na kształt prostokąta/trapezu.
+src/core/techniques/shaping-baking-techniques.ts:15	LICZBA	Złóż dolną 1/3 do góry, a boki zawiń do środka jak kopertę.
+src/core/techniques/shaping-baking-techniques.ts:16	-	Chwyć górną krawędź kciukami i zroluj ciasno w dół ku sobie, dociskając kciukami szew.
+src/core/techniques/shaping-baking-techniques.ts:17	-	Za pomocą krawędzi dłoni przeciągaj batard po blacie, wzmacniając naciąg wzdłużny.
+src/core/techniques/shaping-baking-techniques.ts:18	-	Przełóż szwem do góry do podłużnego koszyka (bannetona) oprószonego mąką ryżową.
+src/core/techniques/shaping-baking-techniques.ts:29	-	Zbyt luźne zwinięcie bochenka (chleb rozleje się na boki po wyjęciu z koszyka).
+src/core/techniques/shaping-baking-techniques.ts:30	-	Za dużo mąki na blacie (ciasto ślizga się i nie da się wytworzyć oporu i naciągu).
+src/core/techniques/shaping-baking-techniques.ts:36	-	Dociąganie kciukami przy każdym obrocie tworzy wewnętrzny spiralny szkielet trzymający chleb w pionie.
+src/core/techniques/shaping-baking-techniques.ts:43	-	Formowanie bochenka okrągłego (Boule)
+src/core/techniques/shaping-baking-techniques.ts:45	-	Równomierne centryczne naprężenie sfery ciasta do wypieku w garnku żeliwnym lub koszyku okrągłym.
+src/core/techniques/shaping-baking-techniques.ts:48	-	Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.
+src/core/techniques/shaping-baking-techniques.ts:49	LICZBA	Zbierz krawędzie z 8 stron do środka jak sakiewkę i sklej palcami w centralnym punkcie.
+src/core/techniques/shaping-baking-techniques.ts:50	-	Odwróć bochenek gładką stroną do góry (szew dotyka blatu).
+src/core/techniques/shaping-baking-techniques.ts:51	-	Ułóż dłonie wokół ciasta w kształt litery V i obracając kulę, przyciągaj ją ku sobie po blacie.
+src/core/techniques/shaping-baking-techniques.ts:52	-	Opór blatu naciąga zewnętrzną membranę w idealnie gładką, napiętą kopułę.
+src/core/techniques/shaping-baking-techniques.ts:53	-	Przełóż szwem do góry do okrągłego koszyka rozrostowego.
+src/core/techniques/shaping-baking-techniques.ts:64	-	Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.
+src/core/techniques/shaping-baking-techniques.ts:65	-	Nieszczelne sklejenie szwu, przez co chleb pęka od spodu w piecu.
+src/core/techniques/shaping-baking-techniques.ts:71	-	Prawidłowo uformowana kula po dotknięciu lekko drży jak napompowana piłka.
+src/core/techniques/shaping-baking-techniques.ts:80	-	Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.
+src/core/techniques/shaping-baking-techniques.ts:85	-	Rozprowadź mąkę dłonią dokładnie w rowkach wikliny koszyka.
+src/core/techniques/shaping-baking-techniques.ts:86	LICZBA	Po wypieku wysusz koszyk w stygnącym piekarniku (max 50°C) i wyczyść suchą szczoteczką z twardym włosiem.
+src/core/techniques/shaping-baking-techniques.ts:87	-	NIGDY nie myj koszyka rattanowego wodą z płynem do naczyń — sprzyja to rozwojowi pleśni.
+src/core/techniques/shaping-baking-techniques.ts:97	-	Zamykanie wilgotnego koszyka w szczelnej szafce.
+src/core/techniques/shaping-baking-techniques.ts:102	-	Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.
+src/core/techniques/shaping-baking-techniques.ts:109	-	Nacinanie żyletką pod „ucho” (Scoring for Ear)
+src/core/techniques/shaping-baking-techniques.ts:111	LICZBA	Asymetryczne nacięcie pod ostrym kątem 30° tworzy płat skórki, który pod wpływem ciśnienia pary unosi się i tworzy chrupiące ucho.
+src/core/techniques/shaping-baking-techniques.ts:114	-	Użyj świeżej, ostrej żyletki zamocowanej na zakrzywionej rękojeści (kulawce / lame).
+src/core/techniques/shaping-baking-techniques.ts:115	-	Nacinaj ciasto natychmiast po wyjęciu z lodówki — schłodzone ciasto jest sztywne i nie ciągnie się za ostrzem.
+src/core/techniques/shaping-baking-techniques.ts:116	LICZBA	Trzymaj żyletkę pod kątem ostrym ok. 30° względem powierzchni chleba (nie pionowo pod kątem 90°!).
+src/core/techniques/shaping-baking-techniques.ts:117	LICZBA	Wykonaj jedno pewne, płynne cięcie wzdłuż osi bochenka na głębokość 8–10 mm, lekko przesunięte od środka ku krawędzi.
+src/core/techniques/shaping-baking-techniques.ts:118	-	Nie poprawiaj cięcia ani nie piłuj ostrzem — jedno pociągnięcie daje najczystsze otwarcie.
+src/core/techniques/shaping-baking-techniques.ts:125	-	Do not saw back and forth — a single confident stroke delivers the cleanest opening.
+src/core/techniques/shaping-baking-techniques.ts:128	LICZBA	Nacinanie pod kątem prostym 90° (daje symetryczne pęknięcie, ale zero uniesionego ucha).
+src/core/techniques/shaping-baking-techniques.ts:129	-	Tępe ostrze lub zbyt wolny ruch szarpiący ciasto.
+src/core/techniques/shaping-baking-techniques.ts:135	-	Krzywa żyletka automatycznie podcina ciasto pod spód, tworząc idealny daszek pod spektakularne ucho rzemieślnicze.
+src/core/techniques/shaping-baking-techniques.ts:142	-	Wypiek w garnku żeliwnym (Dutch Oven)
+src/core/techniques/shaping-baking-techniques.ts:144	LICZBA	Zamknięta przestrzeń naczynia zatrzymuje parę parującą z samego ciasta (100% wilgotności), opóźniając twardnienie skórki i umożliwiając maksymalny Oven Spring.
+src/core/techniques/shaping-baking-techniques.ts:147	LICZBA	Rozgrzewaj garnek żeliwny z pokrywką w piekarniku w temperaturze 240–250°C przez 45–60 minut.
+src/core/techniques/shaping-baking-techniques.ts:148	-	Ostrożnie wyjmij gorący garnek (zawsze w rękawicach żaroodpornych!) i zdejmij pokrywkę.
+src/core/techniques/shaping-baking-techniques.ts:149	-	Przełóż nacięte ciasto na papierze do pieczenia na dno garnka.
+src/core/techniques/shaping-baking-techniques.ts:150	LICZBA	FAZA 1 (PAROWA): Zamknij szczelnie pokrywkę i piecz 20 minut w 230–240°C. Para sprawia, że bochenek gwałtownie rośnie, a cięcie otwiera się w ucho.
+src/core/techniques/shaping-baking-techniques.ts:151	LICZBA	FAZA 2 (RUMIENIENIE): Zdejmij pokrywkę, zmniejsz temperaturę do 200–210°C i dopiekaj 20–25 minut do uzyskania głębokiego koloru mahoniowego.
+src/core/techniques/shaping-baking-techniques.ts:161	-	Włożenie ciasta do niedostatecznie nagrzanego garnka (dolna skórka będzie blada i gruba).
+src/core/techniques/shaping-baking-techniques.ts:162	-	Pieczenie bez pokrywki od początku (skórka twardnieje przedwcześnie, blokując rozrost bochenka).
+src/core/techniques/shaping-baking-techniques.ts:168	LICZBA	Wrzuć 2 kostki lodu pod papier do pieczenia tuż przed nałożeniem pokrywki, by uzyskać dodatkowy zastrzyk pary i lśniącą skórkę w drobne bąbelki.
+src/core/techniques/shaping-baking-techniques.ts:175	-	Studzenie na kratce i zakaz wczesnego krojenia
+src/core/techniques/shaping-baking-techniques.ts:177	-	Wypiek kończy się dopiero po ostygnięciu bochenka; woda odparowuje przez pory, a skrobia przechodzi proces retrogradacji, stabilizując miękisz.
+src/core/techniques/shaping-baking-techniques.ts:180	-	Po wyjęciu z pieca natychmiast przełóż chleb z garnka na uniesioną metalową kratkę.
+src/core/techniques/shaping-baking-techniques.ts:181	-	Zapewnij swobodny przepływ powietrza od spodu bochenka (chleb pozostawiony na blacie lub desce zaparzy się i namoknie od spodu!).
+src/core/techniques/shaping-baking-techniques.ts:182	-	Posłuchaj chleba: w pierwszych minutach usłyszysz charakterystyczne „śpiewanie” (trzaskanie pękającej cieniutkiej skórki).
+src/core/techniques/shaping-baking-techniques.ts:183	LICZBA	Dla chlebów pszennych: odczekaj MINIMUM 2 godziny przed pierwszym krojeniem.
+src/core/techniques/shaping-baking-techniques.ts:184	LICZBA	Chleb żytni: upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku. Gorące żyto po ukrojeniu jest jak lepka maź.
+src/core/techniques/shaping-baking-techniques.ts:194	-	Krojenie gorącego chleba prosto z pieca — nóż miażdży niestabilną siatkę skrobi, tworząc trwały zakalec na ostrzu.
+src/core/techniques/shaping-baking-techniques.ts:195	-	Zawijanie ciepłego chleba w folię lub ściereczkę.
+src/core/techniques/shaping-baking-techniques.ts:201	-	Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.
+src/core/volume-converter.ts:39	-	Mąka pszenna (napowietrzona / sypana łyżką)
+src/core/volume-converter.ts:46	-	Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.
+src/core/volume-converter.ts:51	-	Mąka pszenna (czerpana szklanką / ubita)
+src/core/volume-converter.ts:58	LICZBA	Czerpanie szklanką bezpośrednio z worka ubija mąkę, dodając do 25% więcej mąki niż zakłada przepis!
+src/core/volume-converter.ts:63	-	Mąka pszenna pełnoziarnista / graham
+src/core/volume-converter.ts:73	LICZBA	Mąka żytnia (typ 720 / 2000)
+src/core/volume-converter.ts:93	-	Sól drobna kuchenna / morska
+src/core/volume-converter.ts:100	-	Sól decyduje o smaku i sile siatki glutenowej. Zbyt duża szczypta może zahamować fermentację.
+src/core/volume-converter.ts:105	-	Sól w płatkach (kosher / Maldon)
+src/core/volume-converter.ts:125	-	Drożdże świeże (prasowane)
+src/core/volume-converter.ts:156	LICZBA	Piekarskie ostrzeżenie o precyzji: Pomiary objętościowe (szklanki, łyżki) cechują się błędem rzędu 15–30% w zależności od wilgotności powietrza i stopnia ubicia mąki. W rzemieślniczym piekarstwie chleba zalecamy użycie w
+src/core/yeast-stages.ts:54	-	Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+src/core/zaczyn-w-formule.ts:81	LICZBA	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/core/zrodla-wiedzy.ts:25	-	Nasze porady opierają się na sprawdzonych poradnikach piekarskich, zaleceniach bezpieczeństwa żywności i badaniach naukowych. Tu znajdziesz, z czego korzystamy.
+src/core/zrodla-wiedzy.ts:33	-	Jak bezpiecznie prowadzić zakwas: temperatura, wilgotność, płyn na wierzchu i kiedy zakwas wyrzucić.
+src/core/zrodla-wiedzy.ts:38	-	Zakładanie zakwasu od zera, temperatura i codzienna opieka.
+src/core/zrodla-wiedzy.ts:42	LICZBA	Calvert M.D. i in., „A review of sourdough starters”, PeerJ 2021
+src/core/zrodla-wiedzy.ts:43	-	Kiedy zakwas jest dojrzały, jak dokarmianie i temperatura zmieniają jego kwasowość i smak.
+src/core/zrodla-wiedzy.ts:47	LICZBA	Landis E.A. i in., „The diversity and function of sourdough starter microbiomes”, eLife 2021
+src/core/zrodla-wiedzy.ts:48	-	Jak bardzo różne zakwasy różnią się tempem, w jakim podnoszą ciasto.
+src/core/zrodla-wiedzy.ts:53	-	Dlaczego gęstszy zakwas daje więcej kwasu octowego.
+src/core/zrodla-wiedzy.ts:62	LICZBA	Gänzle M.G., Ehmann M., Hammes W.P., Applied and Environmental Microbiology 1998
+src/core/zrodla-wiedzy.ts:63	LICZBA	Z tego badania pochodzi nasza prosta zasada, o ile dłużej trwa fermentacja, gdy jest chłodniej (przy 20–26 °C).
+src/core/zrodla-wiedzy.ts:72	LICZBA	Polska Norma PN-A-74022:2003 „Mąka pszenna” (Polski Komitet Normalizacyjny)
+src/core/zrodla-wiedzy.ts:73	LICZBA	Określa typy mąki pszennej (np. 450, 650, 750) według zawartości popiołu.
+src/core/zrodla-wiedzy.ts:77	LICZBA	Polska Norma PN-A-74032:2002 „Mąka żytnia” (Polski Komitet Normalizacyjny)
+src/core/zrodla-wiedzy.ts:78	-	Określa typy mąki żytniej według zawartości popiołu.
+src/core/zrodla-wiedzy.ts:82	LICZBA	Achremowicz B., Berski W., Gambuś H., Żywność. Nauka. Technologia. Jakość 2010
+src/core/zrodla-wiedzy.ts:83	-	Białko w polskich mąkach pszennych i to, które z nich są nisko-, a które wysokowyciągowe.
+src/core/zrodla-wiedzy.ts:87	LICZBA	Sujka K., Koczoń P., Journal of Analytical Methods in Chemistry 2017
+src/core/zrodla-wiedzy.ts:88	-	Białko w mąkach z polskich młynów: pszennych, żytnich i orkiszowych.
+src/core/zrodla-wiedzy.ts:92	LICZBA	Szwedziak K. i in., „Analiza jakości wybranych typów mąki pszennej”, Postępy Techniki Przetwórstwa Spożywczego 2018
+src/core/zrodla-wiedzy.ts:93	-	Białko i popiół w mąkach pszennych różnych typów.
+src/core/zrodla-wiedzy.ts:97	LICZBA	Szafrańska A., Acta Agrophysica 2018
+src/core/zrodla-wiedzy.ts:98	LICZBA	Jakie typy mąk są w polskich sklepach i które z nich (np. 850) młyny robią po swojemu, poza normą.
+src/core/zrodla-wiedzy.ts:102	-	Instytut Biotechnologii Przemysłu Rolno-Spożywczego, S. Stępniewska (streszczenie rozprawy)
+src/core/zrodla-wiedzy.ts:103	-	Mąka żytnia z polskich młynów przemysłowych.
+src/core/zrodla-wiedzy.ts:107	-	Stolarska A. i in., Folia Pomeranae Universitatis Technologiae Stetinensis
+src/core/zrodla-wiedzy.ts:108	-	Potoczne nazwy mąk pszennych: tortowa, wrocławska, luksusowa, bułkowa i chlebowa.
+src/core/zrodla-wiedzy.ts:117	LICZBA	Stępniewska S. i in., „Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour”, Foods 2019
+src/core/zrodla-wiedzy.ts:118	-	Kolejne etapy wypieku chleba z razowej mąki żytniej.
+src/core/zrodla-wiedzy.ts:122	LICZBA	Oest M. i in., „Rye Bread Defects”, Foods 2020
+src/core/zrodla-wiedzy.ts:123	-	Czym jest chleb żytni i skąd biorą się jego typowe wady.
+src/core/zrodla-wiedzy.ts:128	-	Ile żyta musi mieć chleb, żeby nazywać się żytnim albo żytnio-pszennym.
+src/core/zrodla-wiedzy.ts:137	-	USDA FSIS (amerykańska służba bezpieczeństwa żywności), „Molds on Food”
+src/core/zrodla-wiedzy.ts:138	-	Jak wygląda pleśń (bywa też biała) i dlaczego spleśniałego jedzenia się nie wącha.
+src/core/zrodla-wiedzy.ts:142	-	FDA (amerykańska agencja żywności i leków), „Handling Flour Safely”
+src/core/zrodla-wiedzy.ts:143	-	Dlaczego nie je się surowej mąki ani surowego ciasta i jak myć ręce oraz blaty po pracy z mąką.
+src/core/zrodla-wiedzy.ts:148	-	Rękawice i łapki do gorących pokryw i naczyń.
+src/core/zrodla-wiedzy.ts:153	-	Pokrywę unosi się od siebie, żeby para nie poparzyła.
+src/core/zrodla-wiedzy.ts:158	-	Dlaczego mokra rękawica kuchenna parzy.
+src/core/zrodla-wiedzy.ts:163	-	Strefa bez dzieci wokół kuchenki i piekarnika.
+src/core/zrodla-wiedzy.ts:167	-	CPSC (amerykańska Komisja Bezpieczeństwa Produktów Konsumenckich), „Avoiding Tap Water Scalds”
+src/core/zrodla-wiedzy.ts:168	-	Jak szybko gorąca woda parzy skórę: przy zaparzaniu mąki i parzeniu obwarzanków.
+src/core/zrodla-wiedzy.ts:178	-	Większość porad o zakwasie, wyrabianiu, formowaniu, nacinaniu, pieczeniu w garnku, studzeniu i ratowaniu ciasta.
+src/core/zrodla-wiedzy.ts:183	-	Jak rozpoznać przerośnięte ciasto i kiedy da się je uratować.
+src/core/zrodla-wiedzy.ts:188	-	Czym są poolish, biga i stare ciasto oraz jak długo dojrzewają.
+src/core/zrodla-wiedzy.ts:192	-	Red Star Yeast (producent drożdży), „Baking with Yeast: Step-by-Step Guide”
+src/core/zrodla-wiedzy.ts:193	-	Kolejne kroki wypieku na drożdżach i dlaczego czasy rośnięcia z przepisu są tylko wskazówką.
+src/core/zrodla-wiedzy.ts:198	-	Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.
+src/core/zrodla-wiedzy.ts:209	-	Dziennik Urzędowy Unii Europejskiej: specyfikacje „Salinātā rudzu rupjmaize”, „Karjalanpiirakka”, „Obwarzanek krakowski” i „Kołocz śląski”
+src/core/zrodla-wiedzy.ts:210	-	Skład i sposób wypieku chleba żytniego z parzoną mąką, otwartych pierożków żytnich, obwarzanka parzonego i kołacza z serem i kruszonką.
+src/core/zrodla-wiedzy.ts:215	-	Skład i sposób wypieku chleba z semoliny durum na zakwasie.
+src/core/zrodla-wiedzy.ts:219	-	Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”
+src/core/zrodla-wiedzy.ts:220	-	Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.
+src/core/zrodla-wiedzy.ts:225	-	Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.
+src/core/zrodla-wiedzy.ts:229	-	Marttaliitto (fińska organizacja doradztwa domowego), przepis „Karjalanpiirakat”
+src/core/zrodla-wiedzy.ts:230	-	Ilość soli w otwartych pierożkach żytnich.
+src/core/zrodla-wiedzy.ts:234	-	USDA FoodData Central (amerykańska baza danych o składzie żywności), SR Legacy
+src/core/zrodla-wiedzy.ts:235	-	Ile waży szklanka albo łyżeczka mąki, cukru, soli i innych składników, gdy przepis podaje miary zamiast gramów.
+src/core/zrodla-wiedzy.ts:239	LICZBA	NIST (amerykański Narodowy Instytut Standaryzacji i Technologii), Handbook 44 (2025)
+src/core/zrodla-wiedzy.ts:240	-	Ile mililitrów ma amerykańska szklanka miarowa.
+src/core/zrodla-wiedzy.ts:244	LICZBA	Longin C.F.H. i in., International Journal of Molecular Sciences 2023
+src/core/zrodla-wiedzy.ts:245	-	Ilość drożdży i czas od zarobienia ciasta do pieca w wersji drożdżowej chleba orkiszowego.
+src/core/zrodla-wiedzy.ts:249	LICZBA	Verdonck C. i in., Current Research in Food Science 2025
+src/core/zrodla-wiedzy.ts:250	-	Ilość drożdży i czasy rośnięcia w wersji drożdżowej chleba z mąki pszennej razowej.
+src/core/zrodla-wiedzy.ts:254	LICZBA	Koistinen V.M. i in., Scientific Reports 2018
+src/core/zrodla-wiedzy.ts:255	-	Ilość drożdży, wody i soli oraz czasy rośnięcia i pieczenia w wersji drożdżowej chleba żytniego.
+src/core/zrodla-wiedzy.ts:265	LICZBA	Tefal, instrukcja obsługi i instrukcja bezpieczeństwa maszyny do chleba Pain Plaisir (PF220838)
+src/core/zrodla-wiedzy.ts:266	-	Największa ilość mąki, ciasta i drożdży, kolejność wkładania, opóźniony start i bezpieczne wyjmowanie formy.
+src/core/zrodla-wiedzy.ts:270	LICZBA	Zojirushi, instrukcja obsługi maszyny do chleba BB-PDC20 (Home Bakery Virtuoso Plus)
+src/core/zrodla-wiedzy.ts:271	-	Kolejność wkładania, opóźniony start, gorące części po pieczeniu i program na zakwasie, który używa też drożdży.
+src/core/zrodla-wiedzy.ts:275	LICZBA	Panasonic, instrukcja obsługi i przepisy do maszyny do chleba SD-YR2550
+src/core/zrodla-wiedzy.ts:276	-	Wielkość bochenka, kolejność wkładania i dozownik drożdży, opóźniony start i bezpieczne wyjmowanie formy.
+src/core/zrodla-wiedzy.ts:280	LICZBA	Cuisinart, instrukcja obsługi maszyny do chleba CBK-110
+src/core/zrodla-wiedzy.ts:281	-	Programy maszyny, z których bierze się podpowiedź programu, opóźniony start z mlekiem w proszku i gorące mieszadło.
+src/core/zrodla-wiedzy.ts:285	LICZBA	Kenwood, instrukcja obsługi maszyny do chleba BM200
+src/core/zrodla-wiedzy.ts:286	-	Kolejność wkładania, opóźniony start i wyjmowanie gorącej formy.
+src/data/migracja-v6.ts:35	-	Brak katalogu dokumentów: plik ratunkowy sesji przed migracją się nie zapisze
+src/data/sqlite-schema.ts:443	LICZBA	Mąka pszenna chlebowa typ 750
+src/data/ustawienia-kopii.ts:78	-	INSERT INTO app_settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value;
+src/data/ustawienia-kopii.ts:82	-	INSERT INTO lesson_progress (level_id, completed_at) VALUES (?, ?) ON CONFLICT(level_id) DO UPDATE SET completed_at = excluded.completed_at;
+src/doctor/diagnostics.ts:58	-	Miękisz maże się na nożu i wygląda na niedopieczony
+src/doctor/diagnostics.ts:75	-	Wielkie dziury pod górną skórką, a pod nimi ciężki, zbity i wilgotny dół
+src/doctor/diagnostics.ts:77	-	Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.
+src/doctor/diagnostics.ts:80	-	Upewnij się, że zakwas został użyty w szczycie objętości.
+src/doctor/diagnostics.ts:82	-	Wykonaj test palca przed włożeniem bochenka do piekarnika.
+src/doctor/diagnostics.ts:92	-	Przekwaszenie / Przerośnięcie
+src/doctor/diagnostics.ts:93	-	Chleb rozlał się na płasko, oklapł po nacięciu żyletką lub ma blady kolor
+src/doctor/diagnostics.ts:95	-	Bakterie kwasu mlekowego strawiły siatkę glutenową, a drożdże zużyły cały dostępny cukier. Ciasto straciło sprężystość i nie ma siły utrzymać kształtu w piecu.
+src/doctor/diagnostics.ts:97	-	Skróć czas garowania w lodówce lub fermentacji w temperaturze pokojowej.
+src/doctor/diagnostics.ts:100	-	Piecz bochenek wcześniej, gdy ciasto przy próbie palca powoli i sprężyście wraca.
+src/doctor/diagnostics.ts:111	-	Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi
+src/doctor/diagnostics.ts:113	-	Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.
+src/doctor/diagnostics.ts:117	-	Przełóż bochenek szwem do dołu, aby nie pękał od spodu.
+src/doctor/diagnostics.ts:128	-	Nacięcie rozeszło się gładko bez chrupiącego grzebienia
+src/doctor/diagnostics.ts:133	-	Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.
+src/doctor/diagnostics.ts:144	-	Blada skórka bez chrupkości
+src/doctor/diagnostics.ts:145	-	Brak reakcji Maillarda i karmelizacji cukrów
+src/doctor/diagnostics.ts:147	-	Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.
+src/doctor/diagnostics.ts:150	-	Skróć czas fermentacji, aby pozostawić cukry resztkowe w cieście.
+src/doctor/diagnostics.ts:161	-	Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna
+src/doctor/diagnostics.ts:178	-	Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu
+src/doctor/diagnostics.ts:180	-	Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.
+src/doctor/diagnostics.ts:194	-	Drobne pory, bochenek ciężki w dłoni
+src/hooks/useAkcjeDzis.ts:55	-	Ten wypiek jest już zakończony albo przerwany.
+src/hooks/useFinishBake.ts:77	-	Ten wypiek jest już zakończony albo przerwany.
+src/hooks/useParametryReceptury.ts:25	LICZBA	Mąka pszenna chlebowa typ 750
+src/hooks/useRecipeCalculations.ts:107	LICZBA	Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)
+src/hooks/useRytmPlanu.ts:37	-	Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.
+src/hooks/useStartPlanu.ts:56	-	Klasyczny chleb rzemieślniczy
+src/hooks/useStartPlanu.ts:131	-	{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}
+src/hooks/useStartPlanu.ts:191	-	Klasyczny chleb rzemieślniczy
+src/lib/backup.ts:126	-	Brak katalogu dokumentów aplikacji
+src/lib/backup.ts:219	-	Nieprawidłowy format JSON
+src/lib/backup.ts:223	-	Plik kopii musi być obiektem JSON
+src/lib/backup.ts:233	-	Nieprawidłowa wersja schematu kopii
+src/lib/backup.ts:241	-	Brak danych stanu (sekcja "state") w pliku kopii
+src/lib/backup.ts:246	-	Nieprawidłowa struktura wypieków ("bakes" musi być tablicą)
+src/lib/backup.ts:249	-	Nieprawidłowa struktura zakwasów ("starters" musi być tablicą)
+src/lib/backup.ts:252	-	Nieprawidłowa struktura przepisów ("customRecipes" musi być tablicą)
+src/lib/backup.ts:342	-	Brak katalogu dokumentów aplikacji
+src/lib/calculator-actions.ts:64	-	Nie udało się wygenerować pliku PDF
+src/lib/calculator-actions.ts:71	-	Skopiowano kod JSON receptury do schowka.
+src/lib/calculator-actions.ts:97	-	Skopiowano przepis do schowka
+src/lib/calculator-actions.ts:118	-	Utworzono edytowalną kopię w Twojej bibliotece.
+src/lib/calculator-actions.ts:129	-	Zapisano zmiany w recepturze „{name}”.
+src/lib/calculator-actions.ts:151	-	Przepis „{name}” został zapisany w Twojej bibliotece.
+src/lib/confirm.ts:60	-	Powiadomienia o kolejnych krokach znikną.
+src/lib/confirm.ts:76	-	, { nazwa: w.nazwa }) : t(
+src/lib/confirm.ts:108	-	Zacznij albo usuń jeden z nich, żeby dodać kolejny.
+src/lib/confirm.ts:147	LICZBA	{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.
+src/lib/confirm.ts:151	-	Przesuń start: {r} o {m} min
+src/lib/confirm.ts:163	-	Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.
+src/lib/confirm.ts:174	-	Zacząć profil zakwasu od nowa?
+src/lib/confirm.ts:188	LICZBA	Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.
+src/lib/diagnosis-formatter.ts:40	-	Skopiowano diagnozę do schowka
+src/lib/doctor-suggestion.ts:26	-	Sprawdzić przyczynę w Doktorze?
+src/lib/doctor-suggestion.ts:27	-	Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.
+src/lib/feeding-formatter.ts:45	-	Skopiowano dokarmienie do schowka
+src/lib/import-z-pliku.ts:73	-	Kopia z {data}: {receptury}, {zakwasy}, {wpisy}.
+src/lib/kalendarz-teksty.ts:37	-	karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości
+src/lib/kalendarz-teksty.ts:43	-	Zakładanie zakwasu: dzień {n}, do zrobienia
+src/lib/kalendarz-teksty.ts:44	-	Zakładanie zakwasu: dzień {n} zapisany
+src/lib/kalendarz-teksty.ts:46	LICZBA	{wypiek}: ocena {ocena} z 5
+src/lib/kalendarz-teksty.ts:49	LICZBA	Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie
+src/lib/kalendarz-teksty.ts:95	-	Pokaż jeszcze {n} w arkuszu dnia
+src/lib/kalendarz-teksty.ts:145	-	i jeszcze {n}, szczegóły w arkuszu dnia
+src/lib/kalendarz-telefonu.ts:63	-	Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.
+src/lib/kalendarz-telefonu.ts:65	-	Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.
+src/lib/kalendarz-telefonu.ts:66	-	Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.
+src/lib/menu-receptury.ts:31	-	Udostępnij plik receptury
+src/lib/menu-receptury.ts:65	-	Więcej działań: receptura
+src/lib/nazwa-maki-mieszanki.ts:35	LICZBA	Mąka pszenna wysokobiałkowa (W>280 / Manitoba)
+src/lib/nazwa-maki-mieszanki.ts:36	LICZBA	Mąka pszenna Manitoba / Forte (W > 300)
+src/lib/nazwa-maki-mieszanki.ts:37	LICZBA	Mąka pszenna Manitoba / Forte (W > 350)
+src/lib/nazwa-maki-mieszanki.ts:38	LICZBA	Mąka żytnia chlebowa typ 720
+src/lib/nazwa-maki-mieszanki.ts:39	LICZBA	Mąka orkiszowa jasna typ 630
+src/lib/nazwa-maki-mieszanki.ts:40	LICZBA	Mąka żytnia razowa typ 2000
+src/lib/nazwa-maki-mieszanki.ts:41	LICZBA	Mąka orkiszowa razowa typ 2000
+src/lib/nazwa-maki-mieszanki.ts:43	LICZBA	Mąka pszenna typ 650 (chlebowa jasna)
+src/lib/nazwa-maki-mieszanki.ts:45	LICZBA	Mąka pszenna pełnoziarnista typ 2000
+src/lib/nazwa-maki-mieszanki.ts:46	LICZBA	Mąka pszenna graham typ 1850
+src/lib/nazwa-maki-mieszanki.ts:47	LICZBA	Mąka pszenna luksusowa typ 550
+src/lib/nazwa-maki.ts:30	-	Szacunek na podstawie typu {typ}.
+src/lib/nazwa-maki.ts:33	-	Szacunek na podstawie profilu {nazwa}.
+src/lib/notifications.ts:82	-	Czas zdjąć pokrywkę z garnka i piec dalej bez pary.
+src/lib/notifications.ts:84	-	Wyjmij chleb z garnka na kratkę.
+src/lib/notifications.ts:86	LICZBA	Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.
+src/lib/notifications.ts:88	LICZBA	Zakwas „{name}” czeka na karmienie od 7 dni.
+src/lib/notifications.ts:90	-	Dziś ustalony dzień karmienia zakwasu „{name}”.
+src/lib/notifications.ts:93	-	Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.
+src/lib/notifications.ts:106	-	Krok „{step}” dobiegł końca.
+src/lib/plan-receptury.ts:65	-	Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.
+src/lib/plan-receptury.ts:80	-	Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.
+src/lib/plan-za-pozno.ts:57	-	Nie zdążysz na tę godzinę
+src/lib/plan-za-pozno.ts:58	-	Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.
+src/lib/platnosci/nazwy-pro.ts:21	-	Gotowość zakwasu do ciasta
+src/lib/print-menu.ts:32	-	Nie udało się wygenerować etykiety PDF
+src/lib/print-menu.ts:40	-	Najpierw dodaj zakwas w zakładce Zakwas.
+src/lib/prowadzenie-teksty.ts:120	-	do {godzina}, potem {krok}
+src/lib/prowadzenie-teksty.ts:125	-	Potem: {krok}, {czas}, do {godzina}
+src/lib/prowadzenie-teksty.ts:135	-	Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.
+src/lib/recipe-navigation.ts:60	LICZBA	mistrzowski wiejski w stylu tartine, 80%
+src/lib/recipe-navigation.ts:61	-	san francisco sourdough (wyrazista kwasowość)
+src/lib/recipe-navigation.ts:62	-	bagietka paryska z poolishem (baguette de tradition)
+src/lib/recipe-sharing.ts:80	-	Pusty lub nieprawidłowy tekst JSON
+src/lib/recipe-sharing.ts:87	-	Błąd składni JSON — upewnij się, że tekst jest poprawny
+src/lib/recipe-sharing.ts:104	LICZBA	Receptura musi posiadać nazwę (1-120 znaków)
+src/lib/recipe-sharing.ts:111	-	Nieprawidłowa wartość temperatury docelowej (DDT)
+src/lib/recipe-sharing.ts:114	LICZBA	Temperatura DDT musi mieścić się w zakresie 10–40°C
+src/lib/recipe-sharing.ts:121	-	W pliku receptury brakuje proporcji ciasta.
+src/lib/recipe-sharing.ts:128	-	Receptura musi zawierać co najmniej jedną mąkę
+src/lib/recipe-sharing.ts:132	LICZBA	Maksymalna liczba mąk w mieszance wynosi 12
+src/lib/recipe-sharing.ts:141	-	Nieprawidłowy wpis mąki na pozycji {index}
+src/lib/recipe-sharing.ts:146	-	Każda mąka musi posiadać nazwę
+src/lib/recipe-sharing.ts:150	LICZBA	Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%
+src/lib/recipe-sharing.ts:164	LICZBA	Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)
+src/lib/recipe-sharing.ts:190	LICZBA	Hydratacja wody musi mieścić się w zakresie 35–120%
+src/lib/recipe-sharing.ts:198	LICZBA	Udział soli musi mieścić się w zakresie 0–6%
+src/lib/recipe-sharing.ts:206	LICZBA	Udział zakwasu musi mieścić się w zakresie 0–150%
+src/lib/recipe-sharing.ts:213	-	Nieprawidłowa hydratacja zakwasu
+src/lib/recipe-sharing.ts:217	LICZBA	Hydratacja zakwasu musi mieścić się w zakresie 20–200%
+src/lib/recipe-sharing.ts:325	-	Pusty lub nieprawidłowy link
+src/lib/recipe-sharing.ts:363	-	Nie udało się odczytać receptury z linku lub kodu QR
+src/lib/rodzaj-drozdzy.ts:67	-	Drożdże świeże (prasowane)
+src/lib/save-guard.ts:8	-	Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.
+src/lib/save-guard.ts:9	-	Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.
+src/lib/schedule-formatter.ts:122	-	Skopiowano plan wypieku do schowka
+src/lib/spirala-etykieta.ts:16	-	Plan wypieku: {n} kroków.
+src/lib/spirala-etykieta.ts:61	-	Plan wypieku, krok {n} z {N}: {nazwa}.
+src/lib/spirala-etykieta.ts:62	-	Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.
+src/lib/spirala-etykieta.ts:73	-	Od dokarmienia minęło {czas} z {odstep}.
+src/lib/staly-dzien-pytanie.ts:26	-	Stały dzień karmienia to {staly}, a zakwas dokarmiono w dniu: {dzien}.
+src/lib/timer-audio.ts:56	-	Zdejmij pokrywkę garnka. Wypuść parę.
+src/lib/zgloszenie-wyslanie.ts:15	-	Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}
+src/recipes/discard-recipes.ts:42	-	Chrupiące krakersy ziołowe z solą morską
+src/recipes/discard-recipes.ts:48	LICZBA	1 duża blacha piekarnicza (~50 szt.)
+src/recipes/discard-recipes.ts:53	LICZBA	Mąka pszenna typ 650 lub graham
+src/recipes/discard-recipes.ts:54	-	Masło (roztopione) lub oliwa extra virgin
+src/recipes/discard-recipes.ts:57	-	Sól w płatkach do posypania
+src/recipes/discard-recipes.ts:60	-	W misce wymieszaj odrzut zakwasu z mąką, roztopionym masłem lub oliwą, solą drobną i ziołami.
+src/recipes/discard-recipes.ts:61	LICZBA	Zagnieć gładkie, zwarte ciasto (ok. 1–2 minuty). Jeśli ciasto jest zbyt lepkie, podsyp odrobiną mąki.
+src/recipes/discard-recipes.ts:62	LICZBA	Rozwałkuj ciasto bezpośrednio na papierze do pieczenia na grubość 1–2 mm (im cieńsze, tym bardziej chrupiące).
+src/recipes/discard-recipes.ts:63	-	Nakłuj całą powierzchnię widelcem, aby krakersy nie urosły jak poduszki, i pokrój nożem do pizzy na kwadraty.
+src/recipes/discard-recipes.ts:64	-	Posyp płatkami soli morskiej i dociśnij lekko wałkiem.
+src/recipes/discard-recipes.ts:65	LICZBA	Piecz w 180°C (termoobieg) przez 18–22 minuty, aż brzegi będą złocisto-brązowe. Wystudź na kratce.
+src/recipes/discard-recipes.ts:75	-	Użyj zimnego odrzutu prosto z lodówki — tłuszcz w cieście łatwiej się zwiąże, dając kruchą, listkującą strukturę.
+src/recipes/discard-recipes.ts:80	-	Puszyste amerykańskie pancakes na zakwasie
+src/recipes/discard-recipes.ts:86	LICZBA	12–14 puszystych placków (3–4 porcje)
+src/recipes/discard-recipes.ts:94	-	Cukier trzcinowy lub miód
+src/recipes/discard-recipes.ts:100	-	W dużej misce połącz odrzut zakwasu, mleko, jajko, roztopione masło i cukier/miód.
+src/recipes/discard-recipes.ts:101	-	W osobnej miseczce wymieszaj proszek do pieczenia, sodę i sól.
+src/recipes/discard-recipes.ts:102	-	Dodaj suche składniki do mokrych. Po dodaniu sody ciasto natychmiast zacznie intensywnie pienić się pod wpływem reakcji z kwasem zakwasu.
+src/recipes/discard-recipes.ts:103	-	Wymieszaj delikatnie łyżką tylko do połączenia składników — nie mieszaj zbyt długo, by zachować pęcherzyki gazu.
+src/recipes/discard-recipes.ts:104	-	Rozgrzej suchą patelnię nieprzywierającą na średnim ogniu.
+src/recipes/discard-recipes.ts:105	LICZBA	Nakładaj porcje ciasta (ok. 2 łyżki na placek). Smaż ok. 2–3 minuty, aż na powierzchni pojawią się pęcherzyki, obróć i smaż jeszcze 1–2 minuty.
+src/recipes/discard-recipes.ts:111	-	Fold gently just until incorporated — do not overmix to preserve aeration.
+src/recipes/discard-recipes.ts:115	-	Reakcja sody z kwasem mlekowym zakwasu nie tylko daje plackom niesamowitą puszystość, ale też całkowicie niweluje kwaśny smak.
+src/recipes/discard-recipes.ts:120	-	Chrupiące gofry rzemieślnicze
+src/recipes/discard-recipes.ts:134	-	Jajka (żółtka i białka osobno)
+src/recipes/discard-recipes.ts:135	-	Cukier waniliowy lub miód
+src/recipes/discard-recipes.ts:140	-	Wymieszaj odrzut zakwasu z mąką, mlekiem, roztopionym masłem, żółtkami i cukrem.
+src/recipes/discard-recipes.ts:141	-	Białka ubij ze szczyptą soli na sztywną pianę.
+src/recipes/discard-recipes.ts:142	-	Do ciasta dodaj proszek do pieczenia, a następnie delikatnie wmieszaj szpatułką ubitą pianę z białek.
+src/recipes/discard-recipes.ts:143	-	Rozgrzej mocno gofrownicę i posmaruj pędzelkiem odrobiną oleju.
+src/recipes/discard-recipes.ts:144	LICZBA	Piecz gofry przez 4–6 minut do uzyskania ciemnozłotego koloru i chrupiącej skórki.
+src/recipes/discard-recipes.ts:145	-	Studź na metalowej kratce, by para mogła swobodnie uchodzić (na talerzu zmiękną!).
+src/recipes/discard-recipes.ts:155	-	Ubijanie białek na sztywno i studzenie na kratce to sekret restauracyjnej chrupkości.
+src/recipes/discard-recipes.ts:160	-	Maślane kruche ciasteczka z czekoladą
+src/recipes/discard-recipes.ts:172	-	Masło (zimne, posiekane w kostkę)
+src/recipes/discard-recipes.ts:178	-	Posiekaj zimne masło z mąką, cukrem i solą, aż powstaną drobne okruchy.
+src/recipes/discard-recipes.ts:179	-	Dodaj zimny odrzut zakwasu i posiekaną czekoladę. Szybko zagnieć ciasto w zwarty dysk.
+src/recipes/discard-recipes.ts:180	LICZBA	Zawiń w folię lub woskowijkę i schłodź w lodówce przez 30 minut.
+src/recipes/discard-recipes.ts:181	-	Formuj kulki wielkości orzecha włoskiego, układaj na blasze z papierem i spłaszczaj dłonią.
+src/recipes/discard-recipes.ts:182	LICZBA	Piecz w 180°C przez 12–15 minut, aż brzegi będą lekko przyrumienione.
+src/recipes/discard-recipes.ts:183	-	Pozostaw do całkowitego ostygnięcia — prosto z pieca są miękkie, po ostygnięciu stają się idealnie kruche.
+src/recipes/discard-recipes.ts:193	-	Dzięki obecności zakwasu ciastka zyskują głęboki, karmelowo-maślany posmak.
+src/recipes/discard-recipes.ts:198	-	Szybkie podpłomyki / chlebki z patelni (Naan)
+src/recipes/discard-recipes.ts:210	-	Gęsty jogurt naturalny lub grecki
+src/recipes/discard-recipes.ts:213	-	Czosnek i masło do posmarowania
+src/recipes/discard-recipes.ts:216	LICZBA	W misce połącz zakwas, mąkę, jogurt, oliwę i sól. Wyrabiaj 2–3 minuty do powstania miękkiego ciasta.
+src/recipes/discard-recipes.ts:217	LICZBA	Odstaw pod przykryciem na 15 minut, aby gluten się zrelaksował.
+src/recipes/discard-recipes.ts:218	LICZBA	Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).
+src/recipes/discard-recipes.ts:219	-	Rozgrzej suchą patelnię żeliwną lub stalową na dużym ogniu.
+src/recipes/discard-recipes.ts:220	LICZBA	Kładź placek na suchą patelnię. Smaż ok. 1,5–2 minuty, aż powstaną wielkie bąble i przypalenia, obróć i smaż jeszcze 1 minutę.
+src/recipes/discard-recipes.ts:221	-	Gorące placki posmaruj masłem czosnkowym lub oliwą z ziołami.
+src/recipes/discard-recipes.ts:231	-	Jogurt w połączeniu z kwasem zakwasu zapewnia wyjątkową miękkość i elastyczność ciasta.
+src/recipes/katalog-m3-drozdzowe.ts:18	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:42	LICZBA	Mąka pszenna razowa typ 2000
+src/recipes/katalog-m3-drozdzowe.ts:65	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:88	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:18	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:64	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-zakwas-zyto.ts:18	-	Mąka z pszenicy durum (Semolina)
+src/recipes/katalog-m3-zakwas-zyto.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:11	-	Bagietka paryska na poolishu
+src/recipes/presets-drozdzowe.ts:16	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:30	LICZBA	Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.
+src/recipes/presets-drozdzowe.ts:34	LICZBA	Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)
+src/recipes/presets-drozdzowe.ts:36	LICZBA	Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.
+src/recipes/presets-drozdzowe.ts:53	LICZBA	Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.
+src/recipes/presets-drozdzowe.ts:57	-	Focaccia Genovese z solanką i rozmarynem
+src/recipes/presets-drozdzowe.ts:59	-	Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.
+src/recipes/presets-drozdzowe.ts:62	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:63	-	Mąka z pszenicy durum (Semolina)
+src/recipes/presets-drozdzowe.ts:77	LICZBA	Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.
+src/recipes/presets-drozdzowe.ts:81	-	Chleb nocny bez wyrabiania (drożdżowy)
+src/recipes/presets-drozdzowe.ts:83	LICZBA	Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.
+src/recipes/presets-drozdzowe.ts:86	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:100	LICZBA	Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.
+src/recipes/presets-pizza-slodkie.ts:11	-	Rzemieślnicza maślana brioszka na Lievito Madre
+src/recipes/presets-pizza-slodkie.ts:13	LICZBA	Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).
+src/recipes/presets-pizza-slodkie.ts:30	LICZBA	Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.
+src/recipes/presets-pizza-slodkie.ts:39	LICZBA	Mąka pszenna włoska Tipo 00
+src/recipes/presets-pizza-slodkie.ts:59	-	Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.
+src/recipes/presets-pizza-slodkie.ts:62	LICZBA	Mąka pszenna typ 550 (Luksusowa)
+src/recipes/presets-pizza-slodkie.ts:76	LICZBA	Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.
+src/recipes/presets-zakwas.ts:11	-	Wiejski chleb codzienny na zakwasie
+src/recipes/presets-zakwas.ts:13	-	Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.
+src/recipes/presets-zakwas.ts:16	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:31	LICZBA	Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.
+src/recipes/presets-zakwas.ts:35	LICZBA	Wiejski chleb na zakwasie, 80%
+src/recipes/presets-zakwas.ts:37	-	Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.
+src/recipes/presets-zakwas.ts:41	LICZBA	Mąka pszenna razowa typ 2000
+src/recipes/presets-zakwas.ts:55	LICZBA	Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.
+src/recipes/presets-zakwas.ts:59	-	Chleb w stylu San Francisco o wyrazistej kwasowości
+src/recipes/presets-zakwas.ts:61	-	Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.
+src/recipes/presets-zakwas.ts:64	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:79	LICZBA	Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.
+src/recipes/presets-zakwas.ts:85	-	Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.
+src/recipes/presets-zakwas.ts:88	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:89	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/recipes/presets-zakwas.ts:104	LICZBA	Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.
+src/recipes/presets-zakwas.ts:108	-	Pradawny chleb orkiszowy z prażonymi ziarnami
+src/recipes/presets-zakwas.ts:110	-	Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.
+src/recipes/presets-zakwas.ts:128	LICZBA	Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.
+src/recipes/presets-zakwas.ts:132	-	Chleb Graham z miodem i siemieniem
+src/recipes/presets-zakwas.ts:134	-	Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.
+src/recipes/presets-zakwas.ts:137	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/recipes/presets-zakwas.ts:138	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:152	LICZBA	Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.
+src/recipes/presets-zytnie.ts:11	LICZBA	Tradycyjny chleb 100% żytni razowy
+src/recipes/presets-zytnie.ts:13	-	Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.
+src/recipes/presets-zytnie.ts:30	LICZBA	Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.
+src/recipes/presets-zytnie.ts:34	-	Chleb Borodyński (Żytni na słodzie z kolendrą)
+src/recipes/presets-zytnie.ts:36	-	Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.
+src/recipes/presets-zytnie.ts:54	-	Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.
+src/scheduler/reverse-scheduler.ts:70	-	Etap "{etap}" wypada w nocy o {godzina}
+src/scheduler/reverse-scheduler.ts:93	-	Dokarmienie zakwasu (osiągnięcie szczytu)
+src/scheduler/reverse-scheduler.ts:99	-	Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.
+src/scheduler/reverse-scheduler.ts:109	-	Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.
+src/scheduler/reverse-scheduler.ts:113	-	Wymieszanie z solą i zakwasem
+src/scheduler/reverse-scheduler.ts:120	-	Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+src/scheduler/reverse-scheduler.ts:124	-	Fermentacja burzliwa ze składaniami
+src/scheduler/reverse-scheduler.ts:129	LICZBA	Wykonaj 4 serie składań co 30–45 minut.
+src/scheduler/reverse-scheduler.ts:138	-	Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.
+src/scheduler/reverse-scheduler.ts:147	-	Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.
+src/scheduler/reverse-scheduler.ts:151	-	Formowanie ostateczne i koszyk
+src/scheduler/reverse-scheduler.ts:156	-	Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.
+src/scheduler/reverse-scheduler.ts:160	-	Garowanie chłodnicze w lodówce
+src/scheduler/reverse-scheduler.ts:167	LICZBA	Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.
+src/scheduler/reverse-scheduler.ts:171	-	Nagrzewanie pieca i garnka żeliwnego
+src/scheduler/reverse-scheduler.ts:177	LICZBA	Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.
+src/scheduler/reverse-scheduler.ts:181	-	Wypiek z parą i rumienienie
+src/scheduler/reverse-scheduler.ts:186	LICZBA	Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).
+src/scheduler/reverse-scheduler.ts:200	-	Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.
+src/scheduler/reverse-scheduler.ts:302	LICZBA	Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.
+src/ui/tokeny.ts:111	LICZBA	HIG Typography, iOS Dynamic Type, Large (Default) i AX5 (odczyt 2026-10-20, developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json); punkty iOS
+src/ui/tokeny.ts:130	-	własny, skala jak Large Title
+src/ui/tokeny.ts:135	-	cyfry tabelaryczne; zawija się, nigdy nie ucina
+src/ui/tokeny.ts:180	LICZBA	od AX1: element firmowy nad tekstem (stos pionowy), przyciski pod sobą, etykiety obok spirali przenoszą się pod nią; żaden tekst nie ma limitu linii
+src/ui/tokeny.ts:185	-	hierarchia: im większy i ważniejszy obiekt, tym większy promień; listy grupowane systemowe
+src/ui/tokeny.ts:193	-	po „Zrobione”: zwój bieżący staje się gruby, znacznik przesuwa się
+src/ui/tokeny.ts:198	-	pojawienie się paska „Cofnij”, zmiana stanu przycisku
+src/ui/tokeny.ts:200	LICZBA	bez przejść: zmiana natychmiastowa; tylko przenikanie 150 ms tam, gdzie zmiana bez przejścia byłaby myląca
+src/ui/tokeny.ts:210	-	dźwięk tylko razem z haptyką; haptyka może być sama; oba wyłączalne w ustawieniach aplikacji i systemu
+app/(tabs)/(dzis)/index.tsx:175	-	Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.
+app/(tabs)/receptury/harmonogram.tsx:274	-	Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.
+app/(tabs)/receptury/harmonogram.tsx:319	-	Klasyczny chleb rzemieślniczy
+app/(tabs)/receptury/harmonogram.tsx:326	-	Najpierw ustaw godzinę, na którą zdążysz.
+app/(tabs)/receptury/receptura.tsx:277	-	Więcej działań: receptura
+app/(tabs)/zakwasy/doktor-zakwasu.tsx:34	-	Długo stał w lodówce bez dokarmiania
+app/(tabs)/zakwasy/index.tsx:162	-	Skopiowano proporcje dokarmiania do schowka
+app/doktor.tsx:118	LICZBA	Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu
+kod wyjścia: 0

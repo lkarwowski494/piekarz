@@ -1,0 +1,15 @@
+$ grep -rnE "setInterval|setTimeout" app src --include=*.ts --include=*.tsx (bez __tests__)
+app/(tabs)/receptury/harmonogram.tsx:131:    const id = setInterval(() => setTeraz(Date.now()), MINUTA_MS);
+src/components/stolnica/ProwadzenieWypieku.tsx:211:    const interval = setInterval(tick, 1000);
+src/components/PasekCofnij.tsx:34:    let czas: ReturnType<typeof setTimeout> | null = null;
+src/components/PasekCofnij.tsx:38:      czas = czytnik ? null : setTimeout(onUkryj, PASEK_COFNIJ_MS);
+src/components/QrScannerModal.tsx:35:  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+src/components/QrScannerModal.tsx:52:    timeoutRef.current = setTimeout(() => {
+src/hooks/useTekstyProwadzenia.ts:31:    const id = setInterval(() => setTik((n) => n + 1), ODSWIEZ_PO_CZASIE_MS);
+src/hooks/useKalendarz.ts:66:      const zegar = setInterval(() => ustawNow(Date.now()), MINUTA_MS);
+src/lib/platnosci/sklep.ts:90:  let zegar: ReturnType<typeof setTimeout> | undefined;
+src/lib/platnosci/sklep.ts:92:    zegar = setTimeout(() => r({ zrodlo: 'blad' }), LIMIT_ODCZYTU_SKLEPU_MS);
+src/lib/prosba-o-ocene-wywolanie.ts:43:    await new Promise<void>((done) => setTimeout(done, ZWLOKA_PO_ZAMKNIECIU_MS));
+
+$ grep -rnE "new Date\(String|new Date\(row|new Date\(r\." src app
+kod: 1

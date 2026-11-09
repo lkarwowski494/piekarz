@@ -1,0 +1,8 @@
+$ git -C /home/user/piekarz status --porcelain; git worktree list; git rev-parse HEAD
+(koniec wyniku status; kod: 0)
+/home/user/piekarz                                                                   2ef8870a [master]
+/tmp/claude-0/-home-user-piekarz/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt  c480f43e [audit-m1/piekarz-2026-11-08]
+/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-08       2ef8870a (detached HEAD)
+/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-09       2ef8870a (detached HEAD)
+/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-arch-b   2ef8870a (detached HEAD)
+2ef8870a525485cc1ac57e5abe9d97d9937dfe42

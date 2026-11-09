@@ -1,0 +1,83 @@
+$ grep -rniE "streak|seria dni|serii|odznak|badge|achievement|osiągni|ranga|rangi|poziom [0-9]|dawno|tęsknimy|wróć do|nie zapomnij|zaległ|xp\b|punkty|level" app src --include=*.ts --include=*.tsx | grep -v __tests__ | grep -v "i18n-en\|i18n/slowniki\|locales/"
+app/stolnica.tsx:3:// powiadomienia kroku albo z „Wróć do: …”), inaczej nowy wypiek z planu, inaczej jedyny trwający; przy kilku bez id
+app/(tabs)/zakwasy/index.tsx:130:  // Odznaka fazy z tego samego okna co predyktor: jeden model szczytu [M1-audytor-generalny-044]
+app/(tabs)/(dzis)/index.tsx:4:// nocy do samej góry ekranu (tytuł, data, pasek tygodnia, „Następne”, zaległe z „Zrobione”/„Pomiń”, zębatka Ustawień),
+app/(tabs)/(dzis)/index.tsx:121:  // „Otwórz” przy zaległym kroku wypieku albo starcie planu w arkuszu dnia działa jak wiersz arkusza (`przejdz`): najpierw
+src/components/stolnica/PlanWypiekuArkusz.tsx:4:// „Przerwij wypiek” w kolorze błędu z alertem [Wróć do wypieku] [Przerwij] (słownik §5).
+src/components/doktor/DiagnosisResultCard.tsx:145:            {t('Wróć do wypieku')}
+src/components/SettingsModal.tsx:88:            <HeaderButton testID={zrodla ? 'zrodla-wstecz' : 'licencje-wstecz'} title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setPodekran(null)} />
+src/components/kalendarz/GlifZdarzenia.tsx:5:// (zakładanie); zaległe: koło z wykrzyknikiem na tle ostrzeżenia. Ozdoba poza drzewem dostępności — dzień czyta etykieta.
+src/components/kalendarz/GlifZdarzenia.tsx:62:/** Glif zaległego: koło w kolorze ostrzeżenia z wykrzyknikiem (kształt + słowo „Zaległe” w tekście). */
+src/components/kalendarz/ArkuszDnia.tsx:3:// Systemowy arkusz (Modal pageSheet jak „Plan wypieku”): tytuł z datą, w dniu dzisiejszym zaległe na górze z tymi
+src/components/kalendarz/LiniaNastepne.tsx:2:// Piekarz — linia „Następne” i zaległe z „Zrobione”/„Pomiń” (BR-KAL-003; D-094, D-105; makieta roli 04 a2-03) [M3 D4b]
+src/components/kalendarz/LiniaNastepne.tsx:3:// Zaległe na początku, każde z dwoma przyciskami (≥ 44 pt), potem jedno zdanie „Następne: … · …” w kroju treści
+src/components/kalendarz/LiniaNastepne.tsx:5:// zdarzeń linii „Następne” nie ma (BR-KAL-003 „Brak przyszłych zdarzeń”). Ten sam wiersz zaległego w arkuszu dnia.
+src/components/kalendarz/LiniaNastepne.tsx:23: * Zaległy start planu: „Zrobione” otwiera plan (start albo usunięcie), bez „Pomiń” — plan nie ma kroku do pominięcia [M3 D5].
+src/components/start/PasDzis.tsx:3:// Zastępuje natywny duży tytuł: „Co dziś robisz?”, data, pasek tygodnia, „Następne” jednym zdaniem i zaległe
+src/components/start/WypiekiNaSpirali.tsx:3:// Jeden wypiek: duża Spirala z planu, krok, „zostało … do …”, „gotowe” i „Wróć do wypieku” (F-58). Dwa wypieki: jedna
+src/components/start/WypiekiNaSpirali.tsx:5:// czas i „Wróć do: {receptura}” (44 pt, cała szerokość karty). AX5: spirala dwóch torów znika, zostają karty.
+src/components/start/WypiekiNaSpirali.tsx:66:      <Pressable testID="resume-bake-btn" accessibilityRole="button" accessibilityLabel={t('Wróć do wypieku')} style={styles.glowny} onPress={() => onWroc(w.id)}>
+src/components/start/WypiekiNaSpirali.tsx:67:        <Text style={styles.glownyTekst}>{t('Wróć do wypieku')}</Text>
+src/components/start/WypiekiNaSpirali.tsx:104:        const wroc = t('Wróć do: {nazwa}', { nazwa: o.nazwa });
+src/components/zakwas/StartersSelectorRow.tsx:26:  /** Kolejny zakwas wymaga Pro (limit Basic osiągnięty, bez dostępu): przycisk z oznaczeniem „Pro” (P2-4) [M3 P-b]. */
+src/components/Spirala.tsx:3:// react-native-svg; punkty liczone raz na plan (useMemo), kolory tylko ratan, ratanSzary, nocDane, tusz, tlo
+src/components/academy/AcademyHeader.tsx:36:      {/* Akademia bez rang, odznak i paska postępu rangi (BR-NAUK-001, D-034) [M1-audytor-generalny-032] */}
+src/ui/tokeny.ts:111:  "_zrodlo": "HIG Typography, iOS Dynamic Type, Large (Default) i AX5 (odczyt 2026-10-20, developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json); punkty iOS",
+src/hooks/useStartPlanu.ts:82:    // Kilka wypieków naraz (D-092): przy jednym trwającym „Prowadź oba” (Pro, BR-KAL-016) / „Wróć do: …” / „Anuluj”,
+src/hooks/useAkcjeDzis.ts:2:// Piekarz — „Zrobione” i „Pomiń” przy zaległym na „Dziś” i w arkuszu dnia (BR-KAL-003, BR-KAL-007; D-106) [M3 D4b]
+src/hooks/useAkcjeDzis.ts:29:        // Zaległy start planu: arkusz planu ze startem (D-104) albo usunięciem [M3 D5]
+src/hooks/usePlanyDzis.ts:4:// z D-104: przy jednym trwającym „Prowadź oba” (Pro: dwa wypieki naraz, BR-KAL-016) / „Wróć do: …” / „Anuluj”, przy
+src/scheduler/reverse-scheduler.ts:93:    namePl: 'Dokarmienie zakwasu (osiągnięcie szczytu)',
+src/lib/confirm.ts:9: * Jedyny wyjątek: „Wróć do edycji” przy odrzucaniu szkicu (aby słowo „Anuluj” nie myliło).
+src/lib/confirm.ts:19:  text: t('Wróć do edycji'),
+src/lib/confirm.ts:56: * Potwierdzenie przerwania trwającego wypieku: [Wróć do wypieku] [Przerwij]
+src/lib/confirm.ts:61:    { text: t('Wróć do wypieku'), style: 'cancel' },
+src/lib/confirm.ts:74:/** „Wróć do: {nazwa}” (forma z dwukropkiem przekłada się na 34 języki, makieta 04-a2); bez nazwy „Wróć do wypieku”. */
+src/lib/confirm.ts:76:  text: w.nazwa ? t('Wróć do: {nazwa}', { nazwa: w.nazwa }) : t('Wróć do wypieku'),
+src/lib/confirm.ts:81: * „Zacznij wypiek” przy jednym trwającym wypieku: [Prowadź oba] (domyślne) [Wróć do: {nazwa}] [Anuluj]. Kilka wypieków
+src/lib/kalendarz-teksty.ts:2:// Piekarz — teksty kalendarza: zdanie „Następne” z „·”, „Zaległe”, opis zdarzenia i etykiety VoiceOver
+src/lib/kalendarz-teksty.ts:62:/** Godzina zaległego: dziś sama godzina, inny dzień — dzień i miesiąc z godziną (RD-32-W5: „22.10 08:00”). */
+src/lib/kalendarz-teksty.ts:70:const pozycjaZalegla = (z: ZdarzenieKalendarza, o: OpcjeTekstu) => t('Zaległe: {co} ({h})', { co: opisZdarzenia(z, o), h: godzinaZaleglego(z.at, o.now) });
+src/lib/kalendarz-teksty.ts:73:  /** „Zaległe: {co} ({h})” — każde osobno, na początku linii. */
+src/lib/kalendarz-teksty.ts:79:  /** Etykieta VoiceOver linii: zaległe i pełna lista przyszłych (bez ukrywania pod „+N”). */
+src/lib/kalendarz-teksty.ts:85:/** Teksty linii „Następne” (D-094): zaległe, jedno zdanie z „·”, „+N” i etykiety VoiceOver (BR-KAL-003 Czytnik ekranu). */
+src/lib/kalendarz-teksty.ts:100: * Zaległy krok wypieku: przycisk otwiera Stolnicę albo arkusz planu, kroku nie odhacza, więc mówi „Otwórz”
+src/lib/kalendarz-teksty.ts:105:/** Etykiety VoiceOver przycisków przy zaległym: „{co} z {h}: zrobione” (wypiek: „{co} z {h}: otwórz”) i „Pomiń {co} z {h}”. */
+src/lib/kalendarz-teksty.ts:124: * godzin (zaległe ze słowem „Zaległe”, piekarnik zajęty na początku, makieta `piekarnik-3-kalendarz`, BR-KAL-016
+src/lib/kalendarz-teksty.ts:157:/** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” (krok wypieku: „Otwórz”, 007 b) i „Pomiń”. */
+src/lib/kalendarz-akcje.ts:2:// Piekarz — „Zrobione” i „Pomiń” przy zaległym z „Dziś” (BR-KAL-003, BR-KAL-007; D-094, D-106) [M3 D4b]
+src/lib/kalendarz-akcje.ts:26:/** „Zrobione” przy zaległym karmieniu: zapis dokarmienia (następny termin od niego, RD-25). Zwraca wpis do cofnięcia. */
+src/lib/kalendarz-akcje.ts:34:/** „Przywróć” po „Zrobione”: usunięcie tego jednego wpisu (zaległe wraca, jeśli termin nadal minął). */
+src/lib/kalendarz-akcje.ts:40:/** „Pomiń” przy zaległym karmieniu: decyzja z chwilą pominięcia (D-094). */
+src/lib/kalendarz-akcje.ts:49: * „Pomiń” przy zaległym kroku wypieku (BR-KAL-003 „Pomiń krok wypieku”): wypiek przechodzi do następnego kroku tak
+src/lib/i18n.ts:228: * inaczej -> many (np. 0 minut, 5 minut, 12 minut, 112 minut, 5 serii)
+src/lib/kalendarz-pasek.ts:55: * `piekarnik-3-kalendarz`, BR-KAL-016) [M3 D6]. Krok planu niezaczętego = spirala kropkowana („plan”, PRZ-13). Zaległe ma osobny glif (koło z wykrzyknikiem).
+src/lib/kalendarz-pasek.ts:83:/** Glify dnia w kolejności czasu bez powtórzeń (najwyżej MAKS_GLIFOW_DNIA) i to, czy dzień ma zaległe. */
+src/lib/notifications.ts:131:      // Po „Pomiń” zaległego karmienia termin liczy się od chwili pominięcia, jak w kalendarzu (D-094) [M3 D4a]
+src/lib/spirala-geometria.ts:3:// Czyste funkcje bez telefonu: punkty spirali liczone raz na plan (ukladSpirali), stan kroków
+src/lib/spirala-geometria.ts:102:/** Punkty spirali Archimedesa i granice kroków; liczone raz na plan (długość łuku ∝ czas kroku). */
+src/core/kalendarz-zdarzenia.ts:18:/** Stan zdarzenia: zrobione (przeszłość), trwa (bieżący krok, dzień zakładania dziś), zaplanowane (przyszłe albo zaległe). */
+src/core/kalendarz-zdarzenia.ts:146: * i „gotowe” na końcu ostatniego kroku. Zaległe może być tylko przejście: krok, który powinien się już zacząć, albo
+src/core/kalendarz-zdarzenia.ts:179: * terminie (krok 1 ≤ teraz) jest zaległy, aż użytkownik zacznie albo usunie plan; dalsze kroki przesunie start [M3 D5].
+src/core/kalendarz-zdarzenia.ts:221: * termin ≤ teraz to „Zaległe” (RD-32). Stały dzień: w zakresie także kolejne dni co tydzień (BR-KAL-010).
+src/core/notification-plan.ts:93:  /** Ostatnie „Pomiń” zaległego karmienia (D-094): następny termin liczy się od tej chwili, gdy jest po dokarmieniu [M3 D4a]. */
+src/core/kalendarz-config.ts:5:/** Linia „Następne”: najwyżej 3 pozycje przyszłe; „Zaległe” ponad limit, reszta pod „+N” (D-094, OP-59, RD-32). */
+src/core/kalendarz-config.ts:21: * Przesunięcie palcem w bok o co najmniej tyle punktów (i bardziej w bok niż w pionie) zmienia tydzień albo miesiąc
+src/core/pominiecia.ts:2:// Piekarz — decyzje „Pomiń” przy zaległym karmieniu jako czyste funkcje (BR-KAL-003, BR-KAL-007, D-094) [M3 D4a]
+src/core/pominiecia.ts:4:// Zaległy krok wypieku nie ma zapisu: „Pomiń” przesuwa wypiek istniejącą ścieżką kroku (STOP 3, Aktualizacja 4).
+src/core/sourdough-physics.ts:92: * (przed / w oknie / po), więc odznaka i komunikat predyktora nie mogą sobie przeczyć. Teksty dosłownie
+src/core/kalendarz-nastepne.ts:3:// Czyste funkcje nad wynikiem zdarzeniaKalendarza; „Zaległe” zawsze na początku i ponad limit, po jednym najbliższym
+src/core/kalendarz-nastepne.ts:12:  /** Zaległe od najstarszego, wszystkie (bez limitu). */
+src/core/kalendarz-nastepne.ts:14:  /** Pozycje przyszłe pokazane w linii (najwyżej limit − liczba zaległych). */
+src/core/kalendarz-nastepne.ts:18:  /** Najbliższe przyszłe zdarzenie każdego źródła bez zaległego, według czasu (pełna lista dla VoiceOver). */
+src/core/kalendarz-nastepne.ts:30: * Linia „Następne” według RD-32: Z = zaległe (termin ≤ teraz, bez „Zrobione” i „Pomiń”), wszystkie od najstarszego;
+src/core/kalendarz-nastepne.ts:31: * P = po jednym najbliższym przyszłym zdarzeniu z każdego źródła bez zaległego; linia = Z, potem pierwsze
+src/core/kalendarz-nastepne.ts:47:/** Arkusz dnia: zdarzenia dnia w kolejności godzin; w dniu dzisiejszym „Zaległe” osobno na górze (BR-KAL-004). */
+src/core/kalendarz-nastepne.ts:56:/** Arkusz najbliższych z „+N”: zaległe i przyszłe zdarzenia wszystkich źródeł z najbliższych dni, po dniach (BR-KAL-004). */
+src/core/kalendarz-nastepne.ts:75:  /** Dzień ma zaległe zdarzenie (glif ostrzeżenia). */
+src/core/kalendarz-nastepne.ts:82: * Znaczniki dni paska (BR-KAL-002): dla każdego klucza dnia rodzaje zdarzeń, zaległe i ciąg wypieku. Wypiek przez noc
+src/core/plany-wypiekow.ts:73:/** Czas startu nadszedł (start ≤ teraz): plan można zacząć, a w „Następne” jest zaległy. */
+src/core/bread-school-lessons.ts:82:      'Dokarm zakwas w proporcji 1:2:2 i odczekaj do osiągnięcia szczytu (podwojenie objętości, wypukła kopuła).',
+src/core/techniques/prep-ferment-techniques.ts:65:      'Flouring hands which incorporates unhydrated dry flour streaks into crumb.',
+src/core/techniques/prep-ferment-techniques.ts:162:      'Zbyt wczesna laminacja, zanim gluten osiągnie odpowiednią elastyczność.',
+kod: 0

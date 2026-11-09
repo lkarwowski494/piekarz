@@ -1,0 +1,51 @@
+$ git log --format="%h %ad %s" --date=short --since=2026-10-20 -- docs/scope-contract.md
+119eda37 2026-11-03 [M3 01] docs(brd): ER-77 - tryb maszyny do chleba F-72: J-16, PR-25, BR-MASZ-001…006, RD-37…RD-39 (D-153, D-156, D-175, D-179, D-152); D-189
+cb436f2a 2026-11-03 [M3 01] docs(brd): ER-76 - BR-RECP-005 przełącznik „na zakwasie / na drożdżach” w recepturze (D-154, D-173, D-178, D-152)
+b22b59c1 2026-11-03 [M3 01] docs(brd): ER-75 - BR-KALK-012 wybór rodzaju drożdży przy wierszu „Do miski” (D-136, D-152); D-187, D-188
+f7e57626 2026-11-03 [M3] merge: zakres/1.0-2026-11-03 @ ad9c454 (poprawka D-157) do redesign
+kod: 0
+
+$ git log --format="%h %ad %s" --date=short --since=2026-10-20 --diff-filter=A --name-only -- app/ src/components/kalendarz src/components/start src/core/kalendarz-zdarzenia.ts src/core/piekarnik.ts src/core/plan-ics.ts src/lib/kalendarz-telefonu.ts src/recipes/maszyna-receptur.ts src/recipes/wersje-drozdzowe.ts
+92829a62 2026-11-04 [M3 p9b2] logika trybu maszyny: RD-37, RD-38, RD-39, kolejność i godzina startu
+
+src/recipes/maszyna-receptur.ts
+68129e40 2026-11-04 [M3 p9b] przełącznik wersji drożdżowej na recepturze i kroki planu drożdżowego (D-154, D-155, D-173, D-174)
+
+src/recipes/wersje-drozdzowe.ts
+7eb0c296 2026-11-03 [M3 p1] stan: wyjatek D-166 (verify czerwony tylko przez osiagalnosc-149), push na wip/08-p1p2-2026-11-03
+
+app/(tabs)/(dzis)/_layout.tsx
+app/(tabs)/(dzis)/index.tsx
+app/(tabs)/_layout.tsx
+app/(tabs)/dziennik/_layout.tsx
+app/(tabs)/dziennik/index.tsx
+app/(tabs)/receptury/_layout.tsx
+app/(tabs)/receptury/harmonogram.tsx
+app/(tabs)/receptury/index.tsx
+app/(tabs)/receptury/receptura.tsx
+app/(tabs)/zakwasy/_layout.tsx
+app/(tabs)/zakwasy/doktor-zakwasu.tsx
+app/(tabs)/zakwasy/index.tsx
+app/_layout.tsx
+app/doktor.tsx
+app/stolnica.tsx
+src/components/kalendarz/ArkuszDnia.tsx
+src/components/kalendarz/GlifZdarzenia.tsx
+src/components/kalendarz/LiniaNastepne.tsx
+src/components/kalendarz/LiniaPiekarnika.tsx
+src/components/kalendarz/MiesiacKalendarza.tsx
+src/components/kalendarz/NawigacjaKalendarza.tsx
+src/components/kalendarz/PasekTygodnia.tsx
+src/components/kalendarz/WierszDniaAx5.tsx
+src/components/start/ArkuszPlanu.tsx
+src/components/start/IkonaStartu.tsx
+src/components/start/PasDzis.tsx
+src/components/start/PlanyWypiekow.tsx
+src/components/start/UprzedzenieKoncaPro.tsx
+src/components/start/WyborCzynnosci.tsx
+src/components/start/WypiekiNaSpirali.tsx
+src/core/kalendarz-zdarzenia.ts
+src/core/piekarnik.ts
+src/core/plan-ics.ts
+src/lib/kalendarz-telefonu.ts
+kod: 0

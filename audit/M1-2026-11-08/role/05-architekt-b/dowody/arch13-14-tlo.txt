@@ -1,0 +1,20 @@
+$ grep -rn "beginBackgroundTask\|AppState" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/stolnica/ProwadzenieWypieku.tsx:9:  AppState,
+src/components/stolnica/ProwadzenieWypieku.tsx:212:    const sub = AppState.addEventListener('change', (st) => {
+src/components/start/UprzedzenieKoncaPro.tsx:10:import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
+src/components/start/UprzedzenieKoncaPro.tsx:48:    const tlo = AppState.addEventListener('change', (s) => {
+src/lib/platnosci/stan.ts:8:import { AppState } from 'react-native';
+src/lib/platnosci/stan.ts:135:  const powrot = AppState.addEventListener('change', (s) => {
+app/_layout.tsx:4:import { StatusBar, AppState, View, StyleSheet } from 'react-native';
+app/_layout.tsx:88:    const appState = AppState.addEventListener('change', (s) => {
+kod: 0
+
+$ grep -rn "setInterval\|setTimeout" src/components/stolnica src/hooks src/lib/notifications.ts (odliczanie)
+src/components/stolnica/ProwadzenieWypieku.tsx:211:    const interval = setInterval(tick, 1000);
+src/hooks/useTekstyProwadzenia.ts:31:    const id = setInterval(() => setTik((n) => n + 1), ODSWIEZ_PO_CZASIE_MS);
+src/hooks/useKalendarz.ts:66:      const zegar = setInterval(() => ustawNow(Date.now()), MINUTA_MS);
+kod: 0
+
+$ grep -n "SchedulableTriggerInputTypes" src/lib/notifications.ts
+169:          trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: p.triggerAt },
+kod: 0

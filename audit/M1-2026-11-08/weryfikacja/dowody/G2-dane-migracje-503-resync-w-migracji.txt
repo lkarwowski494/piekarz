@@ -1,0 +1,266 @@
+# Sonda 05-architekt-503 na kopii bazy 1021 (worktree 2ef8870a w scratchpadzie, plik sondy poza repo: src/data/__tests__/sonda-g2-503b.sqlite.test.ts w worktree)
+# Komenda: npx jest src/data/__tests__/sonda-g2-503b.sqlite.test.ts
+# Treść sondy:
+# | /** Sonda G2 05-architekt-503 (b): kolejność zapytań resync i initDatabase na jednym połączeniu. */
+# | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+# | import * as Notifications from 'expo-notifications';
+# | import { useTempDbDir, restartApp, dbFilePath } from './helpers/node-sqlite-adapter';
+# | import { zalozBaze1021 } from './helpers/baza-1021';
+# | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+# | const notif = (Notifications as unknown as { __mock: { iosStatus: number; pending: Map<string, unknown> } }).__mock;
+# | const tick = () => new Promise((r) => setImmediate(r));
+# | it.each([[0, 0], [0, 50], [3, 50], [8, 50]])('log zapytań, resync po %i tickach, VACUUM INTO +%i ms', async (k, opoznij) => {
+# |   useTempDbDir();
+# |   notif.iosStatus = 2;
+# |   notif.pending.clear();
+# |   zalozBaze1021(APP_DB());
+# |   const app = restartApp();
+# |   const n = require('../../lib/notifications') as typeof import('../../lib/notifications');
+# |   const db = (await app.schema.getDb()) as unknown as Record<string, (...a: unknown[]) => Promise<unknown>>;
+# |   const log: string[] = [];
+# |   for (const f of ['execAsync', 'runAsync', 'getAllAsync', 'getFirstAsync']) {
+# |     const o = db[f].bind(db);
+# |     db[f] = async (...a: unknown[]) => {
+# |       const s = String(a[0]).replace(/\s+/g, ' ').trim().slice(0, 70);
+# |       if (opoznij && /VACUUM INTO/.test(s)) await new Promise((r) => setTimeout(r, opoznij));
+# |       try { const r = await o(...a); log.push(`${f}: ${s}`); return r; } catch (e) { log.push(`BŁĄD ${f}: ${s} -> ${(e as Error).message}`); throw e; }
+# |     };
+# |   }
+# |   const init = app.schema.initDatabase();
+# |   for (let i = 0; i < k; i++) await tick();
+# |   log.push('--- start resync');
+# |   const r = n.resyncNotifications().then((x) => { log.push(`--- koniec resync ${JSON.stringify(x)}`); });
+# |   await init.then(() => log.push('--- koniec initDatabase'));
+# |   await r;
+# |   const stan = app.status.getStorageState(); const blad = app.status.getStorageError();
+# |   let poRetry = '-';
+# |   if (stan === 'unavailable') { app.status.resetStorageState('initializing'); await app.schema.initDatabase(); poRetry = app.status.getStorageState(); }
+# |   // eslint-disable-next-line no-console
+# |   console.log(`k=${k} opoznienieVacuum=${opoznij}ms stan=${stan} blad=${blad} stanPoSprobujPonownie=${poRetry}\n` + log.join('\n'));
+# | });
+  console.log
+    k=0 opoznienieVacuum=0ms stan=ok blad=null stanPoSprobujPonownie=-
+    --- start resync
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    runAsync: VACUUM INTO ?;
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    execAsync: BEGIN TRANSACTION;
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getAllAsync: PRAGMA table_info(bakes);
+    execAsync: ALTER TABLE bakes ADD COLUMN leaven TEXT CHECK (leaven IS NULL OR leav
+    execAsync: ALTER TABLE bakes ADD COLUMN bake_method TEXT CHECK (bake_method IS NU
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    runAsync: INSERT INTO schema_migrations (version, applied_at, description) VALUE
+    execAsync: PRAGMA user_version = 7;
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    execAsync: COMMIT;
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    getAllAsync: SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_d
+    getAllAsync: SELECT key, value FROM app_settings WHERE key IN (?, ?, ?, ?, ?, ?, ?,
+    getAllAsync: SELECT id, recipe_name as recipeName, started_at as startedAt, finishe
+    getAllAsync: SELECT * FROM recipes ORDER BY created_at ASC;
+    getAllAsync: SELECT id, starter_id AS starterId, kind, occurred_at AS occurredAt, f
+    getAllAsync: SELECT id, name, stock_grams as stockGrams, brand, protein_pct as prot
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    getAllAsync: SELECT level_id, completed_at FROM lesson_progress ORDER BY level_id A
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    --- koniec resync {"status":"granted","ok":true}
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    --- koniec initDatabase
+  console.log
+    k=0 opoznienieVacuum=50ms stan=unavailable blad=Error: no such column: leaven stanPoSprobujPonownie=ok
+    --- start resync
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getAllAsync: SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_d
+    getAllAsync: SELECT key, value FROM app_settings WHERE key IN (?, ?, ?, ?, ?, ?, ?,
+    BŁĄD getAllAsync: SELECT id, recipe_name as recipeName, started_at as startedAt, finishe -> no such column: leaven
+    getAllAsync: SELECT * FROM recipes ORDER BY created_at ASC;
+    getAllAsync: SELECT id, starter_id AS starterId, kind, occurred_at AS occurredAt, f
+    getAllAsync: SELECT id, name, stock_grams as stockGrams, brand, protein_pct as prot
+    getAllAsync: SELECT level_id, completed_at FROM lesson_progress ORDER BY level_id A
+    --- koniec resync {"status":"granted","ok":false}
+    runAsync: VACUUM INTO ?;
+    execAsync: BEGIN TRANSACTION;
+    getAllAsync: PRAGMA table_info(bakes);
+    execAsync: ALTER TABLE bakes ADD COLUMN leaven TEXT CHECK (leaven IS NULL OR leav
+    execAsync: ALTER TABLE bakes ADD COLUMN bake_method TEXT CHECK (bake_method IS NU
+    runAsync: INSERT INTO schema_migrations (version, applied_at, description) VALUE
+    execAsync: PRAGMA user_version = 7;
+    execAsync: COMMIT;
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    --- koniec initDatabase
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+  console.log
+    k=3 opoznienieVacuum=50ms stan=unavailable blad=Error: no such column: leaven stanPoSprobujPonownie=ok
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    --- start resync
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getAllAsync: SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_d
+    getAllAsync: SELECT key, value FROM app_settings WHERE key IN (?, ?, ?, ?, ?, ?, ?,
+    BŁĄD getAllAsync: SELECT id, recipe_name as recipeName, started_at as startedAt, finishe -> no such column: leaven
+    getAllAsync: SELECT * FROM recipes ORDER BY created_at ASC;
+    getAllAsync: SELECT id, starter_id AS starterId, kind, occurred_at AS occurredAt, f
+    getAllAsync: SELECT id, name, stock_grams as stockGrams, brand, protein_pct as prot
+    getAllAsync: SELECT level_id, completed_at FROM lesson_progress ORDER BY level_id A
+    --- koniec resync {"status":"granted","ok":false}
+    runAsync: VACUUM INTO ?;
+    execAsync: BEGIN TRANSACTION;
+    getAllAsync: PRAGMA table_info(bakes);
+    execAsync: ALTER TABLE bakes ADD COLUMN leaven TEXT CHECK (leaven IS NULL OR leav
+    execAsync: ALTER TABLE bakes ADD COLUMN bake_method TEXT CHECK (bake_method IS NU
+    runAsync: INSERT INTO schema_migrations (version, applied_at, description) VALUE
+    execAsync: PRAGMA user_version = 7;
+    execAsync: COMMIT;
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    --- koniec initDatabase
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+  console.log
+    k=8 opoznienieVacuum=50ms stan=unavailable blad=Error: no such column: leaven stanPoSprobujPonownie=ok
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    --- start resync
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getAllAsync: SELECT id, status, session_json, created_at, updated_at FROM bake_sess
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getFirstAsync: SELECT value FROM app_settings WHERE key = ?;
+    getAllAsync: SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_d
+    getAllAsync: SELECT key, value FROM app_settings WHERE key IN (?, ?, ?, ?, ?, ?, ?,
+    BŁĄD getAllAsync: SELECT id, recipe_name as recipeName, started_at as startedAt, finishe -> no such column: leaven
+    getAllAsync: SELECT * FROM recipes ORDER BY created_at ASC;
+    getAllAsync: SELECT id, starter_id AS starterId, kind, occurred_at AS occurredAt, f
+    getAllAsync: SELECT id, name, stock_grams as stockGrams, brand, protein_pct as prot
+    getAllAsync: SELECT level_id, completed_at FROM lesson_progress ORDER BY level_id A
+    --- koniec resync {"status":"granted","ok":false}
+    runAsync: VACUUM INTO ?;
+    execAsync: BEGIN TRANSACTION;
+    getAllAsync: PRAGMA table_info(bakes);
+    execAsync: ALTER TABLE bakes ADD COLUMN leaven TEXT CHECK (leaven IS NULL OR leav
+    execAsync: ALTER TABLE bakes ADD COLUMN bake_method TEXT CHECK (bake_method IS NU
+    runAsync: INSERT INTO schema_migrations (version, applied_at, description) VALUE
+    execAsync: PRAGMA user_version = 7;
+    execAsync: COMMIT;
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    --- koniec initDatabase
+    getFirstAsync: PRAGMA user_version;
+    execAsync: PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeo
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+    runAsync: INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, not
+PASS src/data/__tests__/sonda-g2-503b.sqlite.test.ts
+  ✓ log zapytań, resync po 0 tickach, VACUUM INTO +0 ms (272 ms)
+  ✓ log zapytań, resync po 0 tickach, VACUUM INTO +50 ms (76 ms)
+  ✓ log zapytań, resync po 3 tickach, VACUUM INTO +50 ms (83 ms)
+  ✓ log zapytań, resync po 8 tickach, VACUUM INTO +50 ms (82 ms)
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        1.153 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-g2-503b.sqlite.test.ts/i.
+kod wyjścia: 0

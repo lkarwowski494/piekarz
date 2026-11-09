@@ -1,0 +1,221 @@
+9:### [D-035] 2026-10-19 — Hierarchia źródeł dla BRD (sztafeta, rola 01 build)
+23:### [D-036] 2026-10-19 — Kontekst użycia bez rozmów z użytkownikami przed E3
+30:### [D-037] 2026-10-19 — E2 roli 01 bez nowego skanu rynku i polityk App Store (wyjątek nazwany)
+38:### [D-038] 2026-10-19 — Model płatności stały: DEC-01 (d) słowami właściciela (rola 02 build, sesja 2)
+46:### [D-039] 2026-10-19 — Wykonanie podziału DEC-01 (d): import, uprzedzenie, trwający wypiek, Family Sharing (rola 02 build, STOP E1)
+53:### [D-040] 2026-10-19 — Apetyt wersji 1: ok. 60 h czasu właściciela; praca na decyzji o pełnym eksperymencie (rola 03 build, STOP E0)
+60:### [D-041] 2026-10-20 — Pominięcia ER-44…ER-46 najpierw w BRD, potem cięcie (rola 03 build, STOP E1)
+67:### [D-042] 2026-10-20 — Udany wypiek dla prośby o ocenę aplikacji: co najmniej 4★
+74:### [D-043] 2026-10-20 — Zakres wersji 1: wariant B, jedna aplikacja, aktualizacje co kwartał (rola 03 build, STOP E2)
+82:### [D-044] 2026-10-20 — Domyślne jednostki według regionu telefonu (zadanie M1-audytor-generalny-096)
+89:### [D-045] 2026-10-20 — Nowa szata zastępuje DEC-07 (a): jasny i ciemny motyw według ustawienia iOS (rola 04 build, STOP E0)
+96:### [D-046] 2026-10-20 — Własne tokeny Piekarza; `@apps4craft/ui` tylko dla komponentów technicznych (rola 04 build, STOP E0)
+103:### [D-047] 2026-10-20 — Oferta przy pierwszej akcji w przepływie, nie zaraz po wyborze na starcie (rola 04 build, STOP E0)
+110:### [D-048] 2026-10-20 — Najdłuższy język z pomiaru: roboczy przekład tekstów makiet przez Message Batches (rola 04 build, STOP E0)
+118:### [D-049] 2026-10-20 — Kierunek wizualny: A „Koszyk spiralny” (rola 04 build, E2)
+125:### [D-050] 2026-10-20 — Krój tytułów: Sofia Sans Semi Condensed (rola 04 build, po E2)
+132:### [D-051] 2026-10-20 — System E3: usuwanie z „Cofnij”, 4 zakładki, jeden wybór jednostek, akcent „noc” na przycisku (rola 04 build, STOP E3)
+140:### [D-052] 2026-10-20 — Plan obudzenia zakwasu z lodówki: jedno dokarmienie 12 h przed mieszaniem (M2 partia 5, zadanie M1-audytor-generalny-104, D-104-
+147:### [D-053] 2026-10-20 — Nazwa w sklepie: lokalna nazwa w każdym języku, po angielsku „Baker: Sourdough Bread Planner” (M5 widoczność w sklepie, S
+155:### [D-054] 2026-10-20 — 34 lokalizacje strony App Store i reguła prawdy (M5, STOP 2: D4 a)
+162:### [D-055] 2026-10-20 — Kategoria bez zmian, kolejność zrzutów, „sourdough” w polskich słowach, hipotezy pomiaru (M5, STOP 2: D3 a, D5 a, D6 a)
+169:### [D-056] 2026-10-20 — Licencja repo: wszelkie prawa zastrzeżone (M2 p7, zadanie 035, opcja (a) roli 10)
+177:### [D-057] 2026-10-21 — Dostępność 1.0: 174 storefronty bez Chin kontynentalnych (M2 p7, zadanie 119, potwierdzona 2026-10-21)
+184:### [D-058] 2026-10-21 — Kategoria wiekowa: „Guns or Other Weapons” = Infrequent (nóż i żyletka kuchenna), oczekiwane 9+ (M2 p7, zadanie 119, potwi
+191:### [D-059] 2026-10-21 — Minimalny iOS 18.0 (przeniesienie DEC-06 BRD 00b do obowiązującego rejestru; M2 tor p10a, zadanie 077)
+198:### [D-060] 2026-10-21 — Pâte fermentée liczona z przykładu BBGA: 75% wody, 1% drożdży, 2% soli (M2 tor p9a, zadanie 131; wpis dopisany na gałęzi i
+205:### [D-065] 2026-10-21 — Opisy produktów zakupu różnicujące plany (en-US, pl) i numer wersji 1.0.0 w App Store Connect (M2 tor p8c, zadanie 186)
+213:### [D-066] 2026-10-21 — Kryteria BRD głównego przepływu z wyborem (zadanie 130): godziny snu w Ustawieniach, pięć zmian BRD, zakres reszty (M2 tor p
+220:### [D-061] 2026-10-21 — Karta „Do miski” z zaczynem: zaczyn jako część formuły, drożdże i sól zaczynu w masie docelowej, zakwas liczony raz (M
+233:### [D-063] 2026-10-21 — Ekran zakupu „Piekarz Pro” w nowej szacie; plakietka „APPS4CRAFT PASS” uchylona (DEC-17 a, zadanie M1-audytor-generalny-1
+240:### [D-067] 2026-10-22 — Prośba o ocenę aplikacji po 3. ukończonym wypieku, bez warunku oceny bochenka, z odstępem 14 dni (DEC-20 a; uchyla próg 4★
+248:### [D-068] 2026-10-22 — Zakwas w lodówce: jedno powiadomienie na cykl karmienia (termin 7 dni) i przełącznik „Przypomnienia o karmieniu” w Ustawie
+255:### Uzupełnienie D-060 (2026-10-21, M2 tor p12b2, zadanie M1-audytor-generalny-206) — zakres przykładu BBGA
+261:### [D-069] 2026-10-22 — Reszta kryteriów liczenia z zadania 130: pole hydratacji zakwasu z przycięciem (ER-58), informacja o soli w procentach (ER-59),
+268:### [D-070] 2026-10-22 — „Piecz ponownie” otwiera plan z notatką (BR-RECP-003 według BRD), pola temperatur do temperatury wody (BR-KALK-004), lekcje
+275:### [D-071] 2026-10-22 — Wypiek zaczęty przed godziną startu planu czeka do niej (audyt niezależny D-5, wariant b) (M2 tor p15a)
+282:### [D-072] 2026-10-22 — Plan wypieku tylko dla receptur na zakwasie (audyt niezależny D-3, minimum b) (M2 tor p15a)
+289:### [D-073] 2026-10-22 — Kroki bierne z rękami na starcie w ochronie snu (audyt niezależny D-6, ★a) (M2 tor p15a)
+296:### [D-074] 2026-10-22 — Plan żytni bez przełącznika lodówki; czasy żyta z receptury czekają na źródło (audyt niezależny D-7, wariant b) (M2 tor
+303:### [D-075] 2026-10-22 — Plan z „Ułóż plan” bierze temperaturę kuchni z receptury (audyt niezależny D-4, reszta po p13b) (M2 tor p15a)
+310:### [D-076] 2026-10-22 — Ekran zakupu i start płatności według audytu niezależnego (A-3 b, C-3, C-4, C-5, C-6, C-7) (M2 tor p15a)
+317:### [D-081] 2026-10-22 — Link „Oceń w App Store” zostaje widoczny przed wydaniem (audyt niezależny A-7) (M2 tor p15b)
+324:### [D-082] 2026-10-22 — „Usuń wszystkie dane” nie kasuje kopii zapasowych w Plikach; okno potwierdzenia mówi, gdzie są (audyt niezależny B-4) (M2
+330:### [D-083] 2026-10-22 — Pasek „Cofnij” bez limitu czasu przy włączonym czytniku ekranu (audyt niezależny B-9, WCAG 2.2.1) (M2 tor p15b)
+335:### [D-084] 2026-10-22 — Kontrola bezpieczeństwa zakwasu dostępna bez zakupu (audyt niezależny E-1) (M2 tor p15b)
+340:### [D-085] 2026-10-22 — Szacunek białka mieszanki mąk ukryty do czasu źródła (audyt niezależny E-7) (M2 tor p15b)
+345:### [D-086] 2026-10-22 — Serbski w łacince (sr-Latn) z cyrylicznego słownika sr przez transliterację; folder „kopie-ratunkowe” bez zmiany nazwy; hr
+350:### [D-087] 2026-10-22 — Podpisy zakładek skalują się z Dynamic Type do 1,5×, bez limitu linii i bez zmniejszania kroju (audyt niezależny G-9; zmiana
+356:### [D-088] 2026-10-22 — expo-audio bez uprawnienia mikrofonu i bez odtwarzania w tle (audyt niezależny, ryzyko ITMS-90683) (M2 tor p15b)
+361:### [D-089] 2026-10-22 — Przy ocenie wypieku ≤ 2★ prośba o ocenę aplikacji po propozycji Doktora, nie razem z nią (reaudyt nocny N-12, wariant c; z
+369:### [D-090] 2026-10-22 — Dzień i tydzień kalendarza liczone lokalnie, pierwszy dzień tygodnia z ustawień i regionu (rola 01 build, badanie kalendarza)
+377:### [D-091] 2026-10-22 — Pytanie przy starcie drugiego wypieku: nazwa trwającego i „Przerwij” bez wpisu w dzienniku (rola 01, ER-65; M3 a1b)
+385:### [D-092] 2026-10-22 — Kilka planów i wypieków naraz, pełny kalendarz, F-71 i odłożone poprawki w 1.0 (zmienia D-034 / ZM-10) (M3 Redesigner, STOP 
+393:### [D-093] 2026-10-22 — Numer dnia zakładania liczony dniami kalendarza; D-13: koniec o 3:30 z komunikatem; terminy w dniach dodawane kalendarzowo (zmie
+402:### [D-094] 2026-10-22 — Linia „Następne”: 3 pozycje przyszłe, „Pomiń” od chwili pominięcia, poza kopią; dwa wypieki jako jedna spirala z dwo
+409:### [D-095] 2026-10-22 — Protokoły ratunkowe Doktora (F-71) tylko ze źródłami: ratunek przerośniętego ciasta przez ponowne formowanie, bez receptury
+416:### [D-096] 2026-10-22 — F-71 (ratunek ciasta) w MVP 1.0: BR-DIAG-003…005, ZM-23, powrót z ZM-19 spełniony (rola 01)
+423:### [D-097] 2026-10-22 — Presety drożdżowe: procent drożdży świeżych i harmonogram ze źródła; pizza „w stylu neapolitańskim” zamiast „Vera
+431:### [D-100] 2026-10-22 — Rodzaj drożdży do odważenia: procent w recepturze to drożdże świeże, wybór „świeże / suche” w arkuszu „Składniki
+440:### [D-101] 2026-10-22 — rodzaj_drozdzy w kopii zapasowej (zmienia D-100) (M3 D1, decyzja D1-3)
+447:### [D-102] 2026-10-22 — Dane wielu wypieków: tabela bake_sessions, migracja v6 z kopią i plikiem ratunkowym, recipe_id we wpisie, stały dzień karmien
+455:### [D-103] 2026-10-22 — Powiadomienia wielu wypieków: identyfikatory z id wypieku, nazwa w treści przy dwóch, limit 40 z priorytetem, stały dzień ka
+463:### [D-104] 2026-10-22 — Wiele wypieków per id: pytanie przy starcie „Prowadź oba / Wróć do / Anuluj” zamiast a1b, Stolnica wybranego wypieku, „
+474:### [D-105] 2026-10-22 — Ekran „Dziś”: wariant 3+1 (pas nocy u góry, spirala z dwoma torami pod kaflami) (M3 a2, wybór okiem)
+481:### [D-106] 2026-10-22 — Logika kalendarza 1.0: zdarzenia z istniejących danych, „Zaległe” tylko dla przejścia kroku i terminu karmienia, „Pomiń
+488:### [D-107] 2026-10-22 — Ekrany „Dziś” 3+1 i kalendarza 1.0: wykonanie D-105/D-106, termin karmienia w zakładaniu jak karta, przegląd roli 04 z D3a
+495:### [D-108] 2026-10-22 — Plany na przyszłe dni: zasięg dnia „gotowe” 14 dni, lista planów na „Dziś”, skrót z arkusza dnia także przy trwają
+502:### [D-109] 2026-10-22 — Piekarnik zajęty: pytanie systemowe zamiast ramki w arkuszu, „Przesuń start” przy starcie zapisuje plan, plan bez nagrzewan
+509:### [D-110] 2026-10-22 — Właściciel otwiera badanie zmiany modelu płatności (D-038): V1, V2 bez automatycznego odnawiania wobec D-038 (rola 02 build, 
+516:### [D-111] 2026-10-22 — Rodzaje darmowych limitów Piekarza: dni wypieku w miesiącu, własne receptury, zakwasy; Pro zdejmuje wszystkie (rola 02 build, 
+525:### [D-112] 2026-10-22 — Model Piekarza: Basic za darmo na zawsze, Pro jako subskrypcja (miesięczna, roczna) albo dożywotni, bez próby; drugi model por
+534:### [D-113] 2026-10-22 — Prowadzenie zakwasu w Pro; założenie pierwszego zakwasu w Basic; po wygaśnięciu Pro przypomnienia ustają po uprzedzeniu (rol
+544:### [D-114] 2026-10-22 — Rozszerzenia kalendarza: tydzień strzałkami i gestem, miesiąc na pasie „Dziś”, propozycja dnia z rytmu Dziennika, stały 
+551:### [D-115] 2026-10-22 — Plan w kalendarzu telefonu: jeden plik .ics na cały plan przez arkusz udostępniania, bez modułu kalendarza (M3 D8)
+559:### [D-116] 2026-10-22 — Wdrożenie Basic/Pro w kodzie: mapowanie funkcji, limity 5 receptur i 1 zakwas, przypomnienia o dokarmianiu w Pro poza zakładani
+568:### [D-117] 2026-10-22 — Ekran Pro z ujawnieniami 1–5, oznaczenie „Pro” zamiast kłódki, gratulacje po pierwszym zakwasie, Ustawienia zakupów (M3 
+579:### [D-118] 2026-10-22 — Przegląd roli 04 (PRZ): „Miesiąc” w wierszu okresu zamiast segmentu Tydzień/Miesiąc; gratulacje po pierwszym zakwasie bez
+587:### [D-119] 2026-10-22 — D10 „akcenty”: pas nocy na każdej zakładce (opcja A) — Receptury, karta receptury, karta zakwasu, Dziennik (M3 D10, rola 
+596:### [D-120] 2026-10-22 — Poprawki P0/P1 z weryfikacji W roli 04 (M3 W-fix, rola 08): sposób wykonania rekomendacji — warunkowa do przeglądu roli 04
+602:### [D-121] 2026-10-22 — Pozostałe znaleziska weryfikacji W roli 04 według rekomendacji: pas przy dużym tekście (b), 007 b, 008 b, 009 i 011 pasek „
+618:### [D-122] 2026-10-23 — Spirala i karta legendy na „Dziś” otwierają Stolnicę wypieku (M3, po E2E flow 02)
+625:### [D-123] 2026-10-23 — Teksty naturalnym językiem, bez przypisów do źródeł; źródła wiedzy na jednym ekranie w Ustawieniach (M3 T2)
+637:### [D-124] 2026-11-02 — Plan nocy M3: tor krytyczny E2E → TestFlight i trzy tory równoległe bez właściciela (koordynator, noc; zaakceptowana przez 
+649:### [D-125] 2026-11-02 — Tor C nocy: dokumenty ścieżki wydania w `docs/wydanie/`, §4 instrukcji już poprawiony, przekład opisu zmian poza listą kluc
+661:### [D-126] 2026-11-02 — Przegląd 72 twierdzeń niekrytycznych po T2: 68 zgodnych, 4 poprawione do zakresu źródła; atrybucja szczebla 4 na ekranie „
+674:### [D-127] 2026-11-02 — Odstępstwa wykonawcze roli 08 w D-123 przyjęte przez rolę 06; EN po amerykańsku także w nowych zdaniach T2 (rola 06 fix, D-1
+686:### [D-130] 2026-11-02 — Audyt roli 07 (gotowość 1.0): STOP-y według rekomendacji roli, rejestr ryzyk zamiast strategii testów, raport w gicie (rola 0
+696:### [D-131] 2026-11-02 — 07-jakosc-001 i -002 według rekomendacji roli 07: streszczenie polityki prywatności offline (a) i pętla stref w testflight.yml
+709:### [D-132] 2026-11-02 — 07-jakosc-001: streszczenia polityki prywatności nie piszę bez źródła w repo; krok właściciela (rola 08, noc, do weta)
+719:### [D-133] 2026-11-02 — 07-jakosc-002: bramka stref jako osobne zadanie Linux z `needs`, nie krok w zadaniu macOS (rola 08, noc, do weta)
+727:### [D-134] 2026-11-03 — Koniec pracy nocy: bez nowych torów po zablokowaniu buildu przez BR-REL-005 (koordynator, noc; zaakceptowana przez właściciela
+733:### [D-135] 2026-11-03 — Właściciel rano: akceptacja decyzji nocy, scalenie redesign do master i build TestFlight, rola 07 reaudit po teście na telefon
+741:### [D-136] 2026-11-03 — Rodzaj drożdży: przełącznik świeże / instant przy wierszu drożdży na karcie „Do miski” (wersja 1.1)
+750:### [D-137] 2026-11-03 — Odpowiedniki drożdżowe receptur na zakwasie jako osobne receptury-bliźniaki (wersja 1.1)
+758:### [D-138] 2026-11-03 — Tryb „maszyna do chleba” obok pieczenia tradycyjnego (wersja 1.1 lub później)
+766:### [D-139] 2026-11-03 — Wygląd blokuje 1.0: język ekranu „Dziś” na wszystkie ekrany (rola 04 build od E3, potem 08 partiami, build 1022)
+775:### [D-150] 2026-11-03 — Zakres 1.0: redesign (D-139) razem z D-136, D-137 i D-138; funkcje odłożone bez zmian
+785:### [D-140] 2026-11-03 — Rola 04 build od E3 bez E1–E2: system kart na języku ekranu „Dziś” (propozycja na STOP E3)
+792:### [D-141] 2026-11-03 — Wybór właściciela na STOP E3 roli 04: O1a, O2b, O3a, O4a (system kart przyjęty)
+801:### [D-160] 2026-11-03 — Partie wdrożenia redesignu D-139/D-141 (rola 08 build, po jednej, na `redesign/piekarz-2026-10-22`)
+808:### [D-142] 2026-11-03 — Łamanie wyrazów przy 320 pt i AX5: bez dzielenia, stos w jednej kolumnie; złamane tylko słowo dłuższe niż cały wiersz
+816:### [D-151] 2026-11-03 — Bramka zmian zakresu dla D-136…D-138 (rola 03 build, moduł zmiany-zakresu): ZM-24…ZM-26, F-72; cztery pytania do właścicie
+825:### [D-152] 2026-11-03 — Basic/Pro dla D-136…D-138: liczenie w Basic, planowanie w Pro (odpowiedź na pytanie 1 z D-151)
+832:### [D-153] 2026-11-03 — Tryb maszyny (F-72) uniwersalny, nie profil jednej maszyny; Tefal PF220838 jako maszyna testowa (odpowiedź na pytanie C rundy 2,
+839:### [D-154] 2026-11-03 — Wersje drożdżowe receptur na zakwasie jako przełącznik „na zakwasie / na drożdżach” w recepturze, nie osobne pozycje (z
+846:### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+853:### [D-156] 2026-11-03 — Tryb maszyny (F-72) także dla receptur na zakwasie, tylko przy źródle roli 06
+860:### [D-157] 2026-11-03 — Katalog receptur: ok. 30 w 1.0 (ok. +15), do ok. 50 w 1.0.1, dalej kwartalnie (ZM-27)
+868:### [D-161] 2026-11-03 — Komponenty systemu kart w `src/ui/karty/` (M3 p1, rola 08)
+875:### [D-162] 2026-11-03 — Reguła dużego tekstu w systemie kart: próg fontScale ≥ 2, stos w jednej kolumnie (M3 p1, rola 08)
+881:### [D-163] 2026-11-03 — `kartaLinia` poza tabelą par kontrastu (M3 p1, rola 08)
+888:### [D-164] 2026-11-03 — Regeneracja `docs/design/tokeny.ts` razem z `tokeny.json` (wyjątek od zakazu dotykania `docs/design/`, M3 p1, rola 08)
+895:### [D-166] 2026-11-03 — Partia p1 (system kart) łączy się z p2 (Zakwasy): test osiągalności zostaje bez zmian
+904:### [D-170] 2026-11-03 — Kopie źródeł paczki M3 poza publicznym repo; w rejestrze nazwa kopii i sha256 (rola 06 build, do weta)
+910:### [D-171] 2026-11-03 — Wyniki E1 roli 06 dla D-151…D-157: rejestr +174 wpisy, sprzeczność przelicznika drożdży, cztery receptury bez wersji drożd
+917:### [D-172] 2026-11-03 — P1: jeden przelicznik świeże → suche (aktywne i instant) × 0,35, środek przedziału producentów; zmienia RD-19
+925:### [D-173] 2026-11-03 — P2: przełącznik drożdżowy w 4 recepturach (orkisz, graham, żytni 100%, tartine); brioszka bez przełącznika w 1.0
+932:### [D-174] 2026-11-03 — P3: plan dla drożdży z czasami z receptury, bez przeliczania temperaturą i ilością drożdży (1.0)
+938:### [D-175] 2026-11-03 — P4: blokada opóźnionego startu maszyny przy psujących się składnikach, z wyjaśnieniem (krytyczne)
+945:### [D-176] 2026-11-03 — P5: podpowiedź rodzaju programu maszyny jako reguła aplikacji (uproszczenie), nie fakt
+951:### [D-177] 2026-11-03 — P6 i przegląd: katalog 11 + 3 warunkowo z nazwami opisowymi; 27 twierdzeń krytycznych zaakceptowanych
+958:### [D-178] 2026-11-03 — Drożdże o nieokreślonym rodzaju w źródłach wersji drożdżowych (orkisz, żyto 100%) liczone jako świeże (rola 06 E2, do 
+965:### [D-179] 2026-11-03 — Reguła podpowiedzi programu maszyny (D-176): pięć rodzajów w stałej kolejności, progi z instrukcji Cuisinart CBK-110 jako r
+971:### [D-180] 2026-11-03 — Wybór zakwasu jako chipy na pasie z miejscem i czasem; „Edytuj” na pasie; profil w karcie z wierszami (M3 p2, rola 08)
+978:### [D-181] 2026-11-03 — Nagłówki kart Zakwasów i Doktora zakwasu z istniejących kluczy; ikony kart; „Zapisz dokarmienie” i „Podwoił objętoś�
+985:### [D-182] 2026-11-03 — Zakres p2: Doktor zakwasu tak, Doktor Chleba nie; blokady Pro jako karty; `WierszObjawu` usunięty; narzędzia bez karty (M3 p2, 
+990:### [D-183] 2026-11-03 — Praca koordynatora pod nieobecność właściciela (24 h): punkt kontrolny po p2 przesunięty, partie p3–p5 idą dalej
+998:### [D-184] 2026-11-03 — Lista receptur O2b: nagłówek grupy jako `NaglowekKarty` nad kartami, receptura jako karta-przycisk z ikoną rodzaju (M3 p3, rol
+1005:### [D-185] 2026-11-03 — Teksty p3 bez nowych kluczy: karta trybu „Masa ciasta” zamiast „Ile pieczesz”; „Do miski (odhaczaj przy ważeniu)” z
+1013:### [D-186] 2026-11-03 — Arkusz „Składniki” i receptura na kartach: „Pro” zostaje w wierszu „Rodzaj”, ikony sekcji, duży tekst przez flexBa
+1020:### [D-187] 2026-11-03 — Nowe BR paczki M3 (ER-75…ER-78) bez kodu: pełne wyjątki w `scripts/br-wyjatki.json`, ID w kolumnie „Wymagania” kontraktu
+1028:### [D-188] 2026-11-03 — Stała liczby BR w `tests/br-bez-testu.test.ts` podnoszona razem z nowym BR przez rolę 01 (fix ER-75…ER-78, do weta)
+1035:### [D-189] 2026-11-03 — Godzina gotowości w trybie maszyny (F-72, Pro) z czasu programu wpisanego przez użytkownika z instrukcji jego maszyny (rola 01
+1043:### [D-190] 2026-11-03 — Odpowiedzi właściciela po powrocie: przegląd 38 zdań krytycznych, brak weta D-172…D-183, build TestFlight dopiero po p5
+1052:### [D-191] 2026-11-03 — Pas marki (O3a) na planie i prowadzeniu wstrzymany: wymaga zmiany istniejących testów nagłówka (M3 p4, rola 08, STOP)
+1059:### [D-192] 2026-11-03 — Karty planu i prowadzenia z istniejących kluczy: „Krok {n} z {m}” zamiast „Co zrobić”; ostrzeżenie pod kartą instruk
+1067:### [D-193] 2026-11-03 — Duży tekst w planie i prowadzeniu (§7a, D-142): flexBasis od fontScale; limit cyfr czasu na tokenie AX5 zostaje (M3 p4, rola 0
+1073:### [D-194] 2026-11-03 — Pas O3a na Planie i Prowadzeniu: zmiana dwóch istniejących testów nagłówka dozwolona (odpowiedź na STOP D-191)
+1079:### [D-195] 2026-11-03 — Pas O3a na Prowadzeniu: krok, czas i Spirala na pasie; powrót samą ikoną z etykietą „Zamknij” (M3 p4b, rola 08)
+1086:### [D-196] 2026-11-03 — Pas O3a na Planie wstrzymany: wymaga zmiany dwóch testów spoza D-194 (M3 p4b, rola 08, STOP)
+1093:### [D-197] 2026-11-03 — Zakres D-194 rozszerzony: test kart planu z p4 dopuszcza nagłówek pasa; Doktor Chleba i Doktor zakwasu z pasem O3a w p5
+1099:### [D-198] 2026-11-03 — p5: Dziennik, Ustawienia, Doktor Chleba na kartach; odstępstwa bez zmiany testów; Pro i wiersze objawów do p5b (M3 p5, rola 0
+1108:### [D-199] 2026-11-03 — p5b: Piekarz Pro z pasem O3a i kartą „Co daje Pro”; objawy Doktora jako PoleObjawu bez zmiany testów; §7a dla Doktora i P
+1119:### [D-200] 2026-11-03 — p5b (Piekarz Pro) przed p6a; p6a tylko segment drożdży przy wierszu „Do miski” bez zmiany przelicznika (koordynator M3, no
+1125:### [D-202] 2026-11-03 — p6a: Plan z pasem (D-204), segment drożdży przy wierszu „Do miski” (D-136), przelicznik × 0,35 (D-205) (M3 p6a, rola 08, 
+1137:### [D-204] 2026-11-03 — Pas O3a na Planie: zmiana `pas-zakladek-d10.test.tsx:135` dozwolona (odpowiedź na STOP D-196)
+1143:### [D-205] 2026-11-03 — Przelicznik drożdży × 0,35 wdrożony w nocy (D-172, RD-19-W2, BR-KALK-012): zmiana wektorów testów dozwolona
+1149:### [D-206] 2026-11-03 — Rola 09: teksty redesignu (README §6, D-185, D-192, D-195, D-198, D-202/D-205) w 35 językach; zmiana testów tylko w asercjach
+1155:### [D-207] 2026-11-03 — Rola 09: „Procent drożdży… 0,35”, „Wstecz”, „Ile pieczesz” w 35 językach; „instant” w segmencie bez zmiany 
+1164:### [D-208] 2026-11-03 — Rola 09: pozycje D-206 odłożone, bo wymagają układu lub logiki (M3 09, noc, do weta)
+1173:### [D-209] 2026-11-03 — p6b: pozycje D-208 w opcji (a) (układ pod teksty README §6) i poprawka wyścigu wyboru drożdży; gałąź wspólna 08 → 09 
+1179:### [D-210] 2026-11-03 — p6b: odstępstwa przy układzie pod teksty README §6 (Do miski, numer kroku, podtytuł pasa, Język i jednostki, Dziennik) i wy
+1190:### [D-212] 2026-11-03 — p6b: przekład 9 kluczy w 33 językach i usunięcie 4 starych kluczy (rola 09, build, E3, noc, do weta)
+1198:### [D-213] 2026-11-03 — p6b: uwagi roli 09 do brzmień PL z D-210 (bez zmiany PL)
+1206:### [D-214] 2026-11-03 — Weryfikacja E5 (rola 04 audit po wdrożeniu): 0 P0, 2 P1; partia p7 przed buildem 1022 (koordynator M3, noc, do weta)
+1213:### [D-215] 2026-11-03 — p7: wykonanie 04-001, 04-002, 04-003, 04-007; odstępstwa nazwane; 04-004 odłożone (rola 08, noc, do weta)
+1222:### [D-216] 2026-11-03 — p7 04-006: Doktor Chleba w kolejności protokoły → objawy → wynik → testy (rola 08, noc, do weta)
+1230:### [D-217] 2026-11-04 — Komunikat pod „Odrzucić zmiany?” (04-007 z p7): nowy klucz w 35 językach przez rolę 09c (koordynator M3, noc, do weta)
+1236:### [D-218] 2026-11-04 — Wykonanie D-217: klucz „Wpisane zmiany nie zostaną zapisane.” w 35 językach i podpięcie w ArkuszKart (rola 09c, noc, do w
+1244:### [D-219] 2026-11-04 — 04-004 i 04-005: plan bez paska zakładek, Doktor zakwasu z pasem O3a; zmiana dwóch testów dozwolona (właściciel)
+1250:### [D-220] 2026-11-04 — Build TestFlight 1022 po p7b i zielonym E2E: scalenie redesign → master (właściciel)
+1256:### [D-221] 2026-11-04 — Funkcje z flagą danych (D-154/D-155, D-138, D-157) jako osobna partia ze STOP po buildzie 1022 (właściciel)
+1262:### [D-222] 2026-11-04 — p7b: 04-004 wykonane; 04-005 STOP — pas Doktora zakwasu wymaga dopisania ekranu do testu czapki (rola 08, dzień, do weta)
+1271:### [D-223] 2026-11-04 — p7b: wykonanie 04-005 po D-227 — Doktor zakwasu z pasem O3a, wpis w EKRANY testu czapki (rola 08, dzień, do weta)
+1278:### [D-224] 2026-11-04 — Zakres 1.0 bez podziału: zgłoszenie po partii danych D-221 i katalogu (właściciel)
+1284:### [D-225] 2026-11-04 — Pełny audyt M1 przed zgłoszeniem 1.0, na kandydacie po partii danych (właściciel)
+1291:### [D-226] 2026-11-04 — Jeden test na telefonie, na buildzie kandydata; build 1022 bez testu właściciela (właściciel)
+1298:### [D-227] 2026-11-04 — 04-005: zgoda na dopisanie Doktora zakwasu do listy EKRANY w teście czapki (koordynator M3, dzień, do weta)
+1304:### [D-229] 2026-11-04 — Katalog M3 p8: 11 receptur dodane, 3 warunkowe pominięte; katalog obok MASTER_RECIPES; wartości bez źródła nazwane (rola 08
+1312:### [D-230] 2026-11-04 — Podział src/recipes/presets.ts na moduły według rodzaju (rola 08, dzień, do weta)
+1318:### [D-235] 2026-11-04 — Przekład 33 kluczy katalogu p8 na 33 języki (rola 09, dzień, do weta)
+1324:### [D-228] 2026-11-04 — Partie dnia: p8 katalog (bez flagi danych) i p9a plan danych ze STOP, równolegle od d24ea87 (koordynator M3, dzień, do weta)
+1330:### [D-231] 2026-11-04 — Kopia bazy buildu 1021 (v6) jako zamrożony zrzut z kodu wydanego, do testów partii danych p9 (M3 p9a, rola 08)
+1336:### [D-232] 2026-11-04 — Plan zmian danych p9 (D-154/D-155, D-138): sześć wyborów zapisu do decyzji właściciela; STOP przed wdrożeniem (M3 p9a, rol
+1342:### [D-233] 2026-11-04 — Wyjątek nazwany: gałąź p9a z 7 czerwonymi testami przed kodem (M3 p9a, rola 08)
+1347:### [D-234] 2026-11-04 — p8: przyjęcie zmian istniejących testów listy receptur (podmiana MASTER_RECIPES → CATALOG_RECIPES) (koordynator M3, dzień,
+1354:### [D-236] 2026-11-04 — Trzy receptury warunkowe (piadina, Stollen, szybki chleb orkiszowy) zostają poza katalogiem: rekomendacja rezerwa (rola 06, par
+1361:### [D-237] 2026-11-04 — Sól pierożków karelskich 2,1%; EN „the app's conversion”; które wartości D-229 wymagają źródła (rola 06, partia 06-
+1367:### [D-238] 2026-11-04 — E2E-90: przełącznik dwóch wypieków w stałym rzędzie nad paskiem kciuka (rola 08, p7c, dzień, do weta)
+1375:### [D-239] 2026-11-04 — Scalenie redesign → master na build 1022 i mała partia katalogu p10 z rolą 09 zamiast osobnej sesji roli 06 (koordynator M3,
+1382:### [D-240] 2026-11-04 — p10: zmiana istniejącego testu „liczba źródeł na ekranie” 26 → 27 (rola 08, partia p10, dzień, do weta)
+1388:### [D-241] 2026-11-04 — 09p10: przekład 3 kluczy p10 i poprawki terminów D-237 (rola 09, dzień, do weta)
+1394:### [D-242] 2026-11-04 — Dane p9 (D-221): wszystkie rekomendacje planu p9a Z1–Z6 (właściciel)
+1402:### [D-243] 2026-11-04 — Bogate ciasta: dodatki (mleko, jaja, tłuszcz, cukier) tylko w notatce w 1.0 (właściciel)
+1407:### [D-244] 2026-11-04 — p9b-1: STOP — testy p9a G3 i G5 oraz 3 asercje wersji 6 poza zgodą D-242 (rola 08, dzień, do weta)
+1413:### [D-245] 2026-11-04 — p9b-1: wybory techniczne warstwy danych (rola 08, dzień, do weta)
+1417:### [D-246] 2026-11-04 — p9b-1: STOP po D-250 — 3 kolejne testy wymagają zmiany przez migrację v7 i nowe klucze kopii (rola 08, dzień, do weta)
+1426:### [D-247] 2026-11-04 — Ekran „Źródła wiedzy”: 7 źródeł katalogu p8 i nowa grupa „Receptury”; Marttaliitto zatwierdzone i przeniesione; wy
+1435:### [D-248] 2026-11-04 — Wektor katalogu: sól pierożków karelskich 2,1% z KAT-KAR-010; ocena terminów bg/hu dla roli 09 (rola 06, partia 06z, dzień,
+1443:### [D-249] 2026-11-04 — Przekład źródeł katalogu (14 kluczy × 33) i poprawki bg/hu z D-248 (rola 09, partia 09z, dzień, do weta)
+1450:### [D-250] 2026-11-04 — p9b-1 STOP D-244: rozszerzenie zgody D-242 na testy bieżącej wersji schematu i G5 z listą kluczy 1021; katalog z kodu przed w
+1456:### [D-251] 2026-11-04 — p9b-1 STOP D-246: trzy kolejne liczności z migracji v7 i listy kopii (koordynator M3, dzień, do weta)
+1462:### [D-252] 2026-11-04 — p9b-1b: wybory techniczne ekranów i planu wersji drożdżowej; luki dla ról 04 i 06 (rola 08, dzień, do weta)
+1469:### [D-253] 2026-11-04 — p9b-1b: przegląd ścieżek wrażliwych — P1 żyto na drożdżach prowadzone etapami żytnimi na zakwasie, naprawione (rola 08
+1474:### [D-255] 2026-11-04 — Ekran „Źródła wiedzy”: 5 źródeł wersji drożdżowej; przelicznik wydzielony z treści planu, wyjątek D-247 zawężony
+1481:### [D-256] 2026-11-04 — Luki D-252 wersji drożdżowej rozstrzygnięte źródłami: czasy kroków z rękami (uproszczenie), żyto: pieczenie, gotowość
+1491:### [D-257] 2026-11-04 — Orkisz na drożdżach: plan zostaje nieaktywny z powodem (koordynator M3, dzień, do weta)
+1497:### [D-258] 2026-11-04 — p9b-1c: żyto na drożdżach według źródeł D-256 wdrożone w logice i „O recepturze” (rola 08, dzień, do weta)
+1503:### [D-259] 2026-11-04 — 09d: przekład 25 kluczy wersji drożdżowej (p9b-1b) i źródeł wersji drożdżowej (06d) w 33 językach (rola 09, dzień, do 
+1508:### [D-260] 2026-11-04 — p9b-2 tryb maszyny: wypiek z maszyny w Dzienniku z metodą (`bake_method` w migracji v7) i jeden czas programu (koordynator M3, 
+1514:### [D-261] 2026-11-04 — p9b-2: tryb maszyny na danych receptur katalogu; dodatki spoza formuły z notatek; reguły RD-38/RD-39 bez nowych faktów (rola 
+1522:### [D-262] 2026-11-04 — p9b-2: teksty i układ ekranu trybu maszyny tam, gdzie makieta D-138 nie rozstrzyga; OP-65 neutralnie (rola 08, dzień, do weta)
+1529:### [D-263] 2026-11-04 — p9b-2: „Zapisz plan” w trybie maszyny jako plan na później (Pro), jeden krok programu bez prowadzenia (rola 08, dzień, do
+1535:### [D-265] 2026-11-04 — Ekran „Źródła wiedzy”: 5 instrukcji producentów maszyn do chleba w nowej grupie „Maszyna do chleba”; wyjątek D-247 
+1542:### [D-266] 2026-11-04 — Tryb maszyny: dodatki receptur potwierdzone (ciabatta + tłuszcz), zdania bezpieczeństwa zgodne z rejestrem, OP-65 i OP-66 rozs
+1550:### [D-267] 2026-11-04 — Przekład 68 kluczy trybu maszyny do chleba i źródeł 06m w 33 językach (rola 09, partia 09m, dzień, do weta)
+1557:### [D-268] 2026-11-04 — p9b2f: poprawki trybu maszyny po 06m i przeglądzie ścieżek wrażliwych przed przekładem (koordynator M3, dzień, do weta)
+1563:### [D-269] 2026-11-04 — p9b2f: tryb maszyny po 06m — ciasto bez opóźnienia, „Ustaw opóźniony start na {czas}”, plan od chwili stuknięcia, dom
+1570:### [D-270] 2026-11-04 — p9b2f: błąd zapisu pliku ratunkowego blokuje nadpisanie nieczytelnej wartości; Dziennik pokazuje metodę wypieku (rola 08, pa
+1577:### [D-271] 2026-11-04 — p9b2f: domyślne „Gotowe o” w trybie maszyny z sekundami i zapasem 1 minuty (P9B2F-7; koordynator M3, wykonanie rola 08, dzi
+1583:### [D-272] 2026-11-04 — Build kandydata 1.0 z `redesign` po zielonym iOS E2E (właściciel)
+1588:### [D-273] 2026-11-04 — D-270 znalezisko A: błąd zapisu pliku ratunkowego przy kasowaniu `bake_sessions` zostaje (właściciel)
+1593:### [D-274] 2026-11-04 — Przegląd 3 zdań bezpieczeństwa maszyny zaakceptowany; bez weta D-239…D-271 (właściciel)
+1597:### [D-275] 2026-11-08 — Testy zależne od zegara (Nightly czerwony w niedziele): stały zegar w testach (właściciel)
+1605:### [D-276] 2026-11-08 — Wznowienie koordynatora M3: gałęzie, tory równoległe, tylko zakres 1.0 (właściciel)
+1611:### [D-290] 2026-11-08 — Formalności 1.0 (M8): zakres pełny i analogia z `trening` (właściciel, STOP 1 M8)
+1616:### [D-291] 2026-11-08 — Formalności 1.0 (M8) STOP 2: dokumenty, ekran licencji przed 1.0, ustawy stanowe USA (właściciel)
+1621:### [D-277] 2026-11-08 — Kolejność po buildzie kandydata: test telefonu i M1 równolegle; M2 z listą M1 i uwagami właściciela; jeden reaudyt po wszy
+1627:### [D-278] 2026-11-08 — Drugi przegląd AI przekładu 6 kluczy ekranu „Licencje open source” (rola 09, partia 09l, do weta)
+1632:### [D-279] 2026-11-08 — E2E-94: wyścig scenariusza z arkuszem zgody na powiadomienia, nie regresja aplikacji; jedno ponowienie (koordynator M3, do weta
+1638:### [D-280] 2026-11-08 — E2E-95 po buildzie kandydata; dostęp do repo apps4brew-www i publikacja polityki v2 po obejrzeniu diffu (właściciel)

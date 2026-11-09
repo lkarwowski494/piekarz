@@ -1,0 +1,46 @@
+# rachunek.mjs na stawkach z 2026-11-08 (kopia rachunek.json w scratchpadzie: zmienione tylko kurs USD 3,8974→3,9321 NBP 217/A z 2026-11-06 i daty źródeł; VAT 23% i prowizja 15% potwierdzone odczytem 2026-11-08)
+$ node docs/monetyzacja/rachunek.mjs <scratch>/rachunek-2026-11-08.json
+Rachunek z 2026-11-08 (PLN); VAT 23% [europa.eu/youreurope VAT rates, wiersz PL 23 („Last checked: 13/07/2026”), odczyt 2026-11-08]; prowizja 15% [developer.apple.com/app-store/small-business-program („reduced commission rate of 15%”), odczyt 2026-11-08]
+Koszt roczny: Apple Developer Program 99 USD × 3,9321 [NBP 217/A/NBP/2026 z 2026-11-06, odczyt 2026-11-08]
+Koszty roczne razem: 389,28 PLN
+mies-PL: cena 4,99 → bez VAT 4,06 → prowizja 15% → wpływ 3,45 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 14,69; próg: 27 płacących/rok
+rok-PL: cena 29,99 → bez VAT 24,38 → prowizja 15% → wpływ 20,72 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 20,72; próg: 19 płacących/rok
+dozywotni-PL: cena 79,99 → bez VAT 65,03 → prowizja 15% → wpływ 55,28 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 55,28; próg: 8 płacących/rok
+rok-PL-bez-programu: cena 29,99 → bez VAT 24,38 → prowizja 30% → wpływ 17,07 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 17,07; próg: 23 płacących/rok
+Bez podatku dochodowego i składek; przybliżenie z danych wejściowych, nie prognoza.
+kod: 0
+
+$ node docs/monetyzacja/rachunek.mjs docs/monetyzacja/rachunek.json (stan w repo, 2026-10-19)
+Rachunek z 2026-10-19 (PLN); VAT 23% [europa.eu/youreurope, tabela stawek VAT, PL 23% („Last checked: 13/07/2026”), odczyt roli 02 2026-10-19]; prowizja 15% [developer.apple.com/app-store/small-business-program („reduced commission rate of 15%”), odczyt 2026-10-19 (MS-20); warunek: zapis do programu (OP-M01)]
+Koszt roczny: Apple Developer Program 99 USD × 3,8974 [NBP tabela 203/A/NBP/2026 z 2026-10-19 (MS-21)]
+Koszty roczne razem: 385,84 PLN
+mies-PL: cena 4,99 → bez VAT 4,06 → prowizja 15% → wpływ 3,45 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 14,69; próg: 27 płacących/rok
+rok-PL: cena 29,99 → bez VAT 24,38 → prowizja 15% → wpływ 20,72 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 20,72; próg: 19 płacących/rok
+dozywotni-PL: cena 79,99 → bez VAT 65,03 → prowizja 15% → wpływ 55,28 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 55,28; próg: 7 płacących/rok
+rok-PL-bez-programu: cena 29,99 → bez VAT 24,38 → prowizja 30% → wpływ 17,07 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 17,07; próg: 23 płacących/rok
+Bez podatku dochodowego i składek; przybliżenie z danych wejściowych, nie prognoza.
+kod: 0
+
+$ node docs/monetyzacja/rachunek.mjs docs/monetyzacja/rachunek-badanie-us.json
+Rachunek z 2026-10-22 (USD); VAT 0% [[OCENA] ceny w US bez podatku od sprzedaży; prowizja od ceny bez podatków (DPLA Schedule 2 pkt 3.4(a)), jak w bramce 2026-10-19]; prowizja 15% [Small Business Program aktywny: słowa właściciela przez M1 2026-10-22 („to juz jest wszystko completed lacznie z aprobatami apple.”); stawka developer.apple.com/app-store/small-business-program, odczyt 2026-10-19 (MS-20)]
+Koszt roczny: próg opłacalności właściciela (500 USD netto/rok, D-024) zamiast kosztów 500 USD
+Koszty roczne razem: 500,00 USD
+D038-mies: cena 0,99 → bez VAT 0,99 → prowizja 15% → wpływ 0,84 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 4,37; próg: 115 płacących/rok
+D038-rok: cena 6,99 → bez VAT 6,99 → prowizja 15% → wpływ 5,94 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 8,62; próg: 58 płacących/rok
+D038-dozywotni: cena 14,99 → bez VAT 14,99 → prowizja 15% → wpływ 12,74 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 12,74; próg: 40 płacących/rok
+V-30dni: cena 0,99 → bez VAT 0,99 → prowizja 15% → wpływ 0,84 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 1,35; próg: 372 płacących/rok
+V1-3mies: cena 2,49 → bez VAT 2,49 → prowizja 15% → wpływ 2,12 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 3,81; próg: 132 płacących/rok
+V-rok: cena 6,99 → bez VAT 6,99 → prowizja 15% → wpływ 5,94 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 7,19; próg: 70 płacących/rok
+V-dozywotni: cena 14,99 → bez VAT 14,99 → prowizja 15% → wpływ 12,74 (szacunek; porównaj z wpływem z App Store Connect); rocznie na płacącego 12,74; próg: 40 płacących/rok
+Lejek „D-038 na 100 płacących: mies.”: płacący 48,6 → wpływ 212,42 USD/rok → pokrycie kosztów 42%
+Lejek „D-038 na 100 płacących: rok”: płacący 34,6 → wpływ 298,29 USD/rok → pokrycie kosztów 60%
+Lejek „D-038 na 100 płacących: dożywotni”: płacący 16,8 → wpływ 214,06 USD/rok → pokrycie kosztów 43%
+Lejek „V1 na 100 płacących: 30 dni”: płacący 38,0 → wpływ 51,16 USD/rok → pokrycie kosztów 10%
+Lejek „V1 na 100 płacących: 3 mies.”: płacący 17,0 → wpływ 64,76 USD/rok → pokrycie kosztów 13%
+Lejek „V1 na 100 płacących: rok”: płacący 20,0 → wpływ 143,78 USD/rok → pokrycie kosztów 29%
+Lejek „V1 na 100 płacących: dożywotni”: płacący 25,0 → wpływ 318,54 USD/rok → pokrycie kosztów 64%
+Lejek „V2 na 100 płacących: 30 dni”: płacący 45,0 → wpływ 60,59 USD/rok → pokrycie kosztów 12%
+Lejek „V2 na 100 płacących: rok”: płacący 28,0 → wpływ 201,30 USD/rok → pokrycie kosztów 40%
+Lejek „V2 na 100 płacących: dożywotni”: płacący 27,0 → wpływ 344,02 USD/rok → pokrycie kosztów 69%
+Bez podatku dochodowego i składek; przybliżenie z danych wejściowych, nie prognoza.
+kod: 0

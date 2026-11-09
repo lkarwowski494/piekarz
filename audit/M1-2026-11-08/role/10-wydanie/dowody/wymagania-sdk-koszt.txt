@@ -1,0 +1,62 @@
+$ curl -sS https://developer.apple.com/news/upcoming-requirements/ (tekst), odczyt 2026-11-08; kod 0
+ Since September 9, 2026
+ iOS and iPadOS apps uploaded to App Store Connect must target iOS 13 or later.
+ Learn about submitting apps 
+ SDK minimum requirements
+ Since April 28, 2026
+ Apps uploaded to App Store Connect must be built with Xcode 26 or later using an SDK for iOS 26 , iPadOS 26 , tvOS 26 , visionOS 26 , or watchOS 26 .
+ Learn about submitting apps 
+ Age Rating Updates
+ Since January 31, 2026
+ Ratings for all apps and games on the App Store have been automatically updated to align with our new age rating system and will be reflected on Apple devices running a minimum of iOS 26, iPadOS 26, macOS Tahoe 26, tvOS 26, visionOS 26, and watchOS 26.
+ Provide responses to the updated age rating questions for each of your apps by January 31, 2026, to avoid an interruption when submitting your app updates in App Store Connect. You can view the age rating for each of your apps under the updated system and respond to the new questions in the App Information section of your app in App Store Connect.
+
+$ curl -sSL https://docs.github.com/en/billing/concepts/product-billing/github-actions (tekst), odczyt 2026-11-08; kod 0
+ Larger runners , where available, when the billing account uses GitHub Team or GitHub Enterprise Cloud.
+ No eligible usage type has priority over another when drawing from the shared included compute usage.
+ The following usage remains free independently and does not reduce the included compute usage:
+ Standard GitHub-hosted runners in public repositories. See Choosing the runner for a job .
+ Self-hosted runners.
+ Larger runners are billed for public repositories.
+ For private repositories , usage is measured against two parts of your plan:
+ Compute: The calculated cost of eligible runner usage draws from your monthly included compute usage. This value is also available for cloud sandbox compute and memory. Usage is charged to the repository owner, not the person who triggered the workflow runs.
+ Storage: Artifact and cache storage have separate allowances. Storage charges accumulate throughout the month based on hourly usage, and your accrued storage charges reset to zero at the start of each billing cycle.
+ Tip
+Anyone with write access to a repository can run actions. Any costs of running the actions are billed to the repository owner.
+ Copilot code review and GitHub Actions usage 
+ Each Copilot code review consumes GitHub Actions compute in addition to AI credits.
+ Private repositories: The runner cost draws from your account or organization's included compute usage. Additional usage is billed at standard GitHub Actions rates.
+ Public repositories: This usage remains free.
+ Copilot code review runs on standard GitHub-hosted Ubuntu Linux runners by default. You can also configure GitHub-hosted larger runners or self-hosted runners via Actions Runner Controller (ARC), which are billed at different rates.
+ Plan Artifact storage Included compute usage (per month) Cache storage (per repository) Custom image storage GitHub Free 500 MB $12 USD 10 GB Not applicable GitHub Pro 1 GB $18 USD 10 GB Not applicable GitHub Free for organizations 500 MB $12 USD 10 GB Not applicable GitHub Team 2 GB $18 USD 10 GB 
+ The included compute usage is expressed as a monetary amount, not a fixed number of minutes or other usage units. Products measure usage in different units, such as minutes, seconds, or GiB-seconds, and apply the corresponding rate. GitHub deducts the calculated cost from the same included compute 
+ The use of standard GitHub-hosted runners is free:
+ In public repositories
+ For GitHub Pages
+ For Dependabot
+ Note
+ Where larger runners are available, their cost can draw from the included compute usage for billing accounts on GitHub Team and GitHub Enterprise Cloud. Larger runners are billed for public repositories.
+
+$ cat .github/scripts/select-xcode.sh (caly plik, 22 linie): brak asercji wersji SDK >= 26 po zjezdzie na /Applications/Xcode.app
+     1	#!/bin/bash
+     2	set -euo pipefail
+     3	
+     4	WANT_MAJOR="${1:-16}"
+     5	echo "==> Szukam Xcode $WANT_MAJOR w /Applications..."
+     6	
+     7	CANDIDATE=$(ls -d "/Applications/Xcode_${WANT_MAJOR}"*.app 2>/dev/null | sort -V | tail -n 1 || true)
+     8	if [ -z "$CANDIDATE" ] && [ -d "/Applications/Xcode.app" ]; then
+     9	  CANDIDATE="/Applications/Xcode.app"
+    10	fi
+    11	
+    12	if [ -z "$CANDIDATE" ] || [ ! -d "$CANDIDATE" ]; then
+    13	  echo "::error::Nie znaleziono instalacji Xcode ${WANT_MAJOR}.x w /Applications:" >&2
+    14	  ls -d /Applications/Xcode*.app 2>/dev/null >&2 || true
+    15	  exit 1
+    16	fi
+    17	
+    18	sudo xcode-select -s "$CANDIDATE/Contents/Developer"
+    19	xcodebuild -version
+    20	
+    21	SDK_VER=$(xcodebuild -version -sdk iphoneos ProductVersion 2>/dev/null || echo "")
+    22	echo "Aktywny SDK iOS: $SDK_VER ($CANDIDATE)"

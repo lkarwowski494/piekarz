@@ -1,0 +1,50 @@
+$ node --experimental-strip-types sonda-prosba.mjs <worktree 2ef8870a w scratchpadzie> (skrypt sondy poniżej)
+W01 OK false - pierwsze uruchomienie: brak ukończonych wypieków
+W02 OK false - 2. ukończony wypiek (poniżej progu DEC-20 a)
+W03 OK true - 3. ukończony wypiek, brak wcześniejszych próśb
+W04 OK true - 3. wypiek oceniony na 1★ (ocena nie wchodzi do warunku)
+W05 OK true - 3. wypiek oceniony na 5★ (ten sam wynik co W04)
+W06 OK true - 10. ukończony wypiek, brak wcześniejszych próśb
+W07 OK false - liczba wypieków niecałkowita (dane uszkodzone)
+W08 OK true - dwie prośby w ostatnich 365 dniach, obie starsze niż 14 dni (trzecia dozwolona)
+W09 OK false - trzy prośby w ostatnich 365 dniach (limit S-63 wyczerpany)
+W10 OK true - trzy prośby, ale najstarsza dokładnie 365 dni temu (wypada z okna)
+W11 OK false - trzy prośby, najstarsza 365 dni temu minus 1 ms (jeszcze w oknie)
+W12 OK true - cztery prośby starsze niż rok (historia nie blokuje)
+W13 OK false - trzy daty w przyszłości (zegar cofnięty przez użytkownika): liczą się do limitu i do odstępu
+W14 OK false - w zapisie dat wartość nie-liczbowa (uszkodzony odczyt): liczy się jako prośba
+W15 OK false - odstęp: poprzednia prośba 1 dzień temu (MOD-6a)
+W16 OK false - odstęp: poprzednia prośba 1 godzinę temu (MOD-6b)
+W17 OK false - odstęp: dwie prośby, ostatnia dzień temu — trzecia dzień po drugiej (MOD-6c)
+W18 OK true - odstęp: poprzednia prośba dokładnie 14 dni temu (dozwolona)
+W19 OK false - odstęp: poprzednia prośba 14 dni temu minus 1 ms (jeszcze za wcześnie)
+MOD-1 pierwsze uruchomienie, zero prac -> false oczekiwane: false
+MOD-2 właśnie zakończona praca, progi spełnione -> true oczekiwane: true
+MOD-3 progi spełnione, ta sama wersja co ostatnia prośba (funkcja nie zna wersji; decyzja D-067: odstęp 14 dni) -> true oczekiwane: wg decyzji
+MOD-6 odstęp krótszy niż próg -> false oczekiwane: false
+MOD-4 w trakcie zadania / MOD-5 z przycisku / MOD-7 isAvailableAsync=false: miejsce wywołania (grep, nie funkcja)
+stałe {"minWypiekow":3,"minOdstepDni":14,"maksProsbWOknie":3,"oknoDni":365} błędów: 0
+kod: 0
+--- skrypt
+// Sonda: warunek prośby o ocenę na wektorach repo + wektorach modułu pomiar-prywatny
+const wt = process.argv[2];
+const { czyProsicOOcene, PROSBA_O_OCENE } = await import(wt + '/src/lib/prosba-o-ocene.ts');
+const fs = await import('node:fs');
+const w = JSON.parse(fs.readFileSync(wt + '/docs/wzrost/wektory-prosba-o-ocene.json', 'utf8'));
+let zle = 0;
+for (const v of w.wektory) {
+  const we = { zakonczoneWypieki: v.we.zakonczoneWypieki, datyPoprzednichProsb: v.we.datyPoprzednichProsb.map((d) => Date.parse(d)), teraz: Date.parse(v.we.teraz) };
+  const r = czyProsicOOcene(we); if (r !== v.oczekiwane) zle++;
+  console.log(v.id, r === v.oczekiwane ? 'OK' : 'ZLE', r, '-', v.stan);
+}
+const T = Date.parse('2027-03-01T12:00:00Z'), D = 86400000;
+const mod = [
+  ['MOD-1 pierwsze uruchomienie, zero prac', { zakonczoneWypieki: 0, datyPoprzednichProsb: [], teraz: T }, false],
+  ['MOD-2 właśnie zakończona praca, progi spełnione', { zakonczoneWypieki: 3, datyPoprzednichProsb: [], teraz: T }, true],
+  ['MOD-3 progi spełnione, ta sama wersja co ostatnia prośba (funkcja nie zna wersji; decyzja D-067: odstęp 14 dni)', { zakonczoneWypieki: 6, datyPoprzednichProsb: [T - 20 * D], teraz: T }, 'wg decyzji'],
+  ['MOD-6 odstęp krótszy niż próg', { zakonczoneWypieki: 6, datyPoprzednichProsb: [T - 3 * D], teraz: T }, false],
+];
+for (const [n, we, ocz] of mod) { const r = czyProsicOOcene(we); console.log(n, '->', r, 'oczekiwane:', ocz); if (ocz !== 'wg decyzji' && r !== ocz) zle++; }
+console.log('MOD-4 w trakcie zadania / MOD-5 z przycisku / MOD-7 isAvailableAsync=false: miejsce wywołania (grep, nie funkcja)');
+console.log('stałe', JSON.stringify(PROSBA_O_OCENE), 'błędów:', zle);
+process.exit(zle ? 1 : 0);

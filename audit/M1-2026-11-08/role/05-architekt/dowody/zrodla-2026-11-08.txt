@@ -1,0 +1,18 @@
+# Źródła przeczytane 2026-11-08 (curl → tekst bez znaczników → grep dosłowny); kod: 0
+## https://www.sqlite.org/foreignkeys.html
+Foreign key constraints are disabled by default (for backwards compatibility), so must be enabled separately for each database connection . (Note, however, that future releases of SQLite might change so that foreign key constraints enabled by default. Careful developers will not make any assumptions about whether or not foreign keys are enabled by default but will instead enable or disable them as necessary.)
+the DROP TABLE command performs an implicit DELETE to remove all rows from the table before dropping it.
+## https://www.sqlite.org/pragma.html
+This pragma is a no-op within a transaction; foreign key constraint enforcement may only be enabled or disabled when there is no pending BEGIN or SAVEPOINT .
+## https://www.sqlite.org/lang_altertable.html
+If foreign key constraints are enabled, disable them using PRAGMA foreign_keys=OFF .
+the initial rename of the table to a temporary name might corrupt references to that table in triggers, views, and foreign key constraints.
+## https://www.sqlite.org/lang_transaction.html
+Transactions can be started manually using the BEGIN command.
+nested transactions, use the SAVEPOINT and RELEASE commands.
+## https://docs.expo.dev/versions/v57.0.0/sdk/sqlite/
+Due to the nature of async/await, any query that runs while the transaction is active will be included in the transaction.
+If you worry about the order of execution, use withExclusiveTransactionAsync instead.
+## https://developer.apple.com/documentation/xcode/sigkill (JSON tutorials/data)
+The operating system terminated the app because it held on to a file lock or SQLite database lock during suspension. Request additional background execution time on the main thread with . Make this request well before starting to write to the file in order to complete those operations and relinquish the lock before the app suspends.
+(puste miejsce po „with” to nazwa API w znaczniku kodu: beginBackgroundTask(withName:expirationHandler:))

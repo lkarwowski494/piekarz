@@ -1,0 +1,29 @@
+$ node <scratchpad>/skrypty/tre13.mjs /home/user/piekarz pl   # zdania docs/tresci/pl (bez znaczników) szukane dosłownie w src/ i app/ (bez testów)
+zdania znalezione w kodzie: 402; nieznalezione: 26
+BRAK	docs/tresci/pl/chleb-zytni-etapy.md:6	## wariant.opis	Wariant żytni nie ma etapu składania ciasta.
+BRAK	docs/tresci/pl/chleb-zytni-etapy.md:7	## wariant.opis	Ciasto po uformowaniu rośnie w formie i w niej się piecze.
+BRAK	docs/tresci/pl/chleb-zytni-etapy.md:10	## wariant.prog (warunek wyboru wariantu)	Wariant żytni dotyczy ciasta, w którym mąka żytnia stanowi więcej niż 50% mąki.
+BRAK	docs/tresci/pl/drozdze-plan-przelicznik.md:5	## plan.yeast.steps	Wypiek na drożdżach ma kroki: mieszanie, wyrabianie, pierwsze rośnięcie, odgazowanie, kształtowanie, drugie rośnięcie i pieczenie.
+BRAK	docs/tresci/pl/drozdze-plan-przelicznik.md:6	## plan.yeast.steps	Plan bierze czasy z receptury.
+BRAK	docs/tresci/pl/drozdze-przelicznik.md:5	## yeast.conversionNote	Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.
+BRAK	docs/tresci/pl/drozdze-przelicznik.md:6	## yeast.conversionNote	To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.
+BRAK	docs/tresci/pl/drozdze-przelicznik.md:9	## yeast.dryHandling	Drożdże instant można wsypać prosto do mąki.
+BRAK	docs/tresci/pl/drozdze-przelicznik.md:10	## yeast.dryHandling	Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.
+BRAK	docs/tresci/pl/kalendarz-m0.md:7	## piekarnik.zajety.nagrzewanie (arkusz kolizji, BR-KAL-016)	Nagrzewanie też zajmuje piekarnik: pusty garnek nagrzewa się około 30 minut, a kamień zwykle około 60 minut.
+BRAK	docs/tresci/pl/kalendarz-m0.md:10	## piekarnik.zajety.grupowanie (propozycja przesunięcia, BR-	Warto piec kilka rzeczy jednego dnia, jedna po drugiej, bo piekarnik z kamieniem długo się nagrzewa.
+BRAK	docs/tresci/pl/kalendarz-m0.md:14	## karmienie.staly-dzien.opis (BR-KAL-010)	Po dokarmieniu zostaw go na 1–2 godziny w temperaturze pokojowej, w chłodnej kuchni bliżej 2 godzin, i wstaw z powrotem do lodówki.
+BRAK	docs/tresci/pl/kalendarz-m0.md:17	## karmienie.staly-dzien.warunek (przed włączeniem stałego d	Do lodówki wstawia się zakwas dopiero po 7–10 dniach od założenia.
+BRAK	docs/tresci/pl/kalendarz-m0.md:20	## karmienie.staly-dzien.przesuniecie (gdy termin wypada nie	Dokarmienie nie musi wypaść co do godziny.
+BRAK	docs/tresci/pl/kalendarz-m0.md:23	## karmienie.staly-dzien.pominiete (minął dzień karmienia)	Zakwas, którego nie dokarmiono przez dzień, dwa albo nawet tydzień, prawie na pewno da się ożywić, jeśli dokarmiasz go co 12 godzin i trzymasz w temperaturze po
+BRAK	docs/tresci/pl/maki-typy.md:9	## typy potwierdzone w obrocie (lista do atlasu; nazwy handl	Mąka pszenna typ 450 (tortowa, krupczatka)
+BRAK	docs/tresci/pl/maki-typy.md:11	## typy potwierdzone w obrocie (lista do atlasu; nazwy handl	Mąka pszenna typ 550 (luksusowa)
+BRAK	docs/tresci/pl/maki-typy.md:13	## typy potwierdzone w obrocie (lista do atlasu; nazwy handl	Mąka pszenna typ 750
+BRAK	docs/tresci/pl/maki-typy.md:15	## typy potwierdzone w obrocie (lista do atlasu; nazwy handl	Mąka pszenna typ 1850 (graham)
+BRAK	docs/tresci/pl/maki-typy.md:22	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 450 (tortowa)
+BRAK	docs/tresci/pl/maki-typy.md:23	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 500 (wrocławska)
+BRAK	docs/tresci/pl/maki-typy.md:24	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 550 (luksusowa)
+BRAK	docs/tresci/pl/maki-typy.md:25	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 650 (bułkowa)
+BRAK	docs/tresci/pl/maki-typy.md:26	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 750 (chlebowa)
+BRAK	docs/tresci/pl/maki-typy.md:27	## nazwy handlowe w atlasie PL (namePl w src/core/flour-atla	Mąka pszenna typ 1850 (graham)
+BRAK	docs/tresci/pl/maszyna.md:12	## machine.order	W maszynie z dozownikiem drożdży, na przykład Panasonic SD-YR2550, suche drożdże wsypuje się do dozownika w programach, które go używają.
+kod wyjścia: 0

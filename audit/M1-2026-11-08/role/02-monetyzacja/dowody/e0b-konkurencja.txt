@@ -1,0 +1,146 @@
+# E0b konkurencja — odczyt 2026-11-08 (UTC ok. 20:30)
+$ curl -sS "https://itunes.apple.com/search?term=sourdough&entity=software&country={pl,us}&limit=15" (kod 0); kolumny: trackId | nazwa | cena pobrania | liczba ocen | średnia | liczba języków | kategoria | sprzedawca
+== net/s-us-sourdough_.json
+6736766728 | Loaflo: Sourdough Starter | Free | 564 | 4.69 | 1 | Food & Drink | No Worries Lifestyle, LLC
+6755709217 | Sourdough Starter Tracker | Free | 33 | 4.82 | 5 | Food & Drink | MyQuietSpot Inc.
+1515369685 | Rise: Baking & Bread Recipes | Free | 337 | 4.87 | 1 | Food & Drink | Made by Windmill, LLC
+6797501483 | Sourdough Simplified | Free | 0 | 0.00 | 1 | Food & Drink | Rene Herteux
+6747842855 | SourdoughGuru: AI Baking Coach | Free | 1 | 5.00 | 1 | Food & Drink | Gil Leibovitz
+6756316343 | Breadlify | Free | 0 | 0.00 | 1 | Food & Drink | Thibault Ricci
+6813598256 | Ovenbell: Home Bakery Business | Free | 4 | 4.75 | 1 | Business | East Frisia LLC
+6752309546 | Sourdough Buddy | Free | 1 | 5.00 | 1 | Food & Drink | Steve Rose
+6817087296 | LoafCoach: Sourdough Bread | Free | 7 | 5.00 | 1 | Food & Drink | Nick Shaw
+6738346798 | Sourdough Feeding Calculator | Free | 0 | 0.00 | 1 | Food & Drink | NFP SOFTWARE
+6769946306 | Sourdough Sanity: Bake Guide | Free | 0 | 0.00 | 1 | Food & Drink | Jason Diehl
+6758812333 | The Dough Lab - Bread Baking | Free | 9 | 4.89 | 4 | Food & Drink | Sabri Sonmez
+1521173993 | West Coast Sourdough | Free | 1679 | 4.75 | 3 | Food & Drink | WCSD Inc
+1534576984 | Kneady: Bread & Baking Recipes | Free | 732 | 4.80 | 1 | Food & Drink | Quillbound Studios Ltd
+6751040790 | Sourdough AI | Free | 5 | 4.40 | 1 | Food & Drink | Bryan Ellis
+== net/s-pl-sourdough_.json
+1536202410 | Sourdough Hydration Calc | Free | 0 | 0.00 | 1 | Food & Drink | Evan Winograd
+6797501483 | Sourdough Simplified | Free | 0 | 0.00 | 1 | Food & Drink | Rene Herteux
+6755709217 | Sourdough Starter Tracker | Free | 0 | 0.00 | 5 | Food & Drink | MyQuietSpot Inc.
+6736766728 | Loaflo: Sourdough Starter | Free | 0 | 0.00 | 1 | Food & Drink | No Worries Lifestyle, LLC
+1515369685 | Rise: Baking & Bread Recipes | Free | 5 | 5.00 | 1 | Food & Drink | Made by Windmill, LLC
+1521410011 | breadly - Sourdough Scheduler | Free | 0 | 0.00 | 1 | Food & Drink | Paul Abrudan
+6760153512 | Crumbly: Sourdough Starter | Free | 0 | 0.00 | 1 | Food & Drink | Rebecca Dahl
+1534576984 | Kneady: Bread & Baking Recipes | Free | 2 | 5.00 | 1 | Food & Drink | Quillbound Studios Ltd
+6812466978 | Flourwise: Sourdough & Baking | Free | 1 | 5.00 | 6 | Food & Drink | Mariusz Lasak
+6748180011 | Yeasta: Sourdough Tracker | Free | 0 | 0.00 | 9 | Food & Drink | Mor Almalach
+6738346798 | Sourdough Feeding Calculator | Free | 0 | 0.00 | 1 | Food & Drink | NFP SOFTWARE
+6785357199 | BakeReady - Sourdough Tracker | Free | 0 | 0.00 | 1 | Food & Drink | 艳梅 陈
+6752309546 | Sourdough Buddy | Free | 0 | 0.00 | 1 | Food & Drink | Steve Rose
+6760582503 | Sourdough Tracker: Starter Log | Free | 0 | 0.00 | 1 | Food & Drink | CREATIVE ADVENTURES LAB
+6817087296 | LoafCoach: Sourdough Bread | Free | 0 | 0.00 | 1 | Food & Drink | Nick Shaw
+== net/s-us-baker___s___percentage_.json
+6742335028 | Leaven: Baker's Percentage | Free | 13 | 4.08 | 1 | Food & Drink | Levi Nelson, LLC
+1519534917 | Bread Book | Free | 11 | 4.73 | 1 | Food & Drink | Sandro Turriate
+6753281246 | Baker’s Percentage | $1.99 | 1 | 1.00 | 2 | Food & Drink | Rando Kall
+6800753721 | Math Loaf: Baker's Percentage | Free | 0 | 0.00 | 1 | Utilities | Donny Kurniawan
+1343381132 | Baker Percentage | Free | 1 | 5.00 | 7 | Food & Drink | Pedro Coutinho
+6827017548 | Baker's Percentage | Free | 0 | 0.00 | 1 | Productivity | 明 范
+6771638580 | Whisk Baker's Ratio | Free | 0 | 0.00 | 1 | Food & Drink | Linh Phan Nhat Khanh
+1515139393 | Bakesy: Home Bakery Biz App | Free | 7311 | 4.90 | 1 | Business | Bakesy, LLC
+1507706828 | Doughy | Free | 10 | 4.90 | 1 | Utilities | Allyson Urick
+1438604127 | Baker’s Drive-Thru | Free | 290 | 4.39 | 1 | Food & Drink | Bakers Burgers, Inc.
+1625512032 | Baker Notes | Free | 2 | 3.00 | 1 | Food & Drink | OneByte, LLC
+1467009128 | Baker Business 3 | Free | 976 | 4.22 | 1 | Games | Living Code Labs LLC
+6448450132 | Percent: Percentage Calculator | Free | 18 | 4.72 | 2 | Utilities | Faris Abaza
+687696254 | Baker's note | Free | 4 | 3.50 | 2 | Food & Drink | Be a Buddy LLC
+1525239805 | Gluten Morgen | Free | 756 | 4.80 | 2 | Food & Drink | Alan Parodi
+
+# Ceny zakupów w aplikacji: curl -sSL --compressed "https://apps.apple.com/{us,pl}/app/id<trackId>" | grep -o "<span>[^<]*</span> <span>[^<]*(zł|$)</span>" (kod 0 dla każdego)
+== pages/pl-1515369685.html
+3 Month Subscription 49,99 zł
+Monthly Subscription 19,99 zł
+Monthly Subscription 29,99 zł
+One time purchase 99,99 zł
+Yearly Subscription 79,99 zł
+Yearly Subscription 99,99 zł
+== pages/pl-1521173993.html
+== pages/pl-1521410011.html
+Breadly Premium 26,99 zł
+Breadly Premium 4,99 zł
+== pages/pl-1534576984.html
+Kneady Pro - Annual 129,99 zł
+Kneady Pro - Annual 149,99 zł
+Kneady Pro - Annual 199,99 zł
+Kneady Pro - Annual 99,99 zł
+Kneady Pro - Monthly 16,99 zł
+Kneady Pro - Monthly 39,99 zł
+Kneady Pro - Quarterly 69,99 zł
+Kneady Pro 69,99 zł
+== pages/pl-6736766728.html
+Loaflo Monthly 99,99 zł
+Loaflo Weekly 29,99 zł
+Loaflo Yearly 199,99 zł
+== pages/pl-6755709217.html
+Premium 59,99 zł
+Remove Ads 9,99 zł
+== pages/us-1515369685.html
+3 Month Subscription $8.99
+Monthly Subscription $3.99
+Monthly Subscription $4.99
+One time purchase $19.99
+Yearly Subscription $14.99
+Yearly Subscription $19.99
+== pages/us-1521173993.html
+== pages/us-1521410011.html
+Breadly Premium $0.99
+Breadly Premium $5.49
+== pages/us-1534576984.html
+ Kneady Pro - Monthly $4.99
+Kneady Pro - Annual $19.99
+Kneady Pro - Annual $21.99
+Kneady Pro - Annual $24.99
+Kneady Pro - Annual $29.99
+Kneady Pro - Monthly $3.49
+Kneady Pro - Monthly $3.99
+Kneady Pro - Monthly $6.99
+Kneady Pro - Quarterly $12.99
+== pages/us-6736766728.html
+Loaflo Monthly $19.99
+Loaflo Weekly $6.99
+Loaflo Yearly $39.99
+== pages/us-6755709217.html
+Premium $12.99
+Remove Ads $1.99
+(1521173993 West Coast Sourdough = aplikacja piekarni do zamówień, nie konkurent; pominięta)
+
+# Recenzje o cenie/subskrypcji: https://itunes.apple.com/us/rss/customerreviews/page=1/id=<id>/sortby=mostrecent/json (kod 0; strony 2-3 puste)
+== rev/us-6736766728-1.json
+n= 28
+- 1★ 2026-08-06 | Not worth the hype | I’m not paying 6 dollars weekly and it was an accurate
+- 4★ 2026-06-20 | …now what? | Get feedback. Love the tips. But there’s no follow-up. “…this will help determine the best time to feed…” “ok, then what?” Make me a schedule I can put in my phone to tell me what to do AND WHEN. And how about remembering/logging what I was told to do/did last time and building upon that. Seems like
+- 1★ 2026-04-07 | Paywall | I hate when apps don’t advertise a subscription based service in the photos or descriptions— not to mention the paywall keeps popping up with a timer. NAH buh-bye!
+- 1★ 2026-03-07 | Not for beginners | This was advertised as a helper for beginners, starting with the starter. All this is is a recipe database. There’s 1 starter recipe, that’s it. Not worth the money. Because of the false advertising, I contacted support through the website (there are no account options in the app to cancel or contac
+- 1★ 2026-02-25 | Pay Wall & Annoying Pop-Up | This is the most annoying app I have ever downloaded in my entire life. Despite not being mentioned in the description, you do have to pay a subscription for all of the features, aside from recipes. Recipes are the only thing you can access free. At first, it appears like you can use it without a su
+- 1★ 2026-02-21 | Don’t pay | Can’t cancel my free trial
+- 3★ 2025-11-30 | What happened? | I love this app and use it all the time. Unfortunately, my starter died when I was on vacation.. Now that I have a new starter going, I’m trying to use it again, it’s not able to scan pictures. I tried to do the chat to see if I could get some help, but it doesn’t answer me. I do pay for the app so 
+- 1★ 2025-11-30 | Nothing works | This app came highly recommended, and I was excited to use it to help perfect my craft. Unfortunately even after paying for the subscription nothing it working. I cannot chat with the bot, I cannot scan my bread or upload a picture. Very disappointing and I’m not sure how to get my money back
+- 1★ 2025-10-20 | Help | When I scan, it says that I have invalid credit. I paid the subscription amount and it says that I have access to all of the premium capabilities. I can’t find anywhere on your app. To fix this problem please help.
+- 1★ 2025-06-20 | App | This app is not free! I was only able to use it once. When I just tried, it is making me sign up for the subscription. 😡
+- 1★ 2025-05-19 | Chat GPT is better and free | This app requires a paid subscription, it’s cheap enough so I tried it. For a month straight it said the exact same thing every single time I scanned starter vs discard jar (they look completely different on top). Every loaf was the same score and description. I believe someone started the app as a 
+- 4★ 2025-04-18 | Yea but no | The app cool but if you have celiac’s, theres no gluten free settings in the scan section to give you the fully complete diagnosis of your own gf sourdough starter. The app is still helpful but I kinda feel like I wasted my money since I got the app to help me with my first starter in the first plac
+- 1★ 2025-03-26 | You literally only get one scan. | You get one single scan, everything else is locked behind paywalls. The feedback would be great if I could actually compare the before/after.
+- 5★ 2025-03-25 | This was the most helpful | I hate paying for apps. I never know if they will work as advertised but this one does. I’ve been trying in vain to make sourdough. Not knowing why my bread wasn’t coming out correctly. This app helped me with my starter and with the recipes I’ve been successful everytime I’ve used this app. I’m ove
+- 1★ 2025-03-16 | Beware of Subscriptions!!!! | I understand that in 2025 everything is subscription based now but for an app that is just supposed to tell me if my starter is alive or not is kind of ridiculous. I should t have to pay for taking a picture of something.. I can just as easily look it up online. If the subscription portion was tied 
+- 3★ 2025-03-06 | Only 2 scan | I was excited about this app and scanned my starter not realizing I only get 1 free scan. How do I know if I want to pay for it if that’s all I get to try. Pretty disappointed!
+- 3★ 2025-02-25 | No free trial | The idea is interesting, but there’s no free trial. At least a few days of free trial would be great to see how the app works. And without paid subscription the app allows you to upload only one photo. lol
+- 1★ 2025-02-14 | Don’t bother | Paid for it to tell me the same thing every single time I scanned anything. Bought it to help me, and it did nothing. Not worth it.
+- 5★ 2025-01-01 | Great for new bakers | I found this app through TikTok and downloaded it and even got a free subscription. Definitely think this is great to help track my starter because I’m still kind of new to baking sourdough. It’s really fun easy to use. I definitely recommend it.
+== rev/us-1534576984-1.json
+n= 17
+- 4★ 2026-07-27 | Good but could be better | It’s a great app with tons of free recipes but some of the most appealing recipes I have seen are stuck behind a paywall I wish that like once a week you could choose 2 or 3 recipes to “unlock” for the week
+- 4★ 2025-11-22 | Pro | I don’t really like that the app has pro because us beginner bakers want to bake stuff like that too
+- 4★ 2024-12-02 | The only problem | Kneed is a great app, although it has a lot of good recipes that have to have the subscription to see them. I just think they should have less of them needing the “kneedy pro”
+- 5★ 2023-12-16 | Delicious recipes and good instructions | I'm just learning to bake, but I have been able to make some delicious breads using kneady recipes. The recipes are well curated (aka delicious) and easy to follow. Highly recommended!
+- 5★ 2023-11-27 | Print from iPhone… | Can we please get the ability to print for pro accounts??
+== rev/us-1515369685-1.json
+n= 37
+- 5★ 2026-01-24 | Masterpiece. | Carefully crafted app. It’s well worth the purchase for novices or masters. The calculators included alone are worth every penny. Beyond them, you will accurately dynamically know what time on the clock to perform every step. This takes away the anxiety and allows you to do other things with full co
+- 2★ 2024-08-06 | Import | I have tried to import several sourdough recipes without success, that is the reason I purchased it.
+- 5★ 2021-03-27 | Easy Five Stars | I’ve been using this app for months with just the free features and it took all the stress and thinking out of my bakes. I finally upgraded and am hitting myself for waiting so long. The app is so much better unlocked, totally worth it. 5 stars would bake again.
+- 1★ 2020-12-20 | Not working | I just purchased yesterday and have yet to receive notification alarms for feeding my starter. I cannot figure out where to request a refund either. So disappointed.
+- 4★ 2020-12-07 | Doesn't support BBGA formulas | This is a very well designed app, and I think it will be useful for many bakers. However, it's common for serious bread bakers to keep their recipes in BBGA (Bread Bakers Guild of America) style formulas, which is not possible in this app. If "BBGA style formula" means nothing to you, proceed withou
+- 5★ 2020-08-24 | A busy baker’ dream! | I love to bake but don’t have a lot of free time and was finding it difficult to keep track of schedules while multitasking during this day. This app not only allows me to centralize my notes but also reminds me through my phone notifications of key points in the process AND helps me calculate baker

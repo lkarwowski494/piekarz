@@ -1,0 +1,118 @@
+# G7-przeplyw-ui / 04-studio-projektowe-002: skok z arkusza „Plan wypieku” bez cofnięcia
+# Sonda w git worktree (scratchpad/wt-g7, HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42), repo nietknięte
+
+$ cd /home/user/piekarz && grep -n "const goToStep" -A11 src/components/stolnica/ProwadzenieWypieku.tsx
+231:  const goToStep = (idx: number) => {
+232-    if (idx < 0 || idx >= steps.length) return;
+233-    // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
+234-    const skok = skokDoKroku(postep(), idx, Date.now());
+235-    setSteps(skok.steps);
+236-    setCurrentStepIdx(idx);
+237-    setDutchOvenPhase('lid_on');
+238-    runFor(stepDurationSec(skok.steps[idx], 'lid_on'));
+239-    setUndo(null);
+240-    setCofniete(null);
+241-    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+242-  };
+kod wyjścia: 0
+
+$ cd /home/user/piekarz && grep -rn "onGoToStep" src --include=*.ts --include=*.tsx | grep -v __tests__
+src/components/stolnica/BakeStepsList.tsx:21:  onGoToStep: (idx: number) => void;
+src/components/stolnica/BakeStepsList.tsx:29:  onGoToStep,
+src/components/stolnica/BakeStepsList.tsx:84:            onPress={() => onGoToStep(idx)}
+src/components/stolnica/ProwadzenieWypieku.tsx:405:          onGoToStep={goToStep}
+src/components/stolnica/PlanWypiekuArkusz.tsx:24:  onGoToStep: (idx: number) => void;
+src/components/stolnica/PlanWypiekuArkusz.tsx:42:            onGoToStep={(idx) => {
+src/components/stolnica/PlanWypiekuArkusz.tsx:43:              p.onGoToStep(idx);
+kod wyjścia: 0 (5 trafień: znalezisko liczy 4, pomija destrukturyzację :29; łańcuch ten sam)
+
+$ cd /home/user/piekarz && sed -n 80,84p src/components/stolnica/BakeStepsList.tsx
+          <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: !!(isCurrent) }}
+            key={step.id}
+            onPress={() => onGoToStep(idx)}
+kod wyjścia: 0
+
+$ timeout 100 npx jest tests/sonda-g7/skok-cofniecie.test.tsx --forceExit   (w worktree)
+  console.log
+    {"wierszy":11,"stepIdxPrzed":1,"cofnijPrzed":true,"stepIdxPo":4,"cofnijPo":false,"pasekPrzywroc":0,"hintWiersza":0,"arkuszOtwartyPoSkoku":0}
+  console.log
+    {"stepIdx":[0,0],"timerEndsAt":[1794196461164,1794196462751],"przesuniecieMs":1587}
+PASS tests/sonda-g7/skok-cofniecie.test.tsx
+  SONDA G7 04-002: skok z arkusza Plan wypieku a cofnięcie
+    ✓ po Zrobione jest Cofnij poprzedni; po stuknięciu wiersza w arkuszu nie ma Przywróć ani Cofnij (389 ms)
+    ✓ stuknięcie wiersza bieżącego kroku też restartuje zegar od pełnego czasu (1617 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.837 s, estimated 4 s
+Ran all test suites matching /tests\/sonda-g7\/skok-cofniecie.test.tsx/i.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
+kod wyjścia: 0
+
+--- źródło sondy (tests/sonda-g7/skok-cofniecie.test.tsx, część własna; nagłówek mocków skopiowany z src/__tests__/skok-kroku-d8.test.tsx:1-44) ---
+import { PasekKciuka } from '../../src/components/stolnica/PasekKciuka';
+import { PasekCofnijKroku } from '../../src/components/stolnica/PasekCofnijKroku';
+import { BakeStepsList } from '../../src/components/stolnica/BakeStepsList';
+import { Pressable } from 'react-native';
+import { PrzyciskiProwadzenia } from '../../src/components/stolnica/PrzyciskiProwadzenia';
+const otworzPlan = async (tree: renderer.ReactTestRenderer) => { await act(async () => { tree.root.findByType(PrzyciskiProwadzenia).props.onPlan(); }); await settle(); };
+
+describe('SONDA G7 04-002: skok z arkusza Plan wypieku a cofnięcie', () => {
+  beforeEach(async () => {
+    zUprawnieniem(); useTempDbDir(); _resetMemStore(); setActiveBake(null); setLang('pl');
+    await initDatabase(); await saveBakeSession(null);
+  });
+
+  it('po Zrobione jest Cofnij poprzedni; po stuknięciu wiersza w arkuszu nie ma Przywróć ani Cofnij', async () => {
+    const start = Date.now() - 60_000;
+    const steps = planBakeSteps({ startAt: start, isHighRye: false });
+    setActiveBake({ id: 'bake_g7', recipeName: 'Chleb', startedAt: start, currentStageId: steps[0].id, steps });
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => { tree = renderer.create(<StolnicaScreen />); });
+    await settle();
+    await act(async () => { tree!.root.findByType(PasekKciuka).props.onZrobione(); });
+    await settle();
+    const przedSkokiem = (await loadBakeSession())!;
+    const cofnijPrzed = tree!.root.findByType(PasekKciuka).props.cofnijDostepne;
+    // (hint liczony przed skokiem)
+    // stuknięcie wiersza nr 5 w liście kroków arkusza (ten sam Pressable co w aplikacji)
+    await otworzPlan(tree!);
+    const lista = tree!.root.findByType(BakeStepsList);
+    const wiersze = [...new Set(lista.findAll((n) => !!n.props.accessibilityState && 'selected' in n.props.accessibilityState && typeof n.props.onPress === 'function').map((n) => n.props.onPress))].map((onPress) => ({ props: { onPress } }));
+    const hintWiersza = lista.findAll((n) => typeof n.props.onPress === 'function' && !!n.props.accessibilityHint).length;
+    await act(async () => { wiersze[4].props.onPress(); });
+    await settle();
+    const poSkoku = (await loadBakeSession())!;
+    const cofnijPo = tree!.root.findByType(PasekKciuka).props.cofnijDostepne;
+    const pasekPrzywroc = tree!.root.findAllByType(PasekCofnijKroku).length;
+    console.log(JSON.stringify({ wierszy: wiersze.length, stepIdxPrzed: przedSkokiem.stepIdx, cofnijPrzed, stepIdxPo: poSkoku.stepIdx, cofnijPo, pasekPrzywroc, hintWiersza, arkuszOtwartyPoSkoku: tree!.root.findAllByType(BakeStepsList).length }));
+    act(() => tree!.unmount());
+    expect(cofnijPrzed).toBe(true);
+    expect(poSkoku.stepIdx).toBe(4);
+    expect(cofnijPo).toBe(false);
+    expect(pasekPrzywroc).toBe(0);
+  });
+
+  it('stuknięcie wiersza bieżącego kroku też restartuje zegar od pełnego czasu', async () => {
+    const start = Date.now() - 60_000;
+    const steps = planBakeSteps({ startAt: start, isHighRye: false });
+    setActiveBake({ id: 'bake_g7b', recipeName: 'Chleb', startedAt: start, currentStageId: steps[0].id, steps });
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => { tree = renderer.create(<StolnicaScreen />); });
+    await settle();
+    const s0 = (await loadBakeSession())!;
+    await act(async () => { await new Promise((r) => setTimeout(r, 1500)); });
+    await otworzPlan(tree!);
+    const lista = tree!.root.findByType(BakeStepsList);
+    const wiersze = [...new Set(lista.findAll((n) => !!n.props.accessibilityState && 'selected' in n.props.accessibilityState && typeof n.props.onPress === 'function').map((n) => n.props.onPress))].map((onPress) => ({ props: { onPress } }));
+    await act(async () => { wiersze[s0.stepIdx].props.onPress(); });
+    await settle();
+    const s1 = (await loadBakeSession())!;
+    console.log(JSON.stringify({ stepIdx: [s0.stepIdx, s1.stepIdx], timerEndsAt: [s0.timerEndsAt, s1.timerEndsAt], przesuniecieMs: (s1.timerEndsAt ?? 0) - (s0.timerEndsAt ?? 0) }));
+    act(() => tree!.unmount());
+    expect(s1.stepIdx).toBe(s0.stepIdx);
+    expect((s1.timerEndsAt ?? 0) - (s0.timerEndsAt ?? 0)).toBeGreaterThan(1000);
+  });
+});

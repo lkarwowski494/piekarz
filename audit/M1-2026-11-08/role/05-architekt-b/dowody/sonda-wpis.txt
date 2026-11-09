@@ -1,0 +1,59 @@
+# Sonda (worktree 2ef8870a w scratchpadzie)
+  | /** Sonda audytu 05-architekt-b (scratchpad): usunięty wpis dokarmienia wraca po zapisie profilu zakwasu ze stanem ekranu sprzed usunięcia. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import { useTempDbDir, restartApp, dbFilePath, openRaw } from './helpers/node-sqlite-adapter';
+  | import type { StoredStarterEntry } from '../db';
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | const feed = (id: string, at: number): StoredStarterEntry => ({ id, starterId: 'z', kind: 'feeding', occurredAt: at, feedRatio: '1:2:2', signs: [], createdAt: at, updatedAt: at });
+  | const wpisy = () => { const r = openRaw(APP_DB()); const w = r.prepare("SELECT id, occurred_at FROM starter_entries WHERE starter_id = 'z' ORDER BY occurred_at").all(); r.close(); return JSON.stringify(w); };
+  | 
+  | it('usuń wpis (ZakwasDziennik → log.usun) → „Zapisz profil” (handleSaveProfile, ...starter z ekranu)', async () => {
+  |   useTempDbDir();
+  |   const app = restartApp();
+  |   await app.schema.initDatabase();
+  |   const e = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  |   await e.createStarterWithEntry({ id: 'z', name: 'Zenek', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP' }, feed('w1', 1_000_000));
+  |   await e.addStarterEntry(feed('w2', 2_000_000)); // dokarmienie z „Dziś” (kalendarz-akcje) albo pomyłka
+  |   const ekran = (await app.store.getStarters()).find((s) => s.id === 'z')!; // stan ekranu: lastFedAt = 2 000 000
+  |   console.log('1. wpisy przed:', wpisy(), '| ekran.lastFedAt =', ekran.lastFedAt);
+  |   await e.deleteStarterEntry('w2'); // „Usuń wpis” w dzienniku; ekran przeładowuje tylko listę wpisów
+  |   console.log('2. po usunięciu w2:', wpisy());
+  |   await app.store.saveStarter({ ...ekran, name: 'Zenek II' }); // „Zapisz” w edycji profilu: ...starter ze starym lastFedAt
+  |   console.log('3. po zapisie profilu:', wpisy(), '| getStarters().lastFedAt =', (await app.store.getStarters())[0].lastFedAt);
+  | });
+  | 
+  | it('popraw godzinę ostatniego dokarmienia (useStarterLog.popraw) → „Stały dzień karmienia” (zapiszStalyDzien, ...starter z ekranu)', async () => {
+  |   useTempDbDir();
+  |   const app = restartApp();
+  |   await app.schema.initDatabase();
+  |   const e = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  |   await e.createStarterWithEntry({ id: 'z', name: 'Zenek', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE' }, feed('w1', 1_000_000));
+  |   await e.addStarterEntry(feed('w2', 2_000_000));
+  |   const ekran = (await app.store.getStarters()).find((s) => s.id === 'z')!;
+  |   await e.updateStarterEntry({ ...feed('w2', 1_500_000), updatedAt: 3 }); // „Edytuj” wpisu: dokarmienie było wcześniej
+  |   console.log('A. po poprawie godziny w2:', wpisy());
+  |   await app.store.saveStarter({ ...ekran, fridgeFeedDay: { weekday: 6, minuteOfDay: 600 } });
+  |   console.log('B. po zapisie stałego dnia:', wpisy(), '| liczba dokarmień =', JSON.parse(wpisy()).length);
+  | });
+  | 
+
+$ npx jest src/data/__tests__/sonda-b-wpis.sqlite.test.ts
+  console.log
+    1. wpisy przed: [{"id":"w1","occurred_at":1000000},{"id":"w2","occurred_at":2000000}] | ekran.lastFedAt = 2000000
+  console.log
+    2. po usunięciu w2: [{"id":"w1","occurred_at":1000000}]
+  console.log
+    3. po zapisie profilu: [{"id":"w1","occurred_at":1000000},{"id":"feed-z-2000000","occurred_at":2000000}] | getStarters().lastFedAt = 2000000
+  console.log
+    A. po poprawie godziny w2: [{"id":"w1","occurred_at":1000000},{"id":"w2","occurred_at":1500000}]
+  console.log
+    B. po zapisie stałego dnia: [{"id":"w1","occurred_at":1000000},{"id":"w2","occurred_at":1500000},{"id":"feed-z-2000000","occurred_at":2000000}] | liczba dokarmień = 3
+PASS src/data/__tests__/sonda-b-wpis.sqlite.test.ts
+  ✓ usuń wpis (ZakwasDziennik → log.usun) → „Zapisz profil” (handleSaveProfile, ...starter z ekranu) (181 ms)
+  ✓ popraw godzinę ostatniego dokarmienia (useStarterLog.popraw) → „Stały dzień karmienia” (zapiszStalyDzien, ...starter z ekranu) (43 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.779 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-wpis.sqlite.test.ts/i.
+kod: 0

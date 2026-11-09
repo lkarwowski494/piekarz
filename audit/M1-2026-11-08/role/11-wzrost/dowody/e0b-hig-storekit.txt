@@ -1,0 +1,14 @@
+$ curl -sS https://developer.apple.com/tutorials/data/design/human-interface-guidelines/<strona>.json oraz .../documentation/storekit/requestreviewaction.json | grep (odczyt 2026-11-08); kod 0
+== hig-notifications.json
+ on notifications to get quick updates, so you want to provide valuable information succinctly. Avoid sending multiple notifications for the same thing, even if someone hasn’t responded.  People attend to notifications at their convenience
+== hig-managing-notifications.json
+ to become a subscriber, and game players might want to receive a special offer related to a live game event. Never use the Time Sensitive interruption level to send a marketing notification.  People may have agreed to receive m
+cus or scheduled delivery, make sure the notification is about an event that’s happening now or will happen within an hour. The first time a Time Sensitive notification arrives from your app, the system describes
+le filter notifications during a time period they reserve for an activity like sleeping, working, reading, or driving. Delivery scheduling lets people choose whether to receive notification alerts immediatel
+== hig-ratings-and-reviews.json
+, you might prompt people when they complete a game level or a significant task. Avoid asking for a rating on first launch or during onboarding, because people haven’t had enough time to gain a clear understand
+be irritating, and may even negatively influence people’s opinion of your app. Consider allowing at least a week or two between requests, prompting again after people demonstrate additional engagement with you
+== rra.json
+person hasn’t rated or reviewed your app on this device, StoreKit displays the ratings and review request a maximum of three times within a 365-day period. If the person has rated or reviewed your app on this device, Sto
+he person’s previous review.    Because this API may not present an alert, don’t call it in response to a button tap or other user action. It’s up to your app to decide on the best timing for requesting r
+e rating and review request view, so you can test the user interface and experience. However, this method has no effect in apps that you distribute for beta testing using TestFlight. Provide a persistent link 

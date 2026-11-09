@@ -1,0 +1,30 @@
+$ node <scratchpad>/skrypty/tre13.mjs /home/user/piekarz en   # zdania docs/tresci/en (bez znaczników) szukane dosłownie w src/ i app/ (bez testów)
+zdania znalezione w kodzie: 401; nieznalezione: 27
+BRAK	docs/tresci/en/chleb-zytni-etapy.md:6	## wariant.opis	The rye variant has no dough folding stage.
+BRAK	docs/tresci/en/chleb-zytni-etapy.md:7	## wariant.opis	After shaping, the dough rises in a tin and is baked in it.
+BRAK	docs/tresci/en/chleb-zytni-etapy.md:10	## wariant.prog (variant selection condition)	The rye variant applies to dough in which rye flour makes up more than 50% of the flour.
+BRAK	docs/tresci/en/drozdze-plan-przelicznik.md:5	## plan.yeast.steps	A yeast bake has these steps: mixing, kneading, first rise, degassing, shaping, second rise and baking.
+BRAK	docs/tresci/en/drozdze-plan-przelicznik.md:6	## plan.yeast.steps	The plan takes its times from the recipe.
+BRAK	docs/tresci/en/drozdze-przelicznik.md:5	## yeast.conversionNote	The app counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast.
+BRAK	docs/tresci/en/drozdze-przelicznik.md:6	## yeast.conversionNote	This is the middle between two groups of makers' values, 0.28 and 0.417, and some give even less, so your yeast package may say otherwise.
+BRAK	docs/tresci/en/drozdze-przelicznik.md:9	## yeast.dryHandling	Instant yeast can go straight into the flour.
+BRAK	docs/tresci/en/drozdze-przelicznik.md:10	## yeast.dryHandling	Some makers say to dissolve active dry yeast in warm water first.
+BRAK	docs/tresci/en/kalendarz-m0.md:5	## piekarnik.zajety.nagrzewanie (arkusz kolizji, BR-KAL-016)	Preheating ties up the oven too: an empty pot takes about 30 minutes, a baking stone usually about 60.
+BRAK	docs/tresci/en/kalendarz-m0.md:8	## piekarnik.zajety.grupowanie (propozycja przesunięcia, BR-	It's worth baking several things on the same day, one after another, since an oven with a stone takes a long time to heat up.
+BRAK	docs/tresci/en/kalendarz-m0.md:11	## karmienie.staly-dzien.opis (BR-KAL-010)	A starter kept in the refrigerator is fed once a week.
+BRAK	docs/tresci/en/kalendarz-m0.md:12	## karmienie.staly-dzien.opis (BR-KAL-010)	After feeding, leave it at room temperature for 1–2 hours, closer to 2 in a cool kitchen, then put it back in the fridge.
+BRAK	docs/tresci/en/kalendarz-m0.md:15	## karmienie.staly-dzien.warunek (przed włączeniem stałego d	A starter goes into the refrigerator only 7–10 days after it was created.
+BRAK	docs/tresci/en/kalendarz-m0.md:18	## karmienie.staly-dzien.przesuniecie (gdy termin wypada nie	Feeding doesn't have to happen on the dot.
+BRAK	docs/tresci/en/kalendarz-m0.md:21	## karmienie.staly-dzien.pominiete (minął dzień karmienia)	A starter that's missed a day, two or even a week of feeding can almost certainly be revived by feeding it every 12 hours and keeping it at room temperature unt
+BRAK	docs/tresci/en/kalendarz-m0.md:22	## karmienie.staly-dzien.pominiete (minął dzień karmienia)	The less often a starter has been fed, the longer it takes to get it ready for baking.
+BRAK	docs/tresci/en/maki-typy.md:9	## types confirmed on the market (list for the atlas; trade 	Wheat flour type 450 (tortowa, krupczatka)
+BRAK	docs/tresci/en/maki-typy.md:13	## types confirmed on the market (list for the atlas; trade 	Wheat flour type 750
+BRAK	docs/tresci/en/maki-typy.md:15	## types confirmed on the market (list for the atlas; trade 	Wheat flour type 1850 (graham)
+BRAK	docs/tresci/en/maki-typy.md:17	## types confirmed on the market (list for the atlas; trade 	Rye flour type 720
+BRAK	docs/tresci/en/maki-typy.md:22	## trade names in the PL atlas (namePl in src/core/flour-atl	Wheat flour type 450 (tortowa)
+BRAK	docs/tresci/en/maki-typy.md:23	## trade names in the PL atlas (namePl in src/core/flour-atl	Wheat flour type 500 (wrocławska)
+BRAK	docs/tresci/en/maki-typy.md:25	## trade names in the PL atlas (namePl in src/core/flour-atl	Wheat flour type 650 (bułkowa)
+BRAK	docs/tresci/en/maki-typy.md:26	## trade names in the PL atlas (namePl in src/core/flour-atl	Wheat flour type 750 (chlebowa)
+BRAK	docs/tresci/en/maki-typy.md:27	## trade names in the PL atlas (namePl in src/core/flour-atl	Wheat flour type 1850 (graham)
+BRAK	docs/tresci/en/maszyna.md:12	## machine.order	In a machine with a yeast dispenser, for example the Panasonic SD-YR2550, dry yeast goes into the dispenser for the programs that use it.
+kod wyjścia: 0

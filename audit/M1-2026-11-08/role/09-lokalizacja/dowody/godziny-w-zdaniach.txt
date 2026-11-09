@@ -1,0 +1,432 @@
+PL Gotowe {dzien} o {godzina}.
+   es     Listo {dzien} a las {godzina}.
+   es-419 Listo {dzien} a las {godzina}.
+   pt     Pronto {dzien} às {godzina}.
+   pt-BR  Pronto {dzien} às {godzina}.
+   it     Pronto {dzien} alle {godzina}.
+   el     Έτοιμο {dzien} στις {godzina}.
+   tr     Hazır: {dzien}, saat {godzina}.
+   uk     Готово {dzien} о {godzina}.
+   fr     Prêt {dzien} à {godzina}.
+   ro     Gata {dzien} la {godzina}.
+   hu     Kész: {dzien} {godzina}.
+   sr     Готово {dzien} у {godzina}.
+   hr     Gotovo {dzien} u {godzina}.
+   bg     Готово {dzien} в {godzina}.
+   ru     Готово {dzien} в {godzina}.
+PL Etap "{etap}" wypada w nocy o {godzina}
+   es     La etapa «{etap}» cae de noche, a las {godzina}
+   es-419 La etapa "{etap}" cae de noche ({godzina})
+   pt     A etapa «{etap}» calha de noite: {godzina}
+   pt-BR  A etapa "{etap}" cai durante a noite, às {godzina}
+   it     La fase «{etap}» cade di notte alle ore {godzina}
+   el     Το στάδιο «{etap}» πέφτει μέσα στη νύχτα, στις {godzina}
+   tr     "{etap}" aşaması geceye denk geliyor: {godzina}
+   uk     Етап «{etap}» припадає на ніч, о {godzina}
+   fr     L'étape « {etap} » tombe pendant la nuit, à {godzina}
+   ro     Etapa „{etap}” cade noaptea, la ora {godzina}
+   hu     A(z) „{etap}” szakasz éjszakára esik ({godzina})
+   sr     Етапа „{etap}“ пада ноћу у {godzina}
+   hr     Faza „{etap}” pada noću u {godzina}
+   bg     Етапът „{etap}“ се пада през нощта в {godzina}
+   ru     Этап «{etap}» приходится на ночь, в {godzina}
+PL zostało {czas}, do {godzina}
+   es     quedan {czas}, hasta las {godzina}
+   es-419 faltan {czas}, hasta las {godzina}
+   pt     faltam {czas}, até às {godzina}
+   pt-BR  tempo restante: {czas}, até {godzina}
+   it     ancora {czas}, fino alle {godzina}
+   el     υπόλοιπο {czas}, έως τις {godzina}
+   tr     {czas} kaldı (bitiş: {godzina})
+   uk     залишилося {czas}, до {godzina}
+   fr     il reste {czas}, jusqu'à {godzina}
+   ro     rămas: {czas}, până la {godzina}
+   hu     még {czas} (vége: {godzina})
+   sr     преостало {czas}, до {godzina}
+   hr     još {czas}, do {godzina}
+   bg     още {czas}, до {godzina}
+   ru     осталось {czas}, до {godzina}
+PL {nazwa}: gotowe {dzien} o {godzina}
+   es     {nazwa}: listo {dzien} a las {godzina}
+   es-419 {nazwa}: listo {dzien} a las {godzina}
+   pt     {nazwa}: pronto {dzien} às {godzina}
+   pt-BR  {nazwa}: pronto {dzien} às {godzina}
+   it     {nazwa}: pronto {dzien} alle {godzina}
+   el     {nazwa}: έτοιμο {dzien} στις {godzina}
+   tr     {nazwa}: hazır — {dzien}, {godzina}
+   uk     {nazwa}: готово {dzien} о {godzina}
+   fr     {nazwa} : prêt {dzien} à {godzina}
+   ro     {nazwa}: gata {dzien} la {godzina}
+   hu     {nazwa}: elkészül {dzien}, {godzina}
+   sr     {nazwa}: готово {dzien} у {godzina}
+   hr     {nazwa}: gotovo {dzien} u {godzina}
+   bg     {nazwa}: готово {dzien} в {godzina}
+   ru     {nazwa}: готово {dzien} в {godzina}
+PL dokarmiony o {godzina}, następne o {nastepne}
+   es     refrescada a las {godzina}, siguiente a las {nastepne}
+   es-419 alimentada a las {godzina}, la siguiente a las {nastepne}
+   pt     alimentado às {godzina}, próxima às {nastepne}
+   pt-BR  alimentado às {godzina}, próxima às {nastepne}
+   it     rinfrescato alle {godzina}, prossimo alle {nastepne}
+   el     τάισμα στις {godzina}, επόμενο στις {nastepne}
+   tr     beslendi: {godzina}, sonraki: {nastepne}
+   uk     підживлено о {godzina}, наступне о {nastepne}
+   fr     rafraîchi à {godzina}, prochain à {nastepne}
+   ro     hrănită la {godzina}, următoarea la {nastepne}
+   hu     etetve: {godzina}, következő: {nastepne}
+   sr     нахрањен у {godzina}, следеће у {nastepne}
+   hr     hranjen u {godzina}, sljedeće u {nastepne}
+   bg     нахранен в {godzina}, следващо в {nastepne}
+   ru     подкормлена в {godzina}, следующая — в {nastepne}
+PL Następne dokarmienie: {dzien} o {godzina}.
+   es     Siguiente refresco: {dzien} a las {godzina}.
+   es-419 Próxima alimentación: {dzien} a las {godzina}.
+   pt     Próxima alimentação: {dzien} às {godzina}.
+   pt-BR  Próxima alimentação: {dzien} às {godzina}.
+   it     Prossimo rinfresco: {dzien} alle {godzina}.
+   el     Επόμενο τάισμα: {dzien} στις {godzina}.
+   tr     Sonraki besleme: {dzien}, saat {godzina}.
+   uk     Наступне підживлення: {dzien} о {godzina}.
+   fr     Prochain rafraîchi : {dzien} à {godzina}.
+   ro     Următoarea hrănire: {dzien} la {godzina}.
+   hu     Következő etetés: {dzien} {godzina}.
+   sr     Следеће храњење: {dzien} у {godzina}.
+   hr     Sljedeće hranjenje: {dzien} u {godzina}.
+   bg     Следващо хранене: {dzien} в {godzina}.
+   ru     Следующая подкормка: {dzien} в {godzina}.
+PL Sprawdź, czy podwoi objętość do {godzina}.
+   es     Comprueba si dobla su volumen para las {godzina}.
+   es-419 Revisa si duplica su volumen para las {godzina}.
+   pt     Verifique se duplica de volume até às {godzina}.
+   pt-BR  Verifique se ele dobra de volume até {godzina}.
+   it     Controlla se raddoppia di volume entro le {godzina}.
+   el     Ελέγξτε αν θα διπλασιαστεί σε όγκο έως τις {godzina}.
+   tr     {godzina} saatine kadar hacminin iki katına çıkıp çıkmadığını kontrol edin.
+   uk     Перевірте, чи подвоїться об'єм до {godzina}.
+   fr     Vérifiez s'il double de volume d'ici {godzina}.
+   ro     Verifică dacă își dublează volumul până la {godzina}.
+   hu     Nézd meg, hogy {godzina}-ig megduplázódik-e.
+   sr     Провери да ли ће удвостручити запремину до {godzina}.
+   hr     Provjeri udvostruči li volumen do {godzina}.
+   bg     Проверете дали ще удвои обема си до {godzina}.
+   ru     Проверьте, увеличится ли объём вдвое к {godzina}.
+PL Proponowane mieszanie ciasta: {dzien} o {godzina}.
+   es     Hora propuesta para mezclar la masa: {dzien} a las {godzina}.
+   es-419 Mezcla de la masa sugerida: {dzien} a las {godzina}.
+   pt     Hora sugerida para misturar a massa: {dzien} às {godzina}.
+   pt-BR  Sugestão para misturar a massa: {dzien} às {godzina}.
+   it     Orario consigliato per impastare: {dzien} alle {godzina}.
+   el     Προτεινόμενη ώρα ανάμιξης ζύμης: {dzien} στις {godzina}.
+   tr     Önerilen hamur karma zamanı: {dzien}, saat {godzina}.
+   uk     Рекомендований час замісу тіста: {dzien} о {godzina}.
+   fr     Heure suggérée pour mélanger la pâte : {dzien} à {godzina}.
+   ro     Propunere pentru amestecarea aluatului: {dzien}, la {godzina}.
+   hu     Javasolt tésztakeverés: {dzien} {godzina}.
+   sr     Предложено мешење теста: {dzien} у {godzina}.
+   hr     Predloženo miješanje tijesta: {dzien} u {godzina}.
+   bg     Предложено време за замесване на тестото: {dzien} в {godzina}.
+   ru     Рекомендуемое время замеса: {dzien} в {godzina}.
+PL Gotowe {dzien} o {godzina}
+   es     Listo {dzien} a las {godzina}
+   es-419 Listo {dzien} a las {godzina}
+   pt     Pronto {dzien} às {godzina}
+   pt-BR  Pronto {dzien} às {godzina}
+   it     Pronto {dzien} alle {godzina}
+   el     Έτοιμο {dzien} στις {godzina}
+   tr     Hazır: {dzien}, saat {godzina}
+   uk     Готово {dzien} о {godzina}
+   fr     Prêt {dzien} à {godzina}
+   ro     Gata {dzien} la {godzina}
+   hu     Kész: {dzien} {godzina}
+   sr     Готово {dzien} у {godzina}
+   hr     Gotovo {dzien} u {godzina}
+   bg     Готово {dzien} в {godzina}
+   ru     Готово {dzien} в {godzina}
+PL do {godzina}, potem {krok}
+   es     hasta las {godzina}, luego {krok}
+   es-419 hasta las {godzina}, luego {krok}
+   pt     até às {godzina}, depois {krok}
+   pt-BR  até {godzina}, depois {krok}
+   it     fino alle {godzina}, poi {krok}
+   el     έως τις {godzina}, μετά {krok}
+   tr     {godzina} saatine kadar, sonra {krok}
+   uk     до {godzina}, потім {krok}
+   fr     jusqu'à {godzina}, puis {krok}
+   ro     până la {godzina}, apoi {krok}
+   hu     {godzina}-ig, utána: {krok}
+   sr     до {godzina}, затим {krok}
+   hr     do {godzina}, zatim {krok}
+   bg     до {godzina}, след това {krok}
+   ru     до {godzina}, затем {krok}
+PL do {godzina}
+   es     hasta las {godzina}
+   es-419 hasta las {godzina}
+   pt     até às {godzina}
+   pt-BR  até {godzina}
+   it     fino alle {godzina}
+   el     έως τις {godzina}
+   tr     {godzina} saatine kadar
+   uk     до {godzina}
+   fr     jusqu'à {godzina}
+   ro     până la {godzina}
+   hu     {godzina}-ig
+   sr     до {godzina}
+   hr     do {godzina}
+   bg     до {godzina}
+   ru     до {godzina}
+PL Potem: {krok}, {czas}, do {godzina}
+   es     Después: {krok}, {czas}, hasta las {godzina}
+   es-419 Después: {krok}, {czas}, hasta las {godzina}
+   pt     Depois: {krok}, {czas}, até às {godzina}
+   pt-BR  Depois: {krok}, {czas}, até {godzina}
+   it     Poi: {krok}, {czas}, fino alle {godzina}
+   el     Μετά: {krok}, {czas}, έως τις {godzina}
+   tr     Sonra: {krok}, {czas}, {godzina} saatine kadar
+   uk     Потім: {krok}, {czas}, до {godzina}
+   fr     Ensuite : {krok}, {czas}, jusqu'à {godzina}
+   ro     Apoi: {krok}, {czas}, până la {godzina}
+   hu     Utána: {krok}, {czas}, {godzina}-ig
+   sr     Затим: {krok}, {czas}, до {godzina}
+   hr     Zatim: {krok}, {czas}, do {godzina}
+   bg     След това: {krok}, {czas}, до {godzina}
+   ru     Затем: {krok}, {czas}, до {godzina}
+PL Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.
+   es     La pantalla no se apagará hasta que termine el paso. Notificación a las {godzina}.
+   es-419 La pantalla no se apagará hasta que termine el paso. Notificación a las {godzina}.
+   pt     O ecrã não se desliga até ao fim do passo. Notificação às {godzina}.
+   pt-BR  A tela não vai apagar até o fim da etapa. Notificação às {godzina}.
+   it     Lo schermo resterà acceso fino alla fine del passaggio. Notifica alle {godzina}.
+   el     Η οθόνη θα μείνει αναμμένη έως το τέλος του βήματος. Ειδοποίηση στις {godzina}.
+   tr     Adım bitene kadar ekran kapanmayacak. Bildirim: {godzina}.
+   uk     Екран не згасне до кінця кроку. Сповіщення о {godzina}.
+   fr     L'écran restera allumé jusqu'à la fin de l'étape. Notification à {godzina}.
+   ro     Ecranul rămâne aprins până la finalul pasului. Notificare la {godzina}.
+   hu     A képernyő a lépés végéig nem kapcsol ki. Értesítés: {godzina}.
+   sr     Екран се неће угасити до краја корака. Обавештење у {godzina}.
+   hr     Zaslon se neće ugasiti do kraja koraka. Obavijest u {godzina}.
+   bg     Екранът няма да изгасне до края на стъпката. Известие в {godzina}.
+   ru     Экран не погаснет до конца шага. Уведомление в {godzina}.
+PL Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.
+   es     El plan tendría que empezar {dzienStartu} a las {godzinaStartu}. Como pronto, el pan estará listo {dzienGotowe} a las {godzinaGotowe}.
+   es-419 El plan tendría que empezar {dzienStartu} a las {godzinaStartu}. Lo antes que estará listo el pan es {dzienGotowe} a las {godzinaGotowe}.
+   pt     O plano teria de começar {dzienStartu} às {godzinaStartu}. O pão estará pronto, no mínimo, {dzienGotowe} às {godzinaGotowe}.
+   pt-BR  O plano teria que começar {dzienStartu} às {godzinaStartu}. O pão ficará pronto, no mínimo, {dzienGotowe} às {godzinaGotowe}.
+   it     Il piano dovrebbe iniziare {dzienStartu} alle {godzinaStartu}. Il pane sarà pronto al più presto {dzienGotowe} alle {godzinaGotowe}.
+   el     Το πλάνο θα έπρεπε να ξεκινήσει {dzienStartu} στις {godzinaStartu}. Το ψωμί μπορεί να είναι έτοιμο το νωρίτερο {dzienGotowe} στις {godzinaGotowe}.
+   tr     Planın başlaması gereken zaman: {dzienStartu}, saat {godzinaStartu}. Ekmek en erken {dzienGotowe}, saat {godzinaGotowe} hazır olur.
+   uk     План мав би початися {dzienStartu} о {godzinaStartu}. Найраніше хліб буде готовий {dzienGotowe} о {godzinaGotowe}.
+   fr     Le plan devrait commencer {dzienStartu} à {godzinaStartu}. Le pain sera prêt au plus tôt {dzienGotowe} à {godzinaGotowe}.
+   ro     Planul ar trebui să înceapă {dzienStartu} la {godzinaStartu}. Cel mai devreme, pâinea va fi gata {dzienGotowe} la {godzinaGotowe}.
+   hu     A tervnek így kellene kezdődnie: {dzienStartu} {godzinaStartu}. A kenyér legkorábban ekkor lesz kész: {dzienGotowe} {godzinaGotowe}.
+   sr     План би морао да почне {dzienStartu} у {godzinaStartu}. Хлеб ће најраније бити готов {dzienGotowe} у {godzinaGotowe}.
+   hr     Plan bi morao početi {dzienStartu} u {godzinaStartu}. Kruh će najranije biti gotov {dzienGotowe} u {godzinaGotowe}.
+   bg     Планът би трябвало да започне {dzienStartu} в {godzinaStartu}. Хлябът ще бъде готов най-рано {dzienGotowe} в {godzinaGotowe}.
+   ru     План пришлось бы начать {dzienStartu} в {godzinaStartu}. Хлеб будет готов не раньше, чем {dzienGotowe} в {godzinaGotowe}.
+PL {krok} wypada o {godzina} w nocy
+   es     {krok} cae a las {godzina} de la noche
+   es-419 {krok} cae de noche, a las {godzina}
+   pt     {krok} calha às {godzina}, de noite
+   pt-BR  {krok} cai às {godzina}, durante a noite
+   it     {krok} cade alle {godzina} di notte
+   el     {krok}: στις {godzina} μέσα στη νύχτα
+   tr     {krok}, gece {godzina} saatine denk geliyor
+   uk     {krok} припадає на {godzina} вночі
+   fr     {krok} tombe à {godzina} pendant la nuit
+   ro     {krok} pică la ora {godzina}, noaptea
+   hu     {krok} éjszakára esik ({godzina})
+   sr     {krok} пада у {godzina} ноћу
+   hr     {krok} pada u {godzina} noću
+   bg     {krok} се пада в {godzina} през нощта
+   ru     {krok} приходится на {godzina} ночи
+PL Start {dzien} o {godzina}
+   es     Inicio: {dzien}, {godzina}
+   es-419 Inicio: {dzien}, {godzina}
+   pt     Início: {dzien} às {godzina}
+   pt-BR  Início {dzien} às {godzina}
+   it     Inizio {dzien} alle {godzina}
+   el     Έναρξη: {dzien} στις {godzina}
+   tr     Başlangıç: {dzien}, {godzina}
+   uk     Початок {dzien} о {godzina}
+   fr     Début {dzien} à {godzina}
+   ro     Start {dzien} la ora {godzina}
+   hu     Kezdés: {dzien}, {godzina}
+   sr     Почетак: {dzien} у {godzina}
+   hr     Početak {dzien} u {godzina}
+   bg     Начало {dzien} в {godzina}
+   ru     Старт: {dzien}, {godzina}
+PL W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.
+   es     Ese día cambia la hora y la hora elegida no existe. El pan estará listo a las {godzina}.
+   es-419 Ese día cambia el horario y la hora elegida no existe. El pan estará listo a las {godzina}.
+   pt     Neste dia a hora muda e a hora escolhida não existe. O pão ficará pronto às {godzina}.
+   pt-BR  Nesse dia há mudança de horário, e a hora escolhida não existe. O pão ficará pronto às {godzina}.
+   it     Quel giorno cambia l'ora e l'orario scelto non esiste. Il pane sarà pronto alle {godzina}.
+   el     Αυτή την ημέρα αλλάζει η ώρα και η ώρα που επιλέξατε δεν υπάρχει. Το ψωμί θα είναι έτοιμο στις {godzina}.
+   tr     O gün saatler değişiyor ve seçtiğiniz saat mevcut değil. Ekmeğin hazır olma saati: {godzina}.
+   uk     Цього дня переводять годинник, і вибраного часу не існує. Хліб буде готовий о {godzina}.
+   fr     L'heure change ce jour-là et l'heure choisie n'existe pas. Le pain sera prêt à {godzina}.
+   ro     În această zi se schimbă ora, iar ora aleasă nu există. Pâinea va fi gata la {godzina}.
+   hu     Ezen a napon óraátállítás van, és a választott időpont nem létezik. A kenyér {godzina}-kor lesz kész.
+   sr     Тог дана се помера сат, а изабрано време не постоји. Хлеб ће бити готов у {godzina}.
+   hr     Tog se dana pomiče sat, a odabrano vrijeme ne postoji. Kruh će biti gotov u {godzina}.
+   bg     В този ден часовото време се сменя и избраният час не съществува. Хлябът ще е готов в {godzina}.
+   ru     В этот день переводят часы, и выбранного времени не существует. Хлеб будет готов в {godzina}.
+PL {co} z {h}: zrobione
+   es     {co} a las {h}: hecho
+   es-419 {co} de las {h}: hecho
+   pt     {co} das {h}: concluído
+   pt-BR  {co} às {h}: concluído
+   it     {co} alle {h}: fatto
+   el     {co} στις {h}: έγινε
+   tr     {co} ({h}): yapıldı
+   uk     {co} о {h}: виконано
+   fr     {co} à {h} : terminé
+   ro     {co} la {h}: gata
+   hu     {co}, {h}: kész
+   sr     {co} у {h}: урађено
+   hr     {co} u {h}: obavljeno
+   bg     {co} в {h}: готово
+   ru     {co} в {h}: выполнено
+PL Pomiń {co} z {h}
+   es     Omitir {co} de las {h}
+   es-419 Omitir {co} de las {h}
+   pt     Saltar {co} das {h}
+   pt-BR  Pular {co} às {h}
+   it     Salta {co} delle {h}
+   el     Παράλειψη: {co} στις {h}
+   tr     Atla: {co} ({h})
+   uk     Пропустити: {co} о {h}
+   fr     Passer {co} à {h}
+   ro     Omite {co} de la {h}
+   hu     Kihagyás: {co}, {h}
+   sr     Прескочи {co} у {h}
+   hr     Preskoči {co} u {h}
+   bg     Пропуснете {co} в {h}
+   ru     Пропустить {co} в {h}
+PL {wypiek}, krok: {krok}, do {godzina}
+   es     {wypiek}, paso: {krok}, hasta las {godzina}
+   es-419 {wypiek}, paso: {krok}, hasta las {godzina}
+   pt     {wypiek}, passo: {krok}, até às {godzina}
+   pt-BR  {wypiek}, etapa: {krok}, até as {godzina}
+   it     {wypiek}, fase: {krok}, fino alle {godzina}
+   el     {wypiek}, βήμα: {krok}, έως τις {godzina}
+   tr     {wypiek}, adım: {krok}, bitiş {godzina}
+   uk     {wypiek}, крок: {krok}, до {godzina}
+   fr     {wypiek}, étape : {krok}, jusqu'à {godzina}
+   ro     {wypiek}, pas: {krok}, până la {godzina}
+   hu     {wypiek}, lépés: {krok}, {godzina}-ig
+   sr     {wypiek}, корак: {krok}, до {godzina}
+   hr     {wypiek}, korak: {krok}, do {godzina}
+   bg     {wypiek}, стъпка: {krok}, до {godzina}
+   ru     {wypiek}, шаг: {krok}, до {godzina}
+PL {krok} o {godzina}: w tym czasie {wypiek}: {krokInny}
+   es     {krok} a las {godzina}: al mismo tiempo, {wypiek}: {krokInny}
+   es-419 {krok} a las {godzina}: al mismo tiempo, {wypiek}: {krokInny}
+   pt     {krok} às {godzina}: ao mesmo tempo, {wypiek}: {krokInny}
+   pt-BR  {krok} às {godzina}: ao mesmo tempo, {wypiek}: {krokInny}
+   it     {krok} alle {godzina}: nello stesso momento {wypiek}: {krokInny}
+   el     {krok} στις {godzina}: ταυτόχρονα {wypiek}: {krokInny}
+   tr     {krok}, saat {godzina}: aynı anda {wypiek}: {krokInny}
+   uk     {krok} о {godzina}: у цей час {wypiek}: {krokInny}
+   fr     {krok} à {godzina} : en même temps, {wypiek} : {krokInny}
+   ro     {krok} la {godzina}: în același timp {wypiek}: {krokInny}
+   hu     {krok}, {godzina}: ugyanekkor {wypiek}: {krokInny}
+   sr     {krok} у {godzina}: у исто време {wypiek}: {krokInny}
+   hr     {krok} u {godzina}: u isto vrijeme {wypiek}: {krokInny}
+   bg     {krok} в {godzina}: по същото време {wypiek}: {krokInny}
+   ru     {krok} в {godzina}: в это же время {wypiek}: {krokInny}
+PL Piekarnik zajęty o {h}
+   es     Horno ocupado a las {h}
+   es-419 Horno ocupado a las {h}
+   pt     Forno ocupado às {h}
+   pt-BR  Forno ocupado às {h}
+   it     Forno occupato alle {h}
+   el     Φούρνος κατειλημμένος στις {h}
+   tr     Saat {h} için fırın dolu
+   uk     Духовка зайнята о {h}
+   fr     Four occupé à {h}
+   ro     Cuptor ocupat la {h}
+   hu     {h}-kor foglalt a sütő
+   sr     Рерна заузета у {h}
+   hr     Pećnica zauzeta u {h}
+   bg     Фурната е заета в {h}
+   ru     Духовка занята в {h}
+PL {dzien}: piekarnik zajęty o {h}
+   es     {dzien}: horno ocupado a las {h}
+   es-419 {dzien}: horno ocupado a las {h}
+   pt     {dzien}: forno ocupado às {h}
+   pt-BR  {dzien}: forno ocupado às {h}
+   it     {dzien}: forno occupato alle {h}
+   el     {dzien}: ο φούρνος είναι κατειλημμένος στις {h}
+   tr     {dzien}: saat {h} için fırın dolu
+   uk     {dzien}: духовка зайнята о {h}
+   fr     {dzien} : four occupé à {h}
+   ro     {dzien}: cuptor ocupat la {h}
+   hu     {dzien}: {h}-kor foglalt a sütő
+   sr     {dzien}: рерна заузета у {h}
+   hr     {dzien}: pećnica zauzeta u {h}
+   bg     {dzien}: фурната е заета в {h}
+   ru     {dzien}: духовка занята в {h}
+PL {r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.
+   es     {r1} se hornea de las {od} a las {do}. Mueve el inicio de {r2} {m} min: horneado desde las {pieczenie}, listo a las {gotowe}.
+   es-419 {r1} se hornea de {od} a {do}. Mueve el inicio de {r2} {m} min: horneado desde las {pieczenie}, listo a las {gotowe}.
+   pt     {r1} coze das {od} às {do}. Desloque o início de {r2} em {m} min: cozedura a partir das {pieczenie}, pronto às {gotowe}.
+   pt-BR  {r1} assa das {od} às {do}. Mova o início: {r2} em {m} min, assando a partir das {pieczenie}, pronto às {gotowe}.
+   it     {r1} cuoce dalle {od} alle {do}. Sposta l'avvio: {r2} di {m} min, cottura dalle {pieczenie}, pronto alle {gotowe}.
+   el     {r1} ψήνεται από τις {od} έως τις {do}. Μετακινήστε την έναρξη: {r2} κατά {m} λεπ., ψήσιμο από τις {pieczenie}, έτοιμο στις {gotowe}.
+   tr     {r1}, {od}–{do} arasında pişiyor. Başlangıcı kaydırın: {r2} için {m} dk; pişirme başlangıcı {pieczenie}, hazır olma {gotowe}.
+   uk     {r1} печеться з {od} до {do}. Зсуньте старт: {r2} на {m} хв, випікання з {pieczenie}, готово о {gotowe}.
+   fr     {r1} cuit de {od} à {do}. Décalez le début : {r2} de {m} min, cuisson à partir de {pieczenie}, prêt à {gotowe}.
+   ro     {r1} se coace de la {od} până la {do}. Mută startul: {r2} cu {m} min, coacere de la {pieczenie}, gata la {gotowe}.
+   hu     {r1} sütése: {od}–{do}. Told el a kezdést: {r2} {m} perccel, sütés kezdete: {pieczenie}, kész: {gotowe}.
+   sr     {r1} се пече од {od} до {do}. Помери почетак: {r2} за {m} min, печење од {pieczenie}, готово у {gotowe}.
+   hr     {r1} se peče od {od} do {do}. Pomakni početak: {r2} za {m} min, pečenje od {pieczenie}, gotovo u {gotowe}.
+   bg     {r1} се пече от {od} до {do}. Преместете старта: {r2} с {m} мин, печене от {pieczenie}, готово в {gotowe}.
+   ru     {r1} выпекается с {od} до {do}. Сдвиньте старт: {r2} на {m} мин, выпекание с {pieczenie}, готово в {gotowe}.
+PL {co} z {h}: otwórz
+   es     {co} de las {h}: abre
+   es-419 {co} a las {h}: abrir
+   pt     {co} das {h}: abrir
+   pt-BR  {co} às {h}: abrir
+   it     {co} (ore {h}): apri
+   el     {co} στις {h}: άνοιγμα
+   tr     {co}, saat {h}: aç
+   uk     {co} о {h}: відкрити
+   fr     {co} à {h} : ouvrir
+   ro     {co} de la {h}: deschide
+   hu     {co} ({h}): megnyitás
+   sr     {co} у {h}: отвори
+   hr     {co} u {h}: otvori
+   bg     {co} от {h}: отворете
+   ru     {co} в {h}: открыть
+PL Program rusza o {godzina}.
+   es     El programa arranca a las {godzina}.
+   es-419 El programa arranca a las {godzina}.
+   pt     O programa começa às {godzina}.
+   pt-BR  O programa começa às {godzina}.
+   it     Il programma parte alle {godzina}.
+   el     Το πρόγραμμα ξεκινά στις {godzina}.
+   tr     Program {godzina} saatinde başlar.
+   uk     Програма стартує о {godzina}.
+   fr     Le programme démarre à {godzina}.
+   ro     Programul pornește la {godzina}.
+   hu     A program {godzina}-kor indul.
+   sr     Програм креће у {godzina}.
+   hr     Program kreće u {godzina}.
+   bg     Програмата стартира в {godzina}.
+   ru     Программа запустится в {godzina}.
+PL Program nie zdąży. Najwcześniej gotowe o {godzina}.
+   es     El programa no llegará a tiempo. Como pronto, estará listo a las {godzina}.
+   es-419 El programa no llegará a tiempo. Lo más pronto estará listo a las {godzina}.
+   pt     O programa não vai terminar a tempo. O mais cedo que fica pronto é às {godzina}.
+   pt-BR  O programa não vai terminar a tempo. O mais cedo que fica pronto é às {godzina}.
+   it     Il programma non farà in tempo. Pronto al più presto alle {godzina}.
+   el     Το πρόγραμμα δεν προλαβαίνει. Το νωρίτερο έτοιμο στις {godzina}.
+   tr     Program yetişmeyecek. En erken hazır olma zamanı: {godzina}.
+   uk     Програма не встигне. Найраніше буде готово о {godzina}.
+   fr     Le programme n’aura pas fini à temps. Au plus tôt, prêt à {godzina}.
+   ro     Programul nu se termină la timp. Cel mai devreme, gata la {godzina}.
+   hu     A program nem készül el időben. Legkorábban {godzina}-kor lesz kész.
+   sr     Програм неће стићи. Најраније готово у {godzina}.
+   hr     Program neće stići. Najranije gotovo u {godzina}.
+   bg     Програмата няма да успее. Най-рано готово в {godzina}.
+   ru     Программа не успеет. Раньше всего будет готово в {godzina}.

@@ -1,0 +1,51 @@
+$ npx jest --ci src/__tests__/sonda-08-dwa-stukniecia.test.tsx (worktree scratchpad wt-08 @ 2ef8870a; harness z src/__tests__/zakwas-104-ekrany.test.tsx:1-96)
+    wpisy feeding po dwóch stuknięciach: 3 ["feed-z-1794170419212","feed-z-1794170418978","f1"]
+    wpisy feeding: 3 ["feed-z-1794170419557","feed-z-1794170419555","f1"]
+    alerty: []
+    ✓ dwa stuknięcia jedno po drugim (724 ms)
+    ✓ dwa stuknięcia w tym samym akcie (drugie przed końcem zapisu) (379 ms)
+Tests:       2 passed, 2 total
+kod: 0
+--- test sondy (bez harness) ---
+
+describe('sonda 08: dwa stuknięcia „Dokarmione”', () => {
+  beforeAll(() => {
+    useTempDbDir();
+    restartApp();
+    require('react-test-renderer');
+    require('../../app/(tabs)/zakwasy/index');
+  });
+  beforeEach(() => useTempDbDir());
+  it('dwa stuknięcia jedno po drugim', async () => {
+    const fedAt = Date.now() - 380 * 60_000;
+    const s = await start(async (e) => {
+      await e.createStarterWithEntry(starter('z', { lastFedAt: fedAt, feedingRatio: '1:2:2' }), feed('f1', 'z', fedAt, '1:2:2'));
+    });
+    await s.press('zakwas-dokarm-btn');
+    await new Promise((r) => setTimeout(r, 150));
+    await s.press('zakwas-dokarm-btn');
+    const w = (await s.entries.getStarterEntries('z')).filter((x) => x.kind === 'feeding');
+    console.log('wpisy feeding po dwóch stuknięciach:', w.length, JSON.stringify(w.map((x) => x.id)));
+    s.done();
+  });
+  it('dwa stuknięcia w tym samym akcie (drugie przed końcem zapisu)', async () => {
+    const fedAt = Date.now() - 380 * 60_000;
+    const s = await start(async (e) => {
+      await e.createStarterWithEntry(starter('z', { lastFedAt: fedAt, feedingRatio: '1:2:2' }), feed('f1', 'z', fedAt, '1:2:2'));
+    });
+    const RN: typeof import('react-native') = require('react-native');
+    const btn = s.tree.root.findAll((n) => n.props?.testID === 'zakwas-dokarm-btn' && typeof n.props.onPress === 'function');
+    const onPress = btn[btn.length - 1].props.onPress;
+    await s.TR.act(async () => {
+      onPress();
+      await new Promise((r) => setTimeout(r, 2));
+      onPress();
+    });
+    await s.flush();
+    await new Promise((r) => setTimeout(r, 50));
+    const w = (await s.entries.getStarterEntries('z')).filter((x) => x.kind === 'feeding');
+    console.log('wpisy feeding:', w.length, JSON.stringify(w.map((x) => x.id)));
+    console.log('alerty:', JSON.stringify((RN.Alert.alert as jest.Mock).mock.calls.map((c) => c[0])));
+    s.done();
+  });
+});

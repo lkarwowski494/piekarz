@@ -1,0 +1,222 @@
+$ node kontrast.mjs pary-kod.json  (pary: docs/design/tokeny.json „pary” + 19 par sąsiedztwa; kolory z src/ui/tokeny.ts, 4 warianty)
+OK   15.49:1 (min 4.5) jasny: tusz na tlo — tekst główny #1C1D1B na #F5F5F2
+OK   16.92:1 (min 4.5) jasny: tusz na powierzchnia — tekst w komórce #1C1D1B na #FFFFFF
+OK   14.28:1 (min 4.5) jasny: tusz na tloGrupa — tekst na tle listy #1C1D1B na #ECECE7
+OK   7.83:1 (min 4.5) jasny: tusz2 na tlo — tekst pomocniczy #4B4D48 na #F5F5F2
+OK   8.56:1 (min 4.5) jasny: tusz2 na powierzchnia — tekst pomocniczy w komórce #4B4D48 na #FFFFFF
+OK   5.99:1 (min 4.5) jasny: tusz3 na powierzchnia — podpowiedź w polu, etykieta zablokowana #62645E na #FFFFFF
+OK   5.49:1 (min 4.5) jasny: tusz3 na tlo — podpis #62645E na #F5F5F2
+OK   9.83:1 (min 4.5) jasny: naAkcencie na akcent — tekst przycisku głównego #FFFFFF na #1E4954
+OK   9.00:1 (min 4.5) jasny: akcentTekst na tlo — link, przycisk paska nawigacji #1E4954 na #F5F5F2
+OK   9.83:1 (min 4.5) jasny: akcentTekst na powierzchnia — akcja w komórce #1E4954 na #FFFFFF
+OK   3.66:1 (min 3) jasny: obwodka na tlo — obwódka przycisku i pola (WCAG 1.4.11) #7E8079 na #F5F5F2
+OK   4.00:1 (min 3) jasny: obwodka na powierzchnia — obwódka pola w komórce #7E8079 na #FFFFFF
+OK   4.22:1 (min 3) jasny: ratan na tlo — zwój zrobiony (grafika z danymi) #9C6B2F na #F5F5F2
+OK   3.48:1 (min 3) jasny: ratanSzary na tlo — zwój przyszły (grafika z danymi) #8A8273 na #F5F5F2
+OK   9.00:1 (min 3) jasny: nocDane na tlo — noc w lodówce (grafika z danymi) #1E4954 na #F5F5F2
+OK   15.49:1 (min 3) jasny: tusz na tlo — zwój bieżący i znacznik teraz #1C1D1B na #F5F5F2
+OK   11.35:1 (min 4.5) jasny: ostrzTusz na ostrzTlo — tekst ostrzeżenia #1C1D1B na #F7D117
+OK   5.98:1 (min 4.5) jasny: blad na tlo — tekst błędu #B3261E na #F5F5F2
+OK   6.54:1 (min 4.5) jasny: blad na powierzchnia — tekst błędu w komórce #B3261E na #FFFFFF
+OK   5.99:1 (min 4.5) jasny: zablokowane na powierzchnia — funkcja zablokowana (tekst + kłódka) #62645E na #FFFFFF
+OK   7.22:1 (min 4.5) jasny: tusz2 na tloGrupa — tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym) #4B4D48 na #ECECE7
+OK   5.06:1 (min 4.5) jasny: tusz3 na tloGrupa — podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym) #62645E na #ECECE7
+OK   8.29:1 (min 4.5) jasny: akcentTekst na tloGrupa — akcja na tle listy #1E4954 na #ECECE7
+OK   3.37:1 (min 3) jasny: obwodka na tloGrupa — obwódka pola na tle listy (WCAG 1.4.11) #7E8079 na #ECECE7
+OK   9.83:1 (min 3) jasny: akcent na powierzchnia — obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) #1E4954 na #FFFFFF
+OK   9.00:1 (min 3) jasny: akcent na tlo — obwódka 3 pt wybranej opcji na tle ekranu #1E4954 na #F5F5F2
+OK   5.49:1 (min 4.5) jasny: zablokowane na tlo — funkcja zablokowana na tle ekranu #62645E na #F5F5F2
+OK   4.45:1 (min 3) jasny: tusz na ratanSzary — zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031) #1C1D1B na #8A8273
+OK   4.61:1 (min 3) jasny: ratan na powierzchnia — zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) #9C6B2F na #FFFFFF
+OK   3.80:1 (min 3) jasny: ratanSzary na powierzchnia — zwój przyszły na karcie (partia 6, 031) #8A8273 na #FFFFFF
+OK   9.83:1 (min 3) jasny: nocDane na powierzchnia — noc w lodówce na karcie (partia 6, 031) #1E4954 na #FFFFFF
+OK   9.83:1 (min 4.5) jasny: naPasie na pas — tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne” #FFFFFF na #1E4954
+OK   6.70:1 (min 4.5) jasny: naPasie2 na pas — tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza #C8D8DC na #1E4954
+OK   4.80:1 (min 3) jasny: ratanNaPasie na pas — glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11) #D9AE72 na #1E4954
+OK   9.83:1 (min 3) jasny: naPasie na pas — ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie #FFFFFF na #1E4954
+OK   6.59:1 (min 3) jasny: ostrzTlo na pas — przycisk „Zrobione” i glif zaległego na pasie #F7D117 na #1E4954
+OK   6.70:1 (min 4.5) jasny: naPasie2 na pas — podtytuł na pasie #C8D8DC na #1E4954
+OK   4.80:1 (min 3) jasny: ratanNaPasie na pas — grafika ratan na pasie #D9AE72 na #1E4954
+BRAK 1.30:1 (min 3) jasny: kartaLinia na powierzchnia — obwódka karty (1.4.11?) #E2E2DC na #FFFFFF
+BRAK 1.19:1 (min 3) jasny: kartaLinia na tlo — brzeg karty do tła #E2E2DC na #F5F5F2
+BRAK 1.09:1 (min 3) jasny: powierzchnia na tlo — karta do tła (brzeg bez obwódki) #FFFFFF na #F5F5F2
+OK   4.00:1 (min 3) jasny: obwodka na powierzchnia — obwódka pola #7E8079 na #FFFFFF
+OK   9.00:1 (min 3) jasny: akcent na tlo — przycisk główny do tła #1E4954 na #F5F5F2
+OK   5.06:1 (min 4.5) jasny: tusz3 na tloGrupa — tusz3 na tloGrupa #62645E na #ECECE7
+OK   5.99:1 (min 4.5) jasny: zablokowane na powierzchnia — zablokowane na karcie #62645E na #FFFFFF
+OK   6.54:1 (min 4.5) jasny: blad na powierzchnia — błąd na karcie #B3261E na #FFFFFF
+OK   11.35:1 (min 4.5) jasny: ostrzTusz na ostrzTlo — ostrzeżenie #1C1D1B na #F7D117
+BRAK 1.49:1 (min 3) jasny: ostrzTlo na powierzchnia — tło ostrzeżenia do karty #F7D117 na #FFFFFF
+BRAK 1.36:1 (min 3) jasny: ostrzTlo na tlo — tło ostrzeżenia do tła #F7D117 na #F5F5F2
+OK   4.61:1 (min 3) jasny: ratan na powierzchnia — ikona ratan na karcie #9C6B2F na #FFFFFF
+OK   3.80:1 (min 3) jasny: ratanSzary na powierzchnia — ratanSzary (zwój zrobiony?) na karcie #8A8273 na #FFFFFF
+OK   3.48:1 (min 3) jasny: ratanSzary na tlo — ratanSzary na tle #8A8273 na #F5F5F2
+OK   9.83:1 (min 3) jasny: nocDane na powierzchnia — noc w spirali na karcie #1E4954 na #FFFFFF
+BRAK 1.46:1 (min 3) jasny: linia na powierzchnia — linia (separator, jeśli niesie stan) #D6D6CF na #FFFFFF
+OK   15.52:1 (min 4.5) ciemny: tusz na tlo — tekst główny #F1F1EC na #141A1C
+OK   13.43:1 (min 4.5) ciemny: tusz na powierzchnia — tekst w komórce #F1F1EC na #1F2729
+OK   16.51:1 (min 4.5) ciemny: tusz na tloGrupa — tekst na tle listy #F1F1EC na #0E1315
+OK   9.24:1 (min 4.5) ciemny: tusz2 na tlo — tekst pomocniczy #B9BDB8 na #141A1C
+OK   7.99:1 (min 4.5) ciemny: tusz2 na powierzchnia — tekst pomocniczy w komórce #B9BDB8 na #1F2729
+OK   5.70:1 (min 4.5) ciemny: tusz3 na powierzchnia — podpowiedź w polu, etykieta zablokowana #9AA09A na #1F2729
+OK   6.59:1 (min 4.5) ciemny: tusz3 na tlo — podpis #9AA09A na #141A1C
+OK   8.69:1 (min 4.5) ciemny: naAkcencie na akcent — tekst przycisku głównego #0F1517 na #8FB9C4
+OK   8.29:1 (min 4.5) ciemny: akcentTekst na tlo — link, przycisk paska nawigacji #8FB9C4 na #141A1C
+OK   7.17:1 (min 4.5) ciemny: akcentTekst na powierzchnia — akcja w komórce #8FB9C4 na #1F2729
+OK   3.97:1 (min 3) ciemny: obwodka na tlo — obwódka przycisku i pola (WCAG 1.4.11) #6E7A7D na #141A1C
+OK   3.44:1 (min 3) ciemny: obwodka na powierzchnia — obwódka pola w komórce #6E7A7D na #1F2729
+OK   7.76:1 (min 3) ciemny: ratan na tlo — zwój zrobiony (grafika z danymi) #D3A464 na #141A1C
+OK   3.82:1 (min 3) ciemny: ratanSzary na tlo — zwój przyszły (grafika z danymi) #7D7466 na #141A1C
+OK   8.29:1 (min 3) ciemny: nocDane na tlo — noc w lodówce (grafika z danymi) #8FB9C4 na #141A1C
+OK   15.52:1 (min 3) ciemny: tusz na tlo — zwój bieżący i znacznik teraz #F1F1EC na #141A1C
+OK   11.35:1 (min 4.5) ciemny: ostrzTusz na ostrzTlo — tekst ostrzeżenia #1C1D1B na #F7D117
+OK   7.70:1 (min 4.5) ciemny: blad na tlo — tekst błędu #FF8A80 na #141A1C
+OK   6.66:1 (min 4.5) ciemny: blad na powierzchnia — tekst błędu w komórce #FF8A80 na #1F2729
+OK   5.70:1 (min 4.5) ciemny: zablokowane na powierzchnia — funkcja zablokowana (tekst + kłódka) #9AA09A na #1F2729
+OK   9.83:1 (min 4.5) ciemny: tusz2 na tloGrupa — tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym) #B9BDB8 na #0E1315
+OK   7.01:1 (min 4.5) ciemny: tusz3 na tloGrupa — podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym) #9AA09A na #0E1315
+OK   8.82:1 (min 4.5) ciemny: akcentTekst na tloGrupa — akcja na tle listy #8FB9C4 na #0E1315
+OK   4.22:1 (min 3) ciemny: obwodka na tloGrupa — obwódka pola na tle listy (WCAG 1.4.11) #6E7A7D na #0E1315
+OK   7.17:1 (min 3) ciemny: akcent na powierzchnia — obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) #8FB9C4 na #1F2729
+OK   8.29:1 (min 3) ciemny: akcent na tlo — obwódka 3 pt wybranej opcji na tle ekranu #8FB9C4 na #141A1C
+OK   6.59:1 (min 4.5) ciemny: zablokowane na tlo — funkcja zablokowana na tle ekranu #9AA09A na #141A1C
+OK   4.06:1 (min 3) ciemny: tusz na ratanSzary — zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031) #F1F1EC na #7D7466
+OK   6.71:1 (min 3) ciemny: ratan na powierzchnia — zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) #D3A464 na #1F2729
+OK   3.30:1 (min 3) ciemny: ratanSzary na powierzchnia — zwój przyszły na karcie (partia 6, 031) #7D7466 na #1F2729
+OK   7.17:1 (min 3) ciemny: nocDane na powierzchnia — noc w lodówce na karcie (partia 6, 031) #8FB9C4 na #1F2729
+OK   10.54:1 (min 4.5) ciemny: naPasie na pas — tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne” #F1F1EC na #1D3B43
+OK   7.50:1 (min 4.5) ciemny: naPasie2 na pas — tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza #BFD0D4 na #1D3B43
+OK   5.27:1 (min 3) ciemny: ratanNaPasie na pas — glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11) #D3A464 na #1D3B43
+OK   10.54:1 (min 3) ciemny: naPasie na pas — ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie #F1F1EC na #1D3B43
+OK   8.01:1 (min 3) ciemny: ostrzTlo na pas — przycisk „Zrobione” i glif zaległego na pasie #F7D117 na #1D3B43
+OK   7.50:1 (min 4.5) ciemny: naPasie2 na pas — podtytuł na pasie #BFD0D4 na #1D3B43
+OK   5.27:1 (min 3) ciemny: ratanNaPasie na pas — grafika ratan na pasie #D3A464 na #1D3B43
+BRAK 1.00:1 (min 3) ciemny: kartaLinia na powierzchnia — obwódka karty (1.4.11?) #1F2729 na #1F2729
+BRAK 1.16:1 (min 3) ciemny: kartaLinia na tlo — brzeg karty do tła #1F2729 na #141A1C
+BRAK 1.16:1 (min 3) ciemny: powierzchnia na tlo — karta do tła (brzeg bez obwódki) #1F2729 na #141A1C
+OK   3.44:1 (min 3) ciemny: obwodka na powierzchnia — obwódka pola #6E7A7D na #1F2729
+OK   8.29:1 (min 3) ciemny: akcent na tlo — przycisk główny do tła #8FB9C4 na #141A1C
+OK   7.01:1 (min 4.5) ciemny: tusz3 na tloGrupa — tusz3 na tloGrupa #9AA09A na #0E1315
+OK   5.70:1 (min 4.5) ciemny: zablokowane na powierzchnia — zablokowane na karcie #9AA09A na #1F2729
+OK   6.66:1 (min 4.5) ciemny: blad na powierzchnia — błąd na karcie #FF8A80 na #1F2729
+OK   11.35:1 (min 4.5) ciemny: ostrzTusz na ostrzTlo — ostrzeżenie #1C1D1B na #F7D117
+OK   10.20:1 (min 3) ciemny: ostrzTlo na powierzchnia — tło ostrzeżenia do karty #F7D117 na #1F2729
+OK   11.80:1 (min 3) ciemny: ostrzTlo na tlo — tło ostrzeżenia do tła #F7D117 na #141A1C
+OK   6.71:1 (min 3) ciemny: ratan na powierzchnia — ikona ratan na karcie #D3A464 na #1F2729
+OK   3.30:1 (min 3) ciemny: ratanSzary na powierzchnia — ratanSzary (zwój zrobiony?) na karcie #7D7466 na #1F2729
+OK   3.82:1 (min 3) ciemny: ratanSzary na tlo — ratanSzary na tle #7D7466 na #141A1C
+OK   7.17:1 (min 3) ciemny: nocDane na powierzchnia — noc w spirali na karcie #8FB9C4 na #1F2729
+BRAK 1.43:1 (min 3) ciemny: linia na powierzchnia — linia (separator, jeśli niesie stan) #354044 na #1F2729
+OK   21.00:1 (min 4.5) jasnyKontrast: tusz na tlo — tekst główny #000000 na #FFFFFF
+OK   21.00:1 (min 4.5) jasnyKontrast: tusz na powierzchnia — tekst w komórce #000000 na #FFFFFF
+OK   18.38:1 (min 4.5) jasnyKontrast: tusz na tloGrupa — tekst na tle listy #000000 na #F0F0EC
+OK   13.33:1 (min 4.5) jasnyKontrast: tusz2 na tlo — tekst pomocniczy #2E302C na #FFFFFF
+OK   13.33:1 (min 4.5) jasnyKontrast: tusz2 na powierzchnia — tekst pomocniczy w komórce #2E302C na #FFFFFF
+OK   10.49:1 (min 4.5) jasnyKontrast: tusz3 na powierzchnia — podpowiedź w polu, etykieta zablokowana #3E403B na #FFFFFF
+OK   10.49:1 (min 4.5) jasnyKontrast: tusz3 na tlo — podpis #3E403B na #FFFFFF
+OK   13.61:1 (min 4.5) jasnyKontrast: naAkcencie na akcent — tekst przycisku głównego #FFFFFF na #12323A
+OK   13.61:1 (min 4.5) jasnyKontrast: akcentTekst na tlo — link, przycisk paska nawigacji #12323A na #FFFFFF
+OK   13.61:1 (min 4.5) jasnyKontrast: akcentTekst na powierzchnia — akcja w komórce #12323A na #FFFFFF
+OK   10.49:1 (min 3) jasnyKontrast: obwodka na tlo — obwódka przycisku i pola (WCAG 1.4.11) #3E403B na #FFFFFF
+OK   10.49:1 (min 3) jasnyKontrast: obwodka na powierzchnia — obwódka pola w komórce #3E403B na #FFFFFF
+OK   7.89:1 (min 3) jasnyKontrast: ratan na tlo — zwój zrobiony (grafika z danymi) #6E4A1F na #FFFFFF
+OK   4.56:1 (min 3) jasnyKontrast: ratanSzary na tlo — zwój przyszły (grafika z danymi) #7C7568 na #FFFFFF
+OK   13.61:1 (min 3) jasnyKontrast: nocDane na tlo — noc w lodówce (grafika z danymi) #12323A na #FFFFFF
+OK   21.00:1 (min 3) jasnyKontrast: tusz na tlo — zwój bieżący i znacznik teraz #000000 na #FFFFFF
+OK   14.09:1 (min 4.5) jasnyKontrast: ostrzTusz na ostrzTlo — tekst ostrzeżenia #000000 na #F7D117
+OK   9.11:1 (min 4.5) jasnyKontrast: blad na tlo — tekst błędu #8C1D18 na #FFFFFF
+OK   9.11:1 (min 4.5) jasnyKontrast: blad na powierzchnia — tekst błędu w komórce #8C1D18 na #FFFFFF
+OK   10.49:1 (min 4.5) jasnyKontrast: zablokowane na powierzchnia — funkcja zablokowana (tekst + kłódka) #3E403B na #FFFFFF
+OK   11.67:1 (min 4.5) jasnyKontrast: tusz2 na tloGrupa — tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym) #2E302C na #F0F0EC
+OK   9.18:1 (min 4.5) jasnyKontrast: tusz3 na tloGrupa — podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym) #3E403B na #F0F0EC
+OK   11.91:1 (min 4.5) jasnyKontrast: akcentTekst na tloGrupa — akcja na tle listy #12323A na #F0F0EC
+OK   9.18:1 (min 3) jasnyKontrast: obwodka na tloGrupa — obwódka pola na tle listy (WCAG 1.4.11) #3E403B na #F0F0EC
+OK   13.61:1 (min 3) jasnyKontrast: akcent na powierzchnia — obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) #12323A na #FFFFFF
+OK   13.61:1 (min 3) jasnyKontrast: akcent na tlo — obwódka 3 pt wybranej opcji na tle ekranu #12323A na #FFFFFF
+OK   10.49:1 (min 4.5) jasnyKontrast: zablokowane na tlo — funkcja zablokowana na tle ekranu #3E403B na #FFFFFF
+OK   4.60:1 (min 3) jasnyKontrast: tusz na ratanSzary — zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031) #000000 na #7C7568
+OK   7.89:1 (min 3) jasnyKontrast: ratan na powierzchnia — zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) #6E4A1F na #FFFFFF
+OK   4.56:1 (min 3) jasnyKontrast: ratanSzary na powierzchnia — zwój przyszły na karcie (partia 6, 031) #7C7568 na #FFFFFF
+OK   13.61:1 (min 3) jasnyKontrast: nocDane na powierzchnia — noc w lodówce na karcie (partia 6, 031) #12323A na #FFFFFF
+OK   13.61:1 (min 4.5) jasnyKontrast: naPasie na pas — tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne” #FFFFFF na #12323A
+OK   11.32:1 (min 4.5) jasnyKontrast: naPasie2 na pas — tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza #E2ECEE na #12323A
+OK   8.18:1 (min 3) jasnyKontrast: ratanNaPasie na pas — glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11) #E8C38E na #12323A
+OK   13.61:1 (min 3) jasnyKontrast: naPasie na pas — ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie #FFFFFF na #12323A
+OK   9.13:1 (min 3) jasnyKontrast: ostrzTlo na pas — przycisk „Zrobione” i glif zaległego na pasie #F7D117 na #12323A
+OK   11.32:1 (min 4.5) jasnyKontrast: naPasie2 na pas — podtytuł na pasie #E2ECEE na #12323A
+OK   8.18:1 (min 3) jasnyKontrast: ratanNaPasie na pas — grafika ratan na pasie #E8C38E na #12323A
+OK   3.44:1 (min 3) jasnyKontrast: kartaLinia na powierzchnia — obwódka karty (1.4.11?) #8A8B84 na #FFFFFF
+OK   3.44:1 (min 3) jasnyKontrast: kartaLinia na tlo — brzeg karty do tła #8A8B84 na #FFFFFF
+BRAK 1.00:1 (min 3) jasnyKontrast: powierzchnia na tlo — karta do tła (brzeg bez obwódki) #FFFFFF na #FFFFFF
+OK   10.49:1 (min 3) jasnyKontrast: obwodka na powierzchnia — obwódka pola #3E403B na #FFFFFF
+OK   13.61:1 (min 3) jasnyKontrast: akcent na tlo — przycisk główny do tła #12323A na #FFFFFF
+OK   9.18:1 (min 4.5) jasnyKontrast: tusz3 na tloGrupa — tusz3 na tloGrupa #3E403B na #F0F0EC
+OK   10.49:1 (min 4.5) jasnyKontrast: zablokowane na powierzchnia — zablokowane na karcie #3E403B na #FFFFFF
+OK   9.11:1 (min 4.5) jasnyKontrast: blad na powierzchnia — błąd na karcie #8C1D18 na #FFFFFF
+OK   14.09:1 (min 4.5) jasnyKontrast: ostrzTusz na ostrzTlo — ostrzeżenie #000000 na #F7D117
+BRAK 1.49:1 (min 3) jasnyKontrast: ostrzTlo na powierzchnia — tło ostrzeżenia do karty #F7D117 na #FFFFFF
+BRAK 1.49:1 (min 3) jasnyKontrast: ostrzTlo na tlo — tło ostrzeżenia do tła #F7D117 na #FFFFFF
+OK   7.89:1 (min 3) jasnyKontrast: ratan na powierzchnia — ikona ratan na karcie #6E4A1F na #FFFFFF
+OK   4.56:1 (min 3) jasnyKontrast: ratanSzary na powierzchnia — ratanSzary (zwój zrobiony?) na karcie #7C7568 na #FFFFFF
+OK   4.56:1 (min 3) jasnyKontrast: ratanSzary na tlo — ratanSzary na tle #7C7568 na #FFFFFF
+OK   13.61:1 (min 3) jasnyKontrast: nocDane na powierzchnia — noc w spirali na karcie #12323A na #FFFFFF
+OK   3.44:1 (min 3) jasnyKontrast: linia na powierzchnia — linia (separator, jeśli niesie stan) #8A8B84 na #FFFFFF
+OK   21.00:1 (min 4.5) ciemnyKontrast: tusz na tlo — tekst główny #FFFFFF na #000000
+OK   17.23:1 (min 4.5) ciemnyKontrast: tusz na powierzchnia — tekst w komórce #FFFFFF na #161C1E
+OK   21.00:1 (min 4.5) ciemnyKontrast: tusz na tloGrupa — tekst na tle listy #FFFFFF na #000000
+OK   15.32:1 (min 4.5) ciemnyKontrast: tusz2 na tlo — tekst pomocniczy #DADDD8 na #000000
+OK   12.56:1 (min 4.5) ciemnyKontrast: tusz2 na powierzchnia — tekst pomocniczy w komórce #DADDD8 na #161C1E
+OK   10.16:1 (min 4.5) ciemnyKontrast: tusz3 na powierzchnia — podpowiedź w polu, etykieta zablokowana #C4C8C2 na #161C1E
+OK   12.39:1 (min 4.5) ciemnyKontrast: tusz3 na tlo — podpis #C4C8C2 na #000000
+OK   13.64:1 (min 4.5) ciemnyKontrast: naAkcencie na akcent — tekst przycisku głównego #000000 na #B5D6DE
+OK   13.64:1 (min 4.5) ciemnyKontrast: akcentTekst na tlo — link, przycisk paska nawigacji #B5D6DE na #000000
+OK   11.19:1 (min 4.5) ciemnyKontrast: akcentTekst na powierzchnia — akcja w komórce #B5D6DE na #161C1E
+OK   11.07:1 (min 3) ciemnyKontrast: obwodka na tlo — obwódka przycisku i pola (WCAG 1.4.11) #B4BEC0 na #000000
+OK   9.08:1 (min 3) ciemnyKontrast: obwodka na powierzchnia — obwódka pola w komórce #B4BEC0 na #161C1E
+OK   12.63:1 (min 3) ciemnyKontrast: ratan na tlo — zwój zrobiony (grafika z danymi) #E8C38E na #000000
+OK   5.07:1 (min 3) ciemnyKontrast: ratanSzary na tlo — zwój przyszły (grafika z danymi) #837C6D na #000000
+OK   13.64:1 (min 3) ciemnyKontrast: nocDane na tlo — noc w lodówce (grafika z danymi) #B5D6DE na #000000
+OK   21.00:1 (min 3) ciemnyKontrast: tusz na tlo — zwój bieżący i znacznik teraz #FFFFFF na #000000
+OK   14.09:1 (min 4.5) ciemnyKontrast: ostrzTusz na ostrzTlo — tekst ostrzeżenia #000000 na #F7D117
+OK   12.37:1 (min 4.5) ciemnyKontrast: blad na tlo — tekst błędu #FFB4AB na #000000
+OK   10.15:1 (min 4.5) ciemnyKontrast: blad na powierzchnia — tekst błędu w komórce #FFB4AB na #161C1E
+OK   10.16:1 (min 4.5) ciemnyKontrast: zablokowane na powierzchnia — funkcja zablokowana (tekst + kłódka) #C4C8C2 na #161C1E
+OK   15.32:1 (min 4.5) ciemnyKontrast: tusz2 na tloGrupa — tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym) #DADDD8 na #000000
+OK   12.39:1 (min 4.5) ciemnyKontrast: tusz3 na tloGrupa — podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym) #C4C8C2 na #000000
+OK   13.64:1 (min 4.5) ciemnyKontrast: akcentTekst na tloGrupa — akcja na tle listy #B5D6DE na #000000
+OK   11.07:1 (min 3) ciemnyKontrast: obwodka na tloGrupa — obwódka pola na tle listy (WCAG 1.4.11) #B4BEC0 na #000000
+OK   11.19:1 (min 3) ciemnyKontrast: akcent na powierzchnia — obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) #B5D6DE na #161C1E
+OK   13.64:1 (min 3) ciemnyKontrast: akcent na tlo — obwódka 3 pt wybranej opcji na tle ekranu #B5D6DE na #000000
+OK   12.39:1 (min 4.5) ciemnyKontrast: zablokowane na tlo — funkcja zablokowana na tle ekranu #C4C8C2 na #000000
+OK   4.14:1 (min 3) ciemnyKontrast: tusz na ratanSzary — zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031) #FFFFFF na #837C6D
+OK   10.36:1 (min 3) ciemnyKontrast: ratan na powierzchnia — zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) #E8C38E na #161C1E
+OK   4.16:1 (min 3) ciemnyKontrast: ratanSzary na powierzchnia — zwój przyszły na karcie (partia 6, 031) #837C6D na #161C1E
+OK   11.19:1 (min 3) ciemnyKontrast: nocDane na powierzchnia — noc w lodówce na karcie (partia 6, 031) #B5D6DE na #161C1E
+OK   15.04:1 (min 4.5) ciemnyKontrast: naPasie na pas — tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne” #FFFFFF na #0F2A31
+OK   12.51:1 (min 4.5) ciemnyKontrast: naPasie2 na pas — tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza #E2ECEE na #0F2A31
+OK   9.05:1 (min 3) ciemnyKontrast: ratanNaPasie na pas — glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11) #E8C38E na #0F2A31
+OK   15.04:1 (min 3) ciemnyKontrast: naPasie na pas — ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie #FFFFFF na #0F2A31
+OK   10.09:1 (min 3) ciemnyKontrast: ostrzTlo na pas — przycisk „Zrobione” i glif zaległego na pasie #F7D117 na #0F2A31
+OK   12.51:1 (min 4.5) ciemnyKontrast: naPasie2 na pas — podtytuł na pasie #E2ECEE na #0F2A31
+OK   9.05:1 (min 3) ciemnyKontrast: ratanNaPasie na pas — grafika ratan na pasie #E8C38E na #0F2A31
+OK   4.67:1 (min 3) ciemnyKontrast: kartaLinia na powierzchnia — obwódka karty (1.4.11?) #7C878A na #161C1E
+OK   5.69:1 (min 3) ciemnyKontrast: kartaLinia na tlo — brzeg karty do tła #7C878A na #000000
+BRAK 1.22:1 (min 3) ciemnyKontrast: powierzchnia na tlo — karta do tła (brzeg bez obwódki) #161C1E na #000000
+OK   9.08:1 (min 3) ciemnyKontrast: obwodka na powierzchnia — obwódka pola #B4BEC0 na #161C1E
+OK   13.64:1 (min 3) ciemnyKontrast: akcent na tlo — przycisk główny do tła #B5D6DE na #000000
+OK   12.39:1 (min 4.5) ciemnyKontrast: tusz3 na tloGrupa — tusz3 na tloGrupa #C4C8C2 na #000000
+OK   10.16:1 (min 4.5) ciemnyKontrast: zablokowane na powierzchnia — zablokowane na karcie #C4C8C2 na #161C1E
+OK   10.15:1 (min 4.5) ciemnyKontrast: blad na powierzchnia — błąd na karcie #FFB4AB na #161C1E
+OK   14.09:1 (min 4.5) ciemnyKontrast: ostrzTusz na ostrzTlo — ostrzeżenie #000000 na #F7D117
+OK   11.56:1 (min 3) ciemnyKontrast: ostrzTlo na powierzchnia — tło ostrzeżenia do karty #F7D117 na #161C1E
+OK   14.09:1 (min 3) ciemnyKontrast: ostrzTlo na tlo — tło ostrzeżenia do tła #F7D117 na #000000
+OK   10.36:1 (min 3) ciemnyKontrast: ratan na powierzchnia — ikona ratan na karcie #E8C38E na #161C1E
+OK   4.16:1 (min 3) ciemnyKontrast: ratanSzary na powierzchnia — ratanSzary (zwój zrobiony?) na karcie #837C6D na #161C1E
+OK   5.07:1 (min 3) ciemnyKontrast: ratanSzary na tlo — ratanSzary na tle #837C6D na #000000
+OK   11.19:1 (min 3) ciemnyKontrast: nocDane na powierzchnia — noc w spirali na karcie #B5D6DE na #161C1E
+OK   4.67:1 (min 3) ciemnyKontrast: linia na powierzchnia — linia (separator, jeśli niesie stan) #7C878A na #161C1E
+kod: 1
+
+$ node kontrast.mjs pary-wymagane.json  (bez par informacyjnych: brzeg/obwódka karty, tło ostrzeżenia, separator — nie są komponentami sterującymi ani jedynym nośnikiem informacji)
+0
+kod: 0

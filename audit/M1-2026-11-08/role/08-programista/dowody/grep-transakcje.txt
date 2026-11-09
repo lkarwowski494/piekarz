@@ -1,0 +1,17 @@
+src/data/bake-sessions-store.ts:167: * withTransactionAsync w expo-sqlite 57 po nieudanym BEGIN (zapis kroku w trakcie transakcji finishBake na tym samym
+src/data/sqlite-store.ts:200:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:231:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:277:  await writeOrThrow(() => db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:359:    db.withTransactionAsync(async () => {
+src/data/sqlite-schema.ts:144:  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
+src/data/sqlite-schema.ts:374:      await db.execAsync('BEGIN TRANSACTION;');
+src/data/usun-wszystko.ts:25:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:85:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:102:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:152:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:175:      db.withTransactionAsync(async () => {
+src/data/migracja-v6.ts:4:// - przed BEGIN: surowa stara sesja do pliku Backup/kopie-ratunkowe/sesja-przed-migracja-<czas>.json (obok kopii
+src/data/migracja-v6.ts:51: * surowa treść jest w pliku z kroku przed BEGIN, w kopii VACUUM INTO i na liście uszkodzonych (kopie zapasowe).
+src/core/plan-ics.ts:67:    'BEGIN:VCALENDAR',
+src/core/plan-ics.ts:72:    'BEGIN:VEVENT',
+kod: 0

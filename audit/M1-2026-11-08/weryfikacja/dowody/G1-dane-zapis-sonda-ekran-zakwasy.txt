@@ -1,0 +1,228 @@
+# Weryfikacja G1-dane-zapis, 2026-11-08T21:44:45Z; kopia robocza: git worktree add --detach /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 (HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42), node_modules = dowiązanie do repo
+# Plik sondy (tylko w kopii roboczej, poza repo): src/__tests__/g1-sonda-ekran.test.tsx
+# Komenda: cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g1 && npx jest src/__tests__/g1-sonda-ekran.test.tsx
+
+## Źródło sondy
+     1	/**
+     2	 * M1-audytor-generalny-104 — ekrany zakwasu na funkcjach toru B2 (design-spec §5, §6 stany `karta`,
+     3	 * `zakladanie-dzien-3`, `plesn`; makieta docs/design/ekrany/zakwas.html). Scenariusze BRD:
+     4	 * BR-ZAKW-005 (docs/brd/wymagania-zakwas.md:77), BR-ZAKW-006 (:98), BR-ZAKW-007 (:111), BR-DIAG-002
+     5	 * (docs/brd/wymagania-dziennik.md:104). Prawdziwa baza SQLite (adapter node:sqlite), render zakładki Zakwasy.
+     6	 */
+     7	jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
+     8	jest.mock('react-native-safe-area-context', () => {
+     9	  const React = require('react');
+    10	  return {
+    11	    SafeAreaView: ({ children, style }: { children: unknown; style?: unknown }) => React.createElement('View', { style }, children),
+    12	    useSafeAreaInsets: () => ({ top: 0, left: 0, right: 0, bottom: 0 }),
+    13	  };
+    14	});
+    15	let mockParams: Record<string, string> = {};
+    16	jest.mock('expo-router', () => {
+    17	  const push = jest.fn();
+    18	  return {
+    19	    useRouter: () => ({ push, navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
+    20	    useLocalSearchParams: () => mockParams,
+    21	    useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+    22	    Stack: Object.assign(({ children }: { children: unknown }) => children, { Screen: () => null }),
+    23	    __push: push,
+    24	  };
+    25	});
+    26	
+    27	import type React from 'react';
+    28	import type renderer from 'react-test-renderer';
+    29	import { useTempDbDir, restartApp } from '../data/__tests__/helpers/node-sqlite-adapter';
+    30	import type { StoredStarter, StoredStarterEntry } from '../data/db';
+    31	import { SETUP_GUIDE, FIRST_DAY_NO_ACTIVITY } from '../core/starter-log';
+    32	import { FRIDGE_WAKE_NOT_READY } from '../core/fridge-wake';
+    33	import { NO_DOUBLING_CAUSES, NO_DOUBLING_ACTIONS, DOCTOR_CAUSES_HEADER, DOCTOR_ACTIONS_HEADER } from '../core/starter-doctor';
+    34	import { evaluateSourdoughSafety } from '../core/sourdough-physics';
+    35	
+    36	jest.setTimeout(30000);
+    37	
+    38	const H = 3600_000;
+    39	const DAY = 24 * H;
+    40	const dzienTemu = (n: number) => {
+    41	  const d = new Date();
+    42	  return new Date(d.getFullYear(), d.getMonth(), d.getDate() - n, 9, 0).getTime();
+    43	};
+    44	// Założenie n pełnych dób (i godzinę) temu: dzień n + 1 niezależnie od godziny przebiegu (setupDay w dobach, 501)
+    45	const dobTemu = (n: number) => Date.now() - n * DAY - H;
+    46	const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({
+    47	  id, name: `Zakwas ${id}`, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra,
+    48	});
+    49	const feed = (id: string, starterId: string, at: number, feedRatio?: string): StoredStarterEntry => ({
+    50	  id, starterId, kind: 'feeding', occurredAt: at, signs: [], createdAt: at, updatedAt: at, ...(feedRatio ? { feedRatio } : {}),
+    51	});
+    52	
+    53	type Tree = renderer.ReactTestRenderer;
+    54	
+    55	async function start(seed: (entries: typeof import('../data/starter-entries-store'), store: typeof import('../data/sqlite-store')) => Promise<void>) {
+    56	  const app = restartApp();
+    57	  await app.schema.initDatabase();
+    58	  const entries = require('../data/starter-entries-store') as typeof import('../data/starter-entries-store');
+    59	  await app.store.deleteStarter('starter_default');
+    60	  await seed(entries, app.store);
+    61	  (require('../../tests/helpers/platnosci') as typeof import('../../tests/helpers/platnosci')).zUprawnieniem();
+    62	  const R: typeof React = require('react');
+    63	  const TR: typeof renderer = require('react-test-renderer');
+    64	  const RN: typeof import('react-native') = require('react-native');
+    65	  const alert = jest.spyOn(RN.Alert, 'alert').mockImplementation(() => {});
+    66	  const push: jest.Mock = require('expo-router').__push;
+    67	  const flush = async () => {
+    68	    await TR.act(async () => {
+    69	      for (let i = 0; i < 40; i++) await Promise.resolve();
+    70	    });
+    71	  };
+    72	  const mount = async (path: string) => {
+    73	    const Ekran = require(path).default as React.ComponentType;
+    74	    let tree: Tree | null = null;
+    75	    await TR.act(async () => {
+    76	      tree = TR.create(R.createElement(Ekran));
+    77	    });
+    78	    await flush();
+    79	    return tree as unknown as Tree;
+    80	  };
+    81	  const tree = await mount('../../app/(tabs)/zakwasy/index');
+    82	  const tekst = (t: Tree = tree) =>
+    83	    t.root.findAllByType(RN.Text).map((n) => [n.props.children].flat().filter((c) => typeof c === 'string' || typeof c === 'number').join('')).join(' | ');
+    84	  const press = async (testID: string, t: Tree = tree) => {
+    85	    const all = t.root.findAll((n) => n.props?.testID === testID && typeof n.props.onPress === 'function');
+    86	    expect({ testID, found: all.length > 0 }).toEqual({ testID, found: true });
+    87	    await TR.act(async () => {
+    88	      await all[all.length - 1].props.onPress();
+    89	    });
+    90	    await flush();
+    91	  };
+    92	  const done = (...trees: Tree[]) => {
+    93	    for (const t of [tree, ...trees]) TR.act(() => t.unmount());
+    94	    alert.mockRestore();
+    95	  };
+    96	  return { app, entries, TR, tree, tekst, press, flush, push, mount, done };
+    97	}
+    98	const out: string[] = [];
+    99	afterAll(() => {
+   100	  // eslint-disable-next-line no-console
+   101	  console.log(out.join('\n'));
+   102	});
+   103	const feedings = async (s: { entries: typeof import('../data/starter-entries-store') }, id: string) =>
+   104	  (await s.entries.getStarterEntries(id)).filter((e) => e.kind === 'feeding').map((e) => `${e.id}@${e.occurredAt}`);
+   105	
+   106	describe('G1 sonda ekranu Zakwasy', () => {
+   107	  beforeAll(() => {
+   108	    useTempDbDir();
+   109	    restartApp();
+   110	    require('react-test-renderer');
+   111	    require('../../app/(tabs)/zakwasy/index');
+   112	  });
+   113	  beforeEach(() => {
+   114	    useTempDbDir();
+   115	    mockParams = {};
+   116	  });
+   117	
+   118	  it('501: usunięcie najnowszego dokarmienia, potem Edytuj → Zapisz profil', async () => {
+   119	    const t1 = Date.now() - 5 * H, t2 = Date.now() - 2 * H;
+   120	    const s = await start(async (e) => {
+   121	      await e.createStarterWithEntry(starter('z'), feed('w1', 'z', t1));
+   122	      await e.addStarterEntry(feed('w2', 'z', t2));
+   123	    });
+   124	    out.push(`501 przed: ${JSON.stringify(await feedings(s, 'z'))}`);
+   125	    await s.press('wpis-usun-w2');
+   126	    out.push(`501 po usunięciu w2: ${JSON.stringify(await feedings(s, 'z'))}`);
+   127	    await s.press('edit-profile-btn');
+   128	    await s.press('pasek-arkusza-prawy');
+   129	    out.push(`501 po Zapisz profilu: ${JSON.stringify(await feedings(s, 'z'))} (t2=${t2})`);
+   130	    s.done();
+   131	  });
+   132	
+   133	  it('501b: poprawa godziny najnowszego dokarmienia na wcześniejszą (bez UI: updateStarterEntry jak log.popraw), potem Zapisz profil', async () => {
+   134	    const t1 = Date.now() - 5 * H, t2 = Date.now() - 2 * H;
+   135	    const s = await start(async (e) => {
+   136	      await e.createStarterWithEntry(starter('z'), feed('w1', 'z', t1));
+   137	      await e.addStarterEntry(feed('w2', 'z', t2));
+   138	    });
+   139	    // ekran ma starter z lastFedAt = t2; poprawa w bazie jak log.popraw (updateStarterEntry), ekran nie przeładowuje zakwasu
+   140	    await s.entries.updateStarterEntry({ ...feed('w2', 'z', t2 - H), updatedAt: Date.now() });
+   141	    await s.press('edit-profile-btn');
+   142	    await s.press('pasek-arkusza-prawy');
+   143	    out.push(`501b po poprawie w2 na t2-1h i Zapisz profilu: ${JSON.stringify(await feedings(s, 'z'))} (t2=${t2})`);
+   144	    s.done();
+   145	  });
+   146	
+   147	  it('003(1): usunięcie jedynego dokarmienia → etykieta „Ostatnie dokarmienie”', async () => {
+   148	    const s = await start(async (e) => {
+   149	      await e.createStarterWithEntry(starter('z'), feed('w1', 'z', Date.now() - 30 * H));
+   150	    });
+   151	    const przed = s.tekst().match(/Ostatnie dokarmienie \| [^|]+/)?.[0];
+   152	    await s.press('wpis-usun-w1');
+   153	    const po = s.tekst().match(/Ostatnie dokarmienie \| [^|]+/)?.[0];
+   154	    const bez = s.tekst().includes('Brak danych o karmieniu');
+   155	    // ponowne wejście na ekran (nowy montaż)
+   156	    const tree2 = await s.mount('../../app/(tabs)/zakwasy/index');
+   157	    const poRemount = s.tekst(tree2).match(/Ostatnie dokarmienie \| [^|]+/)?.[0];
+   158	    out.push(`003(1) przed=${przed} | po usunięciu=${po} | „Brak danych o karmieniu” na ekranie=${bez} | po ponownym montażu=${poRemount} | „Brak danych o karmieniu” po montażu=${s.tekst(tree2).includes("Brak danych o karmieniu")}`);
+   159	    s.done(tree2);
+   160	  });
+   161	
+   162	  it('006: dwa stuknięcia „Zapisz dokarmienie” bez czekania na zapis', async () => {
+   163	    const s = await start(async (e) => {
+   164	      await e.createStarterWithEntry(starter('z'), feed('w1', 'z', Date.now() - 5 * H));
+   165	    });
+   166	    const btn = () => s.tree.root.findAll((n) => n.props?.testID === 'zakwas-dokarm-btn' && typeof n.props.onPress === 'function').slice(-1)[0];
+   167	    await s.TR.act(async () => {
+   168	      btn().props.onPress();
+   169	      await new Promise((r) => setTimeout(r, 150));
+   170	      btn().props.onPress();
+   171	    });
+   172	    await s.flush();
+   173	    await new Promise((r) => setTimeout(r, 50));
+   174	    await s.flush();
+   175	    const alerts = (require('react-native').Alert.alert as jest.Mock).mock.calls.map((c: unknown[]) => c[0]);
+   176	    out.push(`006 (150 ms) wpisy feeding: ${JSON.stringify(await feedings(s, 'z'))}; Alert: ${JSON.stringify(alerts)}`);
+   177	    s.done();
+   178	  });
+   179	
+   180	  it('006b: dwa stuknięcia „Zapisz dokarmienie” synchronicznie (ten sam takt)', async () => {
+   181	    const s = await start(async (e) => {
+   182	      await e.createStarterWithEntry(starter('z'), feed('w1', 'z', Date.now() - 5 * H));
+   183	    });
+   184	    const btn = () => s.tree.root.findAll((n) => n.props?.testID === 'zakwas-dokarm-btn' && typeof n.props.onPress === 'function').slice(-1)[0];
+   185	    await s.TR.act(async () => {
+   186	      btn().props.onPress();
+   187	      await new Promise((r) => setTimeout(r, 2));
+   188	      btn().props.onPress();
+   189	    });
+   190	    await s.flush();
+   191	    await new Promise((r) => setTimeout(r, 50));
+   192	    await s.flush();
+   193	    const alerts = (require('react-native').Alert.alert as jest.Mock).mock.calls.map((c: unknown[]) => c[0]);
+   194	    out.push(`006b (2 ms) wpisy feeding: ${JSON.stringify(await feedings(s, 'z'))}; Alert: ${JSON.stringify(alerts)}`);
+   195	    s.done();
+   196	  });
+   197	});
+
+## Wynik
+  console.log
+    501 przed: ["w2@1794167087702","w1@1794156287702"]
+    501 po usunięciu w2: ["w1@1794156287702"]
+    501 po Zapisz profilu: ["feed-z-1794167087702@1794167087702","w1@1794156287702"] (t2=1794167087702)
+    501b po poprawie w2 na t2-1h i Zapisz profilu: ["feed-z-1794167088359@1794167088359","w2@1794163488359","w1@1794156288359"] (t2=1794167088359)
+    003(1) przed=Ostatnie dokarmienie | 1 dzień temu  | po usunięciu=Ostatnie dokarmienie | 1 dzień temu  | „Brak danych o karmieniu” na ekranie=false | po ponownym montażu=Ostatnie dokarmienie | przed chwilą  | „Brak danych o karmieniu” po montażu=true
+    006 (150 ms) wpisy feeding: ["feed-z-1794174289749@1794174289749","feed-z-1794174289597@1794174289597","w1@1794156289394"]; Alert: []
+    006b (2 ms) wpisy feeding: ["feed-z-1794174290236@1794174290236","feed-z-1794174290232@1794174290232","w1@1794156290033"]; Alert: []
+
+
+PASS src/__tests__/g1-sonda-ekran.test.tsx
+  G1 sonda ekranu Zakwasy
+    ✓ 501: usunięcie najnowszego dokarmienia, potem Edytuj → Zapisz profil (659 ms)
+    ✓ 501b: poprawa godziny najnowszego dokarmienia na wcześniejszą (bez UI: updateStarterEntry jak log.popraw), potem Zapisz profil (433 ms)
+    ✓ 003(1): usunięcie jedynego dokarmienia → etykieta „Ostatnie dokarmienie” (460 ms)
+    ✓ 006: dwa stuknięcia „Zapisz dokarmienie” bez czekania na zapis (686 ms)
+    ✓ 006b: dwa stuknięcia „Zapisz dokarmienie” synchronicznie (ten sam takt) (456 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        4.025 s
+Ran all test suites matching /src\/__tests__\/g1-sonda-ekran.test.tsx/i.
+## Kod wyjścia: 0

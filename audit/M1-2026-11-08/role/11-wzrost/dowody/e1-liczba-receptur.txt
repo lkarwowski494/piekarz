@@ -1,0 +1,47 @@
+$ grep -rnoE "15 (receptur|recipes|base recipes|Rezept)[^\"]{0,20}" site docs/wydanie docs/app-store-metadata-v2.md README.md | cut -c1-160
+site/index.html:35:15 receptur bazowych albo 
+docs/wydanie/ustawienia/en-US.md:53:15 base recipes (sourdough, ry
+docs/wydanie/ustawienia/en-CA.md:53:15 base recipes (sourdough, ry
+docs/wydanie/ustawienia/pl.md:53:15 receptur bazowych (na z
+docs/wydanie/ustawienia/en-AU.md:53:15 base recipes (sourdough, ry
+docs/wydanie/ustawienia/es-ES.md:53:15 recetas base (de masa 
+docs/wydanie/ustawienia/en-GB.md:54:15 base recipes (sourdough, ry
+docs/wydanie/ustawienia/fr-CA.md:53:15 recettes de base (au le
+docs/wydanie/ustawienia/fr-FR.md:53:15 recettes de base (au le
+docs/wydanie/metadane/en-AU.json:9:15 base recipes (sourdough, ry
+docs/wydanie/metadane/en-US.json:9:15 base recipes (sourdough, ry
+docs/wydanie/metadane/fr-FR.json:9:15 recettes de base (au le
+docs/wydanie/metadane/en-CA.json:9:15 base recipes (sourdough, ry
+docs/wydanie/metadane/fr-CA.json:9:15 recettes de base (au le
+docs/wydanie/metadane/en-GB.json:9:15 base recipes (sourdough, ry
+docs/wydanie/metadane/pl.json:9:15 receptur bazowych (na z
+docs/wydanie/metadane/es-ES.json:9:15 recetas base (de masa 
+docs/app-store-metadata-v2.md:33:15 receptur bazowych (na z
+docs/app-store-metadata-v2.md:82:15 base recipes (sourdough, ry
+docs/app-store-metadata-v2.md:286:15 base recipes (sourdough, ry
+README.md:45:15 receptur bazowych i wł
+README.md:83:15 receptur w filtrach lis
+README.md:156:15 receptur bazowych
+kod: 0
+$ grep -c "^\s*id: '" src/recipes/presets-*.ts src/recipes/katalog-m3-*.ts (receptury bazowe w kodzie)
+src/recipes/presets-drozdzowe.ts:4
+src/recipes/presets-pizza-slodkie.ts:3
+src/recipes/presets-zakwas.ts:6
+src/recipes/presets-zytnie.ts:2
+src/recipes/katalog-m3-drozdzowe.ts:4
+src/recipes/katalog-m3-slodkie.ts:3
+src/recipes/katalog-m3-zakwas-zyto.ts:4
+suma: 15 (MASTER_RECIPES) + 11 (KATALOG_M3_RECIPES) = 26
+export const KATALOG_M3_RECIPES: RecipePreset[] = [...KATALOG_ZAKWAS_ZYTNIE, ...KATALOG_DROZDZOWE, ...KATALOG_SLODKIE];
+
+/** Wszystkie receptury bazowe w kolejności listy: dotychczasowe 15, potem katalog M3. */
+export const CATALOG_RECIPES: RecipePreset[] = [...MASTER_RECIPES, ...KATALOG_M3_RECIPES];
+$ ls docs/wydanie/metadane | wc -l
+34
+$ grep -l "15" docs/wydanie/metadane/*.json | wc -l
+31
+
+$ grep -n "toHaveLength(26)" src/recipes/__tests__/katalog-m3-p8.test.ts
+56:    expect(CATALOG_RECIPES).toHaveLength(26);
+111:  it('filtr „all” zwraca 26 receptur: 15 dotychczasowych w tej samej kolejności, potem 11 nowych', () => {
+kod: 0

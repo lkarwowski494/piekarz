@@ -1,0 +1,229 @@
+# Próby mutacji (JAK-04) — kopia robocza: git worktree add --detach <scratchpad>/kopia 2ef8870a (node_modules jako dowiązanie)
+# Każdy mutant osobno: zmiana jednej linii (perl, wzorzec jednoznaczny), npx jest --ci --findRelatedTests <plik>, cofnięcie git checkout.
+# Kod wyjścia jest 0 = mutant przeżył; != 0 = zabity. Skrypt: <scratchpad>/sondy/mutant.sh (treść na końcu).
+
+== M1-backup-rotacja: src/lib/backup.ts :: '.sort((a, b) => (a[1] < b[1] ? 1 : a[1] > b[1] ? -1 : 0))' -> '.sort((a, b) => (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0))' (wystąpień: 1)
+ src/lib/backup.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/lib/backup.ts b/src/lib/backup.ts
+index f2d75686..1f2cef84 100644
+--- a/src/lib/backup.ts
++++ b/src/lib/backup.ts
+@@ -163 +163 @@ async function writeBackupFile(
+-      .sort((a, b) => (a[1] < b[1] ? 1 : a[1] > b[1] ? -1 : 0))
++      .sort((a, b) => (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0))
+$ npx jest --ci --findRelatedTests src/lib/backup.ts
+Test Suites: 1 failed, 454 passed, 455 total
+Tests:       1 failed, 4692 passed, 4693 total
+FAIL src/lib/__tests__/backup.test.ts
+  ● Apps4Brew Backup & Safety Snapshot Specification (lib/backup) › autoBackup rotation keeps the newest AUTO_KEEP copies › eleven automatic copies leave exactly 10 files, including the newest one (BR-DANE-002 Kopie automatyczne)
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M2-migracja-rollback: src/data/sqlite-schema.ts :: 'await db.execAsync('ROLLBACK;').catch(() => {});' -> '/* mutant: bez ROLLBACK */' (wystąpień: 1)
+ src/data/sqlite-schema.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/data/sqlite-schema.ts b/src/data/sqlite-schema.ts
+index bc3ee6e4..4c613918 100644
+--- a/src/data/sqlite-schema.ts
++++ b/src/data/sqlite-schema.ts
+@@ -385 +385 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
+-      await db.execAsync('ROLLBACK;').catch(() => {});
++      /* mutant: bez ROLLBACK */
+$ npx jest --ci --findRelatedTests src/data/sqlite-schema.ts
+Test Suites: 455 passed, 455 total
+Tests:       4693 passed, 4693 total
+kod wyjścia jest: 0  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M3-sen-granica: src/scheduler/reverse-scheduler.ts :: 'return hours >= sleepStartHour || hours < sleepEndHour;' -> 'return hours >= sleepStartHour || hours <= sleepEndHour;' (wystąpień: 1)
+ src/scheduler/reverse-scheduler.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/scheduler/reverse-scheduler.ts b/src/scheduler/reverse-scheduler.ts
+index 2d075e16..7668643b 100644
+--- a/src/scheduler/reverse-scheduler.ts
++++ b/src/scheduler/reverse-scheduler.ts
+@@ -211 +211 @@ function isDuringSleep(date: Date, sleepStartHour: number, sleepEndHour: number)
+-    return hours >= sleepStartHour || hours < sleepEndHour;
++    return hours >= sleepStartHour || hours <= sleepEndHour;
+$ npx jest --ci --findRelatedTests src/scheduler/reverse-scheduler.ts
+Test Suites: 2 failed, 453 passed, 455 total
+Tests:       3 failed, 4690 passed, 4693 total
+FAIL src/scheduler/__tests__/reverse-scheduler-exhaustive.test.ts
+FAIL src/scheduler/__tests__/reverse-scheduler.test.ts
+  ● Exhaustive Reverse Scheduler & Sleep Guard Invariants (BR-SCHED-EXHAUSTIVE) › Sleep Guard Exact Boundary Cases › custom sleep windows (e.g. early riser 21:00 to 05:00) correctly adapt collision detector
+  ● Exhaustive Reverse Scheduler & Sleep Guard Invariants (BR-SCHED-EXHAUSTIVE) › Sleep Guard Exact Boundary Cases › does NOT flag passive steps (cold retard or cooling) as sleep collision even if completely in night
+  ● Piekarz Reverse Scheduler (BR-HARMO-001…004) › Sleep Guard boundary: an active step starting exactly at sleepEnd (06:30) is not a collision
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M4-ddt-prog: src/core/domain-rules.ts :: 'if (roundedWater > 45.0) {' -> 'if (roundedWater > 46.0) {' (wystąpień: 1)
+ src/core/domain-rules.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/core/domain-rules.ts b/src/core/domain-rules.ts
+index b87ecc71..702f4282 100644
+--- a/src/core/domain-rules.ts
++++ b/src/core/domain-rules.ts
+@@ -257 +257 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
+-  if (roundedWater > 45.0) {
++  if (roundedWater > 46.0) {
+$ npx jest --ci --findRelatedTests src/core/domain-rules.ts
+Test Suites: 1 failed, 454 passed, 455 total
+Tests:       2 failed, 4691 passed, 4693 total
+FAIL src/core/__tests__/baking-physics-corpus.test.ts
+  ● Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript Cross-Validation) › DDT 3-Factor & 4-Factor Matrix (194 cases) › DDT case #145 (DDT 28°C, flour 18°C, room 19°C, starter none) matches Python reference
+  ● Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript Cross-Validation) › DDT 3-Factor & 4-Factor Matrix (194 cases) › DDT case #152 (DDT 28°C, flour 18°C, room 23°C, starter 22) matches Python reference
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M5-drozdze-zaokraglenie: src/core/domain-rules.ts :: 'const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(2));' -> 'const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(1));' (wystąpień: 1)
+ src/core/domain-rules.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/core/domain-rules.ts b/src/core/domain-rules.ts
+index b87ecc71..761c6bf1 100644
+--- a/src/core/domain-rules.ts
++++ b/src/core/domain-rules.ts
+@@ -381 +381 @@ export function convertYeast(
+-    const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(2));
++    const instant = Number((amountGrams * WSP_SWIEZE_NA_SUCHE).toFixed(1));
+$ npx jest --ci --findRelatedTests src/core/domain-rules.ts
+Test Suites: 6 failed, 449 passed, 455 total
+Tests:       7 failed, 4686 passed, 4693 total
+FAIL src/__tests__/br-kalk-130-reszta.test.tsx
+FAIL src/components/receptury/__tests__/rodzaj-drozdzy-216.test.tsx
+FAIL src/components/receptury/__tests__/segment-drozdzy-do-miski-p6a.test.tsx
+FAIL src/core/__tests__/brd-test-vectors.test.ts
+FAIL src/core/__tests__/domain-math-exhaustive.test.ts
+FAIL src/core/__tests__/domain-property-based.test.ts
+  ● 216: rodzaj drożdży (BR-KALK-009, DEC-26 a) › BR-KALK-009 Świeże na suche: receptura z 10 g drożdży świeżych, wybór „suche” → 3,5 g drożdży suchych (RD-19-W1)
+  ● 216: rodzaj drożdży (BR-KALK-009, DEC-26 a) › funkcje modułu: parsujRodzajDrozdzy, biezacyRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy, useRodzajDrozdzy
+  ● BR-KALK-009 Rodzaj drożdży: przelicznik RD-19 (× 0,35, D-205, D-172) › BR-KALK-009 Świeże na suche: 10 g drożdży świeżych → 3,5 g suchych (RD-19-W1)
+  ● BRD Ground Truth Test Vectors (test-vectors.json) › RD_04: Yeast Conversion (Fresh <-> Instant 3:1) › vector VEC-YEAST-01-fresh-to-instant (15g fresh compressed yeast to dry yeast (RD-19: × 0.35, D-205)) converts accurately
+  ● Exhaustive Domain Math & Physics Invariants (BR-MATH-EXHAUSTIVE) › Yeast Conversion Equivalences (RD-19: dry = fresh × 0.35) › converts fresh to dry yeast with 0.35 multiplier
+  ● M3 p6a: przelicznik × 0,35 przy wierszu (D-205, D-172, RD-19-W2) › BR-KALK-012 Wybór przy wierszu drożdży: 25 g świeżych → 8,75 g suchych
+  ● Property-Based Invariant Verification (fast-check) › Yeast & Starter Feeding Invariants › yeast conversions are round-trip isomorphic within rounding precision
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M6-powiadomienie-biezacy-krok: src/core/notification-plan.ts :: 'if (i <= session.stepIdx || step.plannedEnd === null) return;' -> 'if (i < session.stepIdx || step.plannedEnd === null) return;' (wystąpień: 1)
+ src/core/notification-plan.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/core/notification-plan.ts b/src/core/notification-plan.ts
+index b5d8634d..2660846c 100644
+--- a/src/core/notification-plan.ts
++++ b/src/core/notification-plan.ts
+@@ -168 +168 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
+-    if (i <= session.stepIdx || step.plannedEnd === null) return;
++    if (i < session.stepIdx || step.plannedEnd === null) return;
+$ npx jest --ci --findRelatedTests src/core/notification-plan.ts
+Test Suites: 3 failed, 48 passed, 51 total
+Tests:       7 failed, 433 passed, 440 total
+FAIL src/__tests__/notifications-pending.test.tsx
+FAIL src/core/__tests__/powiadomienia-wypiekow-d2.test.ts
+FAIL src/core/__tests__/step-confirm.test.ts
+  ● BR-HARMO-005: zakończenie kroku wcześniej i cofnięcie potwierdzenia (102) › BR-HARMO-005 Krok skończony wcześniej: garowanie z terminem 14:00 zakończone 13:30 → dalsze kroki 30 min wcześniej, powiadomienia z nowymi godzinami
+  ● D2: identyfikatory powiadomień per wypiek › BR-KAL-016: dwa wypieki mają rozłączne identyfikatory z id wypieku, bez starych piekarz.krok*
+  ● D2: nazwa wypieku w powiadomieniu (BR-KAL-016 Który krok czyj) › BR-KAL-016: przy dwóch trwających wypiekach każde powiadomienie kroku niesie recipeName swojego wypieku
+  ● D2: start zaplanowanych wypieków (BR-KAL-009) › planNotifications dodaje starty zaplanowanych do powiadomień trwających wypieków
+  ● Pending notifications follow the saved state (006) › Stolnica: start → krok and next steps; next step → krok of the next step; discard → none (BR-CZAS-002 Koniec wypieku: przerwanie)
+  ● Pending notifications follow the saved state (006) › Zakwas: feeding a fridge starter schedules one reminder at +7 d
+  ● Pending notifications follow the saved state (006) › import replaces reminders: new starters get them, removed ones lose them
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M7-sesja-zapis-postepu: src/data/bake-sessions-store.ts :: 'ON CONFLICT(id) DO UPDATE SET status = excluded.status, session_json = excluded.session_json, updated_at = excluded.updated_at;' -> 'ON CONFLICT(id) DO UPDATE SET status = excluded.status, updated_at = excluded.updated_at;' (wystąpień: 1)
+ src/data/bake-sessions-store.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/data/bake-sessions-store.ts b/src/data/bake-sessions-store.ts
+index fd88cc64..37faafee 100644
+--- a/src/data/bake-sessions-store.ts
++++ b/src/data/bake-sessions-store.ts
+@@ -188 +188 @@ async function zapisz(id: string, status: StatusSesji, json: string): Promise<Za
+-       ON CONFLICT(id) DO UPDATE SET status = excluded.status, session_json = excluded.session_json, updated_at = excluded.updated_at;`,
++       ON CONFLICT(id) DO UPDATE SET status = excluded.status, updated_at = excluded.updated_at;`,
+$ npx jest --ci --findRelatedTests src/data/bake-sessions-store.ts
+Test Suites: 5 failed, 450 passed, 455 total
+Tests:       11 failed, 4682 passed, 4693 total
+FAIL src/__tests__/prowadzenie-teksty-114.test.tsx
+FAIL src/__tests__/start-przy-trwajacym-a1b.test.tsx
+FAIL src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts
+FAIL src/data/__tests__/wypieki-per-id-d3a.sqlite.test.ts
+FAIL src/lib/__tests__/kalendarz-akcje-d4b.test.ts
+  ● 114: teksty prowadzenia według makiety › EN: Ready …, until …, then …, The screen will stay on…
+  ● 114: teksty prowadzenia według makiety › krok czynny przy zgodzie na powiadomienia: „18 min”-owy czas i zdanie o ekranie z godziną powiadomienia
+  ● 114: teksty prowadzenia według makiety › krok w garnku (faza pod pokrywą): „do …, potem pieczenie bez pokrywy”
+  ● 114: teksty prowadzenia według makiety › ostatni krok: „do {godzina}” bez następnego kroku
+  ● 114: teksty prowadzenia według makiety › ostatnia minuta: sekundy („45 s”, VoiceOver „45 sekund”)
+  ● 114: teksty prowadzenia według makiety › po czasie: „2 min po czasie” i „Potem: {krok}, {czas}, do {godzina}” od teraz
+  ● D1: sesje wypieków i recipe_id › koniec wypieku zapisuje recipe_id z receptury sesji, a ocena po wypieku (saveBakeLog bez recipeId) go nie zeruje
+  ● D1: sesje wypieków i recipe_id › zakonczSesjeWTransakcji: bez sessionId nic nie kasuje; z sessionId zwraca recepturę i kasuje wiersz; zakonczSesjeWPamieci filtruje pamięć
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M8-uncje-granica: src/lib/unit-converter.ts :: 'return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz`' -> 'return oz2 >= 2 ? `${formatFixed(oz1, 1)} oz`' (wystąpień: 1)
+ src/lib/unit-converter.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/lib/unit-converter.ts b/src/lib/unit-converter.ts
+index 21b99843..785470f8 100644
+--- a/src/lib/unit-converter.ts
++++ b/src/lib/unit-converter.ts
+@@ -192 +192 @@ function formatOunces(grams: number): string {
+-  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
++  return oz2 >= 2 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
+$ npx jest --ci --findRelatedTests src/lib/unit-converter.ts
+Test Suites: 111 passed, 111 total
+Tests:       773 passed, 773 total
+kod wyjścia jest: 0  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M9-uncje-male-dawki: src/lib/unit-converter.ts :: ': `${formatFixed(oz2, 2)} oz`;' -> ': `${formatFixed(oz1, 2)} oz`;' (wystąpień: 1)
+ src/lib/unit-converter.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/lib/unit-converter.ts b/src/lib/unit-converter.ts
+index 21b99843..adc68852 100644
+--- a/src/lib/unit-converter.ts
++++ b/src/lib/unit-converter.ts
+@@ -192 +192 @@ function formatOunces(grams: number): string {
+-  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
++  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz1, 2)} oz`;
+$ npx jest --ci --findRelatedTests src/lib/unit-converter.ts
+Test Suites: 3 failed, 108 passed, 111 total
+Tests:       3 failed, 770 passed, 773 total
+FAIL src/lib/__tests__/format-intl.test.ts
+FAIL src/lib/__tests__/miary-usa-096.test.ts
+FAIL src/lib/__tests__/unit-converter.test.ts
+  ● 096: formaty §7 › en: 1 g → 0.04 oz
+  ● miejsca wyświetlania według języka aplikacji › temperatura i masa: PL 26,5°C i 2,5 g; EN 26.5°C i 2.5 g
+  ● unit-converter › weight conversions › formats small dose weights
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+== M10-plesn-i-hooch: src/core/sourdough-physics.ts :: '  if (
+    observations.hasWhiteWrinkledFilm ||' -> '  if (!observations.hasHoochLiquid &&
+    observations.hasWhiteWrinkledFilm ||' (wystąpień: 1)
+ src/core/sourdough-physics.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/src/core/sourdough-physics.ts b/src/core/sourdough-physics.ts
+index 3deea22e..f2604576 100644
+--- a/src/core/sourdough-physics.ts
++++ b/src/core/sourdough-physics.ts
+@@ -194 +194 @@ export function evaluateSourdoughSafety(observations: {
+-  if (
++  if (!observations.hasHoochLiquid &&
+$ npx jest --ci --findRelatedTests src/core/sourdough-physics.ts
+Test Suites: 1 failed, 459 passed, 460 total
+Tests:       1 failed, 4734 passed, 4735 total
+FAIL src/core/__tests__/sourdough-safety-vectors.test.ts
+  ● Starter safety vectors K1–K6 (013, DEC-10 a) › K6+K1 {"hasHoochLiquid":true,"hasWhiteWrinkledFilm":true,"hasFuzzySpots":false,"hasColoredSpots":false,"hasRottenSmell":false}
+kod wyjścia jest: 1  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)
+
+--- mutant.sh:
+#!/bin/bash
+# użycie: mutant.sh <id> <plik> <perl-wzorzec-stary> <nowy>   (w kopii roboczej $SP/kopia)
+K=/tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia
+cd "$K" || exit 9
+id="$1"; f="$2"; old="$3"; new="$4"
+n=$(OLD="$old" perl -0ne '$c=()=/\Q$ENV{OLD}\E/g; print $c' "$f")
+echo "== $id: $f :: '$old' -> '$new' (wystąpień: $n)"
+if [ "$n" != "1" ]; then echo "PRZERWANE: wzorzec nie jest jednoznaczny"; exit 8; fi
+OLD="$old" NEW="$new" perl -0pi -e 's/\Q$ENV{OLD}\E/$ENV{NEW}/' "$f"
+git diff --stat; git diff -U0 | sed -n '1,12p'
+echo "\$ npx jest --ci --findRelatedTests $f"
+timeout 1500 npx jest --ci --findRelatedTests "$f" > /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/sondy/$id.jest.log 2>&1
+kod=$?
+grep -E '^(Tests|Test Suites):' /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/sondy/$id.jest.log
+grep -E '^FAIL ' /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/sondy/$id.jest.log | sort -u | head -15
+grep -E '●.*›' /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/sondy/$id.jest.log | sort -u | head -8
+echo "kod wyjścia jest: $kod  (0 = mutant PRZEŻYŁ, !=0 = mutant zabity)"
+git checkout -- "$f"; git status --porcelain | grep -v node_modules

@@ -1,0 +1,9 @@
+# ODK-06 próbka źródeł S otwartych 2026-11-08: grep -F cytatu z docs/brd/zrodla.md w tekście strony (HTML bez znaczników)
+ZGODNY  S-02: „We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment.”
+ZGODNY  S-37: „Generally, the correct amount of salt in bread dough is 1.8 to 2% of salt based on flour weight”
+ZGODNY  S-46: „Never eat or taste raw flour, dough, or batter.”
+ZGODNY  S-45: „Don't sniff the moldy item. This can cause respiratory trouble.”
+ZGODNY  S-43: „Sourdough starter that shows any sign of mold (colored and/or fuzzy) should NOT be used, and the container should be thoroughly cleaned and rinsed before starting over.”
+ZGODNY  S-44: „On average, it takes 7 to 10 days for a starter to be ready for use in baking.”
+ZGODNY  S-47: „Use appropriate protective equipment, such as an oven mitt, when removing hot pan lids.”
+kod: 0

@@ -1,0 +1,11 @@
+# Pressable/TouchableOpacity bez accessibilityRole w tym samym elemencie (heurystyka: otwarcie <Pressable ... > do pierwszego ">" w 12 liniach)
+elementów: 221 bez roli: 8
+src/components/NotificationsOffBanner.tsx:35
+src/components/PaywallModal.tsx:167
+src/components/PaywallModal.tsx:170
+src/components/StorageGate.tsx:95
+src/components/harmonogram/TargetReadyCard.tsx:68
+src/components/settings/StudioEcosystemSection.tsx:73
+src/components/settings/StudioEcosystemSection.tsx:104
+src/components/settings/StudioEcosystemSection.tsx:120
+kod: 0

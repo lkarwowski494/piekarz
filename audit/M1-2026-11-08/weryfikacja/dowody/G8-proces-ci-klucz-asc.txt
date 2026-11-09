@@ -1,0 +1,43 @@
+$ grep -n "ASC_KEY_ID\|ASC_KEY_P8" .github/workflows/*.yml
+.github/workflows/asc-ustawienia.yml:37:          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+.github/workflows/asc-ustawienia.yml:39:          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+.github/workflows/asc-zgloszenie.yml:54:          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+.github/workflows/asc-zgloszenie.yml:56:          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+.github/workflows/testflight.yml:217:          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+.github/workflows/testflight.yml:219:          ASC_KEY_P8_BASE64: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+.github/workflows/testflight.yml:252:          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+exit=0
+
+$ sed -n 3,12p .github/workflows/testflight.yml
+on:
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: 'Notatka do wydania (opcjonalnie)'
+        required: false
+        default: ''
+  push:
+    tags:
+      - 'v*'
+exit=0
+
+$ grep -n "npm ci\|Prepare App Store Connect" .github/workflows/testflight.yml
+42:      - run: npm ci --legacy-peer-deps
+93:        run: npm ci --legacy-peer-deps
+215:      - name: Prepare App Store Connect API Key (.p8) after pod install & archive
+exit=0
+
+$ grep -n "Admin albo App Manager" scripts/asc-zgloszenie.mjs
+468:        console.error(`BŁĄD: App Store Connect odmówił dostępu (403): ${zaciemnij(blad.message)}\nKlucz API ma za niską rolę. Metadane, zrzuty i prod
+exit=0
+
+$ grep -n "Napar" docs/TESTFLIGHT_DEPLOYMENT.md
+43:Muszą być zdefiniowane 3 sekrety (te same, z których korzysta Napar):
+exit=0
+
+$ grep -rn -i "unieważn\|revoke\|rotac" docs/wydanie/ docs/TESTFLIGHT_DEPLOYMENT.md docs/15-app-store.md docs/prawne/procedura-bezpieczenstwa.md
+exit=1
+
+$ sed -n 26p docs/wydanie/dziennik.md | cut -c1-200
+- 2026-10-21, commit `4aaf974`, zapis (run 39583333126). Zgoda właściciela: „Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea
+exit=0

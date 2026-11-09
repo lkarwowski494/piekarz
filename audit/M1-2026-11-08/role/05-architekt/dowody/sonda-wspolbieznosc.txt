@@ -1,0 +1,165 @@
+$ npx jest src/data/__tests__/sonda-05-wspolbieznosc.sqlite.test.ts  (worktree 2ef8870a w scratchpadzie, adapter node:sqlite projektu; treść sondy niżej)
+SONDA A przed: wpisy=1
+SONDA A wynik 1: błąd: StorageWriteError: Error: cannot rollback - no transaction is active
+SONDA A wynik 2: błąd: StorageWriteError: Error: cannot start a transaction within a transaction
+SONDA A po: wpisy=[{"id":"z0","occurred_at":1000},{"id":"feed-z-2000","occurred_at":2000}]
+SONDA B import: błąd: StorageWriteError: SQLITE_FULL: database or disk is full
+SONDA B setAppSetting: ok
+SONDA B po: bakes=[{"id":"b1"}] platnosci_pamiec=[]
+SONDA C przed: bakes=3 starters=1
+SONDA C import: błąd: StorageWriteError: Error: cannot rollback - no transaction is active
+SONDA C saveStarter: błąd: StorageWriteError: Error: cannot start a transaction within a transaction
+SONDA C po: bakes=["k1","k2"]
+SONDA C po: starters=["k"]
+SONDA C po: entries=["ke"]
+SONDA D przed: bakes=3 starters=1 entries=1
+SONDA D import: błąd: StorageWriteError: Error: cannot rollback - no transaction is active
+SONDA D saveStarter: błąd: StorageWriteError: Error: cannot start a transaction within a transaction
+SONDA D po: bakes=0 starters=[{"id":"k"}] entries=[{"id":"ke"}]
+SONDA K import: błąd: StorageWriteError: SQLITE_FULL: database or disk is full
+SONDA K po: bakes=3 starters=[{"id":"s1"}] entries=[{"id":"e1"}]
+PASS src/data/__tests__/sonda-05-wspolbieznosc.sqlite.test.ts
+  sonda ARCH-12: zapisy bez jednej kolejki
+    ✓ A: dwa stuknięcia „Zapisz karmienie” (dwa saveStarter naraz) (183 ms)
+    ✓ B: zapis ustawienia (np. pamięć zakupu z nasłuchu StoreKit) w trakcie importu, który się nie udaje (29 ms)
+    ✓ C: import kopii i równoległy zapis zakwasu (dwie withTransactionAsync naraz) (28 ms)
+    ✓ D: jak C, ale import pada w połowie (pełny dysk przy wpisach Dziennika) (29 ms)
+    ✓ kontrola: ten sam import bez równoległego zapisu i z tym samym błędem nie zmienia danych (26 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        0.87 s, estimated 3 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-05-wspolbieznosc.sqlite.test.ts/i.
+kod: 0
+
+--- treść sondy ---
+/**
+ * Sonda audytu 05-architekt (M1 2026-11-08), tylko w scratchpadzie: dwa zapisy na jednym połączeniu bez kolejki.
+ * withTransactionAsync jak w expo-sqlite 57.0.4 (adapter projektu): BEGIN, zadanie, COMMIT; błąd → ROLLBACK.
+ */
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+
+import { useTempDbDir, restartApp, openRaw, dbFilePath, control } from './helpers/node-sqlite-adapter';
+import type { StoredStarter, StoredStarterEntry } from '../db';
+
+const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({
+  id, name: id, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra,
+});
+const feed = (id: string, starterId: string, at: number): StoredStarterEntry => ({
+  id, starterId, kind: 'feeding', occurredAt: at, feedRatio: '1:1:1', signs: [], createdAt: at, updatedAt: at,
+});
+const log = (s: string) => process.stdout.write(`SONDA ${s}\n`);
+const wynik = (r: PromiseSettledResult<unknown>) => (r.status === 'fulfilled' ? 'ok' : `błąd: ${(r.reason as Error).name}: ${(r.reason as Error).message}`);
+
+describe('sonda ARCH-12: zapisy bez jednej kolejki', () => {
+  beforeEach(() => useTempDbDir());
+
+  it('A: dwa stuknięcia „Zapisz karmienie” (dwa saveStarter naraz)', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('z'), feed('z0', 'z', 1000));
+    const raw0 = openRaw(APP_DB());
+    log(`A przed: wpisy=${(raw0.prepare('SELECT count(*) c FROM starter_entries').get() as { c: number }).c}`);
+    raw0.close();
+    const r = await Promise.allSettled([
+      app.store.saveStarter(starter('z', { lastFedAt: 2000, feedingRatio: '1:2:2' })),
+      app.store.saveStarter(starter('z', { lastFedAt: 2001, feedingRatio: '1:2:2' })),
+    ]);
+    log(`A wynik 1: ${wynik(r[0])}`);
+    log(`A wynik 2: ${wynik(r[1])}`);
+    const raw = openRaw(APP_DB());
+    log(`A po: wpisy=${JSON.stringify(raw.prepare('SELECT id, occurred_at FROM starter_entries ORDER BY occurred_at').all())}`);
+    raw.close();
+  });
+
+  it('B: zapis ustawienia (np. pamięć zakupu z nasłuchu StoreKit) w trakcie importu, który się nie udaje', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    await app.store.saveBakeLog({ id: 'b1', recipeName: 'Stary', startedAt: 1 });
+    const c = control();
+    // Import pada na ostatnim kroku (np. pełny dysk przy lekcjach)
+    c.failWritesMatching = /INSERT INTO lesson_progress/;
+    const imp = app.store.restoreFromBackupData({
+      bakes: [{ id: 'n1', recipeName: 'Nowy', startedAt: 2 }],
+      starters: [], customRecipes: [], starterEntries: [],
+      lessonProgress: [{ levelId: 1, completedAt: 5 }],
+    });
+    const ust = app.store.setAppSetting('platnosci_pamiec', '{"produkty":["pro"]}');
+    const r = await Promise.allSettled([imp, ust]);
+    c.failWritesMatching = null;
+    log(`B import: ${wynik(r[0])}`);
+    log(`B setAppSetting: ${wynik(r[1])}`);
+    const raw = openRaw(APP_DB());
+    log(`B po: bakes=${JSON.stringify(raw.prepare('SELECT id FROM bakes').all())} platnosci_pamiec=${JSON.stringify(raw.prepare("SELECT value FROM app_settings WHERE key='platnosci_pamiec'").all())}`);
+    raw.close();
+  });
+
+  it('C: import kopii i równoległy zapis zakwasu (dwie withTransactionAsync naraz)', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('s1'), feed('e1', 's1', 1000));
+    for (let i = 0; i < 3; i++) await app.store.saveBakeLog({ id: `old${i}`, recipeName: 'Stary', startedAt: i + 1 });
+    const raw0 = openRaw(APP_DB());
+    log(`C przed: bakes=${(raw0.prepare('SELECT count(*) c FROM bakes').get() as { c: number }).c} starters=${(raw0.prepare('SELECT count(*) c FROM starters').get() as { c: number }).c}`);
+    raw0.close();
+    const imp = app.store.restoreFromBackupData({
+      bakes: [{ id: 'k1', recipeName: 'Z kopii', startedAt: 10 }, { id: 'k2', recipeName: 'Z kopii', startedAt: 11 }],
+      starters: [starter('k')], customRecipes: [], starterEntries: [feed('ke', 'k', 500)],
+    });
+    const zap = app.store.saveStarter(starter('s1', { lastFedAt: 3000 }));
+    const r = await Promise.allSettled([imp, zap]);
+    log(`C import: ${wynik(r[0])}`);
+    log(`C saveStarter: ${wynik(r[1])}`);
+    const raw = openRaw(APP_DB());
+    log(`C po: bakes=${JSON.stringify(raw.prepare('SELECT id FROM bakes ORDER BY id').all().map((x) => (x as { id: string }).id))}`);
+    log(`C po: starters=${JSON.stringify(raw.prepare('SELECT id FROM starters ORDER BY id').all().map((x) => (x as { id: string }).id))}`);
+    log(`C po: entries=${JSON.stringify(raw.prepare('SELECT id FROM starter_entries ORDER BY id').all().map((x) => (x as { id: string }).id))}`);
+    raw.close();
+  });
+
+  it('D: jak C, ale import pada w połowie (pełny dysk przy wpisach Dziennika)', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('s1'), feed('e1', 's1', 1000));
+    for (let i = 0; i < 3; i++) await app.store.saveBakeLog({ id: `old${i}`, recipeName: 'Stary', startedAt: i + 1 });
+    const raw0 = openRaw(APP_DB());
+    log(`D przed: bakes=${(raw0.prepare('SELECT count(*) c FROM bakes').get() as { c: number }).c} starters=${(raw0.prepare('SELECT count(*) c FROM starters').get() as { c: number }).c} entries=${(raw0.prepare('SELECT count(*) c FROM starter_entries').get() as { c: number }).c}`);
+    raw0.close();
+    control().failWritesMatching = /INSERT INTO bakes/;
+    const imp = app.store.restoreFromBackupData({
+      bakes: [{ id: 'k1', recipeName: 'Z kopii', startedAt: 10 }],
+      starters: [starter('k')], customRecipes: [], starterEntries: [feed('ke', 'k', 500)],
+    });
+    const zap = app.store.saveStarter(starter('s1', { lastFedAt: 3000 }));
+    const r = await Promise.allSettled([imp, zap]);
+    control().failWritesMatching = null;
+    log(`D import: ${wynik(r[0])}`);
+    log(`D saveStarter: ${wynik(r[1])}`);
+    const raw = openRaw(APP_DB());
+    log(`D po: bakes=${(raw.prepare('SELECT count(*) c FROM bakes').get() as { c: number }).c} starters=${JSON.stringify(raw.prepare('SELECT id FROM starters').all())} entries=${JSON.stringify(raw.prepare('SELECT id FROM starter_entries').all())}`);
+    raw.close();
+  });
+
+  it('kontrola: ten sam import bez równoległego zapisu i z tym samym błędem nie zmienia danych', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('s1'), feed('e1', 's1', 1000));
+    for (let i = 0; i < 3; i++) await app.store.saveBakeLog({ id: `old${i}`, recipeName: 'Stary', startedAt: i + 1 });
+    control().failWritesMatching = /INSERT INTO bakes/;
+    const r = await Promise.allSettled([app.store.restoreFromBackupData({
+      bakes: [{ id: 'k1', recipeName: 'Z kopii', startedAt: 10 }],
+      starters: [starter('k')], customRecipes: [], starterEntries: [feed('ke', 'k', 500)],
+    })]);
+    control().failWritesMatching = null;
+    log(`K import: ${wynik(r[0])}`);
+    const raw = openRaw(APP_DB());
+    log(`K po: bakes=${(raw.prepare('SELECT count(*) c FROM bakes').get() as { c: number }).c} starters=${JSON.stringify(raw.prepare('SELECT id FROM starters').all())} entries=${JSON.stringify(raw.prepare('SELECT id FROM starter_entries').all())}`);
+    raw.close();
+  });
+});

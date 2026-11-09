@@ -1,0 +1,13 @@
+$ npx jest tests/sonda09/dzien.test.ts (kopia robocza; plik sondy: dowody/sonda-dzien-godzina.test.ts.txt; ICU Node 22, nie Hermes)
+pl => Gotowe czwartek, 12 listopada o 13:30. | Start jutro o 01:30 | Fermentacja burzliwa ze składaniami wypada o 01:30 w nocy
+en => Ready Thursday, November 12 at 01:30 PM. | Start tomorrow at 01:30 AM | Bulk fermentation with folds falls at 01:30 AM during the night
+de => Fertig Donnerstag, 12. November um 13:30. | Start: morgen, 01:30 | Stockgare mit Dehnen und Falten ist nachts um 01:30 fällig
+es => Listo jueves, 12 de noviembre a las 13:30. | Inicio: mañana, 01:30 | Fermentación en bloque con pliegues cae a las 01:30 de la noche
+es-419 => Listo jueves, 12 de noviembre a las 01:30 p.m.. | Inicio: mañana, 01:30 a.m. | Fermentación en bloque con pliegues cae de noche, a las 01:30 a.m.
+it => Pronto giovedì 12 novembre alle 13:30. | Inizio domani alle 01:30 | Puntata con pieghe di rinforzo cade alle 01:30 di notte
+pt-BR => Pronto quinta-feira, 12 de novembro às 13:30. | Início amanhã às 01:30 | Fermentação em bloco com dobras cai às 01:30, durante a noite
+el => Έτοιμο Πέμπτη 12 Νοεμβρίου στις 01:30 μ.μ.. | Έναρξη: αύριο στις 01:30 π.μ. | Κύρια ζύμωση με διπλώματα: στις 01:30 π.μ. μέσα στη νύχτα
+ru => Готово четверг, 12 ноября в 13:30. | Старт: завтра, 01:30 | Основное брожение со складываниями приходится на 01:30 ночи
+cs => Hotovo čtvrtek 12. listopadu v 13:30. | Start: zítra, 01:30 | První kynutí (bulk) s překládáním připadá na 01:30 v noci
+Tests:       1 passed, 1 total
+kod: 0

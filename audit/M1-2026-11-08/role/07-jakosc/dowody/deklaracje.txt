@@ -1,0 +1,70 @@
+$ grep -n "Niezależny korpus\|Independent" README.md src/core/__tests__/baking-physics-corpus.test.ts
+README.md:124:2. **Niezależny korpus fizyczny (Python ↔ TypeScript):**
+src/core/__tests__/baking-physics-corpus.test.ts:10:describe('Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript Cross-Validation)', () => {
+$ grep -n "Wyrocznie Pythona\|FC_NUM_RUNS\|test:mutation" docs/20-definicja-ukonczenia.md
+18:| **8** | Testy własnościowe `fast-check` | `BR-TEST-006` | `tests/matrix-invariants.test.ts` | nightly: ziarno z zegara wypisywane w logu, liczba przebiegów z `FC_NUM_RUNS` |
+19:| **9** | Wyrocznie Pythona | `BR-TEST-011` | nie sprawdzane automatem jako niezależne | `scripts/gen-bakers-corpus.py` odtwarza wzory kodu JS, więc nie jest niezależną wyrocznią |
+32:| **21** | Testy mutacyjne domeny (`src/core`), próg `thresholds.break` w `stryker.config.json` | DEC-12 (a) planu napraw M1-2026-10-19 | `npm run test:mutation` w nightly (`.github/workflows/nightly.yml`); wartość progu i plan pilnuje `tests/quality-gates.test.ts` | próg 60 od 2026-10-20 (wynik bazowy 61,08 na `ebd8471`, nightly 2026-10-19); plan podnoszenia: 65 do 2026-11-30, 70 do 2026-1
+$ sed -n 13,25p scripts/gen-baking-physics-corpus.py
+def js_round(val):
+    """Mirror JavaScript's Math.round (round half up)"""
+    return math.floor(val + 0.5)
+
+def calculate_ddt(ddt, flour, room, starter=None, friction=2.0):
+    if starter is not None:
+        target = 4.0 * ddt - (flour + room + starter + friction)
+    else:
+        target = 3.0 * ddt - (flour + room + friction)
+    rounded = round(target, 1)
+    if rounded > 45.0:
+        status = "too_hot_danger"
+    elif rounded < 4.0:
+
+$ sed -n 255,262p src/core/domain-rules.ts
+  const roundedWater = Number(targetWater.toFixed(1));
+
+  if (roundedWater > 45.0) {
+    return {
+      waterTempTarget: roundedWater,
+      status: 'too_hot_danger',
+      warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż tem
+    };
+
+$ cat .github/scripts/select-xcode.sh
+     1	#!/bin/bash
+     2	set -euo pipefail
+     3	
+     4	WANT_MAJOR="${1:-16}"
+     5	echo "==> Szukam Xcode $WANT_MAJOR w /Applications..."
+     6	
+     7	CANDIDATE=$(ls -d "/Applications/Xcode_${WANT_MAJOR}"*.app 2>/dev/null | sort -V | tail -n 1 || true)
+     8	if [ -z "$CANDIDATE" ] && [ -d "/Applications/Xcode.app" ]; then
+     9	  CANDIDATE="/Applications/Xcode.app"
+    10	fi
+    11	
+    12	if [ -z "$CANDIDATE" ] || [ ! -d "$CANDIDATE" ]; then
+    13	  echo "::error::Nie znaleziono instalacji Xcode ${WANT_MAJOR}.x w /Applications:" >&2
+    14	  ls -d /Applications/Xcode*.app 2>/dev/null >&2 || true
+    15	  exit 1
+    16	fi
+    17	
+    18	sudo xcode-select -s "$CANDIDATE/Contents/Developer"
+    19	xcodebuild -version
+    20	
+    21	SDK_VER=$(xcodebuild -version -sdk iphoneos ProductVersion 2>/dev/null || echo "")
+    22	echo "Aktywny SDK iOS: $SDK_VER ($CANDIDATE)"
+
+$ grep -n "xcode-select\|select-xcode\|runs-on" .github/workflows/e2e-ios.yml .github/workflows/testflight.yml
+.github/workflows/e2e-ios.yml:51:    runs-on: macos-26
+.github/workflows/testflight.yml:34:    runs-on: ubuntu-latest
+.github/workflows/testflight.yml:62:    runs-on: macos-26
+.github/workflows/testflight.yml:90:        run: bash .github/scripts/select-xcode.sh 26
+.github/workflows/testflight.yml:337:    runs-on: ubuntu-latest
+
+$ grep -rln "select-xcode" tests src
+kod: 1 (1 = brak testu kontraktu)
+
+$ grep -n "min_xcode_version_supported" -A2 node_modules/react-native/scripts/cocoapods/helpers.rb
+87:        def self.min_xcode_version_supported
+88-            return '16.1'
+89-        end

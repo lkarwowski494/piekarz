@@ -1,0 +1,28 @@
+$ git ls-files | grep -iE "\.(env|p8|p12|pem|key|jks|keystore|mobileprovision|cer|certSigningRequest)$|(^|/)\.env"
+kod: 1
+$ grep -rn "EXPO_PUBLIC_" src app scripts .github app.json eas.json
+src/lib/app-access.ts:30: * Build E2E na symulatorze bez StoreKit (.github/workflows/e2e-ios.yml, EXPO_PUBLIC_E2E=1 wstawiane przez Metro przy
+src/lib/app-access.ts:34:const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
+.github/workflows/testflight.yml:97:          for var in EXPO_PUBLIC_STORE_FAKE EXPO_PUBLIC_E2E EXPO_PUBLIC_MOCK_AUTH EXPO_PUBLIC_DEMO_MODE; do
+.github/workflows/testflight.yml:132:          echo "EXPO_PUBLIC_BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+.github/workflows/e2e-ios.yml:75:          EXPO_PUBLIC_E2E: "1"
+.github/workflows/e2e-ios.yml:143:      # E2E w Basic (decyzja M1 2026-10-23, wariant a): drugi build Release BEZ EXPO_PUBLIC_E2E w tym samym jobie, żeby
+.github/workflows/e2e-ios.yml:147:      - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+.github/workflows/e2e-ios.yml:150:          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then
+.github/workflows/e2e-ios.yml:151:            echo "::error::EXPO_PUBLIC_E2E jest ustawiona — build Basic musi być bez dostępu E2E."
+.github/workflows/e2e-ios.yml:154:          # Bez pamięci transformacji Metro z buildu z flagą (wartość EXPO_PUBLIC_* jest wstawiana przy transformacji)
+.github/workflows/e2e-ios.yml:162:            echo "::error::main.jsbundle Basic jest taki sam jak w buildzie z EXPO_PUBLIC_E2E — bundle nie zbudował się od nowa."
+kod: 0
+$ git grep -nE "AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}|github_pat_|sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|xox[abpr]-|BEGIN [A-Z ]*PRIVATE KEY" -- . ":!package-lock.json"
+.github/workflows/testflight.yml:237:          if [[ "$ASC_KEY_P8_BASE64" =~ "BEGIN PRIVATE KEY" ]]; then
+.github/workflows/testflight.yml:243:          if ! grep -q "BEGIN PRIVATE KEY" "$KEY_PATH"; then
+.github/workflows/testflight.yml:244:            echo "::error::Zdekodowany klucz .p8 nie zawiera nagłówka BEGIN PRIVA
+scripts/asc-ustawienia.mjs:103:  const pem = surowy.includes('BEGIN PRIVATE KEY') ? surowy : Buffer.from(surowy, 'base64
+scripts/asc-ustawienia.mjs:104:  if (!pem.includes('BEGIN PRIVATE KEY')) throw new BladDanych('ASC_KEY_P8: to nie jest k
+kod: 0
+$ gh repo view --json visibility
+HTTP 403: GitHub GraphQL is not available from Claude Code sessions; use the REST API (gh api repos/{owner}/{repo}/...). For review threads, auto-merge, and draft/ready-for-review use the CCR routes on api.github.com: GET /repos/{owner}/{repo}/pulls/{n}/ccr/review_threads, POST /repos/{owner}/{repo}/pulls/{n}/ccr/comments/{comment_id}/resolve (or /unresolve), PUT or DELETE /repos/{owner}/{repo}/pulls/{n}/ccr/auto_merge, POST /repos/{owner}/{repo}/pulls/{n}/ccr/ready_for_review, POST /repos/{owner}/{repo}/pulls/{n}/ccr/convert_to_draft. (https://api.github.com/graphql)
+kod: 0
+$ gh api repos/lkarwowski494/piekarz --jq "{full_name, visibility, private}"
+{"full_name":"lkarwowski494/piekarz","private":false,"visibility":"public"}
+kod: 0

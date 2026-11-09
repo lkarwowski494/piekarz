@@ -1,0 +1,57 @@
+$ python3 -I nie01_kopia_plikow.py   (sonda w scratchpadzie; treść skryptu niżej)
+pliki po awarii: ['piekarz.db', 'piekarz.db-shm', 'piekarz.db-wal'] rozmiar -wal: 41232
+(a) pakiet z kompletem plików: ['piekarz.db', 'piekarz.db-wal', 'piekarz.db-shm'] -> wiersze, integrity_check = (8, 'ok')
+(b) sam plik .db -> wiersze, integrity_check = (3, 'ok')
+(c) oryginał -> wiersze, integrity_check = (8, 'ok')
+kod: 0
+
+--- treść sondy ---
+# Sonda NIE-01: kolejność z src/lib/kopia-plikow-bazy.ts (pakietPlikowBazy) i src/lib/backup.ts (copyRawDatabaseFiles):
+# kopia .db, -wal, -shm (te, które istnieją) bez otwierania bazy. Baza WAL z wal_autocheckpoint=0 i zapisami po
+# ostatnim checkpoincie; awaria procesu przez os._exit w podprocesie (połączenie nie zamknięte, -wal zostaje).
+import os, shutil, sqlite3, subprocess, sys, tempfile, base64, json
+
+def seed(path):
+    code = f'''
+import sqlite3, os
+c = sqlite3.connect({path!r}, isolation_level=None)
+c.execute("PRAGMA journal_mode=WAL"); c.execute("PRAGMA wal_autocheckpoint=0")
+c.execute("CREATE TABLE bakes (id TEXT PRIMARY KEY, recipe_name TEXT, started_at INTEGER)")
+for n in range(1, 4): c.execute("INSERT INTO bakes VALUES (?,?,?)", (f"b{{n}}", "Chleb", n))
+c.execute("PRAGMA wal_checkpoint(TRUNCATE)")   # 3 wiersze w pliku .db
+for n in range(4, 9): c.execute("INSERT INTO bakes VALUES (?,?,?)", (f"b{{n}}", "Chleb", n))  # 5 wierszy tylko w -wal
+os._exit(0)  # awaria procesu: bez zamknięcia połączenia i bez checkpointu
+'''
+    subprocess.run([sys.executable, '-I', '-c', code], check=True)
+
+def count(path):
+    c = sqlite3.connect(path)
+    try:
+        n = c.execute("SELECT count(*) FROM bakes").fetchone()[0]
+        ic = c.execute("PRAGMA integrity_check").fetchone()[0]
+        return n, ic
+    except Exception as e:
+        return f"błąd: {e}", None
+    finally:
+        c.close()
+
+tmp = tempfile.mkdtemp(prefix='nie01-')
+db = os.path.join(tmp, 'orig', 'piekarz.db'); os.makedirs(os.path.dirname(db))
+seed(db)
+print('pliki po awarii:', sorted(os.listdir(os.path.dirname(db))), 'rozmiar -wal:', os.path.getsize(db + '-wal'))
+
+# (a) jak aplikacja: komplet istniejących plików (pakiet base64 w JSON, potem odtworzenie u dewelopera)
+pliki = [{'nazwa': 'piekarz.db' + s, 'base64': base64.b64encode(open(db + s, 'rb').read()).decode()} for s in ['', '-wal', '-shm'] if os.path.exists(db + s)]
+pakiet = json.dumps({'format': 'piekarz-pliki-bazy', 'wersja': 1, 'pliki': pliki})
+out_a = os.path.join(tmp, 'z-pakietu'); os.makedirs(out_a)
+for f in json.loads(pakiet)['pliki']:
+    open(os.path.join(out_a, f['nazwa']), 'wb').write(base64.b64decode(f['base64']))
+print('(a) pakiet z kompletem plików:', [f['nazwa'] for f in pliki], '-> wiersze, integrity_check =', count(os.path.join(out_a, 'piekarz.db')))
+
+# (b) kontrola negatywna: sam plik .db
+out_b = os.path.join(tmp, 'sam-db'); os.makedirs(out_b)
+shutil.copy(db, out_b)
+print('(b) sam plik .db -> wiersze, integrity_check =', count(os.path.join(out_b, 'piekarz.db')))
+
+# (c) oryginał po kopii: otwarcie oryginału (odzyskanie WAL) ma te same wiersze
+print('(c) oryginał -> wiersze, integrity_check =', count(db))

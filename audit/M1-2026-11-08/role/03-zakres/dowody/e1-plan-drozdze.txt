@@ -1,0 +1,105 @@
+$ for f in src/recipes/presets-*.ts src/recipes/katalog-m3-*.ts; do awk -v F=$(basename $f) '/^ *id: /{id=$2} /category:/{c=$2} /starterPercentage:/{print F, id, c, $2}' $f; done | grep -v types
+presets-drozdzowe.ts 'baguette_tradition_poolish', 'yeast', 0.0,
+presets-drozdzowe.ts 'ciabatta_con_biga', 'yeast', 0.0,
+presets-drozdzowe.ts 'focaccia_genovese', 'yeast', 0.0,
+presets-drozdzowe.ts 'no_knead_night', 'yeast', 0.0,
+presets-pizza-slodkie.ts 'lievito_madre_panettone_brioche', 'sweet', 30.0,
+presets-pizza-slodkie.ts 'pizza_napoletana_48h', 'pizza', 0.0,
+presets-pizza-slodkie.ts 'sweet_chalka', 'sweet', 0.0,
+presets-zakwas.ts 'country_loaf_72', 'sourdough', 20.0,
+presets-zakwas.ts 'tartine_high_hydration_80', 'sourdough', 20.0,
+presets-zakwas.ts 'san_francisco_sourdough', 'sourdough', 15.0,
+presets-zakwas.ts 'pain_de_campagne', 'sourdough', 20.0,
+presets-zakwas.ts 'spelt_ancient_seeded', 'sourdough', 20.0,
+presets-zakwas.ts 'graham_bread_honey', 'sourdough', 20.0,
+presets-zytnie.ts 'rye_100_pan', 'rye', 30.0,
+presets-zytnie.ts 'borodinsky_rye', 'rye', 35.0,
+katalog-m3-drozdzowe.ts 'white_pan_loaf', 'yeast', 0.0,
+katalog-m3-drozdzowe.ts 'half_whole_wheat_loaf', 'yeast', 0.0,
+katalog-m3-drozdzowe.ts 'boiled_bread_ring', 'yeast', 0.0,
+katalog-m3-drozdzowe.ts 'milk_dinner_rolls', 'yeast', 0.0,
+katalog-m3-slodkie.ts 'cheese_crumble_yeast_cake', 'sweet', 0.0,
+katalog-m3-slodkie.ts 'sweet_yeast_buns', 'sweet', 0.0,
+katalog-m3-slodkie.ts 'cinnamon_tea_ring', 'sweet', 0.0,
+katalog-m3-zakwas-zyto.ts 'durum_semolina_sourdough', 'sourdough', 20.0,
+katalog-m3-zakwas-zyto.ts 'half_rye_loaf', 'rye', 0.0,
+katalog-m3-zakwas-zyto.ts 'latvian_scalded_rye', 'rye', 10.0,
+katalog-m3-zakwas-zyto.ts 'karelian_rye_pasties', 'rye', 0.0,
+kod: 0
+
+$ sed -n 56,90p src/lib/plan-receptury.ts
+  return d === null ? null : przesuniecieDnia(d, now);
+}
+
+/**
+ * Plan wypieku i prowadzenie są ułożone dla chleba na zakwasie (dokarmienie zakwasu, garowanie w lodówce), więc
+ * receptura bez zakwasu nie dostaje planu: powód pod nieaktywnym „Ułóż plan” i „Zacznij wypiek”; null = plan
+ * dostępny [audyt-niezalezny D-3].
+ */
+export function powodBezZakwasu(formula: Pick<DoughRecipeInput, 'starterPercentage'>): string | null {
+  return formula.starterPercentage > 0 ? null : t('Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.');
+}
+
+/** Temperatura kuchni założona w modelu planu, gdy użytkownik jej nie wybrał, i w planie Basic (nie pomiar) [M1-audytor-generalny-017; M3 P-a-fix P2-1]. */
+export const TEMPERATURA_MODELU_PLANU_C = 23.0;
+
+/**
+ * Powód braku planu dla receptury i wersji (D-155): wersja drożdżowa z czasami etapów ma plan; orkisz na drożdżach
+ * (źródło bez podziału 3 h na etapy, DRO-WER-SP-001) ma własny powód; reszta jak powodBezZakwasu (D-3) [M3 p9b].
+ */
+export function powodBezPlanu(
+  formula: Pick<DoughRecipeInput, 'starterPercentage'>,
+  r: { recipeId?: string; wersja?: WersjaWypieku },
+): string | null {
+  if (r.wersja === 'drozdze' && wersjaDrozdzowa(r.recipeId)) {
+    return maPlanDrozdzowy(r.recipeId) ? null : t('Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.');
+  }
+  return powodBezZakwasu(formula);
+}
+kod: 0
+
+$ sed -n 16,35p src/lib/start-stan.ts
+export const CZYNNOSCI_STARTU: readonly CzynnoscStartu[] = ['zakladam-zakwas', 'pieke-na-zakwasie', 'pieke-na-drozdzach'];
+
+/** Filtr listy receptur bazowych (ListaReceptur) ustawiany wyborem czynności. */
+export type RodzajReceptur = 'sourdough' | 'yeast';
+
+export interface WejscieStartu {
+  /** Zapisany trwający wypiek (active_bake_session) albo wypiek przekazany z receptury. */
+  trwaWypiek: boolean;
+}
+
+/** Trwający wypiek ma pierwszeństwo (powrót bez szukania); inaczej wybór czynności, bez kłódek także bez Pro (D-112). */
+export function stanStartu({ trwaWypiek }: WejscieStartu): StanStartu {
+  return trwaWypiek ? 'trwa-wypiek' : 'wybor';
+}
+
+/** Cel czynności: „zakładam zakwas” → Zakwasy (PR-11); pieczenie → Receptury z filtrem rodzaju (PR-01, PR-17). */
+export function celCzynnosci(c: CzynnoscStartu): { trasa: '/zakwasy' | '/receptury'; rodzaj: RodzajReceptur | null } {
+  if (c === 'zakladam-zakwas') return { trasa: '/zakwasy', rodzaj: null };
+  return { trasa: '/receptury', rodzaj: c === 'pieke-na-zakwasie' ? 'sourdough' : 'yeast' };
+}
+kod: 0
+
+$ sed -n 846,850p docs/decyzje.md
+### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+- **Rodzaj:** produktowa, odpowiedzi właściciela przekazane przez koordynatora M3 (przyciski, 2026-11-03). **Słowa właściciela:** „Z planem w 1.0”.
+- **Decyzja:** wersja drożdżowa (D-154) i istniejące receptury drożdżowe dostają w 1.0 plan wstecz i prowadzenie krok po kroku; usuwa blokadę „Plan wypieku jest tylko dla chleba na zakwasie” (`src/lib/plan-receptury.ts:55-61`) zgodnie z BR-HARMO-001
+- **Odrzucone:** wersja drożdżowa bez planu, czasy tylko w opisie (rekomendacja roli 03 przy presji czasu).
+- **Koszt [OCENA]:** +4–6 h właściciela; opóźnia 1.0 (rola 06 model czasów, rola 08 kod).
+kod: 0
+
+$ sed -n 1462,1465p docs/decyzje.md
+### [D-252] 2026-11-04 — p9b-1b: wybory techniczne ekranów i planu wersji drożdżowej; luki dla ról 04 i 06 (rola 08, dzień, do weta)
+- **Rodzaj:** wykonanie D-154/D-155/D-173/D-174/D-242 (Z1 b, Z2 a, Z3 a); wybory roli 08 tam, gdzie treść i projekt nie rozstrzygają. Kod: `src/recipes/wersje-drozdzowe.ts`, `src/core/yeast-stages.ts`, `src/components/receptury/SegmentWersji.tsx`, `src/hook
+- **Decyzja:** (1) kroki planu drożdżowego według listy DRO-MOD-016, tylko kategorie wydanego buildu (G4), id `yeast_*`; czasy rośnięcia z treści (graham 15 + 15 po podziale + 70, żyto 60 + 60, tartine 480 + 90); czasy kroków z rękami bez czasu w tre�
+- **Do roli 06:** podział 3 h orkiszu (albo zgoda na jeden krok rośnięcia); wariant orkiszu „z nocą w lodówce” (DRO-WER-SP-002) jest tylko w notatce; czasy mieszania, odgazowania, kształtowania i studzenia wersji drożdżowej; studzenie i gotowość 
+kod: 0
+
+$ sed -n 1593,1596p docs/decyzje.md
+### [D-274] 2026-11-04 — Przegląd 3 zdań bezpieczeństwa maszyny zaakceptowany; bez weta D-239…D-271 (właściciel)
+- **Słowa właściciela (raport 20:00, 2026-11-04):** „Akceptuję, bez weta (Recommended)”.
+- **Decyzja:** pole `przeglad` MAS-002, MAS-062, MAS-084 z nowymi skrótami (`docs/tresci/przeglad/maszyna-06m-2026-11-04.md`); kontrola treści kod 0. Decyzje D-239…D-271 obowiązują. Nowa sesja koordynatora: „Nie”. **Status:** właściciel.
+
+kod: 0
+

@@ -1,0 +1,52 @@
+$ npm run matrix:update   (regeneracja na kopii roboczej)
+kod: 0
+[test-matrix] Zaktualizowano /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/kopia/docs/22-macierz-testow.md
+[test-matrix] Wyniki: 1627/1627 elementów (100%)
+$ git diff --stat
+git status: []
+
+$ npm run licencje   (regeneracja na kopii roboczej)
+kod: 0
+licencje: zapisano 559 pakietów, 13 treści licencji; bez treści: GPL-2.0
+$ git diff --stat
+git status: []
+
+$ npm run i18n:kontekst   (regeneracja na kopii roboczej)
+kod: 0
+zapisano docs/lokalizacja/pl.kontekst.json: 2132 kluczy
+i18n: 914 tekstów t('…') w kodzie, 2132 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 153 (skan kodu: src,app; uwagi wypisuje --uwagi)
+$ git diff --stat
+git status: []
+
+$ npm run karty:ustawien   (regeneracja na kopii roboczej)
+kod: 0
+Zapisano 34 kart i README.md w docs/wydanie/ustawienia/
+$ git diff --stat
+git status: []
+
+$ node docs/design/narzedzia/tokeny.mjs (jeśli istnieje)
+arkusz.mjs
+kontrast.mjs
+slowa.mjs
+tokeny.mjs
+zrzuty.mjs
+$ node docs/design/narzedzia/tokeny.mjs  (kopia robocza)
+kontrast.md i tokeny.ts zapisane; par poniżej progu: 0
+kod: 0
+$ git diff --stat
+ docs/design/kontrast.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git status: [ M docs/design/kontrast.md ]
+$ git diff docs/design/kontrast.md
+diff --git a/docs/design/kontrast.md b/docs/design/kontrast.md
+index 527cb174..09084ed5 100644
+--- a/docs/design/kontrast.md
++++ b/docs/design/kontrast.md
+@@ -1,6 +1,6 @@
+ # Tabela kontrastu (wygenerowana)
+ 
+-Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-11-03. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
++Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-11-08. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
+ 
+ | Para | Użycie | Próg | jasny | ciemny | jasnyKontrast | ciemnyKontrast |
+ |---|---|---|---|---|---|---|

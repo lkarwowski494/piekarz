@@ -1,0 +1,39 @@
+# Sonda 12-niezawodnosc-004: VACUUM INTO (mechanizm kopii przed migracją, src/data/kopie-przed-migracja.ts:45) na bazie z uszkodzoną stroną
+# Komenda: node vacuum-uszkodzona.mjs <katalog> <strona> (node v22.23.4, node:sqlite)
+# Treść sondy:
+# | // Sonda G2 12-niezawodnosc-004: czy VACUUM INTO (kopia przed migracją) przechodzi na bazie z uszkodzoną stroną tabeli?
+# | import { DatabaseSync } from 'node:sqlite';
+# | import fs from 'node:fs';
+# | const dir = process.argv[2]; fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
+# | const f = `${dir}/a.db`;
+# | let db = new DatabaseSync(f);
+# | db.exec("PRAGMA page_size=4096; CREATE TABLE t(id INTEGER PRIMARY KEY, v TEXT); CREATE INDEX iv ON t(v);");
+# | const ins = db.prepare('INSERT INTO t(v) VALUES (?)');
+# | for (let i = 0; i < 2000; i++) ins.run('wiersz-' + i + '-' + 'x'.repeat(50));
+# | db.close();
+# | const buf = fs.readFileSync(f); const strona = Number(process.argv[3] ?? 5); // nadpisanie środka strony 5 śmieciami
+# | for (let i = 0; i < 4096; i++) buf[(strona - 1) * 4096 + i] = (i * 37) & 0xff;
+# | fs.writeFileSync(f, buf);
+# | db = new DatabaseSync(f);
+# | let ic; try { ic = db.prepare('PRAGMA integrity_check').all().map((r) => Object.values(r)[0]).slice(0, 3); } catch (e) { ic = 'BŁĄD ' + e.message; }
+# | console.log('integrity_check źródła:', JSON.stringify(ic));
+# | try { db.exec(`VACUUM INTO '${dir}/kopia.db'`); console.log('VACUUM INTO: OK (kopia powstała mimo uszkodzenia)'); }
+# | catch (e) { console.log('VACUUM INTO: BŁĄD', e.message, '→ kopia przed migracją się nie tworzy, migracja nie rusza'); }
+# | db.close();
+# | if (fs.existsSync(`${dir}/kopia.db`)) { const k = new DatabaseSync(`${dir}/kopia.db`); let n; try { n = k.prepare('SELECT count(*) c FROM t').get().c; } catch (e) { n = 'BŁĄD ' + e.message; } console.log('plik kopii istnieje; integrity_check kopii:', JSON.stringify(k.prepare('PRAGMA integrity_check').all()), 'wierszy t w kopii:', n, '(źródło: 2000)'); k.close(); }
+== strona 5
+integrity_check źródła: "BŁĄD database disk image is malformed"
+VACUUM INTO: BŁĄD database disk image is malformed → kopia przed migracją się nie tworzy, migracja nie rusza
+plik kopii istnieje; integrity_check kopii: [{"integrity_check":"ok"}] wierszy t w kopii: BŁĄD no such table: t (źródło: 2000)
+kod wyjścia: 0
+== strona 40
+integrity_check źródła: "BŁĄD database disk image is malformed"
+VACUUM INTO: BŁĄD database disk image is malformed → kopia przed migracją się nie tworzy, migracja nie rusza
+plik kopii istnieje; integrity_check kopii: [{"integrity_check":"ok"}] wierszy t w kopii: BŁĄD no such table: t (źródło: 2000)
+kod wyjścia: 0
+== strona 60
+integrity_check źródła: "BŁĄD database disk image is malformed"
+VACUUM INTO: BŁĄD database disk image is malformed → kopia przed migracją się nie tworzy, migracja nie rusza
+plik kopii istnieje; integrity_check kopii: [{"integrity_check":"ok"}] wierszy t w kopii: BŁĄD no such table: t (źródło: 2000)
+kod wyjścia: 0
+# Uwaga: 'plik kopii istnieje' = plik pozostawiony przez nieudane VACUUM INTO, bez tabel; runner nie zwraca go jako backupPath (wyjątek z kopiaPrzedMigracja nie jest MigrationError).

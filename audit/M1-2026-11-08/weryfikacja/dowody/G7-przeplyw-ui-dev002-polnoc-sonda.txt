@@ -1,0 +1,58 @@
+# G7-przeplyw-ui / 08-programista-002: pasek tygodnia po północy niedziela→poniedziałek
+# Sonda w git worktree (scratchpad/wt-g7, HEAD 2ef8870a525485cc1ac57e5abe9d97d9937dfe42): kopia src/__tests__/dzis-d4b.test.tsx jako src/__tests__/sonda-g7-polnoc.test.tsx
+# z dodanym testem: blok „BR-KAL-001 Północ” (dzis-d4b.test.tsx:382) z datą new Date(2026, 10, 9) zamiast new Date(2026, 10, 5) i logiem dni paska
+
+$ cd /home/user/piekarz && grep -n "widokDzis\|ustawNow(Date.now())\|dniPaska(now, first, widok.kotwica)" src/hooks/useKalendarz.ts
+15:import { czyBiezacy, dniMiesiaca, przesunWidok, tytulWidoku, widokDzis, zakresWidoku, zmienTryb, type DzienMiesiaca, type TrybWidoku, type Widok } from '../lib/kalendarz-widok';
+59:  const [widok, ustawWidok] = useState<Widok>(() => widokDzis('tydzien', Date.now()));
+66:      const zegar = setInterval(() => ustawNow(Date.now()), MINUTA_MS);
+94:      dzis: () => ustawWidok((w) => widokDzis(w.tryb, Date.now())),
+99:  const dni = useMemo(() => dniPaska(now, first, widok.kotwica), [now, first, widok.kotwica]);
+kod wyjścia: 0
+
+$ cd /home/user/piekarz && sed -n 74,87p src/lib/kalendarz-widok.ts   # zakres zdarzeń obejmuje dziś + najbliższe dni niezależnie od kotwicy (linia „Następne” działa)
+export function zakresWidoku(w: Widok, first: FirstWeekday, now: number): { odMs: number; doMs: number } {
+  let od: number;
+  let doMs: number;
+  if (w.tryb === 'tydzien') {
+    od = weekStart(w.kotwica, first);
+    doMs = addCalendarDays(od, 7);
+  } else {
+    const tyg = dniMiesiaca(w.kotwica, first, now);
+    od = tyg[0]?.[0]?.ms ?? pierwszyDzienMiesiaca(w.kotwica);
+    const ostatni = tyg[tyg.length - 1]?.[6]?.ms;
+    doMs = ostatni === undefined ? pierwszyDzienMiesiaca(w.kotwica, 1) : addCalendarDays(ostatni, 1);
+  }
+  const dzis = startOfLocalDay(now);
+  return { odMs: Math.min(od, dzis), doMs: Math.max(doMs, addCalendarDays(dzis, NAJBLIZSZE_DNI + 1)) };
+kod wyjścia: 0
+
+$ timeout 110 npx jest src/__tests__/sonda-g7-polnoc.test.tsx -t "Północ" --forceExit   (w worktree)
+  console.log
+    SONDA wybrany po minucie: [] oczekiwany: pasek-dzien-2026-11-09 dni paska: ["pasek-dzien-2026-11-02","pasek-dzien-2026-11-03","pasek-dzien-2026-11-04","pasek-dzien-2026-11-05","pasek-dzien-2026-11-06","pasek-dzien-2026-11-07","pasek-dzien-2026-11-08"]
+FAIL src/__tests__/sonda-g7-polnoc.test.tsx
+  D4b: „Dziś” 3+1 z kalendarzem 1.0
+    ✓ BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień (293 ms)
+    ✕ SONDA-G7 Północ niedziela→poniedziałek: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień (125 ms)
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › SONDA-G7 Północ niedziela→poniedziałek: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień
+    expect(received).toEqual(expected) // deep equality
+    - Expected  - 3
+    + Received  + 1
+    - Array [
+    -   "pasek-dzien-2026-11-09",
+    - ]
+    + Array []
+      424 |       expect(zegary).toBeGreaterThan(0);
+      425 |       console.log('SONDA wybrany po minucie: ' + JSON.stringify(wybrany()) + ' oczekiwany: pasek-dzien-' + localDateKey(polnoc + 30_000) + ' dni paska: ' + JSON.stringify(root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function').map((n) => n.props.testID)));
+    > 426 |       expect(wybrany()).toEqual([`pasek-dzien-${localDateKey(polnoc + 30_000)}`]);
+          |                         ^
+      427 |     } finally {
+      428 |       jest.useRealTimers();
+      429 |       spy.mockRestore();
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 16 skipped, 1 passed, 18 total
+Snapshots:   0 total
+Time:        1.592 s, estimated 4 s
+Ran all test suites matching /src\/__tests__\/sonda-g7-polnoc.test.tsx/i with tests matching "Północ".
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?
+kod wyjścia: 1

@@ -1,0 +1,11 @@
+$ grep -rnE "allowFontScaling=\{false\}|maxFontSizeMultiplier|numberOfLines|adjustsFontSizeToFit|ellipsizeMode" app src --include=*.tsx --include=*.ts (bez testów)
+src/components/stolnica/FinishBakeModal.tsx:122:              numberOfLines={3}
+src/components/stolnica/StrefaKroku.tsx:65:          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+src/components/stolnica/StrefaKroku.tsx:66:          numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+src/components/nawigacja/PrzyciskNaglowka.tsx:26:      {tekst !== undefined ? <Text style={[styles.tekst, naPasie && styles.tekstNaPasie]} maxFontSizeMultiplier={1.5}>{tekst}</Text> : ikona}
+src/components/nawigacja/PasZakladki.tsx:72:      <Text testID={tytulTestID} style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+src/components/TabIcon.tsx:72:      maxFontSizeMultiplier={1.5}
+src/components/harmonogram/TargetReadyCard.tsx:131:          <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+src/components/harmonogram/TargetReadyCard.tsx:132:            numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+src/components/zakwas/StartersSelectorRow.tsx:6:// fontScale, README §7a, D-142), bez maxFontSizeMultiplier. Miejsce i czas od dokarmienia przy każdym zakwasie
+kod: 0

@@ -1,0 +1,12 @@
+# Log zadania „Archive & Upload” buildu 1023 (testflight.yml, run 42511360071, job 128830469437, SHA 2ef8870a)
+# Odczyt 2026-11-08 narzędziem MCP GitHub get_job_logs (tail 160 linii), kod wyniku: sukces narzędzia.
+$ mcp github get_job_logs job_id=128830469437 tail_lines=160 | grep -E "Upload succeeded|dSYM|EXPORT SUCCEEDED|BUILD_NUMBER: 1023|uploadSymbols"
+  BUILD_NUMBER: 1023
+  <key>uploadSymbols</key> <true/>
+2026-11-08 19:21:29.008 xcodebuild[30595:99560] Progress 26%: Upload succeeded.
+warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the React.framework with the UUIDs [EE15B752-FB46-35F2-B0BB-A46636572385]. Ensure that the archive's dSYM folder includes a DWARF file for React.framework with the expected UUIDs.
+warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the ReactNativeDependencies.framework with the UUIDs [DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2]. Ensure that the archive's dSYM folder includes a DWARF file for ReactNativeDependencies.framework with the expected UUIDs.
+warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the hermesvm.framework with the UUIDs [BE274A23-47CC-3F5A-9E98-8474553DF5A8]. Ensure that the archive's dSYM folder includes a DWARF file for hermesvm.framework with the expected UUIDs.
+** EXPORT SUCCEEDED **
+# Zadanie „Create Git Tag” (job 128834872769): kroki „Create and push tag vX.Y.Z-bNNNN” i „Attach source map to GitHub release” — success.
+# To samo ostrzeżenie przy buildzie 1021: docs/wznowienie-M3.md:189.

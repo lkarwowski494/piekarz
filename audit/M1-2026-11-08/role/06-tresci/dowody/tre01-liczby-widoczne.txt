@@ -1,0 +1,116 @@
+# Podzbiór tre01-literaly.txt: tylko z liczbą i tylko moduły widoczne w 1.0 (bez wejść PÓŹNIEJ z src/lib/wejscia-pozniej.ts: akademia, techniki, odrzut, konwerter, odpowiedniki mąk, strata piecowa, przelicznik objętości; bez ekranu źródeł, płatności, ustawień, kopii)
+src/components/FlourBlendModal.tsx:112	LICZBA	Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.
+src/components/QrScannerModal.tsx:83	LICZBA	Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.
+src/components/VolumeConverterModal.tsx:79	LICZBA	Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)
+src/components/academy/TechniquesLibrarySection.tsx:28	LICZBA	12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.
+src/components/doktor/KitchenTestsGuideSection.tsx:47	LICZBA	Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.
+src/components/receptury/SkladnikiSheet.tsx:90	LICZBA	Sól {procent} to więcej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:91	LICZBA	Sól {procent} to mniej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:185	LICZBA	tytul={t('Mąki (razem 100%)')} ikona={<IkonaKarty nazwa=
+src/components/receptury/SkladnikiSheet.tsx:198	LICZBA	Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.
+src/components/receptury/SkladnikiSheet.tsx:227	LICZBA	Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.
+src/components/stolnica/DutchOvenController.tsx:50	LICZBA	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:80	LICZBA	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:104	LICZBA	Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.
+src/components/zakwas/AddStarterModal.tsx:72	LICZBA	np. Mąka pszenna chlebowa t750
+src/components/zakwas/StalyDzienKarmienia.tsx:44	LICZBA	Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.
+src/components/zakwas/StalyDzienKarmienia.tsx:48	LICZBA	Bez stałego dnia: następne karmienie 7 dni po ostatnim.
+src/components/zakwas/StalyDzienKarmienia.tsx:69	LICZBA	Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.
+src/components/zakwas/StarterEntriesList.tsx:93	LICZBA	Godzina od 0 do 23, minuty od 0 do 59.
+src/components/zakwas/useAkcjeZakwasu.ts:43	LICZBA	Mąka pszenna chlebowa t750
+src/core/baking-phases.ts:29	LICZBA	Faza 1: Pod pokrywką (Para)
+src/core/baking-phases.ts:42	LICZBA	Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.
+src/core/baking-phases.ts:43	LICZBA	Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.
+src/core/domain-rules.ts:261	LICZBA	Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.
+src/core/domain-rules.ts:269	LICZBA	Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.
+src/core/domain-rules.ts:453	LICZBA	Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.
+src/core/domain-rules.ts:482	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:486	LICZBA	80% Pszenna + 20% Żytnia (Klasyk)
+src/core/domain-rules.ts:488	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:494	LICZBA	70% Pszenna + 20% Orkisz + 10% Żytnia
+src/core/domain-rules.ts:496	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:503	LICZBA	80% Pszenna + 20% Graham (Pełne ziarno)
+src/core/domain-rules.ts:505	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/domain-rules.ts:506	LICZBA	Mąka pszenna graham typ 1850
+src/core/domain-rules.ts:511	LICZBA	50% Pszenna + 50% Żytnia (Pół na pół)
+src/core/domain-rules.ts:513	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/flour-atlas.ts:32	LICZBA	Mąka pszenna typ 450 (Tortowa)
+src/core/flour-atlas.ts:43	LICZBA	Mąka pszenna typ 500 (Wrocławska)
+src/core/flour-atlas.ts:54	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/core/flour-atlas.ts:65	LICZBA	Mąka pszenna chlebowa typ 750
+src/core/flour-atlas.ts:84	LICZBA	Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.
+src/core/flour-atlas.ts:99	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/core/flour-atlas.ts:109	LICZBA	Mąka pszenna razowa typ 2000
+src/core/flour-atlas.ts:125	LICZBA	Brak struktury glutenowej (funkcję szkieletu pełnią śluzy arabinoksylany). Wymaga zakwasu (pH < 4.5).
+src/core/flour-atlas.ts:146	LICZBA	Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.
+src/core/flour-atlas.ts:185	LICZBA	Mąka pszenna typ 550 (Luksusowa)
+src/core/flour-atlas.ts:414	LICZBA	Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.
+src/core/preferments.ts:78	LICZBA	Tangzhong (Zaparzana mąka 1:5 w 65°C)
+src/core/preferments.ts:88	LICZBA	Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)
+src/core/preferments.ts:91	LICZBA	Min. 4h lub przez noc w lodówce
+src/core/preferments.ts:147	LICZBA	Całkowita masa mąki musi być większa od 0
+src/core/preferments.ts:150	LICZBA	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/core/zaczyn-w-formule.ts:81	LICZBA	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/data/sqlite-schema.ts:443	LICZBA	Mąka pszenna chlebowa typ 750
+src/hooks/useParametryReceptury.ts:25	LICZBA	Mąka pszenna chlebowa typ 750
+src/hooks/useRecipeCalculations.ts:107	LICZBA	Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)
+src/lib/kalendarz-teksty.ts:46	LICZBA	{wypiek}: ocena {ocena} z 5
+src/lib/kalendarz-teksty.ts:49	LICZBA	Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie
+src/lib/nazwa-maki-mieszanki.ts:35	LICZBA	Mąka pszenna wysokobiałkowa (W>280 / Manitoba)
+src/lib/nazwa-maki-mieszanki.ts:36	LICZBA	Mąka pszenna Manitoba / Forte (W > 300)
+src/lib/nazwa-maki-mieszanki.ts:37	LICZBA	Mąka pszenna Manitoba / Forte (W > 350)
+src/lib/nazwa-maki-mieszanki.ts:38	LICZBA	Mąka żytnia chlebowa typ 720
+src/lib/nazwa-maki-mieszanki.ts:39	LICZBA	Mąka orkiszowa jasna typ 630
+src/lib/nazwa-maki-mieszanki.ts:40	LICZBA	Mąka żytnia razowa typ 2000
+src/lib/nazwa-maki-mieszanki.ts:41	LICZBA	Mąka orkiszowa razowa typ 2000
+src/lib/nazwa-maki-mieszanki.ts:43	LICZBA	Mąka pszenna typ 650 (chlebowa jasna)
+src/lib/nazwa-maki-mieszanki.ts:45	LICZBA	Mąka pszenna pełnoziarnista typ 2000
+src/lib/nazwa-maki-mieszanki.ts:46	LICZBA	Mąka pszenna graham typ 1850
+src/lib/nazwa-maki-mieszanki.ts:47	LICZBA	Mąka pszenna luksusowa typ 550
+src/lib/recipe-navigation.ts:60	LICZBA	mistrzowski wiejski w stylu tartine, 80%
+src/recipes/katalog-m3-drozdzowe.ts:18	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:42	LICZBA	Mąka pszenna razowa typ 2000
+src/recipes/katalog-m3-drozdzowe.ts:65	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-drozdzowe.ts:88	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:18	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-slodkie.ts:64	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/katalog-m3-zakwas-zyto.ts:41	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:16	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:30	LICZBA	Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.
+src/recipes/presets-drozdzowe.ts:34	LICZBA	Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)
+src/recipes/presets-drozdzowe.ts:36	LICZBA	Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.
+src/recipes/presets-drozdzowe.ts:53	LICZBA	Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.
+src/recipes/presets-drozdzowe.ts:62	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:77	LICZBA	Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.
+src/recipes/presets-drozdzowe.ts:83	LICZBA	Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.
+src/recipes/presets-drozdzowe.ts:86	LICZBA	Mąka pszenna typ 650 (Bułkowa)
+src/recipes/presets-drozdzowe.ts:100	LICZBA	Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.
+src/recipes/presets-pizza-slodkie.ts:13	LICZBA	Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).
+src/recipes/presets-pizza-slodkie.ts:30	LICZBA	Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.
+src/recipes/presets-pizza-slodkie.ts:39	LICZBA	Mąka pszenna włoska Tipo 00
+src/recipes/presets-pizza-slodkie.ts:62	LICZBA	Mąka pszenna typ 550 (Luksusowa)
+src/recipes/presets-pizza-slodkie.ts:76	LICZBA	Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.
+src/recipes/presets-zakwas.ts:16	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:31	LICZBA	Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.
+src/recipes/presets-zakwas.ts:35	LICZBA	Wiejski chleb na zakwasie, 80%
+src/recipes/presets-zakwas.ts:41	LICZBA	Mąka pszenna razowa typ 2000
+src/recipes/presets-zakwas.ts:55	LICZBA	Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.
+src/recipes/presets-zakwas.ts:64	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:79	LICZBA	Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.
+src/recipes/presets-zakwas.ts:88	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:89	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/recipes/presets-zakwas.ts:104	LICZBA	Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.
+src/recipes/presets-zakwas.ts:128	LICZBA	Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.
+src/recipes/presets-zakwas.ts:137	LICZBA	Mąka pszenna typ 1850 (Graham)
+src/recipes/presets-zakwas.ts:138	LICZBA	Mąka pszenna chlebowa typ 750
+src/recipes/presets-zakwas.ts:152	LICZBA	Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.
+src/recipes/presets-zytnie.ts:11	LICZBA	Tradycyjny chleb 100% żytni razowy
+src/recipes/presets-zytnie.ts:30	LICZBA	Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.
+src/scheduler/reverse-scheduler.ts:129	LICZBA	Wykonaj 4 serie składań co 30–45 minut.
+src/scheduler/reverse-scheduler.ts:167	LICZBA	Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.
+src/scheduler/reverse-scheduler.ts:177	LICZBA	Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.
+src/scheduler/reverse-scheduler.ts:186	LICZBA	Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).
+src/scheduler/reverse-scheduler.ts:302	LICZBA	Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.
+app/doktor.tsx:118	LICZBA	Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu

@@ -1,0 +1,6 @@
+$ npx jest tests/sonda09/awaryjny.test.tsx (kopia robocza; plik sondy: dowody/sonda-awaryjny.test.tsx.txt)
+język aplikacji: pl 
+teksty ekranu: ["Piekarz nie uruchomił się poprawnie","Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.","Eksportuj kopię danych","Spróbuj ponownie"]
+✓ sonda: tryb awaryjny na telefonie de-DE (740 ms)
+Tests:       1 passed, 1 total
+kod: 0

@@ -1,0 +1,62 @@
+$ cat stryker.config.json
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "reporters": ["html", "clear-text"],
+  "testRunner": "jest",
+  "jest": {
+    "configFile": "jest.mutation.config.js"
+  },
+  "mutate": [
+    "src/core/**/*.ts",
+    "!src/core/**/__tests__/**",
+    "!src/core/**/*.d.ts"
+  ],
+  "//": "thresholds.break 60: decyzja DEC-12 (a) planu napraw M1-2026-10-19 z 2026-10-19 (nie DEC-12 BRD), wynik bazowy 61.08 na ebd8471; plan podnoszenia: docs/20-definicja-ukonczenia.md, wiersz 21 [M1-audytor-generalny-064]",
+  "thresholds": {
+    "high": 95,
+    "low": 90,
+    "break": 60
+  },
+  "concurrency": 2,
+  "timeoutMS": 30000,
+  "coverageAnalysis": "off",
+  "warnings": {
+    "preprocessorErrors": false
+  }
+}
+
+$ node -e (schema @stryker-mutator/core 10.0.0: properties.coverageAnalysis, incremental)
+{
+ "$ref": "#/definitions/coverageAnalysis",
+ "description": "Indicates which coverage analysis strategy to use. During mutation testing, Stryker will try to only run the tests that cover a particular mutant.\n\n'perTest': Analyse coverage per test.\n'all': Analyse the coverage for the entire test suite.\n'off' (default): Don't use coverage analysis",
+ "default": "perTest"
+}
+{
+ "description": "Enable 'incremental mode'. Stryker will store results in a file and use that file to speed up the next --incremental run",
+ "type": "boolean",
+ "default": false
+}
+kod: 0
+
+$ ls src/core/*.ts | wc -l
+51
+$ ls src/core/__tests__/*.test.ts | wc -l
+66
+
+$ git log -S"\"coverageAnalysis\"" -- stryker.config.json
+6aa85862 2026-10-21 fix(start): nasłuch powrotu na pierwszy plan uzgadnia powiadomienia dopiero po wyniku beginStartup [reaudit-noc N-16; M1-audytor-generalny-215]
+
+# Porównanie z ostatnim zielonym przebiegiem nightly (#6, run 39376900849, 671742f4, 2026-10-20, 79 min):
+$ git show 671742f4:stryker.config.json | grep -n coverageAnalysis
+22:  "coverageAnalysis": "off",
+$ git ls-tree -r --name-only 671742f4 -- src/core/__tests__ | grep -c "\.test\.ts$"
+29
+$ git ls-tree -r --name-only 2ef8870a -- src/core/__tests__ | grep -c "\.test\.ts$"
+66
+$ git ls-tree -r --name-only 671742f4 -- src/core | grep -v __tests__ | grep -c "\.ts$"
+25
+$ git ls-tree -r --name-only 2ef8870a -- src/core | grep -v __tests__ | grep -c "\.ts$"
+53
+$ git diff --stat 9c255a0a 2ef8870a -- stryker.config.json .github/workflows/nightly.yml jest.mutation.config.js
+kod: 0 (pusty diff: konfiguracja bez zmian od builda 1022)

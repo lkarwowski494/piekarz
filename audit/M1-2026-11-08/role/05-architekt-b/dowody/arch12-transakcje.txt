@@ -1,0 +1,53 @@
+$ sed -n 118,149p node_modules/expo-sqlite/src/SQLiteDatabase.ts  (expo-sqlite 57.0.4, zainstalowany według package-lock.json)
+   *
+   * > **Note:** This transaction is not exclusive and can be interrupted by other async queries.
+   *
+   * @example
+   * ```ts
+   * db.withTransactionAsync(async () => {
+   *   await db.execAsync('UPDATE test SET name = "aaa"');
+   *
+   *   //
+   *   // We cannot control the order of async/await order, so order of execution is not guaranteed.
+   *   // The following UPDATE query out of transaction may be executed here and break the expectation.
+   *   //
+   *
+   *   const result = await db.getFirstAsync<{ name: string }>('SELECT name FROM Users');
+   *   expect(result?.name).toBe('aaa');
+   * });
+   * db.execAsync('UPDATE test SET name = "bbb"');
+   * ```
+   * If you worry about the order of execution, use `withExclusiveTransactionAsync` instead.
+   *
+   * @param task An async function to execute within a transaction.
+   */
+  public async withTransactionAsync(task: () => Promise<void>): Promise<void> {
+    try {
+      await this.execAsync('BEGIN');
+      await task();
+      await this.execAsync('COMMIT');
+    } catch (e) {
+      await this.execAsync('ROLLBACK');
+      throw e;
+    }
+  }
+kod: 0
+
+$ grep -rn "withTransactionAsync(" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/data/sqlite-store.ts:200:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:231:      db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:277:  await writeOrThrow(() => db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:359:    db.withTransactionAsync(async () => {
+src/data/usun-wszystko.ts:25:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:85:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:102:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:152:      db.withTransactionAsync(async () => {
+src/data/starter-entries-store.ts:175:      db.withTransactionAsync(async () => {
+kod: 0
+
+$ grep -n "zapisuje\|zapisujeRef\|disabled" src/components/zakwas/useAkcjeZakwasu.ts src/hooks/useFinishBake.ts (strażnik drugiego stuknięcia)
+src/hooks/useFinishBake.ts:45:  const zapisuje = useRef(false);
+src/hooks/useFinishBake.ts:47:    if (zapisuje.current) return;
+src/hooks/useFinishBake.ts:48:    zapisuje.current = true;
+src/hooks/useFinishBake.ts:52:      zapisuje.current = false;
+kod: 0

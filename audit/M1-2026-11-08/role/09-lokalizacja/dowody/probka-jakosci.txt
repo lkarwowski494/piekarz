@@ -1,0 +1,182 @@
+== de
+   Pora dokarmić zakwas                               | Zeit, den Sauerteig aufzufrischen
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | Der Sauerteig „{name}“ steht seit 12 Stunden ohne Auffrischen auf der Arbeitsfläche.
+   Zdejmij pokrywkę                                   | Deckel abnehmen
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Zeit, den Deckel vom Topf zu nehmen und ohne Dampf weiterzubacken.
+   Chleb upieczony                                    | Brot ist fertig gebacken
+   Wyjmij chleb z garnka na kratkę.                   | Nimm das Brot aus dem Topf und lege es auf das Gitter.
+   Koniec kroku                                       | Schritt beendet
+   Krok „{step}” dobiegł końca.                       | Der Schritt „{step}“ ist beendet.
+   {krok}: czas zacząć                                | {krok}: Zeit, anzufangen
+   Nakarm zakwas dziś                                 | Frische deinen Sauerteig heute auf
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | Der Sauerteig „{name}“ wartet seit 7 Tagen aufs Auffrischen.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Hat der Sauerteig „{name}“ sein Volumen nicht verdoppelt, frische ihn erneut auf.
+   Ułóż plan                                          | Plan erstellen
+   Zacznij wypiek                                     | Backen starten
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Volumen verdoppelt
+   Nie podwaja objętości                              | Verdoppelt sein Volumen nicht
+   Następne dokarmienie: {dzien} o {godzina}.         | Nächstes Auffrischen: {dzien} um {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | Der Bildschirm bleibt bis zum Ende des Schritts an. Benachrichtigung um {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Probiere weder rohen Teig noch Mehl.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Zieh trockene Ofenhandschuhe an und hebe den Deckel von dir weg an, denn darunter entweicht heißer Dampf.
+   Masa ciasta                                        | Teiggewicht
+   Hydratacja                                         | Hydration
+   Wstecz                                             | Zurück
+   Pomiń                                              | Überspringen
+== fr
+   Pora dokarmić zakwas                               | Il est temps de rafraîchir le levain naturel
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | Le levain naturel « {name} » est sur le plan de travail depuis 12 heures sans rafraîchi.
+   Zdejmij pokrywkę                                   | Retirez le couvercle
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Il est temps de retirer le couvercle de la cocotte et de poursuivre la cuisson sans vapeur.
+   Chleb upieczony                                    | Pain cuit
+   Wyjmij chleb z garnka na kratkę.                   | Sortez le pain de la cocotte et posez-le sur la grille.
+   Koniec kroku                                       | Étape terminée
+   Krok „{step}” dobiegł końca.                       | L'étape « {step} » est terminée.
+   {krok}: czas zacząć                                | {krok} : c’est le moment
+   Nakarm zakwas dziś                                 | Rafraîchissez votre levain naturel aujourd'hui
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | Le levain naturel « {name} » attend un rafraîchi depuis 7 jours.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Si le levain naturel « {name} » n'a pas doublé de volume, rafraîchissez-le à nouveau.
+   Ułóż plan                                          | Planifier
+   Zacznij wypiek                                     | Lancer la fournée
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | A doublé de volume
+   Nie podwaja objętości                              | Ne double pas de volume
+   Następne dokarmienie: {dzien} o {godzina}.         | Prochain rafraîchi : {dzien} à {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | L'écran restera allumé jusqu'à la fin de l'étape. Notification à {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Ne goûtez ni la pâte crue ni la farine.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Enfilez des gants de cuisine secs et soulevez le couvercle en l'éloignant de vous, car de la vapeur chaude s'en échappe.
+   Masa ciasta                                        | Masse de pâte
+   Hydratacja                                         | Hydratation totale
+   Wstecz                                             | Retour
+   Pomiń                                              | Passer
+== es
+   Pora dokarmić zakwas                               | Es hora de refrescar tu masa madre
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | La masa madre «{name}» lleva 12 horas en la encimera sin refrescar.
+   Zdejmij pokrywkę                                   | Quita la tapa
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Es hora de quitar la tapa de la olla y seguir horneando sin vapor.
+   Chleb upieczony                                    | Pan horneado
+   Wyjmij chleb z garnka na kratkę.                   | Saca el pan de la olla y ponlo en la rejilla.
+   Koniec kroku                                       | Paso terminado
+   Krok „{step}” dobiegł końca.                       | El paso «{step}» ha terminado.
+   {krok}: czas zacząć                                | {krok}: es hora de empezar
+   Nakarm zakwas dziś                                 | Alimenta tu masa madre hoy
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | La masa madre «{name}» lleva 7 días esperando un refresco.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Si la masa madre «{name}» no ha duplicado su volumen, refréscala de nuevo.
+   Ułóż plan                                          | Crear plan
+   Zacznij wypiek                                     | Empezar horneado
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Ha doblado su volumen
+   Nie podwaja objętości                              | No duplica su volumen
+   Następne dokarmienie: {dzien} o {godzina}.         | Siguiente refresco: {dzien} a las {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | La pantalla no se apagará hasta que termine el paso. Notificación a las {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | No pruebes la masa cruda ni la harina.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Ponte guantes de horno secos y levanta la tapa alejándola de ti, porque por debajo sale vapor caliente.
+   Masa ciasta                                        | Peso de la masa
+   Hydratacja                                         | Hidratación
+   Wstecz                                             | Atrás
+   Pomiń                                              | Omitir
+== it
+   Pora dokarmić zakwas                               | È ora di rinfrescare il lievito madre
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | Il lievito madre «{name}» è sul piano di lavoro da 12 ore senza rinfresco.
+   Zdejmij pokrywkę                                   | Togli il coperchio
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | È ora di togliere il coperchio dalla pentola e continuare la cottura senza vapore.
+   Chleb upieczony                                    | Pane cotto
+   Wyjmij chleb z garnka na kratkę.                   | Togli il pane dalla pentola e mettilo sulla griglia.
+   Koniec kroku                                       | Passaggio completato
+   Krok „{step}” dobiegł końca.                       | Il passaggio «{step}» è terminato.
+   {krok}: czas zacząć                                | {krok}: è ora di iniziare
+   Nakarm zakwas dziś                                 | Rinfresca il lievito madre oggi
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | Il lievito madre «{name}» attende il rinfresco da 7 giorni.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Se il lievito madre «{name}» non ha raddoppiato il volume, rinfrescalo di nuovo.
+   Ułóż plan                                          | Pianifica
+   Zacznij wypiek                                     | Avvia sfornata
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Ha raddoppiato il volume
+   Nie podwaja objętości                              | Non raddoppia di volume
+   Następne dokarmienie: {dzien} o {godzina}.         | Prossimo rinfresco: {dzien} alle {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | Lo schermo resterà acceso fino alla fine del passaggio. Notifica alle {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Non assaggiare l'impasto crudo né la farina.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Indossa guanti da forno asciutti e solleva il coperchio verso il lato opposto a te, perché da sotto esce vapore bollente.
+   Masa ciasta                                        | Peso dell'impasto
+   Hydratacja                                         | Idratazione
+   Wstecz                                             | Indietro
+   Pomiń                                              | Salta
+== pt-BR
+   Pora dokarmić zakwas                               | Hora de alimentar o fermento natural
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | O fermento natural “{name}” está no balcão há 12 horas sem alimentação.
+   Zdejmij pokrywkę                                   | Tire a tampa
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Hora de tirar a tampa da panela e continuar assando sem vapor.
+   Chleb upieczony                                    | Pão assado
+   Wyjmij chleb z garnka na kratkę.                   | Tire o pão da panela e coloque-o na grade.
+   Koniec kroku                                       | Etapa concluída
+   Krok „{step}” dobiegł końca.                       | A etapa “{step}” foi concluída.
+   {krok}: czas zacząć                                | {krok}: hora de começar
+   Nakarm zakwas dziś                                 | Alimente o fermento natural hoje
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | O fermento natural “{name}” está esperando alimentação há 7 dias.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Se o fermento natural “{name}” não dobrou de volume, alimente-o novamente.
+   Ułóż plan                                          | Montar plano
+   Zacznij wypiek                                     | Começar fornada
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Dobrou de volume
+   Nie podwaja objętości                              | Não dobra de volume
+   Następne dokarmienie: {dzien} o {godzina}.         | Próxima alimentação: {dzien} às {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | A tela não vai apagar até o fim da etapa. Notificação às {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Não prove massa crua nem farinha.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Coloque luvas de cozinha secas e levante a tampa para longe de você, porque sai vapor quente de baixo dela.
+   Masa ciasta                                        | Peso da massa
+   Hydratacja                                         | Hidratação
+   Wstecz                                             | Voltar
+   Pomiń                                              | Pular
+== ru
+   Pora dokarmić zakwas                               | Пора подкормить закваску
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | Закваска «{name}» стоит на столе 12 часов без подкормки.
+   Zdejmij pokrywkę                                   | Снимите крышку
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Пора снять крышку с кастрюли и допекать без пара.
+   Chleb upieczony                                    | Хлеб испечён
+   Wyjmij chleb z garnka na kratkę.                   | Выньте хлеб из кастрюли на решётку.
+   Koniec kroku                                       | Шаг завершён
+   Krok „{step}” dobiegł końca.                       | Шаг «{step}» завершён.
+   {krok}: czas zacząć                                | {krok}: пора начинать
+   Nakarm zakwas dziś                                 | Подкормите закваску сегодня
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | Закваска «{name}» ждёт подкормки уже 7 дней.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Если закваска «{name}» не увеличилась вдвое, подкормите её ещё раз.
+   Ułóż plan                                          | Составить план
+   Zacznij wypiek                                     | Начать выпечку
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Объём удвоился
+   Nie podwaja objętości                              | Не увеличивается вдвое
+   Następne dokarmienie: {dzien} o {godzina}.         | Следующая подкормка: {dzien} в {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | Экран не погаснет до конца шага. Уведомление в {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Не пробуйте ни сырое тесто, ни муку.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Наденьте сухие кухонные перчатки и поднимайте крышку от себя: из-под неё выходит горячий пар.
+   Masa ciasta                                        | Масса теста
+   Hydratacja                                         | Гидратация
+   Wstecz                                             | Назад
+   Pomiń                                              | Пропустить
+== pl
+   Pora dokarmić zakwas                               | Pora dokarmić zakwas
+   Zakwas „{name}” stoi na blacie od 12 godzin bez do | Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.
+   Zdejmij pokrywkę                                   | Zdejmij pokrywkę
+   Czas zdjąć pokrywkę z garnka i piec dalej bez pary | Czas zdjąć pokrywkę z garnka i piec dalej bez pary.
+   Chleb upieczony                                    | Chleb upieczony
+   Wyjmij chleb z garnka na kratkę.                   | Wyjmij chleb z garnka na kratkę.
+   Koniec kroku                                       | Koniec kroku
+   Krok „{step}” dobiegł końca.                       | Krok „{step}” dobiegł końca.
+   {krok}: czas zacząć                                | {krok}: czas zacząć
+   Nakarm zakwas dziś                                 | Nakarm zakwas dziś
+   Zakwas „{name}” czeka na karmienie od 7 dni.       | Zakwas „{name}” czeka na karmienie od 7 dni.
+   Jeśli zakwas „{name}” nie podwoił objętości, dokar | Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.
+   Ułóż plan                                          | Ułóż plan
+   Zacznij wypiek                                     | Zacznij wypiek
+  (brak klucza w PL) Dokarmiony
+   Podwoił objętość                                   | Podwoił objętość
+   Nie podwaja objętości                              | Nie podwaja objętości
+   Następne dokarmienie: {dzien} o {godzina}.         | Następne dokarmienie: {dzien} o {godzina}.
+   Ekran nie zgaśnie do końca kroku. Powiadomienie o  | Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.
+   Nie próbuj surowego ciasta ani mąki.               | Nie próbuj surowego ciasta ani mąki.
+   Załóż suche rękawice kuchenne i unoś pokrywkę od s | Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.
+   Masa ciasta                                        | Masa ciasta
+   Hydratacja                                         | Hydratacja
+   Wstecz                                             | Wstecz
+   Pomiń                                              | Pomiń

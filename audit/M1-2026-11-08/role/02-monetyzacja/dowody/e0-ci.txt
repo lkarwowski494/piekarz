@@ -1,0 +1,7 @@
+# Stan CI (kopia z audit/M1-2026-11-08/wspolne/ci.txt, odczyt M1 2026-11-08)
+# Stan CI (MCP GitHub actions_list, odczyt 2026-11-08 ok. 20:xx UTC)
+master 2ef8870a (kandydat 1023):
+- CI #117 success; TZ Matrix #77 success; TestFlight #23 (run 42511360071) success
+- iOS E2E #96 (run 42511355281, push) FAILURE: "[Failed] 05-dwa-wypieki (37s) (Assertion is false: id: next-or-finish-step-btn is visible)"; 4/5 flows passed
+- iOS E2E #95 (0e5fa7ef, redesign) success; #97 (d1524768, wip/08-e2e95, E2E-95) success
+- Nightly Deep Verification: #25 2026-11-08 failure (na 9c255a0, przed scaleniem), #19-#24 cancelled (limit 2 h), brak zielonego w oknie 11-02..11-08

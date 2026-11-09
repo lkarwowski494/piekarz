@@ -1,0 +1,36 @@
+# Sonda: kopia src/__tests__/dzis-d4b.test.tsx z jedną zmianą w teście „BR-KAL-001 Północ” (dzis-d4b.test.tsx:385): północ 2026-11-09 (niedziela→poniedziałek) zamiast 2026-11-05 (środa→czwartek)
+$ diff src/__tests__/dzis-d4b.test.tsx src/__tests__/sonda-08-polnoc-niedziela.test.tsx
+382c382
+<   it('BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {
+---
+>   it('SONDA08 Północ niedziela: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {
+385c385
+<     const polnoc = new Date(2026, 10, 5).getTime(); // północ środa→czwartek w jednym tygodniu pasku (stała data, ZEGAR-001)
+---
+>     const polnoc = new Date(2026, 10, 9).getTime(); // SONDA 08: północ niedziela→poniedziałek // północ środa→czwartek w jednym tygodniu pasku (stała data, ZEGAR-001)
+
+$ npx jest --ci src/__tests__/sonda-08-polnoc-niedziela.test.tsx -t SONDA08
+FAIL src/__tests__/sonda-08-polnoc-niedziela.test.tsx
+  D4b: „Dziś” 3+1 z kalendarzem 1.0
+    ✕ SONDA08 Północ niedziela: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień (269 ms)
+  ● D4b: „Dziś” 3+1 z kalendarzem 1.0 › SONDA08 Północ niedziela: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień
+    expect(received).toEqual(expected) // deep equality
+    - Expected  - 3
+    + Received  + 1
+    - Array [
+    -   "pasek-dzien-2026-11-09",
+    - ]
+    + Array []
+      398 |       });
+      399 |       expect(zegary).toBeGreaterThan(0);
+    > 400 |       expect(wybrany()).toEqual([`pasek-dzien-${localDateKey(polnoc + 30_000)}`]);
+          |                         ^
+      401 |     } finally {
+      402 |       jest.useRealTimers();
+      403 |       spy.mockRestore();
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 16 skipped, 17 total
+Snapshots:   0 total
+Time:        1.375 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/sonda-08-polnoc-niedziela.test.tsx/i with tests matching "SONDA08".
+kod: 1

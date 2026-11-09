@@ -1,0 +1,37 @@
+# Źródła linii bazowej, odczyt 2026-11-08 (curl -sSL --compressed; tekst z HTML przez usunięcie znaczników; grep cytatu na surowym tekście)
+
+## Kody HTTP
+404 https://www.fda.gov/consumers/consumer-updates/say-no-raw-dough
+403 https://www.cdc.gov/food-safety/foods/flour.html (Access Denied, nie przeczytano)
+404 https://www.bbga.org/files/2009FormulaFormattingSINGLEPAGES.pdf (nie przeczytano)
+404 strony DDT King Arthur blog i theperfectloaf (nie przeczytano)
+200 https://www.fda.gov/food/buy-store-serve-safe-food/handling-flour-safely-what-you-need-know
+200 https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/molds-food-are-they-dangerous
+200 https://www.kingarthurbaking.com/pro/reference/bakers-percentage, /dough-temperature, /preferment, /salt
+200 https://developer.apple.com/app-store/review/guidelines/
+200 developer.apple.com tutorials/data JSON: usernotifications/scheduling-a-notification-locally-from-your-app, unnotificationinterruptionlevel/timesensitive, activitykit/displaying-live-data-with-live-activities
+
+## FDA Handling Flour Safely
+DO NOT eat, taste, or allow children to eat or play with raw dough products or baking mix before cooking.
+they may be exposed to a variety of harmful bacteria like Salmonella and pathogenic Escherichia coli (E. coli)
+DO NOT try to heat treat flour in your own home.
+
+## USDA FSIS Molds on food
+Bread and baked goods Discard Porous foods can be contaminated below the surface
+molds, in the right conditions, produce "mycotoxins," poisonous substances that can make you sick
+
+## King Arthur Baking (pro reference)
+each ingredient in a formula is expressed as a percentage of the flour weight, and the flour weight is always expressed as 100%
+hydration is defined as the percentage of liquid in a dough, again based on the flour weight
+We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment.
+Generally, the correct amount of salt in bread dough is 1.8 to 2% of salt based on flour weight
+
+## Apple
+Last Updated: October 16, 2026
+make sure all your app metadata, including privacy information, your app description, screenshots, and previews accurately reflect the app’s core experience
+you should make sure you have a restore mechanism for any restorable in-app purchases
+All apps must include a link to their privacy policy in the App Store Connect metadata field and within the app in an easily accessible manner
+If the delivery of the notification occurs when your app isn’t running or in the background, the system interacts with the user for you
+Time Sensitive notifications are similar to active notifications, but can break through system controls such as Notification Summary and Focus
+A Live Activity can be active for up to eight hours unless its app or a person ends it before this limit
+kod: 0

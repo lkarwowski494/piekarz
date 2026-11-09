@@ -1,0 +1,116 @@
+$ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en
+UWAGA docs/tresci/pl/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+UWAGA docs/tresci/en/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+0 błędów, 2 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/bg --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/cs --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/da --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/de --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/el --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/es --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/es-419 --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/et --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/fi --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/fr --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/hr --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/hu --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/id --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/it --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/ja --przed-przegladem
+BŁĄD docs/tresci/ja/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+1 błędów, 41 uwag
+kod: 1
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/ko --przed-przegladem
+BŁĄD docs/tresci/ko/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+1 błędów, 41 uwag
+kod: 1
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/lt --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/lv --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/ms --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/nb --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/nl --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pt --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pt-BR --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/ro --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/ru --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/sk --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/sl --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/sr --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/sv --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/tr --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/uk --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/vi --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/wektory --przed-przegladem
+0 błędów, 41 uwag
+kod: 0
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/weryfikacja --przed-przegladem
+BŁĄD docs/tresci/weryfikacja/E3b-werdykty.md:113: liczba 300 w zdaniu [T:-]
+BŁĄD docs/tresci/weryfikacja/E3b-werdykty.md:113: liczba 003 w zdaniu [T:-]
+BŁĄD docs/tresci/weryfikacja/E3b-werdykty.md:121: zdanie bez znacznika: „bez faktu, np. „To temperatura pieca piekarskiego; ustaw najwyższą temperaturę s”
+1088 błędów, 41 uwag
+kod: 1
+== $ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/zh-Hant --przed-przegladem
+BŁĄD docs/tresci/zh-Hant/zakwas-bezpieczenstwo.md:40: nieznane twierdzenie -
+1 błędów, 41 uwag
+kod: 1

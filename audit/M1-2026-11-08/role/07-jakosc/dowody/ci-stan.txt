@@ -1,0 +1,27 @@
+# Stan CI na master — odczyt 2026-11-08 (MCP GitHub actions_list / list_workflow_jobs / get_job_logs), rola 07
+# gh CLI: "The token in GH_TOKEN is invalid" (gh auth status, kod 1) -> użyto narzędzi MCP GitHub.
+# Widoczność repo: curl https://api.github.com/repos/lkarwowski494/piekarz -> HTTP 200, "private": false, "visibility": "public"
+
+## Ostatni przebieg każdego workflowu na master
+| workflow | run | SHA | wynik |
+| ci.yml (CI #117) | 42511355249 | 2ef8870a | success (18:42-18:45 UTC) |
+| tests-tz.yml (TZ Matrix #77) | 42511355251 | 2ef8870a | success |
+| e2e-ios.yml (iOS E2E #96) | 42511355281 | 2ef8870a | FAILURE: 05-dwa-wypieki, "Assertion is false: id: next-or-finish-step-btn is visible" (wspolne/ci.txt; znane E2E-95/D-280) |
+| testflight.yml (#23) | 42511360071 | 2ef8870a | success (build 1023), workflow_dispatch 18:42, równolegle z E2E #96 |
+| nightly.yml (#25) | 42463983930 | 9c255a0a | failure: krok "Full Quality Gate (npm run verify)" failure 08:42:26-08:46:01; Stryker skipped |
+| pages.yml (#3) | 39659459683 | 874aac64 (2026-10-21) | failure: "Get Pages site failed ... HttpError: Not Found" (Pages nieskonfigurowane); od tego czasu tylko workflow_dispatch |
+| asc-ustawienia.yml | 39584935752 | gałąź naprawy/...-p8b | success (nigdy na master) |
+| asc-zgloszenie.yml | 39614181814 | gałąź naprawy/...-p8c | success (nigdy na master) |
+
+## Nightly — historia (25 przebiegów zakończonych, list_workflow_runs nightly.yml status=completed)
+- success: 1 — run 39376900849 (#6), workflow_dispatch na gałęzi naprawy/M2-koordynator-napraw-2026-10-19-p4 (2026-10-20); na master: 0 z 22 (pozostałe przebiegi #3, #4, #6 na gałęzi napraw).
+- master: failure #1, #2, #5, #7 (ebd8471/6896d2a), #11 (2026-10-25, niedziela), #18 (2026-11-01, niedziela), #25 (2026-11-08, niedziela);
+  cancelled (limit 120 min): #8, #9, #10, #12-#17, #19-#24 (2026-10-22 .. 2026-11-07).
+- run 42355597277 (#24) kroki: Install 08:28:08-08:28:55; "Deep Stateful Fuzzing (1000 runs, random seed)" 08:28:55-08:29:03 (8 s, success);
+  "Full Quality Gate (npm run verify)" 08:29:03-08:32:22 success; "Stryker Mutation Verification" 08:32:22-10:28:12 cancelled (116 min).
+- run 42463983930 (#25) kroki: Fuzzing 08:42:18-08:42:26 (8 s) success; verify failure; Stryker skipped.
+- Wniosek: od 2026-10-22 Stryker nie kończy się w limicie 120 min; ostatni wynik mutacji z przebiegu #6 (2026-10-20, gałąź napraw).
+
+## Pages — log błędu (get_job_logs run 39659459683, job 119428355681)
+##[error]Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions ...
+##[error]HttpError: Not Found

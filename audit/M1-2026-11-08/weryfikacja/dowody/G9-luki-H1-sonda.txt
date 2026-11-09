@@ -1,0 +1,94 @@
+# cwd: worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g9 (git worktree add --detach 2ef8870a); sonda: plik src/__tests__/sonda-g9-h1.test.tsx tylko w worktree (kopia nagłówka notifications-pending.test.tsx + 2 scenariusze; treść niżej)
+$ npx jest src/__tests__/sonda-g9-h1.test.tsx
+    SONDA przed 12 true
+    SONDA po Zrobione 11 K=now+45min true K.1 jest false
+    SONDA po Cofnij 12 K,K.1,K.10,K.2,K.3,K.4,K.5,K.6,K.7,K.8,K.9,K.9.pokrywka
+    SONDA po restarcie K,K.1,K.10,K.2,K.3,K.4,K.5,K.6,K.7,K.8,K.9,K.9.pokrywka
+    SONDA trwajace na starcie 0
+    SONDA drugi zapisany true
+    SONDA dwa 12 11
+    SONDA po przerwaniu A 0 11
+  SONDA G9-H1: powiadomienia po cofnięciu, restarcie i przy dwóch wypiekach
+    ✓ Zrobione po 10 min, potem Cofnij poprzedni: oczekujące wracają do stanu sprzed potwierdzenia (409 ms)
+    ✓ dwa trwające wypieki: przerwanie jednego zostawia powiadomienia drugiego (116 ms)
+Tests:       2 passed, 2 total
+exit=0
+
+## treść sondy (od linii 76)
+import { loadActiveBakeSessions } from '../data/bake-sessions-store';
+import { utworzWypiek, deleteBakeSession } from '../data/bake-sessions-store';
+import { nowaSesja } from '../data/bake-session-store';
+
+describe('SONDA G9-H1: powiadomienia po cofnięciu, restarcie i przy dwóch wypiekach', () => {
+  let now = Date.UTC(2026, 9, 19, 10, 0);
+  beforeAll(() => { useTempDbDir(); });
+  beforeEach(async () => {
+    zUprawnieniem();
+    mock.pending.clear();
+    mock.iosStatus = 2;
+    mock.grantOnRequest = true;
+    jest.spyOn(Date, 'now').mockImplementation(() => now);
+    jest.spyOn(Alert, 'alert').mockImplementation(() => {});
+    await initDatabase();
+    await odswiezDostep();
+  });
+  afterEach(() => { jest.restoreAllMocks(); });
+
+  it('Zrobione po 10 min, potem Cofnij poprzedni: oczekujące wracają do stanu sprzed potwierdzenia', async () => {
+    setActiveBake({ id: 'bake_u', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
+    const tree = await mount(<StolnicaScreen />);
+    const K = 'piekarz.wypiek.bake_u.krok';
+    const przed = new Map([...mock.pending].map(([k, v]) => [k, v.trigger.date]));
+    console.log('SONDA przed', przed.size, przed.get(K) === now + 360 * 60000);
+    now += 10 * 60000;
+    await press(tree.root, 'Zrobione');
+    const po = new Map([...mock.pending].map(([k, v]) => [k, v.trigger.date]));
+    console.log('SONDA po Zrobione', po.size, 'K=now+45min', po.get(K) === now + 45 * 60000, 'K.1 jest', po.has(`${K}.1`));
+    expect(po.has(`${K}.1`)).toBe(false);
+    expect(po.get(K)).toBe(now + 45 * 60000);
+    // dalszy krok przesunięty wcześniej (Zrobione 5 h 50 min przed terminem)
+    expect(po.get(`${K}.2`)).toBe(przed.get(`${K}.2`)! - 350 * 60000);
+    now += 1 * 60000;
+    await press(tree.root, 'Cofnij poprzedni');
+    const cof = new Map([...mock.pending].map(([k, v]) => [k, v.trigger.date]));
+    console.log('SONDA po Cofnij', cof.size, [...cof.keys()].sort().join(','));
+    expect([...cof.keys()].sort()).toEqual([...przed.keys()].sort());
+    expect(cof.get(K)).toBe(przed.get(K));
+    expect(cof.get(`${K}.2`)).toBe(przed.get(`${K}.2`));
+    act(() => tree.unmount());
+
+    // „Restart”: na liście oczekujących obce/zaległe wpisy aplikacji i brak wpisów wypieku → uzgodnienie przy starcie
+    mock.pending.clear();
+    mock.pending.set('piekarz.wypiek.duch.krok', { identifier: 'piekarz.wypiek.duch.krok', content: { data: { fp: 'x' } }, trigger: { date: now + 1000 } } as never);
+    await resyncNotifications();
+    console.log('SONDA po restarcie', ids().join(','));
+    expect(mock.pending.has('piekarz.wypiek.duch.krok')).toBe(false);
+    expect(mock.pending.get(K)?.trigger.date).toBe(przed.get(K));
+  });
+
+  it('dwa trwające wypieki: przerwanie jednego zostawia powiadomienia drugiego', async () => {
+    await deleteBakeSession('bake_u');
+    const sesje = await loadActiveBakeSessions();
+    console.log('SONDA trwajace na starcie', sesje.length);
+    setActiveBake({ id: 'bake_a', recipeName: 'A', startedAt: now, currentStageId: 'step_1' });
+    const tree = await mount(<StolnicaScreen />);
+    // drugi wypiek zapisany w bazie obok
+    const b = nowaSesja({ id: 'bake_b', recipeName: 'B', startedAt: now, currentStageId: 'step_1' } as never);
+    const r = await utworzWypiek(b);
+    console.log('SONDA drugi zapisany', r.ok);
+    await act(async () => { await resyncNotifications(); });
+    await settle();
+    const a = ids().filter((i) => i.startsWith('piekarz.wypiek.bake_a.'));
+    const bb = ids().filter((i) => i.startsWith('piekarz.wypiek.bake_b.'));
+    console.log('SONDA dwa', a.length, bb.length);
+    expect(a.length).toBeGreaterThan(0);
+    expect(bb.length).toBeGreaterThan(0);
+    await press(tree.root, 'Plan wypieku');
+    await press(tree.root, 'Przerwij wypiek');
+    const po = ids();
+    console.log('SONDA po przerwaniu A', po.filter((i) => i.includes('bake_a')).length, po.filter((i) => i.includes('bake_b')).length);
+    expect(po.filter((i) => i.includes('bake_a'))).toEqual([]);
+    expect(po.filter((i) => i.includes('bake_b')).length).toBe(bb.length);
+    act(() => tree.unmount());
+  });
+});

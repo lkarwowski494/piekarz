@@ -1,0 +1,18 @@
+$ npx jest --ci src/core/__tests__/sonda-08-srednia.test.ts (worktree scratchpad wt-08 @ 2ef8870a, sonda spoza repo)
+    averageRating = 3
+    filtr minRating 4 = ["b"]
+  ✓ wpis bez oceny (13 ms)
+Tests:       1 passed, 1 total
+kod: 0
+--- treść sondy ---
+// SONDA audytu M1 08 (nie do repo): wpis Dziennika bez oceny w średniej i filtrze
+import { calculateBakeStatistics, filterBakeLogs } from '../bake-statistics';
+it('wpis bez oceny', () => {
+  const logs = [
+    { id: 'a', recipeName: 'R', startedAt: 1, finishedAt: 2, ratingStars: 1 },
+    { id: 'b', recipeName: 'R', startedAt: 3, finishedAt: 4 },
+  ];
+  const s = calculateBakeStatistics(logs);
+  console.log('averageRating =', s.averageRating);
+  console.log('filtr minRating 4 =', JSON.stringify(filterBakeLogs(logs, { minRating: 4 } as never).map((l) => l.id)));
+});

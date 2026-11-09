@@ -1,0 +1,5 @@
+$ git ls-files docs/brd docs/zalozenia.md docs/tresci | xargs grep -noE "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}" (e-maile) ; telefony: grep -noE "\+?[0-9]{2,3}[ -]?[0-9]{3}[ -]?[0-9]{3}[ -]?[0-9]{3}"
+--- telefony
+--- notatki z rozmów/wywiadów (nazwy plików)
+src/components/harmonogram/NotatkiPlanu.tsx
+kod: 0

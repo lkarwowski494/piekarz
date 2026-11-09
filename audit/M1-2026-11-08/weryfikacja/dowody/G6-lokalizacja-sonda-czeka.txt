@@ -1,0 +1,36 @@
+# Repo: /home/user/piekarz @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42, kopia: git worktree w scratchpadzie ($S/wt), node_modules dowiązane
+# Komenda: npx jest tests/sonda/g6-czeka.test.ts (cwd: kopia)
+# Kod wyjścia: 0
+# Źródło sondy (tests/sonda/g6-czeka.test.ts):
+    import * as fs from 'node:fs';
+    import { EN } from '../../src/lib/i18n.en';
+    import { ACTIVE_LANGS, setLang, t, Lang } from '../../src/lib/i18n';
+    import { trybAtlasuMak } from '../../src/core/flour-atlas-ogolne';
+    it('sonda 005', () => {
+      const j = JSON.parse(fs.readFileSync('docs/lokalizacja/czeka-na-przeklad.json', 'utf8'));
+      const klucze: string[] = j.klucze.map((x: { klucz: string }) => x.klucz);
+      const out: string[] = [`wpisów: ${klucze.length}`];
+      const jezyki = (ACTIVE_LANGS as readonly Lang[]).filter((l) => l !== 'pl' && l !== 'en');
+      let en = 0;
+      for (const k of klucze) for (const l of jezyki) { setLang(l); if (t(k) === EN[k]) en++; }
+      out.push(`(klucz × język) z tekstem EN: ${en} z ${klucze.length * jezyki.length} (języków: ${jezyki.length})`);
+      out.push(`tryb atlasu mąk: ${jezyki.map((l) => `${l}=${trybAtlasuMak(l)}`).join(' ')}`);
+      setLang('de'); out.push(`de przykład: ${t(klucze[0])}`);
+      setLang('pl');
+      console.log(out.join('\n'));
+    });
+# Wyjście:
+    wpisów: 15
+    (klucz × język) z tekstem EN: 495 z 495 (języków: 33)
+    tryb atlasu mąk: cs=opis-ogolny sk=opis-ogolny hu=opis-ogolny ro=opis-ogolny bg=opis-ogolny hr=opis-ogolny sl=opis-ogolny sr=opis-ogolny lt=opis-ogolny lv=opis-ogolny et=opis-ogolny uk=opis-ogolny es=opis-ogolny es-419=opis-ogolny pt=opis-ogolny pt-BR=opis-ogolny de=opis-ogolny fr=opis-ogolny it=opis-ogolny nl=opis-ogolny sv=opis-ogolny da=opis-ogolny nb=opis-ogolny fi=opis-ogolny tr=opis-ogolny el=opis-ogolny id=opis-ogolny ms=opis-ogolny vi=opis-ogolny ru=opis-ogolny ja=opis-ogolny ko=opis-ogolny zh-Hant=opis-ogolny
+    de przykład: The Crust app does not collect any data. Everything you enter stays on your iPhone. The app does not connect to the internet and has no account, ads, analytics or tracking.
+
+
+PASS tests/sonda/g6-czeka.test.ts
+  ✓ sonda 005 (680 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.259 s
+Ran all test suites matching /tests\/sonda\/g6-czeka.test.ts/i.

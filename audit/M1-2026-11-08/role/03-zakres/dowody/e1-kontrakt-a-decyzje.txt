@@ -1,0 +1,67 @@
+$ grep -n -i 'kalendarz\|BR-KAL\|D-092\|D-112\|D-116\|F-17\|KL-09\|Darmowe i płatne\|próba\|tylko historia' docs/scope-contract.md
+12:- Darmowe i płatne: bez zmian względem D-038 i kontraktu płatności (`docs/monetyzacja.md`): bez zakupu działa przegląd historii i prawa do danych (odczyt, eksport, import, usunięcie), zakup, przywracanie, ustawienia; F-68 (start) to nawigacja, oferta
+22:| F-09 | Kalkulator receptury: procent piekarski, hydratacja z zakwasu i zaczynu, skalowanie 1 g | BR-KALK-001, BR-KALK-002, BR-KALK-003 | MVP | B: J-01; R: S-17 rec. 6280671939, S-19 rec. 12569511193 | WTP-0 (B, R) · próba / płatna | po wyborze receptur
+23:| F-56 | Informacja o nietypowej ilości soli | BR-KALK-011 | MVP | R: S-24 rec. 5681544617 (słaby) | WTP-2 (R) · próba / płatna | informacja przy polu soli, bez blokady; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-09
+24:| F-11 | Kilka mąk w recepturze, wariant żytni | BR-KALK-005 | MVP | R: S-21 rec. 13060223498 | WTP-2 (R) · próba / płatna | dodanie drugiej mąki z udziałem w procentach; oznaczenie „żytni” widoczne; wynik: pozytywny, 2026-10-20, `docs/design/03
+25:| F-38 | Miary USA w całej aplikacji: uncje i °F na ekranach, w polach wejścia, eksportach i powiadomieniach; baza metryczna | BR-UST-001 | MVP | R: 9 z 338 recenzji, 6 ≤ 3★ (ZAL-037); M1-audytor-generalny-096 (słowa właściciela 2026-10-20) | WTP-
+26:| F-10 | Temperatura wody dla docelowej temperatury ciasta | BR-KALK-004 | MVP | R: S-14 rec. 9331408199 | WTP-2 (R) · próba / płatna | pola temperatur nazwane słowami („mąka”, „kuchnia”), wynik w °C albo °F (F-38) bez wzoru; wynik: pozytywny
+27:| F-55 | Ciasto drożdżowe i pizza: rodzaj drożdży, zaczyny poolish, biga, levain | BR-KALK-009, BR-KALK-010 | MVP | R: S-19 rec. 7107716082; S-24 rec. 7357117590; ZP-23 | WTP-1 (R) · próba / płatna | wybór „piekę na drożdżach albo pizzę” pro
+28:| F-13 | Plan wstecz od godziny „gotowe”: sen, przesunięcie, wcześniejsze zakończenie, cofnięcie kroku | BR-HARMO-001, BR-HARMO-002, BR-HARMO-004, BR-HARMO-005 | MVP | B: J-02; R: 15 z 338; S-64 (Rise) | WTP-1 (R) · próba / płatna | godzina „go
+29:| F-14 | Czas fermentacji z temperatury (20–26 °C) | BR-HARMO-003 | MVP | R: S-14 rec. 8937437575 | WTP-2 (R) · próba / płatna | zmiana temperatury od razu zmienia czasy; temperatura tylko z wyboru 20–26 °C (D-066 2a, ZM-20); wynik: pozytywny, 2026
+30:| F-07 | Prowadzenie krok po kroku; kroki z receptury i planu F-13 (te same kroki i godziny, ostatni kończy się o „gotowe”), żyto bez składań | BR-ETAP-001, BR-ETAP-002 | MVP | R: S-14 rec. 13748164005; MS-25 (Yeasta Pro) | WTP-1 (R) · próba / p�
+33:| F-16 | Sygnał kroku przy zablokowanym telefonie; brak zgody na powiadomienia | BR-CZAS-002, BR-CZAS-003 | MVP | B: ZP-17; R: 15 z 338; MS-25 | WTP-1 (R) · próba / płatna | jedno zdanie przed prośbą o zgodę; przy odmowie stała informacja w kroku; w
+34:| F-18 | Ekran nie gaśnie w kroku czynnym | BR-REKA-001 | MVP | R: 2 z 338 (słaby, ZAL-031) | WTP-2 (R) · próba / płatna | bez akcji użytkownika; tylko w kroku czynnym; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-07
+35:| F-22 | Karta zakwasu, kilka zakwasów | BR-ZAKW-001 | MVP | R: S-20 rec. 14638146092; MS-25 | WTP-1 (R) · próba / płatna; odczyt i usunięcie zawsze | lista zakwasów z datą dokarmienia i miejscem; dodanie jednym przyciskiem; wynik: pozytywny, 2026-10
+36:| F-23 | Dokarmianie z proporcją | BR-ZAKW-002 | MVP | R: S-20 rec. 13947658962 | WTP-2 (R) · próba / płatna | po wyborze proporcji gramy mąki i wody; zapis jednym przyciskiem; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | —
+37:| F-24 | Gotowość zakwasu do ciasta | BR-ZAKW-003 | MVP | R: MS-25 (SST „rise timing”) | WTP-1 (R) · próba / płatna | zaznaczenie „podwoił się” daje „gotowy” z atrybucją; bez godziny szczytu do OP-39; wynik: pozytywny, 2026-10-20, `docs/
+38:| F-25 | Przypomnienie o dokarmieniu i zasada ostrożności | BR-ZAKW-004 | MVP | R: S-15 rec. 6706510871; MS-25 | WTP-1 (R) · próba / płatna; ostrzeżenie RD-21 zawsze | objawy do zaznaczenia słowami, jedno zalecenie; bez werdyktu „zdrowy”; wynik: 
+39:| F-60 | Założenie zakwasu dzień po dniu | BR-ZAKW-005 | MVP | R: MS-25 (Yeasta „day-by-day”); Loaflo rec. 13931423989; 6 z 338 | WTP-1 (R) · próba / płatna | „zakładam zakwas” na starcie; dzień N i co dziś zrobić; wynik: pozytywny, 2026-1
+40:| F-61 | Obudzenie zakwasu z lodówki przed wypiekiem | BR-ZAKW-006 | MVP | R: MS-25 (Yeasta „Fridge Starter Planner”) | WTP-1 (R) · próba / płatna | plan sam dodaje dokarmienia, gdy zakwas jest w lodówce; wynik: nie badano, 2026-10-20, `docs/design
+41:| F-62 | Poprawa pomyłki we wpisie zakwasu | BR-ZAKW-007 | MVP | R: S-21 rec. 12986088850, 13060223498 | WTP-2 (R) · próba / płatna | „edytuj” przy wpisie; przypomnienie liczy się od poprawionej godziny; wynik: pozytywny, 2026-10-20, `docs/design/0
+42:| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · próba / płatna | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: pozytywny, 2026-10-20, `docs/design/03
+43:| F-27 | Własne receptury | BR-RECP-002 | MVP | R: S-18 rec. 10719043217; MS-25 | WTP-1 (R) · próba / płatna; odczyt i usunięcie zawsze | „zapisz jako moją” pod wynikiem; od razu na liście; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-
+44:| F-28 | Dziennik wypieków z oceną i „piecz ponownie” | BR-RECP-003 | MVP | B: J-05, ZP-17; R: MS-25 | WTP-1 (R) · nowy wpis próba / płatna; przegląd zawsze | ocena otwiera się po „zakończ wypiek”; „piecz ponownie” w wpisie; wynik: pozyt
+46:| F-43 | Doktor Chleba dla bochenka (treść) | BR-DIAG-001 | MVP | R: S-16 rec. 14104905527; MS-26; ZP-20 | WTP-1 (R) · próba / płatna | propozycja po ocenie ≤ 2★; objaw → pytania → jedna zmiana; wynik: pozytywny, 2026-10-20, `docs/design/03-prz
+47:| F-71 | Doktor Chleba: ratunek ciasta w trakcie fermentacji (cztery protokoły: przerośnięte, zbyt luźne, ospała fermentacja w zimnej kuchni, zapomniana sól) | BR-DIAG-003, BR-DIAG-004, BR-DIAG-005 | MVP | B: J-15 (PR-24); treść ze źródłami roli 
+48:| F-64 | Doktor Chleba dla zakwasu, który nie rośnie (treść) | BR-DIAG-002 | MVP | R: MS-25 (Yeasta, SST); S-21 rec. 12986088850 | WTP-1 (R) · próba / płatna; ostrzeżenie RD-21 zawsze | wejście z dnia N zakładania; przy pleśni polecenie zamiast l
+49:| F-44 | Akademia: „po co ten krok” przy kroku (treść) | BR-NAUK-001 | MVP | R: 14 z 338 (ZAL-041); ZP-20 | WTP-2 (R) · próba / płatna | „po co ten krok” w kroku; powrót bez utraty stanu; lekcje osobno później; wynik: pozytywny, 2026-10-20, 
+58:| F-67 | Stan po próbie: uprzedzenie 3 dni, tryb „tylko historia” | BR-ZAK-004 | MVP | B: DEC-01 d, D-039; H-04 | warunek · zawsze | uprzedzenie jednym komunikatem; po końcu jasne, co działa; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-p
+60:| F-30 | Spiżarnia mąk | BR-SPIZ-001 | PÓŹNIEJ | R: MS-26 (Gluten Morgen, 5★); D-034 pyt. 6a | WTP-2 (R) · próba / płatna | — | — | F-09 | wariant B: ranking 1,9 przy 2 h, poza pętlą; zmienia wyjątek D-034 pyt. 6a. Wejście ukryte, dane zost
+61:| F-63 | Porównanie dwóch wypieków | BR-RECP-004 | PÓŹNIEJ | R: S-14 rec. 8937437575 (słaby) | WTP-2 (R) · próba / płatna | — | — | F-28 | wariant B: ranking 5 przy 2 h; nowa funkcja bez kodu. Powrót: użytkownicy z ≥ 10 wpisami jednej recep
+62:| F-45 | Przelicznik miar objętości na gramy | BR-KALK-007 | PÓŹNIEJ | R: 9 z 338 o jednostkach | WTP-2 (R) · próba / płatna | — | — | F-09 | wariant B: ranking 1,7 przy 3 h; masy bez źródła (OP-44). Powrót: rejestr mas roli 06 ze źródłem 
+63:| F-08 | Receptura w kodzie QR bez sieci | BR-WSP-003 | PÓŹNIEJ | H: ZAL-029 (3 z 338); D-029 | WTP-2 (H) · próba / płatna | — | — | F-27 | wariant B: tylko hipoteza, uprawnienie aparatu; zmienia wyjątek D-029 i DEC-05 a. Wymiana receptur plikiem 
+64:| F-50 | Wydruk karty receptury i etykiety słoika | BR-DRUK-001 | PÓŹNIEJ | R: S-18 rec. 10632970976 (1 prośba); D-034 pyt. 7b | WTP-2 (R) · próba / płatna | — | — | F-27 | wariant B: ranking 0,4 przy 1,5 h; zmienia wyjątek D-034 pyt. 7b. Powró
+70:| F-53 | Masa lodu do schłodzenia wody | BR-KALK-008 | NIE | — | WTP-X | — | — | — | brak dowodu wartości (tylko [OCENA], rola 02); dziś część sekcji DDT w kodzie (rola 08 usuwa pole lodu). Powrót: ≥ 3 prośby o lód w upał (recenzje, kont
+79:| F-71 protokoły ratunkowe Doktora dla ciasta w trakcie fermentacji | Przeniesione do tabeli „Zakres” jako MVP (ZM-23, 2026-10-22, D-092, D-096); wcześniej PÓŹNIEJ (ZM-19, 2026-10-21) z wejściem ukrytym (`src/lib/wejscia-pozniej.ts`, `protokoly-rat
+81:| F-12 formy, F-17 kilka wypieków naraz, F-19 Action Button, F-21 Centrum sterowania, F-29 zdjęcia przekroju, F-34 karta PNG, F-39 motywy | bez BR w nowym BRD (ER-38): nie budować | BR z dowodem od roli 01 (ER-38) i wpis ZM |
+224:| ZM-23 | 2026-10-22 | M1 z decyzją właściciela „Dodajemy do 1.0 F71 plus full kalendarz i poprawki.” (D-092), rola 06 tor T (D-095, raport `audit/06-tresci-2026-10-22/raport.md`), rola 01 (BR-DIAG-003…005, D-096): powrót F-71 z ZM-19 | praca: J-
+225:| ZM-24 | 2026-11-03 | właściciel: „Chciałbym żeby była możliwość zamiany drożdży świeżych na instant”, wybór „Przełącznik przy wierszu” (D-136); termin 1.0 (D-150) | **praca i dowód:** J-11 i J-01, BR-KALK-009 istnieje (B: prośba 
+227:| ZM-26 | 2026-11-03 | właściciel: „Możliwość tradycyjnego pieczenia jak i w maszynce do chleba (mam taką)”, „Punkt 3 to maszyna”, „Tryb „maszyna”, 1.1+” (D-138); termin 1.0 (D-150) | **praca i dowód:** nowa praca (upiec chleb w masz
+239:| KL-09 | `src/lib/calendar-export.ts` + test | eksport planu do kalendarza (Z-022, SHOULD 1.1, bez BR) | brak BR i wejścia z interfejsu | Powrót: BR od roli 01 z dowodem potrzeby; wejście z Harmonogramu |
+kod: 0
+
+$ grep -n '^### \[D-\(092\|104\|108\|109\|112\|113\|114\|115\|116\|123\|155\|174\|252\|291\)\]' docs/decyzje.md
+385:### [D-092] 2026-10-22 — Kilka planów i wypieków naraz, pełny kalendarz, F-71 i odłożone poprawki w 1.0 (zmienia D-034 / ZM-10) (M3 Redesigner, STOP 3)
+463:### [D-104] 2026-10-22 — Wiele wypieków per id: pytanie przy starcie „Prowadź oba / Wróć do / Anuluj” zamiast a1b, Stolnica wybranego wypieku, „Piecz ponownie” po id (zmienia D-091) (M3 D3a)
+495:### [D-108] 2026-10-22 — Plany na przyszłe dni: zasięg dnia „gotowe” 14 dni, lista planów na „Dziś”, skrót z arkusza dnia także przy trwającym wypieku, karmienia budzące z jednej reguły (M3 D5)
+502:### [D-109] 2026-10-22 — Piekarnik zajęty: pytanie systemowe zamiast ramki w arkuszu, „Przesuń start” przy starcie zapisuje plan, plan bez nagrzewania (M3 D6)
+525:### [D-112] 2026-10-22 — Model Piekarza: Basic za darmo na zawsze, Pro jako subskrypcja (miesięczna, roczna) albo dożywotni, bez próby; drugi model portfela (rola 02 build, badanie modelu, czat właściciela) — warunkowa co do listy funkcji
+534:### [D-113] 2026-10-22 — Prowadzenie zakwasu w Pro; założenie pierwszego zakwasu w Basic; po wygaśnięciu Pro przypomnienia ustają po uprzedzeniu (rola 02 build, czat właściciela)
+544:### [D-114] 2026-10-22 — Rozszerzenia kalendarza: tydzień strzałkami i gestem, miesiąc na pasie „Dziś”, propozycja dnia z rytmu Dziennika, stały dzień karmienia na karcie zakwasu (M3 D7)
+551:### [D-115] 2026-10-22 — Plan w kalendarzu telefonu: jeden plik .ics na cały plan przez arkusz udostępniania, bez modułu kalendarza (M3 D8)
+559:### [D-116] 2026-10-22 — Wdrożenie Basic/Pro w kodzie: mapowanie funkcji, limity 5 receptur i 1 zakwas, przypomnienia o dokarmianiu w Pro poza zakładaniem, bez oferty wprowadzającej, Doktor w Basic (M3 P-a, rola 08)
+625:### [D-123] 2026-10-23 — Teksty naturalnym językiem, bez przypisów do źródeł; źródła wiedzy na jednym ekranie w Ustawieniach (M3 T2)
+846:### [D-155] 2026-11-03 — Plan i prowadzenie dla wersji drożdżowej w 1.0 (zamyka rozjazd PR-17 ↔ kod)
+932:### [D-174] 2026-11-03 — P3: plan dla drożdży z czasami z receptury, bez przeliczania temperaturą i ilością drożdży (1.0)
+1462:### [D-252] 2026-11-04 — p9b-1b: wybory techniczne ekranów i planu wersji drożdżowej; luki dla ról 04 i 06 (rola 08, dzień, do weta)
+1616:### [D-291] 2026-11-08 — Formalności 1.0 (M8) STOP 2: dokumenty, ekran licencji przed 1.0, ustawy stanowe USA (właściciel)
+kod: 0
+
+$ grep -rln 'ZM-2[89]\|ZM-3[0-9]' docs/scope-contract.md
+kod: 1
+
+$ grep -n 'BR-KAL-012\|BR-RECP-005' scripts/br-wyjatki.json
+20:    { "id": "BR-KAL-012", "powod": "funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć", "zrodlo": "ER-62, D-090" },
+23:    { "id": "BR-RECP-005", "powod": "funkcja w zakresie 1.0 (D-154, D-173) jeszcze bez kodu: receptury bazowe nie mają wersji drożdżowej; test z ID powstaje razem z kodem (rola 07/08), a wpis trzeba wtedy usunąć", "zrodlo": "F-26, D-154, D-187" },
+kod: 0
+

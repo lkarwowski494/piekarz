@@ -1,0 +1,5 @@
+$ python3: emoji (U+1F300–1FAFF, U+2600–27BF bez ✓✕›‹·) w literałach t('…') i <Text>…</Text> w app/ src/ (bez testów, bez słowników)
+src/components/stolnica/FinishBakeModal.tsx:104: '★' | ★
+src/lib/pdf-sheet-generator.ts:324: '★' | <div>Ocena skórki / miękiszu: _____ / 5 ★</div>
+src/lib/recipe-formatter.ts:86: '↳' | lines.push(`    ↳ ${t('w tym lód')}: ${w(iceGrams)} + ${t('woda z kranu ({temp})', { temp: tap })}: ${w(calc.waterGrams - iceGrams)}`);
+trafień: 3

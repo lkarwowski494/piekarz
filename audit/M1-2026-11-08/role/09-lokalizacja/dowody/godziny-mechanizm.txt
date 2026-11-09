@@ -1,0 +1,6 @@
+es 26 z 27 kluczy z godziną
+es-419 25 z 27 kluczy z godziną
+pt 26 z 27 kluczy z godziną
+pt-BR 22 z 27 kluczy z godziną
+it 26 z 27 kluczy z godziną
+el 27 z 27 kluczy z godziną

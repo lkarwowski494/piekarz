@@ -1,0 +1,14 @@
+$ grep -rnE "(execAsync|runAsync|getAllAsync|getFirstAsync|prepareAsync)\(\s*`[^`]*\$\{" src app (bez testów) + wieloliniowe szablony z ${ w SQL
+src/data/bake-sessions-store.ts:155:  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
+src/data/bake-sessions-store.ts:384:  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
+src/data/sqlite-schema.ts:382:      await db.execAsync(`PRAGMA user_version = ${m.version};`);
+src/data/starter-entries-store.ts:49:  await db.runAsync(`${ENTRY_INSERT}${ignoreExisting ? ' ON CONFLICT(id) DO NOTHING' : ''};`, ...entryParams(e));
+kod: 0
+--- wieloliniowe (rg -U):
+1:src/data/bake-sessions-store.ts:1:runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`
+4:       SELECT ?, ?, ?, ?, ? WHERE ${POZA_LIMITEM}
+8:         SELECT ?, 'active', ?, ?, ? WHERE ${POZA_LIMITEM} AND NOT EXISTS (SELECT 1 FROM bakes WHERE id = ?)
+11:        `UPDATE bake_sessions SET status = 'active', session_json = ?, updated_at = ? WHERE id = ? AND status = 'planned' AND ${POZA_LIMITEM};`
+12:src/data/bake-sessions-store.ts:1:runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`
+13:src/data/sqlite-schema.ts:1:execAsync(`PRAGMA user_version = ${m.version};`
+14:src/data/starter-entries-store.ts:1:runAsync(`${ENTRY_INSERT}${ignoreExisting ? ' ON CONFLICT(id) DO NOTHING' : ''};`

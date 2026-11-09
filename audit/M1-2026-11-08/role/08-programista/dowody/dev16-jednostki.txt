@@ -1,0 +1,16 @@
+$ grep -rnE "(\* ?|/ ?)(1000|60_?000|3600_?000|86400_?000|60|3600)\b" src/core src/lib src/hooks src/data src/scheduler app --include=*.ts --include=*.tsx (bez __tests__, i18n) | wc -l
+70
+
+$ grep -rnE "getUTC(Hours|Date|Day|Minutes)" src app
+kod: 1
+
+# stałe czasu zdefiniowane wielokrotnie
+src/hooks/useKalendarz.ts:18:const MINUTA_MS = 60_000;
+src/lib/spirala-etykieta.ts:19:const DOBA_MS = 24 * 60 * 60 * 1000;
+src/lib/plan-za-pozno.ts:14:const DOBA_MS = 24 * 60 * MIN_MS;
+src/lib/print-menu.ts:14:const DAY_MS = 24 * 60 * 60 * 1000;
+src/core/karmienia-budzace.ts:13:const H = 3_600_000;
+src/core/starter-log.ts:20:const HOUR_MS = 60 * 60 * 1000;
+src/core/fridge-wake.ts:10:const HOUR_MS = 60 * 60 * 1000;
+src/core/notification-config.ts:7:const HOUR_MS = 60 * 60 * 1000;
+app/(tabs)/receptury/harmonogram.tsx:47:const MINUTA_MS = 60_000;

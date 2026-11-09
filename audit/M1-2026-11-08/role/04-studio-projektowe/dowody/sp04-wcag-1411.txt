@@ -1,0 +1,3 @@
+$ curl -sS https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html | (tekst bez znaczników) | grep -o "A button which has a distinguishing indicator[^.]*\."   (odczyt 2026-11-08)
+A button which has a distinguishing indicator such as position, text style, or context does not need a contrasting visual indicator to show that it is a button, although some users are likely to identify a button with an outline that meets contrast requirements more easily.
+kod: 0

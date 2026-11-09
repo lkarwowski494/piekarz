@@ -1,0 +1,37 @@
+$ npm run check:i18n   (kopia robocza 2ef8870a)
+i18n: 914 tekstów t('…') w kodzie, 2132 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 153 (skan kodu: src,app; uwagi wypisuje --uwagi)
+kod: 0  czas: 1s
+git status --porcelain po komendzie: []
+
+$ npm run check:licenses   (kopia robocza 2ef8870a)
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+kod: 0  czas: 0s
+git status --porcelain po komendzie: []
+
+$ npm run check:licencje   (kopia robocza 2ef8870a)
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+kod: 0  czas: 0s
+git status --porcelain po komendzie: []
+
+$ npm run check:size   (kopia robocza 2ef8870a)
+check:size: 919 plików, przekroczeń: 0
+kod: 0  czas: 0s
+git status --porcelain po komendzie: []
+
+$ npm run verify:native   (kopia robocza 2ef8870a)
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+kod: 0  czas: 0s
+git status --porcelain po komendzie: []
+
+$ npm run verify:matrix   (kopia robocza 2ef8870a)
+[test-matrix] Wyniki: 1627/1627 elementów (100%)
+kod: 0  czas: 3s
+git status --porcelain po komendzie: []
+
+$ npm run check:metadane   (kopia robocza 2ef8870a)
+OK: 34 lokalizacji bez błędów
+kod: 0  czas: 0s
+git status --porcelain po komendzie: []
+

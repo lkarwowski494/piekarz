@@ -1,0 +1,62 @@
+$ grep -rn "Alert.alert(t(" app src (bez testów): tytuł i treść komunikatów
+app/(tabs)/zakwasy/index.tsx:162:      Alert.alert(t('Kopiuj jako tekst'), t('Skopiowano proporcje dokarmiania do schowka'));
+src/components/receptury/stos-receptur.ts:51:  Alert.alert(tytul, undefined, [
+src/components/ImportRecipeModal.tsx:67:      Alert.alert(t('Błąd schowka'), t('Nie udało się odczytać zawartości schowka.'));
+src/components/ImportRecipeModal.tsx:89:        Alert.alert(
+src/components/ImportRecipeModal.tsx:96:        Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
+src/components/settings/ImportZPlikuArkusz.tsx:44:      Alert.alert(t('Błąd schowka'), t('Nie udało się odczytać zawartości schowka.'));
+src/components/settings/ImportZPlikuArkusz.tsx:58:        Alert.alert(t('Receptura „{nazwa}” jest w Moich recepturach.', { nazwa: r.name }));
+src/components/settings/ImportZPlikuArkusz.tsx:60:        Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
+src/components/settings/ImportZPlikuArkusz.tsx:74:      Alert.alert(
+src/components/settings/ImportZPlikuArkusz.tsx:82:        Alert.alert(t('Nie zapisano'), saveErrorText(err));
+src/components/settings/ImportZPlikuArkusz.tsx:85:      Alert.alert(t('Kopia zapasowa'), err instanceof Error ? t(err.message) : t('Nie udało się zaimportować kopii')); // komunikat z kluczem w języku [M1-audytor-generalny-147]
+src/components/settings/StudioEcosystemSection.tsx:108:                Alert.alert(t('Oceń w App Store'), t('Ocena wymaga połączenia z App Store.'))
+src/components/settings/BackupAndDataSection.tsx:35:        Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
+src/components/settings/BackupAndDataSection.tsx:38:      Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
+src/components/settings/BackupAndDataSection.tsx:52:    Alert.alert(t('Usunąć wszystkie dane?'), t('Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.'), [
+src/components/settings/BackupAndDataSection.tsx:66:        Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+src/components/settings/BackupAndDataSection.tsx:69:      Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+src/components/settings/BackupAndDataSection.tsx:83:        Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+src/components/settings/BackupAndDataSection.tsx:86:      Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+src/components/settings/ZakupySection.tsx:37:      Alert.alert(t('Zrealizuj kod'), t('Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.'));
+src/components/DraftHeader.tsx:58:  Alert.alert(t('Odrzucić zmiany?'), message, [
+src/components/zakwas/useAkcjeZakwasu.ts:96:      Alert.alert(t('Profil zakwasu'), t('Zapisano zaktualizowany profil'));
+src/components/zakwas/useAkcjeZakwasu.ts:119:      Alert.alert(t('Dodano zakwas'), t('Kultura „{name}” została utworzona.', { name: trimmedName }));
+src/components/calculator/CalculatorModalsProvider.tsx:75:      Alert.alert(t('Skaner QR'), t('Skaner QR jest niedostępny w tej wersji aplikacji.'));
+src/components/RescueScreen.tsx:46:      if (!ok) Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
+src/components/RescueScreen.tsx:48:      Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
+src/components/FlourInventoryModal.tsx:111:        Alert.alert(t('Błąd'), t('Podaj nazwę mąki'));
+src/components/FlourInventoryModal.tsx:140:      Alert.alert(t('Pomyślnie odliczono'), t('Zasoby mąki w spiżarni zostały zaktualizowane.'));
+src/components/przywroc-zakupy.ts:16:    Alert.alert(t('Przywróć zakupy'), ok ? t('Zakupy zostały pomyślnie przywrócone') : t('Nie znaleziono aktywnych zakupów'));
+src/components/przywroc-zakupy.ts:19:    Alert.alert(t('Przywróć zakupy'), t('Nie udało się połączyć z App Store. Spróbuj ponownie.'));
+src/components/PaywallModal.tsx:122:        Alert.alert(t('Zakup czeka na zatwierdzenie'), t('Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.'));
+src/components/PaywallModal.tsx:125:      Alert.alert(t('Zakup'), t('Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.'));
+src/hooks/useBakeSession.ts:53:      Alert.alert(t('Nie zapisano'), tekst);
+src/hooks/useAkcjeDzis.ts:55:          if (wynik === 'brak') Alert.alert(t('Ten wypiek jest już zakończony albo przerwany.'));
+src/hooks/usePlanyDzis.ts:48:        Alert.alert(t('Tego planu już nie ma.'));
+src/hooks/useFinishBake.ts:77:      Alert.alert(t('Ten wypiek jest już zakończony albo przerwany.'));
+src/lib/zgloszenie-wyslanie.ts:15:  Alert.alert(t('Napisz do nas'), t('Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}', { adres }), [
+src/lib/confirm.ts:45:  Alert.alert(title, message, [
+src/lib/confirm.ts:60:  Alert.alert(t('Przerwać wypiek?'), t('Powiadomienia o kolejnych krokach znikną.'), [
+src/lib/confirm.ts:87:  Alert.alert(t('Trwa już inny wypiek'), tresc, [
+src/lib/confirm.ts:100:  Alert.alert(t('Prowadzisz już 2 wypieki'), undefined, [...trwajace.map((w) => wrocDo(w, onWroc)), cancelButton()]);
+src/lib/confirm.ts:108:  Alert.alert(t('Masz już 5 planów'), t('Zacznij albo usuń jeden z nich, żeby dodać kolejny.'), [{ text: t('Pokaż plany'), onPress: onPokaz }, cancelButton()]);
+src/lib/confirm.ts:116:  Alert.alert(t('Kroki nachodzą na siebie'), linie.join('\n'), [cancelButton(), { text: t('Zaplanuj mimo to'), onPress: onZapisz }]);
+src/lib/confirm.ts:145:  Alert.alert(
+src/lib/confirm.ts:163:  Alert.alert(t('Nie sprawdzę piekarnika'), t('Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.'), [
+src/lib/kalendarz-telefonu.ts:67:  Alert.alert(t('Nie dodano do kalendarza'), tresc);
+src/lib/save-guard.ts:22:        Alert.alert(t('Nie zapisano'), saveErrorText(e));
+src/lib/staly-dzien-pytanie.ts:24:    Alert.alert(
+src/lib/calculator-actions.ts:64:    Alert.alert(t('Karta receptury'), t('Nie udało się wygenerować pliku PDF'));
+src/lib/calculator-actions.ts:71:  Alert.alert(t('Eksport JSON'), t('Skopiowano kod JSON receptury do schowka.'));
+src/lib/calculator-actions.ts:97:    Alert.alert(t('Kopiuj jako tekst'), t('Skopiowano przepis do schowka'));
+src/lib/calculator-actions.ts:118:  Alert.alert(t('Sklonowano przepis'), t('Utworzono edytowalną kopię w Twojej bibliotece.'));
+src/lib/calculator-actions.ts:129:  Alert.alert(t('Zapisano przepis'), t('Zapisano zmiany w recepturze „{name}”.', { name: wlasna.name }));
+src/lib/calculator-actions.ts:151:  Alert.alert(t('Zapisano przepis'), t('Przepis „{name}” został zapisany w Twojej bibliotece.', { name: trimmed }));
+src/lib/menu-receptury.ts:65:  Alert.alert(t('Więcej działań: receptura'), undefined, [
+src/lib/doctor-suggestion.ts:25:  Alert.alert(
+src/lib/print-menu.ts:32:    Alert.alert(t('Etykieta zakwasu'), t('Nie udało się wygenerować etykiety PDF'));
+src/lib/print-menu.ts:40:    Alert.alert(t('Etykieta słoika zakwasu'), t('Najpierw dodaj zakwas w zakładce Zakwas.'));
+src/lib/print-menu.ts:47:  Alert.alert(t('Który zakwas?'), undefined, [
+src/lib/print-menu.ts:55:  Alert.alert(t('Drukuj'), t('Co chcesz wydrukować?'), [
+kod: 0

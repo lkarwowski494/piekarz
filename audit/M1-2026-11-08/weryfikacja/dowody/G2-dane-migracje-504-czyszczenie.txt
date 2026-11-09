@@ -1,0 +1,87 @@
+# Sonda 05-architekt-504 na kopii bazy 1021 (worktree 2ef8870a w scratchpadzie)
+# Komenda: npx jest src/data/__tests__/sonda-g2-504.sqlite.test.ts
+# Treść sondy:
+# | /** Sonda G2 05-architekt-504: „Usuń wszystkie dane” na kopii bazy 1021, potem import kopii przed czyszczeniem. */
+# | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+# | import * as FileSystem from 'expo-file-system/legacy';
+# | import { useTempDbDir, restartApp, openRaw, dbFilePath, tableCounts } from './helpers/node-sqlite-adapter';
+# | import { zalozBaze1021 } from './helpers/baza-1021';
+# | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+# | const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+# | it('sesje i plany: przed, po czyszczeniu, po imporcie kopii przed czyszczeniem', async () => {
+# |   useTempDbDir();
+# |   mockFiles.clear();
+# |   zalozBaze1021(APP_DB());
+# |   const app = restartApp();
+# |   await app.schema.initDatabase();
+# |   const ile = () => { const raw = openRaw(APP_DB()); const c = tableCounts(raw); const s = raw.prepare('SELECT id, status FROM bake_sessions').all(); raw.close(); return { c, s }; };
+# |   const przed = ile();
+# |   const { usunWszystkieDane } = require('../usun-wszystko') as typeof import('../usun-wszystko');
+# |   await usunWszystkieDane();
+# |   const po = ile();
+# |   const plik = [...mockFiles.keys()].find((k) => /piekarz-przed-czyszczeniem-[^/]+\.json$/.test(k))!;
+# |   const kopia = (require('../../lib/backup') as typeof import('../../lib/backup')).parseAndValidateBackup(mockFiles.get(plik)!);
+# |   const dane = kopia.state;
+# |   await app.store.restoreFromBackupData(dane);
+# |   const poImporcie = ile();
+# |   // eslint-disable-next-line no-console
+# |   console.log(JSON.stringify({ plik: plik.replace(/.*\//, ''), kluczeKopii: Object.keys(kopia), kluczeDanych: Object.keys(dane),
+# |     przed: { bake_sessions: przed.c.bake_sessions, sesje: przed.s, starters: przed.c.starters, starter_entries: przed.c.starter_entries, bakes: przed.c.bakes },
+# |     poCzyszczeniu: { bake_sessions: po.c.bake_sessions, starters: po.c.starters, bakes: po.c.bakes },
+# |     poImporcieKopii: { bake_sessions: poImporcie.c.bake_sessions, starters: poImporcie.c.starters, starter_entries: poImporcie.c.starter_entries, bakes: poImporcie.c.bakes } }, null, 1));
+# | });
+  console.log
+    {
+     "plik": "piekarz-przed-czyszczeniem-2026-11-08-214315.json",
+     "kluczeKopii": [
+      "format",
+      "schemaVersion",
+      "exportedAt",
+      "state",
+      "skippedRows"
+     ],
+     "kluczeDanych": [
+      "bakes",
+      "starters",
+      "customRecipes",
+      "starterEntries",
+      "flourInventory",
+      "settings",
+      "lessonProgress"
+     ],
+     "przed": {
+      "bake_sessions": 2,
+      "sesje": [
+       {
+        "id": "bake_live",
+        "status": "active"
+       },
+       {
+        "id": "plan_sobota",
+        "status": "planned"
+       }
+      ],
+      "starters": 2,
+      "starter_entries": 5,
+      "bakes": 4
+     },
+     "poCzyszczeniu": {
+      "bake_sessions": 0,
+      "starters": 0,
+      "bakes": 0
+     },
+     "poImporcieKopii": {
+      "bake_sessions": 0,
+      "starters": 2,
+      "starter_entries": 5,
+      "bakes": 4
+     }
+    }
+PASS src/data/__tests__/sonda-g2-504.sqlite.test.ts
+  ✓ sesje i plany: przed, po czyszczeniu, po imporcie kopii przed czyszczeniem (171 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.646 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-g2-504.sqlite.test.ts/i.
+kod wyjścia: 0

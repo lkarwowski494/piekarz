@@ -1,0 +1,3 @@
+$ node audit/M1-2026-11-08/narzedzia/sprawdz-raport.mjs audit/M1-2026-11-08/role/01-odkrywanie/01-odkrywanie-2026-11-08.md /home/user/piekarz audit/M1-2026-11-08/role/01-odkrywanie --rola 01-odkrywanie
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 01-odkrywanie
+kod: 0

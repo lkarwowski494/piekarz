@@ -1,0 +1,40 @@
+# Odczyt 2026-11-08: https://itunes.apple.com/search?term=sourdough&entity=software&country=<us|de|pl>&limit=12 — pola trackName, trackId, userRatingCount, languageCodesISO2A
+## us
+6736766728 | Loaflo: Sourdough Starter | oceny: 567 | języki (1): EN
+6755709217 | Sourdough Starter Tracker | oceny: 33 | języki (5): EN,FR,DE,IT,ES
+6797501483 | Sourdough Simplified | oceny: 0 | języki (1): EN
+1515369685 | Rise: Baking & Bread Recipes | oceny: 337 | języki (1): EN
+6756316343 | Breadlify | oceny: 0 | języki (1): EN
+6747842855 | SourdoughGuru: AI Baking Coach | oceny: 1 | języki (1): EN
+6813598256 | Ovenbell: Home Bakery Business | oceny: 4 | języki (1): EN
+6752309546 | Sourdough Buddy | oceny: 1 | języki (1): EN
+6817087296 | LoafCoach: Sourdough Bread | oceny: 7 | języki (1): EN
+6738346798 | Sourdough Feeding Calculator | oceny: 0 | języki (1): EN
+1534576984 | Kneady: Bread & Baking Recipes | oceny: 733 | języki (1): EN
+6769946306 | Sourdough Sanity: Bake Guide | oceny: 0 | języki (1): EN
+## de
+6755709217 | Sauerteig Starter Tracker | oceny: 4 | języki (5): EN,FR,DE,IT,ES
+1572641630 | Levain | oceny: 12 | języki (3): EN,DE,PT
+6752309546 | Sourdough Buddy | oceny: 0 | języki (1): EN
+6462694910 | Sour & Dough - Bread Baking | oceny: 0 | języki (1): EN
+6736766728 | Loaflo: Sauerteig-Starter | oceny: 1 | języki (1): EN
+1515369685 | Rise: Back- & Brotrezepte | oceny: 11 | języki (1): EN
+6748180011 | Yeasta: Sauerteig-Tracker | oceny: 0 | języki (9): AR,EN,FR,DE,HE,IT,PT,ES,SV
+6759112264 | The Sourdough | oceny: 0 | języki (1): EN
+1536202410 | Sourdough Hydration Calc | oceny: 0 | języki (1): EN
+6738346798 | Sourdough Feeding Calculator | oceny: 0 | języki (1): EN
+1522824861 | BreadMe - Sauerteig planer | oceny: 44 | języki (5): NL,EN,FR,DE,RU
+6797501483 | Sourdough Simplified | oceny: 0 | języki (1): EN
+## pl
+1536202410 | Sourdough Hydration Calc | oceny: 0 | języki (1): EN
+6797501483 | Sourdough Simplified | oceny: 0 | języki (1): EN
+6755709217 | Sourdough Starter Tracker | oceny: 0 | języki (5): EN,FR,DE,IT,ES
+6736766728 | Loaflo: Sourdough Starter | oceny: 0 | języki (1): EN
+1515369685 | Rise: Baking & Bread Recipes | oceny: 5 | języki (1): EN
+1521410011 | breadly - Sourdough Scheduler | oceny: 0 | języki (1): EN
+6760153512 | Crumbly: Sourdough Starter | oceny: 0 | języki (1): EN
+1534576984 | Kneady: Bread & Baking Recipes | oceny: 2 | języki (1): EN
+6812466978 | Flourwise: Sourdough & Baking | oceny: 1 | języki (6): EN,FR,DE,IT,PL,PT
+6748180011 | Yeasta: Sourdough Tracker | oceny: 0 | języki (9): AR,EN,FR,DE,HE,IT,PT,ES,SV
+6738346798 | Sourdough Feeding Calculator | oceny: 0 | języki (1): EN
+6785357199 | BakeReady - Sourdough Tracker | oceny: 0 | języki (1): EN

@@ -1,0 +1,13 @@
+$ find node_modules -name PrivacyInfo.xcprivacy -not -path '*/example/*' | kategorie NSPrivacyAccessedAPIType i powody
+node_modules/expo-localization/ios/PrivacyInfo.xcprivacy: UserDefaults(CA92.1) | collected: 0 | tracking: False
+node_modules/expo-application/ios/PrivacyInfo.xcprivacy: FileTimestamp(C617.1) | collected: 0 | tracking: False
+node_modules/expo-file-system/ios/PrivacyInfo.xcprivacy: FileTimestamp(0A2A.1,3B52.1); DiskSpace(E174.1,85F4.1) | collected: 0 | tracking: False
+node_modules/expo-constants/ios/PrivacyInfo.xcprivacy: UserDefaults(CA92.1) | collected: 0 | tracking: False
+node_modules/expo-notifications/ios/PrivacyInfo.xcprivacy: UserDefaults(CA92.1) | collected: 0 | tracking: False
+node_modules/react-native/third-party-podspecs/boost/PrivacyInfo.xcprivacy: FileTimestamp(C617.1); SystemBootTime(35F9.1) | collected: 0 | tracking: False
+node_modules/react-native/third-party-podspecs/glog/PrivacyInfo.xcprivacy: FileTimestamp(C617.1) | collected: 0 | tracking: False
+node_modules/react-native/third-party-podspecs/RCT-Folly/PrivacyInfo.xcprivacy: FileTimestamp(C617.1) | collected: 0 | tracking: False
+node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy: FileTimestamp(C617.1); UserDefaults(CA92.1) | collected: 0 | tracking: False
+node_modules/react-native/ReactCommon/react/timing/PrivacyInfo.xcprivacy: SystemBootTime(35F9.1) | collected: 0 | tracking: False
+node_modules/react-native/ReactCommon/cxxreact/PrivacyInfo.xcprivacy: FileTimestamp(C617.1) | collected: 0 | tracking: False
+kod: 0

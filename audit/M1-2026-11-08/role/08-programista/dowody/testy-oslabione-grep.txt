@@ -1,0 +1,28 @@
+$ grep -rnE "\.(skip|only)\(|\bxit\(|\bxdescribe\(|\bit\.todo\(|\btest\.todo\(|expect\(true\)|^\s*//\s*expect\(" src tests app --include=*.ts --include=*.tsx
+kod: 0
+
+$ grep -rnE "@ts-ignore|@ts-expect-error|istanbul ignore|eslint-disable" src app tests --include=*.ts --include=*.tsx
+src/components/stolnica/ProwadzenieWypieku.tsx:167:  }, [nazwaKroku]); // eslint-disable-line react-hooks/exhaustive-deps
+src/components/stolnica/ProwadzenieWypieku.tsx:188:  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+src/hooks/useWersjaReceptury.ts:32:  }, [recipeId, ma]); // eslint-disable-line react-hooks/exhaustive-deps
+src/lib/i18n.ts:100:// eslint-disable-next-line @typescript-eslint/no-require-imports -- celowy leniwy require przerywa cykl importów
+src/lib/i18n-slowniki/index.ts:5:/* eslint-disable @typescript-eslint/no-require-imports -- celowo leniwe require, jedno na język */
+src/lib/qr-skaner.ts:11:    // eslint-disable-next-line @typescript-eslint/no-require-imports -- celowy leniwy require: build 1.0 nie linkuje expo-camera
+app/(tabs)/receptury/harmonogram.tsx:126:  const steps = useMemo(() => krokiDla(schedule, targetDate.getTime()), [schedule, zakwas]); // eslint-disable-line react-hooks/exhaustive-deps
+app/(tabs)/receptury/harmonogram.tsx:162:  }, [planWstecz, loading, stanCzasu.najwczesniejMs]); // eslint-disable-line react-hooks/exhaustive-deps
+app/(tabs)/receptury/harmonogram.tsx:177:  }, [stanCzasu, zakwasWczytany, rytmWczytany, planWstecz]); // eslint-disable-line react-hooks/exhaustive-deps
+tests/quality-declarations.test.ts:46:  // eslint-disable-next-line @typescript-eslint/no-var-requires
+tests/quality-gates.test.ts:89:    // eslint-disable-next-line @typescript-eslint/no-var-requires
+tests/nawigacja-jezyk-093.test.tsx:27:/* eslint-disable @typescript-eslint/no-require-imports */
+tests/nawigacja-d051.test.tsx:41:/* eslint-disable @typescript-eslint/no-require-imports */
+tests/stolnica-naglowek-prz07.test.tsx:51:/* eslint-disable @typescript-eslint/no-require-imports */
+tests/pasek-zakladek.test.tsx:27:// eslint-disable-next-line @typescript-eslint/no-require-imports
+tests/pasek-zakladek.test.tsx:29:// eslint-disable-next-line @typescript-eslint/no-require-imports
+tests/stolnica-jedna-instancja-p1.test.tsx:32:/* eslint-disable @typescript-eslint/no-require-imports */
+kod: 0
+
+$ grep -rnE "it\.each|describe\.each" -c (informacyjnie)
+91
+
+# Poprawka: kod wyjścia samego grep (powyżej kod dotyczył potoku z cut)
+grep -q (pominięcia/puste asercje) kod: 1 (1 = brak trafień)

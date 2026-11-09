@@ -1,0 +1,77 @@
+$ grep -rnE "(\?\?|\|\|) ?-?[0-9]+(\.[0-9]+)?\b|(\?\?|\|\|) ?'[^']*'|Number\(row|String\(row|Boolean\(row" src/core src/lib src/data src/hooks src/scheduler src/doctor src/recipes --include=*.ts --include=*.tsx (bez __tests__, i18n-slowniki)
+src/core/plan-ics.ts:89:  return kroki.map((k) => `${k.plannedStart ?? ''}-${k.plannedEnd ?? ''}`).join(',');
+src/core/domain-rules.ts:146:  const starterHydr = input.starterHydration ?? 100.0;
+src/core/domain-rules.ts:147:  const yeastPct = input.extraYeastPercentage ?? 0.0;
+src/core/domain-rules.ts:399:  const yeastPct = input.extraYeastPercentage ?? 0.0;
+src/core/starter-converter.ts:184:    const ratio = (input.seedRatioPercent ?? 20.0) / 100.0;
+src/core/starter-peak-predictor.ts:43:  const temp = Math.max(15, Math.min(35, input.currentTempC ?? 22.0));
+src/core/starter-peak-predictor.ts:44:  const grain = input.flourGrain ?? 'rye';
+src/core/starter-peak-predictor.ts:51:  const starterPortion = ratio[0] || 1;
+src/core/starter-peak-predictor.ts:52:  const flourPortion = ratio[1] || 1;
+src/core/dzien-lokalny.ts:77:  const r = (region ?? '').toUpperCase();
+src/core/notification-feeding.ts:28:  let offset = (weekday - (new Date(now).getDay() || 7) + 7) % 7;
+src/core/notification-feeding.ts:103:  const dzien = new Date(fedAt).getDay() || 7;
+src/core/flour-atlas.ts:402:  const sum = Math.round(flours.reduce((acc, f) => acc + (Number(f.percentage) || 0), 0) * 10) / 10;
+src/core/flour-atlas.ts:438:  const sum = flours.reduce((acc, f) => acc + (Number(f.percentage) || 0), 0);
+src/core/bake-statistics.ts:55:    ratingSum += log.ratingStars ?? 5;
+src/core/bake-statistics.ts:72:    recipeCounts[rName] = (recipeCounts[rName] || 0) + 1;
+src/core/bake-statistics.ts:119:      if ((log.ratingStars ?? 5) < filter.minRating) return false;
+src/core/rytm-wypiekow.ts:38:    liczby.set(d, (liczby.get(d) ?? 0) + 1);
+src/core/rytm-wypiekow.ts:46:  return (dzienTygodnia - new Date(now).getDay() + 7) % 7 || 7;
+src/core/yeast-stages.ts:59:const OPIS_POWIERZCHNIA = RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID)?.instructionsPl ?? '';
+src/lib/pdf-sheet-generator.ts:44:  return String(unsafe || '')
+src/lib/kalendarz-teksty.ts:28:      const krok = t(z.krok?.nazwa ?? '');
+src/lib/kalendarz-teksty.ts:43:        ? t('Zakładanie zakwasu: dzień {n}, do zrobienia', { n: z.dzienZakladania ?? 1 })
+src/lib/kalendarz-teksty.ts:44:        : t('Zakładanie zakwasu: dzień {n} zapisany', { n: z.dzienZakladania ?? 1 });
+src/lib/kalendarz-teksty.ts:49:      return t('Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie', { r1: z.nazwa, r2: z.piekarnik?.drugi ?? '' });
+src/lib/kalendarz-widok.ts:118:  return Array.from({ length: 7 }, (_, i) => ((first + i) % 7) || 7);
+src/lib/import-z-pliku.ts:32:  return typeof v === 'object' && v !== null && Reflect.get(v, 'format') === 'piekarz-backup' ? Reflect.get(v, 'schemaVersion') ?? 0 : null;
+src/lib/sr-latinica.ts:35:  return (czesci[0] ?? '').toLowerCase() === 'sr' && czesci.slice(1).some((x) => x.toLowerCase() === 'latn');
+src/lib/sr-latinica.ts:44:      const sr = getLocales().find((l) => (l.languageTag ?? '').toLowerCase().split(/[-_]/)[0] === 'sr');
+src/lib/recipe-formatter.ts:85:      const tap = formatTemperature(tapWaterTemp ?? 16, units);
+src/lib/format.ts:56:    minimumFractionDigits: opts.minimumFractionDigits ?? 0,
+src/lib/format.ts:57:    maximumFractionDigits: Math.max(opts.maximumFractionDigits ?? 1, opts.minimumFractionDigits ?? 0),
+src/lib/unit-converter.ts:327:  if (typeof txt !== 'string') return prevBase ?? 0;
+src/lib/unit-converter.ts:331:    return prevBase ?? 0;
+src/lib/i18n.ts:52:  const base0 = (parts[0] ?? '').toLowerCase();
+src/lib/i18n.ts:54:  const region = (parts.slice(1).find((x) => /^([A-Za-z]{2}|\d{3})$/.test(x)) ?? '').toUpperCase();
+src/lib/i18n.ts:55:  const script = (parts.slice(1).find((x) => /^[A-Za-z]{4}$/.test(x)) ?? '').toLowerCase();
+src/lib/plany-akcje.ts:18:  const dane: ActiveBakeState = p.bake ?? { id: p.id, recipeName: p.recipeName, startedAt: teraz, currentStageId: p.steps[0]?.id ?? '', steps: [...p.steps] };
+src/lib/recipe-sharing.ts:53:      targetDDT: recipe.targetDDT ?? 25.0,
+src/lib/recipe-sharing.ts:64:        starterHydration: recipe.formula.starterHydration ?? 100.0,
+src/lib/recipe-sharing.ts:66:        targetDoughWeightGrams: recipe.formula.targetDoughWeightGrams ?? 850,
+src/lib/csv-exporter.ts:62:    escapeCsvValue(log.actualDDT ?? ''),
+src/lib/csv-exporter.ts:63:    escapeCsvValue(log.ambientTemp ?? ''),
+src/lib/csv-exporter.ts:64:    escapeCsvValue(log.ratingStars ?? ''),
+src/lib/csv-exporter.ts:65:    escapeCsvValue(log.crumbScore ?? ''),
+src/lib/csv-exporter.ts:66:    escapeCsvValue(log.crustScore ?? ''),
+src/lib/csv-exporter.ts:67:    escapeCsvValue(log.tasteProfile ?? ''),
+src/lib/csv-exporter.ts:68:    escapeCsvValue(log.sensoryProfile?.crustCrispness ?? ''),
+src/lib/csv-exporter.ts:69:    escapeCsvValue(log.sensoryProfile?.crumbElasticity ?? ''),
+src/lib/csv-exporter.ts:70:    escapeCsvValue(log.sensoryProfile?.acidity ?? ''),
+src/lib/csv-exporter.ts:71:    escapeCsvValue(log.sensoryProfile?.openCrumb ?? ''),
+src/lib/csv-exporter.ts:72:    escapeCsvValue(log.sensoryProfile?.caramelization ?? ''),
+src/lib/csv-exporter.ts:73:    escapeCsvValue(log.notes ?? ''),
+src/lib/csv-exporter.ts:96:    escapeCsvValue(item.brand ?? ''),
+src/lib/csv-exporter.ts:97:    escapeCsvValue(item.proteinPct ?? ''),
+src/lib/notifications.ts:71:  const name = p.params.starterName ?? '';
+src/lib/notifications.ts:77:        title: t('{krok}: czas zacząć', { krok: t(p.params.stepName ?? '') }),
+src/lib/notifications.ts:102:          body: Number.isFinite(doMs) && p.params.nextEnd ? t('Do {godzina}.', { godzina: formatTime(new Date(doMs)) }) : t('Krok „{step}” dobiegł końca.', { step: t(p.params.stepName ?? '') }),
+src/lib/schedule-formatter.ts:93:      : schedule.collisionDetailsPl || '';
+src/lib/rodzaj-drozdzy.ts:35:  return biezacy ?? 'swieze';
+src/lib/backup.ts:80:const poolKey = (m: RegExpExecArray) => `${m[1]}-${(m[2] ?? '1').padStart(3, '0')}`;
+src/lib/backup.ts:286:    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0),
+src/lib/spirala-geometria.ts:105:  const r0 = opcje.r0 ?? 10;
+src/lib/spirala-geometria.ts:106:  const obrot = opcje.obrot ?? 0;
+src/data/sqlite-store.ts:105:  if (getStorageState() === 'unavailable') throw new StorageReadError(getStorageError() ?? 'read failed');
+src/data/sqlite-store.ts:208:        const e = feedEntry(last?.at ?? 0);
+src/data/sqlite-schema.ts:347:  const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
+src/data/starter-entries-store.ts:62:    limit ?? -1
+src/data/wybory-uzytkownika.ts:21:  return r.ok ? r.value[recipeId] ?? 'zakwas' : 'zakwas';
+src/hooks/useRytmPlanu.ts:35:        const nazwa = nazwaDniaTygodnia(dzien || 7);
+src/hooks/useStartPlanu.ts:58:      currentStageId: kroki[0]?.id ?? '',
+src/hooks/useParametryReceptury.ts:49:    setYeastPct(formula.extraYeastPercentage ?? 0);
+src/hooks/useParametryReceptury.ts:50:    setStarterHydration(formula.starterHydration ?? 100.0);
+src/scheduler/reverse-scheduler.ts:332:  const initialRetard = options.coldRetardHours ?? 14.0;
+src/recipes/maszyna-receptur.ts:38:const drozdzowa = (f: DoughRecipeInput) => f.starterPercentage === 0 && (f.extraYeastPercentage ?? 0) > 0;
+kod grep: 0

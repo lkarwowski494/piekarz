@@ -1,0 +1,43 @@
+$ git -C /home/user/piekarz rev-parse HEAD
+2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+kod=0
+
+$ grep -rn "orówn\|porown" src app --include=*.ts --include=*.tsx | grep -v "__tests__\|i18n"
+src/components/FlourEquivalentsModal.tsx:56:            {t('Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK')}
+src/components/PaywallModal.tsx:73:          t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
+src/lib/confirm.ts:163:  Alert.alert(t('Nie sprawdzę piekarnika'), t('Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.'), [
+src/lib/platnosci/nazwy-pro.ts:26:    case 'porownanie':
+src/lib/platnosci/nazwy-pro.ts:27:      return t('Porównanie i statystyki');
+src/lib/platnosci/konfiguracja.ts:59:  | 'porownanie' // porównanie i statystyki dziennika (BR-RECP-004)
+src/lib/platnosci/konfiguracja.ts:67: * test porównuje je z plikiem poprzedniego wydania (docs/monetyzacja/basic-1.0.json, „Basic tylko rośnie”).
+src/lib/platnosci/konfiguracja.ts:91:  'dziennik-filtr-smaku', // filtr profilu smaku; porównanie i statystyki w Pro (BR-RECP-004)
+src/core/notification-plan.ts:3:// Adapter (src/lib/notifications.ts) porównuje plan z listą oczekujących i kasuje albo planuje różnicę.
+app/(tabs)/dziennik/index.tsx:3:// i wejście do Doktora Chleba. Dziennik, „Piecz ponownie” i Doktor w Basic; statystyki i porównanie w Pro
+app/(tabs)/dziennik/index.tsx:61:          <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
+kod=0
+
+$ grep -rln "porównanie i statystyki wypieków" src/lib | wc -l   (słowniki z tym kluczem)
+34
+kod=0
+
+$ grep -n "porownanie\|BakeStatsCard" "app/(tabs)/dziennik/index.tsx"
+20:import { BakeStatsCard } from '../../../src/components/stolnica/BakeStatsCard';
+61:          <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
+62:            <BakeStatsCard stats={historia.bakeStats} />
+kod=0
+
+$ sed -n 24,29p src/components/stolnica/BakeStatsCard.tsx
+  const duzy = useDuzyTekst();
+  const pozycje: [string, string][] = [
+    [t('Łącznie wypieków'), String(stats.totalBakes)],
+    [t('Średnia ocena'), String(stats.averageRating)],
+    [t('Śr. miękisz'), `${stats.averageCrumbScore}/5`],
+    [t('Śr. skórka'), `${stats.averageCrustScore}/5`],
+kod=0
+
+$ grep -n "porown\|porówn" src/lib/wejscia-pozniej.ts  (porównanie nie ma wpisu PÓŹNIEJ)
+kod=1
+
+$ sed -n 1111p docs/decyzje.md | cut -c1-260  (D-199: zdanie Basic bez „porównania wypieków”)
+- **Odstępstwa od makiety (do weta):** (1) zdanie Basic z istniejącego klucza („…więcej zakwasów i receptur.”), makieta ma „…i porównanie wypieków.” — to ujawnienie 1 kontraktu i test `ekran-pro-pb` przypina brzmienie; (2) tytuł pasa najwy
+kod=0

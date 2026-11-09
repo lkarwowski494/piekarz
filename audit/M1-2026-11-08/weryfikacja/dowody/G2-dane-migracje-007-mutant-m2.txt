@@ -1,0 +1,109 @@
+# 07-jakosc-007 M2: usunięcie ROLLBACK w src/data/sqlite-schema.ts:385 (worktree 2ef8870a w scratchpadzie)
+$ git diff
+diff --git a/src/data/sqlite-schema.ts b/src/data/sqlite-schema.ts
+index bc3ee6e4..a5428ac4 100644
+--- a/src/data/sqlite-schema.ts
++++ b/src/data/sqlite-schema.ts
+@@ -382,7 +382,6 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
+       await db.execAsync(`PRAGMA user_version = ${m.version};`);
+       await db.execAsync('COMMIT;');
+     } catch (err: unknown) {
+-      await db.execAsync('ROLLBACK;').catch(() => {});
+       throw new MigrationError(err, backupPath);
+     }
+   }
+$ npx jest --silent --maxWorkers=4   (pełny zestaw z mutantem M2, bez plików sond)
+(node:15584) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15573) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15571) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15572) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Test Suites: 574 passed, 574 total
+Tests:       6017 passed, 6017 total
+Snapshots:   0 total
+Time:        123.753 s
+real	2m4.265s
+user	6m15.717s
+sys	0m22.393s
+kod wyjścia: 0
+
+# Skutek M2 na połączeniu aplikacji (sonda; błąd zapisu schema_migrations w v7 na kopii bazy 1021, potem „Spróbuj ponownie”)
+# | /** Sonda G2 07-jakosc-007 (M2): stan połączenia aplikacji po nieudanej migracji i „Spróbuj ponownie”. */
+# | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+# | import { useTempDbDir, restartApp, dbFilePath, control } from './helpers/node-sqlite-adapter';
+# | import { zalozBaze1021 } from './helpers/baza-1021';
+# | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+# | it('błąd migracji v7, potem odczyt na połączeniu aplikacji i ponowienie', async () => {
+# |   useTempDbDir();
+# |   zalozBaze1021(APP_DB());
+# |   control().failWritesMatching = /schema_migrations/;
+# |   const app = restartApp();
+# |   await app.schema.initDatabase();
+# |   const s1 = { stan: app.status.getStorageState(), plik: app.status.getRescueFile(), rodzaj: app.status.getRescueKind() };
+# |   control().failWritesMatching = null;
+# |   const db = (await app.schema.getDb())!;
+# |   const kol = (await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);')).map((c) => c.name).filter((n) => n === 'leaven' || n === 'bake_method');
+# |   let wTransakcji: string;
+# |   try { await db.execAsync('BEGIN;'); await db.execAsync('ROLLBACK;'); wTransakcji = 'nie (BEGIN przeszedł)'; } catch (e) { wTransakcji = 'tak: ' + (e as Error).message; }
+# |   app.status.resetStorageState('initializing');
+# |   await app.schema.initDatabase();
+# |   const s2 = { stan: app.status.getStorageState(), blad: app.status.getStorageError(), plik: app.status.getRescueFile(), rodzaj: app.status.getRescueKind() };
+# |   // eslint-disable-next-line no-console
+# |   console.log(JSON.stringify({ poBledzieMigracji: s1, kolumnyV7WidocznePolaczeniuAplikacji: kol, otwartaTransakcja: wTransakcji, poSprobujPonownie: s2 }, null, 1));
+# | });
+$ npx jest src/data/__tests__/sonda-g2-m2.sqlite.test.ts   (Z MUTANTEM M2)
+  console.log
+    {
+     "poBledzieMigracji": {
+      "stan": "unavailable",
+      "plik": "/tmp/piekarz-sqlite-vCGTKr/Library/SQLite/backup_pre_migration-v6-1794174393977.db",
+      "rodzaj": "przed-migracja"
+     },
+     "kolumnyV7WidocznePolaczeniuAplikacji": [
+      "leaven",
+      "bake_method"
+     ],
+     "otwartaTransakcja": "tak: cannot start a transaction within a transaction",
+     "poSprobujPonownie": {
+      "stan": "unavailable",
+      "blad": "Error: cannot VACUUM from within a transaction",
+      "plik": null,
+      "rodzaj": "przed-migracja"
+     }
+    }
+PASS src/data/__tests__/sonda-g2-m2.sqlite.test.ts
+  ✓ błąd migracji v7, potem odczyt na połączeniu aplikacji i ponowienie (229 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.777 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-g2-m2.sqlite.test.ts/i.
+kod wyjścia: 0
+$ git checkout -- src/data/sqlite-schema.ts && npx jest src/data/__tests__/sonda-g2-m2.sqlite.test.ts   (KOD 2ef8870a, z ROLLBACK)
+  console.log
+    {
+     "poBledzieMigracji": {
+      "stan": "unavailable",
+      "plik": "/tmp/piekarz-sqlite-11PgwP/Library/SQLite/backup_pre_migration-v6-1794174395132.db",
+      "rodzaj": "przed-migracja"
+     },
+     "kolumnyV7WidocznePolaczeniuAplikacji": [],
+     "otwartaTransakcja": "nie (BEGIN przeszedł)",
+     "poSprobujPonownie": {
+      "stan": "ok",
+      "blad": null,
+      "plik": null,
+      "rodzaj": "przed-migracja"
+     }
+    }
+PASS src/data/__tests__/sonda-g2-m2.sqlite.test.ts
+  ✓ błąd migracji v7, potem odczyt na połączeniu aplikacji i ponowienie (226 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.516 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-g2-m2.sqlite.test.ts/i.
+kod wyjścia: 0

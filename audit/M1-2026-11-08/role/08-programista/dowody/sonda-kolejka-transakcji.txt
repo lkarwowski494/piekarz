@@ -1,0 +1,87 @@
+$ npx jest --ci src/data/__tests__/sonda-08-kolejka.sqlite.test.ts  (worktree scratchpad wt-08 @ 2ef8870a, sonda spoza repo)
+  console.log
+    A wyniki ["StorageWriteError: Error: cannot rollback - no transaction is active","StorageWriteError: Error: cannot start a transaction within a transaction"]
+  console.log
+    A wpisy w bazie po [{"id":"f1"},{"id":"feed-z-2000"}]
+  console.log
+    B wyniki ["StorageWriteError: Error: cannot rollback - no transaction is active","StorageWriteError: Error: cannot start a transaction within a transaction"]
+  console.log
+    B bakes [{"id":"k1"}]
+  console.log
+    B starters [{"id":"nowy"}]
+  console.log
+    B entries [{"id":"n1"}]
+PASS src/data/__tests__/sonda-08-kolejka.sqlite.test.ts
+  sonda 08: brak kolejki zapisów
+    ✓ A: dwa saveStarter naraz (dwa stuknięcia „Dokarmione” w trakcie zapisu) (244 ms)
+    ✓ B: import kopii (restoreFromBackupData) i zapis dokarmienia w tym samym czasie (44 ms)
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.546 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-08-kolejka.sqlite.test.ts/i.
+kod: 0
+
+--- treść sondy ---
+/**
+ * SONDA audytu M1 08-programista (nie do repo): dwie transakcje withTransactionAsync naraz na jednym połączeniu.
+ * Adapter node:sqlite odwzorowuje expo-sqlite 57.0.4 (BEGIN w cudzej transakcji -> ROLLBACK cofa cudzą).
+ */
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+
+import { useTempDbDir, restartApp, openRaw, dbFilePath } from './helpers/node-sqlite-adapter';
+import type { StoredStarter, StoredStarterEntry } from '../db';
+
+const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({
+  id, name: `Zakwas ${id}`, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra,
+});
+const feed = (id: string, starterId: string, at: number): StoredStarterEntry => ({
+  id, starterId, kind: 'feeding', occurredAt: at, signs: [], createdAt: at, updatedAt: at,
+});
+
+describe('sonda 08: brak kolejki zapisów', () => {
+  beforeEach(() => useTempDbDir());
+
+  it('A: dwa saveStarter naraz (dwa stuknięcia „Dokarmione” w trakcie zapisu)', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('z'), feed('f1', 'z', 1000));
+    const wyniki = await Promise.allSettled([
+      app.store.saveStarter(starter('z', { lastFedAt: 2000, feedingRatio: '1:2:2' })),
+      app.store.saveStarter(starter('z', { lastFedAt: 3000, feedingRatio: '1:2:2' })),
+    ]);
+    const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
+    const wpisy = raw.prepare("SELECT id FROM starter_entries ORDER BY occurred_at").all();
+    const tx = raw.prepare('SELECT 1').get();
+    console.log('A wyniki', JSON.stringify(wyniki.map((w) => (w.status === 'fulfilled' ? 'ok' : `${w.reason?.name}: ${w.reason?.message}`))));
+    console.log('A wpisy w bazie po', JSON.stringify(wpisy), tx ? '' : '');
+    raw.close();
+  });
+
+  it('B: import kopii (restoreFromBackupData) i zapis dokarmienia w tym samym czasie', async () => {
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const entries = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await entries.createStarterWithEntry(starter('stary'), feed('s1', 'stary', 1000));
+    for (let i = 0; i < 5; i++) {
+      await app.store.saveBakeLog({ id: `b${i}`, recipeName: 'R', startedAt: 1000 + i, finishedAt: 2000 + i });
+    }
+    const dane = {
+      bakes: [{ id: 'k1', recipeName: 'Z kopii', startedAt: 10, finishedAt: 20 }],
+      starters: [starter('nowy')],
+      customRecipes: [],
+      starterEntries: [feed('n1', 'nowy', 500)],
+    };
+    const wyniki = await Promise.allSettled([
+      app.store.restoreFromBackupData(dane as never),
+      entries.addStarterEntry(feed('s2', 'stary', 4000)),
+    ]);
+    const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
+    console.log('B wyniki', JSON.stringify(wyniki.map((w) => (w.status === 'fulfilled' ? 'ok' : `${w.reason?.name}: ${w.reason?.message}`))));
+    console.log('B bakes', JSON.stringify(raw.prepare('SELECT id FROM bakes ORDER BY id').all()));
+    console.log('B starters', JSON.stringify(raw.prepare('SELECT id FROM starters ORDER BY id').all()));
+    console.log('B entries', JSON.stringify(raw.prepare('SELECT id FROM starter_entries ORDER BY id').all()));
+    raw.close();
+  });
+});

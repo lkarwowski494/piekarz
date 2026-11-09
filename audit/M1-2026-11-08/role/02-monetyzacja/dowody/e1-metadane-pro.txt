@@ -1,0 +1,23 @@
+# Metadane sklepu: funkcje Pro bez oznaczenia (odczyt 2026-11-08)
+$ node -e (podtytul, tekstPromocyjny, ramki 1 i 5 z docs/wydanie/metadane/{pl,en-US,de-DE}.json)
+pl | promo: Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.
+  ramka1: {"naglowek":"Chleb gotowy na twoją godzinę","podtytul":"Plan wstecz bez kroków w środku nocy"} 
+  ramka5: {"naglowek":"Zakwas zawsze gotowy na czas","podtytul":"Ilości do dokarmienia i przypomnienie po 12 godzinach"}
+en-US | promo: Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.
+  ramka1: {"naglowek":"Bread Ready When You Want It","podtytul":"A plan worked back from your time, with no steps at night"} 
+  ramka5: {"naglowek":"Your Starter, Ready on Time","podtytul":"Feeding amounts and a reminder after 12 hours"}
+de-DE | promo: Stell ein, wann dein Brot fertig sein soll: Bäcker berechnet die Mengen, plant rückwärts und meldet sich am Ende jedes Schritts. Ohne Konto, ohne Internet, ohne Werbung.
+  ramka1: {"naglowek":"Brot fertig zu deiner Wunschzeit","podtytul":"Rückwärts geplant, ohne Schritte mitten in der Nacht"} 
+  ramka5: {"naglowek":"Sauerteig immer pünktlich bereit","podtytul":"Mengen zum Auffrischen und Erinnerung nach 12 Stunden"}
+kod: 0
+$ grep -c "Pro" w tekstPromocyjny i ramkach wszystkich 34 lokalizacji
+lokalizacje z „Pro” w promo/ramkach: 0 z 34
+kod: 0
+$ grep -n (kontrakt, Z-8) docs/monetyzacja.md
+142:| Z-8 | opis sklepu i zrzuty w 35 lokalizacjach: „Free Basic forever. Pro 
+$ src/lib/platnosci/konfiguracja.ts: plan-wstecz, przypomnienia-zakwasu, proporcje-zakwasu, kolejny-zakwas, porownanie = Pro (nie w BASIC)
+44:  | 'plan-wstecz' // „gotowe o…”, ochrona snu, czas fermentacji z temperatury (BR-HARMO-001…003)
+53:  | 'przypomnienia-zakwasu' // przypomnienia o dokarmianiu poza zakładaniem (BR-ZAKW-004)
+54:  | 'proporcje-zakwasu' // dokarmianie z proporcją (BR-ZAKW-002)
+57:  | 'kolejny-zakwas' // drugi i kolejne zakwasy ponad LIMITY_BASIC.zakwasy (BR-ZAKW-001)
+59:  | 'porownanie' // porównanie i statystyki dziennika (BR-RECP-004)

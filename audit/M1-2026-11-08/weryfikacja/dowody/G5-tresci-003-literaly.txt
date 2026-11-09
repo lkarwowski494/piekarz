@@ -1,0 +1,91 @@
+$ (cd /home/user/piekarz && for s in "Najprostszy chleb świata" "Spektakularny piecowy skok" "łyżki miodu" "świeżość przez tydzień" "minimum 13%" "ugotowaniem drożdży" "Reakcja Maillarda tworzy" "głęboki aromat" "4 serie składań" "rozgrzej do 240" "20 min pod pokrywką"; do echo "$(grep -rlF "$s" docs/tresci | wc -l) plików docs/tresci z: $s"; done)
+0 plików docs/tresci z: Najprostszy chleb świata
+0 plików docs/tresci z: Spektakularny piecowy skok
+0 plików docs/tresci z: łyżki miodu
+0 plików docs/tresci z: świeżość przez tydzień
+0 plików docs/tresci z: minimum 13%
+0 plików docs/tresci z: ugotowaniem drożdży
+0 plików docs/tresci z: Reakcja Maillarda tworzy
+0 plików docs/tresci z: głęboki aromat
+0 plików docs/tresci z: 4 serie składań
+0 plików docs/tresci z: rozgrzej do 240
+0 plików docs/tresci z: 20 min pod pokrywką
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && python3 -c "
+import json,re
+L=json.load(open(\"docs/tresci/rejestr.json\"))
+for pat in [\"240\",\"210 °C\",\"45 °C\",\"miod\",\"tydzień\",\"Maillard\"]:
+  print(pat, [t[\"id\"]+\":\"+t[\"status\"] for t in L if re.search(pat,t.get(\"twierdzenie\",\"\"))])
+")
+240 ['ZYT-ETA-007:potwierdzone', 'DIA-LIC-900:wycofane', 'ZYT-DRO-002:potwierdzone']
+210 °C []
+45 °C []
+miod []
+tydzień ['ZAK-LOD-007:potwierdzone']
+Maillard []
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -n "OP-34\|OP-39" docs/brd/README.md | cut -c1-200; grep -n "230/195 °C receptury na zakwasie nie ma źródła" docs/decyzje.md | cut -c1-60)
+36:| OP-34 | [DO USTALENIA] powyżej jakiej temperatury wody aplikacja ostrzega, że zaszkodzi drożdżom i zakwasowi (kod: 45 °C bez źródła) | źródła szczebla 1–3, rola 06 | RD-16 |
+41:| OP-39 | [DO USTALENIA] progi faz zakwasu w godzinach po dokarmieniu (kod: do 2 h, do 5 h, szczyt 5–9 h, głodny po 14 h) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
+1484:- **(b) Pieczenie żyta na drożdżach:** wygrywa źró
+kod wyjścia: 0
+
+--- skrypt kierunku odwrotnego (przybliżenie, poza repo): literały w apostrofach >=12 znaków, ze spacją i polską literą, z app/ i src/ bez __tests__ i słowników i18n, bez dokładnego odpowiednika w docs/tresci/pl (po usunięciu znaczników [T:...]):
+import os,re,sys,collections
+root=sys.argv[1]
+tresci=''
+for d,_,fs in os.walk(os.path.join(root,'docs/tresci/pl')):
+  for f in fs: tresci+=open(os.path.join(d,f),encoding='utf-8').read()+'\n'
+tresci_n=re.sub(r'\s*\[T:[^\]]*\]','',tresci)
+lit=re.compile(r"'((?:[^'\\\n]|\\.){12,})'")
+pl=re.compile(r'[ąćęłńóśźż]|\b(?i:i|w|na|do|się|nie|z)\b')
+cnt=collections.Counter(); tot=0; num=0
+for base in ('app','src'):
+  for d,_,fs in os.walk(os.path.join(root,base)):
+    if '__tests__' in d or 'i18n' in d: continue
+    for f in fs:
+      if not f.endswith(('.ts','.tsx')) or f.startswith('i18n'): continue
+      p=os.path.join(d,f); s=open(p,encoding='utf-8').read()
+      for m in lit.finditer(s):
+        v=m.group(1)
+        if ' ' not in v or not re.search(r'[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]',v): continue
+        if v in tresci_n: continue
+        tot+=1
+        if re.search(r'\d',v):
+          num+=1; cnt[os.path.relpath(p,root)]+=1
+print('literaly PL (>=12 znakow, ze spacja i polska litera) bez dokladnego odpowiednika w docs/tresci/pl:',tot)
+print('w tym z cyfra:',num)
+for k,v in cnt.most_common(25): print(v,k)
+
+$ (cd /home/user/piekarz && python3 -I /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/skrypty/odwrotny.py /home/user/piekarz)
+literaly PL (>=12 znakow, ze spacja i polska litera) bez dokladnego odpowiednika w docs/tresci/pl: 1193
+w tym z cyfra: 298
+51 src/core/bread-school-lessons.ts
+16 src/core/zrodla-wiedzy.ts
+15 src/recipes/discard-recipes.ts
+15 src/core/techniques/prep-ferment-techniques.ts
+14 src/recipes/presets-zakwas.ts
+14 src/core/techniques/shaping-baking-techniques.ts
+13 src/core/domain-rules.ts
+13 src/core/flour-atlas.ts
+11 src/recipes/presets-drozdzowe.ts
+11 src/lib/nazwa-maki-mieszanki.ts
+9 src/recipes/katalog-m3-drozdzowe.ts
+9 src/lib/recipe-sharing.ts
+9 src/core/flour-equivalents.ts
+7 src/core/legacy-steps-v1.ts
+6 src/recipes/presets-pizza-slodkie.ts
+6 src/recipes/katalog-m3-slodkie.ts
+5 src/components/receptury/SkladnikiSheet.tsx
+5 src/recipes/katalog-m3-zakwas-zyto.ts
+5 src/scheduler/reverse-scheduler.ts
+5 src/core/preferments.ts
+4 src/components/stolnica/DutchOvenController.tsx
+4 src/recipes/wersje-drozdzowe.ts
+4 src/lib/confirm.ts
+4 src/core/starter-converter.ts
+4 src/core/bake-loss.ts
+kod wyjścia: 0
+

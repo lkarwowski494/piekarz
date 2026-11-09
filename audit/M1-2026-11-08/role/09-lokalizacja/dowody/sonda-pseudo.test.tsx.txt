@@ -1,0 +1,100 @@
+/* Sonda roli 09 (audyt M1 2026-11-08): słownik „de” podmieniony na pseudolokalizację (⟦…~⟧ z akcentami), ekrany
+   renderowane w react-test-renderer; wypisuje teksty i etykiety VoiceOver bez znacznika ⟦ (tekst poza t() albo dane). */
+jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
+jest.mock('react-native-safe-area-context', () => {
+  const React = require('react');
+  return {
+    SafeAreaView: ({ children, style }: { children: React.ReactNode; style?: unknown }) => React.createElement('View', { style }, children),
+    useSafeAreaInsets: () => ({ top: 0, left: 0, right: 0, bottom: 0 }),
+  };
+});
+const mockNawigacja = { push: jest.fn(), navigate: jest.fn(), replace: jest.fn(), back: jest.fn() };
+jest.mock('expo-router', () => {
+  const React = require('react');
+  return {
+    get router() { return mockNawigacja; },
+    useRouter: () => mockNawigacja,
+    useLocalSearchParams: () => ({}),
+    useFocusEffect: (cb: () => void) => React.useEffect(cb, []),
+    Stack: Object.assign(({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, null, children), {
+      Screen: ({ options }: { options?: { headerRight?: (p: object) => React.ReactNode } }) =>
+        options && options.headerRight ? React.createElement(React.Fragment, null, options.headerRight({})) : null,
+    }),
+    Tabs: Object.assign(({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, null, children), { Screen: () => null }),
+  };
+});
+jest.mock('../../src/lib/i18n-slowniki', () => {
+  const ZN = /\{[^{}]*\}/g;
+  const AKC: Record<string, string> = Object.fromEntries([...'aceinorsuyzACEINORSUYZ'].map((c, i) => [c, 'àçéîñöŕšûýžÀÇÉÎÑÖŔŠÛÝŽ'[i]]));
+  const pseudo = (s: string) => {
+    let w = '', od = 0;
+    for (const m of s.matchAll(ZN)) { w += s.slice(od, m.index).replace(/\p{L}/gu, (c) => AKC[c] ?? c) + m[0]; od = m.index! + m[0].length; }
+    w += s.slice(od).replace(/\p{L}/gu, (c) => AKC[c] ?? c);
+    return `⟦${w}~⟧`;
+  };
+  const { EN } = jest.requireActual('../../src/lib/i18n.en');
+  const de = jest.requireActual('../../src/lib/i18n-slowniki/de').SLOWNIK;
+  const slownik: Record<string, string> = {};
+  for (const k of new Set([...Object.keys(EN), ...Object.keys(de)])) slownik[k] = pseudo(k.includes('#') ? (de[k] ?? EN[k]) : k.split('|')[0]);
+  return { LADOWANIE_SLOWNIKOW: { de: () => slownik } };
+});
+
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
+import { setLang } from '../../src/lib/i18n';
+import { initDatabase, _resetMemStore } from '../../src/data/sqlite-store';
+import { AppAccessProvider } from '../../src/components/AppAccessProvider';
+import { zUprawnieniem } from '../helpers/platnosci';
+import { zacznijWypiekBezReceptury } from '../helpers/wypiek';
+
+const flush = async () => { await act(async () => { for (let i = 0; i < 30; i++) await Promise.resolve(); }); };
+const wynik: string[] = [];
+function zbierz(nazwa: string, tree: renderer.ReactTestRenderer) {
+  const teksty = new Set<string>();
+  const tekstWezla = (n: renderer.ReactTestInstance): string => n.children.map((c) => (typeof c === 'string' ? c : tekstWezla(c))).join('');
+  for (const n of tree.root.findAll((x) => (x.type as unknown) === 'Text')) {
+    const s = tekstWezla(n).trim();
+    if (/\p{L}{2,}/u.test(s) && !s.includes('⟦')) teksty.add(`tekst: ${s}`);
+  }
+  for (const n of tree.root.findAll((x) => typeof x.props?.accessibilityLabel === 'string' || typeof x.props?.accessibilityHint === 'string' || typeof x.props?.placeholder === 'string')) {
+    for (const p of ['accessibilityLabel', 'accessibilityHint', 'placeholder']) {
+      const s = n.props[p];
+      if (typeof s === 'string' && /\p{L}{2,}/u.test(s) && !s.includes('⟦')) teksty.add(`${p}: ${s}`);
+    }
+  }
+  wynik.push(`## ${nazwa}: ${teksty.size}`, ...[...teksty].map((x) => `- ${x.slice(0, 160)}`));
+}
+async function render(el: React.ReactElement) {
+  let tree: renderer.ReactTestRenderer | null = null;
+  await act(async () => { tree = renderer.create(<AppAccessProvider>{el}</AppAccessProvider>); });
+  await flush();
+  return tree!;
+}
+
+const EKRANY: [string, () => React.ReactElement][] = [
+  ['Dziś', () => React.createElement(require('../../app/(tabs)/(dzis)/index').default)],
+  ['Receptury (lista)', () => React.createElement(require('../../app/(tabs)/receptury/index').default)],
+  ['Receptura', () => React.createElement(require('../../app/(tabs)/receptury/receptura').default)],
+  ['Harmonogram', () => React.createElement(require('../../app/(tabs)/receptury/harmonogram').default)],
+  ['Zakwasy', () => React.createElement(require('../../app/(tabs)/zakwasy/index').default)],
+  ['Doktor zakwasu', () => React.createElement(require('../../app/(tabs)/zakwasy/doktor-zakwasu').default)],
+  ['Dziennik', () => React.createElement(require('../../app/(tabs)/dziennik/index').default)],
+  ['Doktor', () => React.createElement(require('../../app/doktor').default)],
+  ['Stolnica (trwający wypiek)', () => React.createElement(require('../../app/stolnica').default)],
+  ['Ustawienia', () => React.createElement(require('../../src/components/SettingsModal').SettingsModal, { visible: true, onClose: () => undefined })],
+  ['Ekran awaryjny', () => React.createElement(require('../../src/components/RescueScreen').RescueScreen, { onRetry: async () => undefined })],
+];
+
+describe('sonda pseudolokalizacji (de → pseudo)', () => {
+  beforeEach(async () => { _resetMemStore(); zUprawnieniem(); await initDatabase(); setLang('de'); });
+  afterAll(() => { require('fs').writeFileSync(process.env.SONDA_WYNIK ?? '/dev/stdout', wynik.join('\n') + '\n'); });
+  for (const [nazwa, el] of EKRANY) {
+    it(nazwa, async () => {
+      if (nazwa.startsWith('Stolnica')) await zacznijWypiekBezReceptury(Date.now());
+      setLang('de');
+      const tree = await render(el());
+      zbierz(nazwa, tree);
+      await act(async () => tree.unmount());
+    });
+  }
+});

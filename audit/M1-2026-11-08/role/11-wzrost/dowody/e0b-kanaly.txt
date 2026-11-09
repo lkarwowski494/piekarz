@@ -1,0 +1,10 @@
+$ curl kanały niszy (odczyt 2026-11-08)
+https://www.thefreshloaf.com/ -> HTTP 200
+https://www.thefreshloaf.com/node/75040 -> HTTP 200
+https://www.reddit.com/r/Sourdough/about/rules.json -> HTTP 403
+https://www.reddit.com/r/Breadit/about/rules.json -> HTTP 403
+curl: (56) CONNECT tunnel failed, response 502
+https://forum.mojewypieki.com/ -> HTTP 000
+TFL /node/75040 (Site FAQs): grep promot|advertis|commercial|selling -> brak zasady o autopromocji w treści strony
+TFL /about: 'I do not send marketing or unsolicited emails' (polityka strony, nie regulamin wpisów)
+Loaflo recenzja 12133709008 (2025-01-02): 'I found this app through TikTok'

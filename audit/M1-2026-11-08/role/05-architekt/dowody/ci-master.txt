@@ -1,0 +1,17 @@
+$ gh api repos/lkarwowski494/piekarz/actions/runs?branch=master&per_page=8 (2026-11-08)
+Build & Upload to TestFlight (iOS) #23 success 2ef8870a 2026-11-08T18:42:48Z
+CI #117 success 2ef8870a 2026-11-08T18:42:44Z
+Tests across Timezones (TZ Matrix) #77 success 2ef8870a 2026-11-08T18:42:44Z
+iOS E2E (Maestro na symulatorze) #96 failure 2ef8870a 2026-11-08T18:42:44Z
+Nightly Deep Verification & Fuzzing #25 failure 9c255a0a 2026-11-08T08:41:18Z
+Nightly Deep Verification & Fuzzing #24 cancelled 9c255a0a 2026-11-07T08:27:57Z
+Nightly Deep Verification & Fuzzing #23 cancelled 9c255a0a 2026-11-06T08:59:21Z
+Nightly Deep Verification & Fuzzing #22 cancelled 9c255a0a 2026-11-05T09:06:12Z
+$ gh api repos/lkarwowski494/piekarz/actions/jobs/128824910988/logs | grep -E "\[(Passed|Failed)\]|Flow"
+2026-11-08T19:10:15.6295980Z [Passed] 03-prowadzenie-widok-skupiony (1m 8s)
+2026-11-08T19:10:39.1352350Z [Passed] 01-pierwsze-uruchomienie (23s)
+2026-11-08T19:11:32.7780640Z [Passed] 04-plan-na-pozniej (54s)
+2026-11-08T19:12:14.7062500Z [Passed] 02-wypiek-na-stolnicy (42s)
+2026-11-08T19:12:51.4945720Z [Failed] 05-dwa-wypieki (37s) (Assertion is false: id: next-or-finish-step-btn is visible)
+2026-11-08T19:12:51.4986340Z 1/5 Flow Failed
+kod: 0

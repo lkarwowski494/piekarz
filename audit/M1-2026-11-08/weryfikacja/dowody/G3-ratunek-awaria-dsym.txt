@@ -1,0 +1,33 @@
+# G3-ratunek-awaria — 12-niezawodnosc-003: dSYM w buildzie 1023
+
+$ gh run view 42511360071 -R lkarwowski494/piekarz --json displayTitle,headSha,conclusion,createdAt (skrót)
+{"conclusion":"success","createdAt":"2026-11-08T18:42:48Z","displayTitle":"Build & Upload to TestFlight (iOS)","headSha":"2ef8870a525485cc1ac57e5abe9d97d9937dfe42"}
+kod wyjścia: 0
+
+$ gh run view 42511360071 -R lkarwowski494/piekarz --log > run.log (scratchpad, 51604 linii; kod wyjścia: 0)
+$ grep -n "Ustawianie wersji 1.0.0\|Upload succeeded\|Upload Symbols Failed\|EXPORT SUCCEEDED" run.log
+5408:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:11:06.6712130Z Ustawianie wersji 1.0.0 (1023)
+51326:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:21:29.0953180Z 2026-11-08 19:21:29.008 xcodebuild[30595:99560] Progress 26%: Upload succeeded.
+51327:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:21:29.0954830Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the React.framework with the UUIDs [EE15B752-FB46-35F2-B0BB-A46636572385]. Ensure that the archive's dSYM folder includes a DWARF file for React.framework with the expected UUIDs.
+51329:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:21:29.0960430Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the ReactNativeDependencies.framework with the UUIDs [DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2]. Ensure that the archive's dSYM folder includes a DWARF file for ReactNativeDependencies.framework with the expected UUIDs.
+51331:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:21:29.0966760Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the hermesvm.framework with the UUIDs [BE274A23-47CC-3F5A-9E98-8474553DF5A8]. Ensure that the archive's dSYM folder includes a DWARF file for hermesvm.framework with the expected UUIDs.
+51334:Archive & Upload (.ipa -> TestFlight)	UNKNOWN STEP	2026-11-08T19:21:29.0969170Z ** EXPORT SUCCEEDED **
+kod wyjścia: 0
+
+$ sed -n 271,272p .github/workflows/testflight.yml
+            <key>uploadSymbols</key>
+            <true/>
+kod wyjścia: 0
+
+$ grep -n -i "dsym\|DEBUG_INFORMATION_FORMAT\|dwarf" .github/workflows/testflight.yml
+# (jedyne trafienie to „uploaDSYMbols” — podciąg, nie krok dSYM)
+271:            <key>uploadSymbols</key>
+kod wyjścia: 0
+
+$ sed -n 189p docs/wznowienie-M3.md
+- Ostrzeżenia bez wpływu na build: brak dSYM dla React.framework, ReactNativeDependencies.framework, hermesvm.framework (symbolikacja awarii tych frameworków w ASC niepełna; brzegowe).
+kod wyjścia: 0
+
+$ grep -rn -i "dsym" docs/decyzje.md docs/DECISIONS.md docs/adr CLAUDE.md
+kod wyjścia: 1
+

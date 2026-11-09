@@ -1,0 +1,80 @@
+$ curl -sSL --compressed https://apps4brew.com/ (odczyt 2026-11-08) -> HTTP 200; tekst bez znaczników, wycinek o Piekarzu i cenie; kod 0
+Apps4Brew — aplikacje tańsze niż espresso
+Przejdź do treści
+Apps4Brew
+Aplikacje
+Jak robimy
+Indeks espresso
+Studio
+PL
+EN
+Studio aplikacji z Warszawy
+Aplikacje tańsze niż espresso.
+Robimy małe, dopracowane aplikacje na iPhone’a. Miesięczna subskrypcja kosztuje mniej niż jedno espresso w kawiarni. Bez reklam i bez sprzedawania danych.
+Zobacz aplikacje
+Indeks espresso
+...
+Piekarz: chleb na zakwasie
+Zbiór
+research
+Obróbka
+projekt
+Palenie
+budowa z testami
+Parzenie
+testy z ludźmi
+Podanie
+App Store
+Na iPhone’a, w 35 językach przed wydaniem.
+Od receptury do bochenka: ilości w procencie piekarskim i temperatura wody
+Pilnuje czasu etapów, także gdy telefon śpi
+Prowadzenie zakwasu i dziennik wypieków, żeby następny bochenek wyszedł lepiej
+Prywatność: bez konta, dane tylko na Twoim telefonie, działa bez internetu.
+Polityka prywatności
+Wsparcie
+...
+Indeks espresso
+Miesiąc tańszy niż espresso.
+
+$ curl https://apps4brew.com/piekarz/ -> HTTP 404; https://apps4brew.com/piekarz/index.html -> HTTP 404
+$ curl https://apps.apple.com/pl/app/id6823726745 -> HTTP 404; .../us/app/id6823726745 -> HTTP 404 (aplikacja niewydana)
+$ gh api repos/lkarwowski494/apps4brew-www/contents/piekarz -> "GitHub access to this repository is not enabled for this session" (repo nieodczytane, czytano opublikowane strony)
+
+$ curl https://apps4brew.com/piekarz/support.html -> HTTP 200 (wycinek)
+Piekarz — wsparcie — Apps4Brew
+Przejdź do treści
+Apps4Brew
+PL
+EN
+Piekarz — wsparcie
+Zbiór
+research
+Obróbka
+projekt
+Palenie
+budowa z testami
+Parzenie
+testy z ludźmi
+Podanie
+App Store
+Etap 4 z 5: parzenie
+Kontakt
+Pytania, błędy i pomysły:
+support@apps4brew.com
+. Czytamy każdą wiadomość.
+Aplikacja niczego nie wysyła sama — „Napisz do nas” w ustawieniach otwiera Twoją pocztę, a wiadomość wysyłasz Ty.
+Co dołączyć: kroki, które prowadzą do problemu, i — jeśli dotyczy wypieku — recepturę oraz temperaturę w kuchni. Wersję aplikacji i iOS aplikacja wpisuje sama.
+Nie dołączaj kopii zapasowej z danymi, chyba że o to poprosimy.
+Jak przetwarzamy wiadomości, które do nas wysyłasz, opisuje
+polityka prywatności
+(sekcja „Gdy do nas piszesz”).
+Pytania i odpowiedzi
+Czy aplikacja potrzebuje internetu?
+Nie. Obliczenia (procent piekarski, temperatura wody, harmonogram) i przypomnienia działają na telefonie, bez połączenia.
+Jak przenieść receptury i wypieki na nowy telefon?
+W ustawieniach aplikacji wyeksportuj kopię zapasową, prześlij plik na nowy telefon (np. AirDrop albo Pliki) i zaimportuj go tam w ustawieniach. Przed importem aplikacja zapisuje kopię bezpieczeństwa obecnych danych.
+Jak zmienić stopnie Celsjusza na Fahrenheita i gramy na uncje?
+W ustawieniach aplikacji wybierz jednostki metryczne albo imperialne. Domyślnie aplikacja wybiera je według regionu telefonu.
+Gdzie są moje dane?
+Tylko na Twoim telefonie, w pamięci aplikacji. Aplikacja nie ma konta i nic nie wysyła. Szczegóły:
+polityka p

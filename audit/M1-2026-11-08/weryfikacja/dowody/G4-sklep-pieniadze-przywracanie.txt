@@ -1,0 +1,46 @@
+$ npx jest src/__tests__/sonda-g4-przywracanie.test.tsx   (sonda w git worktree w scratchpadzie, plik spoza repo)
+--- treść sondy ---
+// Sonda weryfikacji G4 (02-monetyzacja-004): synchronizacja udana, odczyt uprawnień rzuca.
+import { Alert } from 'react-native';
+import * as Iap from 'expo-iap';
+import { initDatabase, _resetMemStore } from '../data/sqlite-store';
+import { pobierzStan } from '../lib/platnosci/stan';
+import { przywrocZakupy } from '../lib/app-access';
+import { przywrocZKomunikatem } from '../components/przywroc-zakupy';
+import { PRODUKTY } from '../lib/platnosci/konfiguracja';
+import { bezUprawnienia, mockIap } from '../../tests/helpers/platnosci';
+
+it('sonda: restore OK, getAvailablePurchases throws', async () => {
+  _resetMemStore();
+  bezUprawnienia();
+  await initDatabase();
+  const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+  (Iap.restorePurchases as jest.Mock).mockImplementation(async () => {
+    mockIap.entitlements = [{ id: 'tx', transactionId: 'tx', productId: PRODUKTY.lifetime, purchaseState: 'purchased', transactionDate: 1, platform: 'ios' }];
+  });
+  (Iap.getAvailablePurchases as jest.Mock).mockImplementation(async () => { throw new Error('timeout'); });
+  const ok = await przywrocZKomunikatem(przywrocZakupy);
+  console.log('SONDA wynik', ok, 'dostep', pobierzStan().decyzja.dostep, 'alert', JSON.stringify(alert.mock.calls));
+  expect(ok).toBe(false);
+});
+--- wynik ---
+  console.log
+    SONDA wynik false dostep false alert [["Przywróć zakupy","Nie znaleziono aktywnych zakupów"]]
+      at Object.log (src/__tests__/sonda-g4-przywracanie.test.tsx:21:11)
+PASS src/__tests__/sonda-g4-przywracanie.test.tsx
+  ✓ sonda: restore OK, getAvailablePurchases throws (17 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.588 s, estimated 4 s
+Ran all test suites matching /src\/__tests__\/sonda-g4-przywracanie.test.tsx/i.
+kod=0
+
+$ sed -n 164,169p src/lib/platnosci/sklep.ts
+/** Przywracanie na wyraźne żądanie użytkownika (AppStore.sync), potem bieżące uprawnienia. */
+export async function przywroc(): Promise<Odczyt> {
+  await polacz();
+  await Iap.restorePurchases();
+  return odczytajSklep();
+}
+kod=0

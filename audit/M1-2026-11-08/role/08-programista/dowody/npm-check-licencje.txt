@@ -1,0 +1,7 @@
+$ npm run check:licencje
+
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+kod: 0

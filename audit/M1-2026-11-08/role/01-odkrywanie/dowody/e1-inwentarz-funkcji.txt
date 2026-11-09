@@ -1,0 +1,134 @@
+$ grep -rn (wzorce funkcji) app src --include=*.ts --include=*.tsx (bez __tests__)
+## scheduleNotificationAsync
+src/lib/notifications.ts:160:        await Notifications.scheduleNotificationAsync({
+## requestPermissionsAsync
+src/lib/notifications.ts:212:      await Notifications.requestPermissionsAsync({ ios: { allowAlert: true, allowSound: true, allowBadge: false } });
+## interruptionLevel
+src/lib/notifications.ts:165:            interruptionLevel: p.level,
+## requestPurchase\|fetchProducts\|getProducts\|restorePurchases\|getAvailablePurchases
+src/components/AppAccessProvider.tsx:16:  const { access, isPaywallVisible, setPaywallVisible, subscribe, restorePurchases } = useAppAccess();
+src/components/AppAccessProvider.tsx:35:        onRestore={restorePurchases}
+src/lib/app-access.ts:141:  const restorePurchases = useCallback(przywrocZakupy, []);
+src/lib/app-access.ts:154:    restorePurchases,
+src/lib/platnosci/sklep.ts:4:// (Transaction.currentEntitlements: getAvailablePurchases z onlyIncludeActiveItemsIOS) na Uprawnienie[].
+src/lib/platnosci/sklep.ts:104:    const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
+src/lib/platnosci/sklep.ts:125:  const produkty = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
+src/lib/platnosci/sklep.ts:154:        ? await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } })
+src/lib/platnosci/sklep.ts:155:        : await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
+src/lib/platnosci/sklep.ts:167:  await Iap.restorePurchases();
+## productId\|PRODUCT_ID\|'com\.apps4brew
+src/lib/platnosci/sklep.ts:50:  if (wygasa === null && SUBSKRYPCJE.includes(p.productId)) return null;
+src/lib/platnosci/sklep.ts:52:  return { produkt: p.productId, wygasa, odebrane, ...odnawianie(p) };
+src/lib/platnosci/konfiguracja.ts:13:  monthly: 'com.apps4brew.baker.pro.monthly',
+src/lib/platnosci/konfiguracja.ts:14:  yearly: 'com.apps4brew.baker.pro.yearly',
+src/lib/platnosci/konfiguracja.ts:15:  lifetime: 'com.apps4brew.baker.pro.lifetime',
+## fetch(\|axios\|XMLHttpRequest\|WebSocket
+## Linking.openURL\|openURL(
+src/components/settings/StudioEcosystemSection.tsx:75:          onPress={() => void Linking.openURL(PRIVACY_URL)}
+src/components/settings/StudioEcosystemSection.tsx:107:              Linking.openURL(APP_STORE_REVIEW_URL).catch(() =>
+src/components/PaywallModal.tsx:167:      <Pressable testID="terms-of-use-btn" onPress={() => Linking.openURL(APPLE_EULA_URL)} style={styles.link} accessibilityRole="link">
+src/components/PaywallModal.tsx:170:      <Pressable testID="privacy-policy-btn" onPress={() => Linking.openURL(PRIVACY_URL)} style={styles.link} accessibilityRole="link">
+src/lib/platnosci/sklep.ts:179:    await Linking.openURL(APPLE_SUBSCRIPTIONS_URL);
+## mailto:
+## StoreReview\|requestReview
+src/lib/prosba-o-ocene.ts:18:  /** Daty poprzednich wywołań requestReview() w ms od epoki (NaN = uszkodzony zapis). */
+src/lib/prosba-o-ocene-wywolanie.ts:7:import * as StoreReview from 'expo-store-review';
+src/lib/prosba-o-ocene-wywolanie.ts:38:    if (!(await StoreReview.isAvailableAsync()) || !(await StoreReview.hasAction())) return;
+src/lib/prosba-o-ocene-wywolanie.ts:44:    await StoreReview.requestReview();
+## shareAsync\|Share.share
+src/components/ShareRecipeQrModal.tsx:51:      await Share.share({
+src/components/StorageGate.tsx:21:  await Sharing.shareAsync(uri, { mimeType, dialogTitle: t('Udostępnij kopię bazy') });
+src/lib/kalendarz-telefonu.ts:52:    await Sharing.shareAsync(sciezka, { mimeType: 'text/calendar', UTI: UTI_KALENDARZ, dialogTitle: t('Dodaj do kalendarza') });
+src/lib/pdf-sheet-generator.ts:473:    await Sharing.shareAsync(uri, {
+src/lib/pdf-sheet-generator.ts:505:    await Sharing.shareAsync(uri, {
+src/lib/csv-exporter.ts:121:    await Sharing.shareAsync(targetPath, {
+src/lib/backup.ts:96:    await Sharing.shareAsync(path, opts);
+## DocumentPicker\|getDocumentAsync
+## Clipboard
+app/doktor.tsx:17:import { copyDiagnosisToClipboard } from '../src/lib/diagnosis-formatter';
+app/doktor.tsx:79:      await copyDiagnosisToClipboard(diagnosis);
+app/(tabs)/receptury/harmonogram.tsx:17:import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
+app/(tabs)/receptury/harmonogram.tsx:225:    await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
+app/(tabs)/zakwasy/index.tsx:22:import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
+app/(tabs)/zakwasy/index.tsx:160:    const copied = await copyFeedingToClipboard(starter, feeding, selectedRatio);
+src/components/doktor/DiagnosisResultCard.tsx:150:      {/* Copy Diagnosis to Clipboard Button */}
+src/components/ImportRecipeModal.tsx:20:import * as Clipboard from 'expo-clipboard';
+src/components/ImportRecipeModal.tsx:60:  const handlePasteClipboard = async () => {
+src/components/ImportRecipeModal.tsx:62:      const text = await Clipboard.getStringAsync();
+src/components/ImportRecipeModal.tsx:131:                onPress={handlePasteClipboard}
+src/components/settings/ImportZPlikuArkusz.tsx:11:import * as Clipboard from 'expo-clipboard';
+src/components/settings/ImportZPlikuArkusz.tsx:41:      const tekst = await Clipboard.getStringAsync();
+src/lib/zgloszenie-wyslanie.ts:9:import * as Clipboard from 'expo-clipboard';
+src/lib/zgloszenie-wyslanie.ts:17:    { text: t('Kopiuj adres'), onPress: () => void Clipboard.setStringAsync(adres).catch(() => {}) },
+src/lib/i18n-en/czesc-1.ts:219:  // Schedule & Diagnosis Clipboard & History Management
+src/lib/i18n-en/czesc-2.ts:125:  'Błąd schowka': 'Clipboard error',
+src/lib/feeding-formatter.ts:1:import * as Clipboard from 'expo-clipboard';
+src/lib/feeding-formatter.ts:33:export async function copyFeedingToClipboard(
+src/lib/feeding-formatter.ts:39:  await Clipboard.setStringAsync(text);
+src/lib/recipe-formatter.ts:1:import * as Clipboard from 'expo-clipboard';
+src/lib/recipe-formatter.ts:128:export async function copyRecipeToClipboard(formattedText: string): Promise<boolean> {
+src/lib/recipe-formatter.ts:130:    await Clipboard.setStringAsync(formattedText);
+src/lib/calculator-actions.ts:8:import * as Clipboard from 'expo-clipboard';
+src/lib/calculator-actions.ts:12:import { formatRecipeText, copyRecipeToClipboard } from './recipe-formatter';
+src/lib/calculator-actions.ts:70:  await Clipboard.setStringAsync(json);
+src/lib/calculator-actions.ts:95:  const copied = await copyRecipeToClipboard(text);
+src/lib/schedule-formatter.ts:1:import * as Clipboard from 'expo-clipboard';
+src/lib/schedule-formatter.ts:111:export async function copyScheduleToClipboard(
+src/lib/schedule-formatter.ts:116:  await Clipboard.setStringAsync(text);
+src/lib/diagnosis-formatter.ts:1:import * as Clipboard from 'expo-clipboard';
+src/lib/diagnosis-formatter.ts:32:export async function copyDiagnosisToClipboard(diag: DiagnosticResult): Promise<boolean> {
+src/lib/diagnosis-formatter.ts:34:  await Clipboard.setStringAsync(text);
+## activateKeepAwake\|useKeepAwake
+src/components/stolnica/StolnicaKeepAwake.tsx:4:// więc sam useKeepAwake w ekranie trzymał blokadę w całej aplikacji [M1-audytor-generalny-060].
+src/components/stolnica/StolnicaKeepAwake.tsx:9:import { useKeepAwake } from 'expo-keep-awake';
+src/components/stolnica/StolnicaKeepAwake.tsx:14:  useKeepAwake(STOLNICA_KEEP_AWAKE_TAG);
+## Haptics\.
+src/components/stolnica/ProwadzenieWypieku.tsx:241:    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+src/components/stolnica/ProwadzenieWypieku.tsx:248:    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/components/stolnica/ProwadzenieWypieku.tsx:255:    tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
+src/components/stolnica/ProwadzenieWypieku.tsx:274:    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/components/stolnica/ProwadzenieWypieku.tsx:286:    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+src/components/receptury/DoMiski.tsx:57:function haptyka(styl: Haptics.ImpactFeedbackStyle) {
+src/components/receptury/DoMiski.tsx:59:    void Haptics.impactAsync(styl);
+src/components/receptury/DoMiski.tsx:129:        haptyka(Haptics.ImpactFeedbackStyle.Light);
+src/components/receptury/DoMiski.tsx:139:    haptyka(Haptics.ImpactFeedbackStyle.Medium);
+src/hooks/useBakeHistory.ts:49:      tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+src/lib/feeding-formatter.ts:41:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/timer-audio.ts:19:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/timer-audio.ts:60:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+src/lib/recipe-formatter.ts:131:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+src/lib/schedule-formatter.ts:118:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/diagnosis-formatter.ts:36:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+src/lib/haptics.ts:8:export function tapHaptic(style: Haptics.ImpactFeedbackStyle): void {
+src/lib/haptics.ts:10:    void Haptics.impactAsync(style);
+## createAudioPlayer\|useAudioPlayer
+src/lib/timer-audio.ts:1:import { createAudioPlayer, AudioPlayer } from 'expo-audio';
+src/lib/timer-audio.ts:43:    const player = createAudioPlayer(audioDataUri);
+## DELETE FROM
+src/data/bake-sessions-store.ts:155:  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
+src/data/bake-sessions-store.ts:384:  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
+src/data/ustawienia-kopii.ts:81:  await db.execAsync('DELETE FROM lesson_progress;');
+src/data/sqlite-store.ts:123:  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM bakes WHERE id = ?;', id));
+src/data/sqlite-store.ts:232:        await db.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', id);
+src/data/sqlite-store.ts:233:        await db.runAsync('DELETE FROM starters WHERE id = ?;', id);
+src/data/sqlite-store.ts:280:    await db.execAsync('DELETE FROM bakes;');
+src/data/sqlite-store.ts:281:    await db.execAsync('DELETE FROM starter_entries;');
+src/data/sqlite-store.ts:282:    await db.execAsync('DELETE FROM starters;');
+src/data/sqlite-store.ts:283:    await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
+src/data/sqlite-store.ts:312:      await db.execAsync('DELETE FROM flour_inventory;');
+src/data/usun-wszystko.ts:26:        await db.execAsync('DELETE FROM bakes;');
+src/data/usun-wszystko.ts:27:        await db.execAsync('DELETE FROM starter_entries;');
+src/data/usun-wszystko.ts:28:        await db.execAsync('DELETE FROM starters;');
+src/data/usun-wszystko.ts:29:        await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
+src/data/usun-wszystko.ts:30:        await db.execAsync('DELETE FROM flour_inventory;');
+src/data/usun-wszystko.ts:31:        await db.execAsync('DELETE FROM lesson_progress;');
+src/data/usun-wszystko.ts:32:        await db.execAsync('DELETE FROM bake_sessions;');
+src/data/usun-wszystko.ts:34:        await db.runAsync('DELETE FROM app_settings WHERE key = ?;', KLUCZ_POMINIEC);
+src/data/starter-entries-store.ts:154:        await db.runAsync('DELETE FROM starter_entries WHERE id = ?;', id);
+src/data/starter-entries-store.ts:176:        await db.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', starterId);
+src/data/flour-store.ts:55:  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM flour_inventory WHERE id = ?;', id));
+src/data/migracja-v6.ts:70:  await db.runAsync('DELETE FROM app_settings WHERE key = ?;', BAKE_SESSION_KEY);
+src/data/settings-store.ts:46:    await writeOrThrow(() => db.runAsync('DELETE FROM lesson_progress WHERE level_id = ?;', levelId));
+src/data/recipes-store.ts:88:  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM recipes WHERE id = ?;', id));
+## DROP TABLE
+kod: 0

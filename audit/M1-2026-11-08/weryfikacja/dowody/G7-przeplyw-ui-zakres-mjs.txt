@@ -1,0 +1,57 @@
+# G7-przeplyw-ui / 03-zakres-001: kalendarz i wiele wypieków bez wpisu w kontrakcie zakresu (commit 2ef8870a525485cc1ac57e5abe9d97d9937dfe42)
+# narzędzie roli 03: /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/zakres.mjs (sha256 b76ea1018f2fc52f), uruchomione z katalogu repo, tylko odczyt
+
+$ node zakres.mjs docs/scope-contract.md --brd docs/brd
+49:BŁĄD BR-KAL-001 z BRD bez decyzji zakresu
+50:BŁĄD BR-KAL-002 z BRD bez decyzji zakresu
+51:BŁĄD BR-KAL-003 z BRD bez decyzji zakresu
+52:BŁĄD BR-KAL-004 z BRD bez decyzji zakresu
+53:BŁĄD BR-KAL-005 z BRD bez decyzji zakresu
+54:BŁĄD BR-KAL-006 z BRD bez decyzji zakresu
+55:BŁĄD BR-KAL-007 z BRD bez decyzji zakresu
+56:BŁĄD BR-KAL-015 z BRD bez decyzji zakresu
+57:BŁĄD BR-KAL-008 z BRD bez decyzji zakresu
+58:BŁĄD BR-KAL-009 z BRD bez decyzji zakresu
+59:BŁĄD BR-KAL-016 z BRD bez decyzji zakresu
+60:BŁĄD BR-KAL-010 z BRD bez decyzji zakresu
+61:BŁĄD BR-KAL-011 z BRD bez decyzji zakresu
+62:BŁĄD BR-KAL-012 z BRD bez decyzji zakresu
+63:BŁĄD BR-KAL-013 z BRD bez decyzji zakresu
+64:BŁĄD BR-KAL-014 z BRD bez decyzji zakresu
+65:BŁĄD BR-KALK-012 z BRD bez decyzji zakresu
+72:BŁĄD BR-ETAP-006 z BRD bez decyzji zakresu
+74:46 funkcji (MVP 38, PÓŹNIEJ 6, TEST 1, NIE 1), 58 BR · 26 błędów, 1 uwag
+kod wyjścia: 1
+
+$ grep -n -i "kalendarz\|BR-KAL\|D-092\|F-17" docs/scope-contract.md | cut -c1-160
+22:| F-09 | Kalkulator receptury: procent piekarski, hydratacja z zakwasu i zaczynu, skalowanie 1 g | BR-KALK-001, BR-KALK-002, BR-KALK-003 | MVP | B: J-01; R: 
+23:| F-56 | Informacja o nietypowej ilości soli | BR-KALK-011 | MVP | R: S-24 rec. 5681544617 (słaby) | WTP-2 (R) · próba / płatna | informacja przy polu s
+24:| F-11 | Kilka mąk w recepturze, wariant żytni | BR-KALK-005 | MVP | R: S-21 rec. 13060223498 | WTP-2 (R) · próba / płatna | dodanie drugiej mąki z udz
+26:| F-10 | Temperatura wody dla docelowej temperatury ciasta | BR-KALK-004 | MVP | R: S-14 rec. 9331408199 | WTP-2 (R) · próba / płatna | pola temperatur na
+27:| F-55 | Ciasto drożdżowe i pizza: rodzaj drożdży, zaczyny poolish, biga, levain | BR-KALK-009, BR-KALK-010 | MVP | R: S-19 rec. 7107716082; S-24 rec. 73
+47:| F-71 | Doktor Chleba: ratunek ciasta w trakcie fermentacji (cztery protokoły: przerośnięte, zbyt luźne, ospała fermentacja w zimnej kuchni, zapomniana
+62:| F-45 | Przelicznik miar objętości na gramy | BR-KALK-007 | PÓŹNIEJ | R: 9 z 338 o jednostkach | WTP-2 (R) · próba / płatna | — | — | F-09 | wari
+70:| F-53 | Masa lodu do schłodzenia wody | BR-KALK-008 | NIE | — | WTP-X | — | — | — | brak dowodu wartości (tylko [OCENA], rola 02); dziś część 
+79:| F-71 protokoły ratunkowe Doktora dla ciasta w trakcie fermentacji | Przeniesione do tabeli „Zakres” jako MVP (ZM-23, 2026-10-22, D-092, D-096); wcześ
+81:| F-12 formy, F-17 kilka wypieków naraz, F-19 Action Button, F-21 Centrum sterowania, F-29 zdjęcia przekroju, F-34 karta PNG, F-39 motywy | bez BR w nowym 
+224:| ZM-23 | 2026-10-22 | M1 z decyzją właściciela „Dodajemy do 1.0 F71 plus full kalendarz i poprawki.” (D-092), rola 06 tor T (D-095, raport `audit/06
+225:| ZM-24 | 2026-11-03 | właściciel: „Chciałbym żeby była możliwość zamiany drożdży świeżych na instant”, wybór „Przełącznik przy wierszu
+239:| KL-09 | `src/lib/calendar-export.ts` + test | eksport planu do kalendarza (Z-022, SHOULD 1.1, bez BR) | brak BR i wejścia z interfejsu | Powrót: BR od r
+kod wyjścia: 0
+
+$ grep -n "^| ZM-" docs/scope-contract.md | cut -c1-12 | tail -3
+226:| ZM-25 
+227:| ZM-26 
+228:| ZM-27 
+kod wyjścia: 0
+
+$ sed -n 387p docs/decyzje.md | cut -c1-200; grep -n "\[D-115\]" docs/decyzje.md | cut -c1-140; sed -n 4p docs/scope-contract.md | cut -c1-200
+- **Decyzja:** 1.0 obejmuje: kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006), pełny kalendarz BR-KAL-001…016, F-71 (protokoły ratunkowe Doktora, po źródłach roli 06), popr
+551:### [D-115] 2026-10-22 — Plan w kalendarzu telefonu: jeden plik .ics na cały plan przez arkusz udostępniania, bez modułu kalendarza
+Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 rama, E1 wymiary i soczewki, E2 warianty i metoda) jest w `docs/archiwum/scope-contract-2026-10-20-robocze.md`, poprzednia
+kod wyjścia: 0
+
+$ sed -n 20p scripts/br-wyjatki.json | cut -c1-200; sed -n 431p docs/brd/odkrywanie.md
+    { "id": "BR-KAL-012", "powod": "funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć", "zr
+- Opcje: (a) 1.2+ po sygnale z recenzji po wydaniu 1.1; (b) widżet razem z 1.1. Rekomendacja: (a).
+kod wyjścia: 0

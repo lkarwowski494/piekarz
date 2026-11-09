@@ -1,0 +1,8 @@
+$ grep -ciE "analytics|amplitude|mixpanel|segment|appsflyer|adjust|branch|posthog|aptabase|telemetrydeck|firebase|sentry|bugsnag|datadog|facebook-sdk|expo-tracking-transparency|expo-insights|expo-application" package.json package-lock.json; grep -nE w package.json
+package.json kod: 1
+package-lock.json kod: 1 (1 = brak trafień)
+$ grep -rnE "fetch\(|axios|XMLHttpRequest|new WebSocket" app src --include=*.ts --include=*.tsx | grep -v __tests__
+kod: 1 (1 = brak trafień)
+$ grep -rnE "NSPrivacyTracking|NSUserTrackingUsageDescription" app.json ios
+app.json:72:        "NSPrivacyTracking": false,
+app.json:73:        "NSPrivacyTrackingDomains": [],

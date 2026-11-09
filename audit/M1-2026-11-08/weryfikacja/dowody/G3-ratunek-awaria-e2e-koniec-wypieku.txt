@@ -1,0 +1,99 @@
+# G3-ratunek-awaria — 07-jakosc-003: koniec wypieku w E2E i na liście telefonu
+# Repo @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+
+$ find .maestro/e2e .maestro/e2e-basic -name "*.yaml" | sort | wc -l
+10
+kod wyjścia: 0
+
+$ grep -n "maestro --device" .github/workflows/e2e-ios.yml
+123:          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-pl.xml
+132:          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-en.xml
+136:          if ! maestro --device "$UDID" test .maestro/kontrola-negatywna; then
+175:        run: maestro --device "$UDID" test .maestro/e2e-basic --format junit --output maestro-e2e-basic.xml
+kod wyjścia: 0
+
+$ grep -rn "karta-oceny\|karta-miekisz\|finish-sensory-radar\|tab-dziennik\|Zapisz\|ocen" .maestro/e2e .maestro/e2e-basic
+.maestro/e2e/02-wypiek-na-stolnicy.yaml:21:    id: "tab-dziennik"
+.maestro/e2e-basic/05-drugi-zakwas-pro.yaml:2:# Pierwszy zakwas w Basic, drugi w Pro (BR-ZAKW-001; LIMITY_BASIC.zakwasy = 1): "Zapisz dokarmienie" w zakladaniu
+.maestro/e2e-basic/01-start-bez-ekranu-pro.yaml:36:    id: "tab-dziennik"
+kod wyjścia: 0
+
+$ for f in .maestro/e2e/*.yaml .maestro/e2e-basic/*.yaml; do echo "$f tapOn+wait next-or-finish: $(grep -c next-or-finish-step-btn $f)"; done
+.maestro/e2e/01-pierwsze-uruchomienie.yaml tapOn+wait next-or-finish: 0
+.maestro/e2e/02-wypiek-na-stolnicy.yaml tapOn+wait next-or-finish: 4
+.maestro/e2e/03-prowadzenie-widok-skupiony.yaml tapOn+wait next-or-finish: 1
+.maestro/e2e/04-plan-na-pozniej.yaml tapOn+wait next-or-finish: 2
+.maestro/e2e/05-dwa-wypieki.yaml tapOn+wait next-or-finish: 4
+.maestro/e2e-basic/01-start-bez-ekranu-pro.yaml tapOn+wait next-or-finish: 0
+.maestro/e2e-basic/02-miesiac-ekran-pro.yaml tapOn+wait next-or-finish: 0
+.maestro/e2e-basic/03-arkusz-dnia-zaplanuj-pro.yaml tapOn+wait next-or-finish: 0
+.maestro/e2e-basic/04-wypiek-teraz-basic.yaml tapOn+wait next-or-finish: 3
+.maestro/e2e-basic/05-drugi-zakwas-pro.yaml tapOn+wait next-or-finish: 0
+kod wyjścia: 0
+
+$ grep -n "Dziennik\|ocen\|zakończ\|Zakończ\|piekarz-kopia" docs/wydanie/lista-kontrolna-telefonu.md
+kod wyjścia: 1
+
+$ sed -n 3p docs/wydanie/lista-kontrolna-telefonu.md
+Stan: 2026-11-02 (noc, do weta; D-125). Wzór: `trening`, `docs/39-lista-kontrolna-wydania.md`, ale **pisana ręcznie**: Piekarz nie ma katalogu przepływów, z którego dałoby się ją generować `[DO USTALENIA: rola 07 może wprowadzić generator]`. Dlatego ten plik trzeba poprawiać razem z `.maestro/` i testami.
+kod wyjścia: 0
+
+$ grep -rn "autoBackup(" src app --include=*.ts --include=*.tsx
+src/data/sqlite-store.ts:70:      .then((data) => autoBackup(data))
+src/data/sqlite-store.ts:381:      .then((data) => autoBackup(data))
+src/data/__tests__/baza-nowsza.sqlite.test.ts:99:    expect(await app.backup.autoBackup({ bakes: [bake], starters: [], customRecipes: [] })).toBeNull();
+src/lib/__tests__/backup.test.ts:137:        paths.push(await autoBackup({ bakes: [{ id: `b${i}`, recipeName: 'Chleb', startedAt: i }], starters: [], customRecipes: [] }));
+src/lib/__tests__/backup.test.ts:149:      for (let i = 0; i < AUTO_KEEP + 2; i++) await autoBackup(sampleState);
+src/lib/__tests__/backup.test.ts:168:      const swieza = await autoBackup(sampleState);
+src/lib/backup.ts:179:export async function autoBackup(state: PiekarzBackupData): Promise<string | null> {
+kod wyjścia: 0
+
+$ sed -n 67,72p src/data/sqlite-store.ts
+  // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
+  if (log.finishedAt) {
+    void collectBackupData()
+      .then((data) => autoBackup(data))
+      .catch(() => null);
+  }
+kod wyjścia: 0
+
+$ sed -n 379,383p src/data/sqlite-store.ts
+  if (log.finishedAt) {
+    void collectBackupData()
+      .then((data) => autoBackup(data))
+      .catch(() => null);
+  }
+kod wyjścia: 0
+
+$ sed -n 16,27p src/lib/save-guard.ts
+export function guardSave<A extends unknown[]>(action: (...args: A) => Promise<void>): (...args: A) => Promise<void> {
+  return async (...args: A) => {
+    try {
+      await action(...args);
+    } catch (e) {
+      if (e instanceof StorageWriteError) {
+        Alert.alert(t('Nie zapisano'), saveErrorText(e));
+        return;
+      }
+      throw e;
+    }
+  };
+kod wyjścia: 0
+
+$ grep -n "guardSave\|writeOrThrow" src/hooks/useFinishBake.ts src/data/sqlite-store.ts
+src/hooks/useFinishBake.ts:10:import { guardSave } from '../lib/save-guard';
+src/hooks/useFinishBake.ts:55:  const zapisz = guardSave(async () => {
+src/data/sqlite-store.ts:31:import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
+src/data/sqlite-store.ts:58:  if (db) await writeOrThrow(() => writeBakeRow(db, log));
+src/data/sqlite-store.ts:117:  if (db) await writeOrThrow(() => writeBakeRow(db, log));
+src/data/sqlite-store.ts:123:  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM bakes WHERE id = ?;', id));
+src/data/sqlite-store.ts:199:    await writeOrThrow(() =>
+src/data/sqlite-store.ts:230:    await writeOrThrow(() =>
+src/data/sqlite-store.ts:277:  await writeOrThrow(() => db.withTransactionAsync(async () => {
+src/data/sqlite-store.ts:358:  await writeOrThrow(() =>
+kod wyjścia: 0
+
+$ grep -n "autoBackup\|kopii po wypieku\|kopia po wypieku" docs/decyzje.md docs/DECISIONS.md docs/adr/*.md
+docs/decyzje.md:610:  - **011 → pasek** (drugie miejsce z raportu): wpis Dziennika usuwany bez pytania, pasek „Usunięto wpis” z „Przywróć”; przywrócenie tego samego wiersza bez kopii po wypieku (`restoreBakeLog`). Zgodne z design-spec §5 i D-051 1a.
+kod wyjścia: 0
+

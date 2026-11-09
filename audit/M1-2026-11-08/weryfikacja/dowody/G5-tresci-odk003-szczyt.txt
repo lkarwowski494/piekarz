@@ -1,0 +1,72 @@
+$ (cd /home/user/piekarz && grep -rn "predictStarterPeak(" src app --include=*.ts --include=*.tsx | grep -v __tests__)
+src/core/starter-peak-predictor.ts:37:export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionResult {
+src/core/sourdough-physics.ts:151:      const p = predictStarterPeak({ lastFedAt, now });
+app/(tabs)/zakwasy/index.tsx:120:    return predictStarterPeak({
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -n "showPeakWindow" "app/(tabs)/zakwasy/index.tsx" src/components/zakwas/StarterPeakActivityCard.tsx)
+app/(tabs)/zakwasy/index.tsx:233:            showPeakWindow={false}
+src/components/zakwas/StarterPeakActivityCard.tsx:58:  showPeakWindow?: boolean;
+src/components/zakwas/StarterPeakActivityCard.tsx:69:  showPeakWindow = true,
+src/components/zakwas/StarterPeakActivityCard.tsx:97:      {showPeakWindow && (
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -rn "W szacowanym oknie szczytu\|showPeakWindow={false}" src/__tests__ src/components/__tests__ tests | head)
+kod wyjścia: 0
+
+$ (cd /home/user/piekarz && grep -n "8,5\|0,72" docs/brd/reguly.md | cut -c1-160)
+187:| RD-24-W3 | 7 | 8,5 | karm dalej co 12 h | — | powyżej | S-53 |
+kod wyjścia: 0
+
+--- sonda tests/sonda-g5-odk003.test.tsx (tylko w worktree, poza repo):
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
+import { predictStarterPeak } from '../src/core/starter-peak-predictor';
+import { calculateStarterPhase } from '../src/core/sourdough-physics';
+import { StarterPeakActivityCard } from '../src/components/zakwas/StarterPeakActivityCard';
+
+test('sonda 01-odkrywanie-003', async () => {
+  const now = Date.UTC(2026, 10, 8, 12);
+  const out: string[] = [];
+  for (const temp of [18, 22, 26]) {
+    for (const h of [5, 6.5, 9]) {
+      const lastFedAt = now - h * 3600e3;
+      const p = predictStarterPeak({ lastFedAt, currentTempC: temp, ratio: [1, 2, 2], flourGrain: 'wheat', now });
+      const f = calculateStarterPhase(lastFedAt, 'ROOM_TEMP', now, { start: p.peakWindowStartTimestamp, end: p.peakWindowEndTimestamp });
+      out.push(`temp=${temp} h=${h} okno=${((p.peakWindowStartTimestamp - lastFedAt) / 3600e3).toFixed(1)}-${((p.peakWindowEndTimestamp - lastFedAt) / 3600e3).toFixed(1)} h faza=${f.phase} etykieta="${f.labelPl}"`);
+    }
+  }
+  console.log(out.join('\n'));
+  const lastFedAt = now - 6.5 * 3600e3;
+  const p = predictStarterPeak({ lastFedAt, currentTempC: 22, ratio: [1, 2, 2], flourGrain: 'wheat', now });
+  const f = calculateStarterPhase(lastFedAt, 'ROOM_TEMP', now, { start: p.peakWindowStartTimestamp, end: p.peakWindowEndTimestamp });
+  let tree: renderer.ReactTestRenderer | null = null;
+  await act(async () => {
+    tree = renderer.create(
+      <StarterPeakActivityCard phaseResult={f} peakPrediction={p} showPeakWindow={false} ambientTempC={22} onAmbientTempChange={() => {}} unitSystem="metric" />,
+    );
+  });
+  const json = JSON.stringify(tree!.toJSON());
+  console.log('showPeakWindow=false; zawiera "W szacowanym oknie szczytu":', json.includes('W szacowanym oknie szczytu'), '; zawiera "Szacowane okno szczytu:":', json.includes('Szacowane okno szczytu:'));
+});
+
+$ (cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt && npx jest tests/sonda-g5-odk003.test.tsx)
+    temp=18 h=5 okno=9.3-13.2 h faza=before etykieta="Przed szacowanym szczytem"
+    temp=18 h=6.5 okno=9.3-13.2 h faza=before etykieta="Przed szacowanym szczytem"
+    temp=18 h=9 okno=9.3-13.2 h faza=before etykieta="Przed szacowanym szczytem"
+    temp=22 h=5 okno=6.0-8.5 h faza=before etykieta="Przed szacowanym szczytem"
+    temp=22 h=6.5 okno=6.0-8.5 h faza=peak etykieta="W szacowanym oknie szczytu"
+    temp=22 h=9 okno=6.0-8.5 h faza=after etykieta="Po szacowanym szczycie"
+    temp=26 h=5 okno=3.9-5.5 h faza=peak etykieta="W szacowanym oknie szczytu"
+    temp=26 h=6.5 okno=3.9-5.5 h faza=after etykieta="Po szacowanym szczycie"
+    temp=26 h=9 okno=3.9-5.5 h faza=after etykieta="Po szacowanym szczycie"
+    showPeakWindow=false; zawiera "W szacowanym oknie szczytu": true ; zawiera "Szacowane okno szczytu:": false
+PASS tests/sonda-g5-odk003.test.tsx
+  ✓ sonda 01-odkrywanie-003 (63 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.744 s, estimated 4 s
+Ran all test suites matching /tests\/sonda-g5-odk003.test.tsx/i.
+kod wyjścia: 0
+

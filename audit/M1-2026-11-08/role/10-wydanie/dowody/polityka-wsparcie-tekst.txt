@@ -1,0 +1,26 @@
+$ curl -sS https://apps4brew.com/piekarz/{privacy,support}.html (tekst bez znacznikow), odczyt 2026-11-08 ~20:50 UTC; kod 0
+ Piekarz — polityka prywatności — Apps4Brew 
+ Przejdź do treści 
+ Apps4Brew 
+ PL 
+ EN 
+ Piekarz — polityka prywatności
+ Zbiór research Obróbka projekt Palenie budowa z testami Parzenie testy z ludźmi Podanie App Store Etap 4 z 5: parzenie 
+ Obowiązuje od 9 listopada 2026 r. (wersja 2).
+ W skrócie
+ Aplikacja Piekarz sama nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem (zakupy obsługuje App Store), nie ma konta, reklam, analityki ani śledzenia. Wyjątek: e-mail, który sam do nas wyślesz (sekcja „Gdy do nas piszesz”). Administratorem tych wiadomości jest Łukasz Karwowski (support@apps4brew.com); Twoje prawa opisuje ta sama sekcja.
+ Jakie dane są przechowywane i gdzie
+ Receptury, wypieki i ich oceny, notatki, zakwasy i ich dokarmianie, mąki oraz ustawienia są zapisywane wyłącznie w pamięci Twojego urządzenia (baza SQLite aplikacji). Nikt poza Tobą — także twórca aplikacji — nie ma do nich dostępu. Aplikacja niczego nie wysyła.
+...
+ Piekarz — wsparcie — Apps4Brew 
+ Przejdź do treści 
+ Apps4Brew 
+ PL 
+ EN 
+ Piekarz — wsparcie
+ Zbiór research Obróbka projekt Palenie budowa z testami Parzenie testy z ludźmi Podanie App Store Etap 4 z 5: parzenie 
+ Kontakt
+ Pytania, błędy i pomysły: support@apps4brew.com . Czytamy każdą wiadomość.
+Aplikacja niczego nie wysyła sama — „Napisz do nas” w ustawieniach otwiera Twoją pocztę, a wiadomość wysyłasz Ty.
+ Co dołączyć: kroki, które prowadzą do problemu, i — jeśli dotyczy wypieku — recepturę oraz temperaturę w kuchni. Wersję aplikacji i iOS aplikacja wpisuje sama.
+Nie dołączaj kopii zapasowej z danymi, chyba że o to poprosimy.

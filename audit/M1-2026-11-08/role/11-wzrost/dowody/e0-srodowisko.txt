@@ -1,0 +1,17 @@
+$ uname -a; node -v; git rev-parse HEAD; git status --porcelain; gh --version; npx playwright --version
+Linux vm 6.18.44-fc-v310 #1 SMP @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+status:
+kod: 0
+gh version 2.89.0 (2026-03-26)
+Version 1.63.0
+origin	https://github.com/lkarwowski494/piekarz (fetch)
+origin	https://github.com/lkarwowski494/piekarz (push)
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+audit/

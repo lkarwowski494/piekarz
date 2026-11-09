@@ -1,0 +1,39 @@
+$ grep -rnE "catch \{\s*\}|catch \(\w*\) \{\s*\}|\.catch\(\(\) => (\{\}|undefined|null|\{ *\})\)" app src (bez __tests__)
+src/components/NotificationsOffBanner.tsx:20:      .catch(() => undefined);
+src/components/start/UprzedzenieKoncaPro.tsx:31:      if ((await getAppSetting(KLUCZ_KONCA_PRO).catch(() => null)) === '1') {
+src/components/start/UprzedzenieKoncaPro.tsx:35:        await setAppSetting(KLUCZ_KONCA_PRO, '').catch(() => undefined);
+src/components/start/UprzedzenieKoncaPro.tsx:38:      const zapis = Number(await getAppSetting(KLUCZ_UPRZEDZENIA).catch(() => null));
+src/components/start/UprzedzenieKoncaPro.tsx:44:      await setAppSetting(KLUCZ_UPRZEDZENIA, String(u.koniec)).catch(() => undefined);
+src/components/Spirala.tsx:44:      .catch(() => undefined);
+src/components/PasekCofnij.tsx:43:      .catch(() => undefined);
+src/ui/pogrubiony-tekst.ts:19:      .catch(() => undefined);
+src/ui/motyw.ts:81:      .catch(() => undefined);
+src/hooks/useTekstyProwadzenia.ts:21:      .catch(() => undefined);
+src/hooks/useDaneMaszyny.ts:20:      .catch(() => null)
+src/hooks/useZakwasPlanu.ts:20:      .catch(() => {})
+src/hooks/useKalendarz.ts:78:      .catch(() => null)
+src/data/kopie-przed-migracja.ts:46:  await sprzatnijKopiePrzedMigracja(path, fromVersion).catch(() => undefined);
+src/data/sqlite-store.ts:71:      .catch(() => null);
+src/data/sqlite-store.ts:382:      .catch(() => null);
+src/data/sqlite-schema.ts:385:      await db.execAsync('ROLLBACK;').catch(() => {});
+src/data/sqlite-schema.ts:486:    await db.closeAsync().catch(() => undefined);
+src/data/odczyt.ts:19:    void ratunekPoBledzie(msg).catch(() => undefined);
+src/lib/zgloszenie-wyslanie.ts:17:    { text: t('Kopiuj adres'), onPress: () => void Clipboard.setStringAsync(adres).catch(() => {}) },
+src/lib/kopia-plikow-bazy.ts:63:  const podpis = await podpisPlikowBazy(dbUri).catch(() => null);
+src/lib/kopia-plikow-bazy.ts:75:  if (zapis && podpis && pakiet) await FileSystem.writeAsStringAsync(zapis, JSON.stringify({ podpis, pakiet })).catch(() => undefined);
+src/lib/przypomnienia-karmienia.ts:21:  if (biezacy === null) biezacy = parsujPrzypomnieniaKarmienia(await getAppSetting(KLUCZ_PRZYPOMNIEN_KARMIENIA).catch(() => undefined));
+src/lib/gratulacje-zakwasu.ts:15:  if ((await getAppSetting(KLUCZ_GRATULACJI).catch(() => null)) === '1') return false;
+src/lib/gratulacje-zakwasu.ts:16:  await setAppSetting(KLUCZ_GRATULACJI, '1').catch(() => undefined);
+src/lib/godziny-snu.ts:22:  if (biezacy === null) biezacy = parsujProfilSnu(await getAppSetting(KLUCZ_GODZIN_SNU).catch(() => undefined));
+src/lib/recipe-formatter.ts:131:    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+src/lib/platnosci/stan.ts:80:    void obsluzTransakcje(p).catch(() => undefined);
+src/lib/platnosci/stan.ts:91:  const d = decyzja({ zrodlo: 'blad' }, await wczytajPamiec().catch(() => null), Date.now(), ODBLOKOWUJA);
+src/lib/platnosci/stan.ts:133:    .catch(() => undefined)
+src/lib/platnosci/stan.ts:136:    if (s === 'active') void odswiezDostep().catch(() => undefined);
+src/lib/csv-exporter.ts:129:    await FileSystem.deleteAsync(targetPath, { idempotent: true }).catch(() => {});
+src/lib/notifications.ts:43:  queue = run.catch(() => undefined);
+src/lib/rodzaj-drozdzy.ts:27:  const zBazy = parsujRodzajDrozdzy(await getAppSetting(KLUCZ_RODZAJU_DROZDZY).catch(() => undefined));
+src/lib/backup.ts:99:    await FileSystem.deleteAsync(path, { idempotent: true }).catch(() => {});
+src/lib/backup.ts:148:    await FileSystem.deleteAsync(targetPath, { idempotent: true }).catch(() => {});
+
+$ grep -rn -A2 "} catch {" app src | grep -E "^\S+-[0-9]+-\s*}\s*$" (catch bez treści w kolejnej linii)

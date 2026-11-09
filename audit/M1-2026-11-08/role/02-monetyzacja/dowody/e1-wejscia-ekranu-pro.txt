@@ -1,0 +1,15 @@
+$ grep -rnE "ustawEkranZakupu\(true\)|setPaywallVisible\(true\)|otworzPro\(|onOtworzPro" src app (bez __tests__)
+src/components/SettingsModal.tsx:125:          <ZakupySection onOtworzPro={otworzPro} />
+src/components/ImportRecipeModal.tsx:98:    }, () => pro.otworzPro(onClose));
+src/components/settings/ZakupySection.tsx:20:export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
+src/components/settings/ZakupySection.tsx:63:      {onOtworzPro && wiersz('settings-pro-btn', t('Piekarz Pro'), onOtworzPro, false, true)}
+src/components/settings/ZakupySection.tsx:64:      {wiersz('settings-restore-purchases-btn', t('Przywróć zakupy'), handleRestore, trwa, !onOtworzPro)}
+src/hooks/useProPoArkuszu.ts:20:    else ustawEkranZakupu(true);
+src/hooks/useProPoArkuszu.ts:26:    ustawEkranZakupu(true);
+src/hooks/usePlanyDzis.ts:34:  const pro = useCallback((wznow?: () => void | Promise<void>) => otworzPro(zamknij, wznow), [otworzPro, zamknij]);
+src/hooks/usePlanyDzis.ts:60:          ? otworzPro(zamknij, prowadzOba)
+src/lib/app-access.ts:94:      ustawEkranZakupu(true);
+src/lib/app-access.ts:132:        ustawEkranZakupu(true);
+app/(tabs)/receptury/receptura.tsx:339:        onPrefermentTypeChange={(typ) => (typ === 'direct' || moze('zaczyn') ? setPrefermentType(typ) : proSkladniki.otworzPro(() => setIsIngredientsOpen(false),
+app/(tabs)/(dzis)/index.tsx:90:    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null), zaplanuj);
+kod: 0

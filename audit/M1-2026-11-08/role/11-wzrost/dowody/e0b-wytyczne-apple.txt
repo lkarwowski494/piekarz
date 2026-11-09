@@ -1,0 +1,9 @@
+$ curl -sSL --compressed https://developer.apple.com/app-store/review/guidelines/ | strip tags | grep (odczyt 2026-11-08) ; kod 0
+Last Updated: October 16, 2026 
+									 4.5.4 Push Notifications must not be required for the app to function, and should not be used to send sensitive personal or confidential information. Push Notifications 
+ Notifications should not be used for promotions or direct marketing purposes unless customers have explicitly opted in to receive them via consent language displayed in your app’s UI, and you provide a method in your
+pp Store rating and review without the inconvenience of leaving your app, and we will disallow custom review prompts. 
+											 (x) Apps must not force users to rate the app, review the app, download other apps, or other store-related actions in order to access functionali
+						 If we find that you have attempted to manipulate reviews, inflate your chart rankings with paid, incentivized, filtered, or fake feedback, or engage with third-party services to do so on your behalf, we will take steps to preserve the in
+ntent or services that it does not actually offer (such as iOS-based virus and malware scanners) or promoting a false price, whether within or outside of the App Store, is grounds for removal of your app from the App&n
+ia the App Tracking Transparency APIs to track their activity. Learn more about tracking . Your app may not require users to enable system functionalities (such as push notifications, location services, tracking) in order to access functionality, content

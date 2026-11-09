@@ -1,0 +1,32 @@
+# Sonda (worktree 2ef8870a w scratchpadzie)
+  | /** Sonda audytu 05-architekt-b (scratchpad): uzgadnianie powiadomień (powrót z tła) w trakcie kopii i migracji v6 → v7. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import { useTempDbDir, restartApp, dbFilePath } from './helpers/node-sqlite-adapter';
+  | import { zalozBaze1021 } from './helpers/baza-1021';
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | 
+  | it('resyncNotifications w trakcie initDatabase (baza 1021, v6 → v7)', async () => {
+  |   useTempDbDir();
+  |   zalozBaze1021(APP_DB());
+  |   const app = restartApp();
+  |   const N = require('expo-notifications');
+  |   (N.getPermissionsAsync as jest.Mock).mockResolvedValue({ status: 'granted', granted: true, canAskAgain: false, ios: { status: 2 } });
+  |   const { resyncNotifications } = require('../../lib/notifications');
+  |   const init = app.schema.initDatabase();
+  |   // AppState 'active' w trakcie startu (app/_layout.tsx:88-90) woła resyncNotifications bez czekania na StorageGate
+  |   const r = await resyncNotifications();
+  |   await init;
+  |   console.log('resync:', JSON.stringify(r), '| stan magazynu po initDatabase:', app.status.getStorageState(), '| błąd:', app.status.getStorageError());
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-start.sqlite.test.ts
+  console.log
+    resync: {"status":"granted","ok":true} | stan magazynu po initDatabase: ok | błąd: null
+PASS src/data/__tests__/sonda-b-start.sqlite.test.ts
+  ✓ resyncNotifications w trakcie initDatabase (baza 1021, v6 → v7) (269 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.827 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-start.sqlite.test.ts/i.
+kod: 0

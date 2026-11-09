@@ -1,0 +1,112 @@
+## Dziś: 2
+- tekst: 2.–8. November
+- tekst: Sonntag, 8. November
+## Receptury (lista): 0
+## Receptura: 0
+## Harmonogram: 12
+- tekst: Mi., 11. Nov.
+- tekst: Do., 12. Nov.
+- tekst: Fr., 13. Nov.
+- tekst: Sa., 14. Nov.
+- tekst: So., 15. Nov.
+- tekst: Mo., 16. Nov.
+- tekst: Di., 17. Nov.
+- tekst: Mi., 18. Nov.
+- tekst: Do., 19. Nov.
+- tekst: Fr., 20. Nov.
+- tekst: Sa., 21. Nov.
+- tekst: So., 22. Nov.
+## Zakwasy: 16
+- tekst: Zakwas żytni (Bolesław)
+- tekst: Żytnia typ 2000
+- tekst: Mo
+- tekst: Di
+- tekst: Mi
+- tekst: Do
+- tekst: Fr
+- tekst: Sa
+- tekst: So
+- accessibilityLabel: Montag
+- accessibilityLabel: Dienstag
+- accessibilityLabel: Mittwoch
+- accessibilityLabel: Donnerstag
+- accessibilityLabel: Freitag
+- accessibilityLabel: Samstag
+- accessibilityLabel: Sonntag
+## Doktor zakwasu: 0
+## Dziennik: 0
+## Doktor: 0
+## Stolnica (trwający wypiek): 0
+## Ustawienia: 71
+- tekst: Polski
+- tekst: English
+- tekst: Čeština
+- tekst: Slovenčina
+- tekst: Magyar
+- tekst: Română
+- tekst: Български
+- tekst: Hrvatski
+- tekst: Slovenščina
+- tekst: Српски
+- tekst: Lietuvių
+- tekst: Latviešu
+- tekst: Eesti
+- tekst: Українська
+- tekst: Español (España)
+- tekst: Español (Latinoamérica)
+- tekst: Português (Portugal)
+- tekst: Português (Brasil)
+- tekst: Deutsch
+- tekst: Français
+- tekst: Italiano
+- tekst: Nederlands
+- tekst: Svenska
+- tekst: Dansk
+- tekst: Norsk
+- tekst: Suomi
+- tekst: Türkçe
+- tekst: Ελληνικά
+- tekst: Bahasa Indonesia
+- tekst: Bahasa Melayu
+- tekst: Tiếng Việt
+- tekst: Русский
+- tekst: 日本語
+- tekst: 한국어
+- tekst: 繁體中文
+- tekst: https://apps4brew.com/piekarz/privacy.html
+- accessibilityLabel: Polski
+- accessibilityLabel: English
+- accessibilityLabel: Čeština
+- accessibilityLabel: Slovenčina
+- accessibilityLabel: Magyar
+- accessibilityLabel: Română
+- accessibilityLabel: Български
+- accessibilityLabel: Hrvatski
+- accessibilityLabel: Slovenščina
+- accessibilityLabel: Српски
+- accessibilityLabel: Lietuvių
+- accessibilityLabel: Latviešu
+- accessibilityLabel: Eesti
+- accessibilityLabel: Українська
+- accessibilityLabel: Español (España)
+- accessibilityLabel: Español (Latinoamérica)
+- accessibilityLabel: Português (Portugal)
+- accessibilityLabel: Português (Brasil)
+- accessibilityLabel: Deutsch
+- accessibilityLabel: Français
+- accessibilityLabel: Italiano
+- accessibilityLabel: Nederlands
+- accessibilityLabel: Svenska
+- accessibilityLabel: Dansk
+- accessibilityLabel: Norsk
+- accessibilityLabel: Suomi
+- accessibilityLabel: Türkçe
+- accessibilityLabel: Ελληνικά
+- accessibilityLabel: Bahasa Indonesia
+- accessibilityLabel: Bahasa Melayu
+- accessibilityLabel: Tiếng Việt
+- accessibilityLabel: Русский
+- accessibilityLabel: 日本語
+- accessibilityLabel: 한국어
+- accessibilityLabel: 繁體中文
+## Ekran awaryjny: 0

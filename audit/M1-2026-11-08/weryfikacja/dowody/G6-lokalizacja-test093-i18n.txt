@@ -1,0 +1,15 @@
+# Komenda: npx jest tests/czeka-na-przeklad-093.test.ts (cwd: kopia @ 2ef8870a)
+# Kod wyjścia: 0
+Test Suites: 1 passed, 1 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        0.887 s
+Ran all test suites matching /tests\/czeka-na-przeklad-093.test.ts/i.
+
+# Komenda: npm run check:i18n (cwd: kopia)
+# Kod wyjścia: 0
+i18n: 914 tekstów t('…') w kodzie, 2132 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 153 (skan kodu: src,app; uwagi wypisuje --uwagi)
+
+# Komenda: node scripts/check-i18n.mjs --kod src,app --uwagi | head -1 (cwd: kopia)
+# Kod wyjścia: 0
+UWAGA języki przekładu: 13992 braków dozwolonych (PÓŹNIEJ albo czeka na przekład) — w aplikacji tekst EN

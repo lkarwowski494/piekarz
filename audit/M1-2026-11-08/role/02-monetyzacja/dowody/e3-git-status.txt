@@ -1,0 +1,2 @@
+$ git status --porcelain (koniec pracy, 2026-11-08)
+kod: 0

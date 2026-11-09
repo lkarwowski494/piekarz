@@ -1,0 +1,14 @@
+$ npx jest tests/sonda09/pseudo.test.tsx (kopia robocza; plik sondy: dowody/sonda-pseudo.test.tsx.txt; wynik: dowody/sonda-pseudo-wynik.txt)
+✓ Dziś (565 ms)
+✓ Receptury (lista) (157 ms)
+✓ Receptura (118 ms)
+✓ Harmonogram (159 ms)
+✓ Zakwasy (124 ms)
+✓ Doktor zakwasu (8 ms)
+✓ Dziennik (16 ms)
+✓ Doktor (43 ms)
+✓ Stolnica (trwający wypiek) (84 ms)
+✓ Ustawienia (25 ms)
+✓ Ekran awaryjny (8 ms)
+Tests:       11 passed, 11 total
+kod: 0

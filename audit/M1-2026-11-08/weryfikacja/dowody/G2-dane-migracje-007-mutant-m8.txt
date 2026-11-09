@@ -1,0 +1,32 @@
+# 07-jakosc-007 M8: granica oz2 >= 1 → >= 2 w src/lib/unit-converter.ts:192 (worktree 2ef8870a w scratchpadzie)
+$ git diff
+diff --git a/src/lib/unit-converter.ts b/src/lib/unit-converter.ts
+index 21b99843..785470f8 100644
+--- a/src/lib/unit-converter.ts
++++ b/src/lib/unit-converter.ts
+@@ -189,7 +189,7 @@ function formatOunces(grams: number): string {
+     return `${lbs} lb ${formatFixed(roundTo(oz1 - lbs * 16, 1), 1)} oz`;
+   }
+   const oz2 = roundTo(grams * OZ_PER_GRAM, 2);
+-  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
++  return oz2 >= 2 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
+ }
+ 
+ /**
+$ npx jest --silent --maxWorkers=4   (pełny zestaw z mutantem M8)
+Test Suites: 574 passed, 574 total
+Tests:       6017 passed, 6017 total
+Snapshots:   0 total
+Time:        98.53 s, estimated 119 s
+real	1m39.047s
+user	5m2.357s
+sys	0m19.641s
+kod wyjścia: 0
+$ grep -rnE "\[(17|1|850|100|454|1000), '" src/lib/__tests__/miary-usa-096.test.ts   (dokładne przypadki imperial; pozostałe testy: 500, 250, 300 g przez toContain i porównania z formatWeight samym sobą w recipe-formatter-en — żaden przypadek w 28,35–56,7 g, tj. 1–2 oz)
+75:    [17, '0.60 oz'],
+76:    [1, '0.04 oz'],
+77:    [850, '1 lb 14.0 oz'],
+78:    [100, '3.5 oz'],
+79:    [454, '1 lb 0.0 oz'],
+80:    [1000, '2 lb 3.3 oz'],
+kod wyjścia: 0

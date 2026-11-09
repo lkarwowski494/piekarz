@@ -1,0 +1,35 @@
+$ npx jest --ci src/lib/__tests__/sonda-08-eksport-import.test.ts (worktree scratchpad wt-08 @ 2ef8870a, sonda spoza repo)
+    woda 75%, sól 2% -> receptura
+    woda 125%, sól 2% -> nierozpoznany
+    woda 30%, sól 2% -> nierozpoznany
+    woda 75%, sól 7% -> nierozpoznany
+  ✓ woda 75%, sól 2% (14 ms)
+  ✓ woda 125%, sól 2% (1 ms)
+  ✓ woda 30%, sól 2% (1 ms)
+  ✓ woda 75%, sól 7% (1 ms)
+Tests:       4 passed, 4 total
+kod: 0
+--- treść sondy ---
+// SONDA audytu M1 08 (nie do repo): receptura zapisana w zakresie pól arkusza „Składniki” -> eksport -> import z pliku
+import { exportRecipeToJson } from '../recipe-sharing';
+import { rozpoznajPlik } from '../import-z-pliku';
+const r = (water: number, salt: number) => ({
+  id: 'x', name: 'Moja', isBuiltIn: false, createdAt: 1, targetDDT: 25,
+  formula: { flours: [{ name: 'Pszenna', percentage: 100 }], waterPercentage: water, saltPercentage: salt, starterPercentage: 20, targetDoughWeightGrams: 900 },
+});
+it.each([[75, 2], [125, 2], [30, 2], [75, 7]])('woda %p%%, sól %p%%', (w, s) => {
+  const wynik = rozpoznajPlik(exportRecipeToJson(r(w, s) as never));
+  console.log(`woda ${w}%, sól ${s}% ->`, wynik?.rodzaj);
+});
+
+--- zakresy w dwóch miejscach ---
+205:              <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={0} max={150} onChange={p.onWaterPctChange} />
+206:              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
+208:                <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={20} max={200} onChange={p.onStarterHydrationChange} />
+210:              <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={0} max={10} onChange={p.onSaltPctChange} />
+211:              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={10} onChange={p.onYeastPctChange} ostatnie />
+189:  if (waterPct === null || waterPct < 35 || waterPct > 120) {
+197:  if (saltPct === null || saltPct < 0 || saltPct > 6) {
+205:  if (starterPct < 0 || starterPct > 150) {
+216:    if (formulaData.starterHydration < 20 || formulaData.starterHydration > 200) {
+227:      if (formulaData.extraYeastPercentage >= 0 && formulaData.extraYeastPercentage <= 10) {

@@ -1,0 +1,53 @@
+$ node -e (scripts/br-wyjatki.json: wpisy BR-HARMO-001, BR-ETAP-001, BR-RECP-005, BR-RECP-001, BR-KAL-012)
+{"id":"BR-KAL-012","powod":"funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć","zrodlo":"ER-62, D-090"}
+{"id":"BR-RECP-005","powod":"funkcja w zakresie 1.0 (D-154, D-173) jeszcze bez kodu: receptury bazowe nie mają wersji drożdżowej; test z ID powstaje razem z kodem (rola 07/08), a wpis trzeba wtedy usunąć","zrodlo":"F-26, D-154, D-187"}
+{"id":"BR-HARMO-001","czesciowe":true,"powod":"scenariusze Plan dla receptury drożdżowej i wersji drożdżowej oraz Temperatura nie zmienia czasów drożdżowych: kod blokuje plan bez zakwasu (src/lib/plan-receptury.ts, powodBezZakwasu); test z ID powstaje razem z kodem (rola 07/08); Godziny etapów i Godzina w przeszłości: testy BR-HARMO-001 bez zmian","zrodlo":"F-13, D-155, D-174"}
+{"id":"BR-ETAP-001","czesciowe":true,"powod":"scenariusz Gotowość ciasta drożdżowego: prowadzenie receptury drożdżowej nie istnieje (plan bez zakwasu zablokowany); test z ID powstaje razem z kodem (rola 07/08); Bieżący krok i Potwierdzenie kroku: testy BR-ETAP-001 bez zmian","zrodlo":"F-07, D-155, D-174"}
+{"id":"BR-RECP-001","czesciowe":true,"powod":"scenariusze Katalog w 1.0, Nazwa chroniona tylko jako pochodzenie i Formuła ze specyfikacji produkcji: katalog ma 15 receptur, nowych nie ma w kodzie (src/recipes/presets.ts); test z ID powstaje razem z kodem (rola 07/08); Wybór receptury bazowej i Bez ukrywania receptur: testy BR-RECP-001 bez zmian","zrodlo":"F-26, D-157, D-177"}
+
+$ sed -n 70,83p src/lib/plan-receptury.ts   (plan dla wersji drożdżowej istnieje: powodBezPlanu)
+
+/**
+ * Powód braku planu dla receptury i wersji (D-155): wersja drożdżowa z czasami etapów ma plan; orkisz na drożdżach
+ * (źródło bez podziału 3 h na etapy, DRO-WER-SP-001) ma własny powód; reszta jak powodBezZakwasu (D-3) [M3 p9b].
+ */
+export function powodBezPlanu(
+  formula: Pick<DoughRecipeInput, 'starterPercentage'>,
+  r: { recipeId?: string; wersja?: WersjaWypieku },
+): string | null {
+  if (r.wersja === 'drozdze' && wersjaDrozdzowa(r.recipeId)) {
+    return maPlanDrozdzowy(r.recipeId) ? null : t('Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.');
+  }
+  return powodBezZakwasu(formula);
+}
+
+$ sed -n 119,122p "app/(tabs)/receptury/harmonogram.tsx"
+  });
+  const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
+    if (drozdzowa) return krokiDrozdzoweKonczaceSie(drozdzowa, celMs) ?? [];
+    const zPlanu = stepsFromSchedule(plan);
+
+$ grep -rln "Plan dla receptury drożdżowej\|Gotowość ciasta drożdżowego\|Temperatura nie zmienia czasów" src tests --include=*.test.*
+kod: 1 (1 = brak)
+
+$ grep -rln "BR-RECP-005" src tests --include=*.test.*
+kod: 1
+
+$ testy funkcji wersji drożdżowej bez ID BR (D-155/D-154):
+src/recipes/__tests__/katalog-m3-p8.test.ts
+src/recipes/__tests__/maszyna-receptur-p9b2.test.ts
+src/recipes/__tests__/wersje-drozdzowe-p9b.test.ts
+src/__tests__/piecz-ponownie-wersja-p9b.test.tsx
+src/__tests__/plan-wersja-drozdzowa-p9b.test.tsx
+src/__tests__/receptura-wersja-drozdzowa-p9b.test.tsx
+src/data/__tests__/kroki-drozdzowe-sesji-p9b.test.ts
+src/lib/__tests__/plan-maszyny-p9b2.test.ts
+src/lib/__tests__/plan-drozdzowy-p9b.test.ts
+src/core/__tests__/yeast-stages-p9b.test.ts
+src/core/__tests__/zyto-drozdze-d256-p9b.test.ts
+
+$ grep -n "export const CATALOG_RECIPES" src/recipes/katalog.ts
+16:export const CATALOG_RECIPES: RecipePreset[] = [...MASTER_RECIPES, ...KATALOG_M3_RECIPES];
+
+$ git log -1 --format="%h %ad %s" --date=short -- scripts/br-wyjatki.json
+9efd5d19 2026-11-04 [M3 p9b2] ekran: tryb maszyny do chleba na recepturze (F-72, D-138)

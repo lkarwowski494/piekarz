@@ -1,0 +1,67 @@
+# Sonda (kopia kodu w scratchpadzie: git worktree 2ef8870a, plik testu poza repo; adapter node:sqlite z repo src/data/__tests__/helpers/node-sqlite-adapter.ts)
+# Treść sondy:
+  | /** Sonda audytu 05-architekt-b (scratchpad): EXPLAIN QUERY PLAN zapytań głównych ekranów na danych z szacunku 3-letniego. */
+  | jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+  | import { useTempDbDir, restartApp, dbFilePath, openRaw } from './helpers/node-sqlite-adapter';
+  | const APP_DB = () => dbFilePath('piekarz.db', '/Library/SQLite');
+  | 
+  | it('EQP', async () => {
+  |   useTempDbDir();
+  |   const app = restartApp();
+  |   await app.schema.initDatabase();
+  |   const raw = openRaw(APP_DB());
+  |   raw.exec('BEGIN');
+  |   // Szacunek 3 lata: 3 wypieki/tydz. = 468 wpisów; 3 zakwasy, dokarmianie 1/dzień = 3285 wpisów; 60 receptur; 2 sesje + 5 planów
+  |   for (let i = 0; i < 468; i++) raw.prepare('INSERT INTO bakes (id, recipe_name, started_at, finished_at, rating_stars, notes) VALUES (?, ?, ?, ?, 4, ?)').run(`b${i}`, `Chleb ${i % 20}`, 1e12 + i * 2e8, 1e12 + i * 2e8 + 1e7, 'x'.repeat(200));
+  |   for (let s = 0; s < 3; s++) {
+  |     raw.prepare("INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state) VALUES (?, ?, 'Żytnia', 100, 1, 'ROOM_TEMP')").run(`s${s}`, `Zakwas ${s}`);
+  |     for (let d = 0; d < 1095; d++) raw.prepare("INSERT INTO starter_entries (id, starter_id, kind, occurred_at, feed_ratio, signs, created_at, updated_at) VALUES (?, ?, 'feeding', ?, '1:2:2', '[]', ?, ?)").run(`e${s}-${d}`, `s${s}`, 1e12 + d * 864e5, 1, 1);
+  |   }
+  |   for (let r = 0; r < 60; r++) raw.prepare("INSERT INTO recipes (id, name, formula_json, target_ddt, is_built_in, created_at) VALUES (?, ?, '{}', 25, 0, ?)").run(`r${r}`, `R${r}`, r);
+  |   raw.exec('COMMIT');
+  |   raw.exec('ANALYZE');
+  |   const store = require('../sqlite-store');
+  |   const Q: Record<string, string> = {
+  |     'Dziennik (czytajWpisy)': 'SELECT id, started_at FROM bakes ORDER BY started_at DESC',
+  |     'Zakwasy (STARTERS_SELECT)': "SELECT s.id, (SELECT e.occurred_at FROM starter_entries e WHERE e.starter_id = s.id AND e.kind = 'feeding' ORDER BY e.occurred_at DESC LIMIT 1) AS lastFedAt FROM starters s",
+  |     'Dziennik zakwasu (getStarterEntries)': 'SELECT id FROM starter_entries WHERE starter_id = ? ORDER BY occurred_at DESC, id DESC LIMIT ?',
+  |     'Wszystkie wpisy (kopia, resync)': 'SELECT id FROM starter_entries ORDER BY starter_id, occurred_at DESC, id DESC',
+  |     'Sesje (wiersze status)': 'SELECT id FROM bake_sessions WHERE status = ? ORDER BY created_at, id',
+  |     'Receptury (getRecipes)': 'SELECT * FROM recipes ORDER BY created_at ASC',
+  |     'Koniec wypieku (SELECT 1 FROM bakes WHERE id)': 'SELECT 1 FROM bakes WHERE id = ?',
+  |   };
+  |   for (const [n, q] of Object.entries(Q)) {
+  |     const plan = raw.prepare(`EXPLAIN QUERY PLAN ${q}`).all(...(q.includes('?') ? (q.match(/\?/g) ?? []).map(() => 's1') : [])) as Array<{ detail: string }>;
+  |     console.log(`${n}: ${plan.map((p) => p.detail).join(' | ')}`);
+  |   }
+  |   const t0 = performance.now();
+  |   for (let i = 0; i < 10; i++) await store.collectBackupData();
+  |   console.log(`collectBackupData (wołane w resyncNotifications), laptop Node, mediana nieliczona, średnia z 10: ${((performance.now() - t0) / 10).toFixed(1)} ms`);
+  |   raw.close();
+  | });
+
+$ npx jest src/data/__tests__/sonda-b-eqp.sqlite.test.ts
+  console.log
+    Dziennik (czytajWpisy): SCAN bakes USING INDEX idx_bakes_started_at
+  console.log
+    Zakwasy (STARTERS_SELECT): SCAN s USING COVERING INDEX sqlite_autoindex_starters_1 | CORRELATED SCALAR SUBQUERY 1 | SEARCH e USING COVERING INDEX idx_starter_entries_starter_kind_at (starter_id=? AND kind=?)
+  console.log
+    Dziennik zakwasu (getStarterEntries): SEARCH starter_entries USING INDEX idx_starter_entries_starter_kind_at (starter_id=?) | USE TEMP B-TREE FOR ORDER BY
+  console.log
+    Wszystkie wpisy (kopia, resync): SCAN starter_entries USING INDEX idx_starter_entries_starter_kind_at | USE TEMP B-TREE FOR LAST 2 TERMS OF ORDER BY
+  console.log
+    Sesje (wiersze status): SEARCH bake_sessions USING INDEX idx_bake_sessions_status (status=?) | USE TEMP B-TREE FOR LAST TERM OF ORDER BY
+  console.log
+    Receptury (getRecipes): SCAN recipes | USE TEMP B-TREE FOR ORDER BY
+  console.log
+    Koniec wypieku (SELECT 1 FROM bakes WHERE id): SEARCH bakes USING COVERING INDEX sqlite_autoindex_bakes_1 (id=?)
+  console.log
+    collectBackupData (wołane w resyncNotifications), laptop Node, mediana nieliczona, średnia z 10: 11.4 ms
+PASS src/data/__tests__/sonda-b-eqp.sqlite.test.ts
+  ✓ EQP (323 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.561 s, estimated 1 s
+Ran all test suites matching /src\/data\/__tests__\/sonda-b-eqp.sqlite.test.ts/i.
+kod: 0

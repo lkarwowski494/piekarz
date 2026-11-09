@@ -1,0 +1,70 @@
+$ curl itunes.apple.com/search (sourdough us/de, bread baking us, zakwas pl) + lookup 6 aplikacji, odczyt 2026-11-08; kod 0
+== sd-us.json
+6736766728 Loaflo: Sourdough Starter 564 4.69
+6755709217 Sourdough Starter Tracker 33 4.82
+1515369685 Rise: Baking & Bread Recipes 337 4.87
+6797501483 Sourdough Simplified 0 0
+6747842855 SourdoughGuru: AI Baking Coach 1 5
+6756316343 Breadlify 0 0
+6813598256 Ovenbell: Home Bakery Business 4 4.75
+6752309546 Sourdough Buddy 1 5
+6817087296 LoafCoach: Sourdough Bread 7 5
+6738346798 Sourdough Feeding Calculator 0 0
+6769946306 Sourdough Sanity: Bake Guide 0 0
+6758812333 The Dough Lab - Bread Baking 9 4.89
+1521173993 West Coast Sourdough 1679 4.75
+1534576984 Kneady: Bread & Baking Recipes 732 4.8
+6751040790 Sourdough AI 5 4.4
+== bb-us.json
+1515369685 Rise: Baking & Bread Recipes 337 4.87
+1534576984 Kneady: Bread & Baking Recipes 733 4.8
+6762681659 Proof: Bake Better Bread 0 0
+1633520091 Cooking Time! 1 5
+1537955145 Just Bread 2 5
+714796093 Cooking Fever: Restaurant Game 346223 4.51
+6758914613 Breadcrumbs: Bread Baking 0 0
+1451738588 Baking black forest cake games 46312 4.26
+1601452445 Bready: Bread Baking Timer 0 0
+== zk-pl.json
+6760582503 Sourdough Tracker: Starter Log 0 0
+6812466978 Flourwise: Sourdough & Baking 1 5
+6794852624 SourTime: Sourdough & Bread 0 0
+6771559099 Sourdough: Starter Companion 0 0
+6787479343 Wirtualny Piekarz 2 5
+6766092580 Sourdough Starter – Surdeg 0 0
+6759510215 The Daily Crumb: Sourdough 0 0
+6779179300 Brinepost: Sourdough & Ferment 0 0
+6812950497 Sourdough Bread Timer: Levain 0 0
+6779931291 Doughwell: Sourdough Starter 0 0
+== sd-de.json
+6755709217 Sauerteig Starter Tracker 4 4.25
+1572641630 Levain 12 5
+6752309546 Sourdough Buddy 0 0
+6462694910 Sour & Dough - Bread Baking 0 0
+6736766728 Loaflo: Sauerteig-Starter 1 1
+1515369685 Rise: Back- & Brotrezepte 11 4.91
+6748180011 Yeasta: Sauerteig-Tracker 0 0
+6759112264 The Sourdough 0 0
+
+Arkusz zrzutów sklepu (4 pierwsze zrzuty: Loaflo, Rise, West Coast Sourdough, Kneady, Sourdough Starter Tracker, Levain): /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/konkurencja/arkusz-konkurencja.jpg
+
+== Recenzje US (RSS mostrecent, strona 1) ze słowami o kontekście/interfejsie
+1515369685 5★ | Masterpiece. | Carefully crafted app. It’s well worth the purchase for novices or masters. The calculators included alone are worth every penny. Beyond them, you will accurately dynamically know what time on the clock to perform every step. This takes away the anxiety and al
+1515369685 5★ | The best app!!! | I never write reviews. I am writing a review because this is one of the best purpose-designed apps I’ve ever used!!! Just get it! You’ll love it!!
+1515369685 5★ | Biggest Gamechanger for Sourdough | This app is amazing. The Fluff Monster recipe is my staple and my sourdough skills have improved so much with this app!!! Thank you so much to whoever made it 🩷🩷🩷🩷
+1515369685 5★ | How can we get dynamic measurements in our own recipes like the Rise recipes? | The included recipes in the app seems to scale measurements within the steps as ingredients are adjusted above. The value of measurement amounts appears inside of an outline button within the body copy of the instructions.  How can we accomplish this with impo
+1515369685 5★ | Wish I found this app earlier | This app is a game changer for all the technicalities needed for Sourdough bakers. There are many well thought features to praise, such as total hydration factoring in your sourdough hydration (that too you can have different sourdough hydration percentages), 
+1515369685 5★ | Love this app | I use Rise a lot and I highly recommend it. The design is great and the timers are helpful.
+1515369685 3★ | Frustrating in practice | I have two main issues with this app, which seemed very promising.  The big one is that you can’t enter tsp amounts smaller than 1/2 tsp. Need 1/4 tsp of something in a recipe? Too bad. That makes the app unuseable for me. I do almost everything in grams, but 
+1515369685 4★ | Need a Timer PAUSE function! Otherwise pretty much perfect | Need a simple timer PAUSE function so that there’s no need to keep adding more time and have the while clock run smock when you need to stop for something like more stretch/fold or other distractions...
+1515369685 5★ | Easy Five Stars | I’ve been using this app for months with just the free features and it took all the stress and thinking out of my bakes. I finally upgraded and am hitting myself for waiting so long. The app is so much better unlocked, totally worth it.   5 stars would bake ag
+1515369685 5★ | Perfect sourdough companion | This is a great app. It’s thoughtfully designed and you can really tell that its creators bring a lot of passion to the subject matter. I’ve made a few attempts at the sourdough hobby in the past and Rise is making this current go the one that sticks (much lik
+1515369685 1★ | Not working | I just purchased yesterday and have yet to receive notification alarms for feeding my starter. I cannot figure out where to request a refund either.  So disappointed.
+1515369685 4★ | Doesn't support BBGA formulas | This is a very well designed app, and I think it will be useful for many bakers. However, it's common for serious bread bakers to keep their recipes in BBGA (Bread Bakers Guild of America) style formulas, which is not possible in this app.  If "BBGA style form
+1515369685 5★ | A busy baker’ dream! | I love to bake but don’t have a lot of free time and was finding it difficult to keep track of schedules while multitasking during this day. This app not only allows me to centralize my notes but also reminds me through my phone notifications of key points in 
+1515369685 5★ | Very well designed | I’m building an app that is a lot like Rise, but for homebrew beer, and was immediately impressed by Rise’s thoughtful design. Nearly everything about creating a rise, tweaking the recipe, to the timers during the process is just great. My bread baking skills 
+1534576984 5★ | New baking partner | I’m brand new to this App and I can’t wait to get my hands full of dough. Oh what fun I’ll have.
+1534576984 4★ | Could get 5 stars but… | Only reason I don’t give it 5 stars is cuz everything is in metric!! How many cups is 600g of flour???🤦🏻‍♂️🤦🏻‍♂️
+6736766728 1★ | Paywall | I hate when apps don’t advertise a subscription based service in the photos or descriptions— not to mention the paywall keeps popping up with a timer. NAH buh-bye!
+6736766728 1★ | You literally only get one scan. | You get one single scan, everything else is locked behind paywalls. The feedback would be great if I could actually compare the before/after.
+6755709217 1★ | Porn ads | There were porn images on the screen when I opened this app. I had to delete immediately.

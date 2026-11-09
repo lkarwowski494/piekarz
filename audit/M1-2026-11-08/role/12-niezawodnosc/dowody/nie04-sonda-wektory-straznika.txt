@@ -1,0 +1,56 @@
+# Sonda w git worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-12; wektory strażnika z wzorców roli 12
+$ npx jest src/lib/__tests__/sonda-12-straznik.test.ts
+pierwszy start → {"rescue":false} plik={"failedStarts":1}
+  kamień milowy → undefined plik={"failedStarts":0}
+start po udanym → {"rescue":false} plik={"failedStarts":1}
+  (bez kamienia) kolejny start = drugi z rzędu bez kamienia? → {"rescue":false} plik={"failedStarts":2}
+  trzeci start → {"rescue":true} plik={"failedStarts":2}
+  start awaryjny i jego ekran: kolejny start → {"rescue":true} plik={"failedStarts":2}
+  „spróbuj normalnie” i kamień → undefined plik={"failedStarts":0}
+start po kamieniu → {"rescue":false} plik={"failedStarts":1}
+zapis {"x":1} → {"rescue":false} plik={"failedStarts":1}
+zapis nie-json → {"rescue":false} plik={"failedStarts":1}
+zapis null → {"rescue":false} plik={"failedStarts":1}
+zapis {"failedStarts":-3} → {"rescue":false} plik={"failedStarts":1}
+zapis {"failedStarts":"2"} → {"rescue":false} plik={"failedStarts":1}
+PASS src/lib/__tests__/sonda-12-straznik.test.ts
+  sonda strażnika
+    ✓ wektory (4 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.336 s, estimated 1 s
+Ran all test suites matching /src\/lib\/__tests__\/sonda-12-straznik.test.ts/i.
+kod: 0
+
+--- treść sondy ---
+/** Sonda roli 12 (scratchpad): wektory strażnika startu z wzorców roli 12 (próg 2) na kodzie src/lib/startup-guard.ts. */
+import * as FileSystem from 'expo-file-system/legacy';
+const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+const out = (s: string) => process.stdout.write(s + '\n');
+const G = () => require('../startup-guard') as typeof import('../startup-guard');
+const PLIK = `${FileSystem.documentDirectory}.piekarz/start-guard.json`;
+const plik = () => mockFiles.get(PLIK) ?? '(brak)';
+
+describe('sonda strażnika', () => {
+  beforeEach(() => mockFiles.clear());
+  it('wektory', async () => {
+    const wynik: string[] = [];
+    const krok = async (opis: string, f: () => Promise<unknown>) => { const r = await f(); wynik.push(`${opis} → ${JSON.stringify(r)} plik=${plik()}`); };
+    await krok('pierwszy start', () => G().beginStartup());
+    await krok('  kamień milowy', () => G().markStartupSucceeded());
+    await krok('start po udanym', () => G().beginStartup());
+    await krok('  (bez kamienia) kolejny start = drugi z rzędu bez kamienia?', () => G().beginStartup());
+    await krok('  trzeci start', () => G().beginStartup());
+    await krok('  start awaryjny i jego ekran: kolejny start', () => G().beginStartup());
+    // „spróbuj normalnie” = startAplikacji bez beginStartup i bez zerowania (app/_layout.tsx:117-121); kamień → 0
+    await krok('  „spróbuj normalnie” i kamień', () => G().markStartupSucceeded());
+    await krok('start po kamieniu', () => G().beginStartup());
+    for (const zly of ['{"x":1}', 'nie-json', 'null', '{"failedStarts":-3}', '{"failedStarts":"2"}']) {
+      mockFiles.set(PLIK, zly);
+      await krok(`zapis ${zly}`, () => G().beginStartup());
+    }
+    out(wynik.join('\n'));
+    expect(true).toBe(true);
+  });
+});

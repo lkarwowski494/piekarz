@@ -1,0 +1,36 @@
+$ grep -rn "porown\|'porownanie'\|Porównanie i statystyki\|porównanie i statystyki" app src --include=*.ts --include=*.tsx | grep -v __tests__ | grep -v '/i18n'
+app/(tabs)/dziennik/index.tsx:61:          <BlokadaFunkcji {...blokada('porownanie')} ikonaKarty={<IkonaKarty nazwa="proporcje" />}>
+src/components/PaywallModal.tsx:73:          t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
+src/lib/platnosci/nazwy-pro.ts:26:    case 'porownanie':
+src/lib/platnosci/nazwy-pro.ts:27:      return t('Porównanie i statystyki');
+src/lib/platnosci/konfiguracja.ts:59:  | 'porownanie' // porównanie i statystyki dziennika (BR-RECP-004)
+src/lib/platnosci/konfiguracja.ts:91:  'dziennik-filtr-smaku', // filtr profilu smaku; porównanie i statystyki w Pro (BR-RECP-004)
+kod: 0
+
+$ grep -n 'BR-RECP-004\|F-63' docs/scope-contract.md docs/brd/wymagania-dziennik.md
+docs/scope-contract.md:61:| F-63 | Porównanie dwóch wypieków | BR-RECP-004 | PÓŹNIEJ | R: S-14 rec. 8937437575 (słaby) | WTP-2 (R) · próba / płatna | — | — | F-28 | wariant B: ranking 5 przy 2 h; nowa funkcja bez kodu. Powrót: użytkownicy z ≥ 
+docs/scope-contract.md:126:| F-63 | 20 | 1 | 50 | 2 | C: jedna recenzja |
+docs/scope-contract.md:174:  38. F-63 wynik 5 · 2 h, razem 70 h · PÓŹNIEJ · poza apetytem 60 h
+docs/scope-contract.md:192:- **04:** przepływy PR-01…PR-18 bez PR-08 (QR i druk PÓŹNIEJ; eksport pliku z PR-07 zostaje); kryteria z kolumny „Intuicyjność” do przejścia poznawczego (cztery pytania Flaherty) i, gdzie się da, 3–5 osób bez instrukc
+docs/scope-contract.md:193:- **05:** przepływy jak wyżej; dane zapisują F-09, F-13, F-07/F-58 (trwający wypiek ze znacznikiem „zaczęty z dostępem”, D-039), F-22…F-25, F-60…F-62, F-26…F-28, F-31…F-33, F-65, F-67; praca w tle: powiadomienia lok
+docs/brd/wymagania-dziennik.md:60:### BR-RECP-004: Porównanie dwóch wypieków
+kod: 0
+
+$ sed -n 21,30p src/components/stolnica/BakeStatsCard.tsx
+}
+
+export function BakeStatsCard({ stats }: BakeStatsCardProps) {
+  const duzy = useDuzyTekst();
+  const pozycje: [string, string][] = [
+    [t('Łącznie wypieków'), String(stats.totalBakes)],
+    [t('Średnia ocena'), String(stats.averageRating)],
+    [t('Śr. miękisz'), `${stats.averageCrumbScore}/5`],
+    [t('Śr. skórka'), `${stats.averageCrustScore}/5`],
+  ];
+kod: 0
+
+$ grep -n 'statyst\|statistic' docs/wydanie/metadane/pl.json docs/wydanie/metadane/en-US.json
+docs/wydanie/metadane/pl.json:9:  "opis": "Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje rece
+docs/wydanie/metadane/en-US.json:9:  "opis": "Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads
+kod: 0
+

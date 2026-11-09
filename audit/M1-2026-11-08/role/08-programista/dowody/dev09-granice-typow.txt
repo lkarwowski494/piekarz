@@ -1,0 +1,47 @@
+$ grep -rnE "get(All|First)Async<[A-Z{]" src app (bez __tests__): zapytania z typem wiersza zamiast unknown
+src/data/nowe-pola-kopii.ts:28:  const bakes = await db.getAllAsync<{ id: unknown; recipe_id: unknown; leaven: unknown; bake_method: unknown }>('SELECT id, recipe_id, leaven, bake_method FROM bakes;')
+src/data/nowe-pola-kopii.ts:29:  const starters = await db.getAllAsync<{ id: unknown; d: unknown; m: unknown }>(
+src/data/ustawienia-kopii.ts:67:  const ust = await db.getAllAsync<{ key: string; value: string }>(`SELECT key, value FROM app_settings WHERE key IN (${znaki}) ORDER BY key;`, ...KLUCZE_USTAWIEN_KOPII
+src/data/ustawienia-kopii.ts:68:  const lek = await db.getAllAsync<{ level_id: number; completed_at: number }>('SELECT level_id, completed_at FROM lesson_progress ORDER BY level_id ASC;');
+src/data/sqlite-store.ts:170:  return (await db.getAllAsync<StarterRow>(STARTERS_SELECT)).map(starterFromRow);
+src/data/sqlite-store.ts:204:        const last = await db.getFirstAsync<{ at: number | null }>(
+src/data/sqlite-schema.ts:235:      const bakesCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
+src/data/sqlite-schema.ts:236:      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+src/data/sqlite-schema.ts:259:      const accessCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(app_access);');
+src/data/sqlite-schema.ts:271:      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+src/data/sqlite-schema.ts:299:      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+src/data/sqlite-schema.ts:328:      const bakesCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
+src/data/sqlite-schema.ts:330:      const st = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+src/data/sqlite-schema.ts:347:  const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
+src/data/flour-store.ts:17:    const rows = await db.getAllAsync<StoredFlourInventoryItem>(
+src/data/migracja-v6.ts:19:  const tab = await db.getFirstAsync<{ c: unknown }>("SELECT count(*) AS c FROM sqlite_master WHERE type = 'table' AND name = 'app_settings';");
+src/data/migracja-v6.ts:21:  const row = await db.getFirstAsync<{ value: unknown }>('SELECT value FROM app_settings WHERE key = ?;', BAKE_SESSION_KEY);
+src/data/migracja-v7.ts:15:    const kol = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
+src/data/settings-store.ts:82:    const row = await db.getFirstAsync<{ value: string }>(
+src/data/settings-store.ts:99:  const row = await writeOrThrow(() => db.getFirstAsync<{ value: string }>('SELECT value FROM app_settings WHERE key = ?;', key));
+src/data/wpisy-wypiekow.ts:13:  const rows = await db.getAllAsync<{
+src/data/recipes-store.ts:17:    const rows = await db.getAllAsync<{
+
+$ grep -rnE " as (any|unknown as|Array<|Partial<|Stored|\(|\{)| as [A-Z][A-Za-z]+(\[|\b)" src/data src/lib (bez __tests__, bez "as const")
+src/data/sqlite-schema.ts:56:  starters: [] as StoredStarter[],
+src/data/sqlite-schema.ts:57:  starterEntries: [] as StoredStarterEntry[],
+src/data/sqlite-schema.ts:58:  recipes: [] as StoredRecipe[],
+src/data/sqlite-schema.ts:59:  logs: [] as StoredBakeLog[],
+src/data/sqlite-schema.ts:60:  flourInventory: [] as StoredFlourInventoryItem[],
+src/data/sqlite-schema.ts:62:  activeBake: null as ActiveBakeState | null,
+src/data/sqlite-schema.ts:63:  bakeSessions: [] as WierszSesji[],
+src/data/sqlite-schema.ts:64:  pendingOps: [] as Array<{
+src/data/sqlite-schema.ts:71:  settings: {} as Record<string, string>,
+src/data/settings-store.ts:19:    )) as Array<{ level_id: number }>;
+src/data/wpisy-wypiekow.ts:54:      tasteProfile: (r.tasteProfile as StoredBakeLog['tasteProfile']) ?? undefined,
+src/lib/i18n-en/czesc-1.ts:82:  'Zapisz jako moją': 'Save as Mine',
+src/lib/i18n-en/czesc-1.ts:212:  'Kopiuj jako tekst': 'Copy as Text',
+src/lib/platnosci/konfiguracja.ts:113:  const plan = (Object.keys(PRODUKTY) as Plan[]).find((p) => PRODUKTY[p] === id);
+src/lib/recipe-sharing.ts:94:  const root = raw as Record<string, unknown>;
+src/lib/recipe-sharing.ts:99:    : root) as Record<string, unknown>;
+src/lib/recipe-sharing.ts:124:  const formulaData = recipeData.formula as Record<string, unknown>;
+src/lib/recipe-sharing.ts:143:    const flourItem = f as Record<string, unknown>;
+src/lib/backup.ts:226:  const envelope = parsed as Partial<PiekarzBackupEnvelope>;
+src/lib/qr-skaner.ts:7:import type { QrScannerModal as QrScannerModalType } from '../components/QrScannerModal';
+
+$ grep -rnE "\w!\.|\w!\)|\w!;" src/data src/lib (asercja niepustości)

@@ -1,0 +1,17 @@
+# Wytyczne i strona subskrypcji Apple — odczyt 2026-11-08
+$ curl -sSL --compressed https://developer.apple.com/app-store/review/guidelines/ (kod 0) | sed s/<[^>]*>//g | grep -o …
+Last Updated: October 16, 2026
+Non-subscription apps may offer a free time-based trial period before presenting a full unlock option by setting up a Non-Consumable IAP item at Price Tier 0 that follows the naming convention: “XX-day Trial.” Prior to the start of the trial, your app must clearly identify its duration, the content or services that will no longer be accessible when the trial ends, and any downstream charges the user would need to pay for full functionality.
+3.1.2(a) Permissible uses: If you offer an auto-renewable subscription, you must provide ongoing value to the customer, and the subscription period must last at least seven days and be available across all of the user’s devices.
+If you are changing your existing app to a subscription-based business model, you should not take away the primary functionality existing users have already paid for.
+Auto-renewable subscription apps may offer a free trial period to customers by providing the relevant information set forth in App Store Connect.
+Apps should never prey on users or attempt to rip off customers, trick them into making unwanted purchases, force them to share unnecessary data, raise prices in a tricky manner, charge for features or content that are not delivered, or engage in any other manipulative practices within or outside of the app.
+Apps must not force users to rate the app, review the app, download other apps, or other store-related actions in order to access functionality, content, or use of the app.
+Apps may use in-app purchase currencies to enable customers to “tip” the developer or digital content providers in the app.
+Subscriptions must work on all of the user’s devices where the app is available.
+
+$ curl -sSL --compressed https://developer.apple.com/app-store/subscriptions/ (kod 0)
+Billing amount In the purchase flow, the amount that will be billed must be the most prominent pricing element in the layout.
+Free trials In the purchase flow for a free trial, clearly indicate how long the free trial lasts and the price billed once the free trial is over.
+You can use the showManageSubscriptions(in:) method to let them manage their subscription within your app.
+2.3.2: If your app includes in-app purchases, make sure your app description, screenshots, and previews clearly indicate whether any featured items, levels, subscriptions, etc. require additional purchases. If you decide to promote in-app purch

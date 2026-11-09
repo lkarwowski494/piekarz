@@ -1,0 +1,46 @@
+# G3-ratunek-awaria — 12-niezawodnosc-001: pakiet trybu awaryjnego a import, kontakt, ostrzeżenie
+# Repo @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42; sonda w worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g3
+
+## Sonda: src/__tests__/sonda-g3-pakiet-import.test.ts (tylko w worktree)
+    /** Sonda G3 (scratchpad): czy „Importuj z pliku” rozpoznaje pakiet z trybu awaryjnego. */
+    import { rozpoznajPlik } from '../lib/import-z-pliku';
+    import { PAKIET_FORMAT } from '../lib/kopia-plikow-bazy';
+    it('pakiet piekarz-pliki-bazy przy imporcie', () => {
+      const pakiet = JSON.stringify({ format: PAKIET_FORMAT, wersja: 1, utworzono: new Date().toISOString(), pliki: [{ nazwa: 'piekarz.db', base64: 'U1FMaXRlIGZvcm1hdCAzAA==' }] });
+      const r = rozpoznajPlik(pakiet);
+      console.log(`SONDA rozpoznajPlik(pakiet ${PAKIET_FORMAT}) = ${JSON.stringify(r)}`);
+      expect(r).toEqual({ rodzaj: 'nierozpoznany' });
+    });
+$ cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g3 && npx jest src/__tests__/sonda-g3-pakiet-import.test.ts
+  console.log
+    SONDA rozpoznajPlik(pakiet piekarz-pliki-bazy) = {"rodzaj":"nierozpoznany"}
+PASS src/__tests__/sonda-g3-pakiet-import.test.ts
+  ✓ pakiet piekarz-pliki-bazy przy imporcie (12 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.308 s
+Ran all test suites matching /src\/__tests__\/sonda-g3-pakiet-import.test.ts/i.
+kod wyjścia: 0 (asercja: rodzaj 'nierozpoznany')
+
+$ grep -rn "napiszDoAutora" src app
+src/components/settings/StudioEcosystemSection.tsx:7:import { napiszDoAutora } from '../../lib/zgloszenie-wyslanie';
+src/components/settings/StudioEcosystemSection.tsx:122:            onPress={() => void napiszDoAutora()}
+src/__tests__/kontakt-ukryty.test.tsx:20:import { napiszDoAutora } from '../lib/zgloszenie-wyslanie';
+src/__tests__/kontakt-ukryty.test.tsx:39:  it('napiszDoAutora ze znacznikiem nie woła composeAsync ani openURL', async () => {
+src/__tests__/kontakt-ukryty.test.tsx:41:    await napiszDoAutora();
+src/lib/zgloszenie-wyslanie.ts:29:export async function napiszDoAutora(): Promise<void> {
+kod wyjścia: 0
+
+$ grep -n "napiszDoAutora\|Napisz do nas\|zgloszenie" src/components/RescueScreen.tsx src/components/StorageGate.tsx
+kod wyjścia: 1
+
+$ grep -rn "pliki-bazy" scripts docs
+kod wyjścia: 1
+
+$ grep -rn "piekarz-pliki-bazy\|PAKIET_FORMAT" src/lib/import-z-pliku.ts src/lib/backup.ts
+kod wyjścia: 1
+
+$ grep -rn "usuni[ęe][cs]\w* aplikacj\|Usunięcie aplikacji\|odinstal" src app --include=*.ts --include=*.tsx
+kod wyjścia: 1
+

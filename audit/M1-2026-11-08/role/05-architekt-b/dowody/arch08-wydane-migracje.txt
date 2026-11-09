@@ -1,0 +1,8 @@
+$ git diff v1.0.0-b1017 HEAD -- src/data/sqlite-schema.ts src/data/migracja-v6.ts (fragmenty SCHEMA_MIGRATIONS v1-v6 i przeniesSesjeV6)
+ src/data/sqlite-schema.ts | 5 +++++
+ 1 file changed, 5 insertions(+)
+--- diff tylko w obrębie SCHEMA_MIGRATIONS (linie 149-342 HEAD):
+192a193
+>   MIGRACJA_V7,
+diff kod: 1
+--- migracja-v6.ts b1017 vs HEAD:

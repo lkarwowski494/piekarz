@@ -1,0 +1,58 @@
+# G3-ratunek-awaria — 12-niezawodnosc-002: numer buildu w wiadomości do autora
+# Repo @ 2ef8870a525485cc1ac57e5abe9d97d9937dfe42; osadzenie konfiguracji tym samym skryptem, którego używa build iOS (expo-constants get-app-config-ios.sh → getAppConfig.js), wynik do scratchpadu
+
+$ cd /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad && EXPO_PUBLIC_BUILD_NUMBER=1023 node node_modules/expo-constants/scripts/getAppConfig.js <worktree /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/wt-g3> /tmp/claude-0/-home-user/79768a3e-707c-5f03-ab3b-256fa3738af3/scratchpad/embed && node -e '<odczyt version i ios.buildNumber z embed/app.config>'
+version 1.0.0 ios.buildNumber undefined
+kod wyjścia: 0
+
+$ grep -n "buildNumber" app.json
+kod wyjścia: 1
+
+$ ls app.config.* 2>/dev/null
+kod wyjścia: 2
+
+$ sed -n 40,43p scripts/verify-native.mjs
+  appJson.ios?.buildNumber === undefined,
+  'app.json nie może mieć ios.buildNumber: numer buildu ustawia wyłącznie workflow testflight.yml'
+);
+
+kod wyjścia: 0
+
+$ grep -rn "buildNumber" src app --include=*.ts --include=*.tsx
+src/__tests__/kontakt-z-adresem.test.tsx:17:  default: { expoConfig: { version: '1.0.0', ios: { buildNumber: '1014' } } },
+src/lib/zgloszenie-wyslanie.ts:34:    build: Constants.expoConfig?.ios?.buildNumber ?? null,
+kod wyjścia: 0
+
+$ grep -rn "EXPO_PUBLIC_BUILD_NUMBER\|nativeBuildVersion\|expo-application" src app package.json
+kod wyjścia: 1
+
+$ grep -n "BUILD_NUMBER\|PlistBuddy\|expo prebuild" .github/workflows/testflight.yml
+110:        run: npx expo prebuild --platform ios --no-install --clean
+120:          BUILD_NUMBER=$((BUILD_BASE + GITHUB_RUN_NUMBER))
+121:          if ! [[ "$BUILD_NUMBER" =~ ^[0-9]+$ ]]; then
+122:            echo "::error::Nieprawidłowy numer buildu: '$BUILD_NUMBER'"
+125:          echo "Ustawianie wersji $VERSION ($BUILD_NUMBER)"
+127:          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "ios/$APP_DIR/Info.plist"
+128:          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "ios/$APP_DIR/Info.plist"
+131:          echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+132:          echo "EXPO_PUBLIC_BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
+134:          echo "build_number=$BUILD_NUMBER" >> "$GITHUB_OUTPUT"
+188:            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+210:          name: testflight-sourcemap-${{ env.VERSION }}-b${{ env.BUILD_NUMBER }}
+320:            echo "| **Numer buildu** | \`${BUILD_NUMBER:-?}\` |"
+kod wyjścia: 0
+
+$ sed -n 15,18p src/__tests__/kontakt-z-adresem.test.tsx
+jest.mock('expo-constants', () => ({
+  __esModule: true,
+  default: { expoConfig: { version: '1.0.0', ios: { buildNumber: '1014' } } },
+}));
+kod wyjścia: 0
+
+$ sed -n 23p src/lib/zgloszenie.ts
+  const wersja = `${d.wersja ?? nieznana}${d.build ? ` (${d.build})` : ''}`;
+kod wyjścia: 0
+
+$ grep -n "buildNumber\|EXPO_PUBLIC_BUILD_NUMBER" docs/decyzje.md docs/DECISIONS.md docs/adr/*.md
+kod wyjścia: 1
+

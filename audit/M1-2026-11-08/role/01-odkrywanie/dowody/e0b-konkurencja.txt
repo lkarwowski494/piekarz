@@ -1,0 +1,277 @@
+# Skan konkurencji, odczyt 2026-11-08 (UTC ~20:15). Komendy: curl https://itunes.apple.com/search?term=<fraza>&entity=software&country=<us|pl>&limit=15 ; lookup?id= ; apps.apple.com/<kraj>/app/id<id> (IAP z JSON strony); itunes.apple.com/<kraj>/rss/customerreviews/page=1/id=<id>/sortby=mostrecent/json (strona 1 = próbka najnowszych)
+## Wyszukiwania (trackId | nazwa | cena | ocen | średnia | ostatnia wersja | sprzedawca)
+### s_us_sourdough_.json
+6736766728 | Loaflo: Sourdough Starter | Free | 564 | 4.69 | 2026-09-07
+6755709217 | Sourdough Starter Tracker | Free | 33 | 4.82 | 2026-11-03
+1515369685 | Rise: Baking & Bread Recipes | Free | 337 | 4.87 | 2026-10-20
+6797501483 | Sourdough Simplified | Free | 0 | 0.00 | 2026-10-22
+6747842855 | SourdoughGuru: AI Baking Coach | Free | 1 | 5.00 | 2026-10-22
+6756316343 | Breadlify | Free | 0 | 0.00 | 2025-12-20
+6813598256 | Ovenbell: Home Bakery Business | Free | 4 | 4.75 | 2026-09-28
+6752309546 | Sourdough Buddy | Free | 1 | 5.00 | 2026-07-09
+6817087296 | LoafCoach: Sourdough Bread | Free | 7 | 5.00 | 2026-11-07
+6738346798 | Sourdough Feeding Calculator | Free | 0 | 0.00 | 2026-08-04
+6769946306 | Sourdough Sanity: Bake Guide | Free | 0 | 0.00 | 2026-10-17
+6758812333 | The Dough Lab - Bread Baking | Free | 9 | 4.89 | 2026-10-21
+1521173993 | West Coast Sourdough | Free | 1679 | 4.75 | 2024-10-03
+1534576984 | Kneady: Bread & Baking Recipes | Free | 732 | 4.80 | 2026-07-15
+6751040790 | Sourdough AI | Free | 5 | 4.40 | 2026-11-03
+### s_us_bread___baking_.json
+1515369685 | Rise: Baking & Bread Recipes | Free | 337 | 4.87 | 2026-10-20
+1534576984 | Kneady: Bread & Baking Recipes | Free | 733 | 4.80 | 2026-07-15
+6762681659 | Proof: Bake Better Bread | Free | 0 | 0.00 | 2026-09-10
+1633520091 | Cooking Time! | Free | 1 | 5.00 | 2024-10-15
+1537955145 | Just Bread | Free | 2 | 5.00 | 2020-12-29
+714796093 | Cooking Fever: Restaurant Game | Free | 346223 | 4.51 | 2026-08-24
+6758914613 | Breadcrumbs: Bread Baking | Free | 0 | 0.00 | 2026-02-23
+1451738588 | Baking black forest cake games | Free | 46312 | 4.26 | 2023-09-10
+1601452445 | Bready: Bread Baking Timer | Free | 0 | 0.00 | 2023-05-15
+6779720971 | BreadAdvisor | Free | 0 | 0.00 | 2026-10-23
+6447359628 | Kids Cooking Game for Toddlers | Free | 58039 | 4.23 | 2026-10-28
+649295437 | Bread Puppies | Free | 1760 | 3.88 | 2015-05-12
+1527848593 | Fresh Bread! Fairy Bakery | Free | 2294 | 4.74 | 2024-04-25
+### s_us_baker___s___percentage_.json
+6742335028 | Leaven: Baker's Percentage | Free | 13 | 4.08 | 2025-09-19
+1519534917 | Bread Book | Free | 11 | 4.73 | 2026-05-06
+6753281246 | Baker’s Percentage | $1.99 | 1 | 1.00 | 2026-05-27
+6800753721 | Math Loaf: Baker's Percentage | Free | 0 | 0.00 | 2026-08-20
+1343381132 | Baker Percentage | Free | 1 | 5.00 | 2026-05-11
+6827017548 | Baker's Percentage | Free | 0 | 0.00 | 2026-10-29
+6771638580 | Whisk Baker's Ratio | Free | 0 | 0.00 | 2026-05-22
+1515139393 | Bakesy: Home Bakery Biz App | Free | 7311 | 4.90 | 2026-11-04
+1507706828 | Doughy | Free | 10 | 4.90 | 2020-04-13
+1438604127 | Baker’s Drive-Thru | Free | 290 | 4.39 | 2026-08-31
+1625512032 | Baker Notes | Free | 2 | 3.00 | 2022-07-26
+1467009128 | Baker Business 3 | Free | 976 | 4.22 | 2026-11-03
+6448450132 | Percent: Percentage Calculator | Free | 18 | 4.72 | 2025-12-10
+687696254 | Baker's note | Free | 4 | 3.50 | 2026-10-05
+1525239805 | Gluten Morgen | Free | 756 | 4.80 | 2026-11-03
+### s_pl_zakwas_.json
+6760582503 | Sourdough Tracker: Starter Log | Free | 0 | 0.00 | 2026-09-25
+6812466978 | Flourwise: Sourdough & Baking | Free | 1 | 5.00 | 2026-10-08
+6794852624 | SourTime: Sourdough & Bread | Free | 0 | 0.00 | 2026-11-05
+6771559099 | Sourdough: Starter Companion | 14,99 zł | 0 | 0.00 | 2026-05-26
+6787479343 | Wirtualny Piekarz | Free | 2 | 5.00 | 2026-08-26
+6766092580 | Sourdough Starter – Surdeg | Free | 0 | 0.00 | 2026-10-27
+6759510215 | The Daily Crumb: Sourdough | Free | 0 | 0.00 | 2026-09-27
+6779179300 | Brinepost: Sourdough & Ferment | Free | 0 | 0.00 | 2026-10-27
+6812950497 | Sourdough Bread Timer: Levain | Free | 0 | 0.00 | 2026-11-02
+6779931291 | Doughwell: Sourdough Starter | Free | 0 | 0.00 | 2026-06-17
+6772273223 | Pizza Dough Calculator Grams | Free | 0 | 0.00 | 2026-08-29
+1537955145 | Just Bread | Free | 8 | 5.00 | 2020-12-29
+### s_pl_chleb_.json
+6760582503 | Sourdough Tracker: Starter Log | Free | 0 | 0.00 | 2026-09-25
+1537955145 | Just Bread | Free | 8 | 5.00 | 2020-12-29
+6787479343 | Wirtualny Piekarz | Free | 2 | 5.00 | 2026-08-26
+6794852624 | SourTime: Sourdough & Bread | Free | 0 | 0.00 | 2026-11-05
+6812950497 | Sourdough Bread Timer: Levain | Free | 0 | 0.00 | 2026-11-02
+6786377205 | Sourdough Starter - Banneton | Free | 0 | 0.00 | 2026-10-23
+6755841368 | Surd | Free | 0 | 0.00 | 2026-01-25
+6761405634 | Chleb Powszedni | Free | 3 | 5.00 | 2026-10-22
+1056924276 | Sztolnia. Chleb, Mięso, Wino | Free | 34 | 4.97 | 2025-05-15
+6740236948 | ChlebON - bread and coffee | Free | 2 | 5.00 | 2026-05-20
+6751586514 | Lajkonik | Free | 5 | 4.20 | 2026-10-16
+6747958979 | Bible Verses - Daily Bread | Free | 0 | 0.00 | 2026-10-31
+6771559099 | Sourdough: Starter Companion | 14,99 zł | 0 | 0.00 | 2026-05-26
+1193998117 | Appetizing bread stickers | 4,99 zł | 0 | 0.00 | 2025-12-18
+6761432539 | Bloom Sourdough | Free | 0 | 0.00 | 2026-05-12
+## IAP (strona aplikacji, sekcja In-App Purchases)
+6736766728: Loaflo Weekly = $6.99;Loaflo Monthly = $19.99;Loaflo Yearly = $39.99;
+1515369685: Monthly Subscription = $3.99;Yearly Subscription = $14.99;Monthly Subscription = $4.99;One time purchase = $19.99;3 Month Subscription = $8.99;Yearly Subscription = $19.99;
+1534576984: Kneady Pro - Annual = $24.99;Kneady Pro - Annual = $21.99;Kneady Pro - Quarterly = $12.99;Kneady Pro - Monthly = $3.49;Kneady Pro - Annual = $29.99; Kneady Pro - Monthly = $4.99;Kneady Pro - Monthly = $6.99;Kneady Pro - Annual = $19.99;Kneady Pro - Annual = $29.99;Kneady Pro - Monthly = $3.99;
+6755709217: Premium = $12.99;Remove Ads = $1.99;
+6742335028: Bronze = $0.99;Silver = $4.99;Gold = $9.99;
+1519534917: 
+1521410011: Breadly Premium = $0.99;Breadly Premium = $5.49;
+1303222868: Paprika 4 Premium (Discount) = $9.99;Paprika 4 Premium = $14.99;
+6787479343: 
+## Listingi i recenzje
+
+### 6736766728 Loaflo: Sourdough Starter | Free | 567 ocen, 4.69 | wersja 2026-09-07 | https://apps.apple.com/us/app/loaflo-sourdough-starter/id6736766728
+OPIS: Loaflo: Sourdough Starter is your all-in-one, AI-powered bread-baking companion. Track your starter, analyze your loaves, and perfect every bake—no sign-up required! · AI Analysis: Snap a photo of your loaf or starter and get instant feedback on crust, crumb, and overall bake quality. · Recipes: Learn how to bake new recipes with in-depth explanations. · Starter Tracker: Log feedings, track hydration, and monitor growth so your sourdough is always at its bubbly best. · Calculators: Forecast bread rise, adjust ratios, and convert units! · Mr. Crumb: Chat with your built-in baking assistant for step-by-step guidance, troubleshooting tips, and recipe inspiration. · No Account Needed: Dive right into baking without any account sign-up. Whether you’re a sourdough newbie or an experienced home baker, Loaflo makes it simple to level up your bread game. Download now and experience the joy of per
+RECENZJE (28 w próbce):
+ - [2★ 2026-10-08] Only works half the time: I’d love to give this app good ratings. WHEN it works, it’s great, but it rarely works during the week when I try to use it. It usually works on weekends, but it’s not reliable. Keep your money!
+ - [1★ 2026-08-06] Not worth the hype: I’m not paying 6 dollars weekly and it was an accurate
+ - [4★ 2026-06-20] …now what?: Get feedback. Love the tips. But there’s no follow-up. “…this will help determine the best time to feed…” “ok, then what?” Make me a schedule I can put in my phone to tell me what to do AND WHEN. And how about remembering/logging what I was told to do/did last
+ - [5★ 2026-05-25] Helped me figure out what I was doing wrong!: The app (especially scans and ensuing tips) helped me figure out where, when, what I needed to adjust to get better rise out of my sourdough and helped me learn to recognize signs on my own.
+ - [1★ 2026-04-07] Paywall: I hate when apps don’t advertise a subscription based service in the photos or descriptions— not to mention the paywall keeps popping up with a timer. NAH buh-bye!
+ - [1★ 2026-03-07] Not for beginners: This was advertised as a helper for beginners, starting with the starter. All this is is a recipe database. There’s 1 starter recipe, that’s it. Not worth the money. Because of the false advertising, I contacted support through the website (there are no accoun
+ - [1★ 2026-02-25] Pay Wall & Annoying Pop-Up: This is the most annoying app I have ever downloaded in my entire life. Despite not being mentioned in the description, you do have to pay a subscription for all of the features, aside from recipes. Recipes are the only thing you can access free. At first, it 
+ - [1★ 2026-02-21] Don’t pay: Can’t cancel my free trial
+ - [3★ 2026-01-19] Recipes in grams: Please include metric weight measurements in the recipes.
+ - [5★ 2025-12-31] Amazing: I've been making sourdough for years but this app is a game changer. And so is their customer service. I was having an issue and they were prompt in fixing it and letting me know they fixed it. Now my loaves 10/10 every time
+ - [3★ 2025-11-30] What happened?: I love this app and use it all the time. Unfortunately, my starter died when I was on vacation.. Now that I have a new starter going, I’m trying to use it again, it’s not able to scan pictures. I tried to do the chat to see if I could get some help, but it doe
+ - [1★ 2025-11-30] Nothing works: This app came highly recommended, and I was excited to use it to help perfect my craft. Unfortunately even after paying for the subscription nothing it working. I cannot chat with the bot, I cannot scan my bread or upload a picture. Very disappointing and I’m 
+ - [1★ 2025-10-20] Help: When I scan, it says that I have invalid credit. I paid the subscription amount and it says that I have access to all of the premium capabilities. I can’t find anywhere on your app. To fix this problem please help.
+ - [1★ 2025-06-20] App: This app is not free! I was only able to use it once. When I just tried, it is making me sign up for the subscription. 😡
+ - [1★ 2025-05-19] Chat GPT is better and free: This app requires a paid subscription, it’s cheap enough so I tried it. For a month straight it said the exact same thing every single time I scanned starter vs discard jar (they look completely different on top). Every loaf was the same score and description.
+ - [4★ 2025-04-18] Yea but no: The app cool but if you have celiac’s, theres no gluten free settings in the scan section to give you the fully complete diagnosis of your own gf sourdough starter. The app is still helpful but I kinda feel like I wasted my money since I got the app to help me
+ - [1★ 2025-04-16] Unreliable: I scanned 3 different moldy starters and it rated 2 of them pretty high and the one that it rated low was only from a lack of visible bubbles. All 3 were different starters from different people and clear pictures.
+ - [5★ 2025-04-13] A kitchen essential!: I’ve been looking for an app like this. Finally landed on this one and sticking with it. Sourdough is a science and an art. This helps so much
+ - [5★ 2025-04-13] Good for all bakers!: And it’s really fun to use. Been a useful addition to my repertoire
+ - [1★ 2025-03-26] You literally only get one scan.: You get one single scan, everything else is locked behind paywalls. The feedback would be great if I could actually compare the before/after.
+ - [5★ 2025-03-25] This was the most helpful: I hate paying for apps. I never know if they will work as advertised but this one does. I’ve been trying in vain to make sourdough. Not knowing why my bread wasn’t coming out correctly. This app helped me with my starter and with the recipes I’ve been successf
+ - [1★ 2025-03-16] Beware of Subscriptions!!!!: I understand that in 2025 everything is subscription based now but for an app that is just supposed to tell me if my starter is alive or not is kind of ridiculous. I should t have to pay for taking a picture of something.. I can just as easily look it up onlin
+ - [3★ 2025-03-06] Only 2 scan: I was excited about this app and scanned my starter not realizing I only get 1 free scan. How do I know if I want to pay for it if that’s all I get to try. Pretty disappointed!
+ - [3★ 2025-02-25] No free trial: The idea is interesting, but there’s no free trial. At least a few days of free trial would be great to see how the app works. And without paid subscription the app allows you to upload only one photo. lol
+ - [5★ 2025-02-25] So helpful!!: I love this app! It’s been so helpful on my sourdough journey. Highly recommend!
+ - [5★ 2025-02-20] Essential tool for anyone serious!: Really helpful for anyone who’s into sourdough. All the calculators and recipes are great. The journal is super helpful for me personally. Great app!
+ - [1★ 2025-02-14] Don’t bother: Paid for it to tell me the same thing every single time I scanned anything. Bought it to help me, and it did nothing. Not worth it.
+ - [5★ 2025-01-01] Great for new bakers: I found this app through TikTok and downloaded it and even got a free subscription. Definitely think this is great to help track my starter because I’m still kind of new to baking sourdough. It’s really fun easy to use. I definitely recommend it.
+
+### 1515369685 Rise: Baking & Bread Recipes | Free | 337 ocen, 4.87 | wersja 2026-10-20 | https://apps.apple.com/us/app/rise-baking-bread-recipes/id1515369685
+OPIS: Rise is devoted to every aspect of making yummy bread! It includes great recipes, makes planning & scheduling easy, and serves as a baking journal. Rise syncs across all of your devices and supports sharing recipes with others. Rise has everything you need to bake bread for both beginners and experts. Beginners can use our easy to follow recipes and articles, while experts can use Rise’s powerful editing tools to perfect their bread. Rise helps you plan your recipe with a schedule overview from start to finish, so you know exactly when you’ll perform each step at a glance. Schedule notifications alert you when it’s time to complete each task. Rise even takes the guesswork out of fermentation by dynamically calculating bulk rise and proof times using your dough’s temperature and ingredients. FEATURED RECIPES • Recipes created in-house, from our favorite bakers, and from the community • Ea
+RECENZJE (37 w próbce):
+ - [5★ 2026-07-25] A must for bread bakers: Rise is and incredible app, it’s intuitive, easy to use and really helpful when formulating. I highly recommend it.
+ - [5★ 2026-07-22] Very helpful app: I use this app every time I bake my sourdough. I love the apps recipes and I also love that I can create my own or transfer from the web. I strongly recommend this app if you’re a beginner or even if you’ve been baking a while.
+ - [5★ 2026-02-20] Incredibly helpful: I’ve always loved the way that baking bread makes a house smell and I wanted to learn to bake bread myself but I really didn’t know where to start, especially because I live in the mountains and I know that baking at elevation is different. This app gave me ev
+ - [5★ 2026-02-14] Close to perfect!: This app is as close to perfect as any that I’ve seen. It easily manages on the flow of sourdough baking with all its pauses and waits. It keeps track of where you are in a recipe and notifies you of when you need to do something, keeping your baking on track 
+ - [5★ 2026-02-09] Amazing app!: Love the AI feature! I can take pictures of family recipes, etc and it plugs it into this beautiful arranged/timed app. Everything in one place. Love it and highly recommend!
+ - [1★ 2026-01-24] App Doesn’t Work: I’ve downloaded and deleted this twice today and once I click “continue” on the opening welcome page the app just idles without ever loading.
+ - [5★ 2026-01-24] Masterpiece.: Carefully crafted app. It’s well worth the purchase for novices or masters. The calculators included alone are worth every penny. Beyond them, you will accurately dynamically know what time on the clock to perform every step. This takes away the anxiety and al
+ - [5★ 2026-01-17] Issue with it just stop working while I’m working with the recipe.  Quit during preheating.: Love the app as long as it works. No it just quits in the middle of my steps.
+ - [5★ 2025-12-20] Fantastic app. Handles the science so you can focus on the art.: This app is AMAZING! Sourdough has always intimidated me. I’ve watched plenty of tutorials about the process and techniques, but TRACKING all the details is what has kept me from baking. There’s so much to keep track of in terms of measurements, timing, dough 
+ - [5★ 2025-11-30] The best app!!!: I never write reviews. I am writing a review because this is one of the best purpose-designed apps I’ve ever used!!! Just get it! You’ll love it!!
+ - [5★ 2025-04-23] Best bread / pizza / recipe app: This app truly is fantastic. It had everything I needed like recipe scaling, automatic unit conversion, hydration for pizza and the AI recipe importer feature is awesome. I can even import recipes from other languages and the apps translates them perfectly. A 
+ - [2★ 2024-08-06] Import: I have tried to import several sourdough recipes without success, that is the reason I purchased it.
+ - [5★ 2023-11-16] Biggest Gamechanger for Sourdough: This app is amazing. The Fluff Monster recipe is my staple and my sourdough skills have improved so much with this app!!! Thank you so much to whoever made it 🩷🩷🩷🩷
+ - [5★ 2023-09-02] This app is amazing: I’ve spent many years baking, but could never really master bread. Until this app! I have made the most beautiful sourdough boules ever, using this app!! I can’t recommend enough.
+ - [5★ 2023-05-22] How can we get dynamic measurements in our own recipes like the Rise recipes?: The included recipes in the app seems to scale measurements within the steps as ingredients are adjusted above. The value of measurement amounts appears inside of an outline button within the body copy of the instructions. How can we accomplish this with impor
+ - [5★ 2022-12-23] Wish I found this app earlier: This app is a game changer for all the technicalities needed for Sourdough bakers. There are many well thought features to praise, such as total hydration factoring in your sourdough hydration (that too you can have different sourdough hydration percentages), 
+ - [5★ 2022-12-23] Love this app: I use Rise a lot and I highly recommend it. The design is great and the timers are helpful.
+ - [4★ 2022-11-26] Possible error in Smart DDT calculator: The calculator indicates that the final dough temperature is above the temperature of the ingredients even though mixing is turned off. Do you include heat generated by the fermentation when calculating the temperature? I noticed that the final temperature doe
+ - [5★ 2022-08-02] Invaluable app for bread making: I have been using this app for two years and have found it has increased my skills and creativity. It already comes with fantastic recipes, but now I make my own recipes all the time, tweaking ingredients, timing, hydration percentage, autolyse times, starter 
+ - [3★ 2022-04-11] Frustrating in practice: I have two main issues with this app, which seemed very promising. The big one is that you can’t enter tsp amounts smaller than 1/2 tsp. Need 1/4 tsp of something in a recipe? Too bad. That makes the app unuseable for me. I do almost everything in grams, but t
+ - [5★ 2021-05-11] Perfect for me: Note one for paper notes to track my bread development, this app is the perfect answer for me
+ - [4★ 2021-04-30] Need a Timer PAUSE function! Otherwise pretty much perfect: Need a simple timer PAUSE function so that there’s no need to keep adding more time and have the while clock run smock when you need to stop for something like more stretch/fold or other distractions...
+ - [5★ 2021-04-09] Seriously!!?: Seriously!? ... Somebody did it! Somebody sat down and said... man, I bet there are a ton of people out there that would love have a versatile and flexible app that would serve as an excellent tool to aid them map out their bread baking process while collectin
+ - [5★ 2021-03-27] Easy Five Stars: I’ve been using this app for months with just the free features and it took all the stress and thinking out of my bakes. I finally upgraded and am hitting myself for waiting so long. The app is so much better unlocked, totally worth it. 5 stars would bake agai
+ - [5★ 2021-01-28] Love this app: I’ve been baking for a while and just found this app. It makes planning my bakes SO much easier. It’s a simple idea but the developers executed it so elegantly. I just hope there’s more recipes in the future!
+ - [5★ 2021-01-25] Best App I Own!: As a data nerd and sourdough aficionada, I can confidently say that Rise is my favorite app. I recommend it to all of my friends who are interested in sourdough - it’s approachable enough that a beginner can use it to make an impressive loaf, but for me, the r
+ - [5★ 2020-12-23] Perfect sourdough companion: This is a great app. It’s thoughtfully designed and you can really tell that its creators bring a lot of passion to the subject matter. I’ve made a few attempts at the sourdough hobby in the past and Rise is making this current go the one that sticks (much lik
+ - [1★ 2020-12-20] Not working: I just purchased yesterday and have yet to receive notification alarms for feeding my starter. I cannot figure out where to request a refund either. So disappointed.
+ - [4★ 2020-12-07] Doesn't support BBGA formulas: This is a very well designed app, and I think it will be useful for many bakers. However, it's common for serious bread bakers to keep their recipes in BBGA (Bread Bakers Guild of America) style formulas, which is not possible in this app. If "BBGA style formu
+ - [5★ 2020-09-07] It’s awesome: Never wrote any reviews for any app before but I’ll have to give you guys 5 stars for such a sleek app! Love it! The only improvement I could think of is making the edit function a bit more smooth, it takes a few seconds for the app to react whenever I hit edi
+ - [5★ 2020-09-01] The very best app for bread: My first review was five stars because of the obvious care that the developers did on creating this app. After the latest update, it deserves another 5 star review. These people know bread and software. I can store favorite recipes and change and adapt as i go
+ - [5★ 2020-08-24] A busy baker’ dream!: I love to bake but don’t have a lot of free time and was finding it difficult to keep track of schedules while multitasking during this day. This app not only allows me to centralize my notes but also reminds me through my phone notifications of key points in 
+ - [5★ 2020-08-09] As a total novice, this is exactly what I needed: It is like the creators of this app read my mind as far as what instructions I needed and how they should be delivered. Can’t wait to try the other recipes on the app!
+ - [5★ 2020-08-05] Very well designed: I’m building an app that is a lot like Rise, but for homebrew beer, and was immediately impressed by Rise’s thoughtful design. Nearly everything about creating a rise, tweaking the recipe, to the timers during the process is just great. My bread baking skills 
+ - [5★ 2020-08-01] Absolute Beginner: Just putting in my 5 star rating for this app. I’m an absolute beginner when it comes to sourdough. It took me a week, but I was able to creat my own starter from scratch. From there—on one fine day—I had enough confidence to make my first sourdough loaf. Did 
+ - [5★ 2020-07-28] Excellent baking companion: I’ve worked a bit with dough before (my family has a history of baking), so when the sourdough craze started I wanted to hop on and see what I could turn out. A friend gifted me some starter and I used the instructions in Rise to make my first loaf! Managing a
+ - [5★ 2020-07-28] Awesome!: Of all the sourdough apps I’ve looked into this is by far and away the most robust. It makes experimenting easy, fun and reproducible. I love all the options, and I can sync to all devices whether I’m in the kitchen on my phone or iPad. Thanks Rise team for a 
+
+### 1534576984 Kneady: Bread & Baking Recipes | Free | 733 ocen, 4.80 | wersja 2026-07-15 | https://apps.apple.com/us/app/kneady-bread-baking-recipes/id1534576984
+OPIS: Kneady is the #1 home-baking app, made for bakers of all levels. Discover 600+ award-winning recipes from professional bakers, save your favourite recipes, join a passionate global community & much more. ** About Kneady ** - The #1 home-baking app, suitable for bakers of all levels - Professional recipes perfected for home cooking, with clear step-by-step guidance - Join a buzzing community, share your culinary masterpieces and learn from others! - Save your favourite recipes for easier repeat bakes - Set handy timers for rise phases, kneading time, oven time and more - Toggle between metric/imperial measures for all recipes - Distraction-free Baking Mode - Use advanced filters to narrow your search ** Our Mission ** We’re on a mission to help you take your home baking to the next level. Many people love bread and love baking, but bread recipes are often unnecessarily complex and buried 
+RECENZJE (17 w próbce):
+ - [4★ 2026-07-27] Good but could be better: It’s a great app with tons of free recipes but some of the most appealing recipes I have seen are stuck behind a paywall I wish that like once a week you could choose 2 or 3 recipes to “unlock” for the week
+ - [5★ 2026-03-14] Absolutely great: I love this app.
+ - [4★ 2025-12-04] great!: good recipes and a lot of them!
+ - [4★ 2025-11-22] Pro: I don’t really like that the app has pro because us beginner bakers want to bake stuff like that too
+ - [5★ 2025-10-06] Foolproof: I have managed to mess up nearly everything I’ve baked in the past. Using this app though, everything has come out nearly perfect! I like how you can see the ingredients next to each step of the recipe. I’ve found the step-by-step pictures helpful and weights 
+ - [5★ 2025-07-30] Love it: I got this app so I could make cookies and treats for my family I just love it it’s a great app for baking
+ - [5★ 2025-03-08] Love baking these: One of my favorite although I bake sometimes three times a week with revoked from Kneadyyb
+ - [4★ 2024-12-02] The only problem: Kneed is a great app, although it has a lot of good recipes that have to have the subscription to see them. I just think they should have less of them needing the “kneedy pro”
+ - [5★ 2024-05-04] New baking partner: I’m brand new to this App and I can’t wait to get my hands full of dough. Oh what fun I’ll have.
+ - [1★ 2023-12-19] No ability to save custom recipes: I didn’t explore the app after discovering you can’t save custom recipes. In my opinion this is a critical basic feature that is missing.
+ - [5★ 2023-12-16] Delicious recipes and good instructions: I'm just learning to bake, but I have been able to make some delicious breads using kneady recipes. The recipes are well curated (aka delicious) and easy to follow. Highly recommended!
+ - [5★ 2023-11-27] Print from iPhone…: Can we please get the ability to print for pro accounts??
+ - [4★ 2023-05-04] Could get 5 stars but…: Only reason I don’t give it 5 stars is cuz everything is in metric!! How many cups is 600g of flour???🤦🏻‍♂️🤦🏻‍♂️
+ - [5★ 2022-05-22] Useful app: Well organized with a lot of detailed instructions. I have tried several of the recipes with great results. The recipes are easy to modify. I would like to see more recipes with baker percentages.
+ - [5★ 2021-11-23] Incredible App: I love using this app. It explains everything and so easy to use. Finding recipes is a lot easier and faster and you don’t have to go through a 5 page blog to get to them.
+ - [5★ 2021-11-15] Love this app: Makes making beautiful bread achievable for the novice.
+ - [3★ 2021-10-23] Grams?: The recipes might be wonderful, but in Arizona we use cups, tablespoons, and teaspoons (and we weigh in ounces, pounds). Oh well.
+
+### 6755709217 Sourdough Starter Tracker | Free | 33 ocen, 4.82 | wersja 2026-11-03 | https://apps.apple.com/us/app/sourdough-starter-tracker/id6755709217
+OPIS: The simplest sourdough starter tracker — log feedings, set smart reminders, and keep your starter healthy with real-time safety alerts. No subscription, no AI gimmicks. Pay once, use forever. Works offline, no account needed. Built for home bakers who want to track their sourdough starter without complicated recipe apps or overcomplicated features. Just feeding logs, health tracking, smart alerts, and reliable reminders. FEATURES: • Safety Alerts (Free) – Instant pop-up warnings for the situations that matter most: unusual smell, overheating risk, no visible activity, and beginner SOS. Never lose a starter again. • Smart Health Tips (Premium) – In-depth analysis across 6 dimensions: temperature range, hydration ratio, smell diagnostics, rise timing, bubble activity, and feeding interval. Know exactly what your starter needs. • Before Baking Checklist – Run through your pre-bake routine b
+RECENZJE (8 w próbce):
+ - [5★ 2026-10-07] Sourdough tracking: This app has helped me tremendously as I am starting out on the sourdough journey. With several experimental starters going at once, having the ability to see each one in the app helps me keep them straight, fed, and healthy! It’s easy to use, edit, and set up
+ - [5★ 2026-09-27] More than sourdough: Pretty cool app. I use it for my sourdough and yogurt .
+ - [5★ 2026-06-04] Incredible ❤️: I downloaded this app a few days ago and immediately had a few small issues. Nothing that made it too difficult to navigate the app, but enough that I reached out to the support team with a few suggestions. Never have I gotten a quicker response that was actua
+ - [5★ 2026-05-11] Great customer support! Awesome app!: No notes! :) … Maybe one note. The iCloud sync across the app for my iPhone and iPad mini doesn’t seem to work, so I can only access my starter info from my phone where I started using this, but I’m sure this review will prompt the app creator to update the is
+ - [5★ 2026-04-11] Perfect & Simple: I use this app every time I bake. I love the calculator for starter amounts as well as target amounts. Totally worth it if you do sourdough often to pay for the app. I enjoy adding pictures to my record keeping.
+ - [1★ 2026-03-11] Porn ads: There were porn images on the screen when I opened this app. I had to delete immediately.
+ - [5★ 2026-03-10] Exactly what i needed: This app is a must for anyone maintaining a sourdough starter. Takes the guess work out of it and makes certain you stay on track to produce amazing bread. The support line is amazing - i recently submitted a feature request and an update was push to the App S
+ - [5★ 2026-01-12] Love!!: I LOVE this app, it helps me keep track of the starter feedings. Although I do with they gave some more options for smell especially for people who just started because it’s hard to tell just incase if it is going bad..
+
+### 6742335028 Leaven: Baker's Percentage | Free | 13 ocen, 4.08 | wersja 2025-09-19 | https://apps.apple.com/us/app/leaven-bakers-percentage/id6742335028
+OPIS: Doing baker’s math by hand is a pain. Spreadsheets aren’t much better. Leaven handles the numbers so you can focus on baking. It’s a simple app built around baker’s percentages. You enter your recipe once, with all ingredients expressed as a percentage of total flour weight, and it scales cleanly up or down. Whether you’re baking a single loaf or prepping for a pop-up, the math just works. No signups, no fuss. Just open the app and start baking. What Leaven does: - Scale recipes fast — change ingredient weights or percentages, and Leaven updates everything instantly. Dial in a flour weight, total weight, or ingredient weight to scale up and down. - Save and edit recipes — name your recipes, tweak them anytime, and keep everything organized. - Track your bakes — Leaven saves a snapshot each time you bake in each recipe's Notebook. Add notes, see what worked, and improve your process. - Un
+RECENZJE (8 w próbce):
+ - [5★ 2026-06-14] Clean baker’s math app: Super simple, intuitive, baker’s math calculator! No extras and fluff, just the features you need
+ - [5★ 2026-04-09] Great minimalist recipe calculator: This app is exactly what I’ve been looking for! A bit of a learning curve, but once you sort out the features/UI this app is incredibly powerful. I love that I can track changes to a recipe over time and collect my notes in one place. I often merge a few recip
+ - [1★ 2025-12-08] complicated: downloaded the app and deleted it due to hard to understand how to use the app.
+ - [5★ 2025-11-28] Simple and Useful: Took a few minutes playing around to figure it out but once I did it was perfectly helpful. I am an amateur home novice baker so the simplicity of the app was perfect!
+ - [5★ 2025-04-10] Minimalist bakers calculator: Fantastic simple bakers percentage calculator. Love how clean and simple the UI is, makes adjusting recipes a breeze.
+ - [1★ 2025-04-02] Useless App, part 2: I have the same problem as amethyst 67. Deleting.
+ - [5★ 2025-03-10] Cool!: Most of the bread apps out there are a pain to use - this ones actually nice and clean
+ - [1★ 2025-03-08] Useless App: Doesn’t let me set my own recipe and then change the flour amount. Keeps going back to default
+
+### 1519534917 Bread Book | Free | 11 ocen, 4.73 | wersja 2026-05-06 | https://apps.apple.com/us/app/bread-book/id1519534917
+OPIS: Bread Book is a conversion tool for bakers and home cooks. Add your favorite recipes and instantly see the baker's percentage for each ingredient. *Adjust servings* Move the slider up and down to adjust the serving size for each recipe. Need to make half as much as last time? Slide down until you see "0.5x". Making double? Slide up. Making a feast for all of your friends and family? Edit the recipe to increase the maximum serving size to 4x, 8x, 20x, as high as you want and then slide up! *Capture the moment* Bake the perfect loaf of bread? Take a picture of it on the recipe page to show your friends, and in the future, use the photo to compare against your next great loaf. *Flexible notes* Can't remember whether to bake at 450° or 500°? Write it down in the notes section. You might also take notes on how many folds and at what interval, or how much starter to use, or what happened when 
+RECENZJE (4 w próbce):
+ - [5★ 2026-02-09] Clean Interface: I’ve been using this app for 5 years and it’s very easy to use and is ad free. Amazing bit of software for any baker and cook who wants to save their recipes.
+ - [5★ 2023-11-30] Simple and perfect: I save all sorts of recipes in the Bread Book app for easy access. I primarily cook by weight now and convert many recipes from cups to grams, etc. In addition to many bread recipes, I track basic sauces, french press coffee, waffles, and pasta dough recipes. 
+ - [2★ 2023-05-14] Multi flour Bread: For single flour bread increasing or decreasing the recipe size is very easy. HOWEVER, if the total flour is made up of 80% white and 20 percent whole wheat, I have found no way to get a bakers percentage/correct hydration based on the two flours being 100%. T
+ - [5★ 2020-07-04] So far so good.: Simple to use. Automatically gives percentages. Easy to edit It would be nice if there was a print colour choice. Or a highlighter option.
+
+### 1521410011 breadly - Sourdough Scheduler | Free | 4 ocen, 4.00 | wersja 2021-03-24 | https://apps.apple.com/us/app/breadly-sourdough-scheduler/id1521410011
+OPIS: breadly is an all in one solution for your baking needs. From professional bakers to aficionados, breadly can be used to improve your sourdough game. ▼ Key Features: ▼ ● Create & Schedule Unlimited Recipes ● Hydration Calculator ● Automatic Timers & Real Time Progress View ● Unlimited GROUPED (per recipe) Notifications ● Crumb shots, because repeatability is key ● Tap on a step to reveal information about time breadly is built by an indie developer. To support this effort and allow for continued support of the app breadly offers a monthly or annual subscription. Subscriptions come with a 14 day free trial. After the trial ends, the subscription will auto-renew on a monthly or yearly basis. You will receive your first charge 14 days after starting your trial. You can turn off the auto-renew for this subscription at any time by going to your iTunes Account Settings. If you do not want to b
+RECENZJE (0 w próbce):
+
+### 1303222868 Paprika Recipe Manager 4 | Free | 54253 ocen, 4.90 | wersja 2026-11-06 | https://apps.apple.com/us/app/paprika-recipe-manager-4/id1303222868
+OPIS: Delightfully simple recipe management. Collect recipes, make grocery lists, plan meals. Paprika 4 is now free to download on all platforms. The free version allows you to save up to 50 recipes on a single device. A premium subscription unlocks unlimited recipes, cloud syncing, access on all devices, and all other premium features. Add Recipes • Download recipes from your favorite websites • Save recipes from TikTok, Instagram, Facebook and YouTube (Premium) • Scan a cookbook page or recipe card (Premium) • Paste a recipe from the clipboard (Premium) • Import recipe files from other apps • Or just type in your own Cook • Cook mode: use voice commands to cook hands-free • Scale servings and convert measurements • Cross off ingredients and highlight the current step • Timer detection: tap to start • Calculate nutrition labels (Premium) • Get ingredient substitutions (Apple Intelligence) • K
+RECENZJE (50 w próbce):
+ - [2★ 2026-11-07] Not happy about subscription: Been a LONG time paprika user and have loved this app since day 1. I paid for the app originally and have been getting all the features and now there is a subscription to unlock more features? And what I paid for is now free? I paid already and have been loyal
+ - [5★ 2026-11-06] Love the New Update: I love the new update and being able to tell it to advance to next steps while cooking. Also the developer has treated past purchasers of the app well, by allowing us to keep cloud sync between apps with the new version.
+ - [1★ 2026-11-06] Another Great App Ruined By a Subscription: Paprika was great! My family and I loved it! Easy to use and no nonsense like subscriptions. Well that changed today. Features once included in the app, now locked behind a subscription. Yeah if you previously had Paprika 3 you get access to SOME of those feat
+ - [5★ 2026-11-06] Love it: I truly love this app. My big mistake I kept reading it& it tells me I still can’t get all my recipes still from every one else. I apologize to you. My big mistake. But I still won’t pay $14.9” a year for it. I Ike free. And I love this app because I have down
+ - [1★ 2026-11-06] Greed: So, you charged money for version 3 then forced version 4 on me and now you want me to pay for “premium” features? You freaking con artists!!! I want my money back or my version 3 back. Rotten!!!!!!!!!!
+ - [2★ 2026-11-06] Pour One Out: You either die a hero or live long enough to become the villain. Hindsight is no longer 20/20 (on a 10/10 scale) but $14.99 IAP annual sub. BEST recipe scrapper in the business FWIW.
+ - [2★ 2026-11-06] Paid App now Premium Subscription smh: A tale as old as time: a paid app eventually pushes a "premium subscription" model, in which new features are gated behind a subscription fee. I'm so tired apps that I paid for inevitably and eventually moving in this direction. Oh well, it seems like the old 
+ - [1★ 2026-11-06] One of my longest used apps: I always wondered when they would finally go subscription based, that day has come. No thanks. Deleted app.
+ - [1★ 2026-11-05] devs don’t care about this app anymore, aside from any money they can get: The basics of the app are still nice, but if you run into a problem (which I have several times recently) you are absolutely on your own, since their FAQ isn’t necessarily updated with accurate information and no one ever responds to customer support requests.
+ - [5★ 2026-11-05] Incredibly useful!: I've been using this app every week for years. I love being able to organize recipes all in one place. It's super easy to populate a shopping list and it makes grocery shopping way less painful. Worth the purchase price.
+ - [5★ 2026-11-01] HomeView version coming?: I have loved using this app for many years. It’s perfect for what I need it for. Thanks for keeping it active and up to date! And since I’ll be getting Apple’s HomeView appliance and using it in my kitchen I sure hope you’ll be developing a version for HomeVie
+ - [5★ 2026-11-01] Best recipe app ever: This app syncs across my laptop, phone, and my adult kids can access my recipes. Works great on mac. My only suggestion is add the alphabet to the side of the recipe list to get to recipes near the middle and bottom of the list quicker. Still amazing regardles
+ - [3★ 2026-10-29] Does a good job but has real drawbacks: Overall, this app works well. I’ve used it for years. The integration of recipes and grocery lists is helpful and the ability to download recipes you access through its browser feature is great. However, the app suffers from three key drawbacks that waste time
+ - [2★ 2026-10-28] Siri not working on iOS 27: I use this feature all the time but Siri doesn’t work on iOS 27 anymore. Have to use regular siri list for grocery list. Please fix asap!
+ - [5★ 2026-10-26] Just needs a dark theme iOS icon: I’ve used this app for a long time and it’s always been reliable across all the platforms I’ve bought it on. I highly recommend it on any device or platform. No ads or dark patterns. Just a great tool.
+ - [4★ 2026-10-25] Share To option needed: I love the app and use it regularly. I really appreciate that it’s a onetime payment; I would not purchase otherwise. The biggest pain point is trying to get a recipe from Instagram loaded. Other recipe apps allow an easy setup using the Share To feature. I ha
+ - [5★ 2026-10-24] Love: I’ve had this app for a month and I’m loving this!! All those Facebook recipes are now saved!
+ - [5★ 2026-10-21] This app is my best friend.: I never knew how easy it could be to find online recipes until I met paprika. Best purchase ever, I recommend it to all my friends, it’s simple and does exactly what I need it to do! No more scrolling through Pinterest or having my phone die mid recipe. Thanks
+ - [5★ 2026-10-19] Exactly what I needed: This app is super easy to use. Trying to use websites that might crash on my phone in the middle of cooking is no longer an issue. Makes everything easy to read and follow.
+ - [5★ 2026-10-17] Great app: One of the best recipe apps out there being able to download apps and make your own recipes to save. I rarely even looks at cook books anymore in finding my own recipes and tweaking them to the way I like it
+ - [5★ 2026-10-16] Great recipe manager: Paprika is a fantastic recipe manager. I was looking for a way to keep my recipes on my iPad, and I’m so glad I found it. Its great features include a web search for recipes and the ability to download them. You can also edit recipes to reflect the way you lik
+ - [5★ 2026-10-16] Suggestion: Love this app. Be better if I could select recipes I want to make from my list and put them on a note or reminder I can add them to a calendar but that’s not really what I want More a holding place for things I want to make tomorrow or the next day etc
+ - [1★ 2026-10-15] WHAT A WASTE OF MONEY: I can’t believe this is #1 in recipes. Won’t download from Facebook or Instagram. The recipes it does download from other websites are full of all sorts of jibberish that I have to cut out. Sooo much extra work compared to Recipe Keeper which is pretty seamles
+ - [1★ 2026-10-13] Misleading: You cannot download recipes that you saved on Facebook and instagram
+ - [5★ 2026-10-12] One of the best apps of all time: A long time (decade +) user with over 25K hand curated and imported recipes. This app is the equivalent of a good chefs knife. A must buy for anyone who has ever needed to store a recipe.
+ - [5★ 2026-10-11] I LOVE THIS AP!  Is there a limit of how many recipes can be stored?: LOVE LOVE LOVE!
+ - [5★ 2026-10-11] Fantastic app, mostly.: Incredible app! Highly recommend!! This app is one of the most useful I’ve ever had! I’ve used it for a few years now. So easy to use and well designed and organized! I use it nearly daily to save new recipes I liked or created, to keep detailed recipe notes w
+ - [5★ 2026-10-04] Worth every penny: I’ve had this app for 15+ years. I use it regularly, and it shares recipes with family and friends who are and aren't Paprika users, and works well with non-Apple Paprika users. It never breaks, and periodically has features added. If I have one complaint, it'
+ - [5★ 2026-10-04] Organization: A great way to save your favorite recipes. It’s so simple to use.
+ - [5★ 2026-09-29] Amazing App! One Request: Really love this app! Only request would be that it’d be awesome to be able to pull recipes out of PDFs the way they’re pulled off websites. I have a ton of recipes saved as PDFs that it’d just be super tedious to transfer by hand.
+ - [2★ 2026-09-29] Family recipe: The app is really great for recipe you find online. However, I have a lot of family recipes written that I thought I could just take a picture of and store in this app. Apparently you cannot so it’s really doing me. No good to have this.
+ - [5★ 2026-09-25] Always comes through!: Life finds a way! Always works if you take a few extra seconds to get through it. Needless to say I’ve had this app for a feel like 10 years and it’s great!
+ - [5★ 2026-09-20] 🌟🌟🌟🌟🌟: OMG! Where has this site been all my life?!!!
+ - [3★ 2026-09-20] Great, but needs more: Love the app, but would love more features. Like easy recipe import from TikTok or instagram. Also, AI help and generation, with recommendations based on what’s in your collection (and might also like from popular sites)
+ - [5★ 2026-09-14] Simply awesome: I recommend this to every cook I know. It has everything you need to get, plan, scale and provision recipes.
+ - [2★ 2026-09-14] No barcode scanner?: I should have read closer before buying. I’m not manually entering my whole pantry. I’ll probably still use for recipes but pretty disappointed the pantry feature is so basic.
+ - [2★ 2026-09-11] Will not import google doc recipes: I have all my recipes in Google Docs. They are well formatted, but this application will not bring it in without me cutting and pasting each individual component. Waste of time.
+ - [5★ 2026-09-10] This is my Recipe Book!: I have the app on my phone. Perfect when shopping at store and need to verify ingredients for a recipe or when you are asked for a recipe; you can send via a msg or email. This is my Recipe Book!
+ - [5★ 2026-09-08] Awesome: I love the app for a meal planner/digital recipe, book organizer and a grocery list generator
+ - [5★ 2026-09-07] My favorite iPhone app: This app has saved me so much time and money grocery shopping and meal planning. Truly a game changer, if I could only have one non-default app on my phone this would be it
+ - [4★ 2026-09-06] Great but needs a few tweaks: Since I submitted a feature request last time it got made: please add a way to shut off the auto-quantity detection, I keep getting "item: apple, quantity: granola bars". Also, an MCP connector would be amazing. No, I will not pay for a subscription for either
+ - [5★ 2026-09-02] Grocery list: I just discovered the grocery list part of the Paprika app. I am super excited.
+ - [5★ 2026-09-02] Best Recipe App I Could Find: I tried at least 8 other popular apps, and this one rules above all else. The interface is easy to use and pleasing. An important thing for me was being able to save more than one photo for each recipe, including embedding photos in the description. Paprika wa
+ - [5★ 2026-08-30] The best: I am a Retired Sous Chef with a strong computer background. I have used a bunch of software recipe keepers, both professionally and at home. On PC’s, Mac’s, Phones, etc. I even helped one company improve their software (professional catering software). Without
+ - [3★ 2026-08-30] Have to buy the MacOS app again: I’ve been a user of Paprika for over a decade. Love the app. But with a recent MacOS upgrade I’m being told I have to buy the Paprika app all over again. Not happy.
+ - [5★ 2026-08-25] I use it all the time: Remarkably easy to save a recipe from the internet. Use the browser function, find the recipe, hit the download button, boom. The recipe is now in paprika and ready to use.
+ - [5★ 2026-08-23] Well worth it!: I love this app, it makes storing recipes a breeze. This way I don't have 800 tabs of unorganized recipes in my browser.
+ - [3★ 2026-08-19] Sync and Notes tab please 🙏: I generally like paprika but... - true calendar SYNC please! aka “subscribed“ calendar not manual export that I’m supposed to remember each time i want add to Calendar app - recipe view needs tabs for Notes! (and maybe Nutrition Facts) next to existing tabs In
+ - [2★ 2026-08-14] Didn’t download Instagram/facebook recipes: Great price but you have to copy/paste internet URL into paprika. Might as well use Pinterest for free.
+ - [5★ 2026-08-12] The Best: The best recipe app since The Whisk. Take the time to watch an instruction video on how to use all the features and you’ll be set. Yes, you have to pay for a license for each instance—Mac, iPad—but I’m willing to spend the $$ because of the quality of the prod
+
+### 6787479343 Wirtualny Piekarz | Free | 2 ocen, 5.00 | wersja 2026-08-26 | https://apps.apple.com/pl/app/wirtualny-piekarz/id6787479343
+OPIS: Wirtualny Piekarz to kompletny warsztat dla domowych piekarzy na zakwasie — od hodowli zakwasu po harmonogram wypieków. Aplikacja łączy kreatory procesu z timerami, konstruktor receptur, planowanie produkcji, bazę wiedzy i społeczność. Możesz zacząć bez rejestracji — kalkulatory i kreatory zapisują postęp lokalnie. Po założeniu konta synchronizujesz receptury, zakwasy, plany i zdjęcia w chmurze. PIEKARSKI WARSZTAT • Kreator zakwasu z przewodnikiem krok po kroku i alarmami czasowymi • Kwas żytni i pszenny — planowanie masy, temperatury i czasu • Kalkulator temperatury wody (DDT) • Timery procesowe — nie przegapisz fermentacji ani wyrabiania BAZA WIEDZY Porady i artykuły o zakwasie, fermentacji i technikach piekarskich. RECEPTURY Buduj przepisy od surowców przez półprodukty do wyrobów gotowych. Podgląd wartości odżywczych, kosztu i hydracji. Dodawaj zdjęcia do receptur. PRODUKCJA Planuj dz
+RECENZJE (0 w próbce):
+kod: 0

@@ -1,0 +1,55 @@
+$ curl -sSI https://apps4brew.com/piekarz/privacy.html
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+last-modified: Sun, 08 Nov 2026 17:43:36 GMT
+access-control-allow-origin: *
+etag: "6af0b4c8-4941"
+expires: Sun, 08 Nov 2026 20:29:23 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 415C:313C76:309E999:35F6CE6:6AF0D94B
+kod=0
+$ curl -sSI https://apps4brew.com/piekarz/support.html
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+last-modified: Sun, 08 Nov 2026 17:43:36 GMT
+access-control-allow-origin: *
+etag: "6af0b4c8-2720"
+expires: Sun, 08 Nov 2026 20:55:23 GMT
+cache-control: max-age=600
+x-proxy-cache: MISS
+x-github-request-id: 2118:1175E2:3A80968:3F48CE2:6AF0DF63
+kod=0
+$ curl -sSI https://apps4brew.com/piekarz/
+HTTP/1.1 200 Connection Established
+
+HTTP/2 404 
+server: GitHub.com
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+etag: "6af0b4c8-b8f"
+x-proxy-cache: MISS
+x-github-request-id: BD10:3E5DBD:3C728DA:412C1E2:6AF0D8D0
+x-github-edge-region: iad
+accept-ranges: bytes
+age: 1683
+kod=0
+$ curl itunes lookup bundleId
+
+
+
+{
+ "resultCount":0,
+ "results": []
+}
+
+
+
+kod=0
+Sun Nov  8 20:45:24 UTC 2026

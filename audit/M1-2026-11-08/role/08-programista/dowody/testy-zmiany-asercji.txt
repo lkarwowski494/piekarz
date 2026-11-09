@@ -1,0 +1,30 @@
+$ git log --since=2026-11-01 --format="%h %ad %s" --date=short --no-merges -- "*.test.ts" "*.test.tsx" | wc -l
+74
+
+# commity od 2026-11-01 z usuniętymi liniami expect( w plikach testów: sha, -expect, +expect, temat
+c694861f -1 +1 [M3 p9b2f] P9B2F-3: "Zapisz plan" liczy start z chwili stuknięcia
+35a6bd51 -1 +1 [M3 06m] ekran Źródła wiedzy: 5 instrukcji producentów maszyn, maszyna.md zdjęta z CZEKAJA_NA_WPIECIE (D-265)
+287c53ba -2 +25 [M3 p9b] żyto na drożdżach według źródeł: rośnięcie ZYT-ETA-005 bez testu palca, studzenie 24 h, pieczenie 240/220 °C (D-256)
+95b792a1 -1 +1 [M3 06d] ekran „Źródła wiedzy”: 5 źródeł wersji drożdżowej, przelicznik wydzielony z treści planu (D-255)
+874fd856 -3 +3 [M3 p9b] D-251: 3 zmiany testow (G3 schema_migrations +1, d1-1014:79 +2, 139:41 lista +2 klucze); verify kod 0
+c2625ca6 -2 +6 [M3 p9b] D-250: klucze maszyna i wersje_receptur w kopii, G5 z lista kluczy 1021, Piecz ponownie z kodu; STOP D-246
+2947d3c2 -8 +48 [M3 p9b] dane p9 (D-242): migracja v7 bakes.leaven, wersja/tryb w sesji, wybory w app_settings; STOP na testach G3/G5
+cccf8719 -2 +8 [M3 06z] Źródła wiedzy: 7 źródeł katalogu p8, grupa „Receptury”, Marttaliitto przeniesione (D-247)
+259a0c2e -1 +1 [M3 09p10] EN: organization (pisownia US), "Piekarz" -> "the app" w 2 zdaniach tresci EN (D-237 pkt 2)
+d96d36f6 -1 +4 [M3 p10] Źródła wiedzy: Marttaliitto (KAT-KAR-009), EN, asercja na ekranie (D-126, D-237)
+846444be -2 +3 [M3 p7c] E2E-90: bez ucinania tekstu, duży tekst zostaje w treści, pasek Cofnięto wydzielony
+ac20f55c -2 +2 [M3 p8] poprawki bramek: calculator-screen, D-053 w EN, wyjatek diakrytykow; stan p8 i sztafeta
+725537b2 -3 +16 [M3 p8] lista, ekran receptury, nazwy i "Piecz ponownie" czytaja katalog (CATALOG_RECIPES)
+bb7016ad -1 +10 [M3 p7b] 04-005: Doktor zakwasu z pasem O3a jak Doktor Chleba (D-219, D-227, D-223)
+296007cf -1 +9 [M3 p7b] 04-004: plan wypieku bez paska zakładek pod „Zacznij wypiek” (D-219)
+b02c3472 -2 +9 [M3 p6b] Dziennik: data i ocena w jednym wierszu jednym kluczem z parametrami
+5f7cb4f9 -1 +12 [M3 p6b] Prowadzenie: „Krok {n} z {m}” na pasie, karta instrukcji „Co zrobic”
+4d7eb774 -3 +13 [M3 p6b] Do miski: naglowek „Do miski” i podpis „Odhaczaj przy wazeniu.” (Karta.podpis)
+c022f023 -2 +2 [M3 09] i18n: przelicznik drożdży 0,35, „Wstecz”, „Ile pieczesz” w 35 językach
+cac571f7 -14 +16 [M3 p6a] Przelicznik drożdży × 0,35 w convertYeast (D-205, D-172, RD-19-W2)
+ff079c38 -2 +10 [M3 p6a] Plan z pasem O3a (D-204): patch p4b, testy d10:135 i p4:160
+d0f50636 -1 +9 [M3 p5] Doktor Chleba z pasem O3a i treścią w kartach (D-197)
+29fa0cf3 -4 +23 [M3 p4b] Prowadzenie z pasem O3a: krok, czas i Spirala na pasie (D-194, D-195); plan wstrzymany (D-196)
+119eda37 -1 +1 [M3 01] docs(brd): ER-77 - tryb maszyny do chleba F-72: J-16, PR-25, BR-MASZ-001…006, RD-37…RD-39 (D-153, D-156, D-175, D-179, D-152); D
+cb436f2a -1 +1 [M3 01] docs(brd): ER-76 - BR-RECP-005 przełącznik „na zakwasie / na drożdżach” w recepturze (D-154, D-173, D-178, D-152)
+b22b59c1 -1 +1 [M3 01] docs(brd): ER-75 - BR-KALK-012 wybór rodzaju drożdży przy wierszu „Do miski” (D-136, D-152); D-187, D-188

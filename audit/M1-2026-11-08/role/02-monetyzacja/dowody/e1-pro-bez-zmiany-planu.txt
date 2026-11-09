@@ -1,0 +1,23 @@
+# Ekran Pro przy aktywnym Pro: bez opcji zakupu (brak przejścia subskrypcja → dożywotni w aplikacji)
+$ sed -n '27,27p' src/components/AppAccessProvider.tsx
+  const aktywny = access.status === 'dostep' ? { subskrypcja: access.zakup.pamiec?.produkty.some((p) => SUBSKRYPCJE.includes(p)) ?? false } : null;
+$ sed -n '87,90p' src/components/PaywallModal.tsx
+  // Ceny z produktów App Store Connect; bez odczytu sklepu ekran nie pokazuje żadnej kwoty.
+  const zPro = aktywny !== null;
+  useEffect(() => {
+    if (!visible || zPro) return;
+$ sed -n '196,205p' src/components/PaywallModal.tsx
+          <View testID="pro-tresc" style={[styles.tresc, duzyTekst && styles.trescDuzy]}>
+          {zPro ? (
+            <>
+              {aktywny?.subskrypcja && (
+                <Pressable accessibilityRole="button" testID="pro-manage-btn" style={styles.drugi} onPress={() => void zarzadzajSubskrypcja()}>
+                  <Text style={styles.drugiTekst}>{t('Zarządzaj subskrypcją')}</Text>
+                </Pressable>
+              )}
+            </>
+          ) : bezOferty ? (
+$ sed -n '239,241p' src/components/PaywallModal.tsx
+        <View style={styles.kciuk}>
+          {zPro ? null : bezOferty ? (
+            <Pressable accessibilityRole="button" testID="offer-retry-btn" style={styles.glowny} onPress={ponow}>

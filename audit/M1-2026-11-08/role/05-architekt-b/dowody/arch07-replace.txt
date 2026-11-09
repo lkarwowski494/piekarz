@@ -1,0 +1,15 @@
+$ grep -rniE "INSERT OR REPLACE|REPLACE INTO|INSERT OR IGNORE" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/data/sqlite-store.ts:295:        'INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
+src/data/sqlite-schema.ts:496:          `INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
+src/data/starter-entries-store.ts:3:// Rodzic UPSERT-em (nigdy INSERT OR REPLACE: kaskada skasowałaby dziennik), rodzic i dzieci w jednej transakcji
+src/data/flour-store.ts:28:    'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
+src/data/settings-store.ts:52:      'INSERT OR REPLACE INTO lesson_progress (level_id, completed_at) VALUES (?, ?);',
+src/data/settings-store.ts:114:    await writeOrThrow(() => db.runAsync('INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?);', key, value));
+src/data/wpisy-wypiekow.ts:65: * UPSERT, nie INSERT OR REPLACE (zasada wspólna 10): REPLACE usuwał wiersz, więc ocena po wypieku zerowała
+src/data/recipes-store.ts:65:        `INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
+src/lib/recipe-navigation.ts:92:  // Wbudowane z kodu przed wierszami bazy: INSERT OR IGNORE nie aktualizuje formuły wiersza z wcześniejszego buildu
+kod: 0
+
+$ grep -rn "REFERENCES" src --include=*.ts | grep -v __tests__
+src/data/sqlite-schema.ts:286:          starter_id TEXT NOT NULL REFERENCES starters(id) ON DELETE CASCADE,
+kod: 0
