@@ -108,4 +108,19 @@ export const EN_32: Record<string, string> = {
     'How much dried yeast replaces fresh yeast.',
   'Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.':
     'How much dry yeast replaces fresh yeast, and which dry yeast to dissolve in water first.',
+  // Nazwy mąk: kanon D-307 (docs/tresci/wektory/maki-nazwy-2026-11-09.json; EN z sekcji D-307 en/maki-typy.md) [M1-audytor-generalny-041]
+  'Mąka orkiszowa typ 630':
+    'Spelt flour (Polish type 630)',
+  'Mąka pszenna typ 750 (chlebowa)':
+    'Wheat flour (Polish type 750, chlebowa)',
+  'Mąka pszenna typ 1850 (graham)':
+    'Wheat flour (Polish type 1850, graham)',
+  'Mąka pszenna typ 550 (luksusowa)':
+    'Wheat flour (Polish type 550, luksusowa)',
+  'Mąka pszenna typ 450 (tortowa)':
+    'Wheat flour (Polish type 450, tortowa)',
+  'Mąka pszenna typ 500 (wrocławska)':
+    'Wheat flour (Polish type 500, wrocławska)',
+  'Mąka pszenna typ 650 (bułkowa)':
+    'Wheat flour (Polish type 650, bułkowa)',
 };

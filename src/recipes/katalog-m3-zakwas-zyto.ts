@@ -38,7 +38,7 @@ export const KATALOG_ZAKWAS_ZYTNIE: RecipePreset[] = [
     descriptionPl: 'Chleb foremkowy na drożdżach, w którym połowę mąki uniwersalnej zastępuje mąka żytnia.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 50.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 50.0, type: 'pszenna_650' },
         { name: 'Mąka żytnia typ 720', percentage: 50.0, type: 'zytnia_720' },
       ],
       waterPercentage: 74.6,

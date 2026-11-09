@@ -44,6 +44,9 @@ describe('i18n Hygiene & Zero Polish in English (NFR-I18N-003..004)', () => {
       'Zacier',
       'Pumpernikiel',
       'Kołocz śląski', // nazwa chronionego oznaczenia geograficznego w opisie pochodzenia formuły (katalog M3, D-229)
+      // D-307: nazwa handlowa mąki ze źródła zostaje po polsku w każdym języku („Polish type 650, bułkowa”) [M1-audytor-generalny-041]
+      'Polish type 500, wrocławska',
+      'Polish type 650, bułkowa',
     ];
 
     // Wyjątek nazwany (M3 T2, D-123): nazwy źródeł na ekranie „Źródła wiedzy” to opisy bibliograficzne — nazwiska

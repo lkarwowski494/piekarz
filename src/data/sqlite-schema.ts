@@ -393,7 +393,7 @@ export async function initDatabase(): Promise<void> {
     memStore.flourInventory = [
       {
         id: 'flour_inv_wheat_750',
-        name: 'Mąka pszenna chlebowa typ 750',
+        name: 'Mąka pszenna typ 750 (chlebowa)',
         stockGrams: 2000,
         proteinPct: 12.0,
         updatedAt: Date.now(),

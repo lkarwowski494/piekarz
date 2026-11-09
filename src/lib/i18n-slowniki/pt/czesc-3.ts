@@ -192,8 +192,8 @@ export const CZESC: Record<string, string> = {
   'Mąka i normy': 'Farinha e normas',
   'Mąka Manitoba / Forte (W > 350)': 'Farinha Manitoba / forte (W > 350)',
   'Mąka orkiszowa': 'Farinha de espelta',
-  'Mąka orkiszowa jasna typ 630': 'Farinha de espelta branca',
-  'Mąka orkiszowa razowa typ 2000': 'Farinha de espelta integral',
-  'Mąka orkiszowa typ 2000': 'Farinha de espelta',
+  'Mąka orkiszowa jasna typ 630': 'Farinha de espelta (tipo polaco 630)',
+  'Mąka orkiszowa razowa typ 2000': 'Farinha de espelta (tipo polaco 2000)',
+  'Mąka orkiszowa typ 2000': 'Farinha de espelta (tipo polaco 2000)',
   'Mąka orkiszowa, białko 12,6%': 'Farinha de espelta, proteína 12,6%',
 };

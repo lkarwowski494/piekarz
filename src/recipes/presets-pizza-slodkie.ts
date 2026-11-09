@@ -63,7 +63,7 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
     descriptionPl: 'Słodka chałka zaplatana w warkocz, z kruszonką.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 550 (Luksusowa)', percentage: 100.0, type: 'pszenna_550' },
+        { name: 'Mąka pszenna typ 550 (luksusowa)', percentage: 100.0, type: 'pszenna_550' },
       ],
       waterPercentage: 45.0,
       saltPercentage: 1.0,

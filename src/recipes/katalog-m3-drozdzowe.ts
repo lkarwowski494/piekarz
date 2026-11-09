@@ -15,7 +15,7 @@ export const KATALOG_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Prosty chleb pszenny na drożdżach z wodą, cukrem, solą i olejem, pieczony w formie.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 67.7,
       saltPercentage: 1.4,
@@ -38,7 +38,7 @@ export const KATALOG_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Chleb foremkowy na drożdżach, w którym połowę mąki uniwersalnej zastępuje mąka pełnoziarnista.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 50.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 50.0, type: 'pszenna_650' },
         { name: 'Mąka pszenna razowa typ 2000', percentage: 50.0, type: 'pszenna_razowa' },
       ],
       waterPercentage: 69.1,
@@ -62,7 +62,7 @@ export const KATALOG_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 44.0,
       saltPercentage: 1.3,
@@ -85,7 +85,7 @@ export const KATALOG_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Bułki drożdżowe na mleku z masłem i jajkiem; z przepisu wychodzą 24 sztuki.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 13.5,
       saltPercentage: 1.4,

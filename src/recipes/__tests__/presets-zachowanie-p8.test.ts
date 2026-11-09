@@ -82,7 +82,19 @@ describe('M3 p8: 15 istniejących receptur bazowych bez zmian po podziale moduł
         descriptionPl: 'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.',
       },
     };
-    const przed = MASTER_RECIPES.map((r) => ({ ...r, ...PRZED_DECYZJAMI[r.id], ...PRZED_D305[r.id] }));
+    // D-307 (kanon nazw mąk) [M1-audytor-generalny-041]: nazwy mąk w formułach przed zmianą.
+    const PRZED_D307: Record<string, string> = {
+      'Mąka pszenna typ 750 (chlebowa)': 'Mąka pszenna chlebowa typ 750',
+      'Mąka pszenna typ 1850 (graham)': 'Mąka pszenna typ 1850 (Graham)',
+      'Mąka pszenna typ 650 (bułkowa)': 'Mąka pszenna typ 650 (Bułkowa)',
+      'Mąka pszenna typ 550 (luksusowa)': 'Mąka pszenna typ 550 (Luksusowa)',
+    };
+    const przed = MASTER_RECIPES.map((r) => ({
+      ...r,
+      ...PRZED_DECYZJAMI[r.id],
+      ...PRZED_D305[r.id],
+      formula: { ...r.formula, flours: r.formula.flours.map((f) => ({ ...f, name: PRZED_D307[f.name] ?? f.name })) },
+    }));
     const odcisk = createHash('sha256').update(JSON.stringify(przed)).digest('hex');
     expect(odcisk).toBe('2b3ef868a1b9b86e9924266da1f8aa0cb3d8afd90dea906c69134413e81e960b');
   });

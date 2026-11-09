@@ -32,13 +32,13 @@ import {
   deductFlourStocks,
   InventoryCheckResult,
 } from '../core/inventory';
-import { FLOUR_PROFILES, FlourProfile } from '../core/flour-atlas';
+import { FLOUR_PROFILES, FlourProfile, profilPoNazwie } from '../core/flour-atlas';
 import { useAppAccess } from '../lib/app-access';
 
 import { typografia } from '../ui/tokeny';
 /** Zapas zapisany pod nazwą danych atlasu pokazuje się nazwą w języku interfejsu; nazwa własna dosłownie (452). */
 const nazwaZapasu = (n: string): string => {
-  const p = FLOUR_PROFILES.find((x) => x.namePl === n);
+  const p = profilPoNazwie(n); // także nazwa sprzed kanonu D-307 [M1-audytor-generalny-041]
   return p ? nazwaMaki(p) : n;
 };
 

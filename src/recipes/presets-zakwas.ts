@@ -14,7 +14,7 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
     descriptionPl: 'Bochenek pszenno-żytni na zakwasie.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 80.0, type: 'pszenna_750' },
         { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
       ],
       waterPercentage: 68.0,
@@ -68,7 +68,7 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
     descriptionPl: 'Chleb na zakwasie w stylu San Francisco.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 90.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 90.0, type: 'pszenna_750' },
         { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
       ],
       waterPercentage: 70.0,
@@ -95,8 +95,8 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
     descriptionPl: 'Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 75.0, type: 'pszenna_750' },
-        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 15.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 75.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 1850 (graham)', percentage: 15.0, type: 'pszenna_graham' },
         { name: 'Mąka żytnia typ 720', percentage: 10.0, type: 'zytnia_720' },
       ],
       waterPercentage: 69.0,
@@ -150,8 +150,8 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
     descriptionPl: 'Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 60.0, type: 'pszenna_graham' },
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 40.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 1850 (graham)', percentage: 60.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 40.0, type: 'pszenna_750' },
       ],
       waterPercentage: 72.0,
       saltPercentage: 2.0,

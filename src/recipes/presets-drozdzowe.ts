@@ -13,7 +13,7 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 72.0,
       saltPercentage: 2.0,
@@ -61,7 +61,7 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Focaccia z oliwą, rozmarynem i solą morską.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 85.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 85.0, type: 'pszenna_650' },
         { name: 'Mąka z pszenicy durum (Semolina)', percentage: 15.0, type: 'durum' },
       ],
       waterPercentage: 80.0,
@@ -86,7 +86,7 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     descriptionPl: 'Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 75.0,
       saltPercentage: 2.0,

@@ -3627,6 +3627,9 @@
       "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
+  "Mąka orkiszowa typ 630": {
+    "gdzie": []
+  },
   "Mąka orkiszowa, białko 12,6%": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
@@ -3697,16 +3700,12 @@
   },
   "Mąka pszenna chlebowa typ 750": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
-      "src/core/flour-atlas.ts (dane: namePl)",
-      "src/data/sqlite-schema.ts (dane: name)",
-      "src/hooks/useParametryReceptury.ts (dane: name)",
-      "src/recipes/presets-zakwas.ts (dane: name)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna chlebowa typ 750')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna graham typ 1850": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
       "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
@@ -3774,6 +3773,13 @@
   },
   "Mąka pszenna typ 1850 (Graham)": {
     "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 1850 (Graham)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 1850 (graham)": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets-zakwas.ts (dane: name)"
     ]
@@ -3785,20 +3791,37 @@
   },
   "Mąka pszenna typ 450 (Tortowa)": {
     "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 450 (Tortowa)')"
+    ]
+  },
+  "Mąka pszenna typ 450 (tortowa)": {
+    "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
   },
   "Mąka pszenna typ 500": {
     "gdzie": [
-      "src/recipes/discard-recipes.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 500')"
     ]
   },
   "Mąka pszenna typ 500 (Wrocławska)": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 500 (Wrocławska)')"
+    ]
+  },
+  "Mąka pszenna typ 500 (wrocławska)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
   "Mąka pszenna typ 550 (Luksusowa)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 550 (Luksusowa)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 550 (luksusowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets-pizza-slodkie.ts (dane: name)"
@@ -3810,6 +3833,12 @@
     ]
   },
   "Mąka pszenna typ 650 (Bułkowa)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 650 (Bułkowa)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 650 (bułkowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/katalog-m3-drozdzowe.ts (dane: name)",
@@ -3826,6 +3855,15 @@
   "Mąka pszenna typ 650 lub graham": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
+    ]
+  },
+  "Mąka pszenna typ 750 (chlebowa)": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/data/sqlite-schema.ts (dane: name)",
+      "src/hooks/useParametryReceptury.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 850": {

@@ -15,7 +15,7 @@ export const KATALOG_SLODKIE: RecipePreset[] = [
     descriptionPl: 'Placek z ciasta drożdżowego na mleku z masą serową i kruszonką, pieczony na blasze. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Kołocz śląski”.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 0.0,
       saltPercentage: 0.0,
@@ -38,7 +38,7 @@ export const KATALOG_SLODKIE: RecipePreset[] = [
     descriptionPl: 'Bułeczki ze słodkiego ciasta drożdżowego na mleku z jajkami; z przepisu wychodzą 24 sztuki.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 19.0,
       saltPercentage: 1.9,
@@ -61,7 +61,7 @@ export const KATALOG_SLODKIE: RecipePreset[] = [
     descriptionPl: 'Wieniec z połowy słodkiego ciasta drożdżowego z nadzieniem z cukru, cynamonu, masła i rodzynek.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 19.0,
       saltPercentage: 1.9,

@@ -192,8 +192,8 @@ export const CZESC: Record<string, string> = {
   'Mąka i normy': 'Făină și standarde',
   'Mąka Manitoba / Forte (W > 350)': 'Făină Manitoba / Forte (W > 350)',
   'Mąka orkiszowa': 'Făină de spelt',
-  'Mąka orkiszowa jasna typ 630': 'Făină albă de spelt',
-  'Mąka orkiszowa razowa typ 2000': 'Făină integrală de spelt',
-  'Mąka orkiszowa typ 2000': 'Făină de spelt tip 2000',
+  'Mąka orkiszowa jasna typ 630': 'Făină de spelt (tip polonez 630)',
+  'Mąka orkiszowa razowa typ 2000': 'Făină de spelt (tip polonez 2000)',
+  'Mąka orkiszowa typ 2000': 'Făină de spelt (tip polonez 2000)',
   'Mąka orkiszowa, białko 12,6%': 'Făină de spelt, proteine 12,6%',
 };

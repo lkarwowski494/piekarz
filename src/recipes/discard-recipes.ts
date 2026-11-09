@@ -128,7 +128,7 @@ export const SOURDOUGH_DISCARD_RECIPES: DiscardRecipe[] = [
     difficulty: 'easy',
     ingredients: [
       { namePl: 'Odrzut zakwasu', nameEn: 'Sourdough discard', amount: 200, unit: 'g' },
-      { namePl: 'Mąka pszenna typ 500', nameEn: 'Wheat flour', amount: 150, unit: 'g' },
+      { namePl: 'Mąka pszenna typ 500 (wrocławska)', nameEn: 'Wheat flour', amount: 150, unit: 'g' },
       { namePl: 'Mleko ciepłe', nameEn: 'Warm milk', amount: 180, unit: 'g' },
       { namePl: 'Masło (roztopione)', nameEn: 'Melted butter', amount: 60, unit: 'g' },
       { namePl: 'Jajka (żółtka i białka osobno)', nameEn: 'Eggs (separated)', amount: 2, unit: 'szt.' },
@@ -168,7 +168,7 @@ export const SOURDOUGH_DISCARD_RECIPES: DiscardRecipe[] = [
     difficulty: 'easy',
     ingredients: [
       { namePl: 'Odrzut zakwasu', nameEn: 'Sourdough discard', amount: 120, unit: 'g' },
-      { namePl: 'Mąka pszenna typ 500', nameEn: 'All-purpose flour', amount: 160, unit: 'g' },
+      { namePl: 'Mąka pszenna typ 500 (wrocławska)', nameEn: 'All-purpose flour', amount: 160, unit: 'g' },
       { namePl: 'Masło (zimne, posiekane w kostkę)', nameEn: 'Cold butter (cubed)', amount: 110, unit: 'g' },
       { namePl: 'Cukier trzcinowy', nameEn: 'Brown cane sugar', amount: 70, unit: 'g' },
       { namePl: 'Gorzka czekolada (posiekana)', nameEn: 'Dark chocolate (chopped)', amount: 80, unit: 'g' },

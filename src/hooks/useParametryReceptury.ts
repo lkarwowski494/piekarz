@@ -22,7 +22,7 @@ export function useParametryReceptury() {
   const [selectedPresetId, setSelectedPresetId] = useState<string>(MASTER_RECIPES[0].id);
   const [recipeName, setRecipeName] = useState<string>(MASTER_RECIPES[0].namePl);
   const [flourBlend, setFlourBlend] = useState<FlourItemInput[]>([
-    { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+    { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 80.0, type: 'pszenna_750' },
     { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
   ]);
   const [waterPct, setWaterPct] = useState<number>(68.0);

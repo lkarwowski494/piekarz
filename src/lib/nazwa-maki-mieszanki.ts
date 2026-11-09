@@ -6,7 +6,7 @@
 // nazwa własna użytkownika (spoza danych aplikacji) zostaje dosłownie.
 // ============================================================================
 
-import { FLOUR_PROFILES } from '../core/flour-atlas';
+import { FLOUR_PROFILES, profilPoNazwie } from '../core/flour-atlas';
 import { trybAtlasuMak } from '../core/flour-atlas-ogolne';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { lang, t } from './i18n';
@@ -45,6 +45,11 @@ const DAWNE_NAZWY: ReadonlyArray<readonly [string, string]> = [
   ['Mąka pszenna pełnoziarnista typ 2000', 'pszenna_razowa'],
   ['Mąka pszenna graham typ 1850', 'pszenna_graham'],
   ['Mąka pszenna luksusowa typ 550', 'pszenna_550'],
+  // nazwy receptur bazowych sprzed kanonu D-307 [M1-audytor-generalny-041]
+  ['Mąka pszenna chlebowa typ 750', 'pszenna_750'],
+  ['Mąka pszenna typ 1850 (Graham)', 'pszenna_graham'],
+  ['Mąka pszenna typ 650 (Bułkowa)', 'pszenna_650'],
+  ['Mąka pszenna typ 550 (Luksusowa)', 'pszenna_550'],
 ];
 for (const [n, typ] of DAWNE_NAZWY) if (!TYP_NAZWY.has(n)) TYP_NAZWY.set(n, typ);
 const NAZWY_DANYCH = new Set(TYP_NAZWY.keys());
@@ -52,7 +57,7 @@ const NAZWY_DANYCH = new Set(TYP_NAZWY.keys());
 export function nazwaMakiMieszanki(f: { name: string; type?: string }, kod: string = lang()): string {
   if (trybAtlasuMak(kod) === 'mapa-typow') return f.name;
   const typ = f.type ?? TYP_NAZWY.get(f.name);
-  const profil = FLOUR_PROFILES.find((p) => p.id === (typ ? PROFIL_TYPU[typ] ?? typ : undefined)) ?? FLOUR_PROFILES.find((p) => p.namePl === f.name);
+  const profil = FLOUR_PROFILES.find((p) => p.id === (typ ? PROFIL_TYPU[typ] ?? typ : undefined)) ?? profilPoNazwie(f.name);
   if (profil) return nazwaMaki(profil, kod);
   return NAZWY_DANYCH.has(f.name) ? t(f.name) : f.name;
 }
