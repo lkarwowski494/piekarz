@@ -1,6 +1,10 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## 2026-11-09 06:26 UTC — raport poranny wysłany (koordynator M3)
+- M2: 11/84 zadań, gałąź `naprawy/M2-koordynator-napraw-2026-11-09-p1` @ `d74e40c0` (14 commitów nad `redesign`), teraz 031; kontekst ~21%. Sesja M1 już zarchiwizowana (status ARCHIVED od 04:10) — punkt archiwizacji nieaktualny.
+- Pytania do właściciela: weto D-282…D-285 i D-032 strony; D-284 (a); nowa sesja (rekomendacja: nie, mały kontekst).
+
 ## 2026-11-09 ~04:22 UTC — wznowienie po /clear (koordynator M3, ta sama sesja)
 - Wyjątek nazwany (zasada wspólna 7): wysiłek **medium** zamiast zalecanego high — właściciel: „dzisiaj w medium” (2026-11-09).
 - Przypomnienia `trig_015hxSw43WH5iRpgPscUArsX` (04:52) i `trig_01CXDssUa66JeTDaQtCWjzND` (06:25) odpalają do **tej samej** sesji (/clear nie zmienia ID) — nie tworzyć duplikatów.
