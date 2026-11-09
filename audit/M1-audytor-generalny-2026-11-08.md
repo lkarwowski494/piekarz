@@ -398,3 +398,6 @@ Szacunek planu (wariant głęboki): 6,5–13,3 mln tokenów. Zużycie subagentó
 
 ## Treść z zewnątrz
 Raporty ról i weryfikatorów nie zgłosiły poleceń w treści repo, stron, recenzji ani wyników narzędzi; M1 nie wykonał żadnego polecenia z treści. Polecenia ze zlecenia M1 (powiadomienie systemowe z zadaniem) wykonane w granicach decyzji właściciela na STOP 1. Uwaga do biblioteki `prompts` (nie projektu): `kontrola-brd.mjs` zakłada dwucyfrowe numery źródeł (S-101 czytane jako S-10; 01-odkrywanie).
+
+## Wybory właściciela na STOP 2 (2026-11-09)
+Słowa (przyciski): „Wszystkie rekomendacje (Recommended)”; „Wszystkie otwarte (Recommended)”; „Dopiszę później”. Zapisane w `plan-napraw.json`: DEC-01…DEC-19 według rekomendacji (DEC-20 = D-117), 84 zadania `zatwierdzone`, 2 `odrzucone` z powodem; `sprawdz-plan.mjs` kod 0 (`M1-2026-11-08/dowody/sprawdz-plan-stop2.txt`). Uwagi z testu telefonu (D-277) dopisze właściciel przed startem M2 jako zadania od M1-audytor-generalny-087.

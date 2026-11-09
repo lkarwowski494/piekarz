@@ -48,7 +48,7 @@
    "pytanie": "Jak opisać katalog receptur, skoro 15 z 26 nie ma planu i prowadzenia?",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -78,7 +78,7 @@
    "pytanie": "Kalendarz, plany na kolejne dni i dwa wypieki naraz (D-092) bez bramki ZM i bez wierszy w kontrakcie",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -100,7 +100,7 @@
    "pytanie": "Temperatura, czas i naczynie: plan czy dane receptury?",
    "rozstrzyga": "zrodla",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -123,7 +123,7 @@
    "pytanie": "Obietnica „porównanie wypieków” na ekranie Pro bez funkcji (F-63 PÓŹNIEJ)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -146,7 +146,7 @@
    "pytanie": "Oznaczenie funkcji Pro w tekście promocyjnym i sekcjach opisu",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -169,7 +169,7 @@
    "pytanie": "Wynik bramki dla samego iOS (ok. 174–218 USD zamiast 345)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -191,7 +191,7 @@
    "pytanie": "Rytm nowej wartości Pro dla 3.1.2(a)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -213,7 +213,7 @@
    "pytanie": "Stan Z-1 i dokument cen powołujący D-038",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -235,7 +235,7 @@
    "pytanie": "Funkcje na hipotezie, brak wyników pierwszego użycia, apetyt po rozszerzeniach",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -259,7 +259,7 @@
    "pytanie": "Siedem arkuszy poza systemem kart (D-139)",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -281,7 +281,7 @@
    "pytanie": "„Usuń wszystkie dane” a trwające i zaplanowane wypieki",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -303,7 +303,7 @@
    "pytanie": "Długości i objętości w trybie imperialnym",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "b",
-   "wybor": null,
+   "wybor": "b",
    "opcje": [
     {
      "id": "a",
@@ -325,7 +325,7 @@
    "pytanie": "Drugi przegląd AI tylko na próbce 12/33 języków",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -347,7 +347,7 @@
    "pytanie": "Klucz App Store Connect wspólny z inną aplikacją i rola co najmniej App Manager",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -369,7 +369,7 @@
    "pytanie": "Start bez kanału z odczytanym regulaminem",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -391,7 +391,7 @@
    "pytanie": "Hipoteza H-01 bez ID decyzji i z nieosiągalną datą oceny",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -413,7 +413,7 @@
    "pytanie": "Ścieżka ratunku z trybu awaryjnego",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -435,7 +435,7 @@
    "pytanie": "Bramka E2E przed buildem TestFlight",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "a",
-   "wybor": null,
+   "wybor": "a",
    "opcje": [
     {
      "id": "a",
@@ -457,7 +457,7 @@
    "pytanie": "Diagnoza Doktora chleba przy następnym wypieku",
    "rozstrzyga": "wlasciciel",
    "rekomendacja": "b",
-   "wybor": null,
+   "wybor": "b",
    "opcje": [
     {
      "id": "a",
@@ -516,7 +516,7 @@
    "przyczyna": "SYS-02",
    "raport": "role/05-architekt/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test współbieżności na prawdziwym SQLite: import kopii, „Usuń wszystkie dane” i zapis zakwasu przy równoległym zapisie i wymuszonym błędzie zostawiają dane albo w całości nowe, albo w całości stare; „Nie zapisano” tylko przy braku zapisu; trwała kontrola: lint/test zabraniający withTransactionAsync poza kolejką (powraca: M3 D1b P2-1)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -535,7 +535,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "usunięte i poprawione dokarmienie nie wraca po zapisie profilu ani stałego dnia zakwasu (test na prawdziwym SQLite, sonda z 05-architekt-501)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -554,7 +554,7 @@
    "przyczyna": null,
    "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
    "test_akceptacyjny": "pakiet z trybu awaryjnego jest rozpoznawany i przywracany przez import (albo, przy opcji b, ekran awaryjny ostrzega przed usunięciem aplikacji i podaje kontakt); test rozpoznajPlik",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -573,7 +573,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "faza zakwasu bez okna szczytu bez źródła: przy showPeakWindow={false} karta nie pokazuje „W szacowanym oknie szczytu”; reguła ma twierdzenie w rejestrze albo znika",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -592,7 +592,7 @@
    "przyczyna": null,
    "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
    "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -611,7 +611,7 @@
    "przyczyna": null,
    "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
    "test_akceptacyjny": "stuknięcie kroku w arkuszu „Plan wypieku” przy trwającym wypieku pyta o potwierdzenie i daje „Cofnij”; stuknięcie bieżącego kroku nie zeruje zegara",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -630,7 +630,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
    "test_akceptacyjny": "7 arkuszy z 04-studio-projektowe-003 na systemie kart (przegląd roli 04 według D-139) albo wyjątek nazwany z decyzją",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -649,7 +649,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "temperatury, czasy i naczynie w planie i prowadzeniu zgodne z danymi receptury dla 8 receptur pszennych na zakwasie; test porównujący plan z kartą receptury",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -668,7 +668,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "pizza: temperatura i czas zgodne ze źródłem receptury i domowym piekarnikiem, twierdzenie w rejestrze",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -687,7 +687,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "kontrole-tresci w kierunku odwrotnym (tekst → twierdzenie) dają 0 tekstów z liczbą bez twierdzenia w częściach widocznych w 1.0",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -706,7 +706,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "9 kluczy krytycznych w 21 językach ma tłumaczenie zwrotne (kontrola a) i drugi przegląd zapisany w rejestrze; test pilnuje kompletności",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -725,7 +725,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "ekran awaryjny w języku urządzenia (sonda de-DE i en-US)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -744,7 +744,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "„400 °F” bez „około 399 °F” w 35 językach; uncje bez „0,04 oz” i „1 0,00 oz”; test porównuje z oczekiwaną wartością, nie z EN",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -765,7 +765,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "15 tekstów przetłumaczonych w 33 językach; check:i18n wykrywa tekst EN równy PL-owemu przekładowi angielskiemu",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -785,7 +785,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "ekran Pro nie obiecuje funkcji bez kodu (test: lista obietnic PaywallModal ↔ funkcje zablokowane w mapie Basic/Pro)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -804,7 +804,7 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "scenariusz E2E koniec wypieku → ocena → wpis w Dzienniku → kopia automatyczna; punkt na liście telefonu; błąd kopii automatycznej nie jest połykany",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -825,7 +825,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
    "test_akceptacyjny": "zrzuty do wysyłki (pl, en-US i reszta) pokazują wygląd po M3 i plakietkę Pro tylko przy funkcjach Pro; kontrola obrazów, nie tylko JSON",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -844,7 +844,7 @@
    "przyczyna": null,
    "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
    "test_akceptacyjny": "jeden kanał startu z odczytanym regulaminem, budżet godzin i plan na złe przyjęcie w docs/wzrost.md (albo decyzja b z wyjątkiem)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -863,7 +863,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -883,7 +883,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -903,7 +903,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -922,7 +922,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-503 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -941,7 +941,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-504 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -960,7 +960,7 @@
    "przyczyna": null,
    "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-505 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -979,7 +979,7 @@
    "przyczyna": null,
    "raport": "role/08-programista/08-programista-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -998,7 +998,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/08-programista/08-programista-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1017,7 +1017,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/08-programista/08-programista-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1036,7 +1036,7 @@
    "przyczyna": "SYS-02",
    "raport": "role/08-programista/08-programista-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1055,7 +1055,7 @@
    "przyczyna": null,
    "raport": "role/08-programista/08-programista-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1074,7 +1074,7 @@
    "przyczyna": null,
    "raport": "weryfikacja/G9-luki.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-030 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1093,7 +1093,7 @@
    "przyczyna": null,
    "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1112,7 +1112,7 @@
    "przyczyna": null,
    "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1131,7 +1131,7 @@
    "przyczyna": null,
    "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1150,7 +1150,7 @@
    "przyczyna": "SYS-01",
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1169,7 +1169,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1188,7 +1188,7 @@
    "przyczyna": null,
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1207,7 +1207,7 @@
    "przyczyna": null,
    "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1226,7 +1226,7 @@
    "przyczyna": null,
    "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1245,7 +1245,7 @@
    "przyczyna": null,
    "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1264,7 +1264,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-005 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1283,7 +1283,7 @@
    "przyczyna": "SYS-05",
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1302,7 +1302,7 @@
    "przyczyna": null,
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1321,7 +1321,7 @@
    "przyczyna": null,
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1340,7 +1340,7 @@
    "przyczyna": null,
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-009 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1359,7 +1359,7 @@
    "przyczyna": null,
    "raport": "role/06-tresci/06-tresci-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-010 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1378,7 +1378,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1397,7 +1397,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1416,7 +1416,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1435,7 +1435,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1454,7 +1454,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-009 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1473,7 +1473,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-010 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1492,7 +1492,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-011 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1511,7 +1511,7 @@
    "przyczyna": null,
    "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-012 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1530,7 +1530,7 @@
    "przyczyna": null,
    "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1549,7 +1549,7 @@
    "przyczyna": null,
    "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1568,7 +1568,7 @@
    "przyczyna": null,
    "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1587,7 +1587,7 @@
    "przyczyna": "SYS-01",
    "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-005 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1606,7 +1606,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-001 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1625,7 +1625,7 @@
    "przyczyna": "SYS-01",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1644,7 +1644,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1663,7 +1663,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-005 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1682,7 +1682,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1701,7 +1701,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1720,7 +1720,7 @@
    "przyczyna": "SYS-06",
    "raport": "role/03-zakres/03-zakres-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1739,7 +1739,7 @@
    "przyczyna": null,
    "raport": "weryfikacja/G9-luki.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-065 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1769,7 +1769,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "E2E zielone na SHA kandydata po scaleniu E2E-95 (pl, en_US, kontrola negatywna, Basic)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1788,7 +1788,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-002 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1807,7 +1807,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1826,7 +1826,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-005 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1846,7 +1846,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1865,7 +1865,7 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1884,7 +1884,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-008 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1903,7 +1903,7 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-009 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1923,7 +1923,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-010 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1942,7 +1942,7 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-011 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1961,7 +1961,7 @@
    "przyczyna": null,
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-012 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -1980,7 +1980,7 @@
    "przyczyna": "SYS-03",
    "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-013 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2000,7 +2000,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-001 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2019,7 +2019,7 @@
    "przyczyna": null,
    "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-003 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2040,7 +2040,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-004 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2059,7 +2059,7 @@
    "przyczyna": "SYS-04",
    "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-006 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2078,7 +2078,7 @@
    "przyczyna": null,
    "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-007 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2097,7 +2097,7 @@
    "przyczyna": "SYS-01",
    "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-001 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2116,7 +2116,7 @@
    "przyczyna": null,
    "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
    "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-005 (pole „Test akceptacyjny”)",
-   "status": "otwarte",
+   "status": "zatwierdzone",
    "commit": null
   },
   {
@@ -2159,5 +2159,14 @@
    "commit": null,
    "powod": "obalone w weryfikacji przeciwnej (weryfikacja/G4-sklep-pieniadze.md): brak zakupu przy aktywnym Pro to decyzja D-117 pkt 1"
   }
- ]
+ ],
+ "stop2": {
+  "data": "2026-11-09",
+  "slowa_wlasciciela": [
+   "Wszystkie rekomendacje (Recommended)",
+   "Wszystkie otwarte (Recommended)",
+   "Dopiszę później"
+  ],
+  "uwagi": "wybory DEC-01…DEC-19 według rekomendacji; zatwierdzone wszystkie otwarte zadania; uwagi z testu telefonu (D-277) dopisze właściciel przed startem M2 jako zadania od M1-audytor-generalny-087"
+ }
 }
