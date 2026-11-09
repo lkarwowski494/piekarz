@@ -2,7 +2,8 @@
 // Piekarz — składniki przy bieżącym kroku (BR-ETAP-001 „Bieżący krok”: co zrobić, potrzebne składniki i czas)
 // [M1-audytor-generalny-130; 01-odkrywanie-501]. Te same wartości i etykiety co karta „Składniki do odważenia”
 // w arkuszu „Plan wypieku” (BakeStepsList); bez nowych tekstów. Autoliza: mąka i woda; mieszanie po autolizie:
-// zakwas i sól; mieszanie bez autolizy: wszystko; inne kroki: nic.
+// zakwas i sól; mieszanie bez autolizy: wszystko; inne kroki: nic. Wersja drożdżowa i receptura drożdżowa: bez wiersza
+// zakwasu, z wierszem drożdży (rodzaj i masa jak na karcie „Do miski”: RD-19, BR-KALK-009/012) [M2 D-312; 070-N5].
 // ============================================================================
 
 import React from 'react';
@@ -11,20 +12,32 @@ import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { formatDoseWeight, formatWeight, UnitSystem } from '../../lib/unit-converter';
+import { useRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy } from '../../lib/rodzaj-drozdzy';
 import type { SessionStep } from '../../core/bake-steps';
 import type { DoughRecipeResult } from '../../core/domain-rules';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 
-type Skladnik = 'maka' | 'woda' | 'zakwas' | 'sol';
+type Skladnik = 'maka' | 'woda' | 'zakwas' | 'drozdze' | 'sol';
+
+/** Zaczyn ciasta z receptury: zakwas, gdy jest go więcej niż 0 g, drożdże, gdy jest ich więcej niż 0 g; bez receptury — zakwas. */
+export function zaczynCiasta(recipe?: Pick<DoughRecipeResult, 'starterGrams' | 'yeastGrams'>): Skladnik[] {
+  if (!recipe) return ['zakwas'];
+  return [...(recipe.starterGrams > 0 ? ['zakwas' as const] : []), ...(recipe.yeastGrams > 0 ? ['drozdze' as const] : [])];
+}
 
 /** Składniki odważane w kroku `idx` (czysta funkcja). */
-export function skladnikiKroku(steps: readonly Pick<SessionStep, 'category'>[], idx: number): Skladnik[] {
+export function skladnikiKroku(
+  steps: readonly Pick<SessionStep, 'category'>[],
+  idx: number,
+  recipe?: Pick<DoughRecipeResult, 'starterGrams' | 'yeastGrams'>,
+): Skladnik[] {
   const kat = steps[idx]?.category;
   if (kat === 'autolyse') return ['maka', 'woda'];
   if (kat !== 'mix') return [];
-  return steps.slice(0, idx).some((s) => s.category === 'autolyse') ? ['zakwas', 'sol'] : ['maka', 'woda', 'zakwas', 'sol'];
+  const zaczyn = zaczynCiasta(recipe);
+  return steps.slice(0, idx).some((s) => s.category === 'autolyse') ? [...zaczyn, 'sol'] : ['maka', 'woda', ...zaczyn, 'sol'];
 }
 
 export interface SkladnikiKrokuProps {
@@ -35,13 +48,15 @@ export interface SkladnikiKrokuProps {
 }
 
 export function SkladnikiKroku({ steps, stepIdx, calculatedRecipe, unitSystem }: SkladnikiKrokuProps) {
-  const lista = skladnikiKroku(steps, stepIdx);
+  const lista = skladnikiKroku(steps, stepIdx, calculatedRecipe);
   const duzy = useDuzyTekst();
+  const rodzaj = useRodzajDrozdzy();
   if (!calculatedRecipe || lista.length === 0) return null;
   const wiersz: Record<Skladnik, [string, string]> = {
     maka: [t('Mąki'), formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)],
     woda: [t('Woda'), formatWeight(calculatedRecipe.waterGrams, unitSystem)],
     zakwas: [t('Zakwas|składnik'), formatWeight(calculatedRecipe.starterGrams, unitSystem)],
+    drozdze: [nazwaDrozdzy(rodzaj), formatDoseWeight(gramyDrozdzy(calculatedRecipe.yeastGrams, rodzaj), unitSystem)],
     sol: [t('Sól'), formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)],
   };
   return (
