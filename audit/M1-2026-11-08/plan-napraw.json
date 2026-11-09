@@ -592,8 +592,8 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "1d0dce0a"
     },
     {
       "id": "M1-audytor-generalny-006",
@@ -707,7 +707,8 @@
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "9 kluczy krytycznych w 21 językach ma tłumaczenie zwrotne (kontrola a) i drugi przegląd zapisany w rejestrze; test pilnuje kompletności",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": "3e51b342",
+      "blokada": "decyzja właściciela (STOP p3): 13 poprawek przekładu zdań bezpieczeństwa maszyny z kontroli (a) wobec D-287 „zdania bezpieczeństwa maszyny bez zmian przed 1.0”; reszta zrobiona (rejestr 189 par, 5 poprawek notatek, test kompletności) w 3e51b342"
     },
     {
       "id": "M1-audytor-generalny-012",
@@ -1233,8 +1234,8 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e07a9ee1"
     },
     {
       "id": "M1-audytor-generalny-039",

@@ -90,6 +90,10 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 11:56 035: 58b65480 — BR-DANE-005 CSV z testem (ER-82); schowek → rola 03 (naprawy/przekazania-M2.md). Test dokumentuje istniejący kod (zielony od razu; czerwona była bramka: brak BR). verify 6436. Status naprawione-do-weryfikacji.
 - 12:04 039: 69bf0924 — systemowy Switch; TDD; verify 6437. Status naprawione-do-weryfikacji. Zrzut wyglądu: krok właściciela (brak Xcode).
 - 12:16 044: d4d1d40d — zdanie produktu w docs/tresci, znaczniki ja/ko/zh-Hant, skrypt z modułu; TDD; verify 6444. Status naprawione-do-weryfikacji. Treść ja/zh dopisana przez M2 tylko spacją (bez zmiany słów).
+- 12:22 038: e07a9ee1 — tokeny typografii i promieni w 33 plikach, trwała kontrola; TDD; verify 6446. Status naprawione-do-weryfikacji. Ryzyko: wygląd na 320 pt / AX5 bez automatu — zrzuty krok właściciela, przegląd roli 04.
+- 12:26 005: 1d0dce0a — mała spirala na pasie + assertVisible karta-kroku w E2E 03; TDD; verify 6448. Status naprawione-do-weryfikacji; pełna akceptacja (375×667, 402×874, 2 wypieki) dopiero w E2E iOS na symulatorze — przed buildem (DEC-18).
+- 12:35 011: 3e51b342 — kontrola (a) 189 par (3 sesje na ślepo + porównanie), 5 poprawek notatek wdrożonych, rejestr + test; verify 6450. Blokada: 13 poprawek zdań maszyny wobec D-287 → decyzja na STOP p3.
+- 12:36 Partia 2 scalona: redesign = 3e51b342 (fast-forward, verify 6450 kod 0). STOP p3 zapisany (stop-p3-M2-2026-11-09.md): 4 decyzje.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

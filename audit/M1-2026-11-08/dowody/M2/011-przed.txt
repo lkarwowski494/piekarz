@@ -1,0 +1,1 @@
+przed: rejestru kontroli (a) brak (grep „zwrotn” w plikach przekładu 09d/p8/09m = 0, finding); test bez pliku rejestru nie może przejść

@@ -1,0 +1,10 @@
+PASS tests/tokeny-literaly-038.test.ts
+  038: rozmiary tekstu i promienie z tokenów
+    ✓ żadnego fontSize liczbą w app/ i src/ (160 ms)
+    ✓ żadnego borderRadius liczbą poza kołem („N / 2”) (142 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.82 s, estimated 1 s
+Ran all test suites matching /tests\/tokeny-literaly-038.test.ts/i.

@@ -1,0 +1,182 @@
+FAIL tests/tokeny-literaly-038.test.ts
+  038: rozmiary tekstu i promienie z tokenów
+    ✕ żadnego fontSize liczbą w app/ i src/ (133 ms)
+    ✕ żadnego borderRadius liczbą poza kołem („N / 2”) (121 ms)
+
+  ● 038: rozmiary tekstu i promienie z tokenów › żadnego fontSize liczbą w app/ i src/
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 102
+
+    - Array []
+    + Array [
+    +   "app/doktor.tsx:214 fontSize: 14,",
+    +   "app/doktor.tsx:219 fontSize: 11,",
+    +   "src/components/CorruptStateRecoveryBanner.tsx:72 fontSize: 14,",
+    +   "src/components/FlourBlendModal.tsx:299 fontSize: 18,",
+    +   "src/components/FlourBlendModal.tsx:350 fontSize: 11,",
+    +   "src/components/FlourBlendModal.tsx:379 fontSize: 14,",
+    +   "src/components/FlourBlendModal.tsx:404 fontSize: 11,",
+    +   "src/components/FlourBlendModal.tsx:441 fontSize: 11,",
+    +   "src/components/FlourBlendModal.tsx:460 fontSize: 11,",
+    +   "src/components/FlourBlendModal.tsx:465 fontSize: 10,",
+    +   "src/components/FlourBlendModal.tsx:483 fontSize: 14,",
+    +   "src/components/FlourBlendModal.tsx:499 fontSize: 14,",
+    +   "src/components/FlourEquivalentsModal.tsx:173 fontSize: 20,",
+    +   "src/components/FlourEquivalentsModal.tsx:189 fontSize: 14,",
+    +   "src/components/FlourEquivalentsModal.tsx:212 fontSize: 14,",
+    +   "src/components/FlourEquivalentsModal.tsx:232 fontSize: 16,",
+    +   "src/components/FlourEquivalentsModal.tsx:247 fontSize: 11,",
+    +   "src/components/FlourEquivalentsModal.tsx:281 fontSize: 11,",
+    +   "src/components/FlourEquivalentsModal.tsx:312 fontSize: 11,",
+    +   "src/components/FlourEquivalentsModal.tsx:318 fontSize: 11,",
+    +   "src/components/FlourInventoryModal.tsx:365 fontSize: 18,",
+    +   "src/components/FlourInventoryModal.tsx:403 fontSize: 11,",
+    +   "src/components/FlourInventoryModal.tsx:473 fontSize: 11,",
+    +   "src/components/FlourInventoryModal.tsx:484 fontSize: 14,",
+    +   "src/components/FlourInventoryModal.tsx:519 fontSize: 11,",
+    +   "src/components/FlourInventoryModal.tsx:539 fontSize: 11,",
+    +   "src/components/FlourInventoryModal.tsx:592 fontSize: 14,",
+    +   "src/components/ImportRecipeModal.tsx:313 fontSize: 14,",
+    +   "src/components/ImportRecipeModal.tsx:358 fontSize: 14,",
+    +   "src/components/ImportRecipeModal.tsx:381 fontSize: 11,",
+    +   "src/components/NotificationsOffBanner.tsx:60 buttonText: { color: theme.colors.akcentTekst, fontSize: 14, fontWeight: '700' },",
+    +   "src/components/NumInput.tsx:118 fontSize: 16,",
+    +   "src/components/QrScannerModal.tsx:148 fontSize: 16,",
+    +   "src/components/QrScannerModal.tsx:198 fontSize: 16,",
+    +   "src/components/QrScannerModal.tsx:250 fontSize: 14,",
+    +   "src/components/RescueScreen.tsx:101 body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },",
+    +   "src/components/RescueScreen.tsx:115 buttonText: { color: theme.colors.naAkcencie, fontSize: 16, fontWeight: '700' },",
+    +   "src/components/RescueScreen.tsx:127 secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: 16, fontWeight: '700' },",
+    +   "src/components/SensoryRadarChart.tsx:285 fontSize: 16,",
+    +   "src/components/ShareRecipeQrModal.tsx:158 fontSize: 16,",
+    +   "src/components/ShareRecipeQrModal.tsx:187 fontSize: 20,",
+    +   "src/components/StorageGate.tsx:144 fontSize: 16,",
+    +   "src/components/StorageGate.tsx:161 fontSize: 16,",
+    +   "src/components/StorageGate.tsx:177 fontSize: 16,",
+    +   "src/components/StorageGate.tsx:203 fontSize: 16,",
+    +   "src/components/TabIcon.tsx:81 ? { fontSize: 10 }",
+    +   "src/components/VolumeConverterModal.tsx:281 fontSize: 20,",
+    +   "src/components/VolumeConverterModal.tsx:347 fontSize: 11,",
+    +   "src/components/VolumeConverterModal.tsx:386 fontSize: 14,",
+    +   "src/components/VolumeConverterModal.tsx:450 fontSize: 16,",
+    +   "src/components/VolumeConverterModal.tsx:461 fontSize: 18,",
+    +   "src/components/VolumeConverterModal.tsx:475 fontSize: 14,",
+    +   "src/components/VolumeConverterModal.tsx:480 fontSize: 36,",
+    +   "src/components/academy/AcademyHeader.tsx:82 fontSize: 20,",
+    +   "src/components/academy/AcademyHeader.tsx:97 fontSize: 18,",
+    +   "src/components/academy/BreadSchoolSection.tsx:176 fontSize: 11,",
+    +   "src/components/academy/BreadSchoolSection.tsx:189 fontSize: 10,",
+    +   "src/components/academy/BreadSchoolSection.tsx:195 fontSize: 16,",
+    +   "src/components/academy/BreadSchoolSection.tsx:201 fontSize: 14,",
+    +   "src/components/academy/BreadSchoolSection.tsx:217 fontSize: 11,",
+    +   "src/components/academy/BreadSchoolSection.tsx:261 fontSize: 10,",
+    +   "src/components/academy/BreadSchoolSection.tsx:281 fontSize: 11,",
+    +   "src/components/academy/BreadSchoolSection.tsx:287 fontSize: 11,",
+    +   "src/components/academy/BreadSchoolSection.tsx:301 fontSize: 11,",
+    +   "src/components/academy/BreadSchoolSection.tsx:307 fontSize: 11,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:180 fontSize: 11,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:192 fontSize: 16,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:198 fontSize: 14,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:267 fontSize: 11,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:273 fontSize: 11,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:293 fontSize: 11,",
+    +   "src/components/calculator/CalculatorActionButtons.tsx:87 fontSize: 20,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:148 fontSize: 16,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:179 fontSize: 11,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:201 fontSize: 16,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:206 fontSize: 14,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:243 fontSize: 11,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:248 fontSize: 11,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:267 fontSize: 11,",
+    +   "src/components/doktor/DiagnosisResultCard.tsx:202 fontSize: 11,",
+    +   "src/components/doktor/DiagnosisResultCard.tsx:218 fontSize: 14,",
+    +   "src/components/doktor/DiagnosisResultCard.tsx:243 fontSize: 14,",
+    +   "src/components/doktor/DiagnosisResultCard.tsx:255 fontSize: 14,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:185 fontSize: 16,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:220 fontSize: 11,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:254 fontSize: 11,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:273 fontSize: 11,",
+    +   "src/components/doktor/KitchenTestsGuideSection.tsx:100 fontSize: 16,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:150 fontSize: 11,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:154 fontSize: 10,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:206 fontSize: 14,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:234 fontSize: 10,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:255 fontSize: 10,",
+    +   "src/components/receptury/DoMiski.tsx:254 fontSize: 16,",
+    +   "src/components/settings/StudioEcosystemSection.tsx:176 fontSize: 14,",
+    +   "src/components/settings/StudioEcosystemSection.tsx:186 fontSize: 10,",
+    +   "src/components/settings/StudioEcosystemSection.tsx:196 fontSize: 11,",
+    +   "src/components/stolnica/DutchOvenController.tsx:163 fontSize: 11,",
+    +   "src/components/stolnica/DutchOvenController.tsx:186 fontSize: 14,",
+    +   "src/components/stolnica/PokeTestEntry.tsx:53 fontSize: 14,",
+    + ]
+
+      21 |     const zle = KOD.flatMap((p) => fs.readFileSync(p, 'utf8').split('\n').map((l, i) => [p, i + 1, l] as const))
+      22 |       .filter(([, , l]) => /fontSize\s*:\s*\d/.test(l)).map(([p, i, l]) => `${path.relative(ROOT, p)}:${i} ${l.trim()}`);
+    > 23 |     expect(zle).toEqual([]);
+         |                 ^
+      24 |   });
+      25 |   it('żadnego borderRadius liczbą poza kołem („N / 2”)', () => {
+      26 |     const zle = KOD.flatMap((p) => fs.readFileSync(p, 'utf8').split('\n').map((l, i) => [p, i + 1, l] as const))
+
+      at Object.toEqual (tests/tokeny-literaly-038.test.ts:23:17)
+
+  ● 038: rozmiary tekstu i promienie z tokenów › żadnego borderRadius liczbą poza kołem („N / 2”)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 32
+
+    - Array []
+    + Array [
+    +   "app/doktor.tsx:191 borderRadius: 14,",
+    +   "src/components/DiscardRecipesModal.tsx:372 borderRadius: 10,",
+    +   "src/components/ImportRecipeModal.tsx:260 borderRadius: 10,",
+    +   "src/components/ImportRecipeModal.tsx:281 borderRadius: 12,",
+    +   "src/components/ImportRecipeModal.tsx:294 borderRadius: 10,",
+    +   "src/components/ImportRecipeModal.tsx:307 borderRadius: 12,",
+    +   "src/components/ImportRecipeModal.tsx:398 borderRadius: 12,",
+    +   "src/components/ImportRecipeModal.tsx:412 borderRadius: 12,",
+    +   "src/components/QrScannerModal.tsx:257 borderRadius: 8,",
+    +   "src/components/academy/AcademyHeader.tsx:91 borderRadius: 18,",
+    +   "src/components/academy/BreadSchoolSection.tsx:184 borderRadius: 8,",
+    +   "src/components/academy/BreadSchoolSection.tsx:253 borderRadius: 9,",
+    +   "src/components/academy/TechniquesLibrarySection.tsx:185 borderRadius: 6,",
+    +   "src/components/calculator/accordion/AccordionDdtSection.tsx:194 borderRadius: 4,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:195 borderRadius: 14,",
+    +   "src/components/doktor/EmergencyRecoverySection.tsx:246 borderRadius: 10,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:169 borderRadius: 15,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:223 borderRadius: 4,",
+    +   "src/components/harmonogram/TimelineStagesList.tsx:252 borderRadius: 4,",
+    +   "src/components/harmonogram/UstawieniaPlanu.tsx:75 borderRadius: 22,",
+    +   "src/components/harmonogram/UstawieniaPlanu.tsx:88 borderRadius: 14,",
+    +   "src/components/receptury/DoMiski.tsx:243 borderRadius: 8,",
+    +   "src/components/receptury/DoMiski.tsx:279 borderRadius: 12,",
+    +   "src/components/receptury/SkladnikiSheet.tsx:292 borderRadius: 12,",
+    +   "src/components/receptury/SkladnikiSheet.tsx:302 borderRadius: 10,",
+    +   "src/components/settings/StudioEcosystemSection.tsx:152 borderRadius: 10,",
+    +   "src/components/settings/StudioEcosystemSection.tsx:183 borderRadius: 6,",
+    +   "src/components/zakwas/StarterPeakActivityCard.tsx:225 borderRadius: 5,",
+    +   "src/components/zakwas/StarterPeakActivityCard.tsx:231 borderRadius: 5,",
+    +   "src/components/zakwas/StarterSetupCard.tsx:113 dzien: { minWidth: 40, minHeight: 40, borderRadius: 20, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center' },",
+    + ]
+
+      26 |     const zle = KOD.flatMap((p) => fs.readFileSync(p, 'utf8').split('\n').map((l, i) => [p, i + 1, l] as const))
+      27 |       .filter(([, , l]) => /borderRadius\s*:\s*\d+(?:\.\d+)?(?!\s*\/\s*2)\s*[,}\n]/.test(`${l}\n`)).map(([p, i, l]) => `${path.relative(ROOT, p)}:${i} ${l.trim()}`);
+    > 28 |     expect(zle).toEqual([]);
+         |                 ^
+      29 |   });
+      30 | });
+      31 |
+
+      at Object.toEqual (tests/tokeny-literaly-038.test.ts:28:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.759 s, estimated 1 s
+Ran all test suites matching /tests\/tokeny-literaly-038.test.ts/i.

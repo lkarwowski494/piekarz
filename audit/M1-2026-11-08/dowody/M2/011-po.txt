@@ -1,0 +1,10 @@
+PASS tests/kontrola-a-011.test.ts
+  011: kontrola (a) tekstów krytycznych w 21 językach
+    ✓ rejestr ma tłumaczenie zwrotne i wynik dla każdego klucza krytycznego i języka (14 ms)
+    ✓ poprawka wdrożona = tekst w słowniku; niewdrożona tylko z decyzją właściciela D-287 (zdania maszyny) (152 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.615 s, estimated 2 s
+Ran all test suites matching /tests\/kontrola-a-011.test.ts/i.

@@ -1,0 +1,58 @@
+FAIL src/__tests__/pas-prowadzenia-005.test.tsx
+  005: pas prowadzenia z małą spiralą
+    ✕ na pasie 92 pt, poza pasem pełna (≥ 150 pt) (82 ms)
+    ✕ E2E prowadzenia sprawdza kartę „Co zrobić” bez przewijania (1 ms)
+
+  ● 005: pas prowadzenia z małą spiralą › na pasie 92 pt, poza pasem pełna (≥ 150 pt)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 92
+    Received: 220
+
+      22 | describe('005: pas prowadzenia z małą spiralą', () => {
+      23 |   it('na pasie 92 pt, poza pasem pełna (≥ 150 pt)', () => {
+    > 24 |     expect(bok(true)).toBe(92);
+         |                       ^
+      25 |     expect(bok(false)).toBeGreaterThanOrEqual(150);
+      26 |   });
+      27 |   it('E2E prowadzenia sprawdza kartę „Co zrobić” bez przewijania', () => {
+
+      at Object.toBe (src/__tests__/pas-prowadzenia-005.test.tsx:24:23)
+
+  ● 005: pas prowadzenia z małą spiralą › E2E prowadzenia sprawdza kartę „Co zrobić” bez przewijania
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /assertVisible:\s*\n\s*id: "karta-kroku"/
+    Received string:  "id: \"step-title\"
+        timeout: 15000
+    - assertVisible:
+        id: \"step-time\"
+    - assertVisible:
+        id: \"thumb-bar\"
+    - assertVisible:
+        id: \"next-or-finish-step-btn\"
+    - assertVisible:
+        id: \"step-undo-btn\"
+    - assertVisible:
+        id: \"step-why-btn\"
+    - assertNotVisible:
+        id: \"discard-bake-btn\"
+    "
+
+      28 |     const flow = fs.readFileSync(path.join(__dirname, '..', '..', '.maestro', 'e2e', '03-prowadzenie-widok-skupiony.yaml'), 'utf8');
+      29 |     const po = flow.slice(flow.indexOf('id: "step-title"'));
+    > 30 |     expect(po).toMatch(/assertVisible:\s*\n\s*id: "karta-kroku"/);
+         |                ^
+      31 |     expect(po).not.toMatch(/scrollUntilVisible/);
+      32 |   });
+      33 | });
+
+      at Object.toMatch (src/__tests__/pas-prowadzenia-005.test.tsx:30:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.943 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/pas-prowadzenia-005.test.tsx/i.

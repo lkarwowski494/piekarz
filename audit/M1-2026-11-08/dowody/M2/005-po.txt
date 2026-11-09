@@ -1,0 +1,10 @@
+PASS src/__tests__/pas-prowadzenia-005.test.tsx
+  005: pas prowadzenia z małą spiralą
+    ✓ na pasie 92 pt, poza pasem pełna (≥ 150 pt) (95 ms)
+    ✓ E2E prowadzenia sprawdza kartę „Co zrobić” bez przewijania (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.937 s, estimated 1 s
+Ran all test suites matching /src\/__tests__\/pas-prowadzenia-005.test.tsx/i.
