@@ -43,19 +43,9 @@ function brWKontrakcie(): Map<string, string> {
 }
 
 /** BR bez decyzji zakresu poza tym zadaniem: zamyka je wskazane zadanie (lista tylko maleje). */
-const BEZ_DECYZJI_POZA_058: Record<string, string> = {
-  'BR-MASZ-001': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-MASZ-002': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-MASZ-003': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-MASZ-004': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-MASZ-005': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-MASZ-006': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-KALK-012': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-RECP-005': 'M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-DANE-005': 'ER-82 (M1-audytor-generalny-035), decyzja zakresu roli 03',
-  'BR-UST-004': 'ER-84 (F-82 MVP poza tabelą, ZM-28): ID w wierszu F-82 — M1-audytor-generalny-059 (03-zakres-003)',
-  'BR-UST-005': 'ER-84 (F-83 MVP poza tabelą, ZM-28): ID w wierszu F-83 — M1-audytor-generalny-059 (03-zakres-003)',
-};
+// 059 (03-zakres-003): BR-MASZ-001…006, BR-KALK-012, BR-RECP-005, BR-DANE-005, BR-UST-004 i BR-UST-005 dostały
+// decyzję zakresu (wiersze F-72, F-55, F-26, F-33, F-82, F-83); lista pusta i może tylko taka zostać.
+const BEZ_DECYZJI_POZA_058: Record<string, string> = {};
 
 describe('kontrakt zakresu: pakiet D-092 przez bramkę ZM (058)', () => {
   it('każde BR z BRD ma decyzję zakresu; wyjątki tylko z listy i nadal bez decyzji', () => {
