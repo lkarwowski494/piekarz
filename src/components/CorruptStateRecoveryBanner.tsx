@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     get fontFamily() { return theme.typography.krojTytulow; },
     color: theme.colors.blad,
     fontWeight: '700',
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     marginBottom: 4,
   },
   message: {

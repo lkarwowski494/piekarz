@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   },
   title: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.md,
     paddingHorizontal: theme.spacing.sm,
     paddingVertical: 8,
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz,
   },
   closeBtn: {
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     textAlign: 'center',
   },
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     flex: 1,
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   absorptionBadgeText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
   },
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   statChip: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     backgroundColor: theme.colors.tlo,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -309,13 +309,13 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.akcent,
   },
   tipsLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
     marginBottom: 2,
   },
   tipsText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 15,
   },

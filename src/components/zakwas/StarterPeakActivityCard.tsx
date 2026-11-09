@@ -222,13 +222,13 @@ const styles = StyleSheet.create({
   progressBarBackground: {
     height: 10,
     backgroundColor: theme.colors.linia,
-    borderRadius: 5,
+    borderRadius: 10 / 2,
     overflow: 'hidden',
     marginVertical: odstepy.xs,
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 5,
+    borderRadius: promienie.znacznik,
   },
   progressLabelRow: {
     flexDirection: 'row',

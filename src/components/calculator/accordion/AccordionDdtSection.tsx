@@ -10,7 +10,7 @@ import { PolaTemperaturDdt, PolaTemperaturDdtProps } from './PolaTemperaturDdt';
 import { Karta } from '../../../ui/karty/Karta';
 import { IkonaKarty } from '../../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../../ui/tokeny';
+import { typografia, promienie } from '../../../ui/tokeny';
 // Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
 // (design-spec §11c „106”, punkt 7) [M1-audytor-generalny-106]
 export interface AccordionDdtSectionProps {
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   ddtResultValue: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
   },
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   paramLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginBottom: 4,
   },
@@ -191,19 +191,19 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 4,
+    borderRadius: promienie.znacznik,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
   },
   miniBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   paramValue: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -240,12 +240,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tloGrupa, // poziom info (hydrationDifficulty.poziom): kolor z komponentu, nie z danych
   },
   diffBadgeText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   diffTipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
   },
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   absorptionAdviceText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
 });

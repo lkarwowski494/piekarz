@@ -28,7 +28,7 @@ import { s } from './style-receptur';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
-import { odstepy, typografia } from '../../ui/tokeny';
+import { odstepy, typografia, promienie } from '../../ui/tokeny';
 export interface DoMiskiProps {
   calculations: DoughRecipeResult;
   waterPct: number;
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   pole: {
     width: 28,
     height: 28,
-    borderRadius: 8,
+    borderRadius: promienie.pole,
     borderWidth: 2,
     borderColor: theme.colors.obwodka,
     alignItems: 'center',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   znak: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
   krok: {
     minWidth: theme.cele.glownyPrzeplyw,
     minHeight: theme.cele.glownyPrzeplyw,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,

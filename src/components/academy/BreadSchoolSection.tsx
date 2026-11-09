@@ -4,7 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { BreadSchoolLesson } from '../../core/bread-school';
 
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 export interface BreadSchoolSectionProps {
   lessons: BreadSchoolLesson[];
   completedLevels: number[];
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   lessonLevelTag: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz3,
   },
@@ -181,24 +181,24 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 8,
+    borderRadius: promienie.pole,
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
   completedBadgeText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
   lessonTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 4,
   },
   toggleIcon: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     padding: 4,
   },
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   paramChip: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     backgroundColor: theme.colors.tlo,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   stepNumBadge: {
     width: 18,
     height: 18,
-    borderRadius: 9,
+    borderRadius: 18 / 2,
     backgroundColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   stepNumText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },
@@ -278,13 +278,13 @@ const styles = StyleSheet.create({
   },
   scienceCalloutTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 2,
   },
   scienceCalloutText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 15,
   },
@@ -298,13 +298,13 @@ const styles = StyleSheet.create({
   },
   passingTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 2,
   },
   passingText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 15,
   },

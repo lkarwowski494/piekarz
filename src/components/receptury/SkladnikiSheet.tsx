@@ -36,7 +36,7 @@ import { useRodzajDrozdzy, zapiszRodzajDrozdzy, type RodzajDrozdzy } from '../..
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
   visible: boolean;
   onClose: () => void;
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: theme.spacing.xs,
     padding: 3,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     backgroundColor: theme.colors.tloGrupa,
   },
   informacje: { paddingTop: theme.spacing.xs, paddingBottom: theme.spacing.md, gap: theme.spacing.xs },
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
     minHeight: theme.cele.pozostale,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: promienie.pole,
   },
   segmentWybrany: {
     backgroundColor: theme.colors.powierzchnia,

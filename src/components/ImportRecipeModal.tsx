@@ -30,7 +30,7 @@ import { ArkuszKart } from './arkusz/ArkuszKart';
 import { Karta } from '../ui/karty/Karta';
 import { IkonaKarty } from '../ui/karty/IkonaKarty';
 
-import { typografia } from '../ui/tokeny';
+import { typografia, promienie } from '../ui/tokeny';
 export interface ImportRecipeModalProps {
   visible: boolean;
   onClose: () => void;
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
     paddingHorizontal: 14,
     paddingVertical: 8,
-    borderRadius: 10,
+    borderRadius: promienie.pole,
     minHeight: 44,
     justifyContent: 'center',
   },
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     padding: 12,
     fontSize: typografia.style.podpis.pt,
     fontFamily: 'monospace',
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     padding: 12,
     backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 10,
+    borderRadius: promienie.pole,
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
@@ -304,13 +304,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     padding: 14,
     backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     borderWidth: 1.5,
     borderColor: theme.colors.blad,
   },
   errorTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.blad,
     marginBottom: 4,
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   flourBullet: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.akcentTekst,
     marginRight: 6,
   },
@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   metricLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 2,
   },
@@ -395,7 +395,7 @@ const styles = StyleSheet.create({
   cancelBtn: {
     flex: 1,
     height: 48,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     alignItems: 'center',
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
   confirmBtn: {
     flex: 2,
     height: 48,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     backgroundColor: theme.colors.akcent,
     alignItems: 'center',
     justifyContent: 'center',

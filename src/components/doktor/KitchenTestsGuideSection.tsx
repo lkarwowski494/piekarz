@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   sectionHeading: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginTop: 8,

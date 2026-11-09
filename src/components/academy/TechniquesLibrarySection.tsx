@@ -7,7 +7,7 @@ import {
   TechniqueCard,
 } from '../../core/baking-techniques';
 
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 export interface TechniquesLibrarySectionProps {
   techniques: TechniqueCard[];
   techCategory: TechniqueCategory | 'all';
@@ -177,25 +177,25 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   techCodeTag: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 6,
+    borderRadius: promienie.znacznik,
     color: theme.colors.akcentTekst,
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
   cardTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 4,
   },
   toggleIcon: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     padding: 4,
   },
@@ -264,13 +264,13 @@ const styles = StyleSheet.create({
   },
   proTipTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
     marginBottom: 2,
   },
   proTipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 15,
   },
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   smallChipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
   smallChipTextActive: {

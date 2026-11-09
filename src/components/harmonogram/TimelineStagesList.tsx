@@ -14,7 +14,7 @@ import { IkonaStartu } from '../start/IkonaStartu';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 
 /** Szerokość kolumny godzin przy zwykłym tekście (makieta planu). */
 const SZEROKOSC_GODZIN = 65;
@@ -147,11 +147,11 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   endTimeText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   dateText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
     marginTop: 2,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   bullet: {
     width: 30,
     height: 30,
-    borderRadius: 15,
+    borderRadius: 30 / 2,
     backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stageName: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   typeBadge: {
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 4,
+    borderRadius: promienie.znacznik,
   },
   typeBadgeActive: {
     backgroundColor: theme.colors.powierzchnia,
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   typeBadgeText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
   },
   typeBadgeTextActive: {
@@ -249,10 +249,10 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.blad,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 4,
+    borderRadius: promienie.znacznik,
   },
   collisionBadgeText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.blad,
   },

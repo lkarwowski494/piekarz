@@ -57,5 +57,5 @@ const styles = StyleSheet.create({
            color: theme.colors.tusz, fontSize: typografia.style.objasnienie.pt, fontWeight: '700', marginBottom: 4 },
   body: { color: theme.colors.tusz2, fontSize: typografia.style.przypis.pt, lineHeight: 18, marginBottom: theme.spacing.sm },
   button: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },
-  buttonText: { color: theme.colors.akcentTekst, fontSize: 14, fontWeight: '700' },
+  buttonText: { color: theme.colors.akcentTekst, fontSize: typografia.style.objasnienie.pt, fontWeight: '700' },
 });

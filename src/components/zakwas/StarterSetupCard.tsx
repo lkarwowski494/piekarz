@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   tresc: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   wazne: { fontSize: typografia.style.tresc.pt, fontWeight: '700', color: theme.colors.tusz },
   dni: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
-  dzien: { minWidth: 40, minHeight: 40, borderRadius: 20, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center' },
+  dzien: { minWidth: 40, minHeight: 40, borderRadius: 40 / 2, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center' },
   dzienZrobiony: { backgroundColor: theme.colors.ratan, borderColor: theme.colors.ratan },
   dzienDzis: { borderWidth: 3, borderColor: theme.colors.tusz },
   dzienTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },

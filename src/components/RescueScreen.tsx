@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
   title: { get fontFamily() { return theme.typography.krojTytulow; },
            color: theme.colors.tusz, fontSize: typografia.style.tytul2.pt, fontWeight: '700', marginBottom: theme.spacing.md },
-  body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
+  body: { color: theme.colors.tusz2, fontSize: typografia.style.naglowek.pt, lineHeight: 22, marginBottom: theme.spacing.lg },
   ostrzezenie: { color: theme.colors.tusz, fontWeight: '700' },
   kontakt: { marginTop: theme.spacing.md },
   button: {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: theme.spacing.md,
   },
-  buttonText: { color: theme.colors.naAkcencie, fontSize: 16, fontWeight: '700' },
+  buttonText: { color: theme.colors.naAkcencie, fontSize: typografia.style.naglowek.pt, fontWeight: '700' },
   secondaryButton: {
     borderColor: theme.colors.akcent,
     borderWidth: 1,
@@ -124,5 +124,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: 16, fontWeight: '700' },
+  secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: typografia.style.naglowek.pt, fontWeight: '700' },
 });

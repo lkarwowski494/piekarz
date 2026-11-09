@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   phaseTabBtnText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
     textAlign: 'center',
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   },
   phaseTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

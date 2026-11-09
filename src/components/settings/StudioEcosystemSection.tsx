@@ -15,7 +15,7 @@ import {
   FermentAppIcon,
 } from '@apps4craft/ui';
 
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 10,
+    borderRadius: promienie.pole,
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
@@ -173,17 +173,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   appItemName: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
   },
   currentBadge: {
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 6,
+    borderRadius: promienie.znacznik,
   },
   currentBadgeText: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   appItemDesc: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
   },

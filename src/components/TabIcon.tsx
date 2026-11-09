@@ -78,7 +78,7 @@ export function TabLabel({
           backgroundColor: 'transparent',
         },
         position === 'below-icon'
-          ? { fontSize: 10 }
+          ? { fontSize: typografia.style.podpis.pt }
           : { fontSize: typografia.style.przypis.pt, marginStart: 4, marginEnd: 8, lineHeight: 22 },
       ]}
     >

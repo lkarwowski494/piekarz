@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
   },
   title: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   smallChipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
   },
   sectionHeading: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: theme.spacing.xs,
@@ -447,7 +447,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   stepBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -458,7 +458,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
-    fontSize: 18,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     textAlign: 'center',
     color: theme.colors.tusz,
@@ -472,12 +472,12 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   resultSub: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     marginBottom: 4,
   },
   resultGrams: {
-    fontSize: 36,
+    fontSize: typografia.style.tytulDuzy.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
     marginBottom: 4,

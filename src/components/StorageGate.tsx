@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   noticeText: {
     color: theme.colors.tusz,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     lineHeight: 22,
   },
   content: {
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   body: {
     color: theme.colors.tusz2,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     lineHeight: 22,
     marginBottom: theme.spacing.lg,
   },
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: theme.colors.naAkcencie,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
   },
   rescueText: {
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   },
   secondaryButtonText: {
     color: theme.colors.akcentTekst,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
   },
 });
