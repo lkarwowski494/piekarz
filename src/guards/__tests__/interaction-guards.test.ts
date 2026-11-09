@@ -36,13 +36,13 @@ describe('Apps4Brew Architectural Interaction Guards (docs/32-wzorce-interakcji)
   });
 
   describe('Guard S14: Touch Target Minimum Dimensions', () => {
-    it('defines minHeight and minWidth of 44pt for touch targets', () => {
+    it('defines minHeight and minWidth of 44pt for touch targets (styl, bez pomiaru)', () => {
       const MIN_TOUCH_TARGET_PT = 44;
       expect(MIN_TOUCH_TARGET_PT).toBeGreaterThanOrEqual(44);
     });
 
     // AddButton (bez użycia w app/) usunięty z martwym kodem [M1-audytor-generalny-211]
-    it('HeaderButton component source code explicitly enforces 44pt minimum touch target', () => {
+    it('HeaderButton component source code explicitly enforces 44pt minimum touch target (styl, bez pomiaru)', () => {
       const headerButtonSrc = fs.readFileSync(path.resolve(__dirname, '../../components/DraftHeader.tsx'), 'utf-8');
 
       expect(headerButtonSrc).toMatch(/minHeight:\s*44/);

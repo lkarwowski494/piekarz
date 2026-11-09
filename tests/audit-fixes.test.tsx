@@ -212,7 +212,7 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
   // --------------------------------------------------------------------------
   // A11-01 & A11-02: Dostępność i pole dotyku >= 44 pt (RD-ENG-03, NFR-A11Y-001)
   // --------------------------------------------------------------------------
-  test('A11-01 & A11-02: NumInput touch target height is at least 44 pt', () => {
+  test('A11-01 & A11-02: NumInput touch target height is at least 44 pt (styl, bez pomiaru)', () => {
     let tree!: renderer.ReactTestRenderer;
     act(() => {
       tree = renderer.create(

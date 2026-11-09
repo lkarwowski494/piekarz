@@ -110,7 +110,7 @@ describe('128: plan wypieku po reaudycie pętli 2', () => {
 
   // Zmiana M3 D5 (D-108): rząd dni ma 15 dni i przewija się w poziomie, więc ±30 min przy 320 pt stoją w osobnym rzędzie
   // pod nim (w przewijanym rzędzie mogłyby zniknąć za krawędzią); nadal razem i poza rzędem pola
-  it('320 pt: ±30 min razem pod rzędem dni (poza przewijanym rzędem), rząd pola tylko z polem', () => {
+  it('320 pt: ±30 min razem pod rzędem dni (poza przewijanym rzędem), rząd pola tylko z polem (styl, bez pomiaru)', () => {
     mockSzerokosc = 320;
     const { tree, rzadPola, minus, plus, jutro } = karta();
     expect(minus).toBeDefined();

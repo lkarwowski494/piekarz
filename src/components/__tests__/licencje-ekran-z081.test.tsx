@@ -60,7 +60,7 @@ async function otworz() {
 describe('Ustawienia → Licencje open source (Z-08-1, FOR-15)', () => {
   afterEach(() => act(() => setLang('pl')));
 
-  it('wiersz w karcie „Kontakt” obok „Polityki prywatności”: przycisk z etykietą i celem ≥ 44 pt', async () => {
+  it('wiersz w karcie „Kontakt” obok „Polityki prywatności”: przycisk z etykietą i celem ≥ 44 pt (styl, bez pomiaru)', async () => {
     act(() => setLang('pl'));
     const { tree, root, wejscie } = await otworz();
     expect(wejscie.props.accessibilityRole).toBe('button');
@@ -184,7 +184,7 @@ describe('Ustawienia → Licencje open source (Z-08-1, FOR-15)', () => {
     act(() => tree.unmount());
   });
 
-  it('powrót: „Ustawienia” w nagłówku (≥ 44 pt) wraca do listy ustawień; Źródła wiedzy nadal działają', async () => {
+  it('powrót: „Ustawienia” w nagłówku (≥ 44 pt) wraca do listy ustawień; Źródła wiedzy nadal działają (styl, bez pomiaru)', async () => {
     act(() => setLang('pl'));
     const { tree, root, wejscie } = await otworz();
     await act(async () => wejscie.props.onPress());

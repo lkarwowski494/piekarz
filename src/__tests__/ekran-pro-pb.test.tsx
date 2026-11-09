@@ -164,7 +164,7 @@ describe('ekran Pro: ujawnienia 1–5 kontraktu z ceną ze sklepu (BR-ZAK-003, B
     expect(opis).not.toMatch(/\d/);
   });
 
-  it('1 (PRZ-28, 320 pt): opcje z cenami stoją przed „Co daje Pro” i przed ujawnieniami; cena przed paskiem kciuka', async () => {
+  it('1 (PRZ-28, 320 pt): opcje z cenami stoją przed „Co daje Pro” i przed ujawnieniami; cena przed paskiem kciuka (styl, bez pomiaru)', async () => {
     produkty();
     const root = await ekranZakupu();
     const kolejnosc = root.findAll((n) => typeof n.type === 'string' && typeof n.props?.testID === 'string').map((n) => n.props.testID as string);

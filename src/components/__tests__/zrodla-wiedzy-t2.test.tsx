@@ -55,7 +55,7 @@ const teksty = (root: renderer.ReactTestInstance) =>
 describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
   afterEach(() => act(() => setLang('pl')));
 
-  it('wejście w Ustawieniach: przycisk z etykietą i celem ≥ 44 pt', async () => {
+  it('wejście w Ustawieniach: przycisk z etykietą i celem ≥ 44 pt (styl, bez pomiaru)', async () => {
     act(() => setLang('pl'));
     const { tree, root, wejscie } = await otworz();
     expect(teksty(root)).toEqual(expect.arrayContaining(['Źródła wiedzy', 'Skąd pochodzą porady, liczby i ostrzeżenia w aplikacji.', 'Zobacz źródła']));
@@ -109,7 +109,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     act(() => en.tree.unmount());
   });
 
-  it('powrót: „Ustawienia” w nagłówku (etykieta „Wróć do ustawień”, ≥ 44 pt) wraca do listy ustawień', async () => {
+  it('powrót: „Ustawienia” w nagłówku (etykieta „Wróć do ustawień”, ≥ 44 pt) wraca do listy ustawień (styl, bez pomiaru)', async () => {
     act(() => setLang('pl'));
     const { tree, root, wejscie } = await otworz();
     await act(async () => wejscie.props.onPress());

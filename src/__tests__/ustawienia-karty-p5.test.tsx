@@ -127,7 +127,7 @@ describe('M3 p5: Ustawienia na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach', async () => {
+  it('duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach (styl, bez pomiaru)', async () => {
     const pomiar = async (fs: number) => {
       Object.assign(mockOkno, { fontScale: fs });
       const tree = await ustawienia();
