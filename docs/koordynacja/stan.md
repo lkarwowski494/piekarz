@@ -1,4 +1,4 @@
-# Koordynacja Piekarz — stan (aktualizacja 2026-11-09 21:45 UTC)
+# Koordynacja Piekarz — stan (aktualizacja 2026-11-09 21:42 UTC)
 
 Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR25xmeQCZYdPG2r` na polecenie właściciela 2026-11-09 ~21:35 UTC: „Przejdź na rolę M9: … wykonaj moduł „migracja”.” Dawne pliki stanu (nie usunięte): `docs/wznowienie-M3.md` na `redesign/piekarz-2026-10-22` (sekcje „PUNKT CZYSZCZENIA” i dziennik M3), `docs/decyzje.md` (D-035+, M3 D-286…D-289, M2 D-300…D-316), stan M2 na `audit-m1/piekarz-2026-11-08` (`audit/M1-2026-11-08/punkt-wznowienia-M2-2026-11-09*.md`, `postep-napraw.md`, `plan-napraw.json`), K M3 poza gitem w kontenerze `session_01T66VBwuR25xmeQCZYdPG2r`: `/home/user/piekarz/audit/M3-2026-11-08/` (przepada z kontenerem).
 
@@ -8,19 +8,20 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 - Zgody trwałe: brak poza D-289 (wyżej). Uruchomienie workflowu `e2e-ios.yml` na gałęziach roboczych dozwolone (to nie build TestFlight; przekazanie właściciela 2026-11-09 18:55: „iOS E2E zielone na HEAD redesign = kandydat (DEC-18; workflow na gałęzi dozwolony)”). Push i scalenie do `redesign/piekarz-2026-10-22` dozwolone (D-300: „Push + scalenie do redesign (Recommended)”).
 - Zawsze za zgodą: push i scalenie na `master`, build, TestFlight (nowa zgoda; D-272 zużyte), App Store Connect, zgłoszenie do recenzji, strona, usuwanie gałęzi i danych, force-push, koszty stałe, wiadomości do ludzi, koszt API ponad pułap. „Nic dla 1.1” do wydania 1.0.
 - Pułapy kosztu: **[DO USTALENIA]** — właściciel nie podał. Do ustalenia: nowe sesje tylko z kolejki niżej; pytanie w raporcie porannym (propozycja: sesja 60 USD, doba 300 USD). Konto ma ostrzeżenie limitu 7-dniowego (`rate_limit_info.seven_day = allowed_warning`, od 19:22 UTC).
-- Koordynator aktywny: `session_01T66VBwuR25xmeQCZYdPG2r` (M3, od 2026-11-08 16:02) → przekazanie do następcy M9 w toku (dziennik).
+- Koordynator aktywny: `session_01T66VBvnDeKWC3vg8bd7wL9` (M9, od 2026-11-09 21:40 UTC); poprzednik `session_01T66VBwuR25xmeQCZYdPG2r` (M3, 2026-11-08 16:02 → 2026-11-09 21:39).
 - Środowisko: environment_id `env_01MPhRL5ChwFrZp3NzoNRdo2`, model `claude-opus-5-5`, wysiłek **medium** (wyjątek nazwany właściciela 2026-11-09: „dzisiaj w medium”; zgodny z zalecaną sesją M9), permission_mode `auto`, extra_allowed_tools brak; repo sesji: `lkarwowski494/piekarz`, `lkarwowski494/prompts` (`main`), dodatkowo do odczytu `apps4brew-www`, `oczko-warsztat`.
 - Gałąź robocza: `redesign/piekarz-2026-10-22` (integracja 1.0); gałąź stanu: `koordynacja`.
 
 ## Teraz
 - Partia 3 M2 skończona w kodzie: `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a`; **iOS E2E #100 run 42691065882 zielone na `6a412c9a`** (sprawdzone przez koordynatora `actions_get`, 21:36 UTC). Verify wg M2 kod 0 (6757 testów na `991586dd`) — **niesprawdzone** przez koordynatora na `6a412c9a`.
 - M2-następczyni (sesja A) ma: scalenie p3 → `redesign` (nie-FF: `redesign` ma commit stanu M3 `9007adeb`), raport końcowy partii, polecenie reaudytu M1, kopię K, send_message do koordynatora z SHA kandydata.
-- Następny krok koordynatora: kontrola ~21:52/22:50 UTC — odbiór partii 3 (SHA po scaleniu, verify na tym SHA, E2E na tym samym SHA = kandydat DEC-18), potem reaudyt M1 (D-277; uruchamia M2).
+- 21:40 KO-005 (do weta D-289): scalenie p3 → `redesign` merge commitem (nie-FF, różnica `redesign` tylko `docs/wznowienie-M3.md`; bez squash/force) — polecone sesji A przez send_message; E2E na SHA scalenia uruchamia koordynator.
+- Następny krok koordynatora: kontrola 22:40 UTC — odbiór partii 3 (SHA po scaleniu, verify na tym SHA, E2E na tym samym SHA = kandydat DEC-18), potem reaudyt M1 (D-277; uruchamia M2).
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| A (M2 p3 cz. 2) | `session_01T66VBx5s4zkdFqT2gZ5CDQ` | M2-koordynator-napraw, fix (prompt przekazania) | `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a` | 23,5 (21:36) | 12,64 | idle, review_ready; „E2E #100 w toku; sprawdzenie 21:44” (E2E już zielone). Raportuje do `session_01T66VBwuR25xmeQCZYdPG2r` — następca: send_message o zmianie koordynatora |
+| A (M2 p3 cz. 2) | `session_01T66VBx5s4zkdFqT2gZ5CDQ` | M2-koordynator-napraw, fix (prompt przekazania) | `naprawy/M2-koordynator-napraw-2026-11-09-p3` @ `6a412c9a` | 23,5 (21:40) | 12,64 | idle, review_ready; przypomnienie własne 21:44. 21:40 send_message: nowy koordynator + KO-005 (merge commit) |
 | — (M2 p1–p3 cz. 1) | `session_01T66VBy48fpemgf7wQvUkU4` | M2 | p3 @ `991586dd` | 25 | 225,98 | zarchiwizowana 19:49 po starcie A |
 | — (M1) | `session_01T66VBywjUPA4m3hXCFNdYr` | M1 | `audit-m1/…` | — | [DO USTALENIA] | zarchiwizowana (od 04:10) |
 
@@ -46,11 +47,12 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Pułapy kosztu (mandat [DO USTALENIA]).
 
 ## Przypomnienia
-- Do migracji (sesja M3 `…wuR25xmeQCZYdPG2r`): `trig_016Jb6Rtfd2vcMftKztb86s7` „Kontrola M2 (Piekarz) ~21:52” (21:52), `trig_01BbBybvy5Rpb2GMyoZCm6jG` „Piekarz M3: raport poranny” (10.11 06:25). Poprzednik usuwa je przy przekazaniu i zostawia jedną „kontrolę przekazania” za 30 min; **następca** ją usuwa i tworzy własne: „Koordynator Piekarz: kontrola” (~60 min), „Koordynator Piekarz: raport poranny” 10.11 06:25, „Koordynator Piekarz: linia 14:00” 10.11 14:00.
+- Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_018vXT2fkF15J67mD4rYYXUQ` „Koordynator Piekarz: kontrola” 09.11 22:40; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
+- Poprzednika: `trig_015Tr2EdGSTL9trcxrq3Fumc` „kontrola przekazania” 22:09 → sesja M3 — usunięcie odrzucone przez klasyfikator (21:40); nieszkodliwe (sprawdza, że następca działa → nic). Archiwizacja poprzednika po 22:09 (kontrola 22:40).
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
 ## Pule numerów decyzji
-- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO następny: KO-005.
+- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005 zajęte (21:40, wpis w `decyzje.md` koordynacji); KO następny: KO-006.
 - M2 (sesja A i następczynie): od D-300; zajęte do D-316; następny wolny: **D-317**.
 
 ## Dziennik (najnowsze na dole)
@@ -65,3 +67,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 21:36 | M3 | **E2E #100 zielone** na `6a412c9a` (`actions_get`, conclusion success, 21:32); A 23,5%, idle | migracja M9 |
 | 09.11 21:45 | M3→M9 | gałąź `koordynacja` + pliki M9 (ten commit) | przekazanie następcy M9 |
 | 09.11 21:39 | M3→M9 | przekazane do `session_01T66VBvnDeKWC3vg8bd7wL9` (start bez błędu; wysiłek w get_session nie pokazany [DO USTALENIA] → krok właściciela `/effort medium` w linii); przypomnienia M3 usunięte, „kontrola przekazania" `trig_015Tr2EdGSTL9trcxrq3Fumc` 22:09 (następca usuwa) | przejęcie E6 pkt 5 |
+| 09.11 21:42 | M9 | Przejęcie (E6 pkt 5): wpis w mandacie, 3 przypomnienia, send_message do A (delivered), KO-005; brak wiadomości do poprzednika po 21:38 (`list_events`). Rola M9 nie złożona: klonowanie `prompts` bez dostępu, `add_repo` i uruchomienie `assemble.mjs` odrzucone przez klasyfikator → działam wg stan.md; prośba w raporcie porannym | kontrola 22:40 |
