@@ -3,10 +3,11 @@
 // Zbiera ID BR, które mają kryteria akceptacji w docs/brd/*.md (bez docs/brd/archiwum/), oraz ID BR
 // z nazw testów (describe / it / test) w tests/** i src/**/__tests__/**. Wypisuje BR bez testu.
 // Kod 1: jest BR bez testu spoza listy pełnych wyjątków (scripts/br-wyjatki.json) albo lista wyjątków jest
-// błędna (ID spoza BRD, brak powodu lub źródła, pełny wyjątek dla BR z MVP w docs/scope-contract.md).
+// błędna (ID spoza BRD, brak powodu lub źródła, pełny wyjątek dla BR z MVP w docs/scope-contract.md, wpis „bez kodu”
+// bez pola „brak” albo ze wskazanym plikiem / symbolem, który istnieje — M1-audytor-generalny-070).
 // Kod 0: każde BR z kryterium ma test albo pełny wyjątek (tylko PÓŹNIEJ / NIE / TEST).
 // Użycie: node scripts/br-bez-testu.mjs [--root <katalog>] [--json]
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 
 const args = process.argv.slice(2);
@@ -72,6 +73,16 @@ function brZTestow(pliki) {
   return wynik;
 }
 
+// Plik (albo katalog) względem root; „plik#symbol”: plik istnieje i zawiera symbol jako całe słowo.
+function kodIstnieje(brak) {
+  const [plik, symbol] = brak.split('#');
+  const p = join(root, plik);
+  if (!existsSync(p)) return false;
+  if (!symbol) return true;
+  if (statSync(p).isDirectory()) return false;
+  return new RegExp(`(^|[^\\w$])${symbol.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[^\\w$])`).test(readFileSync(p, 'utf8'));
+}
+
 function wyjatki() {
   const p = join(root, 'scripts', 'br-wyjatki.json');
   if (!existsSync(p)) return { lista: [], bledy: [] };
@@ -83,6 +94,12 @@ function wyjatki() {
     if (typeof w?.powod !== 'string' || !w.powod.trim()) bledy.push(`wyjątek ${w?.id} bez powodu`);
     if (typeof w?.zrodlo !== 'string' || !/(F-\d+|D-\d+|DEC-\d+|NFR-[A-Z]+-\d+|M1-audytor-generalny-\d+)/.test(w.zrodlo))
       bledy.push(`wyjątek ${w?.id} bez źródła (F-nn, D-nn, DEC-nn, NFR-… albo ID zadania)`);
+    // Wpis „bez kodu” wygasa, gdy kod powstaje (D-187): pole „brak” wskazuje plik albo „plik#symbol”, których nie ma
+    // (M1-audytor-generalny-070; 07-jakosc-006).
+    if (typeof w?.powod === 'string' && /bez kodu/i.test(w.powod)) {
+      if (typeof w.brak !== 'string' || !w.brak.trim()) bledy.push(`wyjątek ${w.id} „bez kodu” bez pola „brak” (plik albo plik#symbol, którego nie ma)`);
+      else if (kodIstnieje(w.brak)) bledy.push(`wyjątek ${w.id} „bez kodu”, a ${w.brak} istnieje — test z ID i usunięcie albo poprawa wpisu (D-187)`);
+    }
   }
   return { lista, bledy };
 }
