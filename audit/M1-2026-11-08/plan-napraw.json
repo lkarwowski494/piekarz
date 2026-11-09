@@ -1057,7 +1057,7 @@
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-008 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
       "commit": null,
-      "blokada": "zadanie D wymaga decyzji: rekomendacja znaleziska 08-programista-008 to (b) „zostawić do 1.1”, a D-280 pkt 5 zakazuje prac nad 1.1 przed 1.0; opcje na STOP przed partią 2: (a) parsery wierszy teraz, (b) odłożenie z wpisem do zakresu 1.1"
+      "blokada": "odłożone do zakresu 1.1 decyzją właściciela D-302 (2026-11-09: „Odłożyć do 1.1 (Recommended)”), zgodnie z rekomendacją 08-programista-008 (b); bez kodu w 1.0"
     },
     {
       "id": "M1-audytor-generalny-030",

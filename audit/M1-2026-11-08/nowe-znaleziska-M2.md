@@ -30,3 +30,13 @@
 - Opcje: (a) osobna lista uszkodzonych dla pakietu i sprzątanie `import-pakietu-*` przy starcie; (b) bez zmian (dane nie giną). Rekomendacja: (a) w 1.0.1.
 - Test akceptacyjny: po podglądzie pakietu z uszkodzonym wierszem lista uszkodzonych aplikacji bez zmian; katalog `import-pakietu-*` usunięty przy następnym starcie.
 - Status: otwarte
+
+### M2-koordynator-napraw-004 · Drobne uwagi przeglądu ścieżki wrażliwej zmian danych M2 (001, 002, 019, 021, 022)
+- Pozycja listy kontrolnej: ARCH (rola 05)
+- Poziom: P2
+- Realność: teoretyczny   · Pewność: średnia
+- Rodzaj: D
+- Dowód: przegląd subagenta 2026-11-09 (diff 7 commitów): `src/data/storage-status.ts:113` `poStarcieBazy` dodaje słuchacza przy każdym powrocie z tła w trakcie startu; przy starcie, który nigdy nie opuści „initializing”, obietnica się nie spełni (pominięte uzgodnienie, bez danych); `src/data/runner-migracji.ts:64` błąd `PRAGMA foreign_keys = ON` w `finally` przykryłby MigrationError (ekran „inny błąd” zamiast błędu migracji z kopią); nieudany ROLLBACK połykany — wtedy klucze mogą zostać wyłączone na połączeniu (baza i tak idzie na ekran błędu).
+- Opcje: (a) jeden słuchacz w poStarcieBazy i `finally` bez przykrywania błędu; (b) bez zmian. Rekomendacja: (a) przy najbliższej zmianie tych plików.
+- Test akceptacyjny: test runnera z wymuszonym błędem pragmy po ROLLBACK daje MigrationError; wiele wywołań poStarcieBazy = jeden słuchacz.
+- Status: otwarte

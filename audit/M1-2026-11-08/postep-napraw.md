@@ -11,6 +11,8 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 
 - 2026-11-09 STOP przed partią 1 (`stop-p1-M2-2026-11-09.md`): 001 „Kolejka + osłona teraz (Recommended)”; 021 „Wyjątek nazwany (Recommended)” (zamrożenie parsera w wydanej migracji v6, dowód: testy 1014 i 1021 identyczne przed/po). Zapis: D-300.
 
+- 2026-11-09 STOP przed partią 2 (`stop-p2-M2-2026-11-09.md`): „Tak, jak w planie (Recommended)”; 029 „Odłożyć do 1.1 (Recommended)”; 032 „Runbook teraz (Recommended)”. Zapis: D-302.
+
 ## Ograniczenia (z polecenia M3, zapisane w D-286 i wcześniejszych)
 - Baza napraw = `redesign/piekarz-2026-10-22`, nie `master`. Scalenie partii do redesign po `npm run verify` kod 0.
 - Bez osobnej zgody: push na master, build TestFlight, zgłoszenie do recenzji, zapis w App Store Connect, strona, usuwanie gałęzi i danych (D-272 zużyte; DEC-18: build tylko po zielonym E2E na tym samym SHA).
@@ -19,8 +21,8 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 ## Partie
 | Partia | Gałąź | Od | Do | STOP przed | Stan |
 |---|---|---|---|---|---|
-| 1 | naprawy/M2-koordynator-napraw-2026-11-09-p1 | dd824eee | — | tak (P/M: 003, 023, 024; dane użytkownika) | w toku |
-| 2 | naprawy/M2-koordynator-napraw-2026-11-09-p2 | — | — | tak (P/M: 004, 007–010, 040–043, 045, 049, 053) | czeka |
+| 1 | naprawy/M2-koordynator-napraw-2026-11-09-p1 | dd824eee | f7cfd76f (scalenie redesign 4454f1fd) | tak (P/M: 003, 023, 024; dane użytkownika) | zakończona: 16 naprawionych, 029/032 blokada |
+| 2 | naprawy/M2-koordynator-napraw-2026-11-09-p2 | 4454f1fd | — | tak (P/M: 004, 007–010, 040–043, 045, 049, 053) | w toku |
 | 3 | naprawy/M2-koordynator-napraw-2026-11-09-p3 | — | — | tak (P/M: 015, 018, 054, 055, 057, 058, 061–065, 068, 078, 080, 082, 084) | czeka |
 
 ## Zadania
@@ -62,6 +64,9 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 07:36 033 test czerwony (`dowody/M2/033-przed.txt`) → sprawdzKopieBazy w 3 miejscach → pierwsze verify: 4 testy (moje 001/002 czytały ostatni otwarty plik = kopię; auto-backup widział plik wyniku przy wersji 0; corrupt-rescue nowe pole) → poprawki: bez sprawdzania przy wersji 0, testy czytają bazę po nazwie, oczekiwane pole sprawdzenie → verify kod 0 (6094) → commit 5198132e. Przegląd ścieżki wrażliwej 033 w toku.
 - 07:41 033 przegląd ścieżki wrażliwej: P1 przyjęty (checkpoint kasował -wal surowej kopii) → test czerwony (`dowody/M2/033-przeglad-przed.txt`) → kopia robocza w Caches → verify kod 0 (6095) → commit f7cfd76f; status 033 naprawione-do-weryfikacji. Drugiego przeglądu nie ma (zasada trybu fix).
 - 07:42 Przegląd ścieżki wrażliwej dla zmian danych M2 (001, 002, 019, 021, 022; 7 commitów) uruchomiony — przed scaleniem partii 1.
+- 07:47 Partia 1 zakończona: przegląd zmian danych M2 bez P0/P1 (uwagi → M2-004); scalenie do redesign 4454f1fd (konflikt tylko decyzje.md: D-287 M3 + D-300/D-301), verify kod 0 (594/6095, `dowody/M2/p1-scalenie-verify.txt`), push redesign. Koniec p1 = f7cfd76f. D-287 (M3): terminy maszyny D-284 zostają (b) — dotyczy 042.
+- 07:51 STOP p2 rozstrzygnięty (D-302). Gałąź p2 od 4454f1fd. 029 blokada „odłożone do 1.1”.
+- 07:53 Partia 2: polecenie 01-odkrywanie-p2 wysłane (004); polecenia 04, 06, 09 gotowe (generator narzedzia/polecenie-roli.py). Badanie źródeł do runbooka 032 (subagent, tylko plik w K: naprawy/032-zrodla-runbook.md).
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)
