@@ -1,0 +1,293 @@
+{
+  "opis": "Nazwy mąk z polskim typem w EN i 33 językach (D-307; M1-audytor-generalny-041, 06-tresci-006). Reguła: w każdym języku nazwa = przekład „mąka pszenna/żytnia/orkiszowa” + przekład „polski typ” + numer typu z klucza PL; nazwa handlowa ze źródła (tortowa, wrocławska, luksusowa, bułkowa, chlebowa, graham) zostaje po polsku, bez przekładu; „razowa” tylko dla pszennej 2000 (MAK-OGL-007). Bez odpowiedników krajowych (MAK-EN-900 otwarte) i bez przymiotników bez źródła (jasna, ciemna, light, fine, Helles, Dunkles, semi-integrale itd.). Jedna mąka (zboże + typ) = jedna nazwa w języku: klucze PL tej samej mąki przechodzą na kanonPl (rola 08) albo dostają ten sam przekład (rola 09).",
+  "zrodlo": "rola 06-tresci, fix M2 p2, 2026-11-09",
+  "kanon": [
+    {
+      "maka": "pszenna 405",
+      "kanonPl": "Mąka pszenna typ 405",
+      "en": "Wheat flour (Polish type 405)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "pszenna 450",
+      "kanonPl": "Mąka pszenna typ 450 (tortowa)",
+      "en": "Wheat flour (Polish type 450, tortowa)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "maka": "pszenna 500",
+      "kanonPl": "Mąka pszenna typ 500 (wrocławska)",
+      "en": "Wheat flour (Polish type 500, wrocławska)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "maka": "pszenna 550",
+      "kanonPl": "Mąka pszenna typ 550 (luksusowa)",
+      "en": "Wheat flour (Polish type 550, luksusowa)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "maka": "pszenna 650",
+      "kanonPl": "Mąka pszenna typ 650 (bułkowa)",
+      "en": "Wheat flour (Polish type 650, bułkowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "maka": "pszenna 750",
+      "kanonPl": "Mąka pszenna typ 750 (chlebowa)",
+      "en": "Wheat flour (Polish type 750, chlebowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "maka": "pszenna 850",
+      "kanonPl": "Mąka pszenna typ 850",
+      "en": "Wheat flour (Polish type 850)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "pszenna 1050",
+      "kanonPl": "Mąka pszenna typ 1050",
+      "en": "Wheat flour (Polish type 1050)",
+      "twierdzenia": "MAK-TYP-006"
+    },
+    {
+      "maka": "pszenna 1850",
+      "kanonPl": "Mąka pszenna typ 1850 (graham)",
+      "en": "Wheat flour (Polish type 1850, graham)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "pszenna 2000",
+      "kanonPl": "Mąka pszenna razowa typ 2000",
+      "en": "Wholemeal wheat flour (Polish type 2000)",
+      "twierdzenia": "MAK-OGL-007"
+    },
+    {
+      "maka": "żytnia 500",
+      "kanonPl": "Mąka żytnia typ 500",
+      "en": "Rye flour (Polish type 500)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "żytnia 720",
+      "kanonPl": "Mąka żytnia typ 720",
+      "en": "Rye flour (Polish type 720)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "żytnia 1400",
+      "kanonPl": "Mąka żytnia typ 1400",
+      "en": "Rye flour (Polish type 1400)",
+      "twierdzenia": "MAK-TYP-005"
+    },
+    {
+      "maka": "żytnia 2000",
+      "kanonPl": "Mąka żytnia typ 2000",
+      "en": "Rye flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "maka": "orkiszowa 630",
+      "kanonPl": "Mąka orkiszowa typ 630",
+      "en": "Spelt flour (Polish type 630)",
+      "twierdzenia": "MAK-TYP-902 (otwarte)"
+    },
+    {
+      "maka": "orkiszowa 2000",
+      "kanonPl": "Mąka orkiszowa typ 2000",
+      "en": "Spelt flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-007"
+    }
+  ],
+  "klucze": [
+    {
+      "kluczPl": "Mąka orkiszowa jasna typ 630",
+      "enDzis": "Light spelt flour type 630",
+      "kanonPl": "Mąka orkiszowa typ 630",
+      "en": "Spelt flour (Polish type 630)",
+      "twierdzenia": "MAK-TYP-902 (otwarte)"
+    },
+    {
+      "kluczPl": "Mąka orkiszowa razowa typ 2000",
+      "enDzis": "Whole spelt flour type 2000",
+      "kanonPl": "Mąka orkiszowa typ 2000",
+      "en": "Spelt flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-007"
+    },
+    {
+      "kluczPl": "Mąka orkiszowa typ 2000",
+      "enDzis": "Spelt flour type 2000",
+      "kanonPl": "Mąka orkiszowa typ 2000",
+      "en": "Spelt flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-007"
+    },
+    {
+      "kluczPl": "Mąka pszenna chlebowa typ 750",
+      "enDzis": "Wheat bread flour type 750",
+      "kanonPl": "Mąka pszenna typ 750 (chlebowa)",
+      "en": "Wheat flour (Polish type 750, chlebowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna graham typ 1850",
+      "enDzis": "Graham wheat flour (coarse, Polish type 1850)",
+      "kanonPl": "Mąka pszenna typ 1850 (graham)",
+      "en": "Wheat flour (Polish type 1850, graham)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna luksusowa typ 550",
+      "enDzis": "Fine light wheat flour (Polish type 550)",
+      "kanonPl": "Mąka pszenna typ 550 (luksusowa)",
+      "en": "Wheat flour (Polish type 550, luksusowa)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna pełnoziarnista typ 2000",
+      "enDzis": "Wholemeal wheat flour (Polish type 2000)",
+      "kanonPl": "Mąka pszenna razowa typ 2000",
+      "en": "Wholemeal wheat flour (Polish type 2000)",
+      "twierdzenia": "MAK-OGL-007"
+    },
+    {
+      "kluczPl": "Mąka pszenna razowa typ 2000",
+      "enDzis": "Whole wheat flour type 2000",
+      "kanonPl": "Mąka pszenna razowa typ 2000",
+      "en": "Wholemeal wheat flour (Polish type 2000)",
+      "twierdzenia": "MAK-OGL-007"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 1050",
+      "enDzis": "Wheat flour type 1050",
+      "kanonPl": "Mąka pszenna typ 1050",
+      "en": "Wheat flour (Polish type 1050)",
+      "twierdzenia": "MAK-TYP-006"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 1850 (Graham)",
+      "enDzis": "Wheat flour type 1850 (Graham)",
+      "kanonPl": "Mąka pszenna typ 1850 (graham)",
+      "en": "Wheat flour (Polish type 1850, graham)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 405",
+      "enDzis": "Wheat flour type 405",
+      "kanonPl": "Mąka pszenna typ 405",
+      "en": "Wheat flour (Polish type 405)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 450 (Tortowa)",
+      "enDzis": "Wheat flour type 450 (Cake)",
+      "kanonPl": "Mąka pszenna typ 450 (tortowa)",
+      "en": "Wheat flour (Polish type 450, tortowa)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 500",
+      "enDzis": "Wheat flour type 500",
+      "kanonPl": "Mąka pszenna typ 500 (wrocławska)",
+      "en": "Wheat flour (Polish type 500, wrocławska)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 500 (Wrocławska)",
+      "enDzis": "Wheat flour type 500 (Wroclawska)",
+      "kanonPl": "Mąka pszenna typ 500 (wrocławska)",
+      "en": "Wheat flour (Polish type 500, wrocławska)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 550 (Luksusowa)",
+      "enDzis": "Wheat flour type 550 (luksusowa)",
+      "kanonPl": "Mąka pszenna typ 550 (luksusowa)",
+      "en": "Wheat flour (Polish type 550, luksusowa)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 650",
+      "enDzis": "Light wheat flour (Polish type 650)",
+      "kanonPl": "Mąka pszenna typ 650 (bułkowa)",
+      "en": "Wheat flour (Polish type 650, bułkowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 650 (Bułkowa)",
+      "enDzis": "Wheat flour type 650 (Bread roll)",
+      "kanonPl": "Mąka pszenna typ 650 (bułkowa)",
+      "en": "Wheat flour (Polish type 650, bułkowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 650 (chlebowa jasna)",
+      "enDzis": "Light wheat bread flour (Polish type 650)",
+      "kanonPl": "Mąka pszenna typ 650 (bułkowa)",
+      "en": "Wheat flour (Polish type 650, bułkowa)",
+      "twierdzenia": "MAK-NAZ-001"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 650 lub graham",
+      "enDzis": "Wheat flour type 650 or graham",
+      "kanonPl": "Mąka pszenna typ 650 (bułkowa) albo typ 1850 (graham)",
+      "en": "Wheat flour (Polish type 650, bułkowa) or (Polish type 1850, graham)",
+      "twierdzenia": "MAK-NAZ-001,MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka pszenna typ 850",
+      "enDzis": "Wheat flour type 850",
+      "kanonPl": "Mąka pszenna typ 850",
+      "en": "Wheat flour (Polish type 850)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia chlebowa typ 720",
+      "enDzis": "Rye bread flour type 720",
+      "kanonPl": "Mąka żytnia typ 720",
+      "en": "Rye flour (Polish type 720)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia razowa typ 2000",
+      "enDzis": "Whole rye flour type 2000",
+      "kanonPl": "Mąka żytnia typ 2000",
+      "en": "Rye flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia typ 1400",
+      "enDzis": "Rye flour type 1400",
+      "kanonPl": "Mąka żytnia typ 1400",
+      "en": "Rye flour (Polish type 1400)",
+      "twierdzenia": "MAK-TYP-005"
+    },
+    {
+      "kluczPl": "Mąka żytnia typ 2000",
+      "enDzis": "Rye flour type 2000",
+      "kanonPl": "Mąka żytnia typ 2000",
+      "en": "Rye flour (Polish type 2000)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia typ 500",
+      "enDzis": "Rye flour type 500",
+      "kanonPl": "Mąka żytnia typ 500",
+      "en": "Rye flour (Polish type 500)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia typ 720",
+      "enDzis": "Light rye flour (Polish type 720)",
+      "kanonPl": "Mąka żytnia typ 720",
+      "en": "Rye flour (Polish type 720)",
+      "twierdzenia": "MAK-TYP-004"
+    },
+    {
+      "kluczPl": "Mąka żytnia (typ 720 / 2000)",
+      "enDzis": "Rye flour (type 720 / 2000)",
+      "kanonPl": "Mąka żytnia typ 720 albo typ 2000",
+      "en": "Rye flour (Polish type 720 or 2000)",
+      "twierdzenia": "MAK-TYP-004"
+    }
+  ]
+}

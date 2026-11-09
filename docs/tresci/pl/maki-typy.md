@@ -28,3 +28,20 @@ Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu. [T:MAK-TYP-001,MA
 
 ## wheat_850.descriptionPl (dopisek na początku opisu)
 Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. [T:MAK-TYP-003]
+
+## nazwy mąk w składnikach receptur i przekładach (D-307: jedna mąka = jedna nazwa; numer typu w każdym języku, bez odpowiednika krajowego — MAK-EN-900 otwarte; mapa kluczy: docs/tresci/wektory/maki-nazwy-2026-11-09.json)
+- Mąka pszenna typ 405 [T:MAK-TYP-004]
+- Mąka pszenna typ 450 (tortowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Mąka pszenna typ 500 (wrocławska) [T:MAK-NAZ-001]
+- Mąka pszenna typ 550 (luksusowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Mąka pszenna typ 650 (bułkowa) [T:MAK-NAZ-001]
+- Mąka pszenna typ 750 (chlebowa) [T:MAK-NAZ-001]
+- Mąka pszenna typ 850 [T:MAK-TYP-004]
+- Mąka pszenna typ 1050 [T:MAK-TYP-006]
+- Mąka pszenna typ 1850 (graham) [T:MAK-TYP-004]
+- Mąka pszenna razowa typ 2000 [T:MAK-OGL-007]
+- Mąka żytnia typ 500 [T:MAK-TYP-004]
+- Mąka żytnia typ 720 [T:MAK-TYP-004]
+- Mąka żytnia typ 1400 [T:MAK-TYP-005]
+- Mąka żytnia typ 2000 [T:MAK-TYP-004]
+- Mąka orkiszowa typ 2000 [T:MAK-TYP-007]
