@@ -1843,3 +1843,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Otwarte (rola 04, P):** 320×568: (a) zwarty pas i pasek kciuka w jednym rzędzie na niskim ekranie (rekomendacja roli 08), (b) przewinięcie do karty z czasem w czapce paska stanu, (c) ostrzeżenie po przewinięciu (przyjęcie ryzyka); dwa wypieki przy 393 pt — ostrzeżenie chowa się w ok. 56 pt pod przełącznikiem. Zrzuty i E2E iOS na SHA p4 — koordynator. Do zamknięcia tych punktów zadanie 005 ma status `blokada` (częściowo naprawione 2f4a260e).
 - **Zależy od:** D-194, D-289.
 - **Status:** M2 w trybie nocnym D-289 (opcja A rekomendowana przez reaudyt) — do weta (D-289).
+
+### [D-319] 2026-11-09 — Niski ekran (okno < 700 pt, tekst poniżej AX): zwarty pas prowadzenia i pasek kciuka w jednym rzędzie, także nad przełącznikiem wypieków; „Zrobione” 48 pt zamiast 64 pt (M2 p4b, rola 04 fix; M1-audytor-generalny-005, uzupełnia D-318) — do weta (D-289)
+- **Źródło:** D-318 (opcja A niewystarczająca przy 320×568); KO-008 koordynatora M9 (opcja a, partia 4b, tryb D-289); wynik roli 04 `audit/M1-2026-11-08/role/04-studio-projektowe/fix-2026-11-09/wynik-p4b.md`, commit d5a6dc4c.
+- **Decyzja:** token `uklad.niskiEkran` = 700 pt; poniżej progu (i przy fontScale < 2) pas prowadzenia zwarty („Krok n z m” w rzędzie nawigacji, tytuł 20 pt, czas 28 pt z „potem …” obok), a pasek kciuka w jednym rzędzie (Zrobione, Cofnij poprzedni, Po co ten krok, po 48 pt); ten sam zwarty pasek nad przełącznikiem wypieków przy każdej wysokości. Przy AX5 układ zwarty wyłączony (nic nie znika). Bez nowych tekstów i kolorów; testID i ścieżki E2E bez zmian. Dowód: test 005 13/13 (przed: 3 czerwone), zrzuty Expo web 320×568, 375×667, 393×852 (pl, en, dwa wypieki) — przy 320×568 dół ostrzeżenia 464 pt (pl) / 480 pt (en) nad „Zrobione” 512 pt; 393×852 bez zmian.
+- **Odrzucone:** (b) przewinięcie do karty z czasem w czapce paska stanu (ruch ekranu przy każdym kroku); (c) ostrzeżenie po przewinięciu (bezpieczeństwo poza pierwszym ekranem).
+- **Otwarte:** 320×568 z dwoma wypiekami — ostrzeżenie dalej pod przełącznikiem (M2-p4-N9); zrzut AX5 i zrzut z iOS — E2E iOS (koordynator); długość tekstów 33 języków na niskim ekranie niezmierzona.
+- **Zależy od:** D-318, D-194, RD-ENG-03 (44 pt — 48 pt spełnia).
+- **Status:** M2 w trybie nocnym D-289 (KO-008, opcja rekomendowana) — do weta (D-289).
