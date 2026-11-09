@@ -15,7 +15,7 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 ## Teraz
 - Reaudyt M1 pętla 1 (B) gotowy: K @ `5e835a92` (`audit-m1`), 65/68 zweryfikowane; ZABLOKOWANE przez P1 005, 087 (utrata wypieków w imporcie z trybu awaryjnego), 088, 089; 066 czeka na E2E #101, 067 na nightly. P3 090–101 backlog.
 - KO-007: DEC-21 = a, ponowne zatwierdzenie → sesja A: M2 partia 4 na `naprawy/M2-koordynator-napraw-2026-11-09-p4` od `ea249c9c`.
-- E2E #101 (run 42705979446) na `ea249c9c` w toku. Kandydat będzie dopiero po partii 4 i pętli 2 reaudytu (ostatniej przed STOP z opcjami, D-043).
+- **E2E #101 (run 42705979446) na `ea249c9c` CZERWONE**: krok pl_PL failure (22:18–22:34), en_US/negatywna/Basic zielone; #100 na `6a412c9a` zielony, różnica tylko docs → diagnoza zlecona C (subagent roli 07). Kandydat dopiero po partii 4, zielonym E2E na head i pętli 2 reaudytu (D-043).
 - Następny krok: kontrola 22:40.
 
 ## Sesje
@@ -51,7 +51,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
-- Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_01EycqLp8x7H2oNBB6PJ1K3Y` „Koordynator Piekarz: kontrola” 09.11 23:12; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
+- Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_01CfEzuucvHRTEshKiqk7eR9` „Koordynator Piekarz: kontrola” 10.11 00:14; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
 - Poprzednika: `trig_015Tr2EdGSTL9trcxrq3Fumc` „kontrola przekazania” 22:09 → sesja M3 — usunięcie odrzucone przez klasyfikator (21:40); nieszkodliwe (sprawdza, że następca działa → nic). Archiwizacja poprzednika po 22:09 (kontrola 22:40).
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
@@ -83,3 +83,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 22:41 | M9 | Kontrola: A 30,0% (300k), 20,35 USD, p4 w toku (087 recenzja, rola 06 dla 088/089) → polecenie PRZEKAZANIA; E2E #101 in_progress; koordynator 25,0%, wysiłek medium potwierdzony (`get_session` effort_level); archiwizacja poprzednika odrzucona (klasyfikator) | kontrola 23:12 |
 | 09.11 22:43 | M9 | PRZEKAZANIE A: p4 @ `bb162ddf` (087 naprawione, verify 6801 kod 0 wg A), prompt `prompt-przekazania-M2-2026-11-09c.md` (K @ `26f7dc38`); subagent roli 06 (088/089) z niezacommitowaną pracą w kontenerze A → A dokańcza commit/push (wyjątek do ~38%); następczyni po pushu | kontrola 23:12 |
 | 09.11 22:57 | M9 | A: p4 @ `d04c94ca` (089 `3e05396e`, 088 `d04c94ca`; sprawdzone: log, przodek `bb162ddf`), K @ `4723a98d`; następczyni C `session_01T66VBxPQkXtF6hFvYsPtHe` (prompt 09c dosłownie + dopisek); A 31,4%, 23,88 USD, archiwizacja odrzucona | kontrola 23:12 |
+| 09.11 23:13 | M9 | E2E #101 czerwone (pl_PL; `actions_list` jobs); C 15,6%, 7,97 USD, 005 w toku (subagent roli 08) → C dostała diagnozę #101 | kontrola 00:14 |
