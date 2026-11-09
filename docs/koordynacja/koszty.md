@@ -8,3 +8,4 @@
 | `session_01T66VBywjUPA4m3hXCFNdYr` | M1 | — | [DO USTALENIA] (raport M1: licznik ok. 173 USD) | — | — | — | zarchiwizowana |
 
 Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na start 2).
+| B (reaudyt M1 p1) | M1 reaudit | 60 (pułap) | 62,81 | 26,5 | 21:48 → 21:49 → — → — → 22:30 | ~10 min: dostęp do prompts (zgoda właściciela w czacie B) | wariant B 2,33 mln tok. subagentów (+6% nad planem); pułap przekroczony o 4,7%, poniżej STOP |
