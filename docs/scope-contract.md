@@ -7,7 +7,7 @@ Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 ra
 - Główna praca: J-02 „Kiedy wypiek trwa od kilku do kilkudziesięciu godzin, z przerwami, chcę wiedzieć, kiedy zacząć każdy etap, i dostać sygnał w chwili kroku” razem z J-01 (ilości) i J-05 (poprawić następny wypiek) — trzy części celu ZP-17.
 - Pętla główna: start F-68 (pod pasem tygodnia F-73, ZM-28) → receptura F-26 albo F-27 → ilości F-09 → plan F-13 z czasem F-14 → prowadzenie F-07 z sygnałem F-16 i powrotem F-58 → dziennik F-28; wejście zakwasu F-60, F-22, F-23, F-24, F-25; wejście drożdży i pizzy F-55; tryb „maszyna do chleba” F-72 (ZM-26, zakres na STOP); planowanie tygodnia: plany na kolejne dni F-74, dwa wypieki F-75 z podłogą F-76, stały dzień karmienia F-77 (ZM-28, D-092).
 - Funkcja MVP spoza tej linii ma podłogę albo decyzję D-043 (sprawdza `zakres.mjs`).
-- Apetyt wersji 1: ok. 60 h czasu właściciela (D-040); wybrany wariant B kosztuje [OCENA] ok. 68 h (67 h z E2 + 1 h za pełne miary USA, zadanie 096) — nadwyżkę przyjął właściciel (D-043; Doktor i Akademia to wybór ZP-20). Podział: jedna aplikacja, pizza i drożdże jako rodzaj receptury (D-043, H-09 a; wytyczne 4.3(a)).
+- Apetyt wersji 1: ok. 60 h czasu właściciela (D-040); wybrany wariant B kosztuje [OCENA] ok. 68 h (67 h z E2 + 1 h za pełne miary USA, zadanie 096) — nadwyżkę przyjął właściciel (D-043; Doktor i Akademia to wybór ZP-20). Przeliczenie po rozszerzeniach 1.0 (2026-11-09, M1-audytor-generalny-064, DEC-09 a): suma MVP 97 h [OCENA] (wynik pod tabelą „Ranking”); decyzja właściciela o apetycie 1.0 otwarta. Podział: jedna aplikacja, pizza i drożdże jako rodzaj receptury (D-043, H-09 a; wytyczne 4.3(a)).
 - Wzorzec najlepszych (odczyt 2026-10-19 ok. 23:58, `itunes.apple.com/lookup` i RSS recenzji, US; kryterium: co najmniej dwie części pętli w opisie, kolejność `userRatingCount`): BakeWay (663 oceny; skalowanie, kroki, diagnoza ze zdjęcia, AI i sieć; skargi na opłaty), Loaflo (546; dziennik zakwasu, kalkulatory, skan AI; skargi: brak planu „co i kiedy”, zawodność, pleśń oceniona wysoko, ściana płatności), Rise (336, 4,87; receptury, procenty, plan z temperatury, powiadomienia, dziennik, synchronizacja; skargi: awaria w trakcie kroków, brak pauzy). Wniosek: Rise robi prawie całą pętlę (ZAL-045 podważone w części); wyróżnik Piekarza to sposób — bez sieci i konta, uczciwa płatność, niezawodność, zakwas od zera i zasada ostrożności — a nie liczba funkcji.
 - Darmowe i płatne: bez zmian względem D-038 i kontraktu płatności (`docs/monetyzacja.md`): bez zakupu działa przegląd historii i prawa do danych (odczyt, eksport, import, usunięcie), zakup, przywracanie, ustawienia; F-68 (start) to nawigacja, oferta przy pierwszym użyciu funkcji (BR-ZAK-005); F-69 (ocena, kontakt) jest w ustawieniach, zawsze dostępna.
 - Plan aktualizacji dla 3.1.2(a) (D-043): co kwartał jedna aktualizacja z treścią (2–3 receptury bazowe albo wyjaśnienia „po co ten krok” ze źródłami roli 06, w 35 językach) i poprawkami z recenzji; [OCENA] ok. 3 h właściciela na wydanie.
@@ -119,7 +119,7 @@ Poza tabelą (bez BR i bez H, wzorzec niszy z E1): społeczność i wyzwania (Gl
 | F-40 | — | — | — | 1 | stała (podłoga) |
 | F-07 | 90 | 3 | 80 | 3 | R: każdy wypiek; C: R (MS-25, recenzje Rise) |
 | F-16 | 90 | 3 | 80 | 3 | R: każdy wypiek; C: 15 z 338; koszt: test na zablokowanym telefonie |
-| F-26 | 70 | 2 | 80 | 2 | R: każdy nowy i część stałych; C: R |
+| F-26 | 70 | 2 | 80 | 7 | R: każdy nowy i część stałych; C: R; koszt (przeliczenie 2026-11-09, 064): 2 h + 3 h katalog +11 receptur (D-157; ZM-27: ok. 3 h na wydanie) + 2 h wersje drożdżowe w 4 recepturach, plan w 3 (D-173, D-174) |
 | F-23 | 60 | 1 | 80 | 1 | R: użytkownicy zakwasu; C: R |
 | F-13 | 80 | 2 | 80 | 3 | R: plan przy wypieku; C: 15 z 338 |
 | F-11 | 40 | 1 | 80 | 1 | R: receptury z żytem i mieszanką |
@@ -128,12 +128,22 @@ Poza tabelą (bez BR i bez H, wzorzec niszy z E1): społeczność i wyzwania (Gl
 | F-14 | 50 | 1 | 80 | 1,5 | R: zmienna temperatura [OCENA] |
 | F-18 | 50 | 0,5 | 50 | 0,5 | C: 2 z 338 |
 | F-10 | 30 | 1 | 80 | 1 | R: część P-7 i P-8 |
-| F-55 | 30 | 2 | 80 | 4 | R: P-8 (ZAL-040); koszt: zaczyny i rodzaje drożdży w 35 językach |
+| F-55 | 30 | 2 | 80 | 5 | R: P-8 (ZAL-040); koszt: zaczyny i rodzaje drożdży w 35 językach; +1 h drugie wejście rodzaju drożdży przy wierszu „Do miski” (ZM-24, przeliczenie 2026-11-09) |
 | F-61 | 30 | 1 | 50 | 1,5 | R: zakwas w lodówce |
 | F-62 | 20 | 0,5 | 80 | 1 | R: S-21 dwie prośby |
 | F-56 | 30 | 0,25 | 50 | 0,5 | C: jedna recenzja |
 | F-43 | 20 | 2 | 50 | 3 | R: po słabym wypieku; koszt: treść 06 |
 | F-44 | 40 | 1 | 50 | 2 | R: P-6; koszt: treść 06 przy krokach (bez lekcji) |
+| F-71 | 10 | 1 | 50 | 2 | przeliczenie 2026-11-09 (064): R: problem z ciastem w trakcie części wypieków (ZAL-060, dowód słaby); koszt: test czterech objawów i powrotu do prowadzenia na telefonie, przegląd treści ze zdaniem bezpieczeństwa (BEZ-SUR-001) |
+| F-73 | 80 | 1 | 50 | 3 | przeliczenie 2026-11-09 (064): R: każde wejście na „Dziś” u użytkownika z danymi; C: brak próśb o widok kalendarza (ZAL-051); koszt: test tygodnia, gestu, zmiany czasu i AX5 na telefonie, przegląd ok. 40 tekstów |
+| F-74 | 30 | 2 | 50 | 3 | przeliczenie 2026-11-09 (064): R: plan na wybrany dzień (ZAL-052, ZAL-056); koszt: test planu na sobotę z zakwasem z lodówki i powiadomień przez kilka dni |
+| F-75 | 10 | 1 | 50 | 4 | przeliczenie 2026-11-09 (064): R: mniejszość (ZAL-059); koszt: dwa wypieki naraz na telefonie (piekarnik zajęty, powiadomienia dwóch wypieków), ok. 1 dzień wypieku z uwagą przy krokach |
+| F-76 | — | — | — | 0,5 | stała (podłoga); przeliczenie 2026-11-09 (064): test pytania przy starcie drugiego wypieku |
+| F-77 | 20 | 0,5 | 80 | 1 | przeliczenie 2026-11-09 (064): R: zakwas w lodówce (S-21 rec. 13407309939); koszt: przypomnienie w stały dzień na telefonie |
+| F-78 | 10 | 0,5 | 50 | 1 | przeliczenie 2026-11-09 (064): C: hipoteza (ZAL-054); koszt: OP-50 na urządzeniu (czy iOS otwiera plik w Kalendarzu) |
+| F-79 | 10 | 0,5 | 50 | 6 | przeliczenie 2026-11-09 (064): PÓŹNIEJ; koszt: drugi cel budowania z App Group (OG-09), test na urządzeniu |
+| F-80 | 15 | 0,25 | 50 | 1,5 | przeliczenie 2026-11-09 (064): C: hipoteza (H-19); koszt: siatka przy 320 pt i AX5 na telefonie |
+| F-81 | 15 | 0,5 | 50 | 1 | przeliczenie 2026-11-09 (064): C: hipoteza (H-19); koszt: przegląd progów rytmu z rolą 06 |
 | F-15 | 30 | 0,5 | 50 | 1 | C: hipoteza (TEST, nie zużywa apetytu) |
 | F-63 | 20 | 1 | 50 | 2 | C: jedna recenzja |
 | F-30 | 15 | 0,5 | 50 | 2 | C: wyjątek właściciela, jedna recenzja |
@@ -198,6 +208,94 @@ UWAGA F-43 w MVP poza apetytem 60 h (decyzja właściciela)
 44 funkcji (MVP 36, PÓŹNIEJ 6, TEST 1, NIE 1), 55 BR · 0 błędów, 5 uwag
 ```
 Uwagi skryptu (5) to funkcje MVP ponad linię 60 h: przyjęte przez właściciela w D-043 (wariant B). Suma MVP 68 h: 67 h z propozycji E2 i 1 h więcej za pełne miary USA w F-38 (zadanie M1-audytor-generalny-096, przekazane 2026-10-20 przed zatwierdzeniem).
+
+**Przeliczenie po rozszerzeniach 1.0 (2026-11-09, rola 03 fix, M1-audytor-generalny-064, DEC-09 a).** Suma MVP (przeliczenie 2026-11-09): 97 h [OCENA] godzin właściciela w wersji 1 (test na telefonie, przegląd tekstów, decyzje i utrzymanie w roku 1; metoda jak wyżej) wobec apetytu 60 h (D-040) i 68 h przyjętych w D-043. Różnica +29 h: F-72 maszyna 6 h (D-150), F-71 ratunek ciasta 2 h (ZM-23), pakiet D-092 15 h (F-73…F-78, F-80, F-81; ZM-28), katalog +11 receptur i wersje drożdżowe +5 h w F-26 (D-157, D-173, D-174), drugie wejście rodzaju drożdży +1 h w F-55 (ZM-24). Każda funkcja razy 35 języków to przegląd tekstów przy każdym wydaniu. Funkcje zbudowane — koszt to w większości test na telefonie i utrzymanie, nie budowa. **Decyzja właściciela o apetycie 1.0: otwarta** (opcje: (a) przyjąć 97 h, nic nie wypada, cięcie po ocenie wyjątków na H po 90 dniach od wydania; (b) odłożyć miesiąc i rytm F-80, F-81 ukryciem wejść — 94,5 h, zmiana kodu, ekranu Pro i przekładu przed 1.0; (c) wrócić do 68 h — odłożyć F-75, F-78, F-80, F-81, F-71, F-74, F-77 i część katalogu, duża zmiana kodu przed 1.0). Wynik `node zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 60` (2026-11-09, kod wyjścia **1**: 10 błędów śladu BR należy do zadania M1-audytor-generalny-059 i ER-82, nie do rankingu):
+
+```
+Ranking (R × I × C ÷ koszt [h]; stałe: podłoga albo WTP-0; „razem” liczy MVP i ten wiersz):
+  1. F-09 stała · 3 h, razem 3 h · MVP
+  2. F-22 stała · 1,5 h, razem 4,5 h · MVP
+  3. F-25 stała · 2 h, razem 6,5 h · MVP
+  4. F-27 stała · 1,5 h, razem 8 h · MVP
+  5. F-28 stała · 2 h, razem 10 h · MVP
+  6. F-31 stała · 2 h, razem 12 h · MVP
+  7. F-32 stała · 2 h, razem 14 h · MVP
+  8. F-33 stała · 2 h, razem 16 h · MVP
+  9. F-35 stała · 3 h, razem 19 h · MVP
+  10. F-37 stała · 1,5 h, razem 20,5 h · MVP
+  11. F-40 stała · 1 h, razem 21,5 h · MVP
+  12. F-57 stała · 1,5 h, razem 23 h · MVP
+  13. F-58 stała · 2 h, razem 25 h · MVP
+  14. F-60 stała · 3 h, razem 28 h · MVP
+  15. F-64 stała · 2 h, razem 30 h · MVP
+  16. F-65 stała · 1 h, razem 31 h · MVP
+  17. F-67 stała · 2 h, razem 33 h · MVP
+  18. F-68 stała · 2 h, razem 35 h · MVP
+  19. F-69 stała · 2 h, razem 37 h · MVP
+  20. F-72 stała · 6 h, razem 43 h · MVP
+  21. F-76 stała · 0,5 h, razem 43,5 h · MVP
+  22. F-07 wynik 72 · 3 h, razem 46,5 h · MVP
+  23. F-16 wynik 72 · 3 h, razem 49,5 h · MVP
+  24. F-23 wynik 48 · 1 h, razem 50,5 h · MVP
+  25. F-13 wynik 42,67 · 3 h, razem 53,5 h · MVP
+  26. F-11 wynik 32 · 1 h, razem 54,5 h · MVP
+  27. F-24 wynik 30 · 1 h, razem 55,5 h · MVP
+  28. F-14 wynik 26,67 · 1,5 h, razem 57 h · MVP
+  29. F-18 wynik 25 · 0,5 h, razem 57,5 h · MVP
+  30. F-10 wynik 24 · 1 h, razem 58,5 h · MVP
+  31. F-26 wynik 16 · 7 h, razem 65,5 h · MVP · poza apetytem 60 h
+  32. F-73 wynik 13,33 · 3 h, razem 68,5 h · MVP · poza apetytem 60 h
+  33. F-38 wynik 12 · 2 h, razem 70,5 h · MVP · poza apetytem 60 h
+  34. F-44 wynik 10 · 2 h, razem 72,5 h · MVP · poza apetytem 60 h
+  35. F-61 wynik 10 · 1,5 h, razem 74 h · MVP · poza apetytem 60 h
+  36. F-74 wynik 10 · 3 h, razem 77 h · MVP · poza apetytem 60 h
+  37. F-55 wynik 9,6 · 5 h, razem 82 h · MVP · poza apetytem 60 h
+  38. F-62 wynik 8 · 1 h, razem 83 h · MVP · poza apetytem 60 h
+  39. F-77 wynik 8 · 1 h, razem 84 h · MVP · poza apetytem 60 h
+  40. F-15 wynik 7,5 · 1 h, razem 85 h · TEST · poza apetytem 60 h
+  41. F-56 wynik 7,5 · 0,5 h, razem 84,5 h · MVP · poza apetytem 60 h
+  42. F-43 wynik 6,67 · 3 h, razem 87,5 h · MVP · poza apetytem 60 h
+  43. F-63 wynik 5 · 2 h, razem 89,5 h · PÓŹNIEJ · poza apetytem 60 h
+  44. F-81 wynik 3,75 · 1 h, razem 88,5 h · MVP · poza apetytem 60 h
+  45. F-71 wynik 2,5 · 2 h, razem 90,5 h · MVP · poza apetytem 60 h
+  46. F-78 wynik 2,5 · 1 h, razem 91,5 h · MVP · poza apetytem 60 h
+  47. F-30 wynik 1,88 · 2 h, razem 93,5 h · PÓŹNIEJ · poza apetytem 60 h
+  48. F-45 wynik 1,67 · 3 h, razem 94,5 h · PÓŹNIEJ · poza apetytem 60 h
+  49. F-75 wynik 1,25 · 4 h, razem 95,5 h · MVP · poza apetytem 60 h
+  50. F-80 wynik 1,25 · 1,5 h, razem 97 h · MVP · poza apetytem 60 h
+  51. F-70 wynik 0,83 · 6 h, razem 103 h · PÓŹNIEJ · poza apetytem 60 h
+  52. F-08 wynik 0,63 · 2 h, razem 99 h · PÓŹNIEJ · poza apetytem 60 h
+  53. F-50 wynik 0,42 · 1,5 h, razem 98,5 h · PÓŹNIEJ · poza apetytem 60 h
+  54. F-79 wynik 0,42 · 6 h, razem 103 h · PÓŹNIEJ · poza apetytem 60 h
+Kolejność budowy MVP: F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69 → F-71 → F-72 → F-73 → F-74 → F-76 → F-75 → F-77 → F-78 → F-80 → F-81
+BŁĄD w50: F-72 bez wymagania BR ani hipotezy H
+BŁĄD BR-DANE-005 z BRD bez decyzji zakresu
+BŁĄD BR-RECP-005 z BRD bez decyzji zakresu
+BŁĄD BR-KALK-012 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-001 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-002 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-003 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-004 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-005 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-006 z BRD bez decyzji zakresu
+UWAGA F-26 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-73 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-38 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-44 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-61 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-74 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-55 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-62 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-77 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-56 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-43 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-81 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-71 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-78 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-75 w MVP poza apetytem 60 h (decyzja właściciela)
+UWAGA F-80 w MVP poza apetytem 60 h (decyzja właściciela)
+55 funkcji (MVP 46, PÓŹNIEJ 7, TEST 1, NIE 1), 75 BR · 10 błędów, 16 uwag
+```
 
 ## Kolejność i przekazanie
 - Kolejność budowy MVP (wynik skryptu, porządek zależności): F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69. Większość ma kod; dla roli 08 kolejność wdrożenia nowej szaty (partia 5) i nowych BR: najpierw pętla (F-68, F-09, F-13, F-07, F-16, F-58, F-28), potem zakwas i podłogi, na końcu F-43, F-44, F-69.
