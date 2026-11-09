@@ -166,7 +166,8 @@ function starterFromRow({ lastFedAt, feedingRatio, setupStartedAt, setupComplete
   };
 }
 
-async function readStarters(db: Db): Promise<StoredStarter[]> {
+/** Zakwasy z podanego połączenia (także osobnej bazy z pakietu awaryjnego). */
+export async function readStarters(db: Db): Promise<StoredStarter[]> {
   return (await db.getAllAsync<StarterRow>(STARTERS_SELECT)).map(starterFromRow);
 }
 

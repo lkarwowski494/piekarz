@@ -69,6 +69,11 @@ export async function getStarterEntries(starterId: string, limit?: number): Prom
 export async function getAllStarterEntries(): Promise<StoredStarterEntry[]> {
   const db = await getDb();
   if (!db) return [...memStore.starterEntries].sort(byNewest);
+  return czytajWpisyZakwasow(db);
+}
+
+/** Wszystkie wpisy z podanego połączenia (także osobnej bazy z pakietu awaryjnego). */
+export async function czytajWpisyZakwasow(db: Db): Promise<StoredStarterEntry[]> {
   return parseEntries(await db.getAllAsync<unknown>(`${ENTRY_SELECT} ORDER BY starter_id, occurred_at DESC, id DESC;`));
 }
 

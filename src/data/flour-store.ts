@@ -10,15 +10,19 @@ import { odczytNieudany } from './odczyt';
 /** Połączenie z kolejką albo `tx` w transakcji (kolejka-zapisow.ts) [M1-audytor-generalny-001]. */
 type Db = import('expo-sqlite').SQLiteDatabase;
 
+/** Spiżarnia z podanego połączenia (także osobnej bazy z pakietu awaryjnego); błąd odczytu leci dalej. */
+export function czytajMaki(db: Db): Promise<StoredFlourInventoryItem[]> {
+  return db.getAllAsync<StoredFlourInventoryItem>(
+    'SELECT id, name, stock_grams as stockGrams, brand, protein_pct as proteinPct, updated_at as updatedAt FROM flour_inventory ORDER BY name ASC;'
+  );
+}
+
 export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
   const db = await getDb();
   if (!db) return [...memStore.flourInventory];
 
   try {
-    const rows = await db.getAllAsync<StoredFlourInventoryItem>(
-      'SELECT id, name, stock_grams as stockGrams, brand, protein_pct as proteinPct, updated_at as updatedAt FROM flour_inventory ORDER BY name ASC;'
-    );
-    return rows;
+    return await czytajMaki(db);
   } catch (e) {
     return odczytNieudany(e);
   }
