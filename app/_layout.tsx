@@ -5,7 +5,7 @@ import { StatusBar, AppState, View, StyleSheet } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import { configureNotificationHandler, resyncNotifications, uzgadniajZDostepem } from '../src/lib/notifications';
 import { initDatabase } from '../src/data/sqlite-store';
-import { resetStorageState } from '../src/data/storage-status';
+import { poStarcieBazy, resetStorageState } from '../src/data/storage-status';
 import { StorageGate } from '../src/components/StorageGate';
 import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded } from '../src/lib/startup-guard';
@@ -86,7 +86,9 @@ export default function RootLayout() {
   useEffect(() => {
     if (rescue !== false) return undefined;
     const appState = AppState.addEventListener('change', (s) => {
-      if (s === 'active') void resyncNotifications();
+      // AppState działa też w trakcie startu bazy (poza StorageGate): uzgodnienie po końcu startu i tylko przy stanie „ok”,
+      // bo odczyt przed migracją ustawiał „unavailable” (ekran błędu bazy) [M1-audytor-generalny-022; 05-architekt-503]
+      if (s === 'active') void poStarcieBazy().then((stan) => (stan === 'ok' ? resyncNotifications() : undefined));
     });
     // Koniec próby, zwrot albo zakup zmieniają przypomnienia o zakwasie bez restartu [M1-audytor-generalny-143]
     const offDostep = uzgadniajZDostepem();
