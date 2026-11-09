@@ -1,0 +1,6 @@
+// Słownik nl, część 29: kroki rośnięcia wersji drożdżowej, wskazówka czasu i test palca (070-N2, D-312)
+// źródło: przeklad-m2-070n2-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
+export const CZESC: Record<string, string> = {
+  'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.': 'De tijden zijn een richtlijn, want hoe snel het deeg rijst hangt af van de ingrediënten, de sterkte van het deeg, de temperatuur en de luchtvochtigheid. Het deeg is klaar als het kuiltje na het indrukken met een vinger blijft staan.',
+  'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.': 'De tijden zijn een richtlijn, want hoe snel het deeg rijst hangt af van de ingrediënten, de sterkte van het deeg, de temperatuur en de luchtvochtigheid. Het deeg is klaar als het kuiltje na het indrukken met een vinger blijft staan. Vóór het bakken mag het gevormde deeg niet meer dan verdubbelen in volume.',
+};

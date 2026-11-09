@@ -1,0 +1,141 @@
+{
+ "_opis": "Przekład 2 kluczy 070-N2 (BR-ETAP-001, D-312): instrukcje pierwszego i drugiego rośnięcia wersji drożdżowej złożone dosłownie z istniejących zdań treści roli 06 (docs/tresci/pl/drozdze-plan-przelicznik.md: DRO-MOD-016, DRO-MOD-013, DRO-MOD-015). Przekład każdego języka złożony skryptem z istniejących, przejrzanych przekładów tych samych zdań w słownikach (klucze „Czasy są wskazówką, bo…” i „Ciasto jest gotowe, gdy wgłębienie…”; pierwsze zdanie drugiego klucza wydzielone po pierwszym znaku końca zdania); bez nowego tłumaczenia. Rola 08, M2 p3b, 2026-11-09; przegląd natywny: brak (DEC-06).",
+ "pl": [
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.",
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości."
+ ],
+ "jezyki": {
+  "bg": [
+   "Времената са ориентир, защото темпото на втасване зависи от съставките, силата на тестото, температурата и влажността. Тестото е готово, когато вдлъбнатината от натискане с пръст остава.",
+   "Времената са ориентир, защото темпото на втасване зависи от съставките, силата на тестото, температурата и влажността. Тестото е готово, когато вдлъбнатината от натискане с пръст остава. Преди печене оформеното тесто не бива да увеличава обема си повече от два пъти."
+  ],
+  "cs": [
+   "Doby jsou orientační, protože rychlost kynutí závisí na surovinách, síle těsta, teplotě a vlhkosti. Těsto je hotové, když důlek po stisknutí prstem zůstane.",
+   "Doby jsou orientační, protože rychlost kynutí závisí na surovinách, síle těsta, teplotě a vlhkosti. Těsto je hotové, když důlek po stisknutí prstem zůstane. Před pečením by vytvarované těsto nemělo zvětšit objem více než dvojnásobně."
+  ],
+  "da": [
+   "Tiderne er en vejledning, fordi hævningens tempo afhænger af ingredienserne, dejens styrke, temperaturen og fugtigheden. Dejen er klar, når fordybningen efter et tryk med fingeren bliver stående.",
+   "Tiderne er en vejledning, fordi hævningens tempo afhænger af ingredienserne, dejens styrke, temperaturen og fugtigheden. Dejen er klar, når fordybningen efter et tryk med fingeren bliver stående. Før bagning bør den formede dej ikke mere end fordoble sit rumfang."
+  ],
+  "de": [
+   "Die Zeiten sind ein Richtwert, denn das Tempo des Gehens hängt von den Zutaten, der Teigstärke, der Temperatur und der Feuchtigkeit ab. Der Teig ist fertig, wenn die Delle nach dem Eindrücken mit dem Finger bleibt.",
+   "Die Zeiten sind ein Richtwert, denn das Tempo des Gehens hängt von den Zutaten, der Teigstärke, der Temperatur und der Feuchtigkeit ab. Der Teig ist fertig, wenn die Delle nach dem Eindrücken mit dem Finger bleibt. Vor dem Backen sollte der geformte Teig sein Volumen nicht mehr als verdoppeln."
+  ],
+  "el": [
+   "Οι χρόνοι είναι ενδεικτικοί, γιατί ο ρυθμός του φουσκώματος εξαρτάται από τα υλικά, τη δύναμη της ζύμης, τη θερμοκρασία και την υγρασία. Η ζύμη είναι έτοιμη όταν το βαθούλωμα από το πάτημα με το δάχτυλο μένει.",
+   "Οι χρόνοι είναι ενδεικτικοί, γιατί ο ρυθμός του φουσκώματος εξαρτάται από τα υλικά, τη δύναμη της ζύμης, τη θερμοκρασία και την υγρασία. Η ζύμη είναι έτοιμη όταν το βαθούλωμα από το πάτημα με το δάχτυλο μένει. Πριν το ψήσιμο, η σχηματισμένη ζύμη δεν πρέπει να διπλασιάσει τον όγκο της παραπάνω."
+  ],
+  "es": [
+   "Los tiempos son orientativos, porque el ritmo de subida depende de los ingredientes, la fuerza de la masa, la temperatura y la humedad. La masa está lista cuando la marca que deja el dedo al presionar se mantiene.",
+   "Los tiempos son orientativos, porque el ritmo de subida depende de los ingredientes, la fuerza de la masa, la temperatura y la humedad. La masa está lista cuando la marca que deja el dedo al presionar se mantiene. Antes de hornear, la masa ya formada no debería aumentar su volumen más del doble."
+  ],
+  "es-419": [
+   "Los tiempos son orientativos, porque el ritmo del levado depende de los ingredientes, la fuerza de la masa, la temperatura y la humedad. La masa está lista cuando la marca que deja el dedo al presionar se mantiene.",
+   "Los tiempos son orientativos, porque el ritmo del levado depende de los ingredientes, la fuerza de la masa, la temperatura y la humedad. La masa está lista cuando la marca que deja el dedo al presionar se mantiene. Antes de hornear, la masa ya formada no debería aumentar su volumen más del doble."
+  ],
+  "et": [
+   "Ajad on vaid juhis, sest kerkimise kiirus sõltub koostisosadest, taigna tugevusest, temperatuurist ja niiskusest. Tainas on valmis, kui sõrmega vajutamisel tekkinud lohk jääb alles.",
+   "Ajad on vaid juhis, sest kerkimise kiirus sõltub koostisosadest, taigna tugevusest, temperatuurist ja niiskusest. Tainas on valmis, kui sõrmega vajutamisel tekkinud lohk jääb alles. Enne küpsetamist ei tohiks vormitud tainas suureneda rohkem kui kahekordseks."
+  ],
+  "fi": [
+   "Ajat ovat vain suuntaa antavia, koska kohotuksen nopeus riippuu aineksista, taikinan vahvuudesta, lämpötilasta ja kosteudesta. Taikina on valmis, kun sormella painamalla syntynyt kuoppa jää.",
+   "Ajat ovat vain suuntaa antavia, koska kohotuksen nopeus riippuu aineksista, taikinan vahvuudesta, lämpötilasta ja kosteudesta. Taikina on valmis, kun sormella painamalla syntynyt kuoppa jää. Ennen paistoa muotoillun taikinan tilavuus ei saisi kasvaa yli kaksinkertaiseksi."
+  ],
+  "fr": [
+   "Les temps sont indicatifs, car la vitesse de pousse dépend des ingrédients, de la force de la pâte, de la température et de l’humidité. La pâte est prête lorsque l’empreinte laissée par le doigt reste visible.",
+   "Les temps sont indicatifs, car la vitesse de pousse dépend des ingrédients, de la force de la pâte, de la température et de l’humidité. La pâte est prête lorsque l’empreinte laissée par le doigt reste visible. Avant la cuisson, la pâte façonnée ne doit pas plus que doubler de volume."
+  ],
+  "hr": [
+   "Vremena su smjernica jer brzina dizanja ovisi o sastojcima, jačini tijesta, temperaturi i vlažnosti. Tijesto je spremno kad udubina od pritiska prstom ostane.",
+   "Vremena su smjernica jer brzina dizanja ovisi o sastojcima, jačini tijesta, temperaturi i vlažnosti. Tijesto je spremno kad udubina od pritiska prstom ostane. Prije pečenja oblikovano tijesto ne bi smjelo više nego udvostručiti volumen."
+  ],
+  "hu": [
+   "Az idők csak útmutatók, mert a kelés üteme a hozzávalóktól, a tészta erősségétől, a hőmérséklettől és a páratartalomtól függ. A tészta akkor kész, ha az ujjal benyomott mélyedés megmarad.",
+   "Az idők csak útmutatók, mert a kelés üteme a hozzávalóktól, a tészta erősségétől, a hőmérséklettől és a páratartalomtól függ. A tészta akkor kész, ha az ujjal benyomott mélyedés megmarad. Sütés előtt a megformázott tészta ne nőjön a duplájánál nagyobbra."
+  ],
+  "id": [
+   "Waktu hanyalah panduan, karena kecepatan mengembang bergantung pada bahan, kekuatan adonan, suhu, dan kelembapan. Adonan siap jika lekukan bekas tekanan jari tetap ada.",
+   "Waktu hanyalah panduan, karena kecepatan mengembang bergantung pada bahan, kekuatan adonan, suhu, dan kelembapan. Adonan siap jika lekukan bekas tekanan jari tetap ada. Sebelum dipanggang, adonan yang sudah dibentuk sebaiknya tidak mengembang lebih dari dua kali lipat."
+  ],
+  "it": [
+   "I tempi sono indicativi, perché la velocità di lievitazione dipende dagli ingredienti, dalla forza dell'impasto, dalla temperatura e dall'umidità. L'impasto è pronto quando l'impronta del dito resta.",
+   "I tempi sono indicativi, perché la velocità di lievitazione dipende dagli ingredienti, dalla forza dell'impasto, dalla temperatura e dall'umidità. L'impasto è pronto quando l'impronta del dito resta. Prima della cottura l'impasto formato non dovrebbe più che raddoppiare di volume."
+  ],
+  "ja": [
+   "発酵の速さは材料、生地の力、温度、湿度によって変わるため、時間は目安です。指で押したくぼみが残れば、生地は仕上がりです。",
+   "発酵の速さは材料、生地の力、温度、湿度によって変わるため、時間は目安です。指で押したくぼみが残れば、生地は仕上がりです。焼く前に、成形した生地は2倍を超えて膨らませないでください。"
+  ],
+  "ko": [
+   "시간은 참고용이에요. 부풀어 오르는 속도는 재료, 반죽의 힘, 온도, 습도에 따라 달라지기 때문이에요. 손가락으로 눌러 생긴 자국이 그대로 남으면 반죽이 완성된 거예요.",
+   "시간은 참고용이에요. 부풀어 오르는 속도는 재료, 반죽의 힘, 온도, 습도에 따라 달라지기 때문이에요. 손가락으로 눌러 생긴 자국이 그대로 남으면 반죽이 완성된 거예요. 굽기 전에 성형한 반죽은 부피가 두 배를 넘지 않아야 해요."
+  ],
+  "lt": [
+   "Laikai yra orientyras, nes kilimo greitis priklauso nuo ingredientų, tešlos stiprumo, temperatūros ir drėgmės. Tešla paruošta, kai paspaudus pirštu likusi duobutė neišnyksta.",
+   "Laikai yra orientyras, nes kilimo greitis priklauso nuo ingredientų, tešlos stiprumo, temperatūros ir drėgmės. Tešla paruošta, kai paspaudus pirštu likusi duobutė neišnyksta. Prieš kepimą suformuota tešla neturėtų padidėti daugiau nei dvigubai."
+  ],
+  "lv": [
+   "Laiki ir norāde, jo ceļšanās ātrums atkarīgs no sastāvdaļām, mīklas stipruma, temperatūras un mitruma. Mīkla ir gatava, kad iespiedums pēc piespiešanas ar pirkstu paliek.",
+   "Laiki ir norāde, jo ceļšanās ātrums atkarīgs no sastāvdaļām, mīklas stipruma, temperatūras un mitruma. Mīkla ir gatava, kad iespiedums pēc piespiešanas ar pirkstu paliek. Pirms cepšanas izformētajai mīklai nevajadzētu vairāk kā divkāršot tilpumu."
+  ],
+  "ms": [
+   "Masa ialah panduan sahaja kerana kadar doh naik bergantung pada bahan, kekuatan doh, suhu dan kelembapan. Doh sudah sedia apabila lekuk akibat tekanan jari kekal.",
+   "Masa ialah panduan sahaja kerana kadar doh naik bergantung pada bahan, kekuatan doh, suhu dan kelembapan. Doh sudah sedia apabila lekuk akibat tekanan jari kekal. Sebelum dibakar, doh yang telah dibentuk tidak boleh naik lebih daripada dua kali ganda saiz."
+  ],
+  "nb": [
+   "Tidene er en veiledning, fordi hevingen avhenger av ingrediensene, deigens styrke, temperaturen og luftfuktigheten. Deigen er klar når fordypningen etter et fingertrykk blir værende.",
+   "Tidene er en veiledning, fordi hevingen avhenger av ingrediensene, deigens styrke, temperaturen og luftfuktigheten. Deigen er klar når fordypningen etter et fingertrykk blir værende. Før steking bør den formede deigen ikke mer enn doble volumet."
+  ],
+  "nl": [
+   "De tijden zijn een richtlijn, want hoe snel het deeg rijst hangt af van de ingrediënten, de sterkte van het deeg, de temperatuur en de luchtvochtigheid. Het deeg is klaar als het kuiltje na het indrukken met een vinger blijft staan.",
+   "De tijden zijn een richtlijn, want hoe snel het deeg rijst hangt af van de ingrediënten, de sterkte van het deeg, de temperatuur en de luchtvochtigheid. Het deeg is klaar als het kuiltje na het indrukken met een vinger blijft staan. Vóór het bakken mag het gevormde deeg niet meer dan verdubbelen in volume."
+  ],
+  "pt": [
+   "Os tempos são uma orientação, porque o ritmo de levedação depende dos ingredientes, da força da massa, da temperatura e da humidade. A massa está pronta quando a cova deixada pelo dedo se mantém.",
+   "Os tempos são uma orientação, porque o ritmo de levedação depende dos ingredientes, da força da massa, da temperatura e da humidade. A massa está pronta quando a cova deixada pelo dedo se mantém. Antes de ir ao forno, a massa moldada não deve mais do que duplicar de volume."
+  ],
+  "pt-BR": [
+   "Os tempos são uma orientação, porque o ritmo de crescimento depende dos ingredientes, da força da massa, da temperatura e da umidade. A massa está pronta quando a marca deixada pelo dedo permanece.",
+   "Os tempos são uma orientação, porque o ritmo de crescimento depende dos ingredientes, da força da massa, da temperatura e da umidade. A massa está pronta quando a marca deixada pelo dedo permanece. Antes de assar, a massa modelada não deve mais do que dobrar de volume."
+  ],
+  "ro": [
+   "Timpii sunt orientativi, pentru că ritmul de dospire depinde de ingrediente, de tăria aluatului, de temperatură și de umiditate. Aluatul este gata când adâncitura lăsată de deget rămâne.",
+   "Timpii sunt orientativi, pentru că ritmul de dospire depinde de ingrediente, de tăria aluatului, de temperatură și de umiditate. Aluatul este gata când adâncitura lăsată de deget rămâne. Înainte de copt, aluatul modelat nu trebuie să crească mai mult de dublul volumului."
+  ],
+  "ru": [
+   "Время указано как ориентир, потому что скорость подъёма зависит от ингредиентов, силы теста, температуры и влажности. Тесто готово, если ямка от нажатия пальцем остаётся.",
+   "Время указано как ориентир, потому что скорость подъёма зависит от ингредиентов, силы теста, температуры и влажности. Тесто готово, если ямка от нажатия пальцем остаётся. Перед выпечкой сформованное тесто не должно увеличиваться в объёме больше чем вдвое."
+  ],
+  "sk": [
+   "Časy sú orientačné, pretože tempo kysnutia závisí od surovín, sily cesta, teploty a vlhkosti. Cesto je hotové, keď jamka po stlačení prstom zostane.",
+   "Časy sú orientačné, pretože tempo kysnutia závisí od surovín, sily cesta, teploty a vlhkosti. Cesto je hotové, keď jamka po stlačení prstom zostane. Pred pečením by vytvarované cesto nemalo viac než zdvojnásobiť objem."
+  ],
+  "sl": [
+   "Časi so okvirni, ker hitrost vzhajanja je odvisna od sestavin, moči testa, temperature in vlažnosti. Testo je pripravljeno, ko vdolbina po pritisku s prstom ostane.",
+   "Časi so okvirni, ker hitrost vzhajanja je odvisna od sestavin, moči testa, temperature in vlažnosti. Testo je pripravljeno, ko vdolbina po pritisku s prstom ostane. Pred peko oblikovano testo ne bi smelo več kot podvojiti prostornine."
+  ],
+  "sr": [
+   "Времена су оријентациона, јер брзина нарастања зависи од састојака, јачине теста, температуре и влажности. Тесто је спремно када удубљење после притиска прстом остане.",
+   "Времена су оријентациона, јер брзина нарастања зависи од састојака, јачине теста, температуре и влажности. Тесто је спремно када удубљење после притиска прстом остане. Пре печења обликовано тесто не би требало да више него удвостручи запремину."
+  ],
+  "sv": [
+   "Tiderna är en vägledning, eftersom jäsningstakten beror på ingredienser, degens styrka, temperatur och luftfuktighet. Degen är klar när fördjupningen efter ett fingertryck finns kvar.",
+   "Tiderna är en vägledning, eftersom jäsningstakten beror på ingredienser, degens styrka, temperatur och luftfuktighet. Degen är klar när fördjupningen efter ett fingertryck finns kvar. Före gräddning bör den formade degen inte mer än fördubbla sin volym."
+  ],
+  "tr": [
+   "Süreler bir rehberdir, çünkü kabarma hızı malzemelere, hamurun gücüne, sıcaklığa ve neme bağlıdır. Hamur, parmakla bastırılınca oluşan çukur kaldığında hazırdır.",
+   "Süreler bir rehberdir, çünkü kabarma hızı malzemelere, hamurun gücüne, sıcaklığa ve neme bağlıdır. Hamur, parmakla bastırılınca oluşan çukur kaldığında hazırdır. Pişirmeden önce şekillendirilmiş hamur hacmini ikiye katlamaktan fazlasını yapmamalıdır."
+  ],
+  "uk": [
+   "Час є орієнтиром, бо швидкість підйому залежить від інгредієнтів, сили тіста, температури та вологості. Тісто готове, коли заглибина після натискання пальцем залишається.",
+   "Час є орієнтиром, бо швидкість підйому залежить від інгредієнтів, сили тіста, температури та вологості. Тісто готове, коли заглибина після натискання пальцем залишається. Перед випіканням сформоване тісто не повинно збільшуватися в об'ємі більш ніж удвічі."
+  ],
+  "vi": [
+   "Thời gian chỉ mang tính tham khảo, vì tốc độ nở phụ thuộc vào nguyên liệu, độ khỏe của bột, nhiệt độ và độ ẩm. Bột đã sẵn sàng khi vết lõm do ngón tay ấn vào vẫn còn.",
+   "Thời gian chỉ mang tính tham khảo, vì tốc độ nở phụ thuộc vào nguyên liệu, độ khỏe của bột, nhiệt độ và độ ẩm. Bột đã sẵn sàng khi vết lõm do ngón tay ấn vào vẫn còn. Trước khi nướng, bột đã tạo hình không nên nở quá gấp đôi thể tích."
+  ],
+  "zh-Hant": [
+   "時間僅供參考，因為發酵速度取決於材料、麵團筋度、溫度和濕度。用手指按壓後，凹陷沒有彈回，表示麵團已準備好。",
+   "時間僅供參考，因為發酵速度取決於材料、麵團筋度、溫度和濕度。用手指按壓後，凹陷沒有彈回，表示麵團已準備好。烘烤前，整形後的麵團體積不應超過原來的兩倍。"
+  ]
+ }
+}

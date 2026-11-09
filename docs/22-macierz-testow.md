@@ -11,9 +11,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 666 | 666 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 682 | 682 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 264 | 264 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 265 | 265 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1683** | Pokrytych: **1683** | Brakujących: **0**
+Łącznie elementów: **1684** | Pokrytych: **1684** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1383 kolejnych elementów w pełnym wykazie)*
+*(... i 1384 kolejnych elementów w pełnym wykazie)*

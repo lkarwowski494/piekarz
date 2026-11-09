@@ -1137,6 +1137,16 @@
       "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
   "Czcionki ({n})": {
     "gdzie": [
       "src/components/settings/LicencjeEkran.tsx (tytul)"

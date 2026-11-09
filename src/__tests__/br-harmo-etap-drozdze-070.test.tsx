@@ -3,8 +3,9 @@
  * drożdżowej z czasami z receptury, temperatura w kuchni nie zmienia czasów (D-155, D-174), gotowość ciasta
  * na krokach rośnięcia (DRO-MOD-013, DRO-MOD-016). Wpisy „kod blokuje plan bez zakwasu” / „prowadzenie nie istnieje”
  * w scripts/br-wyjatki.json były nieaktualne (07-jakosc-006) [M1-audytor-generalny-070].
- * Bez testu (wpisy „czesciowe”): receptury drożdżowe z katalogu (np. bagietka) nadal nie mają planu, orkisz na drożdżach
- * też nie; krok rośnięcia mówi o wskazówce czasu albo o teście palca, nie o obu.
+ * Bez testu (wpis „czesciowe” BR-HARMO-001): receptury drożdżowe z katalogu (np. bagietka) nadal nie mają planu, orkisz
+ * na drożdżach też nie. Gotowość ciasta drożdżowego: oba kroki rośnięcia mówią o wskazówce czasu i o teście palca
+ * [M2 D-312; 070-N2]; żyto ocenia powierzchnię ciasta (D-256).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('expo-haptics', () => ({
@@ -33,6 +34,7 @@ import { calculateDoughRecipe } from '../core/domain-rules';
 import { formulaWersji } from '../recipes/wersje-drozdzowe';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { krokiDrozdzowe, INSTRUKCJE_SPRZED_070N2 } from '../recipes/yeast-stages';
 
 const flush = async () => {
   await act(async () => {
@@ -164,6 +166,47 @@ describe('BR-HARMO-001 i BR-ETAP-001: plan i prowadzenie wersji drożdżowej', (
     expect(pierwsze).toContain('Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.');
     const drugie = await naKroku('Drugie rośnięcie');
     expect(drugie).toContain('Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.');
+    act(() => tree.unmount());
+  });
+
+  // Pełny scenariusz (070-N2, D-312): na obu krokach rośnięcia ciasta pszennego oba zdania — czas z receptury jest
+  // wskazówką (DRO-MOD-016) i ciasto jest gotowe, gdy wgłębienie po palcu zostaje (DRO-MOD-013).
+  it.each(['graham_bread_honey', 'tartine_high_hydration_80'])('BR-ETAP-001 Gotowość ciasta drożdżowego: %s — pierwsze i drugie rośnięcie mówią, że czas jest wskazówką, a ciasto jest gotowe, gdy wgłębienie po palcu zostaje', async (id) => {
+    planZ(id, 'drozdze');
+    const plan = await render(<HarmonogramScreen />);
+    await pressId(plan, 'plan-start-bake-btn');
+    act(() => plan.unmount());
+    const tree = await render(<StolnicaScreen />);
+    const kroki = getActiveBake()?.steps ?? [];
+    for (const nazwa of ['Pierwsze rośnięcie', 'Drugie rośnięcie']) {
+      const nr = kroki.findIndex((k) => k.name === nazwa) + 1;
+      expect(nr).toBeGreaterThan(0);
+      const naglowek = `Krok ${nr} z ${kroki.length}`;
+      for (let i = 0; i < 10 && !textOf(tree.toJSON()).includes(naglowek); i++) await pressId(tree, 'next-or-finish-step-btn');
+      const ekran = textOf(tree.toJSON());
+      expect(ekran).toContain(naglowek);
+      expect([nazwa, ekran.includes('Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.')]).toEqual([nazwa, true]);
+      expect([nazwa, ekran.includes('Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.')]).toEqual([nazwa, true]);
+    }
+    act(() => tree.unmount());
+  });
+
+  it('BR-ETAP-001 Gotowość ciasta drożdżowego: trwający wypiek zapisany przed zmianą wznawia się z krokami z bazy, bez zmian', async () => {
+    // Kroki sesji sprzed 070-N2: instrukcje rośnięcia z tamtej wersji (osobno wskazówka czasu i test palca)
+    const teraz = krokiDrozdzowe('graham_bread_honey', START) ?? [];
+    const stare = teraz.map((k) => (k.id === 'yeast_rise' ? { ...k, instructions: INSTRUKCJE_SPRZED_070N2.pierwsze } : k.id === 'yeast_proof' ? { ...k, instructions: INSTRUKCJE_SPRZED_070N2.drugie } : k));
+    const proof = stare.find((k) => k.id === 'yeast_proof');
+    expect(proof).toBeDefined();
+    const formula = formulaWersji(MASTER_RECIPES.find((r) => r.id === 'graham_bread_honey')!.formula, 'graham_bread_honey', 'drozdze');
+    setActiveBake({ id: 'bake_sprzed_070n2', recipeName: 'Graham', startedAt: START, currentStageId: stare[0].id, steps: stare, calculatedRecipe: calculateDoughRecipe(formula), recipeFormula: formula });
+    const tree = await render(<StolnicaScreen />);
+    expect((getActiveBake()?.steps ?? []).map((k) => k.instructions)).toEqual(stare.map((k) => k.instructions));
+    const naglowek = `Krok ${stare.indexOf(proof!) + 1} z ${stare.length}`;
+    for (let i = 0; i < 10 && !textOf(tree.toJSON()).includes(naglowek); i++) await pressId(tree, 'next-or-finish-step-btn');
+    const ekran = textOf(tree.toJSON());
+    expect(ekran).toContain(naglowek);
+    expect(ekran).toContain(INSTRUKCJE_SPRZED_070N2.drugie);
+    expect(ekran).not.toContain('Czasy są wskazówką, bo tempo rośnięcia');
     act(() => tree.unmount());
   });
 });

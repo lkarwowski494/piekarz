@@ -55,6 +55,15 @@ const MIESZANIE = 'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbu
 const CZASY_WSKAZOWKA = 'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.';
 const TEST_PALCA = 'Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.';
 
+/** Instrukcje rośnięcia w sesjach zapisanych przed 070-N2: kroki trwającego wypieku są z bazy, więc klucze zostają w słownikach. */
+export const INSTRUKCJE_SPRZED_070N2 = { pierwsze: CZASY_WSKAZOWKA, drugie: TEST_PALCA } as const;
+
+// Gotowość ciasta drożdżowego na obu krokach rośnięcia (BR-ETAP-001, D-312; 070-N2): zdania dosłownie
+// z docs/tresci/pl/drozdze-plan-przelicznik.md — czas z receptury jest wskazówką (DRO-MOD-016) i test palca
+// (DRO-MOD-013); przy drugim rośnięciu także granica objętości (DRO-MOD-015). Żyto: powierzchnia ciasta (D-256).
+const ROSNIECIE_PIERWSZE = 'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.';
+const ROSNIECIE_DRUGIE = 'Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.';
+
 /** Instrukcja rośnięcia w formie żyta (ZYT-ETA-005): ten sam klucz co etap żytni na zakwasie. */
 const OPIS_POWIERZCHNIA = RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID)?.instructionsPl ?? '';
 
@@ -74,13 +83,13 @@ function krokiBezCzasu(recipeId: string): Krok[] | null {
   const odpoczynek = szablon('bench_rest');
   const kroki: (Krok | null)[] = [
     { id: 'yeast_mix', name: c.bezWyrabiania ? 'Mieszanie ciasta' : 'Mieszanie i wyrabianie', category: 'mix', durationMin: szablon('mix').durationMinutes, isPassive: false, instructions: MIESZANIE },
-    { id: 'yeast_rise', name: 'Pierwsze rośnięcie', category: 'bulk_ferment', durationMin: c.rosniecieMin, isPassive: true, instructions: CZASY_WSKAZOWKA },
+    { id: 'yeast_rise', name: 'Pierwsze rośnięcie', category: 'bulk_ferment', durationMin: c.rosniecieMin, isPassive: true, instructions: c.gotowoscPowierzchnia ? CZASY_WSKAZOWKA : ROSNIECIE_PIERWSZE },
     c.bezOdgazowania ? null : { id: 'yeast_degas', name: 'Odgazowanie', category: 'pre_shape', durationMin: szablon('pre_shape').durationMinutes, isPassive: false, instructions: '' },
     c.odpoczynekMin === undefined ? null : { id: 'yeast_bench', name: odpoczynek.namePl, category: 'bench_rest', durationMin: c.odpoczynekMin, isPassive: true, instructions: odpoczynek.instructionsPl },
     c.bezOdgazowania
       ? { id: 'yeast_shape', name: 'Podział i formowanie', category: 'final_shape', durationMin: szablon('final_shape').durationMinutes, isPassive: false, instructions: 'Podziel ciasto, uformuj je ręcznie i włóż do formy.' }
       : { id: 'yeast_shape', name: 'Kształtowanie', category: 'final_shape', durationMin: szablon('final_shape').durationMinutes, isPassive: false, instructions: '' },
-    { id: 'yeast_proof', name: 'Drugie rośnięcie', category: 'final_proof', durationMin: c.garowanieMin, isPassive: true, instructions: c.gotowoscPowierzchnia ? OPIS_POWIERZCHNIA : TEST_PALCA },
+    { id: 'yeast_proof', name: 'Drugie rośnięcie', category: 'final_proof', durationMin: c.garowanieMin, isPassive: true, instructions: c.gotowoscPowierzchnia ? OPIS_POWIERZCHNIA : ROSNIECIE_DRUGIE },
     {
       id: 'yeast_bake', name: 'Pieczenie', category: 'bake', isPassive: true, rekaNaStarcie: true, instructions: '',
       durationMin: c.pieczenie ? c.pieczenie.min1 + c.pieczenie.min2 : receptura.bakeTimeSteamMinutes + receptura.bakeTimeBrowningMinutes,
