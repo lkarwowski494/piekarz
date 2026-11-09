@@ -1,0 +1,8 @@
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/plan-bez-zakwasu-d3.test.tsx
+
+Test Suites: 4 passed, 4 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        4.957 s
+Ran all test suites matching /tests\/brioszka-bez-eksportu-089.test.tsx|src\/__tests__\/plan-bez-zakwasu-d3.test.tsx|src\/components\/__tests__\/czas-lodowki-f4.test.tsx|tests\/brioszka-bez-planu-089.test.ts/i.

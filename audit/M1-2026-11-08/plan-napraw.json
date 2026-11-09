@@ -2594,7 +2594,7 @@
       "zalezy_od": [],
       "decyzja": null,
       "przyczyna": null,
-      "commit": null,
+      "commit": "d04c94ca",
       "tytul": "Receptura żytnia po zmianie mąk (żyto ≤ 50%) dostaje w planie i prowadzeniu tekst i temperatury brioszki, łotewska 250 °C zamiast 225 °C",
       "zrodla": [
         "06-tresci-601"
@@ -2606,7 +2606,7 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "plan rye_100_pan, borodinsky_rye i latvian_scalded_rye przy 50% żyta: temperatury z danych receptury, bez słowa „brioszk”; tekst pieczenia po id receptury, nie po naczyniu",
-      "status": "zatwierdzone",
+      "status": "naprawione-do-weryfikacji",
       "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {
@@ -2615,7 +2615,7 @@
       "zalezy_od": [],
       "decyzja": "DEC-21",
       "przyczyna": null,
-      "commit": null,
+      "commit": "3e05396e, f6291d8f",
       "tytul": "Plan brioszki na Lievito Madre: rośnięcie w keksówce 20 min (czas drożdży instant) i lodówka bez rośnięcia w cieple, bez informacji, że czasy są szacunkowe",
       "zrodla": [
         "06-tresci-602"
@@ -2627,7 +2627,7 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "(a) brioszka bez „Ułóż plan” do zamknięcia PIE-BRI-900, test katalogu; (b) czasy ze źródła dla zaczynu i rośnięcie z canStretch, test planu",
-      "status": "zatwierdzone",
+      "status": "naprawione-do-weryfikacji",
       "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {

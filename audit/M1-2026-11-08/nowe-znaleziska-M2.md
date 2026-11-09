@@ -156,3 +156,14 @@
 - M2-p4-N1 (P3, klasa: dane-brzegowe): uszkodzony wiersz `bake_sessions` z pakietu trafia przez `zachowajUszkodzony` do pliku ratunkowego telefonu z etykietą jak uszkodzenie telefonu (wzorzec istniał wcześniej, M2-003).
 - M2-p4-N2 (P3, klasa: dane-brzegowe): sesje pominięte przez limit albo kolizję id z telefonem znikają z importu bez komunikatu (`skippedRows` liczy tylko nieczytelne); dane zostają w pakiecie.
 - M2-p4-N3 (P2 do sprawdzenia, klasa: dane-brzegowe): po imporcie sesje nie trafiają do `memStore`, brak ponownego planowania powiadomień Sleep Guard dla przywróconego trwającego wypieku — czy ekran i powiadomienia ożywają bez restartu? Dotyczy też ścieżki 023. Do reaudytu / testu na urządzeniu.
+
+## 2026-11-09 partia 4 — rola 06 (088, 089): znaleziska nienaprawione (D-288: nowe P2 → P3 z klasą)
+- 06-tresci-603 (P2 → P3, klasa: treść-kroku, realny): durum na stali (`bake_stal`; też łotewski przy życie ≤ 50%) dostaje przy nagrzewaniu zdanie „Po co ten krok” o garnku (`src/core/po-co-ten-krok.ts:46`, filtr :81); zdanie o nacięciu KRO-POC-012 dla stali niesprawdzone. Poprawka: rola 06 + 08 (partia 5).
+- 06-tresci-604 (P3 [DO USTALENIA], klasa: treść-kroku, brzegowy): receptura użytkownika skopiowana z brioszki ma własne id — `powodBezPlanu`/`pieczenieDlaId` jej nie rozpoznają, dostaje plan bochenka w garnku (stan sprzed 089). Do ustalenia: czy kopia przechowuje id receptury bazowej.
+- Teksty do akceptacji roli 04: 3 klucze PL z `role/06-tresci/fix-2026-11-09/wynik-p4.md` („Klucze i przekład”).
+- Drugi przegląd AI przekładu 088/089 (subagent M2, 2026-11-09): P1 0, P2 0, P3 13 (styl sk/nb/tr, cudzysłowy hr/sr/lv/nl, nazwa rośnięcia lv/es/fi/tr, de „Rezept”, uk) → M2-p4-N4 (P3, klasa: przekład-styl), szczegóły `role/06-tresci/fix-2026-11-09/przeglad-przekladu-p4.md`; partia 5.
+- Przegląd ścieżki planu 088/089 (subagent M2, 2026-11-09, `role/06-tresci/fix-2026-11-09/przeglad-sciezki-p4.md`): P0 0, P1 0, P2 3, P3 3.
+  - P2-1 (089 niedomknięte): „Dodaj do kalendarza” i „Kopiuj jako tekst” eksportowały oś czasu planu zablokowanego → **naprawione w p4** (test `tests/brioszka-bez-eksportu-089.test.tsx`, czerwony przed / zielony po).
+  - M2-p4-N5 (P2 → P3, klasa: nawigacja-plan, do sprawdzenia na urządzeniu, sprzed 089): ekran planu innej receptury zostaje w stosie; „Piecz ponownie” brioszki wraca do niego i „Zacznij wypiek” tworzy wypiek z danymi brioszki i krokami tamtej receptury (omija blokadę).
+  - M2-p4-N6 (= 06-tresci-604, potwierdzone): „Zapisz jako moją” na brioszce odblokowuje „Ułóż plan” (plan bochenka w garnku); kopia nie przechowuje id bazowej (`src/lib/calculator-actions.ts:141`, `src/data/db.ts:9`).
+  - M2-p4-N7 (P3, klasa: jakość testów): test akceptacyjny 088 przepuściłby utratę tekstu ze źródła dla brioszki/durum; brak testu startu zapisanego planu brioszki z „Dziś”; stare migawki łotewskiej na stali dostają zdanie o garnku (klasa 603).

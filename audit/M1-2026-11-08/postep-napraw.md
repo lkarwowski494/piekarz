@@ -136,6 +136,8 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 22:36 087: przegląd ścieżki danych — brak P0/P1; 3 uwagi P2 → nowe-znaleziska-M2 (M2-p4-N1…N3).
 - 22:41 22:42 Limit kontekstu 30% (M9): przekazanie — punkt-wznowienia-M2-2026-11-09c.md, prompt-przekazania-M2-2026-11-09c.md. Rola 06 p4 (088/089) w toku w drzewie p4; 005 polecenie gotowe.
 - 22:55 Rola 06 p4: 3e05396e (089), d04c94ca (088), push; przeglądy i statusy dla następczyni (punkt C, dopisek).
+- 23:07 p4: 088 d04c94ca, 089 3e05396e+f6291d8f (P2-1 przeglądu ścieżki: eksport planu zablokowanego) → naprawione-do-weryfikacji; D-317 875d53eb; przeglądy: przekład P1 0, ścieżka P0/P1 0; verify 6823 kod 0
+- 23:07 p4: 088 d04c94ca, 089 3e05396e+f6291d8f (P2-1 przeglądu ścieżki) → naprawione-do-weryfikacji; D-317 875d53eb (DEC-21 a); przeglądy: przekład P1 0, ścieżka P0/P1 0; verify 6823 kod 0
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

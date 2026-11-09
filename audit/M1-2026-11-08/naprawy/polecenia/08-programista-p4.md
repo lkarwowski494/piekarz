@@ -8,6 +8,6 @@ Test akceptacyjny: (1) test układu w Jest (wysokości z tokenów/stylów albo o
 Warunki: testy przed kodem (pokaż czerwony z właściwego powodu); bez @ts-ignore, istanbul ignore, test.skip; pliki app/ i src/ ≤ 20 480 B; dotyk ≥ 44 pt; kontrast z theme; bez nowych tekstów, jeśli się da (nowe teksty → t(), EN, przekład 33 języków wg docs/lokalizacja/przeklad-m2-026-2026-11-09.json i python3 /home/user/piekarz/audit/M1-2026-11-08/narzedzia/wepnij-maly-przeklad.py, potem npm run i18n:kontekst). Po zmianie eksportów `npm run matrix:update`.
 Jeden commit z „[M1-audytor-generalny-005; 04-studio-projektowe-001]” i stopką:
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01T66VBx5s4zkdFqT2gZ5CDQ
+Claude-Session: https://claude.ai/code/session_01T66VBxPQkXtF6hFvYsPtHe
 Przed commitem `git add` i `npm run verify` (kod 0, po git add; gdy przebieg przerwie się bez kodu — powtórz). Push tylko na tę gałąź. Dowody w /home/user/piekarz/audit/M1-2026-11-08/role/08-programista/fix-2026-11-09/dowody/p4-005-*.
 Odpowiedź do M2 przez SubagentHandback, ≤ 15 linii: SHA, testy przed/po, verify (liczba, kod), pliki, co przeniesione z pasa i dokąd, ryzyka (AX5), co otwarte.

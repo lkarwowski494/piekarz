@@ -1,0 +1,30 @@
+FAIL tests/brioszka-bez-eksportu-089.test.tsx
+  089 (przegląd ścieżki planu P2-1): plan zablokowany nie eksportuje osi czasu
+    ✕ brioszka z „Piecz ponownie”: bez „Dodaj do kalendarza” i „Kopiuj jako tekst”, start nieaktywny (503 ms)
+    ✓ receptura z planem: oba eksporty jak dotąd (184 ms)
+
+  ● 089 (przegląd ścieżki planu P2-1): plan zablokowany nie eksportuje osi czasu › brioszka z „Piecz ponownie”: bez „Dodaj do kalendarza” i „Kopiuj jako tekst”, start nieaktywny
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received array:  [{"_fiber": [FiberNode]}]
+
+      76 |     tree = await otworzPlan('lievito_madre_panettone_brioche');
+      77 |     expect(host(tree.root, 'plan-start-bake-btn')[0].props.accessibilityState).toEqual({ disabled: true });
+    > 78 |     expect(host(tree.root, 'plan-kalendarz-btn')).toHaveLength(0);
+         |                                                   ^
+      79 |     expect(host(tree.root, 'copy-schedule-btn')).toHaveLength(0);
+      80 |   });
+      81 |
+
+      at Object.toHaveLength (tests/brioszka-bez-eksportu-089.test.tsx:78:51)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        2.895 s
+Ran all test suites matching /tests\/brioszka-bez-eksportu-089.test.tsx/i.

@@ -2,7 +2,7 @@
 # kopia-k.sh "<opis>" — kopiuje stan M2 z K do drzewa audit-m1 i wypycha (zgoda właściciela 2026-11-09, D-300)
 set -e
 K=/home/user/piekarz/audit/M1-2026-11-08
-W=/tmp/claude-0/-home-user-piekarz/3114e2a1-e7f5-5ace-a74a-63f01380a9e7/scratchpad/wt-audit
+W=/tmp/claude-0/-home-user-piekarz/8eebabd9-216b-5dbb-83c0-ed801aa300ba/scratchpad/wt-audit
 [ -d "$W" ] || W=/tmp/claude-0/-home-user-piekarz/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/wt-audit
 [ -d "$W" ] || W=/tmp/claude-0/-home-user/bfab95c5-1113-5070-aff6-8b2979de8a21/scratchpad/wt-audit
 cd "$W"
@@ -16,6 +16,6 @@ if git diff --cached --quiet; then echo "bez zmian"; exit 0; fi
 git commit -q -m "[M2 fix] stan: $1
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01T66VBx5s4zkdFqT2gZ5CDQ"
+Claude-Session: https://claude.ai/code/session_01T66VBxPQkXtF6hFvYsPtHe"
 git push -q origin audit-m1/piekarz-2026-11-08
 git log --oneline -1
