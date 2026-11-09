@@ -249,7 +249,8 @@ describe('D1: kilka sesji po migracji', () => {
     expect((await api.loadPlannedBakes()).map((p) => p.id)).toEqual(['plan_1', 'plan_2', 'plan_3', 'plan_4', 'plan_5']);
   });
 
-  it('„Usuń wszystkie dane” czyści trwające i zaplanowane; kopia przed czyszczeniem nie niesie sesji ani planów', async () => {
+  // Kopia przed czyszczeniem niesie sesje i plany: DEC-11 a (D-286) zmienia D-102 D1-2 dla tej kopii [M1-audytor-generalny-023]
+  it('„Usuń wszystkie dane” czyści trwające i zaplanowane; kopia przed czyszczeniem niesie je w bakeSessions (bez starego klucza)', async () => {
     await migruj('v2-pauza');
     const api = sesjeApi();
     const [pierwsza] = await api.loadActiveBakeSessions();
@@ -262,7 +263,11 @@ describe('D1: kilka sesji po migracji', () => {
     expect(await api.loadActiveBakeSessions()).toEqual([]);
     const kopia = [...mockFiles.keys()].find((k) => /piekarz-przed-czyszczeniem-[^/]+\.json$/.test(k));
     const tresc = String(mockFiles.get(String(kopia)));
-    for (const zakazane of ['bake_live', 'plan_1', 'session_json', KLUCZ_SESJI_1014]) expect(tresc).not.toContain(zakazane);
+    expect(JSON.parse(tresc).state.bakeSessions.map((w: { id: string; status: string }) => [w.id, w.status])).toEqual([
+      ['bake_live', 'active'],
+      ['plan_1', 'planned'],
+    ]);
+    expect(tresc).not.toContain(KLUCZ_SESJI_1014);
   });
 });
 

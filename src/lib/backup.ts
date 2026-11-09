@@ -6,6 +6,8 @@ import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow, parseS
 import { legacyFeedingEntry } from '../core/starter-log';
 import { assertWritable } from '../data/storage-status';
 import { parseLekcje, parseUstawienia, type LekcjaKopii } from '../data/ustawienia-kopii';
+import { parseSesjeKopii } from '../data/sesje-kopii';
+import type { WierszSesji } from '../data/bake-sessions-store';
 
 /** Wersja 2: dziennik zakwasu (ADR-008); stara aplikacja odrzuca ją czytelnym komunikatem [M1-audytor-generalny-104]. */
 export const SCHEMA_VERSION = 2;
@@ -34,6 +36,11 @@ export interface PiekarzBackupData {
   settings?: Record<string, unknown>;
   /** Zaliczone lekcje Szkoły chleba; brak = import zostawia lekcje w telefonie [M1-audytor-generalny-139]. */
   lessonProgress?: LekcjaKopii[];
+  /**
+   * Trwające i zaplanowane wypieki (surowe wiersze bake_sessions), tylko w kopii przed czyszczeniem; brak = import nie
+   * rusza sesji w telefonie. Import dopisuje wiersze, których id telefon nie ma (DEC-11 a) [M1-audytor-generalny-023].
+   */
+  bakeSessions?: WierszSesji[];
   /** Surowa treść wierszy pominiętych przy odczycie; import ją pomija [M1-audytor-generalny-121]. */
   uszkodzoneWiersze?: Array<{ tabela: string; id: string; surowe: string }>;
 }
@@ -270,6 +277,8 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
   // Ustawienia (lista dozwolonych kluczy) i lekcje: pola opcjonalne v2 [M1-audytor-generalny-139]
   const settings = parseUstawienia(state.settings);
   const lessonProgress = parseLekcje(state.lessonProgress);
+  // Wypieki z kopii przed czyszczeniem (pole opcjonalne formatu 2) [M1-audytor-generalny-023]
+  const sesje = parseSesjeKopii(state.bakeSessions);
   return {
     format: 'piekarz-backup',
     schemaVersion: envelope.schemaVersion,
@@ -282,8 +291,9 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
       ...(flours ? { flourInventory: flours.rows } : {}),
       ...(settings ? { settings } : {}),
       ...(lessonProgress ? { lessonProgress } : {}),
+      ...(sesje ? { bakeSessions: sesje.rows } : {}),
     },
-    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0),
+    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0) + (sesje?.skipped ?? 0),
   };
 }
 

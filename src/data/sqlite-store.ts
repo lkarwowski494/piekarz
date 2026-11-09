@@ -34,6 +34,7 @@ import { zakonczSesjeWTransakcji, zakonczSesjeWPamieci, type KoniecSesji } from 
 import { uszkodzoneWiersze } from './uszkodzone-wiersze';
 import { czytajWpisy, writeBakeRow, wpisZSesji } from './wpisy-wypiekow';
 import { czytajNowePola, dzienPoImporcie, dzienZKolumn, wpisPoImporcie, zapiszStalyDzien } from './nowe-pola-kopii';
+import { wstawSesjeWPamieci, wstawSesjeZKopii } from './sesje-kopii';
 
 // ==========================================
 // Bakes & Stolnica
@@ -265,11 +266,12 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
   const db = await getDb();
   if (!db) {
     applyToMemory();
+    if (data.bakeSessions) wstawSesjeWPamieci(data.bakeSessions);
     return;
   }
 
   await writeOrThrow(() => db.withTransactionAsync(async (tx) => {
-    // Pola v6 z telefonu przed DELETE: kopia bez nich (sprzed D1) ich nie zmienia; sesje i plany poza kopią [M3 D1]
+    // Pola v6 z telefonu przed DELETE: kopia bez nich (sprzed D1) ich nie zmienia; sesji import nie kasuje [M3 D1]
     const tel = await czytajNowePola(tx);
     await tx.execAsync('DELETE FROM bakes;');
     await tx.execAsync('DELETE FROM starter_entries;');
@@ -308,6 +310,8 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     }
     // Ustawienia i lekcje tylko z kopii, która je niesie (v2 bez nich zostawia stan telefonu) [M1-audytor-generalny-139]
     await zapiszUstawieniaILekcje(tx, data.settings, data.lessonProgress);
+    // Wypieki z kopii przed czyszczeniem: dopisane po wpisach Dziennika (DEC-11 a) [M1-audytor-generalny-023]
+    if (data.bakeSessions) await wstawSesjeZKopii(tx, data.bakeSessions);
   }));
   applyToMemory();
 }

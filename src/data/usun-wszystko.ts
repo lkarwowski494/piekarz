@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — „Usuń wszystkie dane” (F-65, BR-DANE-004) [M1-audytor-generalny-124; 03-zakres-502, 05-architekt-505]
-// Najpierw obowiązkowa kopia piekarz-przed-czyszczeniem-* z pełnym stanem (z surowymi uszkodzonymi wierszami, 121);
-// nieudana kopia nic nie usuwa. Potem jedna transakcja: historia, zakwasy z dziennikiem, receptury własne, spiżarnia,
+// Najpierw obowiązkowa kopia piekarz-przed-czyszczeniem-* z pełnym stanem (z surowymi uszkodzonymi wierszami, 121),
+// w tym trwające i zaplanowane wypieki (pole bakeSessions, DEC-11 a) [M1-audytor-generalny-023]; nieudana kopia nic nie usuwa. Potem jedna transakcja: historia, zakwasy z dziennikiem, receptury własne, spiżarnia,
 // postęp lekcji, trwające i zaplanowane wypieki (bake_sessions, M3 D1), decyzje „Pomiń” kalendarza (M3 D4a). Zostają: ustawienia (język, jednostki), pamięć
 // zakupu i kopie w Plikach (wybór P-124 a).
 // ============================================================================
@@ -11,10 +11,13 @@ import { collectBackupData, setActiveBake } from './sqlite-store';
 import { getDb, memStore } from './sqlite-schema';
 import { StorageWriteError, writeOrThrow } from './storage-status';
 import { KLUCZ_POMINIEC } from './pominiecia-store';
+import { czytajSesjeDoKopii } from './sesje-kopii';
 
 export async function usunWszystkieDane(): Promise<void> {
   try {
-    await safetyBackup('reset', await collectBackupData());
+    // Sesje przed resztą stanu: wiersz o złym kształcie trafia do uszkodzoneWiersze tej samej kopii
+    const bakeSessions = await czytajSesjeDoKopii(await getDb());
+    await safetyBackup('reset', { ...(await collectBackupData()), bakeSessions });
   } catch (e) {
     // Kopia się nie zapisała (np. brak miejsca): „Nie zapisano” i żadnego usunięcia
     throw e instanceof StorageWriteError ? e : new StorageWriteError(e);
