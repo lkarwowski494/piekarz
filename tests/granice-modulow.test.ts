@@ -1,7 +1,8 @@
 /**
  * Granice modułów (ADR-006: „domena bez importów Expo/React”) [M1-audytor-generalny-020; 05-architekt-003].
  * Logika skryptu `granice.mjs` z wzorców roli 05 (biblioteka prompts, role/05-architekt/wzorce.md, „Granice modułów”):
- * domena `src/core` importuje tylko siebie (poza `import type`).
+ * domena `src/core` importuje tylko siebie (poza `import type`); warstwa danych `src/data` bez cykli importów
+ * [M1-audytor-generalny-021; 05-architekt-004].
  */
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, resolve, relative, sep } from 'node:path';
@@ -41,7 +42,31 @@ export function granice(domena: string) {
   return { graf, naruszenia };
 }
 
+/** Cykle importów (DFS jak granice.mjs), ścieżki względem src. */
+export function cykle(graf: Map<string, string[]>): string[] {
+  const stan = new Map<string, number>();
+  const sciezka: string[] = [];
+  const out = new Set<string>();
+  const dfs = (u: string) => {
+    stan.set(u, 1);
+    sciezka.push(u);
+    for (const v of graf.get(u) ?? []) {
+      if (stan.get(v) === 1) out.add(sciezka.slice(sciezka.indexOf(v)).concat(v).map((x) => relative(ROOT, x)).join(' -> '));
+      else if (!stan.has(v)) dfs(v);
+    }
+    sciezka.pop();
+    stan.set(u, 2);
+  };
+  for (const p of graf.keys()) if (!stan.has(p)) dfs(p);
+  return [...out];
+}
+
 describe('Granice modułów (granice.mjs, roli 05)', () => {
+  it('warstwa danych src/data bez cykli importów (cykl tylko z plików data)', () => {
+    const wData = cykle(granice('core').graf).filter((c) => c.split(' -> ').every((n) => n.startsWith('data/')));
+    expect(wData).toEqual([]);
+  });
+
   it('domena src/core nie importuje i18n, formatowania, katalogu receptur ani harmonogramu (poza import type)', () => {
     expect(granice('core').naruszenia).toEqual([]);
   });

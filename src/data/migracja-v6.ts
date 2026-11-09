@@ -9,7 +9,8 @@
 import * as FileSystem from 'expo-file-system/legacy';
 import type * as SQLite from 'expo-sqlite';
 import { AUTO_DIR, RESCUE_DIR, stampOf } from '../lib/backup';
-import { BAKE_SESSION_KEY, idSesji, parseBakeSession } from './bake-session-store';
+// Zamrożony parser sesji (wyjątek D-300): wynik migracji nie zależy od późniejszych zmian parsera [M1-audytor-generalny-021]
+import { KLUCZ_SESJI_V5 as BAKE_SESSION_KEY, idSesjiV6 as idSesji, parsujSesjeV6 as parseBakeSession } from './migracja-v6-parser';
 import { zachowajUszkodzony } from './uszkodzone-wiersze';
 
 const PLIK_RE = /^sesja-przed-migracja-.*\.json$/;
