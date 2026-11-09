@@ -17,6 +17,12 @@ on:
       - 'app.json'
       - 'package.json'
       - 'package-lock.json'
+      - 'languages/**'
+      - 'assets/**'
+      - 'babel.config.js'
+      - 'tsconfig.json'
+      - '.npmrc'
+      - 'eas.json'
       - '.github/workflows/e2e-ios.yml'
   pull_request:
     branches: [master, main]
@@ -27,6 +33,12 @@ on:
       - 'app.json'
       - 'package.json'
       - 'package-lock.json'
+      - 'languages/**'
+      - 'assets/**'
+      - 'babel.config.js'
+      - 'tsconfig.json'
+      - '.npmrc'
+      - 'eas.json'
       - '.github/workflows/e2e-ios.yml'
   workflow_dispatch:
 

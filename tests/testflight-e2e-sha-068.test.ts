@@ -4,8 +4,8 @@
  * e2e-ios.yml (wymóg D-131 i D-272 wykonywała dyscyplina koordynatora).
  * Kontrakt: zadanie `e2e-sha` (Linux, bez sekretów, token z odczytem Actions) pobiera przebiegi e2e-ios.yml
  * i uruchamia scripts/ci/e2e-na-sha.mjs; `build` czeka na nie (needs). Skrypt przepuszcza tylko SHA z zielonym
- * przebiegiem; wyjątek D-276 jako reguła: zielony przodek, gdy różnica do niego nie dotyka żadnej ścieżki
- * z filtra `paths` e2e-ios.yml (te zmiany i tak nie uruchamiają E2E). Czerwony przebieg na najbliższym
+ * przebiegiem; wyjątek D-276 jako reguła: zielony przodek, gdy różnica do niego dotyka tylko ścieżek spoza buildu
+ * z listy dozwolonych w skrypcie (D-316: filtr `paths` e2e-ios.yml pomijał languages/ i assets/, które są w buildzie). Czerwony przebieg na najbliższym
  * sprawdzonym SHA blokuje build, także gdy starszy przodek był zielony (przypadek 2ef8870a).
  */
 import { spawnSync, execFileSync } from 'node:child_process';
@@ -124,10 +124,10 @@ describe('scripts/ci/e2e-na-sha.mjs: decyzja bramki (M1-audytor-generalny-068, 0
     expect(sprawdz(dir, sha, [przebieg(sha, 'cancelled')]).kod).toBe(1);
   });
 
-  it('zielony przodek, różnica tylko poza filtrem paths e2e-ios.yml (docs/, tests/, inne workflowy) → kod 0 (D-276 jako reguła)', () => {
+  it('zielony przodek, różnica tylko w ścieżkach spoza buildu (docs/, audit/, tests/, site/, *.md w katalogu głównym, workflowy bez wpływu na build) → kod 0 (D-276 jako reguła, D-316)', () => {
     const { dir, commit } = nowe();
     const zielony = commit({ 'src/a.ts': 'export const a = 5;\n' });
-    const sha = commit({ 'docs/x.md': 'y\n', 'tests/t.test.ts': 'test\n', '.github/workflows/testflight.yml': 'x\n' });
+    const sha = commit({ 'docs/x.md': 'y\n', 'tests/t.test.ts': 'test\n', 'audit/a.md': 'a\n', 'site/i.html': 'i\n', 'README.md': 'r\n', '.github/workflows/nightly.yml': 'x\n' });
     const r = sprawdz(dir, sha, [przebieg(zielony, 'success')]);
     expect(r.kod).toBe(0);
     expect(r.wyjscie).toContain(zielony);
@@ -141,7 +141,18 @@ describe('scripts/ci/e2e-na-sha.mjs: decyzja bramki (M1-audytor-generalny-068, 0
     ['package-lock.json', { 'package-lock.json': '{}\n' }],
     // Zmiana samego workflowu E2E (filtr nadal czytelny: dopisany komentarz na końcu)
     ['e2e-ios.yml', { '.github/workflows/e2e-ios.yml': `${wf('e2e-ios.yml')}# zmiana\n` }],
-  ])('zielony przodek, ale różnica dotyka %s (ścieżka z filtra E2E) → kod 1', (_n, pliki) => {
+    // D-316 (przegląd ścieżki wrażliwej, P1): pliki w buildzie spoza filtra E2E — słowniki, zasoby, konfiguracja
+    // budowania, workflow buildu i skrypty; bramka zwalnia tylko ścieżki z listy dozwolonych (fail-closed)
+    ['languages/', { 'languages/pl.json': '{}\n' }],
+    ['assets/', { 'assets/licencje.generated.json': '[]\n' }],
+    ['babel.config.js', { 'babel.config.js': 'x\n' }],
+    ['tsconfig.json', { 'tsconfig.json': '{}\n' }],
+    ['.npmrc', { '.npmrc': 'x\n' }],
+    ['eas.json', { 'eas.json': '{}\n' }],
+    ['testflight.yml', { '.github/workflows/testflight.yml': 'x\n' }],
+    ['scripts/', { 'scripts/x.mjs': 'x\n' }],
+    ['nowy katalog', { 'nowy/plik.ts': 'x\n' }],
+  ])('zielony przodek, ale różnica dotyka %s (ścieżka w buildzie albo spoza listy dozwolonych) → kod 1', (_n, pliki) => {
     const { dir, commit } = nowe();
     const zielony = commit({ 'src/a.ts': 'export const a = 6;\n' });
     const sha = commit(pliki);
@@ -165,14 +176,23 @@ describe('scripts/ci/e2e-na-sha.mjs: decyzja bramki (M1-audytor-generalny-068, 0
     expect(sprawdz(dir, sha, [przebieg(zielony, 'success'), przebieg(czerwony, 'failure')]).kod).toBe(1);
   });
 
-  it('filtr paths czytany z e2e-ios.yml; wzorzec spoza obsługiwanych (np. **/*.ts) przerywa bramkę głośno → kod 1', () => {
+  it('zwolnienie nie zależy od filtra paths e2e-ios.yml: filtr bez src/** nie przepuszcza zmiany w src/ → kod 1 (D-316)', () => {
     const { dir, commit } = nowe();
     const zielony = commit({ 'src/a.ts': 'export const a = 8;\n' });
-    const sha = commit({ 'docs/x.md': 'w\n' });
     const sciezka = join(dir, '.github', 'workflows', 'e2e-ios.yml');
-    writeFileSync(sciezka, readFileSync(sciezka, 'utf8').replace("      - 'app/**'\n", "      - '**/*.ts'\n"));
-    const r = sprawdz(dir, sha, [przebieg(zielony, 'success')]);
-    expect(r.kod).toBe(1);
-    expect(r.wyjscie).toMatch(/wzorz/);
+    writeFileSync(sciezka, readFileSync(sciezka, 'utf8').replace(/      - 'src\/\*\*'\n/g, ''));
+    const sha = commit({ 'src/a.ts': 'export const a = 9;\n', '.github/workflows/e2e-ios.yml': readFileSync(sciezka, 'utf8') });
+    expect(sprawdz(dir, sha, [przebieg(zielony, 'success')]).kod).toBe(1);
+  });
+});
+
+describe('e2e-ios.yml: filtr paths obejmuje pliki w buildzie spoza app/ i src/ (D-316, przegląd ścieżki wrażliwej 068)', () => {
+  const e2e = wf('e2e-ios.yml');
+  it.each(['push', 'pull_request'])('%s: languages/**, assets/**, babel.config.js, tsconfig.json, .npmrc, eas.json', (zd) => {
+    const m = new RegExp(`\\n  ${zd}:\\n(?: {4}[^\\n]*\\n)*? {4}paths:\\n((?: {6}- [^\\n]+\\n)+)`).exec(e2e);
+    const lista = m?.[1] ?? '';
+    for (const w of ['languages/**', 'assets/**', 'babel.config.js', 'tsconfig.json', '.npmrc', 'eas.json']) {
+      expect({ w, jest: lista.includes(`'${w}'`) }).toEqual({ w, jest: true });
+    }
   });
 });
