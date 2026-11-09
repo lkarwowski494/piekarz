@@ -15,23 +15,14 @@ export interface SchemaMigration {
 }
 
 /** Wykonuje oczekujące migracje z listy (aplikacja: migracje w sqlite-schema.ts). */
-export async function uruchomMigracje(db: SQLite.SQLiteDatabase, migracje: readonly SchemaMigration[]): Promise<void> {
+export async function uruchomMigracje(db: SQLite.SQLiteDatabase, migracje: readonly SchemaMigration[], przygotowanie: string): Promise<void> {
   // Wersja przed czymkolwiek innym: bazy nowszej niż aplikacja nie zmienia nawet PRAGMA journal_mode [M1-audytor-generalny-061]
   const known = Math.max(...migracje.map((m) => m.version));
   const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
   if (found > known) throw new NewerDatabaseError(found, known);
 
-  await db.execAsync(`
-    PRAGMA journal_mode = WAL;
-    PRAGMA foreign_keys = ON;
-    PRAGMA busy_timeout = 5000;
-
-    CREATE TABLE IF NOT EXISTS schema_migrations (
-      version INTEGER PRIMARY KEY NOT NULL,
-      applied_at TEXT NOT NULL,
-      description TEXT NOT NULL
-    );
-  `);
+  // Pragmy i tabela schema_migrations z sqlite-schema.ts (jedno źródło schematu, 062)
+  await db.execAsync(przygotowanie);
 
   const currentVersion = found;
 

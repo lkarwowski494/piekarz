@@ -337,9 +337,22 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
   MIGRACJA_V7,
 ];
 
+/** Pragmy i tabela wykonanych migracji, przed migracjami (po sprawdzeniu wersji). */
+export const PRZYGOTOWANIE_MIGRACJI = `
+    PRAGMA journal_mode = WAL;
+    PRAGMA foreign_keys = ON;
+    PRAGMA busy_timeout = 5000;
+
+    CREATE TABLE IF NOT EXISTS schema_migrations (
+      version INTEGER PRIMARY KEY NOT NULL,
+      applied_at TEXT NOT NULL,
+      description TEXT NOT NULL
+    );
+  `;
+
 /** Migracje aplikacji na bazie; runner: runner-migracji.ts. */
 export function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
-  return uruchomMigracje(db, SCHEMA_MIGRATIONS);
+  return uruchomMigracje(db, SCHEMA_MIGRATIONS, PRZYGOTOWANIE_MIGRACJI);
 }
 
 export { NewerDatabaseError, MigrationError } from './runner-migracji';

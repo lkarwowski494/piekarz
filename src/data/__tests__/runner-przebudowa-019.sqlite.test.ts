@@ -45,7 +45,7 @@ describe('M1-audytor-generalny-019: runner migracji', () => {
     const { uruchomMigracje } = require('../runner-migracji') as typeof import('../runner-migracji');
     const raw = openRaw(APP_DB());
     const przed = tableCounts(raw);
-    await uruchomMigracje(db, app.schema.SCHEMA_MIGRATIONS);
+    await uruchomMigracje(db, app.schema.SCHEMA_MIGRATIONS, app.schema.PRZYGOTOWANIE_MIGRACJI);
     expect(tableCounts(raw)).toEqual(przed);
     raw.close();
   });
