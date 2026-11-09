@@ -25,6 +25,7 @@ const SLOWA_FUNKCJI: Record<string, RegExp> = {
   'F-70': /synchroniz|iPad/i,
   'F-53': /\blodu\b|\blód\b/i,
   'F-15': /gotowoś\S* ciasta|palc/i,
+  'F-79': /widżet/i,
 };
 
 /** Słowa wejść ukrytych (`WEJSCIA_WIDOCZNE` = false). */

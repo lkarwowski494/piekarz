@@ -210,7 +210,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.` | `src/components/harmonogram/DodajDoKalendarza.tsx` | ✅ | tests/przeklad-a5.test.ts |
 | `TEKST` | `Notatka z poprzedniego wypieku: {notatka}` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | src/__tests__/piecz-ponownie-recp003-146.test.tsx |
 | `TEKST` | `Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/piecz-ponownie-id-d3a.test.tsx |
-| `TEKST` | `Zaplanuj` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/core/__tests__/plany-d5.test.ts |
+| `TEKST` | `Zaplanuj` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
 | `TEKST` | `Zacznij wypiek` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Ustaw tę godzinę` | `src/components/harmonogram/PlanZaPozno.tsx` | ✅ | src/__tests__/plan-za-pozno-107.test.tsx |
 | `TEKST` | `Całość trwa {czas}.` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
@@ -258,8 +258,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zakwas\|składnik` | `src/components/ImportRecipeModal.tsx` | ✅ | src/lib/__tests__/en-kontrola-074.test.ts, src/lib/__tests__/i18n-kontekst.test.ts |
 | `TEKST` | `Zaimportuj przepis` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{h} {co}` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/lib/__tests__/kalendarz-teksty-d4a.test.ts |
-| `UI` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-plany-d5.test.tsx |
-| `TEKST` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-plany-d5.test.tsx |
+| `UI` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
+| `TEKST` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
 | `TEKST` | `Tego dnia nic nie zaplanowano.` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Najbliższe dni` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `{dzien}: piekarnik zajęty o {h}` | `src/components/kalendarz/LiniaPiekarnika.tsx` | ✅ | tests/przeklad-a5.test.ts |
