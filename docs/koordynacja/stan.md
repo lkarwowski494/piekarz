@@ -13,10 +13,10 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 - Gałąź robocza: `redesign/piekarz-2026-10-22` (integracja 1.0); gałąź stanu: `koordynacja`.
 
 ## Teraz
-- Reaudyt M1 pętla 1 (B) gotowy: K @ `5e835a92` (`audit-m1`), 65/68 zweryfikowane; ZABLOKOWANE przez P1 005, 087 (utrata wypieków w imporcie z trybu awaryjnego), 088, 089; 066 czeka na E2E #101, 067 na nightly. P3 090–101 backlog.
-- KO-007: DEC-21 = a, ponowne zatwierdzenie → sesja A: M2 partia 4 na `naprawy/M2-koordynator-napraw-2026-11-09-p4` od `ea249c9c`.
-- **E2E #101 (run 42705979446) na `ea249c9c` CZERWONE**: krok pl_PL failure (22:18–22:34), en_US/negatywna/Basic zielone; #100 na `6a412c9a` zielony, różnica tylko docs → diagnoza zlecona C (subagent roli 07). Kandydat dopiero po partii 4, zielonym E2E na head i pętli 2 reaudytu (D-043).
-- Następny krok: kontrola 22:40.
+- Partia 4 (C): p4 @ `292870c0`, verify UTC+Tokyo kod 0 (6827 testów) wg C — niesprawdzone bezpośrednio; 087/088/089 naprawione-do-weryfikacji; 005 częściowo (393 pt OK z rachunku, 320 pt nie) → partia 4b (KO-008 a, rola 04, D-319).
+- **E2E #102 (run 42720983459) na `292870c0`** w toku od 23:30.
+- E2E #101 na `ea249c9c` czerwone: diagnoza roli 07 — zgubiony dotyk symulatora w `06-koniec-wypieku.yaml:18–21` (pl_PL), błąd aplikacji nie znaleziony, pewność ~90% (K/role/07-jakosc/fix-2026-11-09/diagnoza-e2e-101.md); poprawka N8 wstrzymana (KO-008) do właściciela.
+- Dalej: 4b → E2E na head p4 → scalenie p4 → `redesign` → reaudyt pętla 2 (ostatnia, D-043) → kandydat.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
@@ -56,7 +56,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
 ## Pule numerów decyzji
-- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005, KO-006 zajęte; KO następny: KO-007.
+- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005…KO-008 zajęte; KO następny: KO-009.
 - M2 (sesja A i następczynie): od D-300; zajęte do D-316; pula D-317…D-319; następny wolny: **D-317**.
 - B (reaudyt M1): D-320…D-329.
 
@@ -84,3 +84,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 22:43 | M9 | PRZEKAZANIE A: p4 @ `bb162ddf` (087 naprawione, verify 6801 kod 0 wg A), prompt `prompt-przekazania-M2-2026-11-09c.md` (K @ `26f7dc38`); subagent roli 06 (088/089) z niezacommitowaną pracą w kontenerze A → A dokańcza commit/push (wyjątek do ~38%); następczyni po pushu | kontrola 23:12 |
 | 09.11 22:57 | M9 | A: p4 @ `d04c94ca` (089 `3e05396e`, 088 `d04c94ca`; sprawdzone: log, przodek `bb162ddf`), K @ `4723a98d`; następczyni C `session_01T66VBxPQkXtF6hFvYsPtHe` (prompt 09c dosłownie + dopisek); A 31,4%, 23,88 USD, archiwizacja odrzucona | kontrola 23:12 |
 | 09.11 23:13 | M9 | E2E #101 czerwone (pl_PL; `actions_list` jobs); C 15,6%, 7,97 USD, 005 w toku (subagent roli 08) → C dostała diagnozę #101 | kontrola 00:14 |
+| 09.11 23:31 | M9 | C koniec partii 4: p4 @ `292870c0` (sprawdzone: log, przodek `d04c94ca`), K @ `b4b0b8f2`; D-317, D-318; diagnoza #101 (dotyk symulatora); E2E #102 wyzwolony; KO-008 → C partia 4b | kontrola 00:14 |
