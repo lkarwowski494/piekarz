@@ -41,31 +41,34 @@ hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,ma
 ### Tekst promocyjny (Promotional Text) · 169 / 170 znaków · wersja 1.0
 
 ```text
-Defina a hora em que o pão deve ficar pronto: o Padeiro calcula as quantidades, monta o plano reverso e avisa o fim de cada etapa. Sem conta, sem internet, sem anúncios.
+O Padeiro calcula as quantidades e avisa o fim de cada etapa. Plano reverso a partir da hora em que o pão deve ficar pronto (Pro). Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3518 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3931 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro guia você na fornada de pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e controla o tempo mesmo com o celular em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreamento. Suas receitas, seus fermentos naturais e seu diário ficam só no seu celular.
 
 RECEITAS E QUANTIDADES
-Escolha uma das 15 receitas base (de fermentação natural, de centeio, com fermento biológico, pizza e doces) ou uma receita própria. Defina o número de pães ou o peso da farinha, e o Padeiro informa os gramas de farinha, água, fermento natural, sal e fermento biológico. A porcentagem do padeiro considera a farinha e a água do fermento natural e do levain. O Padeiro também informa a temperatura da água para chegar à temperatura da massa que você quer.
+Escolha uma das 26 receitas base (de fermentação natural, de centeio, com fermento biológico, pizza e doces) ou uma receita própria; 11 receitas de fermentação natural têm plano e orientação passo a passo. Defina o número de pães ou o peso da farinha, e o Padeiro informa os gramas de farinha, água, fermento natural, sal e fermento biológico. A porcentagem do padeiro considera a farinha e a água do fermento natural e do levain (levain: Pro). O Padeiro também informa a temperatura da água para chegar à temperatura da massa que você quer.
 
-PLANO A PARTIR DO HORÁRIO “PRONTO”
+VERSÃO COM FERMENTO BIOLÓGICO E PANIFICADORA
+Quatro receitas de fermentação natural também têm versão com fermento biológico, três delas com plano. As receitas e versões com fermento biológico também vão à panificadora: o Padeiro ajusta as quantidades, informa a ordem dos ingredientes e o programa, e o horário de início para o horário de pronto escolhido (Pro).
+
+PLANO A PARTIR DO HORÁRIO “PRONTO” (Pro)
 Escolha quando o pão deve ficar pronto, e o Padeiro calcula de trás para frente o horário de início de cada etapa. O tempo de fermentação depende da temperatura da cozinha. Quando uma etapa que exige suas mãos cai à noite (por padrão, entre 23:00 e 07:00), o Padeiro sugere um tempo maior na geladeira. Quando o tempo é curto demais, ele informa o horário mais cedo possível.
 
 ORIENTAÇÃO PASSO A PASSO
 O Padeiro mostra a etapa atual: o que fazer, quanto tempo leva e o que vem depois. Se você permitir notificações, ele avisa o fim da etapa mesmo com o celular bloqueado. Durante uma etapa que exige suas mãos, a tela de orientação não se apaga. Etapas com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais da metade da farinha é farinha de centeio) tem etapas próprias, sem dobras. Você pode desfazer uma etapa confirmada por engano e, ao reabrir o app, ele volta para a etapa atual.
 
 FERMENTOS NATURAIS
-Mantenha vários fermentos naturais. O Padeiro informa as quantidades para alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quando o fermento natural dobrar de volume, o Padeiro o marca como pronto para a massa. Após 12 horas na bancada sem alimentação, ele lembra você com uma notificação. Você pode iniciar um novo fermento natural dia a dia. O Padeiro segue o princípio da precaução: em caso de película, alteração de cor ou cheiro de podre, recomenda jogar o fermento natural fora.
+Você pode iniciar um novo fermento natural dia a dia. O Padeiro segue o princípio da precaução: em caso de película, alteração de cor ou cheiro de podre, recomenda jogar o fermento natural fora. Cuidados com o fermento natural (Pro): vários fermentos naturais, quantidades para alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5, marcação de pronto quando o fermento dobrar de volume e lembrete após 12 horas na bancada sem alimentação.
 
 DOUTOR DO PÃO
 Miolo compacto e casca pálida? Marque os sintomas, e o Doutor do Pão aponta um de 9 defeitos, explica a causa e diz o que mudar na próxima vez. Quatro protocolos de resgate ajudam quando a massa tem problemas durante a fermentação. O Doutor do Fermento ajuda quando algo no fermento natural preocupa você.
 
 DIÁRIO
-Avalie cada pão: estrelas, miolo, casca e perfil de sabor. O Diário mostra estatísticas, e “Assar novamente” abre a mesma receita.
+Avalie cada pão: estrelas, miolo, casca e perfil de sabor. O Diário mostra estatísticas (Pro), e “Assar novamente” abre a mesma receita.
 
 SEUS DADOS
 O Padeiro guarda no celular os 10 últimos backups automáticos. Você pode exportar todos os dados para um arquivo e importá-los de um arquivo, e exportar o histórico de fornadas em CSV. Unidades: gramas e °C ou onças e °F.
@@ -116,12 +119,12 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-038, docs/wydanie/ceny.json |
+| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

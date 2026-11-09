@@ -33,11 +33,10 @@ describe('Public privacy and support links (012)', () => {
     expect(fs.existsSync(path.join(root, 'site/support.html'))).toBe(true);
   });
 
-  // Strony publikuje repo apps4brew-www (src/lib/links.ts); Pages tego repo tylko ręcznie (właściciel 2026-10-21).
-  it('the Pages workflow runs only on manual dispatch, never on push', () => {
-    const wf = read('.github/workflows/pages.yml');
-    expect(wf).toMatch(/workflow_dispatch:/);
-    expect(wf).not.toMatch(/^\s*push:/m);
+  // Strony publikuje repo apps4brew-www (src/lib/links.ts); workflow Pages tego repo usunięty za zgodą właściciela
+  // (M1-audytor-generalny-077, 2026-11-09): żaden workflow tego repo nie publikuje stron
+  it('no Pages workflow in this repo (pages are published by apps4brew-www)', () => {
+    expect(fs.existsSync(path.join(root, '.github/workflows/pages.yml'))).toBe(false);
   });
 
   it('App Store metadata uses the same addresses', () => {

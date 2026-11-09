@@ -38,34 +38,37 @@ Plan de coacere și calculator
 pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,drojdie,franzelă
 ```
 
-### Tekst promocyjny (Promotional Text) · 165 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
 
 ```text
-Setează ora la care vrei pâinea gata: Brutar calculează cantitățile, face planul invers și te anunță la finalul fiecărui pas. Fără cont, fără internet, fără reclame.
+Brutar calculează cantitățile și te anunță la finalul fiecărui pas. Plan invers de la ora la care vrei pâinea gata (Pro). Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3272 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3624 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
 
 REȚETE ȘI CANTITĂȚI
-Alegi una dintre cele 15 rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain. Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
+Alegi una dintre cele 26 de rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie; 11 rețete cu maia au plan și ghidare pas cu pas. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain (levain: Pro). Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
 
-PLAN DE LA ORA „GATA”
+VARIANTA CU DROJDIE ȘI APARATUL DE FĂCUT PÂINE
+Patru rețete cu maia au și variantă cu drojdie, trei dintre ele cu plan. Rețetele și variantele cu drojdie merg și în aparatul de făcut pâine: Brutar potrivește cantitățile pentru aparat, îți dă ordinea ingredientelor și programul, plus ora de pornire pentru ora „gata” aleasă (Pro).
+
+PLAN DE LA ORA „GATA” (Pro)
 Alegi când trebuie să fie gata pâinea, iar Brutar calculează invers ora de start a fiecărui pas. Durata fermentării depinde de temperatura din bucătărie. Când un pas care are nevoie de mâinile tale cade noaptea (implicit între 23:00 și 07:00), Brutar îți propune un timp mai lung la frigider. Când timpul nu ajunge, îți dă cea mai devreme oră posibilă.
 
 GHIDARE PAS CU PAS
 Brutar îți arată pasul curent: ce ai de făcut, cât durează și ce urmează. Dacă permiți notificările, te anunță la finalul pasului și când telefonul e blocat. Într-un pas care are nevoie de mâinile tale, ecranul de ghidare nu se stinge. Pașii cu vas fierbinte sau aluat crud au un avertisment. Pâinea de secară (peste jumătate din făină este făină de secară) are pași proprii, fără împăturire. Un pas confirmat din greșeală îl poți anula, iar la redeschidere aplicația revine la pasul curent.
 
 MAIA NATURALĂ
-Poți ține mai multe maiale. Brutar îți dă cantitățile pentru hrănire în proporție de 1:1:1, 1:2:2, 1:3:3 sau 1:5:5. Când maiaua își dublează volumul, Brutar o marchează ca gata pentru aluat. După 12 ore pe blat fără hrănire, îți amintește de ea printr-o notificare. O maia nouă o pornești zi de zi. Brutar aplică principiul precauției: la depunere, decolorare sau miros de putred te sfătuiește să arunci maiaua.
+O maia nouă o pornești zi de zi. Brutar aplică principiul precauției: la depunere, decolorare sau miros de putred te sfătuiește să arunci maiaua. Îngrijirea maialei (Pro): mai multe maiale, cantități pentru hrănire în proporție de 1:1:1, 1:2:2, 1:3:3 sau 1:5:5, marcaj „gata” când maiaua își dublează volumul și memento după 12 ore pe blat fără hrănire.
 
 DOCTORUL PÂINII
 Miezul e compact, iar coaja palidă? Bifezi simptomele, iar Doctorul Pâinii indică unul dintre cele 9 defecte, explică cauza și îți spune ce să schimbi data viitoare. Patru protocoale de salvare te ajută când aluatul are probleme în timpul fermentării. Doctorul maiei te ajută când ceva la maia te neliniștește.
 
 JURNAL
-Evaluezi fiecare pâine: stele, miez, coajă și profil de gust. Jurnalul arată statistici, iar „Coace din nou” deschide aceeași rețetă.
+Evaluezi fiecare pâine: stele, miez, coajă și profil de gust. Jurnalul arată statistici (Pro), iar „Coace din nou” deschide aceeași rețetă.
 
 DATELE TALE
 Brutar păstrează pe telefon ultimele 10 copii de rezervă automate. Poți exporta toate datele într-un fișier și le poți importa din fișier, iar istoricul coacerilor îl poți exporta ca CSV. Unități: grame și °C sau uncii și °F.
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

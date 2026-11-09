@@ -42,7 +42,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 
 ### PR-10: Dostosować aplikację do siebie
 - Kto: wszyscy · Praca: J-01 · Częstotliwość: rzadko · Kontekst: dowolny.
-- Kroki: wybiera jednostki (gramy albo uncje, °C albo °F) → język wynika z ustawień telefonu → otwiera politykę prywatności.
+- Kroki: wybiera jednostki (gramy albo uncje, °C albo °F) → język wynika z ustawień telefonu → otwiera politykę prywatności → sprawdza, skąd pochodzą porady (Źródła wiedzy, BR-UST-004) i licencje bibliotek (BR-UST-005).
 
 ### PR-11: Założyć zakwas od zera
 - Kto: P-6 · Praca: J-07 · Częstotliwość: raz albo kilka razy, kilka do kilkunastu dni · Kontekst: kuchnia, krótka sesja codziennie.

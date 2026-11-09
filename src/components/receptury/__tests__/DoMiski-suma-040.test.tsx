@@ -6,6 +6,7 @@ import renderer, { act } from 'react-test-renderer';
 import * as fc from 'fast-check';
 import { DoMiski, DoMiskiProps } from '../DoMiski';
 import { calculateDoughRecipe } from '../../../core/domain-rules';
+import { nr } from '../../../../tests/helpers/fc-runs';
 
 const PBT_SEED: number | undefined = fc.readConfigureGlobal().seed;
 
@@ -80,7 +81,7 @@ describe('DoMiski: suma wierszy karty = masa docelowa ±1 g (DEC-11 (a))', () =>
             expect(odchylka).toBeLessThanOrEqual(1);
           },
         ),
-        { numRuns: 10000, ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}) },
+        { numRuns: nr(10000), ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}) },
       );
     } catch (error: unknown) {
       console.warn(`[040 PBT FAILURE] ziarno: ${PBT_SEED ?? 'losowe: patrz raport fast-check (seed)'}`);

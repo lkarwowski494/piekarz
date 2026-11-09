@@ -25,6 +25,7 @@ Plan: `docs/wydanie/sklep.md` (DEC-16 a). Jeden wiersz na build i kanał. Zgody 
 Osobno od tabeli buildów (wpisy bez buildu) [M1-audytor-generalny-181]:
 - 2026-10-21, commit `bdb854b`, przebieg na sucho (GitHub Actions run 39582555161): 714 operacji do utworzenia, skrót planu `ff854f80…1356`.
 - 2026-10-21, commit `4aaf974`, zapis (run 39583333126). Zgoda właściciela: „Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea41356 (714 operacji), łącznie z nieodwracalnym Family Sharing.” (2026-10-21). Wynik: grupa „Piekarz Pro”, 2 subskrypcje i dożywotni z Family Sharing, nazwy en-US i pl, ceny DEC-01 d i D-038, Free Trial 2 Weeks na obu subskrypcjach, 174 storefronty bez CHN, ankieta wieku D-058; drugi przebieg na sucho w tym samym zadaniu: 0 różnic.
+- 2026-11-03, ręcznie w App Store Connect (właściciel, bez skryptu): Z-1, usunięcie oferty wprowadzającej „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly` (D-112, D-113 wdrożenie pkt 1), w dniu scalenia do master i buildu 1021. Słowa właściciela: „Obie usuenięte.” (2026-11-03, `docs/wznowienie-M3.md`, „Z-1 zrobione”). Zrzutu ekranu w repo brak; wpis dopisany 2026-11-09 w M2 (M1-audytor-generalny-057, DEC-08 a). Sprawdzenie w dniu zgłoszenia: §4 `instrukcja-ustawien.md` (kroki 4.1, 4.2).
 
 ## Zgłoszenie App Store przez API (`scripts/asc-zgloszenie.mjs`)
 

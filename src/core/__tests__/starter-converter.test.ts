@@ -4,6 +4,7 @@ import {
   convertStarterHydration,
   STARTER_PRESETS,
 } from '../starter-converter';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Starter Converter Engine (src/core/starter-converter.ts)', () => {
   describe('STARTER_PRESETS', () => {
@@ -115,7 +116,7 @@ describe('Starter Converter Engine (src/core/starter-converter.ts)', () => {
             expect(Math.abs(userFlour - recipeFlour)).toBeLessThan(1.5);
           }
         ),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });
@@ -185,7 +186,7 @@ describe('Starter Converter Engine (src/core/starter-converter.ts)', () => {
             expect(Math.abs(res.actualHydration - tgtHydr)).toBeLessThanOrEqual(3.0);
           }
         ),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });

@@ -2,7 +2,7 @@
  * M1-audytor-generalny-067 (07-jakosc-014): każde BR z kryterium akceptacji w docs/brd/*.md ma test
  * z tym ID w nazwie (describe / it / test) albo wyjątek z powodem i źródłem w scripts/br-wyjatki.json.
  * Testy „mutant” pokazują, że bramka potrafi paść (ID usunięte z nazw testów jednego pliku, także dla BR
- * z wpisem częściowym; wyjątek bez powodu).
+ * z wpisem częściowym; wyjątek bez powodu; wpis „bez kodu”, którego kod istnieje — 070).
  */
 import { spawnSync } from 'node:child_process';
 import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -40,11 +40,18 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
     expect(r.status).toBe(0);
   });
 
+  // 07-przek-3 (03-p3b-N-3): test kontraktu zakresu z ID BR w nazwie (kontrakt-zm28-058, widżet z wyjątkiem PÓŹNIEJ)
+  // liczył się jako test kryterium. Pełny wyjątek zwalnia BR z testu, więc „test” takiego BR jest fałszywy.
+  it('pełny wyjątek nie ma testu z ID w nazwie (wyjatkiZTestem puste; 03-p3b-N-3)', () => {
+    const raport = JSON.parse(uruchom(['--json']).stdout) as Raport & { wyjatkiZTestem: string[] };
+    expect(raport.wyjatkiZTestem).toEqual([]);
+  });
+
   // 55 + 16 BR-KAL i BR-ETAP-006 z badania kalendarza (ER-62…ER-64) + BR-DIAG-003…005 dla F-71 (ER-70); liczbę potwierdza też kontrola-brd.mjs roli 01
   it('skrypt widzi 75 BR z kryteriami z docs/brd (bez archiwum)', () => {
     const r = uruchom(['--json']);
     const raport = JSON.parse(r.stdout) as Raport;
-    expect(raport.brd).toBe(84); // + BR-DANE-005 (M1-audytor-generalny-035, ER-82)
+    expect(raport.brd).toBe(86); // + BR-DANE-005 (M1-audytor-generalny-035, ER-82); + BR-UST-004, BR-UST-005 (ER-84)
   });
 
   it('mutant: usunięcie ID z nazw testów jedynego pliku z tym BR daje kod 1 i to BR na liście', () => {
@@ -137,6 +144,70 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
       const r = spawnSync(process.execPath, [script, '--root', dir], { encoding: 'utf8' });
       expect(r.status).toBe(1);
       expect(r.stderr).toContain(`wyjątek pełny ${mvp}`);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  // M1-audytor-generalny-070 (07-jakosc-006): wpis „bez kodu” nie wygasał, gdy kod powstał (BR-RECP-005, D-187).
+  // Wpis z „bez kodu” w powodzie wskazuje w polu „brak” plik (albo „plik#symbol”), którego nie ma; skrypt pada, gdy jest.
+  type Wpis = { id: string; powod: string; zrodlo: string; czesciowe?: boolean; brak?: string };
+  const zWpisem = (dir: string, zmien: (w: Wpis[]) => Wpis[]) => {
+    const p = join(dir, 'scripts', 'br-wyjatki.json');
+    const dane = JSON.parse(readFileSync(p, 'utf8')) as { wyjatki: Wpis[] };
+    dane.wyjatki = zmien(dane.wyjatki);
+    writeFileSync(p, JSON.stringify(dane));
+    return spawnSync(process.execPath, [script, '--root', dir], { encoding: 'utf8' });
+  };
+
+  it('wpis „bez kodu” wskazuje w polu „brak” plik albo symbol, którego w repo nie ma (070)', () => {
+    const dane = JSON.parse(readFileSync(join(root, 'scripts', 'br-wyjatki.json'), 'utf8')) as { wyjatki: Wpis[] };
+    const bezKodu = dane.wyjatki.filter((w) => /bez kodu/i.test(w.powod));
+    expect(bezKodu.length).toBeGreaterThan(0);
+    for (const w of bezKodu) {
+      expect([w.id, typeof w.brak]).toEqual([w.id, 'string']);
+      const [plik, symbol] = (w.brak as string).split('#');
+      const istnieje = existsSync(join(root, plik)) && (!symbol || new RegExp(`\\b${symbol}\\b`).test(readFileSync(join(root, plik), 'utf8')));
+      expect([w.id, w.brak, istnieje]).toEqual([w.id, w.brak, false]);
+    }
+  });
+
+  it('mutant: wpis „bez kodu”, którego wskazany plik istnieje, daje kod 1 (070)', () => {
+    const dir = kopia();
+    try {
+      const r = zWpisem(dir, (l) => [
+        ...l.filter((w) => w.id !== 'BR-RECP-004'),
+        { id: 'BR-RECP-004', powod: 'funkcja PÓŹNIEJ w kontrakcie zakresu (porównanie wypieków, bez kodu)', zrodlo: 'F-63, D-043', brak: 'src/recipes/wersje-drozdzowe.ts' },
+      ]);
+      expect(r.status).toBe(1);
+      expect(r.stderr).toContain('wyjątek BR-RECP-004 „bez kodu”, a src/recipes/wersje-drozdzowe.ts istnieje');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('mutant: wpis „bez kodu” ze wskazanym symbolem, który jest w pliku, daje kod 1; symbolu nie ma — kod 0 (070)', () => {
+    const dir = kopia();
+    try {
+      const zBrakiem = (brak: string) => (l: Wpis[]) => l.map((w) => (w.id === 'BR-RECP-004' ? { ...w, brak } : w));
+      const r = zWpisem(dir, zBrakiem('src/recipes/wersje-drozdzowe.ts#formulaWersji'));
+      expect(r.status).toBe(1);
+      expect(r.stderr).toContain('src/recipes/wersje-drozdzowe.ts#formulaWersji istnieje');
+      expect(zWpisem(dir, zBrakiem('src/recipes/wersje-drozdzowe.ts#porownanieWypiekow070')).status).toBe(0);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('mutant: wpis „bez kodu” bez pola „brak” (jak BR-RECP-005 przed 070) daje kod 1', () => {
+    const dir = kopia();
+    try {
+      const r = zWpisem(dir, (l) => [
+        ...l,
+        { id: 'BR-SPIZ-001', powod: 'funkcja w zakresie 1.0 jeszcze bez kodu', zrodlo: 'F-30, D-043' },
+      ].filter((w, i, a) => w.id !== 'BR-SPIZ-001' || i === a.length - 1));
+      expect(r.status).toBe(1);
+      expect(r.stderr).toContain('wyjątek BR-SPIZ-001 „bez kodu” bez pola „brak”');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

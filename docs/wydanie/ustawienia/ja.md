@@ -38,34 +38,37 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 パン作り,レシピ,ライ麦,自家製,パン生地,仕込み水,スケジュール,ルヴァン
 ```
 
-### Tekst promocyjny (Promotional Text) · 79 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 76 / 170 znaków · wersja 1.0
 
 ```text
-パンを仕上げたい時刻を設定するだけ。パン職人が分量を計算し、逆算でプランを立て、各工程の終わりをお知らせします。アカウント不要、インターネット不要、広告なし。
+パン職人が分量を計算し、各工程の終わりをお知らせします。パンを仕上げたい時刻から逆算するプラン（Pro）。アカウント不要、インターネット不要、広告なし。
 ```
 
-### Opis (Description) · 1580 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1769 / 4000 znaków · wersja 1.0
 
 ```text
 パン職人は、サワードウブレッドの焼成を配合からローフまでガイドします。分量を計算し、プランを立て、スマートフォンがスリープ中でも時間を管理します。アカウント不要・インターネット接続不要で動作し、広告もトラッキングもありません。配合、サワー種、焼成記録はすべてお使いのスマートフォンの中だけに保存されます。
 
 配合と分量
-15種類の基本配合（サワードウ、ライ麦、イースト、ピザ、甘いパン）またはオリジナルの配合から選びます。ローフの数または粉の重量を設定すると、パン職人が粉・水・サワー種・塩・イーストのグラム数を表示します。ベーカーズパーセントには、サワー種と発酵種に含まれる粉と水も含めて計算します。捏ね上げ目標温度にするための水温も表示します。
+26種類の基本配合（サワードウ、ライ麦、イースト、ピザ、甘いパン）またはオリジナルの配合から選びます。サワー種を使う11種類の配合には、プランとステップごとのガイドがあります。ローフの数または粉の重量を設定すると、パン職人が粉・水・サワー種・塩・イーストのグラム数を表示します。ベーカーズパーセントには、サワー種と発酵種に含まれる粉と水も含めて計算します（発酵種：Pro）。捏ね上げ目標温度にするための水温も表示します。
 
-「完成」時刻から逆算するプラン
+イースト版とホームベーカリー
+サワー種の配合のうち4種類にはイースト版もあり、そのうち3種類はプラン付きです。イーストの配合とイースト版はホームベーカリーでも焼けます。パン職人が分量を機種に合わせ、材料を入れる順番とコースを表示し、選んだ完成時刻に合わせたスタート時刻も計算します（Pro）。
+
+「完成」時刻から逆算するプラン（Pro）
 パンを仕上げたい時刻を選ぶと、パン職人が各工程の開始時刻を逆算します。発酵時間はキッチンの室温に応じて変わります。手作業が必要な工程が夜間（初期設定では23:00〜07:00）にかかる場合は、冷蔵庫での時間を長くする案を提示します。時間が足りない場合は、最も早く可能な時刻を表示します。
 
 ステップごとのガイド
 パン職人は現在の工程を表示します。何をするか、どれくらいかかるか、次に何をするかがわかります。通知を許可すると、スマートフォンがロック中でも工程の終了をお知らせします。手作業が必要な工程では、ガイド画面が消灯しません。熱い器具や生の生地を扱う工程には警告が表示されます。ライ麦パン（粉の半分以上がライ麦粉）には、パンチ / 折りたたみのない専用の工程があります。誤って完了にした工程は元に戻せます。アプリを開き直すと現在の工程に戻ります。
 
 サワー種
-複数のサワー種を管理できます。1:1:1、1:2:2、1:3:3、1:5:5の比率で種継ぎの分量を表示します。サワー種が2倍に膨らむと、生地に使える状態としてマークします。種継ぎせずに室温で12時間たつと、通知でお知らせします。新しいサワー種も1日ずつ手順に沿って起こせます。パン職人は慎重を期す原則に従い、表面の膜、変色、腐敗臭がある場合はサワー種を捨てるよう案内します。
+新しいサワー種も1日ずつ手順に沿って起こせます。パン職人は慎重を期す原則に従い、表面の膜、変色、腐敗臭がある場合はサワー種を捨てるよう案内します。サワー種のケア（Pro）：複数のサワー種の管理、1:1:1、1:2:2、1:3:3、1:5:5の比率での種継ぎの分量、2倍に膨らんだときの使用可能マーク、種継ぎせずに室温で12時間たったときの通知。
 
 パンドクター
 クラムが詰まって、クラストの色が薄い？症状にチェックを入れると、パンドクターが9種類の欠点から1つを特定し、原因を説明して、次回変えるべき点を示します。4つのレスキュー手順が、発酵中にトラブルが起きた生地に役立ちます。サワー種の様子が気になるときは、サワー種ドクターが役立ちます。
 
 焼成記録
-ローフごとに評価します：星、クラム、クラスト、風味のプロファイル。焼成記録には統計が表示され、「もう一度焼く」で同じ配合を開きます。
+ローフごとに評価します：星、クラム、クラスト、風味のプロファイル。焼成記録には統計（Pro）が表示され、「もう一度焼く」で同じ配合を開きます。
 
 データについて
 パン職人は直近10件の自動バックアップをスマートフォン内に保持します。すべてのデータをファイルに書き出したり、ファイルから読み込んだりできます。焼成履歴はCSVで書き出せます。単位：グラムと°C、またはオンスと°F。
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

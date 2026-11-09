@@ -71,7 +71,7 @@ export const CZESC: Record<string, string> = {
   'Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.':
     'Zakasnjeni zagon je izklopljen, ker recept vsebuje jajca, sveže mleko, sir, jogurt, sok, sveže sadje ali zelenjavo.',
   'Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.':
-    'Vsako od prebranih navodil pekačev prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.',
+    'Vsako od prebranih navodil pekačev kruha prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
     'Po enem od navodil mleko v prahu namesto svežega mleka dovoljuje zakasnjeni zagon, zato ga Pek ne blokira.',
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
@@ -85,7 +85,7 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Med delovanjem se ne dotikajte odprtine za paro in je ne zakrivajte.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Otroke, mlajše od 8 let, držite stran od pekača in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.',
+    'Otroke, mlajše od 8 let, držite stran od pekača kruha in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'Predlog programa je pravilo aplikacije Pek in ne priporočilo proizvajalca, zato ga preverite v navodilih svojega pekača.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':

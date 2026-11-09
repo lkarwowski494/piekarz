@@ -62,7 +62,7 @@ describe('Plan wypieku: Spirala planu przed startem (058)', () => {
     const etykieta: string = s[0].props.accessibilityLabel;
     // przy otwarciu plan na najwcześniejszą godzinę, gdy domyślna „jutro 10:00” dałaby start w przeszłości (107);
     // liczba kroków w etykiecie = liczba odcinków spirali (kroki planu)
-    const m = /^Plan wypieku: (\d+) kroków\. Gotowe .+ o \d\d:\d\d\.$/.exec(etykieta);
+    const m = /^Plan wypieku: (\d+) kroków\. Gotowe(?: .+ o |: .+, )\d\d:\d\d\.$/.exec(etykieta);
     expect(m).not.toBeNull();
     const n = Number(m![1]);
     expect(n).toBeGreaterThan(4);

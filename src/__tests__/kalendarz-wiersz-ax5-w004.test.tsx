@@ -34,7 +34,7 @@ function render() {
 }
 
 describe('04-studio-projektowe-004: wiersz okresu kalendarza przy dużym tekście', () => {
-  it.each([3.1, 3.571])('fontScale %f przy 320 pt: „‹ okres ›” w jednym rzędzie, „Dziś” i „Miesiąc” w drugim, zawijanym', (fs) => {
+  it.each([3.1, 3.571])('fontScale %f przy 320 pt: „‹ okres ›” w jednym rzędzie, „Dziś” i „Miesiąc” w drugim, zawijanym (styl, bez pomiaru)', (fs) => {
     Object.assign(mockOkno, { fontScale: fs });
     const tree = render();
     const root = tree.root;

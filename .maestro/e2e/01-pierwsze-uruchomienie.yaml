@@ -33,3 +33,5 @@ appId: com.apps4brew.baker
 - scrollUntilVisible:
     element:
       id: "recipe-hydration"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-01-pierwsze-uruchomienie"

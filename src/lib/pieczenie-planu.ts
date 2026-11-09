@@ -5,6 +5,7 @@
 
 import { CATALOG_RECIPES } from '../recipes/katalog';
 import { pieczenieZReceptury, type PieczenieReceptury } from '../core/pieczenie-receptury';
+import { BRIOCHE_RECIPE_IDS } from '../core/brioche-stages';
 import type { RecepturaPlanu } from './plan-receptury';
 
 /**
@@ -15,7 +16,9 @@ import type { RecepturaPlanu } from './plan-receptury';
 export function pieczenieDlaId(recipeId: string | null | undefined, zytni: boolean): PieczenieReceptury | undefined {
   if (zytni || !recipeId) return undefined;
   const r = CATALOG_RECIPES.find((x) => x.id === recipeId);
-  return r && r.formula.starterPercentage > 0 ? pieczenieZReceptury(r) : undefined;
+  if (!r || r.formula.starterPercentage <= 0) return undefined;
+  // Szablon brioszki po id receptury, nie po naczyniu: żytnia w keksówce z żytem ≤ 50% nie jest brioszką (M2-012, P2)
+  return BRIOCHE_RECIPE_IDS.includes(r.id) ? { ...pieczenieZReceptury(r), szablon: 'brioszka' } : pieczenieZReceptury(r);
 }
 
 /** Pieczenie dla receptury z „Ułóż plan”: wersja drożdżowa ma własne kroki (yeast-stages.ts), więc bez pieczenia. */

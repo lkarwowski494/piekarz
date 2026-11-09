@@ -1,7 +1,6 @@
 // Słownik it, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calcolata dell\'acqua supera i 45 °C. Questo rischia di cuocere i lieviti e i batteri lattici. Raffredda la farina o abbassa la temperatura ambiente.',
   'Obniż docelową temperaturę ciasta': 'Abbassa la temperatura desiderata dell\'impasto',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Abbassa la temperatura a 210 °C. La reazione di Maillard crea una crosta croccante dalle note di nocciola e caramello.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Abbassa la temperatura del frigorifero: in un frigo più freddo la fermentazione procede più lentamente.',

@@ -1,0 +1,345 @@
+{
+  "_opis": "Przekład 8 kluczy M2-012 (D-309; plan i prowadzenie brioszki w keksówce: nazwy i instrukcje kroków brioche_mix, brioche_cold, brioche_shape, brioche_proof): MT claude-opus-5-5 (rola 08, M2 p3, 2026-11-09) z docs/tresci/en/plan-brioszki.md; terminy jak istniejący przekład (zakwas, keksówka/forma z D-304, przeklad-m2-008); dwa zdania BEZ-SUR-001, BEZ-SUR-002 na końcu instrukcji brioche_mix dosłownie z istniejących kluczy języka (RAW_DOUGH_WARNINGS); bez liczb w tekstach; drugi przegląd AI: nieodbyty (M2); przegląd natywny: brak (DEC-06).",
+  "pl": [
+    "Wyrabianie ciasta z masłem",
+    "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+    "Ciasto na noc w lodówce",
+    "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.",
+    "Formowanie w keksówce",
+    "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.",
+    "Rośnięcie w keksówce",
+    "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce."
+  ],
+  "jezyki": {
+    "cs": [
+      "Hnětení těsta s máslem",
+      "Smíchejte mouku, vodu, sůl a kvásek a hněťte. Máslo přidávejte postupně, po částech. Až se všechno máslo spojí s těstem, hněťte dál, dokud se těsto nezačne odlepovat od stěn mísy. Neochutnávejte syrové těsto ani mouku. Po práci s těstem si umyjte ruce mýdlem pod tekoucí vodou.",
+      "Těsto přes noc v lednici",
+      "Přendejte těsto na plech vyložený pečicím papírem vymazaným máslem. Těsně ho zakryjte fólií a dejte přes noc do lednice.",
+      "Tvarování ve formě",
+      "Rukama vyválejte těsto na délku formy. Formu lehce vymažte máslem a vložte do ní těsto.",
+      "Kynutí ve formě",
+      "Formu zakryjte fólií a nechte těsto vykynout na teplém místě."
+    ],
+    "sk": [
+      "Miesenie cesta s maslom",
+      "Zmiešajte múku, vodu, soľ a kvások a mieste. Maslo pridávajte postupne, po častiach. Keď sa všetko maslo spojí s cestom, mieste ďalej, kým sa cesto nezačne odlepovať od stien misy. Neochutnávajte surové cesto ani múku. Po práci s cestom si umyte ruky mydlom pod tečúcou vodou.",
+      "Cesto cez noc v chladničke",
+      "Preložte cesto na plech vyložený papierom na pečenie vymasteným maslom. Tesne ho prikryte fóliou a dajte cez noc do chladničky.",
+      "Tvarovanie vo forme",
+      "Rukami vyvaľkajte cesto na dĺžku formy. Formu zľahka vymastite maslom a vložte do nej cesto.",
+      "Kysnutie vo forme",
+      "Formu prikryte fóliou a nechajte cesto vykysnúť na teplom mieste."
+    ],
+    "hu": [
+      "A tészta dagasztása vajjal",
+      "Keverd össze a lisztet, a vizet, a sót és a kovászt, és dagaszd. A vajat fokozatosan, részletekben add hozzá. Amikor az összes vaj elkeveredett a tésztával, dagaszd tovább, amíg a tészta el nem kezd válni a tál falától. Ne kóstold meg se a nyers tésztát, se a lisztet. A tésztával végzett munka után moss kezet szappannal, folyó víz alatt.",
+      "Tészta egy éjszakára a hűtőben",
+      "Tedd a tésztát vajjal kikent sütőpapírral bélelt tepsire. Takard le szorosan folpackkal, és tedd be egy éjszakára a hűtőbe.",
+      "Formázás a sütőformába",
+      "Kézzel sodord ki a tésztát a forma hosszára. A formát vékonyan kend ki vajjal, és tedd bele a tésztát.",
+      "Kelesztés a formában",
+      "Takard le a formát folpackkal, és hagyd a tésztát meleg helyen megkelni."
+    ],
+    "ro": [
+      "Frământarea aluatului cu unt",
+      "Amestecă făina, apa, sarea și maiaua și frământă. Adaugă untul treptat, în porții. După ce tot untul s-a încorporat în aluat, frământă în continuare până când aluatul începe să se desprindă de pereții bolului. Nu gusta aluatul crud sau făina. După ce lucrezi cu aluatul, spală-te pe mâini cu săpun sub jet de apă.",
+      "Aluat peste noapte la frigider",
+      "Pune aluatul pe o tavă tapetată cu hârtie de copt unsă cu unt. Acoperă-l bine cu folie și pune-l peste noapte la frigider.",
+      "Modelarea în formă",
+      "Rulează aluatul cu mâinile la lungimea formei. Unge forma ușor cu unt și pune aluatul în ea.",
+      "Creșterea în formă",
+      "Acoperă forma cu folie și lasă aluatul să crească la loc cald."
+    ],
+    "bg": [
+      "Месене на тестото с масло",
+      "Смесете брашното, водата, солта и квасния стартер и месете. Добавяйте маслото постепенно, на части. Когато цялото масло се смеси с тестото, продължете да месите, докато тестото започне да се отделя от стените на купата. Не опитвайте сурово тесто или брашно. След работа с тестото измийте ръцете си със сапун под течаща вода.",
+      "Тесто за през нощта в хладилника",
+      "Прехвърлете тестото върху тава, покрита с хартия за печене, намазана с масло. Покрийте го плътно с фолио и го сложете в хладилника за през нощта.",
+      "Оформяне във формата",
+      "Разточете тестото с ръце на дължината на формата. Намажете леко формата с масло и сложете тестото в нея.",
+      "Втасване във формата",
+      "Покрийте формата с фолио и оставете тестото да втаса на топло място."
+    ],
+    "hr": [
+      "Mijesenje tijesta s maslacem",
+      "Sjedini brašno, vodu, sol i kvas i mijesi. Maslac dodaj postupno, malo po malo. Kad se sav maslac sjedini s tijestom, mijesi dalje dok se tijesto ne počne odvajati od stijenki zdjele. Ne kušaj sirovo tijesto ni brašno. Nakon rada s tijestom operi ruke sapunom pod tekućom vodom.",
+      "Tijesto preko noći u hladnjaku",
+      "Prebaci tijesto na lim obložen papirom za pečenje premazanim maslacem. Dobro ga pokrij folijom i stavi preko noći u hladnjak.",
+      "Oblikovanje u kalupu",
+      "Rukama razvaljaj tijesto na duljinu kalupa. Kalup lagano namaži maslacem i stavi u njega tijesto.",
+      "Dizanje u kalupu",
+      "Pokrij kalup folijom i ostavi tijesto da se digne na toplom mjestu."
+    ],
+    "sl": [
+      "Gnetenje testa z maslom",
+      "Zmešajte moko, vodo, sol in kvas ter gnetite. Maslo dodajajte postopoma, po delih. Ko se vse maslo poveže s testom, gnetite naprej, dokler se testo ne začne ločevati od sten sklede. Ne pokušajte surovega testa ali moke. Po delu s testom si umijte roke z milom pod tekočo vodo.",
+      "Testo čez noč v hladilniku",
+      "Testo preložite na pekač, obložen s papirjem za peko, namazanim z maslom. Tesno ga pokrijte s folijo in ga čez noč postavite v hladilnik.",
+      "Oblikovanje v modelu",
+      "Testo z rokami razvaljajte na dolžino modela. Model rahlo namažite z maslom in vanj položite testo.",
+      "Vzhajanje v modelu",
+      "Model pokrijte s folijo in pustite testo vzhajati na toplem."
+    ],
+    "sr": [
+      "Мешење теста са путером",
+      "Споји брашно, воду, со и стартер и меси. Путер додај постепено, део по део. Кад се сав путер сједини са тестом, настави да месиш док тесто не почне да се одваја од зидова чиније. Не пробај сирово тесто ни брашно. Након рада са тестом опери руке сапуном под текућом водом.",
+      "Тесто преко ноћи у фрижидеру",
+      "Пребаци тесто на плех обложен папиром за печење премазаним путером. Добро га покриј фолијом и стави преко ноћи у фрижидер.",
+      "Обликовање у калупу",
+      "Рукама разваљај тесто на дужину калупа. Калуп лагано премажи путером и стави тесто у њега.",
+      "Дизање у калупу",
+      "Покриј калуп фолијом и остави тесто да нарасте на топлом месту."
+    ],
+    "lt": [
+      "Tešlos minkymas su sviestu",
+      "Sumaišykite miltus, vandenį, druską ir raugą ir minkykite. Sviestą dėkite palaipsniui, po truputį. Kai visas sviestas susijungs su tešla, minkykite toliau, kol tešla ims atšokti nuo dubens sienelių. Neragaukite žalios tešlos ar miltų. Padirbę su tešla, nusiplaukite rankas muilu po tekančiu vandeniu.",
+      "Tešla per naktį šaldytuve",
+      "Perkelkite tešlą į skardą, išklotą sviestu pateptu kepimo popieriumi. Sandariai uždenkite ją plėvele ir per naktį laikykite šaldytuve.",
+      "Formavimas formoje",
+      "Rankomis iškočiokite tešlą formos ilgio. Formą lengvai patepkite sviestu ir sudėkite į ją tešlą.",
+      "Kilimas formoje",
+      "Uždenkite formą plėvele ir palikite tešlą kilti šiltoje vietoje."
+    ],
+    "lv": [
+      "Mīklas mīcīšana ar sviestu",
+      "Sajauciet miltus, ūdeni, sāli un ieraugu un mīciet. Sviestu pievienojiet pakāpeniski, pa daļām. Kad viss sviests ir savienojies ar mīklu, mīciet tālāk, līdz mīkla sāk atdalīties no bļodas sieniņām. Negaršojiet ne jēlu mīklu, ne miltus. Pēc darba ar mīklu nomazgājiet rokas ar ziepēm tekošā ūdenī.",
+      "Mīkla pa nakti ledusskapī",
+      "Pārlieciet mīklu uz plāts, kas izklāta ar sviestu ieziestu cepamo papīru. Cieši pārklājiet to ar plēvi un ielieciet uz nakti ledusskapī.",
+      "Veidošana veidnē",
+      "Ar rokām izrullējiet mīklu veidnes garumā. Veidni viegli ieziediet ar sviestu un ielieciet tajā mīklu.",
+      "Rūgšana veidnē",
+      "Pārklājiet veidni ar plēvi un atstājiet mīklu rūgt siltā vietā."
+    ],
+    "et": [
+      "Taigna sõtkumine võiga",
+      "Sega jahu, vesi, sool ja juuretis ning sõtku. Lisa võid järk-järgult, väikeste portsjonite kaupa. Kui kogu või on taignaga ühinenud, sõtku edasi, kuni tainas hakkab kausi seintest lahti tulema. Ära maitse toorest taignat ega jahu. Pärast taignaga töötamist pese käsi seebiga voolava vee all.",
+      "Tainas üleöö külmkapis",
+      "Tõsta tainas võiga määritud küpsetuspaberiga kaetud ahjuplaadile. Kata see tihedalt kilega ja pane üleöö külmkappi.",
+      "Vormimine vormis",
+      "Rulli tainas kätega vormi pikkuseks. Määri vorm kergelt võiga ja pane tainas sisse.",
+      "Kerkimine vormis",
+      "Kata vorm kilega ja jäta tainas sooja kohta kerkima."
+    ],
+    "uk": [
+      "Замішування тіста з маслом",
+      "Змішайте борошно, воду, сіль і закваску та замішуйте. Масло додавайте поступово, частинами. Коли все масло з’єднається з тістом, замішуйте далі, доки тісто не почне відставати від стінок миски. Не куштуйте сире тісто чи борошно. Після роботи з тістом помийте руки з милом під проточною водою.",
+      "Тісто на ніч у холодильнику",
+      "Перекладіть тісто на деко, застелене папером для випікання, змащеним маслом. Щільно накрийте його плівкою і поставте на ніч у холодильник.",
+      "Формування у формі",
+      "Розкачайте тісто руками на довжину форми. Злегка змастіть форму маслом і покладіть у неї тісто.",
+      "Підйом у формі",
+      "Накрийте форму плівкою і залиште тісто підніматися в теплому місці."
+    ],
+    "es": [
+      "Amasado con mantequilla",
+      "Mezcla la harina, el agua, la sal y la masa madre y amasa. Añade la mantequilla poco a poco, por partes. Cuando toda la mantequilla se haya integrado en la masa, sigue amasando hasta que la masa empiece a despegarse de las paredes del bol. No pruebes la masa cruda ni la harina. Después de trabajar la masa, lávate las manos con jabón bajo el agua corriente.",
+      "Masa toda la noche en la nevera",
+      "Pasa la masa a una bandeja forrada con papel de horno untado con mantequilla. Tápala bien con film transparente y métela en la nevera toda la noche.",
+      "Formado en el molde",
+      "Enrolla la masa con las manos hasta el largo del molde. Unta ligeramente el molde con mantequilla y coloca la masa dentro.",
+      "Fermentación en el molde",
+      "Tapa el molde con film transparente y deja que la masa crezca en un lugar cálido."
+    ],
+    "es-419": [
+      "Amasado con mantequilla",
+      "Mezcla la harina, el agua, la sal y la masa madre y amasa. Agrega la mantequilla poco a poco, por partes. Cuando toda la mantequilla se haya integrado a la masa, sigue amasando hasta que la masa empiece a despegarse de las paredes del tazón. No pruebes la masa cruda ni la harina. Después de manipular la masa, lávate las manos con jabón bajo el chorro de agua.",
+      "Masa toda la noche en el refrigerador",
+      "Pasa la masa a una charola forrada con papel para hornear engrasado con mantequilla. Cúbrela bien con plástico adherente y métela al refrigerador toda la noche.",
+      "Formado en el molde",
+      "Enrolla la masa con las manos al largo del molde. Engrasa ligeramente el molde con mantequilla y coloca la masa dentro.",
+      "Levado en el molde",
+      "Cubre el molde con plástico adherente y deja que la masa crezca en un lugar cálido."
+    ],
+    "pt": [
+      "Amassar com manteiga",
+      "Junte a farinha, a água, o sal e o fermento natural e amasse. Adicione a manteiga aos poucos, em porções. Quando toda a manteiga estiver incorporada na massa, continue a amassar até a massa começar a descolar das paredes da taça. Não prove massa crua nem farinha. Depois de manusear a massa, lave as mãos com sabão em água corrente.",
+      "Massa no frigorífico durante a noite",
+      "Passe a massa para um tabuleiro forrado com papel vegetal untado com manteiga. Tape-a bem com película aderente e leve-a ao frigorífico durante a noite.",
+      "Moldar na forma",
+      "Enrole a massa com as mãos no comprimento da forma. Unte ligeiramente a forma com manteiga e coloque a massa lá dentro.",
+      "Levedação na forma",
+      "Tape a forma com película aderente e deixe a massa levedar num local quente."
+    ],
+    "pt-BR": [
+      "Sovar com manteiga",
+      "Misture a farinha, a água, o sal e o fermento natural e sove. Acrescente a manteiga aos poucos, em porções. Quando toda a manteiga estiver incorporada à massa, continue sovando até a massa começar a desgrudar das laterais da tigela. Não prove massa crua nem farinha. Depois de manusear a massa, lave as mãos com sabão em água corrente.",
+      "Massa na geladeira durante a noite",
+      "Passe a massa para uma assadeira forrada com papel-manteiga untado com manteiga. Cubra bem com filme plástico e leve à geladeira durante a noite.",
+      "Modelagem na fôrma",
+      "Enrole a massa com as mãos no comprimento da fôrma. Unte levemente a fôrma com manteiga e coloque a massa dentro.",
+      "Crescimento na fôrma",
+      "Cubra a fôrma com filme plástico e deixe a massa crescer em um lugar morno."
+    ],
+    "de": [
+      "Teig mit Butter kneten",
+      "Vermische Mehl, Wasser, Salz und Sauerteig und knete. Gib die Butter nach und nach in Portionen dazu. Wenn sich die ganze Butter mit dem Teig verbunden hat, knete weiter, bis sich der Teig vom Schüsselrand löst. Probiere weder rohen Teig noch Mehl. Wasch dir nach der Arbeit mit Teig die Hände mit Seife unter fließendem Wasser.",
+      "Teig über Nacht im Kühlschrank",
+      "Leg den Teig auf ein Blech mit gebuttertem Backpapier. Deck ihn dicht mit Frischhaltefolie ab und stell ihn über Nacht in den Kühlschrank.",
+      "In der Kastenform formen",
+      "Roll den Teig mit den Händen auf die Länge der Kastenform. Fette die Kastenform leicht mit Butter ein und leg den Teig hinein.",
+      "Gehen in der Kastenform",
+      "Deck die Kastenform mit Frischhaltefolie ab und lass den Teig an einem warmen Ort aufgehen."
+    ],
+    "fr": [
+      "Pétrissage avec le beurre",
+      "Mélangez la farine, l’eau, le sel et le levain, puis pétrissez. Ajoutez le beurre progressivement, par petites quantités. Quand tout le beurre est incorporé à la pâte, continuez à pétrir jusqu’à ce que la pâte commence à se décoller des parois du bol. Ne goûtez ni la pâte crue ni la farine. Après avoir manipulé la pâte, lavez-vous les mains au savon sous l'eau courante.",
+      "Pâte au réfrigérateur pour la nuit",
+      "Déposez la pâte sur une plaque couverte de papier cuisson beurré. Couvrez-la bien de film alimentaire et placez-la au réfrigérateur pour la nuit.",
+      "Façonnage dans le moule",
+      "Roulez la pâte à la main à la longueur du moule. Beurrez légèrement le moule et déposez-y la pâte.",
+      "Pousse dans le moule",
+      "Couvrez le moule de film alimentaire et laissez lever la pâte dans un endroit chaud."
+    ],
+    "it": [
+      "Impasto con il burro",
+      "Unisci farina, acqua, sale e lievito madre e impasta. Aggiungi il burro gradualmente, poco alla volta. Quando tutto il burro si è incorporato all'impasto, continua a impastare finché l'impasto non comincia a staccarsi dalle pareti della ciotola. Non assaggiare l'impasto crudo né la farina. Dopo aver lavorato l'impasto, lavati le mani con il sapone sotto l'acqua corrente.",
+      "Impasto in frigorifero per la notte",
+      "Trasferisci l'impasto su una teglia rivestita di carta da forno imburrata. Coprilo bene con pellicola trasparente e mettilo in frigorifero per la notte.",
+      "Formatura nello stampo",
+      "Arrotola l'impasto con le mani alla lunghezza dello stampo. Imburra leggermente lo stampo e mettici dentro l'impasto.",
+      "Lievitazione nello stampo",
+      "Copri lo stampo con pellicola trasparente e lascia lievitare l'impasto in un luogo caldo."
+    ],
+    "nl": [
+      "Deeg kneden met boter",
+      "Meng de bloem, het water, het zout en de zuurdesemstarter en kneed. Voeg de boter geleidelijk toe, in porties. Als alle boter in het deeg is opgenomen, kneed je verder tot het deeg loskomt van de wand van de kom. Proef geen rauw deeg of meel. Was na het werken met deeg je handen met zeep onder stromend water.",
+      "Deeg 's nachts in de koelkast",
+      "Leg het deeg op een bakplaat met met boter ingevet bakpapier. Dek het goed af met huishoudfolie en zet het 's nachts in de koelkast.",
+      "Vormen in de cakevorm",
+      "Rol het deeg met je handen tot de lengte van de cakevorm. Vet de cakevorm licht in met boter en leg het deeg erin.",
+      "Rijzen in de cakevorm",
+      "Dek de cakevorm af met huishoudfolie en laat het deeg op een warme plek rijzen."
+    ],
+    "sv": [
+      "Knåda degen med smör",
+      "Blanda mjöl, vatten, salt och surdegsgrund och knåda. Tillsätt smöret gradvis, lite i taget. När allt smör har arbetats in i degen, fortsätt knåda tills degen börjar släppa från bunkens kanter. Smaka inte på rå deg eller mjöl. Tvätta händerna med tvål under rinnande vatten efter att du har hanterat degen.",
+      "Degen över natten i kylskåpet",
+      "Lägg degen på en plåt med smört bakplåtspapper. Täck den tätt med plastfolie och ställ den i kylskåpet över natten.",
+      "Formning i brödformen",
+      "Rulla degen för hand till brödformens längd. Smörj brödformen lätt med smör och lägg i degen.",
+      "Jäsning i brödformen",
+      "Täck brödformen med plastfolie och låt degen jäsa på en varm plats."
+    ],
+    "da": [
+      "Æltning af dejen med smør",
+      "Bland mel, vand, salt og surdej, og ælt. Tilsæt smørret lidt ad gangen. Når alt smørret er arbejdet ind i dejen, så ælt videre, til dejen begynder at slippe skålens sider. Smag ikke på rå dej eller mel. Vask hænderne med sæbe under rindende vand, når du har arbejdet med dej.",
+      "Dejen natten over i køleskabet",
+      "Læg dejen på en bageplade med smurt bagepapir. Dæk den tæt til med plastfolie, og sæt den i køleskabet natten over.",
+      "Formning i formen",
+      "Rul dejen med hænderne i formens længde. Smør formen let med smør, og læg dejen i.",
+      "Hævning i formen",
+      "Dæk formen med plastfolie, og lad dejen hæve et lunt sted."
+    ],
+    "nb": [
+      "Elting av deigen med smør",
+      "Bland mel, vann, salt og surdeigsstarter, og elt. Tilsett smøret gradvis, litt om gangen. Når alt smøret er arbeidet inn i deigen, elter du videre til deigen begynner å slippe kantene på bollen. Ikke smak på rå deig eller mel. Vask hendene med såpe under rennende vann etter å ha håndtert deig.",
+      "Deigen over natten i kjøleskapet",
+      "Legg deigen på et stekebrett med smurt bakepapir. Dekk den godt til med plastfolie, og sett den i kjøleskapet over natten.",
+      "Forming i formen",
+      "Rull deigen med hendene til formens lengde. Smør formen lett med smør, og legg deigen i.",
+      "Heving i formen",
+      "Dekk formen med plastfolie, og la deigen heve på et varmt sted."
+    ],
+    "fi": [
+      "Taikinan vaivaaminen voin kanssa",
+      "Sekoita jauhot, vesi, suola ja hapanjuuri ja vaivaa. Lisää voi vähitellen, pieninä erinä. Kun kaikki voi on sekoittunut taikinaan, jatka vaivaamista, kunnes taikina alkaa irrota kulhon reunoista. Älä maista raakaa taikinaa tai jauhoja. Kun olet käsitellyt taikinaa, pese kädet saippualla juoksevan veden alla.",
+      "Taikina yön yli jääkaapissa",
+      "Siirrä taikina pellille voidellun leivinpaperin päälle. Peitä se tiiviisti kelmulla ja nosta yöksi jääkaappiin.",
+      "Muotoilu vuokaan",
+      "Pyöritä taikina käsin vuoan mittaiseksi. Voitele vuoka kevyesti voilla ja nosta taikina vuokaan.",
+      "Kohotus vuoassa",
+      "Peitä vuoka kelmulla ja anna taikinan kohota lämpimässä paikassa."
+    ],
+    "tr": [
+      "Hamuru tereyağıyla yoğurma",
+      "Unu, suyu, tuzu ve ekşi mayayı birleştirip yoğurun. Tereyağını azar azar, parça parça ekleyin. Tereyağının tamamı hamura karıştığında, hamur kabın kenarlarından ayrılmaya başlayana kadar yoğurmaya devam edin. Çiğ hamurun veya unun tadına bakmayın. Hamurla çalıştıktan sonra ellerinizi akan su altında sabunla yıkayın.",
+      "Hamur gece boyunca buzdolabında",
+      "Hamuru, tereyağıyla yağlanmış pişirme kâğıdı serili bir tepsiye alın. Streç filmle sıkıca örtün ve gece boyunca buzdolabına koyun.",
+      "Kalıpta şekillendirme",
+      "Hamuru elinizle kalıbın uzunluğunda yuvarlayın. Kalıbı tereyağıyla hafifçe yağlayın ve hamuru içine koyun.",
+      "Kalıpta mayalanma",
+      "Kalıbın üzerini streç filmle örtün ve hamuru ılık bir yerde mayalanmaya bırakın."
+    ],
+    "el": [
+      "Ζύμωμα με βούτυρο",
+      "Ενώστε το αλεύρι, το νερό, το αλάτι και το προζύμι και ζυμώστε. Προσθέστε το βούτυρο σταδιακά, λίγο λίγο. Όταν όλο το βούτυρο ενσωματωθεί στη ζύμη, συνεχίστε το ζύμωμα μέχρι η ζύμη να αρχίσει να ξεκολλά από τα τοιχώματα του μπολ. Μη δοκιμάζετε ωμή ζύμη ή αλεύρι. Αφού δουλέψετε τη ζύμη, πλύνετε τα χέρια σας με σαπούνι κάτω από τρεχούμενο νερό.",
+      "Ζύμη όλη τη νύχτα στο ψυγείο",
+      "Μεταφέρετε τη ζύμη σε ταψί στρωμένο με λαδόχαρτο αλειμμένο με βούτυρο. Σκεπάστε τη καλά με μεμβράνη και βάλτε τη στο ψυγείο για όλη τη νύχτα.",
+      "Πλάσιμο στη φόρμα",
+      "Τυλίξτε τη ζύμη με τα χέρια στο μήκος της φόρμας. Βουτυρώστε ελαφρά τη φόρμα και βάλτε μέσα τη ζύμη.",
+      "Φούσκωμα στη φόρμα",
+      "Σκεπάστε τη φόρμα με μεμβράνη και αφήστε τη ζύμη να φουσκώσει σε ζεστό μέρος."
+    ],
+    "id": [
+      "Menguleni adonan dengan mentega",
+      "Campurkan tepung, air, garam, dan starter ragi alami, lalu uleni. Masukkan mentega sedikit demi sedikit. Setelah semua mentega menyatu dengan adonan, terus uleni hingga adonan mulai terlepas dari dinding mangkuk. Jangan mencicipi adonan mentah maupun tepung. Setelah menangani adonan, cuci tangan dengan sabun di bawah air mengalir.",
+      "Adonan semalaman di kulkas",
+      "Pindahkan adonan ke loyang datar yang dialasi kertas roti yang sudah diolesi mentega. Tutup rapat dengan plastik wrap dan simpan di kulkas semalaman.",
+      "Membentuk di loyang",
+      "Gulung adonan dengan tangan sepanjang loyang. Olesi loyang tipis-tipis dengan mentega dan masukkan adonan ke dalamnya.",
+      "Pengembangan di loyang",
+      "Tutup loyang dengan plastik wrap dan biarkan adonan mengembang di tempat yang hangat."
+    ],
+    "ms": [
+      "Menguli doh dengan mentega",
+      "Campurkan tepung, air, garam dan pemula sourdough, kemudian uli. Masukkan mentega sedikit demi sedikit. Apabila semua mentega sudah sebati dengan doh, teruskan menguli sehingga doh mula tertanggal daripada dinding mangkuk. Jangan rasa doh mentah atau tepung. Selepas mengendalikan doh, cuci tangan dengan sabun di bawah air paip yang mengalir.",
+      "Doh semalaman di dalam peti sejuk",
+      "Pindahkan doh ke dulang pembakar yang dialas kertas pembakar yang disapu mentega. Tutup rapat dengan pembalut plastik dan simpan di dalam peti sejuk semalaman.",
+      "Membentuk dalam loyang",
+      "Gulung doh dengan tangan sepanjang loyang. Sapu loyang dengan sedikit mentega dan masukkan doh ke dalamnya.",
+      "Pengembangan dalam loyang",
+      "Tutup loyang dengan pembalut plastik dan biarkan doh mengembang di tempat yang hangat."
+    ],
+    "vi": [
+      "Nhào bột với bơ",
+      "Trộn bột mì, nước, muối và men tự nhiên rồi nhào. Cho bơ vào từ từ, từng phần một. Khi toàn bộ bơ đã hòa vào bột, tiếp tục nhào đến khi bột bắt đầu tách khỏi thành tô. Không nếm bột nhào sống hoặc bột khô. Sau khi làm bột, rửa tay bằng xà phòng dưới vòi nước chảy.",
+      "Để bột qua đêm trong tủ lạnh",
+      "Chuyển bột sang khay nướng lót giấy nến đã phết bơ. Bọc kín bằng màng bọc thực phẩm và cho vào tủ lạnh qua đêm.",
+      "Tạo hình trong khuôn",
+      "Dùng tay lăn bột dài bằng chiều dài khuôn. Phết một lớp bơ mỏng vào khuôn rồi đặt bột vào.",
+      "Ủ bột nở trong khuôn",
+      "Bọc khuôn bằng màng bọc thực phẩm và để bột nở ở nơi ấm."
+    ],
+    "ru": [
+      "Замес теста со сливочным маслом",
+      "Соедините муку, воду, соль и закваску и вымешивайте. Масло добавляйте постепенно, порциями. Когда всё масло соединится с тестом, продолжайте вымешивать, пока тесто не начнёт отставать от стенок миски. Не пробуйте ни сырое тесто, ни муку. После работы с тестом вымойте руки с мылом под проточной водой.",
+      "Тесто на ночь в холодильнике",
+      "Переложите тесто на противень, застеленный смазанной маслом бумагой для выпечки. Плотно накройте его плёнкой и уберите на ночь в холодильник.",
+      "Формовка в форме",
+      "Раскатайте тесто руками по длине формы. Слегка смажьте форму маслом и положите в неё тесто.",
+      "Расстойка в форме",
+      "Накройте форму плёнкой и оставьте тесто подходить в тёплом месте."
+    ],
+    "ja": [
+      "バターを加えて生地をこねる",
+      "粉、水、塩、サワー種を合わせてこねます。バターは少しずつ、数回に分けて加えます。バターがすべて生地になじんだら、生地がボウルの側面から離れ始めるまでさらにこねます。生の生地や粉を味見しないでください。生地を扱った後は、流水と石けんで手を洗ってください。",
+      "生地を冷蔵庫でひと晩",
+      "バターを塗ったオーブンシートを敷いた天板に生地を移します。ラップでしっかり覆い、冷蔵庫にひと晩入れます。",
+      "型で成形",
+      "生地を手で転がして型の長さにのばします。型に薄くバターを塗り、生地を入れます。",
+      "型で発酵",
+      "型をラップで覆い、温かい場所で生地を発酵させます。"
+    ],
+    "ko": [
+      "버터를 넣어 반죽하기",
+      "밀가루, 물, 소금, 사워도우 스타터를 합쳐 반죽하세요. 버터는 조금씩 나누어 넣으세요. 버터가 반죽에 모두 섞이면 반죽이 볼 벽에서 떨어지기 시작할 때까지 계속 반죽하세요. 날반죽이나 날가루를 맛보지 마세요. 반죽을 다룬 뒤에는 흐르는 물에 비누로 손을 씻으세요.",
+      "반죽을 냉장고에서 하룻밤",
+      "버터를 바른 유산지를 깐 오븐 팬에 반죽을 옮기세요. 랩으로 꼼꼼히 덮어 냉장고에 하룻밤 넣어 두세요.",
+      "틀에 성형하기",
+      "반죽을 손으로 굴려 틀 길이만큼 늘이세요. 틀에 버터를 얇게 바르고 반죽을 넣으세요.",
+      "틀에서 발효하기",
+      "틀을 랩으로 덮고 따뜻한 곳에서 반죽을 부풀리세요."
+    ],
+    "zh-Hant": [
+      "加入奶油揉麵",
+      "將麵粉、水、鹽和天然酵母起種混合後揉麵。奶油分次少量加入。奶油全部融入麵團後繼續揉，直到麵團開始脫離盆壁。不要試吃生麵團或麵粉。處理麵團後，請用肥皂在流動的水下洗手。",
+      "麵團冷藏一夜",
+      "將麵團移到鋪有抹了奶油的烘焙紙的烤盤上。用保鮮膜包緊，放入冰箱冷藏一夜。",
+      "在模具中整形",
+      "用手將麵團搓成模具的長度。在模具內薄薄抹一層奶油，放入麵團。",
+      "在模具中發酵",
+      "用保鮮膜蓋住模具，讓麵團在溫暖處發酵。"
+    ]
+  }
+}

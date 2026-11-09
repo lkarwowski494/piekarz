@@ -330,6 +330,9 @@ Cytaty wytycznych z odczytu 2026-10-19 innych ról (D-037); brzmienie przed wys�
 ### OG-12: Pole dotyku 44 × 44 pt
 - Wytyczne Apple podają dla iOS domyślny rozmiar kontrolki 44 × 44 pt i minimum 28 × 28 pt [FAKT S-76]; projekt przyjął ≥ 44 pt (DEC-15, NFR-INT-001). Siedem kolumn przy 320 pt daje 40 pt [RACHUNEK]. Dotyczy: NFR-KAL-001.
 
+### OG-13: Notka i treść licencji zależności w aplikacji
+- Licencja MIT (483 z 559 pozycji w `assets/licencje.generated.json`, odczyt 2026-11-09 [RACHUNEK]) wymaga dołączenia notki o prawach autorskich i treści licencji do kopii oprogramowania [FAKT S-109]; aplikacja w sklepie zawiera kopię bibliotek. Dotyczy: BR-UST-005 (D-291).
+
 ## Hipotezy dla ról 02 i 03 (H)
 Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-014). Każda hipoteza ma wpis w `docs/zalozenia.md`. Bez cen i bez etykiety MVP.
 

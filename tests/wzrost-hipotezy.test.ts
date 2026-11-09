@@ -1,5 +1,7 @@
 // Hipotezy wzrostu z progami (DEC-13 a): kryterium eksperymentu DEC-01 d jako H z progiem i datą oceny
 // po 90 dniach od wydania; `docs/wzrost/hipotezy.mjs` z kodem 0 [M1-audytor-generalny-085; 11-wzrost-007]
+// Minimalna próba z ID decyzji właściciela i data oceny z daty wydania w dzienniku wydań
+// (DEC-16 a, D-286) [M1-audytor-generalny-084; 11-wzrost-005]
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -55,5 +57,36 @@ describe('Hipotezy wzrostu (docs/wzrost/hipotezy.json)', () => {
   test('zmierzone dane nie trafiają do publicznego repo', () => {
     const x = JSON.parse(readFileSync(dane, 'utf8'));
     for (const h of x.hipotezy) expect(h.dane).toBeUndefined();
+  });
+
+  test('min_proba każdej H ma ID decyzji właściciela zapisanej w docs/decyzje.md (084)', () => {
+    const x = JSON.parse(readFileSync(dane, 'utf8'));
+    const decyzje = readFileSync(join(root, 'docs', 'decyzje.md'), 'utf8');
+    for (const h of x.hipotezy) {
+      const ids = [...String(h.min_proba_decyzja ?? '').matchAll(/D-\d{3}/g)].map((m) => m[0]);
+      expect(ids.length).toBeGreaterThan(0);
+      for (const id of ids) expect(decyzje).toContain(`### [${id}]`);
+    }
+    const wzrost = readFileSync(join(root, 'docs', 'wzrost.md'), 'utf8');
+    expect(wzrost).not.toMatch(/do potwierdzenia/);
+  });
+
+  test('data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084)', () => {
+    const x = JSON.parse(readFileSync(dane, 'utf8'));
+    const dziennik = readFileSync(join(root, 'docs', 'wydanie', 'dziennik.md'), 'utf8');
+    const wiersze = dziennik.split('\n').filter((l) => /^\| \d{4}-\d{2}-\d{2} \|/.test(l)).map((l) => l.split('|').map((c) => c.trim()));
+    const plus90 = (d: string) => new Date(Date.parse(`${d}T00:00:00Z`) + 90 * 86400000).toISOString().slice(0, 10);
+    const h = x.hipotezy.find((e: { id: string }) => e.id === 'H-01');
+    expect(h.data_oceny_regula).toMatch(/docs\/wydanie\/dziennik\.md/);
+    if (h.data_wydania) {
+      // po wydaniu: data z wiersza dziennika z kanałem App Store
+      expect(wiersze.some((c) => c[1] === h.data_wydania && c[6] === 'App Store')).toBe(true);
+      expect(h.data_oceny).toBe(plus90(h.data_wydania));
+    } else {
+      expect(h.data_wydania).toBeNull();
+      expect(wiersze.some((c) => c[6] === 'App Store')).toBe(false);
+      const ostatni = wiersze.map((c) => c[1]).sort().at(-1) as string;
+      expect(h.data_oceny >= plus90(ostatni)).toBe(true);
+    }
   });
 });

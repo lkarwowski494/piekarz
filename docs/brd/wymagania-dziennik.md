@@ -55,7 +55,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
   - Scenariusz: Dziennik bez Pro
     - Zakładając, że użytkownik nie ma Piekarz Pro (Basic, D-112)
     - Gdy użytkownik otwiera historię
-    - Wtedy widzi wszystkie wpisy i może dodać nowy: Dziennik jest w Basic na zawsze, porównanie i statystyki w Pro (D-112, D-116; ER-80)
+    - Wtedy widzi wszystkie wpisy i może dodać nowy: Dziennik jest w Basic na zawsze, statystyki w Pro (D-112, D-116; ER-80); porównania wypieków w 1.0 nie ma (BR-RECP-004, F-63 PÓŹNIEJ; DEC-04 a, D-286; ER-86)
 
 ### BR-RECP-004: Porównanie dwóch wypieków
 - Przepływ: PR-06

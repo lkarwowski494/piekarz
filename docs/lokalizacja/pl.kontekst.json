@@ -923,6 +923,11 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ciasto na noc w lodówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
+    ]
+  },
   "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
@@ -1132,6 +1137,16 @@
       "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
   "Czcionki ({n})": {
     "gdzie": [
       "src/components/settings/LicencjeEkran.tsx (tytul)"
@@ -1184,7 +1199,7 @@
   },
   "Dam znać o każdym kroku": {
     "gdzie": [
-      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tytul)"
     ]
   },
   "Dane są zapisywane tylko w tym telefonie.": {
@@ -1980,9 +1995,7 @@
     ]
   },
   "Foremka z pokrywą": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Forma": {
     "gdzie": []
@@ -2020,6 +2033,11 @@
   "Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Formowanie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Formowanie wstępne": {
@@ -2073,9 +2091,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Garnek żeliwny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Garowanie chłodnicze": {
     "gdzie": [
@@ -2816,9 +2832,7 @@
     "gdzie": []
   },
   "Klosz ceramiczny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Kluczem jest pewność i prędkość — gluten buduje się dzięki energii kinetycznej uderzenia o blat.": {
     "gdzie": [
@@ -4648,10 +4662,6 @@
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
-  "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
-    "gdzie": [],
-    "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
-  },
   "Obniż docelową temperaturę ciasta": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
@@ -4999,6 +5009,11 @@
   "Ostatni wypiek: {data}": {
     "gdzie": [
       "src/lib/ostatni-wypiek.ts (kod)"
+    ]
+  },
+  "Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
   "Ostatnie dokarmienie": {
@@ -5663,9 +5678,7 @@
     ]
   },
   "Porównanie i statystyki": {
-    "gdzie": [
-      "src/lib/platnosci/nazwy-pro.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK": {
     "gdzie": [
@@ -5782,6 +5795,11 @@
   "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.": {
     "gdzie": [
       "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
     ]
   },
   "Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.": {
@@ -6151,6 +6169,11 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -6250,6 +6273,11 @@
   "Przygotuj silny trójfazowy kwas żytni o intensywnym owocowo-octowym aromacie.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
     ]
   },
   "Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.": {
@@ -6496,10 +6524,13 @@
       "src/components/receptury/ListaReceptur.tsx (tytul)"
     ]
   },
-  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+  "Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (teksty)"
     ]
+  },
+  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+    "gdzie": []
   },
   "Receptury mistrzowskie": {
     "gdzie": []
@@ -6641,12 +6672,22 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Rozwiąż kolizję": {
     "gdzie": []
   },
   "Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Rośnięcie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.": {
@@ -6968,9 +7009,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Sprzęt i naczynie do wypieku": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tytul)"
-    ]
+    "gdzie": []
   },
   "Spróbuj ponownie": {
     "gdzie": [
@@ -6988,9 +7027,7 @@
     "gdzie": []
   },
   "Stal / Kamień szamotowy": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Standard": {
     "gdzie": [
@@ -7038,7 +7075,8 @@
   },
   "Statystyki piekarni domowej": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tytul)"
+      "src/components/stolnica/BakeStatsCard.tsx (tytul)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
   },
   "Stały dzień karmienia": {
@@ -8670,9 +8708,7 @@
     "gdzie": []
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wybierz objawy bochenka": {
     "gdzie": [
@@ -8987,6 +9023,11 @@
   "Wyrabianie": {
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wyrabianie ciasta z masłem": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Wyrabianie francuskie (slap & fold)": {

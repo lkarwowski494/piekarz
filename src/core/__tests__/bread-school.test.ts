@@ -4,6 +4,7 @@ import {
   getBreadSchoolLessons,
   calculateBakerRank,
 } from '../bread-school';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Bread Mastery Academy Curriculum (Z-084…090 / SCI)', () => {
   it('contains exactly 6 structured lessons covering novice to master', () => {
@@ -58,7 +59,7 @@ describe('Bread Mastery Academy Curriculum (Z-084…090 / SCI)', () => {
             expect(rank.completedCount).toBe(completed.length);
           }
         ),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });

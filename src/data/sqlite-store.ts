@@ -1,4 +1,5 @@
-import { autoBackup, PiekarzBackupData } from '../lib/backup';
+import { PiekarzBackupData } from '../lib/backup';
+import { kopiaPoWypieku } from '../lib/kopia-auto-stan';
 import {
   StoredStarter,
   StoredBakeLog,
@@ -66,12 +67,8 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
     memStore.logs.unshift(log);
   }
 
-  // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
-  if (log.finishedAt) {
-    void collectBackupData()
-      .then((data) => autoBackup(data))
-      .catch(() => null);
-  }
+  // Kopia automatyczna po wypieku; błąd zapisany i pokazany w Ustawieniach [M1-audytor-generalny-016]
+  if (log.finishedAt) void kopiaPoWypieku(collectBackupData);
 }
 
 /**
@@ -375,10 +372,6 @@ export async function finishBake(
   zakonczSesjeWPamieci(opts);
   memStore.logs = [wpis, ...memStore.logs.filter((l) => l.id !== log.id)];
   if (odliczono) changed.forEach(rememberFlour);
-  if (log.finishedAt) {
-    void collectBackupData()
-      .then((data) => autoBackup(data))
-      .catch(() => null);
-  }
+  if (log.finishedAt) void kopiaPoWypieku(collectBackupData);
   return 'zapisano';
 }

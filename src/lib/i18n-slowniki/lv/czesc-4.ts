@@ -173,7 +173,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'piem., San Francisco White, Lievito...',
   'O recepturze': 'Par receptūru',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'Aprēķinātā ūdens temperatūra ir zemāka par 4 °C. Lai sasniegtu šo temperatūru bez sasaldēšanas, aizstājiet daļu ūdens ar ledu.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Aprēķinātā ūdens temperatūra pārsniedz 45 °C. Tas draud nobeigt raugu un pienskābes baktērijas. Atdzesējiet miltus vai pazeminiet apkārtējo temperatūru.',
   'Obniż docelową temperaturę ciasta': 'Pazemināt vēlamo mīklas temperatūru',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Samaziniet temperatūru līdz 210 °C. Maijāra reakcija veido kraukšķīgu garozu ar riekstu un karameļu notīm.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Pazeminiet ledusskapja temperatūru: vēsākā ledusskapī fermentācija norit lēnāk.',

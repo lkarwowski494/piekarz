@@ -1,0 +1,31 @@
+# Kontrola ustawień App Store Connect — TYLKO ODCZYT (D-314, M1-audytor-generalny-082; wzór: repo Trening, asc-kontrola.yml).
+# Cienka warstwa: wywołuje workflow wspólny z repozytorium narzędzi studia (lkarwowski494/apps4brew-narzedzia), PRZYPIĘTY do pełnego SHA
+# (nie do gałęzi — wersję narzędzia podnosimy świadomie; zmiana SHA to zmiana workflow z opisem w PR). Narzędzie i jego testy: tamto repozytorium.
+# Konfiguracja Piekarza: docs/wydanie/asc-kontrola.json (+ docs/wydanie/asc-kontrola-oczekiwane.json, generuje scripts/asc-kontrola-oczekiwane.mjs).
+# Tylko ręcznie. Zmian w App Store Connect nie robi (żądania GET), więc bez środowiska `release`. Służy też do sprawdzenia nowego klucza po
+# unieważnieniu starego (docs/prawne/procedura-bezpieczenstwa.md §5).
+# Sekrety przekazane jawnie: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8. Workflow wspólny zapisuje ASC_KEY_P8 do pliku bez dekodowania, więc wymaga
+# surowej treści pliku .p8 (sekret ASC_KEY_P8), nie wersji base64 (ASC_KEY_P8_BASE64) — krok właściciela.
+name: ASC kontrola ustawień
+on:
+  workflow_dispatch:
+    inputs:
+      szczegoly:
+        description: 'Dołącz szczegóły (listy terytoriów, odpowiedzi wiekowe, lokalizacje)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: asc-kontrola
+  cancel-in-progress: false
+jobs:
+  kontrola:
+    uses: lkarwowski494/apps4brew-narzedzia/.github/workflows/asc-kontrola.yml@43afe81aa37a117dd32259f6452196a1efccd0ec
+    with:
+      config: docs/wydanie/asc-kontrola.json
+      szczegoly: ${{ inputs.szczegoly }}
+    secrets:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}

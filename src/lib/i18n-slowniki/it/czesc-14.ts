@@ -81,7 +81,7 @@ export const CZESC: Record<string, string> = {
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
     'Dopo la cottura, estrai il cestello con le presine da forno, perché il cestello, la sua maniglia e l\'interno del coperchio sono caldi.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
-    'Il gancio impastatore rimasto nel pane può essere molto caldo: toglilo solo dopo che il pane si è raffreddato, con l\'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.',
+    'La pala impastatrice rimasta nel pane può essere molto calda: toglila solo dopo che il pane si è raffreddato, con l\'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':
     'All\'apertura del coperchio durante o alla fine di un programma può uscire vapore caldo.',
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':

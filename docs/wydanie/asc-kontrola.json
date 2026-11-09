@@ -1,0 +1,29 @@
+{
+  "_opis": "Konfiguracja kontroli App Store Connect, tylko odczyt (D-314, M1-audytor-generalny-082; narzędzie: repozytorium lkarwowski494/apps4brew-narzedzia, katalog asc-kontrola/, opis pól w asc-kontrola/README.md; workflow: .github/workflows/asc-kontrola.yml). Wartości powielone z plików Piekarza, zgodność pilnuje tests/asc-klucz-082.test.ts: bundle id z app.json, ID produktów z src/lib/platnosci/konfiguracja.ts, ceny ręczne, terytoria i Family Sharing z docs/wydanie/ceny.json (D-112), brak oferty wprowadzającej (D-112), kategoria z docs/wydanie/instrukcja-ustawien.md §10.7 (D-055). Metadane 34 lokalizacji i adresy: docs/wydanie/asc-kontrola-oczekiwane.json (generuje scripts/asc-kontrola-oczekiwane.mjs z docs/wydanie/metadane/ i src/lib/links.ts). null = tylko wypisz. Bez sekretów i identyfikatorów klucza (repo publiczne).",
+  "aplikacja": { "bundleId": "com.apps4brew.baker" },
+  "produkty": [
+    { "klucz": "monthly", "productId": "com.apps4brew.baker.pro.monthly", "rodzaj": "subskrypcja" },
+    { "klucz": "yearly", "productId": "com.apps4brew.baker.pro.yearly", "rodzaj": "subskrypcja" },
+    { "klucz": "lifetime", "productId": "com.apps4brew.baker.pro.lifetime", "rodzaj": "jednorazowy" }
+  ],
+  "terytoria": {
+    "wybrane": ["USA", "GBR", "CAN", "AUS", "DEU", "FRA", "ESP", "MEX", "POL"]
+  },
+  "ceny": {
+    "monthly": { "USA": 0.99, "GBR": 0.99, "CAN": 0.99, "AUS": 1.99, "DEU": 0.99, "FRA": 0.99, "ESP": 0.99, "MEX": 19, "POL": 4.99 },
+    "yearly": { "USA": 6.99, "GBR": 6.99, "CAN": 9.99, "AUS": 9.99, "DEU": 7.99, "FRA": 7.99, "ESP": 7.99, "MEX": 149, "POL": 29.99 },
+    "lifetime": { "USA": 14.99, "GBR": 14.99, "CAN": 19.99, "AUS": 22.99, "DEU": 17.99, "FRA": 17.99, "ESP": 17.99, "MEX": 299, "POL": 79.99 }
+  },
+  "oferta": { "produkty": ["monthly", "yearly"], "brak": true },
+  "rodzina": { "monthly": true, "yearly": true, "lifetime": true },
+  "adresy": { "plik": "docs/wydanie/asc-kontrola-oczekiwane.json" },
+  "kategoria": { "glowna": "FOOD_AND_DRINK", "dodatkowa": "PRODUCTIVITY" },
+  "wiek": {},
+  "dostepnosc": { "terytoria": null },
+  "metadane": {
+    "zrodla": [
+      { "plik": "docs/wydanie/asc-kontrola-oczekiwane.json", "korzen": "lokalizacje", "pola": { "name": "name", "subtitle": "subtitle", "keywords": "keywords", "promotionalText": "promotionalText", "description": "description" } }
+    ],
+    "komunikatBraku": "brak docs/wydanie/asc-kontrola-oczekiwane.json (node scripts/asc-kontrola-oczekiwane.mjs)"
+  }
+}

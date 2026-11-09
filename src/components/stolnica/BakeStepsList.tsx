@@ -12,6 +12,8 @@ import { odstepy, typografia } from '../../ui/tokeny';
 import { formatWeight, formatDoseWeight, UnitSystem } from '../../lib/unit-converter';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
+import { useRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy } from '../../lib/rodzaj-drozdzy';
+import { zaczynCiasta } from './SkladnikiKroku';
 import { Karta } from '../../ui/karty/Karta';
 import { WierszKarty } from '../../ui/karty/WierszKarty';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
@@ -38,13 +40,21 @@ export function BakeStepsList({
   calculatedRecipe,
   unitSystem,
 }: BakeStepsListProps) {
+  // Wiersz zakwasu albo drożdży według receptury (wersja drożdżowa bez „Zakwas 0 g”) [M2 D-312; 070-N5]
+  const rodzaj = useRodzajDrozdzy();
+  const zaczyn = zaczynCiasta(calculatedRecipe);
   return (
     <View testID="bake-steps-list" style={styles.lista}>
       {calculatedRecipe && (
         <Karta testID="karta-skladnikow-planu" tytul={t('Składniki do odważenia')} ikona={<IkonaKarty nazwa="waga" />} bezWypelnienia>
           <WierszKarty testID="plan-skladnik-maka" linia={false} etykieta={t('Mąki')} wartosc={formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)} />
           <WierszKarty testID="plan-skladnik-woda" etykieta={t('Woda')} wartosc={formatWeight(calculatedRecipe.waterGrams, unitSystem)} />
-          <WierszKarty testID="plan-skladnik-zakwas" etykieta={t('Zakwas|składnik')} wartosc={formatWeight(calculatedRecipe.starterGrams, unitSystem)} />
+          {zaczyn.includes('zakwas') && (
+            <WierszKarty testID="plan-skladnik-zakwas" etykieta={t('Zakwas|składnik')} wartosc={formatWeight(calculatedRecipe.starterGrams, unitSystem)} />
+          )}
+          {zaczyn.includes('drozdze') && (
+            <WierszKarty testID="plan-skladnik-drozdze" etykieta={nazwaDrozdzy(rodzaj)} wartosc={formatDoseWeight(gramyDrozdzy(calculatedRecipe.yeastGrams, rodzaj), unitSystem)} />
+          )}
           <WierszKarty testID="plan-skladnik-sol" etykieta={t('Sól')} wartosc={formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)} />
           <Text style={styles.przypis}>
             {t('Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%', {
@@ -64,6 +74,7 @@ export function BakeStepsList({
               accessibilityRole="button"
               accessibilityState={{ selected: !!(isCurrent) }}
               key={step.id}
+              testID={idx === steps.length - 1 ? 'plan-krok-ostatni' : `plan-krok-${idx}`}
               onPress={() => onGoToStep(idx)}
               style={({ pressed }) => [styles.stepRow, idx > 0 && styles.stepRowLinia, isPast && styles.stepRowPast, pressed && styles.nacisniety]}
             >

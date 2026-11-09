@@ -39,34 +39,37 @@ Načrt peke in kalkulator
 hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija,kvasec
 ```
 
-### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 151 / 170 znaków · wersja 1.0
 
 ```text
-Nastavite uro, ko naj bo kruh pripravljen: Pek izračuna količine, sestavi obratni urnik in vas obvesti o koncu vsakega koraka. Brez računa, interneta in oglasov.
+Pek izračuna količine in vas obvesti o koncu vsakega koraka. Obratni urnik od ure, ko naj bo kruh pripravljen (Pro). Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 3045 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3454 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
 
 RECEPTI IN KOLIČINE
-Izberete enega od 15 osnovnih receptov (z naravnim kvasom, rženi, s pekovskim kvasom, pica in sladki) ali svojega. Nastavite število hlebcev ali maso moke, Pek pa poda grame moke, vode, kvasa, soli in pekovskega kvasa. Pekovski odstotek upošteva moko in vodo iz kvasa in iz nastavka. Pek poda tudi temperaturo vode za temperaturo testa, ki jo želite doseči.
+Izberete enega od 26 osnovnih receptov (z naravnim kvasom, rženi, s pekovskim kvasom, pica in sladki) ali svojega; 11 receptov z naravnim kvasom ima načrt in vodenje korak za korakom. Nastavite število hlebcev ali maso moke, Pek pa poda grame moke, vode, kvasa, soli in pekovskega kvasa. Pekovski odstotek upošteva moko in vodo iz kvasa in iz nastavka (nastavek: Pro). Pek poda tudi temperaturo vode za temperaturo testa, ki jo želite doseči.
 
-NAČRT OD URE „PRIPRAVLJENO“
+RAZLIČICA S PEKOVSKIM KVASOM IN PEKAČ KRUHA
+Štirje recepti z naravnim kvasom imajo tudi različico s pekovskim kvasom, trije od njih z načrtom. Recepte in različice s pekovskim kvasom lahko spečete tudi v pekaču kruha: Pek prilagodi količine pekaču, poda vrstni red sestavin in program ter uro zagona za izbrano uro, ko naj bo kruh pripravljen (Pro).
+
+NAČRT OD URE „PRIPRAVLJENO“ (Pro)
 Izberete, kdaj naj bo kruh pripravljen, Pek pa nazaj izračuna začetno uro vsakega koraka. Čas fermentacije je odvisen od temperature v kuhinji. Ko korak, pri katerem so potrebne vaše roke, pade v noč (privzeto med 23:00 in 07:00), Pek predlaga daljši čas v hladilniku. Če je časa premalo, poda najzgodnejšo možno uro.
 
 VODENJE KORAK ZA KORAKOM
 Pek prikaže trenutni korak: kaj storiti, koliko traja in kaj sledi. Če dovolite obvestila, vas o koncu koraka obvesti tudi pri zaklenjenem telefonu. Pri koraku, pri katerem so potrebne vaše roke, zaslon vodenja ne ugasne. Koraki z vročo posodo ali surovim testom imajo opozorilo. Rženi kruh (več kot polovica moke je ržena moka) ima lastne korake brez raztezanja in prepogibanja. Pomotoma potrjen korak lahko razveljavite, po ponovnem odprtju pa se aplikacija vrne na trenutni korak.
 
 KVASI
-Vodite lahko več kvasov. Pek poda količine za hranjenje v razmerju 1:1:1, 1:2:2, 1:3:3 ali 1:5:5. Ko kvas podvoji prostornino, ga Pek označi kot pripravljenega za testo. Po 12 urah na pultu brez hranjenja vas nanj opomni z obvestilom. Nov kvas lahko vzgojite dan za dnem. Pek upošteva načelo previdnosti: pri oblogi, razbarvanju ali gnilem vonju svetuje, da kvas zavržete.
+Nov kvas lahko vzgojite dan za dnem. Pek upošteva načelo previdnosti: pri oblogi, razbarvanju ali gnilem vonju svetuje, da kvas zavržete. Skrb za kvas (Pro): več kvasov, količine za hranjenje v razmerju 1:1:1, 1:2:2, 1:3:3 ali 1:5:5, oznaka pripravljenosti, ko kvas podvoji prostornino, in opomnik po 12 urah na pultu brez hranjenja.
 
 DOKTOR ZA KRUH
 Sredica je zbita, skorja pa bleda? Označite simptome, Doktor za kruh pa prepozna eno od 9 napak, pojasni vzrok in pove, kaj naslednjič spremeniti. Štirje reševalni protokoli pomagajo, ko ima testo težave med fermentacijo. Doktor za kvas pomaga, ko vas pri kvasu kaj skrbi.
 
 DNEVNIK
-Ocenite vsak hlebec: zvezdice, sredica, skorja in profil okusa. Dnevnik prikazuje statistiko, „Speci znova“ pa odpre isti recept.
+Ocenite vsak hlebec: zvezdice, sredica, skorja in profil okusa. Dnevnik prikazuje statistiko (Pro), „Speci znova“ pa odpre isti recept.
 
 VAŠI PODATKI
 Pek v telefonu hrani 10 zadnjih samodejnih varnostnih kopij. Vse podatke lahko izvozite v datoteko in jih uvozite iz datoteke, zgodovino peke pa izvozite kot CSV. Enote: grami in °C ali unče in °F.
@@ -117,8 +120,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

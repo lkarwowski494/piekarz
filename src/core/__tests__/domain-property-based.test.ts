@@ -12,6 +12,7 @@ import {
 import { analyzeFlourBlendAbsorption } from '../flour-atlas';
 import { Q10_FERMENTATION } from '../fermentation-q10';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 // Ziarno z globalnej konfiguracji (jest.app-after-env.js → tests/helpers/fc-config.js): zawsze liczba,
 // także przy PROP_SEED=random w nightly; Number('random') dawało NaN i stały ciąg [M1-audytor-generalny-064].
@@ -88,7 +89,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Math.abs(result.overallHydrationPercent - computedOverallHydr)).toBeLessThanOrEqual(1.5);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
 
@@ -135,7 +136,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Math.abs(result.starterGrams - (base * starter) / 100)).toBeLessThan(1);
           }
         ),
-        { numRuns: 10000 } // ziarno stałe: PROP_SEED z jest.app-after-env.js (domyślnie 17102026)
+        { numRuns: nr(10000) } // ziarno stałe: PROP_SEED z jest.app-after-env.js (domyślnie 17102026)
       );
     });
   });
@@ -169,7 +170,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             }
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
 
@@ -202,7 +203,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Number((res1.waterTempTarget - resWarmerRoom.waterTempTarget).toFixed(1))).toBe(1.0);
           }
         ),
-        { numRuns: 500 }
+        { numRuns: nr(500) }
       );
     });
   });
@@ -228,7 +229,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(baseRes.adaptedHours).toBe(Number(baseHours.toFixed(2)));
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
 
@@ -248,7 +249,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Math.abs(resMinus10.adaptedHours - baseHours * Q10_FERMENTATION)).toBeLessThanOrEqual(0.05);
           }
         ),
-        { numRuns: 500 }
+        { numRuns: nr(500) }
       );
     });
   });
@@ -266,7 +267,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Math.abs(roundTrip - freshGrams)).toBeLessThanOrEqual(0.15);
           }
         ),
-        { numRuns: 500 }
+        { numRuns: nr(500) }
       );
     });
 
@@ -288,7 +289,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(res.waterGrams).toBeGreaterThan(0);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
   });
@@ -330,7 +331,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(firstStage.startTime.getTime()).toBeLessThan(targetDate.getTime());
           }
         ),
-        { numRuns: 500 }
+        { numRuns: nr(500) }
       );
     });
   });
@@ -367,7 +368,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(Math.abs(recoveredRaw - doughGrams)).toBeLessThanOrEqual(2);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
   });
@@ -425,7 +426,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             expect(analysis.doughFeelAdvicePl.length).toBeGreaterThan(10);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
   });

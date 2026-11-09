@@ -127,7 +127,7 @@ describe('M3 p5: Dziennik na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('statystyki w karcie z ikoną; Doktor Chleba jako wiersz-karta z ikoną (cel ≥ 52 pt) prowadzący do /doktor', async () => {
+  it('statystyki w karcie z ikoną; Doktor Chleba jako wiersz-karta z ikoną (cel ≥ 52 pt) prowadzący do /doktor (styl, bez pomiaru)', async () => {
     await saveBakeLog({ id: 'b1', recipeName: 'Mój chleb', startedAt: 1_800_000_000_000, ratingStars: 4 });
     const tree = await dziennik();
     const stat = jeden(tree.root, 'bake-stats-card');
@@ -145,7 +145,7 @@ describe('M3 p5: Dziennik na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('duży tekst (AX5 przy 320 pt): przyciski wpisu w kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach', async () => {
+  it('duży tekst (AX5 przy 320 pt): przyciski wpisu w kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach (styl, bez pomiaru)', async () => {
     await saveBakeLog({ id: 'b1', recipeName: 'Mój chleb', startedAt: 1_800_000_000_000, ratingStars: 4 });
     const pomiar = async (fs: number) => {
       Object.assign(mockOkno, { fontScale: fs });

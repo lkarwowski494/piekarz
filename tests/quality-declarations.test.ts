@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { nr } from './helpers/fc-runs';
 
 const root = join(__dirname, '..');
 const read = (p: string) => readFileSync(join(root, p), 'utf8');
@@ -53,7 +54,7 @@ describe('nightly: ziarno i liczba przebiegów fast-check', () => {
   });
 
   it('liczbowe PROP_SEED i FC_NUM_RUNS trafiają do konfiguracji', () => {
-    expect(resolveFastCheckConfig({ PROP_SEED: '42', FC_NUM_RUNS: '1000' }, () => 1)).toEqual({ seed: 42, numRuns: 1000 });
+    expect(resolveFastCheckConfig({ PROP_SEED: '42', FC_NUM_RUNS: '1000' }, () => 1)).toEqual({ seed: 42, numRuns: nr(1000) });
   });
 });
 
@@ -154,7 +155,7 @@ describe('zakres bramek w CLAUDE.md i docs/20 zgodny z package.json (N-14)', () 
 });
 
 describe('nazwy testów mówią, co naprawdę sprawdzają (07-jakosc-007)', () => {
-  it.each(['tests/matrix-dimensions.test.tsx', 'tests/matrix-a11y.test.tsx'])('%s nie obiecuje pomiaru 320 pt, AX5 ani 44 pt', (f) => {
+  it.each(['tests/matrix-dimensions.test.tsx', 'tests/matrix-a11y.test.tsx'])('%s nie obiecuje pomiaru 320 pt, AX5 ani 44 pt (styl, bez pomiaru)', (f) => {
     const titles = [...read(f).matchAll(/(?:it|describe)\(\s*'([^']+)'/g)].map((m) => m[1]);
     for (const title of titles) {
       expect(title).not.toMatch(/without overflow|without clipping|wraps gracefully|touch area of 44pt|Touch Targets >= 48pt/i);

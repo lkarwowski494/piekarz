@@ -78,6 +78,13 @@ describe('096: formaty §7', () => {
     [100, '3.5 oz'],
     [454, '1 lb 0.0 oz'],
     [1000, '2 lb 3.3 oz'],
+    // Granica 1 oz i przedział 1–2 oz (30–56 g): od 1 oz jedno miejsce po przecinku, poniżej dwa
+    // [M1-audytor-generalny-071; 07-jakosc-007, mutant M8 `oz2 >= 2`]
+    [28, '0.99 oz'],
+    [28.35, '1.0 oz'],
+    [30, '1.1 oz'],
+    [42.5, '1.5 oz'],
+    [56, '2.0 oz'],
   ])('en: %s g → %s', (g, oz) => {
     setLang('en');
     expect(formatWeight(g, 'imperial')).toBe(oz);

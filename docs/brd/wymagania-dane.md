@@ -176,6 +176,40 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Gdy użytkownik wybiera politykę prywatności
     - Wtedy widzi krótkie streszczenie w aplikacji i adres strony
 
+### BR-UST-004: Źródła wiedzy w jednym miejscu
+- Przepływ: PR-10 · Funkcja: F-82 (ZM-28)
+- Dowód potrzeby: decyzja właściciela D-123 („źródła wiedzy opisać może w jakimś jednym miejscu w aplikacji bez przypisów do konkretnych funkcji i elementów”, wybór „jeden ekran „Źródła wiedzy” w Ustawieniach”); atrybucja źródeł szczebla 4 przez ten ekran (D-126); teksty porad bez przypisów (D-123)
+- Kryteria akceptacji:
+  - Scenariusz: Otwarcie źródeł
+    - Zakładając, że użytkownik jest w Ustawieniach
+    - Gdy wybiera „Zobacz źródła” w karcie „Źródła wiedzy”
+    - Wtedy widzi wstęp i grupy tematyczne z nagłówkami, a przy każdym źródle z `src/core/zrodla-wiedzy.ts` nazwę, opis i adres (D-123)
+  - Scenariusz: Adres bez odnośnika i bez sieci
+    - Zakładając, że użytkownik jest na ekranie „Źródła wiedzy”
+    - Gdy dotyka adresu źródła
+    - Wtedy nic się nie otwiera: adres jest zwykłym tekstem, a ekran nie łączy się z siecią (D-123, BR-PRYW-001)
+  - Scenariusz: Powrót do Ustawień
+    - Zakładając, że użytkownik jest na ekranie „Źródła wiedzy”
+    - Gdy wybiera „Ustawienia” w nagłówku
+    - Wtedy widzi listę ustawień
+
+### BR-UST-005: Licencje open source w aplikacji
+- Przepływ: PR-10 · Ograniczenie: OG-13 · Funkcja: F-83 (ZM-28)
+- Dowód potrzeby: OG-13 (licencja MIT wymaga notki i treści licencji w kopii oprogramowania, S-109); decyzja właściciela D-291 („Teraz, przed 1.0”, FOR-15)
+- Kryteria akceptacji:
+  - Scenariusz: Lista licencji
+    - Zakładając, że użytkownik jest w Ustawieniach
+    - Gdy wybiera „Licencje open source” w karcie „Kontakt”
+    - Wtedy widzi sekcje pakietów npm, bibliotek natywnych iOS i czcionek z liczbą pozycji, a przy każdej pozycji nazwę, wersję i licencję z `assets/licencje.generated.json`
+  - Scenariusz: Notka i treść licencji
+    - Zakładając, że użytkownik widzi listę licencji
+    - Gdy dotyka pozycji z licencją MIT
+    - Wtedy widzi notkę o prawach autorskich i pełną treść licencji (S-109), a ponowne dotknięcie ją zwija
+  - Scenariusz: Inny język interfejsu
+    - Zakładając, że językiem aplikacji jest angielski
+    - Gdy użytkownik otwiera „Licencje open source”
+    - Wtedy etykiety ekranu są przetłumaczone, a nazwy pakietów i treść licencji są w oryginale
+
 ### BR-PRYW-001: Bez konta, bez sieci, bez śledzenia
 - Przepływ: PR-01, PR-04, PR-07
 - Dowód potrzeby: cel właściciela ZP-17; skargi na reklamy i śledzenie (13 z 16 recenzji ≤ 3★, S-27) i na aplikacje, które bez sieci nie działają (S-23, rec. 10637740561)

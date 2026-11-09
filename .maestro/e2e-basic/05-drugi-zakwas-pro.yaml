@@ -64,3 +64,5 @@ appId: com.apps4brew.baker
     id: "new-starter-name-input"
 - assertVisible:
     id: "add-starter-btn"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-05-drugi-zakwas-pro"

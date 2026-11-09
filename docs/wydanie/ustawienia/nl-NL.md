@@ -38,34 +38,37 @@ Bakplanning en rekenhulp
 desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,timer,rijzen,bakken
 ```
 
-### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 167 / 170 znaków · wersja 1.0
 
 ```text
-Kies hoe laat je brood klaar moet zijn: Bakker berekent de hoeveelheden, plant terug en meldt het einde van elke stap. Geen account, geen internet, geen reclame.
+Bakker berekent de hoeveelheden en meldt het einde van elke stap. Schema terug vanaf het moment dat je brood klaar is (Pro). Geen account, geen internet, geen reclame.
 ```
 
-### Opis (Description) · 3579 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3953 / 4000 znaków · wersja 1.0
 
 ```text
 Bakker begeleidt je bij het bakken van zuurdesembrood, van recept tot brood: de app berekent de hoeveelheden, maakt een schema en houdt de tijd in de gaten terwijl je telefoon slaapt. Werkt zonder account en zonder internet, zonder advertenties en zonder tracking. Je recepten, zuurdesemstarters en dagboek blijven alleen op je telefoon.
 
 RECEPTEN EN HOEVEELHEDEN
-Kies een van de 15 basisrecepten (zuurdesem, rogge, gist, pizza en zoet) of je eigen recept. Stel het aantal broden of het meelgewicht in, en Bakker geeft de grammen meel, water, zuurdesemstarter, zout en gist. Het bakkerspercentage telt het meel en water uit de zuurdesemstarter en uit het levain mee. Bakker geeft ook de watertemperatuur voor de gewenste deegtemperatuur.
+Kies een van de 26 basisrecepten (zuurdesem, rogge, gist, pizza en zoet) of je eigen recept; 11 zuurdesemrecepten hebben een schema en begeleiding stap voor stap. Stel het aantal broden of het meelgewicht in, en Bakker geeft de grammen meel, water, zuurdesemstarter, zout en gist. Het bakkerspercentage telt het meel en water uit de zuurdesemstarter en uit het levain mee (levain: Pro). Bakker geeft ook de watertemperatuur voor de gewenste deegtemperatuur.
 
-SCHEMA VANAF HET TIJDSTIP „KLAAR”
+GISTVERSIE EN BROODBAKMACHINE
+Vier zuurdesemrecepten hebben ook een gistversie, drie daarvan met schema. Gistrecepten en -versies kun je ook in de broodbakmachine maken: Bakker past de hoeveelheden aan je machine aan en geeft de volgorde van de ingrediënten en het programma, plus de starttijd voor het gekozen tijdstip „klaar” (Pro).
+
+SCHEMA VANAF HET TIJDSTIP „KLAAR” (Pro)
 Kies wanneer het brood klaar moet zijn, en Bakker rekent voor elke stap het starttijdstip terug. De fermentatietijd hangt af van de temperatuur in je keuken. Valt een stap waarbij je zelf aan de slag moet in de nacht (standaard tussen 23:00 en 07:00), dan stelt Bakker een langere tijd in de koelkast voor. Is er te weinig tijd, dan geeft Bakker het vroegst mogelijke tijdstip.
 
 STAP VOOR STAP BEGELEID
 Bakker toont de huidige stap: wat je moet doen, hoe lang het duurt en wat daarna komt. Sta je meldingen toe, dan laat Bakker ook bij een vergrendelde telefoon weten wanneer een stap klaar is. Bij een stap waarbij je zelf aan de slag moet, blijft het begeleidingsscherm aan. Stappen met heet kookgerei of rauw deeg hebben een waarschuwing. Roggebrood (meer dan de helft van het meel is roggemeel) heeft eigen stappen zonder vouwen. Een per ongeluk bevestigde stap maak je ongedaan, en als je de app opnieuw opent, start die bij de huidige stap.
 
 ZUURDESEMSTARTERS
-Beheer meerdere zuurdesemstarters. Bakker geeft de hoeveelheden om te voeden in de verhouding 1:1:1, 1:2:2, 1:3:3 of 1:5:5. Is de zuurdesemstarter in volume verdubbeld, dan markeert Bakker hem als klaar voor het deeg. Staat hij 12 uur op het aanrecht zonder te zijn gevoed, dan krijg je een herinnering via een melding. Een nieuwe zuurdesemstarter zet je dag voor dag op. Bakker hanteert het voorzorgsprincipe: bij aanslag, verkleuring of een rotte geur adviseert de app de zuurdesemstarter weg te gooien.
+Een nieuwe zuurdesemstarter zet je dag voor dag op. Bakker hanteert het voorzorgsprincipe: bij aanslag, verkleuring of een rotte geur adviseert de app de zuurdesemstarter weg te gooien. Zorg voor je zuurdesemstarter (Pro): meerdere zuurdesemstarters, hoeveelheden om te voeden in de verhouding 1:1:1, 1:2:2, 1:3:3 of 1:5:5, markering als klaar wanneer de starter in volume verdubbeld is en een herinnering na 12 uur op het aanrecht zonder voeding.
 
 BRODDOKTER
 Compact kruim en een bleke korst? Vink de symptomen aan, en de Broddokter wijst een van 9 bakfouten aan, legt de oorzaak uit en zegt wat je de volgende keer anders doet. Vier reddingsprotocollen helpen als het deeg tijdens de fermentatie in de problemen komt. De Starterdokter helpt als iets aan je zuurdesemstarter je zorgen baart.
 
 BAKDAGBOEK
-Beoordeel elk brood: sterren, kruim, korst en smaakprofiel. Het Bakdagboek toont statistieken, en „Opnieuw bakken” opent hetzelfde recept.
+Beoordeel elk brood: sterren, kruim, korst en smaakprofiel. Het Bakdagboek toont statistieken (Pro), en „Opnieuw bakken” opent hetzelfde recept.
 
 JOUW GEGEVENS
 Bakker bewaart de laatste 10 automatische back-ups op je telefoon. Al je gegevens exporteer je naar een bestand en importeer je uit een bestand, en je bakgeschiedenis exporteer je als CSV. Eenheden: grammen en °C of ounces en °F.
@@ -116,8 +119,8 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (3): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

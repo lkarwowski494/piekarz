@@ -1,6 +1,7 @@
 import * as fc from 'fast-check';
 import { calculateBakeStatistics, filterBakeLogs } from '../bake-statistics';
 import { StoredBakeLog } from '../../data/db';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () => {
   const sampleLogs: StoredBakeLog[] = [
@@ -126,7 +127,7 @@ describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () =>
           expect(filtered.length).toBe(logs.length);
         }
       ),
-      { numRuns: 100 }
+      { numRuns: nr(100) }
     );
   });
 });

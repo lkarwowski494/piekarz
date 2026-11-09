@@ -38,34 +38,37 @@ Plan pečenja i kalkulator
 štruca,pizza,hidratacija,tijesto,raženi,levain,poolish,timer,recept,fermentacija,kvasac
 ```
 
-### Tekst promocyjny (Promotional Text) · 165 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 157 / 170 znaków · wersja 1.0
 
 ```text
-Postavi vrijeme kad kruh treba biti gotov: Pekar će izračunati količine, složiti plan unatrag i javiti ti kraj svakog koraka. Bez računa, bez interneta, bez reklama.
+Pekar će izračunati količine i javiti ti kraj svakog koraka. Plan unatrag od vremena kad kruh treba biti gotov (Pro). Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 3079 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3432 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
 
 RECEPTURE I KOLIČINE
-Biraš jednu od 15 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka. Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
+Biraš jednu od 26 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu; 11 receptura s kvasom ima plan i vođenje korak po korak. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka (nastavak: Pro). Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
 
-PLAN OD VREMENA „GOTOVO”
+VERZIJA S KVASCEM I PEKAČ KRUHA
+Četiri recepture s kvasom imaju i verziju s kvascem, tri od njih s planom. Recepture i verzije s kvascem možeš ispeći i u pekaču kruha: Pekar prilagođava količine pekaču i daje redoslijed sastojaka i program te vrijeme pokretanja za odabrano vrijeme kad kruh treba biti gotov (Pro).
+
+PLAN OD VREMENA „GOTOVO” (Pro)
 Biraš kada kruh treba biti gotov, a Pekar unatrag računa vrijeme početka svakog koraka. Vrijeme fermentacije ovisi o temperaturi u kuhinji. Kad korak koji traži tvoje ruke padne noću (zadano između 23:00 i 07:00), Pekar će predložiti dulje vrijeme u hladnjaku. Kad je vremena premalo, dat će najranije moguće vrijeme.
 
 VOĐENJE KORAK PO KORAK
 Pekar pokazuje trenutačni korak: što napraviti, koliko traje i što slijedi. Ako dopustiš obavijesti, javit će ti kraj koraka i kad je telefon zaključan. U koraku koji traži tvoje ruke zaslon vođenja se ne gasi. Koraci s vrućim posuđem ili sirovim tijestom imaju upozorenje. Raženi kruh (više od polovice brašna je raženo brašno) ima vlastite korake bez preklapanja. Greškom potvrđen korak možeš poništiti, a nakon ponovnog otvaranja aplikacija se vraća na trenutačni korak.
 
 KVASI
-Vodiš nekoliko kvasa. Pekar daje količine za hranjenje u omjeru 1:1:1, 1:2:2, 1:3:3 ili 1:5:5. Kad kvas udvostruči volumen, Pekar će ga označiti kao spremnog za tijesto. Nakon 12 sati na radnoj površini bez hranjenja podsjetit će te na njega obaviješću. Novi kvas pokrećeš dan po dan. Pekar primjenjuje načelo opreza: kod naslage, promjene boje ili trulog mirisa savjetuje da baciš kvas.
+Novi kvas pokrećeš dan po dan. Pekar primjenjuje načelo opreza: kod naslage, promjene boje ili trulog mirisa savjetuje da baciš kvas. Briga o kvasu (Pro): nekoliko kvasa, količine za hranjenje u omjeru 1:1:1, 1:2:2, 1:3:3 ili 1:5:5, oznaka spremnosti kad kvas udvostruči volumen i podsjetnik nakon 12 sati na radnoj površini bez hranjenja.
 
 DOKTOR ZA KRUH
 Sredina je zbijena, a kora blijeda? Označiš simptome, a Doktor za kruh pokazuje jednu od 9 pogrešaka, objašnjava uzrok i kaže što promijeniti sljedeći put. Četiri protokola spašavanja pomažu kad tijesto ima problem tijekom fermentacije. Doktor za kvas pomaže kad te nešto u kvasu brine.
 
 DNEVNIK
-Ocjenjuješ svaku štrucu: zvjezdice, sredina, kora i profil okusa. Dnevnik pokazuje statistiku, a „Ispeci ponovno” otvara istu recepturu.
+Ocjenjuješ svaku štrucu: zvjezdice, sredina, kora i profil okusa. Dnevnik pokazuje statistiku (Pro), a „Ispeci ponovno” otvara istu recepturu.
 
 TVOJI PODACI
 Pekar na telefonu čuva 10 posljednjih automatskih sigurnosnih kopija. Sve podatke možeš izvesti u datoteku i uvesti iz datoteke, a povijest pečenja izvesti kao CSV. Jedinice: grami i °C ili unce i °F.
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (4): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

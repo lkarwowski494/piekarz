@@ -59,7 +59,7 @@ function Lista({ teksty, testID }: { teksty: string[]; testID: string }) {
   );
 }
 
-/** Ujawnienie 3: co daje Pro wobec Basic, jedno zdanie na obszar; tylko funkcje Pro z wejściem w 1.0 (kontrakt, tabela). */
+/** Ujawnienie 3: co daje Pro wobec Basic, jedno zdanie na obszar; tylko funkcje Pro z wejściem w 1.0 (kontrakt, tabela; bez porównania F-63, DEC-04 a). */
 function CoDajePro() {
   return (
     // Karta z ikoną (README §1, makieta „Co daje Pro”); teksty i kolejność bez zmian
@@ -70,7 +70,7 @@ function CoDajePro() {
           t('Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.'),
           t('Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.'),
           t('Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.'),
-          t('Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.'),
+          t('Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.'),
         ]}
       />
     </Karta>

@@ -27,4 +27,7 @@ export const EN_31: Record<string, string> = {
   'Start: {dzien}, {godzina}': 'Start: {dzien}, {godzina}',
   'Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.':
     'The plan would have to start: {dzienStartu}, {godzinaStartu}. The earliest the bread can be ready: {dzienGotowe}, {godzinaGotowe}.',
+  // Ekran Pro bez obietnicy porównania wypieków (F-63 PÓŹNIEJ, DEC-04 a) [M1-audytor-generalny-015];
+  // 33 języki: docs/lokalizacja/przeklad-m2-015-2026-11-09.json
+  'Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.': 'Recipes and Journal: more of your own recipes, plus baking statistics.',
 };

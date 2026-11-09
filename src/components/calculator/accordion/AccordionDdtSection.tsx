@@ -17,8 +17,10 @@ export interface AccordionDdtSectionProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
-  /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
+  /** Ostrzeżenie reguły RD-05 (status too_hot_danger albo requires_ice); brak = woda w zakresie [M1-audytor-generalny-039; 08-p3-N1]. */
   waterTempWarning?: string;
+  /** Status reguły RD-05 dla ostrzeżenia: requires_ice daje testID alertu zimnej wody [07-przek-4; 08-p3b-N1]. */
+  waterTempStatus?: 'normal' | 'too_hot_danger' | 'requires_ice';
   hydrationDifficulty?: HydrationDifficultyInfo;
   blendAbsorption?: BlendAbsorptionAnalysis;
   /** Pola temperatur mąki, kuchni, zaczynu i tarcia (BR-KALK-004) [M1-audytor-generalny-146] */
@@ -32,6 +34,7 @@ export function AccordionDdtSection({
   onTargetDdtChange,
   waterTempTarget,
   waterTempWarning,
+  waterTempStatus,
   hydrationDifficulty,
   blendAbsorption,
   temperatury,
@@ -60,7 +63,7 @@ export function AccordionDdtSection({
         )}
 
         {!brakPola && waterTempWarning !== undefined && (
-          <View style={styles.hotAlertRow} testID="ddt-too-hot-warning" accessibilityRole="alert">
+          <View style={styles.hotAlertRow} testID={waterTempStatus === 'requires_ice' ? 'ddt-too-cold-warning' : 'ddt-too-hot-warning'} accessibilityRole="alert">
             <Text style={styles.hotAlertText}>{t(waterTempWarning)}</Text>
           </View>
         )}

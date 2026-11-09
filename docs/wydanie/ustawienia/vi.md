@@ -38,34 +38,37 @@ Tính công thức & hẹn giờ ủ
 men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 ```
 
-### Tekst promocyjny (Promotional Text) · 167 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 164 / 170 znaków · wersja 1.0
 
 ```text
-Đặt giờ bạn muốn bánh xong: Thợ Bánh Mì sẽ tính lượng nguyên liệu, lập lịch trình ngược và báo khi mỗi bước kết thúc. Không tài khoản, không internet, không quảng cáo.
+Thợ Bánh Mì tính lượng nguyên liệu và báo khi mỗi bước kết thúc. Lịch trình ngược từ giờ bạn muốn bánh xong (Pro). Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3403 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3746 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
 
 CÔNG THỨC VÀ LƯỢNG NGUYÊN LIỆU
-Chọn một trong 15 công thức cơ bản (bánh mì men tự nhiên, lúa mạch đen, men nở, pizza và bánh ngọt) hoặc công thức của riêng bạn. Đặt số ổ bánh hoặc khối lượng bột mì, Thợ Bánh Mì sẽ cho biết số gam bột mì, nước, men tự nhiên, muối và men nở. Tỷ lệ thợ làm bánh tính cả bột mì và nước trong men tự nhiên và trong bột men. Thợ Bánh Mì cũng cho biết nhiệt độ nước để đạt được nhiệt độ bột mà bạn muốn.
+Chọn một trong 26 công thức cơ bản (bánh mì men tự nhiên, lúa mạch đen, men nở, pizza và bánh ngọt) hoặc công thức của riêng bạn; 11 công thức men tự nhiên có kế hoạch và hướng dẫn từng bước. Đặt số ổ bánh hoặc khối lượng bột mì, Thợ Bánh Mì sẽ cho biết số gam bột mì, nước, men tự nhiên, muối và men nở. Tỷ lệ thợ làm bánh tính cả bột mì và nước trong men tự nhiên và trong bột men (bột men: Pro). Thợ Bánh Mì cũng cho biết nhiệt độ nước để đạt được nhiệt độ bột mà bạn muốn.
 
-KẾ HOẠCH TÍNH TỪ GIỜ “XONG”
+PHIÊN BẢN MEN NỞ VÀ MÁY LÀM BÁNH MÌ
+Bốn công thức men tự nhiên còn có phiên bản men nở, ba trong số đó có kế hoạch. Công thức và phiên bản men nở cũng làm được bằng máy làm bánh mì: Thợ Bánh Mì điều chỉnh lượng nguyên liệu theo máy, cho biết thứ tự nguyên liệu và chương trình, cùng giờ bắt đầu cho giờ xong mà bạn chọn (Pro).
+
+KẾ HOẠCH TÍNH TỪ GIỜ “XONG” (Pro)
 Chọn thời điểm bánh cần xong, Thợ Bánh Mì sẽ tính ngược giờ bắt đầu của từng bước. Thời gian lên men phụ thuộc vào nhiệt độ trong bếp. Khi một bước cần bạn trực tiếp làm rơi vào ban đêm (mặc định từ 23:00 đến 07:00), Thợ Bánh Mì sẽ đề xuất để trong tủ lạnh lâu hơn. Khi không đủ thời gian, Thợ Bánh Mì sẽ cho biết giờ sớm nhất có thể.
 
 HƯỚNG DẪN TỪNG BƯỚC
 Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Ở bước cần bạn trực tiếp làm, màn hình hướng dẫn không tắt. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột. Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.
 
 MEN TỰ NHIÊN
-Quản lý nhiều men tự nhiên cùng lúc. Thợ Bánh Mì cho biết lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5. Khi men tự nhiên nở gấp đôi thể tích, Thợ Bánh Mì sẽ đánh dấu men đã sẵn sàng để làm bột. Sau 12 giờ để trên bàn bếp mà chưa cho ăn, Thợ Bánh Mì sẽ gửi thông báo nhắc bạn. Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi.
+Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi. Chăm sóc men tự nhiên (Pro): nhiều men tự nhiên, lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5, đánh dấu sẵn sàng khi men tự nhiên nở gấp đôi thể tích và nhắc nhở sau 12 giờ trên bàn bếp mà chưa cho ăn.
 
 BÁC SĨ BÁNH MÌ
 Ruột bánh đặc, vỏ bánh nhợt màu? Đánh dấu các triệu chứng, Bác sĩ Bánh mì sẽ chỉ ra một trong 9 lỗi, giải thích nguyên nhân và cho biết cần thay đổi gì vào lần sau. Bốn quy trình cứu nguy giúp bạn khi bột gặp vấn đề trong lúc lên men. Bác sĩ Men tự nhiên giúp bạn khi có điều gì ở men tự nhiên khiến bạn lo lắng.
 
 NHẬT KÝ
-Đánh giá từng ổ bánh: số sao, ruột bánh, vỏ bánh và hương vị. Nhật ký hiển thị thống kê, còn “Nướng lại” mở lại đúng công thức đó.
+Đánh giá từng ổ bánh: số sao, ruột bánh, vỏ bánh và hương vị. Nhật ký hiển thị thống kê (Pro), còn “Nướng lại” mở lại đúng công thức đó.
 
 DỮ LIỆU CỦA BẠN
 Thợ Bánh Mì lưu 10 bản sao lưu tự động gần nhất trên điện thoại. Bạn có thể xuất toàn bộ dữ liệu ra tệp và nhập lại từ tệp, còn lịch sử nướng bánh có thể xuất dạng CSV. Đơn vị: gam và °C hoặc ounce và °F.
@@ -116,12 +119,12 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-038, docs/wydanie/ceny.json |
+| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

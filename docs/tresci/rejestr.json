@@ -10536,14 +10536,48 @@
     "uwagi": "M1-audytor-generalny-008 (06-tresci-001). Ta sama strona: „Remove from the pan immediately and transfer to a wire rack to cool.” Czas nagrzewania piekarnika: źródło go nie podaje (PIE-BRI-900)."
   },
   {
-    "id": "PIE-BRI-900",
-    "twierdzenie": "[DO USTALENIA] Czas nagrzewania piekarnika przed pieczeniem brioszki w keksówce (krok planu „preheat_oven”, dziś 45 min) oraz kroki planu brioszki na Lievito Madre od zarobienia do formy (plan dziś bierze szablon bochenka w koszyku: składania, koszyk, garowanie w lodówce).",
-    "zrodla": [],
-    "status": "otwarte",
-    "uproszczenie": "Do czasu źródła czas nagrzewania zostaje jako nazwane uproszczenie planu (rezerwa w harmonogramie, nie zalecenie; tekst kroku nie podaje liczby), jak DRO-PLN-900.",
+    "id": "PIE-BRI-002",
+    "twierdzenie": "Według The Culinary Institute of America ciasto brioszki wyrabia się mikserem: mąkę z drożdżami, częścią masła, jajkami, mlekiem, cukrem i solą miesza się 4 minuty na niskich obrotach, resztę masła dodaje się stopniowo na średnich obrotach, a gdy masło całkiem połączy się z ciastem, miesza się jeszcze 15 minut albo do chwili, gdy ciasto odchodzi od misy; ciasto kładzie się na blasze wyłożonej papierem posmarowanym masłem, szczelnie przykrywa folią i trzyma przez noc w lodówce; do keksówki ciasto rozwałkowuje się dłońmi na długość formy, wkłada do formy lekko posmarowanej masłem, przykrywa folią i zostawia do wyrośnięcia w ciepłym miejscu na 20 minut; potem smaruje się je jajkiem i piecze (PIE-BRI-001).",
+    "zrodla": [
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "The Culinary Institute of America (CIA Foodies), „Brioche”, Directions (wyrabianie); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 63c931215de8",
+        "cytat": "Increase the speed to medium and, with the mixer running, gradually add a scant 1 1/4 cups of the butter, scraping down the sides of the bowl as necessary. After the butter is fully incorporated, mix on medium speed for 15 minutes, or until the dough pulls away from the bowl.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (ciasto na noc w lodówce)",
+        "cytat": "Line a sheet pan with parchment paper, grease it with butter, and place the dough on top. Cover the dough tightly with plastic wrap and refrigerate overnight.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (keksówka: formowanie i rośnięcie)",
+        "cytat": "For the loaf pan, hand roll the dough out to the length of your pan. Grease the pan lightly with butter and place the dough in the pan. Cover with plastic wrap and let proof in a warm place for 20 minutes.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Do planu brioszki Piekarza (Lievito Madre, w recepturze mąka, woda, sól, zakwas i masło; bez jajek, mleka i cukru) przeniesione tylko czynności i ich kolejność: masło stopniowo, wyrabianie do odchodzenia od misy, ciasto na noc w lodówce na blasze, formowanie w keksówce, rośnięcie w ciepłym miejscu pod folią. Nie przeniesione jako zalecenie: czasy (4 + 15 min miksera, 20 min rośnięcia) — dotyczą miksera i ciasta na drożdżach instant (DRO-WER-BR-001); tekst kroków nie podaje liczb, a czasy w logice planu to nazwana rezerwa (PIE-BRI-900, wektor plan-brioszki-2026-11-09.json). Źródło dodaje część masła na początku; notesPl receptury (REC-BAZ-900) każe dodawać masło pod koniec wyrabiania — zdanie kroku („stopniowo, porcjami”, potem wyrabianie do odchodzenia od misy) jest zgodne z oboma.",
     "krytyczne": false,
     "przeglad": null,
-    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09: kroki formowania planu nie pasują do brioszki w keksówce)."
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-012 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2: plan brioszki brał kroki bochenka w koszyku). Zgodne: DRO-WER-BR-002 (20 min w ciepłym miejscu, odczyt 2026-11-03). Teksty: docs/tresci/pl|en/plan-brioszki.md."
+  },
+  {
+    "id": "PIE-BRI-900",
+    "twierdzenie": "[DO USTALENIA] Czasy planu brioszki na Lievito Madre, których źródło receptury (CIA, PIE-BRI-002: ciasto na drożdżach instant, mikser) nie daje dla zaczynu: (1) czy ciasto po wyrobieniu potrzebuje rośnięcia w cieple przed lodówką i jak długo, (2) jak długo ciasto leży w lodówce („przez noc”), (3) jak długo rośnie w keksówce w ciepłym miejscu i po czym poznać gotowość, (4) czas wyrabiania ręcznego, (5) czas nagrzewania piekarnika przed keksówką (krok preheat_oven, dziś 45 min).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła czasy zostają w logice planu jako nazwana rezerwa w harmonogramie (nie zalecenie; tekst kroków nie podaje liczb), jak PLN-KRO-900 i DRO-PLN-900: brioche_mix 20 min (rachunek z PIE-BRI-002: 4 + 15 = 19 min miksera, w górę do 20), brioche_cold 840 min w zakresie 480–1440 (czas i zakres kroku final_proof szablonu, PLN-KRO-900; „na noc” z PIE-BRI-002), brioche_shape 15 min (szablon final_shape), brioche_proof 20 min (czas źródła dla ciasta na drożdżach instant, PIE-BRI-002; dla Lievito Madre zwykle dłużej — dolna rezerwa, tekst każe czekać do wyrośnięcia), preheat_oven 45 min (rezerwa D-304). Kroki (kolejność i czynności) mają źródło: PIE-BRI-002, PIE-BRI-001.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09); M2-012 (fix p3 2026-11-09): kroki rozstrzygnięte źródłem (PIE-BRI-002, plan-brioszki.md), otwarte zostają czasy. Szukane 2026-11-09: przepisów brioszki na zakwasie ze szczebla 1–4 nie znaleziono (wyszukiwarka: King Arthur bez takiego przepisu, adresy sourdough-brioche-recipe 404; pozostałe wyniki to blogi, szczebel 5, czasy rośnięcia od ok. 1,5 do 5 h, nie potwierdzają)."
   },
   {
     "id": "PLN-KRO-900",
@@ -10556,6 +10590,33 @@
     "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Plan bez źródła: komentarz w kodzie „durationMinutes bez źródła (KRO-POC-011)”."
   },
   {
+    "id": "DDT-WOD-001",
+    "twierdzenie": "Według King Arthur Baking wymaganą temperaturę wody oblicza się tak: docelową temperaturę ciasta mnoży się przez 3 (ciasto bez zaczynu) albo przez 4 (z zaczynem) i odejmuje od wyniku sumę znanych temperatur — mąki, powietrza, zaczynu i przyrostu od tarcia. Stąd (rachunek): niższa temperatura mąki, powietrza albo zaczynu podnosi wymaganą temperaturę wody o tyle samo stopni, a wyższa ją obniża; niższa docelowa temperatura ciasta obniża ją 3 albo 4 razy tyle. Gdy obliczona woda jest za gorąca, temperaturę wody obniża ogrzanie mąki albo zaczynu albo niższa docelowa temperatura ciasta; gdy jest za zimna, podnosi ją schłodzenie mąki albo zaczynu albo wyższa docelowa temperatura ciasta.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "King Arthur Baking, Pro Reference „Dough Temperatures”, sekcja „Water Temperature” (S-02); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 30bb09273afd",
+        "cytat": "We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment. The result will be the total temperature factor. Once we have determined this factor, we subtract from it the sum of the known temperatures, and the result will be the required water temperature.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "jw., lista czynników (powietrze, mąka, tarcie, zaczyn) i przykłady obliczeń (76 °F × 3 − 72 − 74 − 24 = 58 °F; 75 °F × 4 − 68 − 68 − 71 − 26 = 67 °F)",
+        "cytat": "establish the correct water temperature (the only variable over which we have control)",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Kierunek rady to rachunek na wzorze źródła (RD-16 w docs/brd/reguly.md; w kodzie komentarz „RD-05”, src/core/domain-rules.ts calculateDDTWaterTemp): Tw = n × DDT − (Tm + Tp + Tz + Tt), więc ∂Tw/∂Tm = ∂Tw/∂Tp = ∂Tw/∂Tz = −1 i ∂Tw/∂DDT = n (3 albo 4). Przykład (dowody M2-013-rachunek.txt): DDT 25, mąka 15, kuchnia 18, zakwas z lodówki 5, tarcie 10 °C → 52 °C; mąka schłodzona do 10 °C → 57 °C (stara rada pogarsza), mąka i zakwas ogrzane do 18 °C → 36 °C. Źródło nazywa temperatury mąki i powietrza czynnikami „bez kontroli” w piekarni; w domu mąkę i zakwas da się ogrzać do temperatury pokojowej — rada nie każe grzać ich powyżej niej. Rady „obniż temperaturę otoczenia” nie ma: przy za gorącej wodzie chłodniejsze otoczenie podnosi wymaganą temperaturę wody. Rada lodu przy za zimnej wodzie to rachunek bilansu ciepła RD-18 (ciepło topnienia lodu 333,4 J/g, NIST, odczyt 2026-11-09), który aplikacja liczy na danych użytkownika — zdanie ma [T:-].",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-013 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2). Progi 45 i 4 °C nadal bez źródła (DDT-WOD-900). NIST „Properties of Ice and Supercooled Water” (tsapps.nist.gov, pub_id=926353): „∆fusH(0 °C) = 333.4 J/g” — pdftotext + grep -F 2026-11-09; źródło RD-18 (S-42), nie tego zdania."
+  },
+  {
     "id": "DDT-WOD-900",
     "twierdzenie": "[DO USTALENIA] Progi ostrzeżeń kalkulatora temperatury wody (src/core/domain-rules.ts, calculateDDTWaterTemp): powyżej 45 °C „za gorąca” i poniżej 4 °C „lód”; przyczyna „ugotowanie drożdży i bakterii kwasu mlekowego”.",
     "zrodla": [],
@@ -10563,7 +10624,7 @@
     "uproszczenie": "Do czasu źródła progi zostają w logice bez zmiany wartości, a komunikaty nie podają liczby ani przyczyny (teksty-glownego-przeplywu.md). Źródła w rejestrze nie dają progu szkodliwej temperatury wody dla zakwasu: DRO-INS-010 (Fleischmann’s: płyn 120–130 °F przy drożdżach instant mieszanych z mąką) i DRO-INS-004 (Red Star: 110–115 °F do próby drożdży suchych aktywnych) dotyczą drożdży piekarskich.",
     "krytyczne": false,
     "przeglad": null,
-    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy wodzie za gorącej odwraca rachunek wzoru (woda = n·DDT − suma pozostałych temperatur): chłodniejsza mąka i otoczenie podnoszą wymaganą temperaturę wody — nowe znalezisko w raporcie fix 2026-11-09; wersja zgodna z rachunkiem w teksty-glownego-przeplywu.md."
+    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy wodzie za gorącej odwracała rachunek wzoru — rozstrzygnięte w M2-013 (fix p3 2026-11-09): kierunek rady w DDT-WOD-001, teksty w teksty-glownego-przeplywu.md. Otwarte zostają progi i przyczyna."
   },
   {
     "id": "REC-BAZ-900",

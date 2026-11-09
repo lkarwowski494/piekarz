@@ -1,6 +1,7 @@
 import { Q10_FERMENTATION } from './fermentation-q10';
 import { DOMYSLNY_PROFIL_SNU, oknoSnu } from './profile-snu';
 import { krokiPieczenia, PIECZENIE_DOMYSLNE, type KrokPieczenia, type PieczenieReceptury } from './pieczenie-receptury';
+import { BRIOCHE_COLD_STAGE_ID, briocheTemplates } from './brioche-stages';
 
 // Domena bez i18n i formatowania (ADR-006) [M1-audytor-generalny-020]: godzinę kolizji formatuje wstrzyknięta funkcja
 // (fasada src/scheduler/reverse-scheduler.ts podaje formatTime języka aplikacji); bez niej HH:MM.
@@ -227,7 +228,9 @@ export function calculateReverseSchedule(
   const sleepStart = options.sleepStartHour ?? DOMYSLNE_OKNO_SNU.startH;
   const sleepEnd = options.sleepEndHour ?? DOMYSLNE_OKNO_SNU.koniecH;
 
-  const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
+  // Brioszka (po id receptury, nie po keksówce): kroki brioszki ze źródła zamiast bochenka w koszyku (D-309) [M2-012]
+  const szablon = options.pieczenie?.szablon === 'brioszka' ? briocheTemplates(DEFAULT_STAGE_TEMPLATES) : DEFAULT_STAGE_TEMPLATES;
+  const templates = szablon.map((t) => ({ ...t }));
 
   // Pieczenie z danych receptury: naczynie, czas i teksty kroków (D-304) [M1-audytor-generalny-008]
   if (options.pieczenie) {
@@ -238,15 +241,15 @@ export function calculateReverseSchedule(
     if (j >= 0) templates[j] = szablonPieczenia(k.pieczenie, 'bake');
   }
 
-  // Adjust cold retard if specified
+  // Adjust cold retard if specified (bochenek: garowanie w lodówce; brioszka: ciasto na noc w lodówce, D-309)
   if (options.coldRetardHours && options.coldRetardHours > 0) {
-    const retard = templates.find((t) => t.id === 'final_proof');
+    const retard = templates.find((t) => t.id === 'final_proof' || t.id === BRIOCHE_COLD_STAGE_ID);
     if (retard) {
       retard.durationMinutes = Math.round(options.coldRetardHours * 60);
     }
   }
 
-  // Adjust bulk ferment if temperature is given
+  // Adjust bulk ferment if temperature is given (tylko fermentacja w cieple; brioche_cold w lodówce bez Q10, D-309)
   if (options.ambientTemperatureC && options.ambientTemperatureC !== 24.0) {
     const exponent = (24.0 - options.ambientTemperatureC) / 10.0;
     const factor = Math.pow(Q10_FERMENTATION, exponent); // FER-Q10-002

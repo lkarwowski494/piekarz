@@ -34,9 +34,9 @@ import { BakerRitualProfile, BakingVessel } from '../src/data/sqlite-store';
 import { LocaleStatus } from '../src/lib/i18n-locales';
 import { StorageState } from '../src/data/storage-status';
 
-describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
-  describe('Compact Width 320pt Constraints (iPhone SE 1st gen)', () => {
-    it('NumInput renders inside a 320pt-wide container (presence only; layout not measured)', () => {
+describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004) (styl, bez pomiaru)', () => {
+  describe('Compact Width 320pt Constraints (iPhone SE 1st gen) (styl, bez pomiaru)', () => {
+    it('NumInput renders inside a 320pt-wide container (presence only; layout not measured) (styl, bez pomiaru)', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(

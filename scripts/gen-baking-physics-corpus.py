@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 gen-baking-physics-corpus.py
-Independent Python reference implementation generating baking thermodynamics,
+Python regression corpus (mirrors the JS implementation; not an independent oracle) generating baking thermodynamics,
 DDT, ice mass, and Q10 kinetics truth tables for cross-language validation.
 Apps4Brew Studio — Deterministic Verification Corpus.
 """

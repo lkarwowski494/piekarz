@@ -71,7 +71,7 @@ export const CZESC: Record<string, string> = {
   'Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.':
     'Viivitatud start on välja lülitatud, sest retseptis on mune, värsket piima, juustu, jogurtit, mahla, värskeid puuvilju või köögivilju.',
   'Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.':
-    'Iga loetud masinajuhend keelab viivitatud stardi osa nende koostisosadega, sest need riknevad kergesti.',
+    'Iga loetud masinajuhend keelab viivitatud stardi mõne nende koostisosaga, sest need riknevad kergesti.',
   'Według jednej z instrukcji mleko w proszku zamiast świeżego mleka pozwala użyć opóźnionego startu, więc Piekarz go nie blokuje.':
     'Ühe juhendi järgi võimaldab piimapulber värske piima asemel kasutada viivitatud starti, seega Pagar seda ei blokeeri.',
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':

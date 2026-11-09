@@ -19,7 +19,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71), BR-RECP-005 (ER-76) |
-| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
+| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003…005, BR-PRYW, BR-START | E3 + BR-START-001, BR-UST-004, BR-UST-005 (ER-84) |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
 | `wymagania-maszyna.md` | BR-MASZ-001…006 (tryb maszyny do chleba, F-72, PR-25, J-16; reguły RD-37…RD-39) | ER-77, 2026-11-03 |
 | `errata.md` | errata ER-34…ER-78 | E3 + 2026-10-22, 2026-11-03 (ER-75…ER-78) |
@@ -73,6 +73,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-71 | [DO USTALENIA] (OP-71) temperatury pieca ze specyfikacji (Altamura 250 °C, pierożki karelskie 250–300 °C, obwarzanek 250–320 °C, rupjmaize 280–350 °C; rejestr KAT-ALT-005, KAT-KAR-003, KAT-OBW-012, KAT-RUP-005) wobec piekarnika domowego: czy i jaką temperaturę aplikacja podaje w planie i prowadzeniu | rola 06 | BR-RECP-001, D-177 |
 | OP-72 | [DO USTALENIA] (OP-72) czy przepis w płatnej aplikacji jest „wykorzystywaniem w celach handlowych” nazwy chronionej (rozp. (UE) 2024/1143 art. 26 ust. 1, rejestr KAT-PRA-001, KAT-PRA-002; nazwy GTS: art. 24 rozp. 1151/2012) — opinia prawna; do tego czasu nazwy opisowe (D-177) | właściciel (opinia prawna, krok właściciela) | BR-RECP-001, D-177 |
 | OP-73 | [DO USTALENIA] (OP-73) czy blokada opóźnionego startu (RD-38) obejmuje składniki, które nie trafiają do maszyny (mleko w nadzieniu pierożków karelskich, KAT-KAR-002), i czy pierożki w ogóle mają tryb maszyny (raport roli 06: „nie (formowanie ręczne; źródło milczy)”, D-179 wymienia pierożki przy programie „ciasto”); do tego czasu blokada według całej receptury; 06m (2026-11-04): źródła szczebla 1–3 nie znaleziono | rola 06 | RD-38, RD-39, BR-MASZ-005 |
+| OP-74 | [DO USTALENIA] (OP-74) czasy etapów planu dla receptur drożdżowych z katalogu (plan w 1.0.1, D-312 pkt 3): w `docs/tresci/wektory/m3-2026-11-03.json` (sekcja `czasy_etapow_drozdzowych`) są dane pizzy, bagietki, chałki i focaccii, ciabatta i chleb nocny otwarte (DRO-PRE-900), pozostałe receptury drożdżowe katalogu nieprzejrzane; kroki z rękami bez czasu w źródłach (DRO-PLN-900) | rola 06; zakres 1.0.1: rola 03 | BR-HARMO-001, D-312 |
 
 ## Blokery wydania
 

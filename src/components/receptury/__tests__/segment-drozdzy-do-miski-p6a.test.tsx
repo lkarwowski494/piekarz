@@ -197,7 +197,7 @@ describe('M3 p6a: segment drożdży przy wierszu „Do miski” (BR-KALK-012, D-
     expect(tekst(host(tree.root, 'scale-item-yeast')[0])).toContain(masa(gramyDrozdzy(25, 'suche')));
   });
 
-  it('pole dotyku ≥ 44 pt; duży tekst (AX5 przy 320 pt): każda opcja na całą szerokość (§7a)', async () => {
+  it('pole dotyku ≥ 44 pt; duży tekst (AX5 przy 320 pt): każda opcja na całą szerokość (§7a) (styl, bez pomiaru)', async () => {
     tree = await render(<DoMiski {...props()} />);
     for (const id of ['do-miski-yeast-fresh', 'do-miski-yeast-dry']) {
       const st = StyleSheet.flatten(jeden(tree.root, id).props.style);

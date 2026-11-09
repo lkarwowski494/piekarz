@@ -80,7 +80,7 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Theo bốn trong năm hướng dẫn chúng tôi đã đọc, hẹn giờ không hoạt động hoặc không được khuyến nghị ở chương trình chỉ làm bột nhào, nên ứng dụng Thợ Bánh Mì không đề xuất.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Sau khi nướng, hãy lấy khuôn ra bằng găng tay nhà bếp, vì khuôn, tay cầm và mặt trong nắp đều nóng.',
+    'Sau khi nướng, hãy lấy khuôn ra bằng găng tay chống nóng, vì khuôn, tay cầm và mặt trong nắp đều nóng.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'Cánh nhào còn lại trong ổ bánh có thể rất nóng: chỉ lấy ra khi bánh đã nguội, bằng dụng cụ đi kèm hoặc spatula nhựa, không dùng dao và nĩa, và vẫn phải cẩn thận để không bị bỏng.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':

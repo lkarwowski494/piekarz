@@ -38,7 +38,7 @@ const TEKSTY_STYLU = [
 describe('bez wyboru stylu wypieku (101)', () => {
   beforeEach(() => setLang('pl'));
 
-  it('Ustawienia nie mają wyboru stylu; wybór naczynia zostaje', async () => {
+  it('Ustawienia nie mają wyboru stylu ani wyboru naczynia (060: plan bierze naczynie z receptury, D-304)', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(<SettingsModal visible onClose={() => {}} />);
@@ -51,7 +51,9 @@ describe('bez wyboru stylu wypieku (101)', () => {
       .findAll((n) => (n.type as unknown) === 'Text')
       .map((n) => (Array.isArray(n.props.children) ? n.props.children.join('') : String(n.props.children)));
     for (const s of TEKSTY_STYLU) expect(teksty).not.toContain(s);
-    expect(root.findAllByProps({ testID: 'vessel-dutch-oven-btn' }).length).toBeGreaterThan(0);
+    // Wybór naczynia bez skutku usunięty [M1-audytor-generalny-060; 03-zakres-004, opcja a]
+    expect(root.findAllByProps({ testID: 'karta-naczynie' })).toHaveLength(0);
+    expect(root.findAllByProps({ testID: 'vessel-dutch-oven-btn' })).toHaveLength(0);
     act(() => tree!.unmount());
   });
 

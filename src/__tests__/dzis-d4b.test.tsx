@@ -200,7 +200,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_pizza' } });
   });
 
-  it('Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a)', async () => {
+  it('Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a) (styl, bez pomiaru)', async () => {
     zDostepem();
     await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
     const root = await renderStart();
@@ -324,7 +324,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(host(root, 'start-trwa-wypiek')).toHaveLength(2);
   });
 
-  it('320 pt: dni od krawędzi do krawędzi (bez marginesu), każdy dzień cały przycisk ≥ 44 pt; kafle bez ucinania tekstu', async () => {
+  it('320 pt: dni od krawędzi do krawędzi (bez marginesu), każdy dzień cały przycisk ≥ 44 pt; kafle bez ucinania tekstu (styl, bez pomiaru)', async () => {
     await pustaBaza();
     Object.assign(mockOkno, { width: 320 });
     const root = await renderStart();

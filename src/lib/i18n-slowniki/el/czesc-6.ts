@@ -41,7 +41,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'π.χ. San Francisco White, Lievito...',
   'O recepturze': 'Σχετικά με τη συνταγή',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'Η υπολογισμένη θερμοκρασία νερού είναι κάτω από 4°C. Για να την πετύχετε χωρίς κατάψυξη, αντικαταστήστε μέρος του νερού με πάγο.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Η υπολογισμένη θερμοκρασία του νερού υπερβαίνει τους 45°C. Υπάρχει κίνδυνος να «βράσουν» η μαγιά και τα βακτήρια γαλακτικού οξέος. Κρυώστε το αλεύρι ή χαμηλώστε τη θερμοκρασία περιβάλλοντος.',
   'Obniż docelową temperaturę ciasta': 'Μείωση επιθυμητής θερμοκρασίας ζύμης',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Χαμηλώστε τη θερμοκρασία στους 210°C. Η αντίδραση Maillard δημιουργεί τραγανή κόρα με νότες ξηρών καρπών και καραμέλας.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Χαμηλώστε τη θερμοκρασία του ψυγείου: σε πιο κρύο ψυγείο η ζύμωση προχωρά πιο αργά.',

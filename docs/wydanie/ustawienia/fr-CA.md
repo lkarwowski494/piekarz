@@ -41,34 +41,37 @@ boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcen
 ### Tekst promocyjny (Promotional Text) · 168 / 170 znaków · wersja 1.0
 
 ```text
-Choisissez l'heure où le pain doit être prêt : Mitron calcule les quantités, planifie à rebours et signale la fin de chaque étape. Sans compte, sans internet, sans pub.
+Mitron calcule les quantités et signale la fin de chaque étape. Planning à rebours depuis l'heure où le pain doit être prêt (Pro). Sans compte, sans internet, sans pub.
 ```
 
-### Opis (Description) · 3731 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3998 / 4000 znaków · wersja 1.0
 
 ```text
 Mitron vous guide dans la fournée de pain au levain, de la recette à la miche : il calcule les quantités, établit le planning et surveille le temps quand le téléphone est en veille. Il fonctionne sans compte et sans internet, sans publicité et sans pistage. Vos recettes, vos levains et votre journal restent uniquement sur votre téléphone.
 
 RECETTES ET QUANTITÉS
-Choisissez l'une des 15 recettes de base (au levain, au seigle, à la levure, pizza et sucrées) ou votre propre recette. Réglez le nombre de miches ou la masse de farine, et Mitron indique les grammes de farine, d'eau, de levain, de sel et de levure. Le pourcentage boulanger tient compte de la farine et de l'eau du levain et du levain tout point. Mitron indique aussi la température de l'eau pour atteindre la température de pâte désirée.
+Choisissez l'une des 26 recettes de base (au levain, au seigle, à la levure, pizza et sucrées) ou la vôtre ; 11 recettes au levain ont un planning et un guidage étape par étape. Réglez le nombre de miches ou la masse de farine, et Mitron indique les grammes de farine, d'eau, de levain, de sel et de levure. Le pourcentage boulanger tient compte de la farine et de l'eau du levain et du levain tout point (levain tout point : Pro). Mitron indique aussi la température de l'eau pour atteindre la température de pâte désirée.
 
-UN PLANNING À PARTIR DE L'HEURE « PRÊT »
+VERSION À LA LEVURE ET MACHINE À PAIN
+Quatre recettes au levain ont une version à la levure, dont trois avec planning. En machine à pain (recettes à la levure), Mitron adapte les quantités et indique l'ordre des ingrédients, le programme et l'heure de départ pour l'heure « prêt » choisie (Pro).
+
+UN PLANNING À PARTIR DE L'HEURE « PRÊT » (Pro)
 Choisissez quand le pain doit être prêt, et Mitron calcule à rebours l'heure de début de chaque étape. La durée de fermentation dépend de la température de votre cuisine. Quand une étape qui demande vos mains tombe la nuit (par défaut entre 23:00 et 07:00), Mitron propose un temps plus long au réfrigérateur. S'il n'y a pas assez de temps, il indique l'heure la plus tôt possible.
 
 GUIDAGE ÉTAPE PAR ÉTAPE
-Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. Pendant une étape qui demande vos mains, l'écran de guidage reste allumé. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de la moitié de la farine est de la farine de seigle) a ses propres étapes, sans rabats. Vous pouvez annuler une étape validée par erreur, et l'application revient à l'étape en cours quand vous la rouvrez.
+Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. Pendant une étape qui demande vos mains, l'écran de guidage reste allumé. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de moitié de farine de seigle) a ses propres étapes, sans rabats. Une étape validée par erreur peut s'annuler, et l'application revient à l'étape en cours à la réouverture.
 
 LEVAINS
-Gérez plusieurs levains. Mitron indique les quantités pour le rafraîchi selon un rapport 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quand le levain a doublé de volume, Mitron le marque comme prêt pour la pâte. Après 12 heures à température ambiante sans rafraîchi, une notification vous le rappelle. Vous pouvez créer un nouveau levain jour après jour. Mitron applique le principe de précaution : en cas de pellicule, de décoloration ou d'odeur de pourri, il conseille de jeter le levain.
+Vous pouvez créer un nouveau levain jour après jour. Mitron applique le principe de précaution : en cas de pellicule, de décoloration ou d'odeur de pourri, il conseille de jeter le levain. Suivi du levain (Pro) : plusieurs levains, quantités pour le rafraîchi selon un rapport 1:1:1, 1:2:2, 1:3:3 ou 1:5:5, repère « prêt » quand le levain a doublé de volume et rappel après 12 heures à température ambiante sans rafraîchi.
 
 DOCTEUR PAIN
 Mie serrée et croûte pâle ? Cochez les symptômes, et le Docteur Pain identifie l'un des 9 défauts, explique la cause et indique quoi changer la prochaine fois. Quatre protocoles de sauvetage vous aident quand la pâte a un problème pendant la fermentation. Le Docteur Levain vous aide quand quelque chose vous inquiète dans votre levain.
 
 JOURNAL
-Notez chaque miche : étoiles, mie, croûte et profil gustatif. Le Journal affiche des statistiques, et « Cuire à nouveau » ouvre la même recette.
+Notez chaque miche : étoiles, mie, croûte et profil gustatif. Le Journal affiche des statistiques (Pro), et « Cuire à nouveau » ouvre la même recette.
 
 VOS DONNÉES
-Mitron conserve sur votre téléphone les 10 dernières sauvegardes automatiques. Vous pouvez exporter toutes vos données dans un fichier et les importer depuis un fichier, et exporter l'historique de vos fournées au format CSV. Unités : grammes et °C ou onces et °F.
+Mitron conserve sur votre téléphone les 10 dernières sauvegardes automatiques. Vous exportez et importez toutes vos données par fichier, et exportez l'historique de vos fournées en CSV. Unités : grammes et °C ou onces et °F.
 
 BON À SAVOIR
 Mitron fonctionne sur iPhone et ne synchronise pas les données entre appareils ; vous les transférez avec un fichier de sauvegarde. Sans autorisation des notifications, Mitron n'affiche la fin d'une étape que sur l'écran ouvert.
@@ -116,12 +119,12 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| CAN (Canada) | 0,99 / 9,99 / 19,99 CAD | D-038, docs/wydanie/ceny.json |
+| CAN (Canada) | 0,99 / 9,99 / 19,99 CAD | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (0): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

@@ -38,34 +38,37 @@ Bakeplan og oppskriftsregner
 heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaking,hevetid
 ```
 
-### Tekst promocyjny (Promotional Text) · 166 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
 
 ```text
-Velg når brødet skal være ferdig: Bakeren regner ut mengdene, lager en plan bakover og varsler deg når hvert steg er ferdig. Uten konto, uten internett, uten reklame.
+Bakeren regner ut mengdene og varsler deg når hvert steg er ferdig. Plan bakover fra når brødet skal være ferdig (Pro). Uten konto, uten internett, uten reklame.
 ```
 
-### Opis (Description) · 3300 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3656 / 4000 znaków · wersja 1.0
 
 ```text
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
 
 OPPSKRIFTER OG MENGDER
-Velg én av 15 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen. Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
+Velg én av 26 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen; 11 surdeigsoppskrifter har plan og veiledning steg for steg. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen (fordeig: Pro). Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
 
-PLAN FRA «FERDIG»-TIDSPUNKTET
+GJÆRVERSJON OG BRØDBAKEMASKIN
+Fire surdeigsoppskrifter har også en gjærversjon, tre av dem med plan. Gjæroppskrifter og -versjoner kan også bakes i brødbakemaskin: Bakeren tilpasser mengdene til maskinen og gir rekkefølgen for ingrediensene og programmet, pluss starttidspunktet for ferdig-tidspunktet du velger (Pro).
+
+PLAN FRA «FERDIG»-TIDSPUNKTET (Pro)
 Velg når brødet skal være ferdig, så regner Bakeren bakover og finner starttidspunktet for hvert steg. Gjæringstiden avhenger av temperaturen på kjøkkenet. Når et steg som krever hendene dine havner om natten (som standard mellom 23:00 og 07:00), foreslår Bakeren lengre tid i kjøleskapet. Hvis det er for lite tid, oppgir Bakeren det tidligst mulige tidspunktet.
 
 STEG FOR STEG
 Bakeren viser det aktuelle steget: hva du skal gjøre, hvor lenge det tar og hva som kommer etterpå. Hvis du tillater varsler, sier Bakeren fra når steget er ferdig, også når telefonen er låst. I steg som krever hendene dine, slukkes ikke veiledningsskjermen. Steg med varmt kokekar eller rå deig har en advarsel. Rugbrød (mer enn halvparten av melet er rugmel) har egne steg uten bretting. Et steg du har bekreftet ved en feil, kan du angre, og når du åpner appen igjen, går den tilbake til det aktuelle steget.
 
 SURDEIGSSTARTERE
-Hold styr på flere surdeigsstartere. Bakeren gir deg mengdene til mating i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. Når surdeigsstarteren har doblet volumet, merker Bakeren den som klar til deigen. Etter 12 timer på benken uten mating minner Bakeren deg på den med et varsel. En ny surdeigsstarter kan du lage dag for dag. Bakeren følger et føre-var-prinsipp: ved belegg, misfarging eller råtten lukt råder appen deg til å kaste surdeigsstarteren.
+En ny surdeigsstarter kan du lage dag for dag. Bakeren følger et føre-var-prinsipp: ved belegg, misfarging eller råtten lukt råder appen deg til å kaste surdeigsstarteren. Stell av surdeigsstarter (Pro): flere surdeigsstartere, mengder til mating i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5, merking som klar når starteren har doblet volumet, og en påminnelse etter 12 timer på benken uten mating.
 
 BRØDDOKTOR
 Kompakt krumme og blek skorpe? Kryss av symptomene, så peker Brøddoktor ut én av 9 feil, forklarer årsaken og sier hva du bør endre neste gang. Fire redningsprotokoller hjelper når deigen får problemer under gjæringen. Starterdoktoren hjelper når noe ved surdeigsstarteren bekymrer deg.
 
 DAGBOK
-Vurder hvert brød: stjerner, krumme, skorpe og smaksprofil. Dagboken viser statistikk, og «Bak igjen» åpner den samme oppskriften.
+Vurder hvert brød: stjerner, krumme, skorpe og smaksprofil. Dagboken viser statistikk (Pro), og «Bak igjen» åpner den samme oppskriften.
 
 DINE DATA
 Bakeren lagrer de 10 siste automatiske sikkerhetskopiene på telefonen. Du kan eksportere alle data til en fil og importere dem fra en fil, og eksportere bakehistorikken som CSV. Enheter: gram og °C eller unser og °F.
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

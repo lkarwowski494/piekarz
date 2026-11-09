@@ -1040,6 +1040,110 @@
       "z": "Kuantiti dan suhu saya nyatakan seperti dalam huraian pengeluaran di sumbernya, tanpa ditukar untuk dapur dan ketuhar rumah. Menurut dokumen tunggal, bagi 100 kg tepung digunakan 40–48 l air, 1–2 kg yis, 1–1.5 kg garam, 2–3 kg lemak dan 2–4 kg gula. Sehingga 30% tepung gandum boleh diganti dengan tepung rai. Doh disediakan dengan kaedah satu fasa, dan pengembangan awal mengambil masa dari beberapa minit pada musim panas hingga sejam pada musim sejuk. Cincin yang telah dibentuk, selepas pengembangan akhir, dicelup ke dalam air bersuhu sekurang-kurangnya 90 °C dan direbus sehingga timbul, kemudian dihias dan dibakar. Air sepanas ini boleh melecur: air bersuhu 150 °F, iaitu kira-kira 66 °C, pun menyebabkan lecur darjah ketiga pada kebanyakan orang dewasa dalam masa 2 saat. Menurut permohonan pendaftaran, cincin dibakar pada 250–320 °C selama 10–17 minit, sehingga warna dan saiz yang dikehendaki. Cincin yang siap bergaris pusat 12–17 cm, dengan ketebalan anyaman 2–4 cm, dan berat 80–120 g.",
       "na": "Kuantiti dan suhu saya nyatakan seperti dalam huraian pengeluaran di sumbernya, tanpa ditukar untuk dapur dan ketuhar rumah. Menurut dokumen tunggal, bagi 100 kg tepung digunakan 40–48 l air, 1–2 kg yis, 1–1.5 kg garam, 2–3 kg lemak dan 2–4 kg gula. Sehingga 30% tepung gandum boleh diganti dengan tepung rai. Doh disediakan dengan kaedah satu fasa, dan pengembangan awal mengambil masa dari beberapa minit pada musim panas hingga sejam pada musim sejuk. Cincin yang telah dibentuk, selepas pengembangan akhir, dicelup ke dalam air bersuhu sekurang-kurangnya 90 °C dan direbus sehingga timbul, kemudian dihias dan dibakar. Air sepanas ini melecurkan: air bersuhu 150 °F, iaitu kira-kira 66 °C, pun menyebabkan lecur darjah ketiga pada kebanyakan orang dewasa dalam masa 2 saat. Menurut permohonan pendaftaran, cincin dibakar pada 250–320 °C selama 10–17 minit, sehingga warna dan saiz yang dikehendaki. Cincin yang siap bergaris pusat 12–17 cm, dengan ketebalan anyaman 2–4 cm, dan berat 80–120 g.",
       "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego (docs/lokalizacja/kontrola-a-m2-2026-11-09.json) — sens krytyczny BEZ-WRZ-001 albo składnik"
+    },
+    {
+      "jezyk": "el",
+      "rodzaj": "kontrola-a",
+      "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+      "z": "Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια κουζίνας, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.",
+      "na": "Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια φούρνου, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "et",
+      "rodzaj": "kontrola-a",
+      "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+      "z": "Iga loetud masinajuhend keelab viivitatud stardi osa nende koostisosadega, sest need riknevad kergesti.",
+      "na": "Iga loetud masinajuhend keelab viivitatud stardi mõne nende koostisosaga, sest need riknevad kergesti.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "id",
+      "rodzaj": "kontrola-a",
+      "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+      "z": "Setelah memanggang, keluarkan loyang dengan sarung tangan dapur, karena loyang, gagangnya, dan bagian dalam tutup panas.",
+      "na": "Setelah memanggang, keluarkan loyang dengan sarung tangan oven, karena loyang, gagangnya, dan bagian dalam tutup panas.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "id",
+      "rodzaj": "kontrola-a",
+      "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+      "z": "Saat mesin bekerja, jangan sentuh lubang uap dan jangan tutup.",
+      "na": "Saat mesin bekerja, jangan sentuh lubang uap dan jangan menutupinya.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "it",
+      "rodzaj": "kontrola-a",
+      "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+      "z": "Il gancio impastatore rimasto nel pane può essere molto caldo: toglilo solo dopo che il pane si è raffreddato, con l'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.",
+      "na": "La pala impastatrice rimasta nel pane può essere molto calda: toglila solo dopo che il pane si è raffreddato, con l'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "lt",
+      "rodzaj": "kontrola-a",
+      "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+      "z": "Vaikus iki 8 metų laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.",
+      "na": "Jaunesnius nei 8 metų vaikus laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "ms",
+      "rodzaj": "kontrola-a",
+      "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+      "z": "Selepas membakar, keluarkan loyang dengan sarung tangan dapur, kerana loyang, pemegangnya dan bahagian dalam penutup panas.",
+      "na": "Selepas membakar, keluarkan loyang dengan sarung tangan ketuhar, kerana loyang, pemegangnya dan bahagian dalam penutup panas.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "ms",
+      "rodzaj": "kontrola-a",
+      "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+      "z": "Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan tutupnya.",
+      "na": "Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan menutupnya.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "sl",
+      "rodzaj": "kontrola-a",
+      "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+      "z": "Vsako od prebranih navodil pekačev prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.",
+      "na": "Vsako od prebranih navodil pekačev kruha prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "sl",
+      "rodzaj": "kontrola-a",
+      "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+      "z": "Otroke, mlajše od 8 let, držite stran od pekača in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.",
+      "na": "Otroke, mlajše od 8 let, držite stran od pekača kruha in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "tr",
+      "rodzaj": "kontrola-a",
+      "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+      "z": "Pişirmeden sonra kabı mutfak eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.",
+      "na": "Pişirmeden sonra kabı fırın eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "uk",
+      "rodzaj": "kontrola-a",
+      "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+      "z": "Дітей віком до 8 років тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.",
+      "na": "Дітей, молодших за 8 років, тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
+    },
+    {
+      "jezyk": "vi",
+      "rodzaj": "kontrola-a",
+      "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+      "z": "Sau khi nướng, hãy lấy khuôn ra bằng găng tay nhà bếp, vì khuôn, tay cầm và mặt trong nắp đều nóng.",
+      "na": "Sau khi nướng, hãy lấy khuôn ra bằng găng tay chống nóng, vì khuôn, tay cầm và mặt trong nắp đều nóng.",
+      "powod": "M1-audytor-generalny-011: kontrola (a) tłumaczenia zwrotnego; zdanie bezpieczeństwa maszyny — wyjątek od D-287 decyzją D-308"
     }
   ]
 }
