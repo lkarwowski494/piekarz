@@ -1,0 +1,9 @@
+PASS src/components/__tests__/import-ddt-051.test.tsx
+  051: DDT w podglądzie importu w języku interfejsu
+    ✓ de: „Teigtemp.” zamiast „DDT:” (355 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.458 s, estimated 2 s
+Ran all test suites matching /src\/components\/__tests__\/import-ddt-051.test.tsx/i.

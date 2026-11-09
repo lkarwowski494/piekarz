@@ -1,0 +1,11 @@
+PASS tests/ekran-awaryjny-jezyk-012.test.tsx
+  012: ekran awaryjny w języku urządzenia
+    ✓ telefon de-DE → ekran awaryjny w języku de (905 ms)
+    ✓ telefon en-US → ekran awaryjny w języku en (5 ms)
+    ✓ ustawJezykSystemu: język z tagów urządzenia, bez zapisu w bazie (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.362 s, estimated 2 s
+Ran all test suites matching /tests\/ekran-awaryjny-jezyk-012.test.tsx/i.

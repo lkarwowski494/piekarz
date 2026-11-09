@@ -611,8 +611,8 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "stuknięcie kroku w arkuszu „Plan wypieku” przy trwającym wypieku pyta o potwierdzenie i daje „Cofnij”; stuknięcie bieżącego kroku nie zeruje zegara",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "cfb3b16c"
     },
     {
       "id": "M1-audytor-generalny-007",
@@ -725,8 +725,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "ekran awaryjny w języku urządzenia (sonda de-DE i en-US)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "6c2a6e26"
     },
     {
       "id": "M1-audytor-generalny-013",
@@ -744,8 +744,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "„400 °F” bez „około 399 °F” w 35 językach; uncje bez „0,04 oz” i „1 0,00 oz”; test porównuje z oczekiwaną wartością, nie z EN",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "76610a26"
     },
     {
       "id": "M1-audytor-generalny-014",
@@ -1492,8 +1492,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-010 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "64d2aa55"
     },
     {
       "id": "M1-audytor-generalny-052",

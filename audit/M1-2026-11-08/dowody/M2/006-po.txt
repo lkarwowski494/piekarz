@@ -1,0 +1,12 @@
+(node:7994) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/skok-przywroc-006.test.tsx
+  006: skok do kroku z „Przywróć”
+    ✓ po skoku pasek z „Przywróć”; „Przywróć” odtwarza krok, plan, zegar i „Cofnij poprzedni” (390 ms)
+    ✓ stuknięcie bieżącego kroku nie zeruje zegara i nie przesuwa planu (130 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.604 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/skok-przywroc-006.test.tsx/i.

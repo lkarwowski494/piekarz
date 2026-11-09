@@ -66,3 +66,6 @@
 - Ścieżka danych: brak P0/P1. P2 regresja 041 (odliczanie mąki ze spiżarni pod dawną nazwą) i P3 (edytor dubluje mąkę) — naprawione ef9dd782 (test spizarnia-dawna-nazwa-041).
 - M2-007 (P3, klasa: dane-brzegowe): wypiek trwający w chwili aktualizacji pokazuje w zapisanym kroku starą instrukcję 240/210 °C, a zegar garnka 232 °C; czasy bez zmian. Dotyczy tylko sesji w toku podczas aktualizacji (etap: tylko właściciel na danych testowych).
 - Drugi przegląd AI przekładu: brak P0/P1; 4 P2 naprawione 8f90a72e. P3 (bez naprawy, do 1.0.1 / przeglądu natywnego): ro „vas”→„tuci”, sk „pokrievka”→„poklop” i myślnik ze spacjami, ms „tutup”, ja „ふた”/styl, niejednoznaczne „obróć formę” (sv, da, nb, hu, tr, ro, fi), uk rodzaj „бріош”, bg „квас”/„стартер”, fi „juuri”, Biga (lt, el, bg), it 010[18], hu 009[0]/010[22], grill vi/zh, 040[5–6] bez objaśnienia tytułu produktu; informacyjnie 3 nazwy mąk tylko EN (F-45/F-47).
+
+## Przegląd 006 (2026-11-09)
+- P2-1 naprawione (pasek znika przy nowym zegarze). P3 do decyzji/1.0.1: M2-008 jeden poziom „Przywróć” przy dwóch skokach z rzędu (świadomy wybór); M2-009 „Przywróć” po upływie zegara sprzed skoku bez sygnału dźwiękowego (stan poprawny, „Termin minął”).
