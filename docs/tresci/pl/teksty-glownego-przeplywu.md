@@ -16,9 +16,10 @@ Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmi
 
 ## calculateDDTWaterTemp, status too_hot_danger (warningMessagePl)
 Obliczona temperatura wody jest za wysoka. [T:-]
-Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta. [T:-]
+Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta. [T:DDT-WOD-001]
 
 ## calculateDDTWaterTemp, status requires_ice (warningMessagePl)
+<!-- M2-013 (D-310): lód = rachunek bilansu ciepła RD-18 na danych użytkownika, stąd [T:-]. Kierunek zgodny z rachunkiem przy za zimnej wodzie także: schłodzić mąkę albo zakwas (DDT-WOD-001); dopisanie tej rady to zmiana tekstu do decyzji roli 04 (propozycja w D-310). -->
 Obliczona temperatura wody jest bardzo niska. [T:-]
 Zastąp część wody lodem. [T:-]
 

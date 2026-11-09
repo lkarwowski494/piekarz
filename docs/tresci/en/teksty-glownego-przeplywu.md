@@ -16,9 +16,10 @@ Suggested fix: extend the proof in the fridge or move the starter feeding time t
 
 ## calculateDDTWaterTemp, status too_hot_danger (warningMessagePl)
 The calculated water temperature is too high. [T:-]
-Bring the flour or the starter to room temperature, or set a lower dough temperature. [T:-]
+Bring the flour or the starter to room temperature, or set a lower dough temperature. [T:DDT-WOD-001]
 
 ## calculateDDTWaterTemp, status requires_ice (warningMessagePl)
+<!-- M2-013 (D-310): ice = RD-18 heat-balance arithmetic on the user's data, hence [T:-]. See the PL file. -->
 The calculated water temperature is very low. [T:-]
 Replace part of the water with ice. [T:-]
 

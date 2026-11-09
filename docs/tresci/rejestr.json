@@ -10590,6 +10590,33 @@
     "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Plan bez źródła: komentarz w kodzie „durationMinutes bez źródła (KRO-POC-011)”."
   },
   {
+    "id": "DDT-WOD-001",
+    "twierdzenie": "Według King Arthur Baking wymaganą temperaturę wody oblicza się tak: docelową temperaturę ciasta mnoży się przez 3 (ciasto bez zaczynu) albo przez 4 (z zaczynem) i odejmuje od wyniku sumę znanych temperatur — mąki, powietrza, zaczynu i przyrostu od tarcia. Stąd (rachunek): niższa temperatura mąki, powietrza albo zaczynu podnosi wymaganą temperaturę wody o tyle samo stopni, a wyższa ją obniża; niższa docelowa temperatura ciasta obniża ją 3 albo 4 razy tyle. Gdy obliczona woda jest za gorąca, temperaturę wody obniża ogrzanie mąki albo zaczynu albo niższa docelowa temperatura ciasta; gdy jest za zimna, podnosi ją schłodzenie mąki albo zaczynu albo wyższa docelowa temperatura ciasta.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "King Arthur Baking, Pro Reference „Dough Temperatures”, sekcja „Water Temperature” (S-02); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 30bb09273afd",
+        "cytat": "We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment. The result will be the total temperature factor. Once we have determined this factor, we subtract from it the sum of the known temperatures, and the result will be the required water temperature.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "jw., lista czynników (powietrze, mąka, tarcie, zaczyn) i przykłady obliczeń (76 °F × 3 − 72 − 74 − 24 = 58 °F; 75 °F × 4 − 68 − 68 − 71 − 26 = 67 °F)",
+        "cytat": "establish the correct water temperature (the only variable over which we have control)",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Kierunek rady to rachunek na wzorze źródła (RD-16 w docs/brd/reguly.md; w kodzie komentarz „RD-05”, src/core/domain-rules.ts calculateDDTWaterTemp): Tw = n × DDT − (Tm + Tp + Tz + Tt), więc ∂Tw/∂Tm = ∂Tw/∂Tp = ∂Tw/∂Tz = −1 i ∂Tw/∂DDT = n (3 albo 4). Przykład (dowody M2-013-rachunek.txt): DDT 25, mąka 15, kuchnia 18, zakwas z lodówki 5, tarcie 10 °C → 52 °C; mąka schłodzona do 10 °C → 57 °C (stara rada pogarsza), mąka i zakwas ogrzane do 18 °C → 36 °C. Źródło nazywa temperatury mąki i powietrza czynnikami „bez kontroli” w piekarni; w domu mąkę i zakwas da się ogrzać do temperatury pokojowej — rada nie każe grzać ich powyżej niej. Rady „obniż temperaturę otoczenia” nie ma: przy za gorącej wodzie chłodniejsze otoczenie podnosi wymaganą temperaturę wody. Rada lodu przy za zimnej wodzie to rachunek bilansu ciepła RD-18 (ciepło topnienia lodu 333,4 J/g, NIST, odczyt 2026-11-09), który aplikacja liczy na danych użytkownika — zdanie ma [T:-].",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-013 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2). Progi 45 i 4 °C nadal bez źródła (DDT-WOD-900). NIST „Properties of Ice and Supercooled Water” (tsapps.nist.gov, pub_id=926353): „∆fusH(0 °C) = 333.4 J/g” — pdftotext + grep -F 2026-11-09; źródło RD-18 (S-42), nie tego zdania."
+  },
+  {
     "id": "DDT-WOD-900",
     "twierdzenie": "[DO USTALENIA] Progi ostrzeżeń kalkulatora temperatury wody (src/core/domain-rules.ts, calculateDDTWaterTemp): powyżej 45 °C „za gorąca” i poniżej 4 °C „lód”; przyczyna „ugotowanie drożdży i bakterii kwasu mlekowego”.",
     "zrodla": [],
@@ -10597,7 +10624,7 @@
     "uproszczenie": "Do czasu źródła progi zostają w logice bez zmiany wartości, a komunikaty nie podają liczby ani przyczyny (teksty-glownego-przeplywu.md). Źródła w rejestrze nie dają progu szkodliwej temperatury wody dla zakwasu: DRO-INS-010 (Fleischmann’s: płyn 120–130 °F przy drożdżach instant mieszanych z mąką) i DRO-INS-004 (Red Star: 110–115 °F do próby drożdży suchych aktywnych) dotyczą drożdży piekarskich.",
     "krytyczne": false,
     "przeglad": null,
-    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy wodzie za gorącej odwraca rachunek wzoru (woda = n·DDT − suma pozostałych temperatur): chłodniejsza mąka i otoczenie podnoszą wymaganą temperaturę wody — nowe znalezisko w raporcie fix 2026-11-09; wersja zgodna z rachunkiem w teksty-glownego-przeplywu.md."
+    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy wodzie za gorącej odwracała rachunek wzoru — rozstrzygnięte w M2-013 (fix p3 2026-11-09): kierunek rady w DDT-WOD-001, teksty w teksty-glownego-przeplywu.md. Otwarte zostają progi i przyczyna."
   },
   {
     "id": "REC-BAZ-900",
