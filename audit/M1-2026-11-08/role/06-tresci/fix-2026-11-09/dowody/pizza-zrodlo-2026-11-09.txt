@@ -1,0 +1,12 @@
+$ python3 -I pobierz.py https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe (urllib, bs4 get_text, białe znaki scalone), odczyt 2026-11-09
+grep -cF „preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside.” → 1
+grep -cF „Make sure your oven is at the required temperature for at least 30 minutes before baking” → 1
+grep -cF „Bake the pizza for approximately 6 minutes on the steel or 7 minutes on the stone (give or take).” → 1
+grep -cF „Turn on the oven’s top broiler and continue cooking the pizza for 2 to 3 minutes” → 1
+grep -cF „even if you can't use a broiler you can simply bake your pie for a few minutes longer” → 1
+$ grep -n "bakeT\|recommendedVessel" src/recipes/presets-pizza-slodkie.ts (pizza, stan przed)
+48-    bakeTimeSteamMinutes: 0,
+49-    bakeTimeBrowningMinutes: 2,
+50-    bakeTempSteamC: 450,
+51-    bakeTempBrowningC: 450,
+52-    recommendedVessel: 'baking_steel',

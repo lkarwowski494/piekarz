@@ -1,0 +1,5 @@
+ROZBIEŻNE pizza_napoletana_48h.bakeTempSteamC: kod 450, wektor 260 (PIE-PIZ-001)
+ROZBIEŻNE pizza_napoletana_48h.bakeTempBrowningC: kod 450, wektor 260 (PIE-PIZ-001)
+ROZBIEŻNE pizza_napoletana_48h.bakeTimeBrowningMinutes: kod 2, wektor 6 (PIE-PIZ-001)
+2 zgodnych, 3 rozbieżnych
+kod 1

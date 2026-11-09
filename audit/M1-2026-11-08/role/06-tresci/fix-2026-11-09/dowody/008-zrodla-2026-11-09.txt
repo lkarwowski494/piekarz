@@ -1,0 +1,14 @@
+Odczyt 2026-11-09: python3 -I pobierz.py <adres> (urllib, BeautifulSoup get_text, białe znaki scalone); grep -cF na tekście
+pain-de-campagne-recipe | grep -cF „Preheat the oven (and Dutch ovens) to 500°F for 45 minutes” → 1
+pain-de-campagne-recipe | grep -cF „Turn each loaf out onto a piece of parchment paper and slash them with a lame or sharp knife.” → 1
+pain-de-campagne-recipe | grep -cF „Immediately reduce the oven temperature to 450°F and bake the covered loaves for 20 minutes. Remove the lids from the Dutch ovens and bake the loaves for 20 to 25 minutes uncovered, until they're a deep golden brown.” → 1
+pain-de-campagne-recipe | grep -cF „7 1/2 cups (900g) King Arthur Unbleached Bread Flour” → 1
+pain-de-campagne-recipe | grep -cF „3 1/2 cups (800g) tepid water” → 1
+pain-de-campagne-recipe | grep -cF „1 tablespoon (20g) table salt 3 tablespoons (40g) sourdough starter” → 1
+pain-de-campagne-recipe | grep -cF „Yield 2 large loaves” → 1
+naturally-leavened-sourdough-bread-recipe | grep -cF „About 30 minutes before the bread is ready to bake, preheat an empty Dutch oven or bread and potato pot in the 450°F oven.” → 1
+naturally-leavened-sourdough-bread-recipe | grep -cF „bake with the lid on for 20 minutes. Carefully remove the lid and bake for an additional 10 to 15 minutes, until the bread is crusty and golden.” → 1
+cia-brioche | grep -cF „For a pan loaf, preheat the oven to 400°F and then reduce the heat to 350°F. Brush the loaf with egg wash, then bake for 20 minutes. Rotate and bake for an additional 8 to 10 minutes, until golden brown.” → 1
+cia-brioche | grep -cF „Remove from the pan immediately and transfer to a wire rack to cool.” → 1
+ka-dutch | grep -cF „set it to 450°F (or the temperature your recipe calls for)” → 1
+ka-sd-bake | grep -cF „preheat the oven with a baking stone in it (if you have a stone) to 450°F” → 1

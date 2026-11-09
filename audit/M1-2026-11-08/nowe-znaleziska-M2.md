@@ -50,3 +50,6 @@
 - Opcje: (a) blokada jak w 028; (b) bez zmian. Rekomendacja: (a).
 - Test akceptacyjny: dwa stuknięcia bez czekania → jeden zapis.
 - Status: otwarte (wg D-288 nowe P2 → P3 backlog 1.0.1)
+
+## M2-006 (P3, klasa: dokumentacja) — błędne odwołanie „D-280 pkt 5”
+Źródło: rola 09 (049). D-302 i dopisek M2 powołują się na „D-280 pkt 5”, a D-280 ma pkt 1–2; zasada „bez prac nad 1.1” to D-276 pkt 5. Poprawka: przy najbliższym wpisie do `docs/decyzje.md` (sprostowanie D-302, bez zmiany treści decyzji).

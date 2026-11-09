@@ -1,0 +1,31 @@
+$ node pokrycie.mjs src/recipes/presets-*.ts src/core/reverse-scheduler.ts src/core/baking-phases.ts | grep "^--" | grep "[0-9]"   (zdanie z kodu z liczbą, którego nie ma w docs/tresci/pl; stan kodu = przed i po, kod zmienia rola 08)
+-- presets-drozdzowe.ts notesPl: Zaczyn poolish (20% mąki, 100% hydratacji).
+-- presets-drozdzowe.ts descriptionPl: Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).
+-- presets-drozdzowe.ts notesPl: Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C.
+-- presets-drozdzowe.ts notesPl: Do ciasta właściwego dodaj 3% oliwy z oliwek.
+-- presets-drozdzowe.ts descriptionPl: Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.
+-- presets-drozdzowe.ts notesPl: Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej.
+-- presets-pizza-slodkie.ts descriptionPl: Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).
+-- presets-pizza-slodkie.ts notesPl: Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta.
+-- presets-pizza-slodkie.ts notesPl: Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.
+-- presets-zakwas.ts notesPl: 4 serie składań zwojowych w odstępach 30 minut.
+-- presets-zakwas.ts notesPl: Garowanie w lodówce 12–16 godzin.
+-- presets-zakwas.ts notesPl: Wymaga mąki o zawartości białka minimum 13%.
+-- presets-zakwas.ts notesPl: Wydłużona fermentacja w chłodzie (18–24 h w 4°C).
+-- presets-zakwas.ts notesPl: 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.
+-- presets-zakwas.ts notesPl: Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji.
+-- presets-zakwas.ts notesPl: Grube otręby z Grahama wymagają 45-minutowej autolizy.
+-- presets-zytnie.ts notesPl: 3–4 h).
+-- reverse-scheduler.ts instructionsPl: Wykonaj 4 serie składań co 30–45 minut.
+-- reverse-scheduler.ts instructionsPl: Wstaw koszyk w szczelnej torbie do lodówki (4–6°C).
+-- reverse-scheduler.ts instructionsPl: Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.
+-- reverse-scheduler.ts instructionsPl: Przełóż bochenek na papier, natnij żyletką pod kątem 30°.
+-- reverse-scheduler.ts instructionsPl: Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).
+-- baking-phases.ts tipPl: Obniż temperaturę do 210°C.
+-- baking-phases.ts alertHeadlinePl: do 210°C.
+66:  warningMessagePl?: string;
+268:      warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.',
+276:      warningMessagePl: 'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.',
+
+$ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl/teksty-glownego-przeplywu.md docs/tresci/en/teksty-glownego-przeplywu.md docs/tresci/pl/pieczenie-receptur.md docs/tresci/en/pieczenie-receptur.md --przed-przegladem | grep -v "^UWAGA rejestr" (po)
+0 błędów, 41 uwag

@@ -76,6 +76,7 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 08:06 Polecenie 04-studio-projektowe-p2 wysłane (007, DEC-10 a). Drzewo zajęte do wyniku.
 - 08:26 007: rola 04 fef62d3e (refactor) + a33b545b; sprawdzone: drzewo czyste, sprawdz-raport OK po poprawce formatu odwołania do zrzutów (wzorzec nazw), verify kod 0 (596/6116), przegląd ścieżki wrażliwej (arkusze importu) brak P0/P1. Status naprawione-do-weryfikacji. Nowe: 04-studio-projektowe-007 (P1, P: 6 kolejnych arkuszy poza kartami — decyzja właściciela na STOP), M2-005 (P2 → P3).
 - 08:26 Polecenie 06-tresci-p2 wysłane (008, 009, 010, 040, 041). Drzewo zajęte do wyniku.
+- 09:09 09:15 049: rola 09 3ccfd438 (wpis zakresu 1.0.1 w jezyki.md, bez kodu); sprawdzone: drzewo czyste, HEAD=origin, sprawdz-raport OK, verify kod 0 (596/6116). Status naprawione-do-weryfikacji. Nowe: M2-006 (P3, odwołanie D-280→D-276). Przekazanie do 06 na 1.0.1 (bez pracy w 1.0). Start przekazania 06→08 (008, 009, 010, 040, 041, potem 014).
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

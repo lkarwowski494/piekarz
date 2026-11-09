@@ -1451,8 +1451,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-008 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "3ccfd438"
     },
     {
       "id": "M1-audytor-generalny-050",

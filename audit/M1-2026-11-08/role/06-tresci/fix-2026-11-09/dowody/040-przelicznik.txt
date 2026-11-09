@@ -1,0 +1,12 @@
+$ domeny źródeł twierdzeń docs/tresci/pl/drozdze-przelicznik.md bez wpisu na ekranie „Źródła wiedzy” (logika luki() z tests/zrodla-katalogu-06z.test.ts)
+oetker.pl DRO-INS-030
+fleischmannsyeast.com DRO-INS-030,DRO-INS-011,DRO-INS-012
+lesaffre.pl DRO-INS-030
+
+$ grep -n "0,35\|rozpuść" src/components/receptury/SkladnikiSheet.tsx
+222:            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,35 (RD-19, D-205) [M1-audytor-generalny-216] */}
+229:                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.')}</Text>
+
+$ odczyt 2026-11-09 (urllib): oetker.pl 200, grep -cF „1 torebka Drożdży instant 7 g = 25 g drożdży świeżych;” →
+1
+lesaffre.pl i fleischmannsyeast.com: HTTP 403 (urllib) — Do sprawdzenia; zostaje odczyt 2026-11-03 z kopią i sha256 (rejestr)

@@ -1,0 +1,31 @@
+ROZBIEŻNE pizza_napoletana_48h.bakeTempSteamC: kod 450, wektor 260 (PIE-PIZ-001)
+ROZBIEŻNE pizza_napoletana_48h.bakeTempBrowningC: kod 450, wektor 260 (PIE-PIZ-001)
+ROZBIEŻNE pizza_napoletana_48h.bakeTimeBrowningMinutes: kod 2, wektor 6 (PIE-PIZ-001)
+ROZBIEŻNE country_loaf_72.bakeTempSteamC: kod 240, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE country_loaf_72.bakeTempBrowningC: kod 210, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE tartine_high_hydration_80.bakeTempSteamC: kod 245, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE tartine_high_hydration_80.bakeTempBrowningC: kod 210, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE tartine_high_hydration_80.bakeTimeSteamMinutes: kod 22, wektor 20 (PIE-GAR-001)
+ROZBIEŻNE san_francisco_sourdough.bakeTempSteamC: kod 240, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE san_francisco_sourdough.bakeTempBrowningC: kod 210, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE pain_de_campagne.bakeTempSteamC: kod 240, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE pain_de_campagne.bakeTempBrowningC: kod 210, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE spelt_ancient_seeded.bakeTempSteamC: kod 235, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE spelt_ancient_seeded.bakeTempBrowningC: kod 205, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE graham_bread_honey.bakeTempSteamC: kod 235, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE graham_bread_honey.bakeTempBrowningC: kod 205, wektor 232 (PIE-GAR-001)
+ROZBIEŻNE lievito_madre_panettone_brioche.bakeTempSteamC: kod 175, wektor 177 (PIE-BRI-001)
+ROZBIEŻNE lievito_madre_panettone_brioche.bakeTempBrowningC: kod 175, wektor 177 (PIE-BRI-001)
+27 zgodnych, 18 rozbieżnych
+kod 1
+$ grep plan i fazy (stan przed, src/core)
+src/core/reverse-scheduler.ts:182:    instructionsPl: 'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.',
+src/core/reverse-scheduler.ts:191:    instructionsPl: 'Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).',
+src/core/baking-phases.ts:16:  durationMin: number;
+src/core/baking-phases.ts:17:  temperatureC: number;
+src/core/baking-phases.ts:30:    durationMin: 20,
+src/core/baking-phases.ts:31:    temperatureC: 240,
+src/core/baking-phases.ts:39:    durationMin: 25,
+src/core/baking-phases.ts:40:    temperatureC: 210,
+104:            {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}
+119:              {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: 25 })} @ {formatTemperature(210, unitSystem)})
