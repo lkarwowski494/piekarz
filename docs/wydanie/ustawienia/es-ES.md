@@ -44,13 +44,16 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Panadero calcula cantidades y te avisa al acabar cada paso. Plan hacia atrás desde la hora a la que quieres el pan listo (Pro). Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3457 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3865 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, desde la receta hasta la hogaza: calcula las cantidades, organiza el plan y vigila los tiempos aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus recetas, masas madre y diario se quedan solo en tu teléfono.
 
 RECETAS Y CANTIDADES
-Elige una de las 15 recetas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero tiene en cuenta la harina y el agua de la masa madre y del levain (levain: Pro). Panadero también te indica la temperatura del agua para obtener la temperatura de la masa que quieres.
+Elige una de las 26 recetas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia; 11 recetas de masa madre tienen plan y guía paso a paso. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero tiene en cuenta la harina y el agua de la masa madre y del levain (levain: Pro). Panadero también te indica la temperatura del agua para obtener la temperatura de la masa que quieres.
+
+VERSIÓN CON LEVADURA Y PANIFICADORA
+Cuatro recetas de masa madre tienen también versión con levadura, tres de ellas con plan. Las recetas y versiones con levadura también van en panificadora: Panadero ajusta las cantidades a tu máquina y te da el orden de los ingredientes y el programa, más la hora de inicio para la hora de listo que elijas (Pro).
 
 UN PLAN DESDE LA HORA «LISTO» (Pro)
 Elige cuándo quieres el pan listo y Panadero calcula hacia atrás la hora de inicio de cada paso. El tiempo de fermentación depende de la temperatura de tu cocina. Cuando un paso que requiere tus manos cae de noche (por defecto, entre las 23:00 y las 07:00), Panadero te propone más tiempo en la nevera. Si no hay tiempo suficiente, te indica la hora más temprana posible.

@@ -44,13 +44,16 @@ cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjeszté
 A Pék kiszámolja a mennyiségeket, és szól minden lépés végén. Visszafelé tervezés a „kész” időponttól (Pro). Fiók, internet és reklám nélkül.
 ```
 
-### Opis (Description) · 3335 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3737 / 4000 znaków · wersja 1.0
 
 ```text
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
 
 RECEPTEK ÉS MENNYISÉGEK
-Válassz a 15 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi (előtészta: Pro). A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
+Válassz a 26 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat; 11 kovászos receptnek van terve és lépésről lépésre vezetése. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi (előtészta: Pro). A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
+
+ÉLESZTŐS VÁLTOZAT ÉS KENYÉRSÜTŐ GÉP
+Négy kovászos receptnek élesztős változata is van, ebből háromnak tervvel. Az élesztős receptek és változatok kenyérsütő gépben is elkészülnek: a Pék a géphez igazítja a mennyiségeket, megadja a hozzávalók sorrendjét és a programot, valamint a választott elkészülési időponthoz az indítás idejét (Pro).
 
 TERV A „KÉSZ” IDŐPONTTÓL (Pro)
 Kiválasztod, mikorra legyen kész a kenyér, a Pék pedig visszafelé kiszámolja minden lépés kezdési idejét. Az erjedési idő a konyha hőmérsékletétől függ. Ha egy kézi munkát igénylő lépés éjszakára esik (alapértelmezés szerint 23:00 és 07:00 között), a Pék hosszabb időt javasol a hűtőben. Ha kevés az idő, megadja a legkorábbi lehetséges időpontot.

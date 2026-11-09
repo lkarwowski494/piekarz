@@ -45,13 +45,16 @@ starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,
 Baker works out the amounts and tells you when each step ends. A plan back from the time you want bread ready (Pro). No account, no internet, no ads.
 ```
 
-### Opis (Description) · 3188 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3568 / 4000 znaków · wersja 1.0
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
 RECIPES AND AMOUNTS
-Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
+Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 11 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
+
+YEAST VERSION AND BREAD MACHINE
+Four sourdough recipes also have a yeast version, three of them with a plan. Yeast recipes and versions also work in a bread machine: Baker fits the amounts to your machine and gives the order of ingredients and the program, plus the start time for the ready time you choose (Pro).
 
 A PLAN FROM THE "READY" TIME (Pro)
 Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 07:00 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.

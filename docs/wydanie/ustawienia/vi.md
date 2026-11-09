@@ -44,13 +44,16 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Thợ Bánh Mì tính lượng nguyên liệu và báo khi mỗi bước kết thúc. Lịch trình ngược từ giờ bạn muốn bánh xong (Pro). Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3347 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3737 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
 
 CÔNG THỨC VÀ LƯỢNG NGUYÊN LIỆU
-Chọn một trong 15 công thức cơ bản (bánh mì men tự nhiên, lúa mạch đen, men nở, pizza và bánh ngọt) hoặc công thức của riêng bạn. Đặt số ổ bánh hoặc khối lượng bột mì, Thợ Bánh Mì sẽ cho biết số gam bột mì, nước, men tự nhiên, muối và men nở. Tỷ lệ thợ làm bánh tính cả bột mì và nước trong men tự nhiên và trong bột men (bột men: Pro). Thợ Bánh Mì cũng cho biết nhiệt độ nước để đạt được nhiệt độ bột mà bạn muốn.
+Chọn một trong 26 công thức cơ bản (bánh mì men tự nhiên, lúa mạch đen, men nở, pizza và bánh ngọt) hoặc công thức của riêng bạn; 11 công thức men tự nhiên có kế hoạch và hướng dẫn từng bước. Đặt số ổ bánh hoặc khối lượng bột mì, Thợ Bánh Mì sẽ cho biết số gam bột mì, nước, men tự nhiên, muối và men nở. Tỷ lệ thợ làm bánh tính cả bột mì và nước trong men tự nhiên và trong bột men (bột men: Pro). Thợ Bánh Mì cũng cho biết nhiệt độ nước để đạt được nhiệt độ bột mà bạn muốn.
+
+PHIÊN BẢN MEN NỞ VÀ MÁY LÀM BÁNH MÌ
+Bốn công thức men tự nhiên còn có phiên bản men nở, ba trong số đó có kế hoạch. Công thức và phiên bản men nở cũng làm được bằng máy làm bánh mì: Thợ Bánh Mì điều chỉnh lượng nguyên liệu theo máy, cho biết thứ tự nguyên liệu và chương trình, cùng giờ bắt đầu cho giờ xong mà bạn chọn (Pro).
 
 KẾ HOẠCH TÍNH TỪ GIỜ “XONG” (Pro)
 Chọn thời điểm bánh cần xong, Thợ Bánh Mì sẽ tính ngược giờ bắt đầu của từng bước. Thời gian lên men phụ thuộc vào nhiệt độ trong bếp. Khi một bước cần bạn trực tiếp làm rơi vào ban đêm (mặc định từ 23:00 đến 07:00), Thợ Bánh Mì sẽ đề xuất để trong tủ lạnh lâu hơn. Khi không đủ thời gian, Thợ Bánh Mì sẽ cho biết giờ sớm nhất có thể.

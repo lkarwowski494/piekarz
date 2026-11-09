@@ -44,13 +44,16 @@ heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaki
 Bakeren regner ut mengdene og varsler deg når hvert steg er ferdig. Plan bakover fra når brødet skal være ferdig (Pro). Uten konto, uten internett, uten reklame.
 ```
 
-### Opis (Description) · 3275 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3656 / 4000 znaków · wersja 1.0
 
 ```text
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
 
 OPPSKRIFTER OG MENGDER
-Velg én av 15 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen (fordeig: Pro). Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
+Velg én av 26 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen; 11 surdeigsoppskrifter har plan og veiledning steg for steg. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen (fordeig: Pro). Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
+
+GJÆRVERSJON OG BRØDBAKEMASKIN
+Fire surdeigsoppskrifter har også en gjærversjon, tre av dem med plan. Gjæroppskrifter og -versjoner kan også bakes i brødbakemaskin: Bakeren tilpasser mengdene til maskinen og gir rekkefølgen for ingrediensene og programmet, pluss starttidspunktet for ferdig-tidspunktet du velger (Pro).
 
 PLAN FRA «FERDIG»-TIDSPUNKTET (Pro)
 Velg når brødet skal være ferdig, så regner Bakeren bakover og finner starttidspunktet for hvert steg. Gjæringstiden avhenger av temperaturen på kjøkkenet. Når et steg som krever hendene dine havner om natten (som standard mellom 23:00 og 07:00), foreslår Bakeren lengre tid i kjøleskapet. Hvis det er for lite tid, oppgir Bakeren det tidligst mulige tidspunktet.

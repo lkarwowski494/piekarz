@@ -44,13 +44,16 @@ bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,r
 Piekarz policzy ilości i da znać o końcu każdego kroku. Plan wstecz od godziny, o której chleb ma być gotowy (Pro). Bez konta, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3228 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3614 / 4000 znaków · wersja 1.0
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
 
 RECEPTURY I ILOŚCI
-Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
+Wybierasz jedną z 26 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną; 11 receptur na zakwasie ma plan i prowadzenie krok po kroku. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
+
+WERSJA NA DROŻDŻACH I MASZYNA DO CHLEBA
+Cztery receptury na zakwasie mają też wersję na drożdżach, trzy z nich z planem. Receptury i wersje drożdżowe upieczesz też w maszynie do chleba: Piekarz dopasuje ilości do maszyny i poda kolejność składników oraz program, a dla wybranej godziny gotowości także godzinę startu (Pro).
 
 PLAN OD GODZINY „GOTOWE” (Pro)
 Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.

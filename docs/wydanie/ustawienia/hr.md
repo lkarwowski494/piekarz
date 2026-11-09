@@ -44,13 +44,16 @@ Plan pečenja i kalkulator
 Pekar će izračunati količine i javiti ti kraj svakog koraka. Plan unatrag od vremena kad kruh treba biti gotov (Pro). Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 3059 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3432 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
 
 RECEPTURE I KOLIČINE
-Biraš jednu od 15 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka (nastavak: Pro). Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
+Biraš jednu od 26 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu; 11 receptura s kvasom ima plan i vođenje korak po korak. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka (nastavak: Pro). Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
+
+VERZIJA S KVASCEM I PEKAČ KRUHA
+Četiri recepture s kvasom imaju i verziju s kvascem, tri od njih s planom. Recepture i verzije s kvascem možeš ispeći i u pekaču kruha: Pekar prilagođava količine pekaču i daje redoslijed sastojaka i program te vrijeme pokretanja za odabrano vrijeme kad kruh treba biti gotov (Pro).
 
 PLAN OD VREMENA „GOTOVO” (Pro)
 Biraš kada kruh treba biti gotov, a Pekar unatrag računa vrijeme početka svakog koraka. Vrijeme fermentacije ovisi o temperaturi u kuhinji. Kad korak koji traži tvoje ruke padne noću (zadano između 23:00 i 07:00), Pekar će predložiti dulje vrijeme u hladnjaku. Kad je vremena premalo, dat će najranije moguće vrijeme.

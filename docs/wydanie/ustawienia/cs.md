@@ -44,13 +44,16 @@ bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice
 Pekař spočítá množství a dá vědět o konci každého kroku. Plán zpětně od času, kdy má být chléb hotový (Pro). Bez účtu, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 2900 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3226 / 4000 znaków · wersja 1.0
 
 ```text
 Pekař vás provede pečením chleba z kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. Funguje bez účtu a bez internetu, bez reklam a bez sledování. Vaše recepty, kvásky a deník zůstávají jen ve vašem telefonu.
 
 RECEPTY A MNOŽSTVÍ
-Vyberte jeden z 15 základních receptů (kváskové, žitné, droždové, pizza a sladké) nebo vlastní. Nastavte počet bochníků nebo hmotnost mouky a Pekař uvede gramy mouky, vody, kvásku, soli a droždí. Pekařská procenta zahrnují mouku a vodu z kvásku i ze zákvasu (zákvas: Pro). Pekař také uvede teplotu vody pro teplotu těsta, které chcete dosáhnout.
+Vyberte jeden z 26 základních receptů (kváskové, žitné, droždové, pizza a sladké) nebo vlastní; 11 kváskových receptů má plán a vedení krok za krokem. Nastavte počet bochníků nebo hmotnost mouky a Pekař uvede gramy mouky, vody, kvásku, soli a droždí. Pekařská procenta zahrnují mouku a vodu z kvásku i ze zákvasu (zákvas: Pro). Pekař také uvede teplotu vody pro teplotu těsta, které chcete dosáhnout.
+
+VERZE S DROŽDÍM A DOMÁCÍ PEKÁRNA
+Čtyři kváskové recepty mají i verzi s droždím, tři z nich s plánem. Droždové recepty a verze upečete i v domácí pekárně: Pekař přizpůsobí množství pekárně, uvede pořadí surovin a program a pro zvolený čas dokončení i čas spuštění (Pro).
 
 PLÁN OD ČASU „HOTOVO“ (Pro)
 Vyberte, kdy má být chléb hotový, a Pekař zpětně spočítá čas začátku každého kroku. Doba kvašení závisí na teplotě v kuchyni. Když krok, který vyžaduje vaše ruce, připadne na noc (ve výchozím nastavení mezi 23:00 a 07:00), Pekař navrhne delší dobu v lednici. Když je času málo, uvede nejdřívější možný čas.

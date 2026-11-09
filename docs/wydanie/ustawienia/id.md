@@ -44,13 +44,16 @@ resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 Tukang Roti menghitung takaran dan memberi tahu saat tiap langkah selesai. Jadwal mundur dari jam roti harus siap (Pro). Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3460 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3835 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
 
 RESEP DAN TAKARAN
-Pilih salah satu dari 15 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
+Pilih salah satu dari 26 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri; 11 resep sourdough memiliki rencana dan panduan langkah demi langkah. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
+
+VERSI RAGI DAN MESIN ROTI
+Empat resep sourdough juga punya versi ragi, tiga di antaranya dengan rencana. Resep dan versi ragi juga bisa dibuat di mesin roti: Tukang Roti menyesuaikan takaran dengan mesin Anda, memberikan urutan bahan dan programnya, serta jam mulai untuk jam siap yang Anda pilih (Pro).
 
 RENCANA DARI JAM "SIAP" (Pro)
 Pilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 07:00), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.

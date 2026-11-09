@@ -45,13 +45,16 @@ hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija
 Pek izračuna količine in vas obvesti o koncu vsakega koraka. Obratni urnik od ure, ko naj bo kruh pripravljen (Pro). Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 3034 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3454 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
 
 RECEPTI IN KOLIČINE
-Izberete enega od 15 osnovnih receptov (z naravnim kvasom, rženi, s pekovskim kvasom, pica in sladki) ali svojega. Nastavite število hlebcev ali maso moke, Pek pa poda grame moke, vode, kvasa, soli in pekovskega kvasa. Pekovski odstotek upošteva moko in vodo iz kvasa in iz nastavka (nastavek: Pro). Pek poda tudi temperaturo vode za temperaturo testa, ki jo želite doseči.
+Izberete enega od 26 osnovnih receptov (z naravnim kvasom, rženi, s pekovskim kvasom, pica in sladki) ali svojega; 11 receptov z naravnim kvasom ima načrt in vodenje korak za korakom. Nastavite število hlebcev ali maso moke, Pek pa poda grame moke, vode, kvasa, soli in pekovskega kvasa. Pekovski odstotek upošteva moko in vodo iz kvasa in iz nastavka (nastavek: Pro). Pek poda tudi temperaturo vode za temperaturo testa, ki jo želite doseči.
+
+RAZLIČICA S PEKOVSKIM KVASOM IN PEKAČ KRUHA
+Štirje recepti z naravnim kvasom imajo tudi različico s pekovskim kvasom, trije od njih z načrtom. Recepte in različice s pekovskim kvasom lahko spečete tudi v pekaču kruha: Pek prilagodi količine pekaču, poda vrstni red sestavin in program ter uro zagona za izbrano uro, ko naj bo kruh pripravljen (Pro).
 
 NAČRT OD URE „PRIPRAVLJENO“ (Pro)
 Izberete, kdaj naj bo kruh pripravljen, Pek pa nazaj izračuna začetno uro vsakega koraka. Čas fermentacije je odvisen od temperature v kuhinji. Ko korak, pri katerem so potrebne vaše roke, pade v noč (privzeto med 23:00 in 07:00), Pek predlaga daljši čas v hladilniku. Če je časa premalo, poda najzgodnejšo možno uro.

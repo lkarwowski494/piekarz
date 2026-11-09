@@ -44,13 +44,16 @@ hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,may
 Fırıncı miktarları hesaplar ve her adımın sonunu haber verir. Ekmeğin hazır olacağı saatten geriye doğru plan (Pro). Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3362 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3734 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
 
 TARİFLER VE MİKTARLAR
-15 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar (maya hamuru: Pro). Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
+26 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz; ekşi mayalı 11 tarifte plan ve adım adım rehberlik vardır. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar (maya hamuru: Pro). Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
+
+MAYALI SÜRÜM VE EKMEK MAKİNESİ
+Ekşi mayalı dört tarifin mayalı sürümü de vardır, bunların üçü planlıdır. Mayalı tarifler ve sürümler ekmek makinesinde de yapılabilir: Fırıncı miktarları makinenize göre ayarlar, malzeme sırasını ve programı, ayrıca seçtiğiniz hazır olma saati için başlatma saatini söyler (Pro).
 
 “HAZIR” SAATİNDEN PLAN (Pro)
 Ekmeğin ne zaman hazır olacağını seçersiniz; Fırıncı her adımın başlangıç saatini geriye doğru hesaplar. Fermantasyon süresi mutfağınızın sıcaklığına bağlıdır. Elinizle yapmanız gereken bir adım geceye denk gelirse (varsayılan olarak 23:00 ile 07:00 arası), Fırıncı buzdolabında daha uzun bir süre önerir. Süre yetmiyorsa mümkün olan en erken saati söyler.

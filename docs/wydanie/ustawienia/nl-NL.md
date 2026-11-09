@@ -44,13 +44,16 @@ desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,time
 Bakker berekent de hoeveelheden en meldt het einde van elke stap. Schema terug vanaf het moment dat je brood klaar is (Pro). Geen account, geen internet, geen reclame.
 ```
 
-### Opis (Description) · 3547 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3953 / 4000 znaków · wersja 1.0
 
 ```text
 Bakker begeleidt je bij het bakken van zuurdesembrood, van recept tot brood: de app berekent de hoeveelheden, maakt een schema en houdt de tijd in de gaten terwijl je telefoon slaapt. Werkt zonder account en zonder internet, zonder advertenties en zonder tracking. Je recepten, zuurdesemstarters en dagboek blijven alleen op je telefoon.
 
 RECEPTEN EN HOEVEELHEDEN
-Kies een van de 15 basisrecepten (zuurdesem, rogge, gist, pizza en zoet) of je eigen recept. Stel het aantal broden of het meelgewicht in, en Bakker geeft de grammen meel, water, zuurdesemstarter, zout en gist. Het bakkerspercentage telt het meel en water uit de zuurdesemstarter en uit het levain mee (levain: Pro). Bakker geeft ook de watertemperatuur voor de gewenste deegtemperatuur.
+Kies een van de 26 basisrecepten (zuurdesem, rogge, gist, pizza en zoet) of je eigen recept; 11 zuurdesemrecepten hebben een schema en begeleiding stap voor stap. Stel het aantal broden of het meelgewicht in, en Bakker geeft de grammen meel, water, zuurdesemstarter, zout en gist. Het bakkerspercentage telt het meel en water uit de zuurdesemstarter en uit het levain mee (levain: Pro). Bakker geeft ook de watertemperatuur voor de gewenste deegtemperatuur.
+
+GISTVERSIE EN BROODBAKMACHINE
+Vier zuurdesemrecepten hebben ook een gistversie, drie daarvan met schema. Gistrecepten en -versies kun je ook in de broodbakmachine maken: Bakker past de hoeveelheden aan je machine aan en geeft de volgorde van de ingrediënten en het programma, plus de starttijd voor het gekozen tijdstip „klaar” (Pro).
 
 SCHEMA VANAF HET TIJDSTIP „KLAAR” (Pro)
 Kies wanneer het brood klaar moet zijn, en Bakker rekent voor elke stap het starttijdstip terug. De fermentatietijd hangt af van de temperatuur in je keuken. Valt een stap waarbij je zelf aan de slag moet in de nacht (standaard tussen 23:00 en 07:00), dan stelt Bakker een langere tijd in de koelkast voor. Is er te weinig tijd, dan geeft Bakker het vroegst mogelijke tijdstip.

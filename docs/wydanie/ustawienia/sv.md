@@ -44,13 +44,16 @@ jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påmi
 Bagaren räknar ut mängderna och säger till när varje steg är slut. Plan bakåt från tiden då brödet ska vara klart (Pro). Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3194 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3554 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
 
 RECEPT OCH MÄNGDER
-Du väljer ett av 15 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen (fördeg: Pro). Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
+Du väljer ett av 26 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget; 11 surdegsrecept har plan och vägledning steg för steg. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen (fördeg: Pro). Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
+
+JÄSTVERSION OCH BRÖDMASKIN
+Fyra surdegsrecept har också en jästversion, tre av dem med plan. Jästrecept och jästversioner går också att baka i brödmaskin: Bagaren anpassar mängderna till din maskin och anger ordningen för ingredienserna och programmet, plus starttiden för den klar-tid du väljer (Pro).
 
 PLAN FRÅN TIDEN ”KLART” (Pro)
 Du väljer när brödet ska vara klart, och Bagaren räknar bakåt fram starttiden för varje steg. Jästiden beror på temperaturen i köket. Om ett steg som kräver dina händer infaller på natten (som standard mellan 23:00 och 07:00) föreslår Bagaren en längre tid i kylskåpet. Om tiden inte räcker anger Bagaren den tidigaste möjliga tiden.

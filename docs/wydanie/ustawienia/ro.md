@@ -44,13 +44,16 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Brutar calculează cantitățile și te anunță la finalul fiecărui pas. Plan invers de la ora la care vrei pâinea gata (Pro). Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3240 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3624 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
 
 REȚETE ȘI CANTITĂȚI
-Alegi una dintre cele 15 rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain (levain: Pro). Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
+Alegi una dintre cele 26 de rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie; 11 rețete cu maia au plan și ghidare pas cu pas. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain (levain: Pro). Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
+
+VARIANTA CU DROJDIE ȘI APARATUL DE FĂCUT PÂINE
+Patru rețete cu maia au și variantă cu drojdie, trei dintre ele cu plan. Rețetele și variantele cu drojdie merg și în aparatul de făcut pâine: Brutar potrivește cantitățile pentru aparat, îți dă ordinea ingredientelor și programul, plus ora de pornire pentru ora „gata” aleasă (Pro).
 
 PLAN DE LA ORA „GATA” (Pro)
 Alegi când trebuie să fie gata pâinea, iar Brutar calculează invers ora de start a fiecărui pas. Durata fermentării depinde de temperatura din bucătărie. Când un pas care are nevoie de mâinile tale cade noaptea (implicit între 23:00 și 07:00), Brutar îți propune un timp mai lung la frigider. Când timpul nu ajunge, îți dă cea mai devreme oră posibilă.

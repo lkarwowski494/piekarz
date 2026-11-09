@@ -44,13 +44,16 @@ hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,ma
 O Padeiro calcula as quantidades e avisa o fim de cada etapa. Plano reverso a partir da hora em que o pão deve ficar pronto (Pro). Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3492 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3930 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro guia você na fornada de pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e controla o tempo mesmo com o celular em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreamento. Suas receitas, seus fermentos naturais e seu diário ficam só no seu celular.
 
 RECEITAS E QUANTIDADES
-Escolha uma das 15 receitas base (de fermentação natural, de centeio, com fermento biológico, pizza e doces) ou uma receita própria. Defina o número de pães ou o peso da farinha, e o Padeiro informa os gramas de farinha, água, fermento natural, sal e fermento biológico. A porcentagem do padeiro considera a farinha e a água do fermento natural e do levain (levain: Pro). O Padeiro também informa a temperatura da água para chegar à temperatura da massa que você quer.
+Escolha uma das 26 receitas base (de fermentação natural, de centeio, com fermento biológico, pizza e doces) ou uma receita própria; 11 receitas de fermentação natural têm plano e orientação passo a passo. Defina o número de pães ou o peso da farinha, e o Padeiro informa os gramas de farinha, água, fermento natural, sal e fermento biológico. A porcentagem do padeiro considera a farinha e a água do fermento natural e do levain (levain: Pro). O Padeiro também informa a temperatura da água para chegar à temperatura da massa que você quer.
+
+VERSÃO COM FERMENTO BIOLÓGICO E PANIFICADORA
+Quatro receitas de fermentação natural também têm versão com fermento biológico, três delas com plano. As receitas e versões com fermento biológico também vão à panificadora: o Padeiro ajusta as quantidades, informa a ordem dos ingredientes e o programa, e o horário de início para o horário de pronto escolhido (Pro).
 
 PLANO A PARTIR DO HORÁRIO “PRONTO” (Pro)
 Escolha quando o pão deve ficar pronto, e o Padeiro calcula de trás para frente o horário de início de cada etapa. O tempo de fermentação depende da temperatura da cozinha. Quando uma etapa que exige suas mãos cai à noite (por padrão, entre 23:00 e 07:00), o Padeiro sugere um tempo maior na geladeira. Quando o tempo é curto demais, ele informa o horário mais cedo possível.
