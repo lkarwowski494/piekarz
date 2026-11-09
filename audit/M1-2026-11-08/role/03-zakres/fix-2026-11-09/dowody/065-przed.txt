@@ -1,0 +1,44 @@
+FAIL tests/kontrakt-odlozone-065.test.ts
+  kontrakt: diagnoza Doktora przy następnym wypieku odłożona do 1.1 (065)
+    ✕ wpis ZM z DEC-19 b, zakresem 1.1, warunkiem powrotu i D-276 pkt 5 (2 ms)
+    ✕ F-43 odsyła do wpisu ZM odłożenia (1 ms)
+
+  ● kontrakt: diagnoza Doktora przy następnym wypieku odłożona do 1.1 (065) › wpis ZM z DEC-19 b, zakresem 1.1, warunkiem powrotu i D-276 pkt 5
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not ""
+
+      15 | describe('kontrakt: diagnoza Doktora przy następnym wypieku odłożona do 1.1 (065)', () => {
+      16 |   it('wpis ZM z DEC-19 b, zakresem 1.1, warunkiem powrotu i D-276 pkt 5', () => {
+    > 17 |     expect(wpis).not.toBe('');
+         |                      ^
+      18 |     expect(wpis).toMatch(/DEC-19 b/);
+      19 |     expect(wpis).toMatch(/1\.1/);
+      20 |     expect(wpis).toMatch(/Powrót:\s*\S/);
+
+      at Object.toBe (tests/kontrakt-odlozone-065.test.ts:17:22)
+
+  ● kontrakt: diagnoza Doktora przy następnym wypieku odłożona do 1.1 (065) › F-43 odsyła do wpisu ZM odłożenia
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^ZM-\d+$/
+    Received string:  ""
+
+      24 |   it('F-43 odsyła do wpisu ZM odłożenia', () => {
+      25 |     const id = wpis.split('|')[1]?.trim() ?? '';
+    > 26 |     expect(id).toMatch(/^ZM-\d+$/);
+         |                ^
+      27 |     expect(linie.find((l) => l.startsWith('| F-43 |')) ?? '').toContain(id);
+      28 |   });
+      29 | });
+
+      at Object.toMatch (tests/kontrakt-odlozone-065.test.ts:26:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.849 s
+Ran all test suites matching /tests\/kontrakt-odlozone-065.test.ts/i.
+kod=1

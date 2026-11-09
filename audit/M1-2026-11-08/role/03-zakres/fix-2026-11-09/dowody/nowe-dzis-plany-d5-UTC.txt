@@ -1,0 +1,40 @@
+FAIL src/__tests__/dzis-plany-d5.test.tsx
+  D5: zaplanowane wypieki na „Dziś”
+    ✕ BR-KAL-009 plan bez trwającego wypieku: spirala planu z „Zobacz plan” zamiast pustej spirali (339 ms)
+    ✓ BR-KAL-009 Dwa plany i trwający wypiek: wypiek na spirali, plany listą pod nią w kolejności startu (196 ms)
+    ✓ Zobacz plan: arkusz z krokami, przed czasem bez startu; „Usuń plan” bez pytania z „Przywróć” (D-051 1a), tylko ten plan (298 ms)
+    ✓ start, gdy nadszedł czas: zaległy w „Następne” bez „Pomiń”; „Zrobione” otwiera plan; „Zacznij wypiek” = trwający, Stolnica (194 ms)
+    ✓ start przy jednym trwającym: pytanie D-104 „Prowadź oba” — oba trwają (270 ms)
+    ✓ start przy 2 trwających: „Prowadzisz już 2 wypieki”, plan zostaje zaplanowany (222 ms)
+  D5: skrót „Zaplanuj wypiek na ten dzień” w arkuszu dnia (BR-KAL-015, D-108)
+    ✓ BR-KAL-015 Pojutrze bez trwającego wypieku: wybór receptury (na zakwasie), potem plan z dniem „gotowe” w sobotę (88 ms)
+    ✓ BR-KAL-015 Trwa wypiek: po D-092 skrót jest (D-108; BRD do synchronizacji) (73 ms)
+    ✓ BR-KAL-015 Dzień miniony: wtorek bez skrótu (52 ms)
+    ✓ BR-KAL-015 limit 5 planów: bez skrótu (129 ms)
+
+  ● D5: zaplanowane wypieki na „Dziś” › BR-KAL-009 plan bez trwającego wypieku: spirala planu z „Zobacz plan” zamiast pustej spirali
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Chleb na sobotę: gotowe .+ o \d{1,2}:\d{2}/
+    Received string:  "Co dziś robisz? | Poniedziałek, 9 listopada | 9–15 listopada | Miesiąc | pon. | 9 | wt. | 10 | śr. | 11 | czw. | 12 | pt. | 13 | sob. | 14 | niedz. | 15 | Następne: jutro 19:17 Chleb na sobotę, krok: Dokarmienie zakwasu (osiągnięcie szczytu) | Baza danych nie otworzyła się przy poprzednim uruchomieniu | Zapisano opis błędu w pliku: state_corrupt_2026-11-09-131715.json. Kopii plików bazy nie udało się wykonać. | Ukryj | Zakładam zakwas | Piekę na zakwasie | Piekę na drożdżach albo pizzę | Chleb na sobotę — gotowe: czwartek, 12 listopada, 00:32 | Start jutro o 19:17 | Zobacz plan | Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie."
+
+      123 |     expect(host(root, 'start-pusta-spirala')).toHaveLength(0);
+      124 |     expect(host(root, 'start-plan-spirala')).toHaveLength(1);
+    > 125 |     expect(teksty(root)).toMatch(/Chleb na sobotę: gotowe .+ o \d{1,2}:\d{2}/);
+          |                          ^
+      126 |     expect(teksty(root)).toMatch(/Start .+ o \d{1,2}:\d{2}/);
+      127 |     const zobacz = przycisk(root, 'plan-zobacz-plan_sob');
+      128 |     expect(zobacz).toHaveLength(1);
+
+      at Object.toMatch (src/__tests__/dzis-plany-d5.test.tsx:125:26)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 9 passed, 10 total
+Snapshots:   0 total
+Time:        3.129 s
+Ran all test suites matching /src\/__tests__\/dzis-plany-d5.test.tsx/i.
+kod=1
+Mon Nov  9 13:17:17 UTC 2026

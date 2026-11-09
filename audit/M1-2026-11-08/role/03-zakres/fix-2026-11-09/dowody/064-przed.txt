@@ -1,0 +1,58 @@
+FAIL tests/kontrakt-ranking-064.test.ts
+  kontrakt: ranking i suma godzin MVP po rozszerzeniach 1.0 (064)
+    ✕ każda funkcja poza NIE ma wiersz rankingu z kosztem > 0 (5 ms)
+    ✕ zapisana suma MVP równa się sumie kosztów wierszy MVP (1 ms)
+
+  ● kontrakt: ranking i suma godzin MVP po rozszerzeniach 1.0 (064) › każda funkcja poza NIE ma wiersz rankingu z kosztem > 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "F-71",
+    +   "F-73",
+    +   "F-74",
+    +   "F-75",
+    +   "F-76",
+    +   "F-77",
+    +   "F-78",
+    +   "F-79",
+    +   "F-80",
+    +   "F-81",
+    + ]
+
+      26 |   it('każda funkcja poza NIE ma wiersz rankingu z kosztem > 0', () => {
+      27 |     const bez = [...funkcje].filter(([, d]) => d !== 'NIE').map(([id]) => id).filter((id) => !(ranking.get(id)! > 0));
+    > 28 |     expect(bez).toEqual([]);
+         |                 ^
+      29 |   });
+      30 |
+      31 |   it('zapisana suma MVP równa się sumie kosztów wierszy MVP', () => {
+
+      at Object.toEqual (tests/kontrakt-ranking-064.test.ts:28:17)
+
+  ● kontrakt: ranking i suma godzin MVP po rozszerzeniach 1.0 (064) › zapisana suma MVP równa się sumie kosztów wierszy MVP
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      32 |     const suma = [...funkcje].filter(([, d]) => d === 'MVP').reduce((s, [id]) => s + (ranking.get(id) ?? 0), 0);
+      33 |     const zapis = kontrakt.match(/Suma MVP \(przeliczenie 2026-11-09\): (\d+(?:,\d+)?) h/);
+    > 34 |     expect(zapis).not.toBeNull();
+         |                       ^
+      35 |     expect(Number(zapis![1].replace(',', '.'))).toBe(suma);
+      36 |   });
+      37 | });
+
+      at Object.toBeNull (tests/kontrakt-ranking-064.test.ts:34:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.731 s
+Ran all test suites matching /tests\/kontrakt-ranking-064.test.ts/i.
+kod=1

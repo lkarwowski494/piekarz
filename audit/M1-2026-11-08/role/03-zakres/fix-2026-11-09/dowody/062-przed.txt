@@ -1,0 +1,53 @@
+FAIL tests/kontrakt-wyjatki-h-062.test.ts
+  kontrakt: MVP na hipotezie tylko jako nazwany wyjątek z warunkiem oceny (062)
+    ✕ F-72, F-75, F-78, F-80, F-81 to MVP z dowodem tylko H (4 ms)
+    ✕ każdy wiersz MVP z dowodem H ma D-nnn, ZAL-nnn (hipoteza) i datę oceny (3 ms)
+
+  ● kontrakt: MVP na hipotezie tylko jako nazwany wyjątek z warunkiem oceny (062) › F-72, F-75, F-78, F-80, F-81 to MVP z dowodem tylko H
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining ["F-72", "F-75", "F-78", "F-80", "F-81"]
+    Received: ["F-75", "F-78", "F-80", "F-81"]
+
+      33 |   it('F-72, F-75, F-78, F-80, F-81 to MVP z dowodem tylko H', () => {
+      34 |     const mvpH = wiersze.filter((w) => w.decyzja === 'MVP' && tylkoH(w)).map((w) => w.id);
+    > 35 |     expect(mvpH).toEqual(expect.arrayContaining(['F-72', 'F-75', 'F-78', 'F-80', 'F-81']));
+         |                  ^
+      36 |   });
+      37 |
+      38 |   it('każdy wiersz MVP z dowodem H ma D-nnn, ZAL-nnn (hipoteza) i datę oceny', () => {
+
+      at Object.toEqual (tests/kontrakt-wyjatki-h-062.test.ts:35:18)
+
+  ● kontrakt: MVP na hipotezie tylko jako nazwany wyjątek z warunkiem oceny (062) › każdy wiersz MVP z dowodem H ma D-nnn, ZAL-nnn (hipoteza) i datę oceny
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   "F-75: brak „Ocena: … RRRR-MM-DD”",
+    +   "F-78: brak „Ocena: … RRRR-MM-DD”",
+    +   "F-80: brak „Ocena: … RRRR-MM-DD”",
+    +   "F-81: brak „Ocena: … RRRR-MM-DD”",
+    + ]
+
+      45 |       if (!/Ocena:[^|]*\d{4}-\d{2}-\d{2}/.test(w.uzasadnienie)) bledy.push(`${w.id}: brak „Ocena: … RRRR-MM-DD”`);
+      46 |     }
+    > 47 |     expect(bledy).toEqual([]);
+         |                   ^
+      48 |   });
+      49 | });
+      50 |
+
+      at Object.toEqual (tests/kontrakt-wyjatki-h-062.test.ts:47:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        0.779 s
+Ran all test suites matching /tests\/kontrakt-wyjatki-h-062.test.ts/i.
+kod=1

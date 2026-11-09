@@ -1,0 +1,63 @@
+FAIL tests/kontrakt-receptury-plan-061.test.ts
+  kontrakt: receptury bazowe z planem i bez planu w 1.0 (061)
+    ✕ F-26 podaje liczbę receptur bazowych i ile z nich ma plan i prowadzenie (liczone z katalogu) (3 ms)
+    ✕ F-26 podaje wersje drożdżowe z przełącznikiem i ile z nich ma plan (1 ms)
+    ✕ F-55 i ZM-25 mówią wprost, że receptury bez zakwasu zostają w 1.0 bez planu (D-252) (1 ms)
+
+  ● kontrakt: receptury bazowe z planem i bez planu w 1.0 (061) › F-26 podaje liczbę receptur bazowych i ile z nich ma plan i prowadzenie (liczone z katalogu)
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "26 receptur bazowych, z czego 11 z planem i prowadzeniem krok po kroku"
+    Received string:    "| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · próba / płatna | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | — | rdzeń pętli; treść roli 06; plan aktualizacji 3.1.2(a); ZM-25 (D-137, D-150, D-154, D-155), ZM-27 (D-157: ok. 30 receptur w 1.0): przełącznik „na zakwasie / na drożdżach” w 9 recepturach z zakwasem, dane wersji drożdżowej ze źródła roli 06; wersja drożdżowa z planem i prowadzeniem w 1.0; BR-RECP-005 (ER-76): przełącznik w 4 recepturach z D-173 — do kolumny „Wymagania” razem z testem z ID (D-187) |"
+
+      24 |   it('F-26 podaje liczbę receptur bazowych i ile z nich ma plan i prowadzenie (liczone z katalogu)', () => {
+      25 |     expect(wszystkie).toBeGreaterThan(0);
+    > 26 |     expect(wiersz('F-26')).toContain(`${wszystkie} receptur bazowych, z czego ${zPlanem} z planem i prowadzeniem krok po kroku`);
+         |                            ^
+      27 |     expect(wiersz('F-26')).toContain(`${wszystkie - zPlanem} bez zakwasu`);
+      28 |   });
+      29 |
+
+      at Object.toContain (tests/kontrakt-receptury-plan-061.test.ts:26:28)
+
+  ● kontrakt: receptury bazowe z planem i bez planu w 1.0 (061) › F-26 podaje wersje drożdżowe z przełącznikiem i ile z nich ma plan
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "wersja drożdżowa w 4 recepturach na zakwasie, z planem w 3"
+    Received string:    "| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · próba / płatna | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | — | rdzeń pętli; treść roli 06; plan aktualizacji 3.1.2(a); ZM-25 (D-137, D-150, D-154, D-155), ZM-27 (D-157: ok. 30 receptur w 1.0): przełącznik „na zakwasie / na drożdżach” w 9 recepturach z zakwasem, dane wersji drożdżowej ze źródła roli 06; wersja drożdżowa z planem i prowadzeniem w 1.0; BR-RECP-005 (ER-76): przełącznik w 4 recepturach z D-173 — do kolumny „Wymagania” razem z testem z ID (D-187) |"
+
+      29 |
+      30 |   it('F-26 podaje wersje drożdżowe z przełącznikiem i ile z nich ma plan', () => {
+    > 31 |     expect(wiersz('F-26')).toContain(`wersja drożdżowa w ${zWersja.length} recepturach na zakwasie, z planem w ${wersjeZPlanem}`);
+         |                            ^
+      32 |   });
+      33 |
+      34 |   it('F-55 i ZM-25 mówią wprost, że receptury bez zakwasu zostają w 1.0 bez planu (D-252)', () => {
+
+      at Object.toContain (tests/kontrakt-receptury-plan-061.test.ts:31:28)
+
+  ● kontrakt: receptury bazowe z planem i bez planu w 1.0 (061) › F-55 i ZM-25 mówią wprost, że receptury bez zakwasu zostają w 1.0 bez planu (D-252)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /bez planu i prowadzenia w 1\.0/
+    Received string:  "| F-55 | Ciasto drożdżowe i pizza: rodzaj drożdży, zaczyny poolish, biga, levain | BR-KALK-009, BR-KALK-010 | MVP | R: S-19 rec. 7107716082; S-24 rec. 7357117590; ZP-23 | WTP-1 (R) · próba / płatna | wybór „piekę na drożdżach albo pizzę” prowadzi do rodzaju drożdży i zaczynu bez nowych pojęć przed wyborem; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-09 | D-043: wybór właściciela ZP-23, jedna aplikacja (H-09 a); ZM-24 (D-136, D-150): drugie wejście wyboru rodzaju drożdży przy wierszu drożdży na karcie „Do miski”, logika RD-19 bez zmian; BR-KALK-012 (ER-75): wybór przy wierszu „Do miski” — do kolumny „Wymagania” razem z testem z ID (D-187) |"
+
+      33 |
+      34 |   it('F-55 i ZM-25 mówią wprost, że receptury bez zakwasu zostają w 1.0 bez planu (D-252)', () => {
+    > 35 |     expect(wiersz('F-55')).toMatch(/bez planu i prowadzenia w 1\.0/);
+         |                            ^
+      36 |     expect(wiersz('F-55')).toMatch(/D-252/);
+      37 |     expect(wiersz('ZM-25')).toMatch(/D-252/);
+      38 |   });
+
+      at Object.toMatch (tests/kontrakt-receptury-plan-061.test.ts:35:28)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.827 s
+Ran all test suites matching /tests\/kontrakt-receptury-plan-061.test.ts/i.
+kod=1

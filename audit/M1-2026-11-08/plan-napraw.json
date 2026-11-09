@@ -706,9 +706,8 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "9 kluczy krytycznych w 21 językach ma tłumaczenie zwrotne (kontrola a) i drugi przegląd zapisany w rejestrze; test pilnuje kompletności",
-      "status": "zatwierdzone",
-      "commit": "3e51b342",
-      "blokada": "decyzja właściciela (STOP p3): 13 poprawek przekładu zdań bezpieczeństwa maszyny z kontroli (a) wobec D-287 „zdania bezpieczeństwa maszyny bez zmian przed 1.0”; reszta zrobiona (rejestr 189 par, 5 poprawek notatek, test kompletności) w 3e51b342"
+      "status": "naprawione-do-weryfikacji",
+      "commit": "831199d7"
     },
     {
       "id": "M1-audytor-generalny-012",
@@ -1638,8 +1637,8 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-001 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "7526830d"
     },
     {
       "id": "M1-audytor-generalny-059",
@@ -1695,8 +1694,8 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-005 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e58a3ac1"
     },
     {
       "id": "M1-audytor-generalny-062",
@@ -1714,8 +1713,8 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "6caf322b"
     },
     {
       "id": "M1-audytor-generalny-063",
@@ -1756,7 +1755,8 @@
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-008 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": "1f5eac3a",
+      "blokada": "decyzja właściciela: apetyt 1.0 po przeliczeniu (suma MVP 97 h wobec 60/68 h); opcje (a) przyjąć 97 h, (b) odłożyć miesiąc i rytm, (c) wrócić do 68 h — w wyniku roli 03 fix-2026-11-09"
     },
     {
       "id": "M1-audytor-generalny-065",
@@ -1774,8 +1774,8 @@
       "przyczyna": null,
       "raport": "weryfikacja/G9-luki.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-065 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "7f520c7b"
     },
     {
       "id": "M1-audytor-generalny-066",

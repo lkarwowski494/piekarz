@@ -74,3 +74,14 @@
 - M2-010 (P2→P3 wg D-288, klasa: dokumentacja): kontrola-brd zgłasza 2 błędy istniejące przed zmianą M2 — RD-37 i RD-38 (reguły krytyczne bez źródła szczebla 1–3, C-003) w `docs/brd/reguly.md:287,305`.
 - Drugi przegląd 048: P3 do decyzji globalnej — fr spacja przed dwukropkiem zwykła zamiast U+00A0/U+202F w całym słowniku fr (223 vs 19); P3 z kluczy siostrzanych: pt/pt-BR „no mínimo” → „o mais cedo”, hu „így” zbędne.
 - M2-011 (P2→P3, klasa: dokumentacja): pełny przegląd D-221…D-291 pod kątem BR (część 01-odkrywanie-008 poza testem akceptacyjnym) — tryb fix roli 01, do reaudytu.
+
+## Zadania dodatkowe partii 3 (D-308, wyjątek od zamrożenia D-288)
+- M2-012 (P1): plan brioszki z krokami bochenka w koszyku (PIE-BRI-900; role 06, 08) — status: zatwierdzone, partia 3.
+- M2-013 (P1): rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy zbyt gorącej wodzie odwraca rachunek RD-05 (rola 06) — status: zatwierdzone, partia 3.
+- M2-014 (P1): arkusz `ZgodaPowiadomien` na system kart (04-studio-projektowe-007, część a) — status: zatwierdzone, partia 3.
+- 04-studio-projektowe-007 część b (5 arkuszy): wyjątek nazwany do 1.0.1 (D-308) — README §1 do dopisania w partii 3.
+
+## Rola 03 p3 (2026-11-09)
+- N-1 (P2, naprawione 287de811): test dzis-plany-d5 (i 3 podobne) zależny od pory dnia po 048 — redesign 3e51b342 ma verify czerwony po ok. 18:00 czasu lokalnego (UTC ok. 12:45 wg roli 03 — zależy od daty planu); poprawka wejdzie do redesign ze scaleniem partii 3. Wniosek procesowy: verify w dwóch strefach (UTC i +9) przed scaleniem.
+- N-2 (P2): F-43 „F-71 PÓŹNIEJ” i „Definicja ukończenia” nieaktualne — w 059.
+- Przekazania roli 03: 02 (monetyzacja.md l.10, 48, 70 „porównanie”), 01 (ER dla wymagania-dziennik.md:58, BR dla F-82, F-83, ZM-29), 04 (karta „Porównanie i statystyki” w docs/design/karty/inne.html:38), 10 (opis sklepu wg F-26, 080), 07 (6 testów kontraktu).

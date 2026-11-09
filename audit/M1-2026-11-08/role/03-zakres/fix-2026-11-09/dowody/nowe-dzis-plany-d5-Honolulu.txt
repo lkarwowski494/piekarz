@@ -1,0 +1,20 @@
+PASS src/__tests__/dzis-plany-d5.test.tsx
+  D5: zaplanowane wypieki na „Dziś”
+    ✓ BR-KAL-009 plan bez trwającego wypieku: spirala planu z „Zobacz plan” zamiast pustej spirali (307 ms)
+    ✓ BR-KAL-009 Dwa plany i trwający wypiek: wypiek na spirali, plany listą pod nią w kolejności startu (148 ms)
+    ✓ Zobacz plan: arkusz z krokami, przed czasem bez startu; „Usuń plan” bez pytania z „Przywróć” (D-051 1a), tylko ten plan (297 ms)
+    ✓ start, gdy nadszedł czas: zaległy w „Następne” bez „Pomiń”; „Zrobione” otwiera plan; „Zacznij wypiek” = trwający, Stolnica (135 ms)
+    ✓ start przy jednym trwającym: pytanie D-104 „Prowadź oba” — oba trwają (196 ms)
+    ✓ start przy 2 trwających: „Prowadzisz już 2 wypieki”, plan zostaje zaplanowany (184 ms)
+  D5: skrót „Zaplanuj wypiek na ten dzień” w arkuszu dnia (BR-KAL-015, D-108)
+    ✓ BR-KAL-015 Pojutrze bez trwającego wypieku: wybór receptury (na zakwasie), potem plan z dniem „gotowe” w sobotę (93 ms)
+    ✓ BR-KAL-015 Trwa wypiek: po D-092 skrót jest (D-108; BRD do synchronizacji) (115 ms)
+    ✓ BR-KAL-015 Dzień miniony: wtorek bez skrótu (66 ms)
+    ✓ BR-KAL-015 limit 5 planów: bez skrótu (124 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        2.836 s, estimated 4 s
+Ran all test suites matching /src\/__tests__\/dzis-plany-d5.test.tsx/i.
+kod=0

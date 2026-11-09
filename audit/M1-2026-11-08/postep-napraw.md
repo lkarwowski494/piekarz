@@ -94,6 +94,9 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 12:26 005: 1d0dce0a — mała spirala na pasie + assertVisible karta-kroku w E2E 03; TDD; verify 6448. Status naprawione-do-weryfikacji; pełna akceptacja (375×667, 402×874, 2 wypieki) dopiero w E2E iOS na symulatorze — przed buildem (DEC-18).
 - 12:35 011: 3e51b342 — kontrola (a) 189 par (3 sesje na ślepo + porównanie), 5 poprawek notatek wdrożonych, rejestr + test; verify 6450. Blokada: 13 poprawek zdań maszyny wobec D-287 → decyzja na STOP p3.
 - 12:36 Partia 2 scalona: redesign = 3e51b342 (fast-forward, verify 6450 kod 0). STOP p3 zapisany (stop-p3-M2-2026-11-09.md): 4 decyzje.
+- 12:41 STOP p3: właściciel wg rekomendacji (D-308, 5f134962). 011: 13 poprawek zdań maszyny → 831199d7, verify 6450; status naprawione-do-weryfikacji (3e51b342 + 831199d7). Partia 3 na gałęzi p3.
+- 12:42 Partia 3 start: rola 03 (015, 058, 061, 062, 064, 065) w drzewie p3. Zadania dodatkowe M2-012…014 zapisane (D-308).
+- 13:26 Rola 03 p3: e8345215 (015), 7526830d (058), 6caf322b (062), e58a3ac1 (061), 7f520c7b (065), 1f5eac3a (064); sprawdz-raport OK; statusy 058, 061, 062, 065 naprawione-do-weryfikacji; 064 blokada (apetyt — decyzja właściciela); 015 po przeglądach (w toku). N-1 (test zależny od pory dnia po 048) naprawione 287de811, verify 6467 kod 0 (UTC) + jest Tokyo kod 0.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

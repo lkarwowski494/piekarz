@@ -1,0 +1,152 @@
+FAIL tests/kontrakt-zm28-058.test.ts
+  kontrakt zakresu: pakiet D-092 przez bramkę ZM (058)
+    ✕ każde BR z BRD ma decyzję zakresu; wyjątki tylko z listy i nadal bez decyzji (8 ms)
+    ✕ BR-KAL-001…016 i BR-ETAP-006 mają wiersze F-nn; widżet BR-KAL-012 PÓŹNIEJ z „Powrót:” (1 ms)
+    ✕ tabela „Zmiany zakresu” ma wpis z D-092 i jego wykonaniami (1 ms)
+    ✕ KL-09 i F-17 mają adnotację powrotu przez ZM-28 (1 ms)
+    ✕ funkcje z inwentarza audytu oznaczone „brak F-nn” mają F-nn w kontrakcie (1 ms)
+
+  ● kontrakt zakresu: pakiet D-092 przez bramkę ZM (058) › każde BR z BRD ma decyzję zakresu; wyjątki tylko z listy i nadal bez decyzji
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 19
+
+    - Array []
+    + Array [
+    +   "BR-ETAP-006",
+    +   "BR-KAL-001",
+    +   "BR-KAL-002",
+    +   "BR-KAL-003",
+    +   "BR-KAL-004",
+    +   "BR-KAL-005",
+    +   "BR-KAL-006",
+    +   "BR-KAL-007",
+    +   "BR-KAL-008",
+    +   "BR-KAL-009",
+    +   "BR-KAL-010",
+    +   "BR-KAL-011",
+    +   "BR-KAL-012",
+    +   "BR-KAL-013",
+    +   "BR-KAL-014",
+    +   "BR-KAL-015",
+    +   "BR-KAL-016",
+    + ]
+
+      61 |     const zakres = brWKontrakcie();
+      62 |     expect(brd.size).toBeGreaterThan(50);
+    > 63 |     expect([...brd].filter((id) => !zakres.has(id) && !BEZ_DECYZJI_POZA_058[id]).sort()).toEqual([]);
+         |                                                                                          ^
+      64 |     expect(Object.keys(BEZ_DECYZJI_POZA_058).filter((id) => zakres.has(id) || !brd.has(id))).toEqual([]);
+      65 |   });
+      66 |
+
+      at Object.toEqual (tests/kontrakt-zm28-058.test.ts:63:90)
+
+  ● kontrakt zakresu: pakiet D-092 przez bramkę ZM (058) › BR-KAL-001…016 i BR-ETAP-006 mają wiersze F-nn; widżet BR-KAL-012 PÓŹNIEJ z „Powrót:”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 19
+
+    - Array []
+    + Array [
+    +   "BR-KAL-001",
+    +   "BR-KAL-002",
+    +   "BR-KAL-003",
+    +   "BR-KAL-004",
+    +   "BR-KAL-005",
+    +   "BR-KAL-006",
+    +   "BR-KAL-007",
+    +   "BR-KAL-008",
+    +   "BR-KAL-009",
+    +   "BR-KAL-010",
+    +   "BR-KAL-011",
+    +   "BR-KAL-012",
+    +   "BR-KAL-013",
+    +   "BR-KAL-014",
+    +   "BR-KAL-015",
+    +   "BR-KAL-016",
+    +   "BR-ETAP-006",
+    + ]
+
+      68 |     const zakres = brWKontrakcie();
+      69 |     const kal = Array.from({ length: 16 }, (_, i) => `BR-KAL-${String(i + 1).padStart(3, '0')}`);
+    > 70 |     expect([...kal, 'BR-ETAP-006'].filter((id) => !zakres.has(id))).toEqual([]);
+         |                                                                     ^
+      71 |     const widzet = wiersz(zakres.get('BR-KAL-012') ?? '');
+      72 |     expect(widzet.split('|')[4]?.trim()).toBe('PÓŹNIEJ');
+      73 |     expect(widzet).toMatch(/Powrót:\s*\S/);
+
+      at Object.toEqual (tests/kontrakt-zm28-058.test.ts:70:69)
+
+  ● kontrakt zakresu: pakiet D-092 przez bramkę ZM (058) › tabela „Zmiany zakresu” ma wpis z D-092 i jego wykonaniami
+
+    expect(received).toBeDefined()
+
+    Received: undefined
+
+      77 |   it('tabela „Zmiany zakresu” ma wpis z D-092 i jego wykonaniami', () => {
+      78 |     const wpis = wierszeZm.find((l) => /D-092/.test(l) && /BR-KAL/.test(l));
+    > 79 |     expect(wpis).toBeDefined();
+         |                  ^
+      80 |     for (const d of ['D-104', 'D-108', 'D-109', 'D-114', 'D-115', 'DEC-02']) expect(wpis).toMatch(new RegExp(d));
+      81 |   });
+      82 |
+
+      at Object.toBeDefined (tests/kontrakt-zm28-058.test.ts:79:18)
+
+  ● kontrakt zakresu: pakiet D-092 przez bramkę ZM (058) › KL-09 i F-17 mają adnotację powrotu przez ZM-28
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /ZM-28/
+    Received string:  "| KL-09 | `src/lib/calendar-export.ts` + test | eksport planu do kalendarza (Z-022, SHOULD 1.1, bez BR) | brak BR i wejścia z interfejsu | Powrót: BR od roli 01 z dowodem potrzeby; wejście z Harmonogramu |"
+
+      83 |   it('KL-09 i F-17 mają adnotację powrotu przez ZM-28', () => {
+      84 |     const kl09 = linie.find((l) => l.startsWith('| KL-09 |')) ?? '';
+    > 85 |     expect(kl09).toMatch(/ZM-28/);
+         |                  ^
+      86 |     expect(kl09).toMatch(/BR-KAL-011/);
+      87 |     const f17 = linie.find((l) => /F-17 kilka wypieków naraz/.test(l)) ?? '';
+      88 |     expect(f17).toMatch(/ZM-28/);
+
+      at Object.toMatch (tests/kontrakt-zm28-058.test.ts:85:18)
+
+  ● kontrakt zakresu: pakiet D-092 przez bramkę ZM (058) › funkcje z inwentarza audytu oznaczone „brak F-nn” mają F-nn w kontrakcie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "src/components/kalendarz/NawigacjaKalendarza.tsx",
+    +   "src/components/harmonogram/DodajDoKalendarza.tsx",
+    +   "src/components/stolnica/PrzelacznikWypiekow.tsx",
+    +   "src/components/zakwas/StalyDzienKarmienia.tsx",
+    +   "src/lib/confirm.ts",
+    +   "Źródła wiedzy",
+    +   "Licencje open source",
+    +   "Zaplanuj wypiek na ten dzień",
+    + ]
+
+      101 |     ];
+      102 |     const bezF = inwentarz.filter((x) => !linie.some((l) => l.includes(x) && /\bF-\d{2}\b/.test(l)));
+    > 103 |     expect(bezF).toEqual([]);
+          |                  ^
+      104 |   });
+      105 | });
+      106 |
+
+      at Object.toEqual (tests/kontrakt-zm28-058.test.ts:103:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 5 total
+Snapshots:   0 total
+Time:        0.831 s
+Ran all test suites matching /tests\/kontrakt-zm28-058.test.ts/i.
+kod=1

@@ -1,0 +1,56 @@
+FAIL tests/obietnice-pro-015.test.ts
+  ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015)
+    ✓ mapa słów obejmuje każdy wiersz PÓŹNIEJ / NIE / TEST kontraktu i każde ukryte wejście (4 ms)
+    ✕ zdania „Co daje Pro” i opis pod tytułem nie nazywają funkcji bez wejścia w 1.0 (6 ms)
+    ✕ nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”) (2 ms)
+
+  ● ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015) › zdania „Co daje Pro” i opis pod tytułem nie nazywają funkcji bez wejścia w 1.0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "F-63: Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.",
+    + ]
+
+      102 |     ];
+      103 |     const naruszenia = teksty.flatMap((s) => wzorce.filter(([, r]) => r.test(s)).map(([id]) => `${id}: ${s}`));
+    > 104 |     expect(naruszenia).toEqual([]);
+          |                        ^
+      105 |   });
+      106 |
+      107 |   it('nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”)', () => {
+
+      at Object.toEqual (tests/obietnice-pro-015.test.ts:104:24)
+
+  ● ekran Pro obiecuje tylko funkcje z wejściem w 1.0 (015) › nazwy blokad funkcji Pro nie nazywają funkcji bez wejścia w 1.0 (Dziennik: „Porównanie i statystyki”)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "porownanie → F-63: Porównanie i statystyki",
+    + ]
+
+      108 |     const wzorce = odlozoneWKontrakcie().map((f) => [f, SLOWA_FUNKCJI[f]] as const);
+      109 |     const naruszenia = FUNKCJE_PRO.flatMap((f) => wzorce.filter(([, r]) => r.test(nazwaBlokady(f))).map(([id]) => `${f} → ${id}: ${nazwaBlokady(f)}`));
+    > 110 |     expect(naruszenia).toEqual([]);
+          |                        ^
+      111 |   });
+      112 | });
+      113 |
+
+      at Object.toEqual (tests/obietnice-pro-015.test.ts:110:24)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.555 s, estimated 1 s
+Ran all test suites matching /tests\/obietnice-pro-015.test.ts/i.
+kod=1
