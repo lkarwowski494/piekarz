@@ -298,7 +298,7 @@
   },
   "Autoliza (mąka + woda)": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Autoliza i Fermentoliza": {
@@ -509,12 +509,17 @@
   },
   "Brak danych o karmieniu": {
     "gdzie": [
-      "src/core/sourdough-physics.ts (dane: labelPl)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "Brak katalogu dokumentów aplikacji": {
     "gdzie": [
       "src/lib/backup.ts (dane: kod)"
+    ]
+  },
+  "Brak ocen": {
+    "gdzie": [
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Brak otwartego ucha (nacięcie się zasklepiło)": {
@@ -816,9 +821,7 @@
     ]
   },
   "Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Chłonność mąk:": {
     "gdzie": [
@@ -850,7 +853,7 @@
   },
   "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Ciasto jest już wymieszane, a odważona sól została na blacie.": {
@@ -948,9 +951,7 @@
     ]
   },
   "Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.": {
     "gdzie": [
@@ -1083,7 +1084,7 @@
   },
   "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Czcionki ({n})": {
@@ -1297,7 +1298,7 @@
   },
   "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.": {
@@ -1402,7 +1403,7 @@
   },
   "Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Dokarm zakwas w proporcji 1:2:2 i odczekaj do osiągnięcia szczytu (podwojenie objętości, wypukła kopuła).": {
@@ -1437,7 +1438,7 @@
   },
   "Dokarmienie zakwasu (osiągnięcie szczytu)": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Dokarmienie zakwasu z lodówki": {
@@ -1574,7 +1575,7 @@
   },
   "Drugie rośnięcie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Drukuj": {
@@ -1793,7 +1794,7 @@
   },
   "Etap \"{etap}\" wypada w nocy o {godzina}": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: kod)"
+      "src/core/reverse-scheduler.ts (dane: kod)"
     ]
   },
   "Etap ukończony! Czas na kolejny krok.": {
@@ -1864,7 +1865,7 @@
   },
   "Fermentacja burzliwa ze składaniami": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Fermentacja i prowadzenie:": {
@@ -1943,7 +1944,7 @@
   },
   "Formowanie ostateczne i koszyk": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).": {
@@ -1953,7 +1954,7 @@
   },
   "Formowanie wstępne": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Formowanie wstępne (Pre-shape)": {
@@ -2013,7 +2014,7 @@
   },
   "Garowanie chłodnicze w lodówce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Garowanie chłodnicze w lodówce (Cold Retard)": {
@@ -2265,6 +2266,9 @@
     ]
   },
   "Hydratacja wody musi mieścić się w zakresie 35–120%": {
+    "gdzie": []
+  },
+  "Hydratacja wody musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -2285,6 +2289,9 @@
     ]
   },
   "Hydratacja zakwasu musi mieścić się w zakresie 20–200%": {
+    "gdzie": []
+  },
+  "Hydratacja zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -3006,7 +3013,7 @@
   },
   "Kształtowanie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Który zakwas?": {
@@ -3197,6 +3204,11 @@
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
+  "Masa ciasta musi mieścić się w zakresie 100–50 000 g": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
   "Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%": {
     "gdzie": [
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
@@ -3295,12 +3307,12 @@
   "Mieszanie ciasta": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)",
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i wyrabianie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i zaszczepienie": {
@@ -4033,7 +4045,7 @@
   },
   "Nagrzewanie pieca i garnka żeliwnego": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Najbliższe dni": {
@@ -4099,6 +4111,8 @@
   },
   "Napisz do nas": {
     "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)",
       "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
@@ -4201,6 +4215,11 @@
   "Nie można wczytać listy licencji.": {
     "gdzie": [
       "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
+  "Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.": {
+    "gdzie": [
+      "src/lib/import-pakietu.ts (powod)"
     ]
   },
   "Nie podwaja objętości": {
@@ -4306,6 +4325,12 @@
   },
   "Nie udało się zapisać wypieku": {
     "gdzie": []
+  },
+  "Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.": {
+    "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
+    ]
   },
   "Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.": {
     "gdzie": [
@@ -4428,7 +4453,7 @@
   },
   "Nocny marek": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Notatka z poprzedniego wypieku: {notatka}": {
@@ -4592,7 +4617,7 @@
   },
   "Odgazowanie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Odgazuj je, mocno dociskając, tak jak przy formowaniu.": {
@@ -4625,7 +4650,7 @@
   },
   "Odpoczynek na desce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Odpoczynek na desce (Bench Rest)": {
@@ -5062,7 +5087,7 @@
   },
   "Pierwsze rośnięcie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.": {
@@ -5303,7 +5328,7 @@
   "Podział i formowanie": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)",
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).": {
@@ -5314,7 +5339,7 @@
   "Podziel ciasto, uformuj je ręcznie i włóż do formy.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)",
-      "src/core/yeast-stages.ts (dane: instructions)"
+      "src/recipes/yeast-stages.ts (dane: instructions)"
     ]
   },
   "Pojemność maszyny": {
@@ -5546,7 +5571,7 @@
   },
   "Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Pozostaw do całkowitego ostygnięcia — prosto z pieca są miękkie, po ostygnięciu stają się idealnie kruche.": {
@@ -5565,7 +5590,7 @@
   },
   "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.": {
@@ -5916,7 +5941,7 @@
   },
   "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Przełóż bochenek szwem do dołu, aby nie pękał od spodu.": {
@@ -6166,7 +6191,7 @@
   },
   "Ranny ptaszek": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Razem {masa}": {
@@ -6761,7 +6786,7 @@
   },
   "Standard": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Standard szklanki:": {
@@ -6863,7 +6888,7 @@
   },
   "Studzenie na kratce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Studzenie na kratce (nie krój gorącego!)": {
@@ -6905,7 +6930,7 @@
   },
   "Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: kod)"
+      "src/core/reverse-scheduler.ts (dane: kod)"
     ]
   },
   "Sugerowany zamiennik ze Spiżarni: {nazwa}.": {
@@ -7248,9 +7273,7 @@
     ]
   },
   "Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Temperatura otoczenia": {
     "gdzie": [
@@ -7543,15 +7566,26 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
+  "Udział drożdży musi mieścić się w zakresie {min}–{max}%": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
   "Udział mąki w zaczynie": {
     "gdzie": []
   },
   "Udział soli musi mieścić się w zakresie 0–6%": {
+    "gdzie": []
+  },
+  "Udział soli musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
   "Udział zakwasu musi mieścić się w zakresie 0–150%": {
+    "gdzie": []
+  },
+  "Udział zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -7568,7 +7602,7 @@
   },
   "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Uformuj je ponownie i odstaw do garowania.": {
@@ -8118,7 +8152,7 @@
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: rye_cool)",
-      "src/core/yeast-stages.ts (dane: studzenieOpis)"
+      "src/recipes/yeast-stages.ts (dane: studzenieOpis)"
     ]
   },
   "Więcej": {
@@ -8321,7 +8355,7 @@
   },
   "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wstaw gotową mieszankę": {
@@ -8332,7 +8366,7 @@
   },
   "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.": {
@@ -8472,7 +8506,7 @@
   },
   "Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -8503,7 +8537,7 @@
   },
   "Wykonaj 4 serie składań co 30–45 minut.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.": {
@@ -8594,7 +8628,7 @@
   "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)",
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.": {
@@ -8614,7 +8648,7 @@
   },
   "Wymieszanie z solą i zakwasem": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Wymieszanie z solą i zakwasem (Bassinage)": {
@@ -8678,7 +8712,7 @@
   },
   "Wypiek z parą i rumienienie": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Wypiek: {wypiek}.": {
@@ -8787,7 +8821,7 @@
   },
   "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.": {
@@ -8883,6 +8917,12 @@
   "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.": {
+    "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
   "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {

@@ -1685,3 +1685,16 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** D-282, D-283, D-284, D-285 i D-032 (nazwa EN „Baker” na stronie) zatwierdzone bez zmian. 10 terminów trybu maszyny pt/pt-BR/ja/lt [DO USTALENIA] zostaje do przeglądu natywnego (DEC-06); zdania bezpieczeństwa maszyny (D-177) bez zmian przed 1.0.
 - **Odrzucone:** weto części decyzji; D-284 (a) zamiana terminów na nazwy producentów przez rolę 09 z ponownym przeglądem zdań bezpieczeństwa (koszt czasu właściciela, terminy różnią się między markami).
 - **Status:** właściciel.
+
+### [D-300] 2026-11-09 — M2 (naprawy po M1 build 1023): STOP start i STOP przed partią 1 (właściciel)
+- **Słowa właściciela (2026-11-09, pytania z przyciskami w sesji M2):** zakres „Cały plan, 3 partie (Recommended)”; sesje ról „Subagenci po kolei (Recommended)”; „Push + scalenie do redesign (Recommended)”; kopia stanu M2 „Push na gałąź audit-m1 (Recommended)”; partia 1: „Kolejka + osłona teraz (Recommended)”, „Wyjątek nazwany (Recommended)”.
+- **Decyzja:** (1) M2 wykonuje 84 zatwierdzone zadania planu M1 w 3 partiach na gałęziach `naprawy/M2-koordynator-napraw-2026-11-09-p<N>` (od `dd824eee`); zadania P i M wykonują role w trybie fix jako subagenci po kolei. (2) Push gałęzi partii po każdym commicie; partia scalana do `redesign/piekarz-2026-10-22` po `npm run verify` kod 0; master, build, App Store Connect, strona i usuwanie gałęzi lub danych — nadal osobne zgody (D-272 zużyte, D-286 DEC-18). (3) Zapisy w bazie przez jedną kolejkę (port bazy) i blokada podwójnego zapisu (M1-audytor-generalny-001). (4) **Wyjątek nazwany** od zasady „wydanej migracji nie edytujesz”: parser sesji używany przez wydaną migrację v6 zamrożony jako kopia w `src/data/migracja-v6.ts` bez zmiany wyniku (M1-audytor-generalny-021); tańsza kontrola zamiast zakazu: testy migracji na bazach 1014 i 1021 z identycznym wynikiem przed i po.
+- **Odrzucone:** tylko partia 1 albo tylko P1; nowe sesje otwierane przez właściciela; scalenie dopiero po reaudycie; stan M2 tylko lokalnie; dla 001 tylko osłona; dla 021 bez zmiany kodu.
+- **Zależy od:** D-286, D-280. **Status:** właściciel.
+
+### [D-301] 2026-11-09 — Kopia przed „Usuń wszystkie dane” niesie trwające i zaplanowane wypieki (DEC-11 a; zmiana D-102 D1-2 dla tej kopii)
+- **Źródło:** DEC-11 wybór a w planie M1 (D-286, właściciel 2026-11-09: „Wszystkie rekomendacje M1”); wykonanie: rola 05 fix w M2, commit 2dceaeeb (M1-audytor-generalny-023; 05-architekt-504).
+- **Decyzja:** kopia piekarz-przed-czyszczeniem-* ma opcjonalne pole `bakeSessions` (format kopii 2, surowe wiersze bake_sessions); import je dopisuje bez nadpisywania sesji w telefonie, w limitach 2 trwających i 5 zaplanowanych, bez wypieku, który ma już wpis w Dzienniku. Kopie bez pola importują się jak dotąd. D-102 D1-2 („sesje i plany poza kopią”) obowiązuje dalej dla pozostałych kopii i eksportu.
+- **Odrzucone:** DEC-11 b (tylko tekst ostrzeżenia).
+- **Otwarte:** wypieki z pakietu trybu awaryjnego nie wracają (12-niezawodnosc-703); import pomija wypieki ponad limit po cichu (znalezisko roli 05 N2).
+- **Zależy od:** D-286, D-102. **Status:** właściciel (przez DEC-11).

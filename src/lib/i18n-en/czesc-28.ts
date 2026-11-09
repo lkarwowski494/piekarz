@@ -9,7 +9,7 @@ export const EN_28: Record<string, string> = {
   'Wersja receptury': 'Recipe version',
   'na zakwasie|wersja receptury': 'sourdough',
   'na drożdżach|wersja receptury': 'with yeast',
-  // Kroki planu wersji drożdżowej (src/core/yeast-stages.ts; DRO-MOD-016, docs/tresci/en/drozdze-plan-przelicznik.md)
+  // Kroki planu wersji drożdżowej (src/recipes/yeast-stages.ts; DRO-MOD-016, docs/tresci/en/drozdze-plan-przelicznik.md)
   'Mieszanie i wyrabianie': 'Mixing and kneading',
   'Pierwsze rośnięcie': 'First rise',
   'Odgazowanie': 'Degassing',

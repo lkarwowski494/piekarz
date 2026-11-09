@@ -2,6 +2,8 @@
 // Piekarz — StorageGate [M1-audytor-generalny-003]
 // Gdy bazy danych nie da się otworzyć, zamiast aplikacji na danych pokazowych
 // użytkownik widzi ekran błędu z ponowieniem. Dane w pliku bazy pozostają nietknięte.
+// Ostrzeżenie przed usunięciem aplikacji i „Napisz do nas”; przy pakiecie plików bazy także import w aplikacji
+// [M1-audytor-generalny-003; 12-niezawodnosc-001, DEC-17 a].
 // ============================================================================
 
 import React, { useEffect, useState } from 'react';
@@ -10,6 +12,7 @@ import * as Sharing from 'expo-sharing';
 import { getStorageState, getRescueFile, getRescueKind, subscribeStorageState, StorageState } from '../data/storage-status';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { napiszDoAutora } from '../lib/zgloszenie-wyslanie';
 
 import { typografia } from '../ui/tokeny';
 /** Udostępnia plik kopii bazy (np. do Plików) — droga eksportu po nieudanej migracji [M1-audytor-generalny-004]. */
@@ -75,6 +78,9 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
       <Text style={styles.body}>
         {t('Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.')}
       </Text>
+      <Text style={[styles.body, styles.ostrzezenie]} testID="storage-warning">
+        {t('Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.')}
+      </Text>
       <Pressable
         style={styles.button}
         onPress={handleRetry}
@@ -100,8 +106,22 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
           >
             <Text style={styles.secondaryButtonText}>{t('Udostępnij kopię bazy')}</Text>
           </Pressable>
+          {/* Pakiet plików bazy przyjmuje „Importuj z pliku”; kopii .db sprzed migracji import nie przyjmuje */}
+          {getRescueKind() === 'pliki-bazy' ? (
+            <Text style={[styles.body, styles.rescueText]}>
+              {t('Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.')}
+            </Text>
+          ) : null}
         </>
       ) : null}
+      <Pressable
+        style={[styles.secondaryButton, styles.kontakt]}
+        onPress={() => void napiszDoAutora()}
+        accessibilityRole="button"
+        testID="storage-contact"
+      >
+        <Text style={styles.secondaryButtonText}>{t('Napisz do nas')}</Text>
+      </Pressable>
     </ScrollView>
   );
 };
@@ -158,6 +178,13 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   rescueText: {
+    marginTop: theme.spacing.lg,
+  },
+  ostrzezenie: {
+    color: theme.colors.tusz,
+    fontWeight: '700',
+  },
+  kontakt: {
     marginTop: theme.spacing.lg,
   },
   secondaryButton: {

@@ -7,7 +7,7 @@
 import type { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
 import { t } from './i18n';
 import { przesuniecieDnia } from '../core/plany-wypiekow';
-import { maPlanDrozdzowy } from '../core/yeast-stages';
+import { maPlanDrozdzowy } from '../recipes/yeast-stages';
 import { wersjaDrozdzowa } from '../recipes/wersje-drozdzowe';
 import type { WersjaWypieku } from '../data/wybory-parsery';
 

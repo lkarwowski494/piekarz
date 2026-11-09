@@ -238,18 +238,10 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     expect(t(s.adviceTemplatePl, s.adviceParams)).toContain('(62.5%)');
   });
 
-  it('komunikat adaptacji Q10 (RD-08): PL „21,5°C”, EN po angielsku „21.5°C”', () => {
-    setLang('pl');
-    const pl = calculateFermentationAdaptation(4, 21.5).messagePl;
-    expect(pl).toContain('21,5°C');
-    expect(pl).toContain('wydłużony');
-    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24,0°C');
-    setLang('en');
-    const en = calculateFermentationAdaptation(4, 21.5).messagePl;
-    expect(en).toContain('21.5°C');
-    expect(en).not.toMatch(/[ąćęłńóśźż]|Chłodno|wydłużony/i);
-    expect(calculateFermentationAdaptation(4, 27).messagePl).toContain('27.0°C');
-    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24.0°C');
+  it('adaptacja Q10 (RD-08): domena zwraca rodzaj komunikatu i temperaturę bez tekstu (tekst nie był pokazywany; M1-audytor-generalny-020)', () => {
+    expect(calculateFermentationAdaptation(4, 21.5).komunikat).toEqual(expect.objectContaining({ rodzaj: 'chlodno', temperaturaC: 21.5 }));
+    expect(calculateFermentationAdaptation(4, 24).komunikat).toEqual({ rodzaj: 'optymalna', temperaturaC: 24, minuty: 0 });
+    expect(calculateFermentationAdaptation(4, 27).komunikat.rodzaj).toBe('cieplo');
   });
 });
 

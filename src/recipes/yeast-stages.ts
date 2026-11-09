@@ -10,10 +10,10 @@
 // Nazwy i instrukcje to klucze PL dla t() (EN: src/lib/i18n-en/czesc-28.ts).
 // ============================================================================
 
-import type { SessionStep } from './bake-steps';
-import { DEFAULT_STAGE_TEMPLATES, type StageCategory } from '../scheduler/reverse-scheduler';
-import { CATALOG_RECIPES } from '../recipes/katalog';
-import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from './rye-stages';
+import type { SessionStep } from '../core/bake-steps';
+import { DEFAULT_STAGE_TEMPLATES, type StageCategory } from '../core/reverse-scheduler';
+import { CATALOG_RECIPES } from './katalog';
+import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from '../core/rye-stages';
 
 /** Pieczenie wersji drożdżowej: temperatura i czas dwóch faz (bez zgadywania pary, której źródło nie podaje). */
 export interface PieczenieWersji { temp1C: number; min1: number; temp2C: number; min2: number }

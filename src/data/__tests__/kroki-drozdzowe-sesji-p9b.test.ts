@@ -2,7 +2,7 @@
 // dostać etapów żytnich na zakwasie (dokarmienie, 240 min w formie) przy budowie sesji (stepsForBake, nowaSesja);
 // D-155: bez dokarmienia zakwasu, czasy z receptury [M3 p9b].
 import { nowaSesja, stepsForBake } from '../bake-session-store';
-import { krokiDrozdzowe } from '../../core/yeast-stages';
+import { krokiDrozdzowe } from '../../recipes/yeast-stages';
 import type { ActiveBakeState } from '../sqlite-schema';
 
 const START = Date.UTC(2026, 10, 4, 8, 0);

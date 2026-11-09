@@ -3,7 +3,7 @@
 // 100% Offline-First, Zero Cloud Dependencies.
 // ============================================================================
 
-import { StoredFlourInventoryItem } from '../data/db';
+import type { StoredFlourInventoryItem } from '../data/db';
 import { matchFlourProfile, FLOUR_PROFILES, FlourProfile } from './flour-atlas';
 
 export interface FlourStockCheckItem {

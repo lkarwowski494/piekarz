@@ -173,7 +173,7 @@ describe('Recipe Sharing & JSON Serialization', () => {
         name: 'Zupa chlebowa',
         formula: {
           flours: [{ name: 'Mąka', percentage: 100 }],
-          waterPercentage: 150, // 150% is beyond physical bound
+          waterPercentage: 151, // poza zakresem arkusza „Składniki” (0–150%, jedno źródło od M1-audytor-generalny-027)
           saltPercentage: 2,
           starterPercentage: 20,
         },

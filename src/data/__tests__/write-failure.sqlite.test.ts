@@ -42,7 +42,9 @@ describe('Failed writes are reported, not hidden (003)', () => {
   it('with a full disk every user-data write rejects, memory does not pretend, and earlier data survives a restart (BR-RECP-002 Przerwany zapis)', async () => {
     const first = restartApp();
     await first.schema.initDatabase();
-    await first.store.saveStarter(starter);
+    // Dokarmienie tylko przez dziennik (M1-audytor-generalny-002): saveStarter nie tworzy już wpisu z lastFedAt
+    const wpisy = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await wpisy.createStarterWithEntry(starter, { id: `feed-${starter.id}-1700000000000`, starterId: starter.id, kind: 'feeding', occurredAt: 1700000000000, signs: [], createdAt: 1700000000000, updatedAt: 1700000000000 });
     await first.store.saveRecipe(recipe);
     await first.store.saveFlourInventoryItem(flour);
 

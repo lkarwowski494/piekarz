@@ -76,7 +76,8 @@ describe('Rescue file after a database open failure (024)', () => {
     const rescue: string | null = await rescueAfterOpenFailure(DB_URI, 'disk I/O error');
     const body = JSON.parse(mockFiles.get(String(rescue)) as string);
     expect(body.recovery.rawFiles).toHaveLength(2);
-    expect(JSON.parse(body.recovery.rawPayload)).toEqual({ error: 'disk I/O error' });
+    // Wynik integrity_check surowej kopii w pliku ratunkowym [M1-audytor-generalny-033]
+    expect(JSON.parse(body.recovery.rawPayload)).toEqual({ error: 'disk I/O error', sprawdzenie: expect.any(String) });
   });
 
   it('without raw files to copy the banner says only the error note was saved', async () => {

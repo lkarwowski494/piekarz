@@ -1,0 +1,186 @@
+{
+  "_opis": "Przekład 3 kluczy M1-audytor-generalny-026 (brak danych zostaje brakiem): MT claude-opus-5-5 (M2, 2026-11-09) wzorowany na przetłumaczonych kluczach „Udział zakwasu musi mieścić się w zakresie 0–150%”, „Całkowita masa ciasta:”, „Średnia ocena”, „Drożdże” w każdym języku; drugi przegląd AI: wpis w polu drugi_przeglad; przegląd natywny: brak (DEC-06). Teksty PL do akceptacji roli 04. Klucz 2 sparametryzowany w 027 ({min}–{max} z src/core/zakresy-receptury.ts).",
+  "pl": [
+    "Brak ocen",
+    "Udział drożdży musi mieścić się w zakresie {min}–{max}%",
+    "Masa ciasta musi mieścić się w zakresie 100–50 000 g"
+  ],
+  "jezyki": {
+    "cs": [
+      "Bez hodnocení",
+      "Podíl droždí musí být v rozmezí {min}–{max} %",
+      "Hmotnost těsta musí být v rozmezí 100–50 000 g"
+    ],
+    "sk": [
+      "Bez hodnotenia",
+      "Podiel droždia musí byť v rozsahu {min}–{max} %",
+      "Hmotnosť cesta musí byť v rozsahu 100–50 000 g"
+    ],
+    "hu": [
+      "Nincs értékelés",
+      "Az élesztő arányának {min}–{max}% között kell lennie",
+      "A tésztatömegnek 100–50 000 g között kell lennie"
+    ],
+    "ro": [
+      "Fără note",
+      "Procentul de drojdie trebuie să fie între {min}–{max}%",
+      "Masa aluatului trebuie să fie între 100–50.000 g"
+    ],
+    "bg": [
+      "Няма оценки",
+      "Делът на маята трябва да е в диапазона {min}–{max}%",
+      "Масата на тестото трябва да е в диапазона 100–50 000 г"
+    ],
+    "hr": [
+      "Nema ocjena",
+      "Udio kvasca mora biti u rasponu {min}–{max} %",
+      "Masa tijesta mora biti u rasponu 100–50 000 g"
+    ],
+    "sl": [
+      "Ni ocen",
+      "Delež kvasovk mora biti v razponu {min}–{max} %",
+      "Masa testa mora biti v razponu 100–50 000 g"
+    ],
+    "sr": [
+      "Нема оцена",
+      "Удео квасца мора бити у опсегу {min}–{max}%",
+      "Маса теста мора бити у опсегу 100–50 000 г"
+    ],
+    "lt": [
+      "Įvertinimų nėra",
+      "Mielių dalis turi būti {min}–{max} %",
+      "Tešlos masė turi būti 100–50 000 g"
+    ],
+    "lv": [
+      "Nav vērtējumu",
+      "Rauga daļai jābūt robežās {min}–{max} %",
+      "Mīklas masai jābūt robežās 100–50 000 g"
+    ],
+    "et": [
+      "Hindeid pole",
+      "Pärmi osakaal peab olema vahemikus {min}–{max}%",
+      "Taigna mass peab olema vahemikus 100–50 000 g"
+    ],
+    "uk": [
+      "Немає оцінок",
+      "Частка дріжджів має бути в межах {min}–{max} %",
+      "Маса тіста має бути в межах 100–50 000 г"
+    ],
+    "es": [
+      "Sin valoraciones",
+      "El porcentaje de levadura debe estar en el rango {min}–{max} %",
+      "El peso de la masa debe estar en el rango 100–50 000 g"
+    ],
+    "es-419": [
+      "Sin calificaciones",
+      "El porcentaje de levadura debe estar en el rango {min}–{max}%",
+      "El peso de la masa debe estar en el rango 100–50,000 g"
+    ],
+    "pt": [
+      "Sem avaliações",
+      "A percentagem de levedura tem de estar no intervalo de {min}–{max}%",
+      "O peso da massa tem de estar no intervalo de 100–50 000 g"
+    ],
+    "pt-BR": [
+      "Sem avaliações",
+      "A porcentagem de fermento biológico deve estar na faixa de {min}–{max}%",
+      "O peso da massa deve estar na faixa de 100–50.000 g"
+    ],
+    "de": [
+      "Keine Bewertungen",
+      "Der Hefeanteil muss im Bereich {min}–{max} % liegen",
+      "Das Teiggewicht muss im Bereich 100–50.000 g liegen"
+    ],
+    "fr": [
+      "Aucune note",
+      "La part de levure doit être comprise dans la plage {min}–{max} %",
+      "La masse de pâte doit être comprise dans la plage 100–50 000 g"
+    ],
+    "it": [
+      "Nessun voto",
+      "La percentuale di lievito di birra deve essere nell'intervallo {min}–{max}%",
+      "Il peso dell'impasto deve essere nell'intervallo 100–50.000 g"
+    ],
+    "nl": [
+      "Geen beoordelingen",
+      "Aandeel gist moet tussen {min}–{max}% liggen",
+      "Deeggewicht moet tussen 100–50.000 g liggen"
+    ],
+    "sv": [
+      "Inga betyg",
+      "Andelen jäst måste ligga inom intervallet {min}–{max} %",
+      "Degvikten måste ligga inom intervallet 100–50 000 g"
+    ],
+    "da": [
+      "Ingen bedømmelser",
+      "Gærandelen skal ligge i intervallet {min}–{max} %",
+      "Dejvægten skal ligge i intervallet 100–50.000 g"
+    ],
+    "nb": [
+      "Ingen vurderinger",
+      "Andelen gjær må ligge i området {min}–{max} %",
+      "Deigvekten må ligge i området 100–50 000 g"
+    ],
+    "fi": [
+      "Ei arvioita",
+      "Hiivan osuuden on oltava välillä {min}–{max} %",
+      "Taikinan painon on oltava välillä 100–50 000 g"
+    ],
+    "tr": [
+      "Puan yok",
+      "Maya oranı %{min}–{max} aralığında olmalıdır",
+      "Hamur ağırlığı 100–50.000 g aralığında olmalıdır"
+    ],
+    "el": [
+      "Καμία βαθμολογία",
+      "Το ποσοστό μαγιάς πρέπει να είναι στο εύρος {min}–{max}%",
+      "Το βάρος της ζύμης πρέπει να είναι στο εύρος 100–50.000 g"
+    ],
+    "id": [
+      "Belum ada nilai",
+      "Persentase ragi harus berada dalam rentang {min}–{max}%",
+      "Berat adonan harus berada dalam rentang 100–50.000 g"
+    ],
+    "ms": [
+      "Tiada penilaian",
+      "Peratusan yis mesti dalam julat {min}–{max}%",
+      "Berat doh mesti dalam julat 100–50,000 g"
+    ],
+    "vi": [
+      "Chưa có đánh giá",
+      "Tỷ lệ men nở phải nằm trong khoảng {min}–{max}%",
+      "Khối lượng bột nhào phải nằm trong khoảng 100–50.000 g"
+    ],
+    "ru": [
+      "Нет оценок",
+      "Доля дрожжей должна быть в диапазоне {min}–{max} %",
+      "Масса теста должна быть в диапазоне 100–50 000 г"
+    ],
+    "ja": [
+      "評価なし",
+      "イーストの割合は{min}–{max}%の範囲で指定してください",
+      "生地の重量は100–50,000 gの範囲で指定してください"
+    ],
+    "ko": [
+      "평점 없음",
+      "이스트 비율은 {min}–{max}% 범위여야 해요",
+      "반죽 무게는 100–50,000g 범위여야 해요"
+    ],
+    "zh-Hant": [
+      "尚無評分",
+      "酵母比例必須介於 {min}–{max}%",
+      "麵團重量必須介於 100–50,000 g"
+    ]
+  },
+  "drugi_przeglad": {
+    "data": "2026-11-09",
+    "kto": "subagent w świeżym kontekście (model, nie rodzimy użytkownik)",
+    "przyjete": [
+      "bg 3: g → г",
+      "sr 3: g → г",
+      "et 1: Hinnanguid pole → Hindeid pole"
+    ],
+    "poza_zakresem": "bg/sr niespójne g/г w istniejących kluczach; ro „între 0–10%” zamiast „între 0 și 10%” we wszystkich komunikatach zakresu; sl/hr „kvas” (zakwas) obok „kvasovke” (drożdże) — znalezisko M2-koordynator-napraw-002",
+    "bez_uwag": "pozostałe 30 języków"
+  }
+}

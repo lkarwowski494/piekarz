@@ -4,6 +4,8 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+// Zakwas z dokarmieniem przez dziennik (M1-audytor-generalny-002)
+import { zapiszZakwasZDokarmieniem } from '../../tests/helpers/zakwas-z-dokarmieniem';
 jest.setTimeout(20000);
 
 // F-47 i F-49 PÓŹNIEJ: wejścia ukryte w aplikacji (D-034, test wejscia-pozniej); tu sprawdzamy kod, który
@@ -249,7 +251,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
 
   it('switches active starter when clicking a starter pill', async () => {
     // Add second starter first
-    await saveStarter({
+    await zapiszZakwasZDokarmieniem({
       id: 'starter_francisco',
       name: 'San Francisco White',
       flourType: 'Pszenna t750',
@@ -286,7 +288,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
 
   it('allows deleting a starter when multiple exist, and the only one too (BR-ZAKW-001 Usunięcie zakwasu)', async () => {
     // Add second starter
-    await saveStarter({
+    await zapiszZakwasZDokarmieniem({
       id: 'starter_extra',
       name: 'Zakwas Tymczasowy',
       flourType: 'Orkiszowa',
@@ -344,7 +346,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
   // [M1-audytor-generalny-130; 01-odkrywanie-501] — wcześniej ten test utrwalał okno szczytu dla blatu
   it('hides the peak window for a starter on the counter too (BR-ZAKW-003 Przewidywanie z godzin)', async () => {
     const [first] = await getStarters();
-    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 2 * 3_600_000 });
+    await zapiszZakwasZDokarmieniem({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 2 * 3_600_000 });
     await renderScreen();
 
     expect(tree!.root.findAll((n) => n.props?.testID === 'peak-prediction-box')).toHaveLength(0);
@@ -362,12 +364,12 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
   // [M1-audytor-generalny-130; 01-odkrywanie-501]
   it('after 8.5 h without doubling the card advises feeding every 12 h (BR-ZAKW-003 Brak podwojenia w 8 h)', async () => {
     const [first] = await getStarters();
-    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 8.5 * 3_600_000 });
+    await zapiszZakwasZDokarmieniem({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 8.5 * 3_600_000 });
     await renderScreen();
     expect(extractCleanText(tree?.toJSON())).toContain('Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.');
 
     act(() => tree?.unmount());
-    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * 3_600_000 });
+    await zapiszZakwasZDokarmieniem({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * 3_600_000 });
     await renderScreen();
     expect(extractCleanText(tree?.toJSON())).not.toContain('Dokarmiaj dalej co 12 godzin');
   });
@@ -377,7 +379,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
   it('fridge starter after 8.5 h without doubling: no 12 h feeding advice and no next feeding at +12 h (BR-ZAKW-003)', async () => {
     const [first] = await getStarters();
     const fedAt = Date.now() - 8.5 * 3_600_000;
-    await saveStarter({ ...first, storageState: 'FRIDGE', lastFedAt: fedAt });
+    await zapiszZakwasZDokarmieniem({ ...first, storageState: 'FRIDGE', lastFedAt: fedAt });
     await renderScreen();
     const tekst = extractCleanText(tree?.toJSON());
     expect(tree!.root.findAll((n) => n.props?.testID === 'zakwas-karm-dalej')).toHaveLength(0);

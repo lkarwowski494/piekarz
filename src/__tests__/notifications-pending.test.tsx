@@ -42,6 +42,8 @@ import { planBakeSteps } from '../core/bake-steps';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { odswiezDostep } from '../lib/platnosci/stan';
+// Zakwas z dokarmieniem przez dziennik (M1-audytor-generalny-002)
+import { zapiszZakwasZDokarmieniem } from '../../tests/helpers/zakwas-z-dokarmieniem';
 type Mock = { pending: Map<string, { identifier: string; trigger: { date: number } }>; iosStatus: number; grantOnRequest: boolean };
 const mock = (Notifications as unknown as { __mock: Mock }).__mock;
 const ids = () => [...mock.pending.keys()].sort();
@@ -119,7 +121,7 @@ describe('Pending notifications follow the saved state (006)', () => {
 
   // DEC-22 a: jedno powiadomienie na cykl karmienia w lodówce [M1-audytor-generalny-179]
   it('Zakwas: feeding a fridge starter schedules one reminder at +7 d', async () => {
-    await saveStarter({ id: 'z1', name: 'Ania', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: 1 });
+    await zapiszZakwasZDokarmieniem({ id: 'z1', name: 'Ania', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: 1 });
     const tree = await mount(<ZakwasScreen />);
     await press(tree.root, 'Zapisz dokarmienie');
     expect(ids()).toEqual(['piekarz.karmienie.z1.1']);
@@ -132,7 +134,7 @@ describe('Pending notifications follow the saved state (006)', () => {
   it('import replaces reminders: new starters get them, removed ones lose them', async () => {
     // Baza jest wspólna dla pliku: czysty stan zakwasów przed scenariuszem
     await restoreFromBackupData({ bakes: [], starters: [], customRecipes: [] });
-    await saveStarter({ id: 'stary', name: 'Stary', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now });
+    await zapiszZakwasZDokarmieniem({ id: 'stary', name: 'Stary', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now });
     await resyncNotifications();
     expect(ids()).toEqual(['piekarz.karmienie.stary.1']);
     const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');

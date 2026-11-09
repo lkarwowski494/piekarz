@@ -1,0 +1,209 @@
+{
+  "_opis": "Komunikaty importu z parametrami zakresu (M1-audytor-generalny-027): przekład z istniejących kluczy tego samego zdania w każdym języku, liczby zakresu zamienione na {min}–{max} skryptem (bez zmiany słów); zakresy z src/core/zakresy-receptury.ts.",
+  "pl": [
+    "Hydratacja wody musi mieścić się w zakresie {min}–{max}%",
+    "Udział soli musi mieścić się w zakresie {min}–{max}%",
+    "Udział zakwasu musi mieścić się w zakresie {min}–{max}%",
+    "Hydratacja zakwasu musi mieścić się w zakresie {min}–{max}%"
+  ],
+  "jezyki": {
+    "bg": [
+      "Хидратацията на водата трябва да е в диапазона {min}–{max}%",
+      "Делът на солта трябва да е в диапазона {min}–{max}%",
+      "Делът на стартера трябва да е в диапазона {min}–{max}%",
+      "Хидратацията на стартера трябва да е в диапазона {min}–{max}%"
+    ],
+    "cs": [
+      "Hydratace vody musí být v rozmezí {min}–{max} %",
+      "Podíl soli musí být v rozmezí {min}–{max} %",
+      "Podíl kvásku musí být v rozmezí {min}–{max} %",
+      "Hydratace kvásku musí být v rozmezí {min}–{max} %"
+    ],
+    "da": [
+      "Vandets hydrering skal ligge i intervallet {min}–{max} %",
+      "Saltandelen skal ligge i intervallet {min}–{max} %",
+      "Surdejsandelen skal ligge i intervallet {min}–{max} %",
+      "Surdejens hydrering skal ligge i intervallet {min}–{max} %"
+    ],
+    "de": [
+      "Die Hydration des Wassers muss im Bereich {min}–{max} % liegen",
+      "Der Salzanteil muss im Bereich {min}–{max} % liegen",
+      "Der Sauerteiganteil muss im Bereich {min}–{max} % liegen",
+      "Die Hydration des Sauerteigs muss im Bereich {min}–{max} % liegen"
+    ],
+    "el": [
+      "Η ενυδάτωση νερού πρέπει να είναι στο εύρος {min}–{max}%",
+      "Το ποσοστό αλατιού πρέπει να είναι στο εύρος {min}–{max}%",
+      "Το ποσοστό προζυμιού πρέπει να είναι στο εύρος {min}–{max}%",
+      "Η ενυδάτωση του προζυμιού πρέπει να είναι στο εύρος {min}–{max}%"
+    ],
+    "es": [
+      "La hidratación del agua debe estar en el rango {min}–{max} %",
+      "El porcentaje de sal debe estar en el rango {min}–{max} %",
+      "El porcentaje de masa madre debe estar en el rango {min}–{max} %",
+      "La hidratación de la masa madre debe estar en el rango {min}–{max} %"
+    ],
+    "es-419": [
+      "La hidratación del agua debe estar en el rango {min}–{max}%",
+      "El porcentaje de sal debe estar en el rango {min}–{max}%",
+      "El porcentaje de masa madre debe estar en el rango {min}–{max}%",
+      "La hidratación de la masa madre debe estar en el rango {min}–{max}%"
+    ],
+    "et": [
+      "Vee osakaal (veesisaldus) peab olema vahemikus {min}–{max}%",
+      "Soola osakaal peab olema vahemikus {min}–{max}%",
+      "Juuretise osakaal peab olema vahemikus {min}–{max}%",
+      "Juuretise veesisaldus peab olema vahemikus {min}–{max}%"
+    ],
+    "fi": [
+      "Veden hydraation on oltava välillä {min}–{max} %",
+      "Suolan osuuden on oltava välillä {min}–{max} %",
+      "Hapanjuuren osuuden on oltava välillä {min}–{max} %",
+      "Hapanjuuren hydraation on oltava välillä {min}–{max} %"
+    ],
+    "fr": [
+      "L'hydratation en eau doit être comprise dans la plage {min}–{max} %",
+      "La part de sel doit être comprise dans la plage {min}–{max} %",
+      "La part de levain naturel doit être comprise dans la plage {min}–{max} %",
+      "L'hydratation du levain naturel doit être comprise dans la plage {min}–{max} %"
+    ],
+    "hr": [
+      "Hidratacija vode mora biti u rasponu {min}–{max} %",
+      "Udio soli mora biti u rasponu {min}–{max} %",
+      "Udio kvasa mora biti u rasponu {min}–{max} %",
+      "Hidratacija kvasa mora biti u rasponu {min}–{max} %"
+    ],
+    "hu": [
+      "A víz hidratációjának {min}–{max}% között kell lennie",
+      "A só arányának {min}–{max}% között kell lennie",
+      "A kovász arányának {min}–{max}% között kell lennie",
+      "A kovász hidratációjának {min}–{max}% között kell lennie"
+    ],
+    "id": [
+      "Hidrasi air harus berada dalam rentang {min}–{max}%",
+      "Persentase garam harus berada dalam rentang {min}–{max}%",
+      "Persentase starter ragi alami harus berada dalam rentang {min}–{max}%",
+      "Hidrasi starter ragi alami harus berada dalam rentang {min}–{max}%"
+    ],
+    "it": [
+      "L'idratazione dell'acqua deve essere nell'intervallo {min}–{max}%",
+      "La percentuale di sale deve essere nell'intervallo {min}–{max}%",
+      "La percentuale di lievito madre deve essere nell'intervallo {min}–{max}%",
+      "L'idratazione del lievito madre deve essere nell'intervallo {min}–{max}%"
+    ],
+    "ja": [
+      "水の加水率は{min}–{max}%の範囲で指定してください",
+      "塩の割合は{min}–{max}%の範囲で指定してください",
+      "サワー種の割合は{min}–{max}%の範囲で指定してください",
+      "サワー種の加水率は{min}–{max}%の範囲で指定してください"
+    ],
+    "ko": [
+      "물 가수율은 {min}–{max}% 범위여야 해요",
+      "소금 비율은 {min}–{max}% 범위여야 해요",
+      "사워도우 스타터 비율은 {min}–{max}% 범위여야 해요",
+      "사워도우 스타터 가수율은 {min}–{max}% 범위여야 해요"
+    ],
+    "lt": [
+      "Vandens hidratacija turi būti {min}–{max} %",
+      "Druskos dalis turi būti {min}–{max} %",
+      "Raugo dalis turi būti {min}–{max} %",
+      "Raugo hidratacija turi būti {min}–{max} %"
+    ],
+    "lv": [
+      "Ūdens hidrācijai jābūt robežās {min}–{max} %",
+      "Sāls daļai jābūt robežās {min}–{max} %",
+      "Ierauga daļai jābūt robežās {min}–{max} %",
+      "Ierauga hidrācijai jābūt robežās {min}–{max} %"
+    ],
+    "ms": [
+      "Penghidratan air mesti dalam julat {min}–{max}%",
+      "Peratusan garam mesti dalam julat {min}–{max}%",
+      "Peratusan pemula sourdough mesti dalam julat {min}–{max}%",
+      "Penghidratan pemula sourdough mesti dalam julat {min}–{max}%"
+    ],
+    "nb": [
+      "Deighydreringen (vann) må ligge i området {min}–{max} %",
+      "Saltandelen må ligge i området {min}–{max} %",
+      "Andelen surdeigsstarter må ligge i området {min}–{max} %",
+      "Surdeigsstarterens hydrering må ligge i området {min}–{max} %"
+    ],
+    "nl": [
+      "Hydratatie van het water moet tussen {min}–{max}% liggen",
+      "Zoutaandeel moet tussen {min}–{max}% liggen",
+      "Aandeel zuurdesemstarter moet tussen {min}–{max}% liggen",
+      "Hydratatie van de zuurdesemstarter moet tussen {min}–{max}% liggen"
+    ],
+    "pt": [
+      "A hidratação da água tem de estar no intervalo de {min}–{max}%",
+      "A percentagem de sal tem de estar no intervalo de {min}–{max}%",
+      "A percentagem de fermento natural tem de estar no intervalo de {min}–{max}%",
+      "A hidratação do fermento natural tem de estar no intervalo de {min}–{max}%"
+    ],
+    "pt-BR": [
+      "A hidratação da água deve estar na faixa de {min}–{max}%",
+      "A porcentagem de sal deve estar na faixa de {min}–{max}%",
+      "A porcentagem de fermento natural deve estar na faixa de {min}–{max}%",
+      "A hidratação do fermento natural deve estar na faixa de {min}–{max}%"
+    ],
+    "ro": [
+      "Gradul de hidratare (apă) trebuie să fie între {min}–{max}%",
+      "Procentul de sare trebuie să fie între {min}–{max}%",
+      "Procentul de maia trebuie să fie între {min}–{max}%",
+      "Gradul de hidratare al maiei trebuie să fie între {min}–{max}%"
+    ],
+    "ru": [
+      "Гидратация по воде должна быть в диапазоне {min}–{max} %",
+      "Доля соли должна быть в диапазоне {min}–{max} %",
+      "Доля закваски должна быть в диапазоне {min}–{max} %",
+      "Гидратация закваски должна быть в диапазоне {min}–{max} %"
+    ],
+    "sk": [
+      "Hydratácia vody musí byť v rozsahu {min}–{max} %",
+      "Podiel soli musí byť v rozsahu {min}–{max} %",
+      "Podiel kvásku musí byť v rozsahu {min}–{max} %",
+      "Hydratácia kvásku musí byť v rozsahu {min}–{max} %"
+    ],
+    "sl": [
+      "Hidracija vode mora biti v razponu {min}–{max} %",
+      "Delež soli mora biti v razponu {min}–{max} %",
+      "Delež kvasa mora biti v razponu {min}–{max} %",
+      "Hidracija kvasa mora biti v razponu {min}–{max} %"
+    ],
+    "sr": [
+      "Хидратација воде мора бити у опсегу {min}–{max}%",
+      "Удео соли мора бити у опсегу {min}–{max}%",
+      "Удео стартера мора бити у опсегу {min}–{max}%",
+      "Хидратација стартера мора бити у опсегу {min}–{max}%"
+    ],
+    "sv": [
+      "Vattnets vätskegrad måste ligga inom intervallet {min}–{max} %",
+      "Saltandelen måste ligga inom intervallet {min}–{max} %",
+      "Andelen surdegsgrund måste ligga inom intervallet {min}–{max} %",
+      "Surdegsgrundens vätskegrad måste ligga inom intervallet {min}–{max} %"
+    ],
+    "tr": [
+      "Su hidrasyonu %{min}–{max} aralığında olmalıdır",
+      "Tuz oranı %{min}–{max} aralığında olmalıdır",
+      "Ekşi maya oranı %{min}–{max} aralığında olmalıdır",
+      "Ekşi maya hidrasyonu %{min}–{max} aralığında olmalıdır"
+    ],
+    "uk": [
+      "Гідратація води має бути в межах {min}–{max} %",
+      "Частка солі має бути в межах {min}–{max} %",
+      "Частка закваски має бути в межах {min}–{max} %",
+      "Гідратація закваски має бути в межах {min}–{max} %"
+    ],
+    "vi": [
+      "Độ ẩm bột từ nước phải nằm trong khoảng {min}–{max}%",
+      "Tỷ lệ muối phải nằm trong khoảng {min}–{max}%",
+      "Tỷ lệ men tự nhiên phải nằm trong khoảng {min}–{max}%",
+      "Độ ẩm của men tự nhiên phải nằm trong khoảng {min}–{max}%"
+    ],
+    "zh-Hant": [
+      "水的含水量必須介於 {min}–{max}%",
+      "鹽的比例必須介於 {min}–{max}%",
+      "天然酵母起種比例必須介於 {min}–{max}%",
+      "天然酵母起種含水量必須介於 {min}–{max}%"
+    ]
+  }
+}

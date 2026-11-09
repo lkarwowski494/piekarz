@@ -10,7 +10,8 @@ import { writeOrThrow } from './storage-status';
 import { parseStarterEntryRow, isObj, isStr } from './row-parsers';
 import { zachowajUszkodzony } from './uszkodzone-wiersze';
 
-type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
+/** Połączenie z kolejką albo `tx` w transakcji (kolejka-zapisow.ts) [M1-audytor-generalny-001]. */
+type Db = import('expo-sqlite').SQLiteDatabase;
 
 /** Zapis profilu zakwasu bez last_fed_at i last_feed_ratio: od v5 te wartości wynikają z wpisów (ADR-008). */
 export const STARTER_UPSERT = `INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state, setup_started_at, setup_completed_at)
@@ -68,6 +69,11 @@ export async function getStarterEntries(starterId: string, limit?: number): Prom
 export async function getAllStarterEntries(): Promise<StoredStarterEntry[]> {
   const db = await getDb();
   if (!db) return [...memStore.starterEntries].sort(byNewest);
+  return czytajWpisyZakwasow(db);
+}
+
+/** Wszystkie wpisy z podanego połączenia (także osobnej bazy z pakietu awaryjnego). */
+export async function czytajWpisyZakwasow(db: Db): Promise<StoredStarterEntry[]> {
   return parseEntries(await db.getAllAsync<unknown>(`${ENTRY_SELECT} ORDER BY starter_id, occurred_at DESC, id DESC;`));
 }
 
@@ -82,9 +88,9 @@ export async function createStarterWithEntry(starter: StoredStarter, first: Stor
   const db = await getDb();
   if (db) {
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
-        await db.runAsync(STARTER_UPSERT, ...starterParams(starter));
-        await insertStarterEntryRow(db, first);
+      db.withTransactionAsync(async (tx) => {
+        await tx.runAsync(STARTER_UPSERT, ...starterParams(starter));
+        await insertStarterEntryRow(tx, first);
       })
     );
   }
@@ -99,17 +105,17 @@ export async function addStarterEntry(entry: StoredStarterEntry, patch?: Starter
   const db = await getDb();
   if (db) {
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
+      db.withTransactionAsync(async (tx) => {
         if (patch?.storageState !== undefined) {
-          await db.runAsync('UPDATE starters SET storage_state = ? WHERE id = ?;', patch.storageState, entry.starterId);
+          await tx.runAsync('UPDATE starters SET storage_state = ? WHERE id = ?;', patch.storageState, entry.starterId);
         }
         if ('setupStartedAt' in (patch ?? {})) {
-          await db.runAsync('UPDATE starters SET setup_started_at = ? WHERE id = ?;', patch?.setupStartedAt ?? null, entry.starterId);
+          await tx.runAsync('UPDATE starters SET setup_started_at = ? WHERE id = ?;', patch?.setupStartedAt ?? null, entry.starterId);
         }
         if ('setupCompletedAt' in (patch ?? {})) {
-          await db.runAsync('UPDATE starters SET setup_completed_at = ? WHERE id = ?;', patch?.setupCompletedAt ?? null, entry.starterId);
+          await tx.runAsync('UPDATE starters SET setup_completed_at = ? WHERE id = ?;', patch?.setupCompletedAt ?? null, entry.starterId);
         }
-        await insertStarterEntryRow(db, entry);
+        await insertStarterEntryRow(tx, entry);
       })
     );
   }
@@ -149,9 +155,9 @@ export async function deleteStarterEntry(id: string): Promise<StoredStarterEntry
   if (db) {
     const found: { row: StoredStarterEntry | null } = { row: null };
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
-        found.row = parseEntries(await db.getAllAsync<unknown>(`${ENTRY_SELECT} WHERE id = ?;`, id))[0] ?? null;
-        await db.runAsync('DELETE FROM starter_entries WHERE id = ?;', id);
+      db.withTransactionAsync(async (tx) => {
+        found.row = parseEntries(await tx.getAllAsync<unknown>(`${ENTRY_SELECT} WHERE id = ?;`, id))[0] ?? null;
+        await tx.runAsync('DELETE FROM starter_entries WHERE id = ?;', id);
       })
     );
     removed = found.row;
@@ -172,14 +178,14 @@ export async function restartStarterSetup(starterId: string, first: StoredStarte
   const db = await getDb();
   if (db) {
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
-        await db.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', starterId);
-        await db.runAsync(
+      db.withTransactionAsync(async (tx) => {
+        await tx.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', starterId);
+        await tx.runAsync(
           'UPDATE starters SET setup_started_at = ?, setup_completed_at = NULL WHERE id = ?;',
           first.occurredAt,
           starterId
         );
-        await insertStarterEntryRow(db, first);
+        await insertStarterEntryRow(tx, first);
       })
     );
   }

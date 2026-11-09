@@ -32,6 +32,11 @@ export const FEED_FRIDGE_DUE_AFTER_DAYS = 7;
  */
 export const MAX_PENDING_NOTIFICATIONS = 40;
 /**
+ * Okno pierwszeństwa przy nadmiarze: powiadomienia z najbliższych 24 h zostają wszystkie, w kolejności czasu, przed
+ * kolejnością grup (kroki → starty → karmienia) [M1-audytor-generalny-030; gwarancja „nic z najbliższych 24 h nie wypada”].
+ */
+export const OKNO_PIERWSZENSTWA_MS = 24 * 60 * 60 * 1000;
+/**
  * Kroki, których przegapienie psuje chleb w minutach: poziom Time Sensitive (DEC-02 a).
  * Wypiek w garnku: `step_8` ze starego zapisu (LEGACY_STEPS_V1) i etap planu `bake` [M1-audytor-generalny-030].
  */

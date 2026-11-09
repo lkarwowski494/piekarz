@@ -2,7 +2,7 @@
 // z receptury (docs/tresci/pl/wersje-drozdzowe.md, DRO-MOD-016: mieszanie, wyrabianie, pierwsze rośnięcie,
 // odgazowanie, kształtowanie, drugie rośnięcie, pieczenie) [M3 p9b]
 import { isDutchOvenStep, isStageCategory, showsPokeTestEntry } from '../bake-steps';
-import { krokiDrozdzowe, krokiDrozdzoweKonczaceSie, maPlanDrozdzowy } from '../yeast-stages';
+import { krokiDrozdzowe, krokiDrozdzoweKonczaceSie, maPlanDrozdzowy } from '../../recipes/yeast-stages';
 
 const START = Date.UTC(2026, 10, 4, 8, 0);
 const min = (kroki: ReturnType<typeof krokiDrozdzowe>) => kroki?.map((k) => [k.category, k.durationMin]);
