@@ -20,7 +20,7 @@ import { nazwaMaki } from '../../lib/nazwa-maki';
 import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { wskazowkaZaczynu } from '../../lib/wskazowka-zaczynu';
 import { POPULAR_FLOUR_BLENDS, FlourItemInput, HydrationDifficultyInfo } from '../../core/domain-rules';
-import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend } from '../../core/flour-atlas';
+import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend, toTenProfil } from '../../core/flour-atlas';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
 import { NumInput } from '../NumInput';
 import { HeaderButton } from '../DraftHeader';
@@ -127,7 +127,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   };
 
   const dodajMake = () => {
-    const wolne = FLOUR_PROFILES.filter((f) => !szkic.some((b) => b.name === f.namePl || b.type === f.id));
+    const wolne = FLOUR_PROFILES.filter((f) => !szkic.some((b) => toTenProfil(b, f)));
     pokazMenuWyboru(t('Dodaj mąkę'), wolne.map((f) => nazwaMaki(f)), (i) => {
       const f = wolne[i];
       const reszta = Math.round((100 - suma) * 10) / 10;

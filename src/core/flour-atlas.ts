@@ -473,3 +473,8 @@ export function profilPoNazwie(nazwa: string): FlourProfile | undefined {
   const id = Object.prototype.hasOwnProperty.call(DAWNE_NAZWY_ATLASU, nazwa) ? DAWNE_NAZWY_ATLASU[nazwa] : undefined;
   return FLOUR_PROFILES.find((p) => p.namePl === nazwa || p.id === id);
 }
+
+/** Mąka w recepturze to ten profil atlasu: nazwa (obecna lub sprzed kanonu D-307) albo typ [M1-audytor-generalny-041]. */
+export function toTenProfil(maka: { name: string; type?: string }, profil: FlourProfile): boolean {
+  return maka.name === profil.namePl || maka.type === profil.id || profilPoNazwie(maka.name)?.id === profil.id;
+}

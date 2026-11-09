@@ -4,7 +4,7 @@
 // ============================================================================
 
 import type { StoredFlourInventoryItem } from '../data/db';
-import { matchFlourProfile, FLOUR_PROFILES, FlourProfile } from './flour-atlas';
+import { matchFlourProfile, FLOUR_PROFILES, FlourProfile, profilPoNazwie } from './flour-atlas';
 
 export interface FlourStockCheckItem {
   recipeFlourName: string;
@@ -167,4 +167,16 @@ export function deductFlourStocks(
   }
 
   return updated;
+}
+
+/**
+ * Zapas mąki do odliczenia po wypieku: ta sama nazwa (bez wielkości liter i spacji) albo ta sama mąka atlasu po nazwie
+ * obecnej lub sprzed kanonu D-307 [M1-audytor-generalny-041]. Bez dopasowania rozmytego: inna mąka nie odlicza zapasu.
+ */
+export function znajdzZapasMaki<T extends { name: string }>(zapasy: T[], nazwa: string): T | undefined {
+  const n = nazwa.trim().toLowerCase();
+  const dokladny = zapasy.find((z) => z.name.trim().toLowerCase() === n);
+  if (dokladny) return dokladny;
+  const profil = profilPoNazwie(nazwa.trim());
+  return profil ? zapasy.find((z) => profilPoNazwie(z.name.trim())?.id === profil.id) : undefined;
 }

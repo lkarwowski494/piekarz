@@ -2,6 +2,7 @@ import { StoredFlourInventoryItem } from './db';
 import { getDb, memStore } from './sqlite-schema';
 import { writeOrThrow } from './storage-status';
 import { odczytNieudany } from './odczyt';
+import { znajdzZapasMaki } from '../core/inventory';
 
 // ==========================================
 // Flour Inventory (Magazyn Mąk)
@@ -63,9 +64,7 @@ export async function deleteFlourInventoryItem(id: string): Promise<void> {
 
 export async function deductFlourStock(flourName: string, amountGrams: number): Promise<void> {
   const inventory = await getFlourInventory();
-  const matched = inventory.find(
-    (inv) => inv.name.trim().toLowerCase() === flourName.trim().toLowerCase()
-  );
+  const matched = znajdzZapasMaki(inventory, flourName); // także nazwa sprzed kanonu D-307 [M1-audytor-generalny-041]
   if (matched) {
     const updated = {
       ...matched,

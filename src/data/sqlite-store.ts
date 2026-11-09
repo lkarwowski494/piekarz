@@ -6,6 +6,7 @@ import {
 } from './db';
 import { STARTER_UPSERT, starterParams, getAllStarterEntries, insertStarterEntryRow } from './starter-entries-store';
 import { legacyFeedingEntry } from '../core/starter-log';
+import { znajdzZapasMaki } from '../core/inventory';
 import { MASTER_RECIPES } from '../recipes/presets';
 import {
   getDb,
@@ -342,7 +343,7 @@ export async function finishBake(
   const inventory = (await getFlourInventory()).map((i) => ({ ...i }));
   const changed = new Map<string, StoredFlourInventoryItem>();
   for (const f of flours) {
-    const matched = inventory.find((inv) => inv.name.trim().toLowerCase() === f.name.trim().toLowerCase());
+    const matched = znajdzZapasMaki(inventory, f.name);
     if (matched) {
       matched.stockGrams = Math.max(0, Math.round(matched.stockGrams - f.weightGrams));
       matched.updatedAt = Date.now();

@@ -27,6 +27,7 @@ import {
   validateFlourBlend,
   normalizeFlourBlend,
   FlourProfile,
+  toTenProfil,
 } from '../core/flour-atlas';
 
 import { typografia } from '../ui/tokeny';
@@ -74,7 +75,7 @@ export function FlourBlendModal({
 
   const addFlourProfile = (profile: FlourProfile) => {
     const existingIndex = draftBlend.findIndex(
-      (f) => f.name === profile.namePl || f.type === profile.id
+      (f) => toTenProfil(f, profile)
     );
     if (existingIndex >= 0) {
       // Already present in blend, do not add duplicate
@@ -224,7 +225,7 @@ export function FlourBlendModal({
                 style={styles.profileChipsScroll}
               >
                 {FLOUR_PROFILES.filter(
-                  (p) => !draftBlend.some((f) => f.name === p.namePl || f.type === p.id)
+                  (p) => !draftBlend.some((f) => toTenProfil(f, p))
                 ).map((profile) => (
                   <Pressable
                     accessibilityRole="button"
