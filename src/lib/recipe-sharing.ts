@@ -199,10 +199,11 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   }
 
   // 7. Validate starterPercentage
+  // Brak albo zła wartość to błąd z nazwą pola, nie 0 [M1-audytor-generalny-026; 08-programista-003]
   const starterPct = typeof formulaData.starterPercentage === 'number' && !isNaN(formulaData.starterPercentage)
     ? formulaData.starterPercentage
-    : 0;
-  if (starterPct < 0 || starterPct > 150) {
+    : null;
+  if (starterPct === null || starterPct < 0 || starterPct > 150) {
     return { success: false, error: t('Udział zakwasu musi mieścić się w zakresie 0–150%') };
   }
 
@@ -222,23 +223,23 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   // 9. Extra yeast percentage
   let extraYeastPercentage: number | undefined;
   if (formulaData.extraYeastPercentage !== undefined) {
-    if (typeof formulaData.extraYeastPercentage === 'number' && !isNaN(formulaData.extraYeastPercentage)) {
-      // do 10%: chałka ze źródła ma 6,3% drożdży świeżych (DRO-CHA-001, 217); wcześniej limit 5% odrzucał jej eksport
-      if (formulaData.extraYeastPercentage >= 0 && formulaData.extraYeastPercentage <= 10) {
-        extraYeastPercentage = formulaData.extraYeastPercentage;
-      }
+    // do 10%: chałka ze źródła ma 6,3% drożdży świeżych (DRO-CHA-001, 217); wcześniej limit 5% odrzucał jej eksport.
+    // Wartość poza zakresem albo nie liczba: błąd z nazwą pola, nie cicho pominięte drożdże [M1-audytor-generalny-026]
+    const y = formulaData.extraYeastPercentage;
+    if (typeof y !== 'number' || isNaN(y) || y < 0 || y > 10) {
+      return { success: false, error: t('Udział drożdży musi mieścić się w zakresie 0–10%') };
     }
+    extraYeastPercentage = y;
   }
 
   // 10. Target dough weight
-  let targetDoughWeightGrams = 850;
-  if (formulaData.targetDoughWeightGrams !== undefined) {
-    if (typeof formulaData.targetDoughWeightGrams === 'number' && !isNaN(formulaData.targetDoughWeightGrams)) {
-      if (formulaData.targetDoughWeightGrams >= 100 && formulaData.targetDoughWeightGrams <= 50000) {
-        targetDoughWeightGrams = Math.round(formulaData.targetDoughWeightGrams);
-      }
-    }
+  // Zła masa to błąd z nazwą pola, nie cicho 850 g [M1-audytor-generalny-026]. Brak pola (płaski JSON bez masy, format
+  // wspierany) zostaje przy domyślnej masie partii 850 g, jak dotąd.
+  const masa = formulaData.targetDoughWeightGrams;
+  if (masa !== undefined && (typeof masa !== 'number' || isNaN(masa) || masa < 100 || masa > 50000)) {
+    return { success: false, error: t('Masa ciasta musi mieścić się w zakresie 100–50 000 g') };
   }
+  const targetDoughWeightGrams = typeof masa === 'number' ? Math.round(masa) : 850;
 
   // 11. Notes
   const notes = typeof recipeData.notes === 'string' ? recipeData.notes.trim() : undefined;

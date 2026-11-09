@@ -24,7 +24,7 @@ export function BakeStatsCard({ stats }: BakeStatsCardProps) {
   const duzy = useDuzyTekst();
   const pozycje: [string, string][] = [
     [t('Łącznie wypieków'), String(stats.totalBakes)],
-    [t('Średnia ocena'), String(stats.averageRating)],
+    [t('Średnia ocena'), stats.averageRating === null ? t('Brak ocen') : String(stats.averageRating)],
     [t('Śr. miękisz'), `${stats.averageCrumbScore}/5`],
     [t('Śr. skórka'), `${stats.averageCrustScore}/5`],
   ];

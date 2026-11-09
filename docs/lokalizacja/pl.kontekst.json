@@ -509,12 +509,17 @@
   },
   "Brak danych o karmieniu": {
     "gdzie": [
-      "src/core/sourdough-physics.ts (dane: labelPl)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "Brak katalogu dokumentów aplikacji": {
     "gdzie": [
       "src/lib/backup.ts (dane: kod)"
+    ]
+  },
+  "Brak ocen": {
+    "gdzie": [
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Brak otwartego ucha (nacięcie się zasklepiło)": {
@@ -3191,6 +3196,11 @@
   "Masa ciasta": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "Masa ciasta musi mieścić się w zakresie 100–50 000 g": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
     ]
   },
   "Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%": {
@@ -7535,6 +7545,11 @@
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Udział drożdży musi mieścić się w zakresie 0–10%": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
     ]
   },
   "Udział mąki w zaczynie": {

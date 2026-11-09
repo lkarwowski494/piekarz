@@ -38,7 +38,7 @@ describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () =>
   it('handles empty logs gracefully', () => {
     const res = calculateBakeStatistics([]);
     expect(res.totalBakes).toBe(0);
-    expect(res.averageRating).toBe(0);
+    expect(res.averageRating).toBeNull(); // brak ocen to brak, nie 0 [M1-audytor-generalny-026]
     expect(res.averageCrumbScore).toBe(0);
     expect(res.averageCrustScore).toBe(0);
     expect(res.hasEnoughData).toBe(false);
