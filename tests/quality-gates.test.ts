@@ -55,6 +55,24 @@ describe('Stryker: próg z DEC-12 (a) i plan podnoszenia (07-jakosc-010)', () =>
     expect(nightly).not.toMatch(/continue-on-error|\|\|\s*true/);
   });
 
+  it('Stryker liczy mutanty tylko testami, które je pokrywają, i pamięta wynik między nocami (067, 07-jakosc-002)', () => {
+    // Od 2026-10-22 nightly przerywany limitem 120 min w kroku Strykera: przy „off” każdy mutant uruchamia cały zestaw
+    // src/core (29 → 66 plików testów). Opcja (a) raportu: perTest + incremental, plik przyrostowy w cache nightly.
+    expect(stryker.coverageAnalysis).toBe('perTest');
+    expect(stryker.incremental).toBe(true);
+    const plik = stryker.incrementalFile ?? 'reports/stryker-incremental.json';
+    const nightly = read('.github/workflows/nightly.yml');
+    const odczyt = step(nightly, /Restore mutation incremental/);
+    expect(odczyt).toMatch(/actions\/cache\/restore@v4/);
+    expect(odczyt).toContain(plik);
+    expect(nightly.indexOf('actions/cache/restore@v4')).toBeLessThan(nightly.indexOf('npm run test:mutation'));
+    // zapis także po wyniku poniżej progu (krok Strykera czerwony), żeby następna noc liczyła tylko zmiany
+    const zapis = step(nightly, /Save mutation incremental/);
+    expect(zapis).toMatch(/actions\/cache\/save@v4/);
+    expect(zapis).toMatch(/if: always\(\)/);
+    expect(zapis).toContain(plik);
+  });
+
   it('nightly ma limit czasu na pełny przebieg Strykera (ok. 42 min) po verify — co najmniej 120 min', () => {
     // Run 39351363780: Stryker przerwany limitem 60 min; decyzja właściciela 2026-10-20 „Limit 120 min”.
     const nightly = read('.github/workflows/nightly.yml');
