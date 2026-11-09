@@ -49,4 +49,36 @@ describe('M1-audytor-generalny-019: runner migracji', () => {
     expect(tableCounts(raw)).toEqual(przed);
     raw.close();
   });
+
+  it('migracja z przebudową tabeli zakwasów zachowuje dziennik, klucze obce sprawdzone i włączone po migracji', async () => {
+    const { app, db } = await zDziennikiem();
+    const { uruchomMigracje } = require('../runner-migracji') as typeof import('../runner-migracji');
+    const v8 = { version: 8, description: 'test: przebudowa starters', przebudowa: true, run: przebuduj } as SchemaMigration;
+    const raw = openRaw(APP_DB());
+    const przed = tableCounts(raw);
+    raw.close();
+
+    await uruchomMigracje(db, [...app.schema.SCHEMA_MIGRATIONS, v8], app.schema.PRZYGOTOWANIE_MIGRACJI);
+
+    const po = openRaw(APP_DB());
+    const liczby = tableCounts(po);
+    expect({ starters: liczby.starters, starter_entries: liczby.starter_entries }).toEqual({ starters: przed.starters, starter_entries: 5 });
+    expect(po.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
+    po.close();
+    expect(await db.getFirstAsync('PRAGMA foreign_keys')).toEqual({ foreign_keys: 1 });
+    expect(await db.getFirstAsync('PRAGMA user_version')).toEqual({ user_version: 8 });
+  });
+
+  it('przebudowa, która zostawia osierocone wpisy, jest wycofana (foreign_key_check przed COMMIT)', async () => {
+    const { app, db } = await zDziennikiem();
+    const { uruchomMigracje, MigrationError } = require('../runner-migracji') as typeof import('../runner-migracji');
+    const zla = { version: 8, description: 'test: przebudowa gubi zakwas', przebudowa: true, run: async (d: Parameters<SchemaMigration['run']>[0]) => { await przebuduj(d); await d.execAsync("DELETE FROM starters WHERE id = 'z1';"); } } as SchemaMigration;
+    await expect(uruchomMigracje(db, [...app.schema.SCHEMA_MIGRATIONS, zla], app.schema.PRZYGOTOWANIE_MIGRACJI)).rejects.toBeInstanceOf(MigrationError);
+    const po = openRaw(APP_DB());
+    expect(tableCounts(po).starter_entries).toBe(5);
+    expect(tableCounts(po).starters).toBe(1);
+    po.close();
+    expect(await db.getFirstAsync('PRAGMA foreign_keys')).toEqual({ foreign_keys: 1 });
+    expect(await db.getFirstAsync('PRAGMA user_version')).toEqual({ user_version: 7 });
+  });
 });

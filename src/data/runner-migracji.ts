@@ -12,6 +12,12 @@ export interface SchemaMigration {
   /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
   przed?: (db: SQLite.SQLiteDatabase) => Promise<void>;
   run: (db: SQLite.SQLiteDatabase) => Promise<void>;
+  /**
+   * Przebudowa tabeli z kluczami obcymi (12 kroków, sqlite.org/lang_altertable.html §8): runner wyłącza klucze przed
+   * BEGIN (w transakcji pragma nic nie robi, sqlite.org/pragma.html), sprawdza `foreign_key_check` przed COMMIT
+   * i włącza klucze po COMMIT albo ROLLBACK. Bez flagi DROP rodzica skasowałby dzieci kaskadą [M1-audytor-generalny-019].
+   */
+  przebudowa?: boolean;
 }
 
 /** Wykonuje oczekujące migracje z listy (aplikacja: migracje w sqlite-schema.ts). */
@@ -36,8 +42,13 @@ export async function uruchomMigracje(db: SQLite.SQLiteDatabase, migracje: reado
   for (const m of pendingMigrations) {
     try {
       if (m.przed) await m.przed(db);
+      if (m.przebudowa) await db.execAsync('PRAGMA foreign_keys = OFF;');
       await db.execAsync('BEGIN TRANSACTION;');
       await m.run(db);
+      if (m.przebudowa) {
+        const naruszenia = await db.getAllAsync<unknown>('PRAGMA foreign_key_check;');
+        if (naruszenia.length > 0) throw new Error(`foreign_key_check: ${naruszenia.length} naruszeń po przebudowie`);
+      }
       await db.runAsync(
         'INSERT INTO schema_migrations (version, applied_at, description) VALUES (?, ?, ?);',
         m.version,
@@ -49,6 +60,8 @@ export async function uruchomMigracje(db: SQLite.SQLiteDatabase, migracje: reado
     } catch (err: unknown) {
       await db.execAsync('ROLLBACK;').catch(() => {});
       throw new MigrationError(err, backupPath);
+    } finally {
+      if (m.przebudowa) await db.execAsync('PRAGMA foreign_keys = ON;');
     }
   }
 }
