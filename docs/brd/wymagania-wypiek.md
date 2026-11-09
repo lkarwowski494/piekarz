@@ -126,9 +126,13 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Gdy użytkownik potwierdza wykonanie
     - Wtedy widzi następny krok z jego godziną
   - Scenariusz: Gotowość ciasta drożdżowego
-    - Zakładając, że wypiek receptury drożdżowej jest na kroku pierwszego albo drugiego rośnięcia
+    - Zakładając, że wypiek wersji drożdżowej chleba pszennego (graham, hydratacja 80%; BR-HARMO-001) jest na kroku pierwszego albo drugiego rośnięcia
     - Gdy użytkownik otwiera krok
-    - Wtedy widzi, że czas z receptury jest wskazówką, a ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje (rejestr roli 06 DRO-MOD-013, DRO-MOD-016; D-174)
+    - Wtedy widzi, że czas z receptury jest wskazówką, a ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje (rejestr roli 06 DRO-MOD-013, DRO-MOD-016; D-174, D-312)
+  - Scenariusz: Gotowość żytniego ciasta drożdżowego
+    - Zakładając, że wypiek wersji drożdżowej chleba żytniego 100% w formie jest na kroku pierwszego albo drugiego rośnięcia
+    - Gdy użytkownik otwiera krok
+    - Wtedy przy pierwszym rośnięciu widzi, że czasy są wskazówką, a przy drugim „Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.”, bez testu palca, który opisuje ciasto pszenne z glutenem (rejestr roli 06 ZYT-ETA-005, ZYT-CIA-001; D-256 pkt c, D-258)
 
 ### BR-ETAP-002: Kroki z receptury: składania dla pszennego, bez składań dla żytniego
 - Przepływ: PR-04 · Reguła: RD-20
