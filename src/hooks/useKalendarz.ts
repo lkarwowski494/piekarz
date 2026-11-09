@@ -56,7 +56,10 @@ export function useKalendarz(zmiana: unknown): StanKalendarza {
   const [now, ustawNow] = useState(() => Date.now());
   const [odczyt, ustawOdczyt] = useState(0);
   const odswiez = useCallback(() => ustawOdczyt((n) => n + 1), []);
-  const [widok, ustawWidok] = useState<Widok>(() => widokDzis('tydzien', Date.now()));
+  const [zapisany, ustawWidok] = useState<Widok>(() => widokDzis('tydzien', Date.now()));
+  // Widok „bieżący” idzie za zegarem, dopóki użytkownik nie przesunie tygodnia albo miesiąca (BR-KAL-001 Północ)
+  // [M1-audytor-generalny-025; 08-programista-002]
+  const [przesuniety, ustawPrzesuniety] = useState(false);
 
   // Wejście na zakładkę: licznik wejść (odczyt niżej) i zegar minutowy tylko, gdy ekran jest widoczny
   const [wejscie, ustawWejscie] = useState(0);
@@ -85,14 +88,21 @@ export function useKalendarz(zmiana: unknown): StanKalendarza {
   }, [wejscie, odczyt, zmiana]);
 
   const first = systemFirstWeekday();
+  const widok = useMemo(() => (przesuniety ? zapisany : widokDzis(zapisany.tryb, now)), [przesuniety, zapisany, now]);
   const nawigacja = useMemo<NawigacjaWidoku>(
     () => ({
       tryb: widok.tryb,
       tytul: tytulWidoku(widok, first),
       biezacy: czyBiezacy(widok, now, first),
-      przesun: (n) => ustawWidok((w) => przesunWidok(w, n)),
-      dzis: () => ustawWidok((w) => widokDzis(w.tryb, Date.now())),
-      ustawTryb: (t) => ustawWidok((w) => zmienTryb(w, t, Date.now())),
+      przesun: (n) => {
+        ustawWidok(przesunWidok(widok, n));
+        ustawPrzesuniety(true);
+      },
+      dzis: () => {
+        ustawWidok(widokDzis(widok.tryb, Date.now()));
+        ustawPrzesuniety(false);
+      },
+      ustawTryb: (t) => ustawWidok(zmienTryb(widok, t, Date.now())),
     }),
     [widok, now, first]
   );
