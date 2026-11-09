@@ -2266,6 +2266,9 @@
     ]
   },
   "Hydratacja wody musi mieścić się w zakresie 35–120%": {
+    "gdzie": []
+  },
+  "Hydratacja wody musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -2286,6 +2289,9 @@
     ]
   },
   "Hydratacja zakwasu musi mieścić się w zakresie 20–200%": {
+    "gdzie": []
+  },
+  "Hydratacja zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -7547,7 +7553,7 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
-  "Udział drożdży musi mieścić się w zakresie 0–10%": {
+  "Udział drożdży musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -7556,11 +7562,17 @@
     "gdzie": []
   },
   "Udział soli musi mieścić się w zakresie 0–6%": {
+    "gdzie": []
+  },
+  "Udział soli musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
   "Udział zakwasu musi mieścić się w zakresie 0–150%": {
+    "gdzie": []
+  },
+  "Udział zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]

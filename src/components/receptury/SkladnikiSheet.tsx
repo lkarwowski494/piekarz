@@ -10,6 +10,8 @@
 // ============================================================================
 
 import React, { useEffect, useState } from 'react';
+// Zakresy pól jak w imporcie (jedno źródło) [M1-audytor-generalny-027]
+import { ZAKRESY_RECEPTURY } from '../../core/zakresy-receptury';
 import { Modal, View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
@@ -202,13 +204,13 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             </Karta>
 
             <Karta testID="karta-proporcje" tytul={t('Proporcje (procent mąki)')} ikona={<IkonaKarty nazwa="proporcje" />} bezWypelnienia>
-              <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={0} max={150} onChange={p.onWaterPctChange} />
-              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
+              <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={ZAKRESY_RECEPTURY.woda.min} max={ZAKRESY_RECEPTURY.woda.max} onChange={p.onWaterPctChange} />
+              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={ZAKRESY_RECEPTURY.zakwas.min} max={ZAKRESY_RECEPTURY.zakwas.max} onChange={p.onStarterPctChange} />
               {p.starterPct > 0 && (
-                <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={20} max={200} onChange={p.onStarterHydrationChange} />
+                <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={ZAKRESY_RECEPTURY.hydratacjaZakwasu.min} max={ZAKRESY_RECEPTURY.hydratacjaZakwasu.max} onChange={p.onStarterHydrationChange} />
               )}
-              <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={0} max={10} onChange={p.onSaltPctChange} />
-              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={10} onChange={p.onYeastPctChange} ostatnie />
+              <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={ZAKRESY_RECEPTURY.sol.min} max={ZAKRESY_RECEPTURY.sol.max} onChange={p.onSaltPctChange} />
+              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={ZAKRESY_RECEPTURY.drozdze.min} max={ZAKRESY_RECEPTURY.drozdze.max} onChange={p.onYeastPctChange} ostatnie />
               <View style={styles.informacje}>
                 {p.hydrationDifficulty && (
                   <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>

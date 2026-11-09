@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': 'Geen beoordelingen',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'Aandeel gist moet tussen 0–10% liggen',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'Aandeel gist moet tussen {min}–{max}% liggen',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': 'Deeggewicht moet tussen 100–50.000 g liggen',
 };

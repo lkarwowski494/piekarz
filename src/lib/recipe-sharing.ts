@@ -5,6 +5,7 @@
 // ============================================================================
 
 import { StoredRecipe } from '../data/db';
+import { ZAKRESY_RECEPTURY as Z, wZakresie } from '../core/zakresy-receptury';
 import { MasterRecipe } from '../recipes/presets';
 import { FlourItemInput } from '../core/domain-rules';
 import { t } from './i18n';
@@ -186,16 +187,17 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   const waterPct = typeof formulaData.waterPercentage === 'number' && !isNaN(formulaData.waterPercentage)
     ? formulaData.waterPercentage
     : null;
-  if (waterPct === null || waterPct < 35 || waterPct > 120) {
-    return { success: false, error: t('Hydratacja wody musi mieścić się w zakresie 35–120%') };
+  // Zakresy jak w arkuszu „Składniki” (jedno źródło) [M1-audytor-generalny-027; 08-programista-004]
+  if (waterPct === null || !wZakresie(waterPct, Z.woda)) {
+    return { success: false, error: t('Hydratacja wody musi mieścić się w zakresie {min}–{max}%', Z.woda) };
   }
 
   // 6. Validate saltPercentage
   const saltPct = typeof formulaData.saltPercentage === 'number' && !isNaN(formulaData.saltPercentage)
     ? formulaData.saltPercentage
     : null;
-  if (saltPct === null || saltPct < 0 || saltPct > 6) {
-    return { success: false, error: t('Udział soli musi mieścić się w zakresie 0–6%') };
+  if (saltPct === null || !wZakresie(saltPct, Z.sol)) {
+    return { success: false, error: t('Udział soli musi mieścić się w zakresie {min}–{max}%', Z.sol) };
   }
 
   // 7. Validate starterPercentage
@@ -203,8 +205,8 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   const starterPct = typeof formulaData.starterPercentage === 'number' && !isNaN(formulaData.starterPercentage)
     ? formulaData.starterPercentage
     : null;
-  if (starterPct === null || starterPct < 0 || starterPct > 150) {
-    return { success: false, error: t('Udział zakwasu musi mieścić się w zakresie 0–150%') };
+  if (starterPct === null || !wZakresie(starterPct, Z.zakwas)) {
+    return { success: false, error: t('Udział zakwasu musi mieścić się w zakresie {min}–{max}%', Z.zakwas) };
   }
 
   // 8. Validate starterHydration
@@ -214,8 +216,8 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
       return { success: false, error: t('Nieprawidłowa hydratacja zakwasu') };
     }
     // Ten sam zakres co pole „Hydratacja zakwasu” w arkuszu „Składniki” (20–200%, ER-58, ER-62) [M2-koordynator-napraw-641 (p13b)]
-    if (formulaData.starterHydration < 20 || formulaData.starterHydration > 200) {
-      return { success: false, error: t('Hydratacja zakwasu musi mieścić się w zakresie 20–200%') };
+    if (!wZakresie(formulaData.starterHydration, Z.hydratacjaZakwasu)) {
+      return { success: false, error: t('Hydratacja zakwasu musi mieścić się w zakresie {min}–{max}%', Z.hydratacjaZakwasu) };
     }
     starterHydration = formulaData.starterHydration;
   }
@@ -226,8 +228,8 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
     // do 10%: chałka ze źródła ma 6,3% drożdży świeżych (DRO-CHA-001, 217); wcześniej limit 5% odrzucał jej eksport.
     // Wartość poza zakresem albo nie liczba: błąd z nazwą pola, nie cicho pominięte drożdże [M1-audytor-generalny-026]
     const y = formulaData.extraYeastPercentage;
-    if (typeof y !== 'number' || isNaN(y) || y < 0 || y > 10) {
-      return { success: false, error: t('Udział drożdży musi mieścić się w zakresie 0–10%') };
+    if (typeof y !== 'number' || isNaN(y) || !wZakresie(y, Z.drozdze)) {
+      return { success: false, error: t('Udział drożdży musi mieścić się w zakresie {min}–{max}%', Z.drozdze) };
     }
     extraYeastPercentage = y;
   }

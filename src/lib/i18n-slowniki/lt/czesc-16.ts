@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': 'Įvertinimų nėra',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'Mielių dalis turi būti 0–10 %',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'Mielių dalis turi būti {min}–{max} %',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': 'Tešlos masė turi būti 100–50 000 g',
 };

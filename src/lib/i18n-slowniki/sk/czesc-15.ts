@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': 'Bez hodnotenia',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'Podiel droždia musí byť v rozsahu 0–10 %',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'Podiel droždia musí byť v rozsahu {min}–{max} %',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': 'Hmotnosť cesta musí byť v rozsahu 100–50 000 g',
 };

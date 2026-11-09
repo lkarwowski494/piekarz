@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': 'Καμία βαθμολογία',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'Το ποσοστό μαγιάς πρέπει να είναι στο εύρος 0–10%',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'Το ποσοστό μαγιάς πρέπει να είναι στο εύρος {min}–{max}%',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': 'Το βάρος της ζύμης πρέπει να είναι στο εύρος 100–50.000 g',
 };

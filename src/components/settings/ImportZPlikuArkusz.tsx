@@ -180,6 +180,7 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }
               <Text style={styles.zdanie}>
                 {t('Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.')}
               </Text>
+              {plik.powod ? <Text testID="import-unrecognized-reason" style={styles.zdanie}>{plik.powod}</Text> : null}
               <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
                 <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
               </Pressable>

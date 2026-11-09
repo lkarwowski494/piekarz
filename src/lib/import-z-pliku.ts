@@ -19,7 +19,7 @@ export type RozpoznanyPlik =
   | { rodzaj: 'kopia'; kopia: ValidatedBackup }
   | { rodzaj: 'receptura'; receptura: StoredRecipe }
   | { rodzaj: 'nowsza' }
-  | { rodzaj: 'nierozpoznany' };
+  | { rodzaj: 'nierozpoznany'; powod?: string };
 
 /** Wersja schematu, gdy tekst to obiekt JSON z `format: "piekarz-backup"` (dane z zewnątrz: od `unknown`); inaczej null. */
 function wersjaKopii(tekst: string): unknown {
@@ -47,7 +47,9 @@ export function rozpoznajPlik(tresc: string): RozpoznanyPlik | null {
     }
   }
   const r = decodeRecipeFromShareUrl(tekst);
-  return r.success ? { rodzaj: 'receptura', receptura: r.recipe } : { rodzaj: 'nierozpoznany' };
+  if (r.success) return { rodzaj: 'receptura', receptura: r.recipe };
+  // Plik z recepturą, którą walidacja odrzuciła: powód na ekranie zamiast samego „nie rozpoznaję” [M1-audytor-generalny-027]
+  return /"formula"\s*:/.test(tekst) ? { rodzaj: 'nierozpoznany', powod: r.error } : { rodzaj: 'nierozpoznany' };
 }
 
 // Formy liczby (CLDR one/few/many/other), liczba i rzeczownik ze spacją niełamiącą (design-spec §11c „113”)

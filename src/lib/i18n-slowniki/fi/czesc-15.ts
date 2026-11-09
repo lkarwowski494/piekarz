@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': 'Ei arvioita',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'Hiivan osuuden on oltava välillä 0–10 %',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'Hiivan osuuden on oltava välillä {min}–{max} %',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': 'Taikinan painon on oltava välillä 100–50 000 g',
 };

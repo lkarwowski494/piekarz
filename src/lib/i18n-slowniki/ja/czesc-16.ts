@@ -2,6 +2,6 @@
 // źródło: przeklad-m2-026-2026-11-09.json (plik generowany przez M2; poprawka w pliku przekładu i ponowne wpięcie)
 export const CZESC: Record<string, string> = {
   'Brak ocen': '評価なし',
-  'Udział drożdży musi mieścić się w zakresie 0–10%': 'イーストの割合は0–10%の範囲で指定してください',
+  'Udział drożdży musi mieścić się w zakresie {min}–{max}%': 'イーストの割合は{min}–{max}%の範囲で指定してください',
   'Masa ciasta musi mieścić się w zakresie 100–50 000 g': '生地の重量は100–50,000 gの範囲で指定してください',
 };
