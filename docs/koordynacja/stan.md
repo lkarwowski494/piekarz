@@ -46,11 +46,11 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Od M2 (stara sesja, przy archiwizacji 19:49): scalić `asc-kontrola-brak-ofert` → `main` w `apps4brew-narzedzia` (polecenie właściciela; zwykły merge albo rebase, nie squash; sesja nie miała prawa zapisu — nie obchodzone); podać rolę klucza ASC (D-314).
 - Sprzątanie gałęzi: `docs/wydanie/sprzatanie-galezi-2026-11-08.txt` (proxy sesji nie pozwala usuwać) + gałąź `koordynacja` zostaje.
 - Pułapy kosztu (mandat [DO USTALENIA]).
-- Krok właściciela: `/effort medium` w sesji koordynatora `session_01T66VBvnDeKWC3vg8bd7wL9` (wysiłek w `get_session` nie pokazany [DO USTALENIA], E6 pkt 5).
+- Archiwizacja poprzednika `session_01T66VBwuR25xmeQCZYdPG2r` (M3): `archive_session` odrzucony przez klasyfikator 22:41 — krok właściciela albo zgoda/reguła.
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
-- Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_018vXT2fkF15J67mD4rYYXUQ` „Koordynator Piekarz: kontrola” 09.11 22:40; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
+- Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_01EycqLp8x7H2oNBB6PJ1K3Y` „Koordynator Piekarz: kontrola” 09.11 23:12; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
 - Poprzednika: `trig_015Tr2EdGSTL9trcxrq3Fumc` „kontrola przekazania” 22:09 → sesja M3 — usunięcie odrzucone przez klasyfikator (21:40); nieszkodliwe (sprawdza, że następca działa → nic). Archiwizacja poprzednika po 22:09 (kontrola 22:40).
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
@@ -79,3 +79,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 21:59 | M9 | B: właściciel zezwolił w czacie B na add_repo prompts → rola M1 złożona; STOP 1 (68 pozycji, 12 ról) → KO-006 wariant B (6 subagentów) | raport B po pierwszej grupie; kontrola 22:40 |
 | 09.11 22:15 | M9 | B grupa 04: 4/5 zweryfikowane, M1-005 (P1, instrukcja pod pasem) NADAL OTWARTE (zrzuty E2E #100); 04-601/602 → P3; npm test 6798/6798, kod 1 przez OOM przy równoległych subagentach (osobno zielone). Analogia: trening/oczko odrzucone (klasyfikator) → „nie sprawdzono”. Reszta 20–40 min | kontrola 22:40 |
 | 09.11 22:30 | M9 | B koniec: K @ `5e835a92` (sprawdzone ls; plan: reaudyty pętla 1 @ ea249c9c, ZABLOKOWANE, otwarte P1 005/087/088/089 — odczyt plan-napraw.json); KO-007 → A partia 4; B zarchiwizowana (62,81 USD, pułap +4,7%) | kontrola 22:40 |
+| 09.11 22:41 | M9 | Kontrola: A 30,0% (300k), 20,35 USD, p4 w toku (087 recenzja, rola 06 dla 088/089) → polecenie PRZEKAZANIA; E2E #101 in_progress; koordynator 25,0%, wysiłek medium potwierdzony (`get_session` effort_level); archiwizacja poprzednika odrzucona (klasyfikator) | kontrola 23:12 |
