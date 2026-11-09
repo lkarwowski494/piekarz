@@ -1,0 +1,175 @@
+{
+ "_opis": "Przekład 3 kluczy M1-audytor-generalny-009 (D-303; pizza: stal i grill, źródło brioszki na ekranie „Źródła wiedzy”): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09); zdania pizzy sprzed zmiany wzięte bez zmian z istniejącego przekładu, dopisane zdanie z docs/tresci/en/pieczenie-receptur.md; liczby sprawdzone skryptem; drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06).",
+ "pl": [
+  "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.",
+  "The Culinary Institute of America, przepis „Brioche”",
+  "Temperatura i czas pieczenia brioszki w keksówce."
+ ],
+ "jezyki": {
+  "cs": [
+   "Těsto kyne při pokojové teplotě nejméně 12 a nejvýše 24 hodin. Po rozdělení na koule kyne ještě 45–60 minut, zatímco se nahřívá trouba. Ocel rozehřívejte na 260 °C alespoň 30 minut a po 6 minutách pečení zapněte horní gril na 2–3 minuty; bez grilu pečte o pár minut déle.",
+   "The Culinary Institute of America, recept „Brioche”",
+   "Teplota a doba pečení briošky ve formě na chlebíček."
+  ],
+  "sk": [
+   "Cesto kysne pri izbovej teplote najmenej 12 a najviac 24 hodín. Po rozdelení na guľky kysne ešte 45–60 minút, kým sa rozohrieva rúra. Oceľ rozohrievajte na 260 °C aspoň 30 minút a po 6 minútach pečenia zapnite horný gril na 2 – 3 minúty; bez grilu pečte o pár minút dlhšie.",
+   "The Culinary Institute of America, recept „Brioche”",
+   "Teplota a čas pečenia briošky vo forme na chlebík."
+  ],
+  "hu": [
+   "A tészta szobahőmérsékleten legalább 12, legfeljebb 24 órán át kel. Gombócokra osztva még 45–60 percig kel, amíg a sütő felmelegszik. Az acéllapot legalább 30 percig hevítsd 260 °C-on, és 6 perc sütés után kapcsold be a felső grillt 2–3 percre; grill nélkül süsd néhány perccel tovább.",
+   "The Culinary Institute of America, „Brioche” recept",
+   "A briós sütési hőmérséklete és ideje kenyérsütő formában."
+  ],
+  "ro": [
+   "Aluatul crește la temperatura camerei cel puțin 12 și cel mult 24 de ore. După ce îl împarți în bile, mai crește 45–60 de minute, cât se încălzește cuptorul. Încinge placa de oțel la 260 °C cel puțin 30 de minute, iar după 6 minute de coacere pornește grillul de sus pentru 2–3 minute; fără grill, coace câteva minute în plus.",
+   "The Culinary Institute of America, rețeta „Brioche”",
+   "Temperatura și timpul de coacere a briosei în formă de chec."
+  ],
+  "bg": [
+   "Тестото втасва на стайна температура най-малко 12 и най-много 24 часа. След разделяне на топки втасва още 45–60 минути, докато фурната загрява. Загрявайте стоманената плоча на 260 °C поне 30 минути, а след 6 минути печене включете горния грил за 2–3 минути; без грил печете няколко минути по-дълго.",
+   "The Culinary Institute of America, рецепта „Brioche”",
+   "Температура и време за печене на бриош във форма за кекс."
+  ],
+  "hr": [
+   "Tijesto se diže na sobnoj temperaturi najmanje 12, a najviše 24 sata. Nakon dijeljenja na kuglice diže se još 45–60 minuta dok se pećnica zagrijava. Čeličnu ploču zagrijavaj na 260 °C najmanje 30 minuta, a nakon 6 minuta pečenja uključi gornji grill na 2–3 minute; bez grilla peci nekoliko minuta dulje.",
+   "The Culinary Institute of America, recept „Brioche”",
+   "Temperatura i vrijeme pečenja brioša u kalupu za kruh."
+  ],
+  "sl": [
+   "Testo vzhaja pri sobni temperaturi najmanj 12 in največ 24 ur. Ko ga razdelite na kroglice, vzhaja še 45–60 minut, medtem ko se segreva pečica. Jekleno ploščo segrevajte na 260 °C vsaj 30 minut, po 6 minutah peke pa vklopite zgornji žar za 2–3 minute; brez žara pecite nekaj minut dlje.",
+   "The Culinary Institute of America, recept „Brioche”",
+   "Temperatura in čas peke brioša v pekaču za kruh."
+  ],
+  "sr": [
+   "Тесто расте на собној температури најмање 12, а највише 24 сата. Када се подели на лоптице, расте још 45–60 минута док се рерна загрева. Челичну плочу загревај на 260 °C најмање 30 минута, а после 6 минута печења укључи горњи грил на 2–3 минута; без грила пеци неколико минута дуже.",
+   "The Culinary Institute of America, рецепт „Brioche”",
+   "Температура и време печења бриоша у калупу за хлеб."
+  ],
+  "lt": [
+   "Tešla kyla kambario temperatūroje ne mažiau kaip 12 ir ne daugiau kaip 24 valandas. Padalyta į rutuliukus, ji kyla dar 45–60 minučių, kol kaista orkaitė. Plieninę plokštę kaitinkite 260 °C temperatūroje bent 30 minučių, o po 6 kepimo minučių 2–3 minutėms įjunkite viršutinį grilį; be grilio kepkite keliomis minutėmis ilgiau.",
+   "The Culinary Institute of America, receptas „Brioche”",
+   "Briošės kepimo formoje temperatūra ir laikas."
+  ],
+  "lv": [
+   "Mīkla rūgst istabas temperatūrā vismaz 12 un ne ilgāk kā 24 stundas. Pēc sadalīšanas bumbiņās tā rūgst vēl 45–60 minūtes, kamēr uzkarst cepeškrāsns. Tērauda plāksni karsējiet 260 °C vismaz 30 minūtes, bet pēc 6 cepšanas minūtēm ieslēdziet augšējo grilu uz 2–3 minūtēm; bez grila cepiet dažas minūtes ilgāk.",
+   "The Culinary Institute of America, recepte „Brioche”",
+   "Brioša cepšanas temperatūra un laiks maizes veidnē."
+  ],
+  "et": [
+   "Tainas kerkib toatemperatuuril vähemalt 12 ja kõige rohkem 24 tundi. Pärast pallideks jagamist kerkib see veel 45–60 minutit, kuni ahi kuumeneb. Kuumuta terasplaati 260 °C juures vähemalt 30 minutit ja pärast 6 minutit küpsetamist lülita ülemine grill 2–3 minutiks sisse; ilma grillita küpseta paar minutit kauem.",
+   "The Culinary Institute of America, retsept „Brioche”",
+   "Briošši küpsetustemperatuur ja -aeg leivavormis."
+  ],
+  "uk": [
+   "Тісто підходить за кімнатної температури щонайменше 12 і щонайбільше 24 години. Після ділення на кульки воно підходить ще 45–60 хвилин, поки розігрівається духовка. Розігрівайте сталеву плиту при 260 °C щонайменше 30 хвилин, а після 6 хвилин випікання ввімкніть верхній гриль на 2–3 хвилини; без гриля випікайте на кілька хвилин довше.",
+   "The Culinary Institute of America, рецепт «Brioche»",
+   "Температура й час випікання бріоші у формі для хліба."
+  ],
+  "es": [
+   "La masa sube a temperatura ambiente un mínimo de 12 horas y un máximo de 24. Tras dividirla en bolas, sube otros 45–60 minutos mientras se calienta el horno. Calienta la plancha de acero a 260 °C al menos 30 minutos y, tras 6 minutos de horneado, enciende el gratinador superior durante 2–3 minutos; sin gratinador, hornea unos minutos más.",
+   "The Culinary Institute of America, receta «Brioche»",
+   "Temperatura y tiempo de horneado del brioche en molde de pan."
+  ],
+  "es-419": [
+   "La masa leva a temperatura ambiente un mínimo de 12 y un máximo de 24 horas. Después de dividirla en bollos, leva otros 45–60 minutos mientras se calienta el horno. Calienta la placa de acero a 260 °C al menos 30 minutos y, después de 6 minutos de horneado, enciende el gratinador superior durante 2–3 minutos; sin gratinador, hornea unos minutos más.",
+   "The Culinary Institute of America, receta “Brioche”",
+   "Temperatura y tiempo de horneado del brioche en molde para pan."
+  ],
+  "pt": [
+   "A massa leveda à temperatura ambiente no mínimo 12 e no máximo 24 horas. Depois de dividida em bolas, leveda mais 45–60 minutos enquanto o forno aquece. Aqueça a placa de aço a 260 °C durante pelo menos 30 minutos e, após 6 minutos de cozedura, ligue o grelhador superior durante 2–3 minutos; sem grelhador, coza mais alguns minutos.",
+   "The Culinary Institute of America, receita «Brioche»",
+   "Temperatura e tempo de cozedura do brioche em forma de bolo inglês."
+  ],
+  "pt-BR": [
+   "A massa cresce em temperatura ambiente por no mínimo 12 e no máximo 24 horas. Depois de dividida em bolas, cresce mais 45–60 minutos enquanto o forno aquece. Aqueça a chapa de aço a 260 °C por pelo menos 30 minutos e, depois de 6 minutos de forno, ligue o grill superior por 2–3 minutos; sem grill, asse alguns minutos a mais.",
+   "The Culinary Institute of America, receita “Brioche”",
+   "Temperatura e tempo de forno do brioche em fôrma de bolo inglês."
+  ],
+  "de": [
+   "Der Teig geht bei Raumtemperatur mindestens 12 und höchstens 24 Stunden. Nach dem Teilen in Kugeln geht er noch 45–60 Minuten, während der Ofen aufheizt. Heize den Backstahl mindestens 30 Minuten bei 260 °C auf und schalte nach 6 Minuten Backzeit den Oberhitze-Grill für 2–3 Minuten ein; ohne Grill backst du ein paar Minuten länger.",
+   "The Culinary Institute of America, Rezept „Brioche“",
+   "Temperatur und Backzeit für Brioche in der Kastenform."
+  ],
+  "fr": [
+   "La pâte lève à température ambiante au moins 12 heures et au plus 24 heures. Une fois divisée en boules, elle lève encore 45–60 minutes pendant que le four chauffe. Faites chauffer la plaque en acier à 260 °C pendant au moins 30 minutes et, après 6 minutes de cuisson, allumez le gril du haut pendant 2–3 minutes ; sans gril, prolongez la cuisson de quelques minutes.",
+   "The Culinary Institute of America, recette « Brioche »",
+   "Température et temps de cuisson de la brioche en moule à cake."
+  ],
+  "it": [
+   "L'impasto lievita a temperatura ambiente per almeno 12 e al massimo 24 ore. Dopo la divisione in palline, lievita altri 45–60 minuti mentre il forno si scalda. Scalda la piastra d’acciaio a 260 °C per almeno 30 minuti e, dopo 6 minuti di cottura, accendi il grill superiore per 2–3 minuti; senza grill, cuoci qualche minuto in più.",
+   "The Culinary Institute of America, ricetta «Brioche»",
+   "Temperatura e tempo di cottura della brioche nello stampo da plumcake."
+  ],
+  "nl": [
+   "Het deeg rijst op kamertemperatuur minstens 12 en hoogstens 24 uur. Na het verdelen in bollen rijst het nog 45–60 minuten, terwijl de oven opwarmt. Verwarm de bakstaal minstens 30 minuten op 260 °C en zet na 6 minuten bakken de bovengrill 2–3 minuten aan; zonder grill bak je een paar minuten langer.",
+   "The Culinary Institute of America, recept ‘Brioche’",
+   "Temperatuur en baktijd van brioche in een cakevorm."
+  ],
+  "sv": [
+   "Degen jäser i rumstemperatur i minst 12 och högst 24 timmar. När den delats i bollar jäser den ytterligare 45–60 minuter medan ugnen värms upp. Värm bakstålet i 260 °C i minst 30 minuter och slå på övre grillen i 2–3 minuter efter 6 minuters gräddning; utan grill gräddar du några minuter längre.",
+   "The Culinary Institute of America, receptet ”Brioche”",
+   "Temperatur och gräddningstid för brioche i brödform."
+  ],
+  "da": [
+   "Dejen hæver ved rumtemperatur i mindst 12 og højst 24 timer. Når den er delt i kugler, hæver den yderligere 45–60 minutter, mens ovnen varmer op. Varm bagestålet op ved 260 °C i mindst 30 minutter, og tænd den øverste grill i 2–3 minutter efter 6 minutters bagning; uden grill bager du et par minutter længere.",
+   "The Culinary Institute of America, opskriften “Brioche”",
+   "Temperatur og bagetid for brioche i brødform."
+  ],
+  "nb": [
+   "Deigen hever i romtemperatur i minst 12 og høyst 24 timer. Når den er delt i kuler, hever den ytterligere 45–60 minutter mens ovnen varmes opp. Varm bakestålet på 260 °C i minst 30 minutter, og slå på overgrillen i 2–3 minutter etter 6 minutters steking; uten grill steker du et par minutter lenger.",
+   "The Culinary Institute of America, oppskriften «Brioche»",
+   "Temperatur og steketid for brioche i brødform."
+  ],
+  "fi": [
+   "Taikina kohoaa huoneenlämmössä vähintään 12 ja enintään 24 tuntia. Palloiksi jakamisen jälkeen se kohoaa vielä 45–60 minuuttia uunin lämmetessä. Kuumenna paistoterästä 260 °C:ssa vähintään 30 minuuttia, ja kun leivonta on kestänyt 6 minuuttia, laita ylägrilli päälle 2–3 minuutiksi; ilman grilliä paista muutama minuutti pidempään.",
+   "The Culinary Institute of America, resepti ”Brioche”",
+   "Briossin paistolämpötila ja -aika vuoassa."
+  ],
+  "tr": [
+   "Hamur oda sıcaklığında en az 12, en fazla 24 saat kabarır. Bezelere ayrıldıktan sonra fırın ısınırken 45–60 dakika daha kabarır. Pişirme çeliğini en az 30 dakika 260 °C’de ısıtın, 6 dakika pişirdikten sonra üst ızgarayı 2–3 dakika açın; ızgara yoksa birkaç dakika daha uzun pişirin.",
+   "The Culinary Institute of America, “Brioche” tarifi",
+   "Baton kalıbında briyoşun pişirme sıcaklığı ve süresi."
+  ],
+  "el": [
+   "Η ζύμη φουσκώνει σε θερμοκρασία δωματίου τουλάχιστον 12 και το πολύ 24 ώρες. Αφού χωριστεί σε μπάλες, φουσκώνει άλλα 45–60 λεπτά, όσο ζεσταίνεται ο φούρνος. Ζεστάνετε την ατσάλινη πλάκα στους 260 °C για τουλάχιστον 30 λεπτά και, μετά από 6 λεπτά ψησίματος, ανάψτε το επάνω γκριλ για 2–3 λεπτά· χωρίς γκριλ, ψήστε μερικά λεπτά περισσότερο.",
+   "The Culinary Institute of America, συνταγή «Brioche»",
+   "Θερμοκρασία και χρόνος ψησίματος του μπριός σε φόρμα κέικ."
+  ],
+  "id": [
+   "Adonan mengembang pada suhu ruang paling sedikit 12 jam dan paling lama 24 jam. Setelah dibagi menjadi bola-bola, adonan mengembang lagi 45–60 menit sambil oven dipanaskan. Panaskan baja panggang pada 260 °C setidaknya 30 menit, lalu setelah 6 menit memanggang nyalakan pemanggang atas selama 2–3 menit; tanpa pemanggang atas, panggang beberapa menit lebih lama.",
+   "The Culinary Institute of America, resep “Brioche”",
+   "Suhu dan waktu memanggang brioche dalam loyang roti."
+  ],
+  "ms": [
+   "Doh naik pada suhu bilik sekurang-kurangnya 12 jam dan paling lama 24 jam. Selepas dibahagikan menjadi bebola, doh naik lagi 45–60 minit semasa ketuhar dipanaskan. Panaskan keluli bakar pada 260 °C sekurang-kurangnya 30 minit, dan selepas 6 minit membakar, hidupkan gril atas selama 2–3 minit; tanpa gril, bakar beberapa minit lebih lama.",
+   "The Culinary Institute of America, resipi “Brioche”",
+   "Suhu dan masa membakar brioche dalam loyang roti."
+  ],
+  "vi": [
+   "Bột nở ở nhiệt độ phòng ít nhất 12 và tối đa 24 giờ. Sau khi chia thành viên, bột nở thêm 45–60 phút trong lúc làm nóng lò. Làm nóng tấm thép ở 260 °C ít nhất 30 phút, và sau 6 phút nướng thì bật vỉ nướng trên trong 2–3 phút; nếu không có vỉ nướng trên, hãy nướng lâu hơn vài phút.",
+   "The Culinary Institute of America, công thức “Brioche”",
+   "Nhiệt độ và thời gian nướng brioche trong khuôn bánh mì."
+  ],
+  "ru": [
+   "Тесто подходит при комнатной температуре не меньше 12 и не больше 24 часов. После деления на шарики оно подходит ещё 45–60 минут, пока разогревается духовка. Разогревайте стальную плиту при 260 °C не менее 30 минут, а через 6 минут выпекания включите верхний гриль на 2–3 минуты; без гриля выпекайте на несколько минут дольше.",
+   "The Culinary Institute of America, рецепт «Brioche»",
+   "Температура и время выпекания бриоши в форме для хлеба."
+  ],
+  "ja": [
+   "生地は室温で最短12時間、最長24時間発酵させます。ボール状に分割したあと、オーブンを予熱する間にさらに45–60分発酵させます。ベーキングスチールは 260 °C で 30 分以上予熱し、6 分焼いたら上火のグリルを 2〜3 分つけます。グリルがない場合は数分長く焼きます。",
+   "The Culinary Institute of America、レシピ「Brioche」",
+   "パウンド型で焼くブリオッシュの温度と焼き時間。"
+  ],
+  "ko": [
+   "반죽은 실온에서 최소 12시간, 최대 24시간 부풀어요. 공 모양으로 분할한 뒤에는 오븐을 예열하는 동안 45–60분 더 부풀어요. 베이킹 스틸은 260 °C에서 30분 이상 예열하고, 6분 구운 뒤 윗불 그릴을 2~3분 켜세요. 그릴이 없으면 몇 분 더 구우세요.",
+   "The Culinary Institute of America, ‘Brioche’ 레시피",
+   "파운드 틀에 굽는 브리오슈의 온도와 굽는 시간."
+  ],
+  "zh-Hant": [
+   "麵團在室溫下發酵至少 12 小時、最多 24 小時。分割成麵球後，在烤箱預熱期間再發酵 45–60 分鐘。烤鋼板以 260 °C 預熱至少 30 分鐘，烤 6 分鐘後開啟上火烤架 2–3 分鐘；沒有上火烤架就多烤幾分鐘。",
+   "The Culinary Institute of America，食譜「Brioche」",
+   "用磅蛋糕模烤布里歐的溫度與時間。"
+  ]
+ }
+}

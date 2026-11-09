@@ -1,0 +1,311 @@
+{
+ "_opis": "Przekład 7 kluczy kanonu nazw mąk M1-audytor-generalny-041 (D-307): reguła D-307 (przekład zboża + „polski typ” + numer typu z klucza PL, nazwa handlowa po polsku, „razowa” tylko dla pszennej 2000), te same nazwy co poprawki „D-307” starych kluczy w docs/lokalizacja/poprawki-przekladu.json (jedna mąka = jedna nazwa); terminy zbóż jak istniejący przekład; MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09); drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06).",
+ "pl": [
+  "Mąka orkiszowa typ 630",
+  "Mąka pszenna typ 750 (chlebowa)",
+  "Mąka pszenna typ 1850 (graham)",
+  "Mąka pszenna typ 550 (luksusowa)",
+  "Mąka pszenna typ 450 (tortowa)",
+  "Mąka pszenna typ 500 (wrocławska)",
+  "Mąka pszenna typ 650 (bułkowa)"
+ ],
+ "jezyki": {
+  "cs": [
+   "Špaldová mouka (polský typ 630)",
+   "Pšeničná mouka (polský typ 750, chlebowa)",
+   "Pšeničná mouka (polský typ 1850, graham)",
+   "Pšeničná mouka (polský typ 550, luksusowa)",
+   "Pšeničná mouka (polský typ 450, tortowa)",
+   "Pšeničná mouka (polský typ 500, wrocławska)",
+   "Pšeničná mouka (polský typ 650, bułkowa)"
+  ],
+  "sk": [
+   "Špaldová múka (poľský typ 630)",
+   "Pšeničná múka (poľský typ 750, chlebowa)",
+   "Pšeničná múka (poľský typ 1850, graham)",
+   "Pšeničná múka (poľský typ 550, luksusowa)",
+   "Pšeničná múka (poľský typ 450, tortowa)",
+   "Pšeničná múka (poľský typ 500, wrocławska)",
+   "Pšeničná múka (poľský typ 650, bułkowa)"
+  ],
+  "hu": [
+   "Tönkölyliszt (lengyel típus 630)",
+   "Búzaliszt (lengyel típus 750, chlebowa)",
+   "Búzaliszt (lengyel típus 1850, graham)",
+   "Búzaliszt (lengyel típus 550, luksusowa)",
+   "Búzaliszt (lengyel típus 450, tortowa)",
+   "Búzaliszt (lengyel típus 500, wrocławska)",
+   "Búzaliszt (lengyel típus 650, bułkowa)"
+  ],
+  "ro": [
+   "Făină de spelt (tip polonez 630)",
+   "Făină de grâu (tip polonez 750, chlebowa)",
+   "Făină de grâu (tip polonez 1850, graham)",
+   "Făină de grâu (tip polonez 550, luksusowa)",
+   "Făină de grâu (tip polonez 450, tortowa)",
+   "Făină de grâu (tip polonez 500, wrocławska)",
+   "Făină de grâu (tip polonez 650, bułkowa)"
+  ],
+  "bg": [
+   "Брашно от лимец (полски тип 630)",
+   "Пшенично брашно (полски тип 750, chlebowa)",
+   "Пшенично брашно (полски тип 1850, graham)",
+   "Пшенично брашно (полски тип 550, luksusowa)",
+   "Пшенично брашно (полски тип 450, tortowa)",
+   "Пшенично брашно (полски тип 500, wrocławska)",
+   "Пшенично брашно (полски тип 650, bułkowa)"
+  ],
+  "hr": [
+   "Pirovo brašno (poljski tip 630)",
+   "Pšenično brašno (poljski tip 750, chlebowa)",
+   "Pšenično brašno (poljski tip 1850, graham)",
+   "Pšenično brašno (poljski tip 550, luksusowa)",
+   "Pšenično brašno (poljski tip 450, tortowa)",
+   "Pšenično brašno (poljski tip 500, wrocławska)",
+   "Pšenično brašno (poljski tip 650, bułkowa)"
+  ],
+  "sl": [
+   "Pirina moka (poljski tip 630)",
+   "Pšenična moka (poljski tip 750, chlebowa)",
+   "Pšenična moka (poljski tip 1850, graham)",
+   "Pšenična moka (poljski tip 550, luksusowa)",
+   "Pšenična moka (poljski tip 450, tortowa)",
+   "Pšenična moka (poljski tip 500, wrocławska)",
+   "Pšenična moka (poljski tip 650, bułkowa)"
+  ],
+  "sr": [
+   "Брашно од спелте (пољски тип 630)",
+   "Пшенично брашно (пољски тип 750, chlebowa)",
+   "Пшенично брашно (пољски тип 1850, graham)",
+   "Пшенично брашно (пољски тип 550, luksusowa)",
+   "Пшенично брашно (пољски тип 450, tortowa)",
+   "Пшенично брашно (пољски тип 500, wrocławska)",
+   "Пшенично брашно (пољски тип 650, bułkowa)"
+  ],
+  "lt": [
+   "Speltos miltai (Lenkijos tipas 630)",
+   "Kvietiniai miltai (Lenkijos tipas 750, chlebowa)",
+   "Kvietiniai miltai (Lenkijos tipas 1850, graham)",
+   "Kvietiniai miltai (Lenkijos tipas 550, luksusowa)",
+   "Kvietiniai miltai (Lenkijos tipas 450, tortowa)",
+   "Kvietiniai miltai (Lenkijos tipas 500, wrocławska)",
+   "Kvietiniai miltai (Lenkijos tipas 650, bułkowa)"
+  ],
+  "lv": [
+   "Speltas milti (Polijas tips 630)",
+   "Kviešu milti (Polijas tips 750, chlebowa)",
+   "Kviešu milti (Polijas tips 1850, graham)",
+   "Kviešu milti (Polijas tips 550, luksusowa)",
+   "Kviešu milti (Polijas tips 450, tortowa)",
+   "Kviešu milti (Polijas tips 500, wrocławska)",
+   "Kviešu milti (Polijas tips 650, bułkowa)"
+  ],
+  "et": [
+   "Speltajahu (Poola tüüp 630)",
+   "Nisujahu (Poola tüüp 750, chlebowa)",
+   "Nisujahu (Poola tüüp 1850, graham)",
+   "Nisujahu (Poola tüüp 550, luksusowa)",
+   "Nisujahu (Poola tüüp 450, tortowa)",
+   "Nisujahu (Poola tüüp 500, wrocławska)",
+   "Nisujahu (Poola tüüp 650, bułkowa)"
+  ],
+  "uk": [
+   "Спельтове борошно (польський тип 630)",
+   "Пшеничне борошно (польський тип 750, chlebowa)",
+   "Пшеничне борошно (польський тип 1850, graham)",
+   "Пшеничне борошно (польський тип 550, luksusowa)",
+   "Пшеничне борошно (польський тип 450, tortowa)",
+   "Пшеничне борошно (польський тип 500, wrocławska)",
+   "Пшеничне борошно (польський тип 650, bułkowa)"
+  ],
+  "es": [
+   "Harina de espelta (tipo polaco 630)",
+   "Harina de trigo (tipo polaco 750, chlebowa)",
+   "Harina de trigo (tipo polaco 1850, graham)",
+   "Harina de trigo (tipo polaco 550, luksusowa)",
+   "Harina de trigo (tipo polaco 450, tortowa)",
+   "Harina de trigo (tipo polaco 500, wrocławska)",
+   "Harina de trigo (tipo polaco 650, bułkowa)"
+  ],
+  "es-419": [
+   "Harina de espelta (tipo polaco 630)",
+   "Harina de trigo (tipo polaco 750, chlebowa)",
+   "Harina de trigo (tipo polaco 1850, graham)",
+   "Harina de trigo (tipo polaco 550, luksusowa)",
+   "Harina de trigo (tipo polaco 450, tortowa)",
+   "Harina de trigo (tipo polaco 500, wrocławska)",
+   "Harina de trigo (tipo polaco 650, bułkowa)"
+  ],
+  "pt": [
+   "Farinha de espelta (tipo polaco 630)",
+   "Farinha de trigo (tipo polaco 750, chlebowa)",
+   "Farinha de trigo (tipo polaco 1850, graham)",
+   "Farinha de trigo (tipo polaco 550, luksusowa)",
+   "Farinha de trigo (tipo polaco 450, tortowa)",
+   "Farinha de trigo (tipo polaco 500, wrocławska)",
+   "Farinha de trigo (tipo polaco 650, bułkowa)"
+  ],
+  "pt-BR": [
+   "Farinha de espelta (tipo polonês 630)",
+   "Farinha de trigo (tipo polonês 750, chlebowa)",
+   "Farinha de trigo (tipo polonês 1850, graham)",
+   "Farinha de trigo (tipo polonês 550, luksusowa)",
+   "Farinha de trigo (tipo polonês 450, tortowa)",
+   "Farinha de trigo (tipo polonês 500, wrocławska)",
+   "Farinha de trigo (tipo polonês 650, bułkowa)"
+  ],
+  "de": [
+   "Dinkelmehl (polnischer Typ 630)",
+   "Weizenmehl (polnischer Typ 750, chlebowa)",
+   "Weizenmehl (polnischer Typ 1850, graham)",
+   "Weizenmehl (polnischer Typ 550, luksusowa)",
+   "Weizenmehl (polnischer Typ 450, tortowa)",
+   "Weizenmehl (polnischer Typ 500, wrocławska)",
+   "Weizenmehl (polnischer Typ 650, bułkowa)"
+  ],
+  "fr": [
+   "Farine d’épeautre (type polonais 630)",
+   "Farine de blé (type polonais 750, chlebowa)",
+   "Farine de blé (type polonais 1850, graham)",
+   "Farine de blé (type polonais 550, luksusowa)",
+   "Farine de blé (type polonais 450, tortowa)",
+   "Farine de blé (type polonais 500, wrocławska)",
+   "Farine de blé (type polonais 650, bułkowa)"
+  ],
+  "it": [
+   "Farina di farro spelta (tipo polacco 630)",
+   "Farina di frumento (tipo polacco 750, chlebowa)",
+   "Farina di frumento (tipo polacco 1850, graham)",
+   "Farina di frumento (tipo polacco 550, luksusowa)",
+   "Farina di frumento (tipo polacco 450, tortowa)",
+   "Farina di frumento (tipo polacco 500, wrocławska)",
+   "Farina di frumento (tipo polacco 650, bułkowa)"
+  ],
+  "nl": [
+   "Speltmeel (Pools type 630)",
+   "Tarwemeel (Pools type 750, chlebowa)",
+   "Tarwemeel (Pools type 1850, graham)",
+   "Tarwemeel (Pools type 550, luksusowa)",
+   "Tarwemeel (Pools type 450, tortowa)",
+   "Tarwemeel (Pools type 500, wrocławska)",
+   "Tarwemeel (Pools type 650, bułkowa)"
+  ],
+  "sv": [
+   "Dinkelmjöl (polsk typ 630)",
+   "Vetemjöl (polsk typ 750, chlebowa)",
+   "Vetemjöl (polsk typ 1850, graham)",
+   "Vetemjöl (polsk typ 550, luksusowa)",
+   "Vetemjöl (polsk typ 450, tortowa)",
+   "Vetemjöl (polsk typ 500, wrocławska)",
+   "Vetemjöl (polsk typ 650, bułkowa)"
+  ],
+  "da": [
+   "Speltmel (polsk type 630)",
+   "Hvedemel (polsk type 750, chlebowa)",
+   "Hvedemel (polsk type 1850, graham)",
+   "Hvedemel (polsk type 550, luksusowa)",
+   "Hvedemel (polsk type 450, tortowa)",
+   "Hvedemel (polsk type 500, wrocławska)",
+   "Hvedemel (polsk type 650, bułkowa)"
+  ],
+  "nb": [
+   "Speltmel (polsk type 630)",
+   "Hvetemel (polsk type 750, chlebowa)",
+   "Hvetemel (polsk type 1850, graham)",
+   "Hvetemel (polsk type 550, luksusowa)",
+   "Hvetemel (polsk type 450, tortowa)",
+   "Hvetemel (polsk type 500, wrocławska)",
+   "Hvetemel (polsk type 650, bułkowa)"
+  ],
+  "fi": [
+   "Spelttijauho (puolalainen tyyppi 630)",
+   "Vehnäjauho (puolalainen tyyppi 750, chlebowa)",
+   "Vehnäjauho (puolalainen tyyppi 1850, graham)",
+   "Vehnäjauho (puolalainen tyyppi 550, luksusowa)",
+   "Vehnäjauho (puolalainen tyyppi 450, tortowa)",
+   "Vehnäjauho (puolalainen tyyppi 500, wrocławska)",
+   "Vehnäjauho (puolalainen tyyppi 650, bułkowa)"
+  ],
+  "tr": [
+   "Kavılca unu (Polonya tipi 630)",
+   "Buğday unu (Polonya tipi 750, chlebowa)",
+   "Buğday unu (Polonya tipi 1850, graham)",
+   "Buğday unu (Polonya tipi 550, luksusowa)",
+   "Buğday unu (Polonya tipi 450, tortowa)",
+   "Buğday unu (Polonya tipi 500, wrocławska)",
+   "Buğday unu (Polonya tipi 650, bułkowa)"
+  ],
+  "el": [
+   "Αλεύρι ζέας (πολωνικός τύπος 630)",
+   "Αλεύρι σίτου (πολωνικός τύπος 750, chlebowa)",
+   "Αλεύρι σίτου (πολωνικός τύπος 1850, graham)",
+   "Αλεύρι σίτου (πολωνικός τύπος 550, luksusowa)",
+   "Αλεύρι σίτου (πολωνικός τύπος 450, tortowa)",
+   "Αλεύρι σίτου (πολωνικός τύπος 500, wrocławska)",
+   "Αλεύρι σίτου (πολωνικός τύπος 650, bułkowa)"
+  ],
+  "id": [
+   "Tepung spelt (tipe Polandia 630)",
+   "Tepung terigu (tipe Polandia 750, chlebowa)",
+   "Tepung terigu (tipe Polandia 1850, graham)",
+   "Tepung terigu (tipe Polandia 550, luksusowa)",
+   "Tepung terigu (tipe Polandia 450, tortowa)",
+   "Tepung terigu (tipe Polandia 500, wrocławska)",
+   "Tepung terigu (tipe Polandia 650, bułkowa)"
+  ],
+  "ms": [
+   "Tepung spelt (jenis Poland 630)",
+   "Tepung gandum (jenis Poland 750, chlebowa)",
+   "Tepung gandum (jenis Poland 1850, graham)",
+   "Tepung gandum (jenis Poland 550, luksusowa)",
+   "Tepung gandum (jenis Poland 450, tortowa)",
+   "Tepung gandum (jenis Poland 500, wrocławska)",
+   "Tepung gandum (jenis Poland 650, bułkowa)"
+  ],
+  "vi": [
+   "Bột mì spelt (loại Ba Lan 630)",
+   "Bột mì (loại Ba Lan 750, chlebowa)",
+   "Bột mì (loại Ba Lan 1850, graham)",
+   "Bột mì (loại Ba Lan 550, luksusowa)",
+   "Bột mì (loại Ba Lan 450, tortowa)",
+   "Bột mì (loại Ba Lan 500, wrocławska)",
+   "Bột mì (loại Ba Lan 650, bułkowa)"
+  ],
+  "ru": [
+   "Полбяная мука (польский тип 630)",
+   "Пшеничная мука (польский тип 750, chlebowa)",
+   "Пшеничная мука (польский тип 1850, graham)",
+   "Пшеничная мука (польский тип 550, luksusowa)",
+   "Пшеничная мука (польский тип 450, tortowa)",
+   "Пшеничная мука (польский тип 500, wrocławska)",
+   "Пшеничная мука (польский тип 650, bułkowa)"
+  ],
+  "ja": [
+   "スペルト小麦粉（ポーランド規格タイプ630）",
+   "小麦粉（ポーランド規格タイプ750、chlebowa）",
+   "小麦粉（ポーランド規格タイプ1850、graham）",
+   "小麦粉（ポーランド規格タイプ550、luksusowa）",
+   "小麦粉（ポーランド規格タイプ450、tortowa）",
+   "小麦粉（ポーランド規格タイプ500、wrocławska）",
+   "小麦粉（ポーランド規格タイプ650、bułkowa）"
+  ],
+  "ko": [
+   "스펠트 밀가루 (폴란드 타입 630)",
+   "밀가루 (폴란드 타입 750, chlebowa)",
+   "밀가루 (폴란드 타입 1850, graham)",
+   "밀가루 (폴란드 타입 550, luksusowa)",
+   "밀가루 (폴란드 타입 450, tortowa)",
+   "밀가루 (폴란드 타입 500, wrocławska)",
+   "밀가루 (폴란드 타입 650, bułkowa)"
+  ],
+  "zh-Hant": [
+   "斯佩爾特小麥粉（波蘭類型 630）",
+   "小麥麵粉（波蘭類型 750，chlebowa）",
+   "小麥麵粉（波蘭類型 1850，graham）",
+   "小麥麵粉（波蘭類型 550，luksusowa）",
+   "小麥麵粉（波蘭類型 450，tortowa）",
+   "小麥麵粉（波蘭類型 500，wrocławska）",
+   "小麥麵粉（波蘭類型 650，bułkowa）"
+  ]
+ }
+}

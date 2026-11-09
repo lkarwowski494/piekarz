@@ -9,6 +9,9 @@ import { EN } from '../src/lib/i18n.en';
 import { getAllSupportedLocaleCodes } from '../src/lib/i18n-locales';
 
 const root = path.join(__dirname, '..');
+/** 15 kluczy dawnych wyjątków „noc / D-126” (14) i „noc / D-132” (1), przełożone w 014 (przeklad-m2-014-2026-11-09.json). */
+const KLUCZE_014: string[] = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/przeklad-m2-014-2026-11-09.json'), 'utf8')).pl;
+
 const KLUCZE = [
   'Jaskinie (Niedofermentowany)',
   'Płaski dysk (Przerośnięty)',
@@ -42,23 +45,19 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // Przebieg a5 (M1, 2026-10-23: batche a5, a5b, a5c, 164 klucze × 33 języki, walidacja 0 braków) wpięty przez M3;
   // wyjątki a1b, D-13, 216, P-a/P-b, PRZ, D10, W-fix2 i toru T (F-71, 217) usunięte razem z wpisami listy.
   // Przebieg a5d (M3 T2, D-123: 175 kluczy × 33 języki, M1 2026-10-28) wpięty 2026-10-29; wyjątek „T2 / a5d” usunięty.
-  // Wyjątek „noc / D-126” (rola 06, 2026-11-02): 14 kluczy z przywróconym zakresem źródła czeka na przekład;
-  // usunąć razem z wpisami listy po następnym przebiegu przekładu.
-  // Wyjątek „noc / D-132” (rola 08, 2026-11-02): 1 klucz streszczenia polityki prywatności (BR-UST-003), EN do czasu przekładu.
-  // Wyjątek „M2 p2 / 014” (rola 08, 2026-11-09): nowe klucze treści D-303…D-307 wpinane w krokach 1–5 tej samej gałęzi
-  // czekają na przekład kroku 6 (M1-audytor-generalny-014); usunąć razem z wpisami i wyjątkami D-126 i D-132.
-  it('lista czekających na przekład jest pusta (po przebiegach a5 i a5d) poza wyjątkami „noc / D-126”, „noc / D-132” i „M2 p2 / 014”', () => {
+  // Mały przebieg M2 p2 (2026-11-09, M1-audytor-generalny-014; 09-lokalizacja-005): 15 kluczy „noc / D-126” i
+  // „noc / D-132” oraz nowe klucze D-303…D-307 przełożone (docs/lokalizacja/przeklad-m2-*-2026-11-09.json);
+  // wyjątki „noc / D-126”, „noc / D-132” i „M2 p2 / 014” usunięte — lista bez wyjątków.
+  it('lista czekających na przekład jest pusta, bez wyjątków (po małym przebiegu M2 p2, 014)', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8').replace(/^\uFEFF/, ''));
-    const wpisy = j.klucze as { klucz: string; powod: string }[];
-    const d125 = wpisy.filter((x) => x.powod.includes('[D-126]'));
-    expect(d125).toHaveLength(14);
-    expect(d125.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
-    const d132 = wpisy.filter((x) => x.powod.includes('[D-132]'));
-    expect(d132).toHaveLength(1);
-    expect(d132.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
-    const m2 = wpisy.filter((x) => x.powod.includes('[M2-p2-014]'));
-    expect(m2.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
-    expect(wpisy.filter((x) => !x.powod.includes('[D-126]') && !x.powod.includes('[D-132]') && !x.powod.includes('[M2-p2-014]')).map((x) => x.klucz)).toEqual([]);
+    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz)).toEqual([]);
+  });
+
+  // 014: 15 kluczy z dawnych wyjątków D-126 i D-132 mają w każdym z 33 języków własny tekst, nie angielski
+  it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: 15 kluczy 014 ma własny tekst', (kod) => {
+    const s = slownik(kod);
+    const brak = KLUCZE_014.filter((k) => !s.get(k) || s.get(k) === EN[k]);
+    expect(brak).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {
