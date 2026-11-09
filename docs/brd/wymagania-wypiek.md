@@ -14,12 +14,20 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Zakładając, że suma czasów etapów jest dłuższa niż czas do wybranej godziny
     - Gdy użytkownik zatwierdza plan
     - Wtedy widzi, że plan nie zdąży, i najwcześniejszą możliwą godzinę „gotowe”
-  - Scenariusz: Plan dla receptury drożdżowej i wersji drożdżowej
-    - Zakładając, że receptura jest drożdżowa albo przełączona na drożdże (BR-RECP-005), a etapy mają czasy z receptury
+  - Scenariusz: Plan dla wersji drożdżowej
+    - Zakładając, że receptura na zakwasie jest przełączona na drożdże (BR-RECP-005), a jej wersja ma czasy etapów ze źródła (w 1.0: chleb graham, chleb żytni 100% w formie, chleb o hydratacji 80%; `src/recipes/yeast-stages.ts`)
     - Gdy użytkownik wybiera godzinę „chleb gotowy”
-    - Wtedy widzi plan z krokami mieszanie, wyrabianie, pierwsze rośnięcie, odgazowanie, kształtowanie, drugie rośnięcie i pieczenie (rejestr roli 06 DRO-MOD-016) z czasami z receptury, a nie komunikat, że plan jest tylko dla chleba na zakwasie (D-155, D-174)
+    - Wtedy widzi plan z krokami mieszanie, wyrabianie, pierwsze rośnięcie, odgazowanie, kształtowanie, drugie rośnięcie i pieczenie (rejestr roli 06 DRO-MOD-016) z czasami z receptury, a nie komunikat, że plan jest tylko dla chleba na zakwasie (D-155, D-174, D-312)
+  - Scenariusz: Wersja drożdżowa bez podziału czasu na etapy
+    - Zakładając, że receptura na zakwasie jest przełączona na drożdże, a źródło jej wersji nie dzieli czasu na etapy (chleb orkiszowy: ok. 3 h od zarobienia do pieca, DRO-WER-SP-001)
+    - Gdy użytkownik otwiera plan
+    - Wtedy „Ułóż plan” jest nieaktywne, a użytkownik widzi powód „Plan dla tej receptury na drożdżach czeka na czasy etapów. Ilości i wskazówki są wyżej.” (D-257)
+  - Scenariusz: Receptura drożdżowa z katalogu w 1.0
+    - Zakładając, że receptura z katalogu nie ma zakwasu ani wersji na zakwasie (np. chałka, bagietka, pizza)
+    - Gdy użytkownik otwiera plan
+    - Wtedy „Ułóż plan” jest nieaktywne, a użytkownik widzi powód „Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.” (D-312 pkt 3; plan dla receptur drożdżowych z katalogu: backlog 1.0.1, czasy etapów [DO USTALENIA] (OP-74))
   - Scenariusz: Temperatura nie zmienia czasów drożdżowych
-    - Zakładając, że plan dotyczy receptury drożdżowej
+    - Zakładając, że plan dotyczy wersji drożdżowej z czasami etapów
     - Gdy użytkownik zmienia temperaturę w kuchni z 20 °C na 26 °C
     - Wtedy czasy etapów zostają te z receptury, bez przeliczenia temperaturą i ilością drożdży (D-174; model RD-17 tylko dla zakwasu); który koniec przedziału czasu z receptury bierze plan: [DO WYJAŚNIENIA] (OP-70)
 
