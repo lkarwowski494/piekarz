@@ -45,12 +45,13 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
       targetDoughWeightGrams: 1000,
     },
     targetDDT: 23.0,
+    // 260 °C, 0 + 6 min na stali, grill 2–3 min w notesPl: PIE-PIZ-001 (D-303) [M1-audytor-generalny-009]
     bakeTimeSteamMinutes: 0,
-    bakeTimeBrowningMinutes: 2,
-    bakeTempSteamC: 450,
-    bakeTempBrowningC: 450,
+    bakeTimeBrowningMinutes: 6,
+    bakeTempSteamC: 260,
+    bakeTempBrowningC: 260,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
+    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.',
   },
   {
     id: 'sweet_chalka',

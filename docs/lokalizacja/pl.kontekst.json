@@ -900,10 +900,13 @@
     "gdzie": []
   },
   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
+    "gdzie": [],
+    "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
-    ],
-    "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+    ]
   },
   "Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi.": {
     "gdzie": [
@@ -7263,6 +7266,11 @@
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
   },
+  "Temperatura i czas pieczenia brioszki w keksówce.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
@@ -7364,6 +7372,11 @@
   "Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "The Culinary Institute of America, przepis „Brioche”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "To ostatnie rośnięcie ciasta przed pieczeniem.": {

@@ -10,6 +10,7 @@ Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnęt
 ## pizza_napoletana_48h.notesPl
 Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. [T:DRO-PIZ-002]
 Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. [T:DRO-PIZ-002]
+Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej. [T:PIE-PIZ-001]
 
 ## baguette_tradition_poolish.descriptionPl
 Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. [T:DRO-BAG-001]

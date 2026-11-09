@@ -45,7 +45,9 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // Wyjątek „noc / D-126” (rola 06, 2026-11-02): 14 kluczy z przywróconym zakresem źródła czeka na przekład;
   // usunąć razem z wpisami listy po następnym przebiegu przekładu.
   // Wyjątek „noc / D-132” (rola 08, 2026-11-02): 1 klucz streszczenia polityki prywatności (BR-UST-003), EN do czasu przekładu.
-  it('lista czekających na przekład jest pusta (po przebiegach a5 i a5d) poza wyjątkami „noc / D-126” i „noc / D-132”', () => {
+  // Wyjątek „M2 p2 / 014” (rola 08, 2026-11-09): nowe klucze treści D-303…D-307 wpinane w krokach 1–5 tej samej gałęzi
+  // czekają na przekład kroku 6 (M1-audytor-generalny-014); usunąć razem z wpisami i wyjątkami D-126 i D-132.
+  it('lista czekających na przekład jest pusta (po przebiegach a5 i a5d) poza wyjątkami „noc / D-126”, „noc / D-132” i „M2 p2 / 014”', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8').replace(/^\uFEFF/, ''));
     const wpisy = j.klucze as { klucz: string; powod: string }[];
     const d125 = wpisy.filter((x) => x.powod.includes('[D-126]'));
@@ -54,7 +56,9 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     const d132 = wpisy.filter((x) => x.powod.includes('[D-132]'));
     expect(d132).toHaveLength(1);
     expect(d132.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
-    expect(wpisy.filter((x) => !x.powod.includes('[D-126]') && !x.powod.includes('[D-132]')).map((x) => x.klucz)).toEqual([]);
+    const m2 = wpisy.filter((x) => x.powod.includes('[M2-p2-014]'));
+    expect(m2.filter((x) => typeof EN[x.klucz] !== 'string')).toEqual([]);
+    expect(wpisy.filter((x) => !x.powod.includes('[D-126]') && !x.powod.includes('[D-132]') && !x.powod.includes('[M2-p2-014]')).map((x) => x.klucz)).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {

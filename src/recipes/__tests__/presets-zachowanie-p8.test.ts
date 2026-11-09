@@ -20,7 +20,16 @@ describe('M3 p8: 15 istniejących receptur bazowych bez zmian po podziale moduł
   });
 
   it('treść wszystkich 15 receptur jest bajt w bajt taka jak przed podziałem (sha256)', () => {
-    const odcisk = createHash('sha256').update(JSON.stringify(MASTER_RECIPES)).digest('hex');
+    // Zmiany pól z decyzji po podziale, wyliczone jawnie: odcisk liczy się na danych z cofniętymi tylko tymi polami,
+    // więc każda inna zmiana dalej go psuje. D-303 (pizza, PIE-PIZ-001) [M1-audytor-generalny-009].
+    const PRZED_DECYZJAMI: Record<string, Record<string, unknown>> = {
+      pizza_napoletana_48h: {
+        bakeTimeBrowningMinutes: 2, bakeTempSteamC: 450, bakeTempBrowningC: 450,
+        notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
+      },
+    };
+    const przed = MASTER_RECIPES.map((r) => ({ ...r, ...PRZED_DECYZJAMI[r.id] }));
+    const odcisk = createHash('sha256').update(JSON.stringify(przed)).digest('hex');
     expect(odcisk).toBe('2b3ef868a1b9b86e9924266da1f8aa0cb3d8afd90dea906c69134413e81e960b');
   });
 

@@ -10,6 +10,7 @@ Neapolitan-style pizza dough with a crisp edge and a tender inside. [T:-]
 ## pizza_napoletana_48h.notesPl
 The dough rises at room temperature for at least 12 and at most 24 hours. [T:DRO-PIZ-002]
 Once divided into balls, it rises another 45–60 minutes while the oven heats up. [T:DRO-PIZ-002]
+Heat the steel at 260 °C for at least 30 minutes, and after 6 minutes of baking turn on the top broiler for 2–3 minutes; without a broiler, bake a few minutes longer. [T:PIE-PIZ-001]
 
 ## baguette_tradition_poolish.descriptionPl
 French baguette made with a poolish that ripens for about 14 hours. [T:DRO-BAG-001]

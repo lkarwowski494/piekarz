@@ -221,6 +221,12 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         adres: 'assets.publishing.service.gov.uk',
       },
       {
+        // D-304 (PIE-BRI-001): pieczenie brioszki w keksówce (docs/tresci/pl/pieczenie-receptur.md) [M1-audytor-generalny-009]
+        nazwa: 'The Culinary Institute of America, przepis „Brioche”',
+        opis: 'Temperatura i czas pieczenia brioszki w keksówce.',
+        adres: 'ciafoodies.com',
+      },
+      {
         nazwa: 'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”',
         opis: 'Przepisy na chleby foremkowe, bułki mleczne, słodkie bułeczki i wieniec cynamonowy.',
         adres: '4h.extension.illinois.edu',

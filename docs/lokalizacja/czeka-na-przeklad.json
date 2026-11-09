@@ -75,6 +75,21 @@
       "klucz": "Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.",
       "powod": "zakres źródła przywrócony po przeglądzie T2 (rola 06, noc 2026-11-02, T2-NIEKRYT, ZAK-SZC-002; stary klucz usunięty ze słowników 33 języków) [D-126]",
       "od": "2026-11-02"
+    },
+    {
+      "klucz": "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.",
+      "powod": "nowy klucz PL z treści roli 06 (D-303, D-304) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "The Culinary Institute of America, przepis „Brioche”",
+      "powod": "nowy klucz PL z treści roli 06 (D-303, D-304) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Temperatura i czas pieczenia brioszki w keksówce.",
+      "powod": "nowy klucz PL z treści roli 06 (D-303, D-304) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
     }
   ],
   "zamkniete": {
