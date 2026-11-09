@@ -3,8 +3,8 @@
  * drożdżowej z czasami z receptury, temperatura w kuchni nie zmienia czasów (D-155, D-174), gotowość ciasta
  * na krokach rośnięcia (DRO-MOD-013, DRO-MOD-016). Wpisy „kod blokuje plan bez zakwasu” / „prowadzenie nie istnieje”
  * w scripts/br-wyjatki.json były nieaktualne (07-jakosc-006) [M1-audytor-generalny-070].
- * Bez testu (wpis „czesciowe” BR-HARMO-001): receptury drożdżowe z katalogu (np. bagietka) nadal nie mają planu, orkisz
- * na drożdżach też nie. Gotowość ciasta drożdżowego: oba kroki rośnięcia mówią o wskazówce czasu i o teście palca
+ * Receptury drożdżowe z katalogu (np. bagietka) i orkisz na drożdżach nie mają planu w 1.0 (ER-83): testy z ID
+ * w br-harmo-001-stan-1-0-er83.test.tsx, razem z żytem 100% [07-przek-1]. Gotowość ciasta drożdżowego: oba kroki rośnięcia mówią o wskazówce czasu i o teście palca
  * [M2 D-312; 070-N2]; żyto ocenia powierzchnię ciasta (D-256).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
