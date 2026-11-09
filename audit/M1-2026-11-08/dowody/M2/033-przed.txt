@@ -1,0 +1,10 @@
+    ✕ sprawdzKopieBazy: zdrowa kopia „ok”, uszkodzona „bledy”, pusta baza „pusta” (218 ms)
+    ✕ kopia przed migracją (baza 1021 → v7) ma obok plik z wynikiem sprawdzenia „ok” (45 ms)
+    ✕ pakiet do udostępnienia niesie pole „sprawdzenie” z wynikiem dla surowej kopii (25 ms)
+    Cannot find module '../../lib/sprawdzenie-kopii' from 'src/data/__tests__/sprawdzenie-kopii-033.sqlite.test.ts'
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+    - Expected  -  2
+    + Received  + 10
+Tests:       3 failed, 3 total

@@ -1,0 +1,3 @@
+    ✕ sprawdzenie nie zmienia sprawdzanej kopii: plik -wal zostaje, .db bez zmian (kopia robocza w Caches) (196 ms)
+    Expected: true
+    Received: false

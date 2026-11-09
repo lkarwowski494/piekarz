@@ -1,0 +1,4 @@
+[test-matrix] Wyniki: 1656/1656 elementów (100%)
+Test Suites: 593 passed, 593 total
+Tests:       6091 passed, 6091 total
+npm run verify: kod 0 (po git add)

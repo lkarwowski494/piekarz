@@ -1,0 +1,195 @@
+FAIL tests/architektura-dokumenty-024.test.ts
+  024: ADR-005 i §2.1 bez fałszywej ochrony przed 0xdead10cc, z zasadą Apple i sposobem sprawdzenia
+    ✕ ADR-005 zastąpiony przez ADR-010 i bez twierdzenia o ochronie (2 ms)
+    ✕ §2.1 system-architecture.md: pragmy z kodu, bez ochrony przez WAL/busy_timeout, odsyłacz do ADR-010 (1 ms)
+    ✕ ADR-010: cytat Apple z adresem i datą odczytu, sekcja Potwierdzenie ze sposobem sprawdzenia
+  024: ADR-003 zastąpione; polityka migracji z 12 krokami i testem kaskady
+    ✕ ADR-003 zastąpiony przez ADR-009 (1 ms)
+    ✕ ADR-009 i §5: kolejność 12 kroków (klucze OFF przed BEGIN, foreign_key_check przed COMMIT) i test kaskady
+  024: budżety wydajności tylko z pomiarem
+    ✕ system-architecture.md, ADR-001, ADR-009, ADR-010 bez liczb czasu bez pomiaru
+
+  ● 024: ADR-005 i §2.1 bez fałszywej ochrony przed 0xdead10cc, z zasadą Apple i sposobem sprawdzenia › ADR-005 zastąpiony przez ADR-010 i bez twierdzenia o ochronie
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\*\*Status:\*\*[^\n]*zastąpion[^\n]*ADR-010/
+    Received string:  "# ADR-005: Architektura integracji z Apple Watch (watchOS 11 Standalone) i ochrona przed błędem iOS `0xDEAD10CC`·
+    **Status:** ACCEPTED; w części „alarmy w tle” (opcja A, pkt 2) zastąpiona przez ADR-006 (19.10.2026): powiadomienia w tle nie istniały w kodzie, kontrakt i sposób sprawdzenia są w ADR-006··
+    **Data:** 18.10.2026··
+    **Autor:** Principal System Architect··
+    **Kontekst:** Aplikacja na Apple Watch (watchOS 11) stanowi kluczowy wyróżnik rynkowy Piekarza (decyzja `DEC-03`), realizując obietnicę sterowania w kuchni bez dotykania telefonu (gest Double Tap, obrót cyfrową koronką Digital Crown). Jednocześnie w środowisku iOS / watchOS występuje krytyczne ryzyko awarii systemu `0xDEAD10CC`, gdy system zawiesza proces trzymający otwartą blokadę pliku bazy SQLite podczas przejścia w tło. Ponadto Apple rygorystycznie odrzuca aplikacje deklarujące tryb audio w tle (`UIBackgroundModes: [\"audio\"]`), jeśli aplikacja nie jest odtwarzaczem muzyki (wytyczna App Store Guideline 2.5.4).·
+    ---·
+    ## Rozważane Opcje·
+    ### Opcja A: SQLite WAL + `PRAGMA busy_timeout = 5000;` + Time-Sensitive Notifications bez trybu Audio w Tle (Rekomendowana)
+    - **Opis:**
+      1. **Konfiguracja Bazy SQLite:**
+         Wymuszenie trybu WAL oraz limitu oczekiwania:
+         ```sql
+         PRAGMA journal_mode = WAL;
+         PRAGMA busy_timeout = 5000;
+         PRAGMA synchronous = NORMAL;
+         ```
+         Dzięki `busy_timeout = 5000` procesy w tle nie crashują natychmiast przy rywalizacji wątków, a tryb WAL eliminuje blokowanie czytelników przez pisarzy.
+      2. **Eliminacja ryzyka Guideline 2.5.4:**
+         Całkowity brak wpisu `\"audio\"` w `UIBackgroundModes` w `app.json`. Dźwięki powiadomień i alarmy piecowe na stolnicy są odtwarzane za pomocą lokalnych powiadomień `UNNotificationSound` oraz syntetyzatora dźwięku PCM `expo-audio` wyłącznie w momencie, gdy aplikacja jest na pierwszym planie (`Keep-Awake`). W tle działają powiadomienia systemowe `Time-Sensitive` przebijające tryb Focus.
+      3. **Komunikacja z Apple Watch:**
+         Architektura Standalone Watch App z synchronizacją stanu przez `WatchConnectivity` (`WCSession.transferCurrentComplicationUserInfo` oraz `updateApplicationContext`). Zdarzenia z zegarka (Double Tap) zapisywane są w tabeli `pending_ops` i replikowane do iPhone'a.
+    - **Zalety:**
+      - 100% odporność na błąd `0xDEAD10CC`.
+      - Zero ryzyka odrzucenia w App Store Review z powodu nadużycia trybu audio w tle.
+      - Niezależne działanie zegarka, gdy użytkownik wyjdzie z kuchni do ogrodu bez iPhone'a.
+    - **Wady:** Alarmy w tle muszą opierać się na powiadomieniach systemowych iOS/watchOS.·
+    ### Opcja B: Trzymanie stałego odtwarzacza audio w tle
+    - **Opis:** Odtwarzanie cichego pliku audio w pętli, aby zapobiec uśpieniu aplikacji przez iOS.
+    - **Wady:** Kategorycznie odrzucone. Gwarantowane odrzucenie w App Store Review (Guideline 2.5.4), drastyczny drenaż baterii użytkownika.·
+    ---·
+    ## Decyzja i Uzasadnienie·
+    Wybieramy **Opcję A (WAL + busy_timeout 5000 + Time-Sensitive Notifications bez Background Audio)**.
+    Podejście to jest w 100% zgodne z oficjalnymi wytycznymi inżynieryjnymi Apple, chroni integralność bazy SQLite i zapewnia najwyższe standardy higieny baterii oraz bezpieczeństwa systemowego.·
+    ---·
+    ## Konsekwencje·
+    - **Pozytywne:**
+      - Zielone światło w automatycznych testach weryfikacji natywnej (`scripts/verify-native.mjs`).
+      - Bezpieczna praca w tle bez ryzyka ubicia procesu.
+    - **Negatywne:**
+      - Konieczność autoryzacji uprawnień powiadomień `UNAuthorizationOptionAlert | UNAuthorizationOptionSound`.
+    "
+
+      32 |   it('ADR-005 zastąpiony przez ADR-010 i bez twierdzenia o ochronie', () => {
+      33 |     const t = adr('005');
+    > 34 |     expect(t).toMatch(/\*\*Status:\*\*[^\n]*zastąpion[^\n]*ADR-010/);
+         |               ^
+      35 |     expect(t).not.toMatch(OCHRONA);
+      36 |     expect(t).not.toMatch(/100% odporność/);
+      37 |   });
+
+      at Object.toMatch (tests/architektura-dokumenty-024.test.ts:34:15)
+
+  ● 024: ADR-005 i §2.1 bez fałszywej ochrony przed 0xdead10cc, z zasadą Apple i sposobem sprawdzenia › §2.1 system-architecture.md: pragmy z kodu, bez ochrony przez WAL/busy_timeout, odsyłacz do ADR-010
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /^(?!.*\bnie\b).*(eliminuje|chroni|odporno|zapobiega|ochrona)[^\n]*0xdead10cc/im
+    Received string:      " Konfiguracja Pragmatyki SQLite
+    ```sql
+    PRAGMA foreign_keys = ON;
+    PRAGMA journal_mode = WAL;
+    PRAGMA synchronous = NORMAL;
+    PRAGMA busy_timeout = 5000;
+    PRAGMA temp_store = MEMORY;
+    PRAGMA cache_size = -64000; -- 64MB cache w RAM
+    ```
+    *Uwaga SRE:* Wartość `busy_timeout = 5000` wraz z trybem WAL eliminuje błąd systemu iOS `0xDEAD10CC`, zapobiegając ubiciu aplikacji podczas przechodzenia do stanu uśpienia.
+    "
+
+      39 |   it('§2.1 system-architecture.md: pragmy z kodu, bez ochrony przez WAL/busy_timeout, odsyłacz do ADR-010', () => {
+      40 |     const s21 = sekcja(arch(), '### 2.1', /\n### /);
+    > 41 |     expect(s21).not.toMatch(OCHRONA);
+         |                     ^
+      42 |     expect(s21).not.toMatch(ZDANIA_OCHRONY);
+      43 |     expect(s21).toContain('PRZYGOTOWANIE_MIGRACJI');
+      44 |     expect(s21).toContain('ADR-010');
+
+      at Object.toMatch (tests/architektura-dokumenty-024.test.ts:41:21)
+
+  ● 024: ADR-005 i §2.1 bez fałszywej ochrony przed 0xdead10cc, z zasadą Apple i sposobem sprawdzenia › ADR-010: cytat Apple z adresem i datą odczytu, sekcja Potwierdzenie ze sposobem sprawdzenia
+
+    brak ADR-010
+
+      13 | const adr = (nr: string) => {
+      14 |   const plik = readdirSync(adrDir).find((f) => f.startsWith(`ADR-${nr}_`));
+    > 15 |   if (!plik) throw new Error(`brak ADR-${nr}`);
+         |                    ^
+      16 |   return readFileSync(join(adrDir, plik), 'utf8');
+      17 | };
+      18 | const arch = () => readFileSync(join(root, 'docs', 'system-architecture.md'), 'utf8');
+
+      at adr (tests/architektura-dokumenty-024.test.ts:15:20)
+      at Object.adr (tests/architektura-dokumenty-024.test.ts:48:15)
+
+  ● 024: ADR-003 zastąpione; polityka migracji z 12 krokami i testem kaskady › ADR-003 zastąpiony przez ADR-009
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\*\*Status:\*\*[^\n]*zastąpion[^\n]*ADR-009/
+    Received string:  "# ADR-003: Protokół trwałości offline-first, kolejka zdarzeń `pending_ops` i standard T-012·
+    **Status:** ACCEPTED··
+    **Data:** 18.10.2026··
+    **Autor:** Principal System Architect··
+    **Kontekst:** Aplikacja działa w warunkach kuchennych, gdzie telefon może ulec rozładowaniu, uśpieniu lub zablokowaniu ekranu w trakcie trwającego procesu. Wymagania NFR (`NFR-DANE-001`, `NFR-DANE-002`) oraz decyzja `DEC-45` narzucają: pełną transakcyjność ACID, autokopię zapasową danych bochenków oraz asynchroniczny bufor operacji dla rozszerzeń systemowych (Apple Watch, Live Activity) bez ryzyka utraty stanu.·
+    ---·
+    ## Rozważane Opcje·
+    ### Opcja A: Relacyjna tabela `pending_ops` (Outbox Pattern) w SQLite + rotacyjna autokopia JSON (Rekomendowana)
+    - **Opis:**
+      1. Wszystkie kluczowe zapisy wielotabelowe (np. ukończenie bochenka: zapis w `bakes`, inkrementacja licznika w `app_access`, odliczenie w `flour_inventory`) wykonywane są w transakcji atomowej `BEGIN TRANSACTION; ... COMMIT;`.
+      2. Wprowadzenie tabeli `pending_ops` ze strukturą:
+         `CREATE TABLE IF NOT EXISTS pending_ops (id TEXT PRIMARY KEY, op_type TEXT NOT NULL, payload TEXT NOT NULL, created_at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'PENDING');`
+         Służy do buforowania zdarzeń wygenerowanych na stolnicy (np. odhaczenie coil fold, zmiana temperatury) dla aplikacji Apple Watch oraz widgetów Smart Stack.
+      3. Zgodnie ze standardem Apps4Craft T-012, po każdym zapisanym wypieku uruchamiany jest asynchroniczny zrzut całej bazy do pliku JSON w katalogu dokumentów z rotacją do 5 najświeższych kopii.
+    - **Zalety:**
+      - 100% odporność na awarie zasilania — transakcja SQLite albo wykonuje się w całości, albo cofa zmiany (Zero Partial Writes).
+      - W razie uszkodzenia pliku bazy mechanizm `CorruptStateRecoveryBanner` natychmiast odtwarza dane z najświeższego snapshotu JSON.
+      - Czysty wzorzec Outbox dla dwukierunkowej synchronizacji z Apple Watch.
+    - **Wady:** Minimalny narzut dyskowy na rotowane pliki JSON (~1.5 MB łącznie).·
+    ### Opcja B: Buforowanie w pamięci RAM / pliku tymczasowym
+    - **Opis:** Trzymanie kolejki zdarzeń w pamięci ulotnej i zapis do pliku dopiero przy wyjściu z aplikacji.
+    - **Wady:** Kategorycznie odrzucone. Ubicie aplikacji przez system iOS niszczy całą kolejkę zdarzeń.·
+    ---·
+    ## Decyzja i Uzasadnienie·
+    Wybieramy **Opcję A (Transakcyjny SQLite + tabela `pending_ops` + rotacyjna autokopia JSON)**.
+    Zapewnia to bezwzględną realizację **Aksjomatu 11 (Aksjomat Zerowej Utraty Danych)**. Użytkownik ma gwarancję, że jego lata zapisków wypiekowych, notatek z prób zakwasowych i profili smakowych nigdy nie znikną w wyniku błędu systemu.·
+    ---·
+    ## Konsekwencje·
+    - **Pozytywne:**
+      - Zgodność ze standardem inżynierskim Apps4Craft T-012.
+      - Gotowość architektoniczna pod bezproblemową integrację z Apple Watch (DEC-03, DEC-45) i Garminem (DEC-02).
+    - **Negatywne:**
+      - Wymóg czyszczenia przetworzonych rekordów z `pending_ops` (`DELETE FROM pending_ops WHERE status = 'SYNCED';`).
+    "
+
+      57 | describe('024: ADR-003 zastąpione; polityka migracji z 12 krokami i testem kaskady', () => {
+      58 |   it('ADR-003 zastąpiony przez ADR-009', () => {
+    > 59 |     expect(adr('003')).toMatch(/\*\*Status:\*\*[^\n]*zastąpion[^\n]*ADR-009/);
+         |                        ^
+      60 |   });
+      61 |
+      62 |   it('ADR-009 i §5: kolejność 12 kroków (klucze OFF przed BEGIN, foreign_key_check przed COMMIT) i test kaskady', () => {
+
+      at Object.toMatch (tests/architektura-dokumenty-024.test.ts:59:24)
+
+  ● 024: ADR-003 zastąpione; polityka migracji z 12 krokami i testem kaskady › ADR-009 i §5: kolejność 12 kroków (klucze OFF przed BEGIN, foreign_key_check przed COMMIT) i test kaskady
+
+    brak ADR-009
+
+      13 | const adr = (nr: string) => {
+      14 |   const plik = readdirSync(adrDir).find((f) => f.startsWith(`ADR-${nr}_`));
+    > 15 |   if (!plik) throw new Error(`brak ADR-${nr}`);
+         |                    ^
+      16 |   return readFileSync(join(adrDir, plik), 'utf8');
+      17 | };
+      18 | const arch = () => readFileSync(join(root, 'docs', 'system-architecture.md'), 'utf8');
+
+      at adr (tests/architektura-dokumenty-024.test.ts:15:20)
+      at Object.adr (tests/architektura-dokumenty-024.test.ts:63:22)
+
+  ● 024: budżety wydajności tylko z pomiarem › system-architecture.md, ADR-001, ADR-009, ADR-010 bez liczb czasu bez pomiaru
+
+    brak ADR-009
+
+      13 | const adr = (nr: string) => {
+      14 |   const plik = readdirSync(adrDir).find((f) => f.startsWith(`ADR-${nr}_`));
+    > 15 |   if (!plik) throw new Error(`brak ADR-${nr}`);
+         |                    ^
+      16 |   return readFileSync(join(adrDir, plik), 'utf8');
+      17 | };
+      18 | const arch = () => readFileSync(join(root, 'docs', 'system-architecture.md'), 'utf8');
+
+      at adr (tests/architektura-dokumenty-024.test.ts:15:20)
+      at Object.adr (tests/architektura-dokumenty-024.test.ts:78:104)
+
+Test Suites: 1 failed, 1 total
+Tests:       6 failed, 6 total
+Snapshots:   0 total
+Time:        0.766 s
+Ran all test suites matching /tests\/architektura-dokumenty-024/i.

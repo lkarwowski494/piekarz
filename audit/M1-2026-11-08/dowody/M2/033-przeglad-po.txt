@@ -1,0 +1,5 @@
+    ✓ sprawdzKopieBazy: zdrowa kopia „ok”, uszkodzona „bledy”, pusta baza „pusta” (245 ms)
+    ✓ sprawdzenie nie zmienia sprawdzanej kopii: plik -wal zostaje, .db bez zmian (kopia robocza w Caches) (18 ms)
+    ✓ kopia przed migracją (baza 1021 → v7) ma obok plik z wynikiem sprawdzenia „ok” (28 ms)
+    ✓ pakiet do udostępnienia niesie pole „sprawdzenie” z wynikiem dla surowej kopii (17 ms)
+Tests:       4 passed, 4 total

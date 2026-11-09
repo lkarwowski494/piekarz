@@ -1,0 +1,25 @@
+Źródła przeczytane 2026-11-09 (~07:15 UTC) przez curl, cytaty sprawdzone dosłownie w surowym tekście (grep po zdjęciu znaczników).
+
+[1] Apple, „SIGKILL” (Xcode, Diagnosing issues using crash reports), kod 0xdead10cc
+    adres strony: https://developer.apple.com/documentation/xcode/sigkill
+    surowe dane: https://developer.apple.com/tutorials/data/documentation/xcode/sigkill.json sha256 b202dd55ace21df67f583f9e7ffc6c43e54d44e11fe4ae7683daf5dc894faa40
+    cytat: The operating system terminated the app because it held on to a file lock or SQLite database lock during suspension. obecny: True
+    dalej w surowym JSON: The operating system terminated the app because it held on to a file lock or SQLite database lock during suspension. Request additional background execution time on the main thread with {"identifier":"doc:\/\/com.apple.documentation\/documentation\/UIKit\/UIApplication\/beginBackgroundTask(withName:expirationHandler:)","isActive":true,"type":"reference"},{"text":". Make this request well before starting to write to the file in order to complete those operations and relinquish the lock before the app suspends. In an app extension, use {"identifier":"doc:\/\/com.apple.documentation\/documentatio
+    fraza „relinquish the lock before the app suspends” obecna: True
+
+[sqlite.org, ALTER TABLE §8 (12 kroków)] https://www.sqlite.org/lang_altertable.html sha256 540366b0fa89257467497780e78538a992b5865a70d23180dac2aa7d2ef4e03d
+    „If foreign key constraints are enabled, disable them using PRAGMA foreign_keys=OFF” obecny: True
+    „Start a transaction.” obecny: True
+    „might corrupt references to that table in triggers, views, and foreign key constraints” obecny: True
+    „run PRAGMA foreign_key_check to verify that the schema change did not break any foreign key constraints” obecny: True
+
+[sqlite.org, PRAGMA] https://www.sqlite.org/pragma.html sha256 af75d7d7ab00c29e6eea98618cb1259a3919c308af60a6173215bf9798706034
+    „This pragma is a no-op within a transaction” obecny: True
+    „Query or change the setting of the busy timeout” obecny: True
+
+[sqlite.org, Foreign Key Support] https://www.sqlite.org/foreignkeys.html sha256 cf9c6701a2bcc3b6407900c46d83c81818adb6467cd8fe11f8edfe9b93229041
+    „the DROP TABLE command performs an implicit DELETE to remove all rows from the table before dropping it” obecny: True
+
+[sqlite.org, Write-Ahead Logging] https://www.sqlite.org/wal.html sha256 f3467b530b883d4a00574fe1a898b3d121ed72764ae28cf66941080ac0badb9e
+    „By default, SQLite does a checkpoint automatically when the WAL file reaches a threshold size of 1000 pages” obecny: True
+

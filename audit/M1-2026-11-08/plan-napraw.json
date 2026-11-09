@@ -941,8 +941,8 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-504 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "2dceaeeb"
     },
     {
       "id": "M1-audytor-generalny-024",
@@ -960,8 +960,8 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-505 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "4c542e20"
     },
     {
       "id": "M1-audytor-generalny-025",
@@ -1133,8 +1133,8 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "f7cfd76f"
     },
     {
       "id": "M1-audytor-generalny-034",

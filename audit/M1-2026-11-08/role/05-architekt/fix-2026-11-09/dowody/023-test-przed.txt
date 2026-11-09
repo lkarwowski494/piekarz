@@ -1,0 +1,52 @@
+(node:24125) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts
+  023: kopia przed czyszczeniem z trwającymi i zaplanowanymi wypiekami (DEC-11 a)
+    ✕ baza 1021: liczności przed czyszczeniem = po imporcie kopii przed czyszczeniem; wiersze sesji identyczne (308 ms)
+    ✓ stara kopia bez pola (eksport 1014) importuje się jak dotąd: sesje w telefonie zostają, parser nie dodaje pola (31 ms)
+    ✓ eksport i kopia przed importem nie niosą sesji (D-102 dla eksportu bez zmian) (30 ms)
+    ✕ import pola: wiersz telefonu wygrywa, uszkodzony pominięty i policzony, wypiek z wpisem w Dzienniku nie wraca, limity (35 ms)
+
+  ● 023: kopia przed czyszczeniem z trwającymi i zaplanowanymi wypiekami (DEC-11 a) › baza 1021: liczności przed czyszczeniem = po imporcie kopii przed czyszczeniem; wiersze sesji identyczne
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: [[Object], [Object]]
+    Received: undefined
+
+      62 |     const koperta = JSON.parse(plik);
+      63 |     expect(koperta.schemaVersion).toBe(2);
+    > 64 |     expect(koperta.state.bakeSessions).toEqual(sesjePrzed);
+         |                                        ^
+      65 |
+      66 |     const kopia = app.backup.parseAndValidateBackup(plik);
+      67 |     expect(kopia.skippedRows).toBe(0);
+
+      at Object.toEqual (src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts:64:40)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 023: kopia przed czyszczeniem z trwającymi i zaplanowanymi wypiekami (DEC-11 a) › import pola: wiersz telefonu wygrywa, uszkodzony pominięty i policzony, wypiek z wpisem w Dzienniku nie wraca, limity
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      115 |     ];
+      116 |     const kopia = app.backup.parseAndValidateBackup(JSON.stringify(koperta));
+    > 117 |     expect(kopia.skippedRows).toBe(2); // plan_zly, zly_status
+          |                               ^
+      118 |     await app.store.restoreFromBackupData(kopia.state);
+      119 |     const po = await sesje(app);
+      120 |     expect(po.map((w) => [w.id, w.status])).toEqual([
+
+      at Object.toBe (src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts:117:31)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 passed, 4 total
+Snapshots:   0 total
+Time:        1.2 s
+Ran all test suites matching /src\/data\/__tests__\/czyszczenie-sesje-023/i.

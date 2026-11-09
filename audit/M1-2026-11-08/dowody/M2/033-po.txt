@@ -1,0 +1,4 @@
+    ✓ sprawdzKopieBazy: zdrowa kopia „ok”, uszkodzona „bledy”, pusta baza „pusta” (226 ms)
+    ✓ kopia przed migracją (baza 1021 → v7) ma obok plik z wynikiem sprawdzenia „ok” (39 ms)
+    ✓ pakiet do udostępnienia niesie pole „sprawdzenie” z wynikiem dla surowej kopii (45 ms)
+Tests:       3 passed, 3 total

@@ -1,0 +1,9 @@
+PASS tests/architektura-dokumenty-024.test.ts
+PASS src/data/__tests__/jedno-zrodlo-schematu.test.ts
+PASS src/core/__tests__/brd-test-vectors.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       31 passed, 31 total
+Snapshots:   0 total
+Time:        0.787 s, estimated 1 s
+Ran all test suites matching /tests\/architektura-dokumenty-024|src\/data\/__tests__\/jedno-zrodlo-schematu|src\/core\/__tests__\/brd-test-vectors/i.

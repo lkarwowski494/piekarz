@@ -1,0 +1,10 @@
+(node:26374) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/migracja-d1-1014.sqlite.test.ts
+PASS src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       24 passed, 24 total
+Snapshots:   0 total
+Time:        1.383 s
+Ran all test suites matching /src\/data\/__tests__\/czyszczenie-sesje-023|src\/data\/__tests__\/migracja-d1-1014/i.

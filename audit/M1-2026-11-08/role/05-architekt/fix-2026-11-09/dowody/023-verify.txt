@@ -1,0 +1,13 @@
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+[test-matrix] Wyniki: 1656/1656 elementów (100%)
+PASS tests/matrix-kolejnosc-plikow.test.ts
+PASS tests/matrix-invariants.test.ts
+PASS tests/matrix-a11y.test.tsx
+PASS tests/matrix-logic.test.ts
+PASS tests/matrix-dimensions.test.tsx
+PASS tests/matrix-ui-text.test.tsx
+Test Suites: 592 passed, 592 total
+Tests:       6085 passed, 6085 total
+npm run verify: kod 0 (git add przed verify)
