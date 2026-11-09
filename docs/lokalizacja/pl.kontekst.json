@@ -4111,6 +4111,8 @@
   },
   "Napisz do nas": {
     "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)",
       "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
@@ -4213,6 +4215,11 @@
   "Nie można wczytać listy licencji.": {
     "gdzie": [
       "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
+  "Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.": {
+    "gdzie": [
+      "src/lib/import-pakietu.ts (powod)"
     ]
   },
   "Nie podwaja objętości": {
@@ -4318,6 +4325,12 @@
   },
   "Nie udało się zapisać wypieku": {
     "gdzie": []
+  },
+  "Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.": {
+    "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
+    ]
   },
   "Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.": {
     "gdzie": [
@@ -8904,6 +8917,12 @@
   "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.": {
+    "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
   "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {

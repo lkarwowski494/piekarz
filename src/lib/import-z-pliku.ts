@@ -3,10 +3,13 @@
 // [M1-audytor-generalny-113; 04-studio-projektowe-028]. Rodzaj pliku po zawartości: `format: "piekarz-backup"` = kopia,
 // poprawna receptura = receptura, inaczej plik nierozpoznany. Zapis tą samą ścieżką co dotąd: receptura przez saveRecipe
 // (jak okno importu receptury), kopia z kopią przed importem z collectBackupData (jak import kopii w Ustawieniach).
+// Pakiet plików bazy z trybu awaryjnego (`format: "piekarz-pliki-bazy"`) = rodzaj „pakiet”; kopiaZPakietu
+// (import-pakietu.ts) zamienia go w kopię tą samą ścieżką [M1-audytor-generalny-003; 12-niezawodnosc-001].
 // ============================================================================
 
 import { parseAndValidateBackup, safetyBackup, SCHEMA_VERSION, ValidatedBackup } from './backup';
 import { decodeRecipeFromShareUrl } from './recipe-sharing';
+import { pakietNieodczytany, pakietZJson, type PakietPlikow } from './import-pakietu';
 import { collectBackupData, restoreFromBackupData, saveRecipe } from '../data/sqlite-store';
 import { resyncNotifications } from './notifications';
 import { initLanguage, t, tPlural } from './i18n';
@@ -18,17 +21,21 @@ import type { StoredRecipe } from '../data/db';
 export type RozpoznanyPlik =
   | { rodzaj: 'kopia'; kopia: ValidatedBackup }
   | { rodzaj: 'receptura'; receptura: StoredRecipe }
+  | { rodzaj: 'pakiet'; pakiet: PakietPlikow }
   | { rodzaj: 'nowsza' }
   | { rodzaj: 'nierozpoznany'; powod?: string };
 
-/** Wersja schematu, gdy tekst to obiekt JSON z `format: "piekarz-backup"` (dane z zewnątrz: od `unknown`); inaczej null. */
-function wersjaKopii(tekst: string): unknown {
-  let v: unknown;
+/** Tekst jako JSON (dane z zewnątrz: od `unknown`); nie-JSON = undefined. */
+function json(tekst: string): unknown {
   try {
-    v = JSON.parse(tekst);
+    return JSON.parse(tekst);
   } catch {
-    return null;
+    return undefined;
   }
+}
+
+/** Wersja schematu, gdy wartość to obiekt z `format: "piekarz-backup"`; inaczej null. */
+function wersjaKopii(v: unknown): unknown {
   return typeof v === 'object' && v !== null && Reflect.get(v, 'format') === 'piekarz-backup' ? Reflect.get(v, 'schemaVersion') ?? 0 : null;
 }
 
@@ -36,7 +43,12 @@ function wersjaKopii(tekst: string): unknown {
 export function rozpoznajPlik(tresc: string): RozpoznanyPlik | null {
   const tekst = tresc.trim();
   if (!tekst) return null;
-  const wersja = wersjaKopii(tekst);
+  const v = json(tekst);
+  // Pakiet plików bazy z trybu awaryjnego: odczyt kopii bazy asynchronicznie (kopiaZPakietu) [M1-audytor-generalny-003]
+  const pakiet = pakietZJson(v);
+  if (pakiet === 'uszkodzony') return pakietNieodczytany();
+  if (pakiet) return { rodzaj: 'pakiet', pakiet };
+  const wersja = wersjaKopii(v);
   if (wersja !== null) {
     // Kopia z nowszej wersji Piekarza: prośba o aktualizację zamiast „nie rozpoznaję” [audyt-niezalezny B-7]
     if (typeof wersja === 'number' && wersja > SCHEMA_VERSION) return { rodzaj: 'nowsza' };

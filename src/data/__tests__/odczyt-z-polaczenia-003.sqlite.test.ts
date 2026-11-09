@@ -31,6 +31,18 @@ describe('Czytelnicy z połączeniem (003, zmiana strukturalna)', () => {
     expect((await czytajMaki(db)).length).toBe(2);
   });
 
+  it('zbierzDaneZBazy (odczyt pakietu awaryjnego) daje ten sam stan co collectBackupData na bazie aplikacji', async () => {
+    zalozBaze1021(dbFilePath('piekarz.db', '/Library/SQLite'));
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const db = await app.schema.getDb();
+    if (!db) throw new Error('brak bazy');
+    const { zbierzDaneZBazy } = require('../dane-z-bazy') as typeof import('../dane-z-bazy');
+    const stan = await zbierzDaneZBazy(db);
+    expect(stan).toEqual(await app.store.collectBackupData());
+    expect({ bakes: stan.bakes.length, starters: stan.starters.length }).toEqual({ bakes: 4, starters: 2 });
+  });
+
   it('czytajReceptury: pusta tabela daje null (getRecipes wraca wtedy do receptur wbudowanych z pamięci)', async () => {
     const app = restartApp();
     await app.schema.initDatabase();

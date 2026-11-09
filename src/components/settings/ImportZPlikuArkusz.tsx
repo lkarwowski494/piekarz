@@ -5,8 +5,8 @@
 // według rodzaju pliku; zapis dopiero po „Dodaj” albo „Zastąp dane”, ścieżkami z src/lib/import-z-pliku.ts.
 // ============================================================================
 
-import React, { useMemo, useState } from 'react';
-import { View, Text, Modal, ScrollView, Pressable, TextInput, StyleSheet, Alert } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { View, Text, Modal, ScrollView, Pressable, TextInput, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../../ui/theme';
@@ -15,7 +15,8 @@ import { t } from '../../lib/i18n';
 import { formatNumber } from '../../lib/format';
 import { StorageWriteError } from '../../data/storage-status';
 import { saveErrorText } from '../../lib/save-guard';
-import { importujKopie, importujRecepture, rozpoznajPlik, zdanieKopii } from '../../lib/import-z-pliku';
+import { importujKopie, importujRecepture, rozpoznajPlik, zdanieKopii, type RozpoznanyPlik } from '../../lib/import-z-pliku';
+import { kopiaZPakietu } from '../../lib/import-pakietu';
 import type { StoredRecipe } from '../../data/db';
 import { useAppAccess } from '../../lib/app-access';
 
@@ -34,7 +35,21 @@ const procent = (v: number) => `${formatNumber(v)}%`;
 export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }: ImportZPlikuArkuszProps) {
   const [tresc, setTresc] = useState<string>('');
   const [zapis, setZapis] = useState<boolean>(false);
-  const plik = useMemo(() => rozpoznajPlik(tresc), [tresc]);
+  const zTresci = useMemo(() => rozpoznajPlik(tresc), [tresc]);
+  // Pakiet plików bazy z trybu awaryjnego: kopia czytana z osobnej bazy, potem podgląd jak kopia; do tego czasu
+  // wskaźnik (plik === undefined) [M1-audytor-generalny-003; 12-niezawodnosc-001]
+  const [zPakietu, setZPakietu] = useState<{ zrodlo: RozpoznanyPlik; wynik: RozpoznanyPlik } | null>(null);
+  useEffect(() => {
+    if (zTresci?.rodzaj !== 'pakiet') return;
+    let aktualny = true;
+    void kopiaZPakietu(zTresci.pakiet).then((wynik) => {
+      if (aktualny) setZPakietu({ zrodlo: zTresci, wynik });
+    });
+    return () => {
+      aktualny = false;
+    };
+  }, [zTresci]);
+  const plik = zTresci?.rodzaj === 'pakiet' ? (zPakietu?.zrodlo === zTresci ? zPakietu.wynik : undefined) : zTresci;
 
   const wklej = async () => {
     try {
@@ -127,6 +142,8 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }
             autoCapitalize="none"
             autoCorrect={false}
           />
+
+          {plik === undefined && <ActivityIndicator testID="import-reading-package" style={styles.podglad} color={theme.colors.akcent} />}
 
           {plik?.rodzaj === 'receptura' && (
             <View testID="import-preview-recipe" style={styles.podglad}>
