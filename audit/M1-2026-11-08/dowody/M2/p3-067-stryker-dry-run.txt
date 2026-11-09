@@ -1,0 +1,13 @@
+19:32:59 (4711) WARN ProjectReader Glob pattern "!src/core/**/*.d.ts" did not exclude any files.
+19:32:59 (4711) INFO ProjectReader No incremental result file found at reports/stryker-incremental.json, a full mutation testing run will be performed.
+19:32:59 (4711) INFO ProjectReader Found 57 of 3186 file(s) to be mutated.
+19:33:00 (4711) INFO Instrumenter Instrumented 57 source file(s) with 6509 mutant(s)
+19:33:03 (4711) INFO ConcurrencyTokenProvider Creating 2 test runner process(es).
+19:33:04 (4711) INFO DryRunExecutor Note: running the dry-run only. No mutations will be tested.
+19:33:04 (4711) INFO DryRunExecutor Starting initial test run (jest test runner with "perTest" coverage analysis). This may take a while.
+19:33:41 (4711) INFO DryRunExecutor Initial test run succeeded. Ran 1581 tests in 37 seconds (net 19135 ms, overhead 18235 ms).
+19:33:41 (4711) INFO MutationTestExecutor The dry-run has been completed successfully. No mutations have been executed.
+
+real	0m44.396s
+user	0m55.780s
+sys	0m4.595s

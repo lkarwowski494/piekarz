@@ -1,0 +1,16 @@
+# przek-3 PO
+br-bez-testu: 86 BR z kryteriami, 79 z testem, 7 bez testu, wyjątków 7
+  wyjątek BR-ETAP-003 (docs/brd/wymagania-wypiek.md): funkcja TEST w kontrakcie zakresu (ocena gotowości, treść bez źródła OP-46) [F-15, D-043]
+  wyjątek BR-KAL-012 (docs/brd/wymagania-kalendarz.md): funkcja PÓŹNIEJ w kontrakcie zakresu (widżet bez kodu, H-19; ZM-28, DEC-02 a) [F-79, D-092]
+  wyjątek BR-KALK-007 (docs/brd/wymagania-liczenie.md): funkcja PÓŹNIEJ w kontrakcie zakresu (przelicznik objętości, masy bez źródła OP-44) [F-45, D-043]
+  wyjątek BR-KALK-008 (docs/brd/wymagania-liczenie.md): funkcja NIE w kontrakcie zakresu (masa lodu) [F-53, D-043]
+  wyjątek BR-RECP-004 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (porównanie wypieków, bez kodu) [F-63, D-043]
+  wyjątek BR-SPIZ-001 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (spiżarnia, wejście ukryte) [F-30, D-043]
+  wyjątek BR-WSP-003 (docs/brd/wymagania-dziennik.md): funkcja PÓŹNIEJ w kontrakcie zakresu (QR, wejście ukryte) [F-08, D-043]
+  scenariusze bez testu (znaleziska, „czesciowe”): BR-CZAS-002, BR-DANE-002, BR-DIAG-001, BR-DIAG-003, BR-DIAG-004, BR-ETAP-001, BR-HARMO-001, BR-KAL-005, BR-KAL-009, BR-KAL-011, BR-KALK-010, BR-MASZ-005, BR-MASZ-006, BR-RECP-001, BR-RECP-003, BR-RECP-005, BR-REKA-001, BR-ZAK-001
+kod 0
+BR-KAL-012 undefined
+BR-KAL-001 ["src/__tests__/dzis-d4b.test.tsx","src/core/__tests__/kalendarz-d4a.test.ts","src/lib/__tests__/kalendarz-pasek-d4b.test.ts"]
+BR-ETAP-006 ["src/data/__tests__/migracja-d1-1014.sqlite.test.ts"]
+wyjatkiZTestem []
+Tests:       18 passed, 18 total

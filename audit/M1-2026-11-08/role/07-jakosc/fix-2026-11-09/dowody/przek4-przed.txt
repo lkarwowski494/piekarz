@@ -1,0 +1,10 @@
+# przek-4 PRZED (kod aplikacji bez zmian, HEAD 83b8f333)
+    ✓ reguła: woda > 45 °C daje status too_hot_danger (7 ms)
+    ✓ przy wartościach domyślnych (woda poniżej 45 °C) nie ma ostrzeżenia (365 ms)
+    ✓ po podniesieniu DDT do 32 °C ekran pokazuje alert z ostrzeżeniem (344 ms)
+    ✓ w EN ostrzeżenie jest po angielsku (229 ms)
+    ✓ reguła: DDT 18 °C w kuchni 30 °C (z zakwasem) daje wodę poniżej 4 °C i status requires_ice (6 ms)
+    ✕ woda poniżej 4 °C: arkusz pokazuje istniejący komunikat w alercie, tam gdzie ostrzeżenie o gorącej wodzie (892 ms)
+    ✕ w EN komunikat jest po angielsku (274 ms)
+    ✓ kontrola: woda w zakresie (DDT 18 °C, kuchnia 22 °C) — bez komunikatu (243 ms)
+Tests:       2 failed, 6 passed, 8 total

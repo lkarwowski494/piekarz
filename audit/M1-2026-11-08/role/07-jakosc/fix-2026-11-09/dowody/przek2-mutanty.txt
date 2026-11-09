@@ -1,0 +1,28 @@
+# przek-2: nowy test z ID BR-ETAP-001 na HEAD cf6f5ded (kod bez zmian) — zielony od razu (bramka: brak testu z ID); mutanty w kopii (worktree)
+### Bez mutacji
+Tests:       2 passed, 2 total
+### Mutant 1: żyto — drugie rośnięcie z testem palca (gotowoscPowierzchnia ignorowane dla drugiego rośnięcia)
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-ETAP-001 Gotowość żytniego ciasta drożdżowego: pierwsze rośnięcie — czasy są wskazówką; drugie — powierzchnia ciasta przy brzegu formy; bez testu palca (573 ms)
+Tests:       1 failed, 1 passed, 2 total
+### Mutant 2: żyto — pierwsze rośnięcie z testem palca
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-ETAP-001 Gotowość żytniego ciasta drożdżowego: pierwsze rośnięcie — czasy są wskazówką; drugie — powierzchnia ciasta przy brzegu formy; bez testu palca (491 ms)
+Tests:       1 failed, 1 passed, 2 total
+### Mutant 3: żyto — pierwsze rośnięcie bez zdania o wskazówce czasu
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-ETAP-001 Gotowość żytniego ciasta drożdżowego: pierwsze rośnięcie — czasy są wskazówką; drugie — powierzchnia ciasta przy brzegu formy; bez testu palca (478 ms)
+Tests:       1 failed, 1 passed, 2 total
+### Mutant 4: wejście do testu palca przy każdym garowaniu końcowym (także żyto)
+src/core/bake-steps.ts:58:export function showsPokeTestEntry(step: Pick<SessionStep, 'id' | 'category'> & { instructions?: string }): boolean {
+src/core/bake-steps.ts-59-  const zyto = RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID);
+src/core/bake-steps.ts-60-  // Żyto na drożdżach (`yeast_proof`) ma ten sam opis gotowości co etap żytni (ZYT-ETA-005, D-256)
+src/core/bake-steps.ts-61-  const opisZytni = step.instructions !== undefined && step.instructions === zyto?.instructionsPl;
+src/core/bake-steps.ts-62-  return step.category === 'final_proof' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !opisZytni;
+ src/core/bake-steps.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-ETAP-001 Gotowość żytniego ciasta drożdżowego: pierwsze rośnięcie — czasy są wskazówką; drugie — powierzchnia ciasta przy brzegu formy; bez testu palca (612 ms)
+Tests:       1 failed, 1 passed, 2 total

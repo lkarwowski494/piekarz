@@ -1,0 +1,77 @@
+
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+
+i18n: 922 tekstów t('…') w kodzie, 2217 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+
+[check:licenses] Weryfikacja licencji zależności produkcyjnych...
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+
+check:size: 1431 plików, przekroczeń: 0
+
+> piekarz@1.0.0 lint
+> eslint app src
+
+
+/home/user/piekarz/src/hooks/usePendingRecipeLoader.ts
+  34:6  warning  React Hook useEffect was passed a dependency list that is not an array literal. This means we can't statically verify whether you've passed the correct dependencies                                                                                react-hooks/exhaustive-deps
+  34:6  warning  React Hook useEffect has missing dependencies: 'applyPending' and 'onMount'. Either include them or remove the dependency array. If 'onMount' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
+
+✖ 2 problems (0 errors, 2 warnings)
+
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1684/1684 elementów (100%)
+
+> piekarz@1.0.0 test
+> jest
+
+(node:30335) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30334) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/asc-zgloszenie.test.ts (13.183 s)
+PASS src/__tests__/prosba-o-ocene-138.test.tsx (19.753 s)
+PASS src/__tests__/plan-bez-nocy-129.test.tsx (10.923 s)
+PASS tests/br-bez-testu.test.ts
+PASS src/__tests__/do-miski-zaczyn-182.test.tsx (8.999 s)
+PASS tests/check-i18n-gate.test.ts (6.603 s)
+PASS tests/quality-gates.test.ts (7.127 s)
+(node:30346) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/asc-ustawienia.test.ts (5.839 s)
+PASS src/__tests__/zakwas-104-ekrany.test.tsx (6.319 s)
+PASS src/__tests__/prosba-o-ocene-po-doktorze-n12.test.tsx (43.663 s)
+PASS src/__tests__/dziennik-bez-zgadywania-plan-017.test.tsx
+PASS tests/testflight-e2e-sha-068.test.ts
+PASS src/core/__tests__/domain-property-based.test.ts
+PASS tests/wybory-domyslne-090.test.ts
+PASS src/__tests__/plan-zmiana-czasu-d13.test.tsx
+PASS src/__tests__/wypiek-po-wygasnieciu-125.test.tsx

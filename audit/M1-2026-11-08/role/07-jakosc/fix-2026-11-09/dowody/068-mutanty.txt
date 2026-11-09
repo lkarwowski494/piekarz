@@ -1,0 +1,28 @@
+# Mutanty w kopii (git worktree w scratchpadzie), po każdym przywrócenie plików z poprawki; drzewo robocze nietknięte
+### Kontrola: bez mutacji
+Tests:       17 passed, 17 total
+### Mutant 1: każdy zakończony przebieg liczony jako zielony
+1
+    ✕ czerwony E2E na tym SHA → kod 1, choć starszy przodek był zielony (build 1023: #95 zielony, #96 czerwony na 2ef8870a) (162 ms)
+    ✕ brak przebiegu albo tylko przebieg w toku / anulowany → kod 1 (199 ms)
+    ✕ decyduje najbliższy sprawdzony SHA: czerwony bliższy przodek z różnicą poza filtrem blokuje mimo zielonego dalszego → kod 1 (194 ms)
+Tests:       3 failed, 14 passed, 17 total
+### Mutant 2: różnica do przodka nie sprawdzana (filtr ścieżek E2E pominięty)
+1
+    ✕ zielony przodek, ale różnica dotyka src/ (ścieżka z filtra E2E) → kod 1 (168 ms)
+    ✕ zielony przodek, ale różnica dotyka app/ (ścieżka z filtra E2E) → kod 1 (163 ms)
+    ✕ zielony przodek, ale różnica dotyka .maestro/ (ścieżka z filtra E2E) → kod 1 (146 ms)
+    ✕ zielony przodek, ale różnica dotyka app.json (ścieżka z filtra E2E) → kod 1 (189 ms)
+    ✕ zielony przodek, ale różnica dotyka package-lock.json (ścieżka z filtra E2E) → kod 1 (136 ms)
+    ✕ zielony przodek, ale różnica dotyka e2e-ios.yml (ścieżka z filtra E2E) → kod 1 (195 ms)
+Tests:       6 failed, 11 passed, 17 total
+### Mutant 3: przodek bez sprawdzenia, czy jest przodkiem (merge-base pominięte)
+0
+    ✕ zielony SHA spoza historii kandydata (inna gałąź, nieznany commit) → kod 1 (193 ms)
+Tests:       1 failed, 16 passed, 17 total
+### Mutant 4: build bez needs e2e-sha
+    ✕ istnieje zadanie e2e-sha na Linuksie, a build czeka na nie (needs) (4 ms)
+Tests:       1 failed, 16 passed, 17 total
+### Mutant 5: zadanie e2e-sha bez actions: read
+    ✕ e2e-sha: minimalne uprawnienia (contents: read, actions: read), bez środowiska release i bez sekretów (1 ms)
+Tests:       1 failed, 16 passed, 17 total

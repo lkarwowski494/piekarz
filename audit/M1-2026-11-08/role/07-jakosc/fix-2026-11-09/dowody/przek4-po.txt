@@ -1,0 +1,20 @@
+# przek-4 PO
+    ✓ water below 4 °C shows the computed water temperature, no ice text (70 ms)
+    ✓ water temperature and the warning above 45 °C still work (27 ms)
+    ✓ recipe screen code has no ice field, ice result or ice text (3 ms)
+    ✓ reguła: woda > 45 °C daje status too_hot_danger (6 ms)
+    ✓ przy wartościach domyślnych (woda poniżej 45 °C) nie ma ostrzeżenia (376 ms)
+    ✓ po podniesieniu DDT do 32 °C ekran pokazuje alert z ostrzeżeniem (336 ms)
+    ✓ w EN ostrzeżenie jest po angielsku (188 ms)
+    ✓ reguła: DDT 18 °C w kuchni 30 °C (z zakwasem) daje wodę poniżej 4 °C i status requires_ice (9 ms)
+    ✓ woda poniżej 4 °C: arkusz pokazuje istniejący komunikat w alercie, tam gdzie ostrzeżenie o gorącej wodzie (803 ms)
+    ✓ w EN komunikat jest po angielsku (235 ms)
+    ✓ kontrola: woda w zakresie (DDT 18 °C, kuchnia 22 °C) — bez komunikatu (344 ms)
+Tests:       11 passed, 11 total
+grep ddt-too-*: 
+src/components/calculator/__tests__/brak-lodu.test.tsx:51:    expect(tree!.root.findAllByProps({ testID: 'ddt-too-hot-warning' }).length).to
+src/components/calculator/accordion/AccordionDdtSection.tsx:66:          <View style={styles.hotAlertRow} testID={waterTempStatus === 'requi
+src/__tests__/calculator-thermal-warning.test.tsx:46:    (n) => typeof n.type === 'string' && n.props?.testID === 'ddt-too-hot-warning' && n
+src/__tests__/calculator-thermal-warning.test.tsx:74:    expect(tree.root.findAll((n) => typeof n.type === 'string' && n.props?.testID === '
+src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx:58:const alerty = (tree: renderer.ReactTestRenderer) => alertyId(tree, 'ddt-too-
+src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx:80:    expect(alertyId(tree, 'ddt-too-hot-warning')).toHaveLength(0);

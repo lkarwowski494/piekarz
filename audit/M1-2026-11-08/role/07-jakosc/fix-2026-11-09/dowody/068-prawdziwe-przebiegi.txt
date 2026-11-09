@@ -1,0 +1,13 @@
+# Bramka scripts/ci/e2e-na-sha.mjs na prawdziwych przebiegach e2e-ios.yml (gh api .../e2e-ios.yml/runs?status=completed&per_page=100, odczyt 2026-11-09T19:32:55Z); historia z lokalnego git
+## --sha 2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+::error::Bramka E2E (D-286): iOS E2E na 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 nie jest zielony: #96 (failure). Build TestFlight dopiero po zielonym E2E (D-286, D-131).
+kod 1
+## --sha 0e5fa7ef7651d101b3ffa9fa7793265f4ecf3db3
+OK: zielony iOS E2E #95 na 0e5fa7ef7651d101b3ffa9fa7793265f4ecf3db3.
+kod 0
+## --sha 2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+::error::Bramka E2E (D-286): iOS E2E na 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 nie jest zielony: #96 (failure). Build TestFlight dopiero po zielonym E2E (D-286, D-131).
+kod 1
+## --sha 991586dda47087fe4f2d6c8abdd4f9c39b12408f
+::error::Bramka E2E (D-286): brak zakończonego przebiegu e2e-ios.yml dla 991586dda47087fe4f2d6c8abdd4f9c39b12408f ani dla przodka różniącego się tylko poza ścieżkami E2E (app/**, src/**, .maestro/**, app.json, package.json, package-lock.json, .github/workflows/e2e-ios.yml). Uruchom E2E na tym SHA. Przodkowie z przebiegiem, ale ze zmianą w ścieżkach E2E: 1, np. 221318bf (.github/workflows/e2e-ios.yml, .maestro/e2e-basic/01-start-bez-ekranu-pro.yaml, …).
+kod 1

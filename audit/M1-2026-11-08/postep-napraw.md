@@ -124,6 +124,10 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 19:21 Wiadomość koordynatora M3: D-289 tryb nocny (sprawdzone w źródle: redesign d2fa028e, słowa właściciela ~18:50 UTC) — STOP-y wg rekomendacji z wpisem „do weta”, limit kontekstu 30%. Kontekst M2: 226 tys. (22,6%) → po roli 11 i scaleniu d2fa028e przekazanie nowej sesji.
 - 19:26 Rola 11 p3: 83235746 (018), 14e5f546 (084, D-315 do weta); sprawdz-raport OK; statusy naprawione-do-weryfikacji. Scalone d2fa028e (D-289) do p3 → 991586dd, konflikt tylko dopisków decyzje.md (oba zachowane), verify 6757 kod 0. Przekazanie nowej sesji M2 (D-289, limit kontekstu).
 - 19:26 Przekazanie: punkt-wznowienia-M2-2026-11-09b.md + prompt-przekazania-M2-2026-11-09b.md; kopia K na audit-m1.
+- 19:28 Wznowienie M2 (nowa sesja, nowy kontener): audit skopiowany z audit-m1 daa9eff8, npm ci; p3=991586dd, redesign=d2fa028e (bez zmian). Start rola 07 p3.
+- 19:38 067 (1e1bfe89), 079 (f64c9328), 081 (083584df) w drzewie pomocniczym wt-d (gałąź lokalna m2-d-p3-tmp od 991586dd), verify 6764 kod 0 (dowody/M2/p3-067-079-081-verify.txt); Stryker dry-run perTest OK (dowody/M2/p3-067-stryker-dry-run.txt). Do przeniesienia na p3 (cherry-pick) po roli 07, która pracuje w drzewie p3.
+- 20:14 Rola 07 p3: fa679f03 (068), 83b8f333, b42394c3, cf6f5ded, 6a3d76ae (przek-3,4,1,2), sprawdz-raport OK. 067/079/081 przeniesione na p3: c0614ee9, 13a32139, 2d426037; verify 6789 kod 0. Przegląd ścieżki wrażliwej 068: P1 (filtr E2E bez languages/assets) → 6a412c9a, D-316 do weta (D-289), verify 6800 kod 0; nightly c0614ee9 bez P0/P1. P2 przeglądu (head_sha PR vs commit scalenia; brak egzekucji jednego ponowienia; cache przyrostowy może przenosić stare wyniki) → nowe-znaleziska-M2. Statusy 067/068/079/081 naprawione-do-weryfikacji. Wypchnięte 6a412c9a.
+- 20:14 Koniec partii 3: kandydat 6a412c9a; verify UTC 6800 kod 0; verify TZ=Asia/Tokyo w toku; E2E iOS #100 (run 42691065882) workflow_dispatch na p3 w kolejce.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

@@ -145,3 +145,9 @@
 - 11-p3-N1 (P2→P3 wg D-288, klasa: dokumenty): H-01 w `docs/wzrost.md:100` i reguła rozstrzygania mówią o DEC-01 d, D-038, „zamrożeniu”; `hipotezy.json` o Basic/Pro — razem z 083 (11-wzrost-001, blokada P3).
 - 11-p3-N2 (P2→P3, klasa: prawo/marketing): wiersz FTC w „Jawność i prawo” `[DO USTALENIA]` (ftc.gov 404; ecfr.gov 16 CFR 255 dostępne) — przed szkicem wpisu na The Fresh Loaf.
 - Kroki właściciela: weto/potwierdzenie D-315; po wydaniu `data_wydania` w hipotezy.json i wiersz App Store w dzienniku; konto i wpis TFL po wydaniu, każde za osobną zgodą.
+
+## 2026-11-09 (sesja M2 cz. 2) — przegląd ścieżki wrażliwej 068/067 (P2, D-288 → P3 z klasą do reaudytu)
+- M2-p3-N10 (P3, klasa: bramka wydania) `testflight.yml:77-79`: przebieg E2E z `pull_request` ma `head_sha` głowy PR, a testował commit scalenia z bazą — zielony wynik przypisany do SHA, którego E2E nie sprawdziło dokładnie (dziś E2E na PR prawie nie biegnie: runnery macOS, ręczny dispatch).
+- M2-p3-N11 (P3, klasa: bramka wydania) `scripts/ci/e2e-na-sha.mjs`: wystarczy jeden zielony przebieg na SHA niezależnie od liczby czerwonych — „jedno ponowienie” D-131 nie jest egzekwowane.
+- M2-p3-N12 (P3, klasa: jakość testów) `nightly.yml` restore z `restore-keys`: tryb przyrostowy Strykera może przenosić stare wyniki, gdy zmieni się coś poza `src/core` (`jest.mutation.config.js`, zależności) — okresowy pełny przebieg bez cache.
+- 07-p3-N1…N4: w `role/07-jakosc/fix-2026-11-09/wynik.md`.

@@ -1,0 +1,25 @@
+# przek-1: nowe testy z ID BR-HARMO-001 na HEAD b42394c3 (kod bez zmian) — zielone od razu (bramka: brak testu z ID); mutanty w kopii (worktree), drzewo robocze nietknięte
+### Bez mutacji
+Tests:       5 passed, 5 total
+### Mutant 1: powodBezZakwasu zawsze null (receptura bez zakwasu dostaje plan)
+ src/lib/plan-receptury.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-HARMO-001 Receptura drożdżowa z katalogu w 1.0: sweet_chalka — „Ułóż plan” nieaktywne z powodem „Plan wypieku jest tylko dla chleba na zakwasie…” (314 ms)
+    ✕ BR-HARMO-001 Receptura drożdżowa z katalogu w 1.0: baguette_tradition_poolish — „Ułóż plan” nieaktywne z powodem „Plan wypieku jest tylko dla chleba na zakwasie…” (90 ms)
+    ✕ BR-HARMO-001 Receptura drożdżowa z katalogu w 1.0: pizza_napoletana_48h — „Ułóż plan” nieaktywne z powodem „Plan wypieku jest tylko dla chleba na zakwasie…” (88 ms)
+Tests:       3 failed, 2 passed, 5 total
+### Mutant 2: orkisz na drożdżach dostaje czasy etapów (plan zamiast powodu D-257)
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-HARMO-001 Wersja drożdżowa bez podziału czasu na etapy: orkisz na drożdżach — „Ułóż plan” nieaktywne z powodem D-257; na zakwasie aktywne (111 ms)
+Tests:       1 failed, 4 passed, 5 total
+### Mutant 3: żyto 100% — garowanie 90 min zamiast 60 (ZYT-DRO-002)
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-HARMO-001 Plan dla wersji drożdżowej: chleb żytni 100% w formie — kroki i czasy ZYT-DRO-002, bez komunikatu „tylko na zakwasie”, koniec o godzinie „gotowe” (128 ms)
+Tests:       1 failed, 4 passed, 5 total
+### Mutant 4: żyto 100% z odgazowaniem (bezOdgazowania usunięte)
+ src/recipes/yeast-stages.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ BR-HARMO-001 Plan dla wersji drożdżowej: chleb żytni 100% w formie — kroki i czasy ZYT-DRO-002, bez komunikatu „tylko na zakwasie”, koniec o godzinie „gotowe” (155 ms)
+Tests:       1 failed, 4 passed, 5 total

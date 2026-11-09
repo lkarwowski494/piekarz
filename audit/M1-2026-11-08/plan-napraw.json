@@ -1823,8 +1823,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-002 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "c0614ee9"
     },
     {
       "id": "M1-audytor-generalny-068",
@@ -1842,8 +1842,8 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "fa679f03+6a412c9a"
     },
     {
       "id": "M1-audytor-generalny-069",
@@ -2060,8 +2060,8 @@
       "przyczyna": null,
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-003 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "13a32139"
     },
     {
       "id": "M1-audytor-generalny-080",
@@ -2100,8 +2100,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "2d426037"
     },
     {
       "id": "M1-audytor-generalny-082",

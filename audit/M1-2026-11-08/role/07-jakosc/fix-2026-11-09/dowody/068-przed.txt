@@ -1,0 +1,21 @@
+# Przed poprawką: nowy test na HEAD 991586dd (testflight.yml bez e2e-sha, brak scripts/ci/e2e-na-sha.mjs)
+    Error: Cannot find module '/tmp/claude-0/-home-user-piekarz/3114e2a1-e7f5-5ace-a74a-63f01380a9e7/scratchpad/wt/scripts/ci/e2e-na-sha.mjs'
+    ✓ brak przebiegu albo tylko przebieg w toku / anulowany → kod 1 (160 ms)
+    ✓ bramka nie jest wyciszona: bez if:, continue-on-error, || true (1 ms)
+    ✓ decyduje najbliższy sprawdzony SHA: czerwony bliższy przodek z różnicą poza filtrem blokuje mimo zielonego dalszego → kod 1 (135 ms)
+    ✓ zielony SHA spoza historii kandydata (inna gałąź, nieznany commit) → kod 1 (150 ms)
+    ✓ zielony przodek, ale różnica dotyka .maestro/ (ścieżka z filtra E2E) → kod 1 (116 ms)
+    ✓ zielony przodek, ale różnica dotyka app.json (ścieżka z filtra E2E) → kod 1 (119 ms)
+    ✓ zielony przodek, ale różnica dotyka app/ (ścieżka z filtra E2E) → kod 1 (93 ms)
+    ✓ zielony przodek, ale różnica dotyka e2e-ios.yml (ścieżka z filtra E2E) → kod 1 (120 ms)
+    ✓ zielony przodek, ale różnica dotyka package-lock.json (ścieżka z filtra E2E) → kod 1 (107 ms)
+    ✓ zielony przodek, ale różnica dotyka src/ (ścieżka z filtra E2E) → kod 1 (109 ms)
+    ✕ czerwony E2E na tym SHA → kod 1, choć starszy przodek był zielony (build 1023: #95 zielony, #96 czerwony na 2ef8870a) (123 ms)
+    ✕ e2e-sha: minimalne uprawnienia (contents: read, actions: read), bez środowiska release i bez sekretów (1 ms)
+    ✕ e2e-sha: pełna historia (przodkowie), przebiegi e2e-ios.yml z API i skrypt na GITHUB_SHA (1 ms)
+    ✕ filtr paths czytany z e2e-ios.yml; wzorzec spoza obsługiwanych (np. **/*.ts) przerywa bramkę głośno → kod 1 (110 ms)
+    ✕ istnieje zadanie e2e-sha na Linuksie, a build czeka na nie (needs) (2 ms)
+    ✕ zielony E2E na tym SHA → kod 0; także po jednym ponowieniu po awarii maszyny (D-131) (76 ms)
+    ✕ zielony przodek, różnica tylko poza filtrem paths e2e-ios.yml (docs/, tests/, inne workflowy) → kod 0 (D-276 jako reguła) (116 ms)
+Tests:       7 failed, 10 passed, 17 total
+kod 1
