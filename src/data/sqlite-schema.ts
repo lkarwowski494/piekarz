@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { kopiaPrzedMigracja } from './kopie-przed-migracja';
+import { uruchomMigracje, NewerDatabaseError, MigrationError, type SchemaMigration } from './runner-migracji';
 import { ratujPlikiBazy } from '../lib/kopia-plikow-bazy';
 import { zKolejka, type BazaZKolejka } from './kolejka-zapisow';
 import {
@@ -140,13 +140,7 @@ export async function ratunekPoBledzie(msg: string): Promise<void> {
   if (pakiet) markStorageUnavailable(msg, pakiet, 'pliki-bazy');
 }
 
-export interface SchemaMigration {
-  version: number;
-  description: string;
-  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
-  przed?: (db: SQLite.SQLiteDatabase) => Promise<void>;
-  run: (db: SQLite.SQLiteDatabase) => Promise<void>;
-}
+export type { SchemaMigration } from './runner-migracji';
 
 export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
   {
@@ -343,68 +337,12 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
   MIGRACJA_V7,
 ];
 
-export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
-  // Wersja przed czymkolwiek innym: bazy nowszej niż aplikacja nie zmienia nawet PRAGMA journal_mode [M1-audytor-generalny-061]
-  const known = Math.max(...SCHEMA_MIGRATIONS.map((m) => m.version));
-  const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
-  if (found > known) throw new NewerDatabaseError(found, known);
-
-  await db.execAsync(`
-    PRAGMA journal_mode = WAL;
-    PRAGMA foreign_keys = ON;
-    PRAGMA busy_timeout = 5000;
-
-    CREATE TABLE IF NOT EXISTS schema_migrations (
-      version INTEGER PRIMARY KEY NOT NULL,
-      applied_at TEXT NOT NULL,
-      description TEXT NOT NULL
-    );
-  `);
-
-  const currentVersion = found;
-
-  const pendingMigrations = SCHEMA_MIGRATIONS.filter((m) => m.version > currentVersion);
-  if (pendingMigrations.length === 0) return;
-
-  // Kopia przed migracją przez VACUUM INTO: spójna także z danymi z pliku -wal; bez kopii nie migrujemy
-  // [M1-audytor-generalny-004]. Nieudana migracja wycofuje swoją transakcję — plik bazy nie jest podmieniany.
-  const backupPath = await kopiaPrzedMigracja(db, currentVersion);
-
-  for (const m of pendingMigrations) {
-    try {
-      if (m.przed) await m.przed(db);
-      await db.execAsync('BEGIN TRANSACTION;');
-      await m.run(db);
-      await db.runAsync(
-        'INSERT INTO schema_migrations (version, applied_at, description) VALUES (?, ?, ?);',
-        m.version,
-        new Date().toISOString(),
-        m.description
-      );
-      await db.execAsync(`PRAGMA user_version = ${m.version};`);
-      await db.execAsync('COMMIT;');
-    } catch (err: unknown) {
-      await db.execAsync('ROLLBACK;').catch(() => {});
-      throw new MigrationError(err, backupPath);
-    }
-  }
+/** Migracje aplikacji na bazie; runner: runner-migracji.ts. */
+export function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
+  return uruchomMigracje(db, SCHEMA_MIGRATIONS);
 }
 
-/** Baza zapisana przez nowszą wersję aplikacji (user_version > najwyższa znana migracja). */
-export class NewerDatabaseError extends Error {
-  constructor(readonly dbVersion: number, readonly appVersion: number) {
-    super(`Database version ${dbVersion} is newer than the app (${appVersion})`);
-    this.name = 'NewerDatabaseError';
-  }
-}
-
-export class MigrationError extends Error {
-  constructor(cause: unknown, readonly backupPath: string) {
-    super(cause instanceof Error ? cause.message : String(cause));
-    this.name = 'MigrationError';
-  }
-}
-
+export { NewerDatabaseError, MigrationError } from './runner-migracji';
 export { preMigrationBackupPath } from './kopie-przed-migracja';
 
 export async function initDatabase(): Promise<void> {
