@@ -120,6 +120,14 @@ export async function initLanguage(): Promise<void> {
   setLang(resolveLanguage(saved, deviceLanguageTags()));
 }
 
+/**
+ * Język z systemu bez odczytu zapisu (baza nieotwarta): tryb awaryjny po dwóch nieudanych startach
+ * [M1-audytor-generalny-012; 09-lokalizacja-002]. Ręczny wybór inny niż system jest wtedy pominięty.
+ */
+export function ustawJezykSystemu(): void {
+  setLang(resolveLanguage(null, deviceLanguageTags()));
+}
+
 /** Wybór użytkownika w Ustawieniach: zmiana od razu i zapis na kolejne uruchomienia. */
 export async function chooseLanguage(l: Lang): Promise<void> {
   setLang(l);

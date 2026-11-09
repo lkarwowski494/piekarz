@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 672 | 672 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 671 | 671 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 672 | 672 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 259 | 259 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1673** | Pokrytych: **1673** | Brakujących: **0**
+Łącznie elementów: **1674** | Pokrytych: **1674** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -307,7 +307,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
 | `TEKST` | `Zarządzaj subskrypcją` | `src/components/PaywallModal.tsx` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/slownik-akcji.test.ts |
 | `TEKST` | `Jedna opłata, bez odnawiania.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
-| `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/przeklad-a5.test.ts |
+| `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/ekran-awaryjny-jezyk-012.test.tsx, tests/martwe-klucze-oferty-203.test.ts |
 | `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Zakupy zostały pomyślnie przywrócone` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
 | `UI` | `Nie znaleziono aktywnych zakupów` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1373 kolejnych elementów w pełnym wykazie)*
+*(... i 1374 kolejnych elementów w pełnym wykazie)*

@@ -11,7 +11,7 @@ import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
-import { initLanguage, t, useLang } from '../src/lib/i18n';
+import { initLanguage, t, useLang, ustawJezykSystemu } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
@@ -62,6 +62,8 @@ export default function RootLayout() {
     void (async () => {
       // Dwa nieudane starty z rzędu: tryb awaryjny bez migracji [M1-audytor-generalny-018]
       if ((await beginStartup()).rescue) {
+        // Bez bazy: język z systemu, nie polski ze stanu początkowego [M1-audytor-generalny-012]
+        ustawJezykSystemu();
         setRescue(true);
         return;
       }
