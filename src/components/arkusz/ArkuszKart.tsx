@@ -9,7 +9,7 @@
 import React from 'react';
 import { Modal, ScrollView, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { HeaderButton, confirmDiscard } from '../DraftHeader';
+import { confirmDiscard, przyciskNaglowka } from '../DraftHeader';
 import { t } from '../../lib/i18n';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
@@ -22,6 +22,8 @@ export interface PrzyciskArkusza {
   testID?: string;
   /** Etykieta VoiceOver, gdy inna niż tekst. */
   etykieta?: string;
+  /** Przycisk chwilowo nieczynny (np. „Dodaj” w trakcie zapisu importu). */
+  wylaczony?: boolean;
 }
 
 /** Miejsce po pustej stronie paska, żeby tytuł został pośrodku (makieta: 72 px). */
@@ -36,7 +38,7 @@ export function PasekArkusza({ tytul, lewy, prawy, testID = 'pasek-arkusza' }: {
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
   const przycisk = (p: PrzyciskArkusza | undefined, strona: 'lewy' | 'prawy') =>
     p ? (
-      <HeaderButton testID={p.testID ?? `${testID}-${strona}`} title={p.tekst} label={p.etykieta} bold={strona === 'prawy'} onPress={p.onPress} />
+      przyciskNaglowka({ testID: p.testID ?? `${testID}-${strona}`, title: p.tekst, label: p.etykieta, bold: strona === 'prawy', onPress: p.onPress, disabled: p.wylaczony })
     ) : (
       <View style={styles.puste} />
     );
