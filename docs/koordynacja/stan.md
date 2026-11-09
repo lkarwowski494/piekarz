@@ -64,3 +64,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 20:51 | M3 | A 22,7%, p3 @ `6a412c9a` (D-316); E2E run 42691065882 w toku na tym SHA | kontrola 21:52 |
 | 09.11 21:36 | M3 | **E2E #100 zielone** na `6a412c9a` (`actions_get`, conclusion success, 21:32); A 23,5%, idle | migracja M9 |
 | 09.11 21:45 | M3→M9 | gałąź `koordynacja` + pliki M9 (ten commit) | przekazanie następcy M9 |
+| 09.11 21:39 | M3→M9 | przekazane do `session_01T66VBvnDeKWC3vg8bd7wL9` (start bez błędu; wysiłek w get_session nie pokazany [DO USTALENIA] → krok właściciela `/effort medium` w linii); przypomnienia M3 usunięte, „kontrola przekazania" `trig_015Tr2EdGSTL9trcxrq3Fumc` 22:09 (następca usuwa) | przejęcie E6 pkt 5 |
