@@ -55,7 +55,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
 ## Pule numerów decyzji
-- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005 zajęte (21:40, wpis w `decyzje.md` koordynacji); KO następny: KO-006.
+- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005, KO-006 zajęte; KO następny: KO-007.
 - M2 (sesja A i następczynie): od D-300; zajęte do D-316; pula D-317…D-319; następny wolny: **D-317**.
 - B (reaudyt M1): D-320…D-329.
 
@@ -76,3 +76,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 21:55 | M9 | Rola M9 złożona (`a9a07dc`, 49 444 zn.) i przeczytana; `delete_trigger` `trig_015Tr2EdGSTL9trcxrq3Fumc` ponownie odrzucony (zostaje; sam się wyłączy u poprzednika 22:09) | kontrola 22:40: archiwizacja poprzednika |
 | 09.11 21:49 | M9 | A: partia 3 scalona `ea249c9c` (verify 6800 kod 0 ×2 wg A); sprawdzone: merge-base, diff 1 plik docs, autor; E2E run 42705979446 wyzwolony; sesja B `session_01T66VBysWUJuh8AKDtwNsWx` (reaudyt M1) | kontrola 22:40 |
 | 09.11 21:58 | M9 | B STOP: brak dostępu do prompts (add_repo odrzucony w B). Załącznik z promptem M1 w `polecenia/B.md` (f41071cc) cofnięty `b24169f3` — repo publiczne; ponowna publikacja odrzucona przez klasyfikator. Uwaga: złożone prompty ról już są publiczne na `audit-m1` (`naprawy/polecenia/*-prompt.md`) — do raportu porannego. Właściciel (AskUserQuestion): „Restart B z prompts (Recommended)”; środowisko ma prompts w repozytoriach → B próbuje `git clone`; nie wyjdzie → nowa sesja B | odpowiedź B |
+| 09.11 21:59 | M9 | B: właściciel zezwolił w czacie B na add_repo prompts → rola M1 złożona; STOP 1 (68 pozycji, 12 ról) → KO-006 wariant B (6 subagentów) | raport B po pierwszej grupie; kontrola 22:40 |
