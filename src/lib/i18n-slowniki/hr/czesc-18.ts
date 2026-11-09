@@ -15,5 +15,5 @@ export const CZESC: Record<string, string> = {
   'Białko: np. 13,8%.': 'Bjelančevine: npr. 13,8 %.',
   'Mąka niskowyciągowa. Białko: np. 7,8–14,8%. Popiół: 0,51–0,58%.': 'Brašno niskog stupnja izmeljavanja. Bjelančevine: npr. 7,8–14,8 %. Pepeo: 0,51–0,58 %.',
   'Białko: np. 8,1%. Popiół: 1,31–1,60%.': 'Bjelančevine: npr. 8,1 %. Pepeo: 1,31–1,60 %.',
-  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.': 'Prozor vrhunca samo je procjena: svaki kvasac radi svojim tempom, a u istim je uvjetima tijesto s različitim kvascima raslo od 0,1 do 1,5 mm na sat.',
+  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę.': 'Prozor vrhunca samo je procjena: svaki kvas radi svojim tempom, a u istim je uvjetima tijesto s različitim kvasovima raslo od 0,1 do 1,5 mm na sat.',
 };

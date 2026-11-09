@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 13 kluczy M1-audytor-generalny-008 (D-304; pieczenie z danych receptury: kroki nagrzewania i pieczenia w garnku, keksówce i na stali, fazy garnka): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09) z docs/tresci/en/pieczenie-receptur.md, terminy jak istniejący przekład (garnek, fazy); liczby sprawdzone skryptem; drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06).",
+ "_opis": "Przekład 13 kluczy M1-audytor-generalny-008 (D-304; pieczenie z danych receptury: kroki nagrzewania i pieczenia w garnku, keksówce i na stali, fazy garnka): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09) z docs/tresci/en/pieczenie-receptur.md, terminy jak istniejący przekład (garnek, fazy); liczby sprawdzone skryptem; drugi przegląd AI: M2 2026-11-09, bez P0/P1; 4 P2 poprawione (hr kvas, et/nl obrót formy, bg/tr orkisz, sl pekovski kvas), P3 w rejestrze znalezisk M2; przegląd natywny: brak (DEC-06).",
  "pl": [
   "Nagrzewanie piekarnika i garnka",
   "Wstaw garnek do piekarnika i nagrzewaj go 45 minut w 260 °C.",
@@ -172,7 +172,7 @@
    "Kalla päts küpsetuspaberile ja lõika sisse, hoides tera taigna pinna suhtes umbes 30° nurga all. Tõsta päts paberiga potti, pane kaas peale ja alanda kohe temperatuur 232 °C-ni. Küpseta 20 minutit kaane all, siis 20–25 minutit ilma kaaneta, kuni koorik on sügavalt kuldpruun.",
    "Ahju eelkuumutamine",
    "Kuumuta ahi 204 °C-ni ja alanda enne vormi ahju panemist temperatuur 177 °C-ni.",
-   "Määri briošš lahtiklopitud munaga ja küpseta 20 minutit, siis pööra vorm ümber ja küpseta veel 8–10 minutit, kuni briošš on kuldpruun. Tõsta briošš kohe vormist restile.",
+   "Määri briošš lahtiklopitud munaga ja küpseta 20 minutit, siis keera vormi poole pöörde võrra ja küpseta veel 8–10 minutit, kuni briošš on kuldpruun. Tõsta briošš kohe vormist restile.",
    "Kuumuta ahi koos terasplaadiga 250 °C-ni.",
    "Küpseta 250 °C juures.",
    "Kaas peal: 20 minutit 232 °C juures.",
@@ -307,7 +307,7 @@
    "Stort het brood op bakpapier en snijd het in; houd het mes daarbij in een hoek van ongeveer 30° ten opzichte van het deegoppervlak. Til het brood met het papier in de pan, doe het deksel erop en zet de temperatuur meteen lager, op 232 °C. Bak 20 minuten met deksel en daarna 20–25 minuten zonder deksel, tot de korst diep goudbruin is.",
    "Oven voorverwarmen",
    "Verwarm de oven voor op 204 °C en zet de temperatuur op 177 °C voordat de cakevorm erin gaat.",
-   "Bestrijk de brioche met losgeklopt ei en bak hem 20 minuten; draai dan de vorm om en bak nog 8–10 minuten, tot de brioche goudbruin is. Stort de brioche meteen uit de vorm op een rooster.",
+   "Bestrijk de brioche met losgeklopt ei en bak hem 20 minuten; draai de vorm dan een halve slag en bak nog 8–10 minuten, tot de brioche goudbruin is. Stort de brioche meteen uit de vorm op een rooster.",
    "Verwarm de oven met de bakstaal voor op 250 °C.",
    "Bak op 250 °C.",
    "Deksel erop: 20 minuten op 232 °C.",

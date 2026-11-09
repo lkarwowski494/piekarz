@@ -15,7 +15,7 @@ export const CZESC: Record<string, string> = {
   'Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.': 'Дълга ферментация на студено. По-ниската температура на ферментация се свързва с оцетната киселина. Печене в чугунен съд.',
   'Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.': 'Хляб с квас от бяло пшенично, грахамово и ръжено брашно.',
   'Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.': 'По време на ферментацията разтягайте и прегъвайте тестото и го оставете да втаса в овална кошничка.',
-  'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.': 'Хляб с квас от лимец с препечено ленено семе, слънчоглед и сусам.',
+  'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.': 'Хляб с квас от спелта с препечено ленено семе, слънчоглед и сусам.',
   'Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.': 'Препечете семената в суха тава и ги накиснете в топла вода, преди да ги добавите към тестото.',
   'Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.': 'Хляб с квас от грахамово брашно, с мед и ленено семе.',
   'Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.': 'Преди да добавите солта и стартера, оставете брашното с водата на автолиза.',

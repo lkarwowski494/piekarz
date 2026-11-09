@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 3 kluczy M1-audytor-generalny-009 (D-303; pizza: stal i grill, źródło brioszki na ekranie „Źródła wiedzy”): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09); zdania pizzy sprzed zmiany wzięte bez zmian z istniejącego przekładu, dopisane zdanie z docs/tresci/en/pieczenie-receptur.md; liczby sprawdzone skryptem; drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06).",
+ "_opis": "Przekład 3 kluczy M1-audytor-generalny-009 (D-303; pizza: stal i grill, źródło brioszki na ekranie „Źródła wiedzy”): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09); zdania pizzy sprzed zmiany wzięte bez zmian z istniejącego przekładu, dopisane zdanie z docs/tresci/en/pieczenie-receptur.md; liczby sprawdzone skryptem; drugi przegląd AI: M2 2026-11-09, bez P0/P1; 4 P2 poprawione (hr kvas, et/nl obrót formy, bg/tr orkisz, sl pekovski kvas), P3 w rejestrze znalezisk M2; przegląd natywny: brak (DEC-06).",
  "pl": [
   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.",
   "The Culinary Institute of America, przepis „Brioche”",

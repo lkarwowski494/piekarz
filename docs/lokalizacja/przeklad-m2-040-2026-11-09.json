@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 10 kluczy M1-audytor-generalny-040 (D-306; przelicznik drożdży w arkuszu „Składniki” i 3 źródła na ekranie „Źródła wiedzy”): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09) z docs/tresci/en/drozdze-przelicznik.md; tytuły produktów polskich producentów w oryginale; liczby sprawdzone skryptem; drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06).",
+ "_opis": "Przekład 10 kluczy M1-audytor-generalny-040 (D-306; przelicznik drożdży w arkuszu „Składniki” i 3 źródła na ekranie „Źródła wiedzy”): MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09) z docs/tresci/en/drozdze-przelicznik.md; tytuły produktów polskich producentów w oryginale; liczby sprawdzone skryptem; drugi przegląd AI: M2 2026-11-09, bez P0/P1; 4 P2 poprawione (hr kvas, et/nl obrót formy, bg/tr orkisz, sl pekovski kvas), P3 w rejestrze znalezisk M2; przegląd natywny: brak (DEC-06).",
  "pl": [
   "Procent drożdży w recepturze to drożdże świeże.",
   "Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.",
@@ -86,16 +86,16 @@
    "Koliko suhog kvasca zamjenjuje svježi kvasac i koji suhi kvasac najprije otopiti u vodi."
   ],
   "sl": [
-   "Odstotek kvasa v receptu je za svež kvas.",
-   "Aplikacija suhi kvas, instant in aktivni, računa kot 0,35 mase svežega kvasa.",
-   "To je sredina med vrednostmi dveh skupin proizvajalcev, 0,28 in 0,417, nekateri pa navajajo še manj, zato je na embalaži vašega kvasa lahko drugače.",
-   "Instant kvas lahko stresete naravnost v moko.",
-   "Aktivni suhi kvas je po navodilih dela proizvajalcev treba najprej raztopiti v topli vodi.",
-   "Dr. Oetker Polska (proizvajalec kvasa), „Drożdże suszone instant 7 g”",
-   "Lesaffre Polska (proizvajalec kvasa), „Drożdże SAF INSTANT czerwone/złote”",
-   "Fleischmann's Yeast (proizvajalec kvasa), pogosta vprašanja",
-   "Koliko suhega kvasa nadomesti svež kvas.",
-   "Koliko suhega kvasa nadomesti svež kvas in kateri suhi kvas je treba najprej raztopiti v vodi."
+   "Odstotek pekovskega kvasa v receptu velja za svež pekovski kvas.",
+   "Aplikacija suhi pekovski kvas, instant in aktivni, računa kot 0,35 mase svežega pekovskega kvasa.",
+   "To je sredina med vrednostmi dveh skupin proizvajalcev, 0,28 in 0,417, nekateri pa navajajo še manj, zato je na embalaži vašega pekovskega kvasa lahko drugače.",
+   "Instant pekovski kvas lahko stresete naravnost v moko.",
+   "Aktivni suhi pekovski kvas je po navodilih dela proizvajalcev treba najprej raztopiti v topli vodi.",
+   "Dr. Oetker Polska (proizvajalec pekovskega kvasa), „Drożdże suszone instant 7 g”",
+   "Lesaffre Polska (proizvajalec pekovskega kvasa), „Drożdże SAF INSTANT czerwone/złote”",
+   "Fleischmann's Yeast (proizvajalec pekovskega kvasa), pogosta vprašanja",
+   "Koliko suhega pekovskega kvasa nadomesti svež pekovski kvas.",
+   "Koliko suhega pekovskega kvasa nadomesti svež pekovski kvas in kateri suhi pekovski kvas je treba najprej raztopiti v vodi."
   ],
   "sr": [
    "Проценат квасца у рецепту односи се на свеж квасац.",

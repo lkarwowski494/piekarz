@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 15 kluczy M1-audytor-generalny-014 (09-lokalizacja-005): streszczenie polityki prywatności (D-132) i 14 kluczy z przywróconym zakresem źródła (D-126) — MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09), nazwa aplikacji według D-053 (languages/<kod>.json), liczby sprawdzone skryptem; drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06). Treść o prywatności (BR-UST-003) do przeglądu człowieka.",
+ "_opis": "Przekład 15 kluczy M1-audytor-generalny-014 (09-lokalizacja-005): streszczenie polityki prywatności (D-132) i 14 kluczy z przywróconym zakresem źródła (D-126) — MT claude-opus-5-5 (rola 08, M2 p2, 2026-11-09), nazwa aplikacji według D-053 (languages/<kod>.json), liczby sprawdzone skryptem; drugi przegląd AI: M2 2026-11-09, bez P0/P1; 4 P2 poprawione (hr kvas, et/nl obrót formy, bg/tr orkisz, sl pekovski kvas), P3 w rejestrze znalezisk M2; przegląd natywny: brak (DEC-06). Treść o prywatności (BR-UST-003) do przeglądu człowieka.",
  "pl": [
   "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.",
   "Mąka niskowyciągowa. Białko: np. 9,8%.",
@@ -118,7 +118,7 @@
    "Bjelančevine: npr. 13,8 %.",
    "Brašno niskog stupnja izmeljavanja. Bjelančevine: npr. 7,8–14,8 %. Pepeo: 0,51–0,58 %.",
    "Bjelančevine: npr. 8,1 %. Pepeo: 1,31–1,60 %.",
-   "Prozor vrhunca samo je procjena: svaki kvasac radi svojim tempom, a u istim je uvjetima tijesto s različitim kvascima raslo od 0,1 do 1,5 mm na sat."
+   "Prozor vrhunca samo je procjena: svaki kvas radi svojim tempom, a u istim je uvjetima tijesto s različitim kvasovima raslo od 0,1 do 1,5 mm na sat."
   ],
   "sl": [
    "Aplikacija Pek ne zbira nobenih podatkov. Vse, kar vnesete, ostane v vašem iPhonu. Aplikacija se ne povezuje z internetom in nima računa, oglasov, analitike ali sledenja.",

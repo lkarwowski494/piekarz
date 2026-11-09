@@ -15,7 +15,7 @@ export const CZESC: Record<string, string> = {
   'Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.': 'Serin ortamda uzun fermantasyon. Daha düşük fermantasyon sıcaklığı asetik asitle ilişkilendirilir. Döküm tencerede pişirilir.',
   'Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.': 'Beyaz buğday unu, graham unu ve çavdar unuyla ekşi mayalı somun.',
   'Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.': 'Fermantasyon sırasında hamuru gerip katlayın ve oval bir sepette mayalandırın.',
-  'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.': 'Kavrulmuş keten tohumu, ayçekirdeği ve susamlı kavılca ekşi mayalı somun.',
+  'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.': 'Kavrulmuş keten tohumu, ayçekirdeği ve susamlı spelt ekşi mayalı somun.',
   'Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.': 'Tohumları kuru bir tavada kavurun ve hamura eklemeden önce ılık suda bekletin.',
   'Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.': 'Bal ve keten tohumlu, graham unuyla ekşi mayalı ekmek.',
   'Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.': 'Tuzu ve ekşi mayayı eklemeden önce unu suyla otolize bırakın.',
