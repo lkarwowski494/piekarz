@@ -1,0 +1,3 @@
+Test Suites: 654 passed, 654 total
+Tests:       6827 passed, 6827 total
+npm run verify (po git add, przed commitem 2f4a260e): kod 0

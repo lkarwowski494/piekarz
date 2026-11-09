@@ -1,0 +1,7 @@
+# Ten sam test po poprawce
+    ✓ 393×852, pl: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (338 ms)
+    ✓ 393×852, en: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (94 ms)
+    ✓ 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku (84 ms)
+    ✓ E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania (4 ms)
+Tests:       4 passed, 4 total
+kod 0

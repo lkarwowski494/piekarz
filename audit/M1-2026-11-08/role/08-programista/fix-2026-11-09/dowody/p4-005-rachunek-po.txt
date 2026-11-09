@@ -1,0 +1,22 @@
+Rachunek układu prowadzenia PO poprawce 005 (opcja A, D-318), tests/helpers/uklad-ekranu.ts na drzewie Stolnicy
+(pierwszy krok planu: dokarmienie zakwasu, ostrzeżenie „Surowy zakwas”, pl, domyślny tekst). Przybliżenie z tokenów
+i stylów, nie pomiar z urządzenia. Kalibracja na zrzucie E2E #100 (402x874, przed poprawką): góra „Zrobione” 706 pt
+(zrzut 706), czas 238 (zrzut ok. 235), „potem” 327 (zrzut ok. 323), Spirala 405 (zrzut ok. 395); dół pasa z legendą
+Spirali rachunek 627, zrzut 585 (legenda zawyżona; po poprawce legendy na pasie nie ma).
+Wartości: y od góry ekranu (pt), od–do.
+
+RACHUNEK 320x568 (wcięcia 20/0): pas 0–408; karta-kroku 424–558; step-warning 558–723; przelacznik —; Zrobione 376–440; thumb-bar 364–568
+RACHUNEK 320x568 (wcięcia 20/0), dwa wypieki: pas 0–408; karta-kroku 424–558; step-warning 558–723; przelacznik 270–364; Zrobione 376–440; thumb-bar 364–568
+RACHUNEK 375x667 (wcięcia 20/0): pas 0–323; karta-kroku 339–473; step-warning 473–615; przelacznik —; Zrobione 533–597; thumb-bar 521–667
+RACHUNEK 375x667 (wcięcia 20/0), dwa wypieki: pas 0–323; karta-kroku 339–473; step-warning 473–615; przelacznik 447–521; Zrobione 533–597; thumb-bar 521–667
+RACHUNEK 393x852 (wcięcia 59/34): pas 0–362; karta-kroku 378–512; step-warning 512–654; przelacznik —; Zrobione 684–748; thumb-bar 672–818
+RACHUNEK 393x852 (wcięcia 59/34), dwa wypieki: pas 0–362; karta-kroku 378–512; step-warning 512–654; przelacznik 598–672; Zrobione 684–748; thumb-bar 672–818
+
+Wniosek:
+- 393x852: dół ostrzeżenia 654 < góra „Zrobione” 684 (zapas ok. 30 pt pl; en ok. 7 pt, „potem …” w dwóch wierszach).
+  Dwa wypieki: karta kroku 378–512 nad przełącznikiem (598); ostrzeżenie 512–654 częściowo pod przełącznikiem (ok. 56 pt).
+- 375x667: okno pod pasem 323–533 = 210 pt; karta z ostrzeżeniem 276 pt -> ostrzeżenie widać w ok. 60 pt, reszta pod paskiem kciuka.
+- 320x568: niewykonalne w opcji A. Pasek kciuka przy 320 pt ma dwa rzędy (Cofnij/Po co: flexBasis 140+10+140 > 280),
+  góra „Zrobione” 376 pt; sam pas (tytuł kroku 3 wiersze, czas, „potem” 2 wiersze) kończy się na 408 pt. Nawet pas
+  zredukowany do rzędu nawigacji (20+4+44+16 = 84 pt) + wcięcie treści 12 + karta 134 + ostrzeżenie 165 = 395 pt > 376.
+  Wymaga decyzji roli 04 (układ paska kciuka i pasa przy niskim ekranie), nie przeniesienia Spirali.

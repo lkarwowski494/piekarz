@@ -632,17 +632,18 @@
       "partia": 4,
       "zalezy_od": [],
       "decyzja": null,
-      "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
       "status": "zatwierdzone",
-      "commit": "1d0dce0a",
+      "commit": "2f4a260e",
       "reaudyt": {
         "petla": 1,
         "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
         "wynik": "nadal otwarte: instrukcja i ostrzeżenie poza pierwszym ekranem (402 pt: nagłówek i kilka wierszy, bez ostrzeżenia; 320 pt: karta poza ekranem); test akceptacyjny nie sprawdza tytułu; potwierdzone w weryfikacja/V1"
       },
-      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
+      "przyczyna": null,
+      "uwagi": "nadal otwarte (P1); częściowo 2f4a260e (opcja A, D-318): 393×852 spełnione rachunkiem; 320×568 niewykonalne w opcji A — decyzja roli 04 (a zwarty pas i pasek kciuka w jednym rzędzie, rekomendacja / b przewinięcie / c przyjęcie); dwa wypieki przy 393: ostrzeżenie ok. 56 pt pod przełącznikiem; zrzuty i E2E iOS na SHA p4"
     },
     {
       "id": "M1-audytor-generalny-006",
