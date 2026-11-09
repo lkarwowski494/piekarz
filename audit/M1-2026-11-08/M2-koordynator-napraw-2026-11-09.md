@@ -1,6 +1,6 @@
 # M2-koordynator-napraw — raport napraw po M1 2026-11-08 (pętla 1)
 
-Data: 2026-11-09. Baza audytu: `2ef8870a` (build 1023). Gałęzie partii: p1 i p2 scalone do `redesign/piekarz-2026-10-22`; partia 3 `naprawy/M2-koordynator-napraw-2026-11-09-p3`, kandydat **6a412c9a**. Dziennik pracy: `postep-napraw.md`; znaleziska: `nowe-znaleziska-M2.md`. Od 19:21 UTC tryb nocny D-289 (STOP-y M2 według rekomendacji, wpisy „do weta”).
+Data: 2026-11-09. Baza audytu: `2ef8870a` (build 1023). Gałęzie partii: p1 i p2 scalone do `redesign/piekarz-2026-10-22`; partia 3 `naprawy/M2-koordynator-napraw-2026-11-09-p3`, kandydat **6a412c9a**. Dziennik pracy: `postep-napraw.md`; znaleziska: `nowe-znaleziska-M2.md`. Koordynator od 21:40 UTC: M9 `session_01T66VBvnDeKWC3vg8bd7wL9` (migracja z M3 na polecenie właściciela). Od 19:21 UTC tryb nocny D-289 (STOP-y M2 według rekomendacji, wpisy „do weta”).
 
 ## Podsumowanie
 - 86 zadań planu: 68 naprawione-do-weryfikacji, 16 zatwierdzone bez pracy (017 — krok właściciela: zrzuty z telefonu; 15 × P3 backlog 1.0.1 z D-288), 2 odrzucone (085, 086). Statusu „zweryfikowane” M2 nie nadaje.
@@ -10,7 +10,8 @@ Data: 2026-11-09. Baza audytu: `2ef8870a` (build 1023). Gałęzie partii: p1 i p
 ## Kontrola dowodów (koniec partii 3)
 - `npm run verify` na 6a412c9a (UTC): 6800 testów, kod 0 — dowody/M2/p3-D316-verify.txt; na 2d426037: 6789, kod 0 — dowody/M2/p3-2d426037-verify-utc.txt
 - `TZ=Asia/Tokyo npm run verify` na 6a412c9a: 6800 testów, kod 0 — dowody/M2/p3-6a412c9a-verify-tokyo.txt
-- iOS E2E na SHA kandydata: run 42691065882 (#100, workflow_dispatch, ref p3) — wynik niżej.
+- iOS E2E na 6a412c9a: run 42691065882 (#100, workflow_dispatch, ref p3) — **success** (zakończony 21:32 UTC; pl_PL, en_US, kontrola negatywna, Basic).
+- Scalenie do `redesign/piekarz-2026-10-22`: redesign 9007adeb nie był przodkiem p3 (różnica tylko `docs/wznowienie-M3.md`, +7 linii), więc zwykły merge (KO-005 koordynatora M9, do weta D-289) → **ea249c9c**, wypchnięte. verify na ea249c9c: UTC 6800 kod 0 (dowody/M2/redesign-ea249c9c-verify-utc.txt), `TZ=Asia/Tokyo` 6800 kod 0 (dowody/M2/redesign-ea249c9c-verify-tokyo.txt). E2E na ea249c9c (kandydat DEC-18) uruchamia koordynator M9.
 - Stryker (067): dry-run `perTest` 1581 testów, 6509 mutantów, start 37 s — dowody/M2/p3-067-stryker-dry-run.txt; pełny czas i wynik ≥ progu `break` dopiero w nightly na master po scaleniu (część testu akceptacyjnego otwarta).
 - Przeglądy ścieżki wrażliwej partii 3: 082 (brak P0/P1), 068+067 (P1 → 6a412c9a, D-316; nightly brak P0/P1). Drugi przegląd AI przekładu 078/080 (brak P1).
 
@@ -125,7 +126,7 @@ Pełna lista: `nowe-znaleziska-M2.md`. Z ostatniej sesji: M2-p3-N10 (head_sha PR
 
 ## Przekazanie
 ### Przekazanie do M1 (reaudit)
-- Zakończono: M2 fix, pętla 1; gałąź `naprawy/M2-koordynator-napraw-2026-11-09-p3` (6a412c9a; po scaleniu fast-forward także `redesign/piekarz-2026-10-22`), baza 2ef8870a; raport K/M2-koordynator-napraw-2026-11-09.md
+- Zakończono: M2 fix, pętla 1; gałąź `redesign/piekarz-2026-10-22` (ea249c9c = merge p3 6a412c9a), baza 2ef8870a; raport K/M2-koordynator-napraw-2026-11-09.md
 - Nowa sesja (D-015: sprawdzający nie zna moich uzasadnień), w repo na gałęzi `redesign/piekarz-2026-10-22`:
   `node <prompts>/tools/assemble.mjs M1-audytor-generalny --tryb reaudit --wyjscie /home/user/piekarz/audit/M1-2026-11-08 --baza 2ef8870a`
 - Paczka wejściowa: K/plan-napraw.json (statusy), ten raport, K/naprawy/, K/role/<rola>/fix-2026-11-09/, K/nowe-znaleziska-M2.md (P3 z klasą wg D-288 do oceny w reaudycie).

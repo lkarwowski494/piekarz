@@ -129,6 +129,7 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 20:14 Rola 07 p3: fa679f03 (068), 83b8f333, b42394c3, cf6f5ded, 6a3d76ae (przek-3,4,1,2), sprawdz-raport OK. 067/079/081 przeniesione na p3: c0614ee9, 13a32139, 2d426037; verify 6789 kod 0. Przegląd ścieżki wrażliwej 068: P1 (filtr E2E bez languages/assets) → 6a412c9a, D-316 do weta (D-289), verify 6800 kod 0; nightly c0614ee9 bez P0/P1. P2 przeglądu (head_sha PR vs commit scalenia; brak egzekucji jednego ponowienia; cache przyrostowy może przenosić stare wyniki) → nowe-znaleziska-M2. Statusy 067/068/079/081 naprawione-do-weryfikacji. Wypchnięte 6a412c9a.
 - 20:14 Koniec partii 3: kandydat 6a412c9a; verify UTC 6800 kod 0; verify TZ=Asia/Tokyo w toku; E2E iOS #100 (run 42691065882) workflow_dispatch na p3 w kolejce.
 - 20:17 verify TZ=Asia/Tokyo na 6a412c9a: 6800 kod 0. E2E #100 w kolejce; sprawdzenie 21:02 UTC (send_later).
+- 21:47 E2E #100 (42691065882) na 6a412c9a: success 21:32. Zmiana koordynatora na M9 session_01T66VBvnDeKWC3vg8bd7wL9 (sprawdzone: origin/koordynacja docs/koordynacja/stan.md, polecenie właściciela ~21:35). redesign 9007adeb nie przodkiem p3 → merge KO-005 (do weta D-289): ea249c9c, verify UTC 6800 kod 0, Tokyo 6800 kod 0, wypchnięte na redesign. Raport i polecenie reaudytu zaktualizowane.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)
