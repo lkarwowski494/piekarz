@@ -302,6 +302,11 @@
       "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
+  "Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
+    ]
+  },
   "Autoliza i Fermentoliza": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: titlePl)"
@@ -495,9 +500,29 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Bochenek na zakwasie o wysokiej hydratacji.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
   "Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: subtitlePl)"
+    ]
+  },
+  "Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bochenek pszenno-żytni na zakwasie.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Bochenki": {
@@ -675,6 +700,16 @@
   "Chleb foremkowy o wysokiej wilgotności": {
     "gdzie": []
   },
+  "Chleb na zakwasie w stylu San Francisco.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
   "Chleb nocny bez wyrabiania (drożdżowy)": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: namePl)"
@@ -744,9 +779,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Chleb z semoliny durum na zakwasie": {
     "gdzie": [
@@ -904,6 +937,11 @@
   "Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.": {
     "gdzie": []
   },
+  "Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
+    ]
+  },
   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
     "gdzie": [],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
@@ -968,9 +1006,7 @@
     ]
   },
   "Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.": {
-    "gdzie": [
-      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Co chcesz wydrukować?": {
     "gdzie": [
@@ -1398,9 +1434,7 @@
     ]
   },
   "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Dodatki (orzechy, ziarna)": {
     "gdzie": []
@@ -1911,6 +1945,11 @@
   "Focaccia Genovese z solanką i rozmarynem": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: namePl)"
+    ]
+  },
+  "Focaccia z oliwą, rozmarynem i solą morską.": {
+    "gdzie": [
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.": {
@@ -2702,9 +2741,7 @@
     ]
   },
   "Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.": {
     "gdzie": [
@@ -2712,9 +2749,7 @@
     ]
   },
   "Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
@@ -2724,9 +2759,7 @@
     ]
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny rzemieślniczy zakwas 1:1. Zrównoważony profil kwasowy, łatwy do dozowania.": {
     "gdzie": [
@@ -3265,6 +3298,11 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
+  "Maślana brioszka na sztywnym zakwasie Lievito Madre.": {
+    "gdzie": [
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
+    ]
+  },
   "Maślana chałka drożdżowa": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: namePl)"
@@ -3327,6 +3365,11 @@
   "Mieszanie i zaszczepienie": {
     "gdzie": [
       "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
+    "gdzie": [
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Mieszanka musi zawierać co najmniej jedną mąkę.": {
@@ -4091,9 +4134,7 @@
     ]
   },
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
-    "gdzie": [
-      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Największa ilość mąki": {
     "gdzie": [
@@ -4454,9 +4495,7 @@
     ]
   },
   "Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).": {
-    "gdzie": [
-      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Niska temperatura 4°C wyhamowuje drożdże, umożliwiając bakteriom mlekowym powolną produkcję kwasu mlekowego i enzymów.": {
     "gdzie": [
@@ -4512,15 +4551,21 @@
       "src/lib/confirm.ts (text)"
     ]
   },
+  "Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: warningMessagePl)"
+    ]
+  },
   "Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.": {
+    "gdzie": []
+  },
+  "Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
   "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
-    "gdzie": [
-      "src/core/domain-rules.ts (dane: warningMessagePl)"
-    ],
+    "gdzie": [],
     "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
   },
   "Obniż docelową temperaturę ciasta": {
@@ -4860,9 +4905,7 @@
     "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Ospała fermentacja (Zimna kuchnia)": {
     "gdzie": [
@@ -5635,6 +5678,9 @@
     "gdzie": []
   },
   "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.": {
+    "gdzie": []
+  },
+  "Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.": {
     "gdzie": [
       "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
@@ -5823,6 +5869,11 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
+    ]
   },
   "Przed krojeniem poczekaj, aż bochenek całkiem ostygnie. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
     "gdzie": [
@@ -6164,9 +6215,7 @@
     ]
   },
   "Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.": {
-    "gdzie": [
-      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Puszyste amerykańskie pancakes na zakwasie": {
     "gdzie": [
@@ -6174,9 +6223,7 @@
     ]
   },
   "Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.": {
-    "gdzie": [
-      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Puszysty nalot w dowolnym kolorze, także biały": {
     "gdzie": [
@@ -6246,6 +6293,11 @@
   "Razem {masa}": {
     "gdzie": [
       "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ]
+  },
+  "Razowiec żytni w keksówce, bez składania.": {
+    "gdzie": [
+      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
     ]
   },
   "Reakcja sody z kwasem mlekowym zakwasu nie tylko daje plackom niesamowitą puszystość, ale też całkowicie niweluje kwaśny smak.": {
@@ -6379,6 +6431,11 @@
   "Rodzina Apps4Craft Studio": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (tytul)"
+    ]
+  },
+  "Rozciągaj i składaj ciasto w czasie fermentacji.": {
+    "gdzie": [
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Rozciągaj i składaj ciasto w czasie fermentacji: to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
@@ -6978,6 +7035,9 @@
     ]
   },
   "Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
+    "gdzie": []
+  },
+  "Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
     "gdzie": [
       "src/core/reverse-scheduler.ts (dane: kod)"
     ]
@@ -7224,6 +7284,11 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Słodka chałka zaplatana w warkocz, z kruszonką.": {
+    "gdzie": [
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
+    ]
+  },
   "Słodkawy, orzechowy aromat, lekki maślany miękisz i cienka, chrupiąca skórka.": {
     "gdzie": [
       "src/core/preferments.ts (dane: flavorProfilePl)"
@@ -7440,15 +7505,16 @@
       "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
-  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
+  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
+  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
+    "gdzie": []
+  },
   "Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Tradycyjny chleb 100% żytni razowy": {
     "gdzie": [
@@ -8426,6 +8492,9 @@
     ]
   },
   "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.": {
+    "gdzie": []
+  },
+  "Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.": {
     "gdzie": [
       "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
@@ -8556,6 +8625,9 @@
     ]
   },
   "Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.": {
+    "gdzie": []
+  },
+  "Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
@@ -8597,9 +8669,7 @@
     "gdzie": []
   },
   "Wykonaj 4 serie składań co 30–45 minut.": {
-    "gdzie": [
-      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
-    ]
+    "gdzie": []
   },
   "Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.": {
     "gdzie": [
@@ -8625,9 +8695,7 @@
     "gdzie": []
   },
   "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Wymaga obecności": {
     "gdzie": [
@@ -8659,10 +8727,13 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
+  "Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
     "gdzie": [
       "src/recipes/presets-zytnie.ts (dane: notesPl)"
-    ],
+    ]
+  },
+  "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
+    "gdzie": [],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Wymieszaj mąkę pełnoziarnistą (pszenną albo żytnią razową) z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.": {
@@ -8767,6 +8838,9 @@
     ]
   },
   "Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.": {
+    "gdzie": []
+  },
+  "Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
@@ -8974,9 +9048,7 @@
     ]
   },
   "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.": {
     "gdzie": [
@@ -9642,10 +9714,13 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
-  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
+  "Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
+  },
+  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
+    "gdzie": []
   },
   "Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.": {
     "gdzie": [

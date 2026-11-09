@@ -36,7 +36,53 @@ describe('M3 p8: 15 istniejących receptur bazowych bez zmian po podziale moduł
         notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
       },
     };
-    const przed = MASTER_RECIPES.map((r) => ({ ...r, ...PRZED_DECYZJAMI[r.id] }));
+    // D-305 (opisy i wskazówki z teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]: wartości przed zmianą.
+    const PRZED_D305: Record<string, Record<string, unknown>> = {
+      country_loaf_72: {
+        descriptionPl: 'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.',
+        notesPl: 'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.',
+      },
+      tartine_high_hydration_80: {
+        descriptionPl: 'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.',
+        notesPl: 'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
+      },
+      san_francisco_sourdough: {
+        descriptionPl: 'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.',
+        notesPl: 'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.',
+      },
+      pain_de_campagne: {
+        descriptionPl: 'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.',
+        notesPl: 'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.',
+      },
+      spelt_ancient_seeded: {
+        descriptionPl: 'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.',
+        notesPl: 'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.',
+      },
+      graham_bread_honey: {
+        descriptionPl: 'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
+        notesPl: 'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.',
+      },
+      ciabatta_con_biga: {
+        descriptionPl: 'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.',
+      },
+      focaccia_genovese: {
+        descriptionPl: 'Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.',
+      },
+      no_knead_night: {
+        descriptionPl: 'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.',
+      },
+      rye_100_pan: {
+        descriptionPl: 'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.',
+        notesPl: 'Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
+      },
+      lievito_madre_panettone_brioche: {
+        descriptionPl: 'Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).',
+      },
+      sweet_chalka: {
+        descriptionPl: 'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.',
+      },
+    };
+    const przed = MASTER_RECIPES.map((r) => ({ ...r, ...PRZED_DECYZJAMI[r.id], ...PRZED_D305[r.id] }));
     const odcisk = createHash('sha256').update(JSON.stringify(przed)).digest('hex');
     expect(odcisk).toBe('2b3ef868a1b9b86e9924266da1f8aa0cb3d8afd90dea906c69134413e81e960b');
   });

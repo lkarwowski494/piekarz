@@ -254,7 +254,7 @@ describe('Exhaustive Domain Math & Physics Invariants (BR-MATH-EXHAUSTIVE)', () 
 
       expect(ddt.waterTempTarget).toBe(75.0);
       expect(ddt.status).toBe('too_hot_danger');
-      expect(ddt.warningMessagePl).toContain('przekracza 45°C');
+      expect(ddt.warningMessagePl).toContain('jest za wysoka'); // D-305: tekst bez progu i przyczyny bez źródła (DDT-WOD-900) [M1-audytor-generalny-010]
     });
 
     it('triggers requires_ice when calculated water temp is below 4°C', () => {

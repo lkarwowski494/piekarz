@@ -121,7 +121,10 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     isPassive: true,
     rekaNaStarcie: true,
     canStretch: true,
-    instructionsPl: 'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.',
+    // Instrukcje autolyse, bulk_ferment, final_proof i podpowiedź kolizji: dosłownie z docs/tresci/pl/teksty-glownego-
+    // przeplywu.md (D-305; czasy etapów bez źródła PLN-KRO-900 tylko w logice); stare klucze zostają w słowniku EN dla
+    // wypieków zapisanych przed zmianą [M1-audytor-generalny-010]
+    instructionsPl: 'Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.',
   },
   {
     id: 'mix',
@@ -141,7 +144,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     durationMinutes: 240, // 4h
     isPassive: false,
     canStretch: false,
-    instructionsPl: 'Wykonaj 4 serie składań co 30–45 minut.',
+    instructionsPl: 'Rozciągaj i składaj ciasto w czasie fermentacji.',
   },
   {
     id: 'pre_shape',
@@ -179,7 +182,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     canStretch: true,
     minDurationMinutes: 480,  // 8h
     maxDurationMinutes: 1440, // 24h
-    instructionsPl: 'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.',
+    instructionsPl: 'Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.',
   },
   // Nagrzewanie i pieczenie: profil garnka ze źródła (PIE-GAR-001, D-304) zamiast szablonu 240/210 °C bez źródła;
   // z recepturą kroki podmienia calculateReverseSchedule (options.pieczenie) [M1-audytor-generalny-008]
@@ -308,7 +311,7 @@ export function calculateReverseSchedule(
   let suggestion: string | undefined;
   if (hasCollision) {
     suggestion =
-      'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.';
+      'Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.';
   }
 
   return {

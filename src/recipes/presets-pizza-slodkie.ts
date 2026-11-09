@@ -10,7 +10,8 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
     id: 'lievito_madre_panettone_brioche',
     namePl: 'Rzemieślnicza maślana brioszka na Lievito Madre',
     category: 'sweet',
-    descriptionPl: 'Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Maślana brioszka na sztywnym zakwasie Lievito Madre.',
     formula: {
       flours: [
         { name: 'Mąka pszenna Manitoba', percentage: 100.0, type: 'pszenna_manitoba' },
@@ -58,7 +59,8 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
     id: 'sweet_chalka',
     namePl: 'Maślana chałka drożdżowa',
     category: 'sweet',
-    descriptionPl: 'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Słodka chałka zaplatana w warkocz, z kruszonką.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 550 (Luksusowa)', percentage: 100.0, type: 'pszenna_550' },

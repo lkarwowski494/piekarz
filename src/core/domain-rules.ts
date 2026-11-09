@@ -265,7 +265,9 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
     return {
       waterTempTarget: roundedWater,
       status: 'too_hot_danger',
-      warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.',
+      // Komunikaty dosłownie z docs/tresci/pl/teksty-glownego-przeplywu.md (D-305); progi 45 i 4 °C bez źródła: DDT-WOD-900
+      // [M1-audytor-generalny-010]
+      warningMessagePl: 'Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.',
     };
   }
 
@@ -273,7 +275,7 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
     return {
       waterTempTarget: roundedWater,
       status: 'requires_ice',
-      warningMessagePl: 'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.',
+      warningMessagePl: 'Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.',
     };
   }
 

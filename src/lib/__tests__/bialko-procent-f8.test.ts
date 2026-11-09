@@ -8,7 +8,9 @@ import { setUnitSystem, _resetUnitSystemForTests } from '../unit-converter';
 import { MASTER_RECIPES } from '../../recipes/presets';
 import { LADOWANIE_SLOWNIKOW } from '../i18n-slowniki';
 
-const notatka = MASTER_RECIPES.map((r) => r.notesPl ?? '').find((n) => /białka/.test(n)) ?? '';
+// D-305: zdanie „Wymaga mąki o zawartości białka minimum 13%.” usunięte z wskazówki tartine (bez źródła)
+// [M1-audytor-generalny-010]; klucz sprzed zmiany zostaje w słownikach, więc jego przekłady sprawdzamy dalej.
+const notatka = 'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.';
 
 describe('białko w procentach we wskazówce receptury (F-8)', () => {
   afterEach(() => {
@@ -16,7 +18,8 @@ describe('białko w procentach we wskazówce receptury (F-8)', () => {
     _resetUnitSystemForTests();
   });
 
-  it('tekst PL podaje procent, nie gramy', () => {
+  it('tekst PL podaje procent, nie gramy; żadna wskazówka receptury bazowej nie podaje białka (D-305)', () => {
+    expect(MASTER_RECIPES.filter((r) => /białka/.test(r.notesPl ?? ''))).toEqual([]);
     expect(notatka).toMatch(/13\s?%/);
     expect(notatka).not.toMatch(/\d\s?g\b/);
   });

@@ -33,7 +33,8 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     id: 'ciabatta_con_biga',
     namePl: 'Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)',
     category: 'yeast',
-    descriptionPl: 'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.',
+    // zdanie-superlatyw usunięte (D-305, DRO-PRE-900) [M1-audytor-generalny-010]
+    descriptionPl: 'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).',
     formula: {
       flours: [
         { name: 'Mąka pszenna Manitoba', percentage: 100.0, type: 'pszenna_manitoba' },
@@ -56,7 +57,8 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     id: 'focaccia_genovese',
     namePl: 'Focaccia Genovese z solanką i rozmarynem',
     category: 'yeast',
-    descriptionPl: 'Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Focaccia z oliwą, rozmarynem i solą morską.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 85.0, type: 'pszenna_650' },
@@ -80,7 +82,8 @@ export const PRESETY_DROZDZOWE: RecipePreset[] = [
     id: 'no_knead_night',
     namePl: 'Chleb nocny bez wyrabiania (drożdżowy)',
     category: 'yeast',
-    descriptionPl: 'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.',
+    // zdanie-superlatyw usunięte (D-305, DRO-PRE-900) [M1-audytor-generalny-010]
+    descriptionPl: 'Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },

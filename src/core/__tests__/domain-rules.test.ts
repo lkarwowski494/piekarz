@@ -154,7 +154,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       });
 
       expect(result.status).toBe('too_hot_danger');
-      expect(result.warningMessagePl).toContain('przekracza 45°C');
+      expect(result.warningMessagePl).toContain('jest za wysoka'); // D-305: tekst bez progu i przyczyny bez źródła (DDT-WOD-900) [M1-audytor-generalny-010]
     });
 
     it('Alerts with requires_ice when water temp drops below 4°C', () => {

@@ -155,6 +155,131 @@
       "klucz": "Zdejmij pokrywkę garnka i piecz dalej w tej samej temperaturze.",
       "powod": "nowy klucz PL z treści roli 06 (D-304) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
       "od": "2026-11-09"
+    },
+    {
+      "klucz": "Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Rozciągaj i składaj ciasto w czasie fermentacji.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Bochenek pszenno-żytni na zakwasie.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Bochenek na zakwasie o wysokiej hydratacji.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Chleb na zakwasie w stylu San Francisco.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Maślana brioszka na sztywnym zakwasie Lievito Madre.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Słodka chałka zaplatana w warkocz, z kruszonką.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Focaccia z oliwą, rozmarynem i solą morską.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Razowiec żytni w keksówce, bez składania.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
+    },
+    {
+      "klucz": "Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.",
+      "powod": "nowy klucz PL z treści roli 06 (D-305) wpięty przez rolę 08; przekład 33 języków w zadaniu 014 tej samej gałęzi [M2-p2-014]",
+      "od": "2026-11-09"
     }
   ],
   "zamkniete": {

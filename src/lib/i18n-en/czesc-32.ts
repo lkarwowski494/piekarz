@@ -36,4 +36,55 @@ export const EN_32: Record<string, string> = {
     'The bread bakes without the lid until it is fully browned.',
   'Zdejmij pokrywkę garnka i piecz dalej w tej samej temperaturze.':
     'Take the lid off the pot and keep baking at the same temperature.',
+  // Teksty głównego przepływu w wersji zweryfikowanej (docs/tresci/en/teksty-glownego-przeplywu.md, D-305) [M1-audytor-generalny-010]
+  'Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.':
+    'Combine the flour and water, cover and set aside: the flour absorbs the water and gluten starts to form.',
+  'Rozciągaj i składaj ciasto w czasie fermentacji.':
+    'Stretch and fold the dough during fermentation.',
+  'Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.':
+    'Put the basket in a sealed bag in the fridge. The cold of the fridge slows fermentation, and slower fermentation means deeper flavor.',
+  'Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.':
+    'Suggested fix: extend the proof in the fridge or move the starter feeding time to avoid night-time steps.',
+  'Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.':
+    'The calculated water temperature is too high. Bring the flour or the starter to room temperature, or set a lower dough temperature.',
+  'Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.':
+    'The calculated water temperature is very low. Replace part of the water with ice.',
+  'Bochenek pszenno-żytni na zakwasie.':
+    'A wheat and rye sourdough loaf.',
+  'Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.':
+    'Baked in a cast-iron pot. Stretch and fold the dough during fermentation, and proof it in the fridge.',
+  'Bochenek na zakwasie o wysokiej hydratacji.':
+    'A high-hydration sourdough loaf.',
+  'Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.':
+    'Autolyse for 60 minutes without salt. Stretch and fold the dough gently during fermentation.',
+  'Chleb na zakwasie w stylu San Francisco.':
+    'A San Francisco–style sourdough bread.',
+  'Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.':
+    'Long, cool fermentation. Lower fermentation temperatures have been linked to acetic acid. Baked in a cast-iron pot.',
+  'Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.':
+    'A sourdough loaf made with light wheat, graham and rye flour.',
+  'Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.':
+    'Stretch and fold the dough during fermentation, and proof it in an oval basket.',
+  'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.':
+    'A spelt sourdough loaf with toasted flaxseed, sunflower seeds and sesame.',
+  'Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.':
+    'Toast the seeds in a dry pan and soak them in warm water before adding them to the dough.',
+  'Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.':
+    'A graham-flour sourdough bread with honey and flaxseed.',
+  'Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.':
+    'Before adding the salt and the starter, leave the flour and water to autolyse.',
+  'Maślana brioszka na sztywnym zakwasie Lievito Madre.':
+    'A butter brioche made with stiff Lievito Madre sourdough.',
+  'Słodka chałka zaplatana w warkocz, z kruszonką.':
+    'A sweet challah braided and topped with streusel.',
+  'Focaccia z oliwą, rozmarynem i solą morską.':
+    'Focaccia with olive oil, rosemary and sea salt.',
+  'Razowiec żytni w keksówce, bez składania.':
+    'A wholemeal rye loaf in a loaf pan, without folding.',
+  'Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.':
+    'Mix, then put the dough straight into a greased loaf pan dusted with bran. Leave the dough in the tin until its surface reaches the rim of the tin. Sourdough rye is best left to rest for 24 hours before you slice it.',
+  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).':
+    'A traditional Italian ciabatta made with a stiff Biga preferment (50%).',
+  'Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.':
+    'Mixed with a spoon in 2 minutes, an overnight rise on the counter and baked in a pot.',
 };
