@@ -1,6 +1,10 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## 2026-11-09 ~04:10 UTC — STOP 2 M1 rozstrzygnięty, M2 wystartował
+- Właściciel: wszystkie rekomendacje, M2 na wszystkich otwartych (D-286); raporty ról M1 wypchnąć na `audit-m1/piekarz-2026-11-08` (zgoda przyciskiem, wykonuje sesja M1). Plan STOP 2: `7671c134`, sprawdz-plan kod 0 (84 zatwierdzone, 2 odrzucone).
+- **M2:** sesja `session_01T66VBy48fpemgf7wQvUkU4` (opus, auto) na bazie `redesign` @ `dd824eee`; pula decyzji M2 od D-300. Bez master/buildu/ASC/strony bez zgody. Koordynator M3 pilnuje (get_session co ~60 min).
+
 ## RAPORT PORANNY 2026-11-09 (przygotowany 22:35 UTC; wysłać właścicielowi ~06:30 UTC, wcześniej nic — „Nie raportuj też mi nic do rana”)
 1. **M1 na STOP 2** (sesja `session_01T66VBywjUPA4m3hXCFNdYr` czeka na Twoje 3 odpowiedzi w niej samej; raport i plan na `audit-m1/piekarz-2026-11-08` @ `e543b597`: `audit/M1-audytor-generalny-2026-11-08.md`, `audit/M1-2026-11-08/plan-napraw.json`). Werdykt: kurs trafny, zgłoszenie ZABLOKOWANE przez P1. 86 pozycji: P0 0, P1 18, P2 66, odrzucone 2; 19 decyzji DEC-01…19 z rekomendacjami (b = odłożyć tylko DEC-12 → 1.0.1, DEC-19 → 1.1). Top: równoczesny zapis import/czyszczenie/zakwas (dane, brzegowe), usunięte dokarmienie wraca (realne), temperatury pieczenia niezgodne ze źródłami, ekran Pro/sklep obiecują „porównanie”, instrukcja kroku poza ekranem na SE. Koszt: ok. 8,0–8,3 mln tokenów (plan 6,5–13,3); licznik sesji ok. 173 USD. Pytania sesji M1: decyzje (rekomendacja: wszystkie rekomendacje), zakres M2 (rekomendacja: wszystkie otwarte), uwagi z telefonu.
 2. **E2E:** E2E-95 zielone (run 42511814430, D-282), E2E-96 zielone (run 42520804896, D-285). Oba scalone do `redesign`; `verify` na `492d968a` kod 0 (575/6024).
