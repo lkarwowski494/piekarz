@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22 · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
+Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22, M2 2026-11-09 (wynik 1.0 dla samego iOS, DEC-06 a) · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
 
 Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jako oferta wprowadzająca subskrypcji, potem „tylko historia”) jest w `docs/archiwum/monetyzacja-d038-2026-10-19.md` razem z tabelą rynku i wartości funkcji z 2026-10-19 (MS-01…MS-27). Badanie zmiany modelu z 2026-10-22 (reguły sklepu z dnia, rynek, StoreKit, rachunki V1, V2, V3, Basic/Pro): `docs/monetyzacja-badanie-2026-10.md` (MS-B01…MS-B24). Surowe odczyty: `audit/02-badanie-modelu-2026-10-22/` (poza gitem).
 
@@ -11,15 +11,17 @@ Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jak
 - **Bez próby i bez oferty wprowadzającej:** rolę próby pełni Basic. *Dlaczego:* właściciel odrzucił próbę, która sama zamienia się w opłatę („największy red flag”, D-110).
 - **Drugi model portfela:** Trening i Oczko stosują limit miesięczny dni głównej czynności; Piekarz nie, bo pieczenie i prowadzenie zakwasu da się robić bez aplikacji, więc limit użycia uczy omijania aplikacji (słowa właściciela w D-111, D-112).
 
-## Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, iOS + Google Play, scen. norm.)
-| Model | Wynik | Reguła sklepu | Ryzyko etyczne | Decyzja |
+## Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, scen. norm.; platforma 1.0: sam iOS)
+**Wynik bramki dla wydania 1.0 (sam iOS; DEC-06 a, D-286, zapis 2026-11-09):** 174–218 USD netto/rok, czyli 35–44% progu 500 USD (`docs/monetyzacja-badanie-2026-10.md`, tabela w E2e, kolumna „sam iOS”: 174 przy podziale E2e, 218 przy mnożniku ok. 1,0). Werdykt „przerobić” bez zmian; praca idzie dalej na D-040. Kolumna „Wynik (iOS + Google Play)” niżej zakłada port na Androida, którego żadna decyzja nie planuje (ADR-007: „Android poza planem 1.0”); kosztu portu ten rachunek nie odejmuje. Przy decyzji o Androidzie: przebieg samej bramki z wariantem „iOS + port Android z kosztem” (02-monetyzacja-002, opcja b).
+
+| Model | Wynik (iOS + Google Play, po porcie) | Reguła sklepu | Ryzyko etyczne | Decyzja |
 |---|---|---|---|---|
-| **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
-| D-038: próba 14 dni zamieniająca się w subskrypcję | 345 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
+| **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | sam iOS (1.0): **174–218**; z Google Play po porcie: ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
+| D-038: próba 14 dni zamieniająca się w subskrypcję | 345, sam iOS 218 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
 | V1 / V2: przepustki bez odnawiania | 191 / 200 | 3.1.1 „non-subscription apps” niepewne (MS-B01, Case 103004967270) | wygaśnięcie w trakcie życia zakwasu | odrzucone (D-112) |
 | V3: limit 5 dni wypieku | 189 | „metered paywall” (MS-B08) | limit zniechęca do rejestrowania | odrzucony (D-112) |
 | Sam zakup jednorazowy 14,99 / 19,99 | 322 / 369 | 3.1.1, przywracanie (MS-03) | brak | nie wybrany |
-Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112): przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.
+Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112), liczby iOS + Google Play: przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.
 
 ## Rachunek
 `docs/monetyzacja/rachunek.mjs` na `docs/monetyzacja/rachunek-badanie-us.json` (kod 0, 2026-10-22): wpływ w US po 15% prowizji (Small Business Program aktywny, słowa właściciela przez M1 2026-10-22): miesięczna 0,84 USD, roczna 5,94 USD, dożywotni 12,74 USD; próg 500 USD netto: 40 płacących dożywotniego albo 58 rocznego. PL (VAT 23%, MS-B22; USD 3,8886, MS-B10): ceny 4,99 / 29,99 / 79,99 zł bez zmian (`docs/monetyzacja/rachunek.json`). Bramka: `audit/02-badanie-modelu-2026-10-22/dowody/bramka-basic-pro.txt` (kod 0). Po premierze wpływ z App Store Connect (`wplyw_z_asc`) ma pierwszeństwo.
