@@ -302,12 +302,12 @@ export default function HarmonogramScreen() {
           okno={oknoPlanu}
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
-          onCopySchedule={handleCopySchedule}
+          onCopySchedule={bezZakwasu ? undefined : handleCopySchedule}
           bezLodowki={bezLodowki}
         >
-          {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
+          {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków („za późno”) i bez planu (089) nic [M3 D8] */}
           <DodajDoKalendarza
-            plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
+            plan={startPlanu === null || bezZakwasu ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
           />
         </UstawieniaPlanu>
         </View>

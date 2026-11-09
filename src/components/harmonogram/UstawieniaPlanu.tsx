@@ -20,7 +20,8 @@ export interface UstawieniaPlanuProps {
   okno: OknoSnu | null;
   coldRetardHours: number;
   onColdRetardHoursChange: (hours: number) => void;
-  onCopySchedule: () => void;
+  /** Bez planu (powodBezPlanu, 089) brak — przycisk kopiowania znika. */
+  onCopySchedule?: () => void;
   /** Plan żytni: rozrost w formie w cieple (ZYT-ETA-005), bez przełącznika lodówki [audyt-niezalezny D-7] */
   bezLodowki?: boolean;
   /** Pod „Kopiuj jako tekst” w tej samej karcie („Dodaj do kalendarza”, M3 p4). */
@@ -57,9 +58,11 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
         </>
       )}
 
-      <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
-        <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
-      </Pressable>
+      {onCopySchedule && (
+        <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
+          <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
+        </Pressable>
+      )}
       {children}
     </Karta>
   );
