@@ -50,7 +50,8 @@ Odhaczana przez właściciela i agenta przed „Release”; wynik z datą w `doc
 - [ ] **W1-09** Plan „zły build” (§4 i `sklep.md` §4) przeczytany przez właściciela; ustalone, kto reaguje w pierwszym tygodniu.
 - [ ] **W1-10** Przy pierwszej aktualizacji: wydanie stopniowe włączone (§3).
 - [ ] **W1-11** Beta iOS (lipiec–sierpień co roku): E2E z betą Xcode w CI niewiążąco i 5 minut na telefonie z betą (nowy wypiek, sygnał przy zablokowanym ekranie, kopia). *Propozycja z `trening`, noc, do weta.*
+- [ ] **W1-12** Plan wzrostu: kanał startu z odczytanym regulaminem (adres, cytat reguły autopromocji, data odczytu), budżet godzin i plan na złe przyjęcie w `docs/wzrost.md` (DEC-15 a, D-286); regulamin odczytany ponownie w tygodniu wpisu. *Dlaczego:* luka wróciła z audytu 2026-10-20 (11-wzrost-006 → 11-wzrost-002).
 
 ## 6. Po premierze: budżet czasu właściciela
 
-`[DO USTALENIA]` przez właściciela. W `trening` przyjęto 2 h tygodniowo przez 8 tygodni i odpowiedź na recenzje w 48 h (decyzja tamtego właściciela, 2026-10-23); dla Piekarza proponuję to samo okno i rytm, bo kryterium po 90 dniach (`docs/monetyzacja.md`: ≥ 7 nowych płacących miesięcznie w dniach 30–90) wymaga cotygodniowego odczytu raportów subskrypcji. Agent przygotowuje szkice odpowiedzi i zestawienie tygodniowe, publikuje właściciel.
+2 h tygodniowo na wzrost i odpowiedzi na recenzje (D-286, DEC-15 a); kanał startu, rytm odpowiedzi i plan na złe przyjęcie: `docs/wzrost.md`. W `trening` przyjęto 2 h tygodniowo przez 8 tygodni i odpowiedź na recenzje w 48 h (decyzja tamtego właściciela, 2026-10-23); dla Piekarza to samo okno, odpowiedź na recenzję ≤ 2★ w ciągu 7 dni (`docs/wzrost.md`, „Złe przyjęcie”), bo kryterium po 90 dniach (`docs/monetyzacja.md`: ≥ 7 nowych płacących miesięcznie w dniach 30–90) wymaga cotygodniowego odczytu raportów subskrypcji. Agent przygotowuje szkice odpowiedzi i zestawienie tygodniowe, publikuje właściciel.
