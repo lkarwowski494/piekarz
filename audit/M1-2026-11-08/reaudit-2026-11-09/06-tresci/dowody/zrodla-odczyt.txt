@@ -1,0 +1,30 @@
+Odczyt źródeł 2026-11-09T22:01:21Z; curl -L (UA przeglądarki) + BeautifulSoup get_text, białe znaki scalone; grep -F
+sha256 6d28ecb254d9 cia-brioche.html
+sha256 6d1df887a7f6 ka-ddt.html
+sha256 be61f7c3b082 ka-pdc.html
+sha256 90d7871ee940 ka-pizza.html
+ZNALEZIONE [ka-ddt] We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment.
+ZNALEZIONE [ka-ddt] we subtract from it the sum of the known temperatures, and the result will be the required water temperature.
+ZNALEZIONE [ka-ddt] the only variable over which we have control
+ZNALEZIONE [cia-brioche] For a pan loaf, preheat the oven to 400°F and then reduce the heat to 350°F.
+ZNALEZIONE [cia-brioche] Rotate and bake for an additional 8 to 10 minutes, until golden brown.
+ZNALEZIONE [cia-brioche] After the butter is fully incorporated, mix on medium speed for 15 minutes, or until the dough pulls away from the bowl.
+ZNALEZIONE [cia-brioche] Cover the dough tightly with plastic wrap and refrigerate overnight.
+ZNALEZIONE [cia-brioche] For the loaf pan, hand roll the dough out to the length of your pan.
+ZNALEZIONE [cia-brioche] Cover with plastic wrap and let proof in a warm place for 20 minutes.
+ZNALEZIONE [ka-pdc] Immediately reduce the oven temperature to 450°F and bake the covered loaves for 20 minutes.
+ZNALEZIONE [ka-pdc] bake the loaves for 20 to 25 minutes uncovered
+ZNALEZIONE [ka-pdc] Preheat the oven (and Dutch ovens) to 500°F for 45 minutes
+ZNALEZIONE [ka-pizza] preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside
+ZNALEZIONE [ka-pizza] Bake the pizza for approximately 6 minutes on the steel or 7 minutes on the stone (give or take).
+ZNALEZIONE [ka-pizza] continue cooking the pizza for 2 to 3 minutes
+--- przelicznik drożdży (DRO-INS-030), odczyt 2026-11-09T22:05:52Z, HTTP 200 wszystkie
+sha256 864beb53cc17 oetker.html
+sha256 cbaa214c01e7 redstar.html
+sha256 1356db87fa75 fleisch.html
+sha256 6288f7d96803 lesaffre.html
+ZNALEZIONE [oetker] 1 torebka Drożdży instant 7 g = 25 g drożdży świeżych;
+ZNALEZIONE [redstar] is equivalent to 0.6 oz cake yeast, or one (1/4oz) package dry yeast
+ZNALEZIONE [fleisch] One 0.6-ounce cake is equivalent to 1 packet of dry yeast.
+ZNALEZIONE [lesaffre] 3-4 krotnie mniejszej wadze
+Rachunek: 7/25=0,28; 0,25/0,6=0,4167; (0,28+0,417)/2=0,3485≈0,35; Lesaffre 1/4–1/3=0,25–0,33

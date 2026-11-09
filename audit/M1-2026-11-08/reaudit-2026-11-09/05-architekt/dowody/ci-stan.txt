@@ -1,0 +1,31 @@
+# gh run list --limit 15 (2026-11-09, odczyt w trakcie reaudytu)
+in_progress		iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	redesign/piekarz-2026-10-22	workflow_dispatch	42705979446	21m35s	2026-11-09T21:48:29Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	naprawy/M2-koordynator-napraw-2026-11-09-p3	workflow_dispatch	42691065882	1h17m24s	2026-11-09T20:14:36Z
+completed	success	fix(ci): bramka E2E przed TestFlight — lista ścieżek spoza buildu zam…	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42690992564	5m28s	2026-11-09T20:14:09Z
+completed	failure	fix(ci): bramka E2E przed TestFlight — lista ścieżek spoza buildu zam…	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42690992263	5m0s	2026-11-09T20:14:09Z
+completed	success	test(BR-ETAP-001): gotowość żytniego ciasta drożdżowego z ID; wpis cz…	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42689365564	4m44s	2026-11-09T20:04:09Z
+completed	success	test(BR-ETAP-001): gotowość żytniego ciasta drożdżowego z ID; wpis cz…	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42689365311	5m36s	2026-11-09T20:04:09Z
+completed	success	Merge redesign d2fa028e (D-289 tryb nocny) do partii 3	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42683293443	5m37s	2026-11-09T19:26:05Z
+completed	success	Merge redesign d2fa028e (D-289 tryb nocny) do partii 3	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42683293288	6m48s	2026-11-09T19:26:05Z
+completed	cancelled	docs(wzrost): H-01 minimalna próba z ID decyzji (D-315) i data oceny …	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42682620928	4m31s	2026-11-09T19:21:52Z
+completed	cancelled	docs(wzrost): H-01 minimalna próba z ID decyzji (D-315) i data oceny …	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42682620849	4m30s	2026-11-09T19:21:52Z
+completed	cancelled	docs(wzrost): kanał startu The Fresh Loaf z odczytaną regułą, budżet …	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42682077804	3m38s	2026-11-09T19:18:26Z
+completed	cancelled	docs(wzrost): kanał startu The Fresh Loaf z odczytaną regułą, budżet …	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42682077668	3m44s	2026-11-09T19:18:26Z
+completed	success	docs(bezpieczeństwo): warunek ochrony środowiska release i zasięg sek…	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42680784792	3m9s	2026-11-09T19:10:23Z
+completed	success	docs(bezpieczeństwo): warunek ochrony środowiska release i zasięg sek…	Tests across Timezones (TZ Matrix)	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42680784591	4m59s	2026-11-09T19:10:23Z
+completed	success	ci(wydanie): klucz ASC tylko po akceptacji w środowisku release, kont…	CI	naprawy/M2-koordynator-napraw-2026-11-09-p3	push	42679385977	5m11s	2026-11-09T19:01:44Z
+kod 0
+
+# gh run view 42690992263 --log-failed | grep FAIL/●/Tests (TZ Matrix na 6a412c9a)
+Jest (America/Los_Angeles)	UNKNOWN STEP	2026-11-09T20:18:23.7635403Z FAIL tests/dziennik-wydan-tagi-079.test.ts
+Jest (America/Los_Angeles)	UNKNOWN STEP	2026-11-09T20:18:23.7658702Z   ● dziennik wydań: każdy build z tagu ma wiersz (079) › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)
+Jest (America/Los_Angeles)	UNKNOWN STEP	2026-11-09T20:18:53.8455026Z FAIL tests/dziennik-wydan-tagi-079.test.ts
+Jest (America/Los_Angeles)	UNKNOWN STEP	2026-11-09T20:18:53.8460964Z   ● dziennik wydań: każdy build z tagu ma wiersz (079) › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)
+Jest (America/Los_Angeles)	UNKNOWN STEP	2026-11-09T20:18:53.8528241Z Tests:       1 failed, 6799 passed, 6800 total
+Jest (America/New_York)	UNKNOWN STEP	2026-11-09T20:16:44.7539873Z FAIL tests/dziennik-wydan-tagi-079.test.ts
+Jest (America/New_York)	UNKNOWN STEP	2026-11-09T20:16:44.7570092Z   ● dziennik wydań: każdy build z tagu ma wiersz (079) › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)
+Jest (America/New_York)	UNKNOWN STEP	2026-11-09T20:17:02.4702755Z FAIL tests/dziennik-wydan-tagi-079.test.ts
+Jest (America/New_York)	UNKNOWN STEP	2026-11-09T20:17:02.4708178Z   ● dziennik wydań: każdy build z tagu ma wiersz (079) › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)
+Jest (America/New_York)	UNKNOWN STEP	2026-11-09T20:17:02.4738713Z Tests:       1 failed, 6799 passed, 6800 total
+Jest (Asia/Tokyo)	UNKNOWN STEP	2026-11-09T20:17:41.0855465Z FAIL tests/dziennik-wydan-tagi-079.test.ts
+Jest (Asia/Tokyo)	UNKNOWN STEP	2026-11-09T20:17:41.0857002Z   ● dziennik wydań: każdy build z tagu ma wiersz (079) › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)

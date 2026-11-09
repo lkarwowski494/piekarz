@@ -1,0 +1,28 @@
+Szerokość plakietki dnia (Inter 600 jako przybliżenie SF Pro; kolumna godzin 65 pt przy fontScale 1, TimelineStagesList.tsx:20)
+Après-demain         10pt=69.0  12pt=82.8  POWYZEJ 65 juz przy 10 pt
+Day after tomorrow   10pt=93.1  12pt=111.7  POWYZEJ 65 juz przy 10 pt
+Depois de amanhã     10pt=89.3  12pt=107.1  POWYZEJ 65 juz przy 10 pt
+Dopodomani           10pt=61.5  12pt=73.8  POWYZEJ 65 dopiero przy 12 pt
+Holnapután           10pt=55.8  12pt=67.0  POWYZEJ 65 dopiero przy 12 pt
+I overmorgen         10pt=64.0  12pt=76.8  POWYZEJ 65 dopiero przy 12 pt
+I övermorgon         10pt=64.2  12pt=77.0  POWYZEJ 65 dopiero przy 12 pt
+Overmorgen           10pt=60.5  12pt=72.6  POWYZEJ 65 dopiero przy 12 pt
+Pasado mañana        10pt=76.7  12pt=92.0  POWYZEJ 65 juz przy 10 pt
+Pojutrišnjem         10pt=60.6  12pt=72.7  POWYZEJ 65 dopiero przy 12 pt
+Pozajtra             10pt=39.5  12pt=47.3  miesci sie
+Prekosutra           10pt=52.4  12pt=62.9  miesci sie
+Ylihuomenna          10pt=63.6  12pt=76.3  POWYZEJ 65 dopiero przy 12 pt
+Übermorgen           10pt=60.7  12pt=72.9  POWYZEJ 65 dopiero przy 12 pt
+Ülehomme             10pt=52.0  12pt=62.4  miesci sie
+Μεθαύριο             10pt=49.3  12pt=59.1  miesci sie
+Вдругиден            10pt=54.4  12pt=65.2  POWYZEJ 65 dopiero przy 12 pt
+Послезавтра          10pt=64.9  12pt=77.9  POWYZEJ 65 dopiero przy 12 pt
+Післязавтра          10pt=61.3  12pt=73.5  POWYZEJ 65 dopiero przy 12 pt
+Pojutrze             10pt=40.1  12pt=48.1  miesci sie
+Poimâine             10pt=44.5  12pt=53.4  miesci sie
+
+Uwaga do progu: kolumna ma width 65 i paddingRight 10 (TimelineStagesList.tsx:20, :40, :129-133), więc na tekst zostaje 55 pt.
+Pojedyncze słowa > 55 pt nie mają gdzie się złamać poza środkiem wyrazu.
+- już przy 10 pt (2ef8870a) > 55: Übermorgen, Overmorgen, Dopodomani, Ylihuomenna, Послезавтра, Pojutrišnjem, Післязавтра, Holnapután, I overmorgen/I övermorgon (słowo 2), Après-demain
+- dopiero przy 12 pt (ea249c9c, e07a9ee1) > 55: Вдругиден, Prekosutra, Ülehomme, Μεθαύριο
+Wniosek [OCENA, krój zastępczy Inter zamiast SF Pro]: problem istniał wcześniej; zmiana 10 -> 12 pt poszerzyła go o 4 języki.

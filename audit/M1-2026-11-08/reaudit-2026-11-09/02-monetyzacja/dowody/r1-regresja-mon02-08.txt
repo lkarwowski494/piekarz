@@ -1,0 +1,9 @@
+PASS src/lib/__tests__/wektory-dostepu-pa.test.ts
+PASS src/lib/__tests__/platnosci-dostep.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        2.397 s
+Ran all test suites matching /src\/lib\/__tests__\/platnosci-dostep.test.ts|src\/lib\/__tests__\/wektory-dostepu-pa.test.ts/i.
+kod 0

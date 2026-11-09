@@ -1,0 +1,16 @@
+$ npx jest src/lib/__tests__/godzina-przyimek.test.ts
+PASS src/lib/__tests__/godzina-przyimek.test.ts
+  godzina w przekładzie bez rodzajnika zależnego od godziny (TORB-09-GODZ)
+    ✓ es: żaden tekst nie stawia rodzajnika przed godziną (51 ms)
+    ✓ es-419: żaden tekst nie stawia rodzajnika przed godziną (79 ms)
+    ✓ pt: żaden tekst nie stawia rodzajnika przed godziną (66 ms)
+    ✓ pt-BR: żaden tekst nie stawia rodzajnika przed godziną (50 ms)
+    ✓ it: żaden tekst nie stawia rodzajnika przed godziną (62 ms)
+    ✓ el: żaden tekst nie stawia rodzajnika przed godziną (55 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        1.626 s
+Ran all test suites matching /src\/lib\/__tests__\/godzina-przyimek.test.ts/i.
+kod wyjścia: 0

@@ -31,3 +31,15 @@
 | weryfikacja G6 (lokalizacja) | 0,115–0,19 mln | 145 644 tokenów, 37 wywołań, 4,3 min; kontrola M1 kod 0 | 0,77–1,27 |
 | weryfikacja G8 (proces, CI) | 0,115–0,19 mln | 163 873 tokenów, 44 wywołania, 5,7 min; kontrola M1 kod 0 | 0,86–1,43 |
 | weryfikacja G7 (przepływ, UI) | 0,115–0,19 mln | 194 113 tokenów, 73 wywołania, 10,3 min; kontrola M1 kod 0 | 1,02–1,69 |
+
+## Reaudit pętla 1 (2026-11-09, sesja B, wariant B — 6 grup)
+| Pozycja | Szacunek | Zużycie | Iloraz |
+|---|---|---|---|
+| grupa D (04-studio-projektowe) | 0,20–0,35 mln | 255 528 tokenów, 89 wywołań, 14,7 min; sprawdz-raport kod 0 | 0,73–1,28 |
+| grupa F (03, 02, 11) | 0,30–0,55 mln | 410 830 tokenów, 132 wywołania, 16,3 min; sprawdz-raport kod 0 ×3 | 0,75–1,37 |
+| grupa C (09) | 0,20–0,35 mln | 274 779 tokenów, 93 wywołania, 18,9 min; sprawdz-raport kod 0 | 0,79–1,37 |
+| grupa A (05, 12, 08) | 0,35–0,60 mln | 387 285 tokenów, 141 wywołań, 19,7 min; sprawdz-raport kod 0 ×3 | 0,65–1,11 |
+| grupa E (07, 10) | 0,30–0,55 mln | 330 174 tokenów, 88 wywołań, 20,1 min; sprawdz-raport kod 0 ×2; npm run verify kod 0 | 0,60–1,10 |
+| grupa B (06, 01) | 0,30–0,55 mln | 372 894 tokenów, 120 wywołań, 20,7 min; sprawdz-raport kod 0 ×2 | 0,68–1,24 |
+| weryfikacja V1 (12-601, 005) | 0,115–0,19 mln | 163 201 tokenów, 37 wywołań, 3,7 min; sprawdz-raport kod 0 | 0,86–1,42 |
+| weryfikacja V2 (06-601, 06-602) | 0,115–0,19 mln | 134 059 tokenów, 41 wywołań, 3,6 min; sprawdz-raport kod 0 | 0,71–1,17 |

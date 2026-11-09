@@ -1,0 +1,12 @@
+# grep -n "prób" docs/scope-contract.md
+12:- Darmowe i płatne: model D-112, D-113, wdrożony w D-116 (zapis 2026-11-09, M1-audytor-generalny-059), kontrakt płatności `docs/monetyzacja.md` („Basic i Pro według funkcji”); D-038 i D-039 (okres próbny, po
+68:| F-37 | Ekran Pro tylko przy funkcji Pro, bez ukrytych warunków | BR-ZAK-003, BR-ZAK-005 | MVP | R: MS-26 (Loaflo 12 z 13 skarg); ZAL-042 | warunek · zawsze | ekran Pro tylko po stuknięciu funkcji oznaczonej „Pr
+320:| ZM-25 | 2026-11-03 | właściciel: „Chciałbym aby przepisy na zakwasie miały odpowiedniki z drożdżami”, wybór „Osobne bliźniaki, 1.1” (D-137); termin 1.0 (D-150) | **praca i dowód:** J-11 (pieczywo d
+# grep BR-RECP-005 w testach
+src/__tests__/br-recp-005-wersja-drozdzowa-070.test.tsx
+tests/br-bez-testu.test.ts
+tests/kontrakt-zm28-058.test.ts
+tests/kontrakt-slad-059.test.ts
+# scripts/br-wyjatki.json BR-RECP-005
+23:    { "id": "BR-RECP-005", "czesciowe": true, "powod": "scenariusz Wersja ze źródła szczebla 4: notatka wersji drożdżowej tartine mówi „według jednego przepisu”, ale nie nazywa King Arthur Baking, a pozycja King Arthur Baking na ekranie „Źródła wiedzy” nie wspomina tej wersji (znalezisko M1-audytor-generalny-070, rola 06 i 09: zdanie notatki bez nowego tekstu w tym zadaniu). Pozostałe scenariusze (Przełączenie na drożdże, Receptura bez źródła wersji drożdżowej, Powrót do wersji na zakwasie, Rodzaj drożdży, Bez Pro): testy BR-RECP-005 w src/__tests__/br-recp-005-wersja-drozdzowa-070.test.tsx", "zrodlo": "F-26, D-154, D-173, D-126" },
+kod 0

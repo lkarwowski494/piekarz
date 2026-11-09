@@ -1,0 +1,16 @@
+# sprawdz-wydanie.mjs metadane (34 pliki docs/wydanie/metadane/*.json przepisane do formatu EAS w scratchpadzie: nazwa→title, podtytul→subtitle, slowaKluczowe→keywords, tekstPromocyjny→promoText, opis→description)
+OK
+kod=0
+# sprawdz-wydanie.mjs sekrety . --historia (is-shallow: false; commitów w historii: 1364)
+BŁĄD IDENTYFIKATOR tests/asc-ustawienia.test.ts:43: ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR tests/asc-zgloszenie.test.ts:46: ASC_ISSUER_ID = WY…CA
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD IDENTYFIKATOR w historii (4b0b3c37): ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR w historii (bdb854be): ASC_ISSUER_ID = WY…CA
+BŁĄD SEKRET klucz prywatny w historii (70fd81aa)
+BŁĘDY: 9
+kod=1
+# Ocena okiem: IDENTYFIKATOR ASC_ISSUER_ID = WY…CA to nazwa zmiennej WYSTAWCA (sztuczny UUID w tests/asc-ustawienia.test.ts:32, tests/asc-zgloszenie.test.ts); SEKRET klucz prywatny w 68116bf8 i 70fd81aa to opis formatu sekretu w dokumentach i komenda grep, bez linii base64; klucz PEM w testach generowany w locie (generateKeyPairSync).

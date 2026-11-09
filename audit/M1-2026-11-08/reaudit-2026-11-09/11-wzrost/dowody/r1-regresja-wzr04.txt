@@ -1,0 +1,9 @@
+PASS src/lib/__tests__/prosba-o-ocene-odlozona.test.ts
+PASS src/lib/__tests__/prosba-o-ocene.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       35 passed, 35 total
+Snapshots:   0 total
+Time:        5.64 s
+Ran all test suites matching /src\/lib\/__tests__\/prosba-o-ocene.test.ts|src\/lib\/__tests__\/prosba-o-ocene-odlozona.test.ts/i.
+kod 0

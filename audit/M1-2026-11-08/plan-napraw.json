@@ -495,6 +495,28 @@
       "zrodla": [
         "02-monetyzacja-006"
       ]
+    },
+    {
+      "id": "DEC-21",
+      "pytanie": "Brioszka na Lievito Madre: czasy rośnięcia bez źródła dla zaczynu (D-309, PIE-BRI-900 otwarte) — co w 1.0?",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": null,
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "brioszka bez „Ułóż plan” do zamknięcia PIE-BRI-900 (opcja d z D-309)",
+          "kompromis": "mniej receptur z planem (10 zamiast 11)"
+        },
+        {
+          "id": "b",
+          "opis": "plan zostaje z ostrzeżeniem „czasy szacunkowe” i wydłużalnym rośnięciem",
+          "kompromis": "plan może zawołać do pieca za wcześnie; tekst w 35 językach"
+        }
+      ],
+      "zrodla": [
+        "06-tresci-602"
+      ]
     }
   ],
   "zadania": [
@@ -516,8 +538,13 @@
       "przyczyna": "SYS-02",
       "raport": "role/05-architekt/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test współbieżności na prawdziwym SQLite: import kopii, „Usuń wszystkie dane” i zapis zakwasu przy równoległym zapisie i wymuszonym błędzie zostawiają dane albo w całości nowe, albo w całości stare; „Nie zapisano” tylko przy braku zapisu; trwała kontrola: lint/test zabraniający withTransactionAsync poza kolejką (powraca: M3 D1b P2-1)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "b069827f"
+      "status": "zweryfikowane",
+      "commit": "b069827f",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-002",
@@ -535,8 +562,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "usunięte i poprawione dokarmienie nie wraca po zapisie profilu ani stałego dnia zakwasu (test na prawdziwym SQLite, sonda z 05-architekt-501)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "9feae565"
+      "status": "zweryfikowane",
+      "commit": "9feae565",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-003",
@@ -554,8 +586,13 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "pakiet z trybu awaryjnego jest rozpoznawany i przywracany przez import (albo, przy opcji b, ekran awaryjny ostrzega przed usunięciem aplikacji i podaje kontakt); test rozpoznajPlik",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "26f6a87f"
+      "status": "zweryfikowane",
+      "commit": "26f6a87f",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-087"
+      }
     },
     {
       "id": "M1-audytor-generalny-004",
@@ -573,8 +610,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "faza zakwasu bez okna szczytu bez źródła: przy showPeakWindow={false} karta nie pokazuje „W szacowanym oknie szczytu”; reguła ma twierdzenie w rejestrze albo znika",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "4af7c631"
+      "status": "zweryfikowane",
+      "commit": "4af7c631",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/01-odkrywanie/01-odkrywanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-005",
@@ -592,8 +634,13 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "1d0dce0a"
+      "status": "otwarte",
+      "commit": "1d0dce0a",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+        "wynik": "nadal otwarte: instrukcja i ostrzeżenie poza pierwszym ekranem (402 pt: nagłówek i kilka wierszy, bez ostrzeżenia; 320 pt: karta poza ekranem); test akceptacyjny nie sprawdza tytułu; potwierdzone w weryfikacja/V1"
+      }
     },
     {
       "id": "M1-audytor-generalny-006",
@@ -611,8 +658,13 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "stuknięcie kroku w arkuszu „Plan wypieku” przy trwającym wypieku pyta o potwierdzenie i daje „Cofnij”; stuknięcie bieżącego kroku nie zeruje zegara",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "cfb3b16c"
+      "status": "zweryfikowane",
+      "commit": "cfb3b16c",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-007",
@@ -630,8 +682,13 @@
       "przyczyna": "SYS-06",
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "7 arkuszy z 04-studio-projektowe-003 na systemie kart (przegląd roli 04 według D-139) albo wyjątek nazwany z decyzją",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "a33b545b"
+      "status": "zweryfikowane",
+      "commit": "a33b545b",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-008",
@@ -649,8 +706,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "temperatury, czasy i naczynie w planie i prowadzeniu zgodne z danymi receptury dla 8 receptur pszennych na zakwasie; test porównujący plan z kartą receptury",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "49a83170"
+      "status": "zweryfikowane",
+      "commit": "49a83170",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresje → M1-audytor-generalny-088, -089"
+      }
     },
     {
       "id": "M1-audytor-generalny-009",
@@ -668,8 +730,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "pizza: temperatura i czas zgodne ze źródłem receptury i domowym piekarnikiem, twierdzenie w rejestrze",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "944c1808"
+      "status": "zweryfikowane",
+      "commit": "944c1808",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-010",
@@ -687,8 +754,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "kontrole-tresci w kierunku odwrotnym (tekst → twierdzenie) dają 0 tekstów z liczbą bez twierdzenia w częściach widocznych w 1.0",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "e57cef29"
+      "status": "zweryfikowane",
+      "commit": "e57cef29",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-011",
@@ -706,8 +778,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "9 kluczy krytycznych w 21 językach ma tłumaczenie zwrotne (kontrola a) i drugi przegląd zapisany w rejestrze; test pilnuje kompletności",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "831199d7"
+      "status": "zweryfikowane",
+      "commit": "831199d7",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-012",
@@ -725,8 +802,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "ekran awaryjny w języku urządzenia (sonda de-DE i en-US)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "6c2a6e26"
+      "status": "zweryfikowane",
+      "commit": "6c2a6e26",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-013",
@@ -744,8 +826,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "„400 °F” bez „około 399 °F” w 35 językach; uncje bez „0,04 oz” i „1 0,00 oz”; test porównuje z oczekiwaną wartością, nie z EN",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "76610a26"
+      "status": "zweryfikowane",
+      "commit": "76610a26",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-014",
@@ -765,8 +852,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "15 tekstów przetłumaczonych w 33 językach; check:i18n wykrywa tekst EN równy PL-owemu przekładowi angielskiemu",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "8f90a72e"
+      "status": "zweryfikowane",
+      "commit": "8f90a72e",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-015",
@@ -785,8 +877,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "ekran Pro nie obiecuje funkcji bez kodu (test: lista obietnic PaywallModal ↔ funkcje zablokowane w mapie Basic/Pro)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "e8345215+69d895b8"
+      "status": "zweryfikowane",
+      "commit": "e8345215+69d895b8",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-016",
@@ -804,8 +901,13 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "scenariusz E2E koniec wypieku → ocena → wpis w Dzienniku → kopia automatyczna; punkt na liście telefonu; błąd kopii automatycznej nie jest połykany",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "f38f9e63+5589c91e"
+      "status": "zweryfikowane",
+      "commit": "f38f9e63+5589c91e",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-094"
+      }
     },
     {
       "id": "M1-audytor-generalny-017",
@@ -845,8 +947,13 @@
       "przyczyna": null,
       "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
       "test_akceptacyjny": "jeden kanał startu z odczytanym regulaminem, budżet godzin i plan na złe przyjęcie w docs/wzrost.md (albo decyzja b z wyjątkiem)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "83235746"
+      "status": "zweryfikowane",
+      "commit": "83235746",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/11-wzrost/11-wzrost-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-019",
@@ -864,8 +971,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "d59f8226"
+      "status": "zweryfikowane",
+      "commit": "d59f8226",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-020",
@@ -884,8 +996,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-003 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "259f0880"
+      "status": "zweryfikowane",
+      "commit": "259f0880",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-021",
@@ -904,8 +1021,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "91a26110"
+      "status": "zweryfikowane",
+      "commit": "91a26110",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-090"
+      }
     },
     {
       "id": "M1-audytor-generalny-022",
@@ -923,8 +1045,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-503 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "0d47bab2"
+      "status": "zweryfikowane",
+      "commit": "0d47bab2",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-023",
@@ -942,8 +1069,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-504 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "2dceaeeb"
+      "status": "zweryfikowane",
+      "commit": "2dceaeeb",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-024",
@@ -961,8 +1093,13 @@
       "przyczyna": null,
       "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-505 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "4c542e20"
+      "status": "zweryfikowane",
+      "commit": "4c542e20",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-025",
@@ -980,8 +1117,13 @@
       "przyczyna": null,
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "cf0de762"
+      "status": "zweryfikowane",
+      "commit": "cf0de762",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/08-programista/08-programista-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-026",
@@ -999,8 +1141,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-003 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "8cedbade"
+      "status": "zweryfikowane",
+      "commit": "8cedbade",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/08-programista/08-programista-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-027",
@@ -1018,8 +1165,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "c685a636"
+      "status": "zweryfikowane",
+      "commit": "c685a636",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/08-programista/08-programista-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-028",
@@ -1037,8 +1189,13 @@
       "przyczyna": "SYS-02",
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "a13c842c"
+      "status": "zweryfikowane",
+      "commit": "a13c842c",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/08-programista/08-programista-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-029",
@@ -1078,8 +1235,13 @@
       "przyczyna": null,
       "raport": "weryfikacja/G9-luki.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-030 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "d74e40c0"
+      "status": "zweryfikowane",
+      "commit": "d74e40c0",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/08-programista/08-programista-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-031",
@@ -1097,8 +1259,13 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "e3c23559"
+      "status": "zweryfikowane",
+      "commit": "e3c23559",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-032",
@@ -1136,8 +1303,13 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "f7cfd76f"
+      "status": "zweryfikowane",
+      "commit": "f7cfd76f",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-034",
@@ -1155,8 +1327,13 @@
       "przyczyna": "SYS-01",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "4de29436"
+      "status": "zweryfikowane",
+      "commit": "4de29436",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/01-odkrywanie/01-odkrywanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-035",
@@ -1174,8 +1351,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "58b65480"
+      "status": "zweryfikowane",
+      "commit": "58b65480",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/01-odkrywanie/01-odkrywanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-091"
+      }
     },
     {
       "id": "M1-audytor-generalny-036",
@@ -1215,8 +1397,13 @@
       "przyczyna": null,
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-008 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "b8a8f0d2"
+      "status": "zweryfikowane",
+      "commit": "b8a8f0d2",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/01-odkrywanie/01-odkrywanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-038",
@@ -1234,8 +1421,13 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "e07a9ee1"
+      "status": "zweryfikowane",
+      "commit": "e07a9ee1",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-039",
@@ -1253,8 +1445,13 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "69bf0924"
+      "status": "zweryfikowane",
+      "commit": "69bf0924",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-040",
@@ -1272,8 +1469,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-005 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "d1f2166f"
+      "status": "zweryfikowane",
+      "commit": "d1f2166f",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-041",
@@ -1291,8 +1493,13 @@
       "przyczyna": "SYS-05",
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "ef9dd782"
+      "status": "zweryfikowane",
+      "commit": "ef9dd782",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-042",
@@ -1354,8 +1561,13 @@
       "przyczyna": null,
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-009 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "d4d1d40d"
+      "status": "zweryfikowane",
+      "commit": "d4d1d40d",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-045",
@@ -1395,8 +1607,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "f1aa3ad7"
+      "status": "zweryfikowane",
+      "commit": "f1aa3ad7",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-047",
@@ -1414,8 +1631,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "4f24b6a6"
+      "status": "zweryfikowane",
+      "commit": "4f24b6a6",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-048",
@@ -1433,8 +1655,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-007 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "0e952949"
+      "status": "zweryfikowane",
+      "commit": "0e952949",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-049",
@@ -1452,8 +1679,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-008 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "3ccfd438"
+      "status": "zweryfikowane",
+      "commit": "3ccfd438",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-050",
@@ -1493,8 +1725,13 @@
       "przyczyna": null,
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-010 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "64d2aa55"
+      "status": "zweryfikowane",
+      "commit": "64d2aa55",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-052",
@@ -1556,8 +1793,13 @@
       "przyczyna": null,
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "69a1c258"
+      "status": "zweryfikowane",
+      "commit": "69a1c258",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/02-monetyzacja/02-monetyzacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-055",
@@ -1619,8 +1861,13 @@
       "przyczyna": "SYS-01",
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-005 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "9a692b21"
+      "status": "zweryfikowane",
+      "commit": "9a692b21",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/02-monetyzacja/02-monetyzacja-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-058",
@@ -1638,8 +1885,13 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-001 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "7526830d"
+      "status": "zweryfikowane",
+      "commit": "7526830d",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-059",
@@ -1657,8 +1909,13 @@
       "przyczyna": "SYS-01",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-003 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "3bebc5ab+211649bf+3e0fa3fa"
+      "status": "zweryfikowane",
+      "commit": "3bebc5ab+211649bf+3e0fa3fa",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-060",
@@ -1676,8 +1933,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "9174cd66"
+      "status": "zweryfikowane",
+      "commit": "9174cd66",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-061",
@@ -1695,8 +1957,13 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-005 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "e58a3ac1"
+      "status": "zweryfikowane",
+      "commit": "e58a3ac1",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-062",
@@ -1714,8 +1981,13 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "6caf322b"
+      "status": "zweryfikowane",
+      "commit": "6caf322b",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-063",
@@ -1755,8 +2027,13 @@
       "przyczyna": "SYS-06",
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-008 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "1f5eac3a+f34b06fd"
+      "status": "zweryfikowane",
+      "commit": "1f5eac3a+f34b06fd",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-092"
+      }
     },
     {
       "id": "M1-audytor-generalny-065",
@@ -1774,8 +2051,13 @@
       "przyczyna": null,
       "raport": "weryfikacja/G9-luki.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-065 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "7f520c7b"
+      "status": "zweryfikowane",
+      "commit": "7f520c7b",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-066",
@@ -1804,8 +2086,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "E2E zielone na SHA kandydata po scaleniu E2E-95 (pl, en_US, kontrola negatywna, Basic)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "E2E run 42653620839 @221318bf (success: pl_PL, en_US, kontrola negatywna, Basic)"
+      "status": "otwarte",
+      "commit": "E2E run 42653620839 @221318bf (success: pl_PL, en_US, kontrola negatywna, Basic)",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "nadal otwarte: E2E iOS #101 (42705979446) na ea249c9c in_progress w chwili reaudytu; #100 na 6a412c9a zielone we wszystkich krokach; zamknięcie po zielonym #101 (koordynator)"
+      }
     },
     {
       "id": "M1-audytor-generalny-067",
@@ -1823,8 +2110,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-002 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "c0614ee9"
+      "status": "otwarte",
+      "commit": "c0614ee9",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "nadal otwarte z warunkiem: pełny Stryker tylko w nightly po scaleniu; szacunek ~3 h wobec limitu 120 min, cache przyrostowy powstaje po ukończonym przebiegu; warunek: pierwszy nightly po scaleniu zielony z wynikiem ≥ 60"
+      }
     },
     {
       "id": "M1-audytor-generalny-068",
@@ -1842,8 +2134,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "fa679f03+6a412c9a"
+      "status": "zweryfikowane",
+      "commit": "fa679f03+6a412c9a",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; nowe teoretyczne → M1-audytor-generalny-095"
+      }
     },
     {
       "id": "M1-audytor-generalny-069",
@@ -1861,8 +2158,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-005 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "cd6a097e"
+      "status": "zweryfikowane",
+      "commit": "cd6a097e",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-070",
@@ -1881,8 +2183,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "6ed7109e"
+      "status": "zweryfikowane",
+      "commit": "6ed7109e",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-071",
@@ -1900,8 +2207,13 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-007 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "221318bf"
+      "status": "zweryfikowane",
+      "commit": "221318bf",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-072",
@@ -1919,8 +2231,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-008 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "40c4a011"
+      "status": "zweryfikowane",
+      "commit": "40c4a011",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-073",
@@ -1938,8 +2255,13 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-009 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "1590999f"
+      "status": "zweryfikowane",
+      "commit": "1590999f",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-074",
@@ -1980,8 +2302,13 @@
       "przyczyna": null,
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-011 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "550fc6b1"
+      "status": "zweryfikowane",
+      "commit": "550fc6b1",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-076",
@@ -2021,8 +2348,13 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-013 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "86efd997"
+      "status": "zweryfikowane",
+      "commit": "86efd997",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-078",
@@ -2041,8 +2373,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-001 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "a6d8013c, 1d7c3fc0"
+      "status": "zweryfikowane",
+      "commit": "a6d8013c, 1d7c3fc0",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-079",
@@ -2060,8 +2397,13 @@
       "przyczyna": null,
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-003 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "13a32139"
+      "status": "zweryfikowane",
+      "commit": "13a32139",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-080",
@@ -2081,8 +2423,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-004 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "6a6b410e, 1d7c3fc0"
+      "status": "zweryfikowane",
+      "commit": "6a6b410e, 1d7c3fc0",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-081",
@@ -2100,8 +2447,13 @@
       "przyczyna": "SYS-04",
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-006 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "2d426037"
+      "status": "zweryfikowane",
+      "commit": "2d426037",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-082",
@@ -2119,8 +2471,13 @@
       "przyczyna": null,
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-007 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "0ddecf89, a57d6de2"
+      "status": "zweryfikowane",
+      "commit": "0ddecf89, a57d6de2",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane"
+      }
     },
     {
       "id": "M1-audytor-generalny-083",
@@ -2160,8 +2517,13 @@
       "przyczyna": null,
       "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-005 (pole „Test akceptacyjny”)",
-      "status": "naprawione-do-weryfikacji",
-      "commit": "14e5f546"
+      "status": "zweryfikowane",
+      "commit": "14e5f546",
+      "reaudyt": {
+        "petla": 1,
+        "raport": "reaudit-2026-11-09/11-wzrost/11-wzrost-reaudit-2026-11-09.md",
+        "wynik": "zweryfikowane; regresja → M1-audytor-generalny-093"
+      }
     },
     {
       "id": "M1-audytor-generalny-085",
@@ -2202,6 +2564,330 @@
       "status": "odrzucone",
       "commit": null,
       "powod": "obalone w weryfikacji przeciwnej (weryfikacja/G4-sklep-pieniadze.md): brak zakupu przy aktywnym Pro to decyzja D-117 pkt 1"
+    },
+    {
+      "id": "M1-audytor-generalny-087",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Import pakietu z trybu awaryjnego gubi trwający i zaplanowane wypieki (bake_sessions) bez komunikatu",
+      "zrodla": [
+        "12-niezawodnosc-601"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "partia": 4,
+      "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-003",
+      "test_akceptacyjny": "import pakietu z bazy 1021 z 2 sesjami (active, planned) → bake_sessions = 2 po „Zastąp dane”; test pada na ea249c9c; znane w D-301 jako 12-niezawodnosc-703",
+      "status": "otwarte"
+    },
+    {
+      "id": "M1-audytor-generalny-088",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Receptura żytnia po zmianie mąk (żyto ≤ 50%) dostaje w planie i prowadzeniu tekst i temperatury brioszki, łotewska 250 °C zamiast 225 °C",
+      "zrodla": [
+        "06-tresci-601"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "partia": 4,
+      "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-008",
+      "test_akceptacyjny": "plan rye_100_pan, borodinsky_rye i latvian_scalded_rye przy 50% żyta: temperatury z danych receptury, bez słowa „brioszk”; tekst pieczenia po id receptury, nie po naczyniu",
+      "status": "otwarte"
+    },
+    {
+      "id": "M1-audytor-generalny-089",
+      "wykonawca": "rola",
+      "zalezy_od": [],
+      "decyzja": "DEC-21",
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Plan brioszki na Lievito Madre: rośnięcie w keksówce 20 min (czas drożdży instant) i lodówka bez rośnięcia w cieple, bez informacji, że czasy są szacunkowe",
+      "zrodla": [
+        "06-tresci-602"
+      ],
+      "poziom": "P1",
+      "rodzaj": "P",
+      "rola": "06-tresci",
+      "partia": 4,
+      "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-008",
+      "test_akceptacyjny": "(a) brioszka bez „Ułóż plan” do zamknięcia PIE-BRI-900, test katalogu; (b) czasy ze źródła dla zaczynu i rośnięcie z canStretch, test planu",
+      "status": "otwarte"
+    },
+    {
+      "id": "M1-audytor-generalny-090",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Cykle importów wartości lib/backup.ts ↔ src/data po naprawie 023; test granic ich nie widzi",
+      "zrodla": [
+        "05-architekt-601"
+      ],
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/05-architekt/05-architekt-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-021",
+      "test_akceptacyjny": "tests/granice-modulow.test.ts wykrywa cykl przez lib/backup.ts; 0 cykli",
+      "klasa": "teoretyczny",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-091",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "BR-DANE-005 uzasadnia eksport historii recenzją o eksporcie receptur",
+      "zrodla": [
+        "01-odkrywanie-601"
+      ],
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/01-odkrywanie/01-odkrywanie-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-035",
+      "test_akceptacyjny": "BR-DANE-005 z dowodem, który dotyczy eksportu historii, albo jawnie hipoteza",
+      "klasa": "dokumentacja",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-092",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Dwie różne daty oceny „wydanie + 90 dni” (2027-03-31 w kontrakcie, 2027-02-07 w H-01)",
+      "zrodla": [
+        "03-zakres-601"
+      ],
+      "rodzaj": "D",
+      "rola": "03-zakres",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/03-zakres/03-zakres-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-064",
+      "test_akceptacyjny": "jedna data oceny w scope-contract i hipotezy.json, test spójności",
+      "klasa": "dokumentacja",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-093",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Test daty oceny H-01 czerwienieje przy każdym nowym wierszu TestFlight w dzienniku wydań",
+      "zrodla": [
+        "11-wzrost-601"
+      ],
+      "rodzaj": "D",
+      "rola": "11-wzrost",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/11-wzrost/11-wzrost-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-084",
+      "test_akceptacyjny": "nowy wiersz TestFlight w dzienniku nie zmienia wyniku tests/wzrost-hipotezy.test.ts; data liczona od wydania w App Store",
+      "klasa": "realny",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-094",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Plan wydania liczy 5 scenariuszy E2E, a jest 6",
+      "zrodla": [
+        "10-wydanie-601"
+      ],
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/10-wydanie/10-wydanie-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-016",
+      "test_akceptacyjny": "liczba scenariuszy w plan-wydania-1.0.md z katalogu .maestro/e2e (test)",
+      "klasa": "dokumentacja",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-095",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "tytul": "Bramka e2e-sha przyjmuje zielony przebieg pull_request dla head_sha, choć testował commit scalenia",
+      "zrodla": [
+        "07-jakosc-602"
+      ],
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "partia": 5,
+      "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+      "regresja_od": "M1-audytor-generalny-068",
+      "test_akceptacyjny": "bramka bierze tylko event workflow_dispatch/push dla danego SHA (test workflow)",
+      "klasa": "teoretyczny",
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)"
+    },
+    {
+      "id": "M1-audytor-generalny-096",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Numer toru w spirali dwóch wypieków ok. 7,5 pt; test 038 nie łapie atrybutu JSX fontSize",
+      "zrodla": [
+        "04-studio-projektowe-601"
+      ],
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "numer toru z tokenu ≥ 11 pt; test 038 obejmuje atrybuty JSX",
+      "klasa": "realny"
+    },
+    {
+      "id": "M1-audytor-generalny-097",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Plakietka dnia na osi czasu planu łamie się w środku wyrazu w części języków",
+      "zrodla": [
+        "04-studio-projektowe-602"
+      ],
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "plakietka bez łamania wyrazu w 35 językach (pomiar)",
+      "klasa": "realny"
+    },
+    {
+      "id": "M1-audytor-generalny-098",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Stryker liczy mutanty src/core tylko testami z src/core/__tests__",
+      "zrodla": [
+        "07-jakosc-601"
+      ],
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "konfiguracja mutacji obejmuje testy domeny spoza src/core/__tests__; sol.ts z zabitymi mutantami",
+      "klasa": "realny"
+    },
+    {
+      "id": "M1-audytor-generalny-099",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Tryb imperialny: zakres mas z кг/г w ru, uk, bg, sr traci dolną granicę",
+      "zrodla": [
+        "09-lokalizacja-601"
+      ],
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "raport": "reaudit-2026-11-09/09-lokalizacja/09-lokalizacja-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "„2 lb 3,3 oz–4 lb 6,5 oz” w ru, uk, bg, sr (test 013 rozszerzony)",
+      "klasa": "brzegowy"
+    },
+    {
+      "id": "M1-audytor-generalny-100",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Kontrakt płatności wymienia w Basic 1.0 odczyt QR i Akademię bez wejścia w 1.0",
+      "zrodla": [
+        "02-monetyzacja-601"
+      ],
+      "rodzaj": "D",
+      "rola": "02-monetyzacja",
+      "raport": "reaudit-2026-11-09/02-monetyzacja/02-monetyzacja-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "kolumna Basic w docs/monetyzacja.md zgodna z wejściami 1.0",
+      "klasa": "dokumentacja"
+    },
+    {
+      "id": "M1-audytor-generalny-101",
+      "wykonawca": "M2",
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "commit": null,
+      "istnialo_wczesniej": true,
+      "partia": 5,
+      "poziom": "P3",
+      "status": "otwarte",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 1)",
+      "tytul": "Dwie różne hipotezy H-01 i cztery aktywne H przy limicie trzech",
+      "zrodla": [
+        "11-wzrost-602"
+      ],
+      "rodzaj": "D",
+      "rola": "11-wzrost",
+      "raport": "reaudit-2026-11-09/11-wzrost/11-wzrost-reaudit-2026-11-09.md",
+      "test_akceptacyjny": "jedno H-01, ≤ 3 aktywne H (test)",
+      "klasa": "dokumentacja"
     }
   ],
   "stop2": {
@@ -2212,5 +2898,12 @@
       "Dopiszę później"
     ],
     "uwagi": "wybory DEC-01…DEC-19 według rekomendacji; zatwierdzone wszystkie otwarte zadania; uwagi z testu telefonu (D-277) dopisze właściciel przed startem M2 jako zadania od M1-audytor-generalny-087"
-  }
+  },
+  "reaudyty": [
+    {
+      "petla": 1,
+      "data": "2026-11-09",
+      "commit": "ea249c9c"
+    }
+  ]
 }

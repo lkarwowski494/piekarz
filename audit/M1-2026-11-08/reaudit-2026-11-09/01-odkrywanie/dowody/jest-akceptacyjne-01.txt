@@ -1,0 +1,12 @@
+PASS tests/br-dane-005-csv.test.ts
+PASS tests/brd-bez-proby-034.test.ts
+PASS tests/brd-katalog-037.test.ts
+PASS src/__tests__/karta-szczytu-bez-okna-004.test.tsx
+PASS tests/br-bez-testu.test.ts (9.076 s)
+
+Test Suites: 5 passed, 5 total
+Tests:       30 passed, 30 total
+Snapshots:   0 total
+Time:        9.853 s
+Ran all test suites matching /src\/__tests__\/karta-szczytu-bez-okna-004.test.tsx|tests\/brd-bez-proby-034.test.ts|tests\/br-dane-005-csv.test.ts|tests\/brd-katalog-037.test.ts|tests\/br-bez-testu.test.ts/i.
+kod 0

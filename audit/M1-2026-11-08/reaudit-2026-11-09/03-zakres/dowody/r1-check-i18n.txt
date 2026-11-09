@@ -1,0 +1,2 @@
+i18n: 922 tekstów t('…') w kodzie, 2217 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+kod 0

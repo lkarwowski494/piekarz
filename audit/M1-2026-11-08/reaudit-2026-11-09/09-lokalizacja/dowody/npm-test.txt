@@ -1,0 +1,17 @@
+$ npm test
+    > 106 |   it('BR-KAL-011 Zmiana planu po dodaniu: po przesunięciu godziny pojawia się informacja, że wydarzenie się nie zmieniło', async () => {
+          |   ^
+      107 |     const harm = await renderHarmonogram();
+      108 |     expect(host(harm.root, 'plan-kalendarz-nie-zmienil')).toHaveLength(0);
+      109 |     await act(async () => {
+
+      at it (src/__tests__/kalendarz-telefonu-d8.test.tsx:106:3)
+      at Object.describe (src/__tests__/kalendarz-telefonu-d8.test.tsx:89:1)
+
+
+Test Suites: 1 failed, 649 passed, 650 total
+Tests:       1 failed, 6799 passed, 6800 total
+Snapshots:   0 total
+Time:        640.742 s
+Ran all test suites.
+kod wyjścia: 1

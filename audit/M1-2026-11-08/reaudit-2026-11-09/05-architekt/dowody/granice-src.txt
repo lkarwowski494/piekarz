@@ -1,0 +1,9 @@
+# node granice.mjs src core 20 (kopia skryptu z promptu roli w scratchpadzie), commit ea249c9c
+CYKL data/settings-store.ts -> data/sqlite-schema.ts -> data/runner-migracji.ts -> data/kopie-przed-migracja.ts -> lib/backup.ts -> lib/i18n.ts -> data/settings-store.ts
+CYKL data/sqlite-schema.ts -> data/runner-migracji.ts -> data/kopie-przed-migracja.ts -> lib/backup.ts -> data/sesje-kopii.ts -> data/bake-sessions-store.ts -> data/sqlite-schema.ts
+CYKL lib/backup.ts -> data/sesje-kopii.ts -> data/bake-sessions-store.ts -> data/uszkodzone-wiersze.ts -> lib/backup.ts
+CYKL data/sqlite-schema.ts -> data/runner-migracji.ts -> data/kopie-przed-migracja.ts -> lib/backup.ts -> data/sesje-kopii.ts -> data/sqlite-schema.ts
+CYKL core/baking-techniques.ts -> core/techniques/prep-ferment-techniques.ts -> core/baking-techniques.ts
+CYKL core/baking-techniques.ts -> core/techniques/shaping-baking-techniques.ts -> core/baking-techniques.ts
+6 naruszeń w 1416 plikach
+kod 1

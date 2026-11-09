@@ -1,0 +1,2 @@
+# git status --porcelain (koniec, 2026-11-09T22:15:09Z), HEAD ea249c9c
+linii: 0, kod 0

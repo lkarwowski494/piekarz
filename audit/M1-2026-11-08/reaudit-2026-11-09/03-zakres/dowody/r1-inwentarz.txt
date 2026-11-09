@@ -1,0 +1,57 @@
+| Rodzaj | Gdzie | Co | Funkcja F-nn / decyzja |
+|---|---|---|---|
+| trasa | app/(tabs)/(dzis)/index.tsx | / | |
+| trasa | app/(tabs)/dziennik/index.tsx | /dziennik | |
+| trasa | app/(tabs)/receptury/harmonogram.tsx | /receptury/harmonogram | |
+| trasa | app/(tabs)/receptury/index.tsx | /receptury | |
+| trasa | app/(tabs)/receptury/receptura.tsx | /receptury/receptura | |
+| trasa | app/(tabs)/zakwasy/doktor-zakwasu.tsx | /zakwasy/doktor-zakwasu | |
+| trasa | app/(tabs)/zakwasy/index.tsx | /zakwasy | |
+| trasa | app/doktor.tsx | /doktor | |
+| trasa | app/stolnica.tsx | /stolnica | |
+| ekran nawigatora | app/(tabs)/(dzis)/_layout.tsx:13 | index | |
+| ekran nawigatora | app/(tabs)/_layout.tsx:38 | (dzis) | |
+| ekran nawigatora | app/(tabs)/_layout.tsx:47 | receptury | |
+| ekran nawigatora | app/(tabs)/_layout.tsx:56 | zakwasy | |
+| ekran nawigatora | app/(tabs)/_layout.tsx:64 | dziennik | |
+| ekran nawigatora | app/(tabs)/dziennik/_layout.tsx:14 | index | |
+| ekran nawigatora | app/(tabs)/receptury/_layout.tsx:18 | index | |
+| ekran nawigatora | app/(tabs)/receptury/_layout.tsx:19 | receptura | |
+| ekran nawigatora | app/(tabs)/receptury/_layout.tsx:29 | harmonogram | |
+| ekran nawigatora | app/(tabs)/zakwasy/_layout.tsx:14 | index | |
+| ekran nawigatora | app/(tabs)/zakwasy/_layout.tsx:17 | doktor-zakwasu | |
+| ekran nawigatora | app/_layout.tsx:141 | (tabs) | |
+| ekran nawigatora | app/_layout.tsx:144 | stolnica | |
+| ekran nawigatora | app/_layout.tsx:152 | doktor | |
+| uprawnienie w kodzie | jest.setup.js:71 | requestPermissionsAsync: jest.fn(async () => { | |
+| powiadomienie | jest.setup.js:76 | scheduleNotificationAsync: jest.fn(async (req) => { | |
+| udostępnianie / import | jest.setup.js:154 | jest.mock('expo-sharing', () => ({ | |
+| link | src/components/PaywallModal.tsx:167 | <Pressable testID="terms-of-use-btn" onPress={() => Linking.openURL(APPLE_EULA_U | |
+| link | src/components/PaywallModal.tsx:170 | <Pressable testID="privacy-policy-btn" onPress={() => Linking.openURL(PRIVACY_UR | |
+| uprawnienie w kodzie | src/components/QrScannerModal.tsx:33 | const [permission, requestPermission] = useCameraPermissions(); | |
+| udostępnianie / import | src/components/ShareRecipeQrModal.tsx:51 | await Share.share({ | |
+| udostępnianie / import | src/components/StorageGate.tsx:11 | import * as Sharing from 'expo-sharing'; | |
+| przełącznik | src/components/settings/PrzypomnieniaKarmieniaSection.tsx:53 | <Switch | |
+| link | src/components/settings/StudioEcosystemSection.tsx:75 | onPress={() => void Linking.openURL(PRIVACY_URL)} | |
+| link | src/components/settings/StudioEcosystemSection.tsx:107 | Linking.openURL(APP_STORE_REVIEW_URL).catch(() => | |
+| flaga | src/lib/app-access.ts:34 | const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1'; | |
+| udostępnianie / import | src/lib/backup.ts:3 | import * as Sharing from 'expo-sharing'; | |
+| udostępnianie / import | src/lib/csv-exporter.ts:8 | import * as Sharing from 'expo-sharing'; | |
+| udostępnianie / import | src/lib/kalendarz-telefonu.ts:9 | import * as Sharing from 'expo-sharing'; | |
+| powiadomienie | src/lib/notifications.ts:160 | await Notifications.scheduleNotificationAsync({ | |
+| uprawnienie w kodzie | src/lib/notifications.ts:212 | await Notifications.requestPermissionsAsync({ ios: { allowAlert: true, allowSoun | |
+| udostępnianie / import | src/lib/pdf-sheet-generator.ts:8 | import * as Sharing from 'expo-sharing'; | |
+| link | src/lib/platnosci/sklep.ts:179 | await Linking.openURL(APPLE_SUBSCRIPTIONS_URL); | |
+| flaga | src/lib/zgloszenie-wyslanie.ts:36 | build: process.env.EXPO_PUBLIC_BUILD_NUMBER // null, | |
+| schemat linków | app.json | piekarz | |
+| uprawnienie / tło | app.json | com.apple.developer.usernotifications.time-sensitive | |
+| wtyczka | app.json | expo-router | |
+| wtyczka | app.json | expo-sqlite | |
+| wtyczka | app.json | expo-notifications | |
+| wtyczka | app.json | expo-iap | |
+| wtyczka | app.json | expo-audio | |
+| wtyczka | app.json | expo-font | |
+| wtyczka | app.json | expo-splash-screen | |
+| wtyczka | app.json | expo-localization | |
+
+53 pozycji; app.config.* przejrzyj ręcznie, jeśli istnieje.

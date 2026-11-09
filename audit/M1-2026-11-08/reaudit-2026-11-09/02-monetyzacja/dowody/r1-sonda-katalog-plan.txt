@@ -1,0 +1,62 @@
+# sonda w worktree /tmp/claude-0/-home-user-piekarz/95878c16-e7aa-590a-a663-8b81de48b713/scratchpad/wt-F (ea249c9c); plik tests/sonda-F/katalog.test.ts:
+import { CATALOG_RECIPES } from '../../src/recipes/katalog';
+import { powodBezPlanu } from '../../src/lib/plan-receptury';
+import { WERSJE_DROZDZOWE, wersjaDrozdzowa } from '../../src/recipes/wersje-drozdzowe';
+it('sonda katalog', () => {
+  const zPlanem = CATALOG_RECIPES.filter((r: any) => powodBezPlanu(r.formula ?? r, { recipeId: r.id }) === null);
+  const drozdz = Object.keys(WERSJE_DROZDZOWE);
+  const drozdzZPlanem = drozdz.filter((id) => powodBezPlanu({ starterPercentage: 0 }, { recipeId: id, wersja: 'drozdze' }) === null);
+  console.log(JSON.stringify({ wszystkie: CATALOG_RECIPES.length, zPlanem: zPlanem.length, idZPlanem: zPlanem.map((r: any) => r.id), drozdz, drozdzZPlanem, klucze: Object.keys(CATALOG_RECIPES[0]) }, null, 1));
+});
+  console.log
+    {
+     "wszystkie": 26,
+     "zPlanem": 11,
+     "idZPlanem": [
+      "country_loaf_72",
+      "tartine_high_hydration_80",
+      "san_francisco_sourdough",
+      "pain_de_campagne",
+      "rye_100_pan",
+      "borodinsky_rye",
+      "spelt_ancient_seeded",
+      "lievito_madre_panettone_brioche",
+      "graham_bread_honey",
+      "durum_semolina_sourdough",
+      "latvian_scalded_rye"
+     ],
+     "drozdz": [
+      "spelt_ancient_seeded",
+      "graham_bread_honey",
+      "rye_100_pan",
+      "tartine_high_hydration_80"
+     ],
+     "drozdzZPlanem": [
+      "graham_bread_honey",
+      "rye_100_pan",
+      "tartine_high_hydration_80"
+     ],
+     "klucze": [
+      "id",
+      "namePl",
+      "category",
+      "descriptionPl",
+      "formula",
+      "targetDDT",
+      "bakeTimeSteamMinutes",
+      "bakeTimeBrowningMinutes",
+      "bakeTempSteamC",
+      "bakeTempBrowningC",
+      "recommendedVessel",
+      "notesPl"
+     ]
+    }
+      at Object.log (tests/sonda-F/katalog.test.ts:8:11)
+PASS tests/sonda-F/katalog.test.ts
+  ✓ sonda katalog (23 ms)
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.787 s, estimated 3 s
+Ran all test suites matching /tests\/sonda-F\/katalog.test.ts/i.
+kod 0

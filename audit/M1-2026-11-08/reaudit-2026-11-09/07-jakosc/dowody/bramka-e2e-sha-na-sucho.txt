@@ -1,0 +1,12 @@
+# Bramka e2e-sha na sucho (scripts/ci/e2e-na-sha.mjs), przebiegi z MCP actions_list 2026-11-09 (#100 success 6a412c9a, #99 success 221318bf, #96 failure 2ef8870a); #101 na ea249c9c in_progress, pominięty (status completed)
+## --sha ea249c9cc069e911a9ce83beabea39ed7f314616
+OK: zielony iOS E2E #100 na 6a412c9a791df70e1e25f6d3ac6779bc25aabf52 (przodek ea249c9cc069e911a9ce83beabea39ed7f314616, 2 commitów, różnica tylko poza buildem: wyjątek D-276).
+kod=0
+## --sha 2ef8870a525485cc1ac57e5abe9d97d9937dfe42
+::error::Bramka E2E (D-286): iOS E2E na 2ef8870a525485cc1ac57e5abe9d97d9937dfe42 nie jest zielony: #96 (failure). Build TestFlight dopiero po zielonym E2E (D-286, D-131).
+kod=1
+## --sha 6a412c9a791df70e1e25f6d3ac6779bc25aabf52
+OK: zielony iOS E2E #100 na 6a412c9a791df70e1e25f6d3ac6779bc25aabf52.
+kod=0
+## różnica 6a412c9a..ea249c9c
+docs/wznowienie-M3.md

@@ -1,0 +1,10 @@
+Pomiar zrzutów iOS E2E #100 (run 42691065882, commit 6a412c9a = ea249c9c bez zmian w kodzie; symulator 1206x2622 px = 402x874 pt @3x).
+Kolumna x=8 pt (lewy margines pasa) dla dołu pasa; kolumna x=200 pt dla górnej krawędzi przycisku „Zrobione”/przełącznika wypieków.
+pl-03-prowadzenie-widok-skupiony: dol pasa 585 pt; gora pierwszego ciemnego bloku pod pasem (Zrobione albo przelacznik wypiekow) 706 pt; okno na tresc 121 pt z 874 pt
+en-03-prowadzenie-widok-skupiony: dol pasa 605 pt; gora pierwszego ciemnego bloku pod pasem (Zrobione albo przelacznik wypiekow) 706 pt; okno na tresc 101 pt z 874 pt
+pl-05-dwa-wypieki: dol pasa 545 pt; gora pierwszego ciemnego bloku pod pasem (Zrobione albo przelacznik wypiekow) 706 pt; okno na tresc 161 pt z 874 pt
+en-05-dwa-wypieki: dol pasa 564 pt; gora pierwszego ciemnego bloku pod pasem (Zrobione albo przelacznik wypiekow) 706 pt; okno na tresc 142 pt z 874 pt
+pl-05-dwa-wypieki (kolumna x=100 pt, wybrany wypiek w przelaczniku): gora przelacznika wypiekow 603 pt; okno na tresc miedzy pasem a przelacznikiem 58 pt
+en-05-dwa-wypieki (kolumna x=100 pt, wybrany wypiek w przelaczniku): gora przelacznika wypiekow 621 pt; okno na tresc miedzy pasem a przelacznikiem 57 pt
+Ocena wzrokowa zrzutow (zrzuty/e2e100-*.png): jeden wypiek — widac naglowek karty „Co zrobic” i ok. 1,5 wiersza instrukcji, reszta pod paskiem kciuka; dwa wypieki — naglowek „Co zrobic” uciety przez przelacznik wypiekow, instrukcji nie widac.
+Ten sam przebieg zaliczyl assertVisible id karta-kroku (commands.json, status COMPLETED) — asercja przechodzi przy czesciowo widocznej karcie.

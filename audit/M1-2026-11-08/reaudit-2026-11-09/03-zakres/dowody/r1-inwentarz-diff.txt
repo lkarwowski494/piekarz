@@ -1,0 +1,4 @@
+16a17
+>  flaga | src/lib/zgloszenie-wyslanie.ts| build: process.env.EXPO_PUBLIC_BUILD_NUMBER // null, 
+23a25
+>  przełącznik | src/components/settings/PrzypomnieniaKarmieniaSection.tsx| <Switch 

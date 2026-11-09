@@ -1,0 +1,5 @@
+# Ponowienie 2 plików z przekroczonym czasem w pełnym Jest (pełny przebieg przy braku pamięci: OOM w sesji)
+PASS src/__tests__/plan-zmiana-czasu-d13-nowy-jork.test.tsx (5.008 s)
+PASS src/__tests__/plan-zmiana-czasu-d13.test.tsx (5.08 s)
+Tests:       6 passed, 6 total
+kod 0

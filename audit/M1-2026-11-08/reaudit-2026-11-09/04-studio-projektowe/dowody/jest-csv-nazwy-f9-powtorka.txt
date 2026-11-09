@@ -1,0 +1,11 @@
+PASS src/lib/__tests__/csv-nazwy-f9.test.ts
+  CSV: nazwy receptur w języku aplikacji (F-9)
+    ✓ EN: receptura bazowa po angielsku, nazwa własna dosłownie (17 ms)
+    ✓ PL: bez zmian (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.888 s
+Ran all test suites matching /src\/lib\/__tests__\/csv-nazwy-f9.test.ts/i.
+kod: 0

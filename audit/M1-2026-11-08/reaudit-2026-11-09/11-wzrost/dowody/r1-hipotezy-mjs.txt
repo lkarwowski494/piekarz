@@ -1,0 +1,13 @@
+# node hipotezy.mjs (prompt roli 11) docs/wzrost/hipotezy.json --dzis 2026-11-09
+| H | Metryka | Próg | Dane | Przedział (z = 1.645) | Werdykt |
+|---|---|---|---|---|---|
+| H-01 | nowi płacący iOS ÷ pobrania pierwszorazowe iOS, dni 30–90 od wydania | ≥ 8,5% (D-112, D-113 (kryterium po 90 dniach z docs/monetyzacja.md: ok. 8,5% przy ok. 83 pobraniach iOS/mies.; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku), DEC-13 a) | — | — | przed terminem, bez oceny |
+kod 0
+# repo: node docs/wzrost/hipotezy.mjs docs/wzrost/hipotezy.json --dzis 2026-11-09
+| H | Metryka | Próg | Dane | Przedział (z = 1.645) | Werdykt |
+|---|---|---|---|---|---|
+| H-01 | nowi płacący iOS ÷ pobrania pierwszorazowe iOS, dni 30–90 od wydania | ≥ 8,5% (D-112, D-113 (kryterium po 90 dniach z docs/monetyzacja.md: ok. 8,5% przy ok. 83 pobraniach iOS/mies.; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku), DEC-13 a) | — | — | przed terminem, bez oceny |
+kod 0
+# różnica skryptu repo vs prompt
+3d2
+< // Źródło: moduł `pomiar-prywatny` roli 11 (wersja 2026-10-19), bez zmian w logice [M1-audytor-generalny-085].

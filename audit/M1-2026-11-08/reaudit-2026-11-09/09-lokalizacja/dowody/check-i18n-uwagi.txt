@@ -1,0 +1,158 @@
+$ node scripts/check-i18n.mjs --kod src,app --uwagi
+UWAGA języki przekładu: 13497 braków dozwolonych (PÓŹNIEJ albo czeka na przekład) — w aplikacji tekst EN
+UWAGA kontekst: 302 kluczy EN bez miejsca w kodzie (sieroty albo tekst z szablonu), np. „+10 sek”
+UWAGA kod src/components/StarterConverterModal.tsx:142: tekst na sztywno „50% (Lievito Madre)”
+UWAGA kod src/components/StarterConverterModal.tsx:172: tekst na sztywno „50% (Lievito Madre)”
+UWAGA kod src/components/StarterConverterModal.tsx:261: tekst na sztywno „50% Lievito Madre”
+UWAGA kod src/components/DiscardRecipesModal.tsx:184 t(recipe.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/DiscardRecipesModal.tsx:194 t(recipe.yieldPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/DiscardRecipesModal.tsx:208 t(ing.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/DiscardRecipesModal.tsx:223 t(step): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/DiscardRecipesModal.tsx:230 t(recipe.proTipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourBlendModal.tsx:133 t(validation.errorTemplatePl ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourEquivalentsModal.tsx:86 t(entry.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourEquivalentsModal.tsx:136 t(entry.bestForPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourEquivalentsModal.tsx:142 t(entry.substitutionTipsPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourInventoryModal.tsx:173 t(stockCheck.warningTemplatePl ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourInventoryModal.tsx:181 t(i.substituteTemplatePl ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/FlourInventoryModal.tsx:181 t(i.substituteParams?.nazwa ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/SensoryRadarChart.tsx:110 t(axis.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/SensoryRadarChart.tsx:167 t(axis.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/SensoryRadarChart.tsx:197 t(axis.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/Spirala.tsx:254 t(steps[stepIdx]?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/StarterConverterModal.tsx:231 t(subResult.adviceTemplatePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/StarterConverterModal.tsx:335 t(shiftResult.tipTemplatePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/StarterConverterModal.tsx:335 t(shiftResult.tipConsistencyPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/VolumeConverterModal.tsx:87 t(result.warningNoticePl || VOLUME_ACCURACY_WARNING_PL): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/VolumeConverterModal.tsx:199 t(item.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/VolumeConverterModal.tsx:253 t(result.ingredient.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:63 t(lesson.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:69 t(lesson.didacticGoalPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:79 t(lesson.flourBlendPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:85 t(lesson.fermentationTypePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:93 t(step): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:99 t(lesson.scientificInsightPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/BreadSchoolSection.tsx:104 t(lesson.passingCriteriaPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:105 t(tech.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:110 t(tech.physicalPrinciplePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:118 t(step): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:126 t(mistake): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:132 t(tech.proTipsPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:54 t(brakPola): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:67 t(waterTempWarning): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:108 t(hydrationDifficulty.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:111 t(hydrationDifficulty.tipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:122 t(blendAbsorption.doughFeelAdvicePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:123 t(blendAbsorption.ryeWarningPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/calculator/accordion/PolaTemperaturDdt.tsx:57 t(ETYKIETY_TEMPERATUR[klucz]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/DiagnosisResultCard.tsx:94 t(diagnosis.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/DiagnosisResultCard.tsx:95 t(diagnosis.subtitlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/DiagnosisResultCard.tsx:101 t(diagnosis.biologicalCausePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/DiagnosisResultCard.tsx:109 t(action): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:64 t(proto.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:76 t(selectedProto.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:90 t(selectedProto.triggerSummaryPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:98 t(selectedProto.immediateActionPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:111 t(step): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:119 t(selectedProto.scientificReasoningPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/doktor/SymptomSelectorSection.tsx:126 t(preset.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/SleepGuardBanner.tsx:38 t(kolizje[0].stageNamePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/SleepGuardBanner.tsx:59 t(SLEEP_COLLISION_TEMPLATE_PL): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/SleepGuardBanner.tsx:59 t(c.stageNamePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/SleepGuardBanner.tsx:73 t(suggestedActionPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/TimelineStagesList.tsx:75 t(stage.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/harmonogram/TimelineStagesList.tsx:108 t(stage.instructionsPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ListaReceptur.tsx:124 t(r.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ORecepturze.tsx:36 t(r.descriptionPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ORecepturze.tsx:56 t(notatka): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ProgramMaszynyKarta.tsx:110 t(PROGRAM[program.program].nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ProgramMaszynyKarta.tsx:112 t(PROGRAM[program.program].zdanie): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/ProgramMaszynyKarta.tsx:125 t(SKLADNIK[p]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/SkladnikiSheet.tsx:139 t(b.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/SkladnikiSheet.tsx:201 t(p.blendAbsorption.doughFeelAdvicePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/SkladnikiSheet.tsx:202 t(p.blendAbsorption.ryeWarningPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/SkladnikiSheet.tsx:216 t(p.hydrationDifficulty.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/SkladnikiSheet.tsx:216 t(p.hydrationDifficulty.tipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/receptury/TrybMaszyny.tsx:118 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/GodzinySnuSection.tsx:21 t(p.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/ImportZPlikuArkusz.tsx:104 t(err.message): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/StudioEcosystemSection.tsx:59 t(app.domain): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/StudioEcosystemSection.tsx:60 t(app.heroDescriptor): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/ZrodlaWiedzy.tsx:40 t(ZRODLA_WIEDZY_WSTEP): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/ZrodlaWiedzy.tsx:43 t(g.temat): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/ZrodlaWiedzy.tsx:46 t(z.nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/settings/ZrodlaWiedzy.tsx:47 t(z.opis): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/start/ArkuszPlanu.tsx:46 t(k.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/start/WypiekiNaSpirali.tsx:28 t(krok?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/BakeStepsList.tsx:86 t(step.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/DutchOvenController.tsx:93 t(fazy[dutchOvenPhase].descriptionPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/DutchOvenController.tsx:96 t(fazy[dutchOvenPhase].tipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/DutchOvenController.tsx:108 t(fazy.lid_off.alertHeadlinePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/DutchOvenController.tsx:113 t(fazy.lid_off.safetyWarningPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/PoCoTenKrokArkusz.tsx:25 t(zd.tekst): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:204 t(step?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:238 t(skok.steps[idx].name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:282 t(progress.steps[progress.stepIdx]?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:320 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:321 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:376 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:395 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/PrzelacznikWypiekow.tsx:40 t(w.krok): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:86 t(step.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:92 t(step.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:98 t(step.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:99 t(step.instructions): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:110 t(tytul): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/stolnica/StrefaKroku.tsx:110 t(w.text): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/FridgeWakeStatus.tsx:25 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterPeakActivityCard.tsx:26 t(f.labelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterPeakActivityCard.tsx:27 t(f.labelTemplatePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterPeakActivityCard.tsx:99 t(phaseResult.advicePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterPeakActivityCard.tsx:131 t(peakPrediction.statusTemplatePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSafetyCard.tsx:76 t(safetyResult.titlePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSafetyCard.tsx:77 t(safetyResult.actionPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:47 t(wynik.texts[0]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:47 t(wynik.texts[1]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:61 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:70 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:73 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/StarterSetupCard.tsx:97 t(NAZWY_OBJAWOW[s]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/ZakladanieStart.tsx:34 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/components/zakwas/ZakwasDziennik.tsx:141 t(NO_DOUBLING_ACTIONS[0]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/hooks/useStartPlanu.ts:131 t(k.krok): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/hooks/useStartPlanu.ts:131 t(k.krokInny): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/confirm.ts:86 t(trwa.krok): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/feeding-formatter.ts:27 t(feeding.tipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/kalendarz-teksty.ts:28 t(z.krok?.nazwa ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/kalendarz-telefonu.ts:33 t(k.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/nazwa-maki-mieszanki.ts:62 t(f.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/nazwa-maki.ts:17 t(o ? o.nazwaPl : p.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/nazwa-maki.ts:23 t(o.opisPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/nazwa-maki.ts:34 t(OPIS_OGOLNY_MAK[p.id]?.nazwaPl ?? p.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/nazwa-receptury.ts:14 t(nazwa): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/notifications.ts:77 t(p.params.stepName ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/notifications.ts:101 t(nast): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/notifications.ts:102 t(p.params.stepName ?? ''): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/notifications.ts:106 t(step): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/prowadzenie-teksty.ts:66 t(dalej.name): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/recipe-formatter.ts:70 t(bakeLoss.categoryLabelPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/recipe-formatter.ts:116 t(bakeLoss.coolingAdvicePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/schedule-formatter.ts:91 t(SLEEP_COLLISION_TEMPLATE_PL): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/schedule-formatter.ts:91 t(c.stageNamePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/schedule-formatter.ts:102 t(s.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/wskazowka-zaczynu.ts:13 t(b.fermentationTipPl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/wskazowka-zaczynu.ts:15 t(d.namePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/wskazowka-zaczynu.ts:16 t(d.fermentationTimeHours): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/wskazowka-zaczynu.ts:17 t(d.flavorProfilePl): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod src/lib/zakwas-widok.ts:100 t(NAZWY_OBJAWOW[s]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/dziennik/index.tsx:55 t(f.etykieta): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/receptury/index.tsx:126 t(f.etykieta): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:65 t(NAZWY[s]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:71 t(naglowek): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:72 t(z): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:97 t(wynik.title): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:97 t(wynik.action): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:100 t(NAZWY[wynik.symptom === 'first_day' ? 'no_activity' : wynik.symptom]): klucz dynamiczny, sprawdź listę wartości
+UWAGA kod app/(tabs)/zakwasy/doktor-zakwasu.tsx:101 t(z): klucz dynamiczny, sprawdź listę wartości
+i18n: 922 tekstów t('…') w kodzie, 2217 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+kod wyjścia: 0

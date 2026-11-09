@@ -1,0 +1,27 @@
+# Sonda: import pakietu z trybu awaryjnego (baza 1021: 4 wypieki, 2 zakwasy, 2 sesje) — czy trwające/zaplanowane wypieki wracają; ea249c9c, worktree w scratchpadzie; plik sondy = pierwsze 113 linii src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx + test niżej
+    jest.restoreAllMocks();
+  });
+  it('SONDA: sesje (trwające i zaplanowane) z pakietu po imporcie', async () => {
+    const pliki = plikiTelefonu();
+    const zr = openRaw(path.join(control().dir, 'telefon-1', 'piekarz.db'));
+    const wPakiecie = zr.prepare("SELECT id, status FROM bake_sessions").all();
+    zr.close();
+    const tekst = await pakietZEkranu(pliki);
+    const app = await nowaInstalacja();
+    const { rozpoznajPlik, importujKopie } = require('../lib/import-z-pliku') as typeof import('../lib/import-z-pliku');
+    const { kopiaZPakietu } = require('../lib/import-pakietu') as typeof import('../lib/import-pakietu');
+    const p = rozpoznajPlik(tekst);
+    if (p?.rodzaj !== 'pakiet') throw new Error('nie pakiet');
+    const w = await kopiaZPakietu(p.pakiet);
+    if (w.rodzaj !== 'kopia') throw new Error('nie kopia');
+    const przedImportem = counts();
+    await importujKopie(w.kopia);
+    const po = counts();
+    console.log('SONDA', JSON.stringify({ sesjeWPakiecie: wPakiecie, poleBakeSessionsWKopii: w.kopia.state.bakeSessions ?? null, licznosciPrzedImportem: { bakes: przedImportem.bakes, starters: przedImportem.starters, bake_sessions: przedImportem.bake_sessions }, licznosciPoImporcie: { bakes: po.bakes, starters: po.starters, bake_sessions: po.bake_sessions } }));
+    expect(app).toBeTruthy();
+  });
+});
+    SONDA {"sesjeWPakiecie":[{"id":"bake_live","status":"active"},{"id":"plan_sobota","status":"planned"}],"poleBakeSessionsWKopii":null,"licznosciPrzedImportem":{"bakes":1,"starters":0,"bake_sessions":0},"licznosciPoImporcie":{"bakes":4,"starters":2,"bake_sessions":0}}
+    ✓ SONDA: sesje (trwające i zaplanowane) z pakietu po imporcie (2406 ms)
+Tests:       1 passed, 1 total
+kod 0

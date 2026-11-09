@@ -1,0 +1,9 @@
+# DEV-03: grep pominiętych/osłabionych testów (ea249c9c)
+$ grep -rnE "\.(skip|only)\(|\bxit\(|xdescribe\(|it\.todo\(|expect\(true\)" src app tests --include=*.ts --include=*.tsx
+kod 1
+
+# DEV-14/ARCH-21: pliki sekretów w git ls-files
+$ git ls-files | grep -E "\.(env|p8|p12|pem|key|jks|keystore|mobileprovision)$"
+kod 1
+$ git grep -nE "BEGIN [A-Z ]*PRIVATE KEY|AIza[0-9A-Za-z_-]{30}|sk-[A-Za-z0-9]{20}" -- src app
+kod 1

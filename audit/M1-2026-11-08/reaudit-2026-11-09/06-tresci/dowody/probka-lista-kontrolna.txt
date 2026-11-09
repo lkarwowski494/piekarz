@@ -1,0 +1,8 @@
+Próbka listy kontrolnej spoza zmienionych plików (06): 2026-11-09
+rejestr 490 potwierdzone 395 krytyczne potwierdzone 46
+TRE-10: krytyczne z przegladem {kto,data,sha}: 46
+TRE-09: potwierdzone z wazne_do: 386 ; wazne_do < 2026-11-09: 0
+TRE-04: szczebel minimalny potwierdzonych {"1":206,"2":42,"3":69,"4":78} ; jedyne ze szczebla 5: 0
+TRE-04: krytyczne z liczbą bez szczebla 1-3: 0
+PRZEGLĄD człowiek w kontrole-pl-en.txt: 46, zastępczy: 0
+Pliki krytyczne zmienione od 2ef8870a: 0

@@ -1,0 +1,18 @@
+$ npx jest tests/kontrola-a-011.test.ts tests/ekran-awaryjny-jezyk-012.test.tsx tests/jednostki-w-tekscie-013.test.ts tests/czeka-na-przeklad-093.test.ts tests/godzina-12h-047.test.ts tests/data-w-zdaniu-048.test.ts src/components/__tests__/import-ddt-051.test.tsx src/lib/__tests__/miary-imperialne-35-096.test.ts src/lib/__tests__/format-intl.test.ts src/lib/__tests__/spirala-etykieta.test.ts
+PASS src/lib/__tests__/spirala-etykieta.test.ts
+PASS tests/czeka-na-przeklad-093.test.ts
+PASS src/lib/__tests__/format-intl.test.ts
+PASS tests/data-w-zdaniu-048.test.ts
+PASS src/lib/__tests__/miary-imperialne-35-096.test.ts (5.288 s)
+PASS tests/kontrola-a-011.test.ts
+PASS tests/ekran-awaryjny-jezyk-012.test.tsx
+PASS src/components/__tests__/import-ddt-051.test.tsx
+PASS tests/jednostki-w-tekscie-013.test.ts
+PASS tests/godzina-12h-047.test.ts
+
+Test Suites: 10 passed, 10 total
+Tests:       219 passed, 219 total
+Snapshots:   0 total
+Time:        7.517 s
+Ran all test suites matching /tests\/kontrola-a-011.test.ts|tests\/ekran-awaryjny-jezyk-012.test.tsx|tests\/jednostki-w-tekscie-013.test.ts|tests\/czeka-na-przeklad-093.test.ts|tests\/godzina-12h-047.test.ts|tests\/data-w-zdaniu-048.test.ts|src\/components\/__tests__\/import-ddt-051.test.tsx|src\/lib\/__tests__\/miary-imperialne-35-096.test.ts|src\/lib\/__tests__\/format-intl.test.ts|src\/lib\/__tests__\/spirala-etykieta.test.ts/i.
+kod wyjścia: 0

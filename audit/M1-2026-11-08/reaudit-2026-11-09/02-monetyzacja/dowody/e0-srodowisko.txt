@@ -1,0 +1,18 @@
+Linux 6.18.44-fc-v310 x86_64
+v22.23.4
+git version 2.43.0
+ea249c9cc069e911a9ce83beabea39ed7f314616
+git status --porcelain (start): 0 linii
+2ef8870a przodkiem ea249c9c: kod 1 (1 = nie)
+korzenie historii ea249c9c:
+9a692b21dfa4d7c7fa87a03bb9797792ff137735
+e3c235597eb4a5e4831ff153a9b991093478dacb
+492d968a924f124f75bc96ad63f4f57140353ec3
+e8345215: fatal: Not a valid object name e8345215
+69d895b8: fatal: Not a valid object name 69d895b8
+69a1c258: fatal: Not a valid object name 69a1c258
+7526830d: fatal: Not a valid object name 7526830d
+e58a3ac1: fatal: Not a valid object name e58a3ac1
+6caf322b: fatal: Not a valid object name 6caf322b
+1f5eac3a: fatal: Not a valid object name 1f5eac3a
+7f520c7b: fatal: Not a valid object name 7f520c7b

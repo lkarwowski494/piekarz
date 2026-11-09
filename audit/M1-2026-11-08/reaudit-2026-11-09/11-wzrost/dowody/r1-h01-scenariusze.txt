@@ -1,0 +1,4 @@
+# Scenariusze hipotetyczne (nie dane): A = 8 nowych płacących/mies. (16 w oknie 30–90) przy 300 pobraniach/mies. (600) — kryterium liczbowe D-315: osiągnięty (≥ 7/mies.); B = 1,5/mies. (3) przy 10 pobraniach/mies. (20) — kryterium: przegląd (≤ 3,5/mies.)
+a:  16/600 = 2,7%  |  1,8%–4,0%  |  obalona 
+b:  3/20 = 15,0%  |  6,2%–32,2%  |  nierozstrzygnięta 
+kod 0

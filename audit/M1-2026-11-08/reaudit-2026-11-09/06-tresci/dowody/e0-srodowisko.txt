@@ -1,0 +1,8 @@
+== 2026-11-09T22:00:35Z
+Linux vm 6.18.44-fc-v310 #1 SMP @0 x86_64 x86_64 x86_64 GNU/Linux
+v22.23.4
+ea249c9cc069e911a9ce83beabea39ed7f314616
+status-porcelain linie: 0
+/usr/bin/pdftotext
+Python 3.13.18
+kingarthur 406

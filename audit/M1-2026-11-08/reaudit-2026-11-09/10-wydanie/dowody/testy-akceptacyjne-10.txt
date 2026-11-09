@@ -1,0 +1,16 @@
+PASS tests/opis-sklepu-receptury-080.test.ts
+PASS tests/store-metadata.test.ts
+PASS tests/asc-klucz-082.test.ts
+PASS tests/asc-zgloszenie-workflow.test.ts
+PASS tests/dziennik-wydan-tagi-079.test.ts
+PASS tests/zrzuty-sklepu.test.ts
+PASS tests/obietnice-pro-015.test.ts
+PASS tests/opis-sklepu-pro-078.test.ts
+PASS tests/asc-ustawienia-workflow.test.ts
+
+Test Suites: 9 passed, 9 total
+Tests:       184 passed, 184 total
+Snapshots:   0 total
+Time:        1.575 s
+Ran all test suites matching /tests\/opis-sklepu-pro-078.test.ts|tests\/obietnice-pro-015.test.ts|tests\/dziennik-wydan-tagi-079.test.ts|tests\/opis-sklepu-receptury-080.test.ts|tests\/store-metadata.test.ts|tests\/asc-klucz-082.test.ts|tests\/asc-ustawienia-workflow.test.ts|tests\/asc-zgloszenie-workflow.test.ts|tests\/zrzuty-sklepu.test.ts/i.
+EXIT=0

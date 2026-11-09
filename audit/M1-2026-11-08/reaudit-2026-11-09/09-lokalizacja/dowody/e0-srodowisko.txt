@@ -1,0 +1,7 @@
+Linux 6.18.44-fc-v310 x86_64
+v22.23.4
+ea249c9cc069e911a9ce83beabea39ed7f314616
+0
+github.com
+  X Failed to log in to github.com using token (GH_TOKEN)
+  - Active account: true

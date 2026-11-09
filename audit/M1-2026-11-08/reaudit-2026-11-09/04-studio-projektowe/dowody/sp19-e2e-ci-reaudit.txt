@@ -1,0 +1,28 @@
+gh run list --workflow e2e-ios.yml -L 8 (odczyt 2026-11-09)
+in_progress		iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	redesign/piekarz-2026-10-22	workflow_dispatch	42705979446	17m0s	2026-11-09T21:48:29Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	naprawy/M2-koordynator-napraw-2026-11-09-p3	workflow_dispatch	42691065882	1h17m24s	2026-11-09T20:14:36Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	naprawy/M2-koordynator-napraw-2026-11-09-p3	workflow_dispatch	42653620839	1h5m10s	2026-11-09T16:19:48Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	wip/08-e2e96-2026-11-09	workflow_dispatch	42520804896	55m30s	2026-11-08T20:34:20Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	wip/08-e2e95-2026-11-08	workflow_dispatch	42511814430	54m7s	2026-11-08T18:48:22Z
+completed	failure	merge: redesign 48c81304 do master — kandydat 1.0 (ZEGAR-001, M8 form…	iOS E2E (Maestro na symulatorze)	master	push	42511355281	30m27s	2026-11-08T18:42:44Z
+completed	success	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	redesign/piekarz-2026-10-22	workflow_dispatch	42504224949	1h0m3s	2026-11-08T17:17:38Z
+completed	failure	iOS E2E (Maestro na symulatorze)	iOS E2E (Maestro na symulatorze)	redesign/piekarz-2026-10-22	workflow_dispatch	42498413474	47m0s	2026-11-08T16:09:12Z
+kod: 0
+
+gh run view 42691065882 (headSha, wynik)
+6a412c9a791df70e1e25f6d3ac6779bc25aabf52 success Maestro E2E on iOS Simulator:success
+
+git diff --stat 6a412c9a ea249c9c:
+ docs/wznowienie-M3.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+Raporty JUnit z artefaktu (testcase/failure):
+maestro-e2e-basic.xml: testcase=5 failure=0
+maestro-e2e-en.xml: testcase=6 failure=0
+maestro-e2e-pl.xml: testcase=6 failure=0
+testcase id="06-koniec-wypieku" name="06-koniec-wypieku" classname="06-koniec-wypieku"
+testcase id="03-prowadzenie-widok-skupiony" name="03-prowadzenie-widok-skupiony" classname="03-prowadzenie-widok-skupiony"
+testcase id="01-pierwsze-uruchomienie" name="01-pierwsze-uruchomienie" classname="01-pierwsze-uruchomienie"
+testcase id="04-plan-na-pozniej" name="04-plan-na-pozniej" classname="04-plan-na-pozniej"
+testcase id="02-wypiek-na-stolnicy" name="02-wypiek-na-stolnicy" classname="02-wypiek-na-stolnicy"
+testcase id="05-dwa-wypieki" name="05-dwa-wypieki" classname="05-dwa-wypieki"

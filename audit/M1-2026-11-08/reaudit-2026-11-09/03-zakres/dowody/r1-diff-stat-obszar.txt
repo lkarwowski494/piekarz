@@ -1,0 +1,11 @@
+ README.md                         |   4 +-
+ docs/app-store-metadata-v2.md     |  61 +++++++-----
+ docs/monetyzacja.md               |  30 +++---
+ docs/scope-contract.md            | 191 ++++++++++++++++++++++++++++----------
+ docs/wydanie/metadane/pl.json     |   9 +-
+ docs/wzrost.md                    |  29 ++++--
+ docs/wzrost/hipotezy.json         |  10 +-
+ src/components/PaywallModal.tsx   |   4 +-
+ src/lib/platnosci/konfiguracja.ts |   4 +-
+ src/lib/platnosci/nazwy-pro.ts    |   3 +-
+ 10 files changed, 237 insertions(+), 108 deletions(-)

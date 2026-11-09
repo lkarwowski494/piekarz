@@ -1,0 +1,8 @@
+    {"targetDDT":25,"flourTemp":15,"roomTemp":18,"starterTemp":5,"frictionFactor":10} => 52 too_hot_danger Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.
+    {"targetDDT":26,"flourTemp":16,"roomTemp":16,"starterTemp":16,"frictionFactor":2} => 54 too_hot_danger Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.
+    {"targetDDT":24,"flourTemp":16,"roomTemp":16,"starterTemp":16,"frictionFactor":2} => 46 too_hot_danger Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.
+    {"targetDDT":23.88888888888889,"flourTemp":20,"roomTemp":20,"starterTemp":21.666666666666668,"frictionFactor":14.444444444444445} => 19.4 normal
+    KA oczekiwane 67F = 19.44 C
+    {"targetDDT":24,"flourTemp":30,"roomTemp":30,"starterTemp":28,"frictionFactor":10} => -2 requires_ice Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.
+  ✓ sonda D-310 (40 ms)
+Tests:       1 passed, 1 total

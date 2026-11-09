@@ -1,0 +1,29 @@
+# Próba Strykera w kopii roboczej ea249c9c (worktree w scratchpadzie), konfiguracja z stryker.config.json z mutate zawężonym, incremental=false, reporters clear-text; nproc=4
+## coverageAnalysis=perTest, mutate src/core/preferments.ts
+22:06:35 (15566) INFO Instrumenter Instrumented 1 source file(s) with 101 mutant(s)
+22:06:55 (15566) INFO DryRunExecutor Initial test run succeeded. Ran 85 tests in 14 seconds (net 690 ms, overhead 13901 ms).
+Ran 36.39 tests per mutant on average.
+All files       |  64.36 |   64.36 |       65 |         0 |         36 |        0 |        0 |
+ preferments.ts |  64.36 |   64.36 |       65 |         0 |         36 |        0 |        0 |
+22:09:28 (15566) INFO MutationTestExecutor Done in 2 minutes and 54 seconds.
+real	2m56.707s
+kod=0
+## coverageAnalysis=off, mutate src/core/preferments.ts
+22:09:34 (19660) INFO Instrumenter Instrumented 1 source file(s) with 101 mutant(s)
+22:10:10 (19660) INFO DryRunExecutor Initial test run succeeded. Ran 85 tests in 23 seconds (net 1520 ms, overhead 21851 ms).
+Ran 83.32 tests per mutant on average.
+All files       |  66.34 |   66.34 |       65 |         2 |         34 |        0 |        0 |
+ preferments.ts |  66.34 |   66.34 |       65 |         2 |         34 |        0 |        0 |
+22:14:58 (19660) INFO MutationTestExecutor Done in 5 minutes and 25 seconds.
+real	5m29.656s
+kod=0
+## coverageAnalysis=perTest, mutate src/core/sol.ts + fermentation-q10.ts (sol.ts testowany tylko poza src/core)
+22:05:25 (13536) INFO Instrumenter Instrumented 2 source file(s) with 14 mutant(s)
+22:06:05 (13536) INFO DryRunExecutor Initial test run succeeded. Ran 1441 tests in 35 seconds (net 18060 ms, overhead 16907 ms).
+Ran 0.00 tests per mutant on average.
+All files |   0.00 |    0.00 |        0 |         0 |         14 |        0 |        0 |
+ sol.ts   |   0.00 |    0.00 |        0 |         0 |         14 |        0 |        0 |
+22:06:08 (13536) INFO MutationTestExecutor Done in 43 seconds.
+real	0m45.047s
+kod=1
+## Szacunek: 101 mutantów / 174 s (perTest) = ok. 1,7 s na mutanta; 6509 mutantów (dry-run naprawiającego, komunikat c0614ee9) ≈ 3,1 h na tej maszynie wobec timeout-minutes: 120 w nightly.yml (rachunek, przybliżenie; wydajność runnera ubuntu-latest inna)

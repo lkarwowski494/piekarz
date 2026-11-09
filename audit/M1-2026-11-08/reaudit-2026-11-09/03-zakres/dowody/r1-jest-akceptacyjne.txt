@@ -1,0 +1,22 @@
+PASS tests/opis-sklepu-pro-078.test.ts
+PASS tests/kontrakt-slad-059.test.ts
+PASS tests/obietnice-pro-015.test.ts
+PASS tests/kontrakt-zm28-058.test.ts
+PASS tests/dokumenty-wydania-057.test.ts
+PASS tests/wzrost-hipotezy.test.ts
+PASS tests/wzrost-dokument.test.ts
+PASS tests/monetyzacja-platforma-054.test.ts
+PASS tests/kontrakt-wyjatki-h-062.test.ts
+PASS tests/kontrakt-receptury-plan-061.test.ts
+PASS tests/kontrakt-ranking-064.test.ts
+PASS tests/kontrakt-odlozone-065.test.ts
+PASS src/lib/__tests__/nazwy-pro-pb.test.ts
+PASS src/__tests__/naczynie-bez-skutku-060.test.tsx
+PASS src/__tests__/ekran-pro-pb.test.tsx (5.818 s)
+
+Test Suites: 15 passed, 15 total
+Tests:       128 passed, 128 total
+Snapshots:   0 total
+Time:        6.428 s
+Ran all test suites matching /tests\/obietnice-pro-015.test.ts|tests\/monetyzacja-platforma-054.test.ts|tests\/dokumenty-wydania-057.test.ts|tests\/kontrakt-zm28-058.test.ts|tests\/kontrakt-slad-059.test.ts|src\/__tests__\/naczynie-bez-skutku-060.test.tsx|tests\/kontrakt-receptury-plan-061.test.ts|tests\/kontrakt-wyjatki-h-062.test.ts|tests\/kontrakt-ranking-064.test.ts|tests\/kontrakt-odlozone-065.test.ts|tests\/wzrost-dokument.test.ts|tests\/wzrost-hipotezy.test.ts|tests\/opis-sklepu-pro-078.test.ts|src\/lib\/__tests__\/nazwy-pro-pb.test.ts|src\/__tests__\/ekran-pro-pb.test.tsx/i.
+kod 0

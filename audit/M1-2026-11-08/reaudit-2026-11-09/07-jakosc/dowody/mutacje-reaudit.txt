@@ -1,0 +1,18 @@
+ src/data/runner-migracji.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+M2 (bez ROLLBACK, runner-migracji.ts:61) kod=1
+Tests:       1 failed, 6 passed, 7 total
+ src/lib/unit-converter.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+M8 (oz2 >= 2, unit-converter.ts:192) kod=1
+Tests:       4 failed, 24 passed, 28 total
+?? node_modules
+ scripts/ci/e2e-na-sha.mjs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+G1 (languages/ jako poza buildem) kod=1
+Tests:       1 failed, 27 passed, 28 total
+ scripts/ci/e2e-na-sha.mjs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+G2 (dowolny zielony zamiast najbliższego SHA) kod=1
+Tests:       2 failed, 26 passed, 28 total
+?? node_modules

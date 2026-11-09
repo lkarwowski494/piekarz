@@ -1,0 +1,25 @@
+Próbka listy kontrolnej spoza zmienionych plików (01): 2026-11-09
+ODK-12: e-maile i telefony w docs/brd (git ls-files):
+kod grep: 123
+
+ODK-02 (obietnica „porównanie” na ekranie Pro, 01-odkrywanie-001):
+src/lib/platnosci/nazwy-pro.ts:27:      // Za blokadą jest tylko karta statystyk; porównanie dwóch wypieków to F-63 PÓŹNIEJ (DEC-04 a) [M1-audytor-generalny-015]
+kod grep: 0
+
+ODK-02 („15 receptur”, 01-odkrywanie-005):
+README.md:83:15 receptur w filtrach listy receptur; w nawiasie woda w procentach piekarskich z kodu (bez wody z zakwasu).
+README.md:156:│   ├── recipes/presets.ts      # 15 receptur bazowych
+site/index.html:35:        <li><strong>Receptury i ilości:</strong> 15 receptur bazowych albo własna; gramy mąki, wody, zakwasu, soli i drożdży od liczby bochenków albo masy mąki; procent piekarski z mąką i wodą z zakwasu i z zaczynu; temperatura wody dla temperatury ciasta, którą chcesz uzyskać.</li>
+kod grep: 0
+
+ODK-09 (wycofane RD w kodzie, 01-odkrywanie-007):
+      1 src/core/__tests__/bake-loss.test.ts:8:RD-10
+      1 src/core/__tests__/domain-rules.test.ts:129:RD-05
+      1 src/core/__tests__/domain-rules.test.ts:17:RD-00
+      1 src/core/__tests__/domain-rules.test.ts:188:RD-07
+      1 src/core/__tests__/domain-rules.test.ts:18:RD-02
+      1 src/core/__tests__/domain-rules.test.ts:207:RD-08
+      1 src/core/__tests__/domain-rules.test.ts:240:RD-11
+      1 src/core/__tests__/domain-rules.test.ts:252:RD-10
+      1 src/core/__tests__/domain-rules.test.ts:261:RD-13
+      1 src/core/__tests__/fermentation-q10-source.test.ts:17:RD-08

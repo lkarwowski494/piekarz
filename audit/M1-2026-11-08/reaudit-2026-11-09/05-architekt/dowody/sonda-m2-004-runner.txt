@@ -1,0 +1,21 @@
+# Sonda M2-koordynator-napraw-004 (runner-migracji.ts na ea249c9c, atrapa połączenia; plik sondy w worktree scratchpadu)
+jest.mock('expo-file-system/legacy', () => ({}));
+jest.mock('../kopie-przed-migracja', () => ({ kopiaPrzedMigracja: async () => '/tmp/kopia.db' }));
+import { uruchomMigracje, MigrationError } from '../runner-migracji';
+it('sonda M2-004: błąd PRAGMA foreign_keys = ON w finally przykrywa MigrationError', async () => {
+  const log: string[] = [];
+  const db = {
+    getFirstAsync: async () => ({ user_version: 7 }),
+    getAllAsync: async () => [],
+    runAsync: async () => undefined,
+    execAsync: async (sql: string) => { log.push(sql); if (/foreign_keys = ON/.test(sql)) throw new Error('pragma ON nieudane'); },
+  };
+  const m = { version: 8, description: 'x', przebudowa: true, run: async () => { throw new Error('migracja padła'); } };
+  let blad: unknown;
+  try { await uruchomMigracje(db as never, [{ version: 7, description: 'v7', run: async () => undefined }, m], ''); } catch (e) { blad = e; }
+  console.log('SONDA', JSON.stringify({ log, nazwa: (blad as Error).name, komunikat: (blad as Error).message, czyMigrationError: blad instanceof MigrationError }));
+});
+    SONDA {"log":["","PRAGMA foreign_keys = OFF;","BEGIN TRANSACTION;","ROLLBACK;","PRAGMA foreign_keys = ON;"],"nazwa":"Error","komunikat":"pragma ON nieudane","czyMigrationError":false}
+  ✓ sonda M2-004: błąd PRAGMA foreign_keys = ON w finally przykrywa MigrationError (56 ms)
+Tests:       1 passed, 1 total
+kod 0

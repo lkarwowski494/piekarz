@@ -1,0 +1,21 @@
+PASS tests/quality-declarations.test.ts (8.397 s)
+PASS tests/testflight-e2e-sha-068.test.ts (9.702 s)
+PASS tests/br-bez-testu.test.ts (23.454 s)
+PASS tests/quality-gates.test.ts (20.141 s)
+PASS tests/check-i18n-gate.test.ts (19.41 s)
+PASS tests/check-data-tests.test.ts
+PASS tests/matrix-kolejnosc-plikow.test.ts (10.977 s)
+PASS tests/public-repo.test.ts
+PASS tests/tresci-tlumaczen-135.test.ts (7.602 s)
+PASS tests/instrukcja-ustawien.test.ts
+PASS tests/repo-sekrety.test.ts
+PASS tests/metadane-sklepu.test.ts
+PASS tests/app-locales-permissions.test.ts
+PASS tests/build-config.test.ts
+PASS tests/wzrost-hipotezy.test.ts
+
+Test Suites: 15 passed, 15 total
+Tests:       445 passed, 445 total
+Snapshots:   0 total
+Time:        38.959 s, estimated 59 s
+Ran all test suites matching /tests\/testflight-e2e-sha-068.test.ts|tests\/public-repo.test.ts|tests\/quality-declarations.test.ts|tests\/instrukcja-ustawien.test.ts|tests\/metadane-sklepu.test.ts|tests\/repo-sekrety.test.ts|tests\/check-data-tests.test.ts|tests\/tresci-tlumaczen-135.test.ts|tests\/app-locales-permissions.test.ts|tests\/build-config.test.ts|tests\/quality-gates.test.ts|tests\/br-bez-testu.test.ts|tests\/check-i18n-gate.test.ts|tests\/wzrost-hipotezy.test.ts|tests\/matrix-kolejnosc-plikow.test.ts/i.

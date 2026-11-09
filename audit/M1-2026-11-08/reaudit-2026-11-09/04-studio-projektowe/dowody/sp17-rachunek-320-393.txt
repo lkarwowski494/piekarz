@@ -1,0 +1,20 @@
+Rachunek [OCENA] okna na kartę „Co zrobić” na prowadzeniu przy ea249c9c (mała spirala 92 pt na pasie), z pomiaru zrzutów E2E #100
+(sp17-pomiar-zrzutow-e2e100.txt) przeniesionego na mniejsze ekrany. Bez urządzenia; przybliżenie.
+
+Dane z pomiaru (402x874 pt, iPhone 17 Pro w symulatorze, jeden wypiek, domyślny tekst):
+- dół pasa: 585 pt (pl), 605 pt (en); w tym wcięcie górne ok. 62 pt (Dynamic Island)
+- góra „Zrobione”: 706 pt; pod nim pasek kciuka i wskaźnik Home: 874 - 706 = 168 pt
+- okno na kartę: 121 pt (pl), 101 pt (en). Nagłówek karty „Co zrobić” ok. 52 pt -> widać ok. 1,5 wiersza instrukcji.
+- dwa wypieki: przełącznik wypieków zaczyna się 58 pt pod pasem -> nagłówek karty ucięty, instrukcji brak.
+
+393x852 (iPhone 16/15, wcięcie ok. 59 pt): pas ok. 582 pt (szerokość prawie ta sama, łamanie tekstu jak wyżej), „Zrobione” ok. 852 - 168 = 684 pt
+-> okno ok. 100 pt (pl), 80 pt (en): nagłówek karty i 1 wiersz instrukcji albo mniej; ostrzeżenie (pod kartą) poza ekranem.
+
+375x667 (iPhone SE 3. gen., wcięcie 20 pt, bez wskaźnika Home: pasek kciuka ok. 168 - 34 = 134 pt):
+pas ok. 585 - 42 = 543 pt (bez dłuższego łamania), „Zrobione” ok. 667 - 134 = 533 pt -> okno ok. -10 pt: karta w całości poza pierwszym ekranem.
+
+320x568 (iPhone SE z „Powiększeniem ekranu”): tytuł kroku 34 pt i „potem …” łamią się w więcej wierszy niż przy 375 pt, pas >= 543 pt
+przy wysokości 568 pt i pasku kciuka ok. 134 pt -> pas sięga pod pasek kciuka; karta i ostrzeżenie poza pierwszym ekranem.
+
+Wniosek: zmiana spirali 150 -> 92 pt dała ok. 58 pt; test akceptacyjny M1 (320 pt i 393 pt: instrukcja i ostrzeżenie w pierwszym ekranie)
+nie jest spełniony przy 320 pt, przy 393 pt widać co najwyżej nagłówek i pierwszy wiersz instrukcji, ostrzeżenie nie.

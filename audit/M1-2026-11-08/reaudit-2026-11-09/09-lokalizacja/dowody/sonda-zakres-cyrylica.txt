@@ -1,0 +1,77 @@
+# 2ef8870a (wt-09c-baza), kod jest 0
+formatTextUnits('1–2 кг дрожжей','imperial','1–2 kg drożdży') = 1–4 lb 6,5 oz дрожжей
+formatTextUnits('1–2 kg drożdży','imperial') = 2 lb 3,3 oz–4 lb 6,5 oz drożdży
+ru n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+ru n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+uk n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+uk n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+bg n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+bg n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+sr n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+sr n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+
+# ea249c9c (wt-09c), kod jest 0
+formatTextUnits('1–2 кг дрожжей','imperial','1–2 kg drożdży') = 1–4 lb 6,5 oz дрожжей
+formatTextUnits('1–2 kg drożdży','imperial') = 2 lb 3,3 oz–4 lb 6,5 oz drożdży
+ru n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+ru n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+uk n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+uk n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+bg n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+bg n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+sr n1: 0,08–3,5 oz | 50–10,6 oz | 7–22 lb | 0,4–3 lb | 7–26 lb | 7–22 lb | 0,8–3 lb | 0,15–7,1 oz
+sr n2: 1–4 lb | 1–3 lb | 2–6 lb | 2–8 lb | 80–4,2 oz
+
+# ea249c9c: wszystkie klucze PL z zakresem mas, 35 języków
+klucze PL z zakresem mas: 5
+pl: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+en: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+cs: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+sk: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+hu: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+ro: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+bg: kluczy z zakresem bez przeliczonej dolnej granicy: 5 np. 750–1 lb | 0,08–3,5 oz | 275–12,3 oz
+hr: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+sl: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+sr: kluczy z zakresem bez przeliczonej dolnej granicy: 4 np. 0,08–3,5 oz | 275–12,3 oz | 1–4 lb
+lt: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+lv: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+et: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+uk: kluczy z zakresem bez przeliczonej dolnej granicy: 5 np. 750–1 lb | 0,08–3,5 oz | 275–12,3 oz
+es: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+es-419: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+pt: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+pt-BR: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+de: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+fr: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+it: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+nl: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+sv: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+da: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+nb: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+fi: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+tr: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+el: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+id: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+ms: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+vi: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+ru: kluczy z zakresem bez przeliczonej dolnej granicy: 5 np. 750–1 lb | 0,08–3,5 oz | 275–12,3 oz
+ja: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+ko: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+zh-Hant: kluczy z zakresem bez przeliczonej dolnej granicy: 0
+
+PL: Klasyczny bochenek o wadze 750–900g
+  ru metr.: 750–900 г | imp.: 750–1 lb 15
+  sr metr.: - | imp.: ok
+PL: Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C
+  ru metr.: 0,08–0,1 кг тмина и 6–8 л горячей воды те | imp.: 0,08–3,5 oz тмина и 6–8 л горячей воды температурой
+  sr metr.: 0,08–0,1 кг кима и 6–8 л вруће воде темпе | imp.: 0,08–3,5 oz кима и 6–8 л вруће воде температуре 185
+PL: Według specyfikacji ciasto zagniata się z około 275–350 g mąki żytniej lub pszennej, 200 g wody i soli
+  ru metr.: 275–350 г ржаной или пшеничной муки | imp.: 275–12,3 oz ржаной или пшеничной муки
+  sr metr.: 275–350 г ражаног или пшеничног брашна | imp.: 275–12,3 oz ражаног или пшеничног брашна
+PL: Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru
+  ru metr.: 1–2 кг дрожжей | imp.: 1–4 lb 6
+  sr metr.: 1–2 кг квасца | imp.: 1–4 lb 6
+PL: Według jednolitego dokumentu ciasto drożdżowe ma 0,70–0,90 kg mąki pszennej, 0,30–0,50 l mleka, 0,10–0,30 kg cukru, 0,04–0,06 kg drożdży, 0,10–0,30 kg jaj, 0,10–0,30 kg masła i sól
+  ru metr.: 0,70–0,90 кг пшеничной муки | imp.: 0,70–1 lb 15
+  sr metr.: 0,70–0,90 кг пшеничног брашна | imp.: 0,70–1 lb 15

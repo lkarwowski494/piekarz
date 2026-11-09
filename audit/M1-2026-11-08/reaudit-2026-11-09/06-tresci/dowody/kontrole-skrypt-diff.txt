@@ -1,0 +1,2 @@
+diff scripts/kontrole-tresci.mjs vs moduł (prompt 06 linie 360-492):
+diff kod 0

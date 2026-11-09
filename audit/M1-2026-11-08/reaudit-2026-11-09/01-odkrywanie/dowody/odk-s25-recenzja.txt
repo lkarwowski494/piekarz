@@ -1,0 +1,4 @@
+Odczyt 2026-11-09T22:07:18Z: https://itunes.apple.com/gb/rss/customerreviews/id=1515369685/sortby=mostrecent/json (HTTP 200), wpis id 13533848767:
+2025-12-19T23:13:56-07:00 ocena 4 | Nice! | I love the idea and the app, it would be great to have a way to export/import recipes, so that it becomes feasible to integrate them with LLMs for suggestions and experimentations!
+
+BR-DANE-005 (docs/brd/wymagania-dane.md:79) cytuje ją jako: arkusz kalkulacyjny jako sposób przeglądu własnych wypieków poza aplikacją (S-25, rec. 13533848767 — prośba o eksport)

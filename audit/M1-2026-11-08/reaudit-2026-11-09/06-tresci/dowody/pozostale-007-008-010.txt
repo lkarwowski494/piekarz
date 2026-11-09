@@ -1,0 +1,19 @@
+06-tresci-008:
+19:  focaccia_genovese: ['tluszcz'], // „naoliwioną blachę”, „solanką z wody, oliwy i soli”
+30:  cheese_crumble_yeast_cake: ['mleko', 'cukier', 'jajka', 'tluszcz', 'ser'], // „mleko… cukru… jaj… masła”, „twarogu”
+06-tresci-010: cytaty > 2 zdań albo > 400 znaków w rejestrze:
+MAK-TYP-004 545 2
+ZAK-ZAL-006 262 3
+ZAK-ZAL-007 341 4
+ZAK-ZAL-010 326 3
+ZAK-LOD-004 500 3
+ZAC-CZA-001 351 3
+ZAC-BIG-001 183 3
+MAS-006 133 4
+MAS-018 89 3
+MAS-ZAK-001 133 4
+PIE-BRI-001 203 3
+PIE-BRI-002 205 3
+DDT-WOD-001 296 3
+razem 13
+06-tresci-007: D-* po 2026-11-08 o terminach maszyny pt/ja/lt:

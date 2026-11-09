@@ -1,0 +1,25 @@
+PASS tests/pieczenie-receptur-008.test.ts
+PASS tests/plan-brioszki-m2-012.test.ts
+PASS tests/liczby-w-tekstach-010.test.ts
+PASS tests/zrodla-katalogu-06z.test.ts
+PASS tests/presety-drozdze-217.test.ts
+PASS tests/teksty-glownego-przeplywu-010.test.ts
+PASS tests/maki-nazwy-041.test.ts
+(node:7225) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+PASS src/components/receptury/__tests__/przelicznik-drozdzy-040.test.tsx
+PASS tests/pizza-pieczenie-009.test.ts
+PASS tests/ddt-woda-m2-013.test.ts
+PASS src/data/__tests__/spizarnia-dawna-nazwa-041.sqlite.test.ts
+PASS tests/tresci-produkt-044.test.ts
+PASS tests/brioszka-tylko-brioszka-m2-012.test.ts
+PASS src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx
+PASS tests/tresci-tlumaczen-135.test.ts
+
+Test Suites: 16 passed, 16 total
+Tests:       286 passed, 286 total
+Snapshots:   0 total
+Time:        8.719 s
+Ran all test suites matching /tests\/pieczenie-receptur-008.test.ts|tests\/pizza-pieczenie-009.test.ts|tests\/teksty-glownego-przeplywu-010.test.ts|tests\/liczby-w-tekstach-010.test.ts|src\/components\/receptury\/__tests__\/przelicznik-drozdzy-040.test.tsx|tests\/zrodla-katalogu-06z.test.ts|tests\/maki-nazwy-041.test.ts|src\/data\/__tests__\/spizarnia-dawna-nazwa-041.sqlite.test.ts|tests\/tresci-produkt-044.test.ts|tests\/tresci-tlumaczen-135.test.ts|tests\/plan-brioszki-m2-012.test.ts|tests\/brioszka-tylko-brioszka-m2-012.test.ts|src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts|tests\/ddt-woda-m2-013.test.ts|src\/__tests__\/calculator-cold-water-warning-08p3n1.test.tsx|tests\/presety-drozdze-217.test.ts/i.
+kod 0

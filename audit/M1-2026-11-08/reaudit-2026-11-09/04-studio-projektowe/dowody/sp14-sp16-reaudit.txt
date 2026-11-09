@@ -1,0 +1,20 @@
+SP-16: app.json splash i ikona @ea249c9c (plik bez zmian od 2ef8870a: git diff --stat pusty)
+10:    "icon": "./assets/icon.png",
+50:    "splash": {
+51:      "image": "./assets/splash-icon-dark.png",
+53:      "backgroundColor": "#141A1C"
+56:      "icon": {
+58:        "dark": "./assets/icon-dark.png",
+59:        "tinted": "./assets/icon-tinted.png"
+111:        "backgroundColor": "#121214"
+147:        "expo-splash-screen",
+149:          "image": "./assets/splash-icon.png",
+152:          "backgroundColor": "#F5F5F2",
+153:          "dark": {
+154:            "image": "./assets/splash-icon-dark.png",
+155:            "backgroundColor": "#141A1C"
+
+SP-14: kroje
+OFL-sofiasanssemicondensed.txt
+SofiaSansSemiCondensed-wght.ttf
+0

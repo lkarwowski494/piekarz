@@ -1,0 +1,12 @@
+# Stan CI (MCP GitHub actions_list / actions_get / list_workflow_jobs, tylko odczyt), 2026-11-09 ok. 22:00 UTC, repo lkarwowski494/piekarz
+## nightly.yml (ostatnie 6 z 26)
+#26 run 42592498036 schedule master 2ef8870a 2026-11-09 09:19–11:19 cancelled (stara konfiguracja, coverageAnalysis off)
+#25 run 42463983930 schedule master 9c255a0a 2026-11-08 08:41–08:46 failure (niedziela, verify)
+#24 run 42355597277 cancelled; #23 run 42191618121 cancelled; #22 run 41999616925 cancelled; #21 run 41801766742 cancelled (wszystkie master 9c255a0a, ok. 120 min)
+Brak przebiegu nightly z konfiguracją c0614ee9 (perTest + incremental): nightly biegnie z harmonogramu na master; ea249c9c nie jest na master.
+## e2e-ios.yml
+#101 run 42705979446 workflow_dispatch redesign/piekarz-2026-10-22 ea249c9c status in_progress (odczyt 2026-11-09, utworzony 21:48:29Z) — prowadzi koordynator, nie uruchamiano niczego
+#100 run 42691065882 workflow_dispatch naprawy/M2-...-p3 6a412c9a success; job 129410619282: pl_PL success, en_US success, Negative control success, Basic build/install/flows success, upload success
+#99 run 42653620839 workflow_dispatch 221318bf success
+#98 run 42520804896 22e6e522 success; #97 run 42511814430 d1524768 success; #96 run 42511355281 push master 2ef8870a failure
+## Różnica 6a412c9a..ea249c9c: tylko docs/wznowienie-M3.md (git diff --name-only)

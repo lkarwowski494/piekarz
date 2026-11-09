@@ -1,0 +1,21 @@
+# tfl-80160.html (curl -L, odczyt 2026-11-09), długość tekstu 26579
+   is not spam IMO -> That rubs some people, like trailrunner, the wrong way. Personally, I think it is legit. Sharing an app you built to address bakers' needs, including your own, is not spam IMO. If someone incessantly posts about their app and nothing else and clearly is trying to drive peopl
+   incessantly posts about their app -> trailrunner, the wrong way. Personally, I think it is legit. Sharing an app you built to address bakers' needs, including your own, is not spam IMO. If someone incessantly posts about their app and nothing else and clearly is trying to drive people to purchase the app, yeah, ok, it'd be spam.
+   flooded with offers -> t is in… tpassin on 14 Oct 2026 at 06:40 In reply to Read this by Moe C Another factor that is in play specifically about baking apps is that the site has been flooded with offers of new ones during the last few months. So when a new announcement arrives, I feel an immediate irr
+   push your app ->  my self be insulted. Is this true enough? by sbeuh Where you went wrong sbeuh is in trying to use a forum, which you have no previous contribution to, just to push your app. That's like attending a book club for the first time, having no real interest in the club and the 
+   Spam will not be tolerated -> BRAK
+   Miette ->  Miette – a small Android app I made to plan my bakes (feedback welcome) | The Fresh Loaf Skip to main cont
+# tfl-faq.html (curl -L, odczyt 2026-11-09), długość tekstu 2228
+   is not spam IMO -> BRAK
+   incessantly posts about their app -> BRAK
+   flooded with offers -> BRAK
+   push your app -> BRAK
+   Spam will not be tolerated -> BRAK
+   Miette -> BRAK
+# tfl-forum.html (curl -L, odczyt 2026-11-09), długość tekstu 4016
+   is not spam IMO -> BRAK
+   incessantly posts about their app -> BRAK
+   flooded with offers -> BRAK
+   push your app -> BRAK
+   Spam will not be tolerated ->  hours 11 minutes ago No new posts For Sale Items like books or mixers for sale. 60 303 By jbest26 1 week ago No new posts Off Topic Things that are off topic. Spam will not be tolerated. 174 1554 By Floydm 1 week 1 day ago My account Log in HOME | ABOUT/PRIVACY | MY ACCOUNT / LOGIN | 
+   Miette -> BRAK

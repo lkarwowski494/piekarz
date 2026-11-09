@@ -1,0 +1,9 @@
+PASS src/ui/__tests__/kontrast-motywu.test.ts
+PASS src/ui/__tests__/theme-contrast.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       392 passed, 392 total
+Snapshots:   0 total
+Time:        0.781 s, estimated 1 s
+Ran all test suites matching /src\/ui\/__tests__\/kontrast-motywu.test.ts|src\/ui\/__tests__\/theme-contrast.test.ts/i.
+kod: 0

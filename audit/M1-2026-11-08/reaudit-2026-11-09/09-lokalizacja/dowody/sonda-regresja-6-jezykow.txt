@@ -1,0 +1,270 @@
+
+===== tr
+--- 011 klucze krytyczne (metryczne)
+k52: Gecikmeli başlatma kapalı, çünkü tarifte yumurta, taze süt, peynir, yoğurt, meyve suyu, taze meyve veya sebze var.
+k53: Okuduğumuz makine kılavuzlarının hepsi, kolay bozulduğu için bu malzemelerin bir kısmıyla gecikmeli başlatmayı yasaklar.
+k56: Pişirmeden sonra kabı fırın eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.
+k57: Ekmeğin içinde kalan karıştırıcı çok sıcak olabilir: ekmek soğuduktan sonra, setteki aletle veya plastik bir spatulayla çıkarın; bıçak ve çatal kullanmayın ve yanık riskine karşı dikkatli olmaya devam edin.
+k58: Program sırasında veya sonunda kapağı açarken sıcak buhar çıkabilir.
+k59: Makine çalışırken buhar çıkış deliğine dokunmayın ve onu kapatmayın.
+k60: 8 yaşından küçük çocukları makineden ve kablodan uzak tutun; daha büyük çocuklar onu yalnızca gözetim altında kullanabilir.
+n1: Miktarları ve sıcaklıkları, kaynaktaki üretim tarifindeki gibi veriyorum; ev mutfağına ve ev fırınına göre çevrilmemiştir. Şartnameye göre 10 kg un içeren tarifte 3 kg iri çavdar unu, 0,08–0,1 kg frenk kimyonu ve 6–8 l, 85–95 °C'de sıcak suyla haşlanır. Bu kadar sıcak su yakar: 150 °F, yani yaklaşık 66 °C'lik su bile çoğu yetişkinde 2 saniyede üçüncü derece yanığa neden olur. Haşlandıktan sonra karışımın sıcaklığı 63–68 °C olur. Haşlanmış un, 50–300 g fermente olmamış çavdar maltıyla birlikte 2–4 saat boyunca 63–65 °C'de tutulur, ardından soğutulur ve 12–24 saat fermente edilir. 7–10 kg soğutulmuş haşlanmış una 0,4–1,6 kg maya hamuru eklenir ve 3–6 saat boyunca 35–36 °C'de fermente edilir. Hamur; 7–12 kg fermente haşlanmış un, 7–10 kg çavdar unu, 0,8–1,6 kg şeker ve 0,15–0,2 kg tuzdan oluşur ve 2–3 saat boyunca 30–34 °C'de fermente olur. En fazla %10 buğday unu eklenebilir. Fırıncı yüzdesiyle, 10 kg un %100 alındığında su %60–80, tuz %1,5–2, şeker %8–16, frenk kimyonu %0,8–1, malt %0,5–3 ve maya hamuru %4–16'dır. Somunlar ocak tabanlı fırında önce 280–350 °C'de, sonra 200–250 °C'de, boyuta göre toplam yaklaşık 1–2 saat pişirilir. Pişirdikten sonra nişasta lapası veya suyla fırçalanır.
+n2: Miktarları ve sıcaklıkları, kaynaktaki üretim tarifindeki gibi veriyorum; ev mutfağına ve ev fırınına göre çevrilmemiştir. Tek belgeye göre 100 kg un için 40–48 l su, 1–2 kg maya, 1–1,5 kg tuz, 2–3 kg yağ ve 2–4 kg şeker kullanılır. Buğday ununun %30'una kadarı çavdar unuyla değiştirilebilir. Hamur tek aşamalı yöntemle hazırlanır; ilk mayalanma yazın birkaç dakikadan kışın bir saate kadar sürer. Şekil verilen halkalar, son mayalanmadan sonra en az 90 °C sıcaklıktaki suya daldırılır ve yüzeye çıkana kadar haşlanır, sonra süslenir ve pişirilir. Bu kadar sıcak su yakar: 150 °F, yani yaklaşık 66 °C'lik su bile çoğu yetişkinde 2 saniyede üçüncü derece yanığa neden olur. Tescil başvurusuna göre halkalar 250–320 °C'de 10–17 dakika, istenen renk ve boyuta gelene kadar pişer. Hazır halkanın çapı 12–17 cm, örgü kalınlığı 2–4 cm ve ağırlığı 80–120 g'dır.
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: ons, °F
+F: Tarifte çavdar ununu yarı yarıya ekmek unuyla karıştırmak en iyisidir. Su un ağırlığının %74,6'sı, tuz %1,5'i, maya ise %5,2'sidir (tarifte kuru maya var, Fırıncı'nın dönüşüm oranıyla yaş mayaya çevrildi). Tarif çavdar u
+F: Miktarları ve sıcaklıkları, kaynaktaki üretim tarifindeki gibi veriyorum; ev mutfağına ve ev fırınına göre çevrilmemiştir. Şartnameye göre 22 lb 0,7 oz un içeren tarifte 6 lb 9,8 oz iri çavdar unu, 2,8 oz–3,5 oz frenk ki
+F: Tarifte su un ağırlığının %67,7'si, tuz %1,4'ü, şeker %2,9'u, yağ %3,1'i, maya ise %4,7'sidir (tarifte kuru maya var, Fırıncı'nın dönüşüm oranıyla yaş mayaya çevrildi). Yüzdeler, 3–4 su bardağı çok yönlü veya ekmek unu b
+MAS-002: Örneğin Tefal PF220838 makinesinde toplamda 2 lb 3,3 oz hamuru, 1 lb 5,9 oz ekmek ununu ve 0,35 oz kuru instant mayayı aşmamalısınız.
+n1 imp: Miktarları ve sıcaklıkları, kaynaktaki üretim tarifindeki gibi veriyorum; ev mutfağına ve ev fırınına göre çevrilmemiştir. Şartnameye göre 22 lb 0,7 oz un içeren tarifte 6 lb 9,8 oz iri çavdar unu, 2,8 oz–3,5 oz frenk kimyonu ve 6–8 l, 185–203 °F'de sıcak suyla haşlanır. Bu kadar sıcak su yakar: 150 °F, yani yaklaşık 66 °C'lik su bile çoğu yetişkinde 2 saniyede üçüncü derece yanığa neden olur. Haşlandıktan sonra karışımın sıcaklığı 145–154 °F olur. Haşlanmış un, 1,8 oz–10,6 oz fermente olmamış çavdar maltıyla birlikte 2–4 saat boyunca 145–149 °F'de tutulur, ardından soğutulur ve 12–24 saat fermente edilir. 15 lb 6,9 oz–22 lb 0,7 oz soğutulmuş haşlanmış una 14,1 oz–3 lb 8,4 oz maya hamuru eklenir ve 3–6 saat boyunca 95–97 °F'de fermente edilir. Hamur; 15 lb 6,9 oz–26 lb 7,3 oz fermente haşlanmış un, 15 lb 6,9 oz–22 lb 0,7 oz çavdar unu, 1 lb 12,2 oz–3 lb 8,4 oz şeker ve 5,3 oz–7,1 oz tuzdan oluşur ve 2–3 saat boyunca 86–93 °F'de fermente olur. En fazla %10 buğday unu eklenebilir. Fırıncı yüzdesiyle, 22 lb 0,7 oz un %100 alındığında su %60–80, tuz %1,5–2, şeker %8–16, frenk kimyonu %0,8–1, malt %0,5–3 ve maya hamuru %4–16'dır. Somunlar ocak tabanlı fırında önce 536–662 °F'de, sonra 392–482 °F'de, boyuta göre toplam yaklaşık 1–2 saat pişirilir. Pişirdikten sonra nişasta lapası veya suyla fırçalanır.
+n2 imp: Miktarları ve sıcaklıkları, kaynaktaki üretim tarifindeki gibi veriyorum; ev mutfağına ve ev fırınına göre çevrilmemiştir. Tek belgeye göre 220 lb 7,4 oz un için 40–48 l su, 2 lb 3,3 oz–4 lb 6,5 oz maya, 2 lb 3,3 oz–3 lb 4,9 oz tuz, 4 lb 6,5 oz–6 lb 9,8 oz yağ ve 4 lb 6,5 oz–8 lb 13,1 oz şeker kullanılır. Buğday ununun %30'una kadarı çavdar unuyla değiştirilebilir. Hamur tek aşamalı yöntemle hazırlanır; ilk mayalanma yazın birkaç dakikadan kışın bir saate kadar sürer. Şekil verilen halkalar, son mayalanmadan sonra en az 194 °F sıcaklıktaki suya daldırılır ve yüzeye çıkana kadar haşlanır, sonra süslenir ve pişirilir. Bu kadar sıcak su yakar: 150 °F, yani yaklaşık 66 °C'lik su bile çoğu yetişkinde 2 saniyede üçüncü derece yanığa neden olur. Tescil başvurusuna göre halkalar 482–608 °F'de 10–17 dakika, istenen renk ve boyuta gelene kadar pişer. Hazır halkanın çapı 12–17 cm, örgü kalınlığı 2–4 cm ve ağırlığı 2,8 oz–4,2 oz'dır.
+--- 014 (15 kluczy; = EN oznaczone)
+Fırıncı uygulaması hiçbir veri toplamaz. Girdiğiniz her şey iPhone’unuzda kalır. Uygulama internete bağlanmaz; hesap, reklam, analiz ya da izleme içermez.
+Düşük randımanlı un. Protein: ör. %9,8.
+Düşük randımanlı un. Protein: ör. %10,6–14,3.
+Düşük randımanlı un. Protein: ör. %10,2–13,8.
+Yüksek randımanlı un. Protein: ör. %12,4–15,5.
+Yüksek randımanlı un. Protein: ör. %11,9.
+Yüksek randımanlı un. Protein: ör. %13,1.
+Tam tahıllı un. Protein: ör. %8,7–9,6. Kül: en fazla %2.
+Protein: ör. %6,3. Kül: %0,59–0,78.
+Protein: ör. %8,4. Kül: en fazla %2.
+Protein: ör. %12,6. Kül: en fazla %2.
+Protein: ör. %13,8.
+Düşük randımanlı un. Protein: ör. %7,8–14,8. Kül: %0,51–0,58.
+Protein: ör. %8,1. Kül: %1,31–1,60.
+Zirve aralığı yalnızca bir tahmindir: her ekşi maya kendi hızında çalışır ve aynı koşullarda farklı ekşi mayalarla yapılan hamur saatte 0,1 ile 1,5 mm arasında 
+--- 046/047 godzina
+formatTime 13:30 tr-TR: 13:30 | 01:30: 01:30
+--- 048 data odległa i jutro (format według języka aplikacji)
+Hazır: 12 Kasım Perşembe, 13:30.
+‹nazwa› — hazır: 12 Kasım Perşembe, 13:30
+Başlangıç: 12 Kasım Perşembe, 13:30
+Pişirme planı: 3 adım. Hazır: 12 Kasım Perşembe, 13:30.
+Planın başlaması gereken zaman: 12 Kasım Perşembe, 12:30. Ekmeğin en erken hazır olacağı zaman: 12 Kasım Perşembe, 13:30.
+Hazır: yarın, saat 13:30.
+
+===== ru
+--- 011 klucze krytyczne (metryczne)
+k52: Отложенный старт отключён, потому что в рецептуре есть яйца, свежее молоко, сыр, йогурт, сок, свежие фрукты или овощи.
+k53: Каждая из изученных инструкций хлебопечек запрещает отложенный старт с частью этих ингредиентов, потому что они быстро портятся.
+k56: После выпечки вынимайте форму в кухонных рукавицах, потому что форма, её ручка и внутренняя сторона крышки горячие.
+k57: Мешалка, оставшаяся в буханке, может быть очень горячей: вынимайте её только после остывания хлеба, инструментом из комплекта или пластиковой лопаткой, не ножом и не вилкой, и по-прежнему остерегайтесь ожога.
+k58: При открывании крышки во время программы или в её конце может выйти горячий пар.
+k59: Во время работы не касайтесь отверстия для выхода пара и не закрывайте его.
+k60: Держите детей младше 8 лет подальше от хлебопечки и её шнура, а детям старше разрешайте пользоваться ею только под присмотром.
+n1: Количества и температуры приведены так, как в описании производства в источнике, без пересчёта на домашнюю кухню и домашнюю духовку. По спецификации, в рецепте на 10 кг муки заваривают 3 кг ржаной муки грубого помола с 0,08–0,1 кг тмина и 6–8 л горячей воды температурой 85–95 °C. Такая горячая вода обжигает: уже вода температурой 150 °F, то есть около 66 °C, вызывает у большинства взрослых ожог третьей степени через 2 секунды. После заваривания масса имеет температуру 63–68 °C. Заваренную муку с 50–300 г несброженного ржаного солода выдерживают при 63–65 °C в течение 2–4 часов, затем охлаждают и сбраживают 12–24 часа. К 7–10 кг охлаждённой заваренной муки добавляют 0,4–1,6 кг опары и сбраживают 3–6 часов при 35–36 °C. Тесто состоит из 7–12 кг сброженной заваренной муки, 7–10 кг ржаной муки, 0,8–1,6 кг сахара и 0,15–0,2 кг соли и бродит 2–3 часа при 30–34 °C. Можно добавить не более 10% пшеничной муки. В пекарских процентах, когда 10 кг муки — это 100%, вода составляет 60–80%, соль — 1,5–2%, сахар — 8–16%, тмин — 0,8–1%, солод — 0,5–3%, а опара — 4–16%. Хлебы выпекают на поду сначала при 280–350 °C, затем при 200–250 °C, всего около 1–2 часов в зависимости от размера. После выпечки их смазывают крахмальным клейстером или водой.
+n2: Количества и температуры приведены так, как в описании производства в источнике, без пересчёта на домашнюю кухню и домашнюю духовку. По единому документу на 100 кг муки используют 40–48 л воды, 1–2 кг дрожжей, 1–1,5 кг соли, 2–3 кг жира и 2–4 кг сахара. До 30% пшеничной муки можно заменить ржаной. Тесто готовят однофазным способом, а предварительное брожение длится от нескольких минут летом до часа зимой. Сформованные бублики после расстойки опускают в воду температурой не менее 90 °C и варят, пока они не всплывут, затем украшают и выпекают. Такая горячая вода обжигает: уже вода температурой 150 °F, то есть около 66 °C, вызывает у большинства взрослых ожог третьей степени через 2 секунды. Согласно заявке на регистрацию, бублики выпекают при 250–320 °C в течение 10–17 минут, до нужного цвета и размера. Готовый бублик имеет диаметр 12–17 см, толщину плетения 2–4 см и массу 80–120 г.
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: унции, °F
+F: В этом рецепте лучше всего смешивать ржаную муку пополам с мукой для хлеба. Вода составляет 74,6% от массы муки, соль — 1,5%, дрожжи — 5,2% (в рецепте сухие дрожжи, пересчитанные на свежие по коэффициенту Хлебопёка). Рец
+F: Количества и температуры приведены так, как в описании производства в источнике, без пересчёта на домашнюю кухню и домашнюю духовку. По спецификации, в рецепте на 22 lb 0,7 oz муки заваривают 6 lb 9,8 oz ржаной муки груб
+F: В рецепте вода составляет 67,7% от массы муки, соль — 1,4%, сахар — 2,9%, растительное масло — 3,1%, дрожжи — 4,7% (в рецепте сухие дрожжи, пересчитанные на свежие по коэффициенту Хлебопёка). Проценты пересчитаны из объё
+MAS-002: Например, для Tefal PF220838 в сумме нельзя превышать 2 lb 3,3 oz теста, 1 lb 5,9 oz хлебной муки и 0,35 oz сухих быстродействующих дрожжей.
+n1 imp: Количества и температуры приведены так, как в описании производства в источнике, без пересчёта на домашнюю кухню и домашнюю духовку. По спецификации, в рецепте на 22 lb 0,7 oz муки заваривают 6 lb 9,8 oz ржаной муки грубого помола с 0,08–3,5 oz тмина и 6–8 л горячей воды температурой 185–203 °F. Такая горячая вода обжигает: уже вода температурой 150 °F, то есть около 66 °C, вызывает у большинства взрослых ожог третьей степени через 2 секунды. После заваривания масса имеет температуру 145–154 °F. Заваренную муку с 50–10,6 oz несброженного ржаного солода выдерживают при 145–149 °F в течение 2–4 часов, затем охлаждают и сбраживают 12–24 часа. К 7–22 lb 0,7 oz охлаждённой заваренной муки добавляют 0,4–3 lb 8,4 oz опары и сбраживают 3–6 часов при 95–97 °F. Тесто состоит из 7–26 lb 7,3 oz сброженной заваренной муки, 7–22 lb 0,7 oz ржаной муки, 0,8–3 lb 8,4 oz сахара и 0,15–7,1 oz соли и бродит 2–3 часа при 86–93 °F. Можно добавить не более 10% пшеничной муки. В пекарских процентах, когда 22 lb 0,7 oz муки — это 100%, вода составляет 60–80%, соль — 1,5–2%, сахар — 8–16%, тмин — 0,8–1%, солод — 0,5–3%, а опара — 4–16%. Хлебы выпекают на поду сначала при 536–662 °F, затем при 392–482 °F, всего около 1–2 часов в зависимости от размера. После выпечки их смазывают крахмальным клейстером или водой.
+n2 imp: Количества и температуры приведены так, как в описании производства в источнике, без пересчёта на домашнюю кухню и домашнюю духовку. По единому документу на 220 lb 7,4 oz муки используют 40–48 л воды, 1–4 lb 6,5 oz дрожжей, 1–3 lb 4,9 oz соли, 2–6 lb 9,8 oz жира и 2–8 lb 13,1 oz сахара. До 30% пшеничной муки можно заменить ржаной. Тесто готовят однофазным способом, а предварительное брожение длится от нескольких минут летом до часа зимой. Сформованные бублики после расстойки опускают в воду температурой не менее 194 °F и варят, пока они не всплывут, затем украшают и выпекают. Такая горячая вода обжигает: уже вода температурой 150 °F, то есть около 66 °C, вызывает у большинства взрослых ожог третьей степени через 2 секунды. Согласно заявке на регистрацию, бублики выпекают при 482–608 °F в течение 10–17 минут, до нужного цвета и размера. Готовый бублик имеет диаметр 12–17 см, толщину плетения 2–4 см и массу 80–4,2 oz.
+--- 014 (15 kluczy; = EN oznaczone)
+Приложение Хлебопёк не собирает никаких данных. Всё, что вы вводите, остаётся на вашем iPhone. Приложение не подключается к интернету, в нём нет учётной записи,
+Мука низкого выхода. Белок: напр. 9,8 %.
+Мука низкого выхода. Белок: напр. 10,6–14,3 %.
+Мука низкого выхода. Белок: напр. 10,2–13,8 %.
+Мука высокого выхода. Белок: напр. 12,4–15,5 %.
+Мука высокого выхода. Белок: напр. 11,9 %.
+Мука высокого выхода. Белок: напр. 13,1 %.
+Цельнозерновая мука. Белок: напр. 8,7–9,6 %. Зольность: не более 2 %.
+Белок: напр. 6,3 %. Зольность: 0,59–0,78 %.
+Белок: напр. 8,4 %. Зольность: не более 2 %.
+Белок: напр. 12,6 %. Зольность: не более 2 %.
+Белок: напр. 13,8 %.
+Мука низкого выхода. Белок: напр. 7,8–14,8 %. Зольность: 0,51–0,58 %.
+Белок: напр. 8,1 %. Зольность: 1,31–1,60 %.
+Окно пика — лишь оценка: каждая закваска работает в своём темпе, и в одинаковых условиях тесто с разными заквасками поднималось на 0,1–1,5 мм в час.
+--- 046/047 godzina
+formatTime 13:30 ru-RU: 13:30 | 01:30: 01:30
+--- 048 data odległa i jutro (format według języka aplikacji)
+Готово: четверг, 12 ноября, 13:30.
+‹nazwa› — готово: четверг, 12 ноября, 13:30
+Старт: четверг, 12 ноября, 13:30
+План выпечки: 3 шага. Готово: четверг, 12 ноября, 13:30.
+План пришлось бы начать: четверг, 12 ноября, 12:30. Хлеб будет готов самое раннее: четверг, 12 ноября, 13:30.
+Готово завтра в 13:30.
+
+===== el
+--- 011 klucze krytyczne (metryczne)
+k52: Η καθυστερημένη εκκίνηση είναι απενεργοποιημένη, επειδή η συνταγή έχει αυγά, φρέσκο γάλα, τυρί, γιαούρτι, χυμό, φρέσκα φρούτα ή λαχανικά.
+k53: Κάθε μία από τις οδηγίες μηχανών που διαβάσαμε απαγορεύει την καθυστερημένη εκκίνηση με ορισμένα από αυτά τα υλικά, επειδή αλλοιώνονται εύκολα.
+k56: Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια φούρνου, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.
+k57: Ο αναδευτήρας που έμεινε στο καρβέλι μπορεί να είναι πολύ καυτός: βγάλτε τον μόνο αφού κρυώσει το ψωμί, με το εργαλείο του σετ ή με πλαστική σπάτουλα, χωρίς μαχαίρι και πιρούνι, και συνεχίστε να προσέχετε μην καείτε.
+k58: Όταν ανοίγετε το καπάκι κατά τη διάρκεια ή στο τέλος του προγράμματος, μπορεί να βγει καυτός ατμός.
+k59: Όσο λειτουργεί η μηχανή, μην αγγίζετε την οπή ατμού και μην την καλύπτετε.
+k60: Κρατήστε τα παιδιά κάτω των 8 ετών μακριά από τη μηχανή και το καλώδιο, ενώ τα μεγαλύτερα μπορούν να τη χρησιμοποιούν μόνο υπό επίβλεψη.
+n1: Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με τις προδιαγραφές, σε συνταγή με 10 kg αλεύρι, 3 kg χοντρό αλεύρι σίκαλης ζεματίζονται με 0,08–0,1 kg αγριοκύμινο (Carum carvi) και 6–8 l ζεστό νερό θερμοκρασίας 85–95 °C. Τόσο ζεστό νερό προκαλεί εγκαύματα: ήδη νερό θερμοκρασίας 150 °F, δηλαδή περίπου 66 °C, προκαλεί στους περισσότερους ενήλικες έγκαυμα τρίτου βαθμού σε 2 δευτερόλεπτα. Μετά το ζεμάτισμα, η μάζα έχει 63–68 °C. Το ζεματισμένο αλεύρι με 50–300 g αζύμωτης βύνης σίκαλης διατηρείται στους 63–65 °C για 2–4 ώρες, έπειτα ψύχεται και υφίσταται ζύμωση 12–24 ώρες. Σε 7–10 kg κρυωμένου ζεματισμένου αλευριού προστίθενται 0,4–1,6 kg μαγιάς προζυμιού και υφίσταται ζύμωση 3–6 ώρες στους 35–36 °C. Η ζύμη αποτελείται από 7–12 kg ζυμωμένου ζεματισμένου αλευριού, 7–10 kg αλεύρι σίκαλης, 0,8–1,6 kg ζάχαρη και 0,15–0,2 kg αλάτι, και υφίσταται ζύμωση 2–3 ώρες στους 30–34 °C. Μπορεί να προστεθεί το πολύ 10% αλεύρι σίτου. Σε αρτοποιητικά ποσοστά, όταν τα 10 kg αλεύρι αντιστοιχούν στο 100%, το νερό είναι 60–80%, το αλάτι 1,5–2%, η ζάχαρη 8–16%, το αγριοκύμινο 0,8–1%, η βύνη 0,5–3% και η μαγιά προζυμιού 4–16%. Τα καρβέλια ψήνονται στην εστία πρώτα στους 280–350 °C, έπειτα στους 200–250 °C, συνολικά περίπου 1–2 ώρες ανάλογα με το μέγεθος. Μετά το ψήσιμο αλείφονται με πάστα αμύλου ή νερό.
+n2: Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με το ενιαίο έγγραφο, για 100 kg αλεύρι χρησιμοποιούνται 40–48 l νερό, 1–2 kg μαγιά, 1–1,5 kg αλάτι, 2–3 kg λιπαρά και 2–4 kg ζάχαρη. Έως το 30% του αλευριού σίτου μπορεί να αντικατασταθεί με αλεύρι σίκαλης. Η ζύμη παρασκευάζεται με τη μέθοδο της μίας φάσης και η αρχική διόγκωση διαρκεί από λίγα λεπτά το καλοκαίρι έως μία ώρα τον χειμώνα. Τα σχηματισμένα δαχτυλίδια, μετά την τελική διόγκωση, βυθίζονται σε νερό θερμοκρασίας τουλάχιστον 90 °C και βράζονται μέχρι να ανέβουν στην επιφάνεια, και μετά διακοσμούνται και ψήνονται. Τόσο ζεστό νερό προκαλεί εγκαύματα: ήδη νερό θερμοκρασίας 150 °F, δηλαδή περίπου 66 °C, προκαλεί στους περισσότερους ενήλικες έγκαυμα τρίτου βαθμού σε 2 δευτερόλεπτα. Σύμφωνα με την αίτηση καταχώρισης, τα δαχτυλίδια ψήνονται στους 250–320 °C για 10–17 λεπτά, μέχρι το επιθυμητό χρώμα και μέγεθος. Το έτοιμο δαχτυλίδι έχει διάμετρο 12–17 cm, πάχος πλεξίδας 2–4 cm και μάζα 80–120 g.
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: ουγγιές, °F
+F: Στη συνταγή είναι καλύτερο να αναμειγνύετε το αλεύρι σίκαλης μισό-μισό με αλεύρι για ψωμί. Το νερό αποτελεί το 74,6% του βάρους του αλευριού, το αλάτι 1,5% και η μαγιά 5,2% (στη συνταγή η μαγιά είναι ξερή, μετατράπηκε σε
+F: Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με τις προδιαγραφές, σε συνταγή με 22 lb 0,7 oz αλεύρι, 6 lb 9,8 oz χοντρό 
+F: Στη συνταγή το νερό αποτελεί το 67,7% του βάρους του αλευριού, το αλάτι 1,4%, η ζάχαρη 2,9%, το λάδι 3,1% και η μαγιά 4,7% (στη συνταγή η μαγιά είναι ξερή, μετατράπηκε σε νωπή με τον συντελεστή μετατροπής του Αρτοποιός).
+MAS-002: Για παράδειγμα, στην Tefal PF220838 δεν επιτρέπεται να ξεπεράσετε συνολικά 2 lb 3,3 oz ζύμης, 1 lb 5,9 oz αλευριού για ψωμί και 0,35 oz ξηρής στιγμιαίας μαγιάς.
+n1 imp: Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με τις προδιαγραφές, σε συνταγή με 22 lb 0,7 oz αλεύρι, 6 lb 9,8 oz χοντρό αλεύρι σίκαλης ζεματίζονται με 2,8 oz–3,5 oz αγριοκύμινο (Carum carvi) και 6–8 l ζεστό νερό θερμοκρασίας 185–203 °F. Τόσο ζεστό νερό προκαλεί εγκαύματα: ήδη νερό θερμοκρασίας 150 °F, δηλαδή περίπου 66 °C, προκαλεί στους περισσότερους ενήλικες έγκαυμα τρίτου βαθμού σε 2 δευτερόλεπτα. Μετά το ζεμάτισμα, η μάζα έχει 145–154 °F. Το ζεματισμένο αλεύρι με 1,8 oz–10,6 oz αζύμωτης βύνης σίκαλης διατηρείται στους 145–149 °F για 2–4 ώρες, έπειτα ψύχεται και υφίσταται ζύμωση 12–24 ώρες. Σε 15 lb 6,9 oz–22 lb 0,7 oz κρυωμένου ζεματισμένου αλευριού προστίθενται 14,1 oz–3 lb 8,4 oz μαγιάς προζυμιού και υφίσταται ζύμωση 3–6 ώρες στους 95–97 °F. Η ζύμη αποτελείται από 15 lb 6,9 oz–26 lb 7,3 oz ζυμωμένου ζεματισμένου αλευριού, 15 lb 6,9 oz–22 lb 0,7 oz αλεύρι σίκαλης, 1 lb 12,2 oz–3 lb 8,4 oz ζάχαρη και 5,3 oz–7,1 oz αλάτι, και υφίσταται ζύμωση 2–3 ώρες στους 86–93 °F. Μπορεί να προστεθεί το πολύ 10% αλεύρι σίτου. Σε αρτοποιητικά ποσοστά, όταν τα 22 lb 0,7 oz αλεύρι αντιστοιχούν στο 100%, το νερό είναι 60–80%, το αλάτι 1,5–2%, η ζάχαρη 8–16%, το αγριοκύμινο 0,8–1%, η βύνη 0,5–3% και η μαγιά προζυμιού 4–16%. Τα καρβέλια ψήνονται στην εστία πρώτα στους 536–662 °F, έπειτα στους 392–482 °F, συνολικά περίπου 1–2 ώρες ανάλογα με το μέγεθος. Μετά το ψήσιμο αλείφονται με πάστα αμύλου ή νερό.
+n2 imp: Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με το ενιαίο έγγραφο, για 220 lb 7,4 oz αλεύρι χρησιμοποιούνται 40–48 l νερό, 2 lb 3,3 oz–4 lb 6,5 oz μαγιά, 2 lb 3,3 oz–3 lb 4,9 oz αλάτι, 4 lb 6,5 oz–6 lb 9,8 oz λιπαρά και 4 lb 6,5 oz–8 lb 13,1 oz ζάχαρη. Έως το 30% του αλευριού σίτου μπορεί να αντικατασταθεί με αλεύρι σίκαλης. Η ζύμη παρασκευάζεται με τη μέθοδο της μίας φάσης και η αρχική διόγκωση διαρκεί από λίγα λεπτά το καλοκαίρι έως μία ώρα τον χειμώνα. Τα σχηματισμένα δαχτυλίδια, μετά την τελική διόγκωση, βυθίζονται σε νερό θερμοκρασίας τουλάχιστον 194 °F και βράζονται μέχρι να ανέβουν στην επιφάνεια, και μετά διακοσμούνται και ψήνονται. Τόσο ζεστό νερό προκαλεί εγκαύματα: ήδη νερό θερμοκρασίας 150 °F, δηλαδή περίπου 66 °C, προκαλεί στους περισσότερους ενήλικες έγκαυμα τρίτου βαθμού σε 2 δευτερόλεπτα. Σύμφωνα με την αίτηση καταχώρισης, τα δαχτυλίδια ψήνονται στους 482–608 °F για 10–17 λεπτά, μέχρι το επιθυμητό χρώμα και μέγεθος. Το έτοιμο δαχτυλίδι έχει διάμετρο 12–17 cm, πάχος πλεξίδας 2–4 cm και μάζα 2,8 oz–4,2 oz.
+--- 014 (15 kluczy; = EN oznaczone)
+Η εφαρμογή Αρτοποιός δεν συλλέγει κανένα δεδομένο. Ό,τι εισάγετε μένει στο iPhone σας. Η εφαρμογή δεν συνδέεται στο διαδίκτυο και δεν έχει λογαριασμό, διαφημίσε
+Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: π.χ. 9,8%.
+Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: π.χ. 10,6–14,3%.
+Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: π.χ. 10,2–13,8%.
+Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: π.χ. 12,4–15,5%.
+Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: π.χ. 11,9%.
+Αλεύρι υψηλής εξαγωγής. Πρωτεΐνη: π.χ. 13,1%.
+Αλεύρι ολικής άλεσης. Πρωτεΐνη: π.χ. 8,7–9,6%. Τέφρα: έως 2%.
+Πρωτεΐνη: π.χ. 6,3%. Τέφρα: 0,59–0,78%.
+Πρωτεΐνη: π.χ. 8,4%. Τέφρα: έως 2%.
+Πρωτεΐνη: π.χ. 12,6%. Τέφρα: έως 2%.
+Πρωτεΐνη: π.χ. 13,8%.
+Αλεύρι χαμηλής εξαγωγής. Πρωτεΐνη: π.χ. 7,8–14,8%. Τέφρα: 0,51–0,58%.
+Πρωτεΐνη: π.χ. 8,1%. Τέφρα: 1,31–1,60%.
+Το παράθυρο κορύφωσης είναι μόνο εκτίμηση: κάθε προζύμι δουλεύει με τον δικό του ρυθμό και, στις ίδιες συνθήκες, ζύμη με διαφορετικά προζύμια φούσκωσε από 0,1 έ
+--- 046/047 godzina
+formatTime 13:30 el-GR: 1:30 μ.μ. | 01:30: 1:30 π.μ.
+--- 048 data odległa i jutro (format według języka aplikacji)
+Έτοιμο: Πέμπτη 12 Νοεμβρίου, 1:30 μ.μ.
+‹nazwa› — έτοιμο: Πέμπτη 12 Νοεμβρίου, 1:30 μ.μ.
+Έναρξη: Πέμπτη 12 Νοεμβρίου, 1:30 μ.μ.
+Πλάνο ψησίματος: 3 βήματα. Έτοιμο: Πέμπτη 12 Νοεμβρίου, 1:30 μ.μ.
+Το πλάνο θα έπρεπε να ξεκινήσει: Πέμπτη 12 Νοεμβρίου, 12:30 μ.μ. Το ψωμί μπορεί να είναι έτοιμο το νωρίτερο: Πέμπτη 12 Νοεμβρίου, 1:30 μ.μ.
+Έτοιμο αύριο την ώρα 1:30 μ.μ.
+
+===== ja
+--- 011 klucze krytyczne (metryczne)
+k52: この配合に卵、新鮮な牛乳、チーズ、ヨーグルト、ジュース、新鮮な果物、野菜のいずれかが含まれているため、予約タイマーはオフになっています。
+k53: 確認したどの説明書でも、これらの材料の一部を使った予約タイマーは、傷みやすいため禁止されています。
+k56: 焼成後は、パンケース、取っ手、ふたの内側が熱いので、ミトンを着けてパンケースを取り出してください。
+k57: ローフに残った羽根は非常に熱くなっていることがあります。パンが冷めてから、付属の器具またはプラスチック製のヘラで取り出し、ナイフやフォークは使わず、引き続きやけどに注意してください。
+k58: コースの途中または終了時にふたを開けると、熱い蒸気が出ることがあります。
+k59: 運転中は、蒸気口に触れたり、ふさいだりしないでください。
+k60: 8歳未満の子どもは本体とコードに近づけないでください。それ以上の子どもは、大人の監督のもとでのみ使えます。
+n1: 分量と温度は、家庭のキッチンやオーブン向けに換算せず、出典の製造方法の記述どおりに記載しています。仕様書によると、粉10 kgのレシピでは、粗挽きのライ麦粉3 kgを、キャラウェイ0.08–0.1 kgと85–95 °Cの熱湯6–8 Lで湯種にします。これほど熱い湯はやけどを負わせます。150 °F（約66 °C）の湯でも、大人のほとんどが2秒で3度のやけどを負います。湯種にした後の生地の温度は63–68 °Cです。湯種にした粉に未発酵のライ麦麦芽50–300 gを加え、63–65 °Cで2–4時間保ち、その後冷まして12–24時間発酵させます。冷ました湯種7–10 kgに発酵種0.4–1.6 kgを加え、35–36 °Cで3–6時間発酵させます。本生地は、発酵させた湯種7–12 kg、ライ麦粉7–10 kg、砂糖0.8–1.6 kg、塩0.15–0.2 kgで作り、30–34 °Cで2–3時間発酵させます。小麦粉は最大10%まで加えられます。ベーカーズパーセントで、粉10 kgを100%とすると、水は60–80%、塩は1.5–2%、砂糖は8–16%、キャラウェイは0.8–1%、麦芽は0.5–3%、発酵種は4–16%です。パンは窯の床で、最初は280–350 °C、次に200–250 °Cで焼き、大きさによって合計約1–2時間かかります。焼き上がり後は、でんぷんのりまたは水を塗ります。
+n2: 分量と温度は、家庭のキッチンやオーブン向けに換算せず、出典の製造方法の記述どおりに記載しています。単一文書によると、粉100 kgに対して、水40–48 L、イースト1–2 kg、塩1–1.5 kg、油脂2–3 kg、砂糖2–4 kgを使います。小麦粉の最大30%までをライ麦粉に置き換えられます。生地はストレート法で作り、最初の発酵は夏は数分から、冬は1時間までかかります。成形したリングは、最終発酵の後、90 °C以上の湯に入れ、浮き上がるまでゆで、その後トッピングして焼きます。これほど熱い湯はやけどを負わせます。150 °F（約66 °C）の湯でも、大人のほとんどが2秒で3度のやけどを負います。登録申請によると、リングは250–320 °Cで10–17分、好みの色と大きさになるまで焼きます。焼き上がったリングは直径12–17 cm、編み目の太さ2–4 cm、重さ80–120 gです。
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: オンス、°F
+F: このレシピでは、ライ麦粉をパン用小麦粉と半々で合わせるのが最適です。水は粉の重量の74.6%、塩は1.5%、イーストは5.2%です（レシピではドライイーストを使い、パン職人の換算で生イーストに換算しています）。レシピにはライ麦粉の種類が書かれていないため、パーセントは中挽きのライ麦粉として計算しています。生地は8–10分こね、2倍の大きさになるまで置きます。成形したパンは型の中で再び2倍になるまで発酵させます。パンは400 °F（約20
+F: 分量と温度は、家庭のキッチンやオーブン向けに換算せず、出典の製造方法の記述どおりに記載しています。仕様書によると、粉22 lb 0.7 ozのレシピでは、粗挽きのライ麦粉6 lb 9.8 ozを、キャラウェイ2.8 oz–3.5 ozと185–203 °Fの熱湯6–8 Lで湯種にします。これほど熱い湯はやけどを負わせます。150 °F（約66 °C）の湯でも、大人のほとんどが2秒で3度のやけどを負います。湯種にした後の生地の温度は145
+F: レシピでは、水は粉の重量の67.7%、塩は1.4%、砂糖は2.9%、油は3.1%、イーストは4.7%です（レシピではドライイーストを使い、パン職人の換算で生イーストに換算しています）。パーセントは、万能粉またはパン用小麦粉3–4カップと書かれたレシピの体積計量から換算しています。これらのレシピのカップは、アメリカの計量カップで、約237 mlです。生地用の水は100–110 °F（約38–43 °C）です。生地は8–10分こね、2倍の大
+MAS-002: たとえばTefal PF220838では、生地は合計2 lb 3.3 oz、強力粉は1 lb 5.9 oz、ドライイースト（インスタント）は0.35 ozを超えてはいけません。
+n1 imp: 分量と温度は、家庭のキッチンやオーブン向けに換算せず、出典の製造方法の記述どおりに記載しています。仕様書によると、粉22 lb 0.7 ozのレシピでは、粗挽きのライ麦粉6 lb 9.8 ozを、キャラウェイ2.8 oz–3.5 ozと185–203 °Fの熱湯6–8 Lで湯種にします。これほど熱い湯はやけどを負わせます。150 °F（約66 °C）の湯でも、大人のほとんどが2秒で3度のやけどを負います。湯種にした後の生地の温度は145–154 °Fです。湯種にした粉に未発酵のライ麦麦芽1.8 oz–10.6 ozを加え、145–149 °Fで2–4時間保ち、その後冷まして12–24時間発酵させます。冷ました湯種15 lb 6.9 oz–22 lb 0.7 ozに発酵種14.1 oz–3 lb 8.4 ozを加え、95–97 °Fで3–6時間発酵させます。本生地は、発酵させた湯種15 lb 6.9 oz–26 lb 7.3 oz、ライ麦粉15 lb 6.9 oz–22 lb 0.7 oz、砂糖1 lb 12.2 oz–3 lb 8.4 oz、塩5.3 oz–7.1 ozで作り、86–93 °Fで2–3時間発酵させます。小麦粉は最大10%まで加えられます。ベーカーズパーセントで、粉22 lb 0.7 ozを100%とすると、水は60–80%、塩は1.5–2%、砂糖は8–16%、キャラウェイは0.8–1%、麦芽は0.5–3%、発酵種は4–16%です。パンは窯の床で、最初は536–662 °F、次に392–482 °Fで焼き、大きさによって合計約1–2時間かかります。焼き上がり後は、でんぷんのりまたは水を塗ります。
+n2 imp: 分量と温度は、家庭のキッチンやオーブン向けに換算せず、出典の製造方法の記述どおりに記載しています。単一文書によると、粉220 lb 7.4 ozに対して、水40–48 L、イースト2 lb 3.3 oz–4 lb 6.5 oz、塩2 lb 3.3 oz–3 lb 4.9 oz、油脂4 lb 6.5 oz–6 lb 9.8 oz、砂糖4 lb 6.5 oz–8 lb 13.1 ozを使います。小麦粉の最大30%までをライ麦粉に置き換えられます。生地はストレート法で作り、最初の発酵は夏は数分から、冬は1時間までかかります。成形したリングは、最終発酵の後、194 °F以上の湯に入れ、浮き上がるまでゆで、その後トッピングして焼きます。これほど熱い湯はやけどを負わせます。150 °F（約66 °C）の湯でも、大人のほとんどが2秒で3度のやけどを負います。登録申請によると、リングは482–608 °Fで10–17分、好みの色と大きさになるまで焼きます。焼き上がったリングは直径12–17 cm、編み目の太さ2–4 cm、重さ2.8 oz–4.2 ozです。
+--- 014 (15 kluczy; = EN oznaczone)
+パン職人アプリはデータを一切収集しません。入力した内容はすべてお使いの iPhone に残ります。アプリはインターネットに接続せず、アカウント、広告、分析、トラッキングもありません。
+低歩留まりの粉。たんぱく質: 例 9.8%。
+低歩留まりの粉。たんぱく質: 例 10.6–14.3%。
+低歩留まりの粉。たんぱく質: 例 10.2–13.8%。
+高歩留まりの粉。たんぱく質: 例 12.4–15.5%。
+高歩留まりの粉。たんぱく質: 例 11.9%。
+高歩留まりの粉。たんぱく質: 例 13.1%。
+全粒粉。たんぱく質: 例 8.7–9.6%。灰分: 最大 2%。
+たんぱく質: 例 6.3%。灰分: 0.59–0.78%。
+たんぱく質: 例 8.4%。灰分: 最大 2%。
+たんぱく質: 例 12.6%。灰分: 最大 2%。
+たんぱく質: 例 13.8%。
+低歩留まりの粉。たんぱく質: 例 7.8–14.8%。灰分: 0.51–0.58%。
+たんぱく質: 例 8.1%。灰分: 1.31–1.60%。
+ピークの時間帯はあくまで目安です。サワー種はそれぞれのペースで働き、同じ条件でも、異なるサワー種を使った生地は毎時 0.1〜1.5 mm 膨らみました。
+--- 046/047 godzina
+formatTime 13:30 ja-JP: 13:30 | 01:30: 01:30
+--- 048 data odległa i jutro (format według języka aplikacji)
+11月12日木曜日 13:30に完成。
+‹nazwa›：11月12日木曜日 13:30に完成
+11月12日木曜日 13:30に開始
+焼成プラン：3ステップ。 11月12日木曜日 13:30に完成。
+このプランは11月12日木曜日 12:30に開始する必要があります。パンができあがるのは最短で11月12日木曜日 13:30です。
+明日 13:30に完成。
+
+===== ko
+--- 011 klucze krytyczne (metryczne)
+k52: 배합표에 달걀, 신선한 우유, 치즈, 요거트, 주스, 신선한 과일 또는 채소가 있어서 예약 기능이 꺼져 있어요.
+k53: 확인한 제빵기 설명서는 모두 이 재료 중 일부와 함께 예약 기능을 쓰는 것을 금지해요. 쉽게 상하기 때문이에요.
+k56: 굽고 난 뒤에는 빵통, 손잡이, 뚜껑 안쪽이 뜨거우니 오븐 장갑을 끼고 빵통을 꺼내세요.
+k57: 빵에 남은 반죽날개는 매우 뜨거울 수 있으니, 빵이 식은 뒤에 제공된 도구나 플라스틱 주걱으로 꺼내고, 칼이나 포크는 쓰지 말고, 계속 화상에 주의하세요.
+k58: 코스 도중이나 끝날 때 뚜껑을 열면 뜨거운 증기가 나올 수 있어요.
+k59: 작동 중에는 증기 배출구를 만지거나 막지 마세요.
+k60: 8세 미만 어린이는 제빵기와 전원 코드에서 멀리 두고, 그보다 큰 어린이는 보호자의 감독 아래에서만 사용하게 하세요.
+n1: 분량과 온도는 가정용 주방과 가정용 오븐에 맞게 환산하지 않고, 출처의 생산 설명 그대로 적었어요. 규격서에 따르면 가루 10 kg 레시피에서는 굵게 간 호밀가루 3 kg을 캐러웨이 0.08–0.1 kg과 85–95 °C의 뜨거운 물 6–8 L로 데쳐요. 이렇게 뜨거운 물은 화상을 입혀요. 150 °F, 즉 약 66 °C의 물만으로도 대부분의 성인은 2초 만에 3도 화상을 입어요. 데친 뒤 반죽의 온도는 63–68 °C예요. 데친 가루에 발효하지 않은 호밀 맥아 50–300 g을 넣고 63–65 °C에서 2–4시간 유지한 다음, 식혀서 12–24시간 발효해요. 식힌 데친 가루 7–10 kg에 발효종 0.4–1.6 kg을 넣고 35–36 °C에서 3–6시간 발효해요. 본반죽은 발효한 데친 가루 7–12 kg, 호밀가루 7–10 kg, 설탕 0.8–1.6 kg, 소금 0.15–0.2 kg으로 만들고 30–34 °C에서 2–3시간 발효해요. 밀가루는 최대 10%까지 넣을 수 있어요. 베이커스 퍼센트로 가루 10 kg을 100%로 하면 물은 60–80%, 소금은 1.5–2%, 설탕은 8–16%, 캐러웨이는 0.8–1%, 맥아는 0.5–3%, 발효종은 4–16%예요. 빵은 화덕 바닥에서 먼저 280–350 °C, 이어서 200–250 °C로 굽고, 크기에 따라 모두 합쳐 약 1–2시간 걸려요. 구운 뒤에는 전분 풀이나 물을 발라요.
+n2: 분량과 온도는 가정용 주방과 가정용 오븐에 맞게 환산하지 않고, 출처의 생산 설명 그대로 적었어요. 단일 문서에 따르면 가루 100 kg에 물 40–48 L, 이스트 1–2 kg, 소금 1–1.5 kg, 지방 2–3 kg, 설탕 2–4 kg을 써요. 밀가루의 최대 30%는 호밀가루로 바꿀 수 있어요. 반죽은 단일 단계 방식으로 만들고, 첫 발효는 여름에는 몇 분, 겨울에는 한 시간까지 걸려요. 성형한 고리는 2차 발효 후 90 °C 이상의 물에 담가 떠오를 때까지 데친 다음, 토핑을 올려 구워요. 이렇게 뜨거운 물은 화상을 입혀요. 150 °F, 즉 약 66 °C의 물만으로도 대부분의 성인은 2초 만에 3도 화상을 입어요. 등록 신청서에 따르면 고리는 250–320 °C에서 10–17분, 원하는 색과 크기가 될 때까지 구워요. 완성된 고리는 지름 12–17 cm, 땋은 두께 2–4 cm, 무게 80–120 g이에요.
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: 온스, °F
+F: 이 레시피에서는 호밀가루를 제빵용 밀가루와 반반 섞는 것이 가장 좋아요. 물은 가루 무게의 74.6%, 소금은 1.5%, 이스트는 5.2%예요(레시피에는 드라이 이스트로 적혀 있고, 제빵사의 환산으로 생이스트로 바꿨어요). 레시피에 호밀가루 종류가 나와 있지 않아서 퍼센트는 중간 정도 제분한 호밀가루 기준으로 계산했어요. 반죽은 8–10분 치대고 부피가 두 배가 될 때까지 두고, 성형한 빵은
+F: 분량과 온도는 가정용 주방과 가정용 오븐에 맞게 환산하지 않고, 출처의 생산 설명 그대로 적었어요. 규격서에 따르면 가루 22 lb 0.7 oz 레시피에서는 굵게 간 호밀가루 6 lb 9.8 oz을 캐러웨이 2.8 oz–3.5 oz과 185–203 °F의 뜨거운 물 6–8 L로 데쳐요. 이렇게 뜨거운 물은 화상을 입혀요. 150 °F, 즉 약 66 °C의 물만으로도 대부분의 성인은 2초 만에
+F: 레시피에서 물은 가루 무게의 67.7%, 소금은 1.4%, 설탕은 2.9%, 기름은 3.1%, 이스트는 4.7%예요(레시피에는 드라이 이스트로 적혀 있고, 제빵사의 환산으로 생이스트로 바꿨어요). 퍼센트는 다목적 또는 제빵용 밀가루 3–4컵으로 적힌 레시피의 부피 계량을 환산한 값이에요. 이런 레시피의 1컵은 미국식 계량컵 “cup”으로 약 237 ml예요. 반죽에 쓰는 물은 100–110 
+MAS-002: 예를 들어 Tefal PF220838은 반죽 2 lb 3.3 oz, 강력분 1 lb 5.9 oz, 인스턴트 드라이 이스트 0.35 oz을 합계로 넘기면 안 돼요.
+n1 imp: 분량과 온도는 가정용 주방과 가정용 오븐에 맞게 환산하지 않고, 출처의 생산 설명 그대로 적었어요. 규격서에 따르면 가루 22 lb 0.7 oz 레시피에서는 굵게 간 호밀가루 6 lb 9.8 oz을 캐러웨이 2.8 oz–3.5 oz과 185–203 °F의 뜨거운 물 6–8 L로 데쳐요. 이렇게 뜨거운 물은 화상을 입혀요. 150 °F, 즉 약 66 °C의 물만으로도 대부분의 성인은 2초 만에 3도 화상을 입어요. 데친 뒤 반죽의 온도는 145–154 °F예요. 데친 가루에 발효하지 않은 호밀 맥아 1.8 oz–10.6 oz을 넣고 145–149 °F에서 2–4시간 유지한 다음, 식혀서 12–24시간 발효해요. 식힌 데친 가루 15 lb 6.9 oz–22 lb 0.7 oz에 발효종 14.1 oz–3 lb 8.4 oz을 넣고 95–97 °F에서 3–6시간 발효해요. 본반죽은 발효한 데친 가루 15 lb 6.9 oz–26 lb 7.3 oz, 호밀가루 15 lb 6.9 oz–22 lb 0.7 oz, 설탕 1 lb 12.2 oz–3 lb 8.4 oz, 소금 5.3 oz–7.1 oz으로 만들고 86–93 °F에서 2–3시간 발효해요. 밀가루는 최대 10%까지 넣을 수 있어요. 베이커스 퍼센트로 가루 22 lb 0.7 oz을 100%로 하면 물은 60–80%, 소금은 1.5–2%, 설탕은 8–16%, 캐러웨이는 0.8–1%, 맥아는 0.5–3%, 발효종은 4–16%예요. 빵은 화덕 바닥에서 먼저 536–662 °F, 이어서 392–482 °F로 굽고, 크기에 따라 모두 합쳐 약 1–2시간 걸려요. 구운 뒤에는 전분 풀이나 물을 발라요.
+n2 imp: 분량과 온도는 가정용 주방과 가정용 오븐에 맞게 환산하지 않고, 출처의 생산 설명 그대로 적었어요. 단일 문서에 따르면 가루 220 lb 7.4 oz에 물 40–48 L, 이스트 2 lb 3.3 oz–4 lb 6.5 oz, 소금 2 lb 3.3 oz–3 lb 4.9 oz, 지방 4 lb 6.5 oz–6 lb 9.8 oz, 설탕 4 lb 6.5 oz–8 lb 13.1 oz을 써요. 밀가루의 최대 30%는 호밀가루로 바꿀 수 있어요. 반죽은 단일 단계 방식으로 만들고, 첫 발효는 여름에는 몇 분, 겨울에는 한 시간까지 걸려요. 성형한 고리는 2차 발효 후 194 °F 이상의 물에 담가 떠오를 때까지 데친 다음, 토핑을 올려 구워요. 이렇게 뜨거운 물은 화상을 입혀요. 150 °F, 즉 약 66 °C의 물만으로도 대부분의 성인은 2초 만에 3도 화상을 입어요. 등록 신청서에 따르면 고리는 482–608 °F에서 10–17분, 원하는 색과 크기가 될 때까지 구워요. 완성된 고리는 지름 12–17 cm, 땋은 두께 2–4 cm, 무게 2.8 oz–4.2 oz이에요.
+--- 014 (15 kluczy; = EN oznaczone)
+제빵사 앱은 어떤 데이터도 수집하지 않아요. 입력한 모든 내용은 iPhone에만 남아요. 앱은 인터넷에 연결하지 않으며 계정, 광고, 분석, 추적이 없어요.
+저추출 가루입니다. 단백질: 예 9.8%.
+저추출 가루입니다. 단백질: 예 10.6–14.3%.
+저추출 가루입니다. 단백질: 예 10.2–13.8%.
+고추출 가루입니다. 단백질: 예 12.4–15.5%.
+고추출 가루입니다. 단백질: 예 11.9%.
+고추출 가루입니다. 단백질: 예 13.1%.
+통곡물 가루입니다. 단백질: 예 8.7–9.6%. 회분: 최대 2%.
+단백질: 예 6.3%. 회분: 0.59–0.78%.
+단백질: 예 8.4%. 회분: 최대 2%.
+단백질: 예 12.6%. 회분: 최대 2%.
+단백질: 예 13.8%.
+저추출 가루입니다. 단백질: 예 7.8–14.8%. 회분: 0.51–0.58%.
+단백질: 예 8.1%. 회분: 1.31–1.60%.
+최고점 시간대는 추정일 뿐이에요. 사워도우 스타터마다 속도가 다르고, 같은 조건에서도 다른 스타터로 만든 반죽은 시간당 0.1~1.5 mm 부풀었어요.
+--- 046/047 godzina
+formatTime 13:30 ko-KR: 오후 1:30 | 01:30: 오전 1:30
+--- 048 data odległa i jutro (format według języka aplikacji)
+11월 12일 목요일 오후 1:30 완성.
+‹nazwa›: 11월 12일 목요일 오후 1:30 완성
+11월 12일 목요일 오후 1:30 시작
+베이킹 계획: 3단계. 11월 12일 목요일 오후 1:30 완성.
+일정을 11월 12일 목요일 오후 12:30에 시작해야 해요. 빵은 빨라도 11월 12일 목요일 오후 1:30에 완성돼요.
+내일 오후 1:30 완성.
+
+===== es-419
+--- 011 klucze krytyczne (metryczne)
+k52: El inicio diferido está desactivado porque la fórmula lleva huevos, leche fresca, queso, yogur, jugo, fruta fresca o verduras.
+k53: Todas las instrucciones de máquinas leídas prohíben el inicio diferido con parte de estos ingredientes, porque se estropean fácilmente.
+k56: Después de hornear, saca el molde con guantes de cocina, porque el molde, su asa y el interior de la tapa están calientes.
+k57: La paleta amasadora que quedó en la hogaza puede estar muy caliente: sácala solo cuando el pan se haya enfriado, con la herramienta incluida o una espátula de plástico, sin cuchillo ni tenedor, y sigue teniendo cuidado de no quemarte.
+k58: Al abrir la tapa durante el programa o al final puede salir vapor caliente.
+k59: Mientras funciona, no toques la salida de vapor ni la tapes.
+k60: Mantén a los niños menores de 8 años lejos de la máquina y del cable; los mayores solo pueden usarla bajo supervisión.
+n1: Indico las cantidades y temperaturas tal como aparecen en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el pliego de condiciones, en una receta con 10 kg de harina se escaldan 3 kg de harina de centeno gruesa con 0.08–0.1 kg de alcaravea y 6–8 l de agua caliente a 85–95 °C. Agua tan caliente escalda: ya el agua a 150 °F, es decir, unos 66 °C, provoca en la mayoría de los adultos quemaduras de tercer grado en 2 segundos. Tras el escaldado, la masa está a 63–68 °C. La harina escaldada con 50–300 g de malta de centeno sin fermentar se mantiene a 63–65 °C durante 2–4 horas, y después se enfría y fermenta 12–24 horas. A 7–10 kg de harina escaldada enfriada se añaden 0.4–1.6 kg de fermento y se deja fermentar 3–6 horas a 35–36 °C. La masa se compone de 7–12 kg de harina escaldada fermentada, 7–10 kg de harina de centeno, 0.8–1.6 kg de azúcar y 0.15–0.2 kg de sal, y fermenta 2–3 horas a 30–34 °C. Se puede añadir como máximo un 10 % de harina de trigo. En porcentajes del panadero, con 10 kg de harina como 100 %, el agua representa 60–80 %, la sal 1.5–2 %, el azúcar 8–16 %, la alcaravea 0.8–1 %, la malta 0.5–3 % y el fermento 4–16 %. Las hogazas se hornean sobre la solera del horno, primero a 280–350 °C y luego a 200–250 °C, en total aproximadamente 1–2 horas según el tamaño. Después de hornearlas se untan con engrudo de almidón o con agua.
+n2: Indico las cantidades y temperaturas tal como aparecen en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el documento único, por cada 100 kg de harina se emplean 40–48 l de agua, 1–2 kg de levadura, 1–1.5 kg de sal, 2–3 kg de grasa y 2–4 kg de azúcar. Hasta el 30 % de la harina de trigo se puede sustituir por harina de centeno. La masa se prepara por el método de una sola fase, y la fermentación inicial va de unos minutos en verano a una hora en invierno. Las roscas formadas, tras la fermentación final, se sumergen en agua a una temperatura de al menos 90 °C y se hierven hasta que suben a la superficie; después se decoran y se hornean. Agua tan caliente escalda: ya el agua a 150 °F, es decir, unos 66 °C, provoca en la mayoría de los adultos quemaduras de tercer grado en 2 segundos. Según la solicitud de registro, las roscas se hornean a 250–320 °C durante 10–17 minutos, hasta lograr el color y el tamaño deseados. La rosca terminada tiene 12–17 cm de diámetro, un grosor de trenza de 2–4 cm y un peso de 80–120 g.
+--- 013 tryb imperialny: klucze z °F i MAS-002
+F: onzas, °F
+F: En la receta lo mejor es combinar la harina de centeno mitad y mitad con harina de trigo para pan. El agua representa el 74.6 % del peso de la harina, la sal el 1.5 % y la levadura el 5.2 % (en la receta es levadura seca
+F: Indico las cantidades y temperaturas tal como aparecen en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el pliego de condiciones, en una receta con 22 lb 0.7 oz de har
+F: En la receta el agua representa el 67.7 % del peso de la harina, la sal el 1.4 %, el azúcar el 2.9 %, el aceite el 3.1 % y la levadura el 4.7 % (en la receta es levadura seca, convertida a fresca con la equivalencia de P
+MAS-002: Por ejemplo, en la Tefal PF220838 no se pueden superar en total 2 lb 3.3 oz de masa, 1 lb 5.9 oz de harina para pan y 0.35 oz de levadura seca instantánea.
+n1 imp: Indico las cantidades y temperaturas tal como aparecen en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el pliego de condiciones, en una receta con 22 lb 0.7 oz de harina se escaldan 6 lb 9.8 oz de harina de centeno gruesa con 2.8 oz–3.5 oz de alcaravea y 6–8 l de agua caliente a 185–203 °F. Agua tan caliente escalda: ya el agua a 150 °F, es decir, unos 66 °C, provoca en la mayoría de los adultos quemaduras de tercer grado en 2 segundos. Tras el escaldado, la masa está a 145–154 °F. La harina escaldada con 1.8 oz–10.6 oz de malta de centeno sin fermentar se mantiene a 145–149 °F durante 2–4 horas, y después se enfría y fermenta 12–24 horas. A 15 lb 6.9 oz–22 lb 0.7 oz de harina escaldada enfriada se añaden 14.1 oz–3 lb 8.4 oz de fermento y se deja fermentar 3–6 horas a 95–97 °F. La masa se compone de 15 lb 6.9 oz–26 lb 7.3 oz de harina escaldada fermentada, 15 lb 6.9 oz–22 lb 0.7 oz de harina de centeno, 1 lb 12.2 oz–3 lb 8.4 oz de azúcar y 5.3 oz–7.1 oz de sal, y fermenta 2–3 horas a 86–93 °F. Se puede añadir como máximo un 10 % de harina de trigo. En porcentajes del panadero, con 22 lb 0.7 oz de harina como 100 %, el agua representa 60–80 %, la sal 1.5–2 %, el azúcar 8–16 %, la alcaravea 0.8–1 %, la malta 0.5–3 % y el fermento 4–16 %. Las hogazas se hornean sobre la solera del horno, primero a 536–662 °F y luego a 392–482 °F, en total aproximadamente 1–2 horas según el tamaño. Después de hornearlas se untan con engrudo de almidón o con agua.
+n2 imp: Indico las cantidades y temperaturas tal como aparecen en la descripción de la producción de la fuente, sin convertirlas a cocina ni horno domésticos. Según el documento único, por cada 220 lb 7.4 oz de harina se emplean 40–48 l de agua, 2 lb 3.3 oz–4 lb 6.5 oz de levadura, 2 lb 3.3 oz–3 lb 4.9 oz de sal, 4 lb 6.5 oz–6 lb 9.8 oz de grasa y 4 lb 6.5 oz–8 lb 13.1 oz de azúcar. Hasta el 30 % de la harina de trigo se puede sustituir por harina de centeno. La masa se prepara por el método de una sola fase, y la fermentación inicial va de unos minutos en verano a una hora en invierno. Las roscas formadas, tras la fermentación final, se sumergen en agua a una temperatura de al menos 194 °F y se hierven hasta que suben a la superficie; después se decoran y se hornean. Agua tan caliente escalda: ya el agua a 150 °F, es decir, unos 66 °C, provoca en la mayoría de los adultos quemaduras de tercer grado en 2 segundos. Según la solicitud de registro, las roscas se hornean a 482–608 °F durante 10–17 minutos, hasta lograr el color y el tamaño deseados. La rosca terminada tiene 12–17 cm de diámetro, un grosor de trenza de 2–4 cm y un peso de 2.8 oz–4.2 oz.
+--- 014 (15 kluczy; = EN oznaczone)
+La app Panadero no recopila ningún dato. Todo lo que ingresas se queda en tu iPhone. La app no se conecta a internet y no tiene cuenta, anuncios, analítica ni r
+Harina de baja extracción. Proteína: p. ej., 9.8%.
+Harina de baja extracción. Proteína: p. ej., 10.6–14.3%.
+Harina de baja extracción. Proteína: p. ej., 10.2–13.8%.
+Harina de alta extracción. Proteína: p. ej., 12.4–15.5%.
+Harina de alta extracción. Proteína: p. ej., 11.9%.
+Harina de alta extracción. Proteína: p. ej., 13.1%.
+Harina integral. Proteína: p. ej., 8.7–9.6%. Ceniza: como máximo 2%.
+Proteína: p. ej., 6.3%. Ceniza: 0.59–0.78%.
+Proteína: p. ej., 8.4%. Ceniza: como máximo 2%.
+Proteína: p. ej., 12.6%. Ceniza: como máximo 2%.
+Proteína: p. ej., 13.8%.
+Harina de baja extracción. Proteína: p. ej., 7.8–14.8%. Ceniza: 0.51–0.58%.
+Proteína: p. ej., 8.1%. Ceniza: 1.31–1.60%.
+La ventana del pico es solo una estimación: cada masa madre trabaja a su ritmo y, en las mismas condiciones, la masa con distintas masas madre subió entre 0.1 y
+--- 046/047 godzina
+formatTime 13:30 es-419: 1:30 p.m. | 01:30: 1:30 a.m.
+--- 048 data odległa i jutro (format według języka aplikacji)
+Listo: jueves, 12 de noviembre, 1:30 p.m.
+‹nazwa› — listo: jueves, 12 de noviembre, 1:30 p.m.
+Inicio: jueves, 12 de noviembre, 1:30 p.m.
+Plan de horneado: 3 pasos. Listo: jueves, 12 de noviembre, 1:30 p.m.
+El plan tendría que empezar: jueves, 12 de noviembre, 12:30 p.m. Lo antes que estará listo el pan: jueves, 12 de noviembre, 1:30 p.m.
+Listo mañana, 1:30 p.m.

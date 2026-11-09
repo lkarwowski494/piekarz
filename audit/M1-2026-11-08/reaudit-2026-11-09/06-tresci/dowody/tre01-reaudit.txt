@@ -1,0 +1,118 @@
+# pliki z listy M1 (31, 0 wpisów w plikach usuniętych): literałów z liczbą 184, bez twierdzenia i bez nazwy mąki/mieszanki 70
+src/components/FlourBlendModal.tsx:113	Suma musi wynosić dokładnie 100%.
+src/components/FlourBlendModal.tsx:132	Proporcje poprawne (100%)
+src/components/FlourBlendModal.tsx:142	Wyrównaj do 100%
+src/components/QrScannerModal.tsx:83	Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.
+src/components/QrScannerModal.tsx:211	rgba(0, 0, 0, 0.45)
+src/components/QrScannerModal.tsx:254	rgba(26, 17, 10, 0.75)
+src/components/VolumeConverterModal.tsx:79	Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)
+src/components/VolumeConverterModal.tsx:125	US Cup (236,6 ml)
+src/components/academy/TechniquesLibrarySection.tsx:28	12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.
+src/components/doktor/KitchenTestsGuideSection.tsx:47	Pozostaw w cieple na kolejne 30–60 minut.
+src/components/receptury/SkladnikiSheet.tsx:92	Sól {procent} to więcej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:93	Sól {procent} to mniej niż zwykłe 1,8–2,0% masy mąki.
+src/components/receptury/SkladnikiSheet.tsx:187	Mąki (razem 100%)
+src/components/receptury/SkladnikiSheet.tsx:200	Suma musi wynosić dokładnie 100%.
+src/components/stolnica/DutchOvenController.tsx:53	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:73	Faza 2: Bez pokrywki (Karmelizacja)
+src/components/stolnica/DutchOvenController.tsx:83	Faza 1: Pod pokrywką (Para)
+src/components/stolnica/DutchOvenController.tsx:84	Faza 2: Bez pokrywki (Karmelizacja)
+src/components/stolnica/DutchOvenController.tsx:123	Rozpocznij Fazę 2
+src/components/zakwas/AddStarterModal.tsx:72	Mąka pszenna chlebowa t750
+src/components/zakwas/StalyDzienKarmienia.tsx:48	Karmienie co 7 dni: {dzien}, {h}.
+src/components/zakwas/StalyDzienKarmienia.tsx:48	Bez stałego dnia: następne karmienie 7 dni po ostatnim.
+src/components/zakwas/StalyDzienKarmienia.tsx:69	Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.
+src/components/zakwas/StarterEntriesList.tsx:93	Godzina od 0 do 23, minuty od 0 do 59.
+src/components/zakwas/useAkcjeZakwasu.ts:44	Mąka pszenna chlebowa t750
+src/core/baking-phases.ts:31	Faza 1: Pod pokrywką (Para)
+src/core/baking-phases.ts:40	Faza 2: Bez pokrywki (Karmelizacja)
+src/core/domain-rules.ts:453	Wymaga 3–4 standardowych składań.
+src/core/domain-rules.ts:481	100% Pszenna chlebowa
+src/core/flour-atlas.ts:125	Wymaga zakwasu (pH < 4.5).
+src/core/flour-atlas.ts:146	Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.
+src/core/flour-atlas.ts:414	Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.
+src/core/preferments.ts:78	Tangzhong (Zaparzana mąka 1:5 w 65°C)
+src/core/preferments.ts:88	Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)
+src/core/preferments.ts:91	Min. 4h lub przez noc w lodówce
+src/core/preferments.ts:147	Całkowita masa mąki musi być większa od 0
+src/core/preferments.ts:150	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/core/zaczyn-w-formule.ts:81	Udział mąki w zaczynie musi mieścić się w przedziale 0–100%
+src/data/sqlite-schema.ts:148	Initial artisan bread schema v1.0
+src/data/sqlite-schema.ts:150	CREATE TABLE IF NOT EXISTS starters (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          flour_type TEXT NOT NULL,
+          hydration REAL NOT NULL DEFAULT 100.0,
+          birth_date INTEGER NOT NULL,
+          storage_state TEXT NOT NULL DEFAULT 'ROOM_TEMP',
+          last_fed_at INTEGER
+        ); | CREATE TABLE IF NOT EXISTS recipes (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          formula_json TEXT NOT NULL,
+          target_ddt REAL NOT NULL DEFAULT 25.0,
+          notes TEXT,
+          is_built_in INTEGER NOT NULL DEFAULT 0,
+          created_at INTEGER NOT NULL
+        ); | CREATE TABLE IF NOT EXISTS flour_inventory (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          stock_grams REAL NOT NULL DEFAULT 0.0,
+          brand TEXT,
+          protein_pct REAL,
+          updated_at INTEGER NOT NULL
+        ); | CREATE TABLE IF NOT EXISTS app_access (
+          id TEXT PRIMARY KEY NOT NULL,
+          trial_started_at INTEGER NOT NULL,
+          trial_days INTEGER NOT NULL DEFAULT 14,
+          subscription_tier TEXT NOT NULL DEFAULT 'none',
+          subscription_expires_at INTEGER,
+          completed_bakes_count INTEGER NOT NULL DEFAULT 0,
+          signature TEXT
+        );
+src/data/sqlite-schema.ts:229	Sensory crumb scores and starter feeding ratio v1.1
+src/data/sqlite-schema.ts:247	ALTER TABLE starters ADD COLUMN feeding_ratio TEXT DEFAULT '1:1:1';
+src/data/sqlite-schema.ts:253	Cryptographic tamper seal signature for app_access v2.0
+src/data/sqlite-schema.ts:277	Starter entry log (ADR-008)
+src/data/sqlite-schema.ts:279	CREATE TABLE IF NOT EXISTS starter_entries (
+          id TEXT PRIMARY KEY NOT NULL,
+          starter_id TEXT NOT NULL REFERENCES starters(id) ON DELETE CASCADE,
+          kind TEXT NOT NULL CHECK (kind IN ('feeding', 'observation')),
+          occurred_at INTEGER NOT NULL CHECK (occurred_at > 0),
+          feed_ratio TEXT,
+          flour_grams REAL CHECK (flour_grams IS NULL OR flour_grams > 0),
+          water_grams REAL CHECK (water_grams IS NULL OR water_grams > 0),
+          signs TEXT NOT NULL DEFAULT '[]' CHECK (json_valid(signs) AND json_type(signs) = 'array'),
+          created_at INTEGER NOT NULL,
+          updated_at INTEGER NOT NULL,
+          CHECK (kind = 'feeding' OR (feed_ratio IS NULL AND flour_grams IS NULL AND water_grams IS NULL))
+        );
+src/data/sqlite-schema.ts:302	INSERT INTO starter_entries (id, starter_id, kind, occurred_at, feed_ratio, created_at, updated_at)
+        SELECT 'v5-' || id, id, 'feeding', last_fed_at, last_feed_ratio, last_fed_at, last_fed_at
+        FROM starters WHERE last_fed_at IS NOT NULL AND last_fed_at > 0
+        ON CONFLICT (id) DO NOTHING;
+src/data/sqlite-schema.ts:328	ALTER TABLE starters ADD COLUMN fridge_feed_weekday INTEGER CHECK (fridge_feed_weekday IS NULL OR fridge_feed_weekday BETWEEN 1 AND 7);
+src/data/sqlite-schema.ts:331	ALTER TABLE starters ADD COLUMN fridge_feed_minute INTEGER
+          CHECK (fridge_feed_minute IS NULL OR (fridge_feed_minute BETWEEN 0 AND 1439 AND fridge_feed_weekday IS NOT NULL));
+src/data/sqlite-schema.ts:341	PRAGMA busy_timeout = 5000;
+src/data/sqlite-schema.ts:383	Żytnia typ 2000
+src/hooks/useRecipeCalculations.ts:107	Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)
+src/lib/kalendarz-teksty.ts:46	{wypiek}: ocena {ocena} z 5
+src/lib/kalendarz-teksty.ts:49	Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie
+src/lib/nazwa-maki-mieszanki.ts:35	Mąka pszenna wysokobiałkowa (W>280 / Manitoba)
+src/lib/nazwa-maki-mieszanki.ts:36	Mąka pszenna Manitoba / Forte (W > 300)
+src/lib/nazwa-maki-mieszanki.ts:37	Mąka pszenna Manitoba / Forte (W > 350)
+src/lib/recipe-navigation.ts:58	mistrzowski wiejski (tartine style 80%)
+src/lib/recipe-navigation.ts:60	mistrzowski wiejski w stylu tartine, 80%
+src/lib/recipe-navigation.ts:64	pizza napoletana verace (48h)
+src/lib/recipe-navigation.ts:66	pizza napoletana verace (48 h)
+src/recipes/presets-drozdzowe.ts:30	Zaczyn poolish (20% mąki, 100% hydratacji).
+src/recipes/presets-drozdzowe.ts:34	Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)
+src/recipes/presets-drozdzowe.ts:37	Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).
+src/recipes/presets-drozdzowe.ts:54	Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. | Do ciasta właściwego dodaj 3% oliwy z oliwek.
+src/recipes/presets-drozdzowe.ts:86	Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.
+src/recipes/presets-drozdzowe.ts:103	Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej.
+src/recipes/presets-pizza-slodkie.ts:32	Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. | Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.
+src/recipes/presets-zakwas.ts:38	Wiejski chleb na zakwasie, 80%
+src/recipes/presets-zytnie.ts:11	Tradycyjny chleb 100% żytni razowy
+app/doktor.tsx:118	Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu

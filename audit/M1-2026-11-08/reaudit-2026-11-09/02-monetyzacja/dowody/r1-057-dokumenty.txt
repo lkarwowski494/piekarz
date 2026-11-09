@@ -1,0 +1,15 @@
+# grep -rn "D-038" docs/wydanie
+docs/wydanie/instrukcja-ustawien.md:61:Kontrakt Basic/Pro (`docs/monetyzacja.md`, D-112): subskrypcje bez okresu próbnego, rolę próby pełni Basic. Oferta „Free Trial 2 Weeks” z D-038 usunięta
+docs/wydanie/instrukcja-ustawien.md:196:| Set up introductory offers | strona o usuwaniu oferty (Free Trial 2 Weeks z D-038 usunięta 2026-11-03, §4; nie tworzymy) | developer.apple.com/help/app-stor
+docs/wydanie/ceny.json:20: "bezOfertyWprowadzajacej": "D-112: bez okresu próbnego, rolę próby pełni Basic. Oferta „Free Trial 2 Weeks” z D-038 usunięta przez właściciela w App Store Connect
+docs/wydanie/dziennik.md:27:- 2026-10-21, commit `4aaf974`, zapis (run 39583333126). Zgoda właściciela: „Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581
+# ceny.json 1-6
+{
+ "opis": "Ceny produktów Piekarz Pro w App Store Connect: cena bazowa USD i storefronty z ceną ustawioną ręcznie (D-112: ceny z DEC-01 d z 2026-10-19 bez zmian do przeglądu po 6 miesiącach od premiery, Z-10 w docs/monetyzacja.md; zmiana cen to osobna decyzja właściciela). Pozostałe storefro
+ "zrodla": [
+  "docs/decyzje.md D-112 („Ceny: rekomendacja 0,99 / 6,99 / 14,99 USD (domyślne portfela) z przeglądem po 6 miesiącach od premiery”); kwoty US, PL i pozostałych storefrontów z decyzji DEC-01 d z 2026-10-19, bez zmian",
+  "docs/monetyzacja.md, tabela „Kontrakt płatności”",
+  "audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json, pole ceny i sklepy[].waluta (2026-10-19; plik lokalny właściciela, poza gitem)"
+# B2 / W1-05
+docs/wydanie/droga-do-app-store.md:47:| B2 | **Z-1: usunąć Free Trial 2 Weeks** z obu subskrypcji, we wszystkich krajach, razem z buildem Basic/Pro | zrobione 2026-11-03, właściciel: „Obie usuenięte.” (`docs/wydanie/dziennik.md`; 2026-11-02 jeszcze ni
+docs/wydanie/plan-wydania-1.0.md:46:- [x] **W1-05** Free Trial usunięty w ASC (Z-1) — potwierdzone zrzutem lub opisem właściciela w dzienniku: 2026-11-03, „Obie usuenięte.” (`dziennik.md`, sekcja ustawień ASC).

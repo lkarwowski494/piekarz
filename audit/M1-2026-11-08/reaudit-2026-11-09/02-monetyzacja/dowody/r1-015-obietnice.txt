@@ -1,0 +1,20 @@
+# 015: każda obietnica ekranu Pro (src/components/PaywallModal.tsx:70-73, 192) ↔ funkcja Pro z konfiguracja.ts ↔ strażnik w kodzie (ea249c9c, odczyt kodu 2026-11-09)
+plan wstecz od godziny „gotowe”     | plan-wstecz            | app/(tabs)/receptury/harmonogram.tsx:88 moze('plan-wstecz'); :244 BlokadaFunkcji blokada('plan-wstecz') podglad
+ochrona snu                         | plan-wstecz            | SleepGuardBanner w karcie pod BlokadaFunkcji plan-wstecz (harmonogram.tsx:244-275); w Basic plan od teraz z ustawieniami nocy (BASIC_SZCZEGOLY plan-ustawienia-nocy-i-lodowki)
+czas fermentacji z temperatury      | plan-wstecz            | harmonogram.tsx:89-90 zTemperatura = planWstecz; Basic: TEMPERATURA_MODELU_PLANU_C
+wypieki na kolejne dni              | plany-przyszle         | app/(tabs)/(dzis)/index.tsx:90-91; src/hooks/useStartPlanu.ts:88,139; ProgramMaszynyKarta.tsx:97
+dwa wypieki naraz                   | dwa-wypieki            | src/hooks/useStartPlanu.ts:93; src/hooks/usePlanyDzis.ts:59-61
+widok miesiąca                      | miesiac                | app/(tabs)/(dzis)/index.tsx:63-64
+plan w kalendarzu telefonu          | kalendarz-telefonu     | src/components/harmonogram/DodajDoKalendarza.tsx:32,37 (plik .ics)
+przypomnienia o dokarmianiu         | przypomnienia-zakwasu  | src/components/settings/PrzypomnieniaKarmieniaSection.tsx:28; app/(tabs)/zakwasy/index.tsx:223; src/lib/notifications.ts (odczyt stanu)
+proporcje dokarmiania               | proporcje-zakwasu      | app/(tabs)/zakwasy/index.tsx:252
+gotowość zakwasu do ciasta          | gotowosc-zakwasu       | app/(tabs)/zakwasy/index.tsx:222,230
+stały dzień karmienia w lodówce     | staly-dzien            | app/(tabs)/zakwasy/index.tsx:246
+kolejne zakwasy                     | kolejny-zakwas         | app/(tabs)/zakwasy/index.tsx:177 (LIMITY_BASIC.zakwasy = 1)
+zaczyn poolish, biga, stare ciasto, levain | zaczyn          | app/(tabs)/receptury/receptura.tsx:339,341; ZACZYNY_W_MENU src/components/receptury/nazwy-receptur.ts:12 (pate_fermentee = „stare ciasto”)
+więcej własnych receptur            | receptury-ponad-limit  | limit 5 (src/lib/platnosci/konfiguracja.ts:100); dodaj('wlasneReceptury') w src/components/ImportRecipeModal.tsx:84 i src/components/settings/ImportZPlikuArkusz.tsx:71; zapis nowej receptury: mapa bramek 02 (receptura.tsx)
+statystyki wypieków                 | porownanie             | app/(tabs)/dziennik/index.tsx:61 blokada('porownanie'); nazwa blokady „Statystyki piekarni domowej” (src/lib/platnosci/nazwy-pro.ts:26-28)
+podtytuł: „planowanie, opiekę nad zakwasem, więcej zakwasów i receptur” | jw. | jw.
+Wynik: 16/16 obietnic ma kod i strażnika; brak obietnicy funkcji PÓŹNIEJ/NIE/TEST ani ukrytego wejścia (tests/obietnice-pro-015.test.ts zielony).
+Uwaga: test sprawdza tylko kierunek „brak obietnicy bez kodu” (słowa funkcji odłożonych); kierunek „obietnica → funkcja Pro ze strażnikiem” sprawdzony ręcznie wyżej, bez automatu; FUNKCJE_PRO w teście to lista przepisana ręcznie (tests/obietnice-pro-015.test.ts:49-70), nie wyprowadzona z typu Funkcja.
+Martwe klucze: stary tekst z „porównanie” zostaje w słownikach (np. src/lib/i18n-en/czesc-23.ts:24, src/lib/i18n-slowniki/de/czesc-6.ts:88); kod go nie używa (grep poza i18n: 0), użytkownik go nie zobaczy.

@@ -1,0 +1,25 @@
+831199d7 fix(i18n): 13 poprawek przekładu zdań bezpieczeństwa maszyny z kontroli (a) — D-308 [M1-audytor-generalny-011; 09-lokalizacja-001]
+  przodek ea249c9c: tak
+3e51b342 fix(i18n): kontrola (a) tłumaczenia zwrotnego 9 kluczy krytycznych w 21 językach; 5 poprawek notatek BEZ-WRZ-001 [M1-audytor-generalny-011; 09-lokalizacja-001]
+  przodek ea249c9c: tak
+6c2a6e26 fix(start): ekran awaryjny w języku urządzenia, nie zawsze po polsku [M1-audytor-generalny-012; 09-lokalizacja-002]
+  przodek ea249c9c: tak
+76610a26 fix(jednostki): przeliczanie w tekście bez „400 °F, czyli około 399 °F” i z separatorem tysięcy języka (opcja a) [M1-audytor-generalny-013; 09-lokalizacja-003]
+  przodek ea249c9c: tak
+8f90a72e fix(i18n): drugi przegląd AI przekładu M2 p2 — 4 poprawki P2 terminologii zgodnie z istniejącymi słownikami [M1-audytor-generalny-014; 09-lokalizacja-005; M1-audytor-generalny-041]
+  przodek ea249c9c: tak
+9265f84c fix(i18n): przekład 73 kluczy w 33 językach — 15 tekstów głównego przepływu po angielsku i nowe klucze D-303…D-307; lista „czeka na przekład” pusta (09-lokalizacja-005) [M1-audytor-generalny-014; 09-lokalizacja-005]
+  przodek ea249c9c: tak
+f1aa3ad7 [M3 torB-09] godzina w przekładzie bez rodzajnika zależnego od godziny (es, es-419, pt, pt-BR, it, el)
+  przodek ea249c9c: tak
+4f24b6a6 fix(format): godzina w zegarze 12 h bez zera wiodącego i bez „..” po „p.m.” (opcja b) [M1-audytor-generalny-047; 09-lokalizacja-006]
+  przodek ea249c9c: tak
+6c5546bd fix(i18n): data odległa po dwukropku zamiast mianownika po „gotowe”/„start” (opcja a) [M1-audytor-generalny-048; 09-lokalizacja-007]
+  przodek ea249c9c: tak
+0e952949 fix(i18n): drugi przegląd AI przekładu 048 — ru „самое раннее” (P2), es-419 zgodnie z kluczem siostrzanym (P3) [M1-audytor-generalny-048; 09-lokalizacja-007]
+  przodek ea249c9c: tak
+3ccfd438 docs(lokalizacja): cm, mm, ml, l w trybie imperialnym — metryczne w 1.0, przeliczenie zakresem 1.0.1 (DEC-12 b, D-286) [M1-audytor-generalny-049; 09-lokalizacja-008]
+  przodek ea249c9c: tak
+64d2aa55 fix(i18n): „DDT:” w podglądzie importu receptury przez t('DDT') [M1-audytor-generalny-051; 09-lokalizacja-010]
+  przodek ea249c9c: tak
+merge-base 2ef8870a ea249c9c: 48c81304285c3ff40d2476f1e74f6bffdfc27c64

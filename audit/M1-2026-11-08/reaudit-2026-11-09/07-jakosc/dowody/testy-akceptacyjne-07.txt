@@ -1,0 +1,27 @@
+PASS tests/testflight-e2e-sha-068.test.ts
+PASS tests/br-bez-testu.test.ts (6.299 s)
+PASS src/__tests__/br-harmo-etap-drozdze-070.test.tsx
+(node:10226) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10229) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/starter-entries-v5-migration.sqlite.test.ts
+PASS tests/quality-gates.test.ts (8.301 s)
+PASS src/data/__tests__/kopia-auto-blad-016.sqlite.test.tsx
+PASS src/__tests__/br-recp-005-wersja-drozdzowa-070.test.tsx
+PASS src/lib/__tests__/miary-usa-096.test.ts
+PASS tests/e2e-ios-workflow.test.ts
+PASS tests/tytuly-a11y-072.test.ts
+PASS tests/fc-num-runs-069.test.ts
+PASS tests/koniec-wypieku-e2e-016.test.ts
+PASS tests/korpus-regresji-073.test.ts
+PASS tests/e2e-niezalezne-kroki-075.test.ts
+PASS tests/workflow-pages-077.test.ts
+PASS src/recipes/__tests__/br-recp-001-katalog-070.test.ts
+
+Test Suites: 16 passed, 16 total
+Tests:       159 passed, 159 total
+Snapshots:   0 total
+Time:        10.477 s, estimated 13 s
+Ran all test suites matching /tests\/testflight-e2e-sha-068.test.ts|tests\/koniec-wypieku-e2e-016.test.ts|src\/data\/__tests__\/kopia-auto-blad-016.sqlite.test.tsx|tests\/quality-gates.test.ts|tests\/fc-num-runs-069.test.ts|tests\/br-bez-testu.test.ts|src\/__tests__\/br-harmo-etap-drozdze-070.test.tsx|src\/__tests__\/br-recp-005-wersja-drozdzowa-070.test.tsx|src\/recipes\/__tests__\/br-recp-001-katalog-070.test.ts|src\/data\/__tests__\/starter-entries-v5-migration.sqlite.test.ts|src\/lib\/__tests__\/miary-usa-096.test.ts|tests\/tytuly-a11y-072.test.ts|tests\/korpus-regresji-073.test.ts|tests\/e2e-niezalezne-kroki-075.test.ts|tests\/e2e-ios-workflow.test.ts|tests\/workflow-pages-077.test.ts/i.
+EXIT=0

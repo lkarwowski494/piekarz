@@ -1,0 +1,18 @@
+## grep fontSize literal (app/ src/, bez __tests__) @ea249c9c
+src/components/Spirala.tsx:131:              <SvgText testID={`brand-spiral-numer-${ti + 1}`} x={r.teraz.x} y={r.teraz.y + 4} fontSize={11} fontWeight="700" fill={kolory.tusz} textAnchor="middle">{String(ti + 1)}</SvgText>
+liczba: 1
+
+## borderRadius literal
+src/components/doktor/EmergencyRecoverySection.tsx:195:    borderRadius: 28 / 2,
+src/components/doktor/EmergencyRecoverySection.tsx:246:    borderRadius: 20 / 2,
+src/components/DiscardRecipesModal.tsx:372:    borderRadius: 20 / 2,
+src/components/harmonogram/TimelineStagesList.tsx:169:    borderRadius: 30 / 2,
+src/components/zakwas/StarterSetupCard.tsx:113:  dzien: { minWidth: 40, minHeight: 40, borderRadius: 40 / 2, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center' },
+src/components/zakwas/StarterPeakActivityCard.tsx:225:    borderRadius: 10 / 2,
+src/components/academy/BreadSchoolSection.tsx:253:    borderRadius: 18 / 2,
+src/components/academy/AcademyHeader.tsx:91:    borderRadius: 36 / 2,
+liczba: 8
+
+## to samo @2ef8870a (liczby)
+108
+34

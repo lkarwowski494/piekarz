@@ -1,0 +1,14 @@
+# Sonda 11-wzrost-601 w worktree wt-F (ea249c9c): dopisany wiersz TestFlight 2026-11-12 build 1024 do docs/wydanie/dziennik.md; plik w repo nietknięty
+    ✓ pliki istnieją (2 ms)
+    ✓ hipotezy.mjs kończy się kodem 0 (dane poprawne, najwyżej 3 aktywne H) (42 ms)
+    ✓ kontrola negatywna: skrypt odrzuca H bez ID decyzji progu (kod 1) (85 ms)
+    ✓ H-01 to „Kryterium po 90 dniach od wydania” z docs/monetyzacja.md (Basic/Pro, D-112, D-113) (2 ms)
+    ✓ zmierzone dane nie trafiają do publicznego repo
+    ✓ min_proba każdej H ma ID decyzji właściciela zapisanej w docs/decyzje.md (084) (4 ms)
+    ✕ data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084) (2 ms)
+  ● Hipotezy wzrostu (docs/wzrost/hipotezy.json) › data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084)
+    Expected: true
+    Received: false
+    > 89 |       expect(h.data_oceny >= plus90(ostatni)).toBe(true);
+Tests:       1 failed, 6 passed, 7 total
+kod 1

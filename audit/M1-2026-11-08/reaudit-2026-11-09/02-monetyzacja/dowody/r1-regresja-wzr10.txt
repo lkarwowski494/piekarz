@@ -1,0 +1,3 @@
+# grep SDK analityki w package.json i package-lock.json
+kod 1
+0

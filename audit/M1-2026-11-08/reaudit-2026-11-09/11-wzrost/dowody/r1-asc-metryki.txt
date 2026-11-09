@@ -1,0 +1,15 @@
+# https://developer.apple.com/help/app-store-connect-analytics/reference/metrics-definitions (curl, odczyt 2026-11-09, HTTP 200)
+  First-Time Downloads: BRAK
+  Available once you have at least five: Available once you have at least five first-time downloads or pre-orders for your app. Metric Definition Impressions The number of times your app was viewed on the Today, Games, Apps, and Search tabs of the App Store for more than one second. Includes product page vi
+  Usage data is based on users who have opted in: Usage data is based on users who have opted in to share their analytics with you. You can filter each metric by various dimensions to dig deeper into your data—for example, viewing downloads by territory or narrowing your view to a specific device type. Learn more about filte
+  Paying Users The: Paying Users The number of unique users, based on Apple Account, that paid for an app or an In-App Purchase on the App Store. Refunded Proceeds Total proceeds that have been refunded during the selected reporting period. Refunded Sales Total sale
+  Proceeds The: Proceeds The estimated amount of proceeds you will receive from your sales on the App Store. This is the customer price minus applicable taxes and Apple's commission, per Schedule 2 of the Paid Apps Agreement. Sales The total amount billed to
+  Subscribe Start of a subscription: BRAK
+# https://developer.apple.com/help/app-store-connect/reference/reporting/subscription-events (curl, odczyt 2026-11-09, HTTP 200)
+  First-Time Downloads: BRAK
+  Available once you have at least five: BRAK
+  Usage data is based on users who have opted in: BRAK
+  Paying Users The: BRAK
+  Proceeds The: BRAK
+  Subscribe Start of a subscription: Subscribe Start of a subscription, without an introductory price or marketing opt-in bonus period. Activations Opt-In Start of a subscription with a marketing opt-in bonus period. Activations Start Offer Code Start of a subscription with an offer code. Activation
+  First Time Downloads (definicja): Available once you have at least five first-time downloads for your app. Metric Definition First Time Downloads The number of first-time downloads on devices with iOS, macOS, tvOS, or visionOS.

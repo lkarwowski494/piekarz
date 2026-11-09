@@ -1,0 +1,7 @@
+# grep -rnE "15 (receptur|base recipes|recettes|recetas)" site README.md docs/wydanie docs/app-store-metadata-v2.md
+site/index.html:35:        <li><strong>Receptury i ilości:</strong> 15 receptur bazowych albo własna; gramy mąki, wody, zakwasu, soli i drożdży od liczby bochenków albo masy mąki; procent pieka
+README.md:83:15 receptur w filtrach listy receptur; w nawiasie woda w procentach piekarskich z kodu (bez wody z zakwasu).
+README.md:156:│   ├── recipes/presets.ts      # 15 receptur bazowych
+kod 0
+# 26 w site/index.html i README.md
+README.md:45:| **Receptury i ilości** | `F-09`, `F-11`, `F-26`, `F-27`, `F-55` | 26 receptur bazowych (11 z planem i prowadzeniem krok po kroku; wersja na drożdżach w 4, tryb maszyny do chleba F-72

@@ -1,0 +1,3 @@
+Próbka regresji BRD 2026-11-09T22:08:20Z:
+S-109 https://opensource.org/license/mit HTTP 200: ZNALEZIONE „The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.”
+OG-13 rachunek: node assets/licencje.generated.json → pakiety MIT 483 z 559 (zgodne z BRD)

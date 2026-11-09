@@ -1,0 +1,11 @@
+Arkusze z 04-studio-projektowe-003 @ea249c9c: liczba wystąpień ArkuszKart / <Karta / pageSheet
+src/components/stolnica/PlanWypiekuArkusz.tsx ArkuszKart=3 Karta=0 pageSheet=0
+src/components/stolnica/BakeStepsList.tsx ArkuszKart=0 Karta=2 pageSheet=0
+src/components/stolnica/PoCoTenKrokArkusz.tsx ArkuszKart=3 Karta=1 pageSheet=0
+src/components/calculator/TemperaturaWodySheet.tsx ArkuszKart=3 Karta=0 pageSheet=1
+src/components/calculator/accordion/AccordionDdtSection.tsx ArkuszKart=0 Karta=1 pageSheet=0
+src/components/kalendarz/ArkuszDnia.tsx ArkuszKart=3 Karta=1 pageSheet=1
+src/components/start/ArkuszPlanu.tsx ArkuszKart=3 Karta=1 pageSheet=1
+src/components/ImportRecipeModal.tsx ArkuszKart=3 Karta=2 pageSheet=0
+src/components/settings/ImportZPlikuArkusz.tsx ArkuszKart=3 Karta=1 pageSheet=0
+src/components/stolnica/ZgodaPowiadomien.tsx ArkuszKart=4 Karta=1 pageSheet=0

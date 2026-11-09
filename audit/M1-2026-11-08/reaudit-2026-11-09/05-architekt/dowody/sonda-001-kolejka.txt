@@ -1,0 +1,45 @@
+# Sonda 001 (worktree ea249c9c w scratchpadzie; plik testu sondy poza repo)
+## a) mutacja: zKolejka bez kolejki (MUT001=1) na tescie akceptacyjnym kolejka-zapisow-001
+    ✕ nieudany import przy równoległym zapisie zakwasu wraca w całości; zakwas zapisany albo zgłoszony (361 ms)
+    ✕ dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia (74 ms)
+    ✕ ustawienie zapisane w trakcie nieudanego importu nie ginie z jego wycofaniem (64 ms)
+    ✓ „Usuń wszystkie dane” przy równoległym zapisie zakwasu: wszystko albo nic, bez połowicznego stanu (132 ms)
+Tests:       3 failed, 1 passed, 4 total
+kod 1
+## b) sonda: Usuń wszystkie dane z wymuszonym błędem DELETE FROM bake_sessions + równoległe saveStarter i addStarterEntry
+jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
+import * as FileSystem from 'expo-file-system/legacy';
+import { useTempDbDir, restartApp, openRaw, dbFilePath, tableCounts, control } from './helpers/node-sqlite-adapter';
+import type { StoredStarter } from '../db';
+const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+const st = (n: number): StoredStarter => ({ id: `s${n}`, name: `Z${n}`, flourType: 'Ż', hydration: 100, birthDate: 1600000000000, storageState: 'ROOM_TEMP' });
+function lic() { const raw = openRaw(control().opened.find((f) => f.endsWith('/piekarz.db')) ?? dbFilePath()); const c = tableCounts(raw); raw.close(); return { bakes: c.bakes, starters: c.starters, starter_entries: c.starter_entries }; }
+describe('sonda 001: Usuń wszystkie dane z wymuszonym błędem i równoległym zapisem', () => {
+  beforeEach(() => { useTempDbDir(); mockFiles.clear(); });
+  it('błąd w środku czyszczenia + równoległy saveStarter i addStarterEntry', async () => {
+    const app = restartApp(); await app.schema.initDatabase();
+    const w = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await w.createStarterWithEntry(st(1), { id: 'f1', starterId: 's1', kind: 'feeding', occurredAt: 1700000000000, signs: [], createdAt: 1700000000000, updatedAt: 1700000000000 });
+    await app.store.saveBakeLog({ id: 'b1', recipeName: 'C', startedAt: 1700000000000, finishedAt: 1700000360000 });
+    const przed = lic();
+    control().failWritesMatching = /DELETE FROM bake_sessions/i;
+    const { usunWszystkieDane } = require('../usun-wszystko') as typeof import('../usun-wszystko');
+    const r = await Promise.allSettled([usunWszystkieDane(), app.store.saveStarter(st(2)), w.addStarterEntry({ id: 'f2', starterId: 's1', kind: 'feeding', occurredAt: 1700000500000, signs: [], createdAt: 1700000500000, updatedAt: 1700000500000 })]);
+    control().failWritesMatching = null;
+    const po = lic();
+    console.log('SONDA', JSON.stringify({ wyniki: r.map((x) => x.status), przed, po }));
+    expect(r[0].status).toBe('rejected');
+    const dSt = r[1].status === 'fulfilled' ? 1 : 0; const dE = r[2].status === 'fulfilled' ? 1 : 0;
+    expect(po).toEqual({ bakes: przed.bakes, starters: przed.starters + dSt, starter_entries: przed.starter_entries + dE });
+  });
+});
+### MUT001=''
+    SONDA {"wyniki":["rejected","fulfilled","fulfilled"],"przed":{"bakes":1,"starters":1,"starter_entries":1},"po":{"bakes":1,"starters":2,"starter_entries":2}}
+    ✓ błąd w środku czyszczenia + równoległy saveStarter i addStarterEntry (370 ms)
+Tests:       1 passed, 1 total
+kod 0
+### MUT001='1'
+    SONDA {"wyniki":["rejected","rejected","rejected"],"przed":{"bakes":1,"starters":1,"starter_entries":1},"po":{"bakes":1,"starters":1,"starter_entries":1}}
+    ✓ błąd w środku czyszczenia + równoległy saveStarter i addStarterEntry (315 ms)
+Tests:       1 passed, 1 total
+kod 0

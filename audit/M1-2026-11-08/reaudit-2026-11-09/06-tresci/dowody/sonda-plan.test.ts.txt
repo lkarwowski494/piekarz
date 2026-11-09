@@ -1,0 +1,19 @@
+import { CATALOG_RECIPES } from '../../src/recipes/katalog';
+import { calculateReverseSchedule } from '../../src/core/reverse-scheduler';
+import { stepsFromSchedule, isDutchOvenStep } from '../../src/core/bake-steps';
+import { fazyGarnka } from '../../src/core/baking-phases';
+import { pieczenieDlaId } from '../../src/lib/pieczenie-planu';
+import { planReceptury } from '../../src/lib/plan-receptury';
+test('sonda plan vs receptura', () => {
+  for (const r of CATALOG_RECIPES.filter((x) => x.formula.starterPercentage > 0)) {
+    let line = `${r.id} vessel=${r.recommendedVessel} rec=${r.bakeTempSteamC}/${r.bakeTempBrowningC} ${r.bakeTimeSteamMinutes}+${r.bakeTimeBrowningMinutes}`;
+    try {
+      const p = pieczenieDlaId(r.id, false);
+      const kroki = stepsFromSchedule(calculateReverseSchedule(new Date(2026, 10, 10, 12, 0), { pieczenie: p } as any));
+      const b = kroki.find((s) => s.category === 'bake')!; const pr = kroki.find((s) => s.category === 'preheat_oven')!;
+      line += ` | plan ids=${kroki.map((k) => k.id).join(',')} | bake ${b.durationMin}min "${b.instructions}" | preheat "${pr.instructions}"`;
+      if (isDutchOvenStep(b)) { const f = fazyGarnka(b); line += ` | fazy ${f.lid_on.temperatureC}/${f.lid_on.durationMin} ${f.lid_off.temperatureC}/${f.lid_off.durationMin}`; }
+    } catch (e: any) { line += ` | BŁĄD ${e.message}`; }
+    console.log(line);
+  }
+});

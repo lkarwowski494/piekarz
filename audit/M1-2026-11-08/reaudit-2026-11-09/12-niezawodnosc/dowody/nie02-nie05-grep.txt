@@ -1,0 +1,27 @@
+# NIE-02/NIE-05: grep na ea249c9c
+$ grep -rnE "\bVACUUM\b" src app --include=*.ts --include=*.tsx | grep -v "VACUUM INTO" | grep -v __tests__
+kod 1
+$ grep -rnE "REINDEX|deleteDatabase" src app --include=*.ts --include=*.tsx | grep -v __tests__
+kod 1
+$ grep -n "^import" src/components/RescueScreen.tsx src/lib/zgloszenie-wyslanie.ts
+src/components/RescueScreen.tsx:8:import React, { useState } from 'react';
+src/components/RescueScreen.tsx:9:import { Text, StyleSheet, Pressable, ScrollView, Alert } from 'react-native';
+src/components/RescueScreen.tsx:10:import { collectBackupData } from '../data/sqlite-store';
+src/components/RescueScreen.tsx:11:import { exportBackup } from '../lib/backup';
+src/components/RescueScreen.tsx:12:import { dbFileUri } from '../data/sqlite-schema';
+src/components/RescueScreen.tsx:13:import { pakietPlikowBazy } from '../lib/kopia-plikow-bazy';
+src/components/RescueScreen.tsx:14:import { shareRescueFile } from './StorageGate';
+src/components/RescueScreen.tsx:15:import { napiszDoAutora } from '../lib/zgloszenie-wyslanie';
+src/components/RescueScreen.tsx:16:import { theme } from '../ui/theme';
+src/components/RescueScreen.tsx:17:import { t } from '../lib/i18n';
+src/components/RescueScreen.tsx:19:import { typografia } from '../ui/tokeny';
+src/lib/zgloszenie-wyslanie.ts:6:import { Alert, Platform } from 'react-native';
+src/lib/zgloszenie-wyslanie.ts:7:import Constants from 'expo-constants';
+src/lib/zgloszenie-wyslanie.ts:8:import * as MailComposer from 'expo-mail-composer';
+src/lib/zgloszenie-wyslanie.ts:9:import * as Clipboard from 'expo-clipboard';
+src/lib/zgloszenie-wyslanie.ts:10:import { SUPPORT_EMAIL } from './links';
+src/lib/zgloszenie-wyslanie.ts:11:import { lang, t } from './i18n';
+src/lib/zgloszenie-wyslanie.ts:12:import { czyAdresWsparcia, trescZgloszenia } from './zgloszenie';
+kod 0
+$ grep -rn "bakeSessions\|czytajSesjeDoKopii" src/data/dane-z-bazy.ts src/lib/import-pakietu.ts src/lib/import-z-pliku.ts
+kod 1

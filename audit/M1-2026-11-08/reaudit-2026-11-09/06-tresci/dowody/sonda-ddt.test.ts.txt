@@ -1,0 +1,15 @@
+import { calculateDDTWaterTemp } from '../../src/core/domain-rules';
+const p = (o: any) => { const r = calculateDDTWaterTemp(o); console.log(JSON.stringify(o), '=>', r.waterTempTarget, r.status, r.warningMessagePl ?? ''); return r; };
+test('sonda D-310', () => {
+  // przykład D-310
+  expect(p({ targetDDT: 25, flourTemp: 15, roomTemp: 18, starterTemp: 5, frictionFactor: 10 }).waterTempTarget).toBe(52);
+  // przykład własny: zimna kuchnia, wszystko w temp. pokojowej, wyrabianie ręczne
+  p({ targetDDT: 26, flourTemp: 16, roomTemp: 16, starterTemp: 16, frictionFactor: 2 });
+  p({ targetDDT: 24, flourTemp: 16, roomTemp: 16, starterTemp: 16, frictionFactor: 2 });
+  // przykład KA w °C: 75F x4 - 68 - 68 - 71 - 26 = 67F
+  const c = (f: number) => (f - 32) / 1.8;
+  p({ targetDDT: c(75), flourTemp: c(68), roomTemp: c(68), starterTemp: c(71), frictionFactor: 26 / 1.8 });
+  console.log('KA oczekiwane 67F =', c(67).toFixed(2), 'C');
+  // za zimna
+  p({ targetDDT: 24, flourTemp: 30, roomTemp: 30, starterTemp: 28, frictionFactor: 10 });
+});

@@ -1,0 +1,5 @@
+# grep wywołań funkcji RD-08 poza testami (ea249c9c)
+$ grep -rn "calculateFermentationAdaptation\|adaptFermentationTimeForTemp" src app --include=*.ts --include=*.tsx | grep -v __tests__
+src/core/domain-rules.ts:326:export function calculateFermentationAdaptation(
+src/core/domain-rules.ts:363:export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
+kod 0

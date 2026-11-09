@@ -1,0 +1,30 @@
+// Sonda reaudytu 06-tresci-003: wpisy z tre01-liczby-widoczne.txt (M1 2026-11-08) na HEAD + nowe literały z liczbą w plikach widocznych w 1.0
+import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
+const repo = process.argv[2], stare = process.argv[3];
+const ts = createRequire(path.join(repo, 'package.json'))('typescript');
+const rej = JSON.parse(fs.readFileSync(path.join(repo, 'docs/tresci/rejestr.json'), 'utf8'));
+const pot = new Set(rej.filter((t) => t.status === 'potwierdzone').map((t) => t.id));
+const Z = new Set();
+for (const f of fs.readdirSync(path.join(repo, 'docs/tresci/pl')).filter((x) => x.endsWith('.md'))) {
+  const t = fs.readFileSync(path.join(repo, 'docs/tresci/pl', f), 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+  for (const m of t.matchAll(/([^\]\n]*?)\s*\[T:([^\]]*)\]/g)) if (m[2].split(',').some((i) => pot.has(i.trim()))) Z.add(m[1].replace(/^[-*|\s]+/, '').trim());
+}
+const zd = (s) => s.split(/(?<=[.!?;])\s+(?=[A-ZĄĆĘŁŃÓŚŹŻ])/).map((z) => z.trim()).filter(Boolean);
+const NAZWA = /^Mąka (pszenna|żytnia|orkiszowa)( \S+)*? (typ \d+|Tipo 00)( \([^)]+\))?$|^\d+% \p{L}+( \+ \d+% \p{L}+)*( \([^)]+\))?$/u;
+function lit(plik) { const src = ts.createSourceFile(plik, fs.readFileSync(path.join(repo, plik), 'utf8'), 99, true); const out = [];
+  const v = (n) => { if ((ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n)) && /\d/.test(n.text) && /\s/.test(n.text) && /\p{L}{3}/u.test(n.text)) out.push([src.getLineAndCharacterOfPosition(n.getStart()).line + 1, n.text]); ts.forEachChild(n, v); };
+  v(src); return out; }
+const wpisy = fs.readFileSync(stare, 'utf8').split('\n').filter((l) => /^\S+:\d+\tLICZBA\t/.test(l)).map((l) => { const [fl, , tx] = l.split('\t'); return [fl.replace(/:\d+$/, ''), tx]; });
+const pliki = [...new Set(wpisy.map(([f]) => f))].filter((f) => fs.existsSync(path.join(repo, f)));
+let razem = 0, zostalo = 0; const wynik = [];
+for (const f of pliki) {
+  const L = lit(f);
+  for (const [ln, tx] of L) {
+    const bez = zd(tx).filter((z) => /\d/.test(z) && !Z.has(z) && !NAZWA.test(z) && !NAZWA.test(tx));
+    if (bez.length) { zostalo++; wynik.push(`${f}:${ln}\t${bez.join(' | ')}`); }
+    razem++;
+  }
+}
+const znikniete = wpisy.filter(([f]) => !fs.existsSync(path.join(repo, f))).length;
+console.log(`# pliki z listy M1 (${pliki.length}, ${znikniete} wpisów w plikach usuniętych): literałów z liczbą ${razem}, bez twierdzenia i bez nazwy mąki/mieszanki ${zostalo}`);
+for (const w of wynik) console.log(w);

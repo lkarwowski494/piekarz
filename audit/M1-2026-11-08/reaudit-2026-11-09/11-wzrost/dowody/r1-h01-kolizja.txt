@@ -1,0 +1,34 @@
+# grep -rnE "\bH-0[1-3]\b" docs (bez archiwum), ea249c9c
+docs/wzrost.md:100:| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań
+docs/wzrost.md:104:Reguła rozstrzygania H-01 (*dlaczego dwie miary:* kryterium roli 02 jest liczbą płacących i wpływem, a `hipotezy.mjs` liczy odsetek z przedziałem Wilsona):
+docs/wzrost/hipotezy.json:6:      "id": "H-01",
+docs/brd/odkrywanie.md:250:| Monetyzacja (hipotezy) | E2: H-03, H-04, H-05, H-07, H-14 |
+docs/brd/odkrywanie.md:339:### H-03: O uczciwości decyduje przejrzystość opłat, nie tylko kwota
+docs/brd/README.md:7:Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu, P-7 regularny piekarz, P-8 pizza i pieczywo drożdżowe) przez 16 prac J: liczenie z zakwasem i zaczynami, plan wstec
+docs/brd/wymagania-dane.md:121:- Dowód potrzeby: 28 z 338 recenzji o płatności, 23 z nich ≤ 3★ (S-27): ukryta subskrypcja, paywall z odliczaniem, kłopot z anulowaniem próby (S-16, rec. 13931423989, 13775409265);
+docs/brd/errata.md:14:| ER-41 | 2026-10-19 | Wycofane: persony P1–P5, zasady ZP 01–16, hipotezy H 01–02, ryzyka RYZ 01–10, źródła S 03–13, otwarte pytania OP 01–28 starego BRD. Zachowane znaczenie: J-01…
+docs/monetyzacja-badanie-2026-10.md:33:| H-03 / ZAL-042 | o uczciwości decyduje przejrzystość opłat | hipoteza | V1/V2 usuwają ukrytą konwersję; E1: recenzje |
+docs/monetyzacja.md:29:**Kryterium po 90 dniach od wydania** (zastępuje kryterium D-038; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku): w dniach 30–90 średnio ≥ 7 nowych płacących miesi�
+docs/monetyzacja.md:130:- **08:** zmiany kodu (aneks ADR-007), test „Basic tylko rośnie”, przepisanie testów kontraktu D-038 na nowy kontrakt (`src/__tests__/bramki-ekranow.test.tsx`, `src/lib/__tests__/uprzedzenie
+docs/monetyzacja.md:139:| Z-3 | przepisać testy kontraktu D-038 na nowy kontrakt (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby, karta bezpieczeństwa bez zakupu) i hipotezę H-01 w `docs/wzrost/hip
+docs/design/00-rozpoznanie.md:94:| ZAL-042, ZAL-043 | przejrzystość opłat; „tylko historia” bez uprzedzenia jak utrata danych | potwierdzone / hipoteza | ekran oferty, uprzedzenie, tryb „tylko historia” | prze
+docs/sztafeta.md:11:| 08 Programista (M3 P-a: logika Basic/Pro; P-b: ekran Pro, oznaczenia „Pro”, komunikaty) | build | P-a zakończona 2026-10-22; P-b zakończona 2026-10-22 (commit „[M3 P-b]”, D-117), czeka na 
+docs/sztafeta.md:42:| Cena, zakres MVP i podział tylko jako H | H-03…H-14; BRD nie ma etykiety MVP ani ceny własnej |
+docs/sztafeta.md:50:- Paczka wejściowa dla 02: H-03 (przejrzystość opłat), H-04 („tylko historia” po próbie), H-05 (za co płacą), H-07 (zakwas a 14 dni próby), H-14 (wskaźnik sukcesu z App Store Connect); ta
+docs/decyzje.md:164:- **Decyzja:** kategoria Food & Drink, dodatkowa Productivity (bez zmian); zrzuty: plan z ochroną snu, kalkulator, prowadzenie kroków, Doktor, zakwasy, dziennik, offline, jeden w ciemnym motywie (`d
+docs/decyzje.md:167:- **Zależy od:** czy słowa kluczowe języka dodatkowego liczą się w storefroncie `[DO USTALENIA]` (H-03).
+docs/decyzje.md:565:- **Skutki:** testy kontraktu D-038 przepisane na nowe asercje (lista w commicie M3 P-a), 14 wektorów dostępu jako testy (`src/lib/__tests__/wektory-dostepu-pa.test.ts`, `src/__tests__/basic-pro-pa.
+docs/decyzje.md:1817:### [D-315] 2026-11-09 — H-01: bez osobnej minimalnej próby (rozstrzyga kryterium liczbowe), data oceny = data wydania + 90 dni z dziennika wydań (DEC-16 a; M1-audytor-generalny-084, 11-wzrost-00
+docs/decyzje.md:1819:- **Decyzja:** (1) H-01 nie ma osobnej minimalnej próby: o wyniku po 90 dniach rozstrzyga kryterium liczbowe z `docs/monetyzacja.md` (≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; ≤ 3,5 al
+docs/decyzje.md:1820:- **Odrzucone:** (a) 100 pierwszych pobrań — szeroki przedział przy małej liczbie, a kryterium 02 to liczby bezwzględne; (b) 166 (oczekiwane n) — ocena tylko przy przewidywanym ruchu; DEC-16 
+docs/wydanie/widocznosc.md:19:Jedyny storefront bez lokalizacji w języku domyślnym: Chiny kontynentalne (Simplified Chinese poza polityką języków). Języki aplikacji bez lokalizacji strony w App Store: bułgarski, e
+docs/wydanie/widocznosc.md:110:| H-01 | pobrania pierwszorazowe ÷ odsłony strony z App Store Search, USA i GBR | ≥ 25% | 100 | 2027-03-31 | pobrania z wyszukiwania w tygodniu, grupa porównawcza App Analytics |
+docs/wydanie/widocznosc.md:111:| H-02 | odsłony z App Store Search w storefrontach z domyślną lokalizacją inną niż English (U.S.) ÷ wszystkie odsłony z App Store Search | ≥ 30% | 200 | 2027-03-31 | lista storef
+docs/wydanie/widocznosc.md:112:| H-03 | odsłony z App Store Search w POL ÷ wszystkie odsłony strony w POL | ≥ 40% | 30 | 2027-03-31 | pobrania z wyszukiwania w POL w tygodniu |
+docs/wydanie/widocznosc.md:121:4. Po wydaniu: App Analytics → źródło „App Store Search” na storefront, odczyt do H-01…H-03 w dniu oceny.
+docs/zalozenia.md:22:| ZAL-042 | O ocenie uczciwości modelu decyduje przejrzystość opłat (ujawnienie, anulowanie), nie tylko kwota | 01 | potwierdzone (motyw) | 28 z 338 recenzji o płatności, 23 ≤ 3★ (S-27); ro
+docs/zalozenia.md:29:| ZAL-050 | Podział DEC-01 d (14 dni pełnej wersji, potem tylko historia i dane) działa jak twarda ściana z próbą i konwertuje pobranie → płacący wyżej niż freemium | 02 | hipoteza | za: 
+# 2ef8870a: docs/wydanie/widocznosc.md H-01
+110:| H-01 | pobrania pierwszorazowe ÷ odsłony strony z App Store Search, USA i GBR | ≥ 25% | 100 | 2027-03-31 | pobrania z wyszukiwania w tygodniu, grupa porównawcza App Analytics |
+111:| H-02 | odsłony z App Store Search w storefrontach z domyślną lokalizacją inną niż English (U.S.) ÷ wszystkie odsłony z App Store Search | ≥ 30% | 200 | 2027-03-31 | lista storefrontów z co najmniej jednym pobraniem z wyszukiwania |
+112:| H-03 | odsłony z App Store Search w POL ÷ wszystkie odsłony strony w POL | ≥ 40% | 30 | 2027-03-31 | pobrania z wyszukiwania w POL w tygodniu |

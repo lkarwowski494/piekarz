@@ -1,0 +1,33 @@
+(node:6891) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts
+PASS src/data/__tests__/sprawdzenie-kopii-033.sqlite.test.ts
+(node:6885) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6884) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/migracja-d1-1014.sqlite.test.ts
+PASS src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+PASS src/data/__tests__/runner-przebudowa-019.sqlite.test.ts
+PASS tests/architektura-dokumenty-024.test.ts
+PASS src/data/__tests__/dokarmienie-jedna-droga-002.sqlite.test.ts
+PASS src/__tests__/brak-to-brak-026.test.tsx
+PASS tests/granice-modulow.test.ts
+PASS src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx (7.24 s)
+PASS src/data/__tests__/odczyt-z-polaczenia-003.sqlite.test.ts
+PASS tests/kolejka-zapisow-tx.test.ts
+PASS src/__tests__/zakresy-receptury-027.test.ts
+PASS src/data/__tests__/resync-w-trakcie-startu-022.sqlite.test.ts
+PASS src/__tests__/kalendarz-polnoc-025.test.tsx
+PASS src/core/__tests__/priorytet-powiadomien-030.test.ts
+PASS src/data/__tests__/kolejka-zapisow.test.ts
+PASS src/__tests__/numer-buildu-031.test.tsx
+PASS src/data/__tests__/migracja-v6-parser.test.ts
+PASS src/__tests__/podwojne-stukniecie-028.test.tsx
+
+Test Suites: 20 passed, 20 total
+Tests:       89 passed, 89 total
+Snapshots:   0 total
+Time:        10.161 s
+Ran all test suites matching /src\/data\/__tests__\/kolejka-zapisow-001.sqlite.test.ts|src\/data\/__tests__\/kolejka-zapisow.test.ts|tests\/kolejka-zapisow-tx.test.ts|src\/data\/__tests__\/dokarmienie-jedna-droga-002.sqlite.test.ts|src\/__tests__\/ratunek-import-pakietu-003.sqlite.test.tsx|src\/data\/__tests__\/odczyt-z-polaczenia-003.sqlite.test.ts|src\/data\/__tests__\/runner-przebudowa-019.sqlite.test.ts|tests\/granice-modulow.test.ts|src\/data\/__tests__\/migracja-v6-parser.test.ts|src\/data\/__tests__\/resync-w-trakcie-startu-022.sqlite.test.ts|src\/data\/__tests__\/czyszczenie-sesje-023.sqlite.test.ts|tests\/architektura-dokumenty-024.test.ts|src\/__tests__\/kalendarz-polnoc-025.test.tsx|src\/__tests__\/brak-to-brak-026.test.tsx|src\/__tests__\/zakresy-receptury-027.test.ts|src\/__tests__\/podwojne-stukniecie-028.test.tsx|src\/core\/__tests__\/priorytet-powiadomien-030.test.ts|src\/__tests__\/numer-buildu-031.test.tsx|src\/data\/__tests__\/sprawdzenie-kopii-033.sqlite.test.ts|src\/data\/__tests__\/migracja-d1-1014.sqlite.test.ts/i.
+kod 0
