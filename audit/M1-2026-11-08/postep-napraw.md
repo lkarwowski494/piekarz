@@ -13,6 +13,8 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 
 - 2026-11-09 STOP przed partią 2 (`stop-p2-M2-2026-11-09.md`): „Tak, jak w planie (Recommended)”; 029 „Odłożyć do 1.1 (Recommended)”; 032 „Runbook teraz (Recommended)”. Zapis: D-302.
 
+- 2026-11-09 D-288 (właściciel przez M3, wpis przeczytany na redesign @ 005cd82a): plan zamrożony; 14 zadań P2 brzegowych/teoretycznych → P3 backlog 1.0.1 (029, 036, 042, 043, 045, 050, 052, 053, 055, 056, 063, 074, 076, 083); wyjątki 071, 082, 081 zostają; reaudyt: nowe P2 → P3 z `klasa`. Zapis w planie: poziom P3, poziom_audytu, klasa, blokada (walidator biblioteki nie zna statusu `backlog` — niespójność modułu plan-napraw z jego skryptem); lista: backlog-1-0-1.json; plan przed zmianą: dowody/M2/plan-napraw-przed-D288.json.
+
 ## Ograniczenia (z polecenia M3, zapisane w D-286 i wcześniejszych)
 - Baza napraw = `redesign/piekarz-2026-10-22`, nie `master`. Scalenie partii do redesign po `npm run verify` kod 0.
 - Bez osobnej zgody: push na master, build TestFlight, zgłoszenie do recenzji, zapis w App Store Connect, strona, usuwanie gałęzi i danych (D-272 zużyte; DEC-18: build tylko po zielonym E2E na tym samym SHA).
@@ -67,6 +69,11 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 07:47 Partia 1 zakończona: przegląd zmian danych M2 bez P0/P1 (uwagi → M2-004); scalenie do redesign 4454f1fd (konflikt tylko decyzje.md: D-287 M3 + D-300/D-301), verify kod 0 (594/6095, `dowody/M2/p1-scalenie-verify.txt`), push redesign. Koniec p1 = f7cfd76f. D-287 (M3): terminy maszyny D-284 zostają (b) — dotyczy 042.
 - 07:51 STOP p2 rozstrzygnięty (D-302). Gałąź p2 od 4454f1fd. 029 blokada „odłożone do 1.1”.
 - 07:53 Partia 2: polecenie 01-odkrywanie-p2 wysłane (004); polecenia 04, 06, 09 gotowe (generator narzedzia/polecenie-roli.py). Badanie źródeł do runbooka 032 (subagent, tylko plik w K: naprawy/032-zrodla-runbook.md).
+- 07:55 D-288 naniesione: 14 → P3 (klasy z raportów zgodne z listą M3), sprawdz-plan kod 0, zakres: 68 zatwierdzonych, 53 do wykonania. Polecenia 06 (008, 009, 010, 040, 041) i 09 (049) odświeżone. D-288 scalę do p2 przy najbliższym scaleniu (drzewo zajęte przez rolę 01).
+- 07:58 032 badanie źródeł: naprawy/032-zrodla-runbook.md (18 źródeł, 13 kroków); sprawdzone przeze mnie curl: Maven react-native-artifacts/0.86.3 ma reactnative-core-dSYM-release i reactnative-dependencies-dSYM-release, hermes-ios/250829098.0.17 ma hermes-framework-dSYM-release. Runbook do docs po zwolnieniu drzewa przez rolę 01.
+- 08:02 032: runbook docs/wydanie/symbolizacja-awarii.md (0976c0ca), verify kod 0; blokada zaktualizowana (build). 004: rola 01 → 0282f59d (BRD/ER-79), sprawdzone: drzewo czyste, sprawdz-raport OK; przekazanie do 08/07 (karta bez fazy z okna przy showPeakWindow=false) robię sam pod 004.
+- 08:06 004: rola 01 0282f59d (BRD, ER-79) + przekazanie do 08 wykonane przeze mnie 4af7c631 (test czerwony `dowody/M2/004-kod-przed.txt`, verify kod 0 6103); status naprawione-do-weryfikacji. Znaleziska roli 01: chipy temperatury bez skutku po usunięciu fazy (P2, rola 04); źródło okna (rola 06, ZAK-SZC-900); test ekranu (rola 07).
+- 08:06 Polecenie 04-studio-projektowe-p2 wysłane (007, DEC-10 a). Drzewo zajęte do wyniku.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

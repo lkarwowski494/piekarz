@@ -1,0 +1,9 @@
+Odczyt surowego tekstu (curl + usunięcie znaczników HTML), 2026-11-09:
+S-43 https://extension.colostate.edu/resource/sourdough-starter-best-practices/ (Reviewed: October 2025), szczebel 3:
+  „Instead, a bubbly appearance, tangy smell, batter-like consistency, expansion, and records of preparation steps should be used to determine when your starter is ready.”
+  „Fermentation will slow at colder temperatures” — brak czasu do szczytu ani okna w godzinach.
+S-44 https://extension.sdstate.edu/sourdough-starters (Updated July 01, 2024), szczebel 3:
+  „When starters are in a cooler temperature, the growth and fermentation is slowed.” — brak czasu do szczytu.
+S-53 https://www.kingarthurbaking.com/recipes/sourdough-starter-recipe: curl zwrócił 0 B (strona nie odczytana dziś); w BRD tylko próg podwojenia 6–8 h przy zakładaniu (RD-24), szczebel 4.
+Rejestr roli 06: docs/tresci/rejestr.json ZAK-SZC-900 status „otwarte”, zrodla [].
+Wniosek: okno 6,0–8,5 h, mnożniki 0,72/1,0/1,45/1,9 i 0,88/0,95 bez źródła → [DO USTALENIA] (OP-39).

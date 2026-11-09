@@ -1,0 +1,9 @@
+    ✓ na blacie 0 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (66 ms)
+    ✓ na blacie 3 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (19 ms)
+    ✓ na blacie 6 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (14 ms)
+    ✓ na blacie 7 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (14 ms)
+    ✓ na blacie 9 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (15 ms)
+    ✓ na blacie 12 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (18 ms)
+    ✓ na blacie 24 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (13 ms)
+    ✓ w lodówce faza ze źródłem zostaje („Uśpiony w lodówce”) (2 ms)
+Tests:       8 passed, 8 total

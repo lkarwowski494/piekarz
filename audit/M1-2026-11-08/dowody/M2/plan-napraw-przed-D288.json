@@ -1,0 +1,2174 @@
+{
+  "wersja": 1,
+  "audyt": {
+    "data": "2026-11-08",
+    "commit": "2ef8870a",
+    "raport": "audit/M1-audytor-generalny-2026-11-08.md",
+    "katalog": "audit/M1-2026-11-08"
+  },
+  "werdykt": {
+    "kurs": "trafny",
+    "stan": "ZABLOKOWANE"
+  },
+  "przyczyny": [
+    {
+      "id": "SYS-01",
+      "opis": "Model płatności D-112 nie dotarł do dokumentów źródłowych (BRD, kontrakt zakresu, plan wzrostu, ceny.json)",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-02",
+      "opis": "Ścieżka zapisu bez serializacji: brak jednej kolejki zapisów i blokady powtórnego stuknięcia; mechanizm naprawiony wcześniej tylko dla bake_sessions",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-03",
+      "opis": "Bramki jakości deklarują więcej, niż egzekwują (E2E przed buildem, Nightly, FC_NUM_RUNS, wyjątki BR, tytuły testów, Xcode, Pages)",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-04",
+      "opis": "Sklep i ekrany obiecują inaczej niż aplikacja (porównanie, oznaczenie Pro, zrzuty, liczba receptur, notatki App Review, ustawienie naczynia)",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-05",
+      "opis": "Liczby i wiedza w produkcie poza łańcuchem źródeł i rejestrem twierdzeń",
+      "zalozenie": null
+    },
+    {
+      "id": "SYS-06",
+      "opis": "Zakres 1.0 rozszerzony po zatwierdzeniu kontraktu bez bramki zmian (D-092, D-150, D-155 częściowo)",
+      "zalozenie": null
+    }
+  ],
+  "decyzje": [
+    {
+      "id": "DEC-01",
+      "pytanie": "Jak opisać katalog receptur, skoro 15 z 26 nie ma planu i prowadzenia?",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "opis: 26 receptur, z czego 11 z planem i prowadzeniem krok po kroku",
+          "kompromis": "uczciwie od razu, mniej efektowny opis"
+        },
+        {
+          "id": "b",
+          "opis": "dokończyć D-155 dla 15 receptur przed zgłoszeniem",
+          "kompromis": "pełna obietnica, dni pracy i nowy reaudyt treści"
+        },
+        {
+          "id": "c",
+          "opis": "ukryć 15 receptur bez planu w 1.0",
+          "kompromis": "spójnie, ale mniejszy katalog"
+        }
+      ],
+      "zrodla": [
+        "01-odkrywanie-005",
+        "10-wydanie-004",
+        "11-wzrost-004",
+        "03-zakres-005"
+      ]
+    },
+    {
+      "id": "DEC-02",
+      "pytanie": "Kalendarz, plany na kolejne dni i dwa wypieki naraz (D-092) bez bramki ZM i bez wierszy w kontrakcie",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "bramka ZM wstecz i wiersze F-nn w kontrakcie, kod bez zmian",
+          "kompromis": "sama dokumentacja, porządek śladu"
+        },
+        {
+          "id": "b",
+          "opis": "ukryć te funkcje w 1.0",
+          "kompromis": "odcina zatwierdzoną pracę"
+        }
+      ],
+      "zrodla": [
+        "03-zakres-001"
+      ]
+    },
+    {
+      "id": "DEC-03",
+      "pytanie": "Temperatura, czas i naczynie: plan czy dane receptury?",
+      "rozstrzyga": "zrodla",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "plan bierze wartości z danych receptury, każda wartość ze źródłem w rejestrze",
+          "kompromis": "zmiana logiki planu i testów"
+        },
+        {
+          "id": "b",
+          "opis": "dane receptury dopasowane do stałego planu 240/210 °C",
+          "kompromis": "sprzeczne ze źródłami brioszki, durum i pizzy"
+        }
+      ],
+      "zrodla": [
+        "06-tresci-001",
+        "06-tresci-002"
+      ]
+    },
+    {
+      "id": "DEC-04",
+      "pytanie": "Obietnica „porównanie wypieków” na ekranie Pro bez funkcji (F-63 PÓŹNIEJ)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "usunąć obietnicę z ekranu Pro i opisów w 1.0",
+          "kompromis": "mniej argumentów za Pro"
+        },
+        {
+          "id": "b",
+          "opis": "wdrożyć F-63 przed zgłoszeniem",
+          "kompromis": "zmiana zakresu, nowa bramka ZM i testy"
+        }
+      ],
+      "zrodla": [
+        "01-odkrywanie-001",
+        "03-zakres-002"
+      ]
+    },
+    {
+      "id": "DEC-05",
+      "pytanie": "Oznaczenie funkcji Pro w tekście promocyjnym i sekcjach opisu",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "„(Pro)” przy funkcjach płatnych w tekście promocyjnym i sekcjach, 34 lokalizacje",
+          "kompromis": "dłuższe teksty, przekład"
+        },
+        {
+          "id": "b",
+          "opis": "zostaje akapit dostępu i plakietki na zrzutach",
+          "kompromis": "ryzyko skargi „ukryty paywall”, jak u konkurencji"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-001",
+        "10-wydanie-005"
+      ]
+    },
+    {
+      "id": "DEC-06",
+      "pytanie": "Wynik bramki dla samego iOS (ok. 174–218 USD zamiast 345)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "przyjąć wynik iOS jako wynik bramki 1.0; werdykt „przerobić” bez zmian, D-040 obowiązuje",
+          "kompromis": "bez kosztu, dokumenty zaktualizowane"
+        },
+        {
+          "id": "b",
+          "opis": "odświeżyć bramkę modułem oplacalnosc",
+          "kompromis": "0,2–0,4 mln tokenów, prawdopodobnie ten sam werdykt"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-002"
+      ]
+    },
+    {
+      "id": "DEC-07",
+      "pytanie": "Rytm nowej wartości Pro dla 3.1.2(a)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "plan aktualizacji z pozycjami Pro co kwartał",
+          "kompromis": "zobowiązanie czasu właściciela"
+        },
+        {
+          "id": "b",
+          "opis": "bez zmian",
+          "kompromis": "ryzyko pytania App Review o bieżącą wartość subskrypcji"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-003"
+      ]
+    },
+    {
+      "id": "DEC-08",
+      "pytanie": "Stan Z-1 i dokument cen powołujący D-038",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "potwierdzić stan Z-1 w App Store Connect i poprawić ceny.json i dokumenty wydania",
+          "kompromis": "5 minut właściciela w ASC"
+        },
+        {
+          "id": "b",
+          "opis": "Z-1 jako krok właściciela przed zgłoszeniem, dokumenty bez zmian do tego czasu",
+          "kompromis": "dalej sprzeczne dokumenty"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-005"
+      ]
+    },
+    {
+      "id": "DEC-09",
+      "pytanie": "Funkcje na hipotezie, brak wyników pierwszego użycia, apetyt po rozszerzeniach",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "zapisać wyjątki z warunkiem oceny i przeliczyć apetyt; przejście poznawcze na buildzie 1023 roboczo",
+          "kompromis": "tanio, bez nowych danych od ludzi"
+        },
+        {
+          "id": "b",
+          "opis": "test pierwszego użycia z 3–5 osobami przed zgłoszeniem",
+          "kompromis": "prawdziwy sygnał, opóźnienie"
+        }
+      ],
+      "zrodla": [
+        "03-zakres-006",
+        "03-zakres-007",
+        "03-zakres-008"
+      ]
+    },
+    {
+      "id": "DEC-10",
+      "pytanie": "Siedem arkuszy poza systemem kart (D-139)",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "przenieść przed zgłoszeniem",
+          "kompromis": "praca 04 i 08, reaudyt wyglądu"
+        },
+        {
+          "id": "b",
+          "opis": "1.0.1 z wyjątkiem nazwanym od D-139",
+          "kompromis": "niespójny wygląd w 1.0"
+        }
+      ],
+      "zrodla": [
+        "04-studio-projektowe-003"
+      ]
+    },
+    {
+      "id": "DEC-11",
+      "pytanie": "„Usuń wszystkie dane” a trwające i zaplanowane wypieki",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "kopia przed czyszczeniem obejmuje trwające i zaplanowane wypieki",
+          "kompromis": "zmiana formatu kopii i testy"
+        },
+        {
+          "id": "b",
+          "opis": "tekst ostrzeżenia, że wypieki nie trafią do kopii",
+          "kompromis": "prościej, utrata możliwa po świadomej zgodzie"
+        }
+      ],
+      "zrodla": [
+        "05-architekt-504"
+      ]
+    },
+    {
+      "id": "DEC-12",
+      "pytanie": "Długości i objętości w trybie imperialnym",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "b",
+      "wybor": "b",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "przeliczać cm, mm, ml, l",
+          "kompromis": "praca 08 i 09, testy"
+        },
+        {
+          "id": "b",
+          "opis": "w 1.0 zostają jednostki metryczne, przeliczenie w 1.0.1",
+          "kompromis": "niespójność dla US"
+        }
+      ],
+      "zrodla": [
+        "09-lokalizacja-008"
+      ]
+    },
+    {
+      "id": "DEC-13",
+      "pytanie": "Drugi przegląd AI tylko na próbce 12/33 języków",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "uzupełnić przegląd dla kluczy krytycznych w 33 językach, rejestr zaktualizowany",
+          "kompromis": "koszt przekładu"
+        },
+        {
+          "id": "b",
+          "opis": "próbka zostaje, wyjątek nazwany",
+          "kompromis": "słabsza kontrola przekładu"
+        }
+      ],
+      "zrodla": [
+        "09-lokalizacja-012"
+      ]
+    },
+    {
+      "id": "DEC-14",
+      "pytanie": "Klucz App Store Connect wspólny z inną aplikacją i rola co najmniej App Manager",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "osobny klucz Developer tylko do uploadu i procedura unieważnienia",
+          "kompromis": "15–30 min właściciela w ASC i sekretach CI"
+        },
+        {
+          "id": "b",
+          "opis": "bez zmian",
+          "kompromis": "szersze uprawnienia niż potrzeba"
+        }
+      ],
+      "zrodla": [
+        "10-wydanie-007"
+      ]
+    },
+    {
+      "id": "DEC-15",
+      "pytanie": "Start bez kanału z odczytanym regulaminem",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "jeden kanał startu z odczytanym regulaminem i budżetem godzin przed zgłoszeniem",
+          "kompromis": "1–2 h właściciela"
+        },
+        {
+          "id": "b",
+          "opis": "start tylko przez sklep, wyjątek nazwany",
+          "kompromis": "wolniejszy start"
+        }
+      ],
+      "zrodla": [
+        "11-wzrost-002"
+      ]
+    },
+    {
+      "id": "DEC-16",
+      "pytanie": "Hipoteza H-01 bez ID decyzji i z nieosiągalną datą oceny",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "decyzja z ID i nowa data oceny po premierze",
+          "kompromis": "porządek pomiaru"
+        },
+        {
+          "id": "b",
+          "opis": "usunąć H-01",
+          "kompromis": "brak kryterium po premierze"
+        }
+      ],
+      "zrodla": [
+        "11-wzrost-005"
+      ]
+    },
+    {
+      "id": "DEC-17",
+      "pytanie": "Ścieżka ratunku z trybu awaryjnego",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "import pakietu awaryjnego w aplikacji oraz ostrzeżenie i kontakt na ekranie",
+          "kompromis": "więcej pracy, pełny ratunek"
+        },
+        {
+          "id": "b",
+          "opis": "w 1.0 tylko ostrzeżenie przed usunięciem aplikacji i kontakt",
+          "kompromis": "pakiet dalej nie do przywrócenia w aplikacji"
+        }
+      ],
+      "zrodla": [
+        "12-niezawodnosc-001"
+      ]
+    },
+    {
+      "id": "DEC-18",
+      "pytanie": "Bramka E2E przed buildem TestFlight",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "testflight.yml wymaga zielonego E2E na tym samym SHA",
+          "kompromis": "build czeka na E2E"
+        },
+        {
+          "id": "b",
+          "opis": "zostaje ręcznie według planu wydania",
+          "kompromis": "powtórka 1023: build po czerwonym E2E"
+        }
+      ],
+      "zrodla": [
+        "07-jakosc-004"
+      ]
+    },
+    {
+      "id": "DEC-19",
+      "pytanie": "Diagnoza Doktora chleba przy następnym wypieku",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "b",
+      "wybor": "b",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "pokazać ostatnią diagnozę i zalecaną zmianę przy „Piecz ponownie” w 1.0",
+          "kompromis": "zmiana zakresu po zamrożeniu"
+        },
+        {
+          "id": "b",
+          "opis": "do zakresu 1.1 (rola 03 po 1.0)",
+          "kompromis": "obietnica sklepu spełniona dosłownie, nie w duchu"
+        }
+      ],
+      "zrodla": [
+        "M1-audytor-generalny-065"
+      ]
+    },
+    {
+      "id": "DEC-20",
+      "pytanie": "Przejście subskrybenta na zakup dożywotni w aplikacji",
+      "rozstrzyga": "wlasciciel",
+      "rekomendacja": "a",
+      "wybor": "a",
+      "opcje": [
+        {
+          "id": "a",
+          "opis": "bez opcji zakupu przy aktywnym Pro (D-117 pkt 1)",
+          "kompromis": "decyzja już zapisana"
+        },
+        {
+          "id": "b",
+          "opis": "dodać przejście na dożywotni",
+          "kompromis": "zmiana zakresu"
+        }
+      ],
+      "zrodla": [
+        "02-monetyzacja-006"
+      ]
+    }
+  ],
+  "zadania": [
+    {
+      "id": "M1-audytor-generalny-001",
+      "tytul": "Zapisy bez jednej kolejki: równoległy zapis łamie atomowość importu, „Usuń wszystkie dane” i zapisu zakwasu",
+      "zrodla": [
+        "05-architekt-001",
+        "05-architekt-502",
+        "08-programista-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-02",
+      "raport": "role/05-architekt/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test współbieżności na prawdziwym SQLite: import kopii, „Usuń wszystkie dane” i zapis zakwasu przy równoległym zapisie i wymuszonym błędzie zostawiają dane albo w całości nowe, albo w całości stare; „Nie zapisano” tylko przy braku zapisu; trwała kontrola: lint/test zabraniający withTransactionAsync poza kolejką (powraca: M3 D1b P2-1)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "b069827f"
+    },
+    {
+      "id": "M1-audytor-generalny-002",
+      "tytul": "Usunięte albo poprawione dokarmienie wraca po zapisie profilu lub stałego dnia zakwasu",
+      "zrodla": [
+        "05-architekt-501"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "usunięte i poprawione dokarmienie nie wraca po zapisie profilu ani stałego dnia zakwasu (test na prawdziwym SQLite, sonda z 05-architekt-501)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "9feae565"
+    },
+    {
+      "id": "M1-audytor-generalny-003",
+      "tytul": "Tryb awaryjny daje plik, którego aplikacja nie przyjmie, bez kontaktu i bez ostrzeżenia przed usunięciem aplikacji",
+      "zrodla": [
+        "12-niezawodnosc-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "P",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "rola",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": "DEC-17",
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
+      "test_akceptacyjny": "pakiet z trybu awaryjnego jest rozpoznawany i przywracany przez import (albo, przy opcji b, ekran awaryjny ostrzega przed usunięciem aplikacji i podaje kontakt); test rozpoznajPlik",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "26f6a87f"
+    },
+    {
+      "id": "M1-audytor-generalny-004",
+      "tytul": "Faza zakwasu („w szacowanym oknie szczytu”) liczona z reguły bez źródła, wbrew BR-ZAKW-003",
+      "zrodla": [
+        "01-odkrywanie-003"
+      ],
+      "poziom": "P1",
+      "rodzaj": "M",
+      "rola": "01-odkrywanie",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "faza zakwasu bez okna szczytu bez źródła: przy showPeakWindow={false} karta nie pokazuje „W szacowanym oknie szczytu”; reguła ma twierdzenie w rejestrze albo znika",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-005",
+      "tytul": "Na prowadzeniu instrukcja kroku i ostrzeżenie bezpieczeństwa są pod pasem, poza pierwszym ekranem",
+      "zrodla": [
+        "04-studio-projektowe-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
+      "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-006",
+      "tytul": "Stuknięcie kroku w arkuszu „Plan wypieku” przestawia trwający wypiek bez pytania i bez cofnięcia",
+      "zrodla": [
+        "04-studio-projektowe-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
+      "test_akceptacyjny": "stuknięcie kroku w arkuszu „Plan wypieku” przy trwającym wypieku pyta o potwierdzenie i daje „Cofnij”; stuknięcie bieżącego kroku nie zeruje zegara",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-007",
+      "tytul": "Siedem arkuszy poza systemem kart (D-139, D-141), w tym „Plan wypieku” z gołym nagłówkiem",
+      "zrodla": [
+        "04-studio-projektowe-003"
+      ],
+      "poziom": "P1",
+      "rodzaj": "P",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-10",
+      "przyczyna": "SYS-06",
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
+      "test_akceptacyjny": "7 arkuszy z 04-studio-projektowe-003 na systemie kart (przegląd roli 04 według D-139) albo wyjątek nazwany z decyzją",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-008",
+      "tytul": "Plan i prowadzenie podają inne temperatury, czasy i naczynie pieczenia niż „O recepturze” tej samej receptury",
+      "zrodla": [
+        "06-tresci-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-03",
+      "przyczyna": "SYS-05",
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "temperatury, czasy i naczynie w planie i prowadzeniu zgodne z danymi receptury dla 8 receptur pszennych na zakwasie; test porównujący plan z kartą receptury",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-009",
+      "tytul": "Pizza: 450 °C przez 2 min, wbrew przepisowi źródłowemu receptury i poza zasięgiem domowego piekarnika",
+      "zrodla": [
+        "06-tresci-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-03",
+      "przyczyna": "SYS-05",
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "pizza: temperatura i czas zgodne ze źródłem receptury i domowym piekarnikiem, twierdzenie w rejestrze",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-010",
+      "tytul": "Teksty głównego przepływu (plan, prowadzenie, receptury bazowe, ostrzeżenie DDT) bez twierdzeń w rejestrze; superlatywy i przyczyny bez źródła",
+      "zrodla": [
+        "06-tresci-003"
+      ],
+      "poziom": "P1",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "kontrole-tresci w kierunku odwrotnym (tekst → twierdzenie) dają 0 tekstów z liczbą bez twierdzenia w częściach widocznych w 1.0",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-011",
+      "tytul": "Zdania krytyczne maszyny i katalogu w 21 językach bez kontroli (a) i bez drugiego przeglądu AI",
+      "zrodla": [
+        "09-lokalizacja-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "9 kluczy krytycznych w 21 językach ma tłumaczenie zwrotne (kontrola a) i drugi przegląd zapisany w rejestrze; test pilnuje kompletności",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-012",
+      "tytul": "Ekran awaryjny po dwóch nieudanych startach jest zawsze po polsku",
+      "zrodla": [
+        "09-lokalizacja-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "ekran awaryjny w języku urządzenia (sonda de-DE i en-US)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-013",
+      "tytul": "Przeliczanie jednostek w tekście psuje liczby: „400 °F, czyli około 399 °F”, „0,04 oz” ciasta",
+      "zrodla": [
+        "09-lokalizacja-003"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "„400 °F” bez „około 399 °F” w 35 językach; uncje bez „0,04 oz” i „1 0,00 oz”; test porównuje z oczekiwaną wartością, nie z EN",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-014",
+      "tytul": "15 tekstów głównego przepływu po angielsku w 33 językach (ekran miesza języki)",
+      "zrodla": [
+        "09-lokalizacja-005"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [
+        "M1-audytor-generalny-010"
+      ],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "15 tekstów przetłumaczonych w 33 językach; check:i18n wykrywa tekst EN równy PL-owemu przekładowi angielskiemu",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-015",
+      "tytul": "Ekran Pro obiecuje płatne „porównanie” wypieków, którego nie ma w aplikacji",
+      "zrodla": [
+        "01-odkrywanie-001",
+        "03-zakres-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-04",
+      "przyczyna": "SYS-04",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "ekran Pro nie obiecuje funkcji bez kodu (test: lista obietnic PaywallModal ↔ funkcje zablokowane w mapie Basic/Pro)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-016",
+      "tytul": "Koniec wypieku (wpis w Dzienniku, ocena, kopia automatyczna) bez scenariusza E2E i bez punktu listy telefonu",
+      "zrodla": [
+        "07-jakosc-003"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "scenariusz E2E koniec wypieku → ocena → wpis w Dzienniku → kopia automatyczna; punkt na liście telefonu; błąd kopii automatycznej nie jest połykany",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-017",
+      "tytul": "Zrzuty do wysyłki (i `pl` w App Store Connect) oznaczają funkcje Basic jako płatne i pokazują interfejs sprzed M3",
+      "zrodla": [
+        "10-wydanie-001"
+      ],
+      "poziom": "P1",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [
+        "M1-audytor-generalny-007"
+      ],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
+      "test_akceptacyjny": "zrzuty do wysyłki (pl, en-US i reszta) pokazują wygląd po M3 i plakietkę Pro tylko przy funkcjach Pro; kontrola obrazów, nie tylko JSON",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-018",
+      "tytul": "Start bez kanału z odczytanym regulaminem, bez budżetu godzin i planu na złe przyjęcie",
+      "zrodla": [
+        "11-wzrost-002"
+      ],
+      "poziom": "P1",
+      "rodzaj": "P",
+      "rola": "11-wzrost",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-15",
+      "przyczyna": null,
+      "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
+      "test_akceptacyjny": "jeden kanał startu z odczytanym regulaminem, budżet godzin i plan na złe przyjęcie w docs/wzrost.md (albo decyzja b z wyjątkiem)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-019",
+      "tytul": "Runner migracji nie ma bezpiecznej drogi przebudowy tabeli: pierwsza taka migracja skasuje dziennik zakwasu bez błędu",
+      "zrodla": [
+        "05-architekt-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-002 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d59f8226"
+    },
+    {
+      "id": "M1-audytor-generalny-020",
+      "tytul": "Logika domeny `src/core` importuje i18n, formatowanie (React, expo-localization) i katalog receptur wbrew granicy z ADR-006",
+      "zrodla": [
+        "05-architekt-003",
+        "05-architekt-506"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-003 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "259f0880"
+    },
+    {
+      "id": "M1-audytor-generalny-021",
+      "tytul": "Cykl importów w warstwie danych; wydana migracja v6 zależy od żywego parsera sesji",
+      "zrodla": [
+        "05-architekt-004",
+        "05-architekt-507"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-004 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "91a26110"
+    },
+    {
+      "id": "M1-audytor-generalny-022",
+      "tytul": "Powrót aplikacji na pierwszy plan w trakcie kopii przed migracją kończy się ekranem błędu bazy mimo udanej migracji",
+      "zrodla": [
+        "05-architekt-503"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-503 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "0d47bab2"
+    },
+    {
+      "id": "M1-audytor-generalny-023",
+      "tytul": "„Usuń wszystkie dane” kasuje trwające i zaplanowane wypieki, których nie ma w obiecanej „kopii obecnych danych”",
+      "zrodla": [
+        "05-architekt-504"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "05-architekt",
+      "wykonawca": "rola",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": "DEC-11",
+      "przyczyna": null,
+      "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-504 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "2dceaeeb"
+    },
+    {
+      "id": "M1-audytor-generalny-024",
+      "tytul": "ADR-001/003/005 i `system-architecture.md` opisują nieistniejącą architekturę i fałszywą ochronę przed `0xdead10cc`",
+      "zrodla": [
+        "05-architekt-505"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "05-architekt",
+      "wykonawca": "rola",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-505 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "4c542e20"
+    },
+    {
+      "id": "M1-audytor-generalny-025",
+      "tytul": "Pasek tygodnia na „Dziś” zostaje na starym tygodniu po północy z niedzieli na poniedziałek",
+      "zrodla": [
+        "08-programista-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/08-programista/08-programista-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-002 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "cf0de762"
+    },
+    {
+      "id": "M1-audytor-generalny-026",
+      "tytul": "Brakujące dane zastępowane zgadniętą wartością: „Ostatnie dokarmienie: przed chwilą” bez dokarmienia, brak oceny liczony jako 5★, domyślne liczby przy imporcie receptury",
+      "zrodla": [
+        "08-programista-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/08-programista/08-programista-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-003 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "8cedbade"
+    },
+    {
+      "id": "M1-audytor-generalny-027",
+      "tytul": "Zakresy pól receptury w dwóch miejscach z różnymi wartościami: receptury zapisanej w aplikacji nie da się udostępnić ani zaimportować",
+      "zrodla": [
+        "08-programista-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/08-programista/08-programista-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-004 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "c685a636"
+    },
+    {
+      "id": "M1-audytor-generalny-028",
+      "tytul": "Dwa stuknięcia „Dokarmione” zapisują dwa dokarmienia",
+      "zrodla": [
+        "08-programista-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-02",
+      "raport": "role/08-programista/08-programista-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-006 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "a13c842c"
+    },
+    {
+      "id": "M1-audytor-generalny-029",
+      "tytul": "Część odczytów z bazy bez parsowania (typ wiersza z generyka, `as`)",
+      "zrodla": [
+        "08-programista-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/08-programista/08-programista-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null,
+      "blokada": "odłożone do zakresu 1.1 decyzją właściciela D-302 (2026-11-09: „Odłożyć do 1.1 (Recommended)”), zgodnie z rekomendacją 08-programista-008 (b); bez kodu w 1.0"
+    },
+    {
+      "id": "M1-audytor-generalny-030",
+      "tytul": "Przy nadmiarze powiadomień priorytet idzie po grupie, nie po czasie: karmienie za 2 h może wypaść przed krokiem za 29 h (weryfikacja G9 H2, limit 40)",
+      "zrodla": [
+        "M1-audytor-generalny-030"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "08-programista",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "weryfikacja/G9-luki.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-030 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d74e40c0"
+    },
+    {
+      "id": "M1-audytor-generalny-031",
+      "tytul": "Wiadomość do autora nigdy nie zawiera numeru buildu; test maskuje to atrapą",
+      "zrodla": [
+        "12-niezawodnosc-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-002 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e3c23559"
+    },
+    {
+      "id": "M1-audytor-generalny-032",
+      "tytul": "Build 1023 (i 1021) bez dSYM dla React, ReactNativeDependencies i hermesvm",
+      "zrodla": [
+        "12-niezawodnosc-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-003 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null,
+      "blokada": "test akceptacyjny wymaga buildu TestFlight (osobna zgoda, DEC-18) i ćwiczenia NIE-06 na urządzeniu; rekomendacja (b) runbook symbolizacji wymaga przeczytanych źródeł RN/Hermes (sieć) — opcje na STOP przed partią 2"
+    },
+    {
+      "id": "M1-audytor-generalny-033",
+      "tytul": "Kopie ratunkowe udostępniane bez `integrity_check`; awaryjna kopia surowych plików przy otwartym połączeniu",
+      "zrodla": [
+        "12-niezawodnosc-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-004 (pole „Test akceptacyjny”)",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "f7cfd76f"
+    },
+    {
+      "id": "M1-audytor-generalny-034",
+      "tytul": "Wymagania BRD nadal opisują okres próbny 14 dni; BR-RECP-003 przeczy D-112 i kodowi",
+      "zrodla": [
+        "01-odkrywanie-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-002 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-035",
+      "tytul": "Eksport historii do CSV (obiecany w sklepie) i kopiowanie do schowka bez wymagania BR",
+      "zrodla": [
+        "01-odkrywanie-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-036",
+      "tytul": "Kod powołuje się na wycofane numery RD (RD-00…RD-13), a RD-19 w kodzie znaczy coś innego niż w BRD",
+      "zrodla": [
+        "01-odkrywanie-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-037",
+      "tytul": "BRD po 2026-11-03 bez erraty: katalog „około 30” zamiast 26 (D-236), opis progów OP-39 sprzed zmiany kodu",
+      "zrodla": [
+        "01-odkrywanie-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "01-odkrywanie",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-038",
+      "tytul": "Rozmiary tekstu i promienie wpisane liczbami poza tokenami, w tym 10 pt na osi czasu planu",
+      "zrodla": [
+        "04-studio-projektowe-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-039",
+      "tytul": "Własny przełącznik przypomnień zamiast systemowego",
+      "zrodla": [
+        "04-studio-projektowe-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-040",
+      "tytul": "Przelicznik drożdży 0,35 w produkcie poza łańcuchem treści; źródła poza ekranem „Źródła wiedzy”; brak wskazówki o drożdżach aktywnych",
+      "zrodla": [
+        "06-tresci-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-005 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-041",
+      "tytul": "Przekłady nazw mąk podają odpowiedniki bez źródła (MAK-EN-900 otwarte), niespójne w jednym języku",
+      "zrodla": [
+        "06-tresci-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-05",
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-042",
+      "tytul": "Znane (tor B): terminy trybu maszyny pt/ja/lt z pamięci modelu",
+      "zrodla": [
+        "06-tresci-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-043",
+      "tytul": "Znane (tor B): `DODATKI_MASZYNY` bez rozmarynu focaccii i skórki cytryny kołocza",
+      "zrodla": [
+        "06-tresci-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-044",
+      "tytul": "Tekst w produkcie inny niż w `docs/tresci`; znaczniki `[T:…,-]` w ja/ko/zh-Hant; skrypt kontroli w repo starszy od modułu",
+      "zrodla": [
+        "06-tresci-009"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-009 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-045",
+      "tytul": "Cytaty źródeł w publicznym rejestrze dłuższe niż 1–2 zdania (10 wpisów)",
+      "zrodla": [
+        "06-tresci-010"
+      ],
+      "poziom": "P2",
+      "rodzaj": "M",
+      "rola": "06-tresci",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/06-tresci/06-tresci-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-010 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-046",
+      "tytul": "Rodzajnik przy godzinie 1:xx (es znane) w es, es-419, pt, pt-BR, it, el; w es-419 i el także 13:xx",
+      "zrodla": [
+        "09-lokalizacja-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-047",
+      "tytul": "Godzina z zerem wiodącym w zegarze 12 h („01:30 PM”) i podwójna kropka po „p.m.”",
+      "zrodla": [
+        "09-lokalizacja-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-048",
+      "tytul": "Data w mianowniku wklejona w zdanie („Gotowe czwartek, 12 listopada…”) we wszystkich językach",
+      "zrodla": [
+        "09-lokalizacja-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-049",
+      "tytul": "Długości i objętości (cm, mm, ml, l) bez przeliczenia w trybie imperialnym",
+      "zrodla": [
+        "09-lokalizacja-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "09-lokalizacja",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-12",
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-050",
+      "tytul": "Przetłumaczona nazwa wypieku zapisywana jako dane (Dziennik w starym języku po zmianie)",
+      "zrodla": [
+        "09-lokalizacja-009"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-009 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-051",
+      "tytul": "„DDT:” na sztywno w podglądzie importu receptury",
+      "zrodla": [
+        "09-lokalizacja-010"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-010 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-052",
+      "tytul": "Bramka bez pseudolokalizacji, bez sierot w 33 słownikach i bez samosprawdzenia liczby mnogiej na Hermes",
+      "zrodla": [
+        "09-lokalizacja-011"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "09-lokalizacja",
+      "wykonawca": "M2",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-011 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-053",
+      "tytul": "Drugi przegląd AI tylko próbką 12/33 języków, rejestr przeglądów nieaktualny od 2026-10-21",
+      "zrodla": [
+        "09-lokalizacja-012"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "09-lokalizacja",
+      "wykonawca": "rola",
+      "partia": 2,
+      "zalezy_od": [],
+      "decyzja": "DEC-13",
+      "przyczyna": null,
+      "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-012 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-054",
+      "tytul": "Bramka opłacalności liczy iOS + Google Play, a 1.0 jest tylko na iOS: wynik dla 1.0 to ok. 218, nie 345 USD",
+      "zrodla": [
+        "02-monetyzacja-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "02-monetyzacja",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-06",
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-002 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-055",
+      "tytul": "Plan aktualizacji dla 3.1.2(a) zasila Basic, a Pro nie ma rytmu nowej wartości (Z-7 otwarte)",
+      "zrodla": [
+        "02-monetyzacja-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "02-monetyzacja",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-07",
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-003 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-056",
+      "tytul": "Przywracanie: błąd odczytu po synchronizacji kończy się komunikatem „Nie znaleziono aktywnych zakupów”",
+      "zrodla": [
+        "02-monetyzacja-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "02-monetyzacja",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-057",
+      "tytul": "Dokumenty wydania przeczą stanowi: `ceny.json` powołuje D-038 „bez propozycji zmian”, Z-1 raz „nie wykonane”, raz zrobione",
+      "zrodla": [
+        "02-monetyzacja-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "02-monetyzacja",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-08",
+      "przyczyna": "SYS-01",
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-005 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-058",
+      "tytul": "Kalendarz, plany na kolejne dni i dwa wypieki naraz działają na „Dziś” bez bramki ZM i bez wierszy w kontrakcie",
+      "zrodla": [
+        "03-zakres-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-02",
+      "przyczyna": "SYS-06",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-001 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-059",
+      "tytul": "Kontrakt opisuje model płatności z próbą (D-038) i nieaktualny ślad: `zakres.mjs` 26 błędów zamiast deklarowanych 0",
+      "zrodla": [
+        "03-zakres-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "03-zakres",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-003 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-060",
+      "tytul": "Ustawienie „Sprzęt i naczynie do wypieku” obiecuje zmianę prowadzenia, a nic go nie czyta",
+      "zrodla": [
+        "03-zakres-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "03-zakres",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-061",
+      "tytul": "Trzecia czynność startu prowadzi do receptur bez planu i prowadzenia: 15 z 26 receptur bazowych (D-155 wykonane częściowo)",
+      "zrodla": [
+        "03-zakres-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-01",
+      "przyczyna": "SYS-06",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-005 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-062",
+      "tytul": "Część funkcji Pro i tryb maszyny stoi na samej hipotezie bez zapisanego wyjątku i warunku oceny",
+      "zrodla": [
+        "03-zakres-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-09",
+      "przyczyna": "SYS-06",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-063",
+      "tytul": "Funkcje dodane po zatwierdzeniu nie mają wyniku pierwszego użycia (ostatnie przejście poznawcze: makiety z 2026-10-20)",
+      "zrodla": [
+        "03-zakres-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-09",
+      "przyczyna": "SYS-06",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-064",
+      "tytul": "Apetyt i koszt właściciela nieprzeliczone po rozszerzeniach 1.0 (kontrakt: 68 h wobec 60 h, bez pakietów D-092 i D-150)",
+      "zrodla": [
+        "03-zakres-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-09",
+      "przyczyna": "SYS-06",
+      "raport": "role/03-zakres/03-zakres-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-065",
+      "tytul": "Diagnoza Doktora chleba nie przechodzi na następny wypiek: „Piecz ponownie” pokazuje tylko notatkę użytkownika (linia bazowa, weryfikacja G9 H4)",
+      "zrodla": [
+        "M1-audytor-generalny-065"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "03-zakres",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-19",
+      "przyczyna": null,
+      "raport": "weryfikacja/G9-luki.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-065 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-066",
+      "tytul": "iOS E2E na SHA kandydata czerwone; po porażce pominięte en_US, kontrola negatywna i cały zestaw Basic (znane: E2E-95, D-279, D-280)",
+      "zrodla": [
+        "07-jakosc-001",
+        "01-odkrywanie-004",
+        "02-monetyzacja-007",
+        "03-zakres-009",
+        "04-studio-projektowe-005",
+        "05-architekt-005",
+        "05-architekt-509",
+        "06-tresci-004",
+        "08-programista-005",
+        "10-wydanie-002",
+        "11-wzrost-003",
+        "12-niezawodnosc-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "E2E zielone na SHA kandydata po scaleniu E2E-95 (pl, en_US, kontrola negatywna, Basic)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-067",
+      "tytul": "Nightly bez zielonego przebiegu na master; Stryker przerywany limitem od 2026-10-22, bramka mutacyjna bez wyniku",
+      "zrodla": [
+        "07-jakosc-002"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-002 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-068",
+      "tytul": "Build TestFlight nie sprawdza wyniku E2E na tym samym SHA; 1023 wysłany po czerwonym E2E #96",
+      "zrodla": [
+        "07-jakosc-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "07-jakosc",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-18",
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-069",
+      "tytul": "Krok nightly „1000 runs” biegnie z tą samą liczbą przypadków co CI; `FC_NUM_RUNS` nie działa",
+      "zrodla": [
+        "07-jakosc-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-005 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-070",
+      "tytul": "Wyjątki `br-wyjatki.json` z nieaktualnym powodem „bez kodu” ukrywają brak testów z ID dla wdrożonych scenariuszy",
+      "zrodla": [
+        "07-jakosc-006",
+        "08-programista-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-071",
+      "tytul": "Przeżyły mutanty: brak ROLLBACK po nieudanej migracji i granica 1 oz w formacie USA",
+      "zrodla": [
+        "07-jakosc-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-072",
+      "tytul": "24 tytuły testów deklarują pole dotyku i 320 pt, a sprawdzają styl",
+      "zrodla": [
+        "07-jakosc-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-008 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-073",
+      "tytul": "README i nazwa testu nazywają korpus Pythona niezależną wyrocznią",
+      "zrodla": [
+        "07-jakosc-009"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-009 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-074",
+      "tytul": "Wybór Xcode z cichym zjazdem do `/Applications/Xcode.app`, E2E bez wyboru Xcode, brak haka przed pushem",
+      "zrodla": [
+        "07-jakosc-010",
+        "10-wydanie-008"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-010 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-075",
+      "tytul": "E2E bez zrzutów punktów kontrolnych; jedna porażka ukrywa wynik pozostałych kroków",
+      "zrodla": [
+        "07-jakosc-011"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-011 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-076",
+      "tytul": "Testy przejść czasu tylko dla Warszawy i Nowego Jorku, nie dla listy 7 stref",
+      "zrodla": [
+        "07-jakosc-012"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-012 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-077",
+      "tytul": "Workflow „Deploy GitHub Pages” z czerwonym ostatnim przebiegiem na master i bez możliwości sukcesu",
+      "zrodla": [
+        "07-jakosc-013"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-03",
+      "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-013 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-078",
+      "tytul": "Strona sklepu reklamuje funkcje Pro (plan wstecz, opieka nad zakwasem) bez oznaczenia, że wymagają zakupu",
+      "zrodla": [
+        "02-monetyzacja-001",
+        "10-wydanie-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-05",
+      "przyczyna": "SYS-04",
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-001 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-079",
+      "tytul": "Dziennik wydań bez buildu 1023 i bez Z-1; plan wydania i blokady nieaktualne",
+      "zrodla": [
+        "10-wydanie-003"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-003 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-080",
+      "tytul": "Opis sklepu we wszystkich lokalizacjach: „15 receptur” zamiast 26, brak trybu maszyny i wersji drożdżowych",
+      "zrodla": [
+        "10-wydanie-004",
+        "01-odkrywanie-005",
+        "11-wzrost-004"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-01",
+      "przyczyna": "SYS-04",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-004 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-081",
+      "tytul": "Notatki dla App Review nie prowadzą do trybu maszyny do chleba ani wersji drożdżowej",
+      "zrodla": [
+        "10-wydanie-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-04",
+      "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-006 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-082",
+      "tytul": "Klucz App Store Connect z rolą co najmniej App Manager trafia do każdego buildu TestFlight, wspólny z inną aplikacją, bez procedury unieważnienia",
+      "zrodla": [
+        "10-wydanie-007"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "10-wydanie",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-14",
+      "przyczyna": null,
+      "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-007 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-083",
+      "tytul": "Plan wzrostu i szablon wpisu opisują model sprzed D-112 (14 dni próby, D-038)",
+      "zrodla": [
+        "11-wzrost-001"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "11-wzrost",
+      "wykonawca": "M2",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": "SYS-01",
+      "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-001 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-084",
+      "tytul": "H-01: minimalna próba bez ID decyzji właściciela, data oceny już nieosiągalna",
+      "zrodla": [
+        "11-wzrost-005"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "11-wzrost",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-16",
+      "przyczyna": null,
+      "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-005 (pole „Test akceptacyjny”)",
+      "status": "zatwierdzone",
+      "commit": null
+    },
+    {
+      "id": "M1-audytor-generalny-085",
+      "tytul": "Koniec wypieku kasuje nieczytelny wiersz sesji bez pliku ratunkowego przy błędzie zapisu pliku (D-273)",
+      "zrodla": [
+        "05-architekt-508"
+      ],
+      "poziom": "P2",
+      "rodzaj": "D",
+      "rola": "05-architekt",
+      "wykonawca": "M2",
+      "partia": 1,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "role/05-architekt-b/05-architekt-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 05-architekt-508 (pole „Test akceptacyjny”)",
+      "status": "odrzucone",
+      "commit": null,
+      "powod": "decyzja właściciela D-273 (ryzyko brzegowe, „Zostawić”), potwierdzone w 05-architekt, 05-architekt-b i 12-niezawodnosc"
+    },
+    {
+      "id": "M1-audytor-generalny-086",
+      "tytul": "Subskrybent nie może w aplikacji przejść na zakup dożywotni",
+      "zrodla": [
+        "02-monetyzacja-006"
+      ],
+      "poziom": "P2",
+      "rodzaj": "P",
+      "rola": "02-monetyzacja",
+      "wykonawca": "rola",
+      "partia": 3,
+      "zalezy_od": [],
+      "decyzja": "DEC-20",
+      "przyczyna": null,
+      "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-006 (pole „Test akceptacyjny”)",
+      "status": "odrzucone",
+      "commit": null,
+      "powod": "obalone w weryfikacji przeciwnej (weryfikacja/G4-sklep-pieniadze.md): brak zakupu przy aktywnym Pro to decyzja D-117 pkt 1"
+    }
+  ],
+  "stop2": {
+    "data": "2026-11-09",
+    "slowa_wlasciciela": [
+      "Wszystkie rekomendacje (Recommended)",
+      "Wszystkie otwarte (Recommended)",
+      "Dopiszę później"
+    ],
+    "uwagi": "wybory DEC-01…DEC-19 według rekomendacji; zatwierdzone wszystkie otwarte zadania; uwagi z testu telefonu (D-277) dopisze właściciel przed startem M2 jako zadania od M1-audytor-generalny-087"
+  }
+}

@@ -1,0 +1,7 @@
+BŁĄD OP-39 opisuje wycofane progi 2/5/9/14 h (ZAK-SZC-901), nie aktualny kod
+BŁĄD OP-39 nie opisuje okna predyktora 6,0–8,5 h z mnożnikami (src/core/starter-peak-predictor.ts)
+BŁĄD BR-ZAKW-003 „Przewidywanie z godzin”: brak zakazu fazy z okna szczytu („nie widzi … okna szczytu”)
+BŁĄD reguly.md: wpis „bez źródła” wskazuje progi faz w sourdough-physics.ts zamiast okna predyktora
+BŁĄD errata: brak wpisu ER-79 dla 01-odkrywanie-003
+kontrola-003: 5 błędów
+exit 1

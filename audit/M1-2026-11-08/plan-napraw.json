@@ -573,8 +573,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "faza zakwasu bez okna szczytu bez źródła: przy showPeakWindow={false} karta nie pokazuje „W szacowanym oknie szczytu”; reguła ma twierdzenie w rejestrze albo znika",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "4af7c631"
     },
     {
       "id": "M1-audytor-generalny-005",
@@ -1045,7 +1045,7 @@
       "zrodla": [
         "08-programista-008"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "08-programista",
       "wykonawca": "M2",
@@ -1057,7 +1057,9 @@
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-008 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
       "commit": null,
-      "blokada": "odłożone do zakresu 1.1 decyzją właściciela D-302 (2026-11-09: „Odłożyć do 1.1 (Recommended)”), zgodnie z rekomendacją 08-programista-008 (b); bez kodu w 1.0"
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli",
+      "poziom_audytu": "P2",
+      "klasa": "teoretyczny"
     },
     {
       "id": "M1-audytor-generalny-030",
@@ -1115,7 +1117,7 @@
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-003 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
       "commit": null,
-      "blokada": "test akceptacyjny wymaga buildu TestFlight (osobna zgoda, DEC-18) i ćwiczenia NIE-06 na urządzeniu; rekomendacja (b) runbook symbolizacji wymaga przeczytanych źródeł RN/Hermes (sieć) — opcje na STOP przed partią 2"
+      "blokada": "runbook (b) w 0976c0ca (D-302); test akceptacyjny (log wysyłki bez „Upload Symbols Failed”, ćwiczenie NIE-06) wymaga buildu TestFlight — osobna zgoda właściciela (DEC-18); decyzja o zmianie testflight.yml (krok 10/11 runbooka) — właściciel"
     },
     {
       "id": "M1-audytor-generalny-033",
@@ -1180,7 +1182,7 @@
       "zrodla": [
         "01-odkrywanie-007"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "01-odkrywanie",
       "wykonawca": "M2",
@@ -1191,7 +1193,10 @@
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-007 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-037",
@@ -1294,7 +1299,7 @@
       "zrodla": [
         "06-tresci-007"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "M",
       "rola": "06-tresci",
       "wykonawca": "rola",
@@ -1305,7 +1310,10 @@
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-007 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-043",
@@ -1313,7 +1321,7 @@
       "zrodla": [
         "06-tresci-008"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "M",
       "rola": "06-tresci",
       "wykonawca": "rola",
@@ -1324,7 +1332,10 @@
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-008 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "teoretyczny",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-044",
@@ -1351,7 +1362,7 @@
       "zrodla": [
         "06-tresci-010"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "M",
       "rola": "06-tresci",
       "wykonawca": "rola",
@@ -1362,7 +1373,10 @@
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-010 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-046",
@@ -1446,7 +1460,7 @@
       "zrodla": [
         "09-lokalizacja-009"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "09-lokalizacja",
       "wykonawca": "M2",
@@ -1457,7 +1471,10 @@
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-009 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-051",
@@ -1484,7 +1501,7 @@
       "zrodla": [
         "09-lokalizacja-011"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "09-lokalizacja",
       "wykonawca": "M2",
@@ -1495,7 +1512,10 @@
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-011 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "teoretyczny",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-053",
@@ -1503,7 +1523,7 @@
       "zrodla": [
         "09-lokalizacja-012"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "P",
       "rola": "09-lokalizacja",
       "wykonawca": "rola",
@@ -1514,7 +1534,10 @@
       "raport": "role/09-lokalizacja/09-lokalizacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 09-lokalizacja-012 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-054",
@@ -1541,7 +1564,7 @@
       "zrodla": [
         "02-monetyzacja-003"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "P",
       "rola": "02-monetyzacja",
       "wykonawca": "rola",
@@ -1552,7 +1575,10 @@
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-003 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-056",
@@ -1560,7 +1586,7 @@
       "zrodla": [
         "02-monetyzacja-004"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "02-monetyzacja",
       "wykonawca": "M2",
@@ -1571,7 +1597,10 @@
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-004 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-057",
@@ -1693,7 +1722,7 @@
       "zrodla": [
         "03-zakres-007"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "P",
       "rola": "03-zakres",
       "wykonawca": "rola",
@@ -1704,7 +1733,10 @@
       "raport": "role/03-zakres/03-zakres-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 03-zakres-007 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-064",
@@ -1915,7 +1947,7 @@
         "07-jakosc-010",
         "10-wydanie-008"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "07-jakosc",
       "wykonawca": "M2",
@@ -1926,7 +1958,10 @@
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-010 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-075",
@@ -1953,7 +1988,7 @@
       "zrodla": [
         "07-jakosc-012"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "07-jakosc",
       "wykonawca": "M2",
@@ -1964,7 +1999,10 @@
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 07-jakosc-012 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "teoretyczny",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-077",
@@ -2089,7 +2127,7 @@
       "zrodla": [
         "11-wzrost-001"
       ],
-      "poziom": "P2",
+      "poziom": "P3",
       "rodzaj": "D",
       "rola": "11-wzrost",
       "wykonawca": "M2",
@@ -2100,7 +2138,10 @@
       "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-001 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "poziom_audytu": "P2",
+      "klasa": "brzegowy",
+      "blokada": "P3: backlog 1.0.1 poza 1.0 — decyzja właściciela D-288 (2026-11-09: „zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”), wzorzec Oczko P-458; poziom_audytu P2, klasa z raportu roli"
     },
     {
       "id": "M1-audytor-generalny-084",

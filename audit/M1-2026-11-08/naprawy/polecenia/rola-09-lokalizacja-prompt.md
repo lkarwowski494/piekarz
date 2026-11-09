@@ -99,7 +99,7 @@ Przykłady hierarchii dziedzinowej:
 
 # Tryb: FIX (naprawa zatwierdzonych znalezisk)
 
-Wdrażasz wyłącznie znaleziska zatwierdzone przez właściciela: `09-lokalizacja-008,09-lokalizacja-012`. Nowych problemów nie naprawiasz po drodze; dopisujesz je do raportu jako nowe znaleziska.
+Wdrażasz wyłącznie znaleziska zatwierdzone przez właściciela: `09-lokalizacja-008`. Nowych problemów nie naprawiasz po drodze; dopisujesz je do raportu jako nowe znaleziska.
 
 1. **E0: Plan → STOP.**
    - Przeczytaj raport audytu i zatwierdzone ID.
@@ -139,7 +139,7 @@ Ustala zestaw języków według polityki karty („szeroka”, D-026, albo „z 
 **Wejście (wymagane):**
 - build: `docs/scope-contract.md` (rola 03); kod aplikacji (wejście wczesne po roli 05: same ADR i architektura; wejście w ścieżce greenfield: kod po 08 i audycie 04)
 - audit: kod aplikacji na wskazanym commicie (domyślnie HEAD gałęzi kandydata do wydania)
-- fix: raport audytu i zatwierdzone ID (`09-lokalizacja-008,09-lokalizacja-012`)
+- fix: raport audytu i zatwierdzone ID (`09-lokalizacja-008`)
 
 **Wejście (jeśli istnieje):**
 - `docs/brd/` (01): rynki, persony; `docs/monetyzacja.md` (02); `docs/design/` (04): przewodnik głosu, procedura zrzutów

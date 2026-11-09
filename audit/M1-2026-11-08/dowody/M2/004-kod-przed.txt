@@ -1,0 +1,14 @@
+    ✕ na blacie 0 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (86 ms)
+    ✕ na blacie 3 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (6 ms)
+    ✕ na blacie 6 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (6 ms)
+    ✕ na blacie 7 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (4 ms)
+    ✕ na blacie 9 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (6 ms)
+    ✕ na blacie 12 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (7 ms)
+    ✕ na blacie 24 h po dokarmieniu: bez fazy z okna i bez rady według fazy; czas od dokarmienia (4 ms)
+    ✓ w lodówce faza ze źródłem zostaje („Uśpiony w lodówce”) (3 ms)
+    Expected pattern: not /szacowan\w* szczyt|okn\w* szczytu/i
+    Received string:      "  ●  Przed szacowanym szczytem Szczyt aktywności W niższej temperaturze wzrost i fermentacja zakwasu zwalniają. Temperatura otoczenia :  19°C 19°C 22°C 25°C 28°C"
+    Expected pattern: not /szacowan\w* szczyt|okn\w* szczytu/i
+    Received string:      "  ●  Przed szacowanym szczytem Szczyt aktywności W niższej temperaturze wzrost i fermentacja zakwasu zwalniają. Temperatura otoczenia :  19°C 19°C 22°C 25°C 28°C"
+    Expected pattern: not /szacowan\w* szczyt|okn\w* szczytu/i
+    Received string:      "  ●  W szacowanym oknie szczytu Szczyt aktywności Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a w tych samych warunkach ciasto z różnymi zakwasami rosło od 0,1 do 1,5 mm na godzinę. Temperatura otoczenia :  19°C 19°C 22°C 25°C 28°C"

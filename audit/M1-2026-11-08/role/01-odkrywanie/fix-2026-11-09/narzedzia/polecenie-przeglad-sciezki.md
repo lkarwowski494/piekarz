@@ -1,0 +1,1 @@
+Przegląd ścieżki wrażliwej dla 01-odkrywanie-003: nie dotyczy. Zmiana objęła tylko docs/brd (README.md, wymagania-zakwas.md, reguly.md, errata.md), bez migracji, kopii zapasowych, importu, eksportu, czyszczenia danych, zakupów, workflowów ani podpisu.

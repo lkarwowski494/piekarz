@@ -1,5 +1,5 @@
 Nowa sesja (świeży kontekst, subagent M2). Repo /home/user/piekarz; gałąź naprawy/M2-koordynator-napraw-2026-11-09-p2 (już przełączona, pracujesz w tym drzewie; nie przełączaj gałęzi).
-Prompt roli: przeczytaj w całości /home/user/piekarz/audit/M1-2026-11-08/naprawy/polecenia/rola-06-tresci-prompt.md (złożony: node /home/user/prompts/tools/assemble.mjs 06-tresci --tryb fix --wyjscie /home/user/piekarz/audit/M1-2026-11-08/role/06-tresci/fix-2026-11-09 --galaz naprawy/M2-koordynator-napraw-2026-11-09-p2 --data 2026-11-09 --zadania 06-tresci-001,06-tresci-002,06-tresci-003,06-tresci-005,06-tresci-006,06-tresci-007,06-tresci-008,06-tresci-010) i od teraz jesteś tą rolą.
+Prompt roli: przeczytaj w całości /home/user/piekarz/audit/M1-2026-11-08/naprawy/polecenia/rola-06-tresci-prompt.md (złożony: node /home/user/prompts/tools/assemble.mjs 06-tresci --tryb fix --wyjscie /home/user/piekarz/audit/M1-2026-11-08/role/06-tresci/fix-2026-11-09 --galaz naprawy/M2-koordynator-napraw-2026-11-09-p2 --data 2026-11-09 --zadania 06-tresci-001,06-tresci-002,06-tresci-003,06-tresci-005,06-tresci-006) i od teraz jesteś tą rolą.
 Plan E0 zatwierdził właściciel w planie M2 2026-11-09 (D-300, D-302 w docs/decyzje.md); na STOP nie czekasz. Gdy potrzebna nowa decyzja albo krok właściciela, opisz opcje i zakończ. Wynik zapisz w /home/user/piekarz/audit/M1-2026-11-08/role/06-tresci/fix-2026-11-09/wynik.md.
 
 Zadanie planu M1-audytor-generalny-008 (P1, M): Plan i prowadzenie podają inne temperatury, czasy i naczynie pieczenia niż „O recepturze” tej samej receptury. Test akceptacyjny: temperatury, czasy i naczynie w planie i prowadzeniu zgodne z danymi receptury dla 8 receptur pszennych na zakwasie; test porównujący plan z kartą receptury. Źródła: 06-tresci-001.
@@ -13,12 +13,6 @@ Zadanie planu M1-audytor-generalny-010 (P1, M): Teksty głównego przepływu (pl
 Zadanie planu M1-audytor-generalny-040 (P2, M): Przelicznik drożdży 0,35 w produkcie poza łańcuchem treści; źródła poza ekranem „Źródła wiedzy”; brak wskazówki o drożdżach aktywnych. Test akceptacyjny: test akceptacyjny z raportu źródłowego 06-tresci-005 (pole „Test akceptacyjny”). Źródła: 06-tresci-005.
   M: rozstrzygasz według hierarchii źródeł z promptu (przeczytane źródło, cytat, data); bez potwierdzenia [DO USTALENIA] i bez zmiany w kodzie i treści. Właściciel nie rozstrzyga faktów.
 Zadanie planu M1-audytor-generalny-041 (P2, M): Przekłady nazw mąk podają odpowiedniki bez źródła (MAK-EN-900 otwarte), niespójne w jednym języku. Test akceptacyjny: test akceptacyjny z raportu źródłowego 06-tresci-006 (pole „Test akceptacyjny”). Źródła: 06-tresci-006.
-  M: rozstrzygasz według hierarchii źródeł z promptu (przeczytane źródło, cytat, data); bez potwierdzenia [DO USTALENIA] i bez zmiany w kodzie i treści. Właściciel nie rozstrzyga faktów.
-Zadanie planu M1-audytor-generalny-042 (P2, M): Znane (tor B): terminy trybu maszyny pt/ja/lt z pamięci modelu. Test akceptacyjny: test akceptacyjny z raportu źródłowego 06-tresci-007 (pole „Test akceptacyjny”). Źródła: 06-tresci-007.
-  M: rozstrzygasz według hierarchii źródeł z promptu (przeczytane źródło, cytat, data); bez potwierdzenia [DO USTALENIA] i bez zmiany w kodzie i treści. Właściciel nie rozstrzyga faktów.
-Zadanie planu M1-audytor-generalny-043 (P2, M): Znane (tor B): `DODATKI_MASZYNY` bez rozmarynu focaccii i skórki cytryny kołocza. Test akceptacyjny: test akceptacyjny z raportu źródłowego 06-tresci-008 (pole „Test akceptacyjny”). Źródła: 06-tresci-008.
-  M: rozstrzygasz według hierarchii źródeł z promptu (przeczytane źródło, cytat, data); bez potwierdzenia [DO USTALENIA] i bez zmiany w kodzie i treści. Właściciel nie rozstrzyga faktów.
-Zadanie planu M1-audytor-generalny-045 (P2, M): Cytaty źródeł w publicznym rejestrze dłuższe niż 1–2 zdania (10 wpisów). Test akceptacyjny: test akceptacyjny z raportu źródłowego 06-tresci-010 (pole „Test akceptacyjny”). Źródła: 06-tresci-010.
   M: rozstrzygasz według hierarchii źródeł z promptu (przeczytane źródło, cytat, data); bez potwierdzenia [DO USTALENIA] i bez zmiany w kodzie i treści. Właściciel nie rozstrzyga faktów.
 
 Warunki projektu (CLAUDE.md, docs/decyzje.md): testy przed kodem (czerwony z właściwego powodu, potem zielony); bez @ts-ignore, istanbul ignore, test.skip; pliki app/ i src/ ≤ 20 480 B; w treści withTransactionAsync tylko `tx` z argumentu. Nowe teksty interfejsu: przez t(), wpis EN (src/lib/i18n-en/czesc-31.ts albo nowa część zarejestrowana w src/lib/i18n.en.ts) i przekład 33 języków w pliku docs/lokalizacja/przeklad-m2-<id>-2026-11-09.json (format jak przeklad-m2-026-2026-11-09.json), wpięty: python3 /home/user/piekarz/audit/M1-2026-11-08/narzedzia/wepnij-maly-przeklad.py <plik> "<opis>", potem npm run i18n:kontekst; lista „czeka na przekład” musi zostać pusta; teksty do akceptacji roli 04 wypisz w wyniku. Drugi przegląd AI przekładu i przegląd ścieżki wrażliwej zgłoś jako nieodbyte, jeśli nie masz narzędzia subagentów — uruchomi je M2.
@@ -99,75 +93,6 @@ Na koniec, do 25 linii: commity (SHA → ID), testy przed/po, pliki dowodów, pr
 - Test akceptacyjny: w każdym języku nazwa mąki zawiera numer typu z klucza PL (test liczb przekładu dla kluczy „typ NNN”); jedna mąka ma jedną nazwę w danym języku.
 - Status: otwarte
 
-### 06-tresci-007 · Znane (tor B): terminy trybu maszyny pt/ja/lt z pamięci modelu
-- Pozycja listy kontrolnej: TRE-08
-- Poziom: P2
-- Realność: brzegowy · Pewność: średnia
-- Rodzaj: M
-- Dowód: D-267 („terminy … wybrane z pamięci modelu”), D-276 pkt 3 (tor B). Dziś: lt „Atidėtas paleidimas” zgodne z instrukcją Tefal PAIN PLAISIR po litewsku („atidėto paleidimo programa”), lt „Duonkepė” wobec „duonos kepimo aparatas” w tej instrukcji (zrozumiałe, inny wyraz); pt „início diferido”, pt-BR „início programado”, ja „ホームベーカリー” — w pięciu instrukcjach z rejestru nie ma sekcji pt ani ja (`dowody/maszyna-tor-b.txt`). Zdania bezpieczeństwa w pt, ja, lt zachowują sens i liczby (8 lat, rękawice, otwór pary).
-- Mechanizm: termin interfejsu zgadnięty bez dokumentu producenta w danym języku; dotyczy kluczy trybu maszyny × 3 języki.
-- Powraca: nie (pozycja znana, tor B)
-- Wzorzec lub źródło: instrukcja Tefal „PAIN PLAISIR / PAIN & DELICES” (PDF producenta, odczyt 2026-11-08, sekcja litewska).
-- Kroki w aplikacji: telefon pt/ja/lt → receptura drożdżowa → „Maszyna do chleba”.
-- Opcje (M): instrukcje producentów w pt i ja (Panasonic Japonia, Tefal/Moulinex PT) jako źródło terminów; albo przegląd natywny. Rekomendacja: pierwsza (tańsza, dokument szczebla 1).
-- Test akceptacyjny: termin „opóźniony start” i „maszyna do chleba” w pt, ja, lt zgodny z instrukcją producenta w tym języku, zapis źródła w rejestrze.
-- Status: otwarte
 
-### 06-tresci-008 · Znane (tor B): `DODATKI_MASZYNY` bez rozmarynu focaccii i skórki cytryny kołocza
-- Pozycja listy kontrolnej: TRE-06
-- Poziom: P2
-- Realność: teoretyczny (bez skutku dziś) · Pewność: wysoka
-- Rodzaj: M
-- Dowód: `src/recipes/maszyna-receptur.ts:19` „focaccia_genovese: ['tluszcz']” (opis mówi o świeżym rozmarynie); `src/recipes/maszyna-receptur.ts:28` „cheese_crumble_yeast_cake: ['mleko', 'cukier', 'jajka', 'tluszcz', 'ser']” (bez skórki cytryny). Skutek: focaccia dostaje program „ciasto”, przy którym opóźnienia nie ma (`src/components/receptury/ProgramMaszynyKarta.tsx:84` „const zOpoznieniem = opoz.ok && opoz.dostepny && !ciasto;”), a kołocz jest zablokowany przez mleko, jaja i ser (D-266 pkt a).
-- Mechanizm: lista dodatków nie ma kategorii ziół i skórki, bo żadna instrukcja ich nie wymienia (D-266: [DO USTALENIA]).
-- Powraca: nie (pozycja znana)
-- Wzorzec lub źródło: D-266 (a).
-- Kroki w aplikacji: brak drogi do błędnego działania dziś.
-- Opcje (M): zostawić z zapisem w rejestrze jako otwarte (stan dziś) albo dopisać „świeże zioła” do blokady z ostrożności (bez źródła, reguła aplikacji nazwana). Rekomendacja: zostawić do 1.1; ryzyko pojawi się dopiero przy recepturze z ziołami w programie z opóźnieniem.
-- Test akceptacyjny: test danych `dodatki-maszyny-06m` obejmuje zioła i skórkę albo wpis rejestru mówi, dlaczego nie.
-- Status: otwarte
-
-### 06-tresci-010 · Cytaty źródeł w publicznym rejestrze dłuższe niż 1–2 zdania (10 wpisów)
-- Pozycja listy kontrolnej: TRE-14
-- Poziom: P2
-- Realność: brzegowy · Pewność: wysoka
-- Rodzaj: M
-- Dowód: cytaty po 3–4 zdania (250–545 znaków) w `docs/tresci/rejestr.json`: MAK-TYP-004 (545 znaków), ZAK-LOD-004 (500, 4 zdania), ZAC-CZA-001, ZAK-ZAL-007 (4 zdania), ZAK-ZAL-004, ZAK-ZAL-006, ZAK-ZAL-010, KRO-POC-012, DIA-TEM-001, MAK-HYD-001; 597 cytatów razem, 2 ponad 400 znaków. Repo publiczne (D-170).
-- Mechanizm: brak kontroli długości cytatu w `sprawdzRejestr`.
-- Powraca: nie
-- Wzorzec lub źródło: zasada roli 8 („cytat najwyżej 1–2 zdania”); standard „przeczytanego źródła” (cytat najwyżej 1–2 zdania).
-- Kroki w aplikacji: brak (dokument w repo, nie w produkcie).
-- Opcje (M): skrócić 10 cytatów do zdania niosącego fakt, resztę jako „miejsce”; albo zostawić z zapisem decyzji (cytat dłuższy, bo fakt wymaga kontekstu). Rekomendacja: skrócić.
-- Test akceptacyjny: każdy cytat w rejestrze ma najwyżej 2 zdania (kontrola w skrypcie).
-- Status: otwarte
-
-## Do sprawdzenia (pewność ≤ 80%)
-- **ZAK-PLE-003, ZAK-PLE-004, ZAK-WAC-001 (krytyczne) i część ZAK-NAL-001, ZAK-PLE-002:** jedyne albo drugie źródło USDA FSIS „Molds on Food” odpowiada dziś 403 dla pobrania skryptem; nie dostały werdyktu. Krok właściciela: otworzyć stronę w przeglądarce i porównać cytaty z rejestru (5 zdań); ZAK-PLE-002 i ZAK-NAL-001 popiera też CSU (otwarte dziś).
-- **BEZ-OPA-003 (krytyczne):** news.okstate.edu 403. Krok właściciela jak wyżej (1 cytat). Zdanie w aplikacji („suche rękawice”) stoi też na BEZ-OPA-004 (popartym).
-- **KAT-ALT-001…010:** eAmbrosia (zał. 59722) zwraca „Server temporarily unavailable” (dwie próby 2026-11-08). Ponowić odczyt.
-- **DRO-MOD-001…004, -009, DRO-WER-SP-001, -002, DRO-WER-GR-003, ZAK-SZC-002, MAK-TYP-001…004, ZAC-POO/BIG/PAT, DRO-WER-BR-001/002:** DOI, PKN, BBGA (Wayback) i ciafoodies.com niedostępne dziś; niekrytyczne.
-- **Para w piekarniku bez sposobu i ostrzeżenia:** krok chleba żytniego „Na początku wypieku zapewnij parę w piekarniku.” (`src/core/rye-stages.ts:57`) nie mówi jak; częsty sposób (woda na gorącą blachę) niesie ryzyko oparzenia parą. Brakuje źródła szczebla 1–3 z zaleceniem; do badania roli 06 (build), potem ewentualnie propozycja dla roli 03.
-- **Opis w sklepie:** „Wybierasz jedną z 15 receptur bazowych” wobec 26 receptur na liście (D-229) — dla roli 10 (bez skutku dziedzinowego).
-- **Doktor Chleba (`src/doctor/diagnostics.ts`):** liczby i przyczyny wad poza `docs/tresci/pl/doktor-chleba.md` objęte tylko inwentarzem skryptu; pełny przegląd w kolejnym cyklu.
-
-## Co działa dobrze i należy zachować
-- Rejestr z polem `przeglad` i skrótem wersji zdań: 46/46 krytycznych ma przegląd człowieka zgodny z bieżącymi zdaniami (kontrola bez flagi kod 0). *Dlaczego:* zmiana zdania krytycznego sama unieważnia przegląd.
-- Zdania bezpieczeństwa po stronie bezpiecznej i z jawną granicą („Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas.”), uproszczenia nazwane w rejestrze (ZAK-NAL-001 ostrożniej niż CSU).
-- Tryb maszyny: blokada opóźnionego startu jako suma list pięciu instrukcji producentów (MAS-072), program „ciasto” bez opóźnienia (MAS-085), limity Tefal przepisane z rodzajem granicy.
-- Cytaty dosłowne: 515 z 556 znalezione dziś w surowym tekście; zero rozbieżności w dostępnych źródłach.
-- Testy pilnujące treści w kodzie (F-71, 06z, `retired-safety-verdicts`) i ekran „Źródła wiedzy” z 44 źródłami.
-- Liczby w przekładach 33 języków zgodne z PL (poza nazwami mąk, 06-tresci-006).
-
-## Decyzje dla właściciela
-1. **Wartości pieczenia i plan (06-tresci-001, -003):** (a) plan bierze temperaturę, czas i naczynie z receptury, a rola 06 daje twierdzenia dla wartości receptur bazowych — jedna wartość, więcej pracy przed 1.0; (b) do czasu (a) krok pieczenia bez liczb z odesłaniem do „O recepturze” — szybko, ale traci minutnik faz garnka; (c) plan tylko dla receptur w garnku — mniej funkcji. Rekomendacja: (b) przed buildem wydania, (a) w M2.
-2. **Pizza 450 °C (06-tresci-002):** poprawić według przepisu King Arthur (260–288 °C, 6–7 min + grill) albo zdjąć temperaturę z „O recepturze”. Rekomendacja: poprawić (źródło już w rejestrze).
-3. **Nazwy mąk w 33 językach (06-tresci-006):** (a) numer polskiego typu w nazwie bez odpowiednika krajowego przed 1.0; (b) odpowiedniki po źródle w 1.1. Rekomendacja: (a).
-4. **CI (06-tresci-004):** ustalić przyczynę czerwonego E2E #96 przed testem telefonu (rola 07/08) czy jedno ponowienie jak D-279. Rekomendacja: ustalić przyczynę.
-5. **Kroki właściciela (nie sprawdzono):** otworzyć w przeglądarce FSIS „Molds on Food” i OSU „Designing safer oven mitts” i potwierdzić 6 cytatów krytycznych; przegląd EN „colour” → „color” w ZAK-PLE-004 (otwarte z D-127).
-
-## Proponowane polecenie naprawy
-`node tools/assemble.mjs 06-tresci --tryb fix --zadania 06-tresci-002,06-tresci-003,06-tresci-005,06-tresci-006,06-tresci-007,06-tresci-009,06-tresci-010` (treści, twierdzenia, `docs/tresci`); wartości w kodzie i logika planu (06-tresci-001, część -002, -005, -009) do roli 08, testy akceptacyjne do roli 07, 06-tresci-004 do ról 07/08, 06-tresci-008 bez naprawy do 1.1.
-
-
---- Dopisek M2 (stan po audycie) ---
-042 i 043 zostały zrobione po audycie w torze B: D-284 (commit f73ae9ba; terminy trybu maszyny pt/pt-BR/ja/lt sprawdzone w instrukcjach producentów, DODATKI_MASZYNY bez rozmarynu i skórki cytryny), zatwierdzone przez właściciela w D-287 (terminy zostają, wariant b). Sprawdź stan w kodzie i źródła: jeśli problem już nie występuje, nie zmieniaj niczego i zapisz w wyniku „nie odtworzone: naprawione w D-284 (f73ae9ba)” z dowodem. 014 (D, M2: 15 tekstów głównego przepływu po angielsku w 33 językach) zależy od 010 — w wyniku podaj, które teksty i twierdzenia 010 ustala, żeby M2 mógł je przełożyć.
+--- Dopisek M2 ---
+014 (D, M2: 15 tekstów głównego przepływu po angielsku w 33 językach) zależy od 010 — w wyniku podaj, które teksty i twierdzenia 010 ustala, żeby M2 mógł je przełożyć. Zadania 042, 043, 045 przeniesione do backlogu 1.0.1 (P3, D-288) — poza zakresem tej sesji.
