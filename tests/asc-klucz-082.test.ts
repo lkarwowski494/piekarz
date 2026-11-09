@@ -193,4 +193,11 @@ describe('procedura unieważnienia klucza App Store Connect (D-314)', () => {
     expect(sekcja).toMatch(/współpracownik/);
     expect(sekcja).toMatch(/log/);
   });
+
+  it('warunek ochrony środowiska release (Required reviewers, tylko master) i zasięg sekretu repozytorium (przegląd 082, P2)', () => {
+    expect(sekcja).toMatch(/Required reviewers/);
+    expect(sekcja).toMatch(/Deployment branches = tylko `master`/);
+    expect(sekcja).toMatch(/bez reguł/);
+    expect(sekcja).toMatch(/sekrety są na poziomie repozytorium/);
+  });
 });

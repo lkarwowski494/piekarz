@@ -47,8 +47,15 @@ podpis w chmurze przy eksporcie w `testflight.yml` (`-allowProvisioningUpdates`)
 „Requires access to Certificates, Identifiers & Profiles”, a roli klucza zespołu nie da się zmienić: „Once you generate an API key, you can’t edit its
 name or access level. If you need to make changes, revoke the key and generate a new one.” (developer.apple.com/help/account/access/roles/ i
 developer.apple.com/help/app-store-connect/get-started/app-store-connect-api/, odczyt 2026-11-09). Klucz zespołu działa dla wszystkich aplikacji zespołu
-(„Team API keys are applied across all apps”), więc wyciek dotyczy obu aplikacji naraz. W GitHubie klucz trafia tylko do zadań w środowisku `release`
-(akceptuje właściciel) i do przebiegów tylko do odczytu: na sucho w `asc-ustawienia.yml` i `asc-zgloszenie.yml` oraz `asc-kontrola.yml`.
+(„Team API keys are applied across all apps”), więc wyciek dotyczy obu aplikacji naraz. W workflowach tego repo klucz czytają tylko
+zadania w środowisku `release` (akceptuje właściciel) i przebiegi tylko do odczytu: na sucho w `asc-ustawienia.yml` i `asc-zgloszenie.yml` oraz
+`asc-kontrola.yml`. Zasięg samego sekretu jest szerszy: sekrety są na poziomie repozytorium (przebiegi na sucho i kontrola biegną bez środowiska),
+więc dostaje je każdy workflow uruchomiony przez osobę z prawem zapisu, także z innej gałęzi ze zmienionym kodem. Dziś prawo zapisu ma tylko
+właściciel; nowy współpracownik z prawem zapisu = przegląd tego punktu (znalezisko 082-N3, opcje: ograniczyć gałęzie, osobny klucz tylko do odczytu).
+
+0. **Warunek ochrony (przed pierwszym przebiegiem z `release`):** GitHub → Settings → Environments → `release`: Required reviewers = właściciel,
+   Deployment branches = tylko `master`. Jeśli środowiska nie ma, GitHub utworzy je przy pierwszym użyciu **bez reguł** i build albo zapis ruszy bez
+   akceptacji — żaden test w repo tego nie wykryje. Po każdej zmianie ustawień środowiska sprawdź je ponownie w tym samym miejscu.
 
 1. **Kiedy unieważnić (od razu, bez czekania na pewność):** podejrzenie wycieku pliku `.p8` albo sekretu (plik poza menedżerem haseł, zgubiony
    komputer, alert skanowania sekretów GitHub); identyfikator albo treść klucza w logu przebiegu, artefakcie, zrzucie ekranu, commicie lub zgłoszeniu;
