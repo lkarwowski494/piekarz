@@ -252,7 +252,8 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
 
     // Workflows
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/ci.yml'))).toBe(true);
-    expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/pages.yml'))).toBe(true);
+    // pages.yml usunięty za zgodą właściciela: strony publikuje apps4brew-www [M1-audytor-generalny-077]
+    expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/pages.yml'))).toBe(false);
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/testflight.yml'))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/tests-tz.yml'))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/e2e-ios.yml'))).toBe(true);
