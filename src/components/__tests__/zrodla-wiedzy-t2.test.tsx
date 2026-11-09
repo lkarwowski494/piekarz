@@ -52,7 +52,7 @@ async function otworz() {
 const teksty = (root: renderer.ReactTestInstance) =>
   root.findAll((n) => (n.type as unknown) === 'Text').map((n) => tekstWezla(n.props.children));
 
-describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
+describe('BR-UST-004: Ustawienia → Źródła wiedzy (T2, D-123)', () => {
   afterEach(() => act(() => setLang('pl')));
 
   it('wejście w Ustawieniach: przycisk z etykietą i celem ≥ 44 pt (styl, bez pomiaru)', async () => {

@@ -57,7 +57,7 @@ async function otworz() {
   return { tree: tree!, root, wejscie: root.findByProps({ testID: 'settings-licencje-btn' }) };
 }
 
-describe('Ustawienia → Licencje open source (Z-08-1, FOR-15)', () => {
+describe('BR-UST-005: Ustawienia → Licencje open source (Z-08-1, FOR-15)', () => {
   afterEach(() => act(() => setLang('pl')));
 
   it('wiersz w karcie „Kontakt” obok „Polityki prywatności”: przycisk z etykietą i celem ≥ 44 pt (styl, bez pomiaru)', async () => {

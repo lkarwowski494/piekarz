@@ -53,6 +53,8 @@ const BEZ_DECYZJI_POZA_058: Record<string, string> = {
   'BR-KALK-012': 'M1-audytor-generalny-059 (03-zakres-003)',
   'BR-RECP-005': 'M1-audytor-generalny-059 (03-zakres-003)',
   'BR-DANE-005': 'ER-82 (M1-audytor-generalny-035), decyzja zakresu roli 03',
+  'BR-UST-004': 'ER-84 (F-82 MVP poza tabelą, ZM-28): ID w wierszu F-82 — M1-audytor-generalny-059 (03-zakres-003)',
+  'BR-UST-005': 'ER-84 (F-83 MVP poza tabelą, ZM-28): ID w wierszu F-83 — M1-audytor-generalny-059 (03-zakres-003)',
 };
 
 describe('kontrakt zakresu: pakiet D-092 przez bramkę ZM (058)', () => {

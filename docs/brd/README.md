@@ -19,7 +19,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71), BR-RECP-005 (ER-76) |
-| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
+| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003…005, BR-PRYW, BR-START | E3 + BR-START-001, BR-UST-004, BR-UST-005 (ER-84) |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
 | `wymagania-maszyna.md` | BR-MASZ-001…006 (tryb maszyny do chleba, F-72, PR-25, J-16; reguły RD-37…RD-39) | ER-77, 2026-11-03 |
 | `errata.md` | errata ER-34…ER-78 | E3 + 2026-10-22, 2026-11-03 (ER-75…ER-78) |
