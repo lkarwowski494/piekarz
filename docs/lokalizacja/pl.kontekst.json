@@ -1173,7 +1173,9 @@
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
   },
   "DDT": {
-    "gdzie": []
+    "gdzie": [
+      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+    ]
   },
   "Dalej": {
     "gdzie": [

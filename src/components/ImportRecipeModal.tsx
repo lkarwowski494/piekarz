@@ -163,7 +163,7 @@ export function ImportRecipeModal({
         {validation && validation.success && (
           <View testID="import-preview-card">
           <Karta testID="karta-podgladu-importu" tytul={t('Poprawna formuła')} ikona={<IkonaKarty nazwa="ptaszek" />}>
-            <Text style={styles.previewDdt}>DDT: {formatTemperature(validation.recipe.targetDDT, getUnitSystem())}</Text>
+            <Text style={styles.previewDdt}>{`${t('DDT')}: ${formatTemperature(validation.recipe.targetDDT, getUnitSystem())}`}</Text>
 
             <Text style={styles.previewName}>{validation.recipe.name}</Text>
             {validation.recipe.notes ? (
