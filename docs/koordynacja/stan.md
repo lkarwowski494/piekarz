@@ -46,7 +46,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Sprzątanie gałęzi: `docs/wydanie/sprzatanie-galezi-2026-11-08.txt` (proxy sesji nie pozwala usuwać) + gałąź `koordynacja` zostaje.
 - Pułapy kosztu (mandat [DO USTALENIA]).
 - Krok właściciela: `/effort medium` w sesji koordynatora `session_01T66VBvnDeKWC3vg8bd7wL9` (wysiłek w `get_session` nie pokazany [DO USTALENIA], E6 pkt 5).
-- Wyjątek nazwany (21:50): `node tools/assemble.mjs` odrzucony przez klasyfikator mimo zgody na repo; rola M9 czytana bezpośrednio z `prompts/role/M9-koordynator-sesji/rdzen.md` @ `a9a07dc` (bez warstwy wspólnej i wzorców). Kontrola zastępcza: przy szablonach (linia, polecenie) czytam `wzorce.md`. Do decyzji: reguła zezwalająca na `node …/assemble.mjs` albo zostaje tak.
+- (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
 - Koordynatora (M9 `…vnDeKWC3vg8bd7wL9`): `trig_018vXT2fkF15J67mD4rYYXUQ` „Koordynator Piekarz: kontrola” 09.11 22:40; `trig_01YKrEb3zJQqKE51sX3Z35Bm` „Koordynator Piekarz: raport poranny” 10.11 06:25; `trig_01NhpVXyc9TnpVbswmBeY9ft` „Koordynator Piekarz: linia 14:00” 10.11 14:00.
@@ -71,3 +71,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 21:39 | M3→M9 | przekazane do `session_01T66VBvnDeKWC3vg8bd7wL9` (start bez błędu; wysiłek w get_session nie pokazany [DO USTALENIA] → krok właściciela `/effort medium` w linii); przypomnienia M3 usunięte, „kontrola przekazania" `trig_015Tr2EdGSTL9trcxrq3Fumc` 22:09 (następca usuwa) | przejęcie E6 pkt 5 |
 | 09.11 21:42 | M9 | Przejęcie (E6 pkt 5): wpis w mandacie, 3 przypomnienia, send_message do A (delivered), KO-005; brak wiadomości do poprzednika po 21:38 (`list_events`). Rola M9 nie złożona: klonowanie `prompts` bez dostępu, `add_repo` i uruchomienie `assemble.mjs` odrzucone przez klasyfikator → działam wg stan.md; prośba w raporcie porannym | kontrola 22:40 |
 | 09.11 21:50 | M9 | Właściciel: „Zgadzam sie na dolaczenie repo” → `add_repo` prompts OK, klon @ `a9a07dc`; assemble odrzucony (wyjątek w „Czeka na właściciela”); rdzeń M9 przeczytany | kontrola 22:40 (archiwizacja poprzednika po jego 22:09) |
+| 09.11 21:55 | M9 | Rola M9 złożona (`a9a07dc`, 49 444 zn.) i przeczytana; `delete_trigger` `trig_015Tr2EdGSTL9trcxrq3Fumc` ponownie odrzucony (zostaje; sam się wyłączy u poprzednika 22:09) | kontrola 22:40: archiwizacja poprzednika |
