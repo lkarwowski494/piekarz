@@ -194,6 +194,23 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         adres: 'redstaryeast.com',
       },
       {
+        // D-306 (DRO-INS-030, -011, -012): przelicznik drożdży świeże → suche w arkuszu „Składniki”
+        // (docs/tresci/pl/drozdze-przelicznik.md) [M1-audytor-generalny-040]
+        nazwa: 'Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”',
+        opis: 'Ile drożdży suszonych zastępuje drożdże świeże.',
+        adres: 'oetker.pl',
+      },
+      {
+        nazwa: 'Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”',
+        opis: 'Ile drożdży suszonych zastępuje drożdże świeże.',
+        adres: 'lesaffre.pl',
+      },
+      {
+        nazwa: "Fleischmann's Yeast (producent drożdży), najczęstsze pytania",
+        opis: 'Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.',
+        adres: 'fleischmannsyeast.com',
+      },
+      {
         nazwa: 'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)',
         opis: 'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.',
         adres: 'fcs.mgcafe.uky.edu',

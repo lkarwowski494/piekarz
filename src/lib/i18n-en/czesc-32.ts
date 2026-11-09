@@ -87,4 +87,25 @@ export const EN_32: Record<string, string> = {
     'A traditional Italian ciabatta made with a stiff Biga preferment (50%).',
   'Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.':
     'Mixed with a spoon in 2 minutes, an overnight rise on the counter and baked in a pot.',
+  // Przelicznik drożdży i jego źródła na ekranie (docs/tresci/en/drozdze-przelicznik.md, D-306) [M1-audytor-generalny-040]
+  'Procent drożdży w recepturze to drożdże świeże.':
+    'The yeast percentage in the recipe is fresh yeast.',
+  'Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.':
+    'The app counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast.',
+  'To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.':
+    'This is the middle between two groups of makers\' values, 0.28 and 0.417, and some give even less, so your yeast package may say otherwise.',
+  'Drożdże instant można wsypać prosto do mąki.':
+    'Instant yeast can go straight into the flour.',
+  'Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.':
+    'Some makers say to dissolve active dry yeast in warm water first.',
+  'Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”':
+    'Dr. Oetker Poland (yeast maker), “Drożdże suszone instant 7 g” (instant dried yeast, 7 g)',
+  'Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”':
+    'Lesaffre Poland (yeast maker), “Drożdże SAF INSTANT czerwone/złote” (SAF Instant red/gold yeast)',
+  'Fleischmann\'s Yeast (producent drożdży), najczęstsze pytania':
+    'Fleischmann\'s Yeast (yeast maker), Frequently Asked Questions',
+  'Ile drożdży suszonych zastępuje drożdże świeże.':
+    'How much dried yeast replaces fresh yeast.',
+  'Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.':
+    'How much dry yeast replaces fresh yeast, and which dry yeast to dissolve in water first.',
 };

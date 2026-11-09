@@ -1553,6 +1553,11 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
+  "Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Drobna niedoskonałość": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (label)",
@@ -1590,6 +1595,11 @@
       "src/core/volume-converter.ts (dane: namePl)"
     ]
   },
+  "Drożdże instant można wsypać prosto do mąki.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
+  },
   "Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
@@ -1598,6 +1608,11 @@
   "Drożdże suche": {
     "gdzie": [
       "src/lib/rodzaj-drozdzy.ts (kod)"
+    ]
+  },
+  "Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
   "Drożdże świeże (prasowane)": {
@@ -1935,6 +1950,11 @@
   "Fizjologia i chemia:": {
     "gdzie": [
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Fleischmann's Yeast (producent drożdży), najczęstsze pytania": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Focaccia / Pizza na blasze": {
@@ -2352,6 +2372,16 @@
   "Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ile drożdży suszonych zastępuje drożdże świeże.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Ile mililitrów ma amerykańska szklanka miarowa.": {
@@ -3173,6 +3203,11 @@
   "Lekcja ukończona (stuknij, aby cofnąć)": {
     "gdzie": [
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
     ]
   },
   "Levain (Rzemieślniczy zaczyn na zakwasie)": {
@@ -5148,6 +5183,11 @@
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
+  "Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz nie uruchomił się poprawnie": {
     "gdzie": [
       "src/components/RescueScreen.tsx (tekst w JSX)"
@@ -5734,10 +5774,13 @@
   "Procedura Bassinage ratunkowego": {
     "gdzie": []
   },
-  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.": {
+  "Procent drożdży w recepturze to drożdże świeże.": {
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
-    ],
+    ]
+  },
+  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.": {
+    "gdzie": [],
     "opis": "Objaśnienie pod przełącznikiem „świeże / suche” w arkuszu Składniki. Liczba 0,35 to mnożnik masy drożdży świeżych (jedna liczba dla suchych instant i aktywnych, D-172); zapisz ją według konwencji liczb języka. Tekst krytyczny dla ważenia: nie zmieniaj liczby ani znaczenia (D-202, D-205, D-206)."
   },
   "Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%": {
@@ -7494,6 +7537,11 @@
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
   },
   "Tor {n}, {receptura}: {krok}": {
     "gdzie": [

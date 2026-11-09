@@ -226,7 +226,16 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
                   {segmentDrozdzy('swieze', 'yeast-type-fresh', t('świeże|drożdże'))}
                   {segmentDrozdzy('suche', 'yeast-type-dry', t('suche|drożdże'))}
                 </View>
-                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.')}</Text>
+                {/* Zdanie D-100 i 4 zdania docs/tresci/pl/drozdze-przelicznik.md dosłownie (D-306) [M1-audytor-generalny-040] */}
+                <Text style={styles.objasnienie}>
+                  {t('Procent drożdży w recepturze to drożdże świeże.')}{' '}
+                  {t('Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.')}{' '}
+                  {t('To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.')}
+                </Text>
+                <Text style={styles.objasnienie}>
+                  {t('Drożdże instant można wsypać prosto do mąki.')}{' '}
+                  {t('Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.')}
+                </Text>
               </Karta>
             )}
 

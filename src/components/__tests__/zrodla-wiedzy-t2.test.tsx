@@ -76,7 +76,7 @@ describe('Ustawienia → Źródła wiedzy (T2, D-123)', () => {
     const naglowki = root.findAll((n) => (n.type as unknown) === 'Text' && n.props.accessibilityRole === 'header').map((n) => tekstWezla(n.props.children));
     expect(naglowki).toEqual(ZRODLA_WIEDZY.map((g) => g.temat));
     const zrodla = ZRODLA_WIEDZY.flatMap((g) => g.zrodla);
-    expect(zrodla).toHaveLength(45); // D-247: +7 źródeł katalogu p8 (27 → 34), grupa „Receptury” (6 → 7); D-255: +5 źródeł wersji drożdżowych (34 → 39); D-265: +5 instrukcji maszyn, grupa „Maszyna do chleba” (7 → 8, 39 → 44); D-304: +1 źródło brioszki (44 → 45) [M1-audytor-generalny-009]
+    expect(zrodla).toHaveLength(48); // D-247: +7 źródeł katalogu p8 (27 → 34), grupa „Receptury” (6 → 7); D-255: +5 źródeł wersji drożdżowych (34 → 39); D-265: +5 instrukcji maszyn, grupa „Maszyna do chleba” (7 → 8, 39 → 44); D-304: +1 źródło brioszki (44 → 45) [M1-audytor-generalny-009]; D-306: +3 źródła przelicznika drożdży (45 → 48) [M1-audytor-generalny-040]
     for (const z of zrodla) {
       expect(t1).toContain(z.nazwa);
       expect(t1).toContain(z.opis);
