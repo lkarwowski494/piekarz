@@ -228,8 +228,8 @@ export function calculateReverseSchedule(
   const sleepStart = options.sleepStartHour ?? DOMYSLNE_OKNO_SNU.startH;
   const sleepEnd = options.sleepEndHour ?? DOMYSLNE_OKNO_SNU.koniecH;
 
-  // Receptura w keksówce na zakwasie (dziś tylko brioszka): kroki brioszki ze źródła zamiast bochenka w koszyku (D-309) [M2-012]
-  const szablon = options.pieczenie?.naczynie === 'bread_pan' ? briocheTemplates(DEFAULT_STAGE_TEMPLATES) : DEFAULT_STAGE_TEMPLATES;
+  // Brioszka (po id receptury, nie po keksówce): kroki brioszki ze źródła zamiast bochenka w koszyku (D-309) [M2-012]
+  const szablon = options.pieczenie?.szablon === 'brioszka' ? briocheTemplates(DEFAULT_STAGE_TEMPLATES) : DEFAULT_STAGE_TEMPLATES;
   const templates = szablon.map((t) => ({ ...t }));
 
   // Pieczenie z danych receptury: naczynie, czas i teksty kroków (D-304) [M1-audytor-generalny-008]

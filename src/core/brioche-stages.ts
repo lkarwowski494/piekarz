@@ -41,6 +41,9 @@ export const BRIOCHE_STAGE_TEMPLATES: readonly StageTemplate[] = [
 ];
 
 /** Id kroków brioszki (prowadzenie: „Po co ten krok” bez zdań o krokach bochenka). */
+/** Receptury z planem brioszki (D-309): wybór po id, nie po keksówce [M2-012]. */
+export const BRIOCHE_RECIPE_IDS: readonly string[] = ['lievito_madre_panettone_brioche'];
+
 export const BRIOCHE_STAGE_IDS: readonly string[] = BRIOCHE_STAGE_TEMPLATES.map((t) => t.id);
 
 /**

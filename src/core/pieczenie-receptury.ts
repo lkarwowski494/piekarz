@@ -14,6 +14,8 @@ export interface PieczenieReceptury {
   tempRumienienieC: number;
   minPara: number;
   minRumienienie: number;
+  /** Kroki planu z treści brioszki (D-309), tylko dla receptury brioszki — nie dla każdej keksówki [M2-012]. */
+  szablon?: 'brioszka';
 }
 
 type PolaPieczenia = 'recommendedVessel' | 'bakeTempSteamC' | 'bakeTempBrowningC' | 'bakeTimeSteamMinutes' | 'bakeTimeBrowningMinutes';
