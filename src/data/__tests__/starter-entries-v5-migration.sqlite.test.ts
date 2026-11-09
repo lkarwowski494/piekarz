@@ -143,4 +143,29 @@ describe('błąd w migracji 5 wycofuje całość (104, T2)', () => {
     expect(raw.prepare('SELECT count(*) AS c FROM schema_migrations WHERE version = 5').get()).toEqual({ c: 0 });
     raw.close();
   });
+
+  // M1-audytor-generalny-071 (07-jakosc-007): drugie połączenie widzi tylko zatwierdzone dane, więc nie wykrywa braku
+  // ROLLBACK. Aplikacja zostaje w tej sesji z tym samym połączeniem (ekran błędu z kopią): ono nie może mieć otwartej
+  // transakcji — wersja 4 w nim samym, a zapis w trybie autocommit jest od razu widoczny w drugim połączeniu.
+  it('po MigrationError połączenie aplikacji jest bez otwartej transakcji: wersja 4, zapis widoczny w drugim połączeniu (071)', async () => {
+    seedRelease('ebd8471');
+    control().failWritesMatching = /starter_entries/;
+    const app = restartApp();
+    await app.schema.initDatabase();
+    expect(app.status.getStorageState()).toBe('unavailable');
+    control().failWritesMatching = null;
+
+    const db = await app.schema.getDb();
+    if (!db) throw new Error('brak połączenia aplikacji po MigrationError');
+    expect(await db.getFirstAsync('PRAGMA user_version;')).toEqual({ user_version: 4 });
+    // Zapis tym samym połączeniem bez BEGIN: przy niewycofanej transakcji migracji zostałby w niej i drugie
+    // połączenie by go nie widziało
+    await db.execAsync('CREATE TABLE sonda_071 (x INTEGER); INSERT INTO sonda_071 (x) VALUES (71);');
+    const raw = openRaw(APP_DB());
+    expect(hasTable(raw, 'sonda_071')).toBe(true);
+    expect(raw.prepare('SELECT x FROM sonda_071').all()).toEqual([{ x: 71 }]);
+    raw.close();
+    // Nowa transakcja daje się otworzyć (w otwartej BEGIN pada: „cannot start a transaction within a transaction”)
+    await expect(db.execAsync('BEGIN TRANSACTION; ROLLBACK;')).resolves.toBeUndefined();
+  });
 });
