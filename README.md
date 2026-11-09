@@ -121,7 +121,7 @@ Liczbę testów podaje wynik `npm test`; ten plik nie powtarza jej ręcznie.
 
 1. **Property-Based Testing (`fast-check`, `src/core/__tests__/domain-property-based.test.ts`):**
    - Niezmienniki na losowych danych (np. `numRuns: 1000`): bilans masy składników dla ciast od 200 g do 20 kg, monotoniczność czasu fermentacji z $Q_{10} = 3{,}0$, ciągłość etapów harmonogramu wstecznego; także moduły z kodem bez wejścia w 1.0 (PÓŹNIEJ i NIE).
-2. **Niezależny korpus fizyczny (Python ↔ TypeScript):**
+2. **Korpus regresji obliczeń (Python ↔ TypeScript; generator odtwarza zachowanie kodu, więc to nie niezależna wyrocznia):**
    - Skrypt `scripts/gen-baking-physics-corpus.py` generuje wektory obliczeń piekarskich (`src/core/__tests__/fixtures/baking-physics-corpus.json`), sprawdzane w `src/core/__tests__/baking-physics-corpus.test.ts`; obejmują też moduły PÓŹNIEJ i NIE, których kod zostaje.
 3. **Macierz testów AST (`scripts/test-matrix.mjs`, `docs/22-macierz-testow.md`):** pokrycie ekranów, elementów UI, tekstów, logiki i wymiarów (`npm run verify:matrix`).
 4. **Odporność danych SQLite (`src/data/__tests__/`):** migracje schematu, kopie przed migracją i importem, przywracanie, błędy zapisu, walidacja wierszy.

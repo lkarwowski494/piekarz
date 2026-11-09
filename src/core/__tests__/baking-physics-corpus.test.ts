@@ -7,7 +7,8 @@ import {
   calculateBakeLossMetrics,
 } from '../domain-rules';
 
-describe('Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript Cross-Validation)', () => {
+// Korpus regresji, nie niezależna wyrocznia: generator odtwarza zachowanie kodu JS [M1-audytor-generalny-073]
+describe('Apps4Brew Physics Regression Corpus (Python ↔ TypeScript)', () => {
   it('validates meta header and non-empty corpus datasets', () => {
     expect(corpusFixture.meta.generator).toContain('gen-baking-physics-corpus.py');
     expect(corpusFixture.ddtCases.length).toBeGreaterThan(150);
