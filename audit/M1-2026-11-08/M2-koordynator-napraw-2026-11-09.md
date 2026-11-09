@@ -9,7 +9,7 @@ Data: 2026-11-09. Baza audytu: `2ef8870a` (build 1023). Gałęzie partii: p1 i p
 
 ## Kontrola dowodów (koniec partii 3)
 - `npm run verify` na 6a412c9a (UTC): 6800 testów, kod 0 — dowody/M2/p3-D316-verify.txt; na 2d426037: 6789, kod 0 — dowody/M2/p3-2d426037-verify-utc.txt
-- `TZ=Asia/Tokyo npm run verify` na 6a412c9a: dowody/M2/p3-6a412c9a-verify-tokyo.txt (wynik niżej w sekcji E2E).
+- `TZ=Asia/Tokyo npm run verify` na 6a412c9a: 6800 testów, kod 0 — dowody/M2/p3-6a412c9a-verify-tokyo.txt
 - iOS E2E na SHA kandydata: run 42691065882 (#100, workflow_dispatch, ref p3) — wynik niżej.
 - Stryker (067): dry-run `perTest` 1581 testów, 6509 mutantów, start 37 s — dowody/M2/p3-067-stryker-dry-run.txt; pełny czas i wynik ≥ progu `break` dopiero w nightly na master po scaleniu (część testu akceptacyjnego otwarta).
 - Przeglądy ścieżki wrażliwej partii 3: 082 (brak P0/P1), 068+067 (P1 → 6a412c9a, D-316; nightly brak P0/P1). Drugi przegląd AI przekładu 078/080 (brak P1).
