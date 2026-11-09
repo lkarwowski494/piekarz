@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 1 klucza M1-audytor-generalny-016 (informacja o nieudanej kopii automatycznej po wypieku, Ustawienia → Kopia zapasowa): MT M2 2026-11-09 z EN; forma zwracania się jak w słowniku danego języka; tekst PL do akceptacji roli 04; drugi przegląd AI: do wykonania przez M2.",
+ "_opis": "Przekład 1 klucza M1-audytor-generalny-016 (informacja o nieudanej kopii automatycznej po wypieku, Ustawienia → Kopia zapasowa): MT M2 2026-11-09 z EN; forma zwracania się jak w słowniku danego języka; tekst PL do akceptacji roli 04; drugi przegląd AI: M2 2026-11-09, bez P0/P1; poprawione sl (forma), de, da, ja, it, pt, nb, tr, hu.",
  "pl": [
   "Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej."
  ],
@@ -11,10 +11,10 @@
    "Poslední automatická záloha po pečení se neuložila. Uložte zálohu ručně tlačítkem níže."
   ],
   "da": [
-   "Den seneste automatiske sikkerhedskopi efter et bagværk blev ikke gemt. Gem en kopi manuelt med knappen nedenfor."
+   "Den seneste automatiske sikkerhedskopi efter en bagning blev ikke gemt. Gem en kopi manuelt med knappen nedenfor."
   ],
   "de": [
-   "Die letzte automatische Sicherung nach dem Backen wurde nicht gespeichert. Speichere eine Sicherung manuell mit der Taste unten."
+   "Die letzte automatische Sicherung nach dem Backen wurde nicht gespeichert. Speichere eine Sicherung manuell mit der Schaltfläche unten."
   ],
   "el": [
    "Το τελευταίο αυτόματο αντίγραφο ασφαλείας μετά το ψήσιμο δεν αποθηκεύτηκε. Αποθηκεύστε αντίγραφο χειροκίνητα με το κουμπί παρακάτω."
@@ -38,16 +38,16 @@
    "Posljednja automatska sigurnosna kopija nakon pečenja nije spremljena. Spremi kopiju ručno gumbom ispod."
   ],
   "hu": [
-   "A sütés utáni legutóbbi automatikus biztonsági mentés nem mentődött el. Ments kézzel az alábbi gombbal."
+   "A sütés utáni legutóbbi automatikus biztonsági mentés nem mentődött el. Ments biztonsági másolatot kézzel az alábbi gombbal."
   ],
   "id": [
    "Cadangan otomatis terakhir setelah memanggang tidak tersimpan. Simpan cadangan secara manual dengan tombol di bawah."
   ],
   "it": [
-   "L’ultimo backup automatico dopo la cottura non è stato salvato. Salva un backup manualmente con il pulsante qui sotto."
+   "L’ultimo backup automatico dopo la sfornata non è stato salvato. Salva un backup manualmente con il pulsante qui sotto."
   ],
   "ja": [
-   "焼き上げ後の最新の自動バックアップが保存されませんでした。下のボタンで手動でバックアップを保存してください。"
+   "焼成後の最新の自動バックアップが保存されませんでした。下のボタンで手動でバックアップを保存してください。"
   ],
   "ko": [
    "굽기 후 마지막 자동 백업이 저장되지 않았어요. 아래 버튼으로 직접 백업을 저장하세요."
@@ -62,13 +62,13 @@
    "Sandaran automatik terakhir selepas membakar tidak disimpan. Simpan sandaran secara manual dengan butang di bawah."
   ],
   "nb": [
-   "Den siste automatiske sikkerhetskopien etter baking ble ikke lagret. Lagre en kopi manuelt med knappen nedenfor."
+   "Den siste automatiske sikkerhetskopien etter baksten ble ikke lagret. Lagre en kopi manuelt med knappen nedenfor."
   ],
   "nl": [
    "De laatste automatische back-up na het bakken is niet opgeslagen. Sla handmatig een back-up op met de knop hieronder."
   ],
   "pt": [
-   "A última cópia de segurança automática após a cozedura não foi guardada. Guarde uma cópia manualmente com o botão abaixo."
+   "A última cópia de segurança automática após a fornada não foi guardada. Guarde uma cópia manualmente com o botão abaixo."
   ],
   "pt-BR": [
    "O último backup automático depois da fornada não foi salvo. Salve um backup manualmente com o botão abaixo."
@@ -83,7 +83,7 @@
    "Posledná automatická záloha po pečení sa neuložila. Uložte zálohu ručne tlačidlom nižšie."
   ],
   "sl": [
-   "Zadnja samodejna varnostna kopija po peki se ni shranila. Kopijo shrani ročno z gumbom spodaj."
+   "Zadnja samodejna varnostna kopija po peki se ni shranila. Kopijo shranite ročno z gumbom spodaj."
   ],
   "sr": [
    "Последња аутоматска резервна копија после печења није сачувана. Сачувај копију ручно дугметом испод."
@@ -92,7 +92,7 @@
    "Den senaste automatiska säkerhetskopian efter bakningen sparades inte. Spara en kopia manuellt med knappen nedan."
   ],
   "tr": [
-   "Pişirmeden sonraki son otomatik yedek kaydedilmedi. Aşağıdaki düğmeyle yedeği elle kaydedin."
+   "Pişirmeden sonraki son otomatik yedek kaydedilmedi. Aşağıdaki düğmeyle elle bir yedek kaydedin."
   ],
   "uk": [
    "Остання автоматична резервна копія після випікання не збереглася. Збережіть копію вручну кнопкою нижче."

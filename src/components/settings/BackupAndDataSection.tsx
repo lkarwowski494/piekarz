@@ -22,7 +22,7 @@ import { typografia } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
-import { useBladKopiiAuto } from '../../lib/kopia-auto-stan';
+import { kopiaRecznaUdana, useBladKopiiAuto } from '../../lib/kopia-auto-stan';
 export function BackupAndDataSection() {
   const bladKopii = useBladKopiiAuto();
   const [isExporting, setIsExporting] = useState<boolean>(false);
@@ -35,6 +35,8 @@ export function BackupAndDataSection() {
       const success = await exportBackup(await collectBackupData());
       if (!success) {
         Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
+      } else {
+        void kopiaRecznaUdana();
       }
     } catch {
       Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));

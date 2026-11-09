@@ -40,8 +40,21 @@ async function zapisz(v: number | null): Promise<void> {
   await ustawienia().setAppSetting(KLUCZ_BLEDU_KOPII, v === null ? '' : String(v)).catch(() => undefined);
 }
 
+// Kopie po wypieku po kolei: wynik ostatniej skończonej to wynik ostatniego wypieku (dwa wypieki naraz, przegląd 016 P3-1)
+let ogon: Promise<void> = Promise.resolve();
+
 /** Kopia automatyczna po zakończonym wypieku z zapisem wyniku (null z autoBackup albo wyjątek = błąd). */
-export async function kopiaPoWypieku(zbierz: () => Promise<PiekarzBackupData>): Promise<void> {
+export function kopiaPoWypieku(zbierz: () => Promise<PiekarzBackupData>): Promise<void> {
+  ogon = ogon.then(() => wykonajKopie(zbierz), () => wykonajKopie(zbierz));
+  return ogon;
+}
+
+/** Udany ręczny eksport kopii: informacja o nieudanej kopii automatycznej znika (przegląd 016 P3-2). */
+export function kopiaRecznaUdana(): Promise<void> {
+  return zapisz(null);
+}
+
+async function wykonajKopie(zbierz: () => Promise<PiekarzBackupData>): Promise<void> {
   const ok = await zbierz().then((dane) => kopie().autoBackup(dane)).then((sciezka) => sciezka !== null, () => false);
   await zapisz(ok ? null : Date.now());
 }

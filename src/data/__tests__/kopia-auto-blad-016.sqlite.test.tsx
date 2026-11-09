@@ -49,6 +49,16 @@ describe('016: błąd kopii automatycznej po wypieku', () => {
     mockKopia = 'ok';
     await kopiaPoWypieku(async () => ({}) as never);
     expect(await getAppSetting(KLUCZ_BLEDU_KOPII)).toBe('');
+    // ręczny eksport czyści informację; dwie kopie naraz: wynik ostatniej uruchomionej
+    mockKopia = 'rzuca';
+    await kopiaPoWypieku(async () => ({}) as never);
+    await ka().kopiaRecznaUdana();
+    expect(await getAppSetting(KLUCZ_BLEDU_KOPII)).toBe('');
+    mockKopia = 'ok';
+    const a = kopiaPoWypieku(async () => { await new Promise((r) => setTimeout(r, 30)); return {} as never; });
+    const b = kopiaPoWypieku(async () => { mockKopia = 'rzuca'; return {} as never; });
+    await Promise.all([a, b]);
+    expect(await getAppSetting(KLUCZ_BLEDU_KOPII)).toMatch(/^\d+$/);
   });
   it('Ustawienia → Kopia zapasowa pokazują informację o nieudanej kopii (useBladKopiiAuto)', async () => {
     useTempDbDir();

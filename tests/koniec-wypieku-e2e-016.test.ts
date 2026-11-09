@@ -4,6 +4,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { planBakeSteps, isDutchOvenStep } from '../src/core/bake-steps';
 
 const ROOT = path.join(__dirname, '..');
 const czytaj = (p: string) => fs.readFileSync(path.join(ROOT, p), 'utf8');
@@ -22,5 +23,9 @@ describe('016: koniec wypieku w E2E i na liście telefonu', () => {
   it('lista telefonu ma punkt końca wypieku z plikiem piekarz-kopia-*', () => {
     const lista = czytaj('docs/wydanie/lista-kontrolna-telefonu.md');
     expect(lista).toMatch(/\*\*PH-15\*\* Koniec wypieku[^\n]*Dzienniku[^\n]*piekarz-kopia-/);
+  });
+  it('ostatni krok planu nie jest krokiem w garnku: „Zrobione” na nim otwiera ocenę (przegląd 016 P3-3)', () => {
+    const kroki = planBakeSteps({ startAt: Date.now(), isHighRye: false });
+    expect(isDutchOvenStep(kroki[kroki.length - 1])).toBe(false);
   });
 });
