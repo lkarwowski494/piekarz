@@ -39,34 +39,34 @@ Kalkulator Doh & Jadual Bakar
 resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread
 ```
 
-### Tekst promocyjny (Promotional Text) · 170 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
 
 ```text
-Tetapkan masa roti siap: Tukang Roti mengira kuantiti, menyusun pelan secara songsang dan memberitahu bila setiap langkah tamat. Tanpa akaun, tanpa internet, tanpa iklan.
+Tukang Roti mengira kuantiti dan memberitahu bila setiap langkah tamat. Pelan songsang dari masa roti perlu siap (Pro). Tanpa akaun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3466 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3408 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
 
 RESIPI DAN KUANTITI
-Pilih satu daripada 15 resipi asas (sourdough, rai, yis, piza dan manis) atau resipi anda sendiri. Tetapkan bilangan buku roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, pemula, garam dan yis. Peratusan pembuat roti mengambil kira tepung dan air daripada pemula dan biang. Tukang Roti juga memberikan suhu air untuk suhu doh yang anda mahukan.
+Pilih satu daripada 15 resipi asas (sourdough, rai, yis, piza dan manis) atau resipi anda sendiri. Tetapkan bilangan buku roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, pemula, garam dan yis. Peratusan pembuat roti mengambil kira tepung dan air daripada pemula dan biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu doh yang anda mahukan.
 
-PELAN DARI MASA “SIAP”
+PELAN DARI MASA “SIAP” (Pro)
 Pilih bila roti perlu siap, dan Tukang Roti mengira secara songsang masa mula setiap langkah. Masa penapaian bergantung pada suhu dapur anda. Apabila langkah yang memerlukan tangan anda jatuh pada waktu malam (secara lalai antara 23:00 dan 07:00), Tukang Roti mencadangkan masa lebih lama dalam peti sejuk. Jika masa tidak mencukupi, Tukang Roti memberikan masa paling awal yang mungkin.
 
 BIMBINGAN LANGKAH DEMI LANGKAH
 Tukang Roti menunjukkan langkah semasa: apa perlu dibuat, berapa lama dan apa seterusnya. Jika anda membenarkan pemberitahuan, Tukang Roti memaklumkan tamat langkah walaupun telefon dikunci. Semasa langkah yang memerlukan tangan anda, skrin bimbingan tidak padam. Langkah dengan peralatan masak panas atau doh mentah mempunyai amaran. Roti rai (lebih separuh tepung ialah tepung rai) mempunyai langkah tersendiri tanpa lipatan. Langkah yang tersilap disahkan boleh dibatalkan, dan apabila dibuka semula, aplikasi kembali ke langkah semasa.
 
 PEMULA
-Urus beberapa pemula. Tukang Roti memberikan kuantiti pemberian makan dalam nisbah 1:1:1, 1:2:2, 1:3:3 atau 1:5:5. Apabila pemula mengembang dua kali ganda isi padu, Tukang Roti menandakannya sedia untuk doh. Selepas 12 jam di atas kaunter tanpa diberi makan, Tukang Roti mengingatkan anda melalui pemberitahuan. Pemula baharu boleh dimulakan hari demi hari. Tukang Roti mengamalkan prinsip berjaga-jaga: jika ada selaput, perubahan warna atau bau busuk, Tukang Roti menasihatkan anda membuang pemula.
+Pemula baharu boleh dimulakan hari demi hari. Tukang Roti mengamalkan prinsip berjaga-jaga: jika ada selaput, perubahan warna atau bau busuk, Tukang Roti menasihatkan anda membuang pemula. Penjagaan pemula (Pro): beberapa pemula, kuantiti pemberian makan dalam nisbah 1:1:1, 1:2:2, 1:3:3 atau 1:5:5, tanda sedia apabila pemula mengembang dua kali ganda dan peringatan selepas 12 jam di atas kaunter tanpa diberi makan.
 
 DOKTOR ROTI
 Remah padat dan kerak pucat? Tandakan gejala, dan Doktor Roti menunjukkan satu daripada 9 kecacatan, menerangkan puncanya dan memberitahu apa perlu diubah pada kali seterusnya. Empat protokol penyelamat membantu apabila doh bermasalah semasa penapaian. Doktor Pemula membantu apabila sesuatu tentang pemula membimbangkan anda.
 
 JURNAL
-Nilai setiap buku roti: bintang, remah, kerak dan profil rasa. Jurnal menunjukkan statistik, dan “Bakar Semula” membuka resipi yang sama.
+Nilai setiap buku roti: bintang, remah, kerak dan profil rasa. Jurnal menunjukkan statistik (Pro), dan “Bakar Semula” membuka resipi yang sama.
 
 DATA ANDA
 Tukang Roti menyimpan 10 sandaran automatik terakhir dalam telefon anda. Eksport semua data ke fail dan import daripada fail, serta eksport sejarah bakaran sebagai CSV. Unit: gram dan °C atau auns dan °F.

@@ -21,31 +21,31 @@
 | :--- | :--- | :---: | :---: |
 | **Nazwa aplikacji (Name)** | `Piekarz: Chleb na zakwasie` | **26** | max 30 |
 | **Podtytuł (Subtitle)** | `Plan i kalkulator wypieku` | **25** | max 30 |
-| **Tekst promocyjny (Promotional Text)** | `Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.` | **157** | max 170 |
+| **Tekst promocyjny (Promotional Text)** | `Piekarz policzy ilości i da znać o końcu każdego kroku. Plan wstecz od godziny, o której chleb ma być gotowy (Pro). Bez konta, bez internetu, bez reklam.` | **153** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 236 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 228 / 4 000 znaków)
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
 
 RECEPTURY I ILOŚCI
-Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu. Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
+Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
 
-PLAN OD GODZINY „GOTOWE”
+PLAN OD GODZINY „GOTOWE” (Pro)
 Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.
 
 PROWADZENIE KROK PO KROKU
 Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.
 
 ZAKWASY
-Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.
+Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas. Opieka nad zakwasem (Pro): kilka zakwasów, ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5, oznaczenie gotowości, gdy zakwas podwoi objętość, i przypomnienie po 12 godzinach na blacie bez dokarmienia.
 
 DOKTOR CHLEBA
 Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
 
 DZIENNIK
-Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.
+Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki (Pro), a „Piecz ponownie” otwiera tę samą recepturę.
 
 TWOJE DANE
 Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.
@@ -70,31 +70,31 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 | :--- | :--- | :---: | :---: |
 | **App Name** | `Baker: Sourdough Bread Planner` | **30** | max 30 |
 | **Subtitle** | `Dough Calculator & Bake Timer` | **29** | max 30 |
-| **Promotional Text** | `Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.` | **161** | max 170 |
+| **Promotional Text** | `Baker works out the amounts and tells you when each step ends. A plan back from the time you want bread ready (Pro). No account, no internet, no ads.` | **149** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 183 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 186 / 4 000 znaków)
 
 ```text
-Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
+Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
 RECIPES AND AMOUNTS
-Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment. Baker also gives the water temperature for the dough temperature you want.
+Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
 
-A PLAN FROM THE "READY" TIME
+A PLAN FROM THE "READY" TIME (Pro)
 Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 07:00 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
 
 STEP-BY-STEP GUIDANCE
 Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
 
 STARTERS
-Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discoloration or rotten smell, it advises you to throw the starter away.
+You can start a new starter day by day. Baker follows a precautionary rule: with any film, discoloration or rotten smell, it advises you to throw the starter away. Starter care (Pro): several starters, feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio, a ready mark when the starter has doubled in volume, and a reminder after 12 hours on the counter without a feeding.
 
 BREAD DOCTOR
 Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
 
 JOURNAL
-Rate each loaf: stars, crumb, crust and flavor profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
+Rate each loaf: stars, crumb, crust and flavor profile. The Journal shows statistics (Pro), and "Bake Again" opens the same recipe.
 
 YOUR DATA
 Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.
@@ -233,10 +233,10 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 | Lokalizacja | Kod ASC | Nazwa | Zn. | Podtytuł | Zn. | Słowa kluczowe | B | Pierwsze zdanie opisu | Zn. | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| English (U.S.) | `en-US` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | częściowo |
-| English (U.K.) | `en-GB` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | częściowo |
-| English (Australia) | `en-AU` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | hipoteza |
-| English (Canada) | `en-CA` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | hipoteza |
+| English (U.S.) | `en-US` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | częściowo |
+| English (U.K.) | `en-GB` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | częściowo |
+| English (Australia) | `en-AU` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | hipoteza |
+| English (Canada) | `en-CA` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | hipoteza |
 | German | `de-DE` | `Bäcker: Sauerteigbrot backen` | 28 | `Backplan, Teigrechner & Timer` | 29 | `anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,stockgare,starter` | 97 | Bäcker führt dich beim Sauerteigbrot vom Rezept bis zum Laib: rechnet Mengen, plant rückwärts ab Fertigzeit und erinnert dich auch bei gesperrtem Handy. | 152 | częściowo |
 | Dutch | `nl-NL` | `Bakker: Zuurdesem & Brood` | 25 | `Bakplanning en rekenhulp` | 24 | `desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,timer,rijzen,bakken` | 95 | Bakker begeleidt je bij zuurdesembrood van recept tot brood: rekent hoeveelheden uit, plant terug vanaf je eetmoment en herinnert je ook met vergrendelde telefoon. | 163 | częściowo |
 | French | `fr-FR` | `Mitron : Pain au levain` | 23 | `Calcul, plan et minuteur` | 24 | `boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcentage,maison,pâte` | 97 | Mitron vous guide pas à pas, de la recette au pain, pour réussir votre pain au levain à la maison : quantités, planning et minuteurs. | 133 | częściowo |
@@ -272,33 +272,33 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 | Lokalizacja | Tekst promocyjny (≤ 170 znaków) | Zn. |
 | :--- | :--- | :---: |
-| en-GB, en-AU | Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads. | 161 |
-| en-CA | Sourdough planner with baker's percentage: recipe amounts, a plan back from your ready time, timers that ring while the phone is locked. No account, no ads. | 156 |
+| en-GB, en-AU | Baker works out the amounts and tells you when each step ends. A plan back from the time you want bread ready (Pro). No account, no internet, no ads. | 149 |
+| en-CA | Sourdough planner with baker's percentage: recipe amounts, timers that ring while the phone is locked, a plan back from your ready time (Pro). No account, no ads. | 162 |
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 185 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 188 / 4 000 znaków)
 
 ```text
-Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
+Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
 RECIPES AND AMOUNTS
-Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment. Baker also gives the water temperature for the dough temperature you want.
+Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
 
-A PLAN FROM THE "READY" TIME
+A PLAN FROM THE "READY" TIME (Pro)
 Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 07:00 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
 
 STEP-BY-STEP GUIDANCE
 Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
 
 STARTERS
-Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away.
+You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away. Starter care (Pro): several starters, feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio, a ready mark when the starter has doubled in volume, and a reminder after 12 hours on the counter without a feeding.
 
 BREAD DOCTOR
 Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
 
 JOURNAL
-Rate each loaf: stars, crumb, crust and flavour profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
+Rate each loaf: stars, crumb, crust and flavour profile. The Journal shows statistics (Pro), and "Bake Again" opens the same recipe.
 
 YOUR DATA
 Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.

@@ -41,31 +41,31 @@ idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poo
 ### Tekst promocyjny (Promotional Text) · 165 / 170 znaków · wersja 1.0
 
 ```text
-Imposta l'ora in cui vuoi il pane pronto: Fornaio calcola le dosi, pianifica a ritroso e ti avvisa alla fine di ogni passaggio. Senza account, internet e pubblicità.
+Fornaio calcola le dosi e ti avvisa alla fine di ogni passaggio. Programma a ritroso dall'ora in cui vuoi il pane pronto (Pro). Senza account, internet e pubblicità.
 ```
 
-### Opis (Description) · 3653 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3634 / 4000 znaków · wersja 1.0
 
 ```text
 Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.
 
 RICETTE E DOSI
-Scegli una delle 15 ricette di base (a lievito madre, di segale, con lievito di birra, pizza e dolci) oppure una tua. Imposta il numero di pagnotte o il peso della farina e Fornaio ti indica i grammi di farina, acqua, lievito madre, sale e lievito di birra. La percentuale del fornaio tiene conto della farina e dell'acqua contenute nel lievito madre e nel lievitino. Fornaio ti indica anche la temperatura dell'acqua per ottenere la temperatura desiderata dell'impasto.
+Scegli una delle 15 ricette di base (a lievito madre, di segale, con lievito di birra, pizza e dolci) oppure una tua. Imposta il numero di pagnotte o il peso della farina e Fornaio ti indica i grammi di farina, acqua, lievito madre, sale e lievito di birra. La percentuale del fornaio tiene conto della farina e dell'acqua contenute nel lievito madre e nel lievitino (lievitino: Pro). Fornaio ti indica anche la temperatura dell'acqua per ottenere la temperatura desiderata dell'impasto.
 
-UN PROGRAMMA A PARTIRE DALL'ORA «PRONTO»
+UN PROGRAMMA A PARTIRE DALL'ORA «PRONTO» (Pro)
 Scegli quando vuoi il pane pronto e Fornaio calcola a ritroso l'orario d'inizio di ogni passaggio. Il tempo di fermentazione dipende dalla temperatura della tua cucina. Se un passaggio che richiede le tue mani cade di notte (per impostazione predefinita tra le 23:00 e le 07:00), Fornaio ti propone un tempo più lungo in frigo. Se il tempo non basta, ti indica l'orario più vicino possibile.
 
 GUIDA PASSO PASSO
 Fornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Durante un passaggio che richiede le tue mani, lo schermo della guida resta acceso. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (più di metà della farina è farina di segale) ha passaggi propri, senza pieghe di rinforzo. Puoi annullare un passaggio confermato per errore e, quando riapri l'app, torni al passaggio in corso.
 
 LIEVITI MADRE
-Gestisci più lieviti madre. Fornaio ti indica le dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Quando il lievito madre raddoppia di volume, Fornaio lo segna come pronto per l'impasto. Dopo 12 ore sul piano di lavoro senza rinfresco, te lo ricorda con una notifica. Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre.
+Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre. Cura del lievito madre (Pro): più lieviti madre, dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5, segno di pronto quando il lievito madre raddoppia di volume e promemoria dopo 12 ore sul piano di lavoro senza rinfresco.
 
 DOTTOR PANE
 Mollica compatta e crosta pallida? Seleziona i sintomi e il Dottor Pane individua uno dei 9 difetti, ne spiega la causa e ti dice cosa cambiare la prossima volta. Quattro protocolli di soccorso ti aiutano quando l'impasto ha problemi durante la fermentazione. Il Dottor Lievito madre ti aiuta quando qualcosa nel tuo lievito madre ti preoccupa.
 
 DIARIO
-Valuta ogni pagnotta: stelle, mollica, crosta e profilo di gusto. Il Diario mostra le statistiche e «Inforna di nuovo» apre la stessa ricetta.
+Valuta ogni pagnotta: stelle, mollica, crosta e profilo di gusto. Il Diario mostra le statistiche (Pro) e «Inforna di nuovo» apre la stessa ricetta.
 
 I TUOI DATI
 Fornaio conserva sul telefono gli ultimi 10 backup automatici. Puoi esportare tutti i dati in un file e importarli da un file, ed esportare la cronologia delle sfornate in CSV. Unità: grammi e °C oppure once e °F.

@@ -38,34 +38,34 @@ Calculadora e plano de fornada
 hidratação,fermentação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento
 ```
 
-### Tekst promocyjny (Promotional Text) · 162 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 163 / 170 znaków · wersja 1.0
 
 ```text
-Defina a hora a que quer o pão pronto: o Padeiro calcula as quantidades, cria o plano inverso e avisa no fim de cada passo. Sem conta, sem internet, sem anúncios.
+O Padeiro calcula as quantidades e avisa no fim de cada passo. Plano inverso a partir da hora a que quer o pão pronto (Pro). Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3531 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3494 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro acompanha-o na fornada de pão de fermento natural, da receita ao pão: calcula as quantidades, organiza o plano e controla o tempo enquanto o telemóvel está em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreio. As suas receitas, fermentos naturais e diário ficam apenas no seu telemóvel.
 
 RECEITAS E QUANTIDADES
-Escolha uma das 15 receitas base (de fermento natural, de centeio, de levedura, pizza e doces) ou uma receita própria. Defina o número de pães ou o peso da farinha, e o Padeiro indica os gramas de farinha, água, fermento natural, sal e levedura. A percentagem de padeiro tem em conta a farinha e a água do fermento natural e do isco. O Padeiro indica também a temperatura da água para obter a temperatura da massa que pretende.
+Escolha uma das 15 receitas base (de fermento natural, de centeio, de levedura, pizza e doces) ou uma receita própria. Defina o número de pães ou o peso da farinha, e o Padeiro indica os gramas de farinha, água, fermento natural, sal e levedura. A percentagem de padeiro tem em conta a farinha e a água do fermento natural e do isco (isco: Pro). O Padeiro indica também a temperatura da água para obter a temperatura da massa que pretende.
 
-PLANO A PARTIR DA HORA «PRONTO»
+PLANO A PARTIR DA HORA «PRONTO» (Pro)
 Escolha quando o pão deve estar pronto, e o Padeiro calcula para trás a hora de início de cada passo. O tempo de fermentação depende da temperatura da cozinha. Quando um passo que exige as suas mãos calha de noite (por predefinição, entre as 23:00 e as 07:00), o Padeiro propõe um tempo mais longo no frigorífico. Quando o tempo não chega, indica a hora mais cedo possível.
 
 ORIENTAÇÃO PASSO A PASSO
 O Padeiro mostra o passo atual: o que fazer, quanto tempo demora e o que vem a seguir. Se permitir as notificações, avisa do fim do passo mesmo com o telemóvel bloqueado. Num passo que exige as suas mãos, o ecrã de orientação não se apaga. Os passos com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais de metade da farinha é farinha de centeio) tem passos próprios, sem dobras. Pode anular um passo confirmado por engano e, ao reabrir a app, esta regressa ao passo atual.
 
 FERMENTOS NATURAIS
-Mantenha vários fermentos naturais. O Padeiro indica as quantidades para a alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quando o fermento natural duplicar de volume, o Padeiro marca-o como pronto para a massa. Após 12 horas na bancada sem alimentação, o Padeiro envia uma notificação de lembrete. Pode criar um novo fermento natural dia após dia. O Padeiro segue o princípio da precaução: perante película, descoloração ou cheiro a podre, aconselha deitar fora o fermento natural.
+Pode criar um novo fermento natural dia após dia. O Padeiro segue o princípio da precaução: perante película, descoloração ou cheiro a podre, aconselha deitar fora o fermento natural. Cuidado do fermento natural (Pro): vários fermentos naturais, quantidades para a alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5, indicação de pronto quando o fermento duplicar de volume e lembrete após 12 horas na bancada sem alimentação.
 
 DOUTOR PÃO
 Miolo compacto e côdea pálida? Assinale os sintomas e o Doutor Pão indica um de 9 defeitos, explica a causa e diz o que alterar da próxima vez. Quatro protocolos de salvamento ajudam quando a massa tem problemas durante a fermentação. O Doutor Fermento ajuda quando algo no seu fermento natural o preocupa.
 
 DIÁRIO
-Avalie cada pão: estrelas, miolo, côdea e perfil de sabor. O Diário mostra estatísticas, e «Cozer novamente» abre a mesma receita.
+Avalie cada pão: estrelas, miolo, côdea e perfil de sabor. O Diário mostra estatísticas (Pro), e «Cozer novamente» abre a mesma receita.
 
 OS SEUS DADOS
 O Padeiro guarda no telemóvel as 10 cópias de segurança automáticas mais recentes. Pode exportar todos os dados para um ficheiro e importá-los de um ficheiro, e exportar o histórico de fornadas em CSV. Unidades: gramas e °C ou onças e °F.

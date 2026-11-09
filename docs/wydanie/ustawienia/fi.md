@@ -38,34 +38,34 @@ Leivontasuunnitelma ja laskuri
 taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resepti,pata,juurileipä
 ```
 
-### Tekst promocyjny (Promotional Text) · 156 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 164 / 170 znaków · wersja 1.0
 
 ```text
-Aseta aika, jolloin leipä on valmis: Leipuri laskee määrät, laatii aikataulun taaksepäin ja kertoo vaiheiden päättymisestä. Ei tiliä, nettiä eikä mainoksia.
+Leipuri laskee määrät ja kertoo vaiheiden päättymisestä. Aikataulu taaksepäin siitä ajasta, jolloin leivän pitää olla valmis (Pro). Ei tiliä, nettiä eikä mainoksia.
 ```
 
-### Opis (Description) · 3353 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3313 / 4000 znaków · wersja 1.0
 
 ```text
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
 
 RESEPTIT JA MÄÄRÄT
-Valitse yksi 15 perusreseptistä (hapanjuuri-, ruis- ja hiivaleivät, pizza ja makeat leivonnaiset) tai oma reseptisi. Aseta leipien määrä tai jauhojen paino, niin Leipuri kertoo jauhojen, veden, hapanjuuren, suolan ja hiivan grammamäärät. Leipurin prosentti ottaa huomioon sekä hapanjuuren että juuren jauhot ja veden. Leipuri kertoo myös veden lämpötilan haluamaasi taikinan lämpötilaa varten.
+Valitse yksi 15 perusreseptistä (hapanjuuri-, ruis- ja hiivaleivät, pizza ja makeat leivonnaiset) tai oma reseptisi. Aseta leipien määrä tai jauhojen paino, niin Leipuri kertoo jauhojen, veden, hapanjuuren, suolan ja hiivan grammamäärät. Leipurin prosentti ottaa huomioon sekä hapanjuuren että juuren jauhot ja veden (juuri: Pro). Leipuri kertoo myös veden lämpötilan haluamaasi taikinan lämpötilaa varten.
 
-AIKATAULU ”VALMIS”-AJASTA
+AIKATAULU ”VALMIS”-AJASTA (Pro)
 Valitse, milloin leivän pitää olla valmis, niin Leipuri laskee taaksepäin jokaisen vaiheen alkamisajan. Käymisaika riippuu keittiösi lämpötilasta. Jos käsityötä vaativa vaihe osuu yöhön (oletuksena klo 23:00 ja 07:00 välillä), Leipuri ehdottaa pidempää aikaa jääkaapissa. Jos aikaa on liian vähän, se kertoo aikaisimman mahdollisen ajan.
 
 OPASTUS VAIHE VAIHEELTA
 Leipuri näyttää nykyisen vaiheen: mitä tehdä, kauanko se kestää ja mitä on tulossa seuraavaksi. Kun sallit ilmoitukset, se kertoo vaiheen päättymisestä myös puhelimen ollessa lukittuna. Käsityötä vaativassa vaiheessa opastusnäyttö ei sammu. Vaiheissa, joissa on kuuma astia tai raaka taikina, on varoitus. Ruisleivällä (yli puolet jauhoista on ruisjauhoja) on omat vaiheensa ilman taittelua. Vahingossa vahvistetun vaiheen voit perua, ja kun avaat sovelluksen uudelleen, se palaa nykyiseen vaiheeseen.
 
 HAPANJUURET
-Voit ylläpitää useita hapanjuuria. Leipuri kertoo ruokintamäärät suhteessa 1:1:1, 1:2:2, 1:3:3 tai 1:5:5. Kun hapanjuuri on kaksinkertaistanut tilavuutensa, Leipuri merkitsee sen valmiiksi taikinaan. Kun hapanjuuri on ollut 12 tuntia pöydällä ilman ruokintaa, Leipuri muistuttaa siitä ilmoituksella. Uuden hapanjuuren aloitat päivä päivältä. Leipuri noudattaa varovaisuusperiaatetta: jos hapanjuuressa on kalvo, värimuutos tai mätä haju, se neuvoo heittämään hapanjuuren pois.
+Uuden hapanjuuren aloitat päivä päivältä. Leipuri noudattaa varovaisuusperiaatetta: jos hapanjuuressa on kalvo, värimuutos tai mätä haju, se neuvoo heittämään hapanjuuren pois. Hapanjuuren hoito (Pro): useita hapanjuuria, ruokintamäärät suhteessa 1:1:1, 1:2:2, 1:3:3 tai 1:5:5, valmiusmerkintä, kun hapanjuuri on kaksinkertaistanut tilavuutensa, ja muistutus, kun se on ollut 12 tuntia pöydällä ilman ruokintaa.
 
 LEIPÄLÄÄKÄRI
 Sisus on tiivis ja kuori vaalea? Merkitse oireet, niin Leipälääkäri nimeää yhden 9 virheestä, selittää syyn ja kertoo, mitä muuttaa ensi kerralla. Neljä pelastusohjetta auttaa, kun taikinassa on ongelmia käymisen aikana. Hapanjuurilääkäri auttaa, kun jokin hapanjuuressa huolestuttaa sinua.
 
 PÄIVÄKIRJA
-Arvioi jokainen leipä: tähdet, sisus, kuori ja makuprofiili. Päiväkirja näyttää tilastot, ja ”Leivo uudelleen” avaa saman reseptin.
+Arvioi jokainen leipä: tähdet, sisus, kuori ja makuprofiili. Päiväkirja näyttää tilastot (Pro), ja ”Leivo uudelleen” avaa saman reseptin.
 
 OMAT TIETOSI
 Leipuri säilyttää puhelimessa 10 viimeisintä automaattista varmuuskopiota. Voit viedä kaikki tiedot tiedostoon ja tuoda ne tiedostosta sekä viedä leivontahistorian CSV-tiedostona. Yksiköt: grammat ja °C tai unssit ja °F.

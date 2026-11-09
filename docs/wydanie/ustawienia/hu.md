@@ -38,34 +38,34 @@ Sütési terv és kalkulátor
 cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjesztés,élesztő
 ```
 
-### Tekst promocyjny (Promotional Text) · 155 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 141 / 170 znaków · wersja 1.0
 
 ```text
-Állítsd be, mikorra legyen kész a kenyér: a Pék kiszámolja a mennyiségeket, visszafelé tervez, és szól minden lépés végén. Fiók, internet és reklám nélkül.
+A Pék kiszámolja a mennyiségeket, és szól minden lépés végén. Visszafelé tervezés a „kész” időponttól (Pro). Fiók, internet és reklám nélkül.
 ```
 
-### Opis (Description) · 3343 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3335 / 4000 znaków · wersja 1.0
 
 ```text
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
 
 RECEPTEK ÉS MENNYISÉGEK
-Válassz a 15 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi. A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
+Válassz a 15 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi (előtészta: Pro). A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
 
-TERV A „KÉSZ” IDŐPONTTÓL
+TERV A „KÉSZ” IDŐPONTTÓL (Pro)
 Kiválasztod, mikorra legyen kész a kenyér, a Pék pedig visszafelé kiszámolja minden lépés kezdési idejét. Az erjedési idő a konyha hőmérsékletétől függ. Ha egy kézi munkát igénylő lépés éjszakára esik (alapértelmezés szerint 23:00 és 07:00 között), a Pék hosszabb időt javasol a hűtőben. Ha kevés az idő, megadja a legkorábbi lehetséges időpontot.
 
 LÉPÉSRŐL LÉPÉSRE
 A Pék mutatja az aktuális lépést: mit kell tenni, mennyi ideig tart, és mi jön utána. Ha engedélyezed az értesítéseket, zárolt telefonon is szól a lépés végén. Kézi munkát igénylő lépésnél a vezetett képernyő nem kapcsol ki. A forró edénnyel vagy nyers tésztával járó lépéseknél figyelmeztetés jelenik meg. A rozskenyérnek (ha a liszt több mint fele rozsliszt) saját, hajtogatás nélküli lépései vannak. A tévedésből jóváhagyott lépést visszavonhatod, újranyitáskor pedig az alkalmazás az aktuális lépésre tér vissza.
 
 KOVÁSZOK
-Több kovászt is vezethetsz. A Pék megadja az etetési mennyiségeket 1:1:1, 1:2:2, 1:3:3 vagy 1:5:5 arányban. Amikor a kovász megduplázza a térfogatát, a Pék tésztához késznek jelöli. Ha 12 órája áll a pulton etetés nélkül, értesítéssel emlékeztet. Új kovászt napról napra indíthatsz el. A Pék az elővigyázatosság elvét követi: bevonat, elszíneződés vagy rothadt szag esetén azt tanácsolja, hogy dobd ki a kovászt.
+Új kovászt napról napra indíthatsz el. A Pék az elővigyázatosság elvét követi: bevonat, elszíneződés vagy rothadt szag esetén azt tanácsolja, hogy dobd ki a kovászt. Kovászgondozás (Pro): több kovász, etetési mennyiségek 1:1:1, 1:2:2, 1:3:3 vagy 1:5:5 arányban, készre jelölés, amikor a kovász megduplázza a térfogatát, és emlékeztető, ha 12 órája áll a pulton etetés nélkül.
 
 KENYÉRDOKTOR
 Tömör a bélzet és sápadt a héj? Jelöld be a tüneteket, a Kenyérdoktor pedig megnevezi a 9 hiba egyikét, elmagyarázza az okát, és megmondja, mit változtass legközelebb. Négy mentőprotokoll segít, ha a tésztával gond van erjedés közben. A Kovászdoktor akkor segít, ha valami aggaszt a kovászoddal kapcsolatban.
 
 NAPLÓ
-Értékelj minden cipót: csillagok, bélzet, héj és ízprofil. A Napló statisztikákat mutat, a „Süsd újra” pedig megnyitja ugyanazt a receptet.
+Értékelj minden cipót: csillagok, bélzet, héj és ízprofil. A Napló statisztikákat mutat (Pro), a „Süsd újra” pedig megnyitja ugyanazt a receptet.
 
 AZ ADATAID
 A Pék az utolsó 10 automatikus biztonsági mentést a telefonon tárolja. Minden adatodat fájlba exportálhatod és fájlból importálhatod, a sütési előzményeket pedig CSV-be exportálhatod. Mértékegységek: gramm és °C vagy uncia és °F.

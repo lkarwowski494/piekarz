@@ -38,34 +38,34 @@ Kalkulator & Jadwal Adonan
 resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 ```
 
-### Tekst promocyjny (Promotional Text) · 170 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
 
 ```text
-Tentukan jam roti harus siap: Tukang Roti menghitung takaran, menyusun jadwal mundur, dan memberi tahu saat tiap langkah selesai. Tanpa akun, tanpa internet, tanpa iklan.
+Tukang Roti menghitung takaran dan memberi tahu saat tiap langkah selesai. Jadwal mundur dari jam roti harus siap (Pro). Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3501 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3460 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
 
 RESEP DAN TAKARAN
-Pilih salah satu dari 15 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang. Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
+Pilih salah satu dari 15 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
 
-RENCANA DARI JAM "SIAP"
+RENCANA DARI JAM "SIAP" (Pro)
 Pilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 07:00), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.
 
 PANDUAN LANGKAH DEMI LANGKAH
 Tukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Pada langkah yang membutuhkan tangan Anda, layar panduan tetap menyala. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan. Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.
 
 STARTER
-Kelola beberapa starter. Tukang Roti memberikan takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5. Saat volume starter berlipat dua, Tukang Roti menandainya siap untuk adonan. Setelah 12 jam di meja tanpa diberi makan, Tukang Roti mengingatkan lewat notifikasi. Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter.
+Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter. Perawatan starter (Pro): beberapa starter, takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5, tanda siap saat volume starter berlipat dua, dan pengingat setelah 12 jam di meja tanpa diberi makan.
 
 DOKTER ROTI
 Serat roti padat dan kulit roti pucat? Tandai gejalanya, dan Dokter Roti menunjukkan salah satu dari 9 cacat, menjelaskan penyebabnya, dan memberi tahu apa yang perlu diubah lain kali. Empat protokol penyelamatan membantu saat adonan bermasalah selama fermentasi. Dokter Starter membantu saat ada sesuatu pada starter yang membuat Anda khawatir.
 
 JURNAL
-Nilai setiap bongkah roti: bintang, serat roti, kulit roti, dan profil rasa. Jurnal menampilkan statistik, dan "Panggang lagi" membuka resep yang sama.
+Nilai setiap bongkah roti: bintang, serat roti, kulit roti, dan profil rasa. Jurnal menampilkan statistik (Pro), dan "Panggang lagi" membuka resep yang sama.
 
 DATA ANDA
 Tukang Roti menyimpan 10 cadangan otomatis terakhir di ponsel. Semua data dapat diekspor ke file dan diimpor dari file, dan riwayat pemanggangan dapat diekspor sebagai CSV. Satuan: gram dan °C atau auns dan °F.

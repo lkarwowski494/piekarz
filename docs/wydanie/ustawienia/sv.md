@@ -38,34 +38,34 @@ Bakplan, degkalkyl & timer
 jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påminnelse,pizza,bakning
 ```
 
-### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 163 / 170 znaków · wersja 1.0
 
 ```text
-Ställ in när brödet ska vara klart: Bagaren räknar ut mängderna, planerar bakåt och säger till när varje steg är slut. Inget konto, inget internet, ingen reklam.
+Bagaren räknar ut mängderna och säger till när varje steg är slut. Plan bakåt från tiden då brödet ska vara klart (Pro). Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3201 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3194 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
 
 RECEPT OCH MÄNGDER
-Du väljer ett av 15 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen. Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
+Du väljer ett av 15 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen (fördeg: Pro). Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
 
-PLAN FRÅN TIDEN ”KLART”
+PLAN FRÅN TIDEN ”KLART” (Pro)
 Du väljer när brödet ska vara klart, och Bagaren räknar bakåt fram starttiden för varje steg. Jästiden beror på temperaturen i köket. Om ett steg som kräver dina händer infaller på natten (som standard mellan 23:00 och 07:00) föreslår Bagaren en längre tid i kylskåpet. Om tiden inte räcker anger Bagaren den tidigaste möjliga tiden.
 
 STEG FÖR STEG
 Bagaren visar det aktuella steget: vad du ska göra, hur lång tid det tar och vad som kommer sedan. Om du tillåter notiser säger Bagaren till när steget är slut, även när telefonen är låst. I ett steg som kräver dina händer släcks inte guideskärmen. Steg med hett kärl eller rå deg har en varning. Rågbröd (mer än hälften av mjölet är rågmjöl) har egna steg utan vikningar. Ett steg som du bekräftat av misstag kan du ångra, och när du öppnar appen igen återgår den till det aktuella steget.
 
 SURDEGSGRUNDER
-Du kan ha flera surdegsgrunder. Bagaren anger mängderna för matning i förhållandet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. När surdegsgrunden har fördubblat sin volym markerar Bagaren den som redo för degen. Efter 12 timmar på bänken utan matning påminner Bagaren dig med en notis. En ny surdegsgrund startar du dag för dag. Bagaren följer försiktighetsprincipen: vid beläggning, missfärgning eller ruttnande lukt rekommenderar Bagaren att du slänger surdegsgrunden.
+En ny surdegsgrund startar du dag för dag. Bagaren följer försiktighetsprincipen: vid beläggning, missfärgning eller ruttnande lukt rekommenderar Bagaren att du slänger surdegsgrunden. Skötsel av surdegsgrund (Pro): flera surdegsgrunder, mängder för matning i förhållandet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5, markering som redo när surdegsgrunden har fördubblat sin volym och en påminnelse efter 12 timmar på bänken utan matning.
 
 BRÖDDOKTORN
 Kompakt inkråm och blek skorpa? Du markerar symtomen, och Bröddoktorn pekar ut ett av 9 fel, förklarar orsaken och anger vad du ska ändra nästa gång. Fyra räddningsprotokoll hjälper när degen får problem under jäsningen. Surdegsdoktorn hjälper när något med surdegsgrunden oroar dig.
 
 BAKDAGBOK
-Du betygsätter varje limpa: stjärnor, inkråm, skorpa och smakprofil. Bakdagboken visar statistik, och ”Baka igen” öppnar samma recept.
+Du betygsätter varje limpa: stjärnor, inkråm, skorpa och smakprofil. Bakdagboken visar statistik (Pro), och ”Baka igen” öppnar samma recept.
 
 DINA DATA
 Bagaren sparar de 10 senaste automatiska säkerhetskopiorna i telefonen. Du kan exportera all data till en fil och importera från en fil, och exportera bakhistoriken som CSV. Enheter: gram och °C eller uns och °F.

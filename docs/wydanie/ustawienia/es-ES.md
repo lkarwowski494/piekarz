@@ -38,34 +38,34 @@ Calculadora y plan de horneado
 hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,porcentaje,casero
 ```
 
-### Tekst promocyjny (Promotional Text) · 161 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 167 / 170 znaków · wersja 1.0
 
 ```text
-Elige a qué hora quieres el pan listo: Panadero calcula cantidades, planifica hacia atrás y te avisa al acabar cada paso. Sin cuenta, sin internet, sin anuncios.
+Panadero calcula cantidades y te avisa al acabar cada paso. Plan hacia atrás desde la hora a la que quieres el pan listo (Pro). Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3499 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3457 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, desde la receta hasta la hogaza: calcula las cantidades, organiza el plan y vigila los tiempos aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus recetas, masas madre y diario se quedan solo en tu teléfono.
 
 RECETAS Y CANTIDADES
-Elige una de las 15 recetas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero tiene en cuenta la harina y el agua de la masa madre y del levain. Panadero también te indica la temperatura del agua para obtener la temperatura de la masa que quieres.
+Elige una de las 15 recetas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero tiene en cuenta la harina y el agua de la masa madre y del levain (levain: Pro). Panadero también te indica la temperatura del agua para obtener la temperatura de la masa que quieres.
 
-UN PLAN DESDE LA HORA «LISTO»
+UN PLAN DESDE LA HORA «LISTO» (Pro)
 Elige cuándo quieres el pan listo y Panadero calcula hacia atrás la hora de inicio de cada paso. El tiempo de fermentación depende de la temperatura de tu cocina. Cuando un paso que requiere tus manos cae de noche (por defecto, entre las 23:00 y las 07:00), Panadero te propone más tiempo en la nevera. Si no hay tiempo suficiente, te indica la hora más temprana posible.
 
 GUÍA PASO A PASO
 Panadero muestra el paso actual: qué hacer, cuánto dura y qué viene después. Si permites las notificaciones, te avisa del final de cada paso incluso con el teléfono bloqueado. En los pasos que requieren tus manos, la pantalla de guía no se apaga. Los pasos con un recipiente caliente o con masa cruda llevan una advertencia. El pan de centeno (más de la mitad de la harina es harina de centeno) tiene sus propios pasos, sin pliegues. Puedes deshacer un paso confirmado por error y, al volver a abrir la app, vuelves al paso actual.
 
 MASAS MADRE
-Gestiona varias masas madre. Panadero te da las cantidades de refresco en proporción 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Cuando la masa madre duplica su volumen, Panadero la marca como lista para la masa. Tras 12 horas en la encimera sin refresco, te la recuerda con una notificación. Puedes crear una masa madre nueva día a día. Panadero aplica el principio de precaución: si hay película, cambio de color u olor a podrido, te aconseja tirar la masa madre.
+Puedes crear una masa madre nueva día a día. Panadero aplica el principio de precaución: si hay película, cambio de color u olor a podrido, te aconseja tirar la masa madre. Cuidado de la masa madre (Pro): varias masas madre, cantidades de refresco en proporción 1:1:1, 1:2:2, 1:3:3 o 1:5:5, marca de lista cuando duplica su volumen y aviso tras 12 horas en la encimera sin refresco.
 
 DOCTOR DEL PAN
 ¿Miga compacta y corteza pálida? Marca los síntomas y el Doctor del Pan señala uno de 9 defectos, explica la causa y te dice qué cambiar la próxima vez. Cuatro protocolos de rescate te ayudan cuando la masa tiene problemas durante la fermentación. El Doctor de la masa madre te ayuda cuando algo de tu masa madre te preocupa.
 
 DIARIO
-Valora cada hogaza: estrellas, miga, corteza y perfil de sabor. El Diario muestra estadísticas y «Hornear de nuevo» abre la misma receta.
+Valora cada hogaza: estrellas, miga, corteza y perfil de sabor. El Diario muestra estadísticas (Pro) y «Hornear de nuevo» abre la misma receta.
 
 TUS DATOS
 Panadero guarda en el teléfono las 10 últimas copias de seguridad automáticas. Puedes exportar todos los datos a un archivo e importarlos desde un archivo, y exportar el historial de horneados en CSV. Unidades: gramos y °C u onzas y °F.
