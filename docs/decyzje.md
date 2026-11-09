@@ -1705,4 +1705,5 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Klasyfikacja (realność z raportów ról M1, najwyższa z `zrodla`):** P2 otwarte (status `zatwierdzone`): realny 35, brzegowy 12, teoretyczny 5, bez oceny 1 (065). **→ P3 (14):** 029, 036, 042, 043, 045, 050, 052, 053, 055, 056, 063, 074, 076, 083. **Zostają przed 1.0 mimo klasy (wyjątki nazwane):** 071 (ROLLBACK migracji — dane), 082 (klucz ASC w buildzie — bezpieczeństwo), 081 (notatki dla App Review — kompletność zgłoszenia, wytyczna 2.1 [DO USTALENIA u źródła przez rolę 10]). 065 bez oceny zostaje (rola 03 ocenia przy naprawie). Naprawione (`naprawione-do-weryfikacji`) bez zmian.
 - **Skutek:** M2: 84 → 70 zadań przed 1.0; 029 (blokada „1.1 przed 1.0”) rozstrzygnięte jako P3. Reaudyt M1 (D-277): nowe P2 → P3 z `klasa`, nie szuka nowych P2.
 - **Odrzucone:** zostawić D-286 bez zmian (plan rośnie po reaudycie — powód P-458 w Oczku); status „odrzucone” zamiast P3 (zadania są realne, tylko odłożone, jak P-458).
-- **Zależy od:** D-286, D-052 (analogia z Oczkiem). **Status:** właściciel (polecenie); lista wyjątków — koordynator, do weta.
+- **Wyjątki zatwierdzone (2026-11-09, przycisk):** „Wszystkie 3 zostają (Recommended)”.
+- **Zależy od:** D-286, D-052 (analogia z Oczkiem). **Status:** właściciel.
