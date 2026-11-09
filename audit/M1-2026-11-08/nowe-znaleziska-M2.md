@@ -20,3 +20,13 @@
 - Opcje: (a) poprawki w `docs/lokalizacja/poprawki-przekladu.json` z drugim przeglądem; (b) bez zmian do przeglądu natywnego. Rekomendacja: (a) dla g/г, reszta do przeglądu natywnego.
 - Test akceptacyjny: kontrola jednostki g/г w bg/sr (jedna forma) w check:i18n albo teście.
 - Status: otwarte
+
+### M2-koordynator-napraw-003 · Drobne skutki uboczne podglądu pakietu awaryjnego (przegląd ścieżki wrażliwej 003)
+- Pozycja listy kontrolnej: NIE (rola 12, ratowanie danych)
+- Poziom: P2
+- Realność: brzegowy   · Pewność: średnia
+- Rodzaj: D
+- Dowód: przegląd ścieżki wrażliwej diff e3c23559..26f6a87f (subagent, 2026-11-09): `src/data/recipes-store.ts:44` uszkodzone wiersze z pakietu trafiają na listę uszkodzonych wierszy aplikacji do końca uruchomienia (wejdą do kolejnych kopii, nie do przywróconych danych); `src/data/migracja-v6.ts:32` podgląd pakietu sprzed v6 dopisuje plik `sesja-przed-migracja-*.json` do katalogu ratunkowego aplikacji; zabicie aplikacji w trakcie odczytu zostawia katalog kopii w Caches (system czyści sam).
+- Opcje: (a) osobna lista uszkodzonych dla pakietu i sprzątanie `import-pakietu-*` przy starcie; (b) bez zmian (dane nie giną). Rekomendacja: (a) w 1.0.1.
+- Test akceptacyjny: po podglądzie pakietu z uszkodzonym wierszem lista uszkodzonych aplikacji bez zmian; katalog `import-pakietu-*` usunięty przy następnym starcie.
+- Status: otwarte

@@ -554,8 +554,8 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "pakiet z trybu awaryjnego jest rozpoznawany i przywracany przez import (albo, przy opcji b, ekran awaryjny ostrzega przed usunięciem aplikacji i podaje kontakt); test rozpoznajPlik",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "26f6a87f"
     },
     {
       "id": "M1-audytor-generalny-004",
@@ -1017,8 +1017,8 @@
       "przyczyna": "SYS-05",
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "c685a636"
     },
     {
       "id": "M1-audytor-generalny-028",
@@ -1036,8 +1036,8 @@
       "przyczyna": "SYS-02",
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "a13c842c"
     },
     {
       "id": "M1-audytor-generalny-029",
@@ -1056,7 +1056,8 @@
       "raport": "role/08-programista/08-programista-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 08-programista-008 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "blokada": "zadanie D wymaga decyzji: rekomendacja znaleziska 08-programista-008 to (b) „zostawić do 1.1”, a D-280 pkt 5 zakazuje prac nad 1.1 przed 1.0; opcje na STOP przed partią 2: (a) parsery wierszy teraz, (b) odłożenie z wpisem do zakresu 1.1"
     },
     {
       "id": "M1-audytor-generalny-030",
@@ -1074,8 +1075,8 @@
       "przyczyna": null,
       "raport": "weryfikacja/G9-luki.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego M1-audytor-generalny-030 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d74e40c0"
     },
     {
       "id": "M1-audytor-generalny-031",
@@ -1093,8 +1094,8 @@
       "przyczyna": null,
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-002 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "e3c23559"
     },
     {
       "id": "M1-audytor-generalny-032",
@@ -1113,7 +1114,8 @@
       "raport": "role/12-niezawodnosc/12-niezawodnosc-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-003 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
-      "commit": null
+      "commit": null,
+      "blokada": "test akceptacyjny wymaga buildu TestFlight (osobna zgoda, DEC-18) i ćwiczenia NIE-06 na urządzeniu; rekomendacja (b) runbook symbolizacji wymaga przeczytanych źródeł RN/Hermes (sieć) — opcje na STOP przed partią 2"
     },
     {
       "id": "M1-audytor-generalny-033",

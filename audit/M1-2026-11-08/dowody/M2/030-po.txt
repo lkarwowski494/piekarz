@@ -1,0 +1,2 @@
+    ✓ karmienia za ok. 2 h zostają przy 50 krokach dwóch wypieków; limit 40 i kolejność po czasie bez zmian (7 ms)
+Tests:       1 passed, 1 total

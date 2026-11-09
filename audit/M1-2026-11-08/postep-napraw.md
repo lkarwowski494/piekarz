@@ -24,7 +24,14 @@ K odtworzone z `origin/audit-m1/piekarz-2026-11-08` @ 68116bf8 (plan, raport M1,
 | 3 | naprawy/M2-koordynator-napraw-2026-11-09-p3 | — | — | tak (P/M: 015, 018, 054, 055, 057, 058, 061–065, 068, 078, 080, 082, 084) | czeka |
 
 ## Zadania
-Kolejka i plan per ID: `dowody/M2/zakres.txt`, `dowody/M2/plan-per-id.md`. Krok wszystkich: czeka.
+Kolejka i plan per ID: `dowody/M2/zakres.txt`, `dowody/M2/plan-per-id.md`. Statusy: plan-napraw.json (źródło prawdy), commity: `git log --grep M1-audytor-generalny-NNN`.
+| ID | Krok | Commit |
+|---|---|---|
+| 001, 002, 019, 020, 021, 022, 025, 026, 027, 028, 030, 031 | naprawione-do-weryfikacji | b069827f, 9feae565, d59f8226, 259f0880, 91a26110, 0d47bab2, cf0de762, 8cedbade, c685a636, a13c842c, d74e40c0, e3c23559 |
+| 029, 032 | blokada (decyzja / build) | — |
+| 003 | polecenie wysłane (rola 12) | — |
+| 023, 024 | czeka na rolę 05 | — |
+| 033 | czeka na 003 | — |
 Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `src/recipes/maszyna-receptur.ts`), 046 (D-283, słowniki es/es-419/pt/pt-BR/it/el), 066 (D-282/D-285, scenariusze Maestro), 079 (`docs/wydanie/dziennik.md`).
 
 ## Dziennik
@@ -42,6 +49,15 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 05:44 022 test czerwony (`dowody/M2/022-przed.txt`: k=0 unavailable) → poStarcieBazy + bramka w nasłuchu _layout (pierwsza wersja z funkcją w lib odrzucona: atrapa w start-aplikacji-p11 nie widziała wywołania) → verify kod 0 (6048) → commit 0d47bab2. Uwaga: zachowanie na telefonie (czy iOS wysyła active przy zimnym starcie) [DO USTALENIA] jak w znalezisku.
 - 05:49 025 test czerwony (`dowody/M2/025-przed.txt`; przy niedzieli jako 1. dniu błędu nie ma — ten sam tydzień) → widok bieżący z zegara → verify kod 0 (6052) → commit cf0de762. Reguły: 08 rdzen.
 - 06:01 026 test czerwony (`dowody/M2/026-przed.txt`) → 3 poprawki; nowe klucze: najpierw „czeka na przekład” (odrzucone: test 093 wymaga pustej listy) → przekład 33 języków + drugi przegląd AI (3 poprawki) → verify kod 0 (6055) → commit 8cedbade. Zawężenie: brak masy w płaskim JSON zostaje 850 g (format wspierany; test akceptacyjny dotyczy złej masy). Teksty do akceptacji roli 04: „Brak ocen”, „Udział drożdży…”, „Masa ciasta…”. Nowe znalezisko M2-002 (słowniki bg/sr/ro/sl). Reguły: 08 rdzen zasada 9; 09 rdzen (drugi przegląd AI).
+- 06:09 027 test czerwony (`dowody/M2/027-przed.txt`) → zakresy-receptury.ts, parametry {min}–{max}, powód na ekranie importu → verify kod 0 (6064) → commit c685a636. Test recipe-sharing dostosowany do kontraktu b (151%). Tekst ekranu: powód = istniejące komunikaty walidacji. Do roli 06: potwierdzenie zakresów (wariant a).
+- 06:14 028 test czerwony (`dowody/M2/028-przed.txt`: 2 wpisy) → blokada ref w 3 akcjach → verify kod 0 (6066) → commit a13c842c. Dodanie zakwasu: blokada bez osobnego testu (ta sama funkcja jedenNaraz).
+- 06:22 030 test czerwony (`dowody/M2/030-przed.txt`) → pierwsze podejście (samo okno 24 h) łamało notification-plan.test (bieżący krok); poprawka zgodna z oboma: bieżący krok → 24 h → grupy → verify kod 0 (6067) → commit d74e40c0. Okno 24 h = istniejąca gwarancja testu „nic z najbliższych 24 h nie wypada”.
+- 06:29 031 test czerwony (`dowody/M2/031-przed.txt`) → EXPO_PUBLIC_BUILD_NUMBER → verify kod 0 (6069) → commit e3c23559. Potwierdzenie w prawdziwym buildzie (Metro inline) — przy następnym buildzie (krok właściciela).
+- 06:29 029, 032: blokada (decyzja / krok poza kontenerem), opcje na STOP przed partią 2.
+- 06:30 Sesje ról p1: polecenie 12-niezawodnosc-p1.md wysłane (subagent opus, 003 DEC-17 a); 05-architekt-p1.md przygotowane (023 DEC-11 a, 024 M) — po wyniku roli 12.
+- 06:59 003 wynik roli 12: commity 2665582f (refactor), 26f6a87f; sprawdzone przeze mnie: drzewo czyste, gałąź = origin, test 003 7/7 zielony, sprawdz-raport wynik.md kod 0, verify kod 0 (591/6079, `dowody/M2/003-verify-M2.txt`). Uruchomione: przegląd ścieżki wrażliwej (diff e3c23559..26f6a87f, subagent opus) i drugi przegląd przekładu 003. Nowe znaleziska roli 12: 701, 702, 703 (raport-fix.md; 703 pokrywa się z 023 — kopia z sesjami).
+- 07:03 003: przegląd ścieżki wrażliwej — brak P0/P1 (3 uwagi P2 → M2-003); drugi przegląd przekładu — 6 poprawek w 56fb4a0b; verify kod 0 (6079). Status 003 naprawione-do-weryfikacji (26f6a87f + 56fb4a0b). Przekazanie roli 12 do 08/07: brak otwartych (test akceptacyjny w repo). Teksty 003 do akceptacji roli 04 (3).
+- 07:03 Polecenie 05-architekt-p1.md wysłane (subagent opus; 023 DEC-11 a, 024 M). Drzewo nietykane do wyniku.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

@@ -1,0 +1,9 @@
+    ✕ wartość graniczna arkusza (woda 0): eksport → import rozpoznaje recepturę (4 ms)
+    ✕ wartość graniczna arkusza (woda 150): eksport → import rozpoznaje recepturę (1 ms)
+    ✕ wartość graniczna arkusza (sól 10): eksport → import rozpoznaje recepturę
+    ✓ wartość graniczna arkusza (zakwas 100): eksport → import rozpoznaje recepturę
+    ✓ wartość graniczna arkusza (hydratacja zakwasu 20 i 200): eksport → import rozpoznaje recepturę
+    ✓ wartość graniczna arkusza (drożdże 10): eksport → import rozpoznaje recepturę (1 ms)
+    ✕ poza zakresem arkusza: plik nierozpoznany z powodem (komunikat walidacji z nazwą pola) (2 ms)
+    ✕ zakresy zdefiniowane w jednym miejscu: arkusz i import bez własnych liczb granicznych (1 ms)
+Tests:       5 failed, 3 passed, 8 total

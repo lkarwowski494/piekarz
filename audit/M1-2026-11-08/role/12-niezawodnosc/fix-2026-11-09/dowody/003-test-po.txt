@@ -1,0 +1,11 @@
+    ✓ czytajReceptury, readStarters, czytajWpisyZakwasow i czytajMaki dają to samo co getRecipes, getStarters, getAllStarterEntries i getFlourInventory (258 ms)
+    ✓ zbierzDaneZBazy (odczyt pakietu awaryjnego) daje ten sam stan co collectBackupData na bazie aplikacji (38 ms)
+    ✓ czytajReceptury: pusta tabela daje null (getRecipes wraca wtedy do receptur wbudowanych z pamięci) (45 ms)
+    ✓ pakiet z ekranu awaryjnego: rozpoznany, przywrócony z danymi z pliku -wal, z kopią przed importem; plik tymczasowy usunięty (385 ms)
+    ✓ arkusz „Importuj z pliku”: pakiet daje podgląd kopii i „Zastąp dane” zapisuje dane z pakietu (390 ms)
+    ✓ pakiet z nowszej wersji: „nowsza”; pakiet bez bazy Piekarza albo z uszkodzonym plikiem: powód i dane bez zmian (62 ms)
+    ✓ nie-pakiet = null; pakiet bez bazy, z dwiema bazami albo z błędnym base64 = „uszkodzony”; -shm pominięty (2 ms)
+    ✓ ekran awaryjny: ostrzeżenie, co zrobić z plikiem i „Napisz do nas” wołające napiszDoAutora (63 ms)
+    ✓ ekran błędu bazy z pakietem: ostrzeżenie, co zrobić z plikiem i kontakt; z kopią .db sprzed migracji: ostrzeżenie i kontakt bez obietnicy importu (41 ms)
+    ✓ nowe teksty mają wpis EN i przekład w każdym z 33 języków (35 języków) (870 ms)
+Tests:       10 passed, 10 total

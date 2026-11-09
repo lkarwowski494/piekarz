@@ -1,0 +1,4 @@
+    ✕ karmienia za ok. 2 h zostają przy 50 krokach dwóch wypieków; limit 40 i kolejność po czasie bez zmian (4 ms)
+    Expected value: "piekarz.karmienie.z0.1"
+    Received array: ["piekarz.wypiek.a.krok", "piekarz.wypiek.b.krok", "piekarz.wypiek.a.krok.1", "piekarz.wypiek.b.krok.1", "piekarz.wypiek.a.krok.2", "piekarz.wypiek.b.krok.2", "piekarz.wypiek.a.krok.3", "piekarz.wypiek.b.krok.3", "piekarz.wypiek.a.krok.4", "piekarz.wypiek.b.krok.4", …]
+Tests:       1 failed, 1 total

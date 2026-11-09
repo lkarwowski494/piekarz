@@ -1,0 +1,17 @@
+# 12-niezawodnosc fix 2026-11-09 · M1-audytor-generalny-003 (12-niezawodnosc-001, DEC-17 a) — wynik
+- Commity (wypchnięte na `naprawy/M2-koordynator-napraw-2026-11-09-p1`): `2665582f` → 003 (refactor strukturalny: czytelnicy przyjmują połączenie); `26f6a87f` → 003 (import pakietu, ostrzeżenie, „Napisz do nas”, teksty 35 języków).
+- Zrobione: pakiet `piekarz-pliki-bazy` rozpoznany w „Importuj z pliku”, kopia .db + -wal w Caches otwierana jako osobna baza (integrity_check, wersja ≥ 1, migracja tylko kopii), przywracany istniejącą ścieżką (`piekarz-przed-importem-*`, restoreFromBackupData) po „Zastąp dane”; nowszy = „nowsza”, nieczytelny = powód bez zmian w danych. RescueScreen i StorageGate: ostrzeżenie przed usunięciem aplikacji i przycisk `napiszDoAutora`.
+- Testy przed: 6/6 czerwone z właściwego powodu (`dowody/003-test-przed.txt`); po: 10/10 zielone (`dowody/003-test-po.txt`); `npm run verify` kod 0 (591 zestawów, 6079 testów).
+- Pliki: `src/lib/import-pakietu.ts`, `src/data/dane-z-bazy.ts`, `src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx`, `src/data/__tests__/odczyt-z-polaczenia-003.sqlite.test.ts`; raport: `raport-fix.md`.
+- Przekazanie do 08: nowe eksporty `kopiaZPakietu`, `pakietZJson`, `pakietNieodczytany` (src/lib/import-pakietu.ts), `zbierzDaneZBazy` (src/data/dane-z-bazy.ts), `czytajReceptury`, `czytajMaki`, `czytajWpisyZakwasow`, `readStarters`; katalog kopii `${cacheDirectory}import-pakietu-<ms>/`, plik `import-pakietu.db`.
+- Przekazanie do 07: test `ratunek-import-pakietu-003` = test akceptacyjny 003; wektor: baza 1021, zmiana nazwy zakwasu tylko w -wal („Zakwas z pliku WAL”), wynik 4 wypieki, 2 zakwasy; E2E pakietu na telefonie — brak (krok właściciela).
+- Teksty do akceptacji roli 04 (PL / EN):
+  1. „Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.” / “Don't delete the app. Deleting it erases your data and the backups saved on this phone.”
+  2. „Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.” / “Keep the backup file, e.g. in Files. When the app works again, import it in Settings: Import from File.”
+  3. „Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.” / “I couldn't read the data in this database copy. Keep the file and email us.”
+  Do tego „Napisz do nas” w nowym miejscu (ekrany ratunku; wpis w słowniku design-spec §5) i styl ostrzeżenia (tusz, 700) — do decyzji 04.
+- 33 języki: `docs/lokalizacja/przeklad-m2-003-2026-11-09.json` wpięty (czesc-17…21), `npm run i18n:kontekst` zrobione; lista „czeka na przekład” pusta (test w verify zielony).
+- Otwarte: przegląd ścieżki wrażliwej — nieodbyty (brak narzędzia subagentów; polecenie `dowody/przeglad-sciezki-wrazliwej-polecenie.md`, uruchomi M2); drugi przegląd AI przekładu — nieodbyty (do M2). Zrzuty przed/po — brak (Linux bez symulatora).
+- Nowe znaleziska (P2, w `raport-fix.md`): 701 kopia .db sprzed migracji dalej nieimportowalna; 702 pakiet przez schowek może być za duży (wybór pliku `[DO USTALENIA]`); 703 sesje (trwający/zaplanowany wypiek) poza formatem kopii (rola 05).
+- Kroki właściciela: na buildzie TestFlight wymusić tryb awaryjny, wyeksportować pakiet, usunąć i zainstalować aplikację, zaimportować pakiet przez schowek (sprawdza też 702); akceptacja tekstów przez 04.
+- Status: naprawione-do-weryfikacji (status „zweryfikowane” nada reaudit).

@@ -1,0 +1,5 @@
+    ✕ treść zgłoszenia ma numer buildu z EXPO_PUBLIC_BUILD_NUMBER (7 ms)
+    ✓ workflow TestFlight ustawia EXPO_PUBLIC_BUILD_NUMBER przed krokiem archiwum (1 ms)
+    Expected substring: "1.0.0 (1023)"
+    Received string:    "Piekarz 1.0.0 — wiadomość do autora Opisz, co się stało albo co chcesz nam przekazać:··
+Tests:       1 failed, 1 passed, 2 total

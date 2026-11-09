@@ -1,0 +1,3 @@
+    ✓ dwa stuknięcia „Zapisz dokarmienie” bez czekania → jeden nowy wpis (336 ms)
+    ✓ dwa stuknięcia „Podwoił objętość” bez czekania → jeden nowy wpis (102 ms)
+Tests:       2 passed, 2 total
