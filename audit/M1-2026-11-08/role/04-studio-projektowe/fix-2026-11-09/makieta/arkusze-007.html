@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Siedem arkuszy na kartach (M1-audytor-generalny-007, 04-studio-projektowe-003) — PO, odwzorowanie kodu</title>
+<link rel="stylesheet" href="../../../../../../docs/design/karty/karty.css">
+<style>.pz{display:flex;justify-content:center;min-height:44px;align-items:center;color:var(--blad)} .grupa{background:var(--tlo);border-radius:12px;padding:0 12px} .pole{min-height:96px;border:1px solid var(--obwodka);border-radius:10px;background:var(--tlo)}
+.kolko{width:28px;height:28px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--tusz2)} .kolko.b{background:var(--akcent);color:var(--naAkcencie)}.tresc > .drugi,.tresc > .glowny,.tresc > .pz,.tresc > .rzad,.karta > .drugi{flex:none}</style></head>
+<body>
+<!-- Odwzorowanie tego, co renderuje kod po commicie 007 (ArkuszKart + Karta); dane [PRZYKŁAD]. Nie zrzut aplikacji. -->
+<main data-ekran="plan-wypieku"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Zamknij</a><h1>Plan wypieku</h1><span style="min-width:72px"></span></div>
+  <div class="tresc">
+    <section class="karta bez-wn"><div class="kn"><i data-i="waga"></i><h2>Składniki do odważenia</h2></div>
+      <div class="wiersz"><span class="roz t-tresc">Mąki</span><b class="wart">500 g</b></div>
+      <div class="wiersz"><span class="roz t-tresc">Woda</span><b class="wart">350 g</b></div>
+      <div class="wiersz"><span class="roz t-tresc">Zakwas</span><b class="wart">100 g</b></div>
+      <div class="wiersz"><span class="roz t-tresc">Sól</span><b class="wart">10 g</b></div>
+      <p class="t-przyp p2" style="padding:4px 16px 12px">Masa ciasta: 960 g, hydratacja całkowita: 75,0%</p></section>
+    <section class="karta bez-wn"><div class="kn"><i data-i="lista"></i><h2>Wszystkie etapy wypieku</h2></div>
+      <div class="wiersz" style="opacity:.6"><span class="kolko">✓</span><span class="roz"><span class="t-tresc">Mieszanie i autoliza</span><span class="t-obj p2">45 min</span></span></div>
+      <div class="wiersz"><span class="kolko b">2</span><span class="roz"><b class="t-tresc" style="color:var(--akcentTekst)">Fermentacja w misce</b><span class="t-obj p2">240 min</span></span></div>
+      <div class="wiersz"><span class="kolko">3</span><span class="roz"><span class="t-tresc">Formowanie</span><span class="t-obj p2">15 min</span></span></div></section>
+    <div class="pz t-tresc">Przerwij wypiek</div>
+  </div></div></div></main>
+<main data-ekran="po-co-ten-krok"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Zamknij</a><h1>Po co ten krok</h1><span style="min-width:72px"></span></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="info"></i><h2>Składanie 2 z 4</h2></div>
+    <p class="t-tresc">Składanie wzmacnia siatkę glutenową bez wyrabiania. <span class="przyklad">przykład</span></p></section></div></div></div></main>
+<main data-ekran="temperatura-wody"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Zamknij</a><span style="flex:1"></span><span style="min-width:72px"></span></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="termometr"></i><h2>Temperatura wody</h2></div>
+    <p class="t-przyp p2">Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.</p>
+    <div class="grupa"><div class="wiersz" style="border:0;padding:8px 0"><span class="roz t-przyp">Docelowa temp. wody:</span><b class="wart" style="color:var(--akcentTekst)">20,0°C</b></div></div>
+    <div class="grupa"><div class="wiersz" style="border:0;padding:8px 0"><span class="roz t-przyp">Docelowe DDT</span><b class="wart">− 25,0°C +</b></div></div></section></div></div></div></main>
+<main data-ekran="arkusz-dnia"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Zamknij</a><span style="flex:1"></span><span style="min-width:72px"></span></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="kalendarz"></i><h2>Piątek, 15 stycznia</h2></div>
+    <div class="wiersz" style="padding:8px 0;border-top:0"><span class="t-tresc p2">7:30</span><span class="roz t-tresc">Dokarmienie zakwasu</span></div>
+    <div class="wiersz" style="padding:8px 0"><span class="t-tresc p2">19:00</span><span class="roz t-tresc">Chleb pszenny: pieczenie</span></div>
+    <div class="drugi" style="border:1.5px solid var(--obwodka);border-radius:14px;min-height:44px;display:flex;align-items:center;justify-content:center">Zaplanuj wypiek na ten dzień</div></section></div></div></div></main>
+<main data-ekran="arkusz-planu"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Zamknij</a><span style="flex:1"></span><span style="min-width:72px"></span></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="zegar"></i><h2>Chleb pszenny: gotowe jutro o 9:30</h2></div>
+    <p class="t-przyp p2">Start dziś o 19:00</p>
+    <div class="wiersz" style="padding:8px 0;border-top:0"><span class="t-tresc p2">19:00</span><span class="roz t-tresc">Dokarmienie zakwasu</span></div>
+    <div class="wiersz" style="padding:8px 0"><span class="t-tresc p2">23:30</span><span class="roz t-tresc">Mieszanie i autoliza</span></div></section>
+    <button class="glowny">Zacznij wypiek</button>
+    <div class="drugi" style="border:1.5px solid var(--obwodka);border-radius:14px;min-height:44px;display:flex;align-items:center;justify-content:center">Dodaj do kalendarza</div>
+    <div class="drugi" style="border:1.5px solid var(--obwodka);border-radius:14px;min-height:44px;display:flex;align-items:center;justify-content:center;color:var(--blad)">Usuń plan</div></div></div></div></main>
+<main data-ekran="import-receptury"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Anuluj</a><span style="flex:1"></span><span style="min-width:72px"></span></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="receptury"></i><h2>Importuj recepturę</h2></div>
+    <p class="t-przyp p2">Wklej kod JSON udostępniony przez innego piekarza</p>
+    <div class="drugi" style="align-self:flex-start;border:1px solid var(--obwodka);border-radius:10px;padding:8px 14px;color:var(--akcentTekst)">Wklej ze schowka</div>
+    <div class="pole"></div></section>
+    <section class="karta"><div class="kn"><i data-i="ptaszek"></i><h2>Poprawna formuła</h2></div>
+    <p class="t-przyp p2">DDT: 25,0°C</p><p class="t-tresc"><b>Chleb od sąsiada</b></p></section>
+    <div class="rzad"><button class="drugi">Anuluj</button><button class="glowny">Zaimportuj przepis</button></div></div></div></div></main>
+<main data-ekran="import-z-pliku"><div class="arkusz-tlo"><div class="arkusz2"><div class="uchwyt"></div>
+  <div class="ark-nav"><a>Anuluj</a><span style="flex:1"></span><a class="mocny">Dodaj</a></div>
+  <div class="tresc"><section class="karta"><div class="kn"><i data-i="dysk"></i><h2>Receptura z pliku</h2></div>
+    <p class="t-przyp p2">Wklej zawartość pliku receptury albo kopii zapasowej.</p>
+    <div class="drugi" style="border:1px solid var(--obwodka);border-radius:14px;min-height:52px;display:flex;align-items:center;justify-content:center;color:var(--akcentTekst)">Wklej ze schowka</div>
+    <div class="pole"></div>
+    <div class="grupa"><div class="wiersz" style="border:0;padding:8px 0"><span class="roz t-tresc">Nazwa</span><span class="wart">Chleb od sąsiada</span></div>
+      <div class="wiersz" style="padding:8px 0"><span class="roz t-tresc">Woda</span><span class="wart">75%</span></div></div>
+    <p class="t-obj p2">Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.</p></section></div></div></div></main>
+<script src="../../../../../../docs/design/karty/karty.js"></script>
+</body></html>

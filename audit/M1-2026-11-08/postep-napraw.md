@@ -74,6 +74,8 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 08:02 032: runbook docs/wydanie/symbolizacja-awarii.md (0976c0ca), verify kod 0; blokada zaktualizowana (build). 004: rola 01 → 0282f59d (BRD/ER-79), sprawdzone: drzewo czyste, sprawdz-raport OK; przekazanie do 08/07 (karta bez fazy z okna przy showPeakWindow=false) robię sam pod 004.
 - 08:06 004: rola 01 0282f59d (BRD, ER-79) + przekazanie do 08 wykonane przeze mnie 4af7c631 (test czerwony `dowody/M2/004-kod-przed.txt`, verify kod 0 6103); status naprawione-do-weryfikacji. Znaleziska roli 01: chipy temperatury bez skutku po usunięciu fazy (P2, rola 04); źródło okna (rola 06, ZAK-SZC-900); test ekranu (rola 07).
 - 08:06 Polecenie 04-studio-projektowe-p2 wysłane (007, DEC-10 a). Drzewo zajęte do wyniku.
+- 08:26 007: rola 04 fef62d3e (refactor) + a33b545b; sprawdzone: drzewo czyste, sprawdz-raport OK po poprawce formatu odwołania do zrzutów (wzorzec nazw), verify kod 0 (596/6116), przegląd ścieżki wrażliwej (arkusze importu) brak P0/P1. Status naprawione-do-weryfikacji. Nowe: 04-studio-projektowe-007 (P1, P: 6 kolejnych arkuszy poza kartami — decyzja właściciela na STOP), M2-005 (P2 → P3).
+- 08:26 Polecenie 06-tresci-p2 wysłane (008, 009, 010, 040, 041). Drzewo zajęte do wyniku.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

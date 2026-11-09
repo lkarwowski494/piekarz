@@ -630,8 +630,8 @@
       "przyczyna": "SYS-06",
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "7 arkuszy z 04-studio-projektowe-003 na systemie kart (przegląd roli 04 według D-139) albo wyjątek nazwany z decyzją",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "a33b545b"
     },
     {
       "id": "M1-audytor-generalny-008",

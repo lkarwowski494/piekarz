@@ -1,0 +1,30 @@
+PASS src/__tests__/arkusze-w-kartach-007.test.tsx
+  ✓ Temperatura wody: opis jako podpis karty, nie akapit na tle (6 ms)
+  arkusze pageSheet na systemie kart (M1-audytor-generalny-007; 04-studio-projektowe-003)
+    ✓ każdy własny Modal pageSheet w src/ jest na liście wyjątków z ID (reszta przez ArkuszKart) (3 ms)
+    ✓ siedem arkuszy ze znaleziska używa ArkuszKart i nie ma ich na liście wyjątków (2 ms)
+    ✓ lista wyjątków nie trzyma plików, których już nie ma albo które nie są arkuszem (2 ms)
+  Plan wypieku: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (231 ms)
+  Po co ten krok: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (8 ms)
+  Temperatura wody: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (17 ms)
+  arkusz dnia: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (18 ms)
+  najbliższe dni: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (7 ms)
+  arkusz planu: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (14 ms)
+  import receptury: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (13 ms)
+  import z pliku: ArkuszKart z kartami (D-139, README §1)
+    ✓ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka na tle poza paskiem i kartą (6 ms)
+  PasekArkusza: przycisk nieczynny (import z pliku w ArkuszKart)
+    ✓ wylaczony przechodzi do przycisku jako disabled z accessibilityState (2 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       13 passed, 13 total
+Snapshots:   0 total
+Time:        1.697 s
+Ran all test suites matching /src\/__tests__\/arkusze-w-kartach-007.test.tsx/i.

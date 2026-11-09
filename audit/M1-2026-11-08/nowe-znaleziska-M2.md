@@ -40,3 +40,13 @@
 - Opcje: (a) jeden słuchacz w poStarcieBazy i `finally` bez przykrywania błędu; (b) bez zmian. Rekomendacja: (a) przy najbliższej zmianie tych plików.
 - Test akceptacyjny: test runnera z wymuszonym błędem pragmy po ROLLBACK daje MigrationError; wiele wywołań poStarcieBazy = jeden słuchacz.
 - Status: otwarte
+
+### M2-koordynator-napraw-005 · „Zaimportuj przepis” bez blokady w trakcie zapisu (podwójne stuknięcie = dwa zapisy)
+- Pozycja listy kontrolnej: DEV (rola 08; jak 08-programista-006 / M1-audytor-generalny-028)
+- Poziom: P2
+- Realność: brzegowy   · Pewność: średnia
+- Rodzaj: D
+- Dowód: przegląd ścieżki wrażliwej 007 (2026-11-09): `src/components/ImportRecipeModal.tsx:84` przycisk bez blokady w trakcie zapisu; szybkie podwójne stuknięcie może wywołać `saveRecipe` dwa razy (istniało przed 007).
+- Opcje: (a) blokada jak w 028; (b) bez zmian. Rekomendacja: (a).
+- Test akceptacyjny: dwa stuknięcia bez czekania → jeden zapis.
+- Status: otwarte (wg D-288 nowe P2 → P3 backlog 1.0.1)

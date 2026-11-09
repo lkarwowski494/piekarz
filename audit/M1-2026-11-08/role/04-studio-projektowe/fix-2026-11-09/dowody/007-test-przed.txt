@@ -1,0 +1,239 @@
+FAIL src/__tests__/arkusze-w-kartach-007.test.tsx
+  arkusze pageSheet na systemie kart (M1-audytor-generalny-007; 04-studio-projektowe-003)
+    ✕ każdy własny Modal pageSheet w src/ jest na liście wyjątków z ID (reszta przez ArkuszKart) (4 ms)
+    ✕ siedem arkuszy ze znaleziska używa ArkuszKart i nie ma ich na liście wyjątków (3 ms)
+    ✓ lista wyjątków nie trzyma plików, których już nie ma albo które nie są arkuszem (1 ms)
+  Plan wypieku: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (120 ms)
+  Po co ten krok: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (2 ms)
+  Temperatura wody: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (5 ms)
+  arkusz dnia: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (6 ms)
+  najbliższe dni: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (3 ms)
+  arkusz planu: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (7 ms)
+  import receptury: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (7 ms)
+  import z pliku: ArkuszKart z kartami (D-139, README §1)
+    ✕ ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą (2 ms)
+
+  ● arkusze pageSheet na systemie kart (M1-audytor-generalny-007; 04-studio-projektowe-003) › każdy własny Modal pageSheet w src/ jest na liście wyjątków z ID (reszta przez ArkuszKart)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "src/components/ImportRecipeModal.tsx",
+    +   "src/components/calculator/TemperaturaWodySheet.tsx",
+    +   "src/components/kalendarz/ArkuszDnia.tsx",
+    +   "src/components/settings/ImportZPlikuArkusz.tsx",
+    +   "src/components/start/ArkuszPlanu.tsx",
+    +   "src/components/stolnica/PlanWypiekuArkusz.tsx",
+    +   "src/components/stolnica/PoCoTenKrokArkusz.tsx",
+    + ]
+
+      76 |   it('każdy własny Modal pageSheet w src/ jest na liście wyjątków z ID (reszta przez ArkuszKart)', () => {
+      77 |     const bezWpisu = arkusze.filter((p) => !(p in WYJATKI));
+    > 78 |     expect(bezWpisu).toEqual([]);
+         |                      ^
+      79 |   });
+      80 |
+      81 |   it('siedem arkuszy ze znaleziska używa ArkuszKart i nie ma ich na liście wyjątków', () => {
+
+      at Object.toEqual (src/__tests__/arkusze-w-kartach-007.test.tsx:78:22)
+
+  ● arkusze pageSheet na systemie kart (M1-audytor-generalny-007; 04-studio-projektowe-003) › siedem arkuszy ze znaleziska używa ArkuszKart i nie ma ich na liście wyjątków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+    -   "arkuszKart": true,
+    +   "arkuszKart": false,
+        "p": "src/components/stolnica/PlanWypiekuArkusz.tsx",
+        "wyjatek": false,
+      }
+
+      82 |     for (const p of SIEDEM) {
+      83 |       const kod = fs.readFileSync(path.join(KORZEN, p), 'utf8');
+    > 84 |       expect({ p, arkuszKart: /<ArkuszKart\b/.test(kod), wyjatek: p in WYJATKI }).toEqual({ p, arkuszKart: true, wyjatek: false });
+         |                                                                                   ^
+      85 |     }
+      86 |   });
+      87 |
+
+      at Object.toEqual (src/__tests__/arkusze-w-kartach-007.test.tsx:84:83)
+
+  ● Plan wypieku: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Po co ten krok: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● Temperatura wody: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● arkusz dnia: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● najbliższe dni: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● arkusz planu: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● import receptury: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● import z pliku: ArkuszKart z kartami (D-139, README §1) › ma pasek arkusza, co najmniej jedną kartę i żadnego nagłówka poza paskiem i kartą
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      152 |     });
+      153 |     const root = tree!.root;
+    > 154 |     expect(root.findAllByType(ArkuszKart)).toHaveLength(1);
+          |                                            ^
+      155 |     expect(root.findAllByType(Karta).length).toBeGreaterThan(0);
+      156 |     expect(nagłówkiPozaSystemem(root)).toEqual([]);
+      157 |   });
+
+      at Object.toHaveLength (src/__tests__/arkusze-w-kartach-007.test.tsx:154:44)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       10 failed, 1 passed, 11 total
+Snapshots:   0 total
+Time:        1.249 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/arkusze-w-kartach-007.test.tsx/i.
