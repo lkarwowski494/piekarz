@@ -1,6 +1,13 @@
 # Wznowienie M3 (Redesigner): przekazanie
 Aktualizacja: 2026-11-09 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w gicie, bo `.git/punkt-czyszczenia.md` i `audit/` znikają razem z kontenerem w chmurze, a na komputerze właściciela bywają nieaktualne.
 
+## 2026-11-09 19:28 UTC — przekazanie M2 → następczyni (koordynator M3, tryb nocny D-289) — NAJNOWSZE
+- M2 `session_01T66VBy48fpemgf7wQvUkU4` przekazała przy ~25% (reszta partii 3 nie mieści się w 30%). Prompt: `audit/M1-2026-11-08/prompt-przekazania-M2-2026-11-09b.md` na `audit-m1/piekarz-2026-11-08` @ `daa9eff8` (sprawdzony).
+- p3 @ `991586dd` (zawiera `redesign` `d2fa028e` → FF sprawdzony `merge-base --is-ancestor`); verify kod 0 wg M2 (niesprawdzone przez M3). Do weryfikacji: 078, 080, 082, 018, 084. Decyzje M2: D-313, D-314 (właściciel), **D-315 do weta**; następny wolny D-316.
+- Następczyni: `session_01T66VBx5s4zkdFqT2gZ5CDQ` (opus, auto, env M2) utworzona 19:27. Stara M2 do archiwizacji po potwierdzeniu startu następczyni (kontrola 19:48).
+- Otwarte do rana: scalenie `asc-kontrola-brak-ofert` → main w apps4brew-narzedzia (polecenie właściciela, działanie zewnętrzne; brak uprawnień zapisu w sesji M2), rola klucza ASC niepodana.
+- Przypomnienia: kontrola 19:48 `trig_01TJu3o9jBvoKWGxaGjAewXo`; raport poranny 06:25 UTC 10.11 `trig_01BbBybvy5Rpb2GMyoZCm6jG`. M2 miała ostrzeżenie limitu 7-dniowego (19:22).
+
 ## PUNKT CZYSZCZENIA 2026-11-09 ~18:55 UTC — TRYB NOCNY (D-289) — STAN BIEŻĄCY, czytaj najpierw
 - **Tryb nocny (D-289):** koordynator decyduje według rekomendacji z wpisem do weta; pracę wykonują sesje ról (M2 i następczynie), koordynator tylko koordynuje; każda sesja ≥30% kontekstu (300k/1M, `get_session` → `context_usage.used_tokens`) zapisuje stan na gałęzi i przekazuje pracę nowej sesji (koordynator: create_session z promptem przekazania, get_session nowej, archive_session starej dopiero gdy nowa ruszyła). Koordynator sam też ≥30% → punkt czyszczenia (zaktualizuj tę sekcję, push, nowa sesja albo blok dla właściciela).
 - **Granice:** bez master, buildu, TestFlight, ASC, strony, usuwania gałęzi/danych, wiadomości do ludzi.
