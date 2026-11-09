@@ -1785,3 +1785,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Słowa właściciela (2026-11-09, przyciski):** „Oznaczyć jako PÓŹNIEJ (Recommended)”; „Uruchomić teraz (Recommended)”; „072: zmienić tytuły (Recommended), 077: usunąć pages.yml (Recommended)”; przy apetycie 1.0 (M1-audytor-generalny-064): „Powiedz mi co jeszcze trzeba dobudować”.
 - **Decyzja:** (1) `docs/monetyzacja.md`: funkcje ukryte w 1.0 (spiżarnia, wysyłanie QR, druk, dalsza Akademia) jako PÓŹNIEJ, poza ofertą Pro 1.0 (3aaeb317). (2) E2E iOS ręcznie (workflow_dispatch) na gałęzi partii 3 przed scaleniem (run 99). (3) 072: dopisek „(styl, bez pomiaru)” w 29 tytułach testów (zgoda na zmianę nazw). (4) 077: `.github/workflows/pages.yml` usunięty (strony publikuje apps4brew-www). (5) 064 bez wyboru apetytu: właściciel prosi o listę tego, co trzeba jeszcze dobudować — decyzja otwarta.
 - **Status:** właściciel (1–4); 064 otwarte.
+
+### [D-312] 2026-11-09 — Apetyt 1.0 = 97 h (M1-audytor-generalny-064) i braki do dobudowania w partii 3 M2 (właściciel)
+- **Słowa właściciela (2026-11-09, przycisk):** „97 h + dobudować (2)(3)(4) (Recommended)”.
+- **Decyzja:** (1) apetyt 1.0 = suma MVP 97 h z rankingu roli 03 (1f5eac3a); nic nie wypada; cięcie po ocenie wyjątków z datą 2027-03-31 (062). (2) W partii 3 M2 dobudować: karta „Składniki do odważenia” na Stolnicy w wersji drożdżowej bez „Zakwas 0 g”, z wierszem drożdży (070-N5); rada przy za zimnej wodzie widoczna (08-p3-N1, istniejący komunikat); gotowość ciasta drożdżowego — czas jako wskazówka i test palca w krokach rośnięcia (070-N2, BR-ETAP-001). (3) 15 receptur drożdżowych katalogu bez planu (070-N1): bez budowy w 1.0 — BR-HARMO-001 zawęzić do receptur na zakwasie i wersji drożdżowych (ER roli 01); plan dla receptur drożdżowych → backlog 1.0.1.
+- **Odrzucone:** plan i prowadzenie 15 receptur drożdżowych w 1.0 (czasy ze źródeł roli 06 dla każdej, przekład, koszt nieoszacowany); wszystkie braki do 1.0.1.
+- **Status:** właściciel.
+
