@@ -14,8 +14,10 @@ jest.mock('expo-mail-composer', () => ({
 }));
 jest.mock('expo-constants', () => ({
   __esModule: true,
-  default: { expoConfig: { version: '1.0.0', ios: { buildNumber: '1014' } } },
+  default: { expoConfig: { version: '1.0.0', ios: {} } },
 }));
+// Numer buildu z workflow (EXPO_PUBLIC_BUILD_NUMBER), nie z atrapy ios.buildNumber, której w buildzie nie ma [M1-audytor-generalny-031]
+process.env.EXPO_PUBLIC_BUILD_NUMBER = '1014';
 
 import React from 'react';
 import { Alert, AlertButton, Linking } from 'react-native';
