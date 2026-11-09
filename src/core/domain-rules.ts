@@ -11,8 +11,6 @@ export * from './sourdough-physics';
 import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
 import type { PoziomKomunikatu } from './poziom-komunikatu';
 import { Q10_FERMENTATION } from './fermentation-q10';
-import { t } from '../lib/i18n';
-import { formatFixed } from '../lib/format';
 
 export interface FlourItemInput {
   name: string;
@@ -80,8 +78,17 @@ export interface FermentationAdaptationResult {
   adaptedMinutesFormatted: string;
   diffMinutes: number;
   temperatureCelsius: number;
-  /** Komunikat w języku aplikacji (t(), nazwa pola historyczna) [M1-audytor-generalny-070]. */
-  messagePl: string;
+  /** Rodzaj komunikatu i liczby; domena nie składa tekstu (bez i18n, ADR-006). Tekst nie był pokazywany w aplikacji
+   * (znalezisko M2-koordynator-napraw-001) [M1-audytor-generalny-020]. */
+  komunikat: KomunikatAdaptacji;
+}
+
+/** Komunikat adaptacji czasu fermentacji: zgodny z recepturą, skrócony (ciepło) albo wydłużony (chłodno). */
+export interface KomunikatAdaptacji {
+  rodzaj: 'optymalna' | 'cieplo' | 'chlodno';
+  temperaturaC: number;
+  /** Różnica czasu w minutach (bez znaku). */
+  minuty: number;
 }
 
 /** Tolerancja sumy udziałów mąk przy wczytaniu receptury: jak import JSON (recipe-sharing.ts, 95–105%). */
@@ -339,16 +346,7 @@ export function calculateFermentationAdaptation(
   const m = totalMinutes % 60;
   const formatted = h > 0 ? `${h}h ${m}m` : `${m}m`;
 
-  // Komunikat w języku aplikacji, temperatura z separatorem języka [M1-audytor-generalny-070]
-  const temp = formatFixed(actualTempC, 1);
-  let msg: string;
-  if (Math.abs(diffMinutes) < 5) {
-    msg = t('Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.', { temp });
-  } else if (diffMinutes < 0) {
-    msg = t('Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).', { temp, min: Math.abs(diffMinutes) });
-  } else {
-    msg = t('Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).', { temp, min: diffMinutes });
-  }
+  const rodzaj: KomunikatAdaptacji['rodzaj'] = Math.abs(diffMinutes) < 5 ? 'optymalna' : diffMinutes < 0 ? 'cieplo' : 'chlodno';
 
   return {
     baseHours,
@@ -356,7 +354,7 @@ export function calculateFermentationAdaptation(
     adaptedMinutesFormatted: formatted,
     diffMinutes,
     temperatureCelsius: actualTempC,
-    messagePl: msg,
+    komunikat: { rodzaj, temperaturaC: actualTempC, minuty: Math.abs(diffMinutes) },
   };
 }
 

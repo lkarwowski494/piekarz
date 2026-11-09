@@ -16,7 +16,7 @@ import { useZakwasPlanu } from '../../../src/hooks/useZakwasPlanu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezPlanu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
-import { krokiDrozdzoweKonczaceSie } from '../../../src/core/yeast-stages';
+import { krokiDrozdzoweKonczaceSie } from '../../../src/recipes/yeast-stages';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny } from '../../../src/lib/format';
 import { plakietkaDnia } from '../../../src/lib/plakietka-dnia';

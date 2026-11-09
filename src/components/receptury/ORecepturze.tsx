@@ -11,7 +11,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import type { RecipePreset } from '../../recipes/presets';
-import type { PieczenieWersji } from '../../core/yeast-stages';
+import type { PieczenieWersji } from '../../recipes/yeast-stages';
 import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { s } from './style-receptur';
 import { Karta } from '../../ui/karty/Karta';

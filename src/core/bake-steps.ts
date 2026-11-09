@@ -10,7 +10,7 @@ import {
   ScheduleOptions,
   StageCategory,
   StageTemplate,
-} from '../scheduler/reverse-scheduler';
+} from './reverse-scheduler';
 import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from './rye-stages';
 
 /** Migawka etapu planu zapisana w sesji wypieku; nazwa i instrukcja to klucze PL dla t(). */
@@ -41,7 +41,7 @@ export function isStageCategory(v: unknown): v is StageCategory {
 
 /**
  * Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). Chleb żytni piecze się w formie (ZYT-ETA-001); wersja
- * drożdżowa (`yeast_*`, src/core/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
+ * drożdżowa (`yeast_*`, src/recipes/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
  * (`maszyna_*`, src/lib/plan-maszyny.ts) piecze w maszynie [M3 p9b2].
  */
 export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boolean {

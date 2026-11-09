@@ -8,7 +8,7 @@
 // Nazwy i instrukcje to klucze PL dla t(); tłumaczenia EN w src/lib/i18n-en/czesc-3.ts.
 // ============================================================================
 
-import { StageCategory } from '../scheduler/reverse-scheduler';
+import type { StageCategory } from './reverse-scheduler';
 
 export interface RyeStageTemplate {
   id: string;

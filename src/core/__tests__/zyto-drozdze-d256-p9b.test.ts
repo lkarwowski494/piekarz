@@ -1,7 +1,7 @@
 // D-256 (rola 06): żyto 100% na drożdżach — rośnięcie w formie ocenia powierzchnia (ZYT-ETA-005), nie test palca;
 // studzenie do 24 h (KRO-POC-016); pieczenie 240 °C 10 min + 220 °C 35 min (ZYT-DRO-002). Pszenne bez zmian [M3 p9b]
 import { showsPokeTestEntry } from '../bake-steps';
-import { krokiDrozdzowe, pieczenieDrozdzowe } from '../yeast-stages';
+import { krokiDrozdzowe, pieczenieDrozdzowe } from '../../recipes/yeast-stages';
 
 const START = Date.UTC(2026, 10, 4, 8, 0);
 const krok = (id: string, nr: string) => krokiDrozdzowe(id, START)!.find((k) => k.id === nr)!;

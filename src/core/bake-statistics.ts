@@ -3,7 +3,7 @@
 // 100% Offline-First, Zero Cloud Dependencies.
 // ============================================================================
 
-import { StoredBakeLog } from '../data/db';
+import type { StoredBakeLog } from '../data/db';
 
 export interface BakeStatisticsResult {
   totalBakes: number;

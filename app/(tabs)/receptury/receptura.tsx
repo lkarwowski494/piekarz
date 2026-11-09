@@ -44,7 +44,7 @@ import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../..
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
 import { SegmentTrybu, TrybMaszyny } from '../../../src/components/receptury/SegmentTrybu';
 import { trybMaszynyDostepny } from '../../../src/recipes/maszyna-receptur';
-import { pieczenieDrozdzowe } from '../../../src/core/yeast-stages';
+import { pieczenieDrozdzowe } from '../../../src/recipes/yeast-stages';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
 import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
