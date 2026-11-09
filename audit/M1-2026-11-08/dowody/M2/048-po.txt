@@ -1,0 +1,15 @@
+PASS tests/data-w-zdaniu-048.test.ts
+  048: data w zdaniu
+    ✓ czyDzienSlowem: wczoraj…pojutrze słowem, dalej data (2 ms)
+    ✓ pl: data odległa po dwukropku we wszystkich zdaniach (19 ms)
+    ✓ de: data odległa po dwukropku we wszystkich zdaniach (43 ms)
+    ✓ es: data odległa po dwukropku we wszystkich zdaniach (51 ms)
+    ✓ ru: data odległa po dwukropku we wszystkich zdaniach (65 ms)
+    ✓ cs: data odległa po dwukropku we wszystkich zdaniach (57 ms)
+    ✓ pl: słowo dnia zostaje w zdaniu (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.787 s, estimated 1 s
+Ran all test suites matching /tests\/data-w-zdaniu-048.test.ts/i.

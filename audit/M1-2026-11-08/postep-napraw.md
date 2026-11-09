@@ -83,6 +83,9 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 11:01 012: 6c2a6e26 — ekran awaryjny w języku systemu (ustawJezykSystemu w gałęzi awaryjnej). TDD 3/3 czerwone → zielone; verify 6379 kod 0. Status naprawione-do-weryfikacji.
 - 11:08 006: ff453a6b — skok z „Przywróć” (stan sprzed skoku), bieżący krok bez zmian; nowy tekst EN+33. TDD 2/2 czerwone → zielone; verify 6381 kod 0. Przegląd ścieżki wrażliwej (sesja wypieku) + drugi przegląd AI klucza w toku — status po przeglądzie. Uwaga do STOP p3: test akceptacyjny planu wymienia też potwierdzenie; wybrana opcja A znaleziska (cofnięcie zamiast pytania).
 - 11:17 051: 64d2aa55 (t('DDT') w podglądzie importu; TDD; verify 6382). 006: przegląd ścieżki danych — brak P0/P1; P2-1 + przekład et i 6 P3 → cfb3b16c (verify 6383). Statusy 006, 051 naprawione-do-weryfikacji. Nowe: M2-008, M2-009 (P3).
+- 11:25 047: 4f24b6a6 — 12 h bez zera wiodącego (opcjeGodziny), jedna kropka po „p.m.”/„μ.μ.”; TDD 4 czerwone → 37/37; 2 stare testy utrwalały „09:05 PM” (zmienione z ID); verify 6420 kod 0. 046: zrobione w torze B (D-283, f1aa3ad7 + test e6b69e0f, wariant bez rodzajnika zamiast tPlural z rekomendacji znaleziska); sprawdzone testem godzina-przyimek 6/6 + 047 na HEAD (dowody/M2/046-sprawdzenie-toru-B.txt). Statusy naprawione-do-weryfikacji.
+- 11:36 048: 6c5546bd — data odległa po dwukropku (5 kluczy, EN+33), słowo dnia w zdaniu; TDD; 2 testy dostosowane (089 miejsce klucza, spirala regex); verify 6427 kod 0. Drugi przegląd AI przekładu w toku — status po przeglądzie.
+- 11:44 034: 4de29436 — BRD bez próby (ER-80), trwała kontrola; TDD 2/2 czerwone → zielone; verify 6429. kontrola-brd: 2 błędy RD-37/38 sprzed zmiany (M2-010). 048: drugi przegląd AI bez P0/P1; ru P2 + es-419 P3 → 0e952949, verify 6429. Statusy 034, 048 naprawione-do-weryfikacji.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

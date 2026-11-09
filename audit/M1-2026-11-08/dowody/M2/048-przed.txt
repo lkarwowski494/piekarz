@@ -1,0 +1,113 @@
+FAIL tests/data-w-zdaniu-048.test.ts
+  048: data w zdaniu
+    ✕ czyDzienSlowem: wczoraj…pojutrze słowem, dalej data (1 ms)
+    ✕ pl: data odległa po dwukropku we wszystkich zdaniach (11 ms)
+    ✕ de: data odległa po dwukropku we wszystkich zdaniach (1 ms)
+    ✕ es: data odległa po dwukropku we wszystkich zdaniach (1 ms)
+    ✕ ru: data odległa po dwukropku we wszystkich zdaniach (2 ms)
+    ✕ cs: data odległa po dwukropku we wszystkich zdaniach (1 ms)
+    ✕ pl: słowo dnia zostaje w zdaniu
+
+  ● 048: data w zdaniu › czyDzienSlowem: wczoraj…pojutrze słowem, dalej data
+
+    TypeError: (0 , _spiralaEtykieta.czyDzienSlowem) is not a function
+
+      22 |   afterAll(() => setLang('pl'));
+      23 |   it('czyDzienSlowem: wczoraj…pojutrze słowem, dalej data', () => {
+    > 24 |     expect(czyDzienSlowem(JUTRO, TERAZ)).toBe(true);
+         |                          ^
+      25 |     expect(czyDzienSlowem(DALEKO, TERAZ)).toBe(false);
+      26 |   });
+      27 |   it.each(['pl', 'de', 'es', 'ru', 'cs'] as Lang[])('%s: data odległa po dwukropku we wszystkich zdaniach', (l) => {
+
+      at Object.<anonymous> (tests/data-w-zdaniu-048.test.ts:24:26)
+
+  ● 048: data w zdaniu › pl: data odległa po dwukropku we wszystkich zdaniach
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      29 |     const data = dzienSlownie(DALEKO, TERAZ);
+      30 |     const zdania = [
+    > 31 |       gotoweKiedy(DALEKO, TERAZ, true),
+         |                  ^
+      32 |       gotoweKiedy(DALEKO, TERAZ, false),
+      33 |       gotoweNazwa('Chleb', DALEKO, TERAZ),
+      34 |       startKiedy(DALEKO, TERAZ),
+
+      at tests/data-w-zdaniu-048.test.ts:31:18
+
+  ● 048: data w zdaniu › de: data odległa po dwukropku we wszystkich zdaniach
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      29 |     const data = dzienSlownie(DALEKO, TERAZ);
+      30 |     const zdania = [
+    > 31 |       gotoweKiedy(DALEKO, TERAZ, true),
+         |                  ^
+      32 |       gotoweKiedy(DALEKO, TERAZ, false),
+      33 |       gotoweNazwa('Chleb', DALEKO, TERAZ),
+      34 |       startKiedy(DALEKO, TERAZ),
+
+      at tests/data-w-zdaniu-048.test.ts:31:18
+
+  ● 048: data w zdaniu › es: data odległa po dwukropku we wszystkich zdaniach
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      29 |     const data = dzienSlownie(DALEKO, TERAZ);
+      30 |     const zdania = [
+    > 31 |       gotoweKiedy(DALEKO, TERAZ, true),
+         |                  ^
+      32 |       gotoweKiedy(DALEKO, TERAZ, false),
+      33 |       gotoweNazwa('Chleb', DALEKO, TERAZ),
+      34 |       startKiedy(DALEKO, TERAZ),
+
+      at tests/data-w-zdaniu-048.test.ts:31:18
+
+  ● 048: data w zdaniu › ru: data odległa po dwukropku we wszystkich zdaniach
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      29 |     const data = dzienSlownie(DALEKO, TERAZ);
+      30 |     const zdania = [
+    > 31 |       gotoweKiedy(DALEKO, TERAZ, true),
+         |                  ^
+      32 |       gotoweKiedy(DALEKO, TERAZ, false),
+      33 |       gotoweNazwa('Chleb', DALEKO, TERAZ),
+      34 |       startKiedy(DALEKO, TERAZ),
+
+      at tests/data-w-zdaniu-048.test.ts:31:18
+
+  ● 048: data w zdaniu › cs: data odległa po dwukropku we wszystkich zdaniach
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      29 |     const data = dzienSlownie(DALEKO, TERAZ);
+      30 |     const zdania = [
+    > 31 |       gotoweKiedy(DALEKO, TERAZ, true),
+         |                  ^
+      32 |       gotoweKiedy(DALEKO, TERAZ, false),
+      33 |       gotoweNazwa('Chleb', DALEKO, TERAZ),
+      34 |       startKiedy(DALEKO, TERAZ),
+
+      at tests/data-w-zdaniu-048.test.ts:31:18
+
+  ● 048: data w zdaniu › pl: słowo dnia zostaje w zdaniu
+
+    TypeError: (0 , _spiralaEtykieta.gotoweKiedy) is not a function
+
+      40 |   it('pl: słowo dnia zostaje w zdaniu', () => {
+      41 |     setLang('pl');
+    > 42 |     expect(gotoweKiedy(JUTRO, TERAZ, true)).toBe('Gotowe jutro o 13:30.');
+         |                       ^
+      43 |     expect(startKiedy(JUTRO, TERAZ)).toBe('Start jutro o 13:30');
+      44 |     expect(gotoweNazwa('Chleb', DALEKO, TERAZ)).toBe(`Chleb — gotowe: ${dzienSlownie(DALEKO, TERAZ)}, 13:30`);
+      45 |     expect(t('Gotowe: {dzien}, {godzina}', { dzien: 'X', godzina: 'Y' })).toBe('Gotowe: X, Y');
+
+      at Object.<anonymous> (tests/data-w-zdaniu-048.test.ts:42:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 7 total
+Snapshots:   0 total
+Time:        0.502 s, estimated 2 s
+Ran all test suites matching /tests\/data-w-zdaniu-048.test.ts/i.

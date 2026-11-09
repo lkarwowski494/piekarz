@@ -1,0 +1,10 @@
+PASS tests/brd-bez-proby-034.test.ts
+  034: BRD bez okresu próbnego (D-112)
+    ✓ żadna aktywna sekcja wymagań nie opisuje próby (14 ms)
+    ✓ BR-RECP-003: przegląd historii bez Pro pozwala dodać wpis (Dziennik w Basic, D-112, D-116)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.594 s, estimated 1 s
+Ran all test suites matching /tests\/brd-bez-proby-034.test.ts/i.

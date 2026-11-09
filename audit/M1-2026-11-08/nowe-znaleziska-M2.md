@@ -69,3 +69,7 @@
 
 ## Przegląd 006 (2026-11-09)
 - P2-1 naprawione (pasek znika przy nowym zegarze). P3 do decyzji/1.0.1: M2-008 jeden poziom „Przywróć” przy dwóch skokach z rzędu (świadomy wybór); M2-009 „Przywróć” po upływie zegara sprzed skoku bez sygnału dźwiękowego (stan poprawny, „Termin minął”).
+
+## 034, 048 (2026-11-09)
+- M2-010 (P2→P3 wg D-288, klasa: dokumentacja): kontrola-brd zgłasza 2 błędy istniejące przed zmianą M2 — RD-37 i RD-38 (reguły krytyczne bez źródła szczebla 1–3, C-003) w `docs/brd/reguly.md:287,305`.
+- Drugi przegląd 048: P3 do decyzji globalnej — fr spacja przed dwukropkiem zwykła zamiast U+00A0/U+202F w całym słowniku fr (223 vs 19); P3 z kluczy siostrzanych: pt/pt-BR „no mínimo” → „o mais cedo”, hu „így” zbędne.

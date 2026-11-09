@@ -1,0 +1,8 @@
+PASS src/lib/__tests__/godzina-przyimek.test.ts
+PASS tests/godzina-12h-047.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       43 passed, 43 total
+Snapshots:   0 total
+Time:        1.92 s
+Ran all test suites matching /src\/lib\/__tests__\/godzina-przyimek.test.ts|tests\/godzina-12h-047.test.ts/i.

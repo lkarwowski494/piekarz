@@ -1,0 +1,136 @@
+FAIL tests/godzina-12h-047.test.ts
+  047: godzina w zegarze 12 h i 24 h
+    ✕ en-US: „1:30 PM” bez zera wiodącego; pl i de: 24 h z zerem jak dotąd (14 ms)
+    ✕ opcjeGodziny: numeric w 12 h, 2-digit w 24 h (1 ms)
+    ✓ pl: zdania kończące się godziną bez „..” (3 ms)
+    ✓ en: zdania kończące się godziną bez „..” (1 ms)
+    ✓ cs: zdania kończące się godziną bez „..” (36 ms)
+    ✓ sk: zdania kończące się godziną bez „..” (36 ms)
+    ✓ hu: zdania kończące się godziną bez „..” (35 ms)
+    ✓ ro: zdania kończące się godziną bez „..” (35 ms)
+    ✓ bg: zdania kończące się godziną bez „..” (47 ms)
+    ✓ hr: zdania kończące się godziną bez „..” (48 ms)
+    ✓ sl: zdania kończące się godziną bez „..” (34 ms)
+    ✓ sr: zdania kończące się godziną bez „..” (45 ms)
+    ✓ lt: zdania kończące się godziną bez „..” (42 ms)
+    ✓ lv: zdania kończące się godziną bez „..” (39 ms)
+    ✓ et: zdania kończące się godziną bez „..” (37 ms)
+    ✓ uk: zdania kończące się godziną bez „..” (47 ms)
+    ✓ es: zdania kończące się godziną bez „..” (52 ms)
+    ✕ es-419: zdania kończące się godziną bez „..” (42 ms)
+    ✓ pt: zdania kończące się godziną bez „..” (41 ms)
+    ✓ pt-BR: zdania kończące się godziną bez „..” (34 ms)
+    ✓ de: zdania kończące się godziną bez „..” (37 ms)
+    ✓ fr: zdania kończące się godziną bez „..” (40 ms)
+    ✓ it: zdania kończące się godziną bez „..” (39 ms)
+    ✓ nl: zdania kończące się godziną bez „..” (48 ms)
+    ✓ sv: zdania kończące się godziną bez „..” (37 ms)
+    ✓ da: zdania kończące się godziną bez „..” (41 ms)
+    ✓ nb: zdania kończące się godziną bez „..” (37 ms)
+    ✓ fi: zdania kończące się godziną bez „..” (38 ms)
+    ✓ tr: zdania kończące się godziną bez „..” (34 ms)
+    ✕ el: zdania kończące się godziną bez „..” (46 ms)
+    ✓ id: zdania kończące się godziną bez „..” (37 ms)
+    ✓ ms: zdania kończące się godziną bez „..” (36 ms)
+    ✓ vi: zdania kończące się godziną bez „..” (40 ms)
+    ✓ ru: zdania kończące się godziną bez „..” (48 ms)
+    ✓ ja: zdania kończące się godziną bez „..” (33 ms)
+    ✓ ko: zdania kończące się godziną bez „..” (36 ms)
+    ✓ zh-Hant: zdania kończące się godziną bez „..” (33 ms)
+
+  ● 047: godzina w zegarze 12 h i 24 h › en-US: „1:30 PM” bez zera wiodącego; pl i de: 24 h z zerem jak dotąd
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^1:30[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]PM$/
+    Received string:  "01:30 PM"
+
+      14 |   afterAll(() => setLang('pl'));
+      15 |   it('en-US: „1:30 PM” bez zera wiodącego; pl i de: 24 h z zerem jak dotąd', () => {
+    > 16 |     expect(formatTime(popoludnie, 'en-US')).toMatch(/^1:30\sPM$/u);
+         |                                             ^
+      17 |     expect(formatTime(noc, 'en-US')).toMatch(/^1:30\sAM$/u);
+      18 |     expect(formatTime(popoludnie, 'pl-PL')).toBe('13:30');
+      19 |     expect(formatTime(noc, 'pl-PL')).toBe('01:30');
+
+      at Object.toMatch (tests/godzina-12h-047.test.ts:16:45)
+
+  ● 047: godzina w zegarze 12 h i 24 h › opcjeGodziny: numeric w 12 h, 2-digit w 24 h
+
+    TypeError: (0 , _format.opcjeGodziny) is not a function
+
+      21 |   });
+      22 |   it('opcjeGodziny: numeric w 12 h, 2-digit w 24 h', () => {
+    > 23 |     expect(opcjeGodziny('en-US').hour).toBe('numeric');
+         |                        ^
+      24 |     expect(opcjeGodziny('pl-PL').hour).toBe('2-digit');
+      25 |   });
+      26 |   it.each(ACTIVE_LANGS)('%s: zdania kończące się godziną bez „..”', (l) => {
+
+      at Object.<anonymous> (tests/godzina-12h-047.test.ts:23:24)
+
+  ● 047: godzina w zegarze 12 h i 24 h › es-419: zdania kończące się godziną bez „..”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "Listo X, 01:30 p.m..",
+    +   "Próxima alimentación: X, 01:30 p.m..",
+    +   "Revisa si duplica su volumen antes de 01:30 p.m..",
+    +   "Mezcla de la masa sugerida: X, 01:30 p.m..",
+    +   "La pantalla no se apagará hasta que termine el paso. Notificación: 01:30 p.m..",
+    +   "Hasta 01:30 p.m..",
+    +   "Ese día cambia el horario y la hora elegida no existe. El pan estará listo a esta hora: 01:30 p.m..",
+    +   "El programa arranca a esta hora: 01:30 p.m..",
+    +   "El programa no llegará a tiempo. Lo más pronto estará listo a esta hora: 01:30 p.m..",
+    + ]
+
+      35 |       if (/\.\./.test(s.replace(/…/g, ''))) zle.push(s);
+      36 |     }
+    > 37 |     expect(zle).toEqual([]);
+         |                 ^
+      38 |   });
+      39 | });
+      40 |
+
+      at toEqual (tests/godzina-12h-047.test.ts:37:17)
+
+  ● 047: godzina w zegarze 12 h i 24 h › el: zdania kończące się godziną bez „..”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "Έτοιμο X την ώρα 01:30 μ.μ..",
+    +   "Επόμενο τάισμα: X την ώρα 01:30 μ.μ..",
+    +   "Ελέγξτε αν θα διπλασιαστεί σε όγκο έως την ώρα 01:30 μ.μ..",
+    +   "Προτεινόμενη ώρα ανάμιξης ζύμης: X την ώρα 01:30 μ.μ..",
+    +   "Η οθόνη θα μείνει αναμμένη έως το τέλος του βήματος. Ειδοποίηση την ώρα 01:30 μ.μ..",
+    +   "Έως την ώρα 01:30 μ.μ..",
+    +   "Αυτή την ημέρα αλλάζει η ώρα και η ώρα που επιλέξατε δεν υπάρχει. Το ψωμί θα είναι έτοιμο την ώρα 01:30 μ.μ..",
+    +   "Το πρόγραμμα ξεκινά την ώρα 01:30 μ.μ..",
+    +   "Το πρόγραμμα δεν προλαβαίνει. Το νωρίτερο έτοιμο την ώρα 01:30 μ.μ..",
+    + ]
+
+      35 |       if (/\.\./.test(s.replace(/…/g, ''))) zle.push(s);
+      36 |     }
+    > 37 |     expect(zle).toEqual([]);
+         |                 ^
+      38 |   });
+      39 | });
+      40 |
+
+      at toEqual (tests/godzina-12h-047.test.ts:37:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 33 passed, 37 total
+Snapshots:   0 total
+Time:        1.792 s, estimated 3 s
+Ran all test suites matching /tests\/godzina-12h-047.test.ts/i.

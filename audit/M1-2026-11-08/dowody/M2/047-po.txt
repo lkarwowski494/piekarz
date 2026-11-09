@@ -1,0 +1,45 @@
+PASS tests/godzina-12h-047.test.ts
+  047: godzina w zegarze 12 h i 24 h
+    ✓ en-US: „1:30 PM” bez zera wiodącego; pl i de: 24 h z zerem jak dotąd (16 ms)
+    ✓ opcjeGodziny: numeric w 12 h, 2-digit w 24 h
+    ✓ pl: zdania kończące się godziną bez „..” (3 ms)
+    ✓ en: zdania kończące się godziną bez „..” (1 ms)
+    ✓ cs: zdania kończące się godziną bez „..” (37 ms)
+    ✓ sk: zdania kończące się godziną bez „..” (38 ms)
+    ✓ hu: zdania kończące się godziną bez „..” (38 ms)
+    ✓ ro: zdania kończące się godziną bez „..” (34 ms)
+    ✓ bg: zdania kończące się godziną bez „..” (42 ms)
+    ✓ hr: zdania kończące się godziną bez „..” (49 ms)
+    ✓ sl: zdania kończące się godziną bez „..” (37 ms)
+    ✓ sr: zdania kończące się godziną bez „..” (44 ms)
+    ✓ lt: zdania kończące się godziną bez „..” (49 ms)
+    ✓ lv: zdania kończące się godziną bez „..” (39 ms)
+    ✓ et: zdania kończące się godziną bez „..” (38 ms)
+    ✓ uk: zdania kończące się godziną bez „..” (50 ms)
+    ✓ es: zdania kończące się godziną bez „..” (46 ms)
+    ✓ es-419: zdania kończące się godziną bez „..” (40 ms)
+    ✓ pt: zdania kończące się godziną bez „..” (40 ms)
+    ✓ pt-BR: zdania kończące się godziną bez „..” (43 ms)
+    ✓ de: zdania kończące się godziną bez „..” (48 ms)
+    ✓ fr: zdania kończące się godziną bez „..” (46 ms)
+    ✓ it: zdania kończące się godziną bez „..” (38 ms)
+    ✓ nl: zdania kończące się godziną bez „..” (33 ms)
+    ✓ sv: zdania kończące się godziną bez „..” (37 ms)
+    ✓ da: zdania kończące się godziną bez „..” (37 ms)
+    ✓ nb: zdania kończące się godziną bez „..” (37 ms)
+    ✓ fi: zdania kończące się godziną bez „..” (37 ms)
+    ✓ tr: zdania kończące się godziną bez „..” (31 ms)
+    ✓ el: zdania kończące się godziną bez „..” (41 ms)
+    ✓ id: zdania kończące się godziną bez „..” (34 ms)
+    ✓ ms: zdania kończące się godziną bez „..” (36 ms)
+    ✓ vi: zdania kończące się godziną bez „..” (36 ms)
+    ✓ ru: zdania kończące się godziną bez „..” (35 ms)
+    ✓ ja: zdania kończące się godziną bez „..” (34 ms)
+    ✓ ko: zdania kończące się godziną bez „..” (37 ms)
+    ✓ zh-Hant: zdania kończące się godziną bez „..” (37 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       37 passed, 37 total
+Snapshots:   0 total
+Time:        1.819 s, estimated 2 s
+Ran all test suites matching /tests\/godzina-12h-047.test.ts/i.
