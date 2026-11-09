@@ -10,7 +10,15 @@ import { setUnitSystem, formatTextUnits } from '../unit-converter';
 const KLUCZE = Object.keys(EN).filter((k) => !k.includes('#') && !/\{/.test(k) && /\d\s*(°C|kg\b|g\b)/.test(k.split('|')[0]));
 const liczbyF = (s: string) =>
   [...s.matchAll(/(\d+(?:[.,]\d+)?)(?:\s| | )*°F/g)].map((m) => Number(m[1].replace(',', '.'))).sort((a, b) => a - b).join(',');
-const zostaloC = (s: string) => /\d\s*°C|\d\s*℃/.test(s);
+// °C bez pary: para ze źródła „400 °F, czyli około 204 °C” zostaje z °C, bo tekst ma już tę temperaturę w °F
+// [M1-audytor-generalny-013; 09-lokalizacja-003] — każde inne °C w trybie imperialnym to błąd
+const zostaloC = (s: string) => {
+  const f = [...s.matchAll(/(\d+)(?:\s*[–-]\s*(\d+))?\s*°F/g)].flatMap((m) => [Number(m[1]), Number(m[2] ?? m[1])]);
+  const para = (c: number) => f.some((x) => Math.abs((c * 9) / 5 + 32 - x) <= 3);
+  if (/\d\s*℃/.test(s)) return true;
+  return [...s.matchAll(/(\d+(?:[.,]\d+)?)(?:\s*[–-]\s*(\d+(?:[.,]\d+)?))?\s*°C/g)].some(
+    (m) => !para(Number(m[1].replace(',', '.'))) || !para(Number((m[2] ?? m[1]).replace(',', '.'))));
+};
 const zostaloG = (s: string) => /\d(?:\s| | )*(g|kg|г|кг|γρ|グラム|그램|克|公克)(?![\p{L}\d])/u.test(s);
 
 describe('Tryb imperialny w 35 językach (096)', () => {

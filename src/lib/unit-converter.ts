@@ -216,15 +216,29 @@ const RE_ROZNICA_PO = new RegExp(`${LICZBA}(\\s*)°C${ROZNICA_PO}`, 'g');
 const RE_ROZNICA_PRZED = new RegExp(`((?:^|[^${LITERA}])(?:o|by)\\s+|[+±])${LICZBA}(\\s*)°C`, 'g');
 const RE_ZAKRES_C = new RegExp(`(^|[^\\d.,])([−-]?)${LICZBA}(\\s*[–-]\\s*)([−-]?)${LICZBA}(\\s*)°C`, 'g');
 const RE_TEMP_C = new RegExp(`(^|[^\\d.,])([−-]?)${LICZBA}(\\s*)°C`, 'g');
-const RE_ZAKRES_G = new RegExp(`${LICZBA}(\\s*[–-]\\s*)${LICZBA}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
-const RE_MASA = new RegExp(`${LICZBA}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
+// Masa może mieć separator tysięcy języka: „1.000 g” (da), „1 000 g” (fi, nb, sv, PL), „50,000 g” (en) [M1-audytor-generalny-013]
+const LICZBA_M = '(\\d{1,3}(?:[ \\u00a0\\u202f.,]\\d{3})+(?!\\d)|\\d+(?:[.,]\\d+)?)';
+const RE_ZAKRES_G = new RegExp(`${LICZBA_M}(\\s*[–-]\\s*)${LICZBA_M}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
+const RE_MASA = new RegExp(`${LICZBA_M}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
+/** Wartość °F wpisana w tekście źródłowym (para „400 °F, czyli około 204 °C”) [M1-audytor-generalny-013]. */
+const RE_WARTOSC_F = new RegExp(`${LICZBA}(?:\\s*[–-]\\s*${LICZBA})?\\s*°F`, 'g');
 
 const liczba = (s: string, znak = ''): number => (znak ? -1 : 1) * parseFloat(s.replace(',', '.'));
 const fahrenheit = (c: number): string => formatNumber(celsiusToFahrenheit(c));
-const gramy = (s: string, jednostka: string): number => liczba(s) * (jednostka === 'kg' ? 1000 : 1);
+/**
+ * Gramy z liczby masy. Grupowanie spacją = tysiące; kropką lub przecinkiem z trzema cyframi tysiące tylko wtedy, gdy
+ * taką masę ma tekst źródłowy (`masy`), inaczej ułamek jak dotąd („1,500 g” w PL = 1,5 g) [M1-audytor-generalny-013].
+ */
+const gramy = (s: string, jednostka: string, mas?: Set<number> | null): number => {
+  const mnoznik = jednostka === 'kg' || jednostka === 'кг' ? 1000 : 1;
+  if (!/^\d{1,3}(?:[ \u00a0\u202f.,]\d{3})+$/.test(s)) return liczba(s) * mnoznik;
+  const tysiace = Number(s.replace(/\D/g, '')) * mnoznik;
+  if (/[ \u00a0\u202f]/.test(s) || mas?.has(tysiace)) return tysiace;
+  return /^\d+[.,]\d+$/.test(s) ? liczba(s) * mnoznik : tysiace;
+};
 
 /** Symbole gramów w pismach przekładu poza łacinką (ru, uk, bg, el, ja, ko, zh) [M1-audytor-generalny-096]. */
-const RE_MASA_INNA = new RegExp(`${LICZBA}(\\s*)(кг|г|γρ|グラム|그램|公克|克)(?![\\p{L}\\d])`, 'gu');
+const RE_MASA_INNA = new RegExp(`${LICZBA_M}(\\s*)(кг|г|γρ|グラム|그램|公克|克)(?![\\p{L}\\d])`, 'gu');
 // Liczba z °C, która nie jest końcem zakresu ani liczbą ujemną (te przelicza zakres/temperatura)
 const RE_ROZNICA_TEMP = new RegExp(`(^|[^\\d.,−–-])${LICZBA}(\\s*)°C`, 'g');
 
@@ -279,17 +293,22 @@ export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUn
     ? zPara.replace(RE_ROZNICA_TEMP, (cale: string, p: string, n: string, ws: string) =>
         roz.has(liczba(n)) ? `${p}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F` : cale)
     : zPara;
+  // °C z pary „X °F, czyli około Y °C” zostaje: tekst ma już tę temperaturę w °F (bez „400 °F … 399 °F”) [013]
+  const wartosciF = [...text.matchAll(RE_WARTOSC_F)].flatMap((m) => (m[2] ? [liczba(m[1]), liczba(m[2])] : [liczba(m[1])]));
+  const paraF = (c: number): boolean => wartosciF.some((f) => Math.abs(celsiusToFahrenheit(c) - f) <= 3);
   const poLacince = poRoznicach
     .replace(RE_ROZNICA_PO, (_, n: string, ws: string, po: string) => `${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F${po}`)
     .replace(RE_ROZNICA_PRZED, (_, przed: string, n: string, ws: string) => `${przed}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F`)
-    .replace(RE_ZAKRES_C, (_, p: string, za: string, a: string, sep: string, zb: string, b: string, ws: string) =>
-      `${p}${fahrenheit(liczba(a, za))}${sep}${fahrenheit(liczba(b, zb))}${ws}°F`)
-    .replace(RE_TEMP_C, (_, p: string, z: string, n: string, ws: string) => `${p}${fahrenheit(liczba(n, z))}${ws}°F`)
-    .replace(RE_ZAKRES_G, (_, a: string, sep: string, b: string, j: string) => `${formatOunces(gramy(a, j))}${sep}${formatOunces(gramy(b, j))}`)
-    .replace(RE_MASA, (_, n: string, j: string) => formatOunces(gramy(n, j)));
+    .replace(RE_ZAKRES_C, (cale: string, p: string, za: string, a: string, sep: string, zb: string, b: string, ws: string) =>
+      paraF(liczba(a, za)) && paraF(liczba(b, zb)) ? cale : `${p}${fahrenheit(liczba(a, za))}${sep}${fahrenheit(liczba(b, zb))}${ws}°F`)
+    .replace(RE_TEMP_C, (cale: string, p: string, z: string, n: string, ws: string) =>
+      paraF(liczba(n, z)) ? cale : `${p}${fahrenheit(liczba(n, z))}${ws}°F`)
+    .replace(RE_ZAKRES_G, (_, a: string, sep: string, b: string, j: string) =>
+      `${formatOunces(gramy(a, j, mas))}${sep}${formatOunces(gramy(b, j, mas))}`)
+    .replace(RE_MASA, (_, n: string, j: string) => formatOunces(gramy(n, j, mas)));
   if (!mas?.size) return poLacince;
   return poLacince.replace(RE_MASA_INNA, (cale: string, n: string, _ws: string, j: string) => {
-    const g = liczba(n) * (j === 'кг' ? 1000 : 1);
+    const g = gramy(n, j, mas);
     return mas.has(g) ? formatOunces(g) : cale;
   });
 }
