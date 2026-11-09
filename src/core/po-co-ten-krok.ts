@@ -55,7 +55,9 @@ export const PO_CO_TEN_KROK: Readonly<Record<string, readonly ZdaniePoCo[]>> = {
 export const PO_CO_BEZ_ZRODLA: readonly string[] = ['rye_mix', 'rye_rest', 'rye_shape', 'rye_proof', 'rye_bake'];
 
 /** Instrukcja nagrzewania piekarnika pod keksówkę (D-304): krok „preheat_oven” brioszki, nie garnka. */
-const NAGRZEWANIE_KEKSOWKI = krokiPieczenia({ ...PIECZENIE_DOMYSLNE, naczynie: 'bread_pan' }).nagrzewanie.instructionsPl;
+const NAGRZEWANIE_KEKSOWKI = krokiPieczenia({ ...PIECZENIE_DOMYSLNE, naczynie: 'bread_pan', tekstZrodla: true }).nagrzewanie.instructionsPl;
+/** Nagrzewanie bez liczb (keksówka i stal spoza wektora D-304): bez zdania o garnku (KRO-POC-011) [M1-audytor-generalny-088]. */
+const NAGRZEWANIE_BEZ_LICZB = krokiPieczenia({ ...PIECZENIE_DOMYSLNE, naczynie: 'bread_pan' }).nagrzewanie.instructionsPl;
 
 /**
  * Plan brioszki (D-309): tylko zdania o krokach, które plan ma — bez składania (KRO-POC-006), koszyka (KRO-POC-009),
@@ -76,7 +78,7 @@ const PO_CO_BRIOSZKI: Readonly<Record<string, readonly ZdaniePoCo[] | null>> = {
  */
 export function poCoTenKrok(step: Pick<SessionStep, 'id' | 'category'> & { instructions?: string }, phase?: DutchOvenBakePhase): readonly ZdaniePoCo[] | null {
   if (BRIOCHE_STAGE_IDS.includes(step.id) || step.id === 'bake_forma') return PO_CO_BRIOSZKI[step.id] ?? null;
-  if (step.category === 'preheat_oven' && step.instructions === NAGRZEWANIE_KEKSOWKI) return null;
+  if (step.category === 'preheat_oven' && (step.instructions === NAGRZEWANIE_KEKSOWKI || step.instructions === NAGRZEWANIE_BEZ_LICZB)) return null;
   const rodzaj = stepKindOf(step);
   if (PO_CO_BEZ_ZRODLA.includes(rodzaj) || !Object.prototype.hasOwnProperty.call(PO_CO_TEN_KROK, rodzaj)) return null;
   const faza = rodzaj === 'bake' && phase ? PO_CO_TEN_KROK[phase] : [];

@@ -34,4 +34,8 @@ export const EN_31: Record<string, string> = {
   // 33 języki: docs/lokalizacja/przeklad-m2-089-2026-11-09.json
   'Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.':
     'The plan for this sourdough recipe is waiting for dough rising times. Amounts and tips are above.',
+  // Krok pieczenia w keksówce i na stali poza wektorem D-304: bez liczb, odesłanie do „O recepturze” (docs/tresci/en/
+  // pieczenie-receptur.md) [M1-audytor-generalny-088]; 33 języki: docs/lokalizacja/przeklad-m2-088-2026-11-09.json
+  'Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.': 'Heat the oven to the baking temperature given in “About This Recipe”.',
+  'Piecz w temperaturze i przez czas podane w „O recepturze”.': 'Bake at the temperature and for the time given in “About This Recipe”.',
 };

@@ -54,3 +54,11 @@ Od razu wyjmij brioszkę z keksówki na kratkę. [T:PIE-BRI-001]
 ## plan, krok preheat_oven i bake, chleb z semoliny durum na stali (instructionsPl)
 Nagrzej piekarnik ze stalą do 250 °C. [T:KAT-ALT-005]
 Piecz w 250 °C. [T:KAT-ALT-005]
+
+<!-- M1-audytor-generalny-088 (06-tresci-601, opcja a), rola 06 fix M2 p4, 2026-11-09: keksówka i stal poza wektorem D-304 (rye_100_pan i borodinsky_rye z żytem ≤ 50%, latvian_scalded_rye z żytem ≤ 50%; dane pieczenia żyta bez źródła, D-256): krok bez liczb, temperatura i czas z danych receptury w karcie „O recepturze”. Zdania bez faktu dziedzinowego (odesłanie). Nazwy kroków jak wyżej: „Nagrzewanie piekarnika”, „Pieczenie”. -->
+
+## plan, krok preheat_oven, keksówka i stal poza wektorem D-304 (instructionsPl)
+Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”. [T:-]
+
+## plan, krok bake, keksówka i stal poza wektorem D-304 (instructionsPl)
+Piecz w temperaturze i przez czas podane w „O recepturze”. [T:-]

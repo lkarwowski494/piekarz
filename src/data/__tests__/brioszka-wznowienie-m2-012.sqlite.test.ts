@@ -18,7 +18,7 @@ const START = new Date(2026, 10, 10, 8, 0).getTime();
 const brioszka = CATALOG_RECIPES.find((r) => r.id === ID)!;
 
 /** Kroki planu brioszki sprzed M2-012: szablon bochenka z pieczeniem w keksówce (D-304). */
-const k = krokiPieczenia(pieczenieZReceptury(brioszka));
+const k = krokiPieczenia({ ...pieczenieZReceptury(brioszka), tekstZrodla: true });
 const STARE_KROKI = stepsFromTemplates(
   DEFAULT_STAGE_TEMPLATES.map((t) =>
     t.category === 'preheat_oven' ? { ...t, ...k.nagrzewanie } : t.category === 'bake' ? { ...t, ...k.pieczenie, isPassive: false } : t,

@@ -4192,6 +4192,11 @@
       "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
   },
+  "Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
   "Nagrzej piekarnik ze stalą do 250 °C.": {
     "gdzie": [
       "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
@@ -5181,6 +5186,11 @@
   "Piecz w najwyższej możliwej temperaturze (piec do pizzy 450°C przez 90s lub piekarnik domowy z grillem i rozgrzaną stalą w 275°C przez 4–5 min).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Piecz w temperaturze i przez czas podane w „O recepturze”.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
   },
   "Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.": {

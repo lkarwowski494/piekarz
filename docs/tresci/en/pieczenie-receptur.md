@@ -54,3 +54,11 @@ Take the brioche out of the pan onto a rack right away. [T:PIE-BRI-001]
 ## plan, steps preheat_oven and bake, durum semolina bread on the steel (instructionsPl)
 Heat the oven with the steel to 250 °C. [T:KAT-ALT-005]
 Bake at 250 °C. [T:KAT-ALT-005]
+
+<!-- M1-audytor-generalny-088 (06-tresci-601, option a): loaf pan and steel outside the D-304 vector: step without numbers, pointing to “About This Recipe”. -->
+
+## plan, step preheat_oven, loaf pan and steel outside the D-304 vector (instructionsPl)
+Heat the oven to the baking temperature given in “About This Recipe”. [T:-]
+
+## plan, step bake, loaf pan and steel outside the D-304 vector (instructionsPl)
+Bake at the temperature and for the time given in “About This Recipe”. [T:-]

@@ -16,6 +16,11 @@ export interface PieczenieReceptury {
   minRumienienie: number;
   /** Kroki planu z treści brioszki (D-309), tylko dla receptury brioszki — nie dla każdej keksówki [M2-012]. */
   szablon?: 'brioszka';
+  /**
+   * Keksówka i stal: tekst nagrzewania i pieczenia z liczbami ze źródła tylko dla receptur wektora D-304 (brioszka,
+   * durum); brak = tekst bez liczb z odesłaniem do „O recepturze” (żytnie z żytem ≤ 50%, łotewska) [M1-audytor-generalny-088].
+   */
+  tekstZrodla?: boolean;
 }
 
 type PolaPieczenia = 'recommendedVessel' | 'bakeTempSteamC' | 'bakeTempBrowningC' | 'bakeTimeSteamMinutes' | 'bakeTimeBrowningMinutes';
@@ -60,6 +65,16 @@ const NAGRZEWANIE_MIN = 45;
  */
 export function krokiPieczenia(p: PieczenieReceptury): { nagrzewanie: KrokPieczenia; pieczenie: KrokPieczenia } {
   const czas = p.minPara + p.minRumienienie;
+  // Keksówka albo stal bez tekstu ze źródła: krok bez liczb, temperatura i czas w „O recepturze” (06-tresci-601, opcja a)
+  if ((p.naczynie === 'bread_pan' || p.naczynie === 'baking_steel') && !p.tekstZrodla) {
+    return {
+      nagrzewanie: { id: 'preheat_oven', namePl: 'Nagrzewanie piekarnika', durationMinutes: NAGRZEWANIE_MIN, instructionsPl: 'Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.' },
+      pieczenie: {
+        id: p.naczynie === 'bread_pan' ? 'bake_forma' : 'bake_stal', namePl: 'Pieczenie', durationMinutes: czas,
+        instructionsPl: 'Piecz w temperaturze i przez czas podane w „O recepturze”.',
+      },
+    };
+  }
   if (p.naczynie === 'bread_pan') {
     return {
       nagrzewanie: {

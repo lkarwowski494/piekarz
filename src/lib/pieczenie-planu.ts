@@ -18,8 +18,16 @@ export function pieczenieDlaId(recipeId: string | null | undefined, zytni: boole
   const r = CATALOG_RECIPES.find((x) => x.id === recipeId);
   if (!r || r.formula.starterPercentage <= 0) return undefined;
   // Szablon brioszki po id receptury, nie po naczyniu: żytnia w keksówce z żytem ≤ 50% nie jest brioszką (M2-012, P2)
-  return BRIOCHE_RECIPE_IDS.includes(r.id) ? { ...pieczenieZReceptury(r), szablon: 'brioszka' } : pieczenieZReceptury(r);
+  const p = pieczenieZReceptury(r);
+  const tekst = TEKST_PIECZENIA_ZE_ZRODLA.includes(r.id) ? { tekstZrodla: true } : {};
+  return BRIOCHE_RECIPE_IDS.includes(r.id) ? { ...p, ...tekst, szablon: 'brioszka' } : { ...p, ...tekst };
 }
+
+/**
+ * Receptury w keksówce i na stali z tekstem pieczenia ze źródła (wektor D-304: PIE-BRI-001, KAT-ALT-005); pozostałe
+ * w tych naczyniach mają krok bez liczb z odesłaniem do „O recepturze” [M1-audytor-generalny-088; 06-tresci-601].
+ */
+export const TEKST_PIECZENIA_ZE_ZRODLA: readonly string[] = ['lievito_madre_panettone_brioche', 'durum_semolina_sourdough'];
 
 /** Pieczenie dla receptury z „Ułóż plan”: wersja drożdżowa ma własne kroki (yeast-stages.ts), więc bez pieczenia. */
 export function pieczenieDlaPlanu(r: RecepturaPlanu | null): PieczenieReceptury | undefined {
