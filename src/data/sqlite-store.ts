@@ -1,7 +1,6 @@
 import { autoBackup, PiekarzBackupData } from '../lib/backup';
 import {
   StoredStarter,
-  StoredStarterEntry,
   StoredBakeLog,
   StoredFlourInventoryItem,
 } from './db';
@@ -82,7 +81,7 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
   if (!db) {
     return {
       bakes: [...memStore.logs],
-      starters: [...memStore.starters],
+      starters: memStore.starters.map(zDziennikaWPamieci),
       customRecipes: memStore.recipes.filter((r) => !r.isBuiltIn),
       starterEntries: [...memStore.starterEntries],
       flourInventory: [...memStore.flourInventory],
@@ -171,9 +170,17 @@ async function readStarters(db: Db): Promise<StoredStarter[]> {
   return (await db.getAllAsync<StarterRow>(STARTERS_SELECT)).map(starterFromRow);
 }
 
+/** Tryb pamięci jak SQL: ostatnie dokarmienie z dziennika, gdy dziennik ma wpis tego zakwasu [M1-audytor-generalny-002]. */
+function zDziennikaWPamieci(s: StoredStarter): StoredStarter {
+  const e = memStore.starterEntries.filter((x) => x.starterId === s.id && x.kind === 'feeding').sort((a, b) => b.occurredAt - a.occurredAt)[0];
+  if (!e) return s;
+  const feedingRatio = e.feedRatio ?? s.feedingRatio;
+  return { ...s, lastFedAt: e.occurredAt, ...(feedingRatio ? { feedingRatio } : {}) };
+}
+
 export async function getStarters(): Promise<StoredStarter[]> {
   const db = await getDb();
-  if (!db) return [...memStore.starters];
+  if (!db) return memStore.starters.map(zDziennikaWPamieci);
 
   try {
     // Pusta tabela to pusta lista, nie zakwas pokazowy [M1-audytor-generalny-003]
@@ -184,36 +191,21 @@ export async function getStarters(): Promise<StoredStarter[]> {
 }
 
 /**
- * Zapis profilu zakwasu (UPSERT, dziennik zostaje). Zgodność z ekranem, który dokarmienie zapisuje dziś przez
- * nowe `lastFedAt`: gdy jest późniejsze niż ostatni wpis feeding, w tej samej transakcji powstaje wpis
- * dokarmienia z proporcją (do czasu przejścia ekranu na addStarterEntry) [M1-audytor-generalny-104].
+ * Zapis profilu zakwasu (UPSERT, dziennik zostaje). Dokarmienie zapisuje tylko dziennik (addStarterEntry,
+ * createStarterWithEntry); `lastFedAt` i `feedingRatio` obiektu są wyliczane z dziennika i tu nie tworzą wpisu, więc
+ * obiekt odczytany przed usunięciem albo poprawą dokarmienia go nie przywraca [M1-audytor-generalny-002; 05-architekt-501].
  * Stały dzień karmienia zapisuje się w tej samej transakcji, gdy pole jest w obiekcie [M3 D7].
  */
 export async function saveStarter(starter: StoredStarter): Promise<void> {
   const db = await getDb();
-  const fedAt = starter.lastFedAt;
-  const feedEntry = (latest: number): StoredStarterEntry | null =>
-    fedAt !== undefined && fedAt > 0 && fedAt > latest
-      ? { id: `feed-${starter.id}-${fedAt}`, starterId: starter.id, kind: 'feeding', occurredAt: fedAt, feedRatio: starter.feedingRatio, signs: [], createdAt: fedAt, updatedAt: fedAt }
-      : null;
   if (db) {
     await writeOrThrow(() =>
       db.withTransactionAsync(async (tx) => {
         await tx.runAsync(STARTER_UPSERT, ...starterParams(starter));
         // Stały dzień karmienia (BR-KAL-010) tylko, gdy obiekt go niesie (null czyści); bez pola kolumny zostają [M3 D7]
         if (starter.fridgeFeedDay !== undefined) await zapiszStalyDzien(tx, starter.id, starter.fridgeFeedDay);
-        const last = await tx.getFirstAsync<{ at: number | null }>(
-          "SELECT max(occurred_at) AS at FROM starter_entries WHERE starter_id = ? AND kind = 'feeding';",
-          starter.id
-        );
-        const e = feedEntry(last?.at ?? 0);
-        if (e) await insertStarterEntryRow(tx, e, true);
       })
     );
-  } else {
-    const latest = Math.max(0, ...memStore.starterEntries.filter((x) => x.starterId === starter.id && x.kind === 'feeding').map((x) => x.occurredAt));
-    const e = feedEntry(latest);
-    if (e) memStore.starterEntries = [...memStore.starterEntries.filter((x) => x.id !== e.id), e];
   }
 
   const idx = memStore.starters.findIndex((s) => s.id === starter.id);

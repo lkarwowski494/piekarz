@@ -27,7 +27,9 @@ describe('D7: stały dzień karmienia w saveStarter (node:sqlite)', () => {
   it('BR-KAL-010 zapis dnia, zmiana, brak pola bez zmian, null czyści; wpisy zakwasu nietknięte; restart czyta dzień', async () => {
     let app = restartApp();
     await app.schema.initDatabase();
-    await app.store.saveStarter(zakwas());
+    // Dokarmienie tylko przez dziennik (M1-audytor-generalny-002): saveStarter nie tworzy już wpisu z lastFedAt
+    const wpisy = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await wpisy.createStarterWithEntry(zakwas(), { id: 'feed-z1-1700000000000', starterId: 'z1', kind: 'feeding', occurredAt: 1_700_000_000_000, feedRatio: '1:2:2', signs: [], createdAt: 1_700_000_000_000, updatedAt: 1_700_000_000_000 });
     const przed = kolumny();
     expect(przed.r).toEqual({ d: null, m: null });
     expect(przed.wpisy).toHaveLength(1);

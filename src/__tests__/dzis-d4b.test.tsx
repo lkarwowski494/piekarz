@@ -48,6 +48,8 @@ import { _resetStanu } from '../lib/platnosci/stan';
 import { setLang } from '../lib/i18n';
 import { EN } from '../lib/i18n.en';
 import { theme } from '../ui/theme';
+// Zakwas z dokarmieniem przez dziennik (M1-audytor-generalny-002)
+import { zapiszZakwasZDokarmieniem } from '../../tests/helpers/zakwas-z-dokarmieniem';
 
 const mockIap = (Iap as unknown as { __mock: { reset: () => void; entitlements: Array<Record<string, unknown>> } }).__mock;
 const H = 3_600_000;
@@ -89,7 +91,7 @@ const wypiek = (id: string, nazwa: string, stepIdx: number, timerEndsAt: number 
 };
 /** Zakwas na blacie dokarmiony 13 h temu: termin minął godzinę temu (zaległe, RD-32). */
 async function zakwasZalegly() {
-  await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 13 * H });
+  await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 13 * H });
 }
 
 let tree: renderer.ReactTestRenderer | null = null;
@@ -264,10 +266,10 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     zDostepem();
     await pustaBaza();
     await zakwasZalegly();
-    await saveStarter({ id: 'a', name: 'A', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * H });
-    await saveStarter({ id: 'b', name: 'B', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 5 * H });
-    await saveStarter({ id: 'c', name: 'C', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 4 * H });
-    await saveStarter({ id: 'd', name: 'D', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 3 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'a', name: 'A', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'b', name: 'B', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 5 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'c', name: 'C', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 4 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'd', name: 'D', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 3 * H });
     const root = await renderStart();
     // Dzień tygodnia co najmniej 2 dni od dziś (zdarzenia zakwasów są w pobliżu dziś)
     const dni = root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function');
@@ -291,7 +293,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     zDostepem();
     await pustaBaza();
     for (const [id, h] of [['a', 6], ['b', 5], ['c', 4], ['d', 3]] as const) {
-      await saveStarter({ id, name: id.toUpperCase(), flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - h * H });
+      await zapiszZakwasZDokarmieniem({ id, name: id.toUpperCase(), flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - h * H });
     }
     const root = await renderStart();
     const zdanie = host(root, 'linia-nastepne-zdanie')[0];
@@ -339,7 +341,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     zDostepem();
     await pustaBaza();
     await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
-    await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 60_000 });
+    await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 60_000 });
     await saveBakeLog({ id: 'wpis-1', recipeName: 'Wiejski', startedAt: Date.now() - 2 * H, finishedAt: Date.now() - 90_000, ratingStars: 4 });
     const root = await renderStart();
     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
@@ -366,7 +368,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
   it('BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia', async () => {
     await pustaBaza();
     await saveBakeLog({ id: 'wpis-1', recipeName: 'Wiejski', startedAt: Date.now() - 3 * H, finishedAt: Date.now() - 2 * H, ratingStars: 4 });
-    await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 20 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 20 * H });
     const root = await renderStart();
     const pas = host(root, 'pas-dzis')[0];
     expect(pas.findAll((n) => n.props.testID === 'glif-dziennik').length).toBeGreaterThan(0);

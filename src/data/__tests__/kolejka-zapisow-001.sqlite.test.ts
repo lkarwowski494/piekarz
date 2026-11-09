@@ -39,7 +39,8 @@ function liczności() {
 async function start() {
   const app = restartApp();
   await app.schema.initDatabase();
-  await app.store.saveStarter(starter(1, 1700000000000));
+  const wpisy = require('../starter-entries-store') as typeof import('../starter-entries-store');
+  await wpisy.createStarterWithEntry(starter(1), { id: 'feed-starter_user_1-1700000000000', starterId: 'starter_user_1', kind: 'feeding', occurredAt: 1700000000000, signs: [], createdAt: 1700000000000, updatedAt: 1700000000000 });
   await app.store.saveBakeLog({ ...bake(1), finishedAt: undefined });
   await app.store.saveBakeLog({ ...bake(2), finishedAt: undefined });
   return app;
@@ -76,9 +77,12 @@ describe('M1-audytor-generalny-001: jedna kolejka zapisów', () => {
   it('dwa równoległe zapisy zakwasu kończą się sukcesem, każdy z jednym wpisem dokarmienia', async () => {
     const app = await start();
     const przed = liczności();
+    const wpisy = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    const feed = (n: number, at: number) => ({ id: `feed-starter_user_${n}-${at}`, starterId: `starter_user_${n}`, kind: 'feeding' as const, occurredAt: at, signs: [], createdAt: at, updatedAt: at });
+    // Nowy zakwas z pierwszym dokarmieniem (dokarmienie przez dziennik, M1-audytor-generalny-002)
     const wyniki = await Promise.allSettled([
-      app.store.saveStarter(starter(3, 1700000300000)),
-      app.store.saveStarter(starter(4, 1700000400000)),
+      wpisy.createStarterWithEntry(starter(3), feed(3, 1700000300000)),
+      wpisy.createStarterWithEntry(starter(4), feed(4, 1700000400000)),
     ]);
     expect(wyniki.map((w) => w.status)).toEqual(['fulfilled', 'fulfilled']);
     expect(liczności()).toEqual({ ...przed, starters: przed.starters + 2, starter_entries: przed.starter_entries + 2 });

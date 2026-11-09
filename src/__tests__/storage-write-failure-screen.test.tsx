@@ -23,6 +23,8 @@ import { StorageGate, shareRescueFile } from '../components/StorageGate';
 import { markStorageUnavailable, resetStorageState } from '../data/storage-status';
 import { guardSave } from '../lib/save-guard';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+// Zakwas z dokarmieniem przez dziennik (M1-audytor-generalny-002)
+import { zapiszZakwasZDokarmieniem } from '../../tests/helpers/zakwas-z-dokarmieniem';
 
 const textOf = (node: renderer.ReactTestRendererJSON | renderer.ReactTestRendererJSON[] | null): string => {
   const walk = (n: unknown): string => {
@@ -52,7 +54,7 @@ describe('Write failure is visible on screen (003)', () => {
 
   it('Zakwas: logging a feeding on a full disk shows "Nie zapisano" and not the success message', async () => {
     await initDatabase();
-    await saveStarter({
+    await zapiszZakwasZDokarmieniem({
       id: 'starter_user_1',
       name: 'Zakwas Ani',
       flourType: 'Żytnia 2000',

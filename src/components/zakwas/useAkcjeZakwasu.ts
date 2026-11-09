@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — akcje zapisu ekranu Zakwasy: dokarmienie, edycja profilu, nowy zakwas, usunięcie, „Załóż od nowa”.
 // Wydzielone z app/(tabs)/zakwasy/index.tsx bez zmiany zachowania (limit 20 480 B, M3 p2); ścieżka zapisu ta sama:
-// saveStarter / deleteStarter / restartStarterSetup przez guardSave.
+// saveStarter / deleteStarter / restartStarterSetup przez guardSave; dokarmienie przez dziennik [M1-audytor-generalny-002].
 // ============================================================================
 
 import { useState } from 'react';
@@ -12,7 +12,8 @@ import { resyncNotifications, ensureNotificationPermission } from '../../lib/not
 import { formatFeedingRatio } from '../../core/feeding-ratio';
 import { confirmDeleteStarter, confirmZalozOdNowa } from '../../lib/confirm';
 import { saveStarter, deleteStarter } from '../../data/sqlite-store';
-import { restartStarterSetup } from '../../data/starter-entries-store';
+import { addStarterEntry, createStarterWithEntry, restartStarterSetup } from '../../data/starter-entries-store';
+import { wpisDokarmienia } from '../../lib/kalendarz-akcje';
 import { nowyWpis } from './useStarterLog';
 import type { StoredStarter } from '../../data/db';
 import { pytanieOStalyDzien } from '../../core/notification-feeding';
@@ -57,7 +58,8 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
         lastFedAt: now,
         feedingRatio: formatFeedingRatio(selectedRatio),
       };
-      await saveStarter(updated);
+      // Dokarmienie tylko przez dziennik (jedna droga zapisu) [M1-audytor-generalny-002; 05-architekt-501]
+      await addStarterEntry(wpisDokarmienia(starter.id, now, updated.feedingRatio));
       void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)
       podmien(updated);
       odswiezDziennik();
@@ -111,7 +113,8 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
         storageState: newStarterStorage,
         lastFedAt: Date.now(),
       };
-      await saveStarter(newStarter);
+      // Zakwas z pierwszym dokarmieniem w jednej transakcji (dokarmienie przez dziennik) [M1-audytor-generalny-002]
+      await createStarterWithEntry(newStarter, wpisDokarmienia(newStarter.id, newStarter.birthDate));
       void resyncNotifications();
       await loadStarterData(newStarter.id);
       setIsAddModalOpen(false);
