@@ -31,15 +31,18 @@ describe('Czytelnicy z połączeniem (003, zmiana strukturalna)', () => {
     expect((await czytajMaki(db)).length).toBe(2);
   });
 
-  it('zbierzDaneZBazy (odczyt pakietu awaryjnego) daje ten sam stan co collectBackupData na bazie aplikacji', async () => {
+  it('zbierzDaneZBazy (odczyt pakietu awaryjnego) daje ten sam stan co collectBackupData na bazie aplikacji plus sesje wypieków', async () => {
     zalozBaze1021(dbFilePath('piekarz.db', '/Library/SQLite'));
     const app = restartApp();
     await app.schema.initDatabase();
     const db = await app.schema.getDb();
     if (!db) throw new Error('brak bazy');
     const { zbierzDaneZBazy } = require('../dane-z-bazy') as typeof import('../dane-z-bazy');
-    const stan = await zbierzDaneZBazy(db);
+    const { bakeSessions, ...stan } = await zbierzDaneZBazy(db);
     expect(stan).toEqual(await app.store.collectBackupData());
+    // Pakiet niesie też trwające i zaplanowane wypieki; eksport (collectBackupData) nie (D-102) [M1-audytor-generalny-087]
+    expect((await app.store.collectBackupData()).bakeSessions).toBeUndefined();
+    expect(bakeSessions?.map((w) => w.status).sort()).toEqual(['active', 'planned']);
     expect({ bakes: stan.bakes.length, starters: stan.starters.length }).toEqual({ bakes: 4, starters: 2 });
   });
 

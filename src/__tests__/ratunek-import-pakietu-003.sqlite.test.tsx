@@ -174,6 +174,45 @@ describe('003: import pakietu plików bazy z trybu awaryjnego', () => {
     await TR.act(async () => t.unmount());
   });
 
+  it('trwający i zaplanowany wypiek wracają z pakietu po „Zastąp dane” [M1-audytor-generalny-087; 12-niezawodnosc-601]', async () => {
+    // Trwała kontrola: liczność bake_sessions po imporcie pakietu bazy 1021 (2 sesje: active, planned), jak sonda 601
+    const pliki = plikiTelefonu();
+    const zr = openRaw(path.join(control().dir, 'telefon-1', 'piekarz.db'));
+    const wPakiecie = zr.prepare('SELECT id, status, session_json, created_at, updated_at FROM bake_sessions ORDER BY id;').all();
+    zr.close();
+    expect(wPakiecie.map((w) => (w as { status: string }).status).sort()).toEqual(['active', 'planned']);
+    const tekst = await pakietZEkranu(pliki);
+    await nowaInstalacja();
+    expect(counts().bake_sessions).toBe(0);
+    const R: typeof React = require('react');
+    const TR: typeof renderer = require('react-test-renderer');
+    const RN: typeof import('react-native') = require('react-native');
+    jest.spyOn(RN.Alert, 'alert').mockImplementation(() => {});
+    const { ImportZPlikuArkusz } = require('../components/settings/ImportZPlikuArkusz') as typeof import('../components/settings/ImportZPlikuArkusz');
+    let t!: renderer.ReactTestRenderer;
+    await TR.act(async () => {
+      t = TR.create(R.createElement(ImportZPlikuArkusz, { onClose: () => undefined, onRecipeImported: () => undefined }));
+    });
+    await TR.act(async () => {
+      t.root.findByProps({ testID: 'import-json-input' }).props.onChangeText(tekst);
+      await flush();
+    });
+    await TR.act(async () => {
+      await flush();
+    });
+    const zastap = t.root.findAll((n) => n.props?.testID === 'confirm-import-btn' && typeof n.props.onPress === 'function');
+    expect(zastap).toHaveLength(1);
+    await TR.act(async () => {
+      await zastap[0].props.onPress();
+      await flush();
+    });
+    expect(counts()).toEqual(expect.objectContaining({ bakes: 4, starters: 2, bake_sessions: 2 }));
+    const po = openRaw(APP_DB());
+    expect(po.prepare('SELECT id, status, session_json, created_at, updated_at FROM bake_sessions ORDER BY id;').all()).toEqual(wPakiecie);
+    po.close();
+    await TR.act(async () => t.unmount());
+  });
+
   it('pakiet z nowszej wersji: „nowsza”; pakiet bez bazy Piekarza albo z uszkodzonym plikiem: powód i dane bez zmian', async () => {
     const app = await nowaInstalacja();
     const przed = counts();
