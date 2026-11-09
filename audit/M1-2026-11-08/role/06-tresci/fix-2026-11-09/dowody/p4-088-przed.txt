@@ -1,0 +1,125 @@
+FAIL tests/pieczenie-bez-cudzych-liczb-088.test.ts
+  088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką
+    ✓ katalog ma receptury z zakwasem spoza wektora D-304 (żytnie w keksówce, łotewska na stali) (2 ms)
+    ✓ country_loaf_72: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (2 ms)
+    ✓ tartine_high_hydration_80: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ san_francisco_sourdough: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ pain_de_campagne: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✕ rye_100_pan: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (2 ms)
+    ✕ borodinsky_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ spelt_ancient_seeded: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ lievito_madre_panettone_brioche: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ graham_bread_honey: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ durum_semolina_sourdough: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✕ latvian_scalded_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✕ rye_100_pan przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (1 ms)
+    ✕ borodinsky_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (1 ms)
+    ✕ latvian_scalded_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (1 ms)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › rye_100_pan: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 195, 15, 45, 60]
+
+      58 |         expect(TRESC).toContain(k.instructions);
+      59 |       } else {
+    > 60 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      61 |       }
+      62 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      63 |     }
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:60:75)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › borodinsky_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 190, 15, 50, 65]
+
+      58 |         expect(TRESC).toContain(k.instructions);
+      59 |       } else {
+    > 60 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      61 |       }
+      62 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      63 |     }
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:60:75)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › latvian_scalded_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 250
+    Received array: [225, 225, 0, 90, 90]
+
+      58 |         expect(TRESC).toContain(k.instructions);
+      59 |       } else {
+    > 60 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      61 |       }
+      62 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      63 |     }
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:60:75)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › rye_100_pan przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 195, 15, 45, 60]
+
+      75 |       const tekst = `${k.name} ${k.instructions}`;
+      76 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 77 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      78 |     }
+      79 |   });
+      80 | });
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:77:73)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › borodinsky_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 190, 15, 50, 65]
+
+      75 |       const tekst = `${k.name} ${k.instructions}`;
+      76 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 77 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      78 |     }
+      79 |   });
+      80 | });
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:77:73)
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › latvian_scalded_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 250
+    Received array: [225, 225, 0, 90, 90]
+
+      75 |       const tekst = `${k.name} ${k.instructions}`;
+      76 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 77 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      78 |     }
+      79 |   });
+      80 | });
+
+      at toContain (tests/pieczenie-bez-cudzych-liczb-088.test.ts:77:73)
+
+Test Suites: 1 failed, 1 total
+Tests:       6 failed, 9 passed, 15 total
+Snapshots:   0 total
+Time:        0.838 s, estimated 1 s
+Ran all test suites matching /tests\/pieczenie-bez-cudzych-liczb-088.test.ts/i.

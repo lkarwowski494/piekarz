@@ -135,6 +135,7 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 22:36 087: bb162ddf (subagent M2 — wyjątek nazwany: D przez subagenta ze względu na limit kontekstu D-289), test przed czerwony (bake_sessions 0), po 11/11, verify 6801 kod 0; status naprawione-do-weryfikacji; przegląd ścieżki danych w toku. Start rola 06 p4 (089 DEC-21 a, 088 opcja a).
 - 22:36 087: przegląd ścieżki danych — brak P0/P1; 3 uwagi P2 → nowe-znaleziska-M2 (M2-p4-N1…N3).
 - 22:41 22:42 Limit kontekstu 30% (M9): przekazanie — punkt-wznowienia-M2-2026-11-09c.md, prompt-przekazania-M2-2026-11-09c.md. Rola 06 p4 (088/089) w toku w drzewie p4; 005 polecenie gotowe.
+- 22:55 Rola 06 p4: 3e05396e (089), d04c94ca (088), push; przeglądy i statusy dla następczyni (punkt C, dopisek).
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

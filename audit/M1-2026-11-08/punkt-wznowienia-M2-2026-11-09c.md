@@ -19,3 +19,7 @@ Zasady i pułapki: `punkt-wznowienia-M2-2026-11-09.md` (wiążące), zmiany: `pu
 - Dowiązanie `node_modules` w drzewie pomocniczym `git add -A` dodaje jako plik — `node_modules` jest w `.git/info/exclude`.
 - Subagent bywa kończy bez SubagentHandback albo z verify przerwanym bez kodu — sprawdź `git status`/log i wznów go SendMessage.
 - Lokalna gałąź `m2-d-p3-tmp` i drzewo `wt-d` w scratchpadzie: pomocnicze, niewypchnięte; nie usuwać bez potrzeby (zakaz usuwania gałęzi dotyczy origin).
+
+## Dopisek 22:5x UTC (przed archiwizacją sesji A, polecenie M9)
+- Rola 06 p4 skończyła: **089 → 3e05396e**, **088 → d04c94ca**; p4 @ **d04c94ca** wypchnięta; verify po git add kod 0 (6804 / 6821). Wynik: `role/06-tresci/fix-2026-11-09/wynik-p4.md` (sprawdz-raport kod 0), dowody `p4-*`.
+- Dla następczyni (nie zrobione): drugi przegląd AI przekładu (`docs/lokalizacja/przeklad-m2-089-2026-11-09.json`, `przeklad-m2-088-2026-11-09.json`; 3 nowe klucze), przegląd ścieżki planu (subagent, tylko odczyt), statusy 088/089 w planie, D-317 (DEC-21 a; rola 06: D-309 → opcja d), decyzje roli 06 do weta (088 opcja a bez liczb z danych; zmiana testu akceptacyjnego dla brioszki i durum), teksty do akceptacji roli 04, nowe znaleziska 06-tresci-603 (P2 → P3 z klasą), 06-tresci-604 [DO USTALENIA] → `nowe-znaleziska-M2.md`. Potem 005 i koniec partii 4.

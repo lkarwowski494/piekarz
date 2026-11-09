@@ -1,0 +1,10 @@
+PASS tests/brioszka-bez-planu-089.test.ts
+PASS tests/plan-brioszki-m2-012.test.ts
+PASS src/lib/__tests__/plan-drozdzowy-p9b.test.ts
+PASS tests/kontrakt-receptury-plan-061.test.ts
+
+Test Suites: 4 passed, 4 total
+Tests:       43 passed, 43 total
+Snapshots:   0 total
+Time:        1.028 s
+Ran all test suites matching /tests\/brioszka-bez-planu-089.test.ts|tests\/kontrakt-receptury-plan-061.test.ts|src\/lib\/__tests__\/plan-drozdzowy-p9b.test.ts|tests\/plan-brioszki-m2-012.test.ts/i.
