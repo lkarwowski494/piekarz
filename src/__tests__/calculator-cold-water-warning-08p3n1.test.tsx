@@ -52,8 +52,10 @@ async function arkusz(minus: number, kuchnia: number): Promise<renderer.ReactTes
   return tree!;
 }
 
-const alerty = (tree: renderer.ReactTestRenderer) =>
-  tree.root.findAll((n) => typeof n.type === 'string' && n.props?.testID === 'ddt-too-hot-warning' && n.props?.accessibilityRole === 'alert');
+// testID mówi, co sprawdza: alert za zimnej wody ma własny identyfikator, nie „too-hot” [07-przek-4; 08-p3b-N1]
+const alertyId = (tree: renderer.ReactTestRenderer, id: string) =>
+  tree.root.findAll((n) => typeof n.type === 'string' && n.props?.testID === id && n.props?.accessibilityRole === 'alert');
+const alerty = (tree: renderer.ReactTestRenderer) => alertyId(tree, 'ddt-too-cold-warning');
 
 describe('rada przy za zimnej wodzie (08-p3-N1)', () => {
   beforeEach(async () => {
@@ -75,6 +77,7 @@ describe('rada przy za zimnej wodzie (08-p3-N1)', () => {
     const found = alerty(tree);
     expect(found).toHaveLength(1);
     expect(text(found[0])).toBe(ZIMNA);
+    expect(alertyId(tree, 'ddt-too-hot-warning')).toHaveLength(0);
     act(() => tree.unmount());
   });
 
