@@ -1,6 +1,6 @@
 # BRD Piekarz — wymagania: zakwas (ZAKW)
 
-Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba najtrudniejsze jest prowadzenie zakwasu.” (ZP-19). Reguła krytyczna RD-21 obowiązuje w każdym miejscu, w którym użytkownik opisuje wygląd albo zapach zakwasu.
+Stan: E3 · Aktualizacja: 2026-11-09 (BR-ZAKW-003, ER-79). Zasada właściciela: „W robieniu chleba najtrudniejsze jest prowadzenie zakwasu.” (ZP-19). Reguła krytyczna RD-21 obowiązuje w każdym miejscu, w którym użytkownik opisuje wygląd albo zapach zakwasu.
 
 ### BR-ZAKW-001: Karta zakwasu, także kilku zakwasów
 - Przepływ: PR-05, PR-11
@@ -30,7 +30,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
 
 ### BR-ZAKW-003: Gotowość zakwasu do ciasta
 - Przepływ: PR-05, PR-02 · Reguła: RD-24
-- Dowód potrzeby: J-04; zakwas powinien być gotowy w dniu wypieku; kod przewiduje szczyt z godzin (progi bez źródła, OP-39)
+- Dowód potrzeby: J-04; zakwas powinien być gotowy w dniu wypieku; kod przewiduje okno szczytu z godzin (okno i mnożniki bez źródła, OP-39)
 - Kryteria akceptacji:
   - Scenariusz: Podwojenie w 6 h
     - Zakładając, że użytkownik zapisał dokarmienie o 08:00
@@ -41,9 +41,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
     - Gdy użytkownik zapisuje obserwację
     - Wtedy widzi radę, by karmić dalej co 12 h (RD-24-W3)
   - Scenariusz: Przewidywanie z godzin
-    - Zakładając, że użytkownik nie zapisał obserwacji
-    - Gdy otwiera kartę zakwasu
-    - Wtedy widzi czas od dokarmienia bez godziny szczytu, dopóki progi nie mają źródła [DO USTALENIA] (OP-39)
+    - Zakładając, że użytkownik nie zapisał obserwacji, a zakwas stoi w temperaturze pokojowej
+    - Gdy otwiera kartę zakwasu w dowolnym czasie po dokarmieniu i przy dowolnej temperaturze z wyboru
+    - Wtedy widzi czas od dokarmienia bez godziny szczytu
+    - Oraz nie widzi fazy liczonej z okna szczytu („Przed szacowanym szczytem”, „W szacowanym oknie szczytu”, „Po szacowanym szczycie”) ani rady wybranej według tej fazy, dopóki okno nie ma reguły RD ze źródłem [DO USTALENIA] (OP-39); ER-79
 
 ### BR-ZAKW-004: Przypomnienie o dokarmieniu i zasada ostrożności
 - Przepływ: PR-05 · Reguła: RD-25, RD-21

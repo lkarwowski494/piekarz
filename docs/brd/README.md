@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-11-03 (rola 01 fix: paczka M3, ER-75…ER-78; wcześniej 2026-10-22: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-11-09 (rola 01 fix: OP-39 i BR-ZAKW-003, ER-79); 2026-11-03 (rola 01 fix: paczka M3, ER-75…ER-78; wcześniej 2026-10-22: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -38,7 +38,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-36 | [DO USTALENIA] czy kolor płynu na zakwasie (ciemny) ma znaczenie dla bezpieczeństwa | źródła szczebla 1–3, rola 06 | RD-21 |
 | OP-37 | [DO USTALENIA] zasady bezpieczeństwa przy kamieniu do pieczenia i piecu do pizzy | źródła szczebla 1–3 | RD-23, J-11 |
 | OP-38 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): domyślny odstęp przypomnienia o dokarmianiu na blacie 12 h (S-44) | właściciel z rolą 03 | RD-25 |
-| OP-39 | [DO USTALENIA] progi faz zakwasu w godzinach po dokarmieniu (kod: do 2 h, do 5 h, szczyt 5–9 h, głodny po 14 h) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
+| OP-39 | [DO USTALENIA] okno szczytu zakwasu w godzinach po dokarmieniu (kod `src/core/starter-peak-predictor.ts`, `predictStarterPeak`: okno bazowe 6,0–8,5 h dla 1:2:2, pszenica, 22 °C; mnożniki proporcji 0,72 / 1,0 / 1,45 / 1,9 i mąki 0,88 / 0,95; Q10 = 3,0 w klamrze 15–35 °C) i faza z tego okna (`src/core/sourdough-physics.ts`, `calculateStarterPhase`: przed / w oknie / po szczycie); rejestr roli 06 ZAK-SZC-900 otwarte, S-43 i S-44 (odczyt 2026-11-09) bez czasów do szczytu; do RD ze źródłem bez godziny i bez fazy (BR-ZAKW-003, ER-79) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
 | OP-40 | [DO USTALENIA] czas zimnej fermentacji ciasta na pizzę ze źródła szczebla 1–3 (przewodnik S-60: 24–48 h) | źródła, rola 06 | J-11 |
 | OP-41 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): kopia urządzenia (iCloud systemu) i przypomnienie o eksporcie pliku, bez wyjątku od zakazu sieci (technika: rola 05) | właściciel z rolami 03 i 05 | BR-DANE-002 |
 | OP-42 | [DO WYJAŚNIENIA] dopuszczalne opóźnienie sygnału kroku przy zablokowanym ekranie | właściciel z rolą 05 | NFR-CZAS-001 |
