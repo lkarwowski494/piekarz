@@ -1,0 +1,27 @@
+FAIL src/__tests__/przelacznik-systemowy-039.test.tsx
+  039: systemowy przełącznik przypomnień
+    ✕ wiersz zawiera Switch z value, etykietą i kolorem akcentu; Switch i wiersz zmieniają ustawienie (97 ms)
+
+  ● 039: systemowy przełącznik przypomnień › wiersz zawiera Switch z value, etykietą i kolorem akcentu; Switch i wiersz zmieniają ustawienie
+
+    No instances found with node type: "Switch"
+
+      21 |     let tree!: renderer.ReactTestRenderer;
+      22 |     await act(async () => { tree = renderer.create(<PrzypomnieniaKarmieniaSection />); });
+    > 23 |     const sw = tree.root.findByType(Switch);
+         |                          ^
+      24 |     const przed = await czyPrzypomnieniaKarmienia();
+      25 |     expect(sw.props.value).toBe(przed);
+      26 |     expect(sw.props.accessibilityLabel).toBe('Przypomnienia o karmieniu');
+
+      at expectOne (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15161:13)
+      at ReactTestInstance.Object.<anonymous>.process.env.NODE_ENV._proto.findByType (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:17211:18)
+      at Object.findByType (src/__tests__/przelacznik-systemowy-039.test.tsx:23:26)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        1.24 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/przelacznik-systemowy-039.test.tsx/i.

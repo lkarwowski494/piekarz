@@ -1,0 +1,52 @@
+FAIL tests/brd-katalog-037.test.ts
+  037: BRD po 2026-11-03 nadąża za D-236 i kodem
+    ✕ BR-RECP-001 „Katalog w 1.0”: liczba z kodu i D-236, bez „około 30” (3 ms)
+    ✓ OP-39 opisuje model okna z kodu (predictStarterPeak), nie progi faz
+
+  ● 037: BRD po 2026-11-03 nadąża za D-236 i kodem › BR-RECP-001 „Katalog w 1.0”: liczba z kodu i D-236, bez „około 30”
+
+    expect(received).not.toContain(expected) // indexOf
+
+    Expected substring: not "około 30"
+    Received string:        "BR-RECP-001: Receptury bazowe
+    - Przepływ: PR-01, PR-12, PR-17
+    - Dowód potrzeby: J-01, J-08, J-11, P-6; początkujący zaczynają od gotowych przepisów (S-18, rec. 10702359464; S-23, rec. 6860807346); ZP-23 (zakwas, drożdże, pizza)
+    - Kryteria akceptacji:
+      - Scenariusz: Wybór receptury bazowej
+        - Zakładając, że użytkownik nie ma własnych receptur
+        - Gdy wybiera rodzaj pieczywa
+        - Wtedy widzi receptury bazowe tego rodzaju z procentami i może zacząć od nich PR-01
+      - Scenariusz: Bez ukrywania receptur
+        - Zakładając, że użytkownik ma Basic albo Pro (D-112; ER-80)
+        - Gdy przegląda receptury bazowe
+        - Wtedy żadna nie jest zablokowana osobno (decyzja D-034, pyt. 8a)
+      - Scenariusz: Katalog w 1.0
+        - Zakładając, że użytkownik ma wersję 1.0
+        - Gdy przegląda receptury bazowe
+        - Wtedy widzi około 30 receptur: 15 dotychczasowych i kandydatów zatwierdzonych przez właściciela (11 i 3 warunkowo po domknięciu luk), każdą pod nazwą opisową (D-157, D-177)
+      - Scenariusz: Nazwa chroniona tylko jako pochodzenie
+        - Zakładając, że formuła receptury pochodzi ze specyfikacji nazwy chronionej (ChNP, ChOG, GTS)
+        - Gdy użytkownik czyta recepturę
+        - Wtedy tytuł jest nazwą opisową, a nazwa chroniona pojawia się tylko w zdaniu o pochodzeniu formuły (D-177; ochrona nazw: [DO USTALENIA] (OP-72))
+      - Scenariusz: Formuła ze specyfikacji produkcji
+        - Zakładając, że receptura podaje ilości i temperatury pieca ze specyfikacji produkcji (np. pierożki 250–300 °C, rejestr KAT-KAR-003)
+        - Gdy użytkownik czyta jej notatki
+        - Wtedy widzi, że ilości i temperatury są podane jak w źródle, bez przeliczenia na kuchnię i piekarnik domowy (tekst roli 06; temperatura dla piekarnika domowego: [DO USTALENIA] (OP-71))
+
+    "
+
+      13 |     const t = fs.readFileSync(path.join(BRD, 'wymagania-dziennik.md'), 'utf8');
+      14 |     const sekcja = t.split(/^### /m).find((s) => s.startsWith('BR-RECP-001'))!;
+    > 15 |     expect(sekcja).not.toContain('około 30');
+         |                        ^
+      16 |     expect(sekcja).toContain(`${CATALOG_RECIPES.length} receptur`);
+      17 |     expect(sekcja).toContain('D-236');
+      18 |   });
+
+      at Object.toContain (tests/brd-katalog-037.test.ts:15:24)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        0.428 s, estimated 1 s
+Ran all test suites matching /tests\/brd-katalog-037.test.ts/i.

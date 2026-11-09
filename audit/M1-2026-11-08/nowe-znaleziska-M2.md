@@ -73,3 +73,4 @@
 ## 034, 048 (2026-11-09)
 - M2-010 (P2→P3 wg D-288, klasa: dokumentacja): kontrola-brd zgłasza 2 błędy istniejące przed zmianą M2 — RD-37 i RD-38 (reguły krytyczne bez źródła szczebla 1–3, C-003) w `docs/brd/reguly.md:287,305`.
 - Drugi przegląd 048: P3 do decyzji globalnej — fr spacja przed dwukropkiem zwykła zamiast U+00A0/U+202F w całym słowniku fr (223 vs 19); P3 z kluczy siostrzanych: pt/pt-BR „no mínimo” → „o mais cedo”, hu „így” zbędne.
+- M2-011 (P2→P3, klasa: dokumentacja): pełny przegląd D-221…D-291 pod kątem BR (część 01-odkrywanie-008 poza testem akceptacyjnym) — tryb fix roli 01, do reaudytu.

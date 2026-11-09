@@ -1,0 +1,10 @@
+PASS tests/brd-katalog-037.test.ts
+  037: BRD po 2026-11-03 nadąża za D-236 i kodem
+    ✓ BR-RECP-001 „Katalog w 1.0”: liczba z kodu i D-236, bez „około 30” (2 ms)
+    ✓ OP-39 opisuje model okna z kodu (predictStarterPeak), nie progi faz (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        0.443 s, estimated 1 s
+Ran all test suites matching /tests\/brd-katalog-037.test.ts/i.

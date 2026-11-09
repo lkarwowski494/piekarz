@@ -1173,8 +1173,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "58b65480"
     },
     {
       "id": "M1-audytor-generalny-036",
@@ -1214,8 +1214,8 @@
       "przyczyna": null,
       "raport": "role/01-odkrywanie/01-odkrywanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 01-odkrywanie-008 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "b8a8f0d2"
     },
     {
       "id": "M1-audytor-generalny-038",
@@ -1252,8 +1252,8 @@
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-006 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "69bf0924"
     },
     {
       "id": "M1-audytor-generalny-040",
@@ -1353,8 +1353,8 @@
       "przyczyna": null,
       "raport": "role/06-tresci/06-tresci-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-009 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "d4d1d40d"
     },
     {
       "id": "M1-audytor-generalny-045",
