@@ -13,7 +13,7 @@ import { startPlanuAt } from '../../core/plany-wypiekow';
 import { t } from '../../lib/i18n';
 import { formatTime } from '../../lib/format';
 import { nazwaReceptury } from '../../lib/nazwa-receptury';
-import { dzienSlownie, etykietaPlanuPrzedStartem } from '../../lib/spirala-etykieta';
+import { dzienSlownie, etykietaPlanuPrzedStartem, gotoweNazwa, startKiedy } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
@@ -27,13 +27,13 @@ export const gotowePlanu = (p: PlannedBake): number | null => p.steps[p.steps.le
 export function tytulPlanu(p: PlannedBake, teraz: number): string {
   const g = gotowePlanu(p);
   const nazwa = nazwaReceptury(p.recipeName);
-  return g === null ? nazwa : t('{nazwa}: gotowe {dzien} o {godzina}', { nazwa, dzien: dzienSlownie(new Date(g), new Date(teraz)), godzina: formatTime(g) });
+  return g === null ? nazwa : gotoweNazwa(nazwa, new Date(g), new Date(teraz));
 }
 
 /** „Start {dzień} o {godzina}” (klucz z planu wypieku). */
 export function startPlanuTekst(p: PlannedBake, teraz: number): string {
   const s = startPlanuAt(p);
-  return t('Start {dzien} o {godzina}', { dzien: dzienSlownie(new Date(s), new Date(teraz)), godzina: formatTime(s) });
+  return startKiedy(new Date(s), new Date(teraz));
 }
 
 function NaSpirali({ p, teraz, duzyTekst, onZobacz }: { p: PlannedBake; teraz: number; duzyTekst: boolean; onZobacz: (id: string) => void }) {

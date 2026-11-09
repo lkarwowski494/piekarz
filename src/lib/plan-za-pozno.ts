@@ -49,18 +49,22 @@ export function dzienWZdaniu(d: Date, teraz: Date): string {
   return formatDate(d, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
+/** Treść „za późno”: z datą odległą dzień po dwukropku, bez mianownika po czasowniku [M1-audytor-generalny-048]. */
+function tekstPlanuZaPozno(start: Date, gotowe: Date, teraz: Date): string {
+  const p = { dzienStartu: dzienWZdaniu(start, teraz), godzinaStartu: formatTime(start), dzienGotowe: dzienWZdaniu(gotowe, teraz), godzinaGotowe: formatTime(gotowe) };
+  const slowa = roznicaDni(start, teraz) >= -1 && roznicaDni(start, teraz) <= 2 && roznicaDni(gotowe, teraz) >= -1 && roznicaDni(gotowe, teraz) <= 2;
+  return slowa
+    ? t('Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.', p)
+    : t('Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.', p);
+}
+
 /** Tytuł i treść stanu „za późno”; null, gdy stanu nie ma. */
 export function tekstZaPozno(stan: StanZaPozno, teraz: number): { tytul: string; tresc: string } | null {
   if (!stan.zaPozno || stan.startMs === null || stan.najwczesniejMs === null) return null;
   const terazD = new Date(teraz);
   return {
     tytul: t('Nie zdążysz na tę godzinę'),
-    tresc: t('Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.', {
-      dzienStartu: dzienWZdaniu(new Date(stan.startMs), terazD),
-      godzinaStartu: formatTime(stan.startMs),
-      dzienGotowe: dzienWZdaniu(new Date(stan.najwczesniejMs), terazD),
-      godzinaGotowe: formatTime(stan.najwczesniejMs),
-    }),
+    tresc: tekstPlanuZaPozno(new Date(stan.startMs), new Date(stan.najwczesniejMs), terazD),
   };
 }
 

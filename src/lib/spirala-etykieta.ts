@@ -39,9 +39,38 @@ export function dzienSlownie(gotowe: Date, teraz: Date): string {
   return formatDate(gotowe, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
+/** Dzień słowem („dziś”, „jutro”…), nie datą: tylko słowo wolno wkleić po „gotowe”/„start” bez przyimka [048]. */
+export function czyDzienSlowem(d: Date, teraz: Date): boolean {
+  const dzien = (x: Date) => new Date(x.getFullYear(), x.getMonth(), x.getDate()).getTime();
+  const roznica = Math.round((dzien(d) - dzien(teraz)) / DOBA_MS);
+  return roznica >= -1 && roznica <= 2;
+}
+
+// Data odległa w mianowniku stoi po dwukropku, jak w liście („Gotowe: czwartek, 12 listopada, 13:30”), a słowo
+// zostaje w zdaniu („Gotowe jutro o 13:30”) [M1-audytor-generalny-048; 09-lokalizacja-007, opcja a]
+const kiedy = (at: Date, teraz: Date) => ({ dzien: dzienSlownie(at, teraz), godzina: formatTime(at) });
+
+/** „Gotowe {dzień} o {godzina}” (z kropką albo bez) albo „Gotowe: {data}, {godzina}”. */
+export function gotoweKiedy(at: Date, teraz: Date, kropka: boolean): string {
+  const p = kiedy(at, teraz);
+  if (czyDzienSlowem(at, teraz)) return kropka ? t('Gotowe {dzien} o {godzina}.', p) : t('Gotowe {dzien} o {godzina}', p);
+  return kropka ? t('Gotowe: {dzien}, {godzina}.', p) : t('Gotowe: {dzien}, {godzina}', p);
+}
+
+/** „{nazwa}: gotowe {dzień} o {godzina}” albo „{nazwa} — gotowe: {data}, {godzina}”. */
+export function gotoweNazwa(nazwa: string, at: Date, teraz: Date): string {
+  const p = { nazwa, ...kiedy(at, teraz) };
+  return czyDzienSlowem(at, teraz) ? t('{nazwa}: gotowe {dzien} o {godzina}', p) : t('{nazwa} — gotowe: {dzien}, {godzina}', p);
+}
+
+/** „Start {dzień} o {godzina}” albo „Start: {data}, {godzina}”. */
+export function startKiedy(at: Date, teraz: Date): string {
+  const p = kiedy(at, teraz);
+  return czyDzienSlowem(at, teraz) ? t('Start {dzien} o {godzina}', p) : t('Start: {dzien}, {godzina}', p);
+}
+
 function zdanieGotowe(gotowe: Date | null, teraz: Date): string | null {
-  if (!gotowe) return null;
-  return t('Gotowe {dzien} o {godzina}.', { dzien: dzienSlownie(gotowe, teraz), godzina: formatTime(gotowe) });
+  return gotowe ? gotoweKiedy(gotowe, teraz, true) : null;
 }
 
 const zdania = (...z: (string | null)[]) => z.filter((x): x is string => !!x).join(' ');

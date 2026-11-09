@@ -15,7 +15,7 @@ import { t } from '../../lib/i18n';
 import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { formatTime } from '../../lib/format';
 import { gotoweMs } from '../../lib/gotowe';
-import { czasSlownie, dzienSlownie, etykietaPlanuWypieku } from '../../lib/spirala-etykieta';
+import { czasSlownie, etykietaPlanuWypieku, gotoweKiedy, gotoweNazwa } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
@@ -35,7 +35,7 @@ function opisWypieku({ sesja, zegar }: TrwajacyNaStarcie, teraz: number) {
   const czas =
     pozostaloMin === null ? null : koniecKroku === null ? t('zostało {czas}', { czas: czasSlownie(pozostaloMin) })
       : t('zostało {czas}, do {godzina}', { czas: czasSlownie(pozostaloMin), godzina: formatTime(koniecKroku) });
-  const gotoweTekst = gotowe === null ? null : t('Gotowe {dzien} o {godzina}.', { dzien: dzienSlownie(gotowe, new Date(teraz)), godzina: formatTime(gotowe) });
+  const gotoweTekst = gotowe === null ? null : gotoweKiedy(gotowe, new Date(teraz), true);
   const etykieta = etykietaPlanuWypieku({ krok: sesja.stepIdx + 1, liczbaKrokow: sesja.steps.length, nazwa: nazwaKroku, pozostaloMin, gotowe, teraz: new Date(teraz) });
   return { nazwa: nazwaReceptury(sesja.recipeName), nazwaKroku, pozostaloMin, postep, czas, gotowe, gotoweTekst, etykieta };
 }
@@ -61,7 +61,7 @@ function Jeden({ w, teraz, duzyTekst, onWroc }: { w: TrwajacyNaStarcie; teraz: n
       <Text style={styles.krok}>{o.nazwaKroku}</Text>
       {o.czas !== null && <Text style={styles.tresc}>{o.czas}</Text>}
       <Text style={styles.objasnienie}>
-        {o.gotowe === null ? o.nazwa : t('{nazwa}: gotowe {dzien} o {godzina}', { nazwa: o.nazwa, dzien: dzienSlownie(o.gotowe, new Date(teraz)), godzina: formatTime(o.gotowe) })}
+        {o.gotowe === null ? o.nazwa : gotoweNazwa(o.nazwa, o.gotowe, new Date(teraz))}
       </Text>
       <Pressable testID="resume-bake-btn" accessibilityRole="button" accessibilityLabel={t('Wróć do wypieku')} style={styles.glowny} onPress={() => onWroc(w.id)}>
         <Text style={styles.glownyTekst}>{t('Wróć do wypieku')}</Text>

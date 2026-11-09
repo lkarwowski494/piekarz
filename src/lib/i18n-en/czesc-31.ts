@@ -20,4 +20,11 @@ export const EN_31: Record<string, string> = {
   'Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.': "I couldn't read the data in this database copy. Keep the file and email us.",
   // Pasek po skoku do kroku z „Plan wypieku” [M1-audytor-generalny-006]
   'Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte.': 'Moved to “{krok}”: later steps and notifications have shifted.',
+  // Data odległa po dwukropku zamiast mianownika po słowie [M1-audytor-generalny-048]
+  'Gotowe: {dzien}, {godzina}.': 'Ready: {dzien}, {godzina}.',
+  'Gotowe: {dzien}, {godzina}': 'Ready: {dzien}, {godzina}',
+  '{nazwa} — gotowe: {dzien}, {godzina}': '{nazwa} — ready: {dzien}, {godzina}',
+  'Start: {dzien}, {godzina}': 'Start: {dzien}, {godzina}',
+  'Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.':
+    'The plan would have to start: {dzienStartu}, {godzinaStartu}. The earliest the bread can be ready: {dzienGotowe}, {godzinaGotowe}.',
 };

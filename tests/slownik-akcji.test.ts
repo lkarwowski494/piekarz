@@ -146,7 +146,8 @@ describe('089: słownik akcji', () => {
   it('M1-audytor-generalny-089: poprawki tekstów 04-035 (gotowe przy nazwie, dokarmienie, Zaczyny)', () => {
     expect(EN['{nazwa}: gotowe {dzien} o {godzina}']).toBe('{nazwa}: ready {dzien} at {godzina}');
     // M3 D4b: karta „Trwa wypiek” zastąpiona spiralą „Dziś” 3+1 (D-105); ten sam tekst w nowym komponencie
-    expect(uzycia('{nazwa}: gotowe {dzien} o {godzina}')).toContain('src/components/start/WypiekiNaSpirali.tsx');
+    // M2 048: wybór słowo/data w jednym miejscu (gotoweNazwa), używanym przez WypiekiNaSpirali i PlanyWypiekow
+    expect(uzycia('{nazwa}: gotowe {dzien} o {godzina}')).toContain('src/lib/spirala-etykieta.ts');
     expect(uzycia('Pora dokarmić zakwas')).toContain('src/lib/notifications.ts');
     expect(uzycia('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.')).toContain('src/lib/notifications.ts');
     expect('Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.' in EN).toBe(false);

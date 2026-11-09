@@ -2210,12 +2210,21 @@
   },
   "Gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
-      "src/components/start/WypiekiNaSpirali.tsx (kod)",
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Gotowe: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Gotowe: {dzien}, {godzina}.": {
+    "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -5283,7 +5292,12 @@
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
-      "src/lib/plan-za-pozno.ts (tresc)"
+      "src/lib/plan-za-pozno.ts (kod)"
+    ]
+  },
+  "Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.": {
+    "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)"
     ]
   },
   "Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.": {
@@ -7008,9 +7022,12 @@
   },
   "Start {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
-      "src/components/start/PlanyWypiekow.tsx (kod)",
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Start: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "Stary zakwas": {
@@ -10638,10 +10655,14 @@
       "src/lib/wskazowka-zaczynu.ts (kod)"
     ]
   },
+  "{nazwa} — gotowe: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/start/PlanyWypiekow.tsx (kod)",
-      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "{nazwa}: {n} z 5": {
