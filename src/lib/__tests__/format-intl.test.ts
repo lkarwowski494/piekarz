@@ -50,7 +50,7 @@ describe('src/lib/format.ts', () => {
 
   it('formatTime: PL 24 h, EN 12 h', () => {
     expect(formatTime(D, 'pl')).toBe('21:05');
-    expect(formatTime(D, 'en-US')).toMatch(/^09:05\s?PM$/);
+    expect(formatTime(D, 'en-US')).toMatch(/^9:05\s?PM$/); // 12 h bez zera wiodącego [M1-audytor-generalny-047]
   });
 
   it('appLocale: język aplikacji z regionem urządzenia, gdy język się zgadza', () => {
@@ -92,7 +92,7 @@ describe('miejsca wyświetlania według języka aplikacji', () => {
     setLang('en');
     const en = calculateReverseSchedule(target).sleepCollisions.map((c) => c.time);
     expect(en.length).toBe(pl.length);
-    for (const s of en) expect(s).toMatch(/^\d{2}:\d{2}\s?[AP]M$/);
+    for (const s of en) expect(s).toMatch(/^\d{1,2}:\d{2}\s?[AP]M$/); // 12 h bez zera wiodącego [047]
   });
 
   it("w src/ i app/ nie ma 'pl-PL' ani 'en-US' na sztywno (poza testami)", () => {

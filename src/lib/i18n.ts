@@ -177,7 +177,11 @@ export function t(pl: string, params?: Record<string, string | number>): string 
 function wypelnij(tekst: string, params?: Record<string, string | number>, zrodlo?: string): string {
   const wstaw = (s: string) => {
     let wynik = s;
-    if (params) for (const k of Object.keys(params)) wynik = wynik.split(`{${k}}`).join(paramText(params[k]));
+    // Wartość kończąca się kropką („p.m.”, „μ.μ.”) przed kropką zdania: jedna kropka [M1-audytor-generalny-047]
+    if (params) for (const k of Object.keys(params)) {
+      const v = paramText(params[k]);
+      wynik = (v.endsWith('.') ? wynik.split(`{${k}}.`).join(v) : wynik).split(`{${k}}`).join(v);
+    }
     return wynik;
   };
   // Źródło też z parametrami: masa „{g} g” jest masą także w przekładzie z „г” [M1-audytor-generalny-213; 09-lokalizacja-601]

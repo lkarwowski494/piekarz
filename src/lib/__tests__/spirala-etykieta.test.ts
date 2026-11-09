@@ -56,7 +56,7 @@ describe('etykieta planu wypieku (prowadzenie, Dziś)', () => {
   it('EN według wzoru z tabeli §11b', () => {
     setLang('en');
     expect(etykietaPlanuWypieku({ ...dane, nazwa: 'Fold 2 of 4' })).toBe(
-      'Bake plan, step 4 of 13: Fold 2 of 4, 18 minutes left. Ready tomorrow at 09:35 AM.',
+      'Bake plan, step 4 of 13: Fold 2 of 4, 18 minutes left. Ready tomorrow at 9:35 AM.', // 12 h bez zera wiodącego [M1-audytor-generalny-047]
     );
   });
 
@@ -79,7 +79,7 @@ describe('etykieta planu przed startem i karty zakwasu', () => {
 
   it('EN', () => {
     setLang('en');
-    expect(etykietaPlanuPrzedStartem({ liczbaKrokow: 13, gotowe: JUTRO_935, teraz: TERAZ })).toBe('Bake plan: 13 steps. Ready tomorrow at 09:35 AM.');
+    expect(etykietaPlanuPrzedStartem({ liczbaKrokow: 13, gotowe: JUTRO_935, teraz: TERAZ })).toBe('Bake plan: 13 steps. Ready tomorrow at 9:35 AM.');
     expect(etykietaPlanuPrzedStartem({ liczbaKrokow: 1, gotowe: null, teraz: TERAZ })).toBe('Bake plan: 1 step.');
   });
 

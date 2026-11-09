@@ -8,7 +8,7 @@ import type { ZdarzenieKalendarza } from '../core/kalendarz-zdarzenia';
 import type { LiniaNastepne } from '../core/kalendarz-nastepne';
 import { localDateKey } from '../core/dzien-lokalny';
 import { t } from './i18n';
-import { appLocale, formatDate, formatTime } from './format';
+import { appLocale, formatDate, formatTime, opcjeGodziny } from './format';
 import { dzienSlownie } from './spirala-etykieta';
 
 export interface OpcjeTekstu {
@@ -61,7 +61,7 @@ export function opisZdarzenia(z: ZdarzenieKalendarza, o: OpcjeTekstu): string {
 
 /** Godzina zaległego: dziś sama godzina, inny dzień — dzień i miesiąc z godziną (RD-32-W5: „22.10 08:00”). */
 function godzinaZaleglego(at: number, now: number): string {
-  return localDateKey(at) === localDateKey(now) ? formatTime(at) : formatDate(at, appLocale(), { day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return localDateKey(at) === localDateKey(now) ? formatTime(at) : formatDate(at, appLocale(), { day: 'numeric', month: 'numeric', ...opcjeGodziny() });
 }
 
 const pozycjaPrzyszla = (z: ZdarzenieKalendarza, o: OpcjeTekstu) =>
