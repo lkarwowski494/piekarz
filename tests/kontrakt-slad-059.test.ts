@@ -83,3 +83,38 @@ describe('kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, 
     expect(wiersz('F-67')?.join('|')).toMatch(/D-116/);
   });
 });
+
+describe('kontrakt zakresu: apetyt D-312, backlog 1.0.1 i aktualny wynik zakres.mjs (059)', () => {
+  const ranking = kontrakt.split('\n## Ranking')[1]?.split('\n## ')[0] ?? '';
+  const zm = kontrakt.split('## Zmiany zakresu')[1]?.split('\n## ')[0] ?? '';
+  const definicja = kontrakt.split('\n## Definicja ukończenia')[1]?.split('\n## ')[0] ?? '';
+
+  it('apetyt 1.0 zapisany przy rankingu z datą i decyzją D-312; w „Główna praca i pętla” bez „otwarta”', () => {
+    expect(ranking).toMatch(/Apetyt 1\.0: 97 h \(D-312, 2026-11-09\)/);
+    const apetyt = linie.find((l) => l.startsWith('- Apetyt wersji 1:')) ?? '';
+    expect(apetyt).toMatch(/D-312/);
+    expect(apetyt).not.toMatch(/otwarta/);
+  });
+
+  it('tabela ZM ma wpis D-312: plan dla receptur drożdżowych katalogu w backlogu 1.0.1', () => {
+    const wpis = zm.split('\n').find((l) => /^\| ZM-\d+/.test(l) && /D-312/.test(l));
+    expect(wpis).toBeDefined();
+    for (const x of ['1.0.1', 'ER-83', 'OP-74', 'BR-HARMO-001']) expect(wpis).toContain(x);
+  });
+
+  it('F-43 nie mówi, że F-71 jest PÓŹNIEJ (F-71 MVP od ZM-23)', () => {
+    expect(wiersz('F-71')?.[4]).toBe('MVP');
+    expect(wiersz('F-43')?.[10]).not.toMatch(/F-71 PÓŹNIEJ/);
+  });
+
+  it('ostatni wynik zakres.mjs w kontrakcie: 0 błędów i liczby równe tabeli; „Definicja ukończenia” podaje ten sam wynik', () => {
+    const ile = (d: string) => funkcje.filter((k) => k[4] === d).length;
+    const br = new Set(funkcje.flatMap((k) => k[3].match(RE_BR) ?? [])).size;
+    const oczekiwane = `${funkcje.length} funkcji (MVP ${ile('MVP')}, PÓŹNIEJ ${ile('PÓŹNIEJ')}, TEST ${ile('TEST')}, NIE ${ile('NIE')}), ${br} BR · 0 błędów`;
+    const wyniki = ranking.match(/^\d+ funkcji \(.*$/gm) ?? [];
+    expect(wyniki[wyniki.length - 1]).toContain(oczekiwane);
+    const wiersz1 = definicja.split('\n').find((l) => /zakres\.mjs --brd/.test(l)) ?? '';
+    expect(wiersz1).toContain(`${br} BR, ${funkcje.length} funkcji, 0 błędów, kod 0`);
+    expect(wiersz1).not.toMatch(/2026-10-20/);
+  });
+});

@@ -1,5 +1,5 @@
 # Kontrakt zakresu: Piekarz (Crust)
-Stan: E3 (rola 03 build, sztafeta 01–04) · Aktualizacja: 2026-10-20 · Wejście: BRD roli 01 (`docs/brd/`, 55 BR, 18 PR, 12 J; gałąź roli 01 do c5be86c), `docs/monetyzacja.md` roli 02 (E3), ZAL-029…ZAL-050 · Decyzje: D-040 (apetyt), D-041 (ER przed cięciem), D-042 (OP-49), D-043 (zakres) · Zmiany 2026-11-03: ZM-24…ZM-26 (D-136…D-138, D-150), F-72, D-151, D-152 (Basic/Pro) — D-153…D-157 (zakres rozstrzygnięty) · Zmiany 2026-11-09 (M2, rola 03 fix): ZM-28 (pakiet D-092 wstecz, F-73…F-83)
+Stan: E3 (rola 03 build, sztafeta 01–04) · Aktualizacja: 2026-10-20 · Wejście: BRD roli 01 (`docs/brd/`, 55 BR, 18 PR, 12 J; gałąź roli 01 do c5be86c), `docs/monetyzacja.md` roli 02 (E3), ZAL-029…ZAL-050 · Decyzje: D-040 (apetyt), D-041 (ER przed cięciem), D-042 (OP-49), D-043 (zakres) · Zmiany 2026-11-03: ZM-24…ZM-26 (D-136…D-138, D-150), F-72, D-151, D-152 (Basic/Pro) — D-153…D-157 (zakres rozstrzygnięty) · Zmiany 2026-11-09 (M2, rola 03 fix): ZM-28 (pakiet D-092 wstecz, F-73…F-83), ZM-29, ZM-30 (D-312); ślad BR i model Basic/Pro (D-112, D-116) w tabeli — M1-audytor-generalny-059; apetyt 1.0 = 97 h (D-312)
 
 Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 rama, E1 wymiary i soczewki, E2 warianty i metoda) jest w `docs/archiwum/scope-contract-2026-10-20-robocze.md`, poprzednia wersja kontraktu w `docs/archiwum/scope-contract-2.0.md` (inwentarz). Zmiana zakresu po zatwierdzeniu tylko przez bramkę „Zmiany zakresu” niżej. *Dlaczego:* role 04–08 pracują z jednego źródła zakresu, a bez bramki zakres rośnie albo kurczy się po cichu.
 
@@ -7,7 +7,7 @@ Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 ra
 - Główna praca: J-02 „Kiedy wypiek trwa od kilku do kilkudziesięciu godzin, z przerwami, chcę wiedzieć, kiedy zacząć każdy etap, i dostać sygnał w chwili kroku” razem z J-01 (ilości) i J-05 (poprawić następny wypiek) — trzy części celu ZP-17.
 - Pętla główna: start F-68 (pod pasem tygodnia F-73, ZM-28) → receptura F-26 albo F-27 → ilości F-09 → plan F-13 z czasem F-14 → prowadzenie F-07 z sygnałem F-16 i powrotem F-58 → dziennik F-28; wejście zakwasu F-60, F-22, F-23, F-24, F-25; wejście drożdży i pizzy F-55; tryb „maszyna do chleba” F-72 (ZM-26, zakres na STOP); planowanie tygodnia: plany na kolejne dni F-74, dwa wypieki F-75 z podłogą F-76, stały dzień karmienia F-77 (ZM-28, D-092).
 - Funkcja MVP spoza tej linii ma podłogę albo decyzję D-043 (sprawdza `zakres.mjs`).
-- Apetyt wersji 1: ok. 60 h czasu właściciela (D-040); wybrany wariant B kosztuje [OCENA] ok. 68 h (67 h z E2 + 1 h za pełne miary USA, zadanie 096) — nadwyżkę przyjął właściciel (D-043; Doktor i Akademia to wybór ZP-20). Przeliczenie po rozszerzeniach 1.0 (2026-11-09, M1-audytor-generalny-064, DEC-09 a): suma MVP 97 h [OCENA] (wynik pod tabelą „Ranking”); decyzja właściciela o apetycie 1.0 otwarta. Podział: jedna aplikacja, pizza i drożdże jako rodzaj receptury (D-043, H-09 a; wytyczne 4.3(a)).
+- Apetyt wersji 1: ok. 60 h czasu właściciela (D-040); wybrany wariant B kosztuje [OCENA] ok. 68 h (67 h z E2 + 1 h za pełne miary USA, zadanie 096) — nadwyżkę przyjął właściciel (D-043; Doktor i Akademia to wybór ZP-20). Przeliczenie po rozszerzeniach 1.0 (2026-11-09, M1-audytor-generalny-064, DEC-09 a): suma MVP 97 h [OCENA]; **apetyt 1.0 = 97 h, decyzja właściciela D-312 (2026-11-09: „97 h + dobudować (2)(3)(4) (Recommended)”)**, nic nie wypada, cięcie po ocenie wyjątków na H (pierwszy termin 2027-03-31). Po wpisaniu F-82 i F-83 do tabeli (059) suma 98 h — wynik i decyzja o 1 h pod tabelą „Ranking”. Podział: jedna aplikacja, pizza i drożdże jako rodzaj receptury (D-043, H-09 a; wytyczne 4.3(a)).
 - Wzorzec najlepszych (odczyt 2026-10-19 ok. 23:58, `itunes.apple.com/lookup` i RSS recenzji, US; kryterium: co najmniej dwie części pętli w opisie, kolejność `userRatingCount`): BakeWay (663 oceny; skalowanie, kroki, diagnoza ze zdjęcia, AI i sieć; skargi na opłaty), Loaflo (546; dziennik zakwasu, kalkulatory, skan AI; skargi: brak planu „co i kiedy”, zawodność, pleśń oceniona wysoko, ściana płatności), Rise (336, 4,87; receptury, procenty, plan z temperatury, powiadomienia, dziennik, synchronizacja; skargi: awaria w trakcie kroków, brak pauzy). Wniosek: Rise robi prawie całą pętlę (ZAL-045 podważone w części); wyróżnik Piekarza to sposób — bez sieci i konta, uczciwa płatność, niezawodność, zakwas od zera i zasada ostrożności — a nie liczba funkcji.
 - Darmowe i płatne: model D-112, D-113, wdrożony w D-116 (zapis 2026-11-09, M1-audytor-generalny-059), kontrakt płatności `docs/monetyzacja.md` („Basic i Pro według funkcji”); D-038 i D-039 (okres próbny, potem tryb ograniczony) zastąpione. Basic za darmo na zawsze, bez okresu próbnego: liczenie, prowadzenie wypieku z sygnałem, założenie pierwszego zakwasu, Doktor, dziennik, wszystkie dane (odczyt, eksport, import, usunięcie), zakup, przywracanie, ustawienia; Pro (subskrypcja albo dożywotni): plan wstecz i czas z temperatury, prowadzenie zakwasu, kolejne zakwasy, ponad 5 receptur, zaczyny, plany na kolejne dni, dwa wypieki, kalendarz telefonu, miesiąc, rytm, stały dzień, statystyki. Kolumna WTP: klasa WTP roli 02 · Basic albo Pro według tej listy. F-68 (start) to nawigacja; ekran Pro tylko po stuknięciu funkcji Pro i w Ustawieniach (BR-ZAK-005); F-69 (ocena, kontakt) jest w ustawieniach, zawsze dostępna.
 - Plan aktualizacji dla 3.1.2(a) (D-043): co kwartał jedna aktualizacja z treścią (2–3 receptury bazowe albo wyjaśnienia „po co ten krok” ze źródłami roli 06, w 35 językach) i poprawkami z recenzji; [OCENA] ok. 3 h właściciela na wydanie.
@@ -39,11 +39,11 @@ Jedyny kontrakt zakresu; czytają go role 01, 02, 04–08. Historia pracy (E0 ra
 | F-60 | Założenie zakwasu dzień po dniu | BR-ZAKW-005 | MVP | R: MS-25 (Yeasta „day-by-day”); Loaflo rec. 13931423989; 6 z 338 | WTP-1 (R) · Basic (D-113) | „zakładam zakwas” na starcie; dzień N i co dziś zrobić; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | bezpieczeństwo: RD-21 | F-22 | wejście P-6 (ZP-22); bloker wydania |
 | F-61 | Obudzenie zakwasu z lodówki przed wypiekiem | BR-ZAKW-006 | MVP | R: MS-25 (Yeasta „Fridge Starter Planner”) | WTP-1 (R) · kolejne karmienia budzące: Pro (`budzenie-zakwasu`); pierwsze karmienie budzące w planie: Basic (D-116) | plan sam dodaje dokarmienia, gdy zakwas jest w lodówce; wynik: nie badano, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` (brak makiety planu z zakwasem z lodówki; audyt po wdrożeniu) | — | F-22, F-13 | D-043: ranking w apetycie |
 | F-62 | Poprawa pomyłki we wpisie zakwasu | BR-ZAKW-007 | MVP | R: S-21 rec. 12986088850, 13060223498 | WTP-2 (R) · Basic | „edytuj” przy wpisie; przypomnienie liczy się od poprawionej godziny; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-23 | D-043 (wariant B): pomyłka bez kasowania historii, 1 h |
-| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001, BR-RECP-005 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · Basic (także wersja drożdżowa, D-152) | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | — | rdzeń pętli; treść roli 06; plan aktualizacji 3.1.2(a); ZM-25 (D-137, D-150, D-154, D-155), ZM-27 (D-157: ok. 30 receptur w 1.0): przełącznik „na zakwasie / na drożdżach” (D-154; zawężony do receptur z danymi ze źródła roli 06, D-173), dane wersji drożdżowej ze źródła roli 06; **stan 1.0 (DEC-01 a, D-286; M1-audytor-generalny-061): 26 receptur bazowych, z czego 11 z planem i prowadzeniem krok po kroku (receptury z zakwasem); 15 bez zakwasu (drożdżowe, pizza, słodkie, 2 żytnie) — ilości i wskazówki bez planu i prowadzenia (D-252: blokada D-3 z powodem pod „Ułóż plan”, przyjęte D-274); wersja drożdżowa w 4 recepturach na zakwasie, z planem w 3 (orkisz bez podziału czasu na etapy, DRO-WER-SP-001)**; plan dla receptur bez zakwasu wraca wpisem ZM po czasach etapów ze źródła roli 06 (pełne D-155); opis w sklepie według tego stanu: rola 10 (M1-audytor-generalny-080); BR-RECP-005 (ER-76): przełącznik w 4 recepturach z D-173, w kolumnie „Wymagania” od 2026-11-09 (059; test z ID: `src/__tests__/br-recp-005-wersja-drozdzowa-070.test.tsx`; wyjątek „bez kodu” usunięty w 070, zostaje wpis „czesciowe” dla scenariusza źródła szczebla 4) |
+| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001, BR-RECP-005 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · Basic (także wersja drożdżowa, D-152) | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | — | rdzeń pętli; treść roli 06; plan aktualizacji 3.1.2(a); ZM-25 (D-137, D-150, D-154, D-155), ZM-27 (D-157: ok. 30 receptur w 1.0): przełącznik „na zakwasie / na drożdżach” (D-154; zawężony do receptur z danymi ze źródła roli 06, D-173), dane wersji drożdżowej ze źródła roli 06; **stan 1.0 (DEC-01 a, D-286; M1-audytor-generalny-061): 26 receptur bazowych, z czego 11 z planem i prowadzeniem krok po kroku (receptury z zakwasem); 15 bez zakwasu (drożdżowe, pizza, słodkie, 2 żytnie) — ilości i wskazówki bez planu i prowadzenia (D-252: blokada D-3 z powodem pod „Ułóż plan”, przyjęte D-274); wersja drożdżowa w 4 recepturach na zakwasie, z planem w 3 (orkisz bez podziału czasu na etapy, DRO-WER-SP-001)**; plan dla receptur bez zakwasu wraca wpisem ZM po czasach etapów ze źródła roli 06 (pełne D-155): backlog 1.0.1 (D-312 pkt 3, ZM-30, OP-74); opis w sklepie według tego stanu: rola 10 (M1-audytor-generalny-080); BR-RECP-005 (ER-76): przełącznik w 4 recepturach z D-173, w kolumnie „Wymagania” od 2026-11-09 (059; test z ID: `src/__tests__/br-recp-005-wersja-drozdzowa-070.test.tsx`; wyjątek „bez kodu” usunięty w 070, zostaje wpis „czesciowe” dla scenariusza źródła szczebla 4) |
 | F-27 | Własne receptury | BR-RECP-002 | MVP | R: S-18 rec. 10719043217; MS-25 | WTP-1 (R) · do 5 własnych: Basic; ponad 5: Pro (`receptury-ponad-limit`, D-116); odczyt i usunięcie zawsze | „zapisz jako moją” pod wynikiem; od razu na liście; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | dane: odczyt i usunięcie bez zakupu | F-09 | rdzeń pętli |
 | F-28 | Dziennik wypieków z oceną i „piecz ponownie” | BR-RECP-003 | MVP | B: J-05, ZP-17; R: MS-25 | WTP-1 (R) · Basic (wpis, ocena, „Piecz ponownie”, filtr smaku); statystyki wypieków: Pro (D-116, DEC-04 a); przegląd zawsze | ocena otwiera się po „zakończ wypiek”; „piecz ponownie” w wpisie; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | dane: przegląd historii zawsze (DEC-01 d) | F-07 | rdzeń pętli |
 | F-69 | Pętla opinii: systemowa prośba o ocenę, „Oceń w App Store”, „napisz do nas” | BR-OPIN-001, BR-OPIN-002, BR-OPIN-003 | MVP | B: J-12; DEC-13 a; S-63 | warunek · zawsze (ustawienia) | prośba tylko systemowa po zapisanym wypieku od 3. ukończonego, odstęp 14 dni, najwyżej 3 w 365 dniach, bez warunku oceny bochenka (D-067, ZM-22; uchyla próg 4★ z OP-49, D-042); dwa wpisy w ustawieniach; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | prawo: OG-07 | F-28 | domyślnie w wersji 1 (polecenie roli); bloker wydania |
-| F-43 | Doktor Chleba dla bochenka (treść) | BR-DIAG-001 | MVP | R: S-16 rec. 14104905527; MS-26; ZP-20 | WTP-1 (R) · Basic (Doktor zawsze, D-116 pkt 6) | propozycja po ocenie ≤ 2★; objaw → pytania → jedna zmiana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-28 | D-043 (wariant B): wybór właściciela ZP-20; bez zdjęcia (H-10 a); protokoły ratunkowe ciasta w trakcie fermentacji poza F-43: F-71 PÓŹNIEJ (ZM-19); diagnoza przy następnym wypieku („Piecz ponownie”) odłożona do 1.1 (ZM-29, DEC-19 b) |
+| F-43 | Doktor Chleba dla bochenka (treść) | BR-DIAG-001 | MVP | R: S-16 rec. 14104905527; MS-26; ZP-20 | WTP-1 (R) · Basic (Doktor zawsze, D-116 pkt 6) | propozycja po ocenie ≤ 2★; objaw → pytania → jedna zmiana; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-28 | D-043 (wariant B): wybór właściciela ZP-20; bez zdjęcia (H-10 a); protokoły ratunkowe ciasta w trakcie fermentacji poza F-43: F-71 (MVP od ZM-23; wcześniej PÓŹNIEJ, ZM-19); diagnoza przy następnym wypieku („Piecz ponownie”) odłożona do 1.1 (ZM-29, DEC-19 b) |
 | F-71 | Doktor Chleba: ratunek ciasta w trakcie fermentacji (cztery protokoły: przerośnięte, zbyt luźne, ospała fermentacja w zimnej kuchni, zapomniana sól) | BR-DIAG-003, BR-DIAG-004, BR-DIAG-005 | MVP | B: J-15 (PR-24); treść ze źródłami roli 06 (D-095: 18 POPARTE, 4 CZĘŚCIOWO, 0 sprzecznych); dowód popytu: `docs/brd/odkrywanie.md` J-15 | WTP-1 (B) · Basic jak F-43 (D-116 pkt 6) | wejście z prowadzenia przyciskiem „Doktor”, objaw nazwany słowami piekarza, kroki z atrybucją źródła, powrót do prowadzenia bez utraty stanu; wynik: nie badano (makiety M3 w toku) | — | F-43, F-07 | ZM-23: powrót z ZM-19 spełniony (źródła roli 06, BR roli 01); zakres 1.0 według D-092 i D-096; bez receptury awaryjnej (D-095); bezpieczeństwo RD-22, RD-23 (BEZ-SUR-001 przyjęte przez właściciela) |
 | F-64 | Doktor Chleba dla zakwasu, który nie rośnie (treść) | BR-DIAG-002 | MVP | R: MS-25 (Yeasta, SST); S-21 rec. 12986088850 | WTP-1 (R) · Basic; ostrzeżenie RD-21 zawsze | wejście z dnia N zakładania; przy pleśni polecenie zamiast listy; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | bezpieczeństwo: RD-21 | F-60 | podłoga; bloker wydania (RD-21) |
 | F-44 | Akademia: „po co ten krok” przy kroku (treść) | BR-NAUK-001 | MVP | R: 14 z 338 (ZAL-041); ZP-20 | WTP-2 (R) · Basic (pierwszy poziom i biblioteka technik, D-116); dalsze poziomy Akademii: Pro po 1.0 (PÓŹNIEJ) | „po co ten krok” w kroku; powrót bez utraty stanu; lekcje osobno później; wynik: pozytywny, 2026-10-20, `docs/design/03-przejscie-poznawcze.md` | — | F-07 | D-043 (wariant B): ZP-20, H-13 a; zdania tylko ze źródłem (RYZ-21) |
@@ -212,7 +212,11 @@ UWAGA F-43 w MVP poza apetytem 60 h (decyzja właściciela)
 ```
 Uwagi skryptu (5) to funkcje MVP ponad linię 60 h: przyjęte przez właściciela w D-043 (wariant B). Suma MVP 68 h: 67 h z propozycji E2 i 1 h więcej za pełne miary USA w F-38 (zadanie M1-audytor-generalny-096, przekazane 2026-10-20 przed zatwierdzeniem).
 
-**Przeliczenie po rozszerzeniach 1.0 (2026-11-09, rola 03 fix, M1-audytor-generalny-064, DEC-09 a).** Suma MVP (przeliczenie 2026-11-09): 98 h [OCENA] (97 h przy decyzji apetytu D-312; +1 h od 059: F-82 i F-83 wpisane do tabeli „Zakres”, wcześniej MVP poza tabelą bez kosztu) godzin właściciela w wersji 1 (test na telefonie, przegląd tekstów, decyzje i utrzymanie w roku 1; metoda jak wyżej) wobec apetytu 60 h (D-040) i 68 h przyjętych w D-043. Różnica +29 h: F-72 maszyna 6 h (D-150), F-71 ratunek ciasta 2 h (ZM-23), pakiet D-092 15 h (F-73…F-78, F-80, F-81; ZM-28), katalog +11 receptur i wersje drożdżowe +5 h w F-26 (D-157, D-173, D-174), drugie wejście rodzaju drożdży +1 h w F-55 (ZM-24). Każda funkcja razy 35 języków to przegląd tekstów przy każdym wydaniu. Funkcje zbudowane — koszt to w większości test na telefonie i utrzymanie, nie budowa. **Decyzja właściciela o apetycie 1.0: otwarta** (opcje: (a) przyjąć 97 h, nic nie wypada, cięcie po ocenie wyjątków na H po 90 dniach od wydania; (b) odłożyć miesiąc i rytm F-80, F-81 ukryciem wejść — 94,5 h, zmiana kodu, ekranu Pro i przekładu przed 1.0; (c) wrócić do 68 h — odłożyć F-75, F-78, F-80, F-81, F-71, F-74, F-77 i część katalogu, duża zmiana kodu przed 1.0). Wynik `node zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 60` (2026-11-09, kod wyjścia **1**: 10 błędów śladu BR należy do zadania M1-audytor-generalny-059 i ER-82, nie do rankingu):
+**Przeliczenie po rozszerzeniach 1.0 (2026-11-09, rola 03 fix, M1-audytor-generalny-064, DEC-09 a).** Suma MVP (przeliczenie 2026-11-09): 98 h [OCENA] (97 h przy decyzji apetytu D-312; +1 h od 059: F-82 i F-83 wpisane do tabeli „Zakres”, wcześniej MVP poza tabelą bez kosztu) godzin właściciela w wersji 1 (test na telefonie, przegląd tekstów, decyzje i utrzymanie w roku 1; metoda jak wyżej) wobec apetytu 60 h (D-040) i 68 h przyjętych w D-043. Różnica +29 h: F-72 maszyna 6 h (D-150), F-71 ratunek ciasta 2 h (ZM-23), pakiet D-092 15 h (F-73…F-78, F-80, F-81; ZM-28), katalog +11 receptur i wersje drożdżowe +5 h w F-26 (D-157, D-173, D-174), drugie wejście rodzaju drożdży +1 h w F-55 (ZM-24). Każda funkcja razy 35 języków to przegląd tekstów przy każdym wydaniu. Funkcje zbudowane — koszt to w większości test na telefonie i utrzymanie, nie budowa.
+
+**Apetyt 1.0: 97 h (D-312, 2026-11-09)** — słowa właściciela: „97 h + dobudować (2)(3)(4) (Recommended)”; nic nie wypada; cięcie po ocenie wyjątków na H (062, pierwszy termin 2027-03-31). Dobudowane w partii 3 M2 (D-312 pkt 2: 070-N5, 08-p3-N1, 070-N2) to poprawki w istniejących F-07, F-10 i F-55, bez nowego wiersza i bez zmiany kosztu [OCENA]; plan dla receptur drożdżowych katalogu: backlog 1.0.1 (ZM-30). **Otwarte (059, decyzja właściciela): 98 h wobec apetytu 97 h.** F-82 i F-83 były przy D-312 MVP poza tabelą bez kosztu; po wpisaniu do tabeli (0,5 h każda) skrypt zgłasza F-80 i F-82 poza apetytem 97 h. Opcje: (a) apetyt 98 h, nic nie wypada — rekomendacja: oba ekrany są zbudowane i przetestowane, F-83 to obowiązek licencji (OG-13), koszt to przegląd na telefonie; (b) apetyt 97 h, F-82 i F-83 nazwane jako obowiązek poza apetytem — bez zmiany kodu, uwagi skryptu zostają.
+
+Wynik `node zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 97` (2026-11-09, M1-audytor-generalny-059, kod wyjścia **0**; zastępuje wynik 064 z tego dnia: `--apetyt 60`, kod 1, 10 błędów śladu BR zamkniętych w 059):
 
 ```
 Ranking (R × I × C ÷ koszt [h]; stałe: podłoga albo WTP-0; „razem” liczy MVP i ten wiersz):
@@ -237,68 +241,47 @@ Ranking (R × I × C ÷ koszt [h]; stałe: podłoga albo WTP-0; „razem” licz
   19. F-69 stała · 2 h, razem 37 h · MVP
   20. F-72 stała · 6 h, razem 43 h · MVP
   21. F-76 stała · 0,5 h, razem 43,5 h · MVP
-  22. F-07 wynik 72 · 3 h, razem 46,5 h · MVP
-  23. F-16 wynik 72 · 3 h, razem 49,5 h · MVP
-  24. F-23 wynik 48 · 1 h, razem 50,5 h · MVP
-  25. F-13 wynik 42,67 · 3 h, razem 53,5 h · MVP
-  26. F-11 wynik 32 · 1 h, razem 54,5 h · MVP
-  27. F-24 wynik 30 · 1 h, razem 55,5 h · MVP
-  28. F-14 wynik 26,67 · 1,5 h, razem 57 h · MVP
-  29. F-18 wynik 25 · 0,5 h, razem 57,5 h · MVP
-  30. F-10 wynik 24 · 1 h, razem 58,5 h · MVP
-  31. F-26 wynik 16 · 7 h, razem 65,5 h · MVP · poza apetytem 60 h
-  32. F-73 wynik 13,33 · 3 h, razem 68,5 h · MVP · poza apetytem 60 h
-  33. F-38 wynik 12 · 2 h, razem 70,5 h · MVP · poza apetytem 60 h
-  34. F-44 wynik 10 · 2 h, razem 72,5 h · MVP · poza apetytem 60 h
-  35. F-61 wynik 10 · 1,5 h, razem 74 h · MVP · poza apetytem 60 h
-  36. F-74 wynik 10 · 3 h, razem 77 h · MVP · poza apetytem 60 h
-  37. F-55 wynik 9,6 · 5 h, razem 82 h · MVP · poza apetytem 60 h
-  38. F-62 wynik 8 · 1 h, razem 83 h · MVP · poza apetytem 60 h
-  39. F-77 wynik 8 · 1 h, razem 84 h · MVP · poza apetytem 60 h
-  40. F-15 wynik 7,5 · 1 h, razem 85 h · TEST · poza apetytem 60 h
-  41. F-56 wynik 7,5 · 0,5 h, razem 84,5 h · MVP · poza apetytem 60 h
-  42. F-43 wynik 6,67 · 3 h, razem 87,5 h · MVP · poza apetytem 60 h
-  43. F-63 wynik 5 · 2 h, razem 89,5 h · PÓŹNIEJ · poza apetytem 60 h
-  44. F-81 wynik 3,75 · 1 h, razem 88,5 h · MVP · poza apetytem 60 h
-  45. F-71 wynik 2,5 · 2 h, razem 90,5 h · MVP · poza apetytem 60 h
-  46. F-78 wynik 2,5 · 1 h, razem 91,5 h · MVP · poza apetytem 60 h
-  47. F-30 wynik 1,88 · 2 h, razem 93,5 h · PÓŹNIEJ · poza apetytem 60 h
-  48. F-45 wynik 1,67 · 3 h, razem 94,5 h · PÓŹNIEJ · poza apetytem 60 h
-  49. F-75 wynik 1,25 · 4 h, razem 95,5 h · MVP · poza apetytem 60 h
-  50. F-80 wynik 1,25 · 1,5 h, razem 97 h · MVP · poza apetytem 60 h
-  51. F-70 wynik 0,83 · 6 h, razem 103 h · PÓŹNIEJ · poza apetytem 60 h
-  52. F-08 wynik 0,63 · 2 h, razem 99 h · PÓŹNIEJ · poza apetytem 60 h
-  53. F-50 wynik 0,42 · 1,5 h, razem 98,5 h · PÓŹNIEJ · poza apetytem 60 h
-  54. F-79 wynik 0,42 · 6 h, razem 103 h · PÓŹNIEJ · poza apetytem 60 h
-Kolejność budowy MVP: F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69 → F-71 → F-72 → F-73 → F-74 → F-76 → F-75 → F-77 → F-78 → F-80 → F-81
-BŁĄD w50: F-72 bez wymagania BR ani hipotezy H
-BŁĄD BR-DANE-005 z BRD bez decyzji zakresu
-BŁĄD BR-RECP-005 z BRD bez decyzji zakresu
-BŁĄD BR-KALK-012 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-001 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-002 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-003 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-004 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-005 z BRD bez decyzji zakresu
-BŁĄD BR-MASZ-006 z BRD bez decyzji zakresu
-UWAGA F-26 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-73 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-38 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-44 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-61 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-74 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-55 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-62 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-77 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-56 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-43 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-81 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-71 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-78 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-75 w MVP poza apetytem 60 h (decyzja właściciela)
-UWAGA F-80 w MVP poza apetytem 60 h (decyzja właściciela)
-55 funkcji (MVP 46, PÓŹNIEJ 7, TEST 1, NIE 1), 75 BR · 10 błędów, 16 uwag
+  22. F-83 stała · 0,5 h, razem 44 h · MVP
+  23. F-07 wynik 72 · 3 h, razem 47 h · MVP
+  24. F-16 wynik 72 · 3 h, razem 50 h · MVP
+  25. F-23 wynik 48 · 1 h, razem 51 h · MVP
+  26. F-13 wynik 42,67 · 3 h, razem 54 h · MVP
+  27. F-11 wynik 32 · 1 h, razem 55 h · MVP
+  28. F-24 wynik 30 · 1 h, razem 56 h · MVP
+  29. F-14 wynik 26,67 · 1,5 h, razem 57,5 h · MVP
+  30. F-18 wynik 25 · 0,5 h, razem 58 h · MVP
+  31. F-10 wynik 24 · 1 h, razem 59 h · MVP
+  32. F-26 wynik 16 · 7 h, razem 66 h · MVP
+  33. F-73 wynik 13,33 · 3 h, razem 69 h · MVP
+  34. F-38 wynik 12 · 2 h, razem 71 h · MVP
+  35. F-44 wynik 10 · 2 h, razem 73 h · MVP
+  36. F-61 wynik 10 · 1,5 h, razem 74,5 h · MVP
+  37. F-74 wynik 10 · 3 h, razem 77,5 h · MVP
+  38. F-55 wynik 9,6 · 5 h, razem 82,5 h · MVP
+  39. F-62 wynik 8 · 1 h, razem 83,5 h · MVP
+  40. F-77 wynik 8 · 1 h, razem 84,5 h · MVP
+  41. F-15 wynik 7,5 · 1 h, razem 85,5 h · TEST
+  42. F-56 wynik 7,5 · 0,5 h, razem 85 h · MVP
+  43. F-43 wynik 6,67 · 3 h, razem 88 h · MVP
+  44. F-63 wynik 5 · 2 h, razem 90 h · PÓŹNIEJ
+  45. F-81 wynik 3,75 · 1 h, razem 89 h · MVP
+  46. F-71 wynik 2,5 · 2 h, razem 91 h · MVP
+  47. F-78 wynik 2,5 · 1 h, razem 92 h · MVP
+  48. F-30 wynik 1,88 · 2 h, razem 94 h · PÓŹNIEJ
+  49. F-45 wynik 1,67 · 3 h, razem 95 h · PÓŹNIEJ
+  50. F-75 wynik 1,25 · 4 h, razem 96 h · MVP
+  51. F-80 wynik 1,25 · 1,5 h, razem 97,5 h · MVP · poza apetytem 97 h
+  52. F-82 wynik 1,25 · 0,5 h, razem 98 h · MVP · poza apetytem 97 h
+  53. F-70 wynik 0,83 · 6 h, razem 104 h · PÓŹNIEJ · poza apetytem 97 h
+  54. F-08 wynik 0,63 · 2 h, razem 100 h · PÓŹNIEJ · poza apetytem 97 h
+  55. F-50 wynik 0,42 · 1,5 h, razem 99,5 h · PÓŹNIEJ · poza apetytem 97 h
+  56. F-79 wynik 0,42 · 6 h, razem 104 h · PÓŹNIEJ · poza apetytem 97 h
+Kolejność budowy MVP: F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69 → F-71 → F-72 → F-73 → F-74 → F-76 → F-75 → F-77 → F-78 → F-80 → F-81 → F-82 → F-83
+UWAGA F-80 w MVP poza apetytem 97 h (decyzja właściciela)
+UWAGA F-82 w MVP poza apetytem 97 h (decyzja właściciela)
+57 funkcji (MVP 48, PÓŹNIEJ 7, TEST 1, NIE 1), 86 BR · 0 błędów, 2 uwag
 ```
+
 
 ## Kolejność i przekazanie
 - Kolejność budowy MVP (wynik skryptu, porządek zależności): F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69. Większość ma kod; dla roli 08 kolejność wdrożenia nowej szaty (partia 5) i nowych BR: najpierw pętla (F-68, F-09, F-13, F-07, F-16, F-58, F-28), potem zakwas i podłogi, na końcu F-43, F-44, F-69.
@@ -314,7 +297,7 @@ UWAGA F-80 w MVP poza apetytem 60 h (decyzja właściciela)
 ## Definicja ukończenia (build), z dowodem
 | Punkt | Dowód |
 |---|---|
-| Każde BR ma dokładnie jedną decyzję; `zakres.mjs --brd` kod 0 | wynik wyżej: 55 BR, 44 funkcje, 0 błędów, kod 0 (2026-10-20) |
+| Każde BR ma dokładnie jedną decyzję; `zakres.mjs --brd` kod 0 | wynik wyżej (`--apetyt 97`): 86 BR, 57 funkcji, 0 błędów, kod 0 (2026-11-09, M1-audytor-generalny-059); pilnuje `tests/kontrakt-slad-059.test.ts` (liczby wyniku równe tabeli) i `tests/kontrakt-zm28-058.test.ts` (każde BR z BRD z decyzją); wynik build (55 BR, 44 funkcje) zostaje jako historia w pierwszym bloku |
 | Pętla główna opisana pracą J i listą funkcji; MVP służy pętli, podłodze albo ma decyzję właściciela | sekcja „Główna praca i pętla”; MVP spoza pętli bez podłogi mają D-043 w Uzasadnieniu (skrypt sprawdza) |
 | Każda funkcja MVP: BR, dowód B/R/W, klasa WTP z roli 02, kryterium intuicyjności z `wynik:`; WTP-X nie w MVP; H → TEST | kolumny tabeli „Zakres”; WTP-X: F-53 NIE, F-15 TEST; dowód tylko H: F-08, F-70 PÓŹNIEJ, F-15 TEST; MVP bez samej H (skrypt: 0 błędów) |
 | Każde NIE i PÓŹNIEJ ma powód i „Powrót:” | tabele „Zakres” i „NIE robimy” (skrypt sprawdza „Powrót:”) |
@@ -341,6 +324,7 @@ UWAGA F-80 w MVP poza apetytem 60 h (decyzja właściciela)
 | ZM-27 | 2026-11-03 | właściciel: „nie wiem czy nie powinniśmy rozszerzyć katalogu przepisów w wersji 1.01” (odpowiedź na pytanie 2, D-152) | **praca i dowód:** J-01, J-11 (BR-RECP-001); prośba bez listy przepisów i bez dowodu, których brakuje · **intuicyjność:** nowe pozycje na istniejącej liście, bez nowego pojęcia · **koszt [OCENA]:** ok. 3 h właściciela na wydanie (plan kwartalny 3.1.2(a), D-043); na receptura praca roli 06 i ok. 3 klucze × 33 języki · **co wypada:** nic w 1.0 · **podłogi i skutki:** treść tylko ze źródłem (06); dane bez migracji (presety w kodzie) | właściciel: „Dodajmy od razu więcej. Żeby aplikacja miała z 50-80 przepisów” (przez koordynatora, 2026-11-03); D-157 („(b) ok. 30 w 1.0”): ok. +15 receptur w 1.0 (lista od roli 06 ze źródłami, zatwierdza właściciel), do ok. 50 w 1.0.1, dalej kwartalnie |
 | ZM-28 | 2026-11-09 (wpis wstecz; zmiana z 2026-10-22) | audyt M1 2026-11-08, znalezisko 03-zakres-001 (zadanie M1-audytor-generalny-058): pakiet D-092 (kalendarz, plany na kolejne dni, dwa wypieki naraz) działa na „Dziś” bez wpisu ZM i bez wierszy F-nn; `zakres.mjs --brd` dawał 16 BR-KAL i BR-ETAP-006 bez decyzji | **praca i dowód:** J-13 (PR-19…PR-23) i J-14 (PR-21, PR-04), BR-KAL-001…016 i BR-ETAP-006 roli 01 (`docs/brd/wymagania-kalendarz.md`, `docs/brd/wymagania-wypiek.md`); tydzień, plany i stały dzień z dowodem B/R (S-16, S-14, S-21); dwa wypieki, plik .ics, miesiąc i rytm tylko H (H-19, H-20; ZAL-051, ZAL-054, ZAL-059) — MVP decyzją właściciela D-092 · **intuicyjność:** pas tygodnia nad trzema czynnościami startu (D-105) dokłada element na pierwszym ekranie pętli — sygnał kombajnu nazwany (ZAL-053); „Prowadź oba” jako pytanie systemowe; przejście poznawcze po wdrożeniu nie odbyło się (03-zakres-007; DEC-09 a: roboczo na buildzie 1023) · **koszt [OCENA]:** D-092 „kosztem ok. tygodnia” pracy przed 1.0; godziny właściciela: wiersze F-73…F-81 w tabeli „Ranking” (M1-audytor-generalny-064) · **co wypada:** nic z MVP; widżet BR-KAL-012 jako F-79 PÓŹNIEJ (H-19, rekomendacja 03-zakres-001); F-17 i KL-09 wracają z adnotacją powrotu · **podłogi i skutki:** BR-ETAP-006 jako podłoga danych F-76 (→ F-58); dane: migracja v6 z kopią (D-102) i testami na bazach 1014 i 1021; płatności (02): tydzień, „Następne” i przeszłość w Basic, plany, dwa wypieki, miesiąc, rytm, .ics i stały dzień w Pro (D-116); przekład 35 języków; funkcje bez BR z inwentarza audytu: F-82 Źródła wiedzy (D-123) i F-83 Licencje open source (D-291) w tabeli „Funkcje w kodzie bez BR” | D-092: „Tak, wdrazamy.” i „Dodajemy do 1.0 F71 plus full kalendarz i poprawki.” (właściciel przez M1, 2026-10-22); wykonanie D-090, D-091, D-094, D-102, D-103, D-104 (dwa wypieki), D-105…D-107 („Dziś” i kalendarz), D-108 (plany), D-109 (piekarnik), D-114 (miesiąc, rytm, stały dzień), D-115 (.ics), D-118; zapis wstecz bez zmiany kodu: DEC-02 a (D-286, właściciel 2026-11-09: „Wszystkie rekomendacje M1, zakres M2: wszystkie otwarte, mozesz startowac role M2”) |
 | ZM-29 | 2026-11-09 | weryfikacja M1 G9, luka H4 (zadanie M1-audytor-generalny-065): diagnoza Doktora chleba („Co zrobić przy następnym wypieku”) żyje tylko w stanie ekranu, a „Piecz ponownie” pokazuje tylko notatkę użytkownika | **praca i dowód:** J-05 (poprawić następny wypiek), cel projektu („pomaga poprawiać następny wypiek”); R: Loaflo, recenzja US 2026-06-20 „remembering/logging what I was told to do/did last time and building upon that” (linia bazowa M1, B7); BR-DIAG-001 i BR-RECP-003 spełnione dosłownie, przeniesienia nie wymaga żadne BR — ER do roli 01 · **intuicyjność:** ostatnia diagnoza i zalecana zmiana nad planem przy „Piecz ponownie”, obok notatki; projekt roli 04 · **koszt [OCENA]:** zapis diagnozy przy wpisie Dziennika (dane: nowe pole, migracja w transakcji, kopia — rola 05), teksty w 35 językach, test na telefonie: ok. 2–3 h właściciela · **co wypada:** nic w 1.0 · **podłogi i skutki:** dane użytkownika (zasada wspólna 10), kopia zapasowa i eksport | PÓŹNIEJ do zakresu 1.1: DEC-19 b (D-286, właściciel 2026-11-09: „Wszystkie rekomendacje M1, zakres M2: wszystkie otwarte, mozesz startowac role M2”); wpis odłożenia nie jest pracą nad 1.1 (D-276 pkt 5: „bez prac nad 1.1 do wydania 1.0”). Odrzucone: DEC-19 a (diagnoza przy „Piecz ponownie” w 1.0 — zmiana zakresu po zamrożeniu). Powrót: po wydaniu 1.0 rola 03 otwiera bramkę w zakresie 1.1 z BR od roli 01 (ER) i projektem roli 04 |
+| ZM-30 | 2026-11-09 | właściciel przez M2 (D-312 pkt 3), znalezisko 070-N1: 15 receptur drożdżowych katalogu (F-26) nie ma planu wypieku ani prowadzenia krok po kroku, a BR-HARMO-001 (ER-78, D-155, D-174) wymagało planu także dla nich | **praca i dowód:** J-02, J-11 (plan „co i kiedy” także dla pieczywa drożdżowego); B: prośba właściciela (D-155); czasy etapów ze źródłem roli 06 tylko dla części receptur (OP-74: pizza, bagietka, chałka, focaccia; ciabatta i chleb nocny otwarte, DRO-PRE-900; pozostałe nieprzejrzane) · **intuicyjność:** w 1.0 bez zmian: pod „Ułóż plan” powód blokady (D-252, D-274) · **koszt [OCENA]:** w 1.0 0 h (bez budowy); w 1.0.1 czasy ze źródła roli 06 dla każdej receptury, przekład, test na telefonie — nieoszacowany (D-312) · **co wypada:** nic z 1.0; BR-HARMO-001 zawężone do receptur na zakwasie i wersji drożdżowych (ER-83, rola 01, a2543cbe) | D-312 pkt 3, słowa właściciela 2026-11-09: „97 h + dobudować (2)(3)(4) (Recommended)” — bez budowy w 1.0; plan dla receptur drożdżowych katalogu → **backlog 1.0.1** (F-26 i F-13, bez nowego F-nn). Odrzucone (D-312): plan 15 receptur w 1.0. Powrót: czasy etapów ze źródłem roli 06 (OP-74) i wpis ZM na 1.0.1 z kosztem w godzinach właściciela |
 
 ## Lista odcięć z kodu (D-031, ZM-01; przeniesiona bez zmian)
 
