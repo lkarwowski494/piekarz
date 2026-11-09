@@ -62,3 +62,5 @@ Na koniec, do 25 linii: commity (SHA → ID), testy przed/po, pliki dowodów, pr
 - Test akceptacyjny: `testflight.yml` używa innej nazwy sekretu niż `asc-*.yml` (test na plikach workflow); procedura unieważnienia klucza w dokumencie z krokami ASC.
 - Status: otwarte
 
+
+Przekazanie od roli 03 (F-26 po 061/059): opis sklepu — „26 receptur bazowych, z czego 11 z planem i prowadzeniem”; tryb maszyny (F-72) i wersje drożdżowe (4, plan w 3) według kontraktu; funkcje PÓŹNIEJ (spiżarnia, QR, druk, Akademia) poza opisem (D-311).

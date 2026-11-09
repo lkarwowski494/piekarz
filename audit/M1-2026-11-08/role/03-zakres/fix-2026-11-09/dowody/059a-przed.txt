@@ -1,0 +1,219 @@
+FAIL tests/kontrakt-slad-059.test.ts
+  kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003)
+    ✕ każdy wiersz F-nn ma w kolumnie „Wymagania” BR albo hipotezę H (6 ms)
+    ✓ każde BR jest w jednej funkcji
+    ✕ Uzasadnienie nie odkłada ID BR „do kolumny Wymagania” (D-187 wykonane) (1 ms)
+    ✕ F-72 ma w kolumnie „Wymagania” ["BR-MASZ-001","BR-MASZ-002","BR-MASZ-003","BR-MASZ-004","BR-MASZ-005","BR-MASZ-006"] (1 ms)
+    ✕ F-55 ma w kolumnie „Wymagania” ["BR-KALK-009","BR-KALK-010","BR-KALK-012"]
+    ✕ F-26 ma w kolumnie „Wymagania” ["BR-RECP-001","BR-RECP-005"] (1 ms)
+    ✕ F-33 ma w kolumnie „Wymagania” ["BR-DANE-003","BR-DANE-005"] (1 ms)
+    ✕ F-82 ma w kolumnie „Wymagania” ["BR-UST-004"]
+    ✕ F-83 ma w kolumnie „Wymagania” ["BR-UST-005"] (1 ms)
+    ✕ F-82 podaje liczbę źródeł z ekranu „Źródła wiedzy” (src/core/zrodla-wiedzy.ts)
+    ✕ F-83 ma podłogę „prawo: OG-13”
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › każdy wiersz F-nn ma w kolumnie „Wymagania” BR albo hipotezę H
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "F-72",
+    + ]
+
+      21 |   it('każdy wiersz F-nn ma w kolumnie „Wymagania” BR albo hipotezę H', () => {
+      22 |     expect(funkcje.length).toBeGreaterThan(50);
+    > 23 |     expect(funkcje.filter((k) => !/\bBR-[A-Z]{2,6}-\d{3}\b/.test(k[3]) && !/\bH-\d{2}\b/.test(k[3])).map((k) => k[1])).toEqual([]);
+         |                                                                                                                        ^
+      24 |   });
+      25 |
+      26 |   it('każde BR jest w jednej funkcji', () => {
+
+      at Object.toEqual (tests/kontrakt-slad-059.test.ts:23:120)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › Uzasadnienie nie odkłada ID BR „do kolumny Wymagania” (D-187 wykonane)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 5
+
+    - Array []
+    + Array [
+    +   "F-55",
+    +   "F-26",
+    +   "F-72",
+    + ]
+
+      31 |
+      32 |   it('Uzasadnienie nie odkłada ID BR „do kolumny Wymagania” (D-187 wykonane)', () => {
+    > 33 |     expect(funkcje.filter((k) => /do kolumny „Wymagania”/.test(k[10] ?? '')).map((k) => k[1])).toEqual([]);
+         |                                                                                                ^
+      34 |   });
+      35 |
+      36 |   it.each([
+
+      at Object.toEqual (tests/kontrakt-slad-059.test.ts:33:96)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-72 ma w kolumnie „Wymagania” ["BR-MASZ-001","BR-MASZ-002","BR-MASZ-003","BR-MASZ-004","BR-MASZ-005","BR-MASZ-006"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ["BR-MASZ-001", "BR-MASZ-002", "BR-MASZ-003", "BR-MASZ-004", "BR-MASZ-005", "BR-MASZ-006"]
+    Received: null
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-55 ma w kolumnie „Wymagania” ["BR-KALK-009","BR-KALK-010","BR-KALK-012"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 0
+
+      Array [
+        "BR-KALK-009",
+        "BR-KALK-010",
+    -   "BR-KALK-012",
+      ]
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-26 ma w kolumnie „Wymagania” ["BR-RECP-001","BR-RECP-005"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 0
+
+      Array [
+        "BR-RECP-001",
+    -   "BR-RECP-005",
+      ]
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-33 ma w kolumnie „Wymagania” ["BR-DANE-003","BR-DANE-005"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 0
+
+      Array [
+        "BR-DANE-003",
+    -   "BR-DANE-005",
+      ]
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-82 ma w kolumnie „Wymagania” ["BR-UST-004"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ["BR-UST-004"]
+    Received: undefined
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-83 ma w kolumnie „Wymagania” ["BR-UST-005"]
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ["BR-UST-005"]
+    Received: undefined
+
+      42 |     ['F-83', ['BR-UST-005']],
+      43 |   ])('%s ma w kolumnie „Wymagania” %j', (f, br) => {
+    > 44 |     expect(wiersz(f)?.[3].match(RE_BR)).toEqual(br);
+         |                                         ^
+      45 |     expect(wiersz(f)?.[4]).toBe('MVP');
+      46 |   });
+      47 |
+
+      at toEqual (tests/kontrakt-slad-059.test.ts:44:41)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-82 podaje liczbę źródeł z ekranu „Źródła wiedzy” (src/core/zrodla-wiedzy.ts)
+
+    expect(received).toContain(expected) // indexOf
+
+    Matcher error: received value must not be null nor undefined
+
+    Received has value: undefined
+
+      48 |   it('F-82 podaje liczbę źródeł z ekranu „Źródła wiedzy” (src/core/zrodla-wiedzy.ts)', () => {
+      49 |     const liczba = ZRODLA_WIEDZY.reduce((s, g) => s + g.zrodla.length, 0);
+    > 50 |     expect(wiersz('F-82')?.[2]).toContain(`${liczba} źródłami`);
+         |                                 ^
+      51 |   });
+      52 |
+      53 |   it('F-83 ma podłogę „prawo: OG-13”', () => {
+
+      at Object.toContain (tests/kontrakt-slad-059.test.ts:50:33)
+
+  ● kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003) › F-83 ma podłogę „prawo: OG-13”
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      52 |
+      53 |   it('F-83 ma podłogę „prawo: OG-13”', () => {
+    > 54 |     expect(wiersz('F-83')?.[8]).toMatch(/prawo: OG-13/);
+         |                                 ^
+      55 |   });
+      56 | });
+      57 |
+
+      at Object.toMatch (tests/kontrakt-slad-059.test.ts:54:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       10 failed, 1 passed, 11 total
+Snapshots:   0 total
+Time:        0.678 s
+Ran all test suites matching /tests\/kontrakt-slad-059.test.ts/i.

@@ -111,6 +111,11 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 16:40 073: 1590999f — korpus regresji; TDD; verify 6570.
 - 16:44 075: 550fc6b1 — niezależne kroki E2E i zrzuty; TDD; verify 6578. Działanie na macOS: następny przebieg E2E.
 - 16:45 075 zrobione. Rola 08 p3b (D-312: 070-N5, 08-p3-N1, 070-N2) w drzewie. Przygotowane polecenia: 01-odkrywanie-p3 (ER BR-HARMO-001 wg D-312, BR F-82/F-83, ZM-29), 03-zakres-p3b (059 + N-2 + BR-DANE-005 + D-312), 10/11/07-p3. E2E run 99 w toku.
+- 17:05 Rola 08 p3b: cfc4337b (070-N5), 339ecf48 (08-p3-N1), 9377bc95 (070-N2); verify 6591 kod 0 wg roli; sprawdz-raport OK. Start rola 01 p3.
+- 17:28 Rola 01 p3: a2543cbe, 5584dd42, 5cfe8160, 5aa43faf (ER-83…88); verify 6591 kod 0 wg roli. Start rola 03 p3b (059).
+- 17:44 059: rola 03 p3b, zakres.mjs kod 0, verify 6610 kod 0 wg roli; status naprawione-do-weryfikacji. Decyzja 98 h do zebrania.
+- 17:44 066: E2E iOS run 99 (42653620839) na 221318bf — success (pl_PL, en_US, kontrola negatywna, Basic; w tym nowy scenariusz 06 koniec wypieku). Status naprawione-do-weryfikacji; przed buildem ponowny przebieg na SHA kandydata (DEC-18). Start rola 10 p3.
+- 17:52 Punkt wznowienia zapisany (punkt-wznowienia-M2-2026-11-09.md); rola 10 p3 w toku w drzewie.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

@@ -112,3 +112,22 @@
 - 070-N3 (P2): BR-RECP-005 tartine — notatka bez „King Arthur Baking”, Źródła wiedzy bez tej wersji (rola 06/09).
 - 070-N4 (P2): BR-RECP-001 „Pizza w stylu neapolitańskim” z dopiskiem „w stylu” (D-097 vs D-177).
 - 070-N5 (P2): Stolnica w wersji drożdżowej — karta „Składniki do odważenia” pokazuje „Zakwas 0 g” i nie ma drożdży (SkladnikiKroku.tsx).
+
+## Rola 08 p3b (D-312): 070-N5 cfc4337b, 08-p3-N1 339ecf48, 070-N2 9377bc95 — naprawione-do-weryfikacji
+- Wyjątek nazwany: drugi przegląd AI przekładu 070-N2 pominięty — 2 klucze złożone skryptem z istniejących, już przejrzanych przekładów tych samych zdań (bez nowego tłumaczenia); kontrola: check:i18n 0 błędów.
+- 08-p3b-N1 (P3): alert zimnej wody ma testID `ddt-too-hot-warning`.
+- 08-p3b-N2 (P3, proces): wepnij-maly-przeklad.py zmienia index.ts słowników oznaczonych jako generowane przez scripts/wepnij-przeklad.mjs.
+- 08-p3b-N3 (P2→P3): BR-ETAP-001 test palca dla „receptury drożdżowej” vs żyto D-256 — ER roli 01 (dopisane do polecenia 01-p3).
+- Teksty do akceptacji roli 04: 2 instrukcje rośnięcia; wygląd komunikatu zimnej wody (alert).
+
+## Rola 01 p3: a2543cbe (ER-83), 5584dd42 (ER-84…86), 5cfe8160 (ER-87), 5aa43faf (ER-88)
+- M2-010 wyjaśnione: 2 błędy kontroli BRD (RD-37/38) to wada skryptu kontrola-brd.mjs (nie czyta trzycyfrowych ID źródeł S-1xx), nie BRD; wersja z trzycyfrowymi ID: 0 błędów. → poprawka skryptu w bibliotece ról (rola 01, prompts) — przekazanie M2 do raportu końcowego.
+- Odstępstwo nazwane: rola 01 zmieniła nazwy describe w 2 testach (ID BR, bez asercji), licznik BR 84→86 i dopisała BR-UST-004/005 do listy w kontrakt-zm28-058 (lista do zamknięcia w 059).
+- Przekazania do 07: testy z ID dla BR-HARMO-001 (receptura drożdżowa katalogu w 1.0, orkisz, żyto 100%) i BR-ETAP-001 (scenariusz żytni) — kod spełnia.
+- P2→P3: br-bez-testu ostrzega: BR-KAL-012 ma pełny wyjątek i test (rola 07).
+
+## Rola 03 p3b: 059 (3bebc5ab, 211649bf, 3e0fa3fa) — zakres.mjs --brd kod 0
+- Decyzja właściciela (zbieram): apetyt 98 h (F-82, F-83 po 0,5 h) vs 97 h z D-312; rekomendacja (a) 98 h.
+- N-3 (P2→P3): nazwa testu kontrakt-zm28-058 zawiera „BR-KAL-012” → br-bez-testu widzi fałszywy test widżetu (rola 07).
+- N-4 (P2→P3): „Kolejność i przekazanie” w kontrakcie sprzed rozszerzeń 1.0 (rola 03).
+- Przekazania: 01 (statusy ER-84, ER-87), 02 (F-70 bez Basic/Pro; F-82/F-83 „zawsze”).

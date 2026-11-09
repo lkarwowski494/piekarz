@@ -1,0 +1,52 @@
+FAIL src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx
+  rada przy za zimnej wodzie (08-p3-N1)
+    ✓ reguła: DDT 18 °C w kuchni 30 °C (z zakwasem) daje wodę poniżej 4 °C i status requires_ice (4 ms)
+    ✕ woda poniżej 4 °C: arkusz pokazuje istniejący komunikat w alercie, tam gdzie ostrzeżenie o gorącej wodzie (626 ms)
+    ✕ w EN komunikat jest po angielsku (175 ms)
+    ✓ kontrola: woda w zakresie (DDT 18 °C, kuchnia 22 °C) — bez komunikatu (141 ms)
+
+  ● rada przy za zimnej wodzie (08-p3-N1) › woda poniżej 4 °C: arkusz pokazuje istniejący komunikat w alercie, tam gdzie ostrzeżenie o gorącej wodzie
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      74 |     const tree = await arkusz(14, 30);
+      75 |     const found = alerty(tree);
+    > 76 |     expect(found).toHaveLength(1);
+         |                   ^
+      77 |     expect(text(found[0])).toBe(ZIMNA);
+      78 |     act(() => tree.unmount());
+      79 |   });
+
+      at Object.toHaveLength (src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx:76:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● rada przy za zimnej wodzie (08-p3-N1) › w EN komunikat jest po angielsku
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      83 |     const tree = await arkusz(14, 30);
+      84 |     const found = alerty(tree);
+    > 85 |     expect(found).toHaveLength(1);
+         |                   ^
+      86 |     expect(text(found[0])).toMatch(/ice/i);
+      87 |     expect(text(found[0])).not.toContain('Zastąp');
+      88 |     act(() => tree.unmount());
+
+      at Object.toHaveLength (src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx:85:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 passed, 4 total
+Snapshots:   0 total
+Time:        2.311 s
+Ran all test suites matching /src\/__tests__\/calculator-cold-water-warning-08p3n1.test.tsx/i.

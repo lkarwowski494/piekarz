@@ -1,0 +1,1 @@
+kontrola-brd: 13 plików, 84 wymagań BR, 26 reguł RD, 159 wektorów, 45 otwartych pytań · 0 błędów, 0 uwag

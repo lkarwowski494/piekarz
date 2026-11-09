@@ -1,0 +1,159 @@
+FAIL tests/kontrakt-slad-059.test.ts
+  kontrakt zakresu: ślad funkcja → BR (059, 03-zakres-003)
+    ✓ każdy wiersz F-nn ma w kolumnie „Wymagania” BR albo hipotezę H (3 ms)
+    ✓ każde BR jest w jednej funkcji (1 ms)
+    ✓ Uzasadnienie nie odkłada ID BR „do kolumny Wymagania” (D-187 wykonane)
+    ✓ F-72 ma w kolumnie „Wymagania” ["BR-MASZ-001","BR-MASZ-002","BR-MASZ-003","BR-MASZ-004","BR-MASZ-005","BR-MASZ-006"] (1 ms)
+    ✓ F-55 ma w kolumnie „Wymagania” ["BR-KALK-009","BR-KALK-010","BR-KALK-012"]
+    ✓ F-26 ma w kolumnie „Wymagania” ["BR-RECP-001","BR-RECP-005"]
+    ✓ F-33 ma w kolumnie „Wymagania” ["BR-DANE-003","BR-DANE-005"] (1 ms)
+    ✓ F-82 ma w kolumnie „Wymagania” ["BR-UST-004"]
+    ✓ F-83 ma w kolumnie „Wymagania” ["BR-UST-005"]
+    ✓ F-82 podaje liczbę źródeł z ekranu „Źródła wiedzy” (src/core/zrodla-wiedzy.ts) (1 ms)
+    ✓ F-83 ma podłogę „prawo: OG-13”
+  kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, D-116)
+    ✕ poza historią ZM kontrakt nie mówi o próbie ani o trybie „tylko historia” (4 ms)
+    ✕ „Darmowe i płatne” odsyła do D-112/D-113, nie do D-038 (1 ms)
+    ✕ kolumna WTP każdej funkcji MVP i PÓŹNIEJ mówi, czy to Basic, Pro albo „zawsze” (1 ms)
+    ✕ F-37 i F-67 opisują ekran Pro i koniec Pro według BR-ZAK-003…005 (D-112, D-116)
+
+  ● kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, D-116) › poza historią ZM kontrakt nie mówi o próbie ani o trybie „tylko historia”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 34
+
+    - Array []
+    + Array [
+    +   "| F-09 | Kalkulator receptury: procent piekarski, hydratacja z zakwasu i zaczynu",
+    +   "| F-56 | Informacja o nietypowej ilości soli | BR-KALK-011 | MVP | R: S-24 rec. ",
+    +   "| F-11 | Kilka mąk w recepturze, wariant żytni | BR-KALK-005 | MVP | R: S-21 rec",
+    +   "| F-38 | Miary USA w całej aplikacji: uncje i °F na ekranach, w polach wejścia, ",
+    +   "| F-10 | Temperatura wody dla docelowej temperatury ciasta | BR-KALK-004 | MVP |",
+    +   "| F-55 | Ciasto drożdżowe i pizza: rodzaj drożdży, zaczyny poolish, biga, levain",
+    +   "| F-13 | Plan wstecz od godziny „gotowe”: sen, przesunięcie, wcześniejsze zakońc",
+    +   "| F-14 | Czas fermentacji z temperatury (20–26 °C) | BR-HARMO-003 | MVP | R: S-1",
+    +   "| F-07 | Prowadzenie krok po kroku; kroki z receptury i planu F-13 (te same krok",
+    +   "| F-16 | Sygnał kroku przy zablokowanym telefonie; brak zgody na powiadomienia |",
+    +   "| F-18 | Ekran nie gaśnie w kroku czynnym | BR-REKA-001 | MVP | R: 2 z 338 (słab",
+    +   "| F-22 | Karta zakwasu, kilka zakwasów | BR-ZAKW-001 | MVP | R: S-20 rec. 146381",
+    +   "| F-23 | Dokarmianie z proporcją | BR-ZAKW-002 | MVP | R: S-20 rec. 13947658962 ",
+    +   "| F-24 | Gotowość zakwasu do ciasta | BR-ZAKW-003 | MVP | R: MS-25 (SST „rise ti",
+    +   "| F-25 | Przypomnienie o dokarmieniu i zasada ostrożności | BR-ZAKW-004 | MVP | ",
+    +   "| F-60 | Założenie zakwasu dzień po dniu | BR-ZAKW-005 | MVP | R: MS-25 (Yeasta ",
+    +   "| F-61 | Obudzenie zakwasu z lodówki przed wypiekiem | BR-ZAKW-006 | MVP | R: MS",
+    +   "| F-62 | Poprawa pomyłki we wpisie zakwasu | BR-ZAKW-007 | MVP | R: S-21 rec. 12",
+    +   "| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001, BR-RECP-",
+    +   "| F-27 | Własne receptury | BR-RECP-002 | MVP | R: S-18 rec. 10719043217; MS-25 ",
+    +   "| F-28 | Dziennik wypieków z oceną i „piecz ponownie” | BR-RECP-003 | MVP | B: J",
+    +   "| F-43 | Doktor Chleba dla bochenka (treść) | BR-DIAG-001 | MVP | R: S-16 rec. 1",
+    +   "| F-71 | Doktor Chleba: ratunek ciasta w trakcie fermentacji (cztery protokoły: ",
+    +   "| F-64 | Doktor Chleba dla zakwasu, który nie rośnie (treść) | BR-DIAG-002 | MVP",
+    +   "| F-44 | Akademia: „po co ten krok” przy kroku (treść) | BR-NAUK-001 | MVP | R: ",
+    +   "| F-37 | Oferta przy pierwszym użyciu, bez ukrytych warunków | BR-ZAK-003, BR-ZA",
+    +   "| F-67 | Stan po próbie: uprzedzenie 3 dni, tryb „tylko historia” | BR-ZAK-004 |",
+    +   "| F-30 | Spiżarnia mąk | BR-SPIZ-001 | PÓŹNIEJ | R: MS-26 (Gluten Morgen, 5★); D",
+    +   "| F-63 | Porównanie dwóch wypieków | BR-RECP-004 | PÓŹNIEJ | R: S-14 rec. 893743",
+    +   "| F-45 | Przelicznik miar objętości na gramy | BR-KALK-007 | PÓŹNIEJ | R: 9 z 33",
+    +   "| F-08 | Receptura w kodzie QR bez sieci | BR-WSP-003 | PÓŹNIEJ | H: ZAL-029 (3 ",
+    +   "| F-50 | Wydruk karty receptury i etykiety słoika | BR-DRUK-001 | PÓŹNIEJ | R: S",
+    + ]
+
+      62 |   it('poza historią ZM kontrakt nie mówi o próbie ani o trybie „tylko historia”', () => {
+      63 |     const trafienia = bezHistoriiZm.split('\n').filter((l) => /próba|próby|próbie|tylko historia/.test(l));
+    > 64 |     expect(trafienia.map((l) => l.slice(0, 80))).toEqual([]);
+         |                                                  ^
+      65 |   });
+      66 |
+      67 |   it('„Darmowe i płatne” odsyła do D-112/D-113, nie do D-038', () => {
+
+      at Object.toEqual (tests/kontrakt-slad-059.test.ts:64:50)
+
+  ● kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, D-116) › „Darmowe i płatne” odsyła do D-112/D-113, nie do D-038
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /D-112/
+    Received string:  "- Darmowe i płatne: bez zmian względem D-038 i kontraktu płatności (`docs/monetyzacja.md`): bez zakupu działa przegląd historii i prawa do danych (odczyt, eksport, import, usunięcie), zakup, przywracanie, ustawienia; F-68 (start) to nawigacja, oferta przy pierwszym użyciu funkcji (BR-ZAK-005); F-69 (ocena, kontakt) jest w ustawieniach, zawsze dostępna."
+
+      67 |   it('„Darmowe i płatne” odsyła do D-112/D-113, nie do D-038', () => {
+      68 |     const l = linie.find((x) => x.startsWith('- Darmowe i płatne:')) ?? '';
+    > 69 |     expect(l).toMatch(/D-112/);
+         |               ^
+      70 |     expect(l).toMatch(/D-113/);
+      71 |     expect(l).not.toMatch(/bez zmian względem D-038/);
+      72 |   });
+
+      at Object.toMatch (tests/kontrakt-slad-059.test.ts:69:15)
+
+  ● kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, D-116) › kolumna WTP każdej funkcji MVP i PÓŹNIEJ mówi, czy to Basic, Pro albo „zawsze”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 29
+
+    - Array []
+    + Array [
+    +   "F-09",
+    +   "F-56",
+    +   "F-11",
+    +   "F-10",
+    +   "F-55",
+    +   "F-13",
+    +   "F-14",
+    +   "F-07",
+    +   "F-58",
+    +   "F-16",
+    +   "F-18",
+    +   "F-23",
+    +   "F-24",
+    +   "F-60",
+    +   "F-61",
+    +   "F-62",
+    +   "F-26",
+    +   "F-43",
+    +   "F-71",
+    +   "F-44",
+    +   "F-79",
+    +   "F-30",
+    +   "F-63",
+    +   "F-45",
+    +   "F-08",
+    +   "F-50",
+    +   "F-70",
+    + ]
+
+      74 |   it('kolumna WTP każdej funkcji MVP i PÓŹNIEJ mówi, czy to Basic, Pro albo „zawsze”', () => {
+      75 |     const bez = funkcje.filter((k) => ['MVP', 'PÓŹNIEJ'].includes(k[4]) && !/Basic|Pro\b|zawsze/.test(k[6])).map((k) => k[1]);
+    > 76 |     expect(bez).toEqual([]);
+         |                 ^
+      77 |   });
+      78 |
+      79 |   it('F-37 i F-67 opisują ekran Pro i koniec Pro według BR-ZAK-003…005 (D-112, D-116)', () => {
+
+      at Object.toEqual (tests/kontrakt-slad-059.test.ts:76:17)
+
+  ● kontrakt zakresu: model płatności Basic/Pro bez próby (059, D-112, D-116) › F-37 i F-67 opisują ekran Pro i koniec Pro według BR-ZAK-003…005 (D-112, D-116)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Ekran Pro/
+    Received string:  "Oferta przy pierwszym użyciu, bez ukrytych warunków"
+
+      78 |
+      79 |   it('F-37 i F-67 opisują ekran Pro i koniec Pro według BR-ZAK-003…005 (D-112, D-116)', () => {
+    > 80 |     expect(wiersz('F-37')?.[2]).toMatch(/Ekran Pro/);
+         |                                 ^
+      81 |     expect(wiersz('F-37')?.[7]).toMatch(/cena.*okres.*anul/);
+      82 |     expect(wiersz('F-67')?.[2]).toMatch(/koniec Pro/i);
+      83 |     expect(wiersz('F-67')?.join('|')).toMatch(/D-116/);
+
+      at Object.toMatch (tests/kontrakt-slad-059.test.ts:80:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 11 passed, 15 total
+Snapshots:   0 total
+Time:        0.789 s, estimated 1 s
+Ran all test suites matching /tests\/kontrakt-slad-059.test.ts/i.

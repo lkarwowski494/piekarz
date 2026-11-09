@@ -1,0 +1,12 @@
+(node:13143) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13142) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/stolnica-skladniki-130.test.tsx
+PASS src/__tests__/stolnica-skladniki-drozdze-070n5.test.tsx
+
+Test Suites: 2 passed, 2 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        1.968 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/stolnica-skladniki-drozdze-070n5.test.tsx|src\/__tests__\/stolnica-skladniki-130.test.tsx/i.

@@ -1,0 +1,12 @@
+PASS src/__tests__/calculator-cold-water-warning-08p3n1.test.tsx
+  rada przy za zimnej wodzie (08-p3-N1)
+    ✓ reguła: DDT 18 °C w kuchni 30 °C (z zakwasem) daje wodę poniżej 4 °C i status requires_ice (4 ms)
+    ✓ woda poniżej 4 °C: arkusz pokazuje istniejący komunikat w alercie, tam gdzie ostrzeżenie o gorącej wodzie (616 ms)
+    ✓ w EN komunikat jest po angielsku (234 ms)
+    ✓ kontrola: woda w zakresie (DDT 18 °C, kuchnia 22 °C) — bez komunikatu (139 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        2.409 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/calculator-cold-water-warning-08p3n1.test.tsx/i.

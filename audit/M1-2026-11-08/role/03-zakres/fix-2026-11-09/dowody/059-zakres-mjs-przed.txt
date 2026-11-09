@@ -1,0 +1,69 @@
+Ranking (R × I × C ÷ koszt [h]; stałe: podłoga albo WTP-0; „razem” liczy MVP i ten wiersz):
+  1. F-09 stała · 3 h, razem 3 h · MVP
+  2. F-22 stała · 1,5 h, razem 4,5 h · MVP
+  3. F-25 stała · 2 h, razem 6,5 h · MVP
+  4. F-27 stała · 1,5 h, razem 8 h · MVP
+  5. F-28 stała · 2 h, razem 10 h · MVP
+  6. F-31 stała · 2 h, razem 12 h · MVP
+  7. F-32 stała · 2 h, razem 14 h · MVP
+  8. F-33 stała · 2 h, razem 16 h · MVP
+  9. F-35 stała · 3 h, razem 19 h · MVP
+  10. F-37 stała · 1,5 h, razem 20,5 h · MVP
+  11. F-40 stała · 1 h, razem 21,5 h · MVP
+  12. F-57 stała · 1,5 h, razem 23 h · MVP
+  13. F-58 stała · 2 h, razem 25 h · MVP
+  14. F-60 stała · 3 h, razem 28 h · MVP
+  15. F-64 stała · 2 h, razem 30 h · MVP
+  16. F-65 stała · 1 h, razem 31 h · MVP
+  17. F-67 stała · 2 h, razem 33 h · MVP
+  18. F-68 stała · 2 h, razem 35 h · MVP
+  19. F-69 stała · 2 h, razem 37 h · MVP
+  20. F-72 stała · 6 h, razem 43 h · MVP
+  21. F-76 stała · 0,5 h, razem 43,5 h · MVP
+  22. F-07 wynik 72 · 3 h, razem 46,5 h · MVP
+  23. F-16 wynik 72 · 3 h, razem 49,5 h · MVP
+  24. F-23 wynik 48 · 1 h, razem 50,5 h · MVP
+  25. F-13 wynik 42,67 · 3 h, razem 53,5 h · MVP
+  26. F-11 wynik 32 · 1 h, razem 54,5 h · MVP
+  27. F-24 wynik 30 · 1 h, razem 55,5 h · MVP
+  28. F-14 wynik 26,67 · 1,5 h, razem 57 h · MVP
+  29. F-18 wynik 25 · 0,5 h, razem 57,5 h · MVP
+  30. F-10 wynik 24 · 1 h, razem 58,5 h · MVP
+  31. F-26 wynik 16 · 7 h, razem 65,5 h · MVP
+  32. F-73 wynik 13,33 · 3 h, razem 68,5 h · MVP
+  33. F-38 wynik 12 · 2 h, razem 70,5 h · MVP
+  34. F-44 wynik 10 · 2 h, razem 72,5 h · MVP
+  35. F-61 wynik 10 · 1,5 h, razem 74 h · MVP
+  36. F-74 wynik 10 · 3 h, razem 77 h · MVP
+  37. F-55 wynik 9,6 · 5 h, razem 82 h · MVP
+  38. F-62 wynik 8 · 1 h, razem 83 h · MVP
+  39. F-77 wynik 8 · 1 h, razem 84 h · MVP
+  40. F-15 wynik 7,5 · 1 h, razem 85 h · TEST
+  41. F-56 wynik 7,5 · 0,5 h, razem 84,5 h · MVP
+  42. F-43 wynik 6,67 · 3 h, razem 87,5 h · MVP
+  43. F-63 wynik 5 · 2 h, razem 89,5 h · PÓŹNIEJ
+  44. F-81 wynik 3,75 · 1 h, razem 88,5 h · MVP
+  45. F-71 wynik 2,5 · 2 h, razem 90,5 h · MVP
+  46. F-78 wynik 2,5 · 1 h, razem 91,5 h · MVP
+  47. F-30 wynik 1,88 · 2 h, razem 93,5 h · PÓŹNIEJ
+  48. F-45 wynik 1,67 · 3 h, razem 94,5 h · PÓŹNIEJ
+  49. F-75 wynik 1,25 · 4 h, razem 95,5 h · MVP
+  50. F-80 wynik 1,25 · 1,5 h, razem 97 h · MVP
+  51. F-70 wynik 0,83 · 6 h, razem 103 h · PÓŹNIEJ
+  52. F-08 wynik 0,63 · 2 h, razem 99 h · PÓŹNIEJ
+  53. F-50 wynik 0,42 · 1,5 h, razem 98,5 h · PÓŹNIEJ
+  54. F-79 wynik 0,42 · 6 h, razem 103 h · PÓŹNIEJ
+Kolejność budowy MVP: F-09 → F-13 → F-07 → F-10 → F-11 → F-14 → F-16 → F-18 → F-22 → F-23 → F-24 → F-25 → F-26 → F-27 → F-28 → F-31 → F-32 → F-33 → F-35 → F-37 → F-38 → F-40 → F-43 → F-44 → F-55 → F-56 → F-57 → F-58 → F-60 → F-61 → F-62 → F-64 → F-65 → F-67 → F-68 → F-69 → F-71 → F-72 → F-73 → F-74 → F-76 → F-75 → F-77 → F-78 → F-80 → F-81
+BŁĄD w50: F-72 bez wymagania BR ani hipotezy H
+BŁĄD BR-DANE-005 z BRD bez decyzji zakresu
+BŁĄD BR-UST-004 z BRD bez decyzji zakresu
+BŁĄD BR-UST-005 z BRD bez decyzji zakresu
+BŁĄD BR-RECP-005 z BRD bez decyzji zakresu
+BŁĄD BR-KALK-012 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-001 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-002 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-003 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-004 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-005 z BRD bez decyzji zakresu
+BŁĄD BR-MASZ-006 z BRD bez decyzji zakresu
+55 funkcji (MVP 46, PÓŹNIEJ 7, TEST 1, NIE 1), 75 BR · 12 błędów, 0 uwag

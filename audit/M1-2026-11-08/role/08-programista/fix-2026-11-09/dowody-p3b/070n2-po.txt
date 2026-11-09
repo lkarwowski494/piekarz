@@ -1,0 +1,9 @@
+PASS tests/br-kryteria-067.test.tsx
+PASS src/__tests__/br-harmo-etap-drozdze-070.test.tsx
+PASS tests/br-bez-testu.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       28 passed, 28 total
+Snapshots:   0 total
+Time:        5.314 s, estimated 6 s
+Ran all test suites matching /src\/__tests__\/br-harmo-etap-drozdze-070.test.tsx|tests\/br-bez-testu.test.ts|tests\/br-kryteria-067.test.tsx/i.

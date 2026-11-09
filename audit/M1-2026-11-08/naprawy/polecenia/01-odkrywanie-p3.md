@@ -7,3 +7,4 @@ Na STOP nie czekasz; nowa decyzja albo krok właściciela → opcje i koniec. Ka
 3. F-72 tryb maszyny: ID BR-MASZ-001…006 są w `docs/brd/wymagania-maszyna.md` — sprawdź, czy kontrakt zakresu ich potrzebuje (to robi rola 03 w 059; Ty tylko potwierdzasz kompletność BR i RD-37…RD-39 bez zmiany RD-37/38).
 
 Nie wolno: push na master, build, App Store Connect, strona, usuwanie gałęzi/danych; audit/ poza gitem. Wypchnij gałąź. Raport: commity z ER, wynik kontroli BRD przed/po, przekazania (03 do 059, 07/08), decyzje właściciela.
+4. Znalezisko 08-p3b-N3: BR-ETAP-001 „Gotowość ciasta drożdżowego” — wyjątek dla żyta (D-256: gotowość po powierzchni ciasta), ER.

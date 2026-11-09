@@ -1,0 +1,27 @@
+Odczyt 2026-11-09 ~17:50 UTC, curl -sSL + parser tabeli (python, html), developer.apple.com
+== https://developer.apple.com/help/account/access/roles/ (tabela ról; kolumny: Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support)
+12:Create cloud-managed Developer ID certificates | Full access. | Checkmark | - | - | - | - | - | -
+13:Create other cloud-managed certificate types | Full access. | Full access. | Checkmark | Checkmark | - | - | - | -
+16:Create and delete distribution provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+17:Download provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | -
+39:Generate API keys | Full access. | Full access. | - | - | - | - | - | -
+43:Manage access to cloud-managed Developer ID certificates | Full access. | Checkmark | - | - | - | - | - | -
+44:Manage access to other cloud-managed certificates | Full access. | Full access. | Checkmark | Checkmark | - | - | - | -
+50:Upload builds | Full access. | Full access. | Requires access to Certificates, Identifiers &amp; Profiles, | Requires access to Certificates, Identifiers &amp; Profiles, | - | - | - | -
+53:Submit apps | Full access. | Full access. | Full access. | - | - | - | - | -
+79:Manage TestFlight builds | Full access. | Full access. | Full access. | Read-only access. | - | Read-only access. | - | -
+100:Create cloud-managed Developer ID certificates | Full access. | Checkmark. | -
+101:Create other cloud-managed certificate types | Full access. | Full access. | Checkmark
+114:Download provisioning profiles | Full access. | Full access. | Full access.
+
+Surowy HTML wiersza Upload builds (kolumna Developer):
+<td><figure class="icon icon-checkcircle inline" alt="Requires access to Certificates, Identifiers &amp; Profiles, granted in Users and Access. Includes access to CloudKit Console."></figure></td>
+
+== https://developer.apple.com/help/app-store-connect/get-started/app-store-connect-api/
+988:Under Access, select the role permissions to determine what the API can be used for. Team API keys are applied across all apps, so app access can’t be limited for an API key.
+990:Once you generate an API key, you can’t edit its name or access level. If you need to make changes, revoke the key and generate a new one.
+1003:API keys are private and can only be downloaded once. After downloading, store it securely. Revoke a key immediately if it becomes lost or compromised.
+1017:On the top right, click Revoke Key, then click Revoke in the dialog. An API key can't be reinstated once it's been revoked. Any revoked keys from the past 30 days appear under the Revoked section of the App Store Connect API page.
+
+== https://developer.apple.com/help/account/certificates/cloud-managed-certificates/
+Cloud-managed certificates are associated with your Apple Developer Program membership and managed remotely. In Xcode 13 or later, Xcode will cloud sign any apps or software for distribution when you’re using the Xcode Organizer archive and distribution workflow . Additional permissions are available in App Store Connect to enable Admins and Developers to sign apps and software with these certificates. 

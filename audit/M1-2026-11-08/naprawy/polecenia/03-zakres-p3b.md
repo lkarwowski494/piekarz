@@ -28,3 +28,5 @@ Na koniec, do 25 linii: commity (SHA → ID), testy przed/po, pliki dowodów, pr
 
 
 Dodatkowo w tym samym zadaniu 059 (osobne commity, jeśli to wygodniejsze): (1) znalezisko N-2 z Twojej poprzedniej sesji: wiersz F-43 „F-71 PÓŹNIEJ” i „Definicja ukończenia” z nieaktualnym „0 błędów”; (2) BR-DANE-005 (ER-82, eksport CSV) w kolumnie „Wymagania” właściwego wiersza F; (3) decyzja właściciela D-312 (docs/decyzje.md): apetyt 1.0 = 97 h (zapis w kontrakcie przy rankingu z datą), plan dla receptur drożdżowych katalogu → backlog 1.0.1 (wpis ZM); (4) BR od roli 01 z jej sesji p3 (F-82, F-83, ZM-29) — po jej commitach. Cel: `zakres.mjs --brd` kod 0.
+
+Przekazania roli 01 (sesja p3, commity a2543cbe, 5584dd42, 5cfe8160, 5aa43faf; raport role/01-odkrywanie/fix-2026-11-09/wynik-p3.md): w wierszu F-72 BR-MASZ-001…006 (RD-37…RD-39); w wierszach F-82 i F-83 BR-UST-004 i BR-UST-005, potem usuń oba z listy w `tests/kontrakt-zm28-058.test.ts` (lista tylko maleje); wiersz F-82 mówi o 26 źródłach, kod ma 48 — popraw; backlog 1.0.1: plan dla receptur drożdżowych katalogu (D-312, ER-83, OP-74).
