@@ -64,9 +64,6 @@ export const EN_4: Record<string, string> = {
     'High dilution: less starter relative to fresh flour and water, so a longer time to peak.',
   'Szybkie odświeżenie: więcej zakwasu względem świeżej mąki i wody, więc krótszy czas do szczytu.':
     'Quick refresh: more starter relative to fresh flour and water, so a shorter time to peak.',
-  // Ostrzeżenie RD-05 o wodzie > 45 °C w Kalkulatorze [M1-audytor-generalny-039]
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.':
-    'The calculated water temperature exceeds 45°C. That risks killing the yeast and lactic acid bacteria. Cool the flour or lower the room temperature.',
   // Spirala koszyka: etykieta VoiceOver i legenda (design-spec §2, §11b 058) [M1-audytor-generalny-058]
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Bake plan, step {n} of {N}: {nazwa}, {czas} left.',
   'Plan wypieku, krok {n} z {N}: {nazwa}.': 'Bake plan, step {n} of {N}: {nazwa}.',

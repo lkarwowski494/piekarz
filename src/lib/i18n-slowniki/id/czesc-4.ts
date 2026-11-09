@@ -178,7 +178,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'mis. San Francisco White, Lievito...',
   'O recepturze': 'Tentang Resep',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'Suhu air hasil perhitungan di bawah 4°C. Untuk mencapai suhu ini tanpa membekukan air, ganti sebagian air dengan es.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Suhu air yang dihitung melebihi 45°C. Hal ini berisiko memasak ragi dan bakteri asam laktat. Dinginkan tepung atau turunkan suhu ruang.',
   'Obniż docelową temperaturę ciasta': 'Turunkan target suhu adonan',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Turunkan suhu ke 210°C. Reaksi Maillard membentuk kulit roti yang renyah dengan aroma kacang dan karamel.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Turunkan suhu kulkas: di kulkas yang lebih dingin, fermentasi berjalan lebih lambat.',

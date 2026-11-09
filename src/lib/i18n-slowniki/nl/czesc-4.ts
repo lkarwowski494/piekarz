@@ -161,7 +161,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'bijv. San Francisco White, Lievito...',
   'O recepturze': 'Over dit recept',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'De berekende watertemperatuur ligt onder 4 °C. Vervang een deel van het water door ijs om deze temperatuur te bereiken zonder te bevriezen.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'De berekende watertemperatuur is hoger dan 45 °C. Daarmee dreigen de gist en de melkzuurbacteriën te worden doodgekookt. Koel het meel of verlaag de omgevingstemperatuur.',
   'Obniż docelową temperaturę ciasta': 'Gewenste deegtemperatuur verlagen',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Verlaag de temperatuur naar 210 °C. De Maillardreactie vormt een krokante korst met nootachtige karameltonen.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Zet de koelkast kouder: in een koelere koelkast gaat de fermentatie langzamer.',

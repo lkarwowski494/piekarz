@@ -4658,10 +4658,6 @@
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
-  "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
-    "gdzie": [],
-    "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
-  },
   "Obniż docelową temperaturę ciasta": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"

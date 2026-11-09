@@ -139,7 +139,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': '例如：San Francisco White、Lievito…',
   'O recepturze': '關於此配方',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': '計算出的水溫低於 4°C。若要在不冷凍的情況下達到此溫度，請以冰塊取代部分的水。',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': '計算出的水溫超過 45°C，可能會燙死酵母與乳酸菌。請將麵粉降溫，或降低環境溫度。',
   'Obniż docelową temperaturę ciasta': '降低目標麵溫',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': '將溫度降至 210°C。梅納反應會形成酥脆、帶堅果與焦糖風味的外皮。',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': '調低冰箱溫度：冰箱越冷，發酵越慢。',
