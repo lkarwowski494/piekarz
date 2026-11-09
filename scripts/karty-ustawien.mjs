@@ -3,7 +3,7 @@
  * Karty ustawień App Store Connect na lokalizację strony produktu [M1-audytor-generalny-119]:
  * docs/wydanie/ustawienia/<kod ASC>.md dla każdego pliku docs/wydanie/metadane/<kod ASC>.json oraz indeks README.md.
  * Wejścia: metadane (095), mapa storefrontów docs/wydanie/storefronty.json (tabela Apple), ceny docs/wydanie/ceny.json
- * (D-038), adresy z src/lib/links.ts. Krok po kroku dla całej aplikacji: docs/wydanie/instrukcja-ustawien.md.
+ * (D-112), adresy z src/lib/links.ts. Krok po kroku dla całej aplikacji: docs/wydanie/instrukcja-ustawien.md.
  *
  * Użycie: node scripts/karty-ustawien.mjs [--sprawdz]
  *   bez flagi: zapisuje karty; --sprawdz: nic nie zapisuje, kod 1, gdy któraś karta różni się od wygenerowanej.
@@ -150,7 +150,7 @@ function karta(kod, m, mapa, sf, ceny, url, prod) {
   L.push('');
   L.push('## Ceny i oferta w storefrontach tej karty');
   L.push('');
-  L.push(`Produkty (\`src/lib/platnosci/konfiguracja.ts\`): \`${prod.monthly}\` / \`${prod.yearly}\` / \`${prod.lifetime}\` (miesięczny / roczny / dożywotni). Cena bazowa: ${kwota(ceny.reczne.USA.monthly)} / ${kwota(ceny.reczne.USA.yearly)} / ${kwota(ceny.reczne.USA.lifetime)} USD (storefront ${ceny.bazowy}, D-038).`);
+  L.push(`Produkty (\`src/lib/platnosci/konfiguracja.ts\`): \`${prod.monthly}\` / \`${prod.yearly}\` / \`${prod.lifetime}\` (miesięczny / roczny / dożywotni). Cena bazowa: ${kwota(ceny.reczne.USA.monthly)} / ${kwota(ceny.reczne.USA.yearly)} / ${kwota(ceny.reczne.USA.lifetime)} USD (storefront ${ceny.bazowy}, D-112).`);
   L.push('');
   const reczne = wszystkie.filter((k) => ceny.reczne[k]);
   if (reczne.length) {
@@ -158,14 +158,14 @@ function karta(kod, m, mapa, sf, ceny, url, prod) {
     L.push('|---|---|---|');
     for (const k of reczne) {
       const c = ceny.reczne[k];
-      L.push(`| ${k} (${sf.get(k)?.kraj ?? '?'})${k === ceny.bazowy ? ', bazowy' : ''} | ${kwota(c.monthly)} / ${kwota(c.yearly)} / ${kwota(c.lifetime)} ${c.waluta} | D-038, docs/wydanie/ceny.json |`);
+      L.push(`| ${k} (${sf.get(k)?.kraj ?? '?'})${k === ceny.bazowy ? ', bazowy' : ''} | ${kwota(c.monthly)} / ${kwota(c.yearly)} / ${kwota(c.lifetime)} ${c.waluta} | D-112, docs/wydanie/ceny.json |`);
     }
     L.push('');
   }
   const auto = wszystkie.filter((k) => !ceny.reczne[k] && !NIEDOSTEPNE.has(k));
   L.push(`Pozostałe storefronty tej karty (${auto.length}): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).`);
   L.push('');
-  L.push(`Bez oferty wprowadzającej na \`${prod.monthly}\`, \`${prod.yearly}\` i \`${prod.lifetime}\` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).`);
+  L.push(`Bez oferty wprowadzającej na \`${prod.monthly}\`, \`${prod.yearly}\` i \`${prod.lifetime}\` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).`);
   L.push('');
   return L.join('\n');
 }

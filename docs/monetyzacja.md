@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22, M2 2026-11-09 (wynik 1.0 dla samego iOS, DEC-06 a; lista Pro bez F-63, DEC-04 a) · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
+Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22, M2 2026-11-09 (wynik 1.0 dla samego iOS, DEC-06 a; lista Pro bez F-63, DEC-04 a; Z-1 i ceny w dokumentach wydania, DEC-08 a) · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
 
 Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jako oferta wprowadzająca subskrypcji, potem „tylko historia”) jest w `docs/archiwum/monetyzacja-d038-2026-10-19.md` razem z tabelą rynku i wartości funkcji z 2026-10-19 (MS-01…MS-27). Badanie zmiany modelu z 2026-10-22 (reguły sklepu z dnia, rynek, StoreKit, rachunki V1, V2, V3, Basic/Pro): `docs/monetyzacja-badanie-2026-10.md` (MS-B01…MS-B24). Surowe odczyty: `audit/02-badanie-modelu-2026-10-22/` (poza gitem).
 
@@ -33,7 +33,7 @@ Wzorzec dla ról 04, 05, 07, 08. Identyfikatory z `src/lib/platnosci/konfiguracj
 
 | Produkt (ID) | Typ | Cena US / PL | Próba | Family Sharing | Odblokowuje |
 |---|---|---|---|---|---|
-| `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | **brak** (oferta wprowadzająca do usunięcia, MS-B21) | tak (włączony 2026-10-21, nieodwracalny, MS-B05) | Pro |
+| `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | **brak** (oferta wprowadzająca usunięta w ASC 2026-11-03, Z-1, MS-B21) | tak (włączony 2026-10-21, nieodwracalny, MS-B05) | Pro |
 | `com.apps4brew.baker.pro.yearly` | subskrypcja odnawiana, ta sama grupa | 6,99 USD / 29,99 zł rocznie | **brak** | tak | Pro |
 | `com.apps4brew.baker.pro.lifetime` | Non-Consumable | 14,99 USD / 79,99 zł jednorazowo | brak | tak | Pro |
 Ceny pozostałych storefrontów: `audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json` (zapis ASC 2026-10-21).
@@ -116,7 +116,7 @@ ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
 - Family Sharing bez zmian (włączony); prywatność bez zmian (StoreKit, lokalna pamięć uprawnień).
 
 ## Kroki w App Store Connect (M1 za zgodą właściciela)
-1. Usunąć ofertę wprowadzającą „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `.pro.yearly` we wszystkich storefrontach (MS-B21; skrypt `scripts/asc-ustawienia.mjs` albo UI).
+1. Usunąć ofertę wprowadzającą „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `.pro.yearly` we wszystkich storefrontach (MS-B21; skrypt `scripts/asc-ustawienia.mjs` albo UI). **Zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; Z-1).
 2. Notatka dla recenzji przy produktach: „Pro unlocks planning, starter care reminders, more starters and recipes. Basic stays free.”
 3. Opis i zrzuty sklepu według metadanych wyżej (rola 10), 35 lokalizacji.
 4. Produkty, ceny, Family Sharing i dostępność bez zmian.
@@ -134,7 +134,7 @@ ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
 Wdrożenie według rekomendacji (właściciel przez M1: „Według rekomendacji”, D-112).
 | # | Zadanie | Kto | Kiedy / warunek |
 |---|---|---|---|
-| Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | razem z buildem zawierającym kod Basic/Pro, nie wcześniej |
+| Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | **zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; build 1021 z kodem Basic/Pro; `docs/wydanie/dziennik.md`) |
 | Z-2 | kod Basic/Pro według aneksu ADR-007 i sekcji „Przekazanie” (konfiguracja funkcji, limity 5 receptur i 1 zakwas, przypomnienia zależne od Pro, usunięcie oferty wprowadzającej i uprzedzenia próby, ekran Pro, oznaczenia „Pro”, test „Basic tylko rośnie”) | rola 08 z M3 | na `redesign/piekarz-2026-10-22`, po porannym buildzie |
 | Z-3 | przepisać testy kontraktu D-038 na nowy kontrakt (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby, karta bezpieczeństwa bez zakupu) i hipotezę H-01 w `docs/wzrost/hipotezy.json` | rola 08 | z Z-2 |
 | Z-4 | przekład tekstów ekranu Pro, licznika limitów i komunikatów (gratulacje po założeniu zakwasu, uprzedzenie końca Pro) na 35 języków | M1 | wspólny batch a5 |

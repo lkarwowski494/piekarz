@@ -11,7 +11,7 @@ Stan: 2026-11-02 (noc, do weta; D-125). **Szkic, nie tekst do wklejenia:** nic n
 
 | ID | Zdanie (skrót) | Dowód |
 |---|---|---|
-| Z1 | Basic jest darmowy, Pro dodaje planowanie i więcej; bez okresu próbnego (prawdziwe w sklepie dopiero po Z-1 w ASC) | `docs/monetyzacja.md` (Model, D-112, D-113); kod: M3 P-a, P-b (`docs/sztafeta.md`, wiersz 08) |
+| Z1 | Basic jest darmowy, Pro dodaje planowanie i więcej; bez okresu próbnego (w sklepie od Z-1: oferta usunięta w ASC 2026-11-03) | `docs/monetyzacja.md` (Model, D-112, D-113); kod: M3 P-a, P-b (`docs/sztafeta.md`, wiersz 08) |
 | Z2 | Dziennik, kalkulator i prowadzenie wypieku w Basic | `docs/monetyzacja.md`, tabela „Basic i Pro według funkcji” |
 | Z3 | Nowy ekran „Źródła wiedzy” w Ustawieniach; teksty w aplikacji brzmią naturalniej, bez przypisów | D-123, `0960427` |
 | Z4 | „Dodaj do kalendarza”: plan jako plik `.ics` | `src/hooks/useDodajDoKalendarza.ts`; poprawka strefy czasowej `5125bcd` |
