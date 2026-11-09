@@ -923,6 +923,11 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ciasto na noc w lodówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
+    ]
+  },
   "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
@@ -2020,6 +2025,11 @@
   "Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Formowanie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Formowanie wstępne": {
@@ -5782,6 +5792,11 @@
       "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
+  "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: proTipsPl)"
@@ -6149,6 +6164,11 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -6248,6 +6268,11 @@
   "Przygotuj silny trójfazowy kwas żytni o intensywnym owocowo-octowym aromacie.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
     ]
   },
   "Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.": {
@@ -6642,12 +6667,22 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Rozwiąż kolizję": {
     "gdzie": []
   },
   "Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Rośnięcie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.": {
@@ -8989,6 +9024,11 @@
   "Wyrabianie": {
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wyrabianie ciasta z masłem": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Wyrabianie francuskie (slap & fold)": {
