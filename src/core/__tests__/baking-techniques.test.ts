@@ -6,6 +6,7 @@ import {
   searchTechniques,
   TechniqueCategory,
 } from '../baking-techniques';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Artisan Baking Techniques Library (Z-091…098 / BIB)', () => {
   it('contains exactly 12 complete artisan technique cards from BIB-01 to BIB-12', () => {
@@ -90,7 +91,7 @@ describe('Artisan Baking Techniques Library (Z-091…098 / BIB)', () => {
             expect(res.every((t) => t.category === cat)).toBe(true);
           }
         }),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });

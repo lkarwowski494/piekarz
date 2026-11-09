@@ -3,6 +3,7 @@ import {
   predictStarterPeak,
   PeakPredictionInput,
 } from '../starter-peak-predictor';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Sourdough Metabolic Peak Predictor (core/starter-peak-predictor)', () => {
   const baseFedAt = new Date('2026-10-16T08:00:00Z').getTime();
@@ -118,7 +119,7 @@ describe('Sourdough Metabolic Peak Predictor (core/starter-peak-predictor)', () 
             expect(typeof res.formattedWindowPl).toBe('string');
           }
         ),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });

@@ -1,6 +1,7 @@
 import * as fc from 'fast-check';
 import { checkFlourInventory, deductFlourStocks } from '../inventory';
 import { StoredFlourInventoryItem } from '../../data/db';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Flour Inventory & Stock Depletion Engine (src/core/inventory.ts)', () => {
   const sampleInventory: StoredFlourInventoryItem[] = [
@@ -127,7 +128,7 @@ describe('Flour Inventory & Stock Depletion Engine (src/core/inventory.ts)', () 
           }
         }
       ),
-      { numRuns: 100 }
+      { numRuns: nr(100) }
     );
   });
 });

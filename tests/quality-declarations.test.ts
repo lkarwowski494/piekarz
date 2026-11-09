@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { nr } from './helpers/fc-runs';
 
 const root = join(__dirname, '..');
 const read = (p: string) => readFileSync(join(root, p), 'utf8');
@@ -53,7 +54,7 @@ describe('nightly: ziarno i liczba przebiegów fast-check', () => {
   });
 
   it('liczbowe PROP_SEED i FC_NUM_RUNS trafiają do konfiguracji', () => {
-    expect(resolveFastCheckConfig({ PROP_SEED: '42', FC_NUM_RUNS: '1000' }, () => 1)).toEqual({ seed: 42, numRuns: 1000 });
+    expect(resolveFastCheckConfig({ PROP_SEED: '42', FC_NUM_RUNS: '1000' }, () => 1)).toEqual({ seed: 42, numRuns: nr(1000) });
   });
 });
 

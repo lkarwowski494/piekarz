@@ -4,6 +4,7 @@ import {
   PREFERMENT_DEFINITIONS,
   PrefermentType,
 } from '../preferments';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Artisan Preferment Engine (src/core/preferments.ts)', () => {
   describe('Deterministic Test Vectors', () => {
@@ -167,7 +168,7 @@ function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
             expect(res.prefermentFlourGrams + res.doughAddedFlourGrams).toBe(totalFlour);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
 
@@ -191,7 +192,7 @@ function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
             expect(res.prefermentWaterGrams + res.doughAddedWaterGrams).toBe(expectedWater);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
 
@@ -216,7 +217,7 @@ function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
             expect(Math.abs(res.prefermentSaltGrams + res.doughAddedSaltGrams - totalExpectedSalt)).toBeLessThanOrEqual(0.1);
           }
         ),
-        { numRuns: 1000 }
+        { numRuns: nr(1000) }
       );
     });
   });

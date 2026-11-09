@@ -6,6 +6,7 @@ import {
   getDiscardGrams,
   DiscardCategory,
 } from '../discard-recipes';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Sourdough Discard Recipes (Z-043 / RECP-DISCARD)', () => {
   it('contains at least 5 classic sourdough discard formulas', () => {
@@ -76,7 +77,7 @@ describe('Sourdough Discard Recipes (Z-043 / RECP-DISCARD)', () => {
             expect(filtered.every((r) => r.category === cat)).toBe(true);
           }
         }),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
   });
