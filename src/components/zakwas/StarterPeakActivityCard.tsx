@@ -5,6 +5,7 @@
 // ============================================================================
 
 import React from 'react';
+import { czasSlownie } from '../../lib/spirala-etykieta';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
@@ -73,6 +74,10 @@ export function StarterPeakActivityCard({
   unitSystem,
 }: StarterPeakActivityCardProps) {
   const szczyt = oknoIStatusSzczytu(peakPrediction);
+  // Bez okna szczytu (reguła bez źródła, OP-39 [DO USTALENIA]) faza z okna i rada według niej znikają; znacznik pokazuje
+  // czas od dokarmienia. Faza w lodówce i „brak danych” zostają (BR-ZAKW-003, ER-79) [M1-audytor-generalny-004]
+  const bezFazy = !showPeakWindow && ['before', 'peak', 'after'].includes(phaseResult.phase);
+  const znacznikFazy = bezFazy ? t('{czas} od dokarmienia', { czas: czasSlownie(Math.round(phaseResult.elapsedHours * 60)) }) : etykietaFazyZakwasu(phaseResult);
   // Chipy temperatury: przy dużym tekście dwa w rzędzie zamiast czterech (flexBasis od fontScale, README §7a) [M3 p2]
   const chipSzer = { flexBasis: useDuzyTekst() ? '45%' : '20%' } as const;
   // Karta systemu kart; faza jako znacznik po prawej nagłówka (karty/README.md §2–§3) [M3 p2]
@@ -85,13 +90,13 @@ export function StarterPeakActivityCard({
       znacznik={
         <View style={styles.phaseBadge}>
           <Text style={styles.phaseBadgeText}>
-            ● {etykietaFazyZakwasu(phaseResult)}
+            ● {znacznikFazy}
           </Text>
         </View>
       }
     >
 
-      <Text style={styles.phaseAdvice}>{t(phaseResult.advicePl)}</Text>
+      {!bezFazy && <Text style={styles.phaseAdvice}>{t(phaseResult.advicePl)}</Text>}
 
       {/* Metabolic Peak Window Prediction */}
       {showPeakWindow && (

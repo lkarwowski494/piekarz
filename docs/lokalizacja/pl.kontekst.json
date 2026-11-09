@@ -10300,6 +10300,7 @@
   "{czas} od dokarmienia": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (kod)",
       "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
   },
