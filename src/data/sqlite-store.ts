@@ -51,7 +51,8 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
   }
 }
 
-type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
+/** Połączenie z kolejką albo `tx` w transakcji (kolejka-zapisow.ts) [M1-audytor-generalny-001]. */
+type Db = import('expo-sqlite').SQLiteDatabase;
 
 export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   const db = await getDb();
@@ -197,16 +198,16 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
       : null;
   if (db) {
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
-        await db.runAsync(STARTER_UPSERT, ...starterParams(starter));
+      db.withTransactionAsync(async (tx) => {
+        await tx.runAsync(STARTER_UPSERT, ...starterParams(starter));
         // Stały dzień karmienia (BR-KAL-010) tylko, gdy obiekt go niesie (null czyści); bez pola kolumny zostają [M3 D7]
-        if (starter.fridgeFeedDay !== undefined) await zapiszStalyDzien(db, starter.id, starter.fridgeFeedDay);
-        const last = await db.getFirstAsync<{ at: number | null }>(
+        if (starter.fridgeFeedDay !== undefined) await zapiszStalyDzien(tx, starter.id, starter.fridgeFeedDay);
+        const last = await tx.getFirstAsync<{ at: number | null }>(
           "SELECT max(occurred_at) AS at FROM starter_entries WHERE starter_id = ? AND kind = 'feeding';",
           starter.id
         );
         const e = feedEntry(last?.at ?? 0);
-        if (e) await insertStarterEntryRow(db, e, true);
+        if (e) await insertStarterEntryRow(tx, e, true);
       })
     );
   } else {
@@ -228,9 +229,9 @@ export async function deleteStarter(id: string): Promise<void> {
   const db = await getDb();
   if (db) {
     await writeOrThrow(() =>
-      db.withTransactionAsync(async () => {
-        await db.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', id);
-        await db.runAsync('DELETE FROM starters WHERE id = ?;', id);
+      db.withTransactionAsync(async (tx) => {
+        await tx.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', id);
+        await tx.runAsync('DELETE FROM starters WHERE id = ?;', id);
       })
     );
   }
@@ -274,24 +275,24 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     return;
   }
 
-  await writeOrThrow(() => db.withTransactionAsync(async () => {
+  await writeOrThrow(() => db.withTransactionAsync(async (tx) => {
     // Pola v6 z telefonu przed DELETE: kopia bez nich (sprzed D1) ich nie zmienia; sesje i plany poza kopią [M3 D1]
-    const tel = await czytajNowePola(db);
-    await db.execAsync('DELETE FROM bakes;');
-    await db.execAsync('DELETE FROM starter_entries;');
-    await db.execAsync('DELETE FROM starters;');
-    await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
+    const tel = await czytajNowePola(tx);
+    await tx.execAsync('DELETE FROM bakes;');
+    await tx.execAsync('DELETE FROM starter_entries;');
+    await tx.execAsync('DELETE FROM starters;');
+    await tx.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
 
     for (const s of data.starters) {
-      await db.runAsync(STARTER_UPSERT, ...starterParams(s));
-      await zapiszStalyDzien(db, s.id, dzienPoImporcie(s, tel));
+      await tx.runAsync(STARTER_UPSERT, ...starterParams(s));
+      await zapiszStalyDzien(tx, s.id, dzienPoImporcie(s, tel));
     }
     for (const e of entries) {
-      await insertStarterEntryRow(db, e, true);
+      await insertStarterEntryRow(tx, e, true);
     }
 
     for (const r of data.customRecipes) {
-      await db.runAsync(
+      await tx.runAsync(
         'INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
         r.id,
         r.name,
@@ -304,16 +305,16 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     }
 
     for (const b of data.bakes) {
-      await writeBakeRow(db, wpisPoImporcie(b, tel));
+      await writeBakeRow(tx, wpisPoImporcie(b, tel));
     }
 
     // Spiżarnia tylko z kopii, która ją niesie; kopia bez spiżarni (v1) zostawia zapasy [M1-audytor-generalny-097]
     if (data.flourInventory) {
-      await db.execAsync('DELETE FROM flour_inventory;');
-      for (const f of data.flourInventory) await writeFlourRow(db, f);
+      await tx.execAsync('DELETE FROM flour_inventory;');
+      for (const f of data.flourInventory) await writeFlourRow(tx, f);
     }
     // Ustawienia i lekcje tylko z kopii, która je niesie (v2 bez nich zostawia stan telefonu) [M1-audytor-generalny-139]
-    await zapiszUstawieniaILekcje(db, data.settings, data.lessonProgress);
+    await zapiszUstawieniaILekcje(tx, data.settings, data.lessonProgress);
   }));
   applyToMemory();
 }
@@ -356,18 +357,18 @@ export async function finishBake(
   let trwal = true;
   let odliczono = false;
   await writeOrThrow(() =>
-    db.withTransactionAsync(async () => {
+    db.withTransactionAsync(async (tx) => {
       // Skasowanie sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
-      const sesja = await zakonczSesjeWTransakcji(db, opts);
+      const sesja = await zakonczSesjeWTransakcji(tx, opts);
       // Drugi koniec tego samego wypieku (druga instancja Stolnicy): bez wpisu i bez mąki [M3 D3a-fix, P1-1]
       trwal = sesja.trwal || !opts.wymagajSesji;
       if (!trwal) return;
       wpis = wpisZSesji(log, sesja);
       // Mąka tylko przy pierwszym końcu tego wypieku: wpis o tym id (id wpisu = id wypieku) już jest = koniec
       // powtórzony, także gdy wypiek nie miał wiersza sesji (wymagajSesji nie działa) [M3 P1-1]
-      odliczono = (await db.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', log.id)).length === 0;
-      await writeBakeRow(db, wpis);
-      if (odliczono) for (const item of changed.values()) await writeFlourRow(db, item);
+      odliczono = (await tx.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', log.id)).length === 0;
+      await writeBakeRow(tx, wpis);
+      if (odliczono) for (const item of changed.values()) await writeFlourRow(tx, item);
     })
   );
   if (!trwal) return 'nie-trwa';

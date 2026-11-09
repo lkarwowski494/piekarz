@@ -7,7 +7,8 @@ import { odczytNieudany } from './odczyt';
 // Flour Inventory (Magazyn Mąk)
 // ==========================================
 
-type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
+/** Połączenie z kolejką albo `tx` w transakcji (kolejka-zapisow.ts) [M1-audytor-generalny-001]. */
+type Db = import('expo-sqlite').SQLiteDatabase;
 
 export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
   const db = await getDb();

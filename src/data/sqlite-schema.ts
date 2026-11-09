@@ -2,6 +2,7 @@ import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
 import { kopiaPrzedMigracja } from './kopie-przed-migracja';
 import { ratujPlikiBazy } from '../lib/kopia-plikow-bazy';
+import { zKolejka, type BazaZKolejka } from './kolejka-zapisow';
 import {
   StoredRecipe,
   StoredStarter,
@@ -48,8 +49,8 @@ export interface ActiveBakeState {
   tryb?: 'piekarnik' | 'maszyna';
 }
 
-let dbInstance: SQLite.SQLiteDatabase | null = null;
-let dbOpening: Promise<SQLite.SQLiteDatabase | null> | null = null;
+let dbInstance: BazaZKolejka | null = null;
+let dbOpening: Promise<BazaZKolejka | null> | null = null;
 
 // In-memory fallback for test and non-native environments
 export const memStore = {
@@ -86,9 +87,10 @@ export function _resetMemStore(): void {
 
 /**
  * Jedno połączenie na proces: równoległe wywołania czekają na to samo otwarcie, a klucze obce (starter_entries,
- * ADR-008) włączamy zaraz po otwarciu, poza transakcją (05-architekt-fix-p5-001) [M1-audytor-generalny-104].
+ * ADR-008) włączamy zaraz po otwarciu, poza transakcją (05-architekt-fix-p5-001) [M1-audytor-generalny-104]; zapisy w kolejce
+ * (kolejka-zapisow.ts) [M1-audytor-generalny-001].
  */
-export function getDb(): Promise<SQLite.SQLiteDatabase | null> {
+export function getDb(): Promise<BazaZKolejka | null> {
   if (dbInstance) return Promise.resolve(dbInstance);
   if (!dbOpening) {
     dbOpening = openDb().then((db) => {
@@ -99,7 +101,7 @@ export function getDb(): Promise<SQLite.SQLiteDatabase | null> {
   return dbOpening;
 }
 
-async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
+async function openDb(): Promise<BazaZKolejka | null> {
   try {
     const defaultDir = SQLite.defaultDatabaseDirectory;
     const safeDir = dbDirectory(defaultDir);
@@ -107,7 +109,7 @@ async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
       ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
       : await SQLite.openDatabaseAsync(DB_NAME);
     await db.execAsync('PRAGMA foreign_keys = ON;');
-    dbInstance = db;
+    dbInstance = zKolejka(db);
     return dbInstance;
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);

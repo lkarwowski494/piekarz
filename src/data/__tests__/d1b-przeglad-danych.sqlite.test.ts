@@ -75,13 +75,16 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
     const { app, sesje, pierwsza } = await migruj();
     const db = await app.schema.getDb();
     if (!db) throw new Error('brak bazy');
-    const run = db.runAsync.bind(db);
+    // Surowe runAsync połączenia (tx w transakcji); db.runAsync od M1-audytor-generalny-001 idzie przez kolejkę zapisów
+    let run: typeof db.runAsync = db.runAsync;
+    await db.withTransactionAsync(async (tx) => { run = tx.runAsync.bind(tx); });
     let wtracony: Promise<unknown> | null = null;
     // Zapis z ekranu wpada dokładnie między instrukcje transakcji finishBake (to samo połączenie, jak w aplikacji)
     db.runAsync = (async (sql: string, ...ps: Parameters<typeof run>[1][]) => {
       if (/INTO bakes/.test(sql) && !wtracony) {
+        // Bez await w treści transakcji: od kolejki zapisów (M1-audytor-generalny-001) zapis ekranu czeka na jej koniec,
+        // a ekran nie czeka w transakcji na własny zapis
         wtracony = sesje.saveActiveBakeSession(inny(pierwsza, 'bake_pizza')).catch((e: unknown) => e);
-        await wtracony;
       }
       return run(sql, ...ps);
     }) as typeof db.runAsync;
