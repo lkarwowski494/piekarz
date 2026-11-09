@@ -56,9 +56,31 @@ jobs:
             exit 1
           fi
 
+  # Bramka E2E (M1-audytor-generalny-068, 07-jakosc-004; D-286 DEC-18 a): build tylko po zielonym iOS E2E
+  # (e2e-ios.yml) na tym samym SHA albo na przodku, od którego różnica nie dotyka ścieżek E2E (wyjątek D-276).
+  # Build 1023 poszedł z 2ef8870a po czerwonym E2E #96. Bez sekretów i bez środowiska release; token tylko do odczytu.
+  e2e-sha:
+    name: Zielone iOS E2E na tym SHA (przed buildem)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check e2e-ios.yml result for GITHUB_SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/workflows/e2e-ios.yml/runs?status=completed&per_page=100" > "$RUNNER_TEMP/e2e-przebiegi.json"
+          node scripts/ci/e2e-na-sha.mjs --sha "$GITHUB_SHA" --przebiegi "$RUNNER_TEMP/e2e-przebiegi.json"
+
   build:
     name: Archive & Upload (.ipa -> TestFlight)
-    needs: tz-matrix
+    needs: [tz-matrix, e2e-sha]
     # Klucz App Store Connect (podpis w chmurze i wysyłka) tylko po akceptacji właściciela: środowisko GitHub
     # `release` z wymaganym recenzentem (D-314, M1-audytor-generalny-082). Bramka stref czasu biegnie wcześniej, bez środowiska.
     environment: release
