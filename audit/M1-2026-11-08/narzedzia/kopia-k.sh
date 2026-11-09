@@ -8,7 +8,7 @@ W=/tmp/claude-0/-home-user-piekarz/3114e2a1-e7f5-5ace-a74a-63f01380a9e7/scratchp
 cd "$W"
 git pull -q --ff-only origin audit-m1/piekarz-2026-11-08 || true
 mkdir -p audit/M1-2026-11-08
-for f in postep-napraw.md plan-wykonania-M2-2026-11-09.md stop-p1-M2-2026-11-09.md nowe-znaleziska-M2.md plan-napraw.json narzedzia dowody/M2 naprawy role zrzuty/M2 M2-koordynator-napraw-2026-11-09.md punkt-wznowienia-M2-2026-11-09.md punkt-wznowienia-M2-2026-11-09b.md prompt-przekazania-M2-2026-11-09b.md polecenie-reaudytu-M1-2026-11-09.md; do
+for f in postep-napraw.md plan-wykonania-M2-2026-11-09.md stop-p1-M2-2026-11-09.md nowe-znaleziska-M2.md plan-napraw.json narzedzia dowody/M2 naprawy role zrzuty/M2 M2-koordynator-napraw-2026-11-09.md punkt-wznowienia-M2-2026-11-09.md punkt-wznowienia-M2-2026-11-09b.md prompt-przekazania-M2-2026-11-09b.md punkt-wznowienia-M2-2026-11-09c.md prompt-przekazania-M2-2026-11-09c.md polecenie-reaudytu-M1-2026-11-09.md; do
   [ -e "$K/$f" ] && { mkdir -p "audit/M1-2026-11-08/$(dirname $f)"; cp -r "$K/$f" "audit/M1-2026-11-08/$(dirname $f)/"; }
 done
 git add -f audit

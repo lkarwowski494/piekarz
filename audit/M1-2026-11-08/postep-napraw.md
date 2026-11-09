@@ -131,6 +131,10 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 20:17 verify TZ=Asia/Tokyo na 6a412c9a: 6800 kod 0. E2E #100 w kolejce; sprawdzenie 21:02 UTC (send_later).
 - 21:47 E2E #100 (42691065882) na 6a412c9a: success 21:32. Zmiana koordynatora na M9 session_01T66VBvnDeKWC3vg8bd7wL9 (sprawdzone: origin/koordynacja docs/koordynacja/stan.md, polecenie właściciela ~21:35). redesign 9007adeb nie przodkiem p3 → merge KO-005 (do weta D-289): ea249c9c, verify UTC 6800 kod 0, Tokyo 6800 kod 0, wypchnięte na redesign. Raport i polecenie reaudytu zaktualizowane.
 - 21:49 M9: odbiór partii 3 przyjęty; E2E na ea249c9c run 42705979446 (M9); reaudyt M1 w sesji B session_01T66VBysWUJuh8AKDtwNsWx. M2 czeka bezczynnie na P0/P1 z reaudytu; pula D-317…D-319; bez przypomnień kontrolnych.
+- 22:28 Reaudyt M1 pętla 1 (5e835a92): ZABLOKOWANE, otwarte P1 005, 087, 088, 089. KO-007 (M9, D-289, do weta): DEC-21=a (D-317), 005/087/088/089 zatwierdzone, partia 4. Gałąź p4 od ea249c9c. Kolejność 087, 088, 089, 005.
+- 22:36 087: bb162ddf (subagent M2 — wyjątek nazwany: D przez subagenta ze względu na limit kontekstu D-289), test przed czerwony (bake_sessions 0), po 11/11, verify 6801 kod 0; status naprawione-do-weryfikacji; przegląd ścieżki danych w toku. Start rola 06 p4 (089 DEC-21 a, 088 opcja a).
+- 22:36 087: przegląd ścieżki danych — brak P0/P1; 3 uwagi P2 → nowe-znaleziska-M2 (M2-p4-N1…N3).
+- 22:41 22:42 Limit kontekstu 30% (M9): przekazanie — punkt-wznowienia-M2-2026-11-09c.md, prompt-przekazania-M2-2026-11-09c.md. Rola 06 p4 (088/089) w toku w drzewie p4; 005 polecenie gotowe.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

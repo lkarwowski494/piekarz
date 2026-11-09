@@ -501,7 +501,7 @@
       "pytanie": "Brioszka na Lievito Madre: czasy rośnięcia bez źródła dla zaczynu (D-309, PIE-BRI-900 otwarte) — co w 1.0?",
       "rozstrzyga": "wlasciciel",
       "rekomendacja": "a",
-      "wybor": null,
+      "wybor": "a",
       "opcje": [
         {
           "id": "a",
@@ -516,7 +516,8 @@
       ],
       "zrodla": [
         "06-tresci-602"
-      ]
+      ],
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30 (do weta); wpis D-317"
     }
   ],
   "zadania": [
@@ -628,19 +629,20 @@
       "rodzaj": "D",
       "rola": "04-studio-projektowe",
       "wykonawca": "M2",
-      "partia": 2,
+      "partia": 4,
       "zalezy_od": [],
       "decyzja": null,
       "przyczyna": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-      "status": "otwarte",
+      "status": "zatwierdzone",
       "commit": "1d0dce0a",
       "reaudyt": {
         "petla": 1,
         "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
         "wynik": "nadal otwarte: instrukcja i ostrzeżenie poza pierwszym ekranem (402 pt: nagłówek i kilka wierszy, bez ostrzeżenia; 320 pt: karta poza ekranem); test akceptacyjny nie sprawdza tytułu; potwierdzone w weryfikacja/V1"
-      }
+      },
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {
       "id": "M1-audytor-generalny-006",
@@ -2571,7 +2573,7 @@
       "zalezy_od": [],
       "decyzja": null,
       "przyczyna": null,
-      "commit": null,
+      "commit": "bb162ddf",
       "tytul": "Import pakietu z trybu awaryjnego gubi trwający i zaplanowane wypieki (bake_sessions) bez komunikatu",
       "zrodla": [
         "12-niezawodnosc-601"
@@ -2583,7 +2585,8 @@
       "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-003",
       "test_akceptacyjny": "import pakietu z bazy 1021 z 2 sesjami (active, planned) → bake_sessions = 2 po „Zastąp dane”; test pada na ea249c9c; znane w D-301 jako 12-niezawodnosc-703",
-      "status": "otwarte"
+      "status": "naprawione-do-weryfikacji",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {
       "id": "M1-audytor-generalny-088",
@@ -2603,7 +2606,8 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "plan rye_100_pan, borodinsky_rye i latvian_scalded_rye przy 50% żyta: temperatury z danych receptury, bez słowa „brioszk”; tekst pieczenia po id receptury, nie po naczyniu",
-      "status": "otwarte"
+      "status": "zatwierdzone",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {
       "id": "M1-audytor-generalny-089",
@@ -2623,7 +2627,8 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "(a) brioszka bez „Ułóż plan” do zamknięcia PIE-BRI-900, test katalogu; (b) czasy ze źródła dla zaczynu i rośnięcie z canStretch, test planu",
-      "status": "otwarte"
+      "status": "zatwierdzone",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
     },
     {
       "id": "M1-audytor-generalny-090",

@@ -151,3 +151,8 @@
 - M2-p3-N11 (P3, klasa: bramka wydania) `scripts/ci/e2e-na-sha.mjs`: wystarczy jeden zielony przebieg na SHA niezależnie od liczby czerwonych — „jedno ponowienie” D-131 nie jest egzekwowane.
 - M2-p3-N12 (P3, klasa: jakość testów) `nightly.yml` restore z `restore-keys`: tryb przyrostowy Strykera może przenosić stare wyniki, gdy zmieni się coś poza `src/core` (`jest.mutation.config.js`, zależności) — okresowy pełny przebieg bez cache.
 - 07-p3-N1…N4: w `role/07-jakosc/fix-2026-11-09/wynik.md`.
+
+## 2026-11-09 partia 4 — przegląd ścieżki danych 087 (bb162ddf): brak P0/P1; P2 → P3 z klasą (D-288)
+- M2-p4-N1 (P3, klasa: dane-brzegowe): uszkodzony wiersz `bake_sessions` z pakietu trafia przez `zachowajUszkodzony` do pliku ratunkowego telefonu z etykietą jak uszkodzenie telefonu (wzorzec istniał wcześniej, M2-003).
+- M2-p4-N2 (P3, klasa: dane-brzegowe): sesje pominięte przez limit albo kolizję id z telefonem znikają z importu bez komunikatu (`skippedRows` liczy tylko nieczytelne); dane zostają w pakiecie.
+- M2-p4-N3 (P2 do sprawdzenia, klasa: dane-brzegowe): po imporcie sesje nie trafiają do `memStore`, brak ponownego planowania powiadomień Sleep Guard dla przywróconego trwającego wypieku — czy ekran i powiadomienia ożywają bez restartu? Dotyczy też ścieżki 023. Do reaudytu / testu na urządzeniu.

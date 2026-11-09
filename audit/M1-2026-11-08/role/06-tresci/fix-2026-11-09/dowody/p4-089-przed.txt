@@ -1,0 +1,74 @@
+FAIL tests/brioszka-bez-planu-089.test.ts
+  089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900
+    ✕ powodBezPlanu dla brioszki zwraca powód: czasy rośnięcia bez źródła, ilości i wskazówki wyżej (4 ms)
+    ✕ katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3 (2 ms)
+    ✕ EN: powód przetłumaczony (1 ms)
+
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › powodBezPlanu dla brioszki zwraca powód: czasy rośnięcia bez źródła, ilości i wskazówki wyżej
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej."
+    Received: null
+
+      26 |     const r = receptura(BRIOSZKA);
+      27 |     expect(r.formula.starterPercentage).toBeGreaterThan(0);
+    > 28 |     expect(powodBezPlanu(r.formula, { recipeId: BRIOSZKA })).toBe(POWOD);
+         |                                                              ^
+      29 |     // „Piecz ponownie” z Dziennika przekazuje wersję zakwasową albo brak wersji — w obu przypadkach blokada
+      30 |     expect(powodBezPlanu(r.formula, { recipeId: BRIOSZKA, wersja: 'zakwas' })).toBe(POWOD);
+      31 |     expect(BRIOCHE_RECIPE_IDS).toEqual([BRIOSZKA]);
+
+      at Object.toBe (tests/brioszka-bez-planu-089.test.ts:28:62)
+
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+    @@ -2,10 +2,11 @@
+        "borodinsky_rye",
+        "country_loaf_72",
+        "durum_semolina_sourdough",
+        "graham_bread_honey",
+        "latvian_scalded_rye",
+    +   "lievito_madre_panettone_brioche",
+        "pain_de_campagne",
+        "rye_100_pan",
+        "san_francisco_sourdough",
+        "spelt_ancient_seeded",
+        "tartine_high_hydration_80",
+
+      34 |   it('katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3', () => {
+      35 |     const zPlanem = CATALOG_RECIPES.filter((r) => powodBezPlanu(r.formula, { recipeId: r.id }) === null).map((r) => r.id).sort();
+    > 36 |     expect(zPlanem).toEqual(Z_PLANEM_BEZ_ZMIAN);
+         |                     ^
+      37 |     for (const r of CATALOG_RECIPES.filter((x) => x.formula.starterPercentage <= 0)) {
+      38 |       expect(powodBezPlanu(r.formula, { recipeId: r.id })).toBe(t('Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.'));
+      39 |     }
+
+      at Object.toEqual (tests/brioszka-bez-planu-089.test.ts:36:21)
+
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › EN: powód przetłumaczony
+
+    expect(received).not.toBeNull()
+
+    Received: null
+
+      43 |     setLang('en');
+      44 |     const p = powodBezPlanu(receptura(BRIOSZKA).formula, { recipeId: BRIOSZKA });
+    > 45 |     expect(p).not.toBeNull();
+         |                   ^
+      46 |     expect(p).not.toBe(POWOD);
+      47 |   });
+      48 | });
+
+      at Object.toBeNull (tests/brioszka-bez-planu-089.test.ts:45:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.871 s
+Ran all test suites matching /tests\/brioszka-bez-planu-089.test.ts/i.

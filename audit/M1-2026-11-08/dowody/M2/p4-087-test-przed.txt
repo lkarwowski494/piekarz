@@ -1,0 +1,42 @@
+  ● 003: import pakietu plików bazy z trybu awaryjnego › trwający i zaplanowany wypiek wracają z pakietu po „Zastąp dane” [M1-audytor-generalny-087; 12-niezawodnosc-601]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 10
+
+    - ObjectContaining {
+    -   "bake_sessions": 2,
+    + Object {
+    +   "app_access": 0,
+    +   "app_settings": 7,
+    +   "bake_sessions": 0,
+        "bakes": 4,
+    +   "flour_inventory": 2,
+    +   "lesson_progress": 2,
+    +   "pending_ops": 0,
+    +   "recipes": 17,
+    +   "schema_migrations": 7,
+    +   "starter_entries": 5,
+        "starters": 2,
+      }
+
+      207 |       await flush();
+      208 |     });
+    > 209 |     expect(counts()).toEqual(expect.objectContaining({ bakes: 4, starters: 2, bake_sessions: 2 }));
+          |                      ^
+      210 |     const po = openRaw(APP_DB());
+      211 |     expect(po.prepare('SELECT id, status, session_json, created_at, updated_at FROM bake_sessions ORDER BY id;').all()).toEqual(wPakiecie);
+      212 |     po.close();
+
+      at Object.toEqual (src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx:209:22)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 7 skipped, 8 total
+Snapshots:   0 total
+Time:        6.517 s
+Ran all test suites matching /src\/__tests__\/ratunek-import-pakietu-003.sqlite.test.tsx/i with tests matching "087".
+kod 1
+ea249c9cc069e911a9ce83beabea39ed7f314616
