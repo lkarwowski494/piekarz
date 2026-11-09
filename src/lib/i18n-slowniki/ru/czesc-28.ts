@@ -5,5 +5,5 @@ export const CZESC: Record<string, string> = {
   'Gotowe: {dzien}, {godzina}': 'Готово: {dzien}, {godzina}',
   '{nazwa} — gotowe: {dzien}, {godzina}': '{nazwa} — готово: {dzien}, {godzina}',
   'Start: {dzien}, {godzina}': 'Старт: {dzien}, {godzina}',
-  'Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.': 'План пришлось бы начать: {dzienStartu}, {godzinaStartu}. Хлеб будет готов не раньше: {dzienGotowe}, {godzinaGotowe}.',
+  'Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.': 'План пришлось бы начать: {dzienStartu}, {godzinaStartu}. Хлеб будет готов самое раннее: {dzienGotowe}, {godzinaGotowe}.',
 };

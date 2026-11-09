@@ -1,5 +1,5 @@
 {
- "_opis": "Przekład 5 kluczy M1-audytor-generalny-048 (data odległa po dwukropku zamiast mianownika po słowie; 09-lokalizacja-007 opcja a): MT M2 2026-11-09 z EN i kluczy siostrzanych („Gotowe {dzien} o {godzina}.” itd.) w każdym języku; ja, ko, zh-Hant jak klucz siostrzany (data przed czasownikiem poprawna); parametry sprawdzone skryptem; tekst PL do akceptacji roli 04; drugi przegląd AI: do wykonania przez M2.",
+ "_opis": "Przekład 5 kluczy M1-audytor-generalny-048 (data odległa po dwukropku zamiast mianownika po słowie; 09-lokalizacja-007 opcja a): MT M2 2026-11-09 z EN i kluczy siostrzanych („Gotowe {dzien} o {godzina}.” itd.) w każdym języku; ja, ko, zh-Hant jak klucz siostrzany (data przed czasownikiem poprawna); parametry sprawdzone skryptem; tekst PL do akceptacji roli 04; drugi przegląd AI: M2 2026-11-09, bez P0/P1; poprawione ru E (P2), es-419 E (P3).",
  "pl": [
   "Gotowe: {dzien}, {godzina}.",
   "Gotowe: {dzien}, {godzina}",
@@ -55,7 +55,7 @@
    "Listo: {dzien}, {godzina}",
    "{nazwa} — listo: {dzien}, {godzina}",
    "Inicio: {dzien}, {godzina}",
-   "El plan tendría que empezar: {dzienStartu}, {godzinaStartu}. Lo más pronto que estará listo el pan: {dzienGotowe}, {godzinaGotowe}."
+   "El plan tendría que empezar: {dzienStartu}, {godzinaStartu}. Lo antes que estará listo el pan: {dzienGotowe}, {godzinaGotowe}."
   ],
   "et": [
    "Valmis: {dzien}, {godzina}.",
@@ -181,7 +181,7 @@
    "Готово: {dzien}, {godzina}",
    "{nazwa} — готово: {dzien}, {godzina}",
    "Старт: {dzien}, {godzina}",
-   "План пришлось бы начать: {dzienStartu}, {godzinaStartu}. Хлеб будет готов не раньше: {dzienGotowe}, {godzinaGotowe}."
+   "План пришлось бы начать: {dzienStartu}, {godzinaStartu}. Хлеб будет готов самое раннее: {dzienGotowe}, {godzinaGotowe}."
   ],
   "sk": [
    "Hotové: {dzien}, {godzina}.",
