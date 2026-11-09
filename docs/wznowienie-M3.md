@@ -16,7 +16,7 @@ Aktualizacja: 2026-11-08 · Gałąź: `redesign/piekarz-2026-10-22` · Zapis w g
 - **M2 w toku:** sesja `session_01T66VBy48fpemgf7wQvUkU4` (opus, auto), baza `redesign`, decyzje od D-300, bez master/buildu/ASC/strony. STOP-y M2 idą do właściciela w tamtej sesji.
 - **Przypomnienia zaplanowane:** 04:52 UTC kontrola M2 + raportów (`trig_015hxSw43WH5iRpgPscUArsX`), 06:25 UTC raport poranny (`trig_01CXDssUa66JeTDaQtCWjzND`) — nowa sesja nie dostaje ich powiadomień: utwórz własne (send_later), stare zostaw (odpalą do tej sesji, nieszkodliwe).
 - **Plan 24 h:** (1) pilnuj M2 co ~60 min (get_session, gałęzie M2), blokady i STOP-y przypominaj właścicielowi jednym zdaniem; (2) uwagi właściciela z testu telefonu 1023 → send_message do M2 jako zadania od M1-audytor-generalny-087; (3) weto D-282…D-285 i pytanie D-284 (a) (zamiana 10 terminów maszyny, zmienia zdania bezpieczeństwa D-177), D-032 strony; (4) po M2: reaudyt M1 (M2 uruchamia), potem kandydat → iOS E2E zielone na tym samym SHA (DEC-18) → zgoda właściciela na merge do master + build (nowa, D-272 zużyte) → TestFlight → test telefonu → rola 10; (5) sprzątanie gałęzi: krok właściciela (`docs/wydanie/sprzatanie-galezi-2026-11-08.txt`); (6) nic dla 1.1.
-- Wolne numery decyzji M3: D-288…D-289, D-292…D-299 (D-290/D-291 zajęte); M2 od D-300.
+- Wolne numery decyzji M3: D-289, D-292…D-299 (D-290/D-291 zajęte); M2 od D-300.
 
 ## 2026-11-09 ~04:10 UTC — STOP 2 M1 rozstrzygnięty, M2 wystartował
 - Właściciel: wszystkie rekomendacje, M2 na wszystkich otwartych (D-286); raporty ról M1 wypchnąć na `audit-m1/piekarz-2026-11-08` (zgoda przyciskiem, wykonuje sesja M1). Plan STOP 2: `7671c134`, sprawdz-plan kod 0 (84 zatwierdzone, 2 odrzucone).

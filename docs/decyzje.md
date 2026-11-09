@@ -1698,3 +1698,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** DEC-11 b (tylko tekst ostrzeżenia).
 - **Otwarte:** wypieki z pakietu trybu awaryjnego nie wracają (12-niezawodnosc-703); import pomija wypieki ponad limit po cichu (znalezisko roli 05 N2).
 - **Zależy od:** D-286, D-102. **Status:** właściciel (przez DEC-11).
+
+### [D-288] 2026-11-09 — Plan napraw M2 zamrożony; P2 brzegowe i teoretyczne → P3 (backlog 1.0.1), jak Oczko P-458 (właściciel; klasyfikacja koordynatora, do weta)
+- **Słowa właściciela (2026-11-09, ~07:45 UTC):** „Weź jeszcze zobacz jak w oczku klasyfikowane są znaleziska audytu i zaaplikuj tą samą logikę”.
+- **Wzorzec (przeczytany):** Oczko `docs/decyzje.md` P-458 (gałąź `claude/kopia-04-fix-e5-2026-11-09`, wiersz 463): plan zamrożony; nowe P0/P1 → plan (blokują wydanie); nowe P2 → backlog 1.0.1; otwarte P2 z oceną realności brzegowe/teoretyczne → nowy poziom P3 (backlog 1.0.1, poza 1.0); pole `poziom_audytu` zachowuje pierwotny P2, pole `klasa` = realność; dane zostają przed 1.0 (wyjątek od P3 tylko nazwany). Polecenie M1 Oczka (`koordynacja/role-2026-11-04/M1-audyt-finalny.md:17`): nowe P2 → P3, chyba że dowód, że blokuje 1.0 (wtedy P1).
+- **Klasyfikacja (realność z raportów ról M1, najwyższa z `zrodla`):** P2 otwarte (status `zatwierdzone`): realny 37, brzegowy 12, teoretyczny 5, bez oceny 1 (065). **→ P3 (14):** 029, 036, 042, 043, 045, 050, 052, 053, 055, 056, 063, 074, 076, 083. **Zostają przed 1.0 mimo klasy (wyjątki nazwane):** 071 (ROLLBACK migracji — dane), 082 (klucz ASC w buildzie — bezpieczeństwo), 081 (notatki dla App Review — kompletność zgłoszenia, wytyczna 2.1 [DO USTALENIA u źródła przez rolę 10]). 065 bez oceny zostaje (rola 03 ocenia przy naprawie). Naprawione (`naprawione-do-weryfikacji`) bez zmian.
+- **Skutek:** M2: 84 → 70 zadań przed 1.0; 029 (blokada „1.1 przed 1.0”) rozstrzygnięte jako P3. Reaudyt M1 (D-277): nowe P2 → P3 z `klasa`, nie szuka nowych P2.
+- **Odrzucone:** zostawić D-286 bez zmian (plan rośnie po reaudycie — powód P-458 w Oczku); status „odrzucone” zamiast P3 (zadania są realne, tylko odłożone, jak P-458).
+- **Zależy od:** D-286, D-052 (analogia z Oczkiem). **Status:** właściciel (polecenie); lista wyjątków — koordynator, do weta.
