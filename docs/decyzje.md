@@ -1698,3 +1698,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** DEC-11 b (tylko tekst ostrzeżenia).
 - **Otwarte:** wypieki z pakietu trybu awaryjnego nie wracają (12-niezawodnosc-703); import pomija wypieki ponad limit po cichu (znalezisko roli 05 N2).
 - **Zależy od:** D-286, D-102. **Status:** właściciel (przez DEC-11).
+
+### [D-302] 2026-11-09 — M2 STOP przed partią 2: partia 2 jak w planie; 029 odłożone do 1.1; 032 runbook teraz (właściciel)
+- **Słowa właściciela (2026-11-09, przyciski w sesji M2):** „Tak, jak w planie (Recommended)”; 029: „Odłożyć do 1.1 (Recommended)”; 032: „Runbook teraz (Recommended)”.
+- **Decyzja:** (1) partia 2 M2 (31 zadań) na `naprawy/M2-koordynator-napraw-2026-11-09-p2` od 4454f1fd; zadania P/M przez role 01, 04, 06, 09 (subagenci po kolei) według DEC-03 a, DEC-10 a, DEC-12 b, DEC-13 a; scalenie do redesign po verify kod 0 (D-300). (2) M1-audytor-generalny-029 (odczyty z bazy bez parsera, ryzyko teoretyczne): odłożone do zakresu 1.1 zgodnie z rekomendacją znaleziska 08-programista-008; wpis zakresu to nie praca nad 1.1 (D-280 pkt 5); zadanie zostaje z blokadą „odłożone” do reaudytu. (3) M1-audytor-generalny-032 (dSYM React/Hermes): runbook ręcznej symbolizacji z przeczytanymi źródłami teraz; sprawdzenie dSYM przy najbliższym buildzie (krok właściciela, osobna zgoda na build).
+- **Odrzucone:** partia 2 bez sesji ról; parsery wierszy w 1.0; czekanie z 032 na build.
+- **Zależy od:** D-300, D-280. **Status:** właściciel.
