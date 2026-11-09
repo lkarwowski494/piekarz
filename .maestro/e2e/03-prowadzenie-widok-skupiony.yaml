@@ -65,9 +65,13 @@ appId: com.apps4brew.baker
     timeout: 15000
 - assertVisible:
     id: "step-time"
-# Karta "Co zrobic" w pierwszym ekranie bez przewijania: mala spirala na pasie (M1-audytor-generalny-005)
+# Karta "Co zrobic" i ostrzezenie kroku w pierwszym ekranie bez przewijania: na pasie tylko tytul, czas i "potem",
+# Spirala pod karta kroku (M1-audytor-generalny-005, D-318). Pierwszy krok (dokarmienie zakwasu) ma ostrzezenie
+# "Surowy zakwas"; asercja na polu ostrzezenia, nie tylko na karcie (karta przechodzila widoczna w 1/3).
 - assertVisible:
     id: "karta-kroku"
+- assertVisible:
+    id: "step-warning"
 - assertVisible:
     id: "thumb-bar"
 - assertVisible:

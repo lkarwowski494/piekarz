@@ -315,20 +315,14 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
-          (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+      {/* Pas: wstecz · „Doktor” i „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku (nagłówek VoiceOver), czas
+          i „potem …”; Spirala z „Gotowe …” pod kartą kroku (005, D-318) */}
       <EkranZPasem gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} contentContainerStyle={styles.container} pas={(onLayout) => (
         <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
           podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
           wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout}
           akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
-          {aktywny && (
-            <>
-              <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />
-              <StrefaPlanu naPasie recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
-                pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-            </>
-          )}
+          {aktywny && <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />}
         </PasZakladki>
       )}>
         <View style={styles.tresc}>
@@ -353,6 +347,8 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
               onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
               ostrzezenia={ostrzezeniaKroku(steps, currentStepIdx, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined)}
             />
+            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
+              pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
             {/* Krok czynny przesunięty w godziny snu z Ustawień: kolizja jak w planie (BR-HARMO-004, D-066 1a) [130] */}
             {kolizjeNocy.length > 0 && (
               <SleepGuardBanner hasSleepCollision sleepCollisions={kolizjeNocy} autoResolved={null} onApplyAutoResolution={() => {}} />

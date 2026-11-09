@@ -2,8 +2,9 @@
  * M3 p4b (D-194, O3a z D-141): pas marki na Planie i Prowadzeniu jak na Recepturach (p3); makieta
  * docs/design/karty/wypiek.html #plan, #prowadzenie, README §4.
  * Plan — pas z powrotem „Receptura”, tytułem „Plan wypieku” (nagłówek VoiceOver) i nazwą receptury pod nim.
- * Prowadzenie — tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” na pasie (wcześniej nad kartami, D-191);
- * karta instrukcji, ostrzeżenie i składniki pod pasem bez zmian. Oba ekrany: jasny pasek stanu na pasie.
+ * Prowadzenie — tytuł kroku, czas i „potem …” na pasie (wcześniej nad kartami, D-191); Spirala z nazwą receptury
+ * i „Gotowe …” od M1-audytor-generalny-005 (D-318, opcja A) w karcie „Plan wypieku” pod kartą kroku, nie na pasie;
+ * karta instrukcji, ostrzeżenie i składniki pod pasem. Oba ekrany: jasny pasek stanu na pasie.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
@@ -112,15 +113,19 @@ describe('M3 p4b: pas na Planie i Prowadzeniu (D-194)', () => {
     act(() => tree.unmount());
   });
 
-  it('prowadzenie: tytuł kroku, czas, „potem …”, Spirala i „Gotowe …” na pasie; karta instrukcji i ostrzeżenie pod pasem', async () => {
+  it('prowadzenie: tytuł kroku, czas i „potem …” na pasie; karta instrukcji, ostrzeżenie i Spirala pod pasem (005)', async () => {
     const bar = jest.spyOn(StatusBar, 'setBarStyle');
     const steps = [krok('pm', 'Mieszanie i autoliza', 'mix', 0), krok('pf', 'Fermentacja', 'bulk_ferment', 1), krok('pp', 'Pieczenie', 'bake', 2)];
     setActiveBake({ id: 'bake_p', recipeName: 'Wiejski', startedAt: teraz, currentStageId: 'pm', steps });
     const tree = await zamontuj(<StolnicaScreen />);
     const pas = pasEkranu(tree.root);
     expect(naglowkiPasa(pas)).toEqual(['Mieszanie i autoliza']);
-    for (const id of ['step-title', 'step-time', 'step-next', 'brand-spiral', 'stolnica-nazwa-wypieku']) {
+    for (const id of ['step-title', 'step-time', 'step-next']) {
       expect([id, poId(pas, id).length > 0]).toEqual([id, true]);
+    }
+    // Spirala i nazwa receptury w karcie „Plan wypieku” pod pasem [M1-audytor-generalny-005, D-318]
+    for (const id of ['brand-spiral', 'stolnica-nazwa-wypieku']) {
+      expect([id, poId(pas, id).length, poId(poId(tree.root, 'karta-planu')[0], id).length > 0]).toEqual([id, 0, true]);
     }
     expect(poId(tree.root, 'step-title')).toHaveLength(1);
     expect(poId(tree.root, 'step-time')).toHaveLength(1);

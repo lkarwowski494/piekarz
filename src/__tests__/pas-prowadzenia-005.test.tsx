@@ -1,7 +1,8 @@
 /**
- * Na pasie prowadzenia mała spirala (92 pt) zamiast pełnej 150–220 pt: karta „Co zrobić” i ostrzeżenie w pierwszym
- * ekranie [M1-audytor-generalny-005; 04-studio-projektowe-001, opcja A]. Widoczność bez przewijania na symulatorze:
- * .maestro/e2e/03-prowadzenie-widok-skupiony.yaml (assertVisible karta-kroku, bez scroll).
+ * Wariant Spirali na pasie (92 pt) zamiast pełnej 150–220 pt [M1-audytor-generalny-005; 04-studio-projektowe-001, 1d0dce0a].
+ * Reaudit 2026-11-09: to nie wystarczyło; od D-318 (opcja A) Spirala prowadzenia jest pod kartą kroku, nie na pasie —
+ * układ pierwszego ekranu sprawdza karta-kroku-pierwszy-ekran-005.test.tsx. Widoczność bez przewijania na symulatorze:
+ * .maestro/e2e/03-prowadzenie-widok-skupiony.yaml (assertVisible karta-kroku i step-warning, bez scroll).
  */
 import fs from 'fs';
 import path from 'path';

@@ -5352,6 +5352,7 @@
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tytul)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/components/stolnica/StrefaPlanu.tsx (tytul)",
       "src/lib/kalendarz-telefonu.ts (tytul)",
       "src/lib/schedule-formatter.ts (kod)"
     ]

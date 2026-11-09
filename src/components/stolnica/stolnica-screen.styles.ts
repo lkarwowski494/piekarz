@@ -42,11 +42,12 @@ export const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     marginBottom: odstepy.m,
   },
+  // W karcie kroku odstęp daje `gap` karty, a dół jej wypełnienie (README §2): bez własnych marginesów, karta kroku
+  // z ostrzeżeniem w pierwszym ekranie [M1-audytor-generalny-005]
   ekran: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: odstepy.s,
-    marginBottom: odstepy.l,
   },
   ekranTekst: {
     flex: 1,
@@ -72,6 +73,5 @@ export const styles = StyleSheet.create({
   activeStepDesc: {
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,
-    marginBottom: odstepy.l,
   },
 });
