@@ -1189,7 +1189,7 @@
   },
   "Dam znać o każdym kroku": {
     "gdzie": [
-      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tytul)"
     ]
   },
   "Dane są zapisywane tylko w tym telefonie.": {

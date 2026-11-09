@@ -5,6 +5,8 @@ Podstawa: D-139 (słowa właściciela: „Pierwszy screen wygląda ładnie… Po
 ## 1. Zasada
 Każdy ekran ma dwie warstwy: **pas** w kolorze marki z tytułem i stanem ekranu oraz **treść wyłącznie w kartach**. Na tle ekranu nie leży żaden goły nagłówek ani akapit (wyjątek: jedna linia informacji na dole, jak „Piekarz działa bez internetu…” na „Dziś”). *Dlaczego:* właściciel wskazał ten układ jako wzorzec, a znaleziska D-139 („Proporcje dokarmiania” poza kartą, inny krój „Kontroli biologicznej”) wynikają z braku jednej reguły.
 
+**Wyjątki nazwane (arkusze poza systemem kart):** `SkladnikiSheet` i `SettingsModal` — karty w treści bez `ArkuszKart` (D-160 p3, p5). Do 1.0.1 (D-308 pkt 3, 04-studio-projektowe-007): `BreadAcademyModal`, `FlourEquivalentsModal`, `VolumeConverterModal`, `FlourBlendModal`, `FlourInventoryModal` zostają na własnym układzie; przeniesienie na `ArkuszKart` w 1.0.1. Arkusz zgody na powiadomienia (`ZgodaPowiadomien`) jest na kartach od M2-014 (D-308 pkt 2). Listę pilnuje `src/__tests__/arkusze-w-kartach-007.test.tsx`. *Dlaczego:* właściciel wybrał wyjątek do 1.0.1 zamiast przenosin w partii 3; nazwany wyjątek z testem nie rozrasta się po cichu.
+
 ## 2. Tokeny układu (kolory bez zmian: `docs/design/tokeny.json`)
 | Token | Wartość | Uwagi |
 |---|---|---|

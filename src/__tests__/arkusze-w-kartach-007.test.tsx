@@ -27,6 +27,7 @@ import { ArkuszDnia } from '../components/kalendarz/ArkuszDnia';
 import { ArkuszPlanu } from '../components/start/ArkuszPlanu';
 import { ImportRecipeModal } from '../components/ImportRecipeModal';
 import { ImportZPlikuArkusz } from '../components/settings/ImportZPlikuArkusz';
+import { ZgodaPowiadomien } from '../components/stolnica/ZgodaPowiadomien';
 import type { SessionStep } from '../core/bake-steps';
 import type { DoughRecipeResult } from '../core/domain-rules';
 import type { PlannedBake } from '../data/bake-sessions-store';
@@ -39,17 +40,21 @@ const WYJATKI: Record<string, string> = {
   'src/components/receptury/SkladnikiSheet.tsx': 'D-160 p3, karty w treści',
   // Ustawienia: sekcje jako karty, pasek z podekranami (README §4 „Ustawienia”, D-160 p5)
   'src/components/SettingsModal.tsx': 'D-160 p5, karty w sekcjach',
-  // Poza zakresem 04-studio-projektowe-003 (siedem arkuszy); zgłoszone jako nowe znalezisko roli 04 w fix 2026-11-09
-  'src/components/stolnica/ZgodaPowiadomien.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
-  'src/components/BreadAcademyModal.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
-  'src/components/FlourEquivalentsModal.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
-  'src/components/VolumeConverterModal.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
-  'src/components/FlourBlendModal.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
-  'src/components/FlourInventoryModal.tsx': '04-studio-projektowe-007 (nowe, poza 003)',
+  // 04-studio-projektowe-007: ZgodaPowiadomien przeniesiony na ArkuszKart (M2-014); pięć kalkulatorów i atlasu mąk —
+  // wyjątek nazwany do 1.0.1 (D-308 pkt 3, README systemu kart §1)
+  'src/components/BreadAcademyModal.tsx': 'D-308 pkt 3, do 1.0.1 (04-studio-projektowe-007)',
+  'src/components/FlourEquivalentsModal.tsx': 'D-308 pkt 3, do 1.0.1 (04-studio-projektowe-007)',
+  'src/components/VolumeConverterModal.tsx': 'D-308 pkt 3, do 1.0.1 (04-studio-projektowe-007)',
+  'src/components/FlourBlendModal.tsx': 'D-308 pkt 3, do 1.0.1 (04-studio-projektowe-007)',
+  'src/components/FlourInventoryModal.tsx': 'D-308 pkt 3, do 1.0.1 (04-studio-projektowe-007)',
 };
 
-/** Siedem arkuszy z 04-studio-projektowe-003: nie mogą trafić na listę wyjątków (DEC-10 a: przenieść). */
+/**
+ * Siedem arkuszy z 04-studio-projektowe-003 (DEC-10 a: przenieść) i arkusz zgody na powiadomienia z 04-studio-
+ * projektowe-007 (D-308 pkt 2, M2-014): nie mogą trafić na listę wyjątków.
+ */
 const SIEDEM = [
+  'src/components/stolnica/ZgodaPowiadomien.tsx',
   'src/components/stolnica/PlanWypiekuArkusz.tsx',
   'src/components/stolnica/PoCoTenKrokArkusz.tsx',
   'src/components/calculator/TemperaturaWodySheet.tsx',
@@ -78,7 +83,7 @@ describe('arkusze pageSheet na systemie kart (M1-audytor-generalny-007; 04-studi
     expect(bezWpisu).toEqual([]);
   });
 
-  it('siedem arkuszy ze znaleziska używa ArkuszKart i nie ma ich na liście wyjątków', () => {
+  it('siedem arkuszy ze znaleziska 003 i arkusz zgody (M2-014) używają ArkuszKart i nie ma ich na liście wyjątków', () => {
     for (const p of SIEDEM) {
       const kod = fs.readFileSync(path.join(KORZEN, p), 'utf8');
       expect({ p, arkuszKart: /<ArkuszKart\b/.test(kod), wyjatek: p in WYJATKI }).toEqual({ p, arkuszKart: true, wyjatek: false });
@@ -125,6 +130,8 @@ const PRZYPADKI: [string, () => React.ReactElement][] = [
   ['arkusz planu', () => <ArkuszPlanu plan={PLAN} teraz={TERAZ} onZacznij={jest.fn()} onUsun={jest.fn()} onClose={jest.fn()} />],
   ['import receptury', () => <ImportRecipeModal visible onClose={jest.fn()} onImportSuccess={jest.fn()} />],
   ['import z pliku', () => <ImportZPlikuArkusz onClose={jest.fn()} onRecipeImported={jest.fn()} />],
+  // M2-014 (04-studio-projektowe-007, D-308 pkt 2)
+  ['zgoda na powiadomienia', () => <ZgodaPowiadomien visible onDalej={jest.fn()} />],
 ];
 
 /** Nagłówek (accessibilityRole="header") poza paskiem arkusza i poza kartą leży goły na tle arkusza (README §1). */
