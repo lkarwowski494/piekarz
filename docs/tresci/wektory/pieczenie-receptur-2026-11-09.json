@@ -1,0 +1,11 @@
+{
+  "opis": "Pieczenie receptur ze źródła (DEC-03 a, D-303): temperatura, czas i naczynie w danych receptury (src/recipes/*.ts), w krokach planu „preheat_oven” i „bake” oraz w fazach prowadzenia. Teksty: docs/tresci/pl|en/pieczenie-receptur.md. Granica „przedział”: wartość w danych receptury musi leżeć w [min, max] (włącznie).",
+  "zrodlo": "rola 06-tresci, fix M2 p2, 2026-11-09",
+  "parametry": [
+    { "parametr": "pizza_napoletana_48h.bakeTempSteamC", "jednostka": "°C", "wartosc": 260, "granica": "wartość dokładna", "twierdzenie": "PIE-PIZ-001" },
+    { "parametr": "pizza_napoletana_48h.bakeTempBrowningC", "jednostka": "°C", "wartosc": 260, "granica": "wartość dokładna", "twierdzenie": "PIE-PIZ-001" },
+    { "parametr": "pizza_napoletana_48h.bakeTimeSteamMinutes", "jednostka": "min", "wartosc": 0, "granica": "wartość dokładna", "twierdzenie": "PIE-PIZ-001", "uwagi": "źródło nie ma fazy z parą" },
+    { "parametr": "pizza_napoletana_48h.bakeTimeBrowningMinutes", "jednostka": "min", "wartosc": 6, "granica": "wartość dokładna", "twierdzenie": "PIE-PIZ-001", "uwagi": "6 min na stali; grill 2–3 min w zdaniu notesPl (pieczenie-receptur.md)" },
+    { "parametr": "pizza_napoletana_48h.recommendedVessel", "jednostka": "naczynie", "wartosc": "baking_steel", "granica": "wartość dokładna", "twierdzenie": "PIE-PIZ-001" }
+  ]
+}

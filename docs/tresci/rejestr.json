@@ -10421,5 +10421,36 @@
     "uproszczenie": "Do czasu źródła plan zostawia te czasy jako nazwane uproszczenie planu (D-256): to rezerwa czasu w harmonogramie, nie zalecenie; tekst kroku nie podaje tych liczb. Kierunek: 15 min mieszania i wyrabiania obejmuje 8–10 min wyrabiania ze źródła; krótsze odgazowanie i kształtowanie niż w planie nie skracają rośnięcia (czasy rośnięcia są ze źródeł).",
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "PIE-PIZ-001",
+    "twierdzenie": "Według King Arthur Baking (przepis „Neapolitan-Style Pizza Crust”) piekarnik z płytą stalową albo kamieniem nagrzewa się do 500–550 °F (do 550 °F, jeśli piekarnik tyle osiąga) i trzyma w tej temperaturze co najmniej 30 minut przed pieczeniem; pizzę piecze się około 6 minut na stali albo 7 minut na kamieniu, potem 2–3 minuty pod górnym grillem, a bez grilla kilka minut dłużej (rachunek: 500 °F = 260 °C, 550 °F ≈ 288 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "King Arthur Baking, „Neapolitan-Style Pizza Crust”, Instructions (nagrzewanie i pieczenie) i Tips; tekst strony (python urllib + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F",
+        "cytat": "preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "jw., Instructions (pieczenie)",
+        "cytat": "Bake the pizza for approximately 6 minutes on the steel or 7 minutes on the stone (give or take). Turn on the oven’s top broiler and continue cooking the pizza for 2 to 3 minutes or until bubbly and charred around the edges.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Wartość dla receptury pizza_napoletana_48h (naczynie: stal): 260 °C, czyli dolna granica przedziału źródła (górna tylko „if your oven goes to 550°F”), i 6 minut na stali; etap pod grillem (2–3 min) w zdaniu wskazówki, bo pola pieczenia receptury opisują dwie fazy w piekarniku. Rachunek: (500 − 32) × 5/9 = 260 °C; (550 − 32) × 5/9 = 287,8 ≈ 288 °C.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "pizza_neapolitanska_temp_pieczenia",
+    "wartosc": 260,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-303",
+    "uwagi": "M1-audytor-generalny-009 (06-tresci-002). Zastępuje 450 °C / 2 min z presetu (bez źródła; ten sam przepis jest źródłem drożdży i czasów receptury, DRO-PIZ-002). Ta sama strona: „Make sure your oven is at the required temperature for at least 30 minutes before baking, so the steel or stone can fully preheat.” oraz „even if you can't use a broiler you can simply bake your pie for a few minutes longer”."
   }
 ]
