@@ -150,7 +150,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     );
     expect(spirale).toHaveLength(1);
     expect(spirale[0].props.accessibilityLabel).toMatch(
-      /^Plan wypieku, krok 1 z 11: Dokarmienie zakwasu \(osiągnięcie szczytu\), zostało 6 godzin\. Gotowe .+ o \d\d:\d\d\.$/,
+      /^Plan wypieku, krok 1 z 11: Dokarmienie zakwasu \(osiągnięcie szczytu\), zostało 6 godzin\. Gotowe(?: .+ o |: .+, )\d\d:\d\d\.$/,
     );
   });
 

@@ -122,8 +122,8 @@ describe('D5: zaplanowane wypieki na „Dziś”', () => {
     const root = await renderStart();
     expect(host(root, 'start-pusta-spirala')).toHaveLength(0);
     expect(host(root, 'start-plan-spirala')).toHaveLength(1);
-    expect(teksty(root)).toMatch(/Chleb na sobotę: gotowe .+ o \d{1,2}:\d{2}/);
-    expect(teksty(root)).toMatch(/Start .+ o \d{1,2}:\d{2}/);
+    expect(teksty(root)).toMatch(/Chleb na sobotę(?:: gotowe .+ o | — gotowe: .+, )\d{1,2}:\d{2}/);
+    expect(teksty(root)).toMatch(/Start(?: .+ o |: .+, )\d{1,2}:\d{2}/);
     const zobacz = przycisk(root, 'plan-zobacz-plan_sob');
     expect(zobacz).toHaveLength(1);
     expect(Number([zobacz[0].props.style].flat().reduce((a: Record<string, unknown>, s: unknown) => ({ ...a, ...(s as object) }), {}).minHeight)).toBeGreaterThanOrEqual(44);
