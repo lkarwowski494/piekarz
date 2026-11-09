@@ -52,14 +52,14 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Zakładając, że plik nie jest eksportem Piekarza
     - Gdy użytkownik go importuje
     - Wtedy widzi komunikat o błędzie, a dane w aplikacji się nie zmieniają
-  - Scenariusz: Eksport bez zakupu
-    - Zakładając, że próba się skończyła bez zakupu
+  - Scenariusz: Eksport bez Pro
+    - Zakładając, że użytkownik nie ma Piekarz Pro (Basic, D-112)
     - Gdy użytkownik eksportuje dane
-    - Wtedy eksport działa bez oferty zakupu (DEC-01 d)
-  - Scenariusz: Import bez zakupu
-    - Zakładając, że próba się skończyła bez zakupu
+    - Wtedy eksport działa bez ekranu Pro (DEC-01 d, D-112; ER-80)
+  - Scenariusz: Import bez Pro
+    - Zakładając, że użytkownik nie ma Piekarz Pro (Basic, D-112)
     - Gdy użytkownik importuje plik z własnymi danymi
-    - Wtedy import działa bez oferty zakupu (D-039)
+    - Wtedy import działa bez ekranu Pro (D-039, D-112; ER-80)
 
 ### BR-DANE-004: Usunięcie wszystkich danych
 - Przepływ: PR-07, PR-16
@@ -69,10 +69,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Zakładając, że użytkownik wybiera usunięcie wszystkich danych
     - Gdy potwierdza
     - Wtedy przed usunięciem powstaje kopia bezpieczeństwa, a potem receptury, zakwasy, historia i powiadomienia znikają
-  - Scenariusz: Usunięcie bez zakupu
-    - Zakładając, że próba się skończyła bez zakupu
+  - Scenariusz: Usunięcie bez Pro
+    - Zakładając, że użytkownik nie ma Piekarz Pro albo Pro wygasło (D-112)
     - Gdy użytkownik usuwa recepturę albo zakwas
-    - Wtedy usunięcie działa bez oferty zakupu
+    - Wtedy usunięcie działa bez ekranu Pro (ER-80)
 
 ### BR-ZAK-001: Zakup i przywrócenie przez App Store
 - Przepływ: PR-09 · Ograniczenie: OG-01, OG-02 (subskrypcja dostępna na wszystkich urządzeniach użytkownika), OG-03
@@ -99,10 +99,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
 - Przepływ: PR-09 · zależy od: ZAL-042
 - Dowód potrzeby: 28 z 338 recenzji o płatności, 23 z nich ≤ 3★ (S-27): ukryta subskrypcja, paywall z odliczaniem, kłopot z anulowaniem próby (S-16, rec. 13931423989, 13775409265); H-03
 - Kryteria akceptacji:
-  - Scenariusz: Przed startem próby
-    - Zakładając, że użytkownik widzi ofertę 14 dni próby
+  - Scenariusz: Przed zakupem Pro
+    - Zakładając, że użytkownik widzi ekran Pro (Pro bez próby, D-112)
     - Gdy czyta ofertę
-    - Wtedy widzi długość próby, cenę po próbie, okres odnowienia i jak anulować w ustawieniach App Store
+    - Wtedy widzi cenę planu, okres odnowienia i jak anulować w ustawieniach App Store, bez okresu próbnego (ER-80)
   - Scenariusz: Zamknięcie oferty
     - Zakładając, że użytkownik zamyka ofertę bez wyboru
     - Gdy wraca do aplikacji
@@ -132,7 +132,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
   - Scenariusz: Pierwsze użycie kalkulatora
     - Zakładając, że użytkownik nie ma Pro
     - Gdy pierwszy raz używa kalkulatora
-    - Wtedy kalkulator działa w Basic bez ekranu Pro i bez oferty próby
+    - Wtedy kalkulator działa w Basic bez ekranu Pro (ER-80)
   - Scenariusz: Funkcja Pro
     - Zakładając, że użytkownik nie ma Pro
     - Gdy stuka funkcję oznaczoną „Pro” (np. plan wstecz „gotowe o…”)
@@ -179,7 +179,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
   - Scenariusz: Wybór prowadzi do przepływu
     - Zakładając, że użytkownik wybrał „zakładam zakwas”
     - Gdy zatwierdza wybór
-    - Wtedy trafia do PR-11, a oferta próby pojawia się dopiero przy pierwszym użyciu funkcji (BR-ZAK-005)
+    - Wtedy trafia do PR-11, a ekran Pro pojawia się tylko przy stuknięciu funkcji Pro (BR-ZAK-005; ER-80)
   - Scenariusz: Bez udawanych danych
     - Zakładając, że użytkownik nie ma jeszcze danych
     - Gdy aplikacja pokazuje receptury, zakwas albo historię

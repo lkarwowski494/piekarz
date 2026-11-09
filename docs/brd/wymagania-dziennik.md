@@ -11,7 +11,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Gdy wybiera rodzaj pieczywa
     - Wtedy widzi receptury bazowe tego rodzaju z procentami i może zacząć od nich PR-01
   - Scenariusz: Bez ukrywania receptur
-    - Zakładając, że użytkownik ma dostęp do funkcji (próba albo zakup)
+    - Zakładając, że użytkownik ma Basic albo Pro (D-112; ER-80)
     - Gdy przegląda receptury bazowe
     - Wtedy żadna nie jest zablokowana osobno (decyzja D-034, pyt. 8a)
   - Scenariusz: Katalog w 1.0
@@ -52,10 +52,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Zakładając, że w historii jest wpis
     - Gdy użytkownik wybiera „piecz ponownie”
     - Wtedy zaczyna PR-02 z tą samą recepturą i widzi notatkę z poprzedniego razu
-  - Scenariusz: Przegląd historii bez zakupu
-    - Zakładając, że próba się skończyła bez zakupu
+  - Scenariusz: Dziennik bez Pro
+    - Zakładając, że użytkownik nie ma Piekarz Pro (Basic, D-112)
     - Gdy użytkownik otwiera historię
-    - Wtedy widzi wszystkie wpisy, ale nie może dodać nowego (DEC-01 d, BR-ZAK-004)
+    - Wtedy widzi wszystkie wpisy i może dodać nowy: Dziennik jest w Basic na zawsze, porównanie i statystyki w Pro (D-112, D-116; ER-80)
 
 ### BR-RECP-004: Porównanie dwóch wypieków
 - Przepływ: PR-06
@@ -191,7 +191,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Gdy użytkownik wraca z protokołu do prowadzenia
     - Wtedy jest na tym samym kroku, zegar liczył dalej, a powiadomienia się nie zmieniły
   - Scenariusz: Bez dostępu
-    - Zakładając, że okres próbny minął bez zakupu
+    - Zakładając, że użytkownik nie ma Piekarz Pro (Basic, D-112)
     - Gdy użytkownik otwiera Doktora
     - Wtedy dostęp do protokołów jest taki sam jak do Doktora dla bochenka (F-43, D-038), a ostrzeżenia bezpieczeństwa z BR-DIAG-004 nie są ukryte za ofertą w trakcie wypieku rozpoczętego z dostępem (D-039 pkt 3)
 
