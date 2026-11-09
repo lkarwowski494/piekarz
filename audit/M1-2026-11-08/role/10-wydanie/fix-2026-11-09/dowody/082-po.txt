@@ -1,0 +1,38 @@
+PASS tests/asc-klucz-082.test.ts
+  testflight.yml: wysyłka buildu tylko po akceptacji właściciela (D-314)
+    ✓ zadanie build (klucz ASC, podpis w chmurze, upload) jest w środowisku release (2 ms)
+    ✓ każde zadanie z sekretem ASC jest w środowisku release; nazwy sekretów bez zmian (2 ms)
+  asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314)
+    ✓ dwa zadania: na-sucho i zapis
+    ✓ na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false) (1 ms)
+    ✓ na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody
+    ✓ zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody
+    ✓ wyzwalacz bez zmian: tylko workflow_dispatch; token repo tylko do odczytu
+  asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314)
+    ✓ dwa zadania: na-sucho i zapis (1 ms)
+    ✓ na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false) (4 ms)
+    ✓ na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody
+    ✓ zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody (1 ms)
+    ✓ wyzwalacz bez zmian: tylko workflow_dispatch; token repo tylko do odczytu
+  asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314)
+    ✓ istnieje; tylko ręcznie (workflow_dispatch z wejściem szczegoly), bez harmonogramu, push i pull_request
+    ✓ uprawnienia contents: read; bez środowiska release i bez własnych kroków (zapisu nie ma czym zrobić) (1 ms)
+    ✓ wywołuje workflow lkarwowski494/apps4brew-narzedzia przypięty do pełnego SHA (40 znaków hex), konfiguracja docs/wydanie/asc-kontrola.json
+    ✓ sekrety przekazane jawnie: dokładnie ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez secrets: inherit)
+  docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów
+    ✓ bundle id = app.json; produkty = PRODUKTY (src/lib/platnosci/konfiguracja.ts) (1 ms)
+    ✓ ceny i terytoria = storefronty z ceną ręczną w docs/wydanie/ceny.json; Family Sharing = ceny.json (1 ms)
+    ✓ bez oferty wprowadzającej (D-112): ceny.json jej nie ma, kontrola zgłosi każdą
+    ✓ kategoria Food & Drink + Productivity (D-055, instrukcja-ustawien §10.7)
+    ✓ adresy i metadane z pliku generowanego scripts/asc-kontrola-oczekiwane.mjs (aktualny: --check) (37 ms)
+    ✓ bez identyfikatorów klucza i sekretów w plikach kontroli (3 ms)
+  procedura unieważnienia klucza App Store Connect (D-314)
+    ✓ sekcja istnieje i opisuje Revoke w Users and Access → Integrations
+    ✓ wymiana sekretów w obu repo, które dzielą klucz (Piekarz i Napar), i sprawdzenie przebiegiem asc-kontrola (1 ms)
+    ✓ kiedy unieważnić: wyciek, odejście współpracownika, sekret w logu
+
+Test Suites: 1 passed, 1 total
+Tests:       25 passed, 25 total
+Snapshots:   0 total
+Time:        0.441 s, estimated 1 s
+Ran all test suites matching /tests\/asc-klucz-082.test.ts/i.

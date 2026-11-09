@@ -845,8 +845,8 @@
       "przyczyna": null,
       "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
       "test_akceptacyjny": "jeden kanał startu z odczytanym regulaminem, budżet godzin i plan na złe przyjęcie w docs/wzrost.md (albo decyzja b z wyjątkiem)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "83235746"
     },
     {
       "id": "M1-audytor-generalny-019",
@@ -2041,8 +2041,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/02-monetyzacja/02-monetyzacja-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 02-monetyzacja-001 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "a6d8013c, 1d7c3fc0"
     },
     {
       "id": "M1-audytor-generalny-079",
@@ -2081,8 +2081,8 @@
       "przyczyna": "SYS-04",
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-004 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "6a6b410e, 1d7c3fc0"
     },
     {
       "id": "M1-audytor-generalny-081",
@@ -2119,8 +2119,8 @@
       "przyczyna": null,
       "raport": "role/10-wydanie/10-wydanie-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 10-wydanie-007 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "0ddecf89, a57d6de2"
     },
     {
       "id": "M1-audytor-generalny-083",
@@ -2160,8 +2160,8 @@
       "przyczyna": null,
       "raport": "role/11-wzrost/11-wzrost-2026-11-08.md",
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 11-wzrost-005 (pole „Test akceptacyjny”)",
-      "status": "zatwierdzone",
-      "commit": null
+      "status": "naprawione-do-weryfikacji",
+      "commit": "14e5f546"
     },
     {
       "id": "M1-audytor-generalny-085",

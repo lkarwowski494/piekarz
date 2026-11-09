@@ -1,0 +1,3 @@
+Test Suites: 646 passed, 646 total
+Tests:       6755 passed, 6755 total
+npm run verify: kod 0 (2026-11-09, przed commitem 018)

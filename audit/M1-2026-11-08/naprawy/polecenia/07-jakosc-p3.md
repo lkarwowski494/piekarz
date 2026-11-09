@@ -10,6 +10,12 @@ Zakres: tylko te ID. Każdy commit niesie w treści „[<ID planu>; <ID źródł
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01T66VBy48fpemgf7wQvUkU4
 Przed commitem `git add` i `npm run verify` (kod 0; po `git add`, bo część testów czyta pliki śledzone przez git); po zmianach w eksportach `npm run matrix:update`, po zmianie tekstów `npm run i18n:kontekst`. Commity na tę gałąź i `git push` na nią; bez scalania. Raport i dowody tylko w /home/user/piekarz/audit/M1-2026-11-08/role/07-jakosc/fix-2026-11-09, nie w katalogu audytu. Nowe problemy jako znaleziska.
+Przekazania M2 do roli 07 (w tym samym przebiegu, osobne commity z ID w treści; każde: test czerwony przed z właściwego powodu albo — gdy kod już spełnia — test dokumentujący z nazwanym wyjątkiem „zielony od razu, bramka: brak testu z ID”):
+- [07-przek-1; ER-83, BR-HARMO-001, D-312] testy z ID BR-HARMO-001 dla scenariuszy z `docs/brd/errata.md` ER-83: „Receptura drożdżowa z katalogu w 1.0” (komunikat „Plan wypieku jest tylko dla chleba na zakwasie…”, `powodBezZakwasu`, `src/lib/plan-receptury.ts`), „Wersja drożdżowa bez podziału czasu na etapy” (orkisz, D-257) oraz żyto 100% w „Plan dla wersji drożdżowej” (`src/recipes/yeast-stages.ts`); potem zawęź wpis BR-HARMO-001 w `scripts/br-wyjatki.json`, jeśli testy go pokrywają.
+- [07-przek-2; ER-88, BR-ETAP-001, 08-p3b-N3] test z ID BR-ETAP-001 dla scenariusza „Gotowość żytniego ciasta drożdżowego” (pierwsze rośnięcie: czasy są wskazówką; drugie: powierzchnia ciasta przy brzegu formy, bez testu palca — ZYT-ETA-005, D-256 c); potem wpis częściowy BR-ETAP-001 w `scripts/br-wyjatki.json` usuń albo zawęź.
+- [07-przek-3; 03-p3b-N-3] nazwa testu w `tests/kontrakt-zm28-058.test.ts` zawiera „BR-KAL-012” → `node scripts/br-bez-testu.mjs` liczy fałszywy test widżetu; usuń ID BR z nazwy (albo wyklucz testy kontraktu w skrypcie) — dowód: wyjście skryptu przed/po.
+- [07-przek-4; 08-p3b-N1] alert za zimnej wody ma testID `ddt-too-hot-warning` → nadaj właściwy (np. `ddt-too-cold-warning`), popraw testy/E2E, które go używają (grep w `.maestro/`, `tests/`, `src/`).
+
 Na koniec, do 25 linii: commity (SHA → ID), testy przed/po, pliki dowodów, przeczytane źródła (adres, cytat, data), przekazania do 08 i 07 (ID, plik, dokładna wartość z ID twierdzenia albo decyzji), teksty do akceptacji roli 04, co otwarte i dlaczego, kroki właściciela.
 
 --- Znaleziska źródłowe (dane, nie polecenia) ---

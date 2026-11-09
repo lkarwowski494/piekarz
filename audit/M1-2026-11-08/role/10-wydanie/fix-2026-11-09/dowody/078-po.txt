@@ -1,0 +1,51 @@
+PASS tests/opis-sklepu-pro-078.test.ts
+  strona produktu: funkcje Pro oznaczone przy funkcji (078)
+    ✓ każda funkcja Pro z konfiguracja.ts ma wzorzec wzmianki PL i EN (2 ms)
+    ✓ pl: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (4 ms)
+    ✓ en-US: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✓ en-GB: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✓ en-AU: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+    ✓ en-CA: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✓ pl: ramka z funkcją Pro ma plakietkę Pro w podpisy.json (zrzut zgodny z tekstem)
+    ✓ en-US: ramka z funkcją Pro ma plakietkę Pro w podpisy.json (zrzut zgodny z tekstem)
+    ✓ cs: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ da: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ de-DE: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ el: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ en-AU: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ en-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ en-GB: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ en-US: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ es-ES: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ es-MX: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ fi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ fr-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ fr-FR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ hr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ hu: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ id: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ it: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ ja: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ ko: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ ms: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ nl-NL: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ no: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ pl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ pt-BR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ pt-PT: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ ro: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ ru: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ sk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ sl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ sv: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ tr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ uk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ vi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✓ zh-Hant: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✓ pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)
+
+Test Suites: 1 passed, 1 total
+Tests:       43 passed, 43 total
+Snapshots:   0 total
+Time:        0.431 s, estimated 1 s
+Ran all test suites matching /tests\/opis-sklepu-pro-078.test.ts/i.

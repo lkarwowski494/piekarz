@@ -1,0 +1,1251 @@
+FAIL tests/opis-sklepu-pro-078.test.ts
+  strona produktu: funkcje Pro oznaczone przy funkcji (078)
+    ✓ każda funkcja Pro z konfiguracja.ts ma wzorzec wzmianki PL i EN (2 ms)
+    ✕ pl: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (5 ms)
+    ✕ en-US: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (2 ms)
+    ✕ en-GB: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✕ en-AU: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✕ en-CA: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)” (1 ms)
+    ✓ pl: ramka z funkcją Pro ma plakietkę Pro w podpisy.json (zrzut zgodny z tekstem) (1 ms)
+    ✓ en-US: ramka z funkcją Pro ma plakietkę Pro w podpisy.json (zrzut zgodny z tekstem)
+    ✕ cs: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (4 ms)
+    ✕ da: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ de-DE: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ el: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (3 ms)
+    ✕ en-AU: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ en-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ en-GB: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (3 ms)
+    ✕ en-US: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ es-ES: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ es-MX: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ fi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ fr-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ fr-FR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ hr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (3 ms)
+    ✕ hu: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ id: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ it: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ ja: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ ko: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ ms: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ nl-NL: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ no: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ pl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ pt-BR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ pt-PT: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ ro: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ ru: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ sk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ sl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ sv: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ tr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ uk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ vi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+    ✕ zh-Hant: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło (1 ms)
+    ✕ pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz) (1 ms)
+    ✕ akapit dostępu wyjaśnia oznaczenie „(Pro)” (pl, en-US) (1 ms)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › pl: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 14
+
+      Object {
+        "kod": "pl",
+    -   "opis": Array [],
+    -   "promocja": Array [],
+    +   "opis": Array [
+    +     "zaczyn: Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu.",
+    +     "plan-wstecz: PLAN OD GODZINY „GOTOWE”",
+    +     "plan-wstecz: Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku.",
+    +     "kolejny-zakwas: Prowadzisz kilka zakwasów.",
+    +     "proporcje-zakwasu: Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5.",
+    +     "gotowosc-zakwasu: Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta.",
+    +     "przypomnienia-zakwasu: Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem.",
+    +     "porownanie: Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.",
+    +     "kolejny-zakwas: Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.",
+    +   ],
+    +   "promocja": Array [
+    +     "plan-wstecz: Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku.",
+    +   ],
+      }
+
+      86 |   ] as const)('%s: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”', (kod, jezyk) => {
+      87 |     const m = meta(kod);
+    > 88 |     expect({ kod, promocja: bezOznaczenia(m.tekstPromocyjny, jezyk), opis: bezOznaczenia(m.opis, jezyk) }).toEqual({ kod, promocja: [], opis: [] });
+         |                                                                                                            ^
+      89 |   });
+      90 |
+      91 |   it.each([
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:88:108)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-US: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 16
+
+      Object {
+        "kod": "en-US",
+    -   "opis": Array [],
+    -   "promocja": Array [],
+    +   "opis": Array [
+    +     "plan-wstecz: Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage.",
+    +     "zaczyn: The baker's percentage counts the flour and water in your starter and in a preferment.",
+    +     "plan-wstecz: A PLAN FROM THE \"READY\" TIME",
+    +     "plan-wstecz: Choose when the bread should be ready, and Baker works back to the start time of every step.",
+    +     "plan-wstecz: If there is not enough time, it gives the earliest possible ready time.",
+    +     "kolejny-zakwas: Keep several starters.",
+    +     "proporcje-zakwasu: Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio.",
+    +     "gotowosc-zakwasu: When the starter has doubled in volume, Baker marks it ready for the dough.",
+    +     "przypomnienia-zakwasu: After 12 hours on the counter without a feeding, a notification reminds you.",
+    +     "porownanie: The Journal shows statistics, and \"Bake Again\" opens the same recipe.",
+    +     "kolejny-zakwas: Pro adds planning, starter care, more starters and recipes.",
+    +   ],
+    +   "promocja": Array [
+    +     "plan-wstecz: Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends.",
+    +   ],
+      }
+
+      86 |   ] as const)('%s: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”', (kod, jezyk) => {
+      87 |     const m = meta(kod);
+    > 88 |     expect({ kod, promocja: bezOznaczenia(m.tekstPromocyjny, jezyk), opis: bezOznaczenia(m.opis, jezyk) }).toEqual({ kod, promocja: [], opis: [] });
+         |                                                                                                            ^
+      89 |   });
+      90 |
+      91 |   it.each([
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:88:108)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-GB: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 16
+
+      Object {
+        "kod": "en-GB",
+    -   "opis": Array [],
+    -   "promocja": Array [],
+    +   "opis": Array [
+    +     "plan-wstecz: Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage.",
+    +     "zaczyn: The baker's percentage counts the flour and water in your starter and in a preferment.",
+    +     "plan-wstecz: A PLAN FROM THE \"READY\" TIME",
+    +     "plan-wstecz: Choose when the bread should be ready, and Baker works back to the start time of every step.",
+    +     "plan-wstecz: If there is not enough time, it gives the earliest possible ready time.",
+    +     "kolejny-zakwas: Keep several starters.",
+    +     "proporcje-zakwasu: Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio.",
+    +     "gotowosc-zakwasu: When the starter has doubled in volume, Baker marks it ready for the dough.",
+    +     "przypomnienia-zakwasu: After 12 hours on the counter without a feeding, a notification reminds you.",
+    +     "porownanie: The Journal shows statistics, and \"Bake Again\" opens the same recipe.",
+    +     "kolejny-zakwas: Pro adds planning, starter care, more starters and recipes.",
+    +   ],
+    +   "promocja": Array [
+    +     "plan-wstecz: Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends.",
+    +   ],
+      }
+
+      86 |   ] as const)('%s: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”', (kod, jezyk) => {
+      87 |     const m = meta(kod);
+    > 88 |     expect({ kod, promocja: bezOznaczenia(m.tekstPromocyjny, jezyk), opis: bezOznaczenia(m.opis, jezyk) }).toEqual({ kod, promocja: [], opis: [] });
+         |                                                                                                            ^
+      89 |   });
+      90 |
+      91 |   it.each([
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:88:108)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-AU: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 16
+
+      Object {
+        "kod": "en-AU",
+    -   "opis": Array [],
+    -   "promocja": Array [],
+    +   "opis": Array [
+    +     "plan-wstecz: Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage.",
+    +     "zaczyn: The baker's percentage counts the flour and water in your starter and in a preferment.",
+    +     "plan-wstecz: A PLAN FROM THE \"READY\" TIME",
+    +     "plan-wstecz: Choose when the bread should be ready, and Baker works back to the start time of every step.",
+    +     "plan-wstecz: If there is not enough time, it gives the earliest possible ready time.",
+    +     "kolejny-zakwas: Keep several starters.",
+    +     "proporcje-zakwasu: Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio.",
+    +     "gotowosc-zakwasu: When the starter has doubled in volume, Baker marks it ready for the dough.",
+    +     "przypomnienia-zakwasu: After 12 hours on the counter without a feeding, a notification reminds you.",
+    +     "porownanie: The Journal shows statistics, and \"Bake Again\" opens the same recipe.",
+    +     "kolejny-zakwas: Pro adds planning, starter care, more starters and recipes.",
+    +   ],
+    +   "promocja": Array [
+    +     "plan-wstecz: Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends.",
+    +   ],
+      }
+
+      86 |   ] as const)('%s: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”', (kod, jezyk) => {
+      87 |     const m = meta(kod);
+    > 88 |     expect({ kod, promocja: bezOznaczenia(m.tekstPromocyjny, jezyk), opis: bezOznaczenia(m.opis, jezyk) }).toEqual({ kod, promocja: [], opis: [] });
+         |                                                                                                            ^
+      89 |   });
+      90 |
+      91 |   it.each([
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:88:108)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-CA: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  2
+    + Received  + 16
+
+      Object {
+        "kod": "en-CA",
+    -   "opis": Array [],
+    -   "promocja": Array [],
+    +   "opis": Array [
+    +     "plan-wstecz: Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage.",
+    +     "zaczyn: The baker's percentage counts the flour and water in your starter and in a preferment.",
+    +     "plan-wstecz: A PLAN FROM THE \"READY\" TIME",
+    +     "plan-wstecz: Choose when the bread should be ready, and Baker works back to the start time of every step.",
+    +     "plan-wstecz: If there is not enough time, it gives the earliest possible ready time.",
+    +     "kolejny-zakwas: Keep several starters.",
+    +     "proporcje-zakwasu: Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio.",
+    +     "gotowosc-zakwasu: When the starter has doubled in volume, Baker marks it ready for the dough.",
+    +     "przypomnienia-zakwasu: After 12 hours on the counter without a feeding, a notification reminds you.",
+    +     "porownanie: The Journal shows statistics, and \"Bake Again\" opens the same recipe.",
+    +     "kolejny-zakwas: Pro adds planning, starter care, more starters and recipes.",
+    +   ],
+    +   "promocja": Array [
+    +     "plan-wstecz: Sourdough planner with baker's percentage: recipe amounts, a plan back from your ready time, timers that ring while the phone is locked.",
+    +   ],
+      }
+
+      86 |   ] as const)('%s: każde zdanie promocji i opisu z funkcją Pro ma „(Pro)”', (kod, jezyk) => {
+      87 |     const m = meta(kod);
+    > 88 |     expect({ kod, promocja: bezOznaczenia(m.tekstPromocyjny, jezyk), opis: bezOznaczenia(m.opis, jezyk) }).toEqual({ kod, promocja: [], opis: [] });
+         |                                                                                                            ^
+      89 |   });
+      90 |
+      91 |   it.each([
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:88:108)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › cs: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "cs",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › da: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "da",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › de-DE: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "de-DE",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › el: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "el",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-AU: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "en-AU",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "en-CA",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-GB: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "en-GB",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › en-US: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "en-US",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › es-ES: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "es-ES",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › es-MX: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "es-MX",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › fi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "fi",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › fr-CA: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "fr-CA",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › fr-FR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "fr-FR",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › hr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "hr",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › hu: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "hu",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › id: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "id",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › it: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "it",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › ja: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "ja",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › ko: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "ko",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › ms: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "ms",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › nl-NL: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "nl-NL",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › no: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "no",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › pl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "pl",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › pt-BR: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "pt-BR",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › pt-PT: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "pt-PT",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › ro: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "ro",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › ru: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "ru",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › sk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "sk",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › sl: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "sl",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › sv: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "sv",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › tr: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "tr",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › uk: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "uk",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › vi: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "vi",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › zh-Hant: tekst promocyjny ma oznaczenie Pro, a każda sekcja opisu tyle oznaczeń co źródło
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -1,8 +1,8 @@
+      Object {
+        "kod": "zh-Hant",
+    -   "promocja": true,
+    +   "promocja": false,
+        "sekcje": Array [
+          0,
+          0,
+          0,
+          0,
+
+      104 |     const zrodlo = meta(kod.startsWith('en-') ? 'en-US' : 'pl');
+      105 |     const sekcje = (s: string) => s.split('\n\n').map(ile);
+    > 106 |     expect({ kod, promocja: ile(m.tekstPromocyjny) > 0, sekcje: sekcje(m.opis) }).toEqual({ kod, promocja: true, sekcje: sekcje(zrodlo.opis) });
+          |                                                                                   ^
+      107 |   });
+      108 |
+      109 |   it('pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)', () => {
+
+      at toEqual (tests/opis-sklepu-pro-078.test.ts:106:83)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › pl i en-US: te same sekcje z oznaczeniem poza zdaniem wstępu (EN nazywa w nim plan wstecz)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 5
+    Received:    0
+
+      111 |     const en = meta('en-US').opis.split('\n\n').map(ile);
+      112 |     expect(en.slice(1)).toEqual(pl.slice(1));
+    > 113 |     expect(pl.reduce((a, b) => a + b, 0)).toBeGreaterThanOrEqual(5);
+          |                                           ^
+      114 |   });
+      115 |
+      116 |   it('akapit dostępu wyjaśnia oznaczenie „(Pro)” (pl, en-US)', () => {
+
+      at Object.toBeGreaterThanOrEqual (tests/opis-sklepu-pro-078.test.ts:113:43)
+
+  ● strona produktu: funkcje Pro oznaczone przy funkcji (078) › akapit dostępu wyjaśnia oznaczenie „(Pro)” (pl, en-US)
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "Pro dodaje funkcje oznaczone (Pro)"
+    Received string:    "Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.·
+    RECEPTURY I ILOŚCI
+    Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu. Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.·
+    PLAN OD GODZINY „GOTOWE”
+    Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.·
+    PROWADZENIE KROK PO KROKU
+    Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.·
+    ZAKWASY
+    Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.·
+    DOKTOR CHLEBA
+    Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.·
+    DZIENNIK
+    Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.·
+    TWOJE DANE
+    Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.·
+    WARTO WIEDZIEĆ
+    Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.·
+    DOSTĘP I ZAKUP
+    Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store.
+    Warunki użytkowania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/·
+    Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim."
+
+      115 |
+      116 |   it('akapit dostępu wyjaśnia oznaczenie „(Pro)” (pl, en-US)', () => {
+    > 117 |     expect(meta('pl').opis).toContain('Pro dodaje funkcje oznaczone (Pro)');
+          |                             ^
+      118 |     expect(meta('en-US').opis).toContain('Pro adds the features marked (Pro)');
+      119 |   });
+      120 | });
+
+      at Object.toContain (tests/opis-sklepu-pro-078.test.ts:117:29)
+
+Test Suites: 1 failed, 1 total
+Tests:       41 failed, 3 passed, 44 total
+Snapshots:   0 total
+Time:        1.081 s
+Ran all test suites matching /tests\/opis-sklepu-pro-078.test.ts/i.

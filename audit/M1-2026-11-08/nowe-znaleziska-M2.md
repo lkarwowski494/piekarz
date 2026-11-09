@@ -131,3 +131,17 @@
 - N-3 (P2→P3): nazwa testu kontrakt-zm28-058 zawiera „BR-KAL-012” → br-bez-testu widzi fałszywy test widżetu (rola 07).
 - N-4 (P2→P3): „Kolejność i przekazanie” w kontrakcie sprzed rozszerzeń 1.0 (rola 03).
 - Przekazania: 01 (statusy ER-84, ER-87), 02 (F-70 bez Basic/Pro; F-82/F-83 „zawsze”).
+
+## Rola 10 p3 i p3b (2026-11-09): 078 a6d8013c, 080 6a6b410e, 082 0ddecf89 (+ M2: 1d7c3fc0 przekład, a57d6de2 procedura)
+- 10-wydanie-N1 (P2→P3 wg D-288, klasa: treść strony): `site/index.html` podaje „15 receptur bazowych” (strona poza zakresem M2 — zakaz zmian strony; krok właściciela/rola 10 przy publikacji strony).
+- 082-N2 (P2→P3, klasa: proces/łańcuch dostaw): `asc-kontrola.yml` przypięty do SHA 43afe81a, który istnieje tylko na gałęzi `asc-kontrola-brak-ofert` repo apps4brew-narzedzia (main ma sam Initial commit) — usunięcie gałęzi zepsuje kontrolę; krok właściciela: scalić do main albo nie usuwać.
+- 082-N3 (P2→P3, klasa: bezpieczeństwo, ryzyko teoretyczne przy jednym właścicielu z prawem zapisu): sekrety ASC na poziomie repo (przebiegi na sucho i kontrola bez środowiska) — opisane w procedurze §5; opcje (a) ograniczyć gałęzie, (b) osobny klucz tylko do odczytu.
+- Przegląd ścieżki wrażliwej 082: brak P0/P1; P2-1/P2-2 → procedura §5 (commit M2); P2-3 (czy repo narzędzi publiczne) — publiczne wg list_repos 2026-11-09.
+- Drugi przegląd AI przekładu 078/080 (29 lokalizacji): brak P1; P2/P3 → 1d7c3fc0. Niska pewność: el, fi, hu, ja, ko, zh-Hant, sl/hr — przegląd natywny krok właściciela (DEC-06).
+- Teksty do akceptacji roli 04: promocyjny pl/en-US/en-CA, sekcja „WERSJA NA DROŻDŻACH I MASZYNA DO CHLEBA”, „Opieka nad zakwasem (Pro)”, „(zaczyn: Pro)”.
+- Kroki właściciela: środowisko `release` (Required reviewers, tylko master) PRZED pierwszym przebiegiem; sekret `ASC_KEY_P8` (surowy .p8) dla asc-kontrola; rola klucza w ASC; wklejenie tekstów sklepu z docs/wydanie/ustawienia/<kod>.md.
+
+## Rola 11 p3 (2026-11-09): 018 83235746, 084 14e5f546 (D-315 do weta)
+- 11-p3-N1 (P2→P3 wg D-288, klasa: dokumenty): H-01 w `docs/wzrost.md:100` i reguła rozstrzygania mówią o DEC-01 d, D-038, „zamrożeniu”; `hipotezy.json` o Basic/Pro — razem z 083 (11-wzrost-001, blokada P3).
+- 11-p3-N2 (P2→P3, klasa: prawo/marketing): wiersz FTC w „Jawność i prawo” `[DO USTALENIA]` (ftc.gov 404; ecfr.gov 16 CFR 255 dostępne) — przed szkicem wpisu na The Fresh Loaf.
+- Kroki właściciela: weto/potwierdzenie D-315; po wydaniu `data_wydania` w hipotezy.json i wiersz App Store w dzienniku; konto i wpis TFL po wydaniu, każde za osobną zgodą.

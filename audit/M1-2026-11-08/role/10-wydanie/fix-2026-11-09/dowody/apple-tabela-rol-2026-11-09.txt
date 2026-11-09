@@ -1,0 +1,117 @@
+- | Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support
+Eligible for events and additional benefits | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access.
+Download beta software | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access.
+Post in Apple Developer Forums | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access.
+Accept legal agreements | Full access. | - | - | - | - | - | - | -
+Renew membership | Full access. | - | - | - | - | - | - | -
+Submit certificate signing requests | Full access. | Full access. | Requires access to Certificates, Identifiers &amp; Profiles, | Requires access to Certificates, Identifiers &amp; Profiles, | - | - | - | -
+Create and revoke development certificates | Full access. | Full access. | Requires access to Certificates, Identifiers &amp; Profiles, | Requires access to Certificates, Identifiers &amp; Profiles, | - | - | - | -
+Create and revoke distribution certificates | Full access. | Full access. | Requires access to Certificates, Identifiers &amp; Profiles, | - | - | - | - | -
+Create Developer ID certificates | Full access. | - | - | - | - | - | - | -
+Create other certificate types | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Create cloud-managed Developer ID certificates | Full access. | Checkmark | - | - | - | - | - | -
+Create other cloud-managed certificate types | Full access. | Full access. | Checkmark | Checkmark | - | - | - | -
+Create development provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires Xcode Automatic Signing. | - | - | - | -
+Delete development provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Create and delete distribution provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Download provisioning profiles | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | -
+Register and configure App IDs | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires Xcode Automatic Signing. | - | - | - | -
+Delete App IDs | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Add UDIDs | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires Xcode Automatic Signing. | - | - | - | -
+Disable UDIDs | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Create keys | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | - | - | - | - | -
+Create and revoke Safari Extension Certificates | Full access. | Full access. | Requires access to Certificates, Identifiers and Profiles, w | Requires access to Certificates, Identifiers and Profiles, g | - | - | - | -
+Notarize software | Full access. | Full access. | Full access. | Full access. | - | - | - | -
+Use Xcode Cloud | Full access. | Full access. | Full access. | Read access only. | - | - | - | -
+=====
+Business
+- | Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support
+Manage Business | Full access. | Full access. | - | - | Full access. | - | - | -
+Sign agreements | Full access. | - | - | - | - | - | - | -
+=====
+Users and Access
+- | Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support
+View Users and Access | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access.
+Manage Users and Access | Full access. | Full access. | Limited access. | - | - | - | - | -
+Manage app access | Full access. | Full access. | Limited access. | - | - | - | - | -
+Manage sandbox testers | Full access. | Full access. | Full access. | Full access. | - | - | - | -
+Access can’t be limited to certain apps | Full access. | Full access. | - | - | Full access. | - | - | -
+Generate API keys | Full access. | Full access. | - | - | - | - | - | -
+Manage webhooks | Full access. | Full access. | Full access. | - | - | - | - | -
+Manage access to Certificates, Identifiers & Profiles* | Full access. | Full access. | Checkmark | - | - | - | - | -
+Can be granted access to Certificates, Identifiers & Profile | Full access. | Full access. | Limited access. | Limited access. | - | - | - | -
+Manage access to cloud-managed Developer ID certificates | Full access. | Checkmark | - | - | - | - | - | -
+Manage access to other cloud-managed certificates | Full access. | Full access. | Checkmark | Checkmark | - | - | - | -
+View crash and energy logs in Xcode Organizer | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access. | Full access.
+=====
+Apps
+- | Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support
+Create app records | Full access. | Full access. | Full access. | Requires access to create app records, granted in Users and  | - | Requires access to create app records, granted in Users and  | - | -
+Upload builds | Full access. | Full access. | Requires access to Certificates, Identifiers &amp; Profiles, | Requires access to Certificates, Identifiers &amp; Profiles, | - | - | - | -
+Upload Apple-hosted asset packs | Full access. | Full access. | Full access. | Full access. | - | - | - | -
+Create app versions | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Submit apps | Full access. | Full access. | Full access. | - | - | - | - | -
+Edit App Store details* | Full access. | Full access. | Full access. | - | - | Full access. | - | Full access.
+Edit App Clip details | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Edit app pricing and availability | Full access. | Full access. | Full access. | - | - | Read-only access. | - | -
+Respond to app privacy questions | Full access. | Full access. | Full access. | - | - | - | - | -
+View app accessibility support | Full access. | Full access. | Full access. | Full access. | - | Full access. | - | -
+Manage app accessibility support | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Transfer apps | Full access. | - | - | - | - | - | - | -
+Remove and restore apps | Full access. | Full access. | - | - | - | - | - | -
+Reset summary rating | Full access. | Full access. | Full access. | - | - | - | - | -
+Create in‑app purchases | Full access. | Full access. | Full access. | Full access. | - | Full access. | - | -
+Submit in‑app purchases | Full access. | Full access. | Full access. | - | - | - | - | -
+Edit in‑app purchases | Full access. | Full access. | Full access. | Read-only access. | - | - | - | -
+Create in‑app events | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Submit in‑app events | Full access. | Full access. | Full access. | - | - | Can submit if there’s no app binary in the submission. | - | -
+Manage Game Center | Full access. | Full access. | Full access. | Full access. | - | Full access. | - | -
+Manage leaderboard scores | Full access. | Full access. | Full access. | - | - | - | - | -
+Manage promo codes and promo art | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Set or change pricing and availability for auto-renewable su | Full access. | Full access. | Full access. | - | - | - | - | -
+Generate receipt validation codes for auto-renewable subscri | Full access. | Full access. | - | - | - | - | - | -
+Enable server notifications for auto-renewable subscriptions | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+Remove auto-renewable subscriptions from sale | Full access. | - | - | - | - | - | - | -
+Edit Purchase Options - Update market settings (Apple Busine | Full access. | Full access. | Full access. | - | - | - | - | -
+Remove Apple Business Manager and/or Apple School Manager fr | Full access. | - | - | - | - | - | - | -
+Edit Purchase Options - Multiseat subscriptions | Full access. | Full access. | Full access. | - | - | - | - | -
+Enable and disable billing grace period for your app | Full access. | Full access. | Full access. | - | - | - | - | -
+Manage TestFlight builds | Full access. | Full access. | Full access. | Read-only access. | - | Read-only access. | - | -
+Manage external TestFlight groups and add builds | Full access. | Full access. | Full access. | Read-only access. | - | Read-only access. | - | -
+Manage internal TestFlight groups and add builds | Full access. | Full access. | Full access. | Full access. | - | Full access. | - | -
+Manage TestFlight App Clip experiences | Full access. | Full access. | Full access. | Read-only access. | - | Read-only access. | - | -
+Create, edit, and submit Nominations | Full access. | Full access. | Full access. | - | - | Full access. | - | -
+View ratings and reviews | Full access. | Full access. | Full access. | Full access. | - | Full access. | - | Full access.
+Respond to customer reviews | Full access. | Full access. | - | - | - | - | - | Full access.
+Report a Concern | Full access. | Full access. | Full access. | - | - | - | - | Full access.
+Respond to App Review | Full access. | Full access. | Full access. | Read-only access. | - | Read-only access. | - | -
+=====
+Reporting and Analytics
+- | Account Holder | Admin | App Manager | Developer | Finance | Marketing | Sales | Customer Support
+View app analytics | Full access. | Full access. | - | - | Full access. | - | Full access. | -
+View sales and trends | Full access. | Full access. | - | - | Full access. | - | Full access. | -
+View sales and trends reports | Full access. | Full access. | - | - | Full access. | - | requires reports access | -
+View payments and financial reports | Full access. | Full access. | - | - | Full access. | - | - | -
+=====
+- | Account Holder | Admin | Developer
+Accept legal agreements | Full access. | - | -
+Renew membership | Full access. | - | -
+Create Developer ID certificates | Full access. | - | -
+Create cloud-managed Developer ID certificates | Full access. | Checkmark. | -
+Create other cloud-managed certificate types | Full access. | Full access. | Checkmark
+Invite members and assign roles | Full access. | Full access. | -
+Create provisioning profiles | Full access. | Full access. | requires Xcode 7 or later
+Approve certificate signing requests | Full access. | Full access. | -
+Add and disable UDIDs | Full access. | Full access. | requires Xcode 7 or later
+Register and configure App IDs | Full access. | Full access. | requires Xcode 7 or later
+Delete App IDs | Full access. | Full access. | -
+Create an iOS distribution certificate and distribution prov | Full access. | Full access. | -
+Create certificates for Apple Push Notification service and  | Full access. | Full access. | -
+Create and revoke development certificates | Full access. | Full access. | Full access.
+Submit code-level support requests and purchase credits | Full access. | Full access. | Full access.
+Post in Apple Developer Forums | Full access. | Full access. | Full access.
+Download beta software | Full access. | Full access. | Full access.
+Download provisioning profiles | Full access. | Full access. | Full access.
+Submit certificate signing requests | Full access. | Full access. | Full access.
+Notarize software | Full access. | Full access. | Full access.
+=====

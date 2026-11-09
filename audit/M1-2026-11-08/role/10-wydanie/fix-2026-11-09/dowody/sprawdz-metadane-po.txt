@@ -1,0 +1,36 @@
+INFO podpisy nl-NL: suma 622 znaków, najdłuższy nagłówek 37, najdłuższy podtytuł 73
+INFO podpisy id: suma 604 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 70
+INFO podpisy el: suma 602 znaków, najdłuższy nagłówek 36, najdłuższy podtytuł 67
+INFO podpisy fr-CA: suma 600 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 72
+INFO podpisy fr-FR: suma 600 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 72
+INFO podpisy it: suma 600 znaków, najdłuższy nagłówek 36, najdłuższy podtytuł 70
+INFO podpisy de-DE: suma 599 znaków, najdłuższy nagłówek 35, najdłuższy podtytuł 65
+INFO podpisy ms: suma 587 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 69
+INFO podpisy es-ES: suma 578 znaków, najdłuższy nagłówek 37, najdłuższy podtytuł 70
+INFO podpisy es-MX: suma 575 znaków, najdłuższy nagłówek 38, najdłuższy podtytuł 70
+INFO podpisy ro: suma 571 znaków, najdłuższy nagłówek 36, najdłuższy podtytuł 64
+INFO podpisy pt-PT: suma 567 znaków, najdłuższy nagłówek 38, najdłuższy podtytuł 70
+INFO podpisy fi: suma 565 znaków, najdłuższy nagłówek 34, najdłuższy podtytuł 60
+INFO podpisy vi: suma 558 znaków, najdłuższy nagłówek 35, najdłuższy podtytuł 66
+INFO podpisy pt-BR: suma 551 znaków, najdłuższy nagłówek 34, najdłuższy podtytuł 70
+INFO podpisy uk: suma 544 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 60
+INFO podpisy ru: suma 543 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 59
+INFO podpisy tr: suma 542 znaków, najdłuższy nagłówek 37, najdłuższy podtytuł 56
+INFO podpisy en-AU: suma 534 znaków, najdłuższy nagłówek 28, najdłuższy podtytuł 67
+INFO podpisy en-CA: suma 534 znaków, najdłuższy nagłówek 28, najdłuższy podtytuł 67
+INFO podpisy en-GB: suma 534 znaków, najdłuższy nagłówek 28, najdłuższy podtytuł 67
+INFO podpisy en-US: suma 534 znaków, najdłuższy nagłówek 28, najdłuższy podtytuł 67
+INFO podpisy no: suma 534 znaków, najdłuższy nagłówek 36, najdłuższy podtytuł 68
+INFO podpisy hu: suma 531 znaków, najdłuższy nagłówek 34, najdłuższy podtytuł 54
+INFO podpisy pl: suma 528 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 53
+INFO podpisy sl: suma 524 znaków, najdłuższy nagłówek 36, najdłuższy podtytuł 54
+INFO podpisy hr: suma 522 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 54
+INFO podpisy sv: suma 522 znaków, najdłuższy nagłówek 32, najdłuższy podtytuł 69
+INFO podpisy da: suma 520 znaków, najdłuższy nagłówek 33, najdłuższy podtytuł 71
+INFO podpisy sk: suma 517 znaków, najdłuższy nagłówek 30, najdłuższy podtytuł 55
+INFO podpisy cs: suma 515 znaków, najdłuższy nagłówek 29, najdłuższy podtytuł 57
+INFO podpisy ko: suma 246 znaków, najdłuższy nagłówek 15, najdłuższy podtytuł 26
+INFO podpisy ja: suma 226 znaków, najdłuższy nagłówek 14, najdłuższy podtytuł 28
+INFO podpisy zh-Hant: suma 180 znaków, najdłuższy nagłówek 11, najdłuższy podtytuł 21
+OK: 34 lokalizacji bez błędów
+kod 0

@@ -1,0 +1,475 @@
+FAIL tests/asc-klucz-082.test.ts
+  testflight.yml: wysyłka buildu tylko po akceptacji właściciela (D-314)
+    ✕ zadanie build (klucz ASC, podpis w chmurze, upload) jest w środowisku release (3 ms)
+    ✕ każde zadanie z sekretem ASC jest w środowisku release; nazwy sekretów bez zmian (3 ms)
+  asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314)
+    ✕ dwa zadania: na-sucho i zapis (1 ms)
+    ✕ na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false) (1 ms)
+    ✕ na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody (1 ms)
+    ✕ zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody
+    ✓ wyzwalacz bez zmian: tylko workflow_dispatch; token repo tylko do odczytu (2 ms)
+  asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314)
+    ✕ dwa zadania: na-sucho i zapis (1 ms)
+    ✕ na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false)
+    ✕ na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody (1 ms)
+    ✕ zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody
+    ✓ wyzwalacz bez zmian: tylko workflow_dispatch; token repo tylko do odczytu
+  asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314)
+    ✕ istnieje; tylko ręcznie (workflow_dispatch z wejściem szczegoly), bez harmonogramu, push i pull_request
+    ✕ uprawnienia contents: read; bez środowiska release i bez własnych kroków (zapisu nie ma czym zrobić)
+    ✕ wywołuje workflow lkarwowski494/apps4brew-narzedzia przypięty do pełnego SHA (40 znaków hex), konfiguracja docs/wydanie/asc-kontrola.json (1 ms)
+    ✕ sekrety przekazane jawnie: dokładnie ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez secrets: inherit) (1 ms)
+  docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów
+    ✕ bundle id = app.json; produkty = PRODUKTY (src/lib/platnosci/konfiguracja.ts) (1 ms)
+    ✕ ceny i terytoria = storefronty z ceną ręczną w docs/wydanie/ceny.json; Family Sharing = ceny.json
+    ✕ bez oferty wprowadzającej (D-112): ceny.json jej nie ma, kontrola zgłosi każdą
+    ✕ kategoria Food & Drink + Productivity (D-055, instrukcja-ustawien §10.7) (1 ms)
+    ✕ adresy i metadane z pliku generowanego scripts/asc-kontrola-oczekiwane.mjs (aktualny: --check) (1 ms)
+    ✓ bez identyfikatorów klucza i sekretów w plikach kontroli (1 ms)
+  procedura unieważnienia klucza App Store Connect (D-314)
+    ✕ sekcja istnieje i opisuje Revoke w Users and Access → Integrations
+    ✕ wymiana sekretów w obu repo, które dzielą klucz (Piekarz i Napar), i sprawdzenie przebiegiem asc-kontrola
+    ✕ kiedy unieważnić: wyciek, odejście współpracownika, sekret w logu
+
+  ● testflight.yml: wysyłka buildu tylko po akceptacji właściciela (D-314) › zadanie build (klucz ASC, podpis w chmurze, upload) jest w środowisku release
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      35 |     expect(jobs.build).toBeDefined();
+      36 |     expect(uzywaKluczaAsc(jobs.build)).toBe(true);
+    > 37 |     expect(wSrodowiskuRelease(jobs.build)).toBe(true);
+         |                                            ^
+      38 |   });
+      39 |
+      40 |   it('każde zadanie z sekretem ASC jest w środowisku release; nazwy sekretów bez zmian', () => {
+
+      at Object.toBe (tests/asc-klucz-082.test.ts:37:44)
+
+  ● testflight.yml: wysyłka buildu tylko po akceptacji właściciela (D-314) › każde zadanie z sekretem ASC jest w środowisku release; nazwy sekretów bez zmian
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "build",
+    -   true,
+    +   false,
+      ]
+
+      39 |
+      40 |   it('każde zadanie z sekretem ASC jest w środowisku release; nazwy sekretów bez zmian', () => {
+    > 41 |     for (const [nazwa, job] of Object.entries(jobs)) if (uzywaKluczaAsc(job)) expect([nazwa, wSrodowiskuRelease(job)]).toEqual([nazwa, true]);
+         |                                                                                                                        ^
+      42 |     expect(jobs.build).toMatch(/secrets\.ASC_KEY_ID/);
+      43 |     expect(jobs.build).toMatch(/secrets\.ASC_ISSUER_ID/);
+      44 |     expect(jobs.build).toMatch(/secrets\.ASC_KEY_P8_BASE64/);
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:41:120)
+
+  ● asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › dwa zadania: na-sucho i zapis
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 1
+
+      Array [
+    -   "na-sucho",
+    -   "zapis",
+    +   "asc",
+      ]
+
+      54 |
+      55 |   it('dwa zadania: na-sucho i zapis', () => {
+    > 56 |     expect(Object.keys(jobs).sort()).toEqual(['na-sucho', 'zapis']);
+         |                                      ^
+      57 |   });
+      58 |
+      59 |   it('na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false)', () => {
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:56:38)
+
+  ● asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false)
+
+    expect(received).not.toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      60 |     const job = jobs['na-sucho'];
+      61 |     expect(wSrodowiskuRelease(job)).toBe(false);
+    > 62 |     expect(job).not.toMatch(/environment:/);
+         |                     ^
+      63 |     expect(job).toContain(skrypt);
+      64 |     expect(job).not.toContain(`--zgoda ${zgoda}`);
+      65 |     expect(job).toMatch(/z\.zapis = false/);
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:62:21)
+
+  ● asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      69 |   it('na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody', () => {
+      70 |     const job = jobs['na-sucho'];
+    > 71 |     expect(job).toMatch(/outputs:\n      zapis: \$\{\{ steps\.zgoda\.outputs\.zapis \}\}\n/);
+         |                 ^
+      72 |     expect(job).toContain(`require('./${zgoda}').zapis === true`);
+      73 |   });
+      74 |
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:71:17)
+
+  ● asc-ustawienia.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      75 |   it('zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody', () => {
+      76 |     const job = jobs.zapis;
+    > 77 |     expect(job).toMatch(/\n    needs: na-sucho\n/);
+         |                 ^
+      78 |     expect(job).toMatch(/\n    if: needs\.na-sucho\.outputs\.zapis == 'true'\n/);
+      79 |     expect(wSrodowiskuRelease(job)).toBe(true);
+      80 |     expect(job).toContain(`node ${skrypt} --zgoda ${zgoda}`);
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:77:17)
+
+  ● asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › dwa zadania: na-sucho i zapis
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 1
+
+      Array [
+    -   "na-sucho",
+    -   "zapis",
+    +   "asc",
+      ]
+
+      54 |
+      55 |   it('dwa zadania: na-sucho i zapis', () => {
+    > 56 |     expect(Object.keys(jobs).sort()).toEqual(['na-sucho', 'zapis']);
+         |                                      ^
+      57 |   });
+      58 |
+      59 |   it('na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false)', () => {
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:56:38)
+
+  ● asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › na-sucho: bez środowiska; skrypt nie dostaje pliku zgody z "zapis": true (kopia z "zapis": false)
+
+    expect(received).not.toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      60 |     const job = jobs['na-sucho'];
+      61 |     expect(wSrodowiskuRelease(job)).toBe(false);
+    > 62 |     expect(job).not.toMatch(/environment:/);
+         |                     ^
+      63 |     expect(job).toContain(skrypt);
+      64 |     expect(job).not.toContain(`--zgoda ${zgoda}`);
+      65 |     expect(job).toMatch(/z\.zapis = false/);
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:62:21)
+
+  ● asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      69 |   it('na-sucho wystawia wyjście zapis tylko z "zapis": true w pliku zgody', () => {
+      70 |     const job = jobs['na-sucho'];
+    > 71 |     expect(job).toMatch(/outputs:\n      zapis: \$\{\{ steps\.zgoda\.outputs\.zapis \}\}\n/);
+         |                 ^
+      72 |     expect(job).toContain(`require('./${zgoda}').zapis === true`);
+      73 |   });
+      74 |
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:71:17)
+
+  ● asc-zgloszenie.yml: przebieg na sucho bez środowiska, zapis w środowisku release (D-314) › zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      75 |   it('zapis: po na-sucho, tylko gdy zgoda ma "zapis": true, w środowisku release; skrypt z oryginalnym plikiem zgody', () => {
+      76 |     const job = jobs.zapis;
+    > 77 |     expect(job).toMatch(/\n    needs: na-sucho\n/);
+         |                 ^
+      78 |     expect(job).toMatch(/\n    if: needs\.na-sucho\.outputs\.zapis == 'true'\n/);
+      79 |     expect(wSrodowiskuRelease(job)).toBe(true);
+      80 |     expect(job).toContain(`node ${skrypt} --zgoda ${zgoda}`);
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:77:17)
+
+  ● asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314) › istnieje; tylko ręcznie (workflow_dispatch z wejściem szczegoly), bez harmonogramu, push i pull_request
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not ""
+
+      94 |
+      95 |   it('istnieje; tylko ręcznie (workflow_dispatch z wejściem szczegoly), bez harmonogramu, push i pull_request', () => {
+    > 96 |     expect(tekst).not.toBe('');
+         |                       ^
+      97 |     expect(tekst).toMatch(/\non:\n  workflow_dispatch:\n    inputs:\n      szczegoly:\n[\s\S]*?type: boolean\n\s+default: false\n/);
+      98 |     expect(tekst).not.toMatch(/schedule:|\bpush:|pull_request|workflow_call/);
+      99 |   });
+
+      at Object.toBe (tests/asc-klucz-082.test.ts:96:23)
+
+  ● asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314) › uprawnienia contents: read; bez środowiska release i bez własnych kroków (zapisu nie ma czym zrobić)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\npermissions:\n  contents: read\n/
+    Received string:  ""
+
+      100 |
+      101 |   it('uprawnienia contents: read; bez środowiska release i bez własnych kroków (zapisu nie ma czym zrobić)', () => {
+    > 102 |     expect(tekst).toMatch(/\npermissions:\n  contents: read\n/);
+          |                   ^
+      103 |     expect(tekst).not.toMatch(/contents: write|environment:/);
+      104 |     expect(tekst).not.toMatch(/\n\s+steps:|\n\s+run:|scripts\/asc-(ustawienia|zgloszenie)/);
+      105 |   });
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:102:19)
+
+  ● asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314) › wywołuje workflow lkarwowski494/apps4brew-narzedzia przypięty do pełnego SHA (40 znaków hex), konfiguracja docs/wydanie/asc-kontrola.json
+
+    expect(received).toMatch(expected)
+
+    Matcher error: received value must be a string
+
+    Received has value: undefined
+
+      107 |   it('wywołuje workflow lkarwowski494/apps4brew-narzedzia przypięty do pełnego SHA (40 znaków hex), konfiguracja docs/wydanie/asc-kontrola.json', () => {
+      108 |     const m = /uses: lkarwowski494\/apps4brew-narzedzia\/\.github\/workflows\/asc-kontrola\.yml@([^\s]+)\n/.exec(tekst);
+    > 109 |     expect(m?.[1]).toMatch(/^[0-9a-f]{40}$/);
+          |                    ^
+      110 |     expect(tekst).toMatch(/with:\n\s+config: docs\/wydanie\/asc-kontrola\.json\n\s+szczegoly: \$\{\{ inputs\.szczegoly \}\}\n/);
+      111 |   });
+      112 |
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:109:20)
+
+  ● asc-kontrola.yml: kontrola App Store Connect tylko do odczytu, wspólny workflow studia (D-314) › sekrety przekazane jawnie: dokładnie ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez secrets: inherit)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 5
+    + Received  + 1
+
+    - Array [
+    -   "secrets.ASC_ISSUER_ID",
+    -   "secrets.ASC_KEY_ID",
+    -   "secrets.ASC_KEY_P8",
+    - ]
+    + Array []
+
+      113 |   it('sekrety przekazane jawnie: dokładnie ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (bez secrets: inherit)', () => {
+      114 |     expect(tekst).not.toMatch(/secrets: inherit/);
+    > 115 |     expect([...(tekst.match(/secrets\.[A-Z_0-9]+/g) ?? [])].sort()).toEqual(['secrets.ASC_ISSUER_ID', 'secrets.ASC_KEY_ID', 'secrets.ASC_KEY_P8']);
+          |                                                                     ^
+      116 |   });
+      117 | });
+      118 |
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:115:69)
+
+  ● docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów › bundle id = app.json; produkty = PRODUKTY (src/lib/platnosci/konfiguracja.ts)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "com.apps4brew.baker"
+    Received: undefined
+
+      123 |
+      124 |   it('bundle id = app.json; produkty = PRODUKTY (src/lib/platnosci/konfiguracja.ts)', () => {
+    > 125 |     expect(config.aplikacja?.bundleId).toBe(JSON.parse(read('app.json')).expo.ios.bundleIdentifier);
+          |                                        ^
+      126 |     expect(config.produkty).toEqual([
+      127 |       { klucz: 'monthly', productId: PRODUKTY.monthly, rodzaj: 'subskrypcja' },
+      128 |       { klucz: 'yearly', productId: PRODUKTY.yearly, rodzaj: 'subskrypcja' },
+
+      at Object.toBe (tests/asc-klucz-082.test.ts:125:40)
+
+  ● docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów › ceny i terytoria = storefronty z ceną ręczną w docs/wydanie/ceny.json; Family Sharing = ceny.json
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ["USA", "GBR", "CAN", "AUS", "DEU", "FRA", "ESP", "MEX", "POL"]
+    Received: undefined
+
+      132 |
+      133 |   it('ceny i terytoria = storefronty z ceną ręczną w docs/wydanie/ceny.json; Family Sharing = ceny.json', () => {
+    > 134 |     expect(config.terytoria?.wybrane).toEqual(Object.keys(ceny.reczne));
+          |                                       ^
+      135 |     for (const plan of ['monthly', 'yearly', 'lifetime']) {
+      136 |       expect(config.ceny?.[plan]).toEqual(Object.fromEntries(Object.entries(ceny.reczne).map(([t, w]: [string, any]) => [t, Number(w[plan])])));
+      137 |       expect(config.rodzina?.[plan]).toBe(ceny.familySharing.includes(plan));
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:134:39)
+
+  ● docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów › bez oferty wprowadzającej (D-112): ceny.json jej nie ma, kontrola zgłosi każdą
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"brak": true, "produkty": ["monthly", "yearly"]}
+    Received: undefined
+
+      141 |   it('bez oferty wprowadzającej (D-112): ceny.json jej nie ma, kontrola zgłosi każdą', () => {
+      142 |     expect(ceny.ofertaWprowadzajaca).toBeUndefined();
+    > 143 |     expect(config.oferta).toEqual({ produkty: ['monthly', 'yearly'], brak: true });
+          |                           ^
+      144 |   });
+      145 |
+      146 |   it('kategoria Food & Drink + Productivity (D-055, instrukcja-ustawien §10.7)', () => {
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:143:27)
+
+  ● docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów › kategoria Food & Drink + Productivity (D-055, instrukcja-ustawien §10.7)
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"dodatkowa": "PRODUCTIVITY", "glowna": "FOOD_AND_DRINK"}
+    Received: undefined
+
+      146 |   it('kategoria Food & Drink + Productivity (D-055, instrukcja-ustawien §10.7)', () => {
+      147 |     expect(read('docs/wydanie/instrukcja-ustawien.md')).toMatch(/Primary Category: Food & Drink; Secondary Category: Productivity/);
+    > 148 |     expect(config.kategoria).toEqual({ glowna: 'FOOD_AND_DRINK', dodatkowa: 'PRODUCTIVITY' });
+          |                              ^
+      149 |   });
+      150 |
+      151 |   it('adresy i metadane z pliku generowanego scripts/asc-kontrola-oczekiwane.mjs (aktualny: --check)', () => {
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:148:30)
+
+  ● docs/wydanie/asc-kontrola.json: oczekiwane wartości z plików Piekarza, bez sekretów › adresy i metadane z pliku generowanego scripts/asc-kontrola-oczekiwane.mjs (aktualny: --check)
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"plik": "docs/wydanie/asc-kontrola-oczekiwane.json"}
+    Received: undefined
+
+      150 |
+      151 |   it('adresy i metadane z pliku generowanego scripts/asc-kontrola-oczekiwane.mjs (aktualny: --check)', () => {
+    > 152 |     expect(config.adresy).toEqual({ plik: 'docs/wydanie/asc-kontrola-oczekiwane.json' });
+          |                           ^
+      153 |     expect(config.metadane?.zrodla).toEqual([
+      154 |       { plik: 'docs/wydanie/asc-kontrola-oczekiwane.json', korzen: 'lokalizacje', pola: { name: 'name', subtitle: 'subtitle', keywords: 'keywords', promotionalText: 'promotionalText', description: 'description' } },
+      155 |     ]);
+
+      at Object.toEqual (tests/asc-klucz-082.test.ts:152:27)
+
+  ● procedura unieważnienia klucza App Store Connect (D-314) › sekcja istnieje i opisuje Revoke w Users and Access → Integrations
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "## 5. Klucz App Store Connect"
+    Received string:    "# Procedura: podatności, naruszenia ochrony danych i żądania RODO (Piekarz)·
+    Stan 2026-11-08 (M8 Formalności; D-290, analogia z Treningiem — decyzja właściciela z 21.10.2026: bez prawnika, bezpieczniejsze opcje we własnym zakresie). Dokument krótki
+    z założenia: aplikacja nie ma serwera ani konta, dane użytkownika są tylko na jego urządzeniu; twórca przetwarza wyłącznie e-maile wysłane na adres wsparcia.·
+    ## 1. Podatność w aplikacji (CRA, rozporządzenie 2024/2847, art. 14 — stosowany od 11.09.2026)·
+    Status: przyjmujemy, że aplikacja jest udostępniana „w ramach działalności handlowej” (sprzedaż subskrypcji, status przedsiębiorcy DSA) — art. 3 pkt 22;
+    bezpieczniejsza opcja zamiast konsultacji (decyzja 21.10.2026).·
+    1. **Przyjęcie zgłoszenia:** adres wsparcia z polityki prywatności i strony wsparcia; zgłoszenie podatności ma pierwszeństwo przed innymi wiadomościami.
+    2. **Ocena (koordynator, ten sam dzień):** czy podatność jest *aktywnie wykorzystywana* (dowód użycia, nie tylko możliwość). Zapis w `docs/decyzje.md`
+       (rejestr ryzyk) bez danych zgłaszającego.
+    3. **Aktywnie wykorzystywana → zgłoszenie przez jednolitą platformę sprawozdawczą (art. 16):** wczesne ostrzeżenie „w ciągu 24 godzin”, zgłoszenie
+       „w ciągu 72 godzin” od uzyskania wiedzy (art. 14 ust. 1–2). Robi właściciel (agent przygotowuje treść). Adres platformy: [DO USTALENIA przy pierwszym
+       użyciu — sprawdzić stronę ENISA w dniu zgłoszenia].
+    4. **Naprawa:** test odtwarzający → poprawka → TestFlight → wydanie (proces z `docs/wydanie/sklep.md`); informacja dla użytkowników w „Co nowego”.
+    5. **Pozostałe wymagania CRA** (od 11.12.2027) — poza zakresem 1.0; przegląd przed tą datą.·
+    ## 2. Naruszenie ochrony danych osobowych (RODO art. 33–34)·
+    Dotyczy tylko danych u twórcy: skrzynka wsparcia (Google Workspace) i ewentualne notatki z opinii. Dane w aplikacji są na urządzeniu użytkownika.·
+    1. **Przykłady:** przejęcie konta pocztowego, wysłanie wiadomości z danymi do złego adresu, wyciek arkusza opinii.
+    2. **Pierwsza godzina:** zabezpieczenie (zmiana hasła, wylogowanie sesji, cofnięcie dostępu), zapis: co, kiedy, ile osób, jakie dane.
+    3. **Ocena ryzyka:** jeśli naruszenie może skutkować ryzykiem dla osób → zgłoszenie do Prezesa UODO „nie później niż w terminie 72 godzin”
+       od stwierdzenia (art. 33 ust. 1), formularzem na stronie UODO. Wysokie ryzyko → także zawiadomienie osób (art. 34).
+    4. **Rejestr naruszeń** (art. 33 ust. 5) — każde naruszenie, także niezgłoszone, w prywatnym zapisie właściciela (nie w publicznym repo).·
+    ## 3. Żądania osób (RODO art. 15–21)·
+    1. Kanał: adres wsparcia. Odpowiedź bez zbędnej zwłoki, najpóźniej w miesiąc (art. 12 ust. 3).
+    2. Dostęp / usunięcie / sprostowanie / ograniczenie / sprzeciw: dotyczy wiadomości w skrzynce i notatek z opinii; dane w aplikacji użytkownik usuwa sam
+       (Ustawienia → „Usuń wszystkie dane”, kopie zapasowe w aplikacji Pliki; albo usunięcie aplikacji) — twórca nie ma do nich dostępu.
+    3. Przechowywanie wiadomości: 12 miesięcy od zamknięcia sprawy (polityka prywatności).·
+    ## 4. Rejestr czynności przetwarzania (art. 30)·
+    Ocena 21.10.2026 (Trening; ta sama skrzynka i to samo przetwarzanie dla Piekarza): przetwarzanie e-maili wsparcia jest sporadyczne i bez danych szczególnych, ale ciągłe w czasie — bezpieczniejsza opcja: krótki
+    rejestr jednej czynności („obsługa wiadomości do wsparcia”: cel, podstawa, kategorie danych, odbiorcy, przekazanie, okres) prowadzony prywatnie przez
+    właściciela; wzór — polityka prywatności, sekcja „Gdy do nas piszesz”.
+    "
+
+      177 |
+      178 |   it('sekcja istnieje i opisuje Revoke w Users and Access → Integrations', () => {
+    > 179 |     expect(doc).toContain('## 5. Klucz App Store Connect');
+          |                 ^
+      180 |     expect(sekcja).toMatch(/Users and Access → Integrations/);
+      181 |     expect(sekcja).toMatch(/Revoke/);
+      182 |   });
+
+      at Object.toContain (tests/asc-klucz-082.test.ts:179:17)
+
+  ● procedura unieważnienia klucza App Store Connect (D-314) › wymiana sekretów w obu repo, które dzielą klucz (Piekarz i Napar), i sprawdzenie przebiegiem asc-kontrola
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /Piekarz/
+    Received string:  "
+    "
+
+      183 |
+      184 |   it('wymiana sekretów w obu repo, które dzielą klucz (Piekarz i Napar), i sprawdzenie przebiegiem asc-kontrola', () => {
+    > 185 |     expect(sekcja).toMatch(/Piekarz/);
+          |                    ^
+      186 |     expect(sekcja).toMatch(/Napar/);
+      187 |     expect(sekcja).toMatch(/asc-kontrola/);
+      188 |     for (const s of ['ASC_KEY_ID', 'ASC_ISSUER_ID', 'ASC_KEY_P8_BASE64', 'ASC_KEY_P8']) expect(sekcja).toContain(s);
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:185:20)
+
+  ● procedura unieważnienia klucza App Store Connect (D-314) › kiedy unieważnić: wyciek, odejście współpracownika, sekret w logu
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /wycie/i
+    Received string:  "
+    "
+
+      190 |
+      191 |   it('kiedy unieważnić: wyciek, odejście współpracownika, sekret w logu', () => {
+    > 192 |     expect(sekcja).toMatch(/wycie/i);
+          |                    ^
+      193 |     expect(sekcja).toMatch(/współpracownik/);
+      194 |     expect(sekcja).toMatch(/log/);
+      195 |   });
+
+      at Object.toMatch (tests/asc-klucz-082.test.ts:192:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       22 failed, 3 passed, 25 total
+Snapshots:   0 total
+Time:        0.785 s
+Ran all test suites matching /tests\/asc-klucz-082.test.ts/i.

@@ -1,0 +1,9 @@
+Wznów pracę jako M2-koordynator-napraw dla Piekarza (repo lkarwowski494/piekarz, katalog /home/user/piekarz; partia 3 na gałęzi naprawy/M2-koordynator-napraw-2026-11-09-p3, HEAD 991586dd). Pracujesz w trybie nocnym D-289 (docs/decyzje.md): STOP-y rozstrzygasz sam według rekomendacji z wpisem „do weta (D-289)”, bez pytania właściciela; wyjątki nazwane (zdania bezpieczeństwa D-177, działania zewnętrzne → otwarte do rana). Limit kontekstu 30%.
+
+Jeśli katalog /home/user/piekarz/audit/M1-2026-11-08 nie istnieje (nowy kontener): `git fetch origin audit-m1/piekarz-2026-11-08` i skopiuj `audit/M1-2026-11-08` z tej gałęzi do /home/user/piekarz/audit/ (katalog jest w .git/info/exclude — dopisz `audit/`, jeśli brak), potem `git checkout naprawy/M2-koordynator-napraw-2026-11-09-p3`.
+
+1. Przeczytaj w całości: `audit/M1-2026-11-08/punkt-wznowienia-M2-2026-11-09.md` (zasady i pułapki, wiążące), potem `audit/M1-2026-11-08/punkt-wznowienia-M2-2026-11-09b.md` (stan bieżący i lista „Zostało”). Pełny prompt roli: `audit/M1-2026-11-08/naprawy/polecenia/M2-prompt-roli.md` (sięgaj w razie potrzeby). Ostatnie wpisy: `postep-napraw.md` (dziennik), `nowe-znaleziska-M2.md`.
+2. Sprawdź stan: `git status`, `git log --oneline -3`, `git ls-remote origin naprawy/M2-koordynator-napraw-2026-11-09-p3`, `git fetch origin redesign/piekarz-2026-10-22` (M3 mógł dopisać — scal przed końcem partii).
+3. Dalej według „Zostało w partii 3” z punktu B: rola 07 (subagent, polecenie gotowe), moje D 067, 079, 081, koniec partii (verify UTC i TZ=Asia/Tokyo, E2E iOS na SHA kandydata, scalenie fast-forward do redesign, raport końcowy, polecenie reaudytu, kopia K), na koniec send_message do koordynatora M3 (session_01T66VBwuR25xmeQCZYdPG2r) z SHA kandydata i wynikiem E2E.
+
+Ograniczenia: bez push na master, buildu TestFlight, zgłoszenia do recenzji, zapisu w App Store Connect, strony, usuwania gałęzi/danych, wiadomości do ludzi. Commity kończą stopką z punktu A. Odpowiadaj po polsku.

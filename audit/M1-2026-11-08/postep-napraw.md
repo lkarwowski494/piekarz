@@ -116,6 +116,14 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 17:44 059: rola 03 p3b, zakres.mjs kod 0, verify 6610 kod 0 wg roli; status naprawione-do-weryfikacji. Decyzja 98 h do zebrania.
 - 17:44 066: E2E iOS run 99 (42653620839) na 221318bf — success (pl_PL, en_US, kontrola negatywna, Basic; w tym nowy scenariusz 06 koniec wypieku). Status naprawione-do-weryfikacji; przed buildem ponowny przebieg na SHA kandydata (DEC-18). Start rola 10 p3.
 - 17:52 Punkt wznowienia zapisany (punkt-wznowienia-M2-2026-11-09.md); rola 10 p3 w toku w drzewie.
+- 18:07 Wznowienie M2 po czyszczeniu kontekstu: rola 10 p3 nadal pracuje (subagent, 70 plików w indeksie, bez commitu). Decyzja właściciela (przycisk): apetyt 1.0 = 98 h (rekomendacja) → wpis D-313 i dopisek w kontrakcie po zakończeniu roli 10.
+- 18:46 D-313 (98 h): 3f419363, verify 6725 kod 0; zakres.mjs --apetyt 98: 0 błędów, 0 uwag. Rola 10 p3: a6d8013c (078), 6a6b410e (080), sprawdz-raport OK, verify M2 6725 kod 0. 082: dowód przeciw DEC-14 a (Developer nie podpisze w chmurze); właściciel po porównaniu z trening/oczko: wariant „jak Trening” (środowisko release z akceptacją, asc-kontrola tylko GET, procedura unieważnienia, jeden klucz Admin) → D-314. Drugi przegląd AI 078/080 (29 lokalizacji): brak P1; P2: fr×2, it×2, pt-BR, vi; P3 kilka — poprawki M2.
+- 18:50 078, 080: poprawki drugiego przeglądu → 1d7c3fc0 (verify 6725 kod 0); statusy naprawione-do-weryfikacji (a6d8013c/6a6b410e + 1d7c3fc0). D-314: 3022e941. Start rola 10 p3b (082 wg D-314).
+- 19:10 082: rola 10 p3b 0ddecf89 + M2 a57d6de2 (P2 przeglądu), sprawdz-raport OK, verify 6751 kod 0; przegląd ścieżki wrażliwej brak P0/P1; status naprawione-do-weryfikacji. Start rola 11 p3 (018, 084).
+- 19:18 Właściciel: kroki 1–3 po 082 zrobione (środowisko release z recenzentem i tylko master, sekret ASC_KEY_P8, rola klucza sprawdzona — rola niepodana). Krok 4: polecił scalić asc-kontrola-brak-ofert do main w apps4brew-narzedzia; dodanie repo z zapisem zablokowane przez uprawnienia sesji — FF możliwy (main=8ae575d przodkiem, +4 commity, gałęzie -404 i -v1 zawarte); czeka na właściciela.
+- 19:21 Wiadomość koordynatora M3: D-289 tryb nocny (sprawdzone w źródle: redesign d2fa028e, słowa właściciela ~18:50 UTC) — STOP-y wg rekomendacji z wpisem „do weta”, limit kontekstu 30%. Kontekst M2: 226 tys. (22,6%) → po roli 11 i scaleniu d2fa028e przekazanie nowej sesji.
+- 19:26 Rola 11 p3: 83235746 (018), 14e5f546 (084, D-315 do weta); sprawdz-raport OK; statusy naprawione-do-weryfikacji. Scalone d2fa028e (D-289) do p3 → 991586dd, konflikt tylko dopisków decyzje.md (oba zachowane), verify 6757 kod 0. Przekazanie nowej sesji M2 (D-289, limit kontekstu).
+- 19:26 Przekazanie: punkt-wznowienia-M2-2026-11-09b.md + prompt-przekazania-M2-2026-11-09b.md; kopia K na audit-m1.
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)

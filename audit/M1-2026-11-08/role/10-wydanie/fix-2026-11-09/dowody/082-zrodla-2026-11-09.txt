@@ -1,0 +1,52 @@
+Odczyt 2026-11-09, curl -sSL + wycięcie znaczników (python), cytaty dosłowne z tekstu strony.
+
+== https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments
+- Required reviewers Use required reviewers to require a specific person or team to approve workflow jobs that reference the environment.
+- Only one of the required reviewers needs to approve the job for it to proceed.
+- For more information on reviewing jobs that reference an environment with required reviewers, see Reviewing deployments .
+- Environment secrets Secrets stored in an environment are only available to workflow jobs that reference the environment.
+- Environment variables Variables stored in an environment are only available to workflow jobs that reference the environment.
+- If you are using GitHub Free, environment secrets are only available in public repositories.
+
+== https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations
+Supported keywords for jobs that call a reusable workflow When you call a reusable workflow, you can only use the following keywords in the job containing the call: jobs.<job_id>.name jobs.<job_id>.uses jobs.<job_id>.with jobs.<job_id>.with.<input_id> jobs.<job_id>.secrets jobs.<job_id>.secrets.<secret_id> jobs.<job_id>.secrets.inherit jobs.<job_id>.strategy jobs.<job_id>.needs jobs.<job_id>.if jobs.<job_id>.concurrency jobs.<job_id>.permissions jobs.<job_id>.cache-mode Note If jobs.<job_id>.permissions is not specified in the calling job, the called workflow will have the default permissions for the GITHUB_TOKEN . For more information, see Workflow syntax for GitHub Actions . The GITHUB_TOKEN permissions passed from the caller workflow can be only downgraded (not elevated) by the called w
+
+== https://developer.apple.com/help/app-store-connect/get-started/app-store-connect-api/ (Revoke, klucze zespołu)
+If you no longer want someone to be able to use an API key to authenticate into App Store Connect services, you can revoke that key.
+In Users and Access, click Integrations. The page opens with the App Store Connect API selected.
+On the top left, click Individual Keys, or Team Keys.
+On the top right, click Edit.
+Select the API Keys you want to revoke.
+On the top right, click Revoke Key, then click Revoke in the dialog. An API key can't be reinstated once it's been revoked. Any revoked keys from the past 30 days appear under the Revoked section of the App Store Connect API page.
+To prevent a user from creating a new API key, remove the ‘Generate Individual API Keys’ permission from their user settings.
+In Users and Access, click People.
+Select the user you want to revoke permission.
+
+== git ls-remote https://github.com/lkarwowski494/apps4brew-narzedzia (2026-11-09)
+8ae575df5b3124224de44de38cc258047cd6e047	HEAD
+de55b38d758de925d9e1250ffcee8186ffdf4ef6	refs/heads/asc-kontrola-404
+43afe81aa37a117dd32259f6452196a1efccd0ec	refs/heads/asc-kontrola-brak-ofert
+3d5617a537bbe9d7b384a9ad21b5a33fdd3c24dc	refs/heads/asc-kontrola-v1
+8ae575df5b3124224de44de38cc258047cd6e047	refs/heads/main
+
+== git log 43afe81aa37a117dd32259f6452196a1efccd0ec (klon --depth 50 + fetch tego SHA)
+43afe81 asc-kontrola: oferta.brak — model bez oferty wprowadzającej (OK tylko, gdy produkt nie ma żadnej)
+de55b38 asc-kontrola README: notatka o 404 pod tabelą (nie w jej środku)
+5e76d82 asc-kontrola: 404 dla appAvailabilityV2 → BRAK DANYCH z krokiem w App Store Connect, nie BŁĄD
+3d5617a Kontrola App Store Connect (tylko odczyt): narzędzie, workflow wielokrotnego użytku, testy
+8ae575d Initial commit
+
+== asc-kontrola.yml narzędzia @43afe81: sekrety i zapis klucza (bez dekodowania base64)
+7:#       secrets: { ASC_KEY_ID: ..., ASC_ISSUER_ID: ..., ASC_KEY_P8: ... }
+30:      ASC_KEY_P8:
+37:    timeout-minutes: 15
+57:          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+59:          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do [ -n "${!v}" ] || { echo "::error::Brak sekretu $v"; exit 1; }; done
+61:          printf '%s\n' "$ASC_KEY_P8" | while IFS= read -r line; do case "$line" in -----*) ;; *) [ ${#line} -ge 20 ] && echo "::add-mask::$line" ;; esac; done; true
+62:          umask 077; printf '%s\n' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"
+71:          export ASC_KEY_PATH="$RUNNER_TEMP/AuthKey.p8"
+76:        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+
+== https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments (odczyt 2026-11-09)
+- Running a workflow that references an environment that does not exist will create an environment with the referenced name.
+- Optionally, to prevent users from approving workflows runs that they triggered, select Prevent self-review .

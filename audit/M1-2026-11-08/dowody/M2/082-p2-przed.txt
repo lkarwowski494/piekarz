@@ -1,0 +1,2 @@
+    ✕ warunek ochrony środowiska release (Required reviewers, tylko master) i zasięg sekretu repozytorium (przegląd 082, P2) (1 ms)
+Tests:       1 failed, 25 passed, 26 total

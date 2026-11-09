@@ -1,0 +1,80 @@
+PASS tests/opis-sklepu-receptury-080.test.ts
+  opis sklepu: katalog receptur tej wersji (080)
+    ✓ kod: 26 receptur bazowych, 11 z planem; wersja drożdżowa w 4, plan w 3 (stan F-26) (4 ms)
+    ✓ 34 lokalizacje (1 ms)
+    ✓ cs: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ da: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ de-DE: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ el: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ en-AU: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ en-CA: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ en-GB: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ en-US: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ es-ES: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ es-MX: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ fi: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ fr-CA: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ fr-FR: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ hr: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ hu: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ id: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ it: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ ja: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ ko: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ ms: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ nl-NL: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ no: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ pl: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ pt-BR: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ pt-PT: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ ro: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ ru: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ sk: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ sl: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ sv: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ tr: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ uk: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ vi: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15”
+    ✓ zh-Hant: sekcja receptur podaje liczbę receptur i liczbę receptur z planem z kodu, bez „15” (1 ms)
+    ✓ cs: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ da: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ de-DE: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ el: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ en-AU: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ en-CA: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ en-GB: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ en-US: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ es-ES: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ es-MX: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ fi: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ fr-CA: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ fr-FR: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ hr: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba) (1 ms)
+    ✓ hu: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ id: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba) (2 ms)
+    ✓ it: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ ja: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ ko: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ ms: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba) (1 ms)
+    ✓ nl-NL: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ no: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ pl: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ pt-BR: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ pt-PT: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ ro: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba) (1 ms)
+    ✓ ru: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ sk: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ sl: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ sv: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba) (1 ms)
+    ✓ tr: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ uk: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ vi: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ zh-Hant: osobna sekcja po recepturach (wersja na drożdżach i maszyna do chleba)
+    ✓ pl i en: tryb maszyny do chleba i wersja na drożdżach w opisie (1 ms)
+    ✓ źródło przekładu (docs/app-store-metadata-v2.md) §1.2, §2.2 i §5.1.1 bez „15 receptur” (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       72 passed, 72 total
+Snapshots:   0 total
+Time:        0.516 s, estimated 1 s
+Ran all test suites matching /tests\/opis-sklepu-receptury-080.test.ts/i.

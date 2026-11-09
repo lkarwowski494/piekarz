@@ -1,0 +1,167 @@
+FAIL tests/wzrost-hipotezy.test.ts
+  Hipotezy wzrostu (docs/wzrost/hipotezy.json)
+    ✓ pliki istnieją (2 ms)
+    ✓ hipotezy.mjs kończy się kodem 0 (dane poprawne, najwyżej 3 aktywne H) (30 ms)
+    ✓ kontrola negatywna: skrypt odrzuca H bez ID decyzji progu (kod 1) (24 ms)
+    ✓ H-01 to „Kryterium po 90 dniach od wydania” z docs/monetyzacja.md (Basic/Pro, D-112, D-113) (2 ms)
+    ✓ zmierzone dane nie trafiają do publicznego repo
+    ✕ min_proba każdej H ma ID decyzji właściciela zapisanej w docs/decyzje.md (084) (6 ms)
+    ✕ data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084) (1 ms)
+
+  ● Hipotezy wzrostu (docs/wzrost/hipotezy.json) › min_proba każdej H ma ID decyzji właściciela zapisanej w docs/decyzje.md (084)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      65 |     for (const h of x.hipotezy) {
+      66 |       const ids = [...String(h.min_proba_decyzja ?? '').matchAll(/D-\d{3}/g)].map((m) => m[0]);
+    > 67 |       expect(ids.length).toBeGreaterThan(0);
+         |                          ^
+      68 |       for (const id of ids) expect(decyzje).toContain(`### [${id}]`);
+      69 |     }
+      70 |     const wzrost = readFileSync(join(root, 'docs', 'wzrost.md'), 'utf8');
+
+      at Object.toBeGreaterThan (tests/wzrost-hipotezy.test.ts:67:26)
+
+  ● Hipotezy wzrostu (docs/wzrost/hipotezy.json) › data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084)
+
+    expect(received).toBeNull()
+
+    Received: undefined
+
+      84 |       expect(h.data_oceny).toBe(plus90(h.data_wydania));
+      85 |     } else {
+    > 86 |       expect(h.data_wydania).toBeNull();
+         |                              ^
+      87 |       expect(wiersze.some((c) => c[6] === 'App Store')).toBe(false);
+      88 |       const ostatni = wiersze.map((c) => c[1]).sort().at(-1) as string;
+      89 |       expect(h.data_oceny >= plus90(ostatni)).toBe(true);
+
+      at Object.toBeNull (tests/wzrost-hipotezy.test.ts:86:30)
+
+FAIL tests/wzrost-dokument.test.ts
+  docs/wzrost.md (180)
+    ✓ nie podaje „PL i EN” jako ograniczenia wersji (1 ms)
+    ✓ każda ścieżka repo w dokumencie istnieje (1 ms)
+    ✕ budżet godzin tygodniowo ma liczbę i ID decyzji z docs/decyzje.md (018) (1 ms)
+    ✕ jeden kanał startu: adres, cytat reguły autopromocji i data odczytu (018) (1 ms)
+    ✕ plan na złe przyjęcie: kto odpowiada, w jakim czasie i dokąd trafia zgłoszony błąd (018)
+    ✕ lista kontrolna wydania 1.0 ma wiersz kanału startu z docs/wzrost.md (018, trwała kontrola)
+
+  ● docs/wzrost.md (180) › budżet godzin tygodniowo ma liczbę i ID decyzji z docs/decyzje.md (018)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /DO USTALENIA/
+    Received string:      "- Budżet godzin tygodniowo: `[DO USTALENIA: decyzja właściciela]`. Do decyzji plan ma najwyżej 3 działania naraz (zasada roli 1)."
+
+      41 |   it('budżet godzin tygodniowo ma liczbę i ID decyzji z docs/decyzje.md (018)', () => {
+      42 |     const budzet = sekcja('Budżet i horyzont').split('\n').find((l) => /Budżet godzin tygodniowo/.test(l)) ?? '';
+    > 43 |     expect(budzet).not.toMatch(/DO USTALENIA/);
+         |                        ^
+      44 |     expect(budzet).toMatch(/\d+(?:,\d+)? h/);
+      45 |     expect(zapisaneDecyzje(budzet).length).toBeGreaterThan(0);
+      46 |   });
+
+      at Object.toMatch (tests/wzrost-dokument.test.ts:43:24)
+
+  ● docs/wzrost.md (180) › jeden kanał startu: adres, cytat reguły autopromocji i data odczytu (018)
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+      48 |   it('jeden kanał startu: adres, cytat reguły autopromocji i data odczytu (018)', () => {
+      49 |     const wiersze = sekcja('Kanały').split('\n').filter((l) => l.startsWith('| ') && /kanał startu/i.test(l));
+    > 50 |     expect(wiersze).toHaveLength(1);
+         |                     ^
+      51 |     expect(wiersze[0]).toMatch(/https:\/\/\S+/);
+      52 |     expect(wiersze[0]).toMatch(/„[^”]{12,}”/);
+      53 |     expect(wiersze[0]).toMatch(/odczyt \d{4}-\d{2}-\d{2}/);
+
+      at Object.toHaveLength (tests/wzrost-dokument.test.ts:50:21)
+
+  ● docs/wzrost.md (180) › plan na złe przyjęcie: kto odpowiada, w jakim czasie i dokąd trafia zgłoszony błąd (018)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /właściciel/
+    Received string:  ""
+
+      56 |   it('plan na złe przyjęcie: kto odpowiada, w jakim czasie i dokąd trafia zgłoszony błąd (018)', () => {
+      57 |     const plan = sekcja('Złe przyjęcie');
+    > 58 |     expect(plan).toMatch(/właściciel/);
+         |                  ^
+      59 |     expect(plan).toMatch(/recenzj/);
+      60 |     expect(plan).toMatch(/w ciągu \d+/);
+      61 |     expect(plan).toMatch(/ER\/ZM/);
+
+      at Object.toMatch (tests/wzrost-dokument.test.ts:58:18)
+
+  ● docs/wzrost.md (180) › lista kontrolna wydania 1.0 ma wiersz kanału startu z docs/wzrost.md (018, trwała kontrola)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^- \[[ x]\] \*\*W1-\d+\*\*[^\n]*kanał startu[^\n]*`docs\/wzrost\.md`/m
+    Received string:  "# Plan wydania 1.0 — Piekarz·
+    Stan: 2026-11-02 (noc, do weta; D-125). Wzór: `trening`, `docs/42-plan-wydania-1.0.md`. Rdzeń planu (DEC-16 a, wydanie ręczne po TestFlight, wydanie stopniowe aktualizacji, postępowanie przy złym buildzie, kroki właściciela w ASC) jest w `docs/wydanie/sklep.md` §2, §4, §6; tu są bramki przed recenzją, lista W1 i budżet po premierze. Kwoty i model płatności: wyłącznie `docs/monetyzacja.md` (Basic/Pro, D-112, D-113). Droga i zależności: `docs/wydanie/droga-do-app-store.md`.·
+    ## 1. Bramki przed wysłaniem do recenzji·
+    Zgłoszenia nie wysyłamy, dopóki wszystkie punkty nie są spełnione. Każdy ma dowód (wynik komendy, run, wpis w dzienniku).·
+    1. **Testy:** `npm run verify` kod 0 na SHA kandydata; iOS E2E (`e2e-ios.yml`) zielony na tym SHA: pełny katalog `.maestro/e2e` (5 scenariuszy) i `.maestro/e2e-basic` (5 scenariuszy w buildzie bez `EXPO_PUBLIC_E2E`, czyli jak w sklepie). Jedno ponowienie scenariusza dozwolone. *Dlaczego Basic osobno:* build E2E ma dostęp testowy, więc nie pokazuje, co widzi użytkownik bez Pro.
+    2. **Werdykt 07** na SHA kandydata inny niż ZABLOKOWANE (ostatni: ZABLOKOWANE na `ebd8471`, 2026-10-19); blokery z toru B nocy 2026-11-02 rozstrzygnięte.
+    3. **Pełny głęboki audyt całości przed upublicznieniem:** decyzja właściciela `[DO USTALENIA]`. Opcje: (a) pełny M1 przed zgłoszeniem — najpewniejszy, ok. 7 mln tokenów i dni pracy; (b) tańsza kontrola nazwana: werdykt 07 + test właściciela na telefonie + przegląd 06 (rekomendacja dla 1.0, bo aplikacja jest offline i bez konta; ryzyko: nieodkryty błąd danych — dlatego lista W1-02 wymaga testu kopii i przywrócenia); (c) bez dodatkowej kontroli — odrzucam, utrata danych ma pierwszeństwo (zasada 10).
+    4. **Wygląd:** zrzuty i opis dopiero po M3 i teście właściciela (A-2); ramki 2–4 i 6 do odświeżenia (Z-8).
+    5. **Model płatności:** zgodny z `docs/monetyzacja.md`; **Free Trial usunięty z `.pro.monthly` i `.pro.yearly` w ASC (Z-1; zrobione 2026-11-03, właściciel: „Obie usuenięte.”)** — warunek konieczny: bez tego sklep oferuje próbę, której aplikacja nie pokazuje (zgodność z wytyczną 3.1.2). Bramka opłacalności: wynik w `docs/monetyzacja.md` dla platformy 1.0, sam iOS: 174–218 USD netto/rok w scen. norm. wobec progu 500 USD (35–44%; ok. 345 tylko z Google Play po porcie, którego plan 1.0 nie ma; DEC-06 a, D-286): werdykt „przerobić” znany, nie blokuje wydania (D-040, D-112).
+    6. **Opis i metadane:** `sprawdz-wydanie.mjs` (`metadane`, `prywatnosc`, `sekrety --historia`) kod 0; przekład akapitu „Dostęp i zakup” w 29 lokalizacjach (Z-8) albo świadome wyłączenie tych lokalizacji z pierwszego zgłoszenia — decyzja właściciela.
+    7. **Telefon:** `docs/wydanie/lista-kontrolna-telefonu.md` odhaczona na buildzie z TestFlight, który jest kandydatem.
+    8. **Źródła wiedzy:** ekran w Ustawieniach działa (PH-30); treść krytyczna (ZAK-HOO-001, DOK-PIE-002, BEZ-SUR-001) po przeglądzie człowieka z 2026-11-02 (`docs/tresci/przeglad/t2-d123-2026-11-02.md`).·
+    ## 2. Wydanie 1.0 — ręcznie·
+    - **Opcja wydania:** „Manually release this version” (DEC-16 a). Po akceptacji Apple właściciel klika „Release This Version” (`sklep.md` §6 krok 3).
+    - **Kontrola przed kliknięciem:** ten sam build, który przeszedł recenzję, jest na TestFlight; właściciel przechodzi punkty PH-01…PH-08 (ok. 10 min) i zakup w piaskownicy (PH-20). Wada: wiadomość do agenta z numerem punktu, „Release” czeka.
+    - **Pierwsze wydanie nie ma etapowania.** Wydanie stopniowe Apple dotyczy aktualizacji (`sklep.md` §2 krok 7).
+    - **Po kliknięciu:** instalacja z App Store na własnym telefonie, wersja i build zgodne z dziennikiem; wiersz w `docs/wydanie/dziennik.md` ze słowami zgody właściciela.·
+    ## 3. Aktualizacje — wydanie stopniowe 7 dni·
+    Każda aktualizacja (1.0.1 i dalej) z włączonym „Release update over a 7-day period using phased release” (`sklep.md` §6 krok 4). Wstrzymanie: „Pause Phased Release”. Progi „stop”: pauza po pierwszym zgłoszeniu utraty danych lub awarii przy starcie albo po 3 zgłoszeniach błędu tego samego rodzaju — **propozycja noc, do weta**, wzięta z `trening` (decyzja K-P4-4 dotyczyła tamtej aplikacji, nie tej); właściciel potwierdza lub zmienia.·
+    ## 4. Zły build·
+    Procedura: `docs/wydanie/sklep.md` §4 (tabela „Kiedy → co zrobić”) i krok dziennika po incydencie. Dodatki Piekarza:·
+    1. **Dane użytkownika najpierw.** Piekarz trzyma wypieki, zakwasy i receptury tylko na telefonie; kopie zapasowe: pule `piekarz-kopia-*` i `piekarz-przed-importem-*` (CLAUDE.md §1.3). Błąd mogący uszkodzić zapis: najpierw migracja zachowawcza i test na bazie poprzedniej wersji, dopiero potem wydanie.
+    2. **Dostęp Pro:** błąd odczytu sklepu nigdy nie znaczy „brak zakupu” (`docs/monetyzacja.md`, Reguły dostępu). Błąd odbierający Pro płacącym użytkownikom to znalezisko WYSOKIE: poprawka tą samą drogą, odpowiedź na recenzje.
+    3. **Powiadomienia i budzenie:** błąd, przez który nie dzwoni sygnał kroku przy zablokowanym telefonie, to awaria głównej pracy (BR-ETAP-005, NFR-CZAS-001): kwalifikuje się do przyspieszonej recenzji po zgłoszeniu poprawki (`sklep.md` §4).
+    4. **Lekcja w tej samej sesji:** wpis w `docs/decyzje.md` z przyczyną źródłową i mechanizmem, nie tylko poprawką (zasada 21).·
+    ## 5. Lista kontrolna wydania 1.0 (W1)·
+    Odhaczana przez właściciela i agenta przed „Release”; wynik z datą w `docs/wydanie/dziennik.md`.·
+    - [ ] **W1-01** Bramki z §1 spełnione (każda z dowodem albo decyzją właściciela z datą).
+    - [ ] **W1-02** `npm run verify` kod 0 na SHA kandydata; E2E i E2E-basic zielone; **kopia i przywrócenie danych sprawdzone na telefonie** (PH-12).
+    - [ ] **W1-03** Build 1.0 na TestFlight; `lista-kontrolna-telefonu.md` odhaczona.
+    - [ ] **W1-04** Zakup w piaskownicy: miesięczny, roczny, dożywotni, „Przywróć zakupy” (PH-20); arkusz Apple bez oferty wprowadzającej.
+    - [x] **W1-05** Free Trial usunięty w ASC (Z-1) — potwierdzone zrzutem lub opisem właściciela w dzienniku: 2026-11-03, „Obie usuenięte.” (`dziennik.md`, sekcja ustawień ASC).
+    - [ ] **W1-06** Metadane, zrzuty, produkty i notatki dla App Review kompletne (`instrukcja-ustawien.md`); `sprawdz-wydanie.mjs` kod 0.
+    - [ ] **W1-07** Opcja wydania „ręcznie”; po akceptacji Apple właściciel klika „Release This Version”.
+    - [ ] **W1-08** Dziennik wydań ma wiersz z wersją, buildem, SHA, werdyktem 07 i zgodą słowami właściciela.
+    - [ ] **W1-09** Plan „zły build” (§4 i `sklep.md` §4) przeczytany przez właściciela; ustalone, kto reaguje w pierwszym tygodniu.
+    - [ ] **W1-10** Przy pierwszej aktualizacji: wydanie stopniowe włączone (§3).
+    - [ ] **W1-11** Beta iOS (lipiec–sierpień co roku): E2E z betą Xcode w CI niewiążąco i 5 minut na telefonie z betą (nowy wypiek, sygnał przy zablokowanym ekranie, kopia). *Propozycja z `trening`, noc, do weta.*·
+    ## 6. Po premierze: budżet czasu właściciela·
+    `[DO USTALENIA]` przez właściciela. W `trening` przyjęto 2 h tygodniowo przez 8 tygodni i odpowiedź na recenzje w 48 h (decyzja tamtego właściciela, 2026-10-23); dla Piekarza proponuję to samo okno i rytm, bo kryterium po 90 dniach (`docs/monetyzacja.md`: ≥ 7 nowych płacących miesięcznie w dniach 30–90) wymaga cotygodniowego odczytu raportów subskrypcji. Agent przygotowuje szkice odpowiedzi i zestawienie tygodniowe, publikuje właściciel.
+    "
+
+      63 |
+      64 |   it('lista kontrolna wydania 1.0 ma wiersz kanału startu z docs/wzrost.md (018, trwała kontrola)', () => {
+    > 65 |     expect(planWydania).toMatch(/^- \[[ x]\] \*\*W1-\d+\*\*[^\n]*kanał startu[^\n]*`docs\/wzrost\.md`/m);
+         |                         ^
+      66 |     expect(planWydania).not.toMatch(/## 6\. Po premierze: budżet czasu właściciela\s+`\[DO USTALENIA\]`/);
+      67 |   });
+      68 | });
+
+      at Object.toMatch (tests/wzrost-dokument.test.ts:65:25)
+
+Test Suites: 2 failed, 2 total
+Tests:       6 failed, 7 passed, 13 total
+Snapshots:   0 total
+Time:        0.596 s, estimated 1 s
+Ran all test suites matching /tests\/wzrost-dokument.test.ts|tests\/wzrost-hipotezy.test.ts/i.
+kod 1

@@ -1,0 +1,25 @@
+PASS tests/wzrost-hipotezy.test.ts
+  Hipotezy wzrostu (docs/wzrost/hipotezy.json)
+    ✓ pliki istnieją (2 ms)
+    ✓ hipotezy.mjs kończy się kodem 0 (dane poprawne, najwyżej 3 aktywne H) (34 ms)
+    ✓ kontrola negatywna: skrypt odrzuca H bez ID decyzji progu (kod 1) (38 ms)
+    ✓ H-01 to „Kryterium po 90 dniach od wydania” z docs/monetyzacja.md (Basic/Pro, D-112, D-113) (5 ms)
+    ✓ zmierzone dane nie trafiają do publicznego repo
+    ✓ min_proba każdej H ma ID decyzji właściciela zapisanej w docs/decyzje.md (084) (4 ms)
+    ✓ data_oceny = data wydania z dziennika + 90 dni; przed wydaniem nie wcześniej niż ostatni wiersz dziennika + 90 (084) (1 ms)
+
+PASS tests/wzrost-dokument.test.ts
+  docs/wzrost.md (180)
+    ✓ nie podaje „PL i EN” jako ograniczenia wersji
+    ✓ każda ścieżka repo w dokumencie istnieje
+    ✓ budżet godzin tygodniowo ma liczbę i ID decyzji z docs/decyzje.md (018) (1 ms)
+    ✓ jeden kanał startu: adres, cytat reguły autopromocji i data odczytu (018) (1 ms)
+    ✓ plan na złe przyjęcie: kto odpowiada, w jakim czasie i dokąd trafia zgłoszony błąd (018) (1 ms)
+    ✓ lista kontrolna wydania 1.0 ma wiersz kanału startu z docs/wzrost.md (018, trwała kontrola)
+
+Test Suites: 2 passed, 2 total
+Tests:       13 passed, 13 total
+Snapshots:   0 total
+Time:        0.603 s, estimated 1 s
+Ran all test suites matching /tests\/wzrost-dokument.test.ts|tests\/wzrost-hipotezy.test.ts/i.
+kod 0

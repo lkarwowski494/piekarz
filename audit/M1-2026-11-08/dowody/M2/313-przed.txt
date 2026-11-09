@@ -1,0 +1,15 @@
+    ✓ F-26 ma w kolumnie „Wymagania” ["BR-RECP-001","BR-RECP-005"]
+    ✓ F-33 ma w kolumnie „Wymagania” ["BR-DANE-003","BR-DANE-005"] (1 ms)
+    ✓ F-82 ma w kolumnie „Wymagania” ["BR-UST-004"]
+    ✓ F-83 ma w kolumnie „Wymagania” ["BR-UST-005"]
+    ✓ F-82 podaje liczbę źródeł z ekranu „Źródła wiedzy” (src/core/zrodla-wiedzy.ts) (1 ms)
+    ✓ F-83 ma podłogę „prawo: OG-13”
+    ✓ poza historią ZM kontrakt nie mówi o próbie ani o trybie „tylko historia” (1 ms)
+    ✓ „Darmowe i płatne” odsyła do D-112/D-113, nie do D-038
+    ✓ kolumna WTP każdej funkcji MVP i PÓŹNIEJ mówi, czy to Basic, Pro albo „zawsze”
+    ✓ F-37 i F-67 opisują ekran Pro i koniec Pro według BR-ZAK-003…005 (D-112, D-116)
+    ✕ apetyt 1.0 = 98 h przy rankingu z datą i decyzją D-313; w „Główna praca i pętla” bez „otwarta”; brak otwartej decyzji 98/97 h (2 ms)
+    ✓ tabela ZM ma wpis D-312: plan dla receptur drożdżowych katalogu w backlogu 1.0.1 (1 ms)
+    ✓ F-43 nie mówi, że F-71 jest PÓŹNIEJ (F-71 MVP od ZM-23)
+    ✕ ostatni wynik zakres.mjs w kontrakcie: 0 błędów i liczby równe tabeli; „Definicja ukończenia” podaje ten sam wynik
+Tests:       2 failed, 17 passed, 19 total
