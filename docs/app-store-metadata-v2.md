@@ -224,6 +224,8 @@ e) The sheet says what the backup contains. Tap "Replace Data". Import replaces 
 - Bake plan with Sleep Guard (Pro): after "Make a Plan", set the ready time; the app plans the steps backwards. When a hands-on step falls in your sleep hours, Sleep Guard offers "Move to fridge".
 - Workbench: tap "Start Bake" on the bake plan to open guided baking step by step with timers.
 - Bread Doctor: tap "Doctor" at the top of the Workbench, or "Bread Doctor" on the Journal tab, to diagnose a loaf. On the Starters tab, "Doctor" at the top opens the Starter Doctor.
+- Bread machine mode (Pro): on the Today tab choose "Baking with yeast or making pizza", open "White pan loaf", under "How much are you baking" choose "Bread machine". First enter "Machine capacity" and "Program time" from the manual. Amounts are free; with Pro set "Ready at" for the delayed start time and tap "Save plan".
+- Recipes with a yeast version show a "sourdough" / "with yeast" switch at the top.
 
 4. PERMISSIONS
 The app asks for permission to send local notifications only when you start the first timer or starter feeding reminder. It uses no microphone, location or App Tracking Transparency.
