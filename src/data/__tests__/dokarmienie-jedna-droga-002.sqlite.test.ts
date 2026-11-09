@@ -17,7 +17,7 @@ const wpis = (id: string, at: number): StoredStarterEntry => ({ id, starterId: z
 
 function wpisyWBazie(): Array<{ id: string; occurred_at: number }> {
   const files = control().opened;
-  const raw = openRaw(files[files.length - 1]);
+  const raw = openRaw(files.find((f) => f.endsWith('/piekarz.db')) ?? files[0]); // baza aplikacji, nie kopia
   const w = raw.prepare("SELECT id, occurred_at FROM starter_entries WHERE kind = 'feeding' ORDER BY occurred_at").all() as Array<{ id: string; occurred_at: number }>;
   raw.close();
   return w.map((x) => ({ id: x.id, occurred_at: Number(x.occurred_at) }));
@@ -60,7 +60,7 @@ describe('M1-audytor-generalny-002: dokarmienie tylko przez dziennik', () => {
     const { app } = await start();
     await app.store.saveStarter({ ...zakwas, id: 'starter_user_2', lastFedAt: T2 + 3600000, feedingRatio: '1:5:5' });
     const files = control().opened;
-    const raw = openRaw(files[files.length - 1]);
+    const raw = openRaw(files.find((f) => f.endsWith('/piekarz.db')) ?? files[0]); // baza aplikacji, nie kopia
     const n = raw.prepare("SELECT count(*) AS c FROM starter_entries WHERE starter_id = 'starter_user_2'").get() as { c: number };
     raw.close();
     expect(Number(n.c)).toBe(0);

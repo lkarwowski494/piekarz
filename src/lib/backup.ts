@@ -1,4 +1,5 @@
 import * as FileSystem from 'expo-file-system/legacy';
+import { sprawdzKopieBazy, type WynikSprawdzenia } from './sprawdzenie-kopii';
 import * as Sharing from 'expo-sharing';
 import { t } from './i18n';
 import { StoredRecipe, StoredStarter, StoredBakeLog, StoredStarterEntry, StoredFlourInventoryItem } from '../data/db';
@@ -330,15 +331,18 @@ export async function copyRawDatabaseFiles(dbUri: string): Promise<string[]> {
 }
 
 /** Po błędzie otwarcia: najpierw surowa kopia plików, potem plik ratunkowy z opisem błędu i listą kopii. */
-export async function rescueAfterOpenFailure(dbUri: string, message: string): Promise<string | null> {
+export async function rescueAfterOpenFailure(dbUri: string, message: string, wynik?: { sprawdzenie?: WynikSprawdzenia }): Promise<string | null> {
   let copies: string[];
   try {
     copies = await copyRawDatabaseFiles(dbUri);
   } catch {
     copies = [];
   }
+  // Surowa kopia sprawdzona przed udostępnieniem; wynik w pliku ratunkowym i w pakiecie [M1-audytor-generalny-033]
+  const sprawdzenie: WynikSprawdzenia = copies[0] ? await sprawdzKopieBazy(copies[0]) : 'nie-sprawdzono';
+  if (wynik) wynik.sprawdzenie = sprawdzenie;
   try {
-    return await saveCorruptState(JSON.stringify({ error: message }), 'SQLite open failed', copies);
+    return await saveCorruptState(JSON.stringify({ error: message, sprawdzenie }), 'SQLite open failed', copies);
   } catch {
     return null;
   }

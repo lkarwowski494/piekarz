@@ -30,7 +30,7 @@ const bake = (n: number): StoredBakeLog => ({
 
 function liczności() {
   const files = control().opened;
-  const raw = openRaw(files[files.length - 1] ?? dbFilePath());
+  const raw = openRaw(files.find((f) => f.endsWith('/piekarz.db')) ?? dbFilePath()); // baza aplikacji, nie kopia
   const c = tableCounts(raw);
   raw.close();
   return { bakes: c.bakes, starters: c.starters, starter_entries: c.starter_entries, app_settings: c.app_settings };
