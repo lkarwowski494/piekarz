@@ -1,0 +1,5 @@
+
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+
+kod 0 czas 13s HEAD dd824eee
