@@ -74,6 +74,27 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Gdy użytkownik usuwa recepturę albo zakwas
     - Wtedy usunięcie działa bez ekranu Pro (ER-80)
 
+### BR-DANE-005: Eksport historii wypieków do CSV
+- Przepływ: PR-07
+- Dowód potrzeby: J-10; obietnica w opisie sklepu („export your bake history as CSV”, `docs/wydanie/metadane/en-US.json`); arkusz kalkulacyjny jako sposób przeglądu własnych wypieków poza aplikacją (S-25, rec. 13533848767 — prośba o eksport); funkcja `dane` w Basic (D-112); ER-82
+- Kryteria akceptacji:
+  - Scenariusz: Plik CSV z dziennika
+    - Zakładając, że Dziennik ma wpisy
+    - Gdy użytkownik wybiera w Ustawieniach „Eksportuj historię wypieków (CSV)”
+    - Wtedy dostaje plik `piekarz-historia-wypiekow-RRRR-MM-DD.csv` w UTF-8 z BOM, separator przecinek, pierwszy wiersz z nazwami kolumn (id, started_at, finished_at, recipe_name, actual_ddt, ambient_temp, rating_stars, crumb_score, crust_score, taste_profile, crust_crispness, crumb_elasticity, acidity, open_crumb, caramelization, notes), daty w ISO 8601, jeden wiersz na wpis
+  - Scenariusz: Pusty dziennik
+    - Zakładając, że Dziennik nie ma wpisów
+    - Gdy użytkownik eksportuje CSV
+    - Wtedy plik ma tylko wiersz nagłówka
+  - Scenariusz: Tekst użytkownika w komórce
+    - Zakładając, że notatka zaczyna się od „=”, „+”, „-” albo „@” albo zawiera przecinek, cudzysłów lub nową linię
+    - Gdy użytkownik eksportuje CSV
+    - Wtedy komórka jest w cudzysłowie zgodnie z RFC 4180, a znak formuły poprzedzony apostrofem (zabezpieczenie przed formułami, `src/lib/csv-exporter.ts`)
+  - Scenariusz: Bez Pro
+    - Zakładając, że użytkownik nie ma Piekarz Pro (Basic)
+    - Gdy eksportuje CSV
+    - Wtedy eksport działa bez ekranu Pro (D-112)
+
 ### BR-ZAK-001: Zakup i przywrócenie przez App Store
 - Przepływ: PR-09 · Ograniczenie: OG-01, OG-02 (subskrypcja dostępna na wszystkich urządzeniach użytkownika), OG-03
 - Dowód potrzeby: D-033; audyt M1 01-odkrywanie-001 (zakup odblokowywał funkcje bez płatności); zakup bez odblokowania u konkurencji (S-21, rec. 14046463760)
