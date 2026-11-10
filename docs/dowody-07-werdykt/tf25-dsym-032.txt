@@ -1,0 +1,9 @@
+Odczyt MCP GitHub 2026-11-10 (get_job_logs, tail 120), run 42827876117 (Build & Upload to TestFlight #25), job 129890129906
+„Archive & Upload (.ipa -> TestFlight)”, head_sha 540229c90f145e7b88a81caa8aa36424382958c2, VERSION 1.0.0, BUILD_NUMBER 1025, conclusion success
+Wiersze logu (dosłownie, krok „Generate ExportOptions.plist & Upload to TestFlight”):
+2026-11-10T15:31:40.3437000Z Progress 90%: Upload succeeded.
+2026-11-10T15:31:40.3543180Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the React.framework with the UUIDs [EE15B752-FB46-35F2-B0BB-A46636572385]. ...
+2026-11-10T15:31:40.3742120Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the ReactNativeDependencies.framework with the UUIDs [DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2]. ...
+2026-11-10T15:31:40.3862350Z warning: exportArchive Upload Symbols Failed. The archive did not include a dSYM for the hermesvm.framework with the UUIDs [BE274A23-47CC-3F5A-9E98-8474553DF5A8]. ...
+2026-11-10T15:31:40.3983600Z ** EXPORT SUCCEEDED **
+Wniosek: test akceptacyjny 032 („log wysyłki bez Upload Symbols Failed”) niespełniony na buildzie 1025.

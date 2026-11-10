@@ -50,7 +50,7 @@ Fırıncı miktarları hesaplar ve her adımın sonunu haber verir. Ekmeğin haz
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
 
 TARİFLER VE MİKTARLAR
-26 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz; ekşi mayalı 11 tarifte plan ve adım adım rehberlik vardır. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar (maya hamuru: Pro). Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
+26 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz; ekşi mayalı 10 tarifte plan ve adım adım rehberlik vardır. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar (maya hamuru: Pro). Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
 
 MAYALI SÜRÜM VE EKMEK MAKİNESİ
 Ekşi mayalı dört tarifin mayalı sürümü de vardır, bunların üçü planlıdır. Mayalı tarifler ve sürümler ekmek makinesinde de yapılabilir: Fırıncı miktarları makinenize göre ayarlar, malzeme sırasını ve programı, ayrıca seçtiğiniz hazır olma saati için başlatma saatini söyler (Pro).

@@ -1,0 +1,83 @@
+$ git rev-parse HEAD → c2c5e20671cdeea3e143ca0e22438933cce78b49 (przed poprawką tekstów, test 109 dodany)
+$ npx jest tests/opis-sklepu-receptury-plan-109.test.ts
+    ✓ katalog: część receptur ma plan, część nie (liczba z powodBezPlanu) (2 ms)
+    ✓ 34 lokalizacje (1 ms)
+    ✕ cs: sekcja receptur podaje liczbę receptur z planem z katalogu (3 ms)
+    ✕ da: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ de-DE: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ el: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ en-AU: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ en-CA: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ en-GB: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ en-US: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ es-ES: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ es-MX: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ fi: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ fr-CA: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ fr-FR: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ hr: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ hu: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ id: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ it: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ ja: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ ko: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ ms: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ nl-NL: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ no: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ pl: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ pt-BR: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ pt-PT: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ ro: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ ru: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ sk: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ sl: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ sv: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ tr: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ uk: sekcja receptur podaje liczbę receptur z planem z katalogu (1 ms)
+    ✕ vi: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ zh-Hant: sekcja receptur podaje liczbę receptur z planem z katalogu
+    ✕ źródło PL/EN (docs/app-store-metadata-v2.md): każdy akapit receptur podaje liczbę z planem z katalogu (1 ms)
+    ✕ README: wiersz „Receptury i ilości” podaje liczbę z planem z katalogu (1 ms)
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+    -     10,
+    +     11,
+    - Expected  - 1
+    + Received  + 1
+kod wyjścia: 1

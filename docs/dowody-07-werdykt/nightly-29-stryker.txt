@@ -1,0 +1,9 @@
+Odczyt MCP GitHub 2026-11-10 (actions_get get_workflow_job + get_job_logs tail 60), job 130018944888, run 42870153152
+Workflow: Nightly Deep Verification & Fuzzing · job „Nightly (Random Seed + 1000 Runs + Verify)” · head_branch master · head_sha c2c5e20671cdeea3e143ca0e22438933cce78b49
+status completed, conclusion success; started 2026-11-10T17:57:10Z, completed 2026-11-10T19:45:10Z
+Kroki: Deep Stateful Fuzzing (1000 runs) success 17:57:46–17:57:52; Full Quality Gate (npm run verify) success 17:57:52–18:00:57;
+       Stryker Mutation Verification success 18:00:57–19:45:07; Save mutation incremental cache success
+Wiersze logu (dosłownie):
+2026-11-10T19:45:07.2827844Z INFO MutationTestReportHelper Final mutation score of 64.33 is greater than or equal to break threshold 60
+2026-11-10T19:45:07.2828054Z INFO MutationTestExecutor Done in 104 minutes and 8 seconds.
+2026-11-10T19:45:08.2921905Z Cache saved with key: stryker-incremental-42870153152

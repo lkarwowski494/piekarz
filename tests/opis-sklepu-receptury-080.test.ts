@@ -1,7 +1,8 @@
 /**
  * Opis sklepu podaje katalog receptur tej wersji [M1-audytor-generalny-080; 10-wydanie-004, 01-odkrywanie-005, 11-wzrost-004].
- * DEC-01 a (D-286): „26 receptur, z czego 11 z planem i prowadzeniem krok po kroku”; liczby z kodu, nie z pamięci:
- * katalog `CATALOG_RECIPES`, plan tylko dla receptury z zakwasem (`powodBezZakwasu`, D-252, D-274), wersje drożdżowe
+ * DEC-01 a (D-286): „26 receptur, z czego 11 z planem i prowadzeniem krok po kroku” (stan sprzed D-317; dziś 10); liczby z kodu, nie z pamięci:
+ * katalog `CATALOG_RECIPES`, plan według `powodBezPlanu` (z zakwasem: D-252, D-274; bez brioszki: D-317, 089 — licznik
+ * zmieniony z `powodBezZakwasu` w 109, D-346), wersje drożdżowe
  * `WERSJE_DROZDZOWE` z planem według `maPlanDrozdzowy` (F-26 w docs/scope-contract.md). Opis pl i en-US wymienia tryb
  * maszyny do chleba (F-72) i wersję na drożdżach (D-154). Dlaczego test: katalog rósł (D-157), a opis w 34
  * lokalizacjach został przy „15 receptur” (wytyczna 2.3: „keep them up-to-date with new versions”).
@@ -9,7 +10,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { CATALOG_RECIPES } from '../src/recipes/katalog';
-import { powodBezZakwasu } from '../src/lib/plan-receptury';
+import { powodBezPlanu } from '../src/lib/plan-receptury';
 import { WERSJE_DROZDZOWE } from '../src/recipes/wersje-drozdzowe';
 import { maPlanDrozdzowy } from '../src/recipes/yeast-stages';
 
@@ -22,14 +23,14 @@ const opis = (kod: string): string => JSON.parse(fs.readFileSync(path.join(KAT, 
 const liczby = (s: string) => [...s.matchAll(/(?<![\d:./])\d+(?![\d:./])/g)].map((m) => Number(m[0]));
 
 const wszystkie = CATALOG_RECIPES.length;
-const zPlanem = CATALOG_RECIPES.filter((r) => powodBezZakwasu(r.formula) === null).length;
+const zPlanem = CATALOG_RECIPES.filter((r) => powodBezPlanu(r.formula, { recipeId: r.id }) === null).length;
 const wersje = Object.keys(WERSJE_DROZDZOWE);
 
 describe('opis sklepu: katalog receptur tej wersji (080)', () => {
-  it('kod: 26 receptur bazowych, 11 z planem; wersja drożdżowa w 4, plan w 3 (stan F-26)', () => {
+  it('kod: 26 receptur bazowych, 10 z planem (D-317); wersja drożdżowa w 4, plan w 3 (stan F-26)', () => {
     expect({ wszystkie, zPlanem, wersje: wersje.length, wersjeZPlanem: wersje.filter((id) => maPlanDrozdzowy(id)).length }).toEqual({
       wszystkie: 26,
-      zPlanem: 11,
+      zPlanem: 10,
       wersje: 4,
       wersjeZPlanem: 3,
     });

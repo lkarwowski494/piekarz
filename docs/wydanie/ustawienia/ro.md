@@ -50,7 +50,7 @@ Brutar calculează cantitățile și te anunță la finalul fiecărui pas. Plan 
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
 
 REȚETE ȘI CANTITĂȚI
-Alegi una dintre cele 26 de rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie; 11 rețete cu maia au plan și ghidare pas cu pas. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain (levain: Pro). Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
+Alegi una dintre cele 26 de rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie; 10 rețete cu maia au plan și ghidare pas cu pas. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain (levain: Pro). Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
 
 VARIANTA CU DROJDIE ȘI APARATUL DE FĂCUT PÂINE
 Patru rețete cu maia au și variantă cu drojdie, trei dintre ele cu plan. Rețetele și variantele cu drojdie merg și în aparatul de făcut pâine: Brutar potrivește cantitățile pentru aparat, îți dă ordinea ingredientelor și programul, plus ora de pornire pentru ora „gata” aleasă (Pro).

@@ -50,7 +50,7 @@ Bäcker berechnet die Mengen und meldet sich am Ende jedes Schritts. Plan rückw
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
 
 REZEPTUREN UND MENGEN
-Wähle eine von 26 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene; 11 Sauerteigrezepturen haben einen Plan und eine Begleitung Schritt für Schritt. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig (Vorteig: Pro). Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
+Wähle eine von 26 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene; 10 Sauerteigrezepturen haben einen Plan und eine Begleitung Schritt für Schritt. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig (Vorteig: Pro). Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
 
 HEFEVERSION UND BROTBACKAUTOMAT
 Vier Sauerteigrezepturen gibt es auch mit Hefe, drei davon mit Plan. Hefe-Rezepturen backst du auch im Brotbackautomaten: Bäcker passt die Mengen an, nennt die Reihenfolge der Zutaten , das Programm und die Startzeit für deine Fertig-Uhrzeit (Pro).

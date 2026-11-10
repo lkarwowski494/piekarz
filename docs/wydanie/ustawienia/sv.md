@@ -50,7 +50,7 @@ Bagaren räknar ut mängderna och säger till när varje steg är slut. Plan bak
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
 
 RECEPT OCH MÄNGDER
-Du väljer ett av 26 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget; 11 surdegsrecept har plan och vägledning steg för steg. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen (fördeg: Pro). Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
+Du väljer ett av 26 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget; 10 surdegsrecept har plan och vägledning steg för steg. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen (fördeg: Pro). Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
 
 JÄSTVERSION OCH BRÖDMASKIN
 Fyra surdegsrecept har också en jästversion, tre av dem med plan. Jästrecept och jästversioner går också att baka i brödmaskin: Bagaren anpassar mängderna till din maskin och anger ordningen för ingredienserna och programmet, plus starttiden för den klar-tid du väljer (Pro).

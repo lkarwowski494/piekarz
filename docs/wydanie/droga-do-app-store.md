@@ -63,7 +63,7 @@ Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w
 | # | Pozycja | Stan | Blokuje | Kto |
 |---|---|---|---|---|
 | D1 | Nazwa, podtytuł, opis, słowa kluczowe (≤ 100 **bajtów**), 34 lokalizacje | pliki `docs/wydanie/metadane/`, karty `docs/wydanie/ustawienia/`; skrypt `sprawdz-wydanie.mjs` z kodem 0 przed wysyłką | TAK | agent |
-| D2 | Zdanie „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” | w `pl`, `en-US`, `en-GB`, `en-AU`, `en-CA`; **29 lokalizacji bez przekładu akapitu „Dostęp i zakup”** (Z-8, `docs/monetyzacja.md`) | TAK (prawdziwość opisu, wytyczna 2.3) | M1 / rola 09 |
+| D2 | Zdanie „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” | akapit „Dostęp i zakup” we wszystkich 34 lokalizacjach (przekład 29: `de0c510e`, 2026-10-23; recenzja niezależna i poprawki: Z-8, 2026-11-10); zgłaszane są wszystkie 34 lokalizacje (KO-025); test `tests/dostep-zakup-z8.test.ts` | nie (zrobione) | rola 09 |
 | D3 | Opis zgodny z kodem: funkcje Pro oznaczone, brak obietnicy próby i „tylko historia” | Z-8: w opisie wszystkich lokalizacji zdania o funkcjach dziś Pro bez oznaczenia | TAK | rola 10 |
 | D4 | Adresy: polityka prywatności, wsparcie (kod 200 przed wysyłką) | `sklep.md` §2 krok 4.4; strona wsparcia bez adresu i telefonu (D-290 pkt 1); polityka v2: `docs/prawne/polityka-prywatnosci.pl.md`, publikacja w apps4brew-www | TAK | właściciel |
 | D5 | App Privacy „Data Not Collected”, kategoria wiekowa (D-058), eksport kryptografii | `instrukcja-ustawien.md` §7–9 | TAK | właściciel |

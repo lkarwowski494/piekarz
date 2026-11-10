@@ -1,0 +1,660 @@
+FAIL tests/dostep-zakup-z8.test.ts
+  Z-8: akapit „Dostęp i zakup” w 34 lokalizacjach (KO-025)
+    ✓ 34 lokalizacje (2 ms)
+    ✕ cs: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (4 ms)
+    ✓ da: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ de-DE: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ el: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ en-AU: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ en-CA: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ en-GB: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ en-US: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ es-ES: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ es-MX: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ fi: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ fr-CA: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ fr-FR: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ hr: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ hu: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ id: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ it: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✕ ja: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✕ ko: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ ms: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ nl-NL: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ no: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ pl: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ pt-BR: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ pt-PT: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ ro: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ ru: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ sk: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✕ sl: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ sv: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ tr: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ uk: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (1 ms)
+    ✓ vi: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+    ✓ zh-Hant: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie (3 ms)
+    ✓ cs: brak polskich słów i znaków w polach sklepu
+    ✓ da: brak polskich słów i znaków w polach sklepu
+    ✓ de-DE: brak polskich słów i znaków w polach sklepu
+    ✓ el: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ en-AU: brak polskich słów i znaków w polach sklepu
+    ✓ en-CA: brak polskich słów i znaków w polach sklepu
+    ✓ en-GB: brak polskich słów i znaków w polach sklepu
+    ✓ en-US: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ es-ES: brak polskich słów i znaków w polach sklepu
+    ✓ es-MX: brak polskich słów i znaków w polach sklepu
+    ✓ fi: brak polskich słów i znaków w polach sklepu
+    ✓ fr-CA: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ fr-FR: brak polskich słów i znaków w polach sklepu
+    ✓ hr: brak polskich słów i znaków w polach sklepu
+    ✓ hu: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ id: brak polskich słów i znaków w polach sklepu
+    ✓ it: brak polskich słów i znaków w polach sklepu
+    ✓ ja: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ ko: brak polskich słów i znaków w polach sklepu
+    ✓ ms: brak polskich słów i znaków w polach sklepu
+    ✓ nl-NL: brak polskich słów i znaków w polach sklepu
+    ✓ no: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ pt-BR: brak polskich słów i znaków w polach sklepu
+    ✓ pt-PT: brak polskich słów i znaków w polach sklepu
+    ✓ ro: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ ru: brak polskich słów i znaków w polach sklepu
+    ✓ sk: brak polskich słów i znaków w polach sklepu
+    ✓ sl: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ sv: brak polskich słów i znaków w polach sklepu
+    ✓ tr: brak polskich słów i znaków w polach sklepu
+    ✓ uk: brak polskich słów i znaków w polach sklepu (1 ms)
+    ✓ vi: brak polskich słów i znaków w polach sklepu
+    ✓ zh-Hant: brak polskich słów i znaków w polach sklepu
+    ✓ akapit pl i en-US = źródło PL/EN (docs/app-store-metadata-v2.md §1.2, §2.2) (1 ms)
+    ✓ kontrola negatywna: opis bez akapitu, z ceną albo z długością próby, z ucięciem EULA i ponad limit daje błędy (2 ms)
+  Z-8: dokumenty wydania zgłaszają 34 lokalizacje (KO-025)
+    ✕ docs/wydanie/droga-do-app-store.md nie podaje już „29 lokalizacji” bez przekładu akapitu
+    ✕ docs/wydanie/plan-wydania-1.0.md nie podaje już „29 lokalizacji” bez przekładu akapitu
+    ✕ docs/monetyzacja.md nie podaje już „29 lokalizacji” bez przekładu akapitu (1 ms)
+    ✕ plan wydania §1 pkt 6 i droga D2: wszystkie 34 lokalizacje w pierwszym zgłoszeniu (KO-025) (1 ms)
+  Z-8: notatka dla App Review — bez oferty wprowadzającej i próby, stała wartość Pro (KO-025)
+    ✕ mówi wprost: no introductory offer, no free trial (D-112) (1 ms)
+    ✓ podaje stałą wartość Pro (3.1.2(a) „ongoing value”, monetyzacja.md)
+
+  ● Z-8: akapit „Dostęp i zakup” w 34 lokalizacjach (KO-025) › cs: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "treść bez „App Store”",
+    +   ],
+        "kod": "cs",
+      }
+
+      46 |
+      47 |   it.each(KODY)('%s: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie', (kod) => {
+    > 48 |     expect({ kod, bledy: bledyAkapitu(meta(kod).opis) }).toEqual({ kod, bledy: [] });
+         |                                                          ^
+      49 |   });
+      50 |
+      51 |   it.each(KODY.filter((k) => k !== 'pl'))('%s: brak polskich słów i znaków w polach sklepu', (kod) => {
+
+      at toEqual (tests/dostep-zakup-z8.test.ts:48:58)
+
+  ● Z-8: akapit „Dostęp i zakup” w 34 lokalizacjach (KO-025) › ja: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "treść z liczbą (cena albo długość próby)",
+    +   ],
+        "kod": "ja",
+      }
+
+      46 |
+      47 |   it.each(KODY)('%s: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie', (kod) => {
+    > 48 |     expect({ kod, bledy: bledyAkapitu(meta(kod).opis) }).toEqual({ kod, bledy: [] });
+         |                                                          ^
+      49 |   });
+      50 |
+      51 |   it.each(KODY.filter((k) => k !== 'pl'))('%s: brak polskich słów i znaków w polach sklepu', (kod) => {
+
+      at toEqual (tests/dostep-zakup-z8.test.ts:48:58)
+
+  ● Z-8: akapit „Dostęp i zakup” w 34 lokalizacjach (KO-025) › ko: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "treść z liczbą (cena albo długość próby)",
+    +   ],
+        "kod": "ko",
+      }
+
+      46 |
+      47 |   it.each(KODY)('%s: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie', (kod) => {
+    > 48 |     expect({ kod, bledy: bledyAkapitu(meta(kod).opis) }).toEqual({ kod, bledy: [] });
+         |                                                          ^
+      49 |   });
+      50 |
+      51 |   it.each(KODY.filter((k) => k !== 'pl'))('%s: brak polskich słów i znaków w polach sklepu', (kod) => {
+
+      at toEqual (tests/dostep-zakup-z8.test.ts:48:58)
+
+  ● Z-8: akapit „Dostęp i zakup” w 34 lokalizacjach (KO-025) › sl: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "treść bez „App Store”",
+    +   ],
+        "kod": "sl",
+      }
+
+      46 |
+      47 |   it.each(KODY)('%s: akapit jak w PL/EN (nagłówek, Basic/Pro/App Store bez liczb, EULA) i opis w limicie', (kod) => {
+    > 48 |     expect({ kod, bledy: bledyAkapitu(meta(kod).opis) }).toEqual({ kod, bledy: [] });
+         |                                                          ^
+      49 |   });
+      50 |
+      51 |   it.each(KODY.filter((k) => k !== 'pl'))('%s: brak polskich słów i znaków w polach sklepu', (kod) => {
+
+      at toEqual (tests/dostep-zakup-z8.test.ts:48:58)
+
+  ● Z-8: dokumenty wydania zgłaszają 34 lokalizacje (KO-025) › docs/wydanie/droga-do-app-store.md nie podaje już „29 lokalizacji” bez przekładu akapitu
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/
+    Received string:      "# Droga do pierwszego wydania w App Store — Piekarz
+
+    Stan: 2026-11-02 (noc, do weta; D-125) · Wzór: repo `trening`, `docs/41-droga-do-app-store.md` (punkty A–F), dostosowany do Piekarza. Plan wersji i wydania: `docs/wydanie/plan-wydania-1.0.md`; kroki w App Store Connect: `docs/wydanie/instrukcja-ustawien.md`; lista na telefonie: `docs/wydanie/lista-kontrolna-telefonu.md`; dziennik buildów i zgód: `docs/wydanie/dziennik.md`.
+
+    Zasada: ten dokument niczego nie wysyła. Każdy krok w App Store Connect (ASC), TestFlight i GitHub Actions, który zużywa limit albo zmienia sklep, wykonuje właściciel za zgodą na ten krok i ten build (`docs/wydanie/sklep.md` §2, §6).
+
+    ## Ścieżka krytyczna (od dziś do zgłoszenia)
+
+    1. **iOS E2E na HEAD gałęzi** (`.github/workflows/e2e-ios.yml`: pełny katalog `.maestro/e2e` w buildzie z `EXPO_PUBLIC_E2E` i `.maestro/e2e-basic` w drugim buildzie Release bez tej zmiennej). Ostatni znany wynik: run 39924837386 na `b47abea`, failure (2026-10-23; `docs/wznowienie-M3.md`). Zielony: dalej; czerwony: rola 08 `fix` z logiem przebiegu.
+    2. **Build TestFlight z gałęzi** (`testflight.yml`), po zielonym E2E; zgoda właściciela z 2026-11-02: „Tak, po zielonym E2E (zalecane)”.
+    3. **Test na telefonie** wg `docs/wydanie/lista-kontrolna-telefonu.md` (ok. 30–40 min) i zakupy w piaskownicy (Basic i Pro).
+    4. **Usunięcie Free Trial** z `.pro.monthly` i `.pro.yearly` (Z-1): zrobione przez właściciela 2026-11-03 („Obie usuenięte.”), w dniu scalenia do master i buildu 1021 z kodem Basic/Pro.
+    5. **Werdykt 07** na SHA kandydata (tor B nocy 2026-11-02 daje listę blokerów; werdykt na SHA kandydata robi rola 07 po scaleniu).
+    6. **Zrzuty z urządzenia** (A-2) i opis wydania, potem zgłoszenie (`sklep.md` §2 krok 4–5).
+
+    ## Co zostaje poza agentem
+
+    | Krok | Kto | Dlaczego nie agent |
+    |---|---|---|
+    | Uruchomienie `testflight.yml` | właściciel (M1 w oknie runnera) | zużywa minuty macOS i tworzy build w ASC |
+    | Test na telefonie | właściciel | powiadomienia, blokada ekranu, VoiceOver, StoreKit: poza symulatorem CI |
+    | Free Trial w ASC (Z-1), ceny, produkty | właściciel | ASC: zmiana nieodwracalna lub widoczna w sklepie |
+    | Kontakt dla App Review, Copyright, DSA | właściciel | dane osobowe tylko w ASC, nie w repo |
+    | Wysłanie do recenzji, „Release This Version” | właściciel | `sklep.md` §6, osobna zgoda na każdy |
+
+    ## Lista braków (A–F)
+
+    Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w nawiasie; czego nie sprawdzono w tej sesji, to `[DO USTALENIA]`.
+
+    ### A. Build, jakość, wersja
+
+    | # | Pozycja | Stan | Blokuje | Kto |
+    |---|---|---|---|---|
+    | A1 | E2E na HEAD (`e2e-ios.yml`, katalog `e2e` + `e2e-basic`) | ostatni znany wynik czerwony (2026-10-23); wynik na HEAD `[DO USTALENIA]` (tor A nocy) | TAK | agent (CI) |
+    | A2 | `npm run verify` na commicie kandydata, kod 0 | sprawdza koordynator przy przyjęciu gałęzi | TAK | agent |
+    | A3 | Werdykt 07 na SHA kandydata (poprzedni: ZABLOKOWANE na `ebd8471`, 2026-10-19) | otwarty; tor B nocy | TAK | rola 07 |
+    | A4 | Build TestFlight z kandydata, wpis w dzienniku | czeka na A1 | TAK | właściciel |
+    | A5 | Wersja 1.0.0, numer buildu z workflow (1000 + run) | `app.json` 1.0.0; numer tylko z workflow (`sklep.md` §1) | nie | — |
+    | A6 | Szyfrowanie: `ITSAppUsesNonExemptEncryption: false` (`app.json:68`) | `instrukcja-ustawien.md` §9; potwierdzić w werdykcie 07 | nie | rola 07 |
+    | A7 | Test na telefonie (PH-01…), w tym aktualizacja z poprzedniego buildu | czeka na A4 | TAK | właściciel |
+
+    ### B. Zakupy (Basic/Pro, D-112, D-113; `docs/monetyzacja.md`)
+
+    | # | Pozycja | Stan | Blokuje | Kto |
+    |---|---|---|---|---|
+    | B1 | Produkty: `com.apps4brew.baker.pro.monthly`, `.yearly` (grupa „Piekarz Pro”), `.lifetime` (Non-Consumable); ceny 0,99 / 6,99 / 14,99 USD; Family Sharing włączony 2026-10-21 | zapisane w ASC (`dziennik.md`, run 39583333126) | nie | — |
+    | B2 | **Z-1: usunąć Free Trial 2 Weeks** z obu subskrypcji, we wszystkich krajach, razem z buildem Basic/Pro | zrobione 2026-11-03, właściciel: „Obie usuenięte.” (`docs/wydanie/dziennik.md`; 2026-11-02 jeszcze nie) | nie | — |
+    | B3 | Zakup w piaskownicy: każdy plan, przywrócenie, tryb samolotowy, zwrot, Family Sharing; arkusz Apple bez oferty wprowadzającej | czeka na A4 (PH-20) | TAK | właściciel |
+    | B4 | Zrzut „App Review Screenshot” każdego produktu; opisy produktów (`asc-zgloszenie.mjs`, krok 3.7–3.8) | zrzut zakupu pokazuje ekran Pro po M3 `[DO USTALENIA]`: sprawdzić, że nie pokazuje próby | TAK | agent + właściciel |
+    | B5 | Pierwszy zakup każdego typu idzie w tym samym zgłoszeniu co wersja (`sklep.md` §2 krok 4.4) | do wykonania przy zgłoszeniu | TAK | właściciel |
+    | B6 | Brak „Review Notes” wymaganych tylko przy ofercie wprowadzającej: po Z-1 oferty nie ma, więc brak wymogu; sprawdzić w ASC w dniu zgłoszenia | `[DO USTALENIA]` | nie | właściciel |
+
+    ### C. Zrzuty ekranu
+
+    | # | Pozycja | Stan | Blokuje | Kto |
+    |---|---|---|---|---|
+    | C1 | Zestawy iPhone 6,9″ i 6,3″, 7 ramek × lokalizacje (`docs/wydanie/zrzuty/`, sumy w `sumy.json`) | próbny zapis `pl` 2026-10-21; **ramki 2–4 i 6 wymagają odświeżenia po M3 (Z-8)**; zrzuty z urządzenia po teście właściciela (A-2) | TAK | agent + właściciel |
+    | C2 | iPad | niepotrzebny: `supportsTablet: false` (`app.json:61`) | nie | — |
+    | C3 | Zrzuty i opis nie pokazują funkcji PÓŹNIEJ (QR, druk, spiżarnia; D-043, `sklep.md` §3) | sprawdzić po odświeżeniu ramek; `widocznosc.md` nie ma tej listy | TAK | rola 10 |
+
+    ### D. Metadane (ASC → wersja i App Information)
+
+    | # | Pozycja | Stan | Blokuje | Kto |
+    |---|---|---|---|---|
+    | D1 | Nazwa, podtytuł, opis, słowa kluczowe (≤ 100 **bajtów**), 34 lokalizacje | pliki `docs/wydanie/metadane/`, karty `docs/wydanie/ustawienia/`; skrypt `sprawdz-wydanie.mjs` z kodem 0 przed wysyłką | TAK | agent |
+    | D2 | Zdanie „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” | w `pl`, `en-US`, `en-GB`, `en-AU`, `en-CA`; **29 lokalizacji bez przekładu akapitu „Dostęp i zakup”** (Z-8, `docs/monetyzacja.md`) | TAK (prawdziwość opisu, wytyczna 2.3) | M1 / rola 09 |
+    | D3 | Opis zgodny z kodem: funkcje Pro oznaczone, brak obietnicy próby i „tylko historia” | Z-8: w opisie wszystkich lokalizacji zdania o funkcjach dziś Pro bez oznaczenia | TAK | rola 10 |
+    | D4 | Adresy: polityka prywatności, wsparcie (kod 200 przed wysyłką) | `sklep.md` §2 krok 4.4; strona wsparcia bez adresu i telefonu (D-290 pkt 1); polityka v2: `docs/prawne/polityka-prywatnosci.pl.md`, publikacja w apps4brew-www | TAK | właściciel |
+    | D5 | App Privacy „Data Not Collected”, kategoria wiekowa (D-058), eksport kryptografii | `instrukcja-ustawien.md` §7–9 | TAK | właściciel |
+    | D6 | App Review: kontakt, notatki (EN) bez haseł | notatki: `docs/app-store-metadata-v2.md` §4.3; kontakt tylko w ASC | TAK | właściciel |
+    | D7 | Opcja wydania „Manually release this version” (DEC-16 a) | `sklep.md` §6 krok 2 | nie | właściciel |
+    | D8 | „Co nowego” | 1.0 nie ma pola; szkic dla 1.0.1 i dla opisu TestFlight: `docs/wydanie/opis-zmian-1.0.md`; przekład na 33 języki czeka (tabela w tym pliku) | nie | rola 10 |
+
+    ### E. Prawo, kontakt
+
+    | # | Pozycja | Stan | Blokuje | Kto |
+    |---|---|---|---|---|
+    | E1 | Status tradera DSA i dane kontaktowe na stronie wsparcia | przedsiębiorca, zweryfikowany 20.10.2026 (konto); strona wsparcia bez telefonu (D-290 pkt 1); sprawdzić stan w ASC przed wysyłką | nie | właściciel |
+    | E2 | ICP dla CHN (D-057) | `instrukcja-ustawien.md`, „Otwarte” | `[DO USTALENIA]` | właściciel |
+    | E3 | Licencje zależności (`npm run check:licenses`) | część `npm run verify` | nie | agent |
+    | E4 | Ekran „Źródła wiedzy” (D-123): nazwy źródeł tylko tam; nic w ASC nie przypisuje aplikacji źródeł | `tests/zrodla-poza-ekranem-t2.test.ts` | nie | agent |
+
+    ### F. Wysyłka
+
+    | # | Pozycja | Stan | Kto |
+    |---|---|---|---|
+    | F1 | Wersja 1.0 w ASC: build z TestFlight, zrzuty, metadane, produkty w jednym zgłoszeniu → „Add for Review” → „Submit for Review” | po A–E | właściciel |
+    | F2 | Recenzja Apple; po odrzuceniu: odpowiedź w Resolution Center (szkic przygotowuje agent), naprawa wg progu | czas recenzji `[DO USTALENIA]` (strona Apple w dniu wysyłki) | Apple / agent |
+    | F3 | Plan wydania i lista W1 (`plan-wydania-1.0.md`) | opisane | właściciel |
+
+    ## Czas (podwójna miara, szacunek)
+
+    - **Praca agenta** do gotowości zgłoszenia, bez czekania: odświeżenie 4 ramek zrzutów i opisu ok. 2–3 h agenta po teście właściciela; ewentualna poprawka po czerwonym E2E: zależy od logu `[OCENA]`.
+    - **Czekanie:** E2E ok. 1–2 h runnera, build TestFlight ok. 1,5 h (wzór `trening`), recenzja Apple `[DO USTALENIA]`.
+    - **Czas właściciela:** test na telefonie 30–40 min, ASC (kontakt, wysłanie; Z-1 zrobione 2026-11-03) ok. 30 min, plus decyzje wg `docs/wydanie/plan-wydania-1.0.md` §1.
+
+    ## Przeczytane i niezweryfikowane
+
+    Strony Apple przytoczone w `sklep.md` i `instrukcja-ustawien.md` mają daty odczytu 2026-10-20/21; w dniu wysyłki nazwy przycisków i wymiary zrzutów trzeba sprawdzić ponownie (zasada roli 10, pkt 1). Tego dokumentu nie wypełniono nowym odczytem stron Apple (noc, bez przeglądarki).
+    "
+
+      81 |     '%s nie podaje już „29 lokalizacji” bez przekładu akapitu',
+      82 |     (f) => {
+    > 83 |       expect(read(f)).not.toMatch(/29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/);
+         |                           ^
+      84 |     },
+      85 |   );
+      86 |
+
+      at toMatch (tests/dostep-zakup-z8.test.ts:83:27)
+
+  ● Z-8: dokumenty wydania zgłaszają 34 lokalizacje (KO-025) › docs/wydanie/plan-wydania-1.0.md nie podaje już „29 lokalizacji” bez przekładu akapitu
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/
+    Received string:      "# Plan wydania 1.0 — Piekarz
+
+    Stan: 2026-11-02 (noc, do weta; D-125). Wzór: `trening`, `docs/42-plan-wydania-1.0.md`. Rdzeń planu (DEC-16 a, wydanie ręczne po TestFlight, wydanie stopniowe aktualizacji, postępowanie przy złym buildzie, kroki właściciela w ASC) jest w `docs/wydanie/sklep.md` §2, §4, §6; tu są bramki przed recenzją, lista W1 i budżet po premierze. Kwoty i model płatności: wyłącznie `docs/monetyzacja.md` (Basic/Pro, D-112, D-113). Droga i zależności: `docs/wydanie/droga-do-app-store.md`.
+
+    ## 1. Bramki przed wysłaniem do recenzji
+
+    Zgłoszenia nie wysyłamy, dopóki wszystkie punkty nie są spełnione. Każdy ma dowód (wynik komendy, run, wpis w dzienniku).
+
+    1. **Testy:** `npm run verify` kod 0 na SHA kandydata; iOS E2E (`e2e-ios.yml`) zielony na tym SHA: pełny katalog `.maestro/e2e` (5 scenariuszy) i `.maestro/e2e-basic` (5 scenariuszy w buildzie bez `EXPO_PUBLIC_E2E`, czyli jak w sklepie). Jedno ponowienie scenariusza dozwolone. *Dlaczego Basic osobno:* build E2E ma dostęp testowy, więc nie pokazuje, co widzi użytkownik bez Pro.
+    2. **Werdykt 07** na SHA kandydata inny niż ZABLOKOWANE (ostatni: ZABLOKOWANE na `ebd8471`, 2026-10-19); blokery z toru B nocy 2026-11-02 rozstrzygnięte.
+    3. **Pełny głęboki audyt całości przed upublicznieniem:** rozstrzygnięte D-225 (właściciel, 2026-11-04): pełny M1 na kandydacie po partii danych D-221, naprawy M2 i reaudyt M1, dopiero potem zgłoszenie (opcja (a); znosi tańszą kontrolę nazwaną z D-135). Stan: audyt 2026-11-08 na buildzie 1023 (`2ef8870`), naprawy M2 w toku; bramka spełniona po reaudycie M1 bez blokera.
+    4. **Wygląd:** zrzuty i opis dopiero po M3 i teście właściciela (A-2); ramki 2–4 i 6 do odświeżenia (Z-8).
+    5. **Model płatności:** zgodny z `docs/monetyzacja.md`; **Free Trial usunięty z `.pro.monthly` i `.pro.yearly` w ASC (Z-1; zrobione 2026-11-03, właściciel: „Obie usuenięte.”)** — warunek konieczny: bez tego sklep oferuje próbę, której aplikacja nie pokazuje (zgodność z wytyczną 3.1.2). Bramka opłacalności: wynik w `docs/monetyzacja.md` dla platformy 1.0, sam iOS: 174–218 USD netto/rok w scen. norm. wobec progu 500 USD (35–44%; ok. 345 tylko z Google Play po porcie, którego plan 1.0 nie ma; DEC-06 a, D-286): werdykt „przerobić” znany, nie blokuje wydania (D-040, D-112).
+    6. **Opis i metadane:** `sprawdz-wydanie.mjs` (`metadane`, `prywatnosc`, `sekrety --historia`) kod 0; przekład akapitu „Dostęp i zakup” w 29 lokalizacjach (Z-8) albo świadome wyłączenie tych lokalizacji z pierwszego zgłoszenia — decyzja właściciela.
+    7. **Telefon:** `docs/wydanie/lista-kontrolna-telefonu.md` odhaczona na buildzie z TestFlight, który jest kandydatem.
+    8. **Źródła wiedzy:** ekran w Ustawieniach działa (PH-30); treść krytyczna (ZAK-HOO-001, DOK-PIE-002, BEZ-SUR-001) po przeglądzie człowieka z 2026-11-02 (`docs/tresci/przeglad/t2-d123-2026-11-02.md`).
+
+    ## 2. Wydanie 1.0 — ręcznie
+
+    - **Opcja wydania:** „Manually release this version” (DEC-16 a). Po akceptacji Apple właściciel klika „Release This Version” (`sklep.md` §6 krok 3).
+    - **Kontrola przed kliknięciem:** ten sam build, który przeszedł recenzję, jest na TestFlight; właściciel przechodzi punkty PH-01…PH-08 (ok. 10 min) i zakup w piaskownicy (PH-20). Wada: wiadomość do agenta z numerem punktu, „Release” czeka.
+    - **Pierwsze wydanie nie ma etapowania.** Wydanie stopniowe Apple dotyczy aktualizacji (`sklep.md` §2 krok 7).
+    - **Po kliknięciu:** instalacja z App Store na własnym telefonie, wersja i build zgodne z dziennikiem; wiersz w `docs/wydanie/dziennik.md` ze słowami zgody właściciela.
+
+    ## 3. Aktualizacje — wydanie stopniowe 7 dni
+
+    Każda aktualizacja (1.0.1 i dalej) z włączonym „Release update over a 7-day period using phased release” (`sklep.md` §6 krok 4). Wstrzymanie: „Pause Phased Release”. Progi „stop”: pauza po pierwszym zgłoszeniu utraty danych lub awarii przy starcie albo po 3 zgłoszeniach błędu tego samego rodzaju — **propozycja noc, do weta**, wzięta z `trening` (decyzja K-P4-4 dotyczyła tamtej aplikacji, nie tej); właściciel potwierdza lub zmienia.
+
+    ## 4. Zły build
+
+    Procedura: `docs/wydanie/sklep.md` §4 (tabela „Kiedy → co zrobić”) i krok dziennika po incydencie. Dodatki Piekarza:
+
+    1. **Dane użytkownika najpierw.** Piekarz trzyma wypieki, zakwasy i receptury tylko na telefonie; kopie zapasowe: pule `piekarz-kopia-*` i `piekarz-przed-importem-*` (CLAUDE.md §1.3). Błąd mogący uszkodzić zapis: najpierw migracja zachowawcza i test na bazie poprzedniej wersji, dopiero potem wydanie.
+    2. **Dostęp Pro:** błąd odczytu sklepu nigdy nie znaczy „brak zakupu” (`docs/monetyzacja.md`, Reguły dostępu). Błąd odbierający Pro płacącym użytkownikom to znalezisko WYSOKIE: poprawka tą samą drogą, odpowiedź na recenzje.
+    3. **Powiadomienia i budzenie:** błąd, przez który nie dzwoni sygnał kroku przy zablokowanym telefonie, to awaria głównej pracy (BR-ETAP-005, NFR-CZAS-001): kwalifikuje się do przyspieszonej recenzji po zgłoszeniu poprawki (`sklep.md` §4).
+    4. **Lekcja w tej samej sesji:** wpis w `docs/decyzje.md` z przyczyną źródłową i mechanizmem, nie tylko poprawką (zasada 21).
+
+    ## 5. Lista kontrolna wydania 1.0 (W1)
+
+    Odhaczana przez właściciela i agenta przed „Release”; wynik z datą w `docs/wydanie/dziennik.md`.
+
+    - [ ] **W1-01** Bramki z §1 spełnione (każda z dowodem albo decyzją właściciela z datą).
+    - [ ] **W1-02** `npm run verify` kod 0 na SHA kandydata; E2E i E2E-basic zielone; **kopia i przywrócenie danych sprawdzone na telefonie** (PH-12).
+    - [ ] **W1-03** Build 1.0 na TestFlight; `lista-kontrolna-telefonu.md` odhaczona.
+    - [ ] **W1-04** Zakup w piaskownicy: miesięczny, roczny, dożywotni, „Przywróć zakupy” (PH-20); arkusz Apple bez oferty wprowadzającej.
+    - [x] **W1-05** Free Trial usunięty w ASC (Z-1) — potwierdzone zrzutem lub opisem właściciela w dzienniku: 2026-11-03, „Obie usuenięte.” (`dziennik.md`, sekcja ustawień ASC).
+    - [ ] **W1-06** Metadane, zrzuty, produkty i notatki dla App Review kompletne (`instrukcja-ustawien.md`); `sprawdz-wydanie.mjs` kod 0.
+    - [ ] **W1-07** Opcja wydania „ręcznie”; po akceptacji Apple właściciel klika „Release This Version”.
+    - [ ] **W1-08** Dziennik wydań ma wiersz z wersją, buildem, SHA, werdyktem 07 i zgodą słowami właściciela.
+    - [ ] **W1-09** Plan „zły build” (§4 i `sklep.md` §4) przeczytany przez właściciela; ustalone, kto reaguje w pierwszym tygodniu.
+    - [ ] **W1-10** Przy pierwszej aktualizacji: wydanie stopniowe włączone (§3).
+    - [ ] **W1-11** Beta iOS (lipiec–sierpień co roku): E2E z betą Xcode w CI niewiążąco i 5 minut na telefonie z betą (nowy wypiek, sygnał przy zablokowanym ekranie, kopia). *Propozycja z `trening`, noc, do weta.*
+    - [ ] **W1-12** Plan wzrostu: kanał startu z odczytanym regulaminem (adres, cytat reguły autopromocji, data odczytu), budżet godzin i plan na złe przyjęcie w `docs/wzrost.md` (DEC-15 a, D-286); regulamin odczytany ponownie w tygodniu wpisu. *Dlaczego:* luka wróciła z audytu 2026-10-20 (11-wzrost-006 → 11-wzrost-002).
+
+    ## 6. Po premierze: budżet czasu właściciela
+
+    2 h tygodniowo na wzrost i odpowiedzi na recenzje (D-286, DEC-15 a); kanał startu, rytm odpowiedzi i plan na złe przyjęcie: `docs/wzrost.md`. W `trening` przyjęto 2 h tygodniowo przez 8 tygodni i odpowiedź na recenzje w 48 h (decyzja tamtego właściciela, 2026-10-23); dla Piekarza to samo okno, odpowiedź na recenzję ≤ 2★ w ciągu 7 dni (`docs/wzrost.md`, „Złe przyjęcie”), bo kryterium po 90 dniach (`docs/monetyzacja.md`: ≥ 7 nowych płacących miesięcznie w dniach 30–90) wymaga cotygodniowego odczytu raportów subskrypcji. Agent przygotowuje szkice odpowiedzi i zestawienie tygodniowe, publikuje właściciel.
+    "
+
+      81 |     '%s nie podaje już „29 lokalizacji” bez przekładu akapitu',
+      82 |     (f) => {
+    > 83 |       expect(read(f)).not.toMatch(/29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/);
+         |                           ^
+      84 |     },
+      85 |   );
+      86 |
+
+      at toMatch (tests/dostep-zakup-z8.test.ts:83:27)
+
+  ● Z-8: dokumenty wydania zgłaszają 34 lokalizacje (KO-025) › docs/monetyzacja.md nie podaje już „29 lokalizacji” bez przekładu akapitu
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/
+    Received string:      "# Monetyzacja: Piekarz (Crust)
+    Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22, M2 2026-11-09 (wynik 1.0 dla samego iOS, DEC-06 a; lista Pro bez F-63, DEC-04 a; Z-1 i ceny w dokumentach wydania, DEC-08 a) · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
+
+    Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jako oferta wprowadzająca subskrypcji, potem „tylko historia”) jest w `docs/archiwum/monetyzacja-d038-2026-10-19.md` razem z tabelą rynku i wartości funkcji z 2026-10-19 (MS-01…MS-27). Badanie zmiany modelu z 2026-10-22 (reguły sklepu z dnia, rynek, StoreKit, rachunki V1, V2, V3, Basic/Pro): `docs/monetyzacja-badanie-2026-10.md` (MS-B01…MS-B24). Surowe odczyty: `audit/02-badanie-modelu-2026-10-22/` (poza gitem).
+
+    ## Model (D-112, D-113, słowa właściciela 2026-10-22)
+    „Tak. Wdrożymy ten model jako drugi bo to jednak najsensowniejsze rozwiązanie.” · „Samouczek i dziennik za darmo. Inteligetne wpsomaganja za pro.” → „Tak”.
+
+    - **Basic, darmowy na zawsze:** nauka (założenie pierwszego zakwasu, Akademia: pierwszy poziom), podstawowe narzędzia (kalkulator receptury, prowadzenie wypieku krok po kroku z sygnałem przy zablokowanym telefonie), dziennik i wszystkie dane, bezpieczeństwo i pomoc w kryzysie.
+    - **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, statystyki wypieków). Po 1.0, gdy wrócą wejścia (w 1.0 PÓŹNIEJ, wejście ukryte: F-30 spiżarnia, F-08 wysyłanie QR, F-50 druk, dalsze poziomy Akademii), też w Pro — nie są częścią oferty Pro 1.0 (M2-N1, decyzja właściciela 2026-11-09).
+    - **Bez próby i bez oferty wprowadzającej:** rolę próby pełni Basic. *Dlaczego:* właściciel odrzucił próbę, która sama zamienia się w opłatę („największy red flag”, D-110).
+    - **Drugi model portfela:** Trening i Oczko stosują limit miesięczny dni głównej czynności; Piekarz nie, bo pieczenie i prowadzenie zakwasu da się robić bez aplikacji, więc limit użycia uczy omijania aplikacji (słowa właściciela w D-111, D-112).
+
+    ## Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, scen. norm.; platforma 1.0: sam iOS)
+    **Wynik bramki dla wydania 1.0 (sam iOS; DEC-06 a, D-286, zapis 2026-11-09):** 174–218 USD netto/rok, czyli 35–44% progu 500 USD (`docs/monetyzacja-badanie-2026-10.md`, tabela w E2e, kolumna „sam iOS”: 174 przy podziale E2e, 218 przy mnożniku ok. 1,0). Werdykt „przerobić” bez zmian; praca idzie dalej na D-040. Kolumna „Wynik (iOS + Google Play)” niżej zakłada port na Androida, którego żadna decyzja nie planuje (ADR-007: „Android poza planem 1.0”); kosztu portu ten rachunek nie odejmuje. Przy decyzji o Androidzie: przebieg samej bramki z wariantem „iOS + port Android z kosztem” (02-monetyzacja-002, opcja b).
+
+    | Model | Wynik (iOS + Google Play, po porcie) | Reguła sklepu | Ryzyko etyczne | Decyzja |
+    |---|---|---|---|---|
+    | **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | sam iOS (1.0): **174–218**; z Google Play po porcie: ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
+    | D-038: próba 14 dni zamieniająca się w subskrypcję | 345, sam iOS 218 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
+    | V1 / V2: przepustki bez odnawiania | 191 / 200 | 3.1.1 „non-subscription apps” niepewne (MS-B01, Case 103004967270) | wygaśnięcie w trakcie życia zakwasu | odrzucone (D-112) |
+    | V3: limit 5 dni wypieku | 189 | „metered paywall” (MS-B08) | limit zniechęca do rejestrowania | odrzucony (D-112) |
+    | Sam zakup jednorazowy 14,99 / 19,99 | 322 / 369 | 3.1.1, przywracanie (MS-03) | brak | nie wybrany |
+    Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112), liczby iOS + Google Play: przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.
+
+    ## Rachunek
+    `docs/monetyzacja/rachunek.mjs` na `docs/monetyzacja/rachunek-badanie-us.json` (kod 0, 2026-10-22): wpływ w US po 15% prowizji (Small Business Program aktywny, słowa właściciela przez M1 2026-10-22): miesięczna 0,84 USD, roczna 5,94 USD, dożywotni 12,74 USD; próg 500 USD netto: 40 płacących dożywotniego albo 58 rocznego. PL (VAT 23%, MS-B22; USD 3,8886, MS-B10): ceny 4,99 / 29,99 / 79,99 zł bez zmian (`docs/monetyzacja/rachunek.json`). Bramka: `audit/02-badanie-modelu-2026-10-22/dowody/bramka-basic-pro.txt` (kod 0). Po premierze wpływ z App Store Connect (`wplyw_z_asc`) ma pierwszeństwo.
+
+    **Kryterium po 90 dniach od wydania** (zastępuje kryterium D-038; te same produkty i ceny, więc ten sam wpływ na płacącego w 1. roku): w dniach 30–90 średnio ≥ 7 nowych płacących miesięcznie na iOS (pierwsze zakupy subskrypcji i dożywotniego, raport zdarzeń subskrypcji i Sales and Trends, MS-24) albo wpływ ≥ 42 USD/mies.; poniżej połowy: przegląd widoczności, cen i zakresu Pro. Miara pomocnicza: zakupy Pro / pierwsze pobrania. Dane tylko z App Store Connect, bez telemetrii (ZAL-038). Hipotezę H-01 w `docs/wzrost/hipotezy.json` (dziś z D-038) przepisuje rola 08 (zadanie niżej).
+
+    ## Kontrakt płatności
+    Wzorzec dla ról 04, 05, 07, 08. Identyfikatory z `src/lib/platnosci/konfiguracja.ts` bez zmian.
+
+    | Produkt (ID) | Typ | Cena US / PL | Próba | Family Sharing | Odblokowuje |
+    |---|---|---|---|---|---|
+    | `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | **brak** (oferta wprowadzająca usunięta w ASC 2026-11-03, Z-1, MS-B21) | tak (włączony 2026-10-21, nieodwracalny, MS-B05) | Pro |
+    | `com.apps4brew.baker.pro.yearly` | subskrypcja odnawiana, ta sama grupa | 6,99 USD / 29,99 zł rocznie | **brak** | tak | Pro |
+    | `com.apps4brew.baker.pro.lifetime` | Non-Consumable | 14,99 USD / 79,99 zł jednorazowo | brak | tak | Pro |
+    Ceny pozostałych storefrontów: `audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json` (zapis ASC 2026-10-21).
+
+    ### Basic i Pro według funkcji
+    Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacja-badanie-2026-10.md`, E2e.
+
+    | Obszar | Basic | Pro |
+    |---|---|---|
+    | Liczenie | BR-KALK-001…005, -007, -009, -011, BR-UST-001 (procent, hydratacja z zakwasu, skalowanie, temperatura wody, kilka mąk, objętość, drożdże, sól, jednostki) | BR-KALK-010 (poolish, biga, levain), BR-KALK-008 (masa lodu) |
+    | Planowanie | BR-HARMO-004 (przesunięcie kroku, „za późno”), BR-KAL-001…005, -008 (widok tygodnia, „Następne”, arkusz dnia, przeszłość); plan od teraz z ustawieniami nocy i lodówki (D-116, właściciel: „Wg rekomendacji”) | BR-HARMO-001…003 (plan wstecz, ochrona snu, czas fermentacji z temperatury), BR-KAL-009, -015 (wypieki na przyszłe dni), BR-KAL-016 (dwa wypieki naraz), BR-KAL-011…014 (jeśli w 1.0) |
+    | Wypiek | BR-ETAP-001…006, BR-CZAS-002, -003, BR-REKA-001, garnek żeliwny | — |
+    | Zakwas | BR-ZAKW-005 (założenie pierwszego zakwasu, przypomnienia tylko w czasie zakładania, na końcu „Gratulacje, Twój pierwszy zakwas jest gotowy…”), karta i zapis karmień pierwszego zakwasu, BR-ZAKW-007, ostrzeżenie RD-21, BR-DIAG-002, karta bezpieczeństwa; pierwsze karmienie budzące jako krok planu (`fridge_wake_feed`, D-116); przelicznik hydratacji zakwasu i wylewki (przepisy na resztki zakwasu), wydzielone z karty proporcji (właściciel przez M1, 2026-10-22: „2 zgodnie z rekomendacja”, D-117) | BR-ZAKW-004 (przypomnienia o dokarmianiu), BR-ZAKW-002 (proporcje), BR-KAL-010 (stały dzień w lodówce), BR-ZAKW-003 (gotowość, szczyt; poza zakładaniem), BR-ZAKW-006 (budzenie z lodówki: kolejne karmienia budzące — **rozbieżność z literą tabeli nazwana:** pierwsze karmienie budzące w planie jest w Basic, D-116, decyzja właściciela „Wg rekomendacji”, bo bez niego plan z zimnym zakwasem byłby błędny), BR-ZAKW-001 (drugi i kolejne zakwasy) |
+    | Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (statystyki; porównanie dwóch wypieków to F-63 PÓŹNIEJ, poza ofertą Pro 1.0, DEC-04 a), po 1.0 (w 1.0 PÓŹNIEJ, bez wejścia): BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |
+    | Zawsze | BR-DANE-001…004, BR-ZAK-001, -003, BR-UST-003, BR-PRYW-001, ustawienia | — |
+
+    ### Reguły dostępu
+    - **Źródło dostępu:** transakcje sklepu przez `getAvailablePurchases({ onlyIncludeActiveItemsIOS: true })` i status karencji (ADR-007, bez zmian); pamięć `platnosci_pamiec` z ostatniego udanego odczytu, ważna najwyżej do końca opłaconego okresu, poza kopią zapasową. Błąd odczytu nigdy nie znaczy „brak zakupu”.
+    - **Bez Pro widać, co jest Pro:** funkcja Pro jest widoczna z oznaczeniem „Pro”; stuknięcie otwiera ekran Pro. Ekran Pro pojawia się **tylko** przy stuknięciu funkcji Pro i w Ustawieniach; nigdy przy starcie, po pierwszym użyciu ani w trakcie kroku wypieku. *Dlaczego:* zasada wzorca portfela 9 i zakazane wzorce (wyskakiwanie w głównej pracy).
+    - **Limity pojemności Basic:** 5 własnych receptur, 1 zakwas. Ponad limitem blokowane jest tylko dodanie (nowa receptura, „Zapisz jako nową”, nowy zakwas); zapisane działają w całości (odczyt, edycja, „Piecz ponownie”, eksport). Import kopii wnosi wszystkie receptury i zakwasy. „Przywróć” usuniętej receptury i import kopii nie liczą się do limitu; import pojedynczej receptury (plik, QR) jest dodaniem i się liczy (D-116, właściciel przez M1 2026-10-22: „Wg rekomendacji”). Jedyny zakwas da się usunąć albo założyć od nowa bez Pro.
+    - **Wygaśnięcie Pro (zwrot, anulowanie, odebranie z Family Sharing):** dane zostają; funkcje Pro wracają do stanu „Pro”; przypomnienia o dokarmianiu ustają; uprzedzenie 3 dni przed końcem (gdy sklep podaje koniec bez odnowienia) i w chwili wygaśnięcia: jasne zdanie „przypomnienia o dokarmianiu wyłączą się”, bez odliczania i „ostatniej szansy” (D-113). Wypiek rozpoczęty z planem Pro prowadzi się do końca (D-039 pkt 3 zostaje); zaplanowany wcześniej wypiek da się zacząć (start jest w Basic).
+    - **Przelicznik hydratacji i wylewki w Basic** (właściciel przez M1, 2026-10-22, dosłownie: „2 zgodnie z rekomendacja”; przegląd P-a P2-5, D-117): poza kartą proporcji dokarmiania, która zostaje w Pro (BR-ZAKW-002). Oba wejścia są w 1.0 ukryte jako PÓŹNIEJ (F-49, F-47, D-043); po powrocie wejścia są w Basic. Pozycje `zakwas-przelicznik-hydratacji` i `zakwas-wylewki` w szczegółach Basic 1.0.
+    - **Zakładanie zakwasu w Basic:** przypomnienia w czasie zakładania działają bez Pro; jedno aktywne zakładanie naraz; ponowne zakładanie po nieudanej próbie dozwolone.
+    - **Przywracanie:** przycisk na ekranie Pro i w Ustawieniach, tylko na żądanie (`AppStore.sync()`); bez zakupów: komunikat, nigdy dostęp.
+    - **Zarządzanie i anulowanie:** `showManageSubscriptionsIOS` w Ustawieniach i na ekranie Pro dla subskrybenta (MS-17); „Zrealizuj kod” w Ustawieniach.
+    - **Bez sieci:** decyzja z pamięci; zakup i przywracanie mówią, że wymagają połączenia z App Store; Basic działa zawsze.
+    - **Basic tylko rośnie:** funkcja raz wydana w Basic nie przechodzi do Pro, a limity Basic (5 receptur, 1 zakwas) mogą tylko rosnąć. Test przed wydaniem porównuje listę Basic, szczegóły Basic i limity z plikiem poprzedniego wydania (`docs/monetyzacja/basic-1.0.json`, zamrożony sumą SHA-256), a miejsca użycia sprawdza na ekranach. Szczegóły Basic 1.0 (D-116): pierwsze karmienie budzące w planie, biblioteka technik Akademii, „Przywróć” i import kopii poza limitem, ustawienia nocy i lodówki w planie od teraz, filtr smaku w Dzienniku, przelicznik hydratacji i wylewki (D-117). *Dlaczego:* odbieranie darmowego wygląda jak zmiana warunków po fakcie (zasada 12 wzorca portfela, 3.1.2(a) MS-07 dla płacących).
+
+    ### Przepływy
+    | Przepływ (PR) | Bez Pro | Zawsze dostępne |
+    |---|---|---|
+    | PR-01, PR-03, PR-17 liczenie | Basic; poolish/biga/levain: ekran Pro | zapisane receptury |
+    | PR-02 plan wstecz | ekran Pro przy „gotowe o…” | start wypieku bez planu |
+    | PR-04, PR-15 wypiek, powrót | Basic w całości | historia |
+    | PR-05 dokarmianie, PR-11 założenie | założenie pierwszego zakwasu: Basic; przypomnienia, proporcje, lodówka, gotowość: ekran Pro | karta zakwasu, zapis karmień, RD-21 |
+    | PR-06 dziennik | Basic; statystyki: ekran Pro | dziennik |
+    | PR-07 dane | zawsze | wszystko |
+    | PR-08 QR, druk | odczyt i import: Basic; wysłanie i druk: PÓŹNIEJ (w 1.0 bez wejścia), potem ekran Pro | eksport pliku |
+    | PR-09 zakup, przywracanie, zarządzanie | zawsze | — |
+    | PR-10 ustawienia, polityka | zawsze | — |
+    | PR-12, PR-19 Dziś, kalendarz | widok Basic; planowanie przyszłych dni, dwa wypieki naraz: ekran Pro | przeszłość bez kłódek (BR-KAL-006) |
+    | PR-13, PR-14 Akademia, Doktor | Doktor Basic; Akademia w 1.0 tylko jako „Po co ten krok” (bez wejścia, PÓŹNIEJ); po powrocie pierwszy poziom Basic, dalsze: ekran Pro | — |
+    | PR-16 koniec Pro | uprzedzenie i komunikat (wyżej) | wszystko do odczytu, eksport, import, usunięcie |
+
+    ### Wektory dostępu (dla 07 i 08; `T` = teraz)
+    | Scenariusz | Stan | Oczekiwane |
+    |---|---|---|
+    | nowy użytkownik | brak zakupów | Basic w całości; funkcje Pro widoczne z „Pro”; żadnego ekranu Pro przy starcie |
+    | Pro miesięczne aktywne | sklep: `monthly`, wygasa T+1 | Pro |
+    | dożywotni | sklep: `lifetime` | Pro bez końca |
+    | szósta receptura bez Pro | 5 własnych | zapis nowej → ekran Pro; edycja i „Piecz ponownie” pięciu działa |
+    | drugi zakwas bez Pro | 1 zakwas | dodanie → ekran Pro |
+    | import kopii: 8 receptur, 3 zakwasy, bez Pro | — | wszystkie wniesione i działają; dodanie kolejnej → ekran Pro; przypomnienia o dokarmianiu nieaktywne |
+    | Pro wygasło | sklep: pusto; pamięć `['yearly']` T−1 | Basic; przypomnienia o dokarmianiu wyłączone; komunikat wygaśnięcia raz |
+    | uprzedzenie | subskrypcja bez odnowienia wygasa T+3 dni | jeden komunikat 3 dni przed; drugi raz nie |
+    | wypiek z planem Pro trwa w chwili wygaśnięcia | sesja aktywna | prowadzi się do końca razem z zapisem wyniku |
+    | zakładanie zakwasu bez Pro | dzień 4 z 7–10 | przypomnienia zakładania działają; po „gotowy” komunikat gratulacji, przypomnienia o dokarmianiu tylko z Pro |
+    | brak sieci po zakupie | błąd odczytu; pamięć `['lifetime']` | Pro z pamięci |
+    | zwrot | sklep: `lifetime` odebrane | Basic, pamięć wyczyszczona, dane zostają |
+    | członek rodziny | sklep: `yearly` przez Family Sharing | Pro; odebranie → Basic |
+    | przywracanie bez zakupów | sklep: pusto | komunikat, Basic |
+
+    ### Ujawnienia dla roli 04 (ekran Pro)
+    1. Nazwa planu, okres i cena z `displayPrice` sklepu (waluta storefrontu, nigdy w kodzie) jako najwyraźniejszy element ceny (MS-B08); krótki opis bez liczb; bez procentów oszczędności i „zwraca się po X” (E1, MS-B18, MS-B19).
+    2. Odnawianie automatyczne subskrypcji i jak anulować (Ustawienia → Apple ID → Subskrypcje), „Zarządzaj subskrypcją”, „Przywróć zakupy”, linki do Warunków (standardowa EULA Apple) i Polityki prywatności (MS-16).
+    3. Co daje Pro wobec Basic, jednym zdaniem na obszar (3.1.2(c): „clearly describe what the user will get for the price”, MS-09).
+    4. Dożywotni: jedna opłata, bez odnawiania.
+    5. Widoczne zamknięcie, neutralna odmowa; zakup wymaga połączenia z App Store.
+    - **Zakazane wzorce:** odliczanie, „oferta tylko dziś”, „najpopularniejszy” bez danych, zawstydzanie przy odmowie, ekran Pro w trakcie kroku albo przy starcie, odblokowanie za ocenę (MS-10), dane tylko dla płacących, hasło „No subscriptions” (model ma subskrypcje), push o Pro bez osobnej zgody (4.5.4, E2d).
+    - **Metadane sklepu (rola 10):** opis „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” (2.3.2); bez „free trial” i bez „free app” bez zastrzeżenia (2005/29/WE zał. I pkt 20).
+
+    ### Warunek subskrypcji (3.1.2(a))
+    Pro musi dawać stałą wartość: prowadzenie zakwasu i planowanie to użycie powtarzalne, a rytm nowych treści dla Pro (lekcje i techniki Akademii, profile mąk z kolejnych krajów, narzędzia planowania) ustala rola 03. Bez tego rytmu recenzja może zakwestionować subskrypcję w aplikacji offline.
+
+    ## Aneks do ADR-007 (dla roli 05)
+    ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
+    - bez oferty wprowadzającej: usunąć z adaptera `uprawnionyDoProby`, `dniOkresuProbnego` i gałęzie „Wypróbuj 14 dni” (`src/lib/platnosci/sklep.ts`), `uprzedzenie.ts` przepisać na uprzedzenie końca Pro bez odnowienia;
+    - `BEZ_UPRAWNIENIA` w `konfiguracja.ts` zastąpić listą funkcji Basic z tego kontraktu (nowe wartości `Funkcja` dla funkcji Pro wydzielonych z dzisiejszych `zakwas`, `harmonogram`, `receptury`, `stolnica`), plus limity 5 receptur i 1 zakwas liczone z bazy przy dodawaniu;
+    - przypomnienia o dokarmianiu zależne od Pro (planowanie i kasowanie powiadomień przy zmianie dostępu; D-103 limit 40 powiadomień bez zmian), z wyjątkiem zakładania zakwasu;
+    - Family Sharing bez zmian (włączony); prywatność bez zmian (StoreKit, lokalna pamięć uprawnień).
+
+    ## Kroki w App Store Connect (M1 za zgodą właściciela)
+    1. Usunąć ofertę wprowadzającą „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `.pro.yearly` we wszystkich storefrontach (MS-B21; skrypt `scripts/asc-ustawienia.mjs` albo UI). **Zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; Z-1).
+    2. Notatka dla recenzji przy produktach: „Pro unlocks planning, starter care reminders, more starters and recipes. Basic stays free.”
+    3. Opis i zrzuty sklepu według metadanych wyżej (rola 10), 35 lokalizacji.
+    4. Produkty, ceny, Family Sharing i dostępność bez zmian.
+
+    ## Przekazanie (E3)
+    - **01 (ER, numery nada rola 01):** BR-ZAK-004 „stan po próbie” i BR-ZAK-005 „oferta przy pierwszym użyciu” → ekran Pro przy funkcji Pro i w Ustawieniach, bez próby; BR-KAL-006 (tekst „okres próbny minął”) → „bez Pro”; BR-ZAKW-004 → przypomnienia w Pro z wyjątkiem zakładania; H-04, H-07 zamknięte przez D-113.
+    - **03:** podział Basic/Pro jako zakres (zasada 18); WTP-X: BR-KALK-008, BR-ETAP-003; rytm nowych treści Pro (3.1.2(a)).
+    - **04:** ekran Pro (ujawnienia 1–5, zakazane wzorce), oznaczenie „Pro” na funkcjach, komunikat gratulacji po założeniu zakwasu, uprzedzenie wygaśnięcia.
+    - **05:** aneks ADR-007 wyżej.
+    - **07:** wektory dostępu wyżej; tylko na telefonie: zakup każdego planu, przywracanie, Family Sharing, zwrot, wygaśnięcie (przypomnienia), brak sieci, zakładanie zakwasu bez Pro.
+    - **08:** zmiany kodu (aneks ADR-007), test „Basic tylko rośnie”, przepisanie testów kontraktu D-038 na nowy kontrakt (`src/__tests__/bramki-ekranow.test.tsx`, `src/lib/__tests__/uprzedzenie-proby-126.test.ts`, `src/components/__tests__/oferta-piekarz-pro-127.test.tsx`, `src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx`) przez nowe asercje, nie wyłączanie; hipoteza H-01 w `docs/wzrost/hipotezy.json` (`tests/wzrost-hipotezy.test.ts`) na kryterium z tego dokumentu; pliki przebudowy M3 (kalendarz, Stolnica) po scaleniu `redesign/piekarz-2026-10-22` albo na niej. [OCENA] 2–3 dni agenta.
+    - **Właściciel:** zgoda na krok 1 w ASC; przekład tekstów ekranu Pro (Message Batches, zgoda na wydatek przez M1).
+
+    ## Otwarte zadania po roli 02 (stan 2026-10-22)
+    Wdrożenie według rekomendacji (właściciel przez M1: „Według rekomendacji”, D-112).
+    | # | Zadanie | Kto | Kiedy / warunek |
+    |---|---|---|---|
+    | Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | **zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; build 1021 z kodem Basic/Pro; `docs/wydanie/dziennik.md`) |
+    | Z-2 | kod Basic/Pro według aneksu ADR-007 i sekcji „Przekazanie” (konfiguracja funkcji, limity 5 receptur i 1 zakwas, przypomnienia zależne od Pro, usunięcie oferty wprowadzającej i uprzedzenia próby, ekran Pro, oznaczenia „Pro”, test „Basic tylko rośnie”) | rola 08 z M3 | na `redesign/piekarz-2026-10-22`, po porannym buildzie |
+    | Z-3 | przepisać testy kontraktu D-038 na nowy kontrakt (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby, karta bezpieczeństwa bez zakupu) i hipotezę H-01 w `docs/wzrost/hipotezy.json` | rola 08 | z Z-2 |
+    | Z-4 | przekład tekstów ekranu Pro, licznika limitów i komunikatów (gratulacje po założeniu zakwasu, uprzedzenie końca Pro) na 35 języków | M1 | wspólny batch a5 |
+    | Z-5 | ekran Pro, oznaczenie „Pro”, komunikaty (ujawnienia 1–5, zakazane wzorce). **Stan po M3 P-b (2026-10-22):** wdrożone przez rolę 08 według D-117 (wersja rekomendowana); przegląd roli 04: elementy w D-117 „Do przeglądu roli 04” | rola 04 | przed Z-2 albo razem |
+    | Z-6 | ER do roli 01: BR-ZAK-004, BR-ZAK-005, BR-KAL-006, BR-ZAKW-004; zamknięcie H-04, H-07 | rola 01 | przy najbliższej sesji roli 01 |
+    | Z-7 | zakres Basic/Pro i rytm nowych treści Pro („ongoing value”, 3.1.2(a)); WTP-X BR-KALK-008, BR-ETAP-003. Notka (M3 P-a-fix, nie blokuje): biblioteka technik Akademii jest w Basic (D-116), więc jest w napięciu z rytmem treści Pro („lekcje i techniki Akademii” w „Warunku subskrypcji”) — obecne techniki zostają darmowe na zawsze, treścią Pro mogą być tylko nowe pozycje | rola 03 | przed wydaniem 1.0 |
+    | Z-8 | opis sklepu i zrzuty w 35 lokalizacjach: „Free Basic forever. Pro adds planning, starter care, more starters and recipes.”; poprawić §4 `docs/wydanie/instrukcja-ustawien.md` (opisuje próbę D-038). **Stan po M3 P-a-fix (2026-10-22):** akapit „Dostęp i zakup” przepisany w `pl`, `en-US`, `en-GB`, `en-AU`, `en-CA` (`docs/wydanie/metadane/`, §1.2, §2.2, §5.1.1 `docs/app-store-metadata-v2.md`), README, `site/index.html`, §4 instrukcji; zostaje: przekład tego akapitu (obietnica próby i „bez zakupu tylko historia”) w 29 lokalizacjach `cs`, `da`, `de-DE`, `el`, `es-ES`, `es-MX`, `fi`, `fr-CA`, `fr-FR`, `hr`, `hu`, `id`, `it`, `ja`, `ko`, `ms`, `nl-NL`, `no`, `pt-BR`, `pt-PT`, `ro`, `ru`, `sk`, `sl`, `sv`, `tr`, `uk`, `vi`, `zh-Hant` (bez tłumaczenia w M3); w opisie wszystkich lokalizacji zdania o funkcjach dziś Pro bez oznaczenia (plan od godziny „gotowe” i czas z temperatury, kilka zakwasów, przypomnienie po 12 h, statystyki) oraz PNG ramek 2–4 i 6 | rola 10 / M1 | z Z-1 |
+    | Z-9 | testy na telefonie (wektory dostępu, „tylko na telefonie”) z datą i buildem | właściciel / rola 07 | po Z-2; runner macOS 0:00–15:00 |
+    | Z-10 | przegląd cen po 6 miesiącach od premiery i kryterium po 90 dniach | rola 02 | po wydaniu |
+    | Z-11 | odpowiedź App Review, Case 103004967270 (dla Oczka i Treningu; Piekarza nie dotyczy po D-112) | M1 | gdy przyjdzie |
+
+    ## Definicja ukończenia (build), z dowodem
+    | Punkt | Dowód |
+    |---|---|
+    | Cena, stawka, kurs i reguła sklepu z adresem, cytatem i datą | MS-B01…MS-B24 (odczyt 2026-10-22) w badaniu; MS-01…MS-27 (2026-10-19) w archiwum; ceny z D-038/D-112 |
+    | Co najmniej dwa modele z regułą, kompromisem, ryzykiem i rachunkiem; wybór słowami właściciela | tabela „Opcje modelu”; D-110…D-113 ze słowami i datą |
+    | Bramka: `oplacalnosc.mjs` kod 0, werdykt wobec progu | `audit/02-badanie-modelu-2026-10-22/dowody/` (porownanie-v3.txt, bramka-basic-pro.txt, kod 0); werdykt „przerobić” wobec 500 USD w scen. norm. dla każdego modelu przy cenach portfela |
+    | `rachunek.mjs` kod 0; liczby ze źródłem albo [OCENA] z metodą | `rachunek-badanie-us.json` (kod 0); mnożniki [OCENA] z metodą w badaniu |
+    | Każda funkcja z klasą WTP i poziomem dowodu; WTP-X do 03 | archiwum (50 BR, 2026-10-19) + E2e (BR-KAL, BR-DIAG-003…005, BR-ETAP-006); WTP-X: BR-KALK-008, BR-ETAP-003 |
+    | Kontrakt: produkty, uprawnienia, bramki, przywracanie, bez sieci, próba, Family Sharing, ujawnienia | sekcja „Kontrakt płatności”; próba: brak (Basic), zgodnie z 3.1.2 bez oferty wprowadzającej |
+    | H i ZAL ze statusem; ER do 01 | H-04, H-07 zamknięte przez D-113 (rola 01 wpisze); ER w „Przekazanie” |
+    | Nie sprawdzone | testy na urządzeniu (krok właściciela); pełny zestaw Jest po zmianie dokumentów: 433 zestawy, 4857 testów, kod 0 (2026-10-22); `npm run verify` w całości nie uruchomiony (zmiana tylko w `docs/`) |
+
+    ## Otwarte pytania
+    | ID | Pytanie | Rozstrzyga | Dotyczy |
+    |---|---|---|---|
+    | OP-M03 | [DO USTALENIA] pola `expo-iap` dla włączonego odnawiania (uprzedzenie końca Pro tylko bez odnowienia) | 05 / 08 | PR-16 |
+    | OP-B01 | [DO USTALENIA] status przeglądu trzech produktów w ASC | M1 | krok 1 ASC |
+    | OP-B02 | odpowiedź App Review (Case 103004967270) o próbie 3.1.1 przy subskrypcjach nieodnawialnych: po D-112 niepotrzebna dla Piekarza; dotyczy Oczka i Treningu | App Review | portfel |
+    "
+
+      81 |     '%s nie podaje już „29 lokalizacji” bez przekładu akapitu',
+      82 |     (f) => {
+    > 83 |       expect(read(f)).not.toMatch(/29 lokalizacji bez przekładu|przekład akapitu „Dostęp i zakup” w 29 lokalizacjach|zostaje: przekład tego akapitu/);
+         |                           ^
+      84 |     },
+      85 |   );
+      86 |
+
+      at toMatch (tests/dostep-zakup-z8.test.ts:83:27)
+
+  ● Z-8: dokumenty wydania zgłaszają 34 lokalizacje (KO-025) › plan wydania §1 pkt 6 i droga D2: wszystkie 34 lokalizacje w pierwszym zgłoszeniu (KO-025)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /34 lokalizacj/
+    Received string:  "6. **Opis i metadane:** `sprawdz-wydanie.mjs` (`metadane`, `prywatnosc`, `sekrety --historia`) kod 0; przekład akapitu „Dostęp i zakup” w 29 lokalizacjach (Z-8) albo świadome wyłączenie tych lokalizacji z pierwszego zgłoszenia — decyzja właściciela."
+
+      87 |   it('plan wydania §1 pkt 6 i droga D2: wszystkie 34 lokalizacje w pierwszym zgłoszeniu (KO-025)', () => {
+      88 |     const plan = read('docs/wydanie/plan-wydania-1.0.md').split('\n').find((l) => l.startsWith('6. **Opis i metadane:**'))!;
+    > 89 |     expect(plan).toMatch(/34 lokalizacj/);
+         |                  ^
+      90 |     expect(plan).toMatch(/KO-025/);
+      91 |     const d2 = read('docs/wydanie/droga-do-app-store.md').split('\n').find((l) => l.startsWith('| D2 |'))!;
+      92 |     expect(d2).toMatch(/34 lokalizacj/);
+
+      at Object.toMatch (tests/dostep-zakup-z8.test.ts:89:18)
+
+  ● Z-8: notatka dla App Review — bez oferty wprowadzającej i próby, stała wartość Pro (KO-025) › mówi wprost: no introductory offer, no free trial (D-112)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /no introductory offer/i
+    Received string:  "4.3. Instrukcja dla Apple App Review Team (Review Notes)·
+    Notatki są po angielsku, bo recenzent używa interfejsu EN; nazwy przycisków są wartościami słownika EN (`src/lib/i18n-en/`) i tekstami dzisiejszego interfejsu (klucz `t()` użyty w `app/` albo `src/components/`), a przykładowa kopia przechodzi `parseAndValidateBackup` (test `tests/store-metadata.test.ts`) [M1-audytor-generalny-078]. Ścieżki według nowej szaty: 4 zakładki z `app/(tabs)/_layout.tsx`, Ustawienia z „Dziś”, import jednym arkuszem „Importuj z pliku”, Akademia bez wejścia w 1.0 [M1-audytor-generalny-119; 10-wydanie-020].·
+    ```text
+    Dear App Review Team,·
+    Baker (Polish name: Piekarz) is a 100% offline bread-baking assistant. There is no sign-in, no account and no network use; all data stays on the device.·
+    The app has four tabs: Today, Recipes, Starters and Journal. Settings open from the gear button at the top right of the Today tab (VoiceOver label \"Settings\").·
+    1. PURCHASES: BASIC AND PRO
+    Baker Basic is free forever, with no trial: recipe calculation, a bake plan started now, guided baking step by step with timers, starting a first sourdough starter with its reminders, the Bread Doctor, the bake journal, and reading, importing, exporting and deleting your own data. Baker Pro (a monthly or yearly subscription in one group, or a lifetime purchase) adds planning backwards from a ready time with Sleep Guard, starter care (feeding reminders, feeding ratios, readiness, a fixed fridge feeding day), more than one starter and more than 5 own recipes, two bakes at once and bakes planned for future days. Pro features stay visible and are marked \"requires Baker Pro\".
+    To see Pro with a sandbox account: on the Today tab choose \"Baking with sourdough\", tap any recipe under \"Base Recipes\", then tap \"Make a Plan\". Tap the ready time card marked \"requires Baker Pro\"; the purchase screen opens; choose a plan and tap \"Buy Yearly Plan\".
+    Restore purchases: \"Restore Purchases\" at the bottom of the purchase screen, and in Settings > Purchases.
+    Ongoing value of the subscription: Pro is used again on every bake (a new plan from the ready time, starter feeding reminders between bakes, planned bakes), and the subscription funds continued updates for new iOS versions, maintenance of the translations into 35 languages, and corrections of recipes and the Bread Doctor. Users who prefer to pay once can choose the lifetime purchase.·
+    2. DATA EXPORT AND IMPORT (works without a purchase)
+    a) On the Today tab tap the gear button \"Settings\" at the top right.
+    b) In the \"Backup\" section tap \"Export to File\" to share a JSON backup file.
+    c) Tap \"Import from File\". A sheet opens: \"Paste the contents of a recipe file or a backup file.\"
+    d) Paste the contents of an exported file (or copy it and tap \"Paste from clipboard\"), or this sample with one starter:
+    {\"format\":\"piekarz-backup\",\"schemaVersion\":1,\"exportedAt\":\"2026-10-20T08:00:00.000Z\",\"state\":{\"bakes\":[],\"starters\":[{\"id\":\"review-starter\",\"name\":\"Review Starter\",\"flourType\":\"rye\",\"hydration\":100,\"birthDate\":1760947200000,\"storageState\":\"ROOM_TEMP\"}],\"customRecipes\":[]}}
+    e) The sheet says what the backup contains. Tap \"Replace Data\". Import replaces the current data; the app first saves a safety copy on the device. The imported starter appears in the Starters tab.·
+    3. OTHER FEATURES THAT ARE EASY TO MISS
+    - Bake plan with Sleep Guard (Pro): after \"Make a Plan\", set the ready time; the app plans the steps backwards. When a hands-on step falls in your sleep hours, Sleep Guard offers \"Move to fridge\".
+    - Workbench: tap \"Start Bake\" on the bake plan to open guided baking step by step with timers.
+    - Bread Doctor: tap \"Doctor\" at the top of the Workbench, or \"Bread Doctor\" on the Journal tab, to diagnose a loaf. On the Starters tab, \"Doctor\" at the top opens the Starter Doctor.
+    - Bread machine mode (Pro): on the Today tab choose \"Baking with yeast or making pizza\", open \"White pan loaf\", under \"How much are you baking\" choose \"Bread machine\". First enter \"Machine capacity\" and \"Program time\" from the manual. Amounts are free; with Pro set \"Ready at\" for the delayed start time and tap \"Save plan\".
+    - Recipes with a yeast version show a \"sourdough\" / \"with yeast\" switch at the top.·
+    4. PERMISSIONS
+    The app asks for permission to send local notifications only when you start the first timer or starter feeding reminder. It uses no microphone, location or App Tracking Transparency.
+    ```·
+    ---·
+    ## 5. Lokalizacje strony App Store: nazwa, podtytuł, słowa kluczowe (M5, 2026-10-20)·
+    Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<piekarz>: <fraza z zakwasem>” w każdym języku, po angielsku „Baker: Sourdough Bread Planner”; 34 lokalizacje strony; kategoria bez zmian. Wiersze `pl` i `en-US` są tymi samymi polami co §1.1 i §2.1. Limity: nazwa i podtytuł ≤ 30 znaków, słowa kluczowe ≤ 100 B UTF-8, każde słowo > 2 znaki, bez słów z nazwy, podtytułu i kategorii; kontrola: `sprawdz-wydanie.mjs metadane` kod 0 (raport M5). Frazy, źródła i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.·
+    **Reguła prawdy (D-054):** lokalizację strony w danym języku wysyła się dopiero z buildem, który ma ten język w interfejsie aplikacji; English (U.K.), English (Australia) i English (Canada) mogą iść od razu. Pełny opis, tekst promocyjny i podpisy ramek języków innych niż polski i angielski: przekład M1 (093) z §1.2, §2.2 i §3 z poprawkami 095, w `docs/wydanie/metadane/<kod ASC>.json` (pole `poprawki` mówi, co zmieniono względem przekładu). Ta tabela jest przeglądowa: nazwa, podtytuł, słowa kluczowe i status są tu i w plikach JSON te same (test `tests/metadane-sklepu.test.ts`); kolumna „Pierwsze zdanie opisu” była punktem wyjścia przekładu, a obowiązuje opis z pliku JSON. Status „hipoteza” = frazy bez sygnału z wyszukiwarki tego kraju; sprawdzenie po wydaniu w App Analytics.·
+    | Lokalizacja | Kod ASC | Nazwa | Zn. | Podtytuł | Zn. | Słowa kluczowe | B | Pierwsze zdanie opisu | Zn. | Status |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | English (U.S.) | `en-US` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | częściowo |
+    | English (U.K.) | `en-GB` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | częściowo |
+    | English (Australia) | `en-AU` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | hipoteza |
+    | English (Canada) | `en-CA` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. | 154 | hipoteza |
+    | German | `de-DE` | `Bäcker: Sauerteigbrot backen` | 28 | `Backplan, Teigrechner & Timer` | 29 | `anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,stockgare,starter` | 97 | Bäcker führt dich beim Sauerteigbrot vom Rezept bis zum Laib: rechnet Mengen, plant rückwärts ab Fertigzeit und erinnert dich auch bei gesperrtem Handy. | 152 | częściowo |
+    | Dutch | `nl-NL` | `Bakker: Zuurdesem & Brood` | 25 | `Bakplanning en rekenhulp` | 24 | `desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,timer,rijzen,bakken` | 95 | Bakker begeleidt je bij zuurdesembrood van recept tot brood: rekent hoeveelheden uit, plant terug vanaf je eetmoment en herinnert je ook met vergrendelde telefoon. | 163 | częściowo |
+    | French | `fr-FR` | `Mitron : Pain au levain` | 23 | `Calcul, plan et minuteur` | 24 | `boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcentage,maison,pâte` | 97 | Mitron vous guide pas à pas, de la recette au pain, pour réussir votre pain au levain à la maison : quantités, planning et minuteurs. | 133 | częściowo |
+    | French (Canada) | `fr-CA` | `Mitron : Pain au levain` | 23 | `Calcul, plan et minuterie` | 25 | `boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcentage,maison,pâte` | 97 | Mitron vous guide pas à pas, de la recette au pain, pour réussir votre pain au levain à la maison : quantités, planning et minuteries. | 134 | hipoteza |
+    | Italian | `it` | `Fornaio: Pane e lievito madre` | 29 | `Calcolo impasto e timer` | 23 | `idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poolish,segale` | 91 | Fornaio ti guida passo dopo passo, dalla ricetta al pane, per fare il pane con lievito madre a casa: dosi, programma e timer. | 125 | częściowo |
+    | Spanish (Spain) | `es-ES` | `Panadero: Pan de masa madre` | 27 | `Calculadora y plan de horneado` | 30 | `hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,porcentaje,casero` | 95 | Panadero te guía en el pan de masa madre, de la receta al pan: calcula cantidades, organiza el plan y avisa de cada paso con el móvil bloqueado. | 144 | częściowo |
+    | Spanish (Mexico) | `es-MX` | `Panadero: Pan de masa madre` | 27 | `Calculadora y plan de horneado` | 30 | `hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,porcentaje,casero` | 95 | Panadero te guía en el pan de masa madre, de la receta al pan: calcula cantidades, organiza el plan y avisa de cada paso con el celular bloqueado. | 146 | częściowo |
+    | Portuguese (Brazil) | `pt-BR` | `Padeiro: Fermentação Natural` | 28 | `Calculadora e plano de fornada` | 30 | `hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,massa,temporizador` | 96 | Padeiro guia você no pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e avisa cada etapa com o celular bloqueado. | 156 | częściowo |
+    | Portuguese (Portugal) | `pt-PT` | `Padeiro: Pão e massa-mãe` | 24 | `Calculadora e plano de fornada` | 30 | `hidratação,fermentação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento` | 91 | O Padeiro guia-o no pão de massa-mãe, da receita ao pão pronto: calcula as quantidades, monta o plano e avisa cada etapa com o telemóvel bloqueado. | 147 | częściowo |
+    | Polish | `pl` | `Piekarz: Chleb na zakwasie` | 26 | `Plan i kalkulator wypieku` | 25 | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | 98 | Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. | 138 | zmierzone |
+    | Czech | `cs` | `Pekař: Chléb na kvásku` | 22 | `Plán pečení a kalkulačka` | 24 | `bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice,fermentace` | 91 | Pekař vás provede pečením chleba na kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. | 129 | hipoteza |
+    | Slovak | `sk` | `Pekár: Chlieb na kvásku` | 23 | `Plán pečenia a kalkulačka` | 25 | `bochník,pizza,hydratácia,cesto,žitný,levain,poolish,časovač,recept,droždie,fermentácia` | 94 | Pekár vás prevedie pečením chleba na kvásku od receptu po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. | 132 | hipoteza |
+    | Hungarian | `hu` | `Pék: Kovászos kenyér` | 20 | `Sütési terv és kalkulátor` | 25 | `cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjesztés,élesztő` | 91 | A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, tervet készít, és figyeli az időt, amikor a telefon alszik. | 152 | hipoteza |
+    | Croatian | `hr` | `Pekar: Kruh na zakvasu` | 22 | `Plan pečenja i kalkulator` | 25 | `štruca,pizza,hidratacija,tijesto,raženi,levain,poolish,timer,recept,fermentacija,kvasac` | 89 | Pekar vas vodi kroz pečenje kruha na zakvasu od recepta do štruce: izračunava količine, slaže plan i pazi na vrijeme dok telefon spava. | 135 | hipoteza |
+    | Slovenian | `sl` | `Pek: Kruh na kvasu` | 18 | `Načrt peke in kalkulator` | 24 | `hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija,kvasec` | 87 | Pek vas vodi skozi peko kruha na kvasu od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. | 125 | hipoteza |
+    | Romanian | `ro` | `Brutar: Pâine cu maia` | 21 | `Plan de coacere și calculator` | 29 | `pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,drojdie,franzelă` | 95 | Brutar te ghidează prin coacerea pâinii cu maia, de la rețetă la pâine: calculează cantitățile, face planul și urmărește timpul când telefonul doarme. | 150 | hipoteza |
+    | Swedish | `sv` | `Bagaren: Bröd & Surdeg` | 22 | `Bakplan, degkalkyl & timer` | 26 | `jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påminnelse,pizza,bakning` | 100 | Bagaren leder dig genom surdegsbröd från recept till limpa: räknar mängder, lägger planen från sluttiden och larmar när telefonen sover. | 136 | częściowo |
+    | Norwegian | `no` | `Bakeren: Brød og surdeig` | 24 | `Bakeplan og oppskriftsregner` | 28 | `heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaking,hevetid` | 90 | Bakeren leder deg gjennom surdeigsbrød fra oppskrift til brød: regner mengder, lager planen fra ferdigtidspunktet og varsler deg når telefonen sover. | 149 | częściowo |
+    | Danish | `da` | `Bageren: Brød og surdej` | 23 | `Bageplan og opskriftsregner` | 27 | `hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbagning,hævetid` | 93 | Bageren fører dig gennem surdejsbrød fra opskrift til brød: regner mængder, lægger planen fra sluttidspunktet og giver besked, når telefonen sover. | 147 | częściowo |
+    | Finnish | `fi` | `Leipuri: Leipä ja hapanjuuri` | 28 | `Leivontasuunnitelma ja laskuri` | 30 | `taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resepti,pata,juurileipä` | 98 | Leipuri opastaa hapanjuurileivän teossa reseptistä leivukseen: laskee määrät, tekee aikataulun valmistumisajasta ja muistuttaa, kun puhelin nukkuu. | 147 | hipoteza |
+    | Russian | `ru` | `Хлебопёк: Хлеб на закваске` | 26 | `Расчёт теста и план выпечки` | 27 | `гидратация,пекарский,ржаной,рецепты,пицца,таймер` | 91 | Хлебопёк ведёт вас от рецепта до буханки на закваске: считает количество, строит план от нужного часа и следит за временем. | 123 | częściowo |
+    | Ukrainian | `uk` | `Пекар: Хліб на заквасці` | 23 | `Розрахунок тіста і план` | 23 | `гідратація,пекарський,житній,рецепти,піца,таймер` | 91 | Пекар веде вас від рецепта до буханки на заквасці: рахує кількість, будує план від потрібної години й стежить за часом. | 119 | częściowo |
+    | Greek | `el` | `Αρτοποιός: Ψωμί & Προζύμι` | 25 | `Υπολογισμός ζύμης και πλάνο` | 27 | `υδάτωση,συνταγές,σίκαλη,λεβέν,πίτσα,χρονόμετρο` | 87 | Ο Αρτοποιός σας οδηγεί από τη συνταγή στο καρβέλι με προζύμι: υπολογίζει ποσότητες, φτιάχνει πλάνο και προσέχει τον χρόνο. | 122 | hipoteza |
+    | Turkish | `tr` | `Fırıncı: Ekşi Mayalı Ekmek` | 26 | `Hamur hesabı ve pişirme planı` | 29 | `hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,mayalama,fermantasyon` | 98 | Fırıncı, ekşi mayalı ekmeği tariften somuna kadar yönetir: miktarları hesaplar, plan çıkarır ve süreleri takip eder. | 116 | hipoteza |
+    | Japanese | `ja` | `パン職人 - サワードウと天然酵母` | 17 | `ベーカーズ％計算と発酵タイマー` | 15 | `パン作り,レシピ,ライ麦,自家製,パン生地,仕込み水,スケジュール,ルヴァン` | 100 | 自家製サワードウのパン作りを、レシピから焼き上がりまで案内します。分量計算、逆算スケジュール、睡眠を考えた発酵タイマーで、次の一本をもっと良く。 | 72 | częściowo |
+    | Korean | `ko` | `제빵사 - 사워도우 빵 만들기` | 16 | `베이커스 퍼센트·발효 타이머` | 15 | `홈베이킹,레시피,천연발효종,르방종,호밀빵,빵반죽,수분율,발효온도` | 91 | 사워도우 빵을 레시피부터 완성까지 안내합니다. 재료량 계산, 완성 시간에서 거꾸로 짜는 일정, 잠자는 시간을 고려한 발효 알림으로 다음 빵을 더 낫게. | 84 | częściowo |
+    | Chinese (Traditional) | `zh-Hant` | `麵包師傅 - 酸種麵包烘焙` | 13 | `烘焙百分比計算與發酵計時` | 12 | `魯邦種,天然酵母,裸麥麵包,水合率,揉麵團,發酵時間,烘焙排程,披薩麵團` | 94 | 從配方到出爐，陪你完成家庭酸種麵包：計算用量、由完成時間倒推行程、避開睡眠時間提醒，並幫你改進下一次烘焙。 | 53 | częściowo |
+    | Indonesian | `id` | `Tukang Roti: Sourdough` | 22 | `Kalkulator & Jadwal Adonan` | 26 | `resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread` | 80 | Memandu Anda membuat roti sourdough di rumah dari resep hingga roti jadi: hitung bahan, jadwal mundur dari jam siap, pengingat saat ponsel terkunci. | 148 | hipoteza |
+    | Malay | `ms` | `Tukang Roti: Sourdough` | 22 | `Kalkulator Doh & Jadual Bakar` | 29 | `resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread` | 79 | Memandu anda membuat roti sourdough di rumah dari resepi hingga siap: kira bahan, jadual undur dari waktu siap, peringatan semasa telefon dikunci. | 146 | hipoteza |
+    | Vietnamese | `vi` | `Thợ Bánh Mì: Sourdough` | 22 | `Tính công thức & hẹn giờ ủ` | 26 | `men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột` | 76 | Hướng dẫn làm bánh mì sourdough tại nhà từ công thức đến ổ bánh: tính lượng nguyên liệu, lập lịch ngược từ giờ xong, nhắc giờ khi điện thoại khóa. | 146 | hipoteza |·
+    "
+
+       98 |
+       99 |   it('mówi wprost: no introductory offer, no free trial (D-112)', () => {
+    > 100 |     expect(notatki).toMatch(/no introductory offer/i);
+          |                     ^
+      101 |     expect(notatki).toMatch(/no free trial/i);
+      102 |   });
+      103 |
+
+      at Object.toMatch (tests/dostep-zakup-z8.test.ts:100:21)
+
+Test Suites: 1 failed, 1 total
+Tests:       9 failed, 67 passed, 76 total
+Snapshots:   0 total
+Time:        2.117 s
+Ran all test suites matching /tests\/dostep-zakup-z8.test.ts/i.

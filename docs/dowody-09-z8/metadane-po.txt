@@ -1,0 +1,3 @@
+$ node sprawdz-wydanie.mjs metadane store-po.json  (store.config.json zbudowany w scratchpadzie z docs/wydanie/metadane/*.json i notatek §4.3 docs/app-store-metadata-v2.md po Z-8)
+OK
+kod wyjścia: 0

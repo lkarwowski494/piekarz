@@ -42,7 +42,7 @@ Status według kontraktu zakresu `docs/scope-contract.md` (tabela „Zakres”, 
 | Moduł / Obszar | F-nn | Opis | Status |
 | :--- | :--- | :--- | :--- |
 | **Start „Co dziś robisz?”** | `F-68` | Trzy czynności; przy trwającym wypieku bieżący krok i powrót do prowadzenia | ✅ Wdrożone |
-| **Receptury i ilości** | `F-09`, `F-11`, `F-26`, `F-27`, `F-55` | 26 receptur bazowych (11 z planem i prowadzeniem krok po kroku; wersja na drożdżach w 4, tryb maszyny do chleba F-72) i własne; ilości od liczby bochenków albo masy mąki; kilka mąk; zaczyny (poolish, biga, pâte fermentée, levain); „Zapisz jako moją” | ✅ Wdrożone |
+| **Receptury i ilości** | `F-09`, `F-11`, `F-26`, `F-27`, `F-55` | 26 receptur bazowych (10 z planem i prowadzeniem krok po kroku; wersja na drożdżach w 4, tryb maszyny do chleba F-72) i własne; ilości od liczby bochenków albo masy mąki; kilka mąk; zaczyny (poolish, biga, pâte fermentée, levain); „Zapisz jako moją” | ✅ Wdrożone |
 | **Temperatura wody** | `F-10` | Temperatura wody dla docelowej temperatury ciasta | ✅ Wdrożone |
 | **Plan wypieku** | `F-13`, `F-14` | Plan wstecz od godziny „gotowe”, czas fermentacji z temperatury kuchni ($Q_{10}$), kroki w nocy z propozycją „Przesuń do lodówki”, stan „Nie zdążysz na tę godzinę” z najwcześniejszą godziną | ✅ Wdrożone |
 | **Prowadzenie krok po kroku** | `F-07`, `F-18`, `F-57`, `F-58` | Bieżący krok z minutnikiem, „Cofnij poprzedni”, ostrzeżenia w krokach, wypiek w garnku w dwóch fazach; chleb żytni (> 50% mąki żytniej) bez składania (D-030); powrót do bieżącego kroku po ponownym otwarciu | ✅ Wdrożone |

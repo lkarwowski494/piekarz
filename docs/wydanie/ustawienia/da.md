@@ -50,7 +50,7 @@ Bageren beregner mængderne og giver besked, når hvert trin slutter. Plan bagl�
 Bageren guider dig gennem bagningen af surdejsbrød fra opskrift til færdigt brød: appen beregner mængderne, lægger planen og holder øje med tiden, mens telefonen sover. Den virker uden konto og uden internet, uden reklamer og uden sporing. Dine opskrifter, surdeje og din bagedagbog bliver kun på din telefon.
 
 OPSKRIFTER OG MÆNGDER
-Vælg en af 26 grundopskrifter (surdej, rug, gær, pizza og søde) eller din egen; 11 surdejsopskrifter har plan og vejledning trin for trin. Indstil antal brød eller melmængden, og Bageren angiver gram mel, vand, surdej, salt og gær. Bagerprocenten medregner mel og vand fra surdejen og fra fordejen (fordej: Pro). Bageren angiver også vandtemperaturen til den dejtemperatur, du ønsker.
+Vælg en af 26 grundopskrifter (surdej, rug, gær, pizza og søde) eller din egen; 10 surdejsopskrifter har plan og vejledning trin for trin. Indstil antal brød eller melmængden, og Bageren angiver gram mel, vand, surdej, salt og gær. Bagerprocenten medregner mel og vand fra surdejen og fra fordejen (fordej: Pro). Bageren angiver også vandtemperaturen til den dejtemperatur, du ønsker.
 
 GÆRVERSION OG BRØDMASKINE
 Fire surdejsopskrifter har også en gærversion, tre af dem med plan. Gæropskrifter og -versioner kan også bages i brødmaskine: Bageren tilpasser mængderne til maskinen og angiver rækkefølgen for ingredienserne og programmet samt starttidspunktet for det valgte klar-tidspunkt (Pro).

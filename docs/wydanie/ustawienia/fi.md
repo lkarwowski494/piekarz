@@ -50,7 +50,7 @@ Leipuri laskee määrät ja kertoo vaiheiden päättymisestä. Aikataulu taaksep
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
 
 RESEPTIT JA MÄÄRÄT
-Valitse yksi 26 perusreseptistä (hapanjuuri-, ruis- ja hiivaleivät, pizza ja makeat leivonnaiset) tai oma reseptisi; 11 hapanjuurireseptillä on aikataulu ja opastus vaihe vaiheelta. Aseta leipien määrä tai jauhojen paino, niin Leipuri kertoo jauhojen, veden, hapanjuuren, suolan ja hiivan grammamäärät. Leipurin prosentti ottaa huomioon sekä hapanjuuren että juuren jauhot ja veden (juuri: Pro). Leipuri kertoo myös veden lämpötilan haluamaasi taikinan lämpötilaa varten.
+Valitse yksi 26 perusreseptistä (hapanjuuri-, ruis- ja hiivaleivät, pizza ja makeat leivonnaiset) tai oma reseptisi; 10 hapanjuurireseptillä on aikataulu ja opastus vaihe vaiheelta. Aseta leipien määrä tai jauhojen paino, niin Leipuri kertoo jauhojen, veden, hapanjuuren, suolan ja hiivan grammamäärät. Leipurin prosentti ottaa huomioon sekä hapanjuuren että juuren jauhot ja veden (juuri: Pro). Leipuri kertoo myös veden lämpötilan haluamaasi taikinan lämpötilaa varten.
 
 HIIVAVERSIO JA LEIPÄKONE
 Neljästä hapanjuurireseptistä on myös hiivaversio, kolmesta niistä aikataulun kanssa. Hiivareseptit ja -versiot onnistuvat myös leipäkoneessa: Leipuri sovittaa määrät koneeseesi ja kertoo ainesten järjestyksen ja ohjelman sekä käynnistysajan valitsemallesi valmistumisajalle (Pro).

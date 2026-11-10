@@ -1,0 +1,21 @@
+diff --git a/src/components/stolnica/PasProwadzenia.tsx b/src/components/stolnica/PasProwadzenia.tsx
+index 975b312..68ba90c 100644
+--- a/src/components/stolnica/PasProwadzenia.tsx
++++ b/src/components/stolnica/PasProwadzenia.tsx
+@@ -37,14 +37,14 @@ export function PasProwadzenia({ gora, krok, numer, czas, czasEtykieta, potem, o
+       podtytul={zwarty ? undefined : numerKroku} podtytulTestID="step-number" zwarty={zwarty}
+       srodek={zwarty && numerKroku ? <Text testID="step-number" style={styles.numer} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={MIN_SKALA_NUMERU}>{numerKroku}</Text> : undefined}
+       wstecz={{ etykieta: t('Wstecz'), onPress: onWstecz }} onLayout={onLayout}
+-      akcje={<PrzyciskiProwadzenia naPasie ikony={zwarty} aktywny={aktywny} onPlan={onPlan} onDoktor={onDoktor} />}>
++      akcje={<PrzyciskiProwadzenia naPasie ikony={false} aktywny={aktywny} onPlan={onPlan} onDoktor={onDoktor} />}>
+       {aktywny && <CzasKrokuNaPasie step={krok} formattedTime={czas} czasEtykieta={czasEtykieta} potem={potem} zwarty={zwarty} />}
+     </PasZakladki>
+   );
+ }
+ 
+ /** Najmniejsza skala numeru kroku w zwartym pasie (KO-017, D-336): jak czas kroku, jeden wiersz zamiast łamania na znaki. */
+-export const MIN_SKALA_NUMERU = 0.7;
++export const MIN_SKALA_NUMERU = 0.5;
+ /** Najmniejsza szerokość numeru (pt): gdy wstecz, numer i akcje pasa nie mieszczą się w rzędzie, akcje schodzą niżej (KO-017, D-336). */
+ export const MIN_SZER_NUMERU = 88;
+ 

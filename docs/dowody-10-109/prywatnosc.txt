@@ -1,0 +1,3 @@
+$ npx expo config --type introspect --json > introspect.json; node sprawdz-wydanie.mjs prywatnosc introspect.json node_modules
+OK
+kod wyjścia: 0

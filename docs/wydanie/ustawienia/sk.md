@@ -50,7 +50,7 @@ Pekár vypočíta množstvá a upozorní vás na koniec každého kroku. Spätn�
 Pekár vás prevedie pečením kváskového chleba od receptúry až po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. Funguje bez účtu a bez internetu, bez reklám a bez sledovania. Vaše receptúry, kvásky a denník zostávajú len vo vašom telefóne.
 
 RECEPTÚRY A MNOŽSTVÁ
-Vyberte si jednu z 26 základných receptúr (kváskové, ražné, droždiové, pizza a sladké) alebo vlastnú; 11 kváskových receptúr má plán a sprievodcu krok za krokom. Nastavte počet bochníkov alebo hmotnosť múky a Pekár uvedie gramy múky, vody, kvásku, soli a droždia. Pekárske percentá zahŕňajú múku a vodu z kvásku aj z predkvasu (predkvas: Pro). Pekár vám tiež povie teplotu vody pre teplotu cesta, ktorú chcete dosiahnuť.
+Vyberte si jednu z 26 základných receptúr (kváskové, ražné, droždiové, pizza a sladké) alebo vlastnú; 10 kváskových receptúr má plán a sprievodcu krok za krokom. Nastavte počet bochníkov alebo hmotnosť múky a Pekár uvedie gramy múky, vody, kvásku, soli a droždia. Pekárske percentá zahŕňajú múku a vodu z kvásku aj z predkvasu (predkvas: Pro). Pekár vám tiež povie teplotu vody pre teplotu cesta, ktorú chcete dosiahnuť.
 
 VERZIA S DROŽDÍM A DOMÁCA PEKÁREŇ
 Štyri kváskové receptúry majú aj verziu s droždím, tri z nich s plánom. Droždiové receptúry a verzie upečiete aj v domácej pekárni: Pekár prispôsobí množstvá pekárni, uvedie poradie surovín a program a pre zvolený čas dokončenia aj čas spustenia (Pro).

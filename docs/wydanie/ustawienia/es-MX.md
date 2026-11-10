@@ -50,7 +50,7 @@ Panadero calcula cantidades y te avisa al terminar cada paso. Plan hacia atrás 
 Panadero te guía en el horneado de pan de masa madre, de la fórmula a la hogaza: calcula las cantidades, arma el plan y lleva el tiempo aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus fórmulas, masas madre y bitácora se quedan solo en tu teléfono.
 
 FÓRMULAS Y CANTIDADES
-Elige una de las 26 fórmulas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia; 11 fórmulas de masa madre tienen plan y guía paso a paso. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero incluye la harina y el agua de la masa madre y del fermento (fermento: Pro). Panadero también te indica la temperatura del agua para lograr la temperatura de la masa que buscas.
+Elige una de las 26 fórmulas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia; 10 fórmulas de masa madre tienen plan y guía paso a paso. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero incluye la harina y el agua de la masa madre y del fermento (fermento: Pro). Panadero también te indica la temperatura del agua para lograr la temperatura de la masa que buscas.
 
 VERSIÓN CON LEVADURA Y PANIFICADORA
 Cuatro fórmulas de masa madre también tienen versión con levadura, tres de ellas con plan. Las fórmulas y versiones con levadura también van en panificadora: Panadero ajusta las cantidades a tu máquina y te da el orden de los ingredientes y el programa, más la hora de inicio para la hora de listo que elijas (Pro).
