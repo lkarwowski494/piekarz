@@ -115,3 +115,18 @@ Kody wyjścia: 0 i 0 (`reaudit-2026-11-10/dowody/sprawdz-M1-reaudit.txt`, `reaud
 - P1 rozwiązane decyzją właściciela: M1-audytor-generalny-017 (KO-014) — samo dawałoby „GOTOWE Z ZASTRZEŻENIAMI”; krok właściciela: zrzuty przed zgłoszeniem do App Store.
 - Pętla: 2 z 2 (D-043). Kryterium zakończenia niespełnione przez 005 → nie zlecam trzeciej pętli; decyzja właściciela z opcji przy 005. Gdy właściciel wybierze opcję 2 (przyjęcie ryzyka na TestFlight), stan zmienia się na GOTOWE Z ZASTRZEŻENIAMI z zastrzeżeniami: 005 i 017 przed App Store, 067 po scaleniu do `master`, 032 przy buildzie TestFlight, 110 przed scaleniem do `master`, wyniki układu z rachunku do potwierdzenia zrzutem.
 - Następny krok (STOP 2): decyzja właściciela w sprawie 005; potem rola 10 (wydanie TestFlight) albo M2 dla opcji 1. P3 102–110: backlog 1.0.1.
+
+### Decyzja właściciela po STOP 2 (2026-11-10)
+
+Słowa właściciela w sesji reaudytu: „Zgodnie z rekomendacja.” Dotyczy M1-audytor-generalny-005: opcja 2 teraz (przyjęcie ryzyka na czas TestFlight; kontrola zastępcza: zrzut kroku pieczenia w garnku z telefonu właściciela), opcja 1 (ostrzeżenie nad kartą „Co zrobić” i test układu wszystkich kroków z ostrzeżeniem i języków, rola 04) przed zgłoszeniem do App Store, razem z 106 i 107.
+
+- Stan po decyzji: **GOTOWE Z ZASTRZEŻENIAMI** (brak otwartych P0/P1 poza rozwiązanymi decyzją właściciela).
+- Zastrzeżenia, każde z właścicielem i krokiem:
+  - 005 (P1): krok właściciela — zrzut kroku pieczenia z telefonu przy teście TestFlight; rola 04 przez M2 — opcja 1 przed App Store.
+  - 017 (P1, KO-014): krok właściciela — zrzuty przed zgłoszeniem do App Store; razem z 109 (opis sklepu: 10 receptur z planem).
+  - 067 (P2): rola 07 — nightly po scaleniu do `master`.
+  - 032 (P2): krok właściciela — build TestFlight, kontrola dSYM.
+  - 110 (P3): zgoda właściciela na zmianę `tests-tz.yml` przed scaleniem do `master`.
+  - Wyniki układu z rachunku (320×568, języki, AX): do potwierdzenia zrzutem.
+- Wpis do `docs/decyzje.md` aplikacji: przez koordynatora (reaudyt nie zmienia plików aplikacji).
+- Następny krok: rola 10 (wydanie TestFlight).

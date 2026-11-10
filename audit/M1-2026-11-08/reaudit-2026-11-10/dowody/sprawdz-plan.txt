@@ -85,7 +85,7 @@
 | 3 | M1-audytor-generalny-018 | P1 | P | 11-wzrost | rola | 11-wzrost-002 | — | DEC-15 | zweryfikowane |
 | 3 | M1-audytor-generalny-084 | P2 | P | 11-wzrost | rola | 11-wzrost-005 | — | DEC-16 | zweryfikowane |
 | 3 | M1-audytor-generalny-083 | P3 | D | 11-wzrost | M2 | 11-wzrost-001 | — | — | zatwierdzone |
-| 4 | M1-audytor-generalny-005 | P1 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-001, 09-lokalizacja-701, 07-jakosc-701 | — | — | otwarte |
+| 4 | M1-audytor-generalny-005 | P1 | D | 04-studio-projektowe | M2 | 04-studio-projektowe-001, 09-lokalizacja-701, 07-jakosc-701 | — | — | zatwierdzone |
 | 4 | M1-audytor-generalny-088 | P1 | D | 06-tresci | M2 | 06-tresci-601 | — | — | zweryfikowane |
 | 4 | M1-audytor-generalny-089 | P1 | P | 06-tresci | rola | 06-tresci-602 | — | DEC-21 | zweryfikowane |
 | 4 | M1-audytor-generalny-087 | P1 | D | 12-niezawodnosc | M2 | 12-niezawodnosc-601 | — | — | zweryfikowane |
