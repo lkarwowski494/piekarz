@@ -1,0 +1,30 @@
+# Zdanie „po co” przed prośbą o zgodę na powiadomienia i okno systemu iOS (jak .maestro/e2e/02-wypiek-na-stolnicy.yaml, E2E-95, E2E-96).
+# Okno systemu nie ma id, stąd tekst przycisku (pl, en). W innych językach symulatora tekst nie pasuje: jeśli okno się pokaże,
+# następna asercja sceny pada, scena idzie do powtórki, a po drugiej porażce do `nieudane-*.txt` (widać w podsumowaniu).
+# [DO USTALENIA] czy okno pojawia się po `launchApp` z `permissions: notifications: allow` — rozstrzygnie pierwszy przebieg.
+appId: com.apps4brew.baker
+---
+- extendedWaitUntil:
+    visible:
+      id: "zgoda-dalej-btn"
+    timeout: 30000
+    optional: true
+- runFlow:
+    when:
+      visible:
+        id: "zgoda-dalej-btn"
+    commands:
+      - tapOn:
+          id: "zgoda-dalej-btn"
+      - extendedWaitUntil:
+          visible:
+            text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          timeout: 30000
+          optional: true
+      - runFlow:
+          when:
+            visible:
+              text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          commands:
+            - tapOn:
+                text: "Pozwalaj|Zezwalaj|Zezwól|Allow"

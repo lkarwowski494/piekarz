@@ -328,6 +328,40 @@ jobs:
           fi
           tail -30 /tmp/xcodebuild-export.log
 
+      # 032 (KO-025, 2026-11-10): pełny log eksportu i wysyłki jako artefakt — dowód, czy xcodebuild wysłał symbole (dSYM),
+      # bo tail -30 ich nie pokazuje (TF #25, job 129890129906). Log ma już zamaskowane KEY_ID, ISSUER_ID i TEAM_ID (sed wyżej);
+      # przed wysyłką artefaktu kontrola wzorców sekretów: przy trafieniu log jest usuwany i artefaktu nie ma (bez przerywania
+      # wydania, które już poszło). Ostrzeżenia o symbolach trafiają do podsumowania joba.
+      - name: Full export log (secret scan, symbol warnings)
+        id: log_eksportu
+        if: always()
+        run: |
+          LOG=/tmp/xcodebuild-export.log
+          if [ ! -s "$LOG" ]; then echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; echo "Brak logu eksportu (krok eksportu się nie wykonał)."; exit 0; fi
+          WZORY='BEGIN [A-Z ]*PRIVATE KEY|eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}|[Bb]earer [A-Za-z0-9._~+/=-]{20,}|AuthKey_[A-Z0-9]{6,16}\.p8'
+          # bez pipefail (domyślny bash -e): kod potoku = kod wc, więc brak trafień grep nie przerywa kroku
+          TRAFIENIA=$(grep -E "$WZORY" "$LOG" | wc -l | tr -d ' ')
+          if [ "$TRAFIENIA" -ne 0 ]; then
+            echo "::warning::Log eksportu ma $TRAFIENIA linii pasujących do wzorców sekretów — log usunięty, bez artefaktu."
+            rm -f "$LOG"; echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "bezpieczny=true" >> "$GITHUB_OUTPUT"
+          SYMBOLE=$(grep -iE 'dsym|symbol' "$LOG" | sed -E 's/[[:space:]]+/ /g' | sort | uniq -c | sort -rn | head -20)
+          {
+            echo "### Eksport: linie o symbolach (dSYM) — pełny log w artefakcie testflight-export-log-${GITHUB_RUN_NUMBER}"
+            echo "Linii logu: $(wc -l < "$LOG" | tr -d ' '); linii o symbolach: $(grep -iE 'dsym|symbol' "$LOG" | wc -l | tr -d ' ')"
+            if [ -n "$SYMBOLE" ]; then echo '```'; printf '%s\n' "$SYMBOLE"; echo '```'; else echo "Brak linii o symbolach w logu."; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload full export log (retention 3 days)
+        if: always() && steps.log_eksportu.outputs.bezpieczny == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: testflight-export-log-${{ github.run_number }}
+          path: /tmp/xcodebuild-export.log
+          retention-days: 3
+          if-no-files-found: ignore
+
       - name: Clean up credentials
         if: always()
         run: |

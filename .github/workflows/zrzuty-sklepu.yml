@@ -1,0 +1,293 @@
+# Zrzuty sklepu (App Store Connect) z symulatora iOS: iPhone 17 Pro Max (6,9″, 1320 × 2868) i iPhone 17 Pro (6,3″, 1206 × 2622),
+# 7 ramek z docs/wydanie/zrzuty/README.md (sceny .maestro/zrzuty-sklepu/), lokalizacje z docs/wydanie/metadane/, plus ekran zakupu
+# dla App Review (`review/zakup.png`). Decyzja właściciela KO-025 (2026-11-10): natywnie jak w Oczku; zrzuty po teście telefonu
+# właściciela, teraz tylko mechanizm. Wzór: oczko .github/workflows/zrzuty-sklepu.yml @ 87ade5a (gałąź claude/build3-2026-11-10).
+# Surowe zrzuty aplikacji, BEZ pasa podpisu (obecne ramki w repo mają podpis z generuj.mjs; decyzja D-352 w docs/decyzje.md).
+# Bez sekretów App Store Connect i bez środowiska `release`; niczego nie wysyła (wysyłka zrzutów to osobny skrypt wydania, za zgodą właściciela).
+# Wyzwalacze: workflow_dispatch (działa, gdy plik jest na gałęzi domyślnej) albo push na gałąź `zrzuty-sklepu/**`
+# (gałąź tworzy koordynator za zgodą; zwykłe gałęzie napraw tego workflowu nie uruchamiają). Przy push wejścia z PIERWSZEJ linii
+# komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [zrzuty-app:<numer przebiegu>]; brak = wszystkie lokalizacje i oba rozmiary.
+name: Zrzuty sklepu
+
+on:
+  push:
+    branches: ['zrzuty-sklepu/**']
+  workflow_dispatch:
+    inputs:
+      tylko:
+        description: 'Lokalizacje ASC rozdzielone przecinkami (np. pl albo pl,en-US); puste = wszystkie z docs/wydanie/metadane'
+        required: false
+        type: string
+        default: ''
+      rozmiary:
+        description: 'Klasy iPhone: 6.9, 6.3 albo 6.9,6.3; puste = obie'
+        required: false
+        type: string
+        default: ''
+      aplikacja_z_przebiegu:
+        description: 'Numer przebiegu TEGO workflowu z gotowymi aplikacjami (artefakt zrzuty-sklepu-app, 3 dni); puste = budowa (~40 min)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: zrzuty-sklepu-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      app_przebieg: ${{ steps.plan.outputs.app_przebieg }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Plan (lokalizacje, rozmiary, części)
+        id: plan
+        env:
+          ZDARZENIE: ${{ github.event_name }}
+          KOMUNIKAT: ${{ github.event.head_commit.message }}
+          WE_TYLKO: ${{ inputs.tylko }}
+          WE_ROZMIARY: ${{ inputs.rozmiary }}
+          WE_APP: ${{ inputs.aplikacja_z_przebiegu }}
+        run: |
+          set -euo pipefail
+          if [ "$ZDARZENIE" = workflow_dispatch ]; then
+            tylko="$WE_TYLKO"; rozmiary="$WE_ROZMIARY"; app="$WE_APP"
+          else
+            # znaczniki tylko z pierwszej linii: treść commitu może je opisywać (Oczko, przebieg 1)
+            linia=$(printf '%s\n' "$KOMUNIKAT" | head -1)
+            tylko=$(printf '%s' "$linia" | sed -n 's/.*\[tylko=\([A-Za-z0-9,.-]*\)\].*/\1/p' | head -1)
+            rozmiary=$(printf '%s' "$linia" | sed -n 's/.*\[rozmiary=\([0-9,.]*\)\].*/\1/p' | head -1)
+            app=$(printf '%s' "$linia" | sed -n 's/.*\[zrzuty-app:\([0-9][0-9]*\)\].*/\1/p' | head -1)
+          fi
+          case "$app" in ''|*[!0-9]*) [ -z "$app" ] || { echo "::error::aplikacja_z_przebiegu: tylko cyfry"; exit 1; } ;; esac
+          wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko "$tylko" --rozmiary "$rozmiary" --na-zadanie 4)
+          matrix=$(printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));process.stdout.write(JSON.stringify(w.matrix))')
+          { echo "matrix=$matrix"; echo "app_przebieg=$app"; } >> "$GITHUB_OUTPUT"
+          printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));console.log(`Lokalizacje (${w.jezyki.length}): ${w.jezyki.join(", ")}; rozmiary: ${w.rozmiary.join(", ")}; zadania macOS: ${w.matrix.include.length}`)' | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "Aplikacja z przebiegu: ${app:-(budowa)}" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  build:
+    needs: plan
+    if: needs.plan.outputs.app_przebieg == ''
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - name: Expo prebuild (iOS)
+        run: npx expo prebuild --platform ios --clean
+      # Jak e2e-ios.yml: build z dostępem (EXPO_PUBLIC_E2E=1, pełny Pro — ramki 01 i 05 pokazują funkcje Pro), potem przyrostowy
+      # build Basic bez flagi do ekranu zakupu. testflight.yml odrzuca flagę w kroku „Guard against test/mock flags”.
+      - name: Build Release for simulator (Pro, EXPO_PUBLIC_E2E)
+        env:
+          EXPO_PUBLIC_E2E: '1'
+        run: |
+          set -o pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          echo "SCHEME=$SCHEME" >> "$GITHUB_ENV"
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tee xcodebuild-pro.log | tail -n 80
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+          echo "BUNDLE_PRO_SHA=$(shasum -a 256 "$APP/main.jsbundle" | cut -d ' ' -f 1)" >> "$GITHUB_ENV"
+          mkdir -p aplikacje/pro && cp -R "$APP" aplikacje/pro/
+      - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
+        run: |
+          set -o pipefail
+          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then echo "::error::EXPO_PUBLIC_E2E ustawiona — build Basic musi być bez dostępu E2E"; exit 1; fi
+          rm -rf "${TMPDIR:-/tmp}"/metro-* "${TMPDIR:-/tmp}"/haste-map-* node_modules/.cache/metro
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tee xcodebuild-basic.log | tail -n 80
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+          if [ "$(shasum -a 256 "$APP/main.jsbundle" | cut -d ' ' -f 1)" = "$BUNDLE_PRO_SHA" ]; then
+            echo "::error::main.jsbundle Basic taki sam jak Pro — bundle nie zbudował się od nowa"; exit 1
+          fi
+          mkdir -p aplikacje/basic && cp -R "$APP" aplikacje/basic/
+          zip -qry zrzuty-sklepu-app.zip aplikacje
+          echo "Aplikacje: $(du -sh aplikacje | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zrzuty-sklepu-app
+          path: zrzuty-sklepu-app.zip
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: zrzuty-sklepu-xcodebuild-log
+          path: xcodebuild-*.log
+          retention-days: 3
+
+  zrzuty:
+    name: zrzuty (${{ matrix.czesc }})
+    needs: [plan, build]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
+    runs-on: macos-26
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    env:
+      MAESTRO_CLI_NO_ANALYTICS: 1
+      # Zimny start sterownika XCUITest po restarcie symulatora: limit jak w e2e-ios.yml (D-330)
+      MAESTRO_DRIVER_STARTUP_TIMEOUT: 720000
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: actions/download-artifact@v4
+        if: needs.plan.outputs.app_przebieg != ''
+        with:
+          name: zrzuty-sklepu-app
+          run-id: ${{ needs.plan.outputs.app_przebieg }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        if: needs.plan.outputs.app_przebieg == ''
+        with:
+          name: zrzuty-sklepu-app
+      - name: Simulator (exact model, newest iOS runtime)
+        env:
+          SYMULATOR: ${{ matrix.symulator }}
+        run: |
+          set -euo pipefail
+          unzip -q zrzuty-sklepu-app.zip
+          UDID=$(xcrun simctl list devices available -j | SYMULATOR="$SYMULATOR" node -e '
+            const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
+            const wersja = (k) => (k.match(/iOS-(\d+)-(\d+)/) || [0, 0, 0]).slice(1).map(Number);
+            const ios = Object.keys(d).filter((k) => k.includes("iOS")).sort((a, b) => { const [x1, y1] = wersja(a), [x2, y2] = wersja(b); return x2 - x1 || y2 - y1; });
+            for (const k of ios) { const p = d[k].find((x) => x.name === process.env.SYMULATOR); if (p) { console.log(p.udid); process.exit(0); } }
+            process.exit(1);') || { echo "::error::Brak symulatora $SYMULATOR"; xcrun simctl list devices available | grep -E 'iPhone' | sed -E 's/\([0-9A-F-]{36}\)//'; exit 1; }
+          echo "UDID=$UDID" >> "$GITHUB_ENV"
+          echo "Symulator: $(xcrun simctl list devices available | grep -F "$UDID" | sed -E 's/\([0-9A-F-]{36}\)//' | xargs)" | tee -a "$GITHUB_STEP_SUMMARY"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+      # Maestro nadaje zgody iOS (launchApp: permissions) przez applesimutils (e2e-ios.yml, przebiegi 39581379222, 39591487157)
+      - name: Install applesimutils
+        run: |
+          brew tap wix/brew
+          brew trust --formula wix/brew/applesimutils
+          brew install applesimutils
+          applesimutils --version
+      - name: Install Maestro CLI (pinned zip, SHA-256)
+        env:
+          # Wersja jak e2e-ios.yml (scenariusze po id sprawdzone na niej). Paczka wprost z GitHub Releases z ponowieniami (wzór Oczka, P-626 d);
+          # SHA-256 maestro.zip cli-2.11.0 policzony 2026-11-10 z adresu niżej (sesja J). Zmiana wersji = commit obu wartości.
+          MAESTRO_VERSION: '2.11.0'
+          MAESTRO_ZIP_SHA256: '5384593cb4e7a106489e75a821d157dd43f4e438df6bc308b72e82c685e1283a'
+        run: |
+          set -euo pipefail
+          zip="$RUNNER_TEMP/maestro.zip"
+          curl -fsSL --retry 5 --retry-all-errors --retry-delay 20 --connect-timeout 30 -o "$zip" "https://github.com/mobile-dev-inc/maestro/releases/download/cli-$MAESTRO_VERSION/maestro.zip"
+          printf '%s  %s\n' "$MAESTRO_ZIP_SHA256" "$zip" | shasum -a 256 -c - || { echo "::error::maestro.zip $MAESTRO_VERSION ma inny SHA-256 niż przypięty"; exit 1; }
+          rm -rf "$RUNNER_TEMP/maestro-zip" "$HOME/.maestro" && mkdir -p "$HOME/.maestro"
+          unzip -q "$zip" -d "$RUNNER_TEMP/maestro-zip"
+          cp -R "$RUNNER_TEMP/maestro-zip/maestro/." "$HOME/.maestro/"
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+          v=$("$HOME/.maestro/bin/maestro" --version)
+          printf '%s\n' "$v" | grep -qF "$MAESTRO_VERSION" || { echo "::error::zainstalowano Maestro $v, przypięta $MAESTRO_VERSION"; exit 1; }
+          echo "Maestro: $v" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Zrzuty
+        env:
+          KLASA: ${{ matrix.katalog }}
+          JEZYKI: ${{ matrix.jezyki }}
+          ZAKUP: ${{ matrix.zakup }}
+          CZESC: ${{ matrix.czesc }}
+        run: |
+          APP_PRO=$(ls -d aplikacje/pro/*.app | head -n 1)
+          APP_BASIC=$(ls -d aplikacje/basic/*.app 2>/dev/null | head -n 1); APP_BASIC=${APP_BASIC:--}
+          bash scripts/ci/zrzuty-sklepu.sh "$UDID" "$KLASA" zrzuty-surowe dzienniki "$APP_PRO" "$APP_BASIC" "$JEZYKI"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zrzuty-surowe-${{ matrix.czesc }}
+          path: zrzuty-surowe
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Pack logs (Maestro writes directory names with ":" that upload-artifact rejects)
+        if: always()
+        run: '[ -d dzienniki ] && zip -qry dzienniki.zip dzienniki || true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zrzuty-dzienniki-${{ matrix.czesc }}
+          path: dzienniki.zip
+          retention-days: 3
+          if-no-files-found: ignore
+
+  zbierz:
+    name: komplet (bez alfy, wymiary, 7 ramek)
+    needs: [plan, zrzuty]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && needs.zrzuty.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: zrzuty-surowe-*
+          path: surowe
+          merge-multiple: true
+      - name: ImageMagick
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+      - name: Alpha off, dimensions and completeness
+        env:
+          MATRIX: ${{ needs.plan.outputs.matrix }}
+        run: |
+          set -uo pipefail
+          mkdir -p sklep-zrzuty; bledy=0
+          { echo "### Zrzuty sklepu (surowe, bez pasa podpisu)"; echo "| plik | wymiar | kanały | bajty |"; echo "|---|---|---|---|"; } >> "$GITHUB_STEP_SUMMARY"
+          while IFS= read -r f; do
+            rel="${f#surowe/}"; cel="sklep-zrzuty/$rel"; mkdir -p "$(dirname "$cel")"
+            convert "$f" -alpha off -define png:color-type=2 "$cel"
+            wym=$(identify -format '%wx%h' "$cel"); kan=$(identify -format '%[channels]' "$cel")
+            echo "| $rel | $wym | $kan | $(wc -c < "$cel" | tr -d ' ') |" >> "$GITHUB_STEP_SUMMARY"
+            case "$kan" in *a) echo "::error::$rel nadal ma kanał alfa ($kan)"; bledy=$((bledy + 1)) ;; esac
+            case "$rel" in
+              */iphone-6.9/*) [ "$wym" = 1320x2868 ] || { echo "::error::$rel: wymiar $wym ≠ 1320x2868"; bledy=$((bledy + 1)); } ;;
+              */iphone-6.3/*) [ "$wym" = 1206x2622 ] || { echo "::error::$rel: wymiar $wym ≠ 1206x2622"; bledy=$((bledy + 1)); } ;;
+              review/zakup.png|bez-oferty/review/zakup.png) ;;
+              *) echo "::error::$rel: nieznany katalog"; bledy=$((bledy + 1)) ;;
+            esac
+          done < <(find surowe -name '*.png' | sort)
+          # Komplet: 7 ramek na lokalizację i klasę z planu
+          while IFS=' ' read -r klasa kod; do
+            for n in 01-plan 02-receptura 03-prowadzenie-ciemny 04-doktor 05-zakwasy 06-dziennik 07-offline; do
+              [ -f "sklep-zrzuty/$kod/$klasa/$n.png" ] || { echo "::error::brak $kod/$klasa/$n.png"; bledy=$((bledy + 1)); }
+            done
+          done < <(printf '%s' "$MATRIX" | node -e 'const m=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const c of m.include)for(const j of c.jezyki.split(" "))console.log(c.katalog+" "+j.split(":")[0])')
+          if [ -f sklep-zrzuty/review/zakup.png ]; then echo "Ekran zakupu: review/zakup.png (z ofertą sklepu)" >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f sklep-zrzuty/bez-oferty/review/zakup.png ]; then echo "::warning::Ekran zakupu tylko bez oferty sklepu (bez-oferty/review/zakup.png) — nie do App Review" ; fi
+          echo "Pliki: $(find sklep-zrzuty -name '*.png' | wc -l | tr -d ' '), błędy: $bledy" | tee -a "$GITHUB_STEP_SUMMARY"
+          [ "$bledy" -eq 0 ]
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sklep-zrzuty
+          path: sklep-zrzuty
+          retention-days: 14
+          if-no-files-found: ignore

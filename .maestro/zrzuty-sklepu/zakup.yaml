@@ -1,0 +1,18 @@
+# Ekran zakupu Piekarz Pro dla App Review (docs/wydanie/asc-zgloszenie.json `zrzutZakupu`): build BEZ EXPO_PUBLIC_E2E (Basic),
+# ekran Pro otwiera funkcja Pro (widok miesiąca), jak .maestro/e2e-basic/02-miesiac-ekran-pro.yaml.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "kalendarz-tryb-miesiac"
+- extendedWaitUntil:
+    visible:
+      id: "pro-tresc"
+    timeout: 15000

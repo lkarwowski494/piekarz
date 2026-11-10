@@ -1,0 +1,14 @@
+# Ramka 02 „Receptura”: ekran receptury z ilościami „Do miski” i „Ułóż plan” w pierwszym widoku.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- extendedWaitUntil:
+    visible:
+      id: "start-bake-btn"
+    timeout: 15000
+- assertVisible:
+    id: "loaves-count-display"

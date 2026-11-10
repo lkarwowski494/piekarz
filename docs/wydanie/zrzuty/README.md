@@ -30,6 +30,14 @@ Podpisy biorą się z metadanych lokalizacji. Etykiety przycisków, które klika
 
 Render web różni się od iOS: nie ma paska stanu, tekst treści ma krój systemowy Windows zamiast SF Pro, a cienie i przewijanie wyglądają inaczej. Dla japońskiego, koreańskiego i chińskiego (tradycyjnego) ramka używa kroju zastępczego Windows (Yu Gothic, Malgun Gothic, Microsoft JhengHei), bo Sofia Sans nie ma tych pism. Przed wysyłką do App Store Connect właściciel ogląda ramki na telefonie.
 
+## Zrzuty natywne z symulatora (KO-025, D-352)
+
+Od 2026-11-10 zrzuty powstają natywnie: `.github/workflows/zrzuty-sklepu.yml` buduje aplikację na symulator iOS (Pro z `EXPO_PUBLIC_E2E` i Basic), a `scripts/ci/zrzuty-sklepu.sh` przechodzi sceny Maestro z `.maestro/zrzuty-sklepu/` na iPhone 17 Pro Max (`iphone-6.9`) i iPhone 17 Pro (`iphone-6.3`), po jednej scenie na ramkę (te same nazwy plików co wyżej), dla lokalizacji z `docs/wydanie/metadane/`. Dane są fikcyjne (zakwas i jeden wypiek z oceną, scena `00-przygotuj.yaml`). Workflow niczego nie wysyła; wynik to artefakt `sklep-zrzuty` (`<kod>/<klasa>/NN-*.png`, PNG bez alfy, sprawdzone wymiary) i ekran zakupu `review/zakup.png` (tylko gdy sklep zwrócił ofertę, inaczej `bez-oferty/`, D-353).
+
+Uruchomienie (za zgodą, przebieg na macOS): `workflow_dispatch` z wejściami `tylko` (np. `pl` albo `pl,en-US`; puste = wszystkie), `rozmiary` (`6.9`, `6.3`), `aplikacja_z_przebiegu` (aplikacje z wcześniejszego przebiegu, bez budowy), albo push na gałąź `zrzuty-sklepu/<nazwa>` ze znacznikami w pierwszej linii komunikatu: `[tylko=pl] [rozmiary=6.9] [zrzuty-app:<nr przebiegu>]`. Pierwszy przebieg: `tylko=pl`.
+
+Różnice wobec obecnego zestawu: zrzuty są surowe, bez pasa podpisu (decyzja A/B w D-352); godziny w planie wypieku pochodzą z zegara maszyny CI; pasek stanu ustawiony na 9:41. Zestaw w repo zostaje bez zmian do decyzji właściciela po teście telefonu.
+
 ## Zrzut zakupu dla App Review (`review/zakup.png`)
 
 Jeden plik PNG ekranu zakupu Piekarz Pro dla trzech produktów (instrukcja §3.8), z finalnej aplikacji, razem ze zrzutami sklepu z finalnej aplikacji (właściciel, 2026-10-21: „Rzeczy jak zrzuty powinny być z finalnej aplikacji.”). Ścieżkę podaje `docs/wydanie/asc-zgloszenie.json` (`zrzutZakupu`). Dopóki pliku nie ma, `scripts/asc-zgloszenie.mjs` wypisuje trzy pozycje „czeka” i niczego dla nich nie wysyła; gdy plik jest, porównuje jego MD5 ze zrzutem w App Store Connect i wysyła go tylko przy zapisie za zgodą [M1-audytor-generalny-186].

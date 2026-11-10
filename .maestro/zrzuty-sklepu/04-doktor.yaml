@@ -1,0 +1,17 @@
+# Ramka 04 „Doktor Chleba”: objaw „Jaskinie” i wynik diagnozy w środku kadru.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-dziennik"
+- tapOn:
+    id: "dziennik-doktor-btn"
+- scrollUntilVisible:
+    element:
+      id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
+- tapOn:
+    id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
+- scrollUntilVisible:
+    element:
+      id: "karta-diagnoza"
+    centerElement: true

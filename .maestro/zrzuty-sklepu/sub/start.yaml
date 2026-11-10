@@ -1,0 +1,12 @@
+# Restart na danych z 00-przygotuj.yaml (bez czyszczenia stanu); zrzut robi scripts/ci/zrzuty-sklepu.sh (simctl io screenshot).
+appId: com.apps4brew.baker
+---
+- stopApp
+- launchApp:
+    clearState: false
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "tab-receptury"
+    timeout: 60000

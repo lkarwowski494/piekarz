@@ -1,0 +1,31 @@
+# Ramka 03 „Prowadzenie” w trybie ciemnym (tryb ustawia scripts/ci/zrzuty-sklepu.sh: simctl ui appearance dark).
+# Drugi krok wypieku, jak na obecnej ramce. Scena ostatnia w przebiegu: zostawia trwający wypiek.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+- runFlow: sub/zgoda.yaml
+- extendedWaitUntil:
+    visible:
+      id: "next-or-finish-step-btn"
+    timeout: 15000
+- tapOn:
+    id: "next-or-finish-step-btn"
+- extendedWaitUntil:
+    visible:
+      id: "step-title"
+    timeout: 15000
+- assertVisible:
+    id: "step-time"
+- assertVisible:
+    id: "thumb-bar"

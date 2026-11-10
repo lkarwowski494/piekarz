@@ -1,0 +1,15 @@
+# Ramka 01 „Plan wstecz” (docs/wydanie/zrzuty/README.md, D-055): plan wypieku wbudowanej receptury. Godziny planu zależą
+# od zegara maszyny (aplikacja nie ma wstrzykiwanego zegara) — patrz README, „Zrzuty natywne”.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-receptury"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- tapOn:
+    id: "start-bake-btn"
+- extendedWaitUntil:
+    visible:
+      id: "plan-dzien-2"
+    timeout: 15000

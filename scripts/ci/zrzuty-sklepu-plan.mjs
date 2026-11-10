@@ -1,0 +1,98 @@
+// Plan przebiegu `zrzuty-sklepu.yml` (KO-025, 2026-11-10; sesja J): lokalizacje App Store Connect z `docs/wydanie/metadane/*.json`
+// (lista z docs/wydanie/zrzuty/README.md: „Pozostałe … lokalizacje z docs/wydanie/metadane/”), dla każdej język i region symulatora,
+// podział na części (jedno zadanie macOS = rozmiar × część). Filtr `tylko` (np. `pl` albo `pl,en-US`); pusty = wszystkie.
+// Wyjście: JSON z `matrix` (include) dla strategii zadania `zrzuty`. W logu tylko kody lokalizacji (repo publiczne).
+//   node scripts/ci/zrzuty-sklepu-plan.mjs [--tylko pl,en-US] [--rozmiary 6.9,6.3] [--na-zadanie 4]
+import { readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+
+/**
+ * Klasy iPhone (README zrzutów: App Store Connect Help „Screenshot specifications”, odczyt 2026-10-20) → symulator na obrazie
+ * macos-26 (actions/runner-images, images/macos/macos-26-arm64-Readme.md, „Installed Simulators”, odczyt 2026-11-10:
+ * iOS 26.2/26.4/26.5 mają „iPhone 17 Pro Max” i „iPhone 17 Pro”). Wymiar pliku sprawdza zadanie `zbierz` (twardy błąd).
+ */
+export const ROZMIARY = {
+  '6.9': { katalog: 'iphone-6.9', symulator: 'iPhone 17 Pro Max', px: '1320x2868' },
+  '6.3': { katalog: 'iphone-6.3', symulator: 'iPhone 17 Pro', px: '1206x2622' },
+};
+
+/** Kod lokalizacji ASC (nazwa pliku metadanych) → AppleLanguages i AppleLocale symulatora (aplikacja bierze język systemu, src/lib/i18n.ts). */
+export const JEZYK_SYMULATORA = {
+  cs: ['cs', 'cs_CZ'], da: ['da', 'da_DK'], 'de-DE': ['de-DE', 'de_DE'], el: ['el', 'el_GR'], 'en-AU': ['en-AU', 'en_AU'],
+  'en-CA': ['en-CA', 'en_CA'], 'en-GB': ['en-GB', 'en_GB'], 'en-US': ['en-US', 'en_US'], 'es-ES': ['es-ES', 'es_ES'],
+  'es-MX': ['es-MX', 'es_MX'], fi: ['fi', 'fi_FI'], 'fr-CA': ['fr-CA', 'fr_CA'], 'fr-FR': ['fr-FR', 'fr_FR'], hr: ['hr', 'hr_HR'],
+  hu: ['hu', 'hu_HU'], id: ['id', 'id_ID'], it: ['it', 'it_IT'], ja: ['ja', 'ja_JP'], ko: ['ko', 'ko_KR'], ms: ['ms', 'ms_MY'],
+  'nl-NL': ['nl-NL', 'nl_NL'], no: ['nb', 'nb_NO'], pl: ['pl', 'pl_PL'], 'pt-BR': ['pt-BR', 'pt_BR'], 'pt-PT': ['pt-PT', 'pt_PT'],
+  ro: ['ro', 'ro_RO'], ru: ['ru', 'ru_RU'], sk: ['sk', 'sk_SK'], sl: ['sl', 'sl_SI'], sv: ['sv', 'sv_SE'], tr: ['tr', 'tr_TR'],
+  uk: ['uk', 'uk_UA'], vi: ['vi', 'vi_VN'], 'zh-Hant': ['zh-Hant', 'zh_TW'],
+};
+
+/** Lokalizacja ekranu zakupu dla App Review (`review/zakup.png`, jeden plik): en-US, gdy jest w przebiegu, inaczej pierwsza z listy. */
+export const JEZYK_ZAKUPU = 'en-US';
+
+/** Lokalizacje sklepu z katalogu metadanych (posortowane). */
+export function lokalizacjeSklepu(katalog = join(ROOT, 'docs', 'wydanie', 'metadane')) {
+  return readdirSync(katalog).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)).sort();
+}
+
+/** Lista kodów rozdzielona przecinkami → tablica albo { blad }. Pusta = wszystkie. */
+export function parsujListe(tekst, dozwolone, nazwa) {
+  const kody = String(tekst ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+  if (kody.some((x) => !/^[A-Za-z0-9.-]{1,10}$/.test(x))) return { blad: `${nazwa}: dozwolone litery, cyfry, kropka i myślnik, rozdzielone przecinkami` };
+  const zle = kody.filter((x) => !dozwolone.includes(x));
+  if (zle.length) return { blad: `${nazwa}: nieznane ${zle.join(', ')} (dozwolone: ${dozwolone.join(', ')})` };
+  return kody.length ? [...new Set(kody)] : [...dozwolone];
+}
+
+/**
+ * Plan przebiegu: części po `naZadanie` lokalizacji dla każdego rozmiaru. Ekran zakupu robi jedna część (rozmiar 6.9,
+ * część z JEZYK_ZAKUPU albo z pierwszą lokalizacją). Zwraca { matrix, jezyki, rozmiary } albo { blad }.
+ */
+export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = lokalizacjeSklepu() } = {}) {
+  const bezMapy = wszystkie.filter((k) => !JEZYK_SYMULATORA[k]);
+  if (bezMapy.length) return { blad: `lokalizacje bez języka symulatora (JEZYK_SYMULATORA): ${bezMapy.join(', ')}` };
+  const jezyki = parsujListe(tylko, wszystkie, 'tylko');
+  if ('blad' in jezyki) return jezyki;
+  const rozm = parsujListe(rozmiary, Object.keys(ROZMIARY), 'rozmiary');
+  if ('blad' in rozm) return rozm;
+  const n = Number(naZadanie);
+  if (!Number.isInteger(n) || n < 1 || n > 34) return { blad: 'na-zadanie: liczba całkowita 1–34' };
+  const zakup = jezyki.includes(JEZYK_ZAKUPU) ? JEZYK_ZAKUPU : jezyki[0];
+  const include = [];
+  for (const r of rozm) {
+    for (let i = 0; i < jezyki.length; i += n) {
+      const czesc = jezyki.slice(i, i + n);
+      include.push({
+        rozmiar: r,
+        katalog: ROZMIARY[r].katalog,
+        symulator: ROZMIARY[r].symulator,
+        czesc: `${ROZMIARY[r].katalog}-${include.filter((x) => x.rozmiar === r).length + 1}`,
+        jezyki: czesc.map((k) => `${k}:${JEZYK_SYMULATORA[k][0]}:${JEZYK_SYMULATORA[k][1]}`).join(' '),
+        zakup: r === '6.9' && czesc.includes(zakup) ? zakup : '',
+      });
+    }
+  }
+  // Zakup bez rozmiaru 6.9 w przebiegu: pierwsza część dowolnego rozmiaru, jeśli ma tę lokalizację
+  if (!include.some((x) => x.zakup)) {
+    const c = include.find((x) => x.jezyki.split(' ').some((j) => j.startsWith(`${zakup}:`)));
+    if (c) c.zakup = zakup;
+  }
+  return { matrix: { include }, jezyki, rozmiary: rozm };
+}
+
+function arg(nazwa) {
+  const i = process.argv.indexOf(`--${nazwa}`);
+  return i >= 0 ? process.argv[i + 1] ?? '' : undefined;
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  const wynik = planuj({ tylko: arg('tylko') ?? '', rozmiary: arg('rozmiary') ?? '', naZadanie: arg('na-zadanie') ?? 4 });
+  if ('blad' in wynik) {
+    console.error(`::error::${wynik.blad}`);
+    process.exit(1);
+  }
+  process.stdout.write(`${JSON.stringify(wynik)}\n`);
+}

@@ -1,0 +1,12 @@
+# Ramka 05 „Zakwasy”: zakwas z 00-przygotuj.yaml, cykl dokarmiania.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-zakwasy"
+- extendedWaitUntil:
+    visible:
+      id: "zakwas-karta"
+    timeout: 15000
+- assertVisible:
+    id: "zakwas-dokarm-btn"

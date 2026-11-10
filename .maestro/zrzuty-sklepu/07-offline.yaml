@@ -1,0 +1,10 @@
+# Ramka 07 „Bez konta i bez internetu”: ekran Dziś z „Co dziś robisz?”.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 15000
+- assertVisible:
+    id: "start-zakladam-zakwas"

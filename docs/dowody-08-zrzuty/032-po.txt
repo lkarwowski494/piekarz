@@ -1,0 +1,7 @@
+    ✓ kroki: eksport → kontrola logu → artefakt → sprzątanie poświadczeń (2 ms)
+    ✓ log eksportu ma maskowane identyfikatory klucza, wydawcy i zespołu (1 ms)
+    ✓ kontrola: wzorce klucza prywatnego, JWT, Bearer i nazwy pliku klucza; przy trafieniu log usunięty, bez artefaktu (1 ms)
+    ✓ podsumowanie joba ma linie o symbolach (dSYM)
+    ✓ artefakt tylko po kontroli, tylko log eksportu, retencja ≤ 3 dni
+Tests:       5 passed, 5 total
+kod=0

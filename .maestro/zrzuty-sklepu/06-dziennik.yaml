@@ -1,0 +1,10 @@
+# Ramka 06 „Dziennik”: zakończony wypiek z oceną z 00-przygotuj.yaml.
+appId: com.apps4brew.baker
+---
+- runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-dziennik"
+- extendedWaitUntil:
+    visible:
+      id: "bake-log-card-.*"
+    timeout: 15000
