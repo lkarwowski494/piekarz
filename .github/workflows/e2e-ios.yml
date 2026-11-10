@@ -52,7 +52,9 @@ concurrency:
 env:
   MAESTRO_VERSION: "2.11.0"
   MAESTRO_CLI_NO_ANALYTICS: 1
-  MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
+  # Limit zimnego startu sterownika XCUITest, jedyne miejsce (M2-p4-N10, KO-011/KO-012, D-330): zmierzone starty w pl_PL
+  # 5:00 (#100), 6:47 (#101), ok. 8:30 (#103, po limicie 480 s); 720 s = zapas ok. 40%; pl_PL ma też jedno ponowienie.
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: 720000
   # Flaga dostępu E2E (pełny Pro) tylko w env kroku pierwszego buildu, nie tutaj: drugi build (Basic) nie może
   # jej dziedziczyć [M3 E2E-basic, decyzja M1 2026-10-23 wariant a].
 
@@ -134,7 +136,9 @@ jobs:
           xcrun simctl shutdown "$UDID"
           xcrun simctl boot "$UDID"
           xcrun simctl bootstatus "$UDID" -b
-          mkdir -p zrzuty-e2e && maestro --device "$UDID" test .maestro/e2e -e JEZYK=pl --format junit --output maestro-e2e-pl.xml
+          # Pierwszy (zimny) start sterownika po shutdown/boot: jedno ponowienie tylko przy „iOS driver not ready in time”
+          # bez wyników przepływów; inna porażka zostaje czerwona (M2-p4-N10, D-330)
+          mkdir -p zrzuty-e2e && bash scripts/ci/ponow-start-sterownika.sh maestro --device "$UDID" test .maestro/e2e -e JEZYK=pl --format junit --output maestro-e2e-pl.xml
 
       # Niezależne przebiegi: po porażce pl_PL wynik en_US, kontroli negatywnej i Basic nadal widać [M1-audytor-generalny-075]
       - name: Run E2E flows (.maestro/e2e, en_US)
