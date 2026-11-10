@@ -41,6 +41,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| E2 (005 cz. 2) | `session_01T66VBxLxg7FAc1GbmeCyxK` | 04-studio-projektowe fix (`polecenia/E2.md` @ `afb7663a`) | `naprawy/M2-koordynator-napraw-2026-11-10-005` @ `69af687c` | 0 (06:57) | 0 | start 06:57, PENDING; D-337…D-339 |
 | E (005) | `session_01T66VBvbEqmiYG1cHfQeYHK` | 04-studio-projektowe → 08, fix 005 (`polecenia/E.md` @ `8ce9074d`) | `naprawy/M2-koordynator-napraw-2026-11-10-005` @ `1c723632` | 0 (06:22) | 0 | start 06:22, PENDING; pula D-335…D-339 |
 | B2 (reaudyt M1 pętla 2) | `session_01T66VBwk7vHAiJVaBdKZ3MU` | M1-audytor-generalny, reaudit (`polecenia/B2.md` @ `3e8f2a41`) | start `redesign` @ `1c723632`; wynik na `audit-m1/piekarz-2026-11-08` (K @ `78d2e8c9`) | 0 (05:37) | 0 | start 05:37 UTC, PENDING; prompt roli składa sama (prompts), zapas: send_message od koordynatora |
 | D (N10) | `session_01T66VBwi691k7qnLqQCnALB` | 07-jakosc, fix M2-p4-N10 (`polecenia/D.md` @ `ce60dcfb`) | `naprawy/M2-koordynator-napraw-2026-11-10-n10` @ `1c723632` | 0 (05:38) | 0 | start 05:38 UTC, PENDING; pula D-330…D-334 |
@@ -144,3 +145,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 06:40 | M9 | Właściciel: „zgoda na prompts. bez weta” → `add_repo` prompts OK, klon `/home/user/prompts` @ `f701ce9`, rola M9 złożona (49 994 zn.) i przeczytana; KO-016, KO-017 przyjęte; WG-03 +1. Od teraz sesje podrzędne dostają prompt roli w pierwszej wiadomości (E1 pkt 3) | E PRZEKAZANIE → kandydat |
 | 10.11 06:55 | M9 | E STOP (2 nieudane próby): 005 @ `dd71b994` (4 commity od `1c723632`, autor jak dotąd `Claude <noreply@anthropic.com>`), test 113/114 wg E; E 32% (320k), 10,88 USD → KO-018 właściciel „A: ikony 44 pt”; E kończy (PRZEKAZANIE), polecenie `polecenia/E2.md`, prompt roli 04 fix złożony | start E2 po PRZEKAZANIU E |
 | 10.11 06:58 | M9 | E PRZEKAZANIE: 005 @ `69af687c` (fetch, przodek `1c723632`, bez `.github`/`scripts/ci`); test 005 113/114 kod 1 wg E; verify nieuruchomione (czerwone przez fr); recenzja #1 3×P1 obsłużone wg E, druga nieodbyta. E do archiwizacji (10,88 USD). Start E2 z wklejonym promptem roli przez subagenta przerwany przez klasyfikator bezpieczeństwa (nie powtarzane) → E2 bierze prompt roli 04 z K (jak D, B2, E); WG-03 | start E2 |
+| 10.11 06:57 | M9 | `create_session` E2 `session_01T66VBxLxg7FAc1GbmeCyxK` (PENDING); koszt E w `koszty.md` | archiwizacja E; kontrola |

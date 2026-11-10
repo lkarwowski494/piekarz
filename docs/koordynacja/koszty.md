@@ -10,3 +10,4 @@
 Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na start 2).
 | B (reaudyt M1 p1) | M1 reaudit | 60 (pułap) | 62,81 | 26,5 | 21:48 → 21:49 → — → — → 22:30 | ~10 min: dostęp do prompts (zgoda właściciela w czacie B) | wariant B 2,33 mln tok. subagentów (+6% nad planem); pułap przekroczony o 4,7%, poniżej STOP |
 | A (M2 p3 cz. 2 + p4 cz. 1) | M2 fix | — | 23,88 | 31,4 | 19:27 → … → p3 E2E 21:32 → przyjęte 21:49; p4 22:30 → 087 bb162ddf → 088/089 d04c94ca 22:55 | ~10 min: dokończenie subagenta roli 06 przy przekazaniu | archiwizacja odrzucona (klasyfikator; sesja utworzona przez poprzednika) |
+| E (005 cz. 1) | 04 fix | — | 10,88 | 32,0 | 06:21 → 06:22 → bfa029f2 ~06:30 → — (verify czerwone: fr) → odebrane 06:58 (69af687c) | ~5 min: odpowiedzi koordynatora (KO-017 ×2), ~3 min: decyzja właściciela KO-018 | dwie nieudane próby układu przy 320 pt; następczyni E2 |
