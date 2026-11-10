@@ -1907,3 +1907,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (B) skala 0,5 (mniejszy numer w długich językach); (C) cofnięcie jednego wiersza (35 czerwonych w teście numeru, ryzyko łamania na znaki jak przed D-336).
 - **Zależy od:** D-336, D-337, KO-017, KO-020.
 - **Status:** KO-020 (decyzja właściciela, ścieżka warunkowa) — do weta.
+
+### [D-339] 2026-11-10 — Czerwony build TestFlight #24: atrapa w teście 033 zakładała katalog `/tmp/`; poprawka w teście i strażnik (M2, sesja F, rola 07 fix)
+- **Źródło:** run 42793170293, job 129767054367 (`macos-26`), krok `npm run verify`: 1/6960 czerwony, `sprawdzenie-kopii-033.sqlite.test.ts:84` (Expected „ok”, Received „pusta”). Odtworzone w Linuksie przez `TMPDIR=/var/tmp/...` (`docs/dowody-07-tf24/diagnoza.md`).
+- **Decyzja (opcja A):** atrapa `getInfoAsync` porównuje ścieżkę z `os.tmpdir()` zamiast `'/tmp/'`, a strażnik `tests/testy-bez-sciezki-tmp-tf24.test.ts` zabrania literału ścieżki `/tmp` w testach i pomocnikach. Kod aplikacji, workflowy i progi bez zmian.
+- **Odrzucone:** (B) `TMPDIR=/tmp` w kroku verify w testflight.yml (ukrywa różnicę platform, zmienia workflow wydania); (C) dodatkowe zadanie CI na Linuksie z `TMPDIR` poza `/tmp` (zmienia zestaw kontroli, koszt minut — zgłoszone koordynatorowi jako opcja, bez wdrożenia).
+- **Kompromis:** strażnik jest statyczny (literał), więc nie złapie założenia o `/tmp` zapisanego inaczej (np. `path.join('/', 'tmp')`); pełny dowód na macOS daje dopiero następny build TestFlight.
+- **Zależy od:** KO-015 (kandydat 1.0).
+- **Status:** wykonanie polecenia F koordynatora (pkt 4.2) — do weta.
