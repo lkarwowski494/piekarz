@@ -208,3 +208,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:2x | M9 | KO-030: `prompts` main FF → `9553f6b` (skaner sekretów) | J, tłumaczenie zwrotne |
 | 10.11 21:25 | M9 | Tłumaczenie zwrotne → `redesign` @ `b5007a00` (FF, 1 plik docs) | J; pytanie G-1 |
 | 10.11 21:18 | M9 | KO-031 → sesja L (create_session 21:17, PENDING) | kontrola J/L 21:30 |
+| 10.11 21:26 | M9 | L PYTANIE (limit 4000 w 11 lok.) → KO-032 opcja A, przekazane L (send_message) | kontrola 21:30 |
