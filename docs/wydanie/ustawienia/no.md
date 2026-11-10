@@ -50,7 +50,7 @@ Bakeren regner ut mengdene og varsler deg når hvert steg er ferdig. Plan bakove
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
 
 OPPSKRIFTER OG MENGDER
-Velg én av 26 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen; 11 surdeigsoppskrifter har plan og veiledning steg for steg. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen (fordeig: Pro). Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
+Velg én av 26 grunnoppskrifter (surdeig, rug, gjær, pizza og søtt) eller din egen; 10 surdeigsoppskrifter har plan og veiledning steg for steg. Still inn antall brød eller melmengden, så gir Bakeren deg gram mel, vann, surdeigsstarter, salt og gjær. Bakerprosenten tar med mel og vann fra surdeigsstarteren og fra fordeigen (fordeig: Pro). Bakeren gir deg også vanntemperaturen for den deigtemperaturen du ønsker.
 
 GJÆRVERSJON OG BRØDBAKEMASKIN
 Fire surdeigsoppskrifter har også en gjærversjon, tre av dem med plan. Gjæroppskrifter og -versjoner kan også bakes i brødbakemaskin: Bakeren tilpasser mengdene til maskinen og gir rekkefølgen for ingrediensene og programmet, pluss starttidspunktet for ferdig-tidspunktet du velger (Pro).

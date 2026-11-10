@@ -30,7 +30,7 @@
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
 
 RECEPTURY I ILOŚCI
-Wybierasz jedną z 26 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną; 11 receptur na zakwasie ma plan i prowadzenie krok po kroku. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
+Wybierasz jedną z 26 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną; 10 receptur na zakwasie ma plan i prowadzenie krok po kroku. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
 
 WERSJA NA DROŻDŻACH I MASZYNA DO CHLEBA
 Cztery receptury na zakwasie mają też wersję na drożdżach, trzy z nich z planem. Receptury i wersje drożdżowe upieczesz też w maszynie do chleba: Piekarz dopasuje ilości do maszyny i poda kolejność składników oraz program, a dla wybranej godziny gotowości także godzinę startu (Pro).
@@ -82,7 +82,7 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
 RECIPES AND AMOUNTS
-Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 11 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
+Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 10 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
 
 YEAST VERSION AND BREAD MACHINE
 Four sourdough recipes also have a yeast version, three of them with a plan. Yeast recipes and versions also work in a bread machine: Baker fits the amounts to your machine and gives the order of ingredients and the program, plus the start time for the ready time you choose (Pro).
@@ -291,7 +291,7 @@ Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
 RECIPES AND AMOUNTS
-Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 11 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
+Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 10 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment (preferment: Pro). Baker also gives the water temperature for the dough temperature you want.
 
 YEAST VERSION AND BREAD MACHINE
 Four sourdough recipes also have a yeast version, three of them with a plan. Yeast recipes and versions also work in a bread machine: Baker fits the amounts to your machine and gives the order of ingredients and the program, plus the start time for the ready time you choose (Pro).

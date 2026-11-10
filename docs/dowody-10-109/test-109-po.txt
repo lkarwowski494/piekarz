@@ -1,0 +1,4 @@
+$ npx jest tests/opis-sklepu-receptury-plan-109.test.ts tests/opis-sklepu-receptury-080.test.ts  (po poprawce 109)
+Test Suites: 2 passed, 2 total
+Tests:       110 passed, 110 total
+kod wyjścia: 0

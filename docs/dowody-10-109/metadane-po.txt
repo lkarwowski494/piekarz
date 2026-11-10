@@ -1,0 +1,3 @@
+$ node sprawdz-wydanie.mjs metadane store-po.json  (store.config.json zbudowany w scratchpadzie z docs/wydanie/metadane/*.json po poprawce 109: nazwa→title, podtytul→subtitle, slowaKluczowe→keywords, tekstPromocyjny→promoText, opis→description)
+OK
+kod wyjścia: 0

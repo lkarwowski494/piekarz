@@ -51,7 +51,7 @@ Tukang Roti mengira kuantiti dan memberitahu bila setiap langkah tamat. Pelan so
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
 
 RESIPI DAN KUANTITI
-Pilih satu daripada 26 resipi asas (sourdough, rai, yis, piza dan manis) atau resipi anda sendiri; 11 resipi sourdough mempunyai pelan dan bimbingan langkah demi langkah. Tetapkan bilangan buku roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, pemula, garam dan yis. Peratusan pembuat roti mengambil kira tepung dan air daripada pemula dan biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu doh yang anda mahukan.
+Pilih satu daripada 26 resipi asas (sourdough, rai, yis, piza dan manis) atau resipi anda sendiri; 10 resipi sourdough mempunyai pelan dan bimbingan langkah demi langkah. Tetapkan bilangan buku roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, pemula, garam dan yis. Peratusan pembuat roti mengambil kira tepung dan air daripada pemula dan biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu doh yang anda mahukan.
 
 VERSI YIS DAN MESIN ROTI
 Empat resipi sourdough juga mempunyai versi yis, tiga daripadanya dengan pelan. Resipi dan versi yis juga boleh dibuat dalam mesin roti: Tukang Roti menyesuaikan kuantiti dengan mesin anda, memberikan urutan bahan dan programnya, serta masa mula untuk masa siap yang anda pilih (Pro).

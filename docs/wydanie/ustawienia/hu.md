@@ -50,7 +50,7 @@ A Pék kiszámolja a mennyiségeket, és szól minden lépés végén. Visszafel
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
 
 RECEPTEK ÉS MENNYISÉGEK
-Válassz a 26 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat; 11 kovászos receptnek van terve és lépésről lépésre vezetése. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi (előtészta: Pro). A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
+Válassz a 26 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat; 10 kovászos receptnek van terve és lépésről lépésre vezetése. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi (előtészta: Pro). A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.
 
 ÉLESZTŐS VÁLTOZAT ÉS KENYÉRSÜTŐ GÉP
 Négy kovászos receptnek élesztős változata is van, közülük háromhoz terv is tartozik. Az élesztős receptek és változatok kenyérsütő gépben is elkészülnek: a Pék a géphez igazítja a mennyiségeket, megadja a hozzávalók sorrendjét és a programot, valamint a választott elkészülési időponthoz az indítás idejét (Pro).

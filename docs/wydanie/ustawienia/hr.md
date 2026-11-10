@@ -50,7 +50,7 @@ Pekar će izračunati količine i javiti ti kraj svakog koraka. Plan unatrag od 
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
 
 RECEPTURE I KOLIČINE
-Biraš jednu od 26 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu; 11 receptura s kvasom ima plan i vođenje korak po korak. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka (nastavak: Pro). Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
+Biraš jednu od 26 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu; 10 receptura s kvasom ima plan i vođenje korak po korak. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka (nastavak: Pro). Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
 
 VERZIJA S KVASCEM I PEKAČ KRUHA
 Četiri recepture s kvasom imaju i verziju s kvascem, tri od njih s planom. Recepture i verzije s kvascem možeš ispeći i u pekaču kruha: Pekar prilagođava količine pekaču i daje redoslijed sastojaka i program te vrijeme pokretanja za odabrano vrijeme kad kruh treba biti gotov (Pro).

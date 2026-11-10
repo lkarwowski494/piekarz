@@ -50,7 +50,7 @@ Tukang Roti menghitung takaran dan memberi tahu saat tiap langkah selesai. Jadwa
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
 
 RESEP DAN TAKARAN
-Pilih salah satu dari 26 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri; 11 resep sourdough memiliki rencana dan panduan langkah demi langkah. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
+Pilih salah satu dari 26 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri; 10 resep sourdough memiliki rencana dan panduan langkah demi langkah. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang (biang: Pro). Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
 
 VERSI RAGI DAN MESIN ROTI
 Empat resep sourdough juga punya versi ragi, tiga di antaranya dengan rencana. Resep dan versi ragi juga bisa dibuat di mesin roti: Tukang Roti menyesuaikan takaran dengan mesin Anda, memberikan urutan bahan dan programnya, serta jam mulai untuk jam siap yang Anda pilih (Pro).
