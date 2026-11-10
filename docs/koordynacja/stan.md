@@ -60,6 +60,7 @@ Zadania do wznowienia (kolejność):
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | K (Z-8) | `session_01T66VBx6LM9T3GMFoF9Pbta` | 09 fix (`polecenia/K.md` @ `a8b8fd5e`) | `naprawy/M2-koordynator-napraw-2026-11-10-z8` od `2047ab00` | 0 (20:43) | 0 | zarchiwizowana 21:08; D-356 |
+| M (ramki, zakup, AAL) | `session_01T66VBzbFx2Bq4rmP86bH9H` | 08 fix (`polecenia/M.md` @ `9afdd2b1`) | `naprawy/M2-koordynator-napraw-2026-11-10-ramki` od `11360e78` | 0 (21:31) | 0 | start 21:31, PENDING; D-363…D-367 |
 | L (odnawianie) | `session_01T66VBwKU6Gi7iBt4SMWpd6` | 09 fix (`polecenia/L.md` @ `f24b8c54`) | `naprawy/M2-koordynator-napraw-2026-11-10-odnawianie` od `b5007a00` | 0 (21:17) | 0 | start 21:17, PENDING; D-359…D-361 |
 | J (zrzuty natywne) | `session_01T66VBwZAMSc6TkE1YqimAY` | 08 fix (`polecenia/J.md` @ `490d0875`) | `naprawy/M2-koordynator-napraw-2026-11-10-zrzuty` od `c2c5e206` | 0 (20:41) | 0 | zarchiwizowana 21:45; D-352…D-355, D-362 |
 | H (109) | `session_01T66VBxyhmM8hPWZQFw4euT` | 10-wydanie fix (`polecenia/H.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-109` od `c2c5e206` | 0 (20:33) | 0 | zarchiwizowana 20:47 (4,46 USD); D-346 |
@@ -215,3 +216,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:35 | M9 | KO-033: subagent analizuje zrzuty i zrzut zakupu w Treningu (repo publiczne); potem: zmiana Piekarza + przekazanie do koordynatora Oczka; App Asset Library — sesja po analizie | raport subagenta |
 | 10.11 21:41 | M9 | KO-034 → L (delivered). Raport Treningu zapisany (`docs/koordynacja/zrzuty-trening-2026-11-10.md`); dalej: sesja M (ramki+podpisy, App Asset Library, zakup z E2E) po scaleniu J; wiadomość do koordynatora Oczka | J, L |
 | 10.11 21:45 | M9 | J → `redesign` @ `11360e78` (FF); J zarchiwizowana; wiadomość do koordynatora Oczka; polecenie M | start M |
+| 10.11 21:46 | M9 | Sesja M (create_session 21:31, PENDING) | L, M |
