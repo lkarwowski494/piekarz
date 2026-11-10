@@ -1,45 +1,40 @@
-1c723632
-+ zmiana robocza: src/components/stolnica/StrefaKroku.tsx (ostrzeżenie nad kartą)
-PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx
-FAIL src/__tests__/ostrzezenie-nad-karta-005.test.tsx (111.138 s)
-  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, id: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+Po zmianie: d2e791ae (D-335 + D-336); npx jest src/__tests__/ostrzezenie-nad-karta-005.test.tsx src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx --ci --logHeapUsage
+PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx (117 MB heap size)
+FAIL src/__tests__/ostrzezenie-nad-karta-005.test.tsx (123.252 s, 1635 MB heap size)
+  ● Console
+
+    console.log
+      005: 34 przypadków
+
+      at Object.log (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:175:13)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
 
     expect(received).toEqual(expected) // deep equality
 
-    - Expected  -  1
-    + Received  + 14
+    - Expected  - 1
+    + Received  + 3
 
     - Array []
     + Array [
-    +   "bez receptury (garnek) #1 starter_feed: 38 pt pod paskiem kciuka",
-    +   "bez receptury (garnek) #9 preheat_oven: 56 pt pod paskiem kciuka",
-    +   "bez receptury (garnek) #10 bake lid_on: 60 pt pod paskiem kciuka",
-    +   "bez receptury (żyto) #6 rye_bake: 17 pt pod paskiem kciuka",
-    +   "country_loaf_72 #10 bake lid_on: 60 pt pod paskiem kciuka",
-    +   "tartine_high_hydration_80 (drożdże) #6 yeast_bake: 36 pt pod paskiem kciuka",
-    +   "san_francisco_sourdough #10 bake lid_on: 60 pt pod paskiem kciuka",
-    +   "pain_de_campagne #10 bake lid_on: 60 pt pod paskiem kciuka",
-    +   "rye_100_pan (drożdże) #5 yeast_bake: 36 pt pod paskiem kciuka",
-    +   "graham_bread_honey (drożdże) #7 yeast_bake: 36 pt pod paskiem kciuka",
-    +   "durum_semolina_sourdough #9 preheat_oven: 17 pt pod paskiem kciuka",
-    +   "durum_semolina_sourdough #10 bake_stal: 36 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 15 pt pod paskiem kciuka",
     + ]
 
-      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
-      182 |         }
-    > 183 |         expect(ponizej).toEqual([]);
+      195 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      196 |         }
+    > 197 |         expect(ponizej).toEqual([]);
           |                         ^
-      184 |       });
-      185 |     }
-      186 |   }
+      198 |       });
+      199 |     }
+      200 |   }
 
-      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:197:25)
       at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
       at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
 
 Test Suites: 1 failed, 1 passed, 2 total
-Tests:       1 failed, 78 passed, 79 total
+Tests:       1 failed, 113 passed, 114 total
 Snapshots:   0 total
-Time:        111.593 s
+Time:        123.782 s
 Ran all test suites matching /src\/__tests__\/ostrzezenie-nad-karta-005.test.tsx|src\/__tests__\/karta-kroku-pierwszy-ekran-005.test.tsx/i.
-KOD WYJŚCIA JEST: 1
+KOD 1
