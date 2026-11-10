@@ -108,7 +108,7 @@ describe('scripts/asc/zrzuty.mjs: App Asset Library (D-366)', () => {
     const rezerwacje = r.zadania.filter((z: string[]) => z[0] === 'POST' && z[1] === '/v1/appAssetLibraryImages').map((z: string[]) => z[2]);
     expect(rezerwacje).toEqual([...EKRANY, ...EKRANY].map((e) => `${e}.png`));
     expect(r.zadania.filter((z: string[]) => z[0] === 'PUT')).toHaveLength(14);
-    expect(r.zadania.filter((z: string[]) => z[0] === 'PATCH' && z[2] === true)).toHaveLength(14);
+    expect(r.zadania.filter((z: unknown[]) => z[0] === 'PATCH' && z[2] === true)).toHaveLength(14);
     expect(r.zadania.filter((z: string[]) => z[1] === '/v1/appAssetLibraryPlacements')).toHaveLength(14);
     expect(r.zadania.filter((z: string[]) => z[1] === '/v1/appAssetLibraryPlacementOrderingRequests').map((z: string[]) => z[2])).toEqual([7, 7]);
     expect(r.log).not.toMatch(/magazyn\.example|tajne-/);
