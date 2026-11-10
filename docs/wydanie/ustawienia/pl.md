@@ -44,7 +44,7 @@ bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,r
 Piekarz policzy ilości i da znać o końcu każdego kroku. Plan wstecz od godziny, o której chleb ma być gotowy (Pro). Bez konta, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3614 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3612 / 4000 znaków · wersja 1.0
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -59,7 +59,7 @@ PLAN OD GODZINY „GOTOWE” (Pro)
 Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.
 
 PROWADZENIE KROK PO KROKU
-Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.
+Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania.
 
 ZAKWASY
 Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas. Opieka nad zakwasem (Pro): kilka zakwasów, ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5, oznaczenie gotowości, gdy zakwas podwoi objętość, i przypomnienie po 12 godzinach na blacie bez dokarmienia.
@@ -74,10 +74,10 @@ TWOJE DANE
 Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.
 
 WARTO WIEDZIEĆ
-Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.
+Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii.
 
 DOSTĘP I ZAKUP
-Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store.
+Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje. Na nowym iPhonie stuknij w aplikacji „Przywróć zakupy”.
 Warunki użytkowania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim.

@@ -44,7 +44,7 @@ hidratação,fermentação,levain,receitas,caseiro,artesanal,pizza,centeio,farin
 O Padeiro calcula as quantidades e avisa no fim de cada passo. Plano inverso a partir da hora a que quer o pão pronto (Pro). Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3915 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3898 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro acompanha-o na fornada de pão de fermento natural, da receita ao pão: calcula as quantidades, organiza o plano e controla o tempo enquanto o telemóvel está em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreio. As suas receitas, fermentos naturais e diário ficam apenas no seu telemóvel.
@@ -59,7 +59,7 @@ PLANO A PARTIR DA HORA «PRONTO» (Pro)
 Escolha quando o pão deve estar pronto, e o Padeiro calcula para trás a hora de início de cada passo. O tempo de fermentação depende da temperatura da cozinha. Quando um passo que exige as suas mãos calha de noite (por predefinição, entre as 23:00 e as 07:00), o Padeiro propõe um tempo mais longo no frigorífico. Quando o tempo não chega, indica a hora mais cedo possível.
 
 ORIENTAÇÃO PASSO A PASSO
-O Padeiro mostra o passo atual: o que fazer, quanto tempo demora e o que vem a seguir. Se permitir as notificações, avisa do fim do passo mesmo com o telemóvel bloqueado. Num passo que exige as suas mãos, o ecrã de orientação não se apaga. Os passos com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais de metade da farinha é farinha de centeio) tem passos próprios, sem dobras. Pode anular um passo confirmado por engano e, ao reabrir a app, esta regressa ao passo atual.
+O Padeiro mostra o passo atual: o que fazer, quanto tempo demora e o que vem a seguir. Se permitir as notificações, avisa do fim do passo mesmo com o telemóvel bloqueado. Num passo que exige as suas mãos, o ecrã de orientação não se apaga. Os passos com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais de metade da farinha é farinha de centeio) tem passos próprios, sem dobras.
 
 FERMENTOS NATURAIS
 Pode criar um novo fermento natural dia após dia. O Padeiro segue o princípio da precaução: perante película, descoloração ou cheiro a podre, aconselha deitar fora o fermento natural. Cuidado do fermento natural (Pro): vários fermentos naturais, quantidades para a alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5, indicação de pronto quando o fermento duplicar de volume e lembrete após 12 horas na bancada sem alimentação.
@@ -74,10 +74,10 @@ OS SEUS DADOS
 O Padeiro guarda no telemóvel as 10 cópias de segurança automáticas mais recentes. Pode exportar todos os dados para um ficheiro e importá-los de um ficheiro, e exportar o histórico de fornadas em CSV. Unidades: gramas e °C ou onças e °F.
 
 BOM SABER
-O Padeiro funciona no iPhone e não sincroniza dados entre dispositivos; os dados são transferidos com o ficheiro de cópia de segurança. Sem autorização para notificações, o Padeiro mostra o fim do passo apenas com o ecrã aberto.
+O Padeiro funciona no iPhone e não sincroniza dados entre dispositivos; os dados são transferidos com o ficheiro de cópia de segurança.
 
 ACESSO E COMPRA
-O Basic é gratuito para sempre, sem período experimental. O Pro acrescenta planeamento, cuidados com o fermento natural, mais fermentos naturais e mais receitas. O Pro é uma subscrição mensal ou anual, ou uma compra vitalícia única na App Store.
+O Basic é gratuito para sempre, sem período experimental. O Pro acrescenta planeamento, cuidados com o fermento natural, mais fermentos naturais e mais receitas. O Pro é uma subscrição mensal ou anual, ou uma compra vitalícia única na App Store. A subscrição é renovada automaticamente até a cancelar: em Definições, toque no seu nome e, depois, em Subscrições. Num novo iPhone, toque em «Restaurar compras» na app.
 Termos de Utilização (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.

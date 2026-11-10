@@ -1,0 +1,138 @@
+{
+  "cs": {
+    "prowadzenie": "Omylem potvrzený krok vrátíte zpět a po opětovném otevření se aplikace vrátí k aktuálnímu kroku.",
+    "wartoWiedziec": "Bez povolení oznámení ukáže Pekař konec kroku jen na otevřené obrazovce."
+  },
+  "da": {
+    "prowadzenie": "Et trin, du har bekræftet ved en fejl, kan du fortryde, og når du åbner appen igen, vender den tilbage til det aktuelle trin.",
+    "wartoWiedziec": "Uden tilladelse til notifikationer viser Bageren kun slutningen af et trin på den åbne skærm."
+  },
+  "de-DE": {
+    "prowadzenie": "Einen versehentlich bestätigten Schritt machst du rückgängig, und beim erneuten Öffnen kehrt die App zum aktuellen Schritt zurück.",
+    "wartoWiedziec": "Ohne Erlaubnis für Mitteilungen zeigt Bäcker das Ende eines Schritts nur auf dem geöffneten Bildschirm."
+  },
+  "el": {
+    "prowadzenie": "Ένα βήμα που επιβεβαιώσατε κατά λάθος μπορείτε να το αναιρέσετε και, όταν ανοίξετε ξανά την εφαρμογή, επιστρέφει στο τρέχον βήμα.",
+    "wartoWiedziec": "Χωρίς άδεια για ειδοποιήσεις, ο Αρτοποιός δείχνει το τέλος ενός βήματος μόνο όταν η οθόνη είναι ανοιχτή."
+  },
+  "en-AU": {
+    "prowadzenie": "You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.",
+    "wartoWiedziec": "Without permission for notifications, Baker shows the end of a step only on the open screen."
+  },
+  "en-CA": {
+    "prowadzenie": "You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.",
+    "wartoWiedziec": "Without permission for notifications, Baker shows the end of a step only on the open screen."
+  },
+  "en-GB": {
+    "prowadzenie": "You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.",
+    "wartoWiedziec": "Without permission for notifications, Baker shows the end of a step only on the open screen."
+  },
+  "en-US": {
+    "prowadzenie": "You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.",
+    "wartoWiedziec": "Without permission for notifications, Baker shows the end of a step only on the open screen."
+  },
+  "es-ES": {
+    "prowadzenie": "Puedes deshacer un paso confirmado por error y, al volver a abrir la app, vuelves al paso actual.",
+    "wartoWiedziec": "Sin permiso para las notificaciones, Panadero solo muestra el final de un paso con la pantalla abierta."
+  },
+  "es-MX": {
+    "prowadzenie": "Puedes deshacer un paso confirmado por error y, al volver a abrir la app, regresas al paso actual.",
+    "wartoWiedziec": "Sin permiso para notificaciones, Panadero muestra el final de un paso solo con la pantalla abierta."
+  },
+  "fi": {
+    "prowadzenie": "Vahingossa vahvistetun vaiheen voit perua, ja kun avaat sovelluksen uudelleen, se palaa nykyiseen vaiheeseen.",
+    "wartoWiedziec": "Ilman ilmoituslupaa Leipuri näyttää vaiheen päättymisen vain avoimella näytöllä."
+  },
+  "fr-CA": {
+    "prowadzenie": "Une étape validée par erreur peut s'annuler, et l'application revient à l'étape en cours à la réouverture.",
+    "wartoWiedziec": "Sans autorisation des notifications, Mitron n'affiche la fin d'une étape que sur l'écran ouvert."
+  },
+  "fr-FR": {
+    "prowadzenie": "Une étape validée par erreur peut s'annuler, et l'application revient à l'étape en cours à la réouverture.",
+    "wartoWiedziec": "Sans autorisation des notifications, Mitron n'affiche la fin d'une étape que sur l'écran ouvert."
+  },
+  "hr": {
+    "prowadzenie": "Greškom potvrđen korak možeš poništiti, a nakon ponovnog otvaranja aplikacija se vraća na trenutačni korak.",
+    "wartoWiedziec": "Bez dopuštenja za obavijesti Pekar će kraj koraka prikazati samo na otvorenom zaslonu."
+  },
+  "hu": {
+    "prowadzenie": "A tévedésből jóváhagyott lépést visszavonhatod, újranyitáskor pedig az alkalmazás az aktuális lépésre tér vissza.",
+    "wartoWiedziec": "Ha nem engedélyezed az értesítéseket, a Pék csak a nyitott képernyőn jelzi a lépés végét."
+  },
+  "id": {
+    "prowadzenie": "Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.",
+    "wartoWiedziec": "Tanpa izin notifikasi, Tukang Roti menampilkan akhir langkah hanya pada layar yang terbuka."
+  },
+  "it": {
+    "prowadzenie": "Un passaggio confermato per errore si può annullare e, riaprendo l'app, torni al passaggio in corso.",
+    "wartoWiedziec": "Senza il permesso per le notifiche, Fornaio mostra la fine di un passaggio solo a schermo aperto."
+  },
+  "ja": {
+    "prowadzenie": "誤って完了にした工程は元に戻せます。アプリを開き直すと現在の工程に戻ります。",
+    "wartoWiedziec": "通知を許可しない場合、工程の終了はアプリの画面を開いているときだけ表示されます。"
+  },
+  "ko": {
+    "prowadzenie": "실수로 완료한 단계는 되돌릴 수 있고, 앱을 다시 열면 현재 단계로 돌아가요.",
+    "wartoWiedziec": "알림을 허용하지 않으면 단계 종료는 앱 화면이 열려 있을 때만 표시돼요."
+  },
+  "ms": {
+    "prowadzenie": "Langkah yang tersilap disahkan boleh dibatalkan, dan apabila dibuka semula, aplikasi kembali ke langkah semasa.",
+    "wartoWiedziec": "Tanpa kebenaran pemberitahuan, Tukang Roti menunjukkan tamat langkah hanya pada skrin yang dibuka."
+  },
+  "nl-NL": {
+    "prowadzenie": "Een per ongeluk bevestigde stap maak je ongedaan, en als je de app opnieuw opent, start die bij de huidige stap.",
+    "wartoWiedziec": "Zonder toestemming voor meldingen toont Bakker het einde van een stap alleen op het geopende scherm."
+  },
+  "no": {
+    "prowadzenie": "Et steg du har bekreftet ved en feil, kan du angre, og når du åpner appen igjen, går den tilbake til det aktuelle steget.",
+    "wartoWiedziec": "Uten tillatelse til varsler viser Bakeren slutten av et steg bare når appen er åpen på skjermen."
+  },
+  "pl": {
+    "prowadzenie": "Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.",
+    "wartoWiedziec": "Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie."
+  },
+  "pt-BR": {
+    "prowadzenie": "Você pode desfazer uma etapa confirmada por engano e, ao reabrir o app, ele volta para a etapa atual.",
+    "wartoWiedziec": "Sem permissão para notificações, o Padeiro mostra o fim da etapa só com a tela aberta."
+  },
+  "pt-PT": {
+    "prowadzenie": "Pode anular um passo confirmado por engano e, ao reabrir a app, esta regressa ao passo atual.",
+    "wartoWiedziec": "Sem autorização para notificações, o Padeiro mostra o fim do passo apenas com o ecrã aberto."
+  },
+  "ro": {
+    "prowadzenie": "Un pas confirmat din greșeală îl poți anula, iar la redeschidere aplicația revine la pasul curent.",
+    "wartoWiedziec": "Fără permisiunea pentru notificări, Brutar arată finalul pasului doar pe ecranul deschis."
+  },
+  "ru": {
+    "prowadzenie": "Ошибочно подтверждённый шаг можно отменить, а при повторном открытии приложение вернётся к текущему шагу.",
+    "wartoWiedziec": "Без разрешения на уведомления Хлебопёк покажет окончание шага только на открытом экране."
+  },
+  "sk": {
+    "prowadzenie": "Omylom potvrdený krok môžete vrátiť a po opätovnom otvorení sa aplikácia vráti k aktuálnemu kroku.",
+    "wartoWiedziec": "Bez povolenia hlásení Pekár zobrazí koniec kroku len na otvorenej obrazovke."
+  },
+  "sl": {
+    "prowadzenie": "Pomotoma potrjen korak lahko razveljavite, po ponovnem odprtju pa se aplikacija vrne na trenutni korak.",
+    "wartoWiedziec": "Brez dovoljenja za obvestila Pek prikaže konec koraka le na odprtem zaslonu."
+  },
+  "sv": {
+    "prowadzenie": "Ett steg som du bekräftat av misstag kan du ångra, och när du öppnar appen igen återgår den till det aktuella steget.",
+    "wartoWiedziec": "Utan tillstånd för notiser visar Bagaren slutet på ett steg bara när skärmen är öppen."
+  },
+  "tr": {
+    "prowadzenie": "Yanlışlıkla onayladığınız bir adımı geri alabilirsiniz; uygulamayı yeniden açtığınızda mevcut adıma dönülür.",
+    "wartoWiedziec": "Bildirim izni olmadan Fırıncı adımın bittiğini yalnızca açık ekranda gösterir."
+  },
+  "uk": {
+    "prowadzenie": "Помилково підтверджений крок можна скасувати, а після повторного відкриття застосунок повертається до поточного кроку.",
+    "wartoWiedziec": "Без дозволу на сповіщення Пекар покаже завершення кроку лише на відкритому екрані."
+  },
+  "vi": {
+    "prowadzenie": "Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.",
+    "wartoWiedziec": "Nếu không cho phép thông báo, Thợ Bánh Mì chỉ báo kết thúc bước khi màn hình đang mở."
+  },
+  "zh-Hant": {
+    "prowadzenie": "不小心確認的步驟可以復原，重新開啟 App 時也會回到目前步驟。",
+    "wartoWiedziec": "若未允許通知，麵包師傅 只會在畫面開啟時顯示步驟結束。"
+  }
+}

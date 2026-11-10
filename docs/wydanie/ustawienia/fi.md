@@ -44,7 +44,7 @@ taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resept
 Leipuri laskee määrät ja kertoo vaiheiden päättymisestä. Aikataulu taaksepäin siitä ajasta, jolloin leivän pitää olla valmis (Pro). Ei tiliä, nettiä eikä mainoksia.
 ```
 
-### Opis (Description) · 3686 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3652 / 4000 znaków · wersja 1.0
 
 ```text
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
@@ -59,7 +59,7 @@ AIKATAULU ”VALMIS”-AJASTA (Pro)
 Valitse, milloin leivän pitää olla valmis, niin Leipuri laskee taaksepäin jokaisen vaiheen alkamisajan. Käymisaika riippuu keittiösi lämpötilasta. Jos käsityötä vaativa vaihe osuu yöhön (oletuksena klo 23:00 ja 07:00 välillä), Leipuri ehdottaa pidempää aikaa jääkaapissa. Jos aikaa on liian vähän, se kertoo aikaisimman mahdollisen ajan.
 
 OPASTUS VAIHE VAIHEELTA
-Leipuri näyttää nykyisen vaiheen: mitä tehdä, kauanko se kestää ja mitä on tulossa seuraavaksi. Kun sallit ilmoitukset, se kertoo vaiheen päättymisestä myös puhelimen ollessa lukittuna. Käsityötä vaativassa vaiheessa opastusnäyttö ei sammu. Vaiheissa, joissa on kuuma astia tai raaka taikina, on varoitus. Ruisleivällä (yli puolet jauhoista on ruisjauhoja) on omat vaiheensa ilman taittelua. Vahingossa vahvistetun vaiheen voit perua, ja kun avaat sovelluksen uudelleen, se palaa nykyiseen vaiheeseen.
+Leipuri näyttää nykyisen vaiheen: mitä tehdä, kauanko se kestää ja mitä on tulossa seuraavaksi. Kun sallit ilmoitukset, se kertoo vaiheen päättymisestä myös puhelimen ollessa lukittuna. Käsityötä vaativassa vaiheessa opastusnäyttö ei sammu. Vaiheissa, joissa on kuuma astia tai raaka taikina, on varoitus. Ruisleivällä (yli puolet jauhoista on ruisjauhoja) on omat vaiheensa ilman taittelua.
 
 HAPANJUURET
 Uuden hapanjuuren aloitat päivä päivältä. Leipuri noudattaa varovaisuusperiaatetta: jos hapanjuuressa on kalvo, värimuutos tai mätä haju, se neuvoo heittämään hapanjuuren pois. Hapanjuuren hoito (Pro): useita hapanjuuria, ruokintamäärät suhteessa 1:1:1, 1:2:2, 1:3:3 tai 1:5:5, valmiusmerkintä, kun hapanjuuri on kaksinkertaistanut tilavuutensa, ja muistutus, kun se on ollut 12 tuntia pöydällä ilman ruokintaa.
@@ -74,10 +74,10 @@ OMAT TIETOSI
 Leipuri säilyttää puhelimessa 10 viimeisintä automaattista varmuuskopiota. Voit viedä kaikki tiedot tiedostoon ja tuoda ne tiedostosta sekä viedä leivontahistorian CSV-tiedostona. Yksiköt: grammat ja °C tai unssit ja °F.
 
 HYVÄ TIETÄÄ
-Leipuri toimii iPhonessa eikä synkronoi tietoja laitteiden välillä; tiedot siirretään varmuuskopiotiedostolla. Ilman ilmoituslupaa Leipuri näyttää vaiheen päättymisen vain avoimella näytöllä.
+Leipuri toimii iPhonessa eikä synkronoi tietoja laitteiden välillä; tiedot siirretään varmuuskopiotiedostolla.
 
 KÄYTTÖOIKEUS JA OSTO
-Basic on ilmainen ikuisesti, ilman kokeilujaksoa. Pro tuo lisäksi suunnittelun, hapanjuuren hoidon sekä lisää hapanjuuria ja reseptejä. Pro on kuukausi- tai vuositilaus tai kertaosto elinikäiseen käyttöön App Storessa.
+Basic on ilmainen ikuisesti, ilman kokeilujaksoa. Pro tuo lisäksi suunnittelun, hapanjuuren hoidon sekä lisää hapanjuuria ja reseptejä. Pro on kuukausi- tai vuositilaus tai kertaosto elinikäiseen käyttöön App Storessa. Tilaus uusiutuu automaattisesti, kunnes perut sen: napauta Asetuksissa nimeäsi ja sitten Tilaukset. Uudessa iPhonessa napauta sovelluksessa ”Palauta ostot”.
 Käyttöehdot (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Kielet: 35.

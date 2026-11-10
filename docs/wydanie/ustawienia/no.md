@@ -44,7 +44,7 @@ heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaki
 Bakeren regner ut mengdene og varsler deg når hvert steg er ferdig. Plan bakover fra når brødet skal være ferdig (Pro). Uten konto, uten internett, uten reklame.
 ```
 
-### Opis (Description) · 3656 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3620 / 4000 znaków · wersja 1.0
 
 ```text
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
@@ -59,7 +59,7 @@ PLAN FRA «FERDIG»-TIDSPUNKTET (Pro)
 Velg når brødet skal være ferdig, så regner Bakeren bakover og finner starttidspunktet for hvert steg. Gjæringstiden avhenger av temperaturen på kjøkkenet. Når et steg som krever hendene dine havner om natten (som standard mellom 23:00 og 07:00), foreslår Bakeren lengre tid i kjøleskapet. Hvis det er for lite tid, oppgir Bakeren det tidligst mulige tidspunktet.
 
 STEG FOR STEG
-Bakeren viser det aktuelle steget: hva du skal gjøre, hvor lenge det tar og hva som kommer etterpå. Hvis du tillater varsler, sier Bakeren fra når steget er ferdig, også når telefonen er låst. I steg som krever hendene dine, slukkes ikke veiledningsskjermen. Steg med varmt kokekar eller rå deig har en advarsel. Rugbrød (mer enn halvparten av melet er rugmel) har egne steg uten bretting. Et steg du har bekreftet ved en feil, kan du angre, og når du åpner appen igjen, går den tilbake til det aktuelle steget.
+Bakeren viser det aktuelle steget: hva du skal gjøre, hvor lenge det tar og hva som kommer etterpå. Hvis du tillater varsler, sier Bakeren fra når steget er ferdig, også når telefonen er låst. I steg som krever hendene dine, slukkes ikke veiledningsskjermen. Steg med varmt kokekar eller rå deig har en advarsel. Rugbrød (mer enn halvparten av melet er rugmel) har egne steg uten bretting.
 
 SURDEIGSSTARTERE
 En ny surdeigsstarter kan du lage dag for dag. Bakeren følger et føre-var-prinsipp: ved belegg, misfarging eller råtten lukt råder appen deg til å kaste surdeigsstarteren. Stell av surdeigsstarter (Pro): flere surdeigsstartere, mengder til mating i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5, merking som klar når starteren har doblet volumet, og en påminnelse etter 12 timer på benken uten mating.
@@ -74,10 +74,10 @@ DINE DATA
 Bakeren lagrer de 10 siste automatiske sikkerhetskopiene på telefonen. Du kan eksportere alle data til en fil og importere dem fra en fil, og eksportere bakehistorikken som CSV. Enheter: gram og °C eller unser og °F.
 
 GODT Å VITE
-Bakeren fungerer på iPhone og synkroniserer ikke data mellom enheter; du flytter data med en sikkerhetskopifil. Uten tillatelse til varsler viser Bakeren slutten av et steg bare når appen er åpen på skjermen.
+Bakeren fungerer på iPhone og synkroniserer ikke data mellom enheter; du flytter data med en sikkerhetskopifil.
 
 TILGANG OG KJØP
-Basic er gratis for alltid, uten prøveperiode. Pro gir deg planlegging, stell av surdeigsstarteren og flere surdeigsstartere og oppskrifter. Pro er et månedlig eller årlig abonnement eller et engangskjøp for livstid i App Store.
+Basic er gratis for alltid, uten prøveperiode. Pro gir deg planlegging, stell av surdeigsstarteren og flere surdeigsstartere og oppskrifter. Pro er et månedlig eller årlig abonnement eller et engangskjøp for livstid i App Store. Abonnementet fornyes automatisk til du avslutter det: I Innstillinger trykker du på navnet ditt og deretter på Abonnementer. På en ny iPhone trykker du på «Gjenopprett kjøp» i appen.
 Bruksvilkår (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Språk: 35.

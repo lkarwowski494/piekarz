@@ -1,0 +1,1038 @@
+FAIL tests/opis-sklepu-odnawianie-ko031.test.ts
+  KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje
+    ✓ 34 lokalizacje, każda ze słownikiem aplikacji (1200 ms)
+    ✕ cs: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (4 ms)
+    ✕ da: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ de-DE: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ el: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ en-AU: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ en-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ en-GB: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ en-US: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ es-ES: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ es-MX: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (5 ms)
+    ✕ fi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ fr-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ fr-FR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ hr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ hu: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ id: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ it: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ ja: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ ko: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ ms: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ nl-NL: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ no: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ pl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ pt-BR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ pt-PT: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ ro: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ ru: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ sk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ sl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ sv: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ tr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ uk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✕ vi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✕ zh-Hant: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json
+    ✓ kontrola negatywna: akapit bez zdania, ze zdaniem innego języka albo ponad limit daje błędy (1 ms)
+  KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)
+    ✕ en-AU: Basic bez okresu próbnego, jak PL (R-1) (1 ms)
+    ✕ en-CA: Basic bez okresu próbnego, jak PL (R-1)
+    ✕ en-GB: Basic bez okresu próbnego, jak PL (R-1)
+    ✕ en-US: Basic bez okresu próbnego, jak PL (R-1) (1 ms)
+    ✕ ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)
+    ✕ ko: „App Store” określa subskrypcję i zakup dożywotni, nie tylko zakup (R-3)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › cs: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Obnovit nákupy”",
+    +   ],
+        "kod": "cs",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › da: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Gendan køb”",
+    +   ],
+        "kod": "da",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › de-DE: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Käufe wiederherstellen”",
+    +   ],
+        "kod": "de-DE",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › el: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Επαναφορά αγορών”",
+    +   ],
+        "kod": "el",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › en-AU: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restore Purchases”",
+    +   ],
+        "kod": "en-AU",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › en-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restore Purchases”",
+    +   ],
+        "kod": "en-CA",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › en-GB: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restore Purchases”",
+    +   ],
+        "kod": "en-GB",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › en-US: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restore Purchases”",
+    +   ],
+        "kod": "en-US",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › es-ES: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurar compras”",
+    +   ],
+        "kod": "es-ES",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › es-MX: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurar compras”",
+    +   ],
+        "kod": "es-MX",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › fi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Palauta ostot”",
+    +   ],
+        "kod": "fi",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › fr-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurer les achats”",
+    +   ],
+        "kod": "fr-CA",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › fr-FR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurer les achats”",
+    +   ],
+        "kod": "fr-FR",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › hr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Vrati kupnje”",
+    +   ],
+        "kod": "hr",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › hu: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Vásárlások visszaállítása”",
+    +   ],
+        "kod": "hu",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › id: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Pulihkan Pembelian”",
+    +   ],
+        "kod": "id",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › it: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Ripristina acquisti”",
+    +   ],
+        "kod": "it",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › ja: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „購入を復元”",
+    +   ],
+        "kod": "ja",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › ko: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „구입 내역 복원”",
+    +   ],
+        "kod": "ko",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › ms: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Pulihkan Pembelian”",
+    +   ],
+        "kod": "ms",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › nl-NL: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Herstel aankopen”",
+    +   ],
+        "kod": "nl-NL",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › no: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Gjenopprett kjøp”",
+    +   ],
+        "kod": "no",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › pl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Przywróć zakupy”",
+    +   ],
+        "kod": "pl",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › pt-BR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurar compras”",
+    +   ],
+        "kod": "pt-BR",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › pt-PT: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurar compras”",
+    +   ],
+        "kod": "pt-PT",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › ro: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Restaurează achizițiile”",
+    +   ],
+        "kod": "ro",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › ru: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Восстановить покупки”",
+    +   ],
+        "kod": "ru",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › sk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Obnoviť nákupy”",
+    +   ],
+        "kod": "sk",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › sl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Obnovi nakupe”",
+    +   ],
+        "kod": "sl",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › sv: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Återställ köp”",
+    +   ],
+        "kod": "sv",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › tr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Satın Alımları Geri Yükle”",
+    +   ],
+        "kod": "tr",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › uk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Відновити покупки”",
+    +   ],
+        "kod": "uk",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › vi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „Khôi phục giao dịch mua”",
+    +   ],
+        "kod": "vi",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje › zh-Hant: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+      Object {
+    -   "bledy": Array [],
+    +   "bledy": Array [
+    +     "akapit bez zdania aplikacji o automatycznym odnawianiu i anulowaniu",
+    +     "akapit bez etykiety „回復購買項目”",
+    +   ],
+        "kod": "zh-Hant",
+      }
+
+      63 |
+      64 |   it.each(KODY)('%s: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków', (kod) => {
+    > 65 |     expect({ kod, bledy: bledy(kod, opis(kod)) }).toEqual({ kod, bledy: [] });
+         |                                                   ^
+      66 |   });
+      67 |
+      68 |   it('źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json', () => {
+
+      at toEqual (tests/opis-sklepu-odnawianie-ko031.test.ts:65:51)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › en-AU: Basic bez okresu próbnego, jak PL (R-1)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Basic is free forever, with no trial period\./
+    Received string:  "Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store."
+
+      85 | describe('KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)', () => {
+      86 |   it.each(['en-AU', 'en-CA', 'en-GB', 'en-US'])('%s: Basic bez okresu próbnego, jak PL (R-1)', (kod) => {
+    > 87 |     expect(tresc(opis(kod))).toMatch(/^Basic is free forever, with no trial period\./);
+         |                              ^
+      88 |   });
+      89 |
+      90 |   it('ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)', () => {
+
+      at toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:87:30)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › en-CA: Basic bez okresu próbnego, jak PL (R-1)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Basic is free forever, with no trial period\./
+    Received string:  "Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store."
+
+      85 | describe('KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)', () => {
+      86 |   it.each(['en-AU', 'en-CA', 'en-GB', 'en-US'])('%s: Basic bez okresu próbnego, jak PL (R-1)', (kod) => {
+    > 87 |     expect(tresc(opis(kod))).toMatch(/^Basic is free forever, with no trial period\./);
+         |                              ^
+      88 |   });
+      89 |
+      90 |   it('ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)', () => {
+
+      at toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:87:30)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › en-GB: Basic bez okresu próbnego, jak PL (R-1)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Basic is free forever, with no trial period\./
+    Received string:  "Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store."
+
+      85 | describe('KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)', () => {
+      86 |   it.each(['en-AU', 'en-CA', 'en-GB', 'en-US'])('%s: Basic bez okresu próbnego, jak PL (R-1)', (kod) => {
+    > 87 |     expect(tresc(opis(kod))).toMatch(/^Basic is free forever, with no trial period\./);
+         |                              ^
+      88 |   });
+      89 |
+      90 |   it('ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)', () => {
+
+      at toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:87:30)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › en-US: Basic bez okresu próbnego, jak PL (R-1)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^Basic is free forever, with no trial period\./
+    Received string:  "Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store."
+
+      85 | describe('KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)', () => {
+      86 |   it.each(['en-AU', 'en-CA', 'en-GB', 'en-US'])('%s: Basic bez okresu próbnego, jak PL (R-1)', (kod) => {
+    > 87 |     expect(tresc(opis(kod))).toMatch(/^Basic is free forever, with no trial period\./);
+         |                              ^
+      88 |   });
+      89 |
+      90 |   it('ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)', () => {
+
+      at toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:87:30)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /pembelian sekali seumur hidup/
+    Received string:      "Basic percuma selama-lamanya, tanpa tempoh percubaan. Pro menambah perancangan, penjagaan pemula, lebih banyak pemula dan resipi. Pro ialah langganan bulanan atau tahunan, atau pembelian sekali seumur hidup di App Store."
+
+      90 |   it('ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)', () => {
+      91 |     const t = tresc(opis('ms'));
+    > 92 |     expect(t).not.toMatch(/pembelian sekali seumur hidup/);
+         |                   ^
+      93 |     expect(t).toMatch(/akses seumur hidup/);
+      94 |   });
+      95 |
+
+      at Object.toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:92:19)
+
+  ● KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3) › ko: „App Store” określa subskrypcję i zakup dożywotni, nie tylko zakup (R-3)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /또는 App Store의 1회성/
+    Received string:      "Basic은 체험 기간 없이 영구 무료예요. Pro는 일정 계획, 스타터 관리, 더 많은 스타터와 배합표를 더해 줘요. Pro는 월간 또는 연간 구독, 또는 App Store의 1회성 평생 구매로 이용할 수 있어요."
+
+       96 |   it('ko: „App Store” określa subskrypcję i zakup dożywotni, nie tylko zakup (R-3)', () => {
+       97 |     const t = tresc(opis('ko'));
+    >  98 |     expect(t).not.toMatch(/또는 App Store의 1회성/);
+          |                   ^
+       99 |     expect(t).toMatch(/Pro는 App Store에서/);
+      100 |   });
+      101 | });
+
+      at Object.toMatch (tests/opis-sklepu-odnawianie-ko031.test.ts:98:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       40 failed, 3 passed, 43 total
+Snapshots:   0 total
+Time:        2.159 s
+Ran all test suites matching /tests\/opis-sklepu-odnawianie-ko031.test.ts/i.

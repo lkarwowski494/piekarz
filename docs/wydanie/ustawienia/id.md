@@ -44,7 +44,7 @@ resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 Tukang Roti menghitung takaran dan memberi tahu saat tiap langkah selesai. Jadwal mundur dari jam roti harus siap (Pro). Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3836 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3789 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
@@ -59,7 +59,7 @@ RENCANA DARI JAM "SIAP" (Pro)
 Pilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 07:00), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.
 
 PANDUAN LANGKAH DEMI LANGKAH
-Tukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Pada langkah yang membutuhkan tangan Anda, layar panduan tetap menyala. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan. Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.
+Tukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Pada langkah yang membutuhkan tangan Anda, layar panduan tetap menyala. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan.
 
 STARTER
 Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter. Perawatan starter (Pro): beberapa starter, takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5, tanda siap saat volume starter berlipat dua, dan pengingat setelah 12 jam di meja tanpa diberi makan.
@@ -74,10 +74,10 @@ DATA ANDA
 Tukang Roti menyimpan 10 cadangan otomatis terakhir di ponsel. Semua data dapat diekspor ke file dan diimpor dari file, dan riwayat pemanggangan dapat diekspor sebagai CSV. Satuan: gram dan °C atau auns dan °F.
 
 PERLU DIKETAHUI
-Tukang Roti berjalan di iPhone dan tidak menyinkronkan data antarperangkat; data dipindahkan dengan file cadangan. Tanpa izin notifikasi, Tukang Roti menampilkan akhir langkah hanya pada layar yang terbuka.
+Tukang Roti berjalan di iPhone dan tidak menyinkronkan data antarperangkat; data dipindahkan dengan file cadangan.
 
 AKSES DAN PEMBELIAN
-Basic gratis selamanya, tanpa masa uji coba. Pro menambahkan perencanaan, perawatan starter, serta lebih banyak starter dan resep. Pro tersedia sebagai langganan bulanan atau tahunan, atau pembelian satu kali untuk akses seumur hidup di App Store.
+Basic gratis selamanya, tanpa masa uji coba. Pro menambahkan perencanaan, perawatan starter, serta lebih banyak starter dan resep. Pro tersedia sebagai langganan bulanan atau tahunan, atau pembelian satu kali untuk akses seumur hidup di App Store. Langganan diperpanjang secara otomatis hingga Anda membatalkannya: di Pengaturan, ketuk nama Anda, lalu Langganan. Di iPhone baru, ketuk "Pulihkan Pembelian" di app.
 Ketentuan Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Bahasa: 35.
