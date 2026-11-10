@@ -1,8 +1,8 @@
 # PRZEKAZANIE — sesja M (rola 08, fix), 2026-11-10
 
-Wysyłka do koordynatora (session_01T66VBwJhDDVhFKP86KKRQA) przez send_message nie powiodła się: „session_inactive”. Wcześniejsza wiadomość z pytaniami P1–P3 doszła. Ten plik jest pełną treścią przekazania.
+Koordynator: session_01T66VBxmzZbniLNyXVufzPk (poprzedni nieaktywny). Scalono `redesign/piekarz-2026-10-22` @ 64c8011f (sesja L) bez konfliktów; nagłówki ramek w metadanych bez zmian (najdłuższy 38 znaków), strażniki zielone, verify po scaleniu kod 0 (668 zestawów, 7262 testy).
 
-Gałąź: `naprawy/M2-koordynator-napraw-2026-11-10-ramki`, wyprowadzona z `11360e78`. Push zrobiony. Niczego nie scalałem ani nie uruchamiałem. Dowód: `npm run verify` kod 0 (667 zestawów, 7183 testy), plik `docs/dowody-08-ramki/verify.txt`. Stan: `docs/stan-08-ramki-2026-11-10.md`. Decyzje: D-363…D-366 (D-367 niewykorzystany).
+Gałąź: `naprawy/M2-koordynator-napraw-2026-11-10-ramki`, wyprowadzona z `11360e78`. Push zrobiony. Niczego nie scalałem ani nie uruchamiałem. Dowód: `npm run verify` kod 0 po scaleniu (668 zestawów, 7262 testy), plik `docs/dowody-08-ramki/verify.txt`. Stan: `docs/stan-08-ramki-2026-11-10.md`. Decyzje: D-363…D-366 (D-367 niewykorzystany).
 
 ## Zrobione
 
