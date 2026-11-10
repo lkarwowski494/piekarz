@@ -1,0 +1,12 @@
+$ git diff --stat ea249c9c..1c723632 -- tests src/__tests__ src/**/__tests__
+ src/__tests__/czapka-ekranow-p7.test.tsx           |   3 +-
+ .../karta-kroku-pierwszy-ekran-005.test.tsx        | 202 +++++++++++++++++++++
+ src/__tests__/pas-plan-prowadzenie-p4b.test.tsx    |  13 +-
+ src/__tests__/pas-prowadzenia-005.test.tsx         |   7 +-
+ .../ratunek-import-pakietu-003.sqlite.test.tsx     |  39 ++++
+ tests/brioszka-bez-eksportu-089.test.tsx           |  88 +++++++++
+ tests/brioszka-bez-planu-089.test.ts               |  56 ++++++
+ tests/helpers/uklad-ekranu.ts                      | 201 ++++++++++++++++++++
+ tests/kontrakt-receptury-plan-061.test.ts          |   6 +-
+ tests/pieczenie-bez-cudzych-liczb-088.test.ts      | 109 +++++++++++
+ 10 files changed, 715 insertions(+), 9 deletions(-)

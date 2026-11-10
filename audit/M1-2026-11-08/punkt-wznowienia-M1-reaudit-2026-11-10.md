@@ -6,3 +6,4 @@
 - Do szczególnej kontroli: D-317, D-318, D-319, KO-008…KO-010 (wykonanie), M2-p4-N9, 066 (run 42725323063), 067.
 - Stan: STOP 1 wysłany koordynatorowi session_01T66VBxXcsDUt4eN9c43e7J (opcje A 4 grupy / B 6 grup / C sam M1; rekomendacja A). Worktree 1c723632 w scratchpadzie, npm ci kod 0.
 - Następny krok: po wyborze koordynatora fan-out (najwyżej 3 subagenty naraz), sprawdz-raport na raportach ról, raport M1, plan, push.
+- Stan końcowy (2026-11-10): STOP 1 = wariant A (KO-013); G1–G4 i weryfikacja przeciwna 005 zakończone, sprawdz-raport kod 0 (7 raportów ról, weryfikacja, raport M1), sprawdz-plan kod 0 (110 zadań). Wyniki: 087, 088, 089, 066 zweryfikowane; 005 (P1) i 067 (P2) otwarte; 017 P1 rozwiązane decyzją właściciela dla TestFlight (KO-014); nowe P3: 102–110. Werdykt: ZABLOKOWANE (005). STOP 2 wysłany koordynatorowi. Następny krok: decyzja właściciela w sprawie 005 (opcje w raporcie M1); trzeciej pętli nie ma (D-043).

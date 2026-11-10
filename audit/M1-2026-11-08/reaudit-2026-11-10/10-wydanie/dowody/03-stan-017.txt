@@ -1,0 +1,17 @@
+Stan M1-audytor-generalny-017 na 1c723632 (odczyt 2026-11-10)
+$ git diff --stat ea249c9c..1c723632 -- docs/wydanie/zrzuty docs/wydanie/metadane docs/app-store-metadata-v2.md
+kod: 0 (pusto = bez zmian)
+$ git log -1 --format="%h %ci" -- docs/wydanie/zrzuty/pl
+4454f1fd 2026-11-09 07:47:07 +0000
+$ file docs/wydanie/zrzuty/pl/iphone-6.3/*.png
+01-plan.png:               PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+02-receptura.png:          PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+03-prowadzenie-ciemny.png: PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+04-doktor.png:             PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+05-zakwasy.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+06-dziennik.png:           PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+07-offline.png:            PNG image data, 1206 x 2622, 8-bit colormap, non-interlaced
+Obejrzano docs/wydanie/zrzuty/pl/iphone-6.3/03-prowadzenie-ciemny.png: plakietka „wymaga Piekarz Pro” nad nagłówkiem „Jeden krok naraz” (podpisy.json: oznaczenie null dla tej ramki); ekran z nagłówkiem „Stolnica”, Spiralą, legendą i „Krok 2 z 11” NAD tytułem kroku — układ sprzed M3 i sprzed D-318 (na 1c723632 Spirala jest w karcie „Plan wypieku” pod kartą kroku).
+$ grep fastlane/store.config
+ls: cannot access 'fastlane': No such file or directory
+ls: cannot access 'store.config.json': No such file or directory

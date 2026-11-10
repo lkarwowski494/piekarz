@@ -1,0 +1,11 @@
+A) kod 1c723632:
+PASS tests/e2e-ios-workflow.test.ts
+PASS tests/quality-declarations.test.ts
+PASS tests/quality-gates.test.ts (9.165 s)
+Tests:       50 passed, 50 total
+kod: 0
+B) nightly.yml i stryker.config.json sprzed c0614ee9:
+FAIL tests/quality-gates.test.ts (7.087 s)
+    ✕ Stryker liczy mutanty tylko testami, które je pokrywają, i pamięta wynik między nocami (067, 07-jakosc-002) (3 ms)
+Tests:       1 failed, 17 passed, 18 total
+kod: 1

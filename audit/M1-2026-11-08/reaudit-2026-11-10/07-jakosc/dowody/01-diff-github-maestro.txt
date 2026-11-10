@@ -1,0 +1,15 @@
+$ git diff --stat ea249c9c..1c723632 -- .github .maestro
+ .maestro/e2e/03-prowadzenie-widok-skupiony.yaml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+kod: 0
+
+$ git log --oneline ea249c9c..1c723632
+1c723632 docs(decyzje): D-319 — niski ekran: zwarty pas i pasek kciuka w jednym rzędzie (005 przy 320×568), do weta D-289 [M1-audytor-generalny-005]
+d5a6dc4c fix(prowadzenie): niski ekran — zwarty pas i pasek kciuka w jednym rzędzie; karta kroku z ostrzeżeniem nad „Zrobione” przy 320×568 [M1-audytor-generalny-005; 04-studio-projektowe-001]
+292870c0 docs(decyzje): D-318 — opcja A dla ekranu prowadzenia (005), 320×568 otwarte do roli 04, do weta D-289 [M1-audytor-generalny-005]
+2f4a260e fix(prowadzenie): na pasie tylko tytuł kroku, czas i „potem …”; Spirala z „Gotowe …” w karcie „Plan wypieku” pod kartą kroku — karta z ostrzeżeniem w pierwszym ekranie przy 393×852 [M1-audytor-generalny-005; 04-studio-projektowe-001]
+f6291d8f fix(plan): plan bez planu (brioszka 089, D-3) nie eksportuje osi czasu — bez „Dodaj do kalendarza” i „Kopiuj jako tekst” [M1-audytor-generalny-089; przegląd ścieżki planu P2-1]
+875d53eb docs(decyzje): D-317 — brioszka bez planu do PIE-BRI-900 (DEC-21 a) i krok pieczenia bez cudzych liczb (088 a), do weta D-289 [M1-audytor-generalny-088, -089]
+d04c94ca fix(plan): krok pieczenia w keksówce i na stali bez cudzych liczb — tekst ze źródła tylko dla brioszki i durum, reszta z odesłaniem do „O recepturze” [M1-audytor-generalny-088; 06-tresci-601]
+3e05396e fix(plan): brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 (D-309 → opcja d, do weta D-289) [M1-audytor-generalny-089; 06-tresci-602]
+bb162ddf fix(dane): import pakietu przywraca trwające i zaplanowane wypieki [M1-audytor-generalny-087; 12-niezawodnosc-601]

@@ -1,0 +1,10 @@
+Źródło: MCP GitHub actions_list (tests-tz.yml) i get_job_logs (run 42724467509, failed_only), odczyt 2026-11-10.
+Run 42724467509 (#187), push, gałąź naprawy/M2-koordynator-napraw-2026-11-09-p4, head_sha 1c7236327901e7b693d1934775ecd8bebcd8b865: conclusion failure, 7/7 jobów czerwonych
+(UTC, Europe/Warsaw, America/New_York, America/Los_Angeles, Asia/Tokyo, Australia/Sydney, Pacific/Auckland).
+Run 42763362830 (#188), ten sam SHA, gałąź naprawy/M2-koordynator-napraw-2026-11-10-n10: failure.
+Każdy job: "Test Suites: 1 failed, 653 passed, 654 total; Tests: 1 failed, 6830 passed, 6831 total"
+FAIL tests/dziennik-wydan-tagi-079.test.ts › tag v*-b* → wiersz z tym buildem i SHA tagu (skrót)
+  expect(received).toBeGreaterThan(expected) Expected: > 0 Received: 0   (tests/dziennik-wydan-tagi-079.test.ts:39)
+Przyczyna: test wymaga tagów, gdy CI=true; ci.yml pobiera pełną historię (fetch-depth: 0, .github/workflows/ci.yml:29), a tests-tz.yml używa actions/checkout@v4 bez fetch-depth/fetch-tags (grep fetch → 0 trafień) → 0 tagów.
+Test dodany w 13a32139 (2026-11-09, partia 3, zadanie 079); plik istnieje w ea249c9c (git cat-file -e ea249c9c:tests/dziennik-wydan-tagi-079.test.ts → kod 0) → „istniało wcześniej”.
+Workflow tests-tz.yml biega na push do master/main/naprawy/** i na pull_request → po scaleniu do master będzie czerwony na master (zasada wspólna 21).

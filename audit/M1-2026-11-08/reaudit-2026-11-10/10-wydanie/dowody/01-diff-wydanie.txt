@@ -1,0 +1,10 @@
+$ git diff --stat ea249c9c..1c723632 -- docs/wydanie fastlane store.config.json app.json eas.json site .github
+kod: 0 (pusty wynik = brak zmian)
+$ git log --oneline ea249c9c..1c723632 -- docs/wydanie site app.json eas.json
+kod: 0
+$ git log -3 --format="%h %ci %s" -- docs/wydanie/zrzuty
+4454f1fd 2026-11-09 07:47:07 +0000 merge: partia 1 M2 (naprawy/M2-koordynator-napraw-2026-11-09-p1 @ f7cfd76f) do redesign — 16 zadań naprawionych do weryfikacji, 029 i 032 z blokadą (D-300)
+$ git log -3 --format=... -- docs/wydanie/metadane
+1d7c3fc0 2026-11-09 18:50:03 +0000 docs(sklep): poprawki z drugiego przeglądu AI przekładu 078/080 — fr×2, it, pt-BR, vi, hu, de, ja, zh-Hant, tr
+6a6b410e 2026-11-09 18:12:06 +0000 docs(sklep): opis 34 lokalizacji — 26 receptur bazowych, z czego 11 z planem i prowadzeniem; sekcja wersji na drożdżach i maszyny do chleba (DEC-01 a, D-286)
+a6d8013c 2026-11-09 18:08:31 +0000 docs(sklep): „(Pro)” przy funkcjach płatnych w tekście promocyjnym i sekcjach opisu, 34 lokalizacje (DEC-05 a, D-286; 2.3.2)

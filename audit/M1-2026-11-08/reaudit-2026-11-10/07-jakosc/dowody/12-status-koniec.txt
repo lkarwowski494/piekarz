@@ -1,0 +1,3 @@
+$ git -C WT status --porcelain (koniec)
+(koniec, kod 0)
+1c7236327901e7b693d1934775ecd8bebcd8b865

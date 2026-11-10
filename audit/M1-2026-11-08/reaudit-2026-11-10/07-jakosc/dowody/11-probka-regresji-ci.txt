@@ -1,0 +1,42 @@
+$ wc -l CLAUDE.md
+69 CLAUDE.md
+$ grep -rnE "pull_request_target|workflow_run" .github/workflows
+kod: 1
+$ grep uses: bez actions/ i bez 40-znakowego SHA
+kod: 1
+$ grep permissions
+.github/workflows/ci.yml:11:permissions:
+.github/workflows/ci.yml-12-  contents: read
+.github/workflows/ci.yml-13-
+--
+.github/workflows/asc-kontrola.yml:17:permissions:
+.github/workflows/asc-kontrola.yml-18-  contents: read
+.github/workflows/asc-kontrola.yml-19-concurrency:
+--
+.github/workflows/testflight.yml:18:permissions:
+.github/workflows/testflight.yml-19-  contents: read
+.github/workflows/testflight.yml-20-
+--
+.github/workflows/asc-zgloszenie.yml:21:permissions:
+.github/workflows/asc-zgloszenie.yml-22-  contents: read
+.github/workflows/asc-zgloszenie.yml-23-
+--
+.github/workflows/e2e-ios.yml:45:permissions:
+.github/workflows/e2e-ios.yml-46-  contents: read
+.github/workflows/e2e-ios.yml-47-
+--
+.github/workflows/tests-tz.yml:10:permissions:
+.github/workflows/tests-tz.yml-11-  contents: read
+.github/workflows/tests-tz.yml-12-
+--
+.github/workflows/nightly.yml:12:permissions:
+.github/workflows/nightly.yml-13-  contents: read
+.github/workflows/nightly.yml-14-
+--
+.github/workflows/asc-ustawienia.yml:17:permissions:
+.github/workflows/asc-ustawienia.yml-18-  contents: read
+.github/workflows/asc-ustawienia.yml-19-
+$ grep "github.event|head_ref" w run
+.github/workflows/ci.yml:48:          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+$ grep "|| true|continue-on-error|passWithNoTests|forceExit"
+.github/workflows/e2e-ios.yml:190:          xcrun simctl uninstall "$UDID" "$BUNDLE_ID" || true

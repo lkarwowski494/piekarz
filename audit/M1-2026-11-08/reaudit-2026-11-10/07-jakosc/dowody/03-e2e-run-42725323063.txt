@@ -1,0 +1,60 @@
+Źródło: MCP GitHub get_job_logs (logs_url, pobrane 2026-11-10; adres podpisany pominięty), repo lkarwowski494/piekarz, run 42725323063 (#103), workflow e2e-ios.yml
+Run: head_sha=1c7236327901e7b693d1934775ecd8bebcd8b865 head_branch=naprawy/M2-koordynator-napraw-2026-11-09-p4 event=workflow_dispatch run_attempt=2 conclusion=success
+
+=== PRÓBA 2 job=129562014399 conclusion=success (log 2389 linii)
+112:2026-11-10T01:20:04.0210980Z 1c7236327901e7b693d1934775ecd8bebcd8b865
+2095:2026-11-10T01:46:24.3079060Z ##[group]Run xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array pl-PL
+2116:2026-11-10T01:55:57.2323140Z [Passed] 06-koniec-wypieku (1m 48s)
+2117:2026-11-10T01:56:51.6538180Z [Passed] 03-prowadzenie-widok-skupiony (54s)
+2118:2026-11-10T01:57:23.4882760Z [Passed] 01-pierwsze-uruchomienie (32s)
+2119:2026-11-10T01:58:42.9466610Z [Passed] 04-plan-na-pozniej (1m 19s)
+2120:2026-11-10T01:59:41.2518580Z [Passed] 02-wypiek-na-stolnicy (58s)
+2121:2026-11-10T02:02:06.9289910Z [Passed] 05-dwa-wypieki (2m 26s)
+2123:2026-11-10T02:02:06.9414340Z 6/6 Flows Passed in 7m 59s
+2125:2026-11-10T02:02:09.7097490Z ##[group]Run xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array en-US
+2146:2026-11-10T02:06:27.7063860Z [Passed] 06-koniec-wypieku (1m 7s)
+2147:2026-11-10T02:07:02.8956360Z [Passed] 03-prowadzenie-widok-skupiony (35s)
+2148:2026-11-10T02:07:19.2033830Z [Passed] 01-pierwsze-uruchomienie (16s)
+2149:2026-11-10T02:08:24.6318980Z [Passed] 04-plan-na-pozniej (1m 5s)
+2150:2026-11-10T02:09:08.5782950Z [Passed] 02-wypiek-na-stolnicy (44s)
+2151:2026-11-10T02:10:58.7966860Z [Passed] 05-dwa-wypieki (1m 50s)
+2153:2026-11-10T02:10:58.8112700Z 6/6 Flows Passed in 5m 40s
+2155:2026-11-10T02:11:01.7385770Z ##[group]Run if ! maestro --device "$UDID" test .maestro/kontrola-negatywna; then
+2157:2026-11-10T02:11:01.7387570Z [36;1m  echo "Kontrola negatywna padła zgodnie z oczekiwaniem."[0m
+2173:2026-11-10T02:11:50.3720490Z [Failed] brak-elementu (27s) (Assertion is false: id: element-ktorego-nie-ma-w-aplikacji is visible)
+2175:2026-11-10T02:11:50.3787900Z 1/1 Flow Failed
+2177:2026-11-10T02:11:51.9743240Z Kontrola negatywna padła zgodnie z oczekiwaniem.
+2298:2026-11-10T02:13:31.5362850Z ##[group]Run maestro --device "$UDID" test .maestro/e2e-basic -e JEZYK=basic --format junit --output maestro-e2e-basic.xml
+2311:2026-11-10T02:14:22.7285790Z [Passed] 01-start-bez-ekranu-pro (31s)
+2312:2026-11-10T02:14:37.0604710Z [Passed] 02-miesiac-ekran-pro (14s)
+2313:2026-11-10T02:14:56.3122660Z [Passed] 03-arkusz-dnia-zaplanuj-pro (19s)
+2314:2026-11-10T02:15:26.2941950Z [Passed] 04-wypiek-teraz-basic (30s)
+2315:2026-11-10T02:16:04.2942690Z [Passed] 05-drugi-zakwas-pro (38s)
+2317:2026-11-10T02:16:04.2995030Z 5/5 Flows Passed in 2m 12s
+
+=== PRÓBA 1 job=129529738606 conclusion=failure (log 2428 linii)
+194:2026-11-10T00:05:20.9014100Z 1c7236327901e7b693d1934775ecd8bebcd8b865
+2115:2026-11-10T00:34:24.0295630Z ##[group]Run xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array pl-PL
+2135:2026-11-10T00:44:13.5177790Z iOS driver not ready in time, consider increasing timeout by configuring MAESTRO_DRIVER_STARTUP_TIMEOUT env variable
+2138:2026-11-10T00:44:14.6019900Z xcuitest.installer.LocalXCTestInstaller$IOSDriverTimeoutException: iOS driver not ready in time, consider increasing timeout by configuring MAESTRO_DRIVER_STARTUP_TIMEOUT env variable
+2166:2026-11-10T00:44:22.1208790Z ##[error]Process completed with exit code 1.
+2167:2026-11-10T00:44:22.2046450Z ##[group]Run xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array en-US
+2188:2026-11-10T00:51:53.1218130Z [Passed] 06-koniec-wypieku (2m 59s)
+2189:2026-11-10T00:53:01.3405790Z [Passed] 03-prowadzenie-widok-skupiony (1m 8s)
+2190:2026-11-10T00:53:37.7060170Z [Passed] 01-pierwsze-uruchomienie (36s)
+2191:2026-11-10T00:54:57.9038810Z [Passed] 04-plan-na-pozniej (1m 20s)
+2192:2026-11-10T00:55:53.4853960Z [Passed] 02-wypiek-na-stolnicy (55s)
+2193:2026-11-10T00:59:04.4065490Z [Passed] 05-dwa-wypieki (3m 11s)
+2195:2026-11-10T00:59:04.5022760Z 6/6 Flows Passed in 10m 11s
+2197:2026-11-10T00:59:12.4906660Z ##[group]Run if ! maestro --device "$UDID" test .maestro/kontrola-negatywna; then
+2199:2026-11-10T00:59:12.4931860Z [36;1m  echo "Kontrola negatywna padła zgodnie z oczekiwaniem."[0m
+2215:2026-11-10T01:01:04.6831720Z [Failed] brak-elementu (42s) (Assertion is false: id: element-ktorego-nie-ma-w-aplikacji is visible)
+2217:2026-11-10T01:01:04.6920810Z 1/1 Flow Failed
+2219:2026-11-10T01:01:08.7120880Z Kontrola negatywna padła zgodnie z oczekiwaniem.
+2340:2026-11-10T01:06:32.3341240Z ##[group]Run maestro --device "$UDID" test .maestro/e2e-basic -e JEZYK=basic --format junit --output maestro-e2e-basic.xml
+2353:2026-11-10T01:08:24.5898010Z [Passed] 01-start-bez-ekranu-pro (1m 4s)
+2354:2026-11-10T01:08:52.8698810Z [Passed] 02-miesiac-ekran-pro (28s)
+2355:2026-11-10T01:09:21.7464940Z [Passed] 03-arkusz-dnia-zaplanuj-pro (29s)
+2356:2026-11-10T01:10:28.1787450Z [Passed] 04-wypiek-teraz-basic (1m 6s)
+2357:2026-11-10T01:11:27.6731370Z [Passed] 05-drugi-zakwas-pro (59s)
+2359:2026-11-10T01:11:27.6911380Z 5/5 Flows Passed in 4m 7s

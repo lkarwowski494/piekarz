@@ -623,7 +623,9 @@
       "id": "M1-audytor-generalny-005",
       "tytul": "Na prowadzeniu instrukcja kroku i ostrzeżenie bezpieczeństwa są pod pasem, poza pierwszym ekranem",
       "zrodla": [
-        "04-studio-projektowe-001"
+        "04-studio-projektowe-001",
+        "09-lokalizacja-701",
+        "07-jakosc-701"
       ],
       "poziom": "P1",
       "rodzaj": "D",
@@ -633,8 +635,8 @@
       "zalezy_od": [],
       "decyzja": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
-      "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-      "status": "naprawione-do-weryfikacji",
+      "test_akceptacyjny": "dla każdego kroku planu z ostrzeżeniem (w tym pieczenie w garnku) przy 393×852 i 320×568 dół ostrzeżenia nie niżej niż góra paska kciuka, w każdym języku z ACTIVE_LANGS albo w zakresie języków zapisanym decyzją; zrzut kroku pieczenia z symulatora lub telefonu",
+      "status": "otwarte",
       "commit": "2f4a260e, d5a6dc4c",
       "reaudyt": {
         "petla": 1,
@@ -643,7 +645,8 @@
       },
       "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
       "przyczyna": null,
-      "uwagi": "D-318 (opcja A) + D-319 (niski ekran); zrzuty Expo web 320/375/393 w role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*; otwarte brzegowe M2-p4-N9 (320 + dwa wypieki); zrzuty iOS i AX5 — E2E"
+      "uwagi": "D-318 (opcja A) + D-319 (niski ekran); zrzuty Expo web 320/375/393 w role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*; otwarte brzegowe M2-p4-N9 (320 + dwa wypieki); zrzuty iOS i AX5 — E2E",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632: nadal otwarte (naprawione częściowo). D-318 i D-319 wykonane, pierwszy krok w pl/en w pierwszym ekranie (zrzut E2E 402×874); na kroku pieczenia w garnku ostrzeżenie „Gorące naczynie” pod paskiem kciuka przy 393×852 i 320×568 (rachunek, potwierdzony weryfikacją przeciwną reaudit-2026-11-10/weryfikacja/005.md); test akceptacyjny liczy tylko krok 1 w pl i en; w części z 33 języków ostrzeżenie kroku 1 pod „Zrobione”. Pętla 2 = ostatnia (D-043): opcje dla właściciela w raporcie M1, bez trzeciej pętli fix"
     },
     {
       "id": "M1-audytor-generalny-006",
@@ -932,7 +935,9 @@
       "test_akceptacyjny": "zrzuty do wysyłki (pl, en-US i reszta) pokazują wygląd po M3 i plakietkę Pro tylko przy funkcjach Pro; kontrola obrazów, nie tylko JSON",
       "status": "zatwierdzone",
       "commit": null,
-      "blokada": "krok właściciela / narzędzie: nowe zrzuty wymagają buildu kandydata — (b) z urządzenia po teście telefonu dla 6,9″ i 6,3″ pl/en-US, (a) generacja pozostałych lokalizacji (Expo web + Playwright niedostępne w tym środowisku); test skrótu podpisów w sumy.json dopiero z nowymi obrazami (inaczej czerwony); nadpisanie zestawu pl w ASC tylko za zgodą właściciela"
+      "blokada": "krok właściciela / narzędzie: nowe zrzuty wymagają buildu kandydata — (b) z urządzenia po teście telefonu dla 6,9″ i 6,3″ pl/en-US, (a) generacja pozostałych lokalizacji (Expo web + Playwright niedostępne w tym środowisku); test skrótu podpisów w sumy.json dopiero z nowymi obrazami (inaczej czerwony); nadpisanie zestawu pl w ASC tylko za zgodą właściciela",
+      "decyzja_wlasciciela": "KO-014, 2026-11-10 ~05:56 UTC, słowa właściciela: „Swiadomie wydanie testlight bez zrzutow. Zrzurty zrobimy na koncu przed samym apple store.” — P1 rozwiązane decyzją właściciela dla wydania TestFlight; zadanie zostaje do wykonania przed zgłoszeniem do App Store (nie zweryfikowane)",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632: bez zmian w repo od ea249c9c"
     },
     {
       "id": "M1-audytor-generalny-018",
@@ -1288,7 +1293,8 @@
       "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 12-niezawodnosc-003 (pole „Test akceptacyjny”)",
       "status": "zatwierdzone",
       "commit": null,
-      "blokada": "runbook (b) w 0976c0ca (D-302); test akceptacyjny (log wysyłki bez „Upload Symbols Failed”, ćwiczenie NIE-06) wymaga buildu TestFlight — osobna zgoda właściciela (DEC-18); decyzja o zmianie testflight.yml (krok 10/11 runbooka) — właściciel"
+      "blokada": "runbook (b) w 0976c0ca (D-302); test akceptacyjny (log wysyłki bez „Upload Symbols Failed”, ćwiczenie NIE-06) wymaga buildu TestFlight — osobna zgoda właściciela (DEC-18); decyzja o zmianie testflight.yml (krok 10/11 runbooka) — właściciel",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632: bez zmian w repo od ea249c9c; krok właściciela (build TestFlight)"
     },
     {
       "id": "M1-audytor-generalny-033",
@@ -2089,13 +2095,14 @@
       "przyczyna": "SYS-03",
       "raport": "role/07-jakosc/07-jakosc-2026-11-08.md",
       "test_akceptacyjny": "E2E zielone na SHA kandydata po scaleniu E2E-95 (pl, en_US, kontrola negatywna, Basic)",
-      "status": "otwarte",
-      "commit": "E2E run 42653620839 @221318bf (success: pl_PL, en_US, kontrola negatywna, Basic)",
+      "status": "zweryfikowane",
+      "commit": "E2E run 42725323063 próba 2 @1c723632 (success: pl_PL 6/6, en_US 6/6, kontrola negatywna czerwona zgodnie z założeniem, Basic 5/5)",
       "reaudyt": {
         "petla": 1,
         "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
         "wynik": "nadal otwarte: E2E iOS #101 (42705979446) na ea249c9c in_progress w chwili reaudytu; #100 na 6a412c9a zielone we wszystkich krokach; zamknięcie po zielonym #101 (koordynator)"
-      }
+      },
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632"
     },
     {
       "id": "M1-audytor-generalny-067",
@@ -2119,7 +2126,8 @@
         "petla": 1,
         "raport": "reaudit-2026-11-09/07-jakosc/07-jakosc-reaudit-2026-11-09.md",
         "wynik": "nadal otwarte z warunkiem: pełny Stryker tylko w nightly po scaleniu; szacunek ~3 h wobec limitu 120 min, cache przyrostowy powstaje po ukończonym przebiegu; warunek: pierwszy nightly po scaleniu zielony z wynikiem ≥ 60"
-      }
+      },
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632: nadal otwarte — nightly biega tylko z master, naprawy c0614ee9 tam nie ma; ostatni #26 anulowany na Strykerze; czeka na scalenie do master"
     },
     {
       "id": "M1-audytor-generalny-068",
@@ -2586,8 +2594,9 @@
       "raport": "reaudit-2026-11-09/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-003",
       "test_akceptacyjny": "import pakietu z bazy 1021 z 2 sesjami (active, planned) → bake_sessions = 2 po „Zastąp dane”; test pada na ea249c9c; znane w D-301 jako 12-niezawodnosc-703",
-      "status": "naprawione-do-weryfikacji",
-      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
+      "status": "zweryfikowane",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632"
     },
     {
       "id": "M1-audytor-generalny-088",
@@ -2607,8 +2616,9 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "plan rye_100_pan, borodinsky_rye i latvian_scalded_rye przy 50% żyta: temperatury z danych receptury, bez słowa „brioszk”; tekst pieczenia po id receptury, nie po naczyniu",
-      "status": "naprawione-do-weryfikacji",
-      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
+      "status": "zweryfikowane",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632"
     },
     {
       "id": "M1-audytor-generalny-089",
@@ -2628,8 +2638,9 @@
       "raport": "reaudit-2026-11-09/06-tresci/06-tresci-reaudit-2026-11-09.md",
       "regresja_od": "M1-audytor-generalny-008",
       "test_akceptacyjny": "(a) brioszka bez „Ułóż plan” do zamknięcia PIE-BRI-900, test katalogu; (b) czasy ze źródła dla zaczynu i rośnięcie z canStretch, test planu",
-      "status": "naprawione-do-weryfikacji",
-      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30"
+      "status": "zweryfikowane",
+      "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
+      "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632"
     },
     {
       "id": "M1-audytor-generalny-090",
@@ -2894,6 +2905,203 @@
       "raport": "reaudit-2026-11-09/11-wzrost/11-wzrost-reaudit-2026-11-09.md",
       "test_akceptacyjny": "jedno H-01, ≤ 3 aktywne H (test)",
       "klasa": "dokumentacja"
+    },
+    {
+      "id": "M1-audytor-generalny-102",
+      "tytul": "Import pakietu (i kopii przed czyszczeniem) pomija wypieki ponad limit bez komunikatu",
+      "zrodla": [
+        "12-niezawodnosc-701"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "12-niezawodnosc",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/12-niezawodnosc/12-niezawodnosc-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "import pakietu z 2 sesjami na telefon z 2 trwającymi i 5 zaplanowanymi → komunikat podaje liczbę wypieków, które nie wróciły; liczności telefonu bez zmian",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "brzegowy",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)"
+    },
+    {
+      "id": "M1-audytor-generalny-103",
+      "tytul": "Zablokowany plan brioszki (wejście z „Piecz ponownie”) nadal pokazuje oś czasu z godzinami i rośnięciem 20 min bez źródła",
+      "zrodla": [
+        "06-tresci-701"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/06-tresci/06-tresci-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "render ekranu planu z brioszką: brak timeline-item-*, brak „Start … o …” i „Całość trwa …”; powód blokady widoczny",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "brzegowy",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)"
+    },
+    {
+      "id": "M1-audytor-generalny-104",
+      "tytul": "Krok pieczenia odsyła do karty „O recepturze”, do której z prowadzenia nie ma dojścia",
+      "zrodla": [
+        "06-tresci-702"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/06-tresci/06-tresci-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-702 (pole „Test akceptacyjny”)",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "realny",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "regresja_od": "M1-audytor-generalny-088"
+    },
+    {
+      "id": "M1-audytor-generalny-105",
+      "tytul": "kontrole-tresci.mjs na PL/EN daje kod 1 przez nowy plik powody-bez-planu.md; żaden test tego nie łapie",
+      "zrodla": [
+        "06-tresci-703"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "06-tresci",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/06-tresci/06-tresci-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 06-tresci-703 (pole „Test akceptacyjny”)",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "bramka-tresci",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "regresja_od": "M1-audytor-generalny-089"
+    },
+    {
+      "id": "M1-audytor-generalny-106",
+      "tytul": "Zwarty pasek kciuka (okno < 700 pt) łamie etykiety w środku słowa: „Zrobione” w sl i tr, przyciski drugie w sk, hu, ro, lv, el (sk, hu już przy 375×667)",
+      "zrodla": [
+        "04-studio-projektowe-701",
+        "09-lokalizacja-702"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "dla każdego języka z ACTIVE_LANGS przy 375×667 i 320×568 żaden przycisk paska nie ma więcej niż 2 wierszy i żaden wyraz nie jest dłuższy niż pole tekstu przycisku, albo zrzuty z urządzenia w sk, hu, el",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "układ-niski-ekran",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "regresja_od": "M1-audytor-generalny-005"
+    },
+    {
+      "id": "M1-audytor-generalny-107",
+      "tytul": "Na zwartym pasie 320 pt „Krok n z m” łamie się na pojedyncze znaki (fi, id, it, bg, lt; pl przy większym tekście)",
+      "zrodla": [
+        "04-studio-projektowe-702"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-702 (pole „Test akceptacyjny”)",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "układ-niski-ekran",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "regresja_od": "M1-audytor-generalny-005"
+    },
+    {
+      "id": "M1-audytor-generalny-108",
+      "tytul": "Przy AX5 na 320×568 stały pasek kciuka zajmuje ok. 400 z 568 pt",
+      "zrodla": [
+        "04-studio-projektowe-703"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "04-studio-projektowe",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "test akceptacyjny z raportu źródłowego 04-studio-projektowe-703 (pole „Test akceptacyjny”)",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "brzegowy",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "istnialo_wczesniej": true
+    },
+    {
+      "id": "M1-audytor-generalny-109",
+      "tytul": "Opis w sklepie (34 lokalizacje), źródło PL/EN i README podają 11 receptur na zakwasie z planem, a po D-317 jest 10",
+      "zrodla": [
+        "10-wydanie-701"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "10-wydanie",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "reaudit-2026-11-10/10-wydanie/10-wydanie-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "liczba receptur z planem w opisie sklepu, źródle PL/EN i README zgodna z katalogiem (test liczący receptury bez powodBezPlanu); przed zgłoszeniem do App Store",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "dokumentacja",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "regresja_od": "M1-audytor-generalny-089"
+    },
+    {
+      "id": "M1-audytor-generalny-110",
+      "tytul": "Workflow „Tests across Timezones” czerwony w 7/7 stref na każdym pushu: test 079 wymaga tagów w CI, a tests-tz.yml nie pobiera historii",
+      "zrodla": [
+        "M1-audytor-generalny-110"
+      ],
+      "poziom": "P3",
+      "rodzaj": "D",
+      "rola": "07-jakosc",
+      "wykonawca": "M2",
+      "partia": 6,
+      "zalezy_od": [],
+      "decyzja": null,
+      "przyczyna": null,
+      "raport": "M1-audytor-generalny-reaudit-2026-11-10.md",
+      "test_akceptacyjny": "tests-tz.yml zielony na SHA kandydata (pobiera tagi jak ci.yml albo test 079 nie biega w macierzy stref); zmiana workflowu = zgoda właściciela",
+      "status": "otwarte",
+      "commit": null,
+      "klasa": "bramka-CI",
+      "powod": "P3: backlog 1.0.1 (D-288, reaudit pętla 2)",
+      "istnialo_wczesniej": true
     }
   ],
   "stop2": {
@@ -2910,6 +3118,11 @@
       "petla": 1,
       "data": "2026-11-09",
       "commit": "ea249c9c"
+    },
+    {
+      "petla": 2,
+      "data": "2026-11-10",
+      "commit": "1c723632"
     }
   ]
 }

@@ -1,0 +1,16 @@
+Źródło: MCP GitHub actions_list (list_workflow_runs nightly.yml; list_workflow_jobs), repo lkarwowski494/piekarz, odczyt 2026-11-10.
+total_count nightly = 26. Ostatnie 8 (wszystkie event=schedule, head_branch=master):
+#26 run 42592498036 2026-11-09 master 2ef8870a conclusion=cancelled (job 129077221943: fuzzing success 5 s; "Full Quality Gate (npm run verify)" success 09:20:06–09:22:39; "Stryker Mutation Verification" cancelled 09:22:39–11:19:30, limit 120 min)
+#25 run 42463983930 2026-11-08 master 9c255a0a conclusion=failure
+#24 run 42355597277 2026-11-07 master 9c255a0a conclusion=cancelled
+#23 run 42191618121 2026-11-06 master 9c255a0a conclusion=cancelled
+#22 run 41999616925 2026-11-05 master 9c255a0a conclusion=cancelled
+#21 run 41801766742 2026-11-04 master 9c255a0a conclusion=cancelled
+#20 run 41608502065 2026-11-03 master 39f3890a conclusion=cancelled
+#19 run 41379393352 2026-11-02 master d8a0b404 conclusion=cancelled
+Filtr event=workflow_dispatch: 3 przebiegi, wszystkie z 2026-10-20 na gałęzi naprawy/M2-koordynator-napraw-2026-10-19-p4 (#6 run 39376900849 success na 671742f4; #4 cancelled; #3 failure).
+Filtr branch=redesign/piekarz-2026-10-22: total_count 0.
+Lokalnie (WT):
+$ git merge-base --is-ancestor c0614ee9 1c723632 → kod 0 (naprawa jest w badanym commicie)
+$ git merge-base --is-ancestor c0614ee9 2ef8870a → kod 1 (naprawy nie ma na master, z którego biega harmonogram)
+Wniosek: od naprawy c0614ee9 (2026-11-09 20:05 UTC) nie było żadnego przebiegu nightly z tą naprawą; brak zielonego nightly na master i brak wyniku Strykera.

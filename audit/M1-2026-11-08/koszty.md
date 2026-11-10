@@ -43,3 +43,17 @@
 | grupa B (06, 01) | 0,30–0,55 mln | 372 894 tokenów, 120 wywołań, 20,7 min; sprawdz-raport kod 0 ×2 | 0,68–1,24 |
 | weryfikacja V1 (12-601, 005) | 0,115–0,19 mln | 163 201 tokenów, 37 wywołań, 3,7 min; sprawdz-raport kod 0 | 0,86–1,42 |
 | weryfikacja V2 (06-601, 06-602) | 0,115–0,19 mln | 134 059 tokenów, 41 wywołań, 3,6 min; sprawdz-raport kod 0 | 0,71–1,17 |
+
+## Reaudyt pętla 2 (2026-11-10, sesja B2, commit 1c723632)
+Szacunek STOP 1 (KO-013, wariant A): 1,5–2,5 mln tokenów, 60–90 min.
+
+| Agent | Role | Tokeny (narzędzie subagentów) | Czas | Wywołania |
+|---|---|---|---|---|
+| G1 | 12, 05 | 227 905 | 6 min 54 s | 34 |
+| G2 | 06, 09 | 319 659 | 13 min 21 s | 55 |
+| G3 | 04 | 295 568 | 15 min 05 s | 47 |
+| G4 | 07, 10 | 274 859 | 11 min 26 s | 54 |
+| weryfikator 005 | — | 147 151 | 5 min 26 s | 20 |
+| Suma subagentów | | 1 265 142 | | 210 |
+
+M1 (sesja główna): narzędzie nie podaje zużycia — [DO USTALENIA] z `/usage` właściciela. Koszt w USD: nie zmierzono (konto z subskrypcją, KO-011: koszt orientacyjny). Iloraz subagentów do środka szacunku (2,0 mln): 0,63.

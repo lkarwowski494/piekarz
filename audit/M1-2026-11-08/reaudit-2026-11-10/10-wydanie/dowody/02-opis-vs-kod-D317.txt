@@ -1,0 +1,16 @@
+$ grep -c liczby 11 przy recepturach w opisach 34 lokalizacji (pole opis)
+de-DE.json: 11 Sauerteigrezepturen haben einen Plan und eine Begleitung Schritt für Schritt
+en-US.json: 11 sourdough recipes come with a plan and step-by-step guidance
+pl.json: 11 receptur na zakwasie ma plan i prowadzenie krok po kroku
+lokalizacji: 34, z liczbą 11 w opisie: 34, bez: []
+$ liczba receptur z planem w katalogu (kod 1c723632): tests/brioszka-bez-planu-089.test.ts Z_PLANEM_BEZ_ZMIAN = 10 pozycji; D-317: „Kontrakt F-26: 10 receptur na zakwasie z planem”
+$ grep -n "11 " README.md docs/app-store-metadata-v2.md (receptury)
+README.md:45:| **Receptury i ilości** | `F-09`, `F-11`, `F-26`, `F-27`, `F-55` | 26 receptur bazowych (11 z planem i prowadzeniem krok po kroku; wersja na drożdżach w 4, tryb maszyny do chleba F-72) i własne; ilości
+docs/app-store-metadata-v2.md:33:Wybierasz jedną z 26 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną; 11 receptur na zakwasie ma plan i prowadzenie krok po kroku. Ustawiasz liczbę
+docs/app-store-metadata-v2.md:85:Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 11 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour 
+docs/app-store-metadata-v2.md:294:Choose one of 26 base recipes (sourdough, rye, yeast, pizza and sweet) or your own; 11 sourdough recipes come with a plan and step-by-step guidance. Set the number of loaves or the flour
+$ grep -rn -i "briosz|brioche|spiral" docs/wydanie/metadane/pl.json docs/wydanie/metadane/en-US.json docs/wydanie/opis-zmian-1.0.md docs/wydanie/sklep.md
+kod: 0
+$ grep wersja/build
+app.json:5:    "version": "1.0.0",
+eas.json:3:    "version": ">= 12.0.0"
