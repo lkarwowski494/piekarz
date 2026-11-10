@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dSYM prebudowanych frameworków React Native do archiwum przed eksportem (032, KO-028; D-356; sesja J).
+# dSYM prebudowanych frameworków React Native do archiwum przed eksportem (032, KO-028; D-362; sesja J).
 # TF #25 (build 1025): „Upload Symbols Failed. The archive did not include a dSYM for the React.framework /
 # ReactNativeDependencies.framework / hermesvm.framework” — te frameworki przychodzą z Maven jako binaria, bez dSYM w archiwum.
 # Źródło dSYM (odczyt 2026-11-10): Maven Central, ta sama wersja co frameworki:

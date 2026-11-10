@@ -242,7 +242,7 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-      # 032 (KO-028; D-356): React.framework, ReactNativeDependencies.framework i hermesvm.framework przychodzą z Maven jako
+      # 032 (KO-028; D-362): React.framework, ReactNativeDependencies.framework i hermesvm.framework przychodzą z Maven jako
       # binaria bez dSYM („Upload Symbols Failed” w TF #25). dSYM tej samej wersji z Maven, kontrola SHA-256 i UUID, do
       # <archiwum>/dSYMs przed eksportem (uploadSymbols wysyła stamtąd). Bez sekretów; porażka = ostrzeżenie, wydanie idzie dalej.
       - name: Add dSYMs of prebuilt React Native frameworks to archive
@@ -342,7 +342,7 @@ jobs:
 
       # 032 (KO-025, 2026-11-10): pełny log eksportu i wysyłki jako artefakt — dowód, czy xcodebuild wysłał symbole (dSYM),
       # bo tail -30 ich nie pokazuje (TF #25, job 129890129906). Kolejność: (1) „Upload Symbols Failed” → wyjście dla zadania
-      # `symbole` (KO-028; D-356); (2) maskowanie nazw certyfikatów i profili (dane osobowe właściciela); (3) kontrola sekretów:
+      # `symbole` (KO-028; D-362); (2) maskowanie nazw certyfikatów i profili (dane osobowe właściciela); (3) kontrola sekretów:
       # prawdziwe wartości KEY_ID, ISSUER_ID, TEAM_ID i treść klucza .p8 (bez rozróżniania wielkości liter) oraz wzorce
       # (klucz prywatny, base64 klucza EC „MIG…”, JWT, Bearer, AuthKey_*.p8); trafienie albo błąd odczytu (grep ≥ 2) = log
       # usunięty, bez artefaktu, bez przerywania wydania, które już poszło (recenzja J, P1). Linie o symbolach do podsumowania.
@@ -420,7 +420,7 @@ jobs:
           path: /tmp/xcodebuild-*.log
           retention-days: 1
 
-  # 032 (KO-028; D-356): test akceptacyjny „log wysyłki bez Upload Symbols Failed”. Osobne zadanie, żeby czerwony wynik
+  # 032 (KO-028; D-362): test akceptacyjny „log wysyłki bez Upload Symbols Failed”. Osobne zadanie, żeby czerwony wynik
   # nie blokował tagu i mapy źródeł wydania, które już poszło do TestFlight (zadanie tag zależy tylko od build).
   symbole:
     name: Symbole (dSYM) wysłane bez „Upload Symbols Failed”
@@ -441,7 +441,7 @@ jobs:
           fi
           # Brak napisu w logu to nie dowód (recenzja J2, P1): wymagane też 3 dSYM dołożone do archiwum
           if [ "$DSYM_DODANE" != 3 ]; then
-            echo "::error::dSYM prebudowanych frameworków dodane: ${DSYM_DODANE:-brak} z 3 (krok „Add dSYMs…”, D-356)"
+            echo "::error::dSYM prebudowanych frameworków dodane: ${DSYM_DODANE:-brak} z 3 (krok „Add dSYMs…”, D-362)"
             exit 1
           fi
 
