@@ -143,6 +143,7 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 00:02 4b: 005 d5a6dc4c (rola 04) + D-319 1c723632 → naprawione-do-weryfikacji; verify UTC/Tokyo 6831 kod 0; N9
 - 00:16 2026-11-10 00:17 UTC: koordynator aktywny session_01T66VByVFXN3K6UyZ9U7yZ8 (następca M9 session_01T66VBvnDeKWC3vg8bd7wL9, wg jego wiadomości); M2 czeka na E2E #103 (run 42725323063) na p4 1c723632
 - 01:19 E2E #103 na 1c723632: pl_PL czerwone — timeout startu sterownika XCUITest (klasa C, 95%), żaden przepływ pl nie ruszył; en 6/6, Basic 5/5; bez zmian w kodzie (KO-008); M2-p4-N10
+- 02:37 E2E #103 próba 2 zielone na 1c723632 (wg M9: pl 6/6, en 6/6, Basic 5/5, kontrola negatywna czerwona); redesign fast-forward ea249c9c → 1c723632; partia 4 zamknięta; N8, N10 → raport poranny właściciela
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)
