@@ -1,0 +1,10 @@
+PASS tests/e2e-sterownik-n10.test.ts
+PASS tests/e2e-ios-workflow.test.ts
+PASS tests/e2e-niezalezne-kroki-075.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       37 passed, 37 total
+Snapshots:   0 total
+Time:        1.653 s
+Ran all test suites matching /tests\/e2e-sterownik-n10.test.ts|tests\/e2e-ios-workflow.test.ts|tests\/e2e-niezalezne-kroki-075.test.ts/i.
+kod 0
