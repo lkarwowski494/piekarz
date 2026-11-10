@@ -1,4 +1,4 @@
-# Koordynacja Piekarz — stan (aktualizacja 2026-11-10 02:45 UTC)
+# Koordynacja Piekarz — stan (aktualizacja 2026-11-10 05:28 UTC) — **WSTRZYMANE**
 
 Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR25xmeQCZYdPG2r` na polecenie właściciela 2026-11-09 ~21:35 UTC: „Przejdź na rolę M9: … wykonaj moduł „migracja”.” Dawne pliki stanu (nie usunięte): `docs/wznowienie-M3.md` na `redesign/piekarz-2026-10-22` (sekcje „PUNKT CZYSZCZENIA” i dziennik M3), `docs/decyzje.md` (D-035+, M3 D-286…D-289, M2 D-300…D-316), stan M2 na `audit-m1/piekarz-2026-11-08` (`audit/M1-2026-11-08/punkt-wznowienia-M2-2026-11-09*.md`, `postep-napraw.md`, `plan-napraw.json`), K M3 poza gitem w kontenerze `session_01T66VBwuR25xmeQCZYdPG2r`: `/home/user/piekarz/audit/M3-2026-11-08/` (przepada z kontenerem).
 
@@ -11,6 +11,17 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 - Koordynator aktywny: `session_01T66VByVFXN3K6UyZ9U7yZ8` (M9, od 2026-11-10 00:17 UTC); poprzednik `session_01T66VBvnDeKWC3vg8bd7wL9` (M9, 2026-11-09 21:40 → 2026-11-10 00:17); wcześniej `session_01T66VBwuR25xmeQCZYdPG2r` (M3, 2026-11-08 16:02 → 2026-11-09 21:39).
 - Środowisko: environment_id `env_01MPhRL5ChwFrZp3NzoNRdo2`, model `claude-opus-5-5`, wysiłek **medium** (wyjątek nazwany właściciela 2026-11-09: „dzisiaj w medium”; zgodny z zalecaną sesją M9), permission_mode `auto`, extra_allowed_tools brak; repo sesji: `lkarwowski494/piekarz`, `lkarwowski494/prompts` (`main`), dodatkowo do odczytu `apps4brew-www`, `oczko-warsztat`.
 - Gałąź robocza: `redesign/piekarz-2026-10-22` (integracja 1.0); gałąź stanu: `koordynacja`.
+
+## WSTRZYMANE (2026-11-10 05:28 UTC)
+Słowa właściciela: „Ok zapisz wszystkie zadania i wstrzymaj pracę”. Nic nie biegnie: sesja C idle (wiadomość o wstrzymaniu 05:28), brak E2E w toku, przypomnienia koordynatora Piekarz wyłączone (`enabled=false`, nie usunięte): `trig_01V4cSB6td7fX72GNjVirq9f` raport poranny, `trig_01GFD6uWqN4fLQbg9TBzC4nh` linia 14:00. Wznowienie: tylko na słowo właściciela — wtedy włącz/odtwórz przypomnienia i zacznij od listy niżej.
+
+Zadania do wznowienia (kolejność):
+1. Raport poranny dla właściciela (punkt „Czeka na właściciela” niżej) — jedno pytanie zbiorcze.
+2. Reaudyt M1 pętla 2 (ostatnia, D-043): nowa sesja wg `polecenia/B2.md` (`redesign` @ `1c723632`, K @ `78d2e8c9`, baza `ea249c9c`) — wymaga zgody na `prompts` w nowej sesji.
+3. Po reaudycie: otwarte P0/P1 → decyzja właściciela; czyste → kandydat: zgoda na merge `redesign` → `master` + build TestFlight (DEC-18: E2E zielone na SHA kandydata).
+4. Decyzje właściciela: N10 (ponowienie startu sterownika E2E + limit), N8 (KO-008), weto KO-005…KO-010 i D-315…D-319, pułapy kosztu, prywatność promptów w publicznym repo.
+5. Kroki właściciela: archiwizacja sesji (M3 `…wuR25xmeQCZYdPG2r`, M9 `…vnDeKWC3vg8bd7wL9`, A `…x5s4zkdFqT2gZ5CDQ`, C `…xPQkXtF6hFvYsPtHe` po zakończeniu), scalenie `asc-kontrola-brak-ofert` w `apps4brew-narzedzia`, rola klucza ASC (D-314), sprzątanie gałęzi, test telefonu.
+6. Koordynator `…ByVFXN3K6UyZ9U7yZ8`: rola M9 niezłożona (brak `prompts`) — przy wznowieniu zgoda albo nowa sesja koordynatora z dostępem.
 
 ## Teraz
 - Partia 4 (C): p4 @ `292870c0`, verify UTC+Tokyo kod 0 (6827 testów) wg C — niesprawdzone bezpośrednio; 087/088/089 naprawione-do-weryfikacji; 005 częściowo (393 pt OK z rachunku, 320 pt nie) → partia 4b (KO-008 a, rola 04, D-319).
@@ -98,3 +109,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 01:17 | M9 | E2E #103 czerwone (`actions_get` conclusion failure; `list_workflow_jobs`: krok 10 pl_PL failure, 11 en_US / 12 kontrola negatywna / 15 Basic success); C 20,2%, 20,63 USD → diagnoza (rola 07): błąd aplikacji → poprawka i nowe E2E; zgubiony dotyk → bez N8 (KO-008), do właściciela | odpowiedź C; kontrola 01:50 |
 | 10.11 01:22 | M9 | Diagnoza C #103 (K `78d2e8c9`, diagnoza-e2e-103.md): start sterownika > limit 480 s, potwierdzone w logu joba (l. 2135; pl: 0 przepływów; en_US 6/6, Basic 5/5, kontrola negatywna czerwona); KO-010: `rerun_workflow_run` 42725323063 (201) na `1c723632`, N10 do właściciela | wynik ~02:30 |
 | 10.11 02:41 | M9 | E2E #103 próba 2 ZIELONE (`list_workflow_jobs` wszystkie kroki success; log: pl 6/6, en 6/6, Basic 5/5, kontrola negatywna [Failed]); `redesign` FF `ea249c9c`→`1c723632` (push, sprawdzone `rev-parse`); E2E po scaleniu zbędne (ten sam SHA). Reaudyt pętla 2: `polecenia/B2.md` gotowe, start wstrzymany (prompts → zgoda właściciela, plan 24 h); C idle — bez zadań | raport poranny 06:25 |
+| 10.11 05:28 | M9 | **WSTRZYMANE** na słowo właściciela; przypomnienia Piekarz wyłączone (2), C powiadomiona; lista zadań w sekcji „WSTRZYMANE” | wznowienie przez właściciela |
