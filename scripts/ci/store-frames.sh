@@ -37,7 +37,7 @@ for kod_dir in "$IN"/*/; do
       text=$(node -e 'const p=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).podpisy[process.argv[2]]; process.stdout.write(p==null?"":p)' "$TMP/plan.json" "$ekran")
       [ -n "$text" ] || { echo "::warning::Brak podpisu: $kod/$ekran — bez ramki"; braki=$((braki + 1)); continue; }
       # label: czyta plik dla tekstu z „@” na początku i rozwija „%” — takich podpisów nie składamy (pilnuje też test)
-      case "$text$OZN" in @*|*%*) echo "::error::$kod/$ekran: podpis z „@” albo „%”"; exit 1 ;; esac
+      case "$text$OZN" in @*|*%*|*\\*) echo "::error::$kod/$ekran: podpis z „@”, „%” albo „\\”"; exit 1 ;; esac
       motyw=$(q motyw "$ekran"); motyw=${motyw:-jasny}
       BG=$(q kolory "$motyw" tlo); FG=$(q kolory "$motyw" tekst); LINE=$(q kolory "$motyw" obwodkaZrzutu)
       OFG=$(q kolory "$motyw" oznaczenie); OLINE=$(q kolory "$motyw" obwodkaOznaczenia)

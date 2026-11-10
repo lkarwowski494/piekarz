@@ -70,7 +70,7 @@ describe('podpisy ramek: łamanie wierszy i rozmiar czcionki (port z Treningu)',
     expect(sh).toContain('scripts/ci/store-caption-layout.mjs');
     expect(sh).toMatch(/-pointsize "\$PT" label:"\$text"/);
     expect(sh).not.toMatch(/caption:/);
-    expect(sh).toMatch(/@\*\|\*%\*\) echo "::error::/);
+    expect(sh).toMatch(/@\*\|\*%\*\|\*\\\\\*\) echo "::error::/);
     expect(sh).toMatch(/-alpha remove -alpha off -depth 8 -define png:color-type=2/);
   });
 });

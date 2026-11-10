@@ -74,7 +74,7 @@ describe('ramki sklepu: podpisy z metadanych, oznaczenie Pro, kolory i kroje (KO
       const ok = typeof v === 'string' && v.trim().length > 0 && [...v.trim()].length <= cfg.maxZnakow;
       expect({ ekran: cfg.ekrany[i], ok }).toEqual({ ekran: cfg.ekrany[i], ok: true });
       const s = typeof v === 'string' ? v.trim() : '';
-      expect({ ekran: cfg.ekrany[i], cena: /\d+[.,]\d{2}|[$€£¥₩]|\bzł\b/.test(s), label: /^@|%|\\/.test(s) }).toEqual({ ekran: cfg.ekrany[i], cena: false, label: false });
+      expect({ ekran: cfg.ekrany[i], cena: /\d+[.,]\d{2}|[$€£¥₩₽₴₺₫]|(^|\s)(zł|Kč|kr)(\s|$|[.,])/u.test(s), label: /^@|%|\\/.test(s) }).toEqual({ ekran: cfg.ekrany[i], cena: false, label: false });
     }
     expect(new Set(naglowki).size).toBe(cfg.ekrany.length);
   });
