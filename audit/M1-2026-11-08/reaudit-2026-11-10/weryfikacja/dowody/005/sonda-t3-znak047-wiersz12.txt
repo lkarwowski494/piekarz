@@ -1,0 +1,163 @@
+KROKI 0:starter_feed/starter_feed/Dokarmienie zakwasu (osiągnięcie szczytu)/instr=82/ostrz=2 | 1:autolyse/autolyse/Autoliza (mąka + woda)/instr=87/ostrz=2 | 2:mix/mix/Wymieszanie z solą i zakwasem/instr=173/ostrz=0 | 3:bulk_ferment/bulk_ferment/Fermentacja burzliwa ze składaniami/instr=48/ostrz=2 | 4:pre_shape/pre_shape/Formowanie wstępne/instr=71/ostrz=2 | 5:bench_rest/bench_rest/Odpoczynek na desce/instr=88/ostrz=0 | 6:final_shape/final_shape/Formowanie ostateczne i koszyk/instr=91/ostrz=2 | 7:final_proof/final_proof/Garowanie chłodnicze w lodówce/instr=124/ostrz=0 | 8:preheat_oven/preheat_oven/Nagrzewanie piekarnika i garnka/instr=60/ostrz=2 | 9:bake/bake/Wypiek z parą i rumienienie/instr=310/ostrz=2 | 10:cool/cool/Studzenie na kratce/instr=158/ostrz=1
+393x852 krok=0:starter_feed faza=lid_on de instr=125 kartaY=374 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=668 zrobioneGora=680 CZESCIOWO_POD tyt="Sauerteig auffrischen (bis zum Reifehöhepunkt)" 
+393x852 krok=0:starter_feed faza=lid_on fr instr=122 kartaY=374 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Rafraîchi du levain naturel (pic d'activité)" 
+393x852 krok=0:starter_feed faza=lid_on fi instr=115 kartaY=395 kartaDol=544 ostrzGora=544 ostrzDol=699 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Hapanjuuren ruokinta (huippuun asti)" 
+393x852 krok=0:starter_feed faza=lid_on id instr=126 kartaY=395 kartaDol=544 ostrzGora=544 ostrzDol=699 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Pemberian makan starter (mencapai puncak)" 
+393x852 krok=0:starter_feed faza=lid_on ru instr=86 kartaY=374 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Подкормка закваски (до пика)" 
+393x852 krok=0:starter_feed faza=lid_on ms instr=112 kartaY=435 kartaDol=565 ostrzGora=565 ostrzDol=739 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Pemberian makan pemula sourdough (mencapai kemuncak)" 
+393x852 krok=0:starter_feed faza=lid_on sv instr=107 kartaY=415 kartaDol=544 ostrzGora=544 ostrzDol=699 oknoDol=668 zrobioneGora=680 CZESCIOWO_POD tyt="Matning av surdegsgrunden (till toppen)" 
+393x852 krok=0:starter_feed faza=lid_on nb instr=96 kartaY=415 kartaDol=544 ostrzGora=544 ostrzDol=699 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Mating av surdeigsstarter (til toppunkt)" 
+393x852 krok=0:starter_feed faza=lid_on es-419 instr=104 kartaY=435 kartaDol=565 ostrzGora=565 ostrzDol=719 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Alimentación de la masa madre (hasta el punto máximo)" 
+393x852 krok=1:autolyse faza=lid_on de instr=122 kartaY=354 kartaDol=503 ostrzGora=503 ostrzDol=637 oknoDol=668 zrobioneGora=680 OK tyt="Autolyse (Mehl + Wasser)" 
+393x852 krok=1:autolyse faza=lid_on fr instr=116 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Autolyse (farine + eau)" 
+393x852 krok=1:autolyse faza=lid_on fi instr=96 kartaY=395 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Autolyysi (jauhot + vesi)" 
+393x852 krok=1:autolyse faza=lid_on id instr=94 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Autolisis (tepung + air)" 
+393x852 krok=1:autolyse faza=lid_on ru instr=97 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=576 oknoDol=672 zrobioneGora=684 OK tyt="Автолиз (мука + вода)" 
+393x852 krok=1:autolyse faza=lid_on ms instr=91 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Autolisis (tepung + air)" 
+393x852 krok=1:autolyse faza=lid_on sv instr=99 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=617 oknoDol=668 zrobioneGora=680 OK tyt="Autolys (mjöl + vatten)" 
+393x852 krok=1:autolyse faza=lid_on nb instr=97 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Autolyse (mel + vann)" 
+393x852 krok=1:autolyse faza=lid_on es-419 instr=106 kartaY=395 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Autólisis (harina + agua)" 
+393x852 krok=3:bulk_ferment faza=lid_on de instr=42 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=617 oknoDol=668 zrobioneGora=680 OK tyt="Stockgare mit Dehnen und Falten" 
+393x852 krok=3:bulk_ferment faza=lid_on fr instr=51 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Fermentation en masse (Pointage) et rabats" 
+393x852 krok=3:bulk_ferment faza=lid_on fi instr=41 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Ensimmäinen kohotus ja taittelut" 
+393x852 krok=3:bulk_ferment faza=lid_on id instr=41 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Fermentasi massal dengan regang dan lipat" 
+393x852 krok=3:bulk_ferment faza=lid_on ru instr=51 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Основное брожение со складываниями" 
+393x852 krok=3:bulk_ferment faza=lid_on ms instr=38 kartaY=374 kartaDol=463 ostrzGora=463 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Penapaian pukal dengan lipatan doh" 
+393x852 krok=3:bulk_ferment faza=lid_on sv instr=37 kartaY=374 kartaDol=463 ostrzGora=463 ostrzDol=597 oknoDol=668 zrobioneGora=680 OK tyt="Första jäsning (Bulk) med vikningar" 
+393x852 krok=3:bulk_ferment faza=lid_on nb instr=38 kartaY=333 kartaDol=422 ostrzGora=422 ostrzDol=535 oknoDol=672 zrobioneGora=684 OK tyt="Hovedheving med bretting" 
+393x852 krok=3:bulk_ferment faza=lid_on es-419 instr=47 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Fermentación en bloque con pliegues" 
+393x852 krok=4:pre_shape faza=lid_on de instr=92 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=597 oknoDol=668 zrobioneGora=680 OK tyt="Vorformen" 
+393x852 krok=4:pre_shape faza=lid_on fr instr=100 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Boulage (Préfaçonnage)" 
+393x852 krok=4:pre_shape faza=lid_on fi instr=66 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Esimuotoilu" 
+393x852 krok=4:pre_shape faza=lid_on id instr=79 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Pembentukan awal" 
+393x852 krok=4:pre_shape faza=lid_on ru instr=71 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=556 oknoDol=672 zrobioneGora=684 OK tyt="Предформовка" 
+393x852 krok=4:pre_shape faza=lid_on ms instr=84 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Pembentukan awal" 
+393x852 krok=4:pre_shape faza=lid_on sv instr=73 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=576 oknoDol=668 zrobioneGora=680 OK tyt="Förformning" 
+393x852 krok=4:pre_shape faza=lid_on nb instr=69 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=556 oknoDol=672 zrobioneGora=684 OK tyt="Forforming" 
+393x852 krok=4:pre_shape faza=lid_on es-419 instr=86 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Preformado" 
+393x852 krok=6:final_shape faza=lid_on de instr=127 kartaY=374 kartaDol=524 ostrzGora=524 ostrzDol=658 oknoDol=668 zrobioneGora=680 OK tyt="Endformen (Wirken) und Gärkörbchen" 
+393x852 krok=6:final_shape faza=lid_on fr instr=134 kartaY=374 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Façonnage définitif et banneton" 
+393x852 krok=6:final_shape faza=lid_on fi instr=103 kartaY=395 kartaDol=524 ostrzGora=524 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Lopullinen muotoilu ja kohotuskori" 
+393x852 krok=6:final_shape faza=lid_on id instr=118 kartaY=395 kartaDol=524 ostrzGora=524 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Pembentukan akhir dan keranjang" 
+393x852 krok=6:final_shape faza=lid_on ru instr=104 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Формовка и корзина" 
+393x852 krok=6:final_shape faza=lid_on ms instr=130 kartaY=395 kartaDol=544 ostrzGora=544 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Pembentukan akhir dan bakul penapaian" 
+393x852 krok=6:final_shape faza=lid_on sv instr=96 kartaY=374 kartaDol=503 ostrzGora=503 ostrzDol=637 oknoDol=668 zrobioneGora=680 OK tyt="Slutlig formning och jäskorg" 
+393x852 krok=6:final_shape faza=lid_on nb instr=95 kartaY=395 kartaDol=524 ostrzGora=524 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Endelig forming og hevekurv" 
+393x852 krok=6:final_shape faza=lid_on es-419 instr=136 kartaY=395 kartaDol=544 ostrzGora=544 ostrzDol=699 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Formado definitivo y canasta" 
+393x852 krok=8:preheat_oven faza=lid_on de instr=67 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=597 oknoDol=668 zrobioneGora=680 OK tyt="Ofen und Topf vorheizen" 
+393x852 krok=8:preheat_oven faza=lid_on fr instr=68 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Préchauffage du four et de la cocotte" 
+393x852 krok=8:preheat_oven faza=lid_on fi instr=59 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Uunin ja padan esilämmitys" 
+393x852 krok=8:preheat_oven faza=lid_on id instr=64 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Memanaskan oven dan panci" 
+393x852 krok=8:preheat_oven faza=lid_on ru instr=67 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Разогрев духовки и кастрюли" 
+393x852 krok=8:preheat_oven faza=lid_on ms instr=74 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=678 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Memanaskan ketuhar dan periuk" 
+393x852 krok=8:preheat_oven faza=lid_on sv instr=59 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=668 zrobioneGora=680 OK tyt="Förvärmning av ugn och gryta" 
+393x852 krok=8:preheat_oven faza=lid_on nb instr=56 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Forvarming av ovn og gryte" 
+393x852 krok=8:preheat_oven faza=lid_on es-419 instr=55 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=658 oknoDol=672 zrobioneGora=684 OK tyt="Precalentar el horno y la olla" 
+393x852 krok=9:bake faza=lid_on de instr=319 kartaY=374 kartaDol=626 ostrzGora=626 ostrzDol=780 oknoDol=668 zrobioneGora=680 CZESCIOWO_POD tyt="Backen mit Dampf und Bräunen" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off de instr=319 kartaY=374 kartaDol=626 ostrzGora=- ostrzDol=- oknoDol=668 zrobioneGora=680 BRAK_OSTRZ tyt="Backen mit Dampf und Bräunen" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on fr instr=349 kartaY=374 kartaDol=626 ostrzGora=626 ostrzDol=801 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Cuisson avec vapeur et coloration" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off fr instr=349 kartaY=395 kartaDol=646 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Cuisson avec vapeur et coloration" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on fi instr=295 kartaY=333 kartaDol=565 ostrzGora=565 ostrzDol=719 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Höyrypaisto ja ruskistus" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off fi instr=295 kartaY=333 kartaDol=565 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Höyrypaisto ja ruskistus" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on id instr=305 kartaY=395 kartaDol=646 ostrzGora=646 ostrzDol=801 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Pemanggangan dengan uap dan pencokelatan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off id instr=305 kartaY=395 kartaDol=646 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Pemanggangan dengan uap dan pencokelatan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on ru instr=322 kartaY=374 kartaDol=626 ostrzGora=626 ostrzDol=780 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Выпечка с паром и подрумянивание" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off ru instr=322 kartaY=374 kartaDol=626 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Выпечка с паром и подрумянивание" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on ms instr=317 kartaY=395 kartaDol=646 ostrzGora=646 ostrzDol=821 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Bakaran berwap dan pemerangan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off ms instr=317 kartaY=395 kartaDol=646 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Bakaran berwap dan pemerangan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on sv instr=285 kartaY=374 kartaDol=605 ostrzGora=605 ostrzDol=760 oknoDol=668 zrobioneGora=680 CZESCIOWO_POD tyt="Gräddning med ånga och färg" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off sv instr=285 kartaY=374 kartaDol=605 ostrzGora=- ostrzDol=- oknoDol=668 zrobioneGora=680 BRAK_OSTRZ tyt="Gräddning med ånga och färg" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on nb instr=289 kartaY=374 kartaDol=605 ostrzGora=605 ostrzDol=760 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Steking med damp og bruning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off nb instr=289 kartaY=374 kartaDol=605 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Steking med damp og bruning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on es-419 instr=335 kartaY=374 kartaDol=626 ostrzGora=626 ostrzDol=780 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Horneado con vapor y dorado" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off es-419 instr=335 kartaY=395 kartaDol=646 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Horneado con vapor y dorado" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=10:cool faza=lid_on de instr=179 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=668 zrobioneGora=680 OK tyt="Auskühlen auf dem Gitter" 
+393x852 krok=10:cool faza=lid_on fr instr=187 kartaY=374 kartaDol=544 ostrzGora=544 ostrzDol=654 oknoDol=672 zrobioneGora=684 OK tyt="Refroidissement sur grille" 
+393x852 krok=10:cool faza=lid_on fi instr=164 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=672 zrobioneGora=684 OK tyt="Jäähdytys ritilällä" 
+393x852 krok=10:cool faza=lid_on id instr=200 kartaY=333 kartaDol=524 ostrzGora=524 ostrzDol=633 oknoDol=672 zrobioneGora=684 OK tyt="Pendinginan di rak kawat" 
+393x852 krok=10:cool faza=lid_on ru instr=173 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=672 zrobioneGora=684 OK tyt="Остывание на решётке" 
+393x852 krok=10:cool faza=lid_on ms instr=184 kartaY=374 kartaDol=544 ostrzGora=544 ostrzDol=674 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Penyejukan di atas rak dawai" 
+393x852 krok=10:cool faza=lid_on sv instr=160 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=668 zrobioneGora=680 OK tyt="Svalna på galler" 
+393x852 krok=10:cool faza=lid_on nb instr=165 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=672 zrobioneGora=684 OK tyt="Avkjøling på rist" 
+393x852 krok=10:cool faza=lid_on es-419 instr=175 kartaY=333 kartaDol=503 ostrzGora=503 ostrzDol=613 oknoDol=672 zrobioneGora=684 OK tyt="Enfriamiento en rejilla" 
+320x568 krok=0:starter_feed faza=lid_on de instr=125 kartaY=180 kartaDol=350 ostrzGora=350 ostrzDol=525 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Sauerteig auffrischen (bis zum Reifehöhepunkt)" 
+320x568 krok=0:starter_feed faza=lid_on fr instr=122 kartaY=180 kartaDol=350 ostrzGora=350 ostrzDol=525 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Rafraîchi du levain naturel (pic d'activité)" 
+320x568 krok=0:starter_feed faza=lid_on fi instr=115 kartaY=190 kartaDol=340 ostrzGora=340 ostrzDol=514 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Hapanjuuren ruokinta (huippuun asti)" 
+320x568 krok=0:starter_feed faza=lid_on id instr=126 kartaY=226 kartaDol=396 ostrzGora=396 ostrzDol=591 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Pemberian makan starter (mencapai puncak)" 
+320x568 krok=0:starter_feed faza=lid_on ru instr=86 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Подкормка закваски (до пика)" 
+320x568 krok=0:starter_feed faza=lid_on ms instr=112 kartaY=180 kartaDol=330 ostrzGora=330 ostrzDol=504 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Pemberian makan pemula sourdough (mencapai kemuncak)" 
+320x568 krok=0:starter_feed faza=lid_on sv instr=107 kartaY=180 kartaDol=330 ostrzGora=330 ostrzDol=504 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Matning av surdegsgrunden (till toppen)" 
+320x568 krok=0:starter_feed faza=lid_on nb instr=96 kartaY=180 kartaDol=330 ostrzGora=330 ostrzDol=504 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Mating av surdeigsstarter (til toppunkt)" 
+320x568 krok=0:starter_feed faza=lid_on es-419 instr=104 kartaY=180 kartaDol=330 ostrzGora=330 ostrzDol=504 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Alimentación de la masa madre (hasta el punto máximo)" 
+320x568 krok=1:autolyse faza=lid_on de instr=122 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=490 zrobioneGora=498 OK tyt="Autolyse (Mehl + Wasser)" 
+320x568 krok=1:autolyse faza=lid_on fr instr=116 kartaY=174 kartaDol=324 ostrzGora=324 ostrzDol=498 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Autolyse (farine + eau)" 
+320x568 krok=1:autolyse faza=lid_on fi instr=96 kartaY=184 kartaDol=334 ostrzGora=334 ostrzDol=508 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Autolyysi (jauhot + vesi)" 
+320x568 krok=1:autolyse faza=lid_on id instr=94 kartaY=220 kartaDol=370 ostrzGora=370 ostrzDol=524 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Autolisis (tepung + air)" 
+320x568 krok=1:autolyse faza=lid_on ru instr=97 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Автолиз (мука + вода)" 
+320x568 krok=1:autolyse faza=lid_on ms instr=91 kartaY=174 kartaDol=303 ostrzGora=303 ostrzDol=478 oknoDol=490 zrobioneGora=498 OK tyt="Autolisis (tepung + air)" 
+320x568 krok=1:autolyse faza=lid_on sv instr=99 kartaY=174 kartaDol=324 ostrzGora=324 ostrzDol=478 oknoDol=504 zrobioneGora=512 OK tyt="Autolys (mjöl + vatten)" 
+320x568 krok=1:autolyse faza=lid_on nb instr=97 kartaY=174 kartaDol=324 ostrzGora=324 ostrzDol=478 oknoDol=490 zrobioneGora=498 OK tyt="Autolyse (mel + vann)" 
+320x568 krok=1:autolyse faza=lid_on es-419 instr=106 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=480 oknoDol=504 zrobioneGora=512 OK tyt="Autólisis (harina + agua)" 
+320x568 krok=3:bulk_ferment faza=lid_on de instr=42 kartaY=154 kartaDol=262 ostrzGora=262 ostrzDol=417 oknoDol=490 zrobioneGora=498 OK tyt="Stockgare mit Dehnen und Falten" 
+320x568 krok=3:bulk_ferment faza=lid_on fr instr=51 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=464 oknoDol=490 zrobioneGora=498 OK tyt="Fermentation en masse (Pointage) et rabats" 
+320x568 krok=3:bulk_ferment faza=lid_on fi instr=41 kartaY=166 kartaDol=275 ostrzGora=275 ostrzDol=450 oknoDol=504 zrobioneGora=512 OK tyt="Ensimmäinen kohotus ja taittelut" 
+320x568 krok=3:bulk_ferment faza=lid_on id instr=41 kartaY=226 kartaDol=335 ostrzGora=335 ostrzDol=489 oknoDol=490 zrobioneGora=498 OK tyt="Fermentasi massal dengan regang dan lipat" 
+320x568 krok=3:bulk_ferment faza=lid_on ru instr=51 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=443 oknoDol=504 zrobioneGora=512 OK tyt="Основное брожение со складываниями" 
+320x568 krok=3:bulk_ferment faza=lid_on ms instr=38 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=464 oknoDol=490 zrobioneGora=498 OK tyt="Penapaian pukal dengan lipatan doh" 
+320x568 krok=3:bulk_ferment faza=lid_on sv instr=37 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=443 oknoDol=504 zrobioneGora=512 OK tyt="Första jäsning (Bulk) med vikningar" 
+320x568 krok=3:bulk_ferment faza=lid_on nb instr=38 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=419 oknoDol=490 zrobioneGora=498 OK tyt="Hovedheving med bretting" 
+320x568 krok=3:bulk_ferment faza=lid_on es-419 instr=47 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=464 oknoDol=504 zrobioneGora=512 OK tyt="Fermentación en bloque con pliegues" 
+320x568 krok=4:pre_shape faza=lid_on de instr=92 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=490 zrobioneGora=498 OK tyt="Vorformen" 
+320x568 krok=4:pre_shape faza=lid_on fr instr=100 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=480 oknoDol=490 zrobioneGora=498 OK tyt="Boulage (Préfaçonnage)" 
+320x568 krok=4:pre_shape faza=lid_on fi instr=66 kartaY=166 kartaDol=295 ostrzGora=295 ostrzDol=470 oknoDol=504 zrobioneGora=512 OK tyt="Esimuotoilu" 
+320x568 krok=4:pre_shape faza=lid_on id instr=79 kartaY=202 kartaDol=331 ostrzGora=331 ostrzDol=486 oknoDol=490 zrobioneGora=498 OK tyt="Pembentukan awal" 
+320x568 krok=4:pre_shape faza=lid_on ru instr=71 kartaY=154 kartaDol=283 ostrzGora=283 ostrzDol=437 oknoDol=504 zrobioneGora=512 OK tyt="Предформовка" 
+320x568 krok=4:pre_shape faza=lid_on ms instr=84 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=460 oknoDol=490 zrobioneGora=498 OK tyt="Pembentukan awal" 
+320x568 krok=4:pre_shape faza=lid_on sv instr=73 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=440 oknoDol=504 zrobioneGora=512 OK tyt="Förformning" 
+320x568 krok=4:pre_shape faza=lid_on nb instr=69 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=440 oknoDol=490 zrobioneGora=498 OK tyt="Forforming" 
+320x568 krok=4:pre_shape faza=lid_on es-419 instr=86 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Preformado" 
+320x568 krok=6:final_shape faza=lid_on de instr=127 kartaY=180 kartaDol=350 ostrzGora=350 ostrzDol=504 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Endformen (Wirken) und Gärkörbchen" 
+320x568 krok=6:final_shape faza=lid_on fr instr=134 kartaY=156 kartaDol=326 ostrzGora=326 ostrzDol=501 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Façonnage définitif et banneton" 
+320x568 krok=6:final_shape faza=lid_on fi instr=103 kartaY=190 kartaDol=340 ostrzGora=340 ostrzDol=514 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Lopullinen muotoilu ja kohotuskori" 
+320x568 krok=6:final_shape faza=lid_on id instr=118 kartaY=220 kartaDol=390 ostrzGora=390 ostrzDol=544 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Pembentukan akhir dan keranjang" 
+320x568 krok=6:final_shape faza=lid_on ru instr=104 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Формовка и корзина" 
+320x568 krok=6:final_shape faza=lid_on ms instr=130 kartaY=198 kartaDol=368 ostrzGora=368 ostrzDol=543 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Pembentukan akhir dan bakul penapaian" 
+320x568 krok=6:final_shape faza=lid_on sv instr=96 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Slutlig formning och jäskorg" 
+320x568 krok=6:final_shape faza=lid_on nb instr=95 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=490 zrobioneGora=498 OK tyt="Endelig forming og hevekurv" 
+320x568 krok=6:final_shape faza=lid_on es-419 instr=136 kartaY=174 kartaDol=364 ostrzGora=364 ostrzDol=539 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Formado definitivo y canasta" 
+320x568 krok=8:preheat_oven faza=lid_on de instr=67 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=480 oknoDol=490 zrobioneGora=498 OK tyt="Ofen und Topf vorheizen" 
+320x568 krok=8:preheat_oven faza=lid_on fr instr=68 kartaY=180 kartaDol=309 ostrzGora=309 ostrzDol=504 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Préchauffage du four et de la cocotte" 
+320x568 krok=8:preheat_oven faza=lid_on fi instr=59 kartaY=166 kartaDol=275 ostrzGora=275 ostrzDol=450 oknoDol=504 zrobioneGora=512 OK tyt="Uunin ja padan esilämmitys" 
+320x568 krok=8:preheat_oven faza=lid_on id instr=64 kartaY=220 kartaDol=349 ostrzGora=349 ostrzDol=565 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Memanaskan oven dan panci" 
+320x568 krok=8:preheat_oven faza=lid_on ru instr=67 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=480 oknoDol=504 zrobioneGora=512 OK tyt="Разогрев духовки и кастрюли" 
+320x568 krok=8:preheat_oven faza=lid_on ms instr=74 kartaY=174 kartaDol=303 ostrzGora=303 ostrzDol=519 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Memanaskan ketuhar dan periuk" 
+320x568 krok=8:preheat_oven faza=lid_on sv instr=59 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=419 oknoDol=504 zrobioneGora=512 OK tyt="Förvärmning av ugn och gryta" 
+320x568 krok=8:preheat_oven faza=lid_on nb instr=56 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=440 oknoDol=490 zrobioneGora=498 OK tyt="Forvarming av ovn og gryte" 
+320x568 krok=8:preheat_oven faza=lid_on es-419 instr=55 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Precalentar el horno y la olla" 
+320x568 krok=9:bake faza=lid_on de instr=319 kartaY=156 kartaDol=448 ostrzGora=448 ostrzDol=644 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Backen mit Dampf und Bräunen" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off de instr=319 kartaY=156 kartaDol=448 ostrzGora=- ostrzDol=- oknoDol=490 zrobioneGora=498 BRAK_OSTRZ tyt="Backen mit Dampf und Bräunen" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on fr instr=349 kartaY=180 kartaDol=493 ostrzGora=493 ostrzDol=688 oknoDol=490 zrobioneGora=498 CALE_POD tyt="Cuisson avec vapeur et coloration" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off fr instr=349 kartaY=180 kartaDol=493 ostrzGora=- ostrzDol=- oknoDol=490 zrobioneGora=498 BRAK_OSTRZ tyt="Cuisson avec vapeur et coloration" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on fi instr=295 kartaY=184 kartaDol=476 ostrzGora=476 ostrzDol=651 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Höyrypaisto ja ruskistus" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off fi instr=295 kartaY=184 kartaDol=476 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Höyrypaisto ja ruskistus" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on id instr=305 kartaY=226 kartaDol=518 ostrzGora=518 ostrzDol=734 oknoDol=490 zrobioneGora=498 CALE_POD tyt="Pemanggangan dengan uap dan pencokelatan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off id instr=305 kartaY=226 kartaDol=518 ostrzGora=- ostrzDol=- oknoDol=490 zrobioneGora=498 BRAK_OSTRZ tyt="Pemanggangan dengan uap dan pencokelatan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on ru instr=322 kartaY=180 kartaDol=472 ostrzGora=472 ostrzDol=668 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Выпечка с паром и подрумянивание" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off ru instr=322 kartaY=180 kartaDol=472 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Выпечка с паром и подрумянивание" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on ms instr=317 kartaY=156 kartaDol=448 ostrzGora=448 ostrzDol=664 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Bakaran berwap dan pemerangan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off ms instr=317 kartaY=156 kartaDol=448 ostrzGora=- ostrzDol=- oknoDol=490 zrobioneGora=498 BRAK_OSTRZ tyt="Bakaran berwap dan pemerangan" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on sv instr=285 kartaY=156 kartaDol=428 ostrzGora=428 ostrzDol=582 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Gräddning med ånga och färg" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off sv instr=285 kartaY=156 kartaDol=428 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Gräddning med ånga och färg" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on nb instr=289 kartaY=156 kartaDol=448 ostrzGora=448 ostrzDol=623 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Steking med damp og bruning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off nb instr=289 kartaY=156 kartaDol=448 ostrzGora=- ostrzDol=- oknoDol=490 zrobioneGora=498 BRAK_OSTRZ tyt="Steking med damp og bruning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on es-419 instr=335 kartaY=156 kartaDol=448 ostrzGora=448 ostrzDol=644 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Horneado con vapor y dorado" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off es-419 instr=335 kartaY=156 kartaDol=448 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Horneado con vapor y dorado" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=10:cool faza=lid_on de instr=179 kartaY=154 kartaDol=364 ostrzGora=364 ostrzDol=494 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Auskühlen auf dem Gitter" 
+320x568 krok=10:cool faza=lid_on fr instr=187 kartaY=154 kartaDol=364 ostrzGora=364 ostrzDol=494 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Refroidissement sur grille" 
+320x568 krok=10:cool faza=lid_on fi instr=164 kartaY=182 kartaDol=392 ostrzGora=392 ostrzDol=522 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Jäähdytys ritilällä" 
+320x568 krok=10:cool faza=lid_on id instr=200 kartaY=200 kartaDol=431 ostrzGora=431 ostrzDol=581 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Pendinginan di rak kawat" 
+320x568 krok=10:cool faza=lid_on ru instr=173 kartaY=154 kartaDol=364 ostrzGora=364 ostrzDol=494 oknoDol=504 zrobioneGora=512 OK tyt="Остывание на решётке" 
+320x568 krok=10:cool faza=lid_on ms instr=184 kartaY=154 kartaDol=364 ostrzGora=364 ostrzDol=515 oknoDol=490 zrobioneGora=498 CZESCIOWO_POD tyt="Penyejukan di atas rak dawai" 
+320x568 krok=10:cool faza=lid_on sv instr=160 kartaY=154 kartaDol=344 ostrzGora=344 ostrzDol=454 oknoDol=504 zrobioneGora=512 OK tyt="Svalna på galler" 
+320x568 krok=10:cool faza=lid_on nb instr=165 kartaY=154 kartaDol=344 ostrzGora=344 ostrzDol=474 oknoDol=490 zrobioneGora=498 OK tyt="Avkjøling på rist" 
+320x568 krok=10:cool faza=lid_on es-419 instr=175 kartaY=154 kartaDol=364 ostrzGora=364 ostrzDol=494 oknoDol=504 zrobioneGora=512 OK tyt="Enfriamiento en rejilla" 

@@ -1,0 +1,124 @@
+/**
+ * M1-audytor-generalny-005 (04-studio-projektowe-001, opcja A z reauditu 2026-11-09; decyzja M2 D-318 do weta D-289):
+ * na pasie prowadzenia tylko tytuł kroku, czas i „potem …”; Spirala z nazwą receptury i „Gotowe …” w karcie pod kartą
+ * kroku. Przy 393×852 pt (domyślny tekst, pl i en) dół ostrzeżenia bezpieczeństwa nad górą „Zrobione”; przy dwóch
+ * wypiekach przełącznik nie zasłania karty kroku. 320×568 pt (rola 04, p4b, opcja a): zwarty pas i pasek kciuka w jednym
+ * rzędzie na niskim ekranie — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt. Wcześniej (rola 08): niewykonalne w opcji A (sama karta z ostrzeżeniem i pasek
+ * kciuka są wyższe niż okno pod najmniejszym pasem) — otwarte, rachunek w raporcie roli 08 (fix-2026-11-09, wynik-p4).
+ * Układ to rachunek z tokenów i stylów (tests/helpers/uklad-ekranu.ts), nie pomiar: zrzut z symulatora daje E2E iOS
+ * (.maestro/e2e/03-prowadzenie-widok-skupiony.yaml, `step-warning`).
+ */
+jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
+jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
+jest.mock('expo-haptics', () => ({
+  notificationAsync: jest.fn(),
+  impactAsync: jest.fn(),
+  NotificationFeedbackType: { Success: 'success' },
+  ImpactFeedbackStyle: { Light: 'light', Medium: 'medium', Heavy: 'heavy' },
+}));
+const mockWciecia = { top: 0, left: 0, right: 0, bottom: 0 };
+jest.mock('react-native-safe-area-context', () => {
+  const React = require('react');
+  return {
+    SafeAreaView: ({ children, style }: { children: React.ReactNode; style?: unknown }) => React.createElement('View', { style }, children),
+    useSafeAreaInsets: () => mockWciecia,
+  };
+});
+let mockParams: Record<string, string> = {};
+jest.mock('expo-router', () => {
+  const React = require('react');
+  return {
+    useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
+    useLocalSearchParams: () => mockParams,
+    useFocusEffect: (cb: () => void) => React.useEffect(cb, []),
+    Stack: Object.assign(({ children }: { children: React.ReactNode }) => children, { Screen: () => null }),
+  };
+});
+
+import fs from 'fs';
+import path from 'path';
+import React from 'react';
+import { Dimensions, StyleSheet } from 'react-native';
+import renderer, { act } from 'react-test-renderer';
+import StolnicaScreen from '../../app/stolnica';
+import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
+import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
+import { planBakeSteps } from '../core/bake-steps';
+import { ostrzezeniaKroku } from '../core/ostrzezenia-kroku';
+import { saveBakeSession, type BakeSession } from '../data/bake-session-store';
+import { setLang, LANGS, t } from '../lib/i18n';
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { ramka, ukladEkranu } from '../../tests/helpers/uklad-sonda';
+import { czyNiskiEkran } from '../ui/niski-ekran';
+import { uklad } from '../ui/tokeny';
+
+jest.setTimeout(900000);
+
+/** iPhone 16 (393×852 pt): pasek stanu 59 pt, wskaźnik Home 34 pt. */
+const EKRAN = { szer: 393, wys: 852, gora: 59, dol: 34 } as const;
+/** iPhone SE 1. gen. i „Powiększenie ekranu” (320×568 pt): pasek stanu 20 pt, bez wskaźnika Home (rola 04, p4b). */
+const NISKI = { szer: 320, wys: 568, gora: 20, dol: 0 } as const;
+type Ekran = { szer: number; wys: number; gora: number; dol: number };
+
+let FAZA = 'lid_on';
+const now = 1_800_000_000_000;
+const kroki = planBakeSteps({ startAt: now - 60_000, isHighRye: false });
+const wypiek = (id: string, nazwa: string, stepIdx: number): BakeSession => ({
+  version: 2,
+  steps: kroki,
+  stepIdx,
+  dutchOvenPhase: FAZA as any,
+  timerEndsAt: now + 30 * 60_000,
+  pausedLeftSec: null,
+  recipeName: nazwa,
+  startedAt: now - 60_000,
+  bake: { id, recipeName: nazwa, startedAt: now - 60_000, currentStageId: kroki[stepIdx].id, zaczetyZDostepem: true },
+});
+
+async function render(): Promise<renderer.ReactTestRenderer> {
+  let tree: renderer.ReactTestRenderer | null = null;
+  await act(async () => {
+    tree = renderer.create(<StolnicaScreen />);
+  });
+  await act(async () => {
+    for (let i = 0; i < 30; i++) await Promise.resolve();
+  });
+  return tree!;
+}
+
+const DOMYSLNE = Dimensions.get('window');
+
+
+describe('sonda', () => {
+  afterEach(() => { jest.restoreAllMocks(); });
+  it('pomiar', async () => {
+    const out: string[] = [];
+    const idxy = kroki.map((_, i) => i).filter((i) => ostrzezeniaKroku(kroki, i, kroki[i].category === 'bake' ? 'lid_on' : undefined).length > 0);
+    out.push('KROKI ' + kroki.map((k, i) => `${i}:${k.id}/${k.category}/${k.name}/instr=${k.instructions.length}/ostrz=${ostrzezeniaKroku(kroki, i, kroki[i].category === 'bake' ? 'lid_on' : undefined).length}`).join(' | '));
+    const jezyki = (process.env.JEZ ? process.env.JEZ.split(',') : [...LANGS]) as any[];
+    for (const e of [EKRAN, NISKI]) for (const idx of idxy) for (const j of jezyki) for (const faza of (kroki[idx].category === 'bake' ? ['lid_on', 'lid_off'] : ['lid_on'])) {
+      FAZA = faza;
+      zUprawnieniem(); useTempDbDir(); _resetMemStore(); setActiveBake(null); setLang(j);
+      mockParams = { wypiek: 'bake_chleb' };
+      jest.spyOn(Date, 'now').mockImplementation(() => now);
+      await initDatabase(); await saveBakeSession(null);
+      await saveBakeSession(wypiek('bake_chleb', 'Wiejski chleb codzienny na zakwasie', idx));
+      act(() => { Dimensions.set({ window: { width: e.szer, height: e.wys, scale: 3, fontScale: 1 }, screen: { width: e.szer, height: e.wys, scale: 3, fontScale: 1 } }); });
+      Object.assign(mockWciecia, { top: e.gora, bottom: e.dol });
+      const tree = await render();
+      const ramki = ukladEkranu(tree.root, e.szer, e.wys, e.dol);
+      const jest_ = tree.root.findAll((n) => n.props?.testID === 'step-warning' && typeof n.type === 'string').length > 0;
+      const zrob = ramka(tree.root, ramki, 'next-or-finish-step-btn');
+      const karta = ramka(tree.root, ramki, 'karta-kroku');
+      const sv = tree.root.findAll((n) => n.type === 'RCTScrollView')[0];
+      const okno = ramki.get(sv)!;
+      const tyt = tree.root.findAll((n) => n.props?.testID === 'step-title' && typeof n.type === 'string')[0];
+      const o = jest_ ? ramka(tree.root, ramki, 'step-warning') : null;
+      const garnek = tree.root.findAll((n) => typeof n.props?.testID === 'string' && /dutch|phase|lid/.test(n.props.testID) && typeof n.type === 'string').map((n) => n.props.testID);
+      out.push(`${e.szer}x${e.wys} krok=${idx}:${kroki[idx].id} faza=${faza} ${j} instr=${t(kroki[idx].instructions).length} kartaY=${Math.round(karta.y)} kartaDol=${Math.round(karta.y + karta.h)} ostrzGora=${o ? Math.round(o.y) : '-'} ostrzDol=${o ? Math.round(o.y + o.h) : '-'} oknoDol=${Math.round(okno.y + okno.h)} zrobioneGora=${Math.floor(zrob.y)} ${o ? (o.y >= okno.y + okno.h ? 'CALE_POD' : o.y + o.h > okno.y + okno.h ? 'CZESCIOWO_POD' : 'OK') : 'BRAK_OSTRZ'} tyt=${tyt ? JSON.stringify(tyt.children.join('')) : ''} ${[...new Set(garnek)].slice(0,6).join(',')}`);
+      act(() => tree.unmount());
+      jest.restoreAllMocks();
+    }
+    fs.writeFileSync(process.env.WYNIK || '/dev/stdout', out.join('\n') + '\n');
+  });
+});

@@ -1,0 +1,37 @@
+KROKI 0:starter_feed/starter_feed/Dokarmienie zakwasu (osiągnięcie szczytu)/instr=82/ostrz=2 | 1:autolyse/autolyse/Autoliza (mąka + woda)/instr=87/ostrz=2 | 2:mix/mix/Wymieszanie z solą i zakwasem/instr=173/ostrz=0 | 3:bulk_ferment/bulk_ferment/Fermentacja burzliwa ze składaniami/instr=48/ostrz=2 | 4:pre_shape/pre_shape/Formowanie wstępne/instr=71/ostrz=2 | 5:bench_rest/bench_rest/Odpoczynek na desce/instr=88/ostrz=0 | 6:final_shape/final_shape/Formowanie ostateczne i koszyk/instr=91/ostrz=2 | 7:final_proof/final_proof/Garowanie chłodnicze w lodówce/instr=124/ostrz=0 | 8:preheat_oven/preheat_oven/Nagrzewanie piekarnika i garnka/instr=60/ostrz=2 | 9:bake/bake/Wypiek z parą i rumienienie/instr=310/ostrz=2 | 10:cool/cool/Studzenie na kratce/instr=158/ostrz=1
+393x852 krok=0:starter_feed faza=lid_on pl instr=82 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Dokarmienie zakwasu (osiągnięcie szczytu)" 
+393x852 krok=0:starter_feed faza=lid_on en instr=98 kartaY=374 kartaDol=503 ostrzGora=503 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Starter feeding (reaching peak)" 
+393x852 krok=1:autolyse faza=lid_on pl instr=87 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=556 oknoDol=672 zrobioneGora=684 OK tyt="Autoliza (mąka + woda)" 
+393x852 krok=1:autolyse faza=lid_on en instr=104 kartaY=333 kartaDol=463 ostrzGora=463 ostrzDol=576 oknoDol=672 zrobioneGora=684 OK tyt="Autolyse (flour + water)" 
+393x852 krok=3:bulk_ferment faza=lid_on pl instr=48 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Fermentacja burzliwa ze składaniami" 
+393x852 krok=3:bulk_ferment faza=lid_on en instr=47 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Bulk fermentation with folds" 
+393x852 krok=4:pre_shape faza=lid_on pl instr=71 kartaY=333 kartaDol=442 ostrzGora=442 ostrzDol=556 oknoDol=672 zrobioneGora=684 OK tyt="Formowanie wstępne" 
+393x852 krok=4:pre_shape faza=lid_on en instr=88 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Pre-shaping (Pre-shape)" 
+393x852 krok=6:final_shape faza=lid_on pl instr=91 kartaY=374 kartaDol=503 ostrzGora=503 ostrzDol=617 oknoDol=672 zrobioneGora=684 OK tyt="Formowanie ostateczne i koszyk" 
+393x852 krok=6:final_shape faza=lid_on en instr=97 kartaY=354 kartaDol=483 ostrzGora=483 ostrzDol=597 oknoDol=672 zrobioneGora=684 OK tyt="Final shaping and basket" 
+393x852 krok=8:preheat_oven faza=lid_on pl instr=60 kartaY=374 kartaDol=483 ostrzGora=483 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Nagrzewanie piekarnika i garnka" 
+393x852 krok=8:preheat_oven faza=lid_on en instr=61 kartaY=395 kartaDol=503 ostrzGora=503 ostrzDol=637 oknoDol=672 zrobioneGora=684 OK tyt="Heating the oven and the pot" 
+393x852 krok=9:bake faza=lid_on pl instr=310 kartaY=374 kartaDol=605 ostrzGora=605 ostrzDol=760 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Wypiek z parą i rumienienie" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off pl instr=310 kartaY=374 kartaDol=605 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Wypiek z parą i rumienienie" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_on en instr=329 kartaY=374 kartaDol=605 ostrzGora=605 ostrzDol=739 oknoDol=672 zrobioneGora=684 CZESCIOWO_POD tyt="Baking with steam and browning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=9:bake faza=lid_off en instr=329 kartaY=374 kartaDol=605 ostrzGora=- ostrzDol=- oknoDol=672 zrobioneGora=684 BRAK_OSTRZ tyt="Baking with steam and browning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+393x852 krok=10:cool faza=lid_on pl instr=158 kartaY=333 kartaDol=483 ostrzGora=483 ostrzDol=593 oknoDol=672 zrobioneGora=684 OK tyt="Studzenie na kratce" 
+393x852 krok=10:cool faza=lid_on en instr=144 kartaY=333 kartaDol=483 ostrzGora=483 ostrzDol=572 oknoDol=672 zrobioneGora=684 OK tyt="Cooling on a rack" 
+320x568 krok=0:starter_feed faza=lid_on pl instr=82 kartaY=180 kartaDol=309 ostrzGora=309 ostrzDol=464 oknoDol=504 zrobioneGora=512 OK tyt="Dokarmienie zakwasu (osiągnięcie szczytu)" 
+320x568 krok=0:starter_feed faza=lid_on en instr=98 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Starter feeding (reaching peak)" 
+320x568 krok=1:autolyse faza=lid_on pl instr=87 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=419 oknoDol=504 zrobioneGora=512 OK tyt="Autoliza (mąka + woda)" 
+320x568 krok=1:autolyse faza=lid_on en instr=104 kartaY=156 kartaDol=306 ostrzGora=306 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Autolyse (flour + water)" 
+320x568 krok=3:bulk_ferment faza=lid_on pl instr=48 kartaY=180 kartaDol=289 ostrzGora=289 ostrzDol=423 oknoDol=504 zrobioneGora=512 OK tyt="Fermentacja burzliwa ze składaniami" 
+320x568 krok=3:bulk_ferment faza=lid_on en instr=47 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=419 oknoDol=504 zrobioneGora=512 OK tyt="Bulk fermentation with folds" 
+320x568 krok=4:pre_shape faza=lid_on pl instr=71 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=419 oknoDol=504 zrobioneGora=512 OK tyt="Formowanie wstępne" 
+320x568 krok=4:pre_shape faza=lid_on en instr=88 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=440 oknoDol=504 zrobioneGora=512 OK tyt="Pre-shaping (Pre-shape)" 
+320x568 krok=6:final_shape faza=lid_on pl instr=91 kartaY=156 kartaDol=285 ostrzGora=285 ostrzDol=419 oknoDol=504 zrobioneGora=512 OK tyt="Formowanie ostateczne i koszyk" 
+320x568 krok=6:final_shape faza=lid_on en instr=97 kartaY=174 kartaDol=303 ostrzGora=303 ostrzDol=458 oknoDol=504 zrobioneGora=512 OK tyt="Final shaping and basket" 
+320x568 krok=8:preheat_oven faza=lid_on pl instr=60 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=460 oknoDol=504 zrobioneGora=512 OK tyt="Nagrzewanie piekarnika i garnka" 
+320x568 krok=8:preheat_oven faza=lid_on en instr=61 kartaY=156 kartaDol=265 ostrzGora=265 ostrzDol=440 oknoDol=504 zrobioneGora=512 OK tyt="Heating the oven and the pot" 
+320x568 krok=9:bake faza=lid_on pl instr=310 kartaY=156 kartaDol=428 ostrzGora=428 ostrzDol=623 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Wypiek z parą i rumienienie" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off pl instr=310 kartaY=156 kartaDol=428 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Wypiek z parą i rumienienie" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_on en instr=329 kartaY=156 kartaDol=448 ostrzGora=448 ostrzDol=623 oknoDol=504 zrobioneGora=512 CZESCIOWO_POD tyt="Baking with steam and browning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=9:bake faza=lid_off en instr=329 kartaY=156 kartaDol=448 ostrzGora=- ostrzDol=- oknoDol=504 zrobioneGora=512 BRAK_OSTRZ tyt="Baking with steam and browning" dutch-oven-phase-card,phase-tab-lid-on,phase-tab-lid-off
+320x568 krok=10:cool faza=lid_on pl instr=158 kartaY=154 kartaDol=324 ostrzGora=324 ostrzDol=454 oknoDol=504 zrobioneGora=512 OK tyt="Studzenie na kratce" 
+320x568 krok=10:cool faza=lid_on en instr=144 kartaY=154 kartaDol=324 ostrzGora=324 ostrzDol=433 oknoDol=504 zrobioneGora=512 OK tyt="Cooling on a rack" 
