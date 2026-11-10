@@ -1,0 +1,14 @@
+# 1c723632: npx jest src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx src/data/__tests__/odczyt-z-polaczenia-003.sqlite.test.ts --maxWorkers=2
+(node:1281) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/odczyt-z-polaczenia-003.sqlite.test.ts
+(node:1280) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx (17.506 s)
+
+Test Suites: 2 passed, 2 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        18.254 s
+Ran all test suites matching /src\/__tests__\/ratunek-import-pakietu-003.sqlite.test.tsx|src\/data\/__tests__\/odczyt-z-polaczenia-003.sqlite.test.ts/i.
+kod 0

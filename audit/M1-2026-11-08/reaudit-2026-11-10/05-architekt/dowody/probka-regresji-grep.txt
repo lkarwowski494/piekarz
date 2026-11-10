@@ -1,0 +1,50 @@
+# Próbka regresji spoza zmienionych plików — 1c723632 (WT), 2026-11-10
+## wywołujący zbierzDaneZBazy / czytajSesjeDoKopii (kod produkcyjny)
+src/data/sesje-kopii.ts:33:export async function czytajSesjeDoKopii(db: SQLite.SQLiteDatabase | null): Promise<WierszSesji[]> {
+src/data/usun-wszystko.ts:14:import { czytajSesjeDoKopii } from './sesje-kopii';
+src/data/usun-wszystko.ts:19:    const bakeSessions = await czytajSesjeDoKopii(await getDb());
+src/data/dane-z-bazy.ts:19:import { czytajSesjeDoKopii } from './sesje-kopii';
+src/data/dane-z-bazy.ts:22:export async function zbierzDaneZBazy(db: SQLite.SQLiteDatabase): Promise<PiekarzBackupData> {
+src/data/dane-z-bazy.ts:29:  const bakeSessions = await czytajSesjeDoKopii(db);
+src/lib/import-pakietu.ts:13:import { zbierzDaneZBazy } from '../data/dane-z-bazy';
+src/lib/import-pakietu.ts:78:    const stan = await zbierzDaneZBazy(db);
+## ARCH-07: INSERT OR REPLACE / REPLACE INTO (produkcyjny)
+src/data/sqlite-store.ts:289:        'INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
+src/data/starter-entries-store.ts:3:// Rodzic UPSERT-em (nigdy INSERT OR REPLACE: kaskada skasowałaby dziennik), rodzic i dzieci w jednej transakcji
+src/data/flour-store.ts:34:    'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
+src/data/settings-store.ts:52:      'INSERT OR REPLACE INTO lesson_progress (level_id, completed_at) VALUES (?, ?);',
+src/data/settings-store.ts:114:    await writeOrThrow(() => db.runAsync('INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?);', key, value));
+src/data/wpisy-wypiekow.ts:65: * UPSERT, nie INSERT OR REPLACE (zasada wspólna 10): REPLACE usuwał wiersz, więc ocena po wypieku zerowała
+src/data/recipes-store.ts:70:        `INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
+## ARCH-07: REFERENCES w schemacie
+src/data/sqlite-schema.ts:282:          starter_id TEXT NOT NULL REFERENCES starters(id) ON DELETE CASCADE,
+## ARCH-06: PRAGMA foreign_keys
+src/data/sqlite-schema.ts:111:    await db.execAsync('PRAGMA foreign_keys = ON;');
+src/data/sqlite-schema.ts:343:    PRAGMA foreign_keys = ON;
+src/data/runner-migracji.ts:45:      if (m.przebudowa) await db.execAsync('PRAGMA foreign_keys = OFF;');
+src/data/runner-migracji.ts:64:      if (m.przebudowa) await db.execAsync('PRAGMA foreign_keys = ON;');
+## ARCH-12: withExclusiveTransactionAsync
+(koniec)
+## NIE-02: VACUUM / REINDEX / deleteDatabase
+src/data/kopie-przed-migracja.ts:2:// Piekarz — kopia bazy przed migracją (VACUUM INTO obok pliku bazy) i sprzątanie starszych kopii tej wersji
+src/data/kopie-przed-migracja.ts:46:  await db.runAsync('VACUUM INTO ?;', path);
+src/data/runner-migracji.ts:38:  // Kopia przed migracją przez VACUUM INTO: spójna także z danymi z pliku -wal; bez kopii nie migrujemy
+src/data/migracja-v6.ts:5://   VACUUM INTO). Nieudany zapis pliku = migracja nie rusza, aplikacja zostaje na v5 (D1-6);
+src/data/migracja-v6.ts:52: * surowa treść jest w pliku z kroku przed BEGIN, w kopii VACUUM INTO i na liście uszkodzonych (kopie zapasowe).
+src/lib/backup.ts:430: * TASK-R05-02 / Zero Data Loss Axiom: przedrostek kopii bazy sprzed migracji. Kopię robi `VACUUM INTO`
+## NIE-07 / NIE-10: SDK awarii, expo-updates w package.json
+(koniec; kod grep 1)
+## ARCH-21: pliki sekretów w git ls-files
+(koniec; kod grep 1)
+src/lib/zgloszenie-wyslanie.ts:34:    // Numer z workflow TestFlight (EXPO_PUBLIC_*: Metro wstawia przy budowaniu); app.json nie ma ios.buildNumber
+src/lib/zgloszenie-wyslanie.ts:36:    build: process.env.EXPO_PUBLIC_BUILD_NUMBER || null,
+src/lib/app-access.ts:30: * Build E2E na symulatorze bez StoreKit (.github/workflows/e2e-ios.yml, EXPO_PUBLIC_E2E=1 wstawiane przez Metro przy
+src/lib/app-access.ts:34:const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
+(EXPO_PUBLIC koniec)
+## 032 dSYM: zmiany od ea249c9c
+(koniec diff --stat)
+(koniec log --grep 032)
+./.github/workflows/testflight.yml
+./docs/wznowienie-M3.md
+./docs/decyzje.md
+./docs/wydanie/symbolizacja-awarii.md

@@ -1,0 +1,24 @@
+# 1c723632 (WT): npx jest src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts src/data/__tests__/restore.sqlite.test.ts src/data/__tests__/auto-backup.sqlite.test.ts src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts src/data/__tests__/kopia-przed-importem-dziennik.sqlite.test.tsx src/data/__tests__/baza-nowsza.sqlite.test.ts src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts src/data/__tests__/migracja-d1-1014.sqlite.test.ts src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts src/lib/__tests__/backup.test.ts src/lib/__tests__/corrupt-state.test.ts src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx src/__tests__/import-z-pliku-113.test.tsx tests/granice-modulow.test.ts tests/public-repo.test.ts --maxWorkers=2
+PASS src/data/__tests__/sesje-wypiekow-d1.sqlite.test.ts
+PASS src/data/__tests__/migracja-d1-1014.sqlite.test.ts
+PASS src/lib/__tests__/backup.test.ts
+PASS src/data/__tests__/czyszczenie-sesje-023.sqlite.test.ts
+PASS src/__tests__/usun-wszystkie-dane-124.sqlite.test.tsx
+PASS src/data/__tests__/baza-nowsza.sqlite.test.ts
+PASS src/__tests__/import-z-pliku-113.test.tsx
+PASS src/data/__tests__/kolejka-zapisow-001.sqlite.test.ts
+PASS tests/public-repo.test.ts
+PASS src/data/__tests__/uszkodzone-wiersze-121.sqlite.test.ts
+PASS src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+PASS src/data/__tests__/auto-backup.sqlite.test.ts
+PASS src/data/__tests__/kopia-przed-importem-dziennik.sqlite.test.tsx
+PASS src/data/__tests__/restore.sqlite.test.ts
+PASS src/lib/__tests__/corrupt-state.test.ts
+PASS tests/granice-modulow.test.ts
+
+Test Suites: 16 passed, 16 total
+Tests:       100 passed, 100 total
+Snapshots:   0 total
+Time:        7.027 s
+Ran all test suites matching /src\/data\/__tests__\/czyszczenie-sesje-023.sqlite.test.ts|src\/data\/__tests__\/restore.sqlite.test.ts|src\/data\/__tests__\/auto-backup.sqlite.test.ts|src\/data\/__tests__\/kolejka-zapisow-001.sqlite.test.ts|src\/data\/__tests__\/kopia-przed-importem-dziennik.sqlite.test.tsx|src\/data\/__tests__\/baza-nowsza.sqlite.test.ts|src\/data\/__tests__\/sesje-wypiekow-d1.sqlite.test.ts|src\/data\/__tests__\/migracja-d1-1014.sqlite.test.ts|src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts|src\/data\/__tests__\/uszkodzone-wiersze-121.sqlite.test.ts|src\/lib\/__tests__\/backup.test.ts|src\/lib\/__tests__\/corrupt-state.test.ts|src\/__tests__\/usun-wszystkie-dane-124.sqlite.test.tsx|src\/__tests__\/import-z-pliku-113.test.tsx|tests\/granice-modulow.test.ts|tests\/public-repo.test.ts/i.
+kod 0

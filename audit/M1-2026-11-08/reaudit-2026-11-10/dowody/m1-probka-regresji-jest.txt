@@ -1,0 +1,9 @@
+PASS tests/public-repo.test.ts
+PASS src/lib/__tests__/corrupt-state.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        2.155 s
+Ran all test suites matching /tests\/public-repo.test.ts|src\/lib\/__tests__\/corrupt-state.test.ts|src\/lib\/__tests__\/corrupt-rescue.test.tsx/i.
+kod=0

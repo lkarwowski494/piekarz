@@ -1,0 +1,106 @@
+# Sonda 087 na prawdziwym SQLite (node:sqlite przez adapter testów repo), worktree sondy na 1c723632 w scratchpadzie (G1-sonda-head), plik src/__tests__/sonda-087.sqlite.test.tsx = pierwsze 113 linii src/__tests__/ratunek-import-pakietu-003.sqlite.test.tsx + kod niżej; komenda: npx jest src/__tests__/sonda-087.sqlite.test.tsx --maxWorkers=2
+## Kod sondy
+  type W = { id: string; status: string; session_json: string; created_at: number; updated_at: number };
+  const SQLS = 'SELECT id, status, session_json, created_at, updated_at FROM bake_sessions ORDER BY id;';
+  const skrot = (w: W[]) => w.map((x) => `${x.id}/${x.status}/json${x.session_json.length}`);
+  /** Pliki telefonu z dodatkowym SQL-em na bazie pakietu (zmiana zostaje w -wal). */
+  function pliki(sql: string, baza: '1021' | '1014' | '1014-uszk' = '1021') {
+    const plik = path.join(control().dir, 'telefon-s', 'piekarz.db');
+    if (baza === '1021') zalozBaze1021(plik);
+    else (require('../data/__tests__/helpers/baza-1014') as typeof import('../data/__tests__/helpers/baza-1014')).zalozBaze1014(plik, baza === '1014' ? 'v2-pauza' : 'uszkodzona');
+    const raw = openRaw(plik);
+    raw.exec(`PRAGMA wal_autocheckpoint = 0; UPDATE starters SET name = name || ' W';`);
+    if (sql) raw.exec(sql);
+    let wP: W[] = [];
+    try { wP = raw.prepare(SQLS).all() as W[]; } catch { wP = []; }
+    const wersja = (raw.prepare('PRAGMA user_version').get() as { user_version: number }).user_version;
+    const db = fs.readFileSync(plik).toString('base64');
+    const wal = fs.existsSync(`${plik}-wal`) ? fs.readFileSync(`${plik}-wal`).toString('base64') : undefined;
+    raw.close();
+    return { db, wal, wP, wersja };
+  }
+  async function przebieg(nazwa: string, sqlPakietu: string, opcje: { telefon?: (rows: W[]) => string; baza?: '1021' | '1014' | '1014-uszk'; psuj?: RegExp; dwaRazy?: boolean } = {}) {
+    const p = pliki(sqlPakietu, opcje.baza);
+    const tekst = await pakietZEkranu(p);
+    await nowaInstalacja();
+    if (opcje.telefon) { const r = openRaw(APP_DB()); r.exec(opcje.telefon(p.wP)); r.close(); }
+    const { rozpoznajPlik, importujKopie } = require('../lib/import-z-pliku') as typeof import('../lib/import-z-pliku');
+    const { kopiaZPakietu } = require('../lib/import-pakietu') as typeof import('../lib/import-pakietu');
+    const { uszkodzoneWiersze } = require('../data/uszkodzone-wiersze') as typeof import('../data/uszkodzone-wiersze');
+    const roz = rozpoznajPlik(tekst);
+    if (roz?.rodzaj !== 'pakiet') throw new Error('nie pakiet');
+    const w = await kopiaZPakietu(roz.pakiet);
+    const przed = counts();
+    const rp = openRaw(APP_DB()); const sesjePrzed = rp.prepare(SQLS).all() as W[]; rp.close();
+    let blad: string | null = null;
+    let wynik: Record<string, unknown> = { rodzaj: w.rodzaj };
+    if (w.rodzaj === 'kopia') {
+      if (opcje.psuj) control().failWritesMatching = opcje.psuj;
+      try { await importujKopie(w.kopia); if (opcje.dwaRazy) await importujKopie(w.kopia); } catch (e) { blad = String(e).slice(0, 160); }
+      control().failWritesMatching = null;
+      wynik = { rodzaj: 'kopia', poleBakeSessions: w.kopia.state.bakeSessions ? skrot(w.kopia.state.bakeSessions as W[]) : null, skippedRows: w.kopia.skippedRows };
+    }
+    const po = counts();
+    const r2 = openRaw(APP_DB()); const sesjePo = r2.prepare(SQLS).all() as W[]; r2.close();
+    const L = (c: Record<string, number>) => ({ bakes: c.bakes, starters: c.starters, starter_entries: c.starter_entries, recipes: c.recipes, flour_inventory: c.flour_inventory, bake_sessions: c.bake_sessions });
+    const kopiePrzedImportem = [...mockFiles.keys()].filter((k) => /piekarz-przed-importem-/.test(k)).length;
+    const plikiRatunkowe = [...mockFiles.keys()].filter((k) => /ratun|rescue|uszkodz/i.test(k));
+    console.log(`SONDA ${nazwa} ` + JSON.stringify({ wersjaPakietu: p.wersja, sesjeWPakiecie: skrot(p.wP), ...wynik, blad, sesjeTelefonPrzed: skrot(sesjePrzed), licznosciPrzed: L(przed), licznosciPo: L(po), sesjePo: skrot(sesjePo), sesjePoIdentyczneZPakietem: JSON.stringify(sesjePo) === JSON.stringify(p.wP), kopiePrzedImportem, uszkodzoneGlobalnie: uszkodzoneWiersze().map((u) => `${u.tabela}/${u.id}`), plikiRatunkowe }, null, 1));
+    return { sesjePo, po, przed, p };
+  }
+
+  it('S1 wzorzec: 2 sesje, import dwa razy (idempotencja)', async () => { const r = await przebieg('S1', '', { dwaRazy: true }); expect(r.po.bake_sessions).toBe(2); });
+  it('S2 uszkodzony JSON trwającej sesji w pakiecie', async () => { await przebieg('S2', `UPDATE bake_sessions SET session_json = '{"urwane":' WHERE id = 'bake_live';`); });
+  it('S3 sesja z nieznaną recepturą', async () => { await przebieg('S3', `UPDATE bake_sessions SET session_json = json_set(session_json, '$.recipeId', 'receptura_ktorej_nie_ma', '$.recipe.id', 'receptura_ktorej_nie_ma');`); });
+  it('S4 telefon na limicie (2 trwające, 5 zaplanowanych)', async () => {
+    await przebieg('S4', '', { telefon: (rows) => {
+      const a = rows.find((x) => x.status === 'active')!; const pl = rows.find((x) => x.status === 'planned')!;
+      const ins = (id: string, w: W) => `INSERT INTO bake_sessions (id,status,session_json,created_at,updated_at) VALUES ('${id}','${w.status}','${w.session_json.replace(/'/g, "''")}',1,1);`;
+      return [ins('tel_a1', a), ins('tel_a2', a), ...[1, 2, 3, 4, 5].map((i) => ins(`tel_p${i}`, pl))].join('\n');
+    } });
+  });
+  it('S5 to samo id w telefonie (telefon wygrywa)', async () => {
+    await przebieg('S5', '', { telefon: (rows) => { const a = rows.find((x) => x.status === 'active')!; return `INSERT INTO bake_sessions (id,status,session_json,created_at,updated_at) VALUES ('bake_live','active','${a.session_json.replace(/'/g, "''")} ',7,7);`; } });
+  });
+  it('S6 sesja o id wpisu Dziennika z pakietu', async () => { await przebieg('S6', `UPDATE bake_sessions SET id = (SELECT id FROM bakes ORDER BY id LIMIT 1) WHERE id = 'bake_live';`); });
+  it('S7 atomowość: błąd zapisu sesji w środku importu', async () => { const r = await przebieg('S7', '', { psuj: /INSERT INTO bake_sessions/ }); expect(r.po).toEqual(r.przed); });
+  it('S8 zły typ kolumny w wierszu sesji pakietu', async () => { await przebieg('S8', `UPDATE bake_sessions SET created_at = 'kiedys' WHERE id = 'plan_sobota';`); });
+  it('S9 pakiet starszy (1014, v5, sesja w app_settings)', async () => { await przebieg('S9', '', { baza: '1014' }); });
+  it('S10 pakiet starszy (1014) z uszkodzoną sesją', async () => { await przebieg('S10', '', { baza: '1014-uszk' }); });
+  it('S11 pakiet nowszy (user_version 99)', async () => { const r = await przebieg('S11', 'PRAGMA user_version = 99;'); expect(r.po).toEqual(r.przed); });
+  it('S12 pakiet z 3 trwającymi i 6 zaplanowanymi (ponad limit) na pusty telefon', async () => {
+    await przebieg('S12', `INSERT INTO bake_sessions SELECT 'x_a1', status, session_json, created_at+1, updated_at FROM bake_sessions WHERE id='bake_live';
+      INSERT INTO bake_sessions SELECT 'x_a2', status, session_json, created_at+2, updated_at FROM bake_sessions WHERE id='bake_live';
+      INSERT INTO bake_sessions SELECT 'x_p' || n, status, session_json, created_at+n, updated_at FROM bake_sessions, (SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5) WHERE id='plan_sobota';`);
+  });
+});
+## Wynik
+ 
+SONDA S1 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 2 }, "sesjePo": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "sesjePoIdentyczneZPakietem": true, "kopiePrzedImportem": 2, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054813.json" ] } 
+SONDA S2 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json10", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "plan_sobota/planned/json7011" ], "skippedRows": 1, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 1 }, "sesjePo": [ "plan_sobota/planned/json7011" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S3 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7082", "plan_sobota/planned/json7058" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7082", "plan_sobota/planned/json7058" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 2 }, "sesjePo": [ "bake_live/active/json7082", "plan_sobota/planned/json7058" ], "sesjePoIdentyczneZPakietem": true, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S4 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [ "tel_a1/active/json7003", "tel_a2/active/json7003", "tel_p1/planned/json7011", "tel_p2/planned/json7011", "tel_p3/planned/json7011", "tel_p4/planned/json7011", "tel_p5/planned/json7011" ], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 7 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 7 }, "sesjePo": [ "tel_a1/active/json7003", "tel_a2/active/json7003", "tel_p1/planned/json7011", "tel_p2/planned/json7011", "tel_p3/planned/json7011", "tel_p4/planned/json7011", "tel_p5/planned/json7011" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S5 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [ "bake_live/active/json7004" ], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 1 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 2 }, "sesjePo": [ "bake_live/active/json7004", "plan_sobota/planned/json7011" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S6 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_1/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_1/active/json7003", "plan_sobota/planned/json7011" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 1 }, "sesjePo": [ "plan_sobota/planned/json7011" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S7 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "skippedRows": 0, "blad": "StorageWriteError: SQLITE_FULL: database or disk is full", "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "sesjePo": [], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S8 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 1 }, "sesjePo": [ "bake_live/active/json7003" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [ "bake_sessions/plan_sobota" ], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json", "file:///mock/documents/Backup/kopie-ratunkowe/uszkodzone-wiersze-2026-11-10-054815.json" ] } 
+SONDA S9 { "wersjaPakietu": 5, "sesjeWPakiecie": [], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 3, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 1 }, "sesjePo": [ "bake_live/active/json7003" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json", "file:///mock/documents/Backup/kopie-ratunkowe/sesja-przed-migracja-2026-11-10-054815.json" ] } 
+SONDA S10 { "wersjaPakietu": 5, "sesjeWPakiecie": [], "rodzaj": "kopia", "poleBakeSessions": [], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 3, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 0 }, "sesjePo": [], "sesjePoIdentyczneZPakietem": true, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [ "app_settings/active_bake_session" ], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json", "file:///mock/documents/Backup/kopie-ratunkowe/sesja-przed-migracja-2026-11-10-054815.json", "file:///mock/documents/Backup/kopie-ratunkowe/uszkodzone-wiersze-2026-11-10-054815.json" ] } 
+SONDA S11 { "wersjaPakietu": 99, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011" ], "rodzaj": "nowsza", "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "sesjePo": [], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 0, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+SONDA S12 { "wersjaPakietu": 6, "sesjeWPakiecie": [ "bake_live/active/json7003", "plan_sobota/planned/json7011", "x_a1/active/json7003", "x_a2/active/json7003", "x_p1/planned/json7011", "x_p2/planned/json7011", "x_p3/planned/json7011", "x_p4/planned/json7011", "x_p5/planned/json7011" ], "rodzaj": "kopia", "poleBakeSessions": [ "bake_live/active/json7003", "x_a1/active/json7003", "x_a2/active/json7003", "plan_sobota/planned/json7011", "x_p1/planned/json7011", "x_p2/planned/json7011", "x_p3/planned/json7011", "x_p4/planned/json7011", "x_p5/planned/json7011" ], "skippedRows": 0, "blad": null, "sesjeTelefonPrzed": [], "licznosciPrzed": { "bakes": 1, "starters": 0, "starter_entries": 0, "recipes": 15, "flour_inventory": 0, "bake_sessions": 0 }, "licznosciPo": { "bakes": 4, "starters": 2, "starter_entries": 5, "recipes": 17, "flour_inventory": 2, "bake_sessions": 7 }, "sesjePo": [ "bake_live/active/json7003", "plan_sobota/planned/json7011", "x_a1/active/json7003", "x_p1/planned/json7011", "x_p2/planned/json7011", "x_p3/planned/json7011", "x_p4/planned/json7011" ], "sesjePoIdentyczneZPakietem": false, "kopiePrzedImportem": 1, "uszkodzoneGlobalnie": [], "plikiRatunkowe": [ "file:///mock/documents/Backup/kopie-ratunkowe/piekarz-pliki-bazy-2026-11-10-054815.json" ] } 
+PASS src/__tests__/sonda-087.sqlite.test.tsx (5.133 s) 003: import pakietu plików bazy z trybu awaryjnego
+ ✓ S1 wzorzec: 2 sesje, import dwa razy (idempotencja) (2793 ms)
+ ✓ S2 uszkodzony JSON trwającej sesji w pakiecie (64 ms)
+ ✓ S3 sesja z nieznaną recepturą (65 ms)
+ ✓ S4 telefon na limicie (2 trwające, 5 zaplanowanych) (77 ms)
+ ✓ S5 to samo id w telefonie (telefon wygrywa) (64 ms)
+ ✓ S6 sesja o id wpisu Dziennika z pakietu (62 ms)
+ ✓ S7 atomowość: błąd zapisu sesji w środku importu (61 ms)
+ ✓ S8 zły typ kolumny w wierszu sesji pakietu (83 ms)
+ ✓ S9 pakiet starszy (1014, v5, sesja w app_settings) (91 ms)
+ ✓ S10 pakiet starszy (1014) z uszkodzoną sesją (74 ms)
+ ✓ S11 pakiet nowszy (user_version 99) (67 ms)
+ ✓ S12 pakiet z 3 trwającymi i 6 zaplanowanymi (ponad limit) na pusty telefon (70 ms) 
+Test Suites: 1 passed, 1 total 
+Tests: 12 passed, 12 total Snapshots: 0 total Time: 5.496 s Ran all test suites matching /src\/__tests__\/sonda-087.sqlite.test.tsx/i.
+kod 0 
