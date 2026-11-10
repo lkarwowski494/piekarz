@@ -1,0 +1,20 @@
+$ node sprawdz-wydanie.mjs sekrety . --historia  (pełny klon, nie płytki; HEAD 12ed3ce1, --all: 89 gałęzi zdalnych)
+BŁĄD IDENTYFIKATOR tests/asc-ustawienia.test.ts:43: ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR tests/asc-zgloszenie.test.ts:46: ASC_ISSUER_ID = WY…CA
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD SEKRET klucz prywatny w historii (68116bf8)
+BŁĄD IDENTYFIKATOR w historii (4b0b3c37): ASC_ISSUER_ID = WY…CA
+BŁĄD IDENTYFIKATOR w historii (bdb854be): ASC_ISSUER_ID = WY…CA
+BŁĄD SEKRET klucz prywatny w historii (70fd81aa)
+BŁĘDY: 9
+kod wyjścia: 1
+
+# Potwierdzenie okiem (sesja H, 2026-11-10) — wszystkie 9 BŁĘDÓW to fałszywe alarmy wzorca, żaden nie pochodzi z commitu 12ed3ce1 (109):
+# - tests/asc-ustawienia.test.ts:43, tests/asc-zgloszenie.test.ts:46 i historia 4b0b3c37, bdb854be: wzorzec IDENTYFIKATOR łapie
+#   NAZWĘ zmiennej `ASC_ISSUER_ID: WYSTAWCA` (maska „WY…CA” = „WYSTAWCA”), nie wartość; testy używają atrapy
+#   (KLUCZ_ID 'ATRAPA7KEY', klucz EC generowany w teście przez generateKeyPairSync).
+# - 70fd81aa (docs, tabela sekretów CI) i 68116bf8 (raporty M1): tekst opisujący znacznik „-----BEGIN PRIVATE KEY-----”
+#   w dokumentacji i komendzie audytu; w żadnym trafieniu kolejna linia nie zawiera danych klucza base64.
+# Wniosek: brak sekretu; skrypt nie odróżnia tekstu o znaczniku od klucza (ograniczenie narzędzia, nie obejście kontroli).
