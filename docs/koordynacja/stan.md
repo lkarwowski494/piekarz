@@ -226,3 +226,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:45 | M9 | J → `redesign` @ `11360e78` (FF); J zarchiwizowana; wiadomość do koordynatora Oczka; polecenie M | start M |
 | 10.11 21:46 | M9 | Sesja M (create_session 21:31, PENDING) | L, M |
 | 10.11 21:50 | M9 | STOP: kontekst 42,7% (get_session 427k) > 30% → przekazanie koordynatora (pkt 7); koszt sesji ok. 22,5 USD | następca |
+| 10.11 21:53 | M9 | **przekazane do `session_01T66VBxmzZbniLNyXVufzPk`** (create_session 21:52, opus, źródło `koordynacja`; właściciel: „Tak, otwórz nową i zarchiwizuj tę”). L i M dostaną nowy adres od następcy; moja linia 05:00 `trig_0144xzxYUJoDZZnuvXEC2b2d` usuwa następca. Po przekazaniu nie piszę na tę gałąź | następca: E6 pkt 5 |
