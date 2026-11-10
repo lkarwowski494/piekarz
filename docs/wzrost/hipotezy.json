@@ -24,8 +24,8 @@
         "zastepnik": "liczby bezwzględne z kryterium (nowi płacący/mies., wpływ USD/mies.) z raportów sprzedaży; nie wymagają progu prywatności App Analytics"
       },
       "data_wydania": null,
-      "data_oceny": "2027-02-07",
-      "data_oceny_regula": "D-315: data wydania w App Store z docs/wydanie/dziennik.md + 90 dni; do wydania data_wydania = null, a data_oceny nie wcześniej niż ostatni wiersz dziennika + 90 dni (2027-02-07: wydanie nie wcześniej niż 2026-11-09); w dniu wydania wpisać data_wydania i przeliczyć"
+      "data_oceny": "2027-02-08",
+      "data_oceny_regula": "D-315: data wydania w App Store z docs/wydanie/dziennik.md + 90 dni; do wydania data_wydania = null, a data_oceny nie wcześniej niż ostatni wiersz dziennika + 90 dni (2027-02-08: ostatni wiersz dziennika 2026-11-10, build 1025); w dniu wydania wpisać data_wydania i przeliczyć"
     }
   ]
 }
