@@ -21,5 +21,5 @@ Apple o tym polu (In-App Purchase information, odczyt 2026-11-10, developer.appl
 ## Ograniczenia
 
 - Ceny na zrzucie to ceny bazowe USD z `ceny.json`, a nie odczyt sklepu. Zmiana cen wymaga zmiany atrapy, a test pilnuje, żeby obie wartości były równe.
-- `scripts/asc-zgloszenie.mjs` nadal wgrałby plik przez API, gdyby leżał w `docs/wydanie/zrzuty/review/zakup.png` (`zrzutZakupu`). Ta droga zostaje jako zapasowa. Domyślna jest ręczna, jak w Treningu.
+- `scripts/asc-zgloszenie.mjs` nadal wgrałby plik przez API, gdyby leżał w `docs/wydanie/zrzuty/review/zakup.png` (`zrzutZakupu`). Ta droga zostaje jako zapasowa, tylko gdy w ASC nie ma jeszcze zrzutu zakupu: skrypt niczego nie usuwa ani nie podmienia, a inny istniejący zrzut wypisuje jako „ręcznie” (D-366). Domyślna jest droga ręczna, jak w Treningu.
 - Przebiegu E2E z trzecim buildem jeszcze nie było (stan 2026-11-10). Pierwszy przebieg na macOS zleca koordynator.

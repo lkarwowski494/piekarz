@@ -26,7 +26,7 @@ describe('workflow asc-zgloszenie (M1-audytor-generalny-186)', () => {
   it('skrypt uruchamiany z plikiem zgody; zgoda albo wyłączona, albo pełna (skrót planu i słowa właściciela z datą)', () => {
     // Dwa zadania (D-314): ostatni krok ze skryptem to zapis z oryginalnym plikiem zgody; przebieg na sucho dostaje kopię z "zapis": false (tests/asc-klucz-082.test.ts)
     const krok = steps.filter((s) => s.includes('scripts/asc-zgloszenie.mjs')).pop() ?? '';
-    expect(krok).toMatch(/run: node scripts\/asc-zgloszenie\.mjs --zgoda docs\/wydanie\/asc-zgoda-zgloszenie\.json --zrzuty "\$RUNNER_TEMP\/zrzuty-sklepu"$/m);
+    expect(krok).toMatch(/run: node scripts\/asc-zgloszenie\.mjs --zgoda docs\/wydanie\/asc-zgoda-zgloszenie\.json$/m);
     if (zgoda.zapis === true) {
       expect(zgoda.skrot).toMatch(/^[0-9a-f]{64}$/);
       expect(zgoda.zgoda).toMatch(/^\d{4}-\d{2}-\d{2}: \S/);
@@ -44,13 +44,13 @@ describe('workflow asc-zgloszenie (M1-audytor-generalny-186)', () => {
     expect(workflow).toMatch(/\npermissions:\n  contents: read\n/);
   });
 
-  it('paczka zrzutów spoza repo: tylko pobranie z wydania o tagu z asc-zgloszenie.json tokenem repo, przed krokiem skryptu; bez publikacji', () => {
-    const i = steps.findIndex((s) => s.includes('gh release download'));
-    expect(i).toBeGreaterThanOrEqual(0);
-    expect(i).toBeLessThan(steps.findIndex((s) => s.includes('scripts/asc-zgloszenie.mjs')));
-    expect(steps[i]).toContain('GH_TOKEN: ${{ github.token }}');
-    expect(steps[i]).toContain("paczkaZrzutow.tag");
-    expect(workflow).not.toMatch(/gh release (create|upload|edit|delete)/);
+  it('zrzuty sklepu poza tym workflow (KO-033, D-366): bez --zrzuty, bez gh release i bez paczki zrzutów; nagłówek odsyła do asc-zrzuty.yml', () => {
+    expect(workflow).not.toMatch(/--zrzuty|--sumy|--generuj-sumy/);
+    expect(workflow).not.toMatch(/gh release|paczkaZrzutow|zrzuty-sklepu\.zip|RUNNER_TEMP\/zrzuty-sklepu/);
+    expect(workflow).not.toMatch(/GH_TOKEN/);
+    const naglowek = workflow.split(/\non:\n/)[0];
+    expect(naglowek).toMatch(/asc-zrzuty\.yml/);
+    expect(naglowek).toMatch(/D-366/);
   });
 
   it('ta sama grupa concurrency co asc-ustawienia, bez anulowania w trakcie zapisu', () => {

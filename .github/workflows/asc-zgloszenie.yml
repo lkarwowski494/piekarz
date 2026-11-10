@@ -1,12 +1,12 @@
 name: App Store Connect — zgłoszenie przez API
 
-# Metadane 34 lokalizacji, zrzuty, opisy produktów i zrzut zakupu dla App Review [M1-audytor-generalny-186].
+# Metadane 34 lokalizacji, opisy produktów i zrzut zakupu dla App Review [M1-audytor-generalny-186].
 # Uruchamia tylko właściciel ręcznie: Actions → „Run workflow” na master (workflow_dispatch, wybór a 10-wydanie-601),
 # więc przebieg na sucho porównuje treść master. Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy
-# docs/wydanie/asc-zgoda-zgloszenie.json ma "zapis": true i skrót planu pokazanego właścicielowi. Zrzuty
-# 31 lokalizacji spoza repo porównuje po sumach z docs/wydanie/zrzuty/sumy.json; do ich wysłania potrzebne są pliki
-# (paczka w wydaniu wstępnym). Zrzut zakupu dla App Review: docs/wydanie/zrzuty/review/zakup.png z finalnej aplikacji;
-# bez pliku pozycje „czeka”. Ta sama grupa concurrency co asc-ustawienia.yml: dwa przebiegi ASC nigdy naraz.
+# docs/wydanie/asc-zgoda-zgloszenie.json ma "zapis": true i skrót planu pokazanego właścicielowi. Zrzutów sklepu
+# ten workflow nie wgrywa (KO-033, D-366): robi to „ASC zrzuty ekranu” (.github/workflows/asc-zrzuty.yml,
+# scripts/asc/zrzuty.mjs, App Asset Library). Zrzut zakupu dla App Review: docs/wydanie/zrzuty/review/zakup.png
+# z finalnej aplikacji, tylko gdy w ASC go nie ma (skrypt niczego nie usuwa; inny = podmiana ręczna); bez pliku „czeka”. Ta sama grupa concurrency co asc-ustawienia.yml: dwa przebiegi ASC nigdy naraz.
 # Dwa zadania (D-314, M1-audytor-generalny-082): „na-sucho” bez środowiska (kopia zgody z "zapis": false, z tym samym
 # „zakres”, więc lista i skrót są te same co przy zapisie); „zapis” tylko przy "zapis": true i po akceptacji
 # właściciela w środowisku GitHub `release`.
@@ -40,20 +40,6 @@ jobs:
         with:
           node-version: 22
 
-      # Zrzuty lokalizacji spoza repo: paczka ZIP w wydaniu wstępnym (tag w docs/wydanie/asc-zgloszenie.json, "paczkaZrzutow").
-      # Brak wydania = pusty katalog: skrypt porówna po sumach, a zestawów bez plików nie wyśle. Sumy sprawdza skrypt.
-      - name: Zrzuty spoza repo (wydanie wstępne)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p "$RUNNER_TEMP/zrzuty-sklepu"
-          TAG="$(node -p "require('./docs/wydanie/asc-zgloszenie.json').paczkaZrzutow.tag")"
-          if gh release download "$TAG" --pattern zrzuty-sklepu.zip --dir "$RUNNER_TEMP"; then
-            unzip -q "$RUNNER_TEMP/zrzuty-sklepu.zip" -d "$RUNNER_TEMP/zrzuty-sklepu"
-          else
-            echo "Brak wydania $TAG: zrzuty spoza repo tylko po sumach"
-          fi
-
       - name: Zgoda na zapis (plik zgody) i kopia na sucho
         id: zgoda
         run: |
@@ -65,7 +51,7 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
-        run: node scripts/asc-zgloszenie.mjs --zgoda "$RUNNER_TEMP/zgoda-na-sucho.json" --zrzuty "$RUNNER_TEMP/zrzuty-sklepu"
+        run: node scripts/asc-zgloszenie.mjs --zgoda "$RUNNER_TEMP/zgoda-na-sucho.json"
 
   zapis:
     name: Zgłoszenie ASC — zapis (zgoda w pliku i akceptacja w środowisku release)
@@ -86,21 +72,9 @@ jobs:
         with:
           node-version: 22
 
-      - name: Zrzuty spoza repo (wydanie wstępne)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p "$RUNNER_TEMP/zrzuty-sklepu"
-          TAG="$(node -p "require('./docs/wydanie/asc-zgloszenie.json').paczkaZrzutow.tag")"
-          if gh release download "$TAG" --pattern zrzuty-sklepu.zip --dir "$RUNNER_TEMP"; then
-            unzip -q "$RUNNER_TEMP/zrzuty-sklepu.zip" -d "$RUNNER_TEMP/zrzuty-sklepu"
-          else
-            echo "Brak wydania $TAG: zrzuty spoza repo tylko po sumach"
-          fi
-
       - name: Zgłoszenie App Store Connect (skrypt bez zależności)
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
-        run: node scripts/asc-zgloszenie.mjs --zgoda docs/wydanie/asc-zgoda-zgloszenie.json --zrzuty "$RUNNER_TEMP/zrzuty-sklepu"
+        run: node scripts/asc-zgloszenie.mjs --zgoda docs/wydanie/asc-zgoda-zgloszenie.json

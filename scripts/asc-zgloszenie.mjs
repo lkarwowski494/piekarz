@@ -2,26 +2,24 @@
 // ============================================================================
 // Piekarz — zgłoszenie do App Store przez App Store Connect API [M1-audytor-generalny-186]
 // Metadane 34 lokalizacji (App Information: nazwa, podtytuł, Privacy Policy URL; wersja iOS:
-// opis, słowa kluczowe, tekst promocyjny, Support URL), zrzuty 7 ramek w dwóch klasach iPhone,
-// opisy lokalizacji produktów i zrzut ekranu zakupu dla App Review. App Privacy wypisuje jako
-// krok poza API. Wartości wyłącznie z plików repo:
-//   docs/wydanie/metadane/*.json, docs/wydanie/zrzuty/ i docs/wydanie/zrzuty/sumy.json,
-//   docs/wydanie/asc-zgloszenie.json, docs/wydanie/asc-ustawienia.json (nazwa grupy),
-//   src/lib/links.ts (adresy, to samo źródło co karty ustawień), src/lib/platnosci/konfiguracja.ts,
-//   app.json (Bundle ID, wersja).
+// opis, słowa kluczowe, tekst promocyjny, Support URL), numer wersji, opisy lokalizacji produktów
+// i zrzut ekranu zakupu dla App Review (tylko pierwszy: istniejący inny zrzut = krok ręczny).
+// App Privacy wypisuje jako krok poza API. Wartości wyłącznie z plików repo:
+//   docs/wydanie/metadane/*.json, docs/wydanie/asc-zgloszenie.json, docs/wydanie/asc-ustawienia.json
+//   (nazwa grupy), src/lib/links.ts (adresy, to samo źródło co karty ustawień),
+//   src/lib/platnosci/konfiguracja.ts, app.json (Bundle ID, wersja).
+// Zrzuty sklepu są poza tym skryptem (KO-033, D-366): wgrywa je workflow „ASC zrzuty ekranu”
+//   (.github/workflows/asc-zrzuty.yml, scripts/asc/zrzuty.mjs, App Asset Library). Skrypt nie czyta
+//   appScreenshotSets ani appScreenshots i nigdy niczego nie usuwa w App Store Connect (bez DELETE).
 //
-// Użycie: node scripts/asc-zgloszenie.mjs [--zgoda docs/wydanie/asc-zgoda-zgloszenie.json] [--api URL]
-//   [--zrzuty <katalog z <kod>/<klasa>/<plik> dla lokalizacji spoza repo>] [--dane P] [--sumy P]
-//   node scripts/asc-zgloszenie.mjs --generuj-sumy <katalog> [--sumy P]: sumy MD5 zrzutów 34 lokalizacji
-//   (plik z repo, a gdy go nie ma, z katalogu) do docs/wydanie/zrzuty/sumy.json.
+// Użycie: node scripts/asc-zgloszenie.mjs [--zgoda docs/wydanie/asc-zgoda-zgloszenie.json] [--api URL] [--dane P]
 //   Domyślnie przebieg na sucho: wyłącznie GET, lista „utworzy / zmieni / bez zmian” i skrót planu.
 //   Zapis tylko, gdy plik zgody ma "zapis": true i "skrot" równy skrótowi planu w chwili zapisu.
-//   Zrzuty lokalizacji spoza repo porównuje po sumach; wysyła je tylko, gdy pliki są w --zrzuty.
 // Kody: 0 wynik; 1 błąd danych albo API; 3 zgoda na inny plan; 4 brak uprawnień klucza (403);
 //   5 różnice po zapisie.
 // ============================================================================
 
-import { appendFileSync, existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,7 +27,6 @@ import { BladApi, BladDanych, BladZgody, klient, sekrety, zaciemnij } from './as
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const API_DOMYSLNE = 'https://api.appstoreconnect.apple.com';
-const SUMY = 'docs/wydanie/zrzuty/sumy.json';
 const META = 'docs/wydanie/metadane';
 
 const sciezka = (p) => resolve(ROOT, p);
@@ -46,36 +43,7 @@ const LIMITY = { nazwa: 30, podtytul: 30, tekstPromocyjny: 170, opis: 4000 };
 
 const kodyLokalizacji = () => readdirSync(sciezka(META)).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)).sort();
 
-/** Pliki ramek: lista z katalogu repo, a dla lokalizacji spoza repo z katalogu zapasowego. */
-function plikiRamek(kod, klasa, zapas) {
-  for (const baza of [sciezka(`docs/wydanie/zrzuty/${kod}/${klasa}`), zapas && resolve(zapas, kod, klasa)].filter(Boolean)) {
-    if (existsSync(baza)) return readdirSync(baza).filter((f) => f.endsWith('.png')).sort().map((f) => join(baza, f));
-  }
-  return [];
-}
-
-export function generujSumy(katalog, cel, klasy) {
-  const lokalizacje = {};
-  for (const kod of kodyLokalizacji()) {
-    lokalizacje[kod] = {};
-    for (const klasa of Object.keys(klasy)) {
-      const pliki = plikiRamek(kod, klasa, katalog);
-      if (!pliki.length) throw new BladDanych(`brak zrzutów ${kod}/${klasa} w repo i w ${katalog}`);
-      lokalizacje[kod][klasa] = pliki.map((p) => {
-        const b = readFileSync(p);
-        return { plik: p.split(/[\\/]/).pop(), bajty: b.length, md5: md5(b) };
-      });
-    }
-  }
-  const tresc = {
-    opis: 'Sumy MD5 zrzutów App Store wszystkich lokalizacji z docs/wydanie/metadane [M1-audytor-generalny-186]: pl, en-US i nl-NL leżą w repo, pozostałe poza gitem (docs/wydanie/zrzuty/README.md). scripts/asc-zgloszenie.mjs porównuje po nich zrzuty w App Store Connect (sourceFileChecksum), także bez plików. Generuje: node scripts/asc-zgloszenie.mjs --generuj-sumy <katalog zrzutów spoza repo>.',
-    lokalizacje,
-  };
-  writeFileSync(cel, `${JSON.stringify(tresc, null, 2)}\n`);
-  return Object.keys(lokalizacje).length;
-}
-
-export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy = SUMY, zrzuty = null } = {}) {
+export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json' } = {}) {
   const z = json(dane);
   const app = json('app.json').expo ?? {};
   if (!app.ios?.bundleIdentifier || !app.version) throw new BladDanych('app.json: brak expo.ios.bundleIdentifier albo expo.version');
@@ -89,7 +57,6 @@ export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy =
   const supportUrl = adres('SUPPORT_URL');
   const id = {};
   for (const m of readFileSync(sciezka('src/lib/platnosci/konfiguracja.ts'), 'utf8').matchAll(/^\s*(monthly|yearly|lifetime): '([^']+)'/gm)) id[m[1]] = m[2];
-  const s = json(sumy).lokalizacje ?? {};
 
   const kody = kodyLokalizacji();
   if (kody.length !== z.lokalizacji) throw new BladDanych(`${META}: ${kody.length} lokalizacji, a asc-zgloszenie.json mówi ${z.lokalizacji}`);
@@ -100,26 +67,10 @@ export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy =
       if (typeof m[pole] !== 'string' || !m[pole].trim() || znaki(m[pole]) > limit) throw new BladDanych(`${META}/${kod}.json: ${pole} pusty albo ponad ${limit} znaków`);
     }
     if (Buffer.byteLength(m.slowaKluczowe ?? '', 'utf8') > 100 || !m.slowaKluczowe) throw new BladDanych(`${META}/${kod}.json: słowa kluczowe puste albo ponad 100 bajtów`);
-    const ramki = {};
-    for (const klasa of Object.keys(z.klasyZrzutow)) {
-      const lista = s[kod]?.[klasa];
-      if (!Array.isArray(lista) || lista.length !== z.ramekNaKlase) throw new BladDanych(`${sumy}: ${kod}/${klasa} ma ${lista?.length ?? 0} ramek, a powinno ${z.ramekNaKlase}`);
-      ramki[klasa] = lista.map((r) => {
-        const wRepo = sciezka(`docs/wydanie/zrzuty/${kod}/${klasa}/${r.plik}`);
-        const wZapasie = zrzuty ? resolve(zrzuty, kod, klasa, r.plik) : null;
-        const p = existsSync(wRepo) ? wRepo : wZapasie && existsSync(wZapasie) ? wZapasie : null;
-        if (p) {
-          const b = readFileSync(p);
-          if (md5(b) !== r.md5 || b.length !== r.bajty) throw new BladDanych(`${sumy} nieaktualne: ${kod}/${klasa}/${r.plik} ma inną sumę niż plik; wygeneruj sumy ponownie (--generuj-sumy)`);
-        }
-        return { ...r, sciezka: p };
-      });
-    }
     return {
       kod,
       info: { name: m.nazwa, subtitle: m.podtytul, privacyPolicyUrl },
       wersja: { description: m.opis, keywords: m.slowaKluczowe, promotionalText: m.tekstPromocyjny, supportUrl },
-      ramki,
     };
   });
 
@@ -141,7 +92,6 @@ export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy =
       }
       return { plan, productId: id[plan], opisy: z.opisyProduktow?.[plan] ?? {} };
     }),
-    klasy: z.klasyZrzutow,
     lokalizacje,
     zakup,
     zrzutZakupu: z.zrzutZakupu,
@@ -153,7 +103,7 @@ export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy =
 // Odczyt stanu ASC
 
 const e = encodeURIComponent;
-/** Stany wersji, w których App Store Connect przyjmuje zmiany metadanych i zrzutów. */
+/** Stany wersji, w których App Store Connect przyjmuje zmiany metadanych. */
 const EDYTOWALNE = ['PREPARE_FOR_SUBMISSION', 'DEVELOPER_REJECTED', 'REJECTED', 'METADATA_REJECTED', 'INVALID_BINARY'];
 
 async function mapaLokalizacji(k, sciezkaListy) {
@@ -162,7 +112,7 @@ async function mapaLokalizacji(k, sciezkaListy) {
 }
 
 const plikAsc = (x) => x && { id: x.id, plik: x.attributes?.fileName, md5: x.attributes?.sourceFileChecksum ?? null, stan: x.attributes?.assetDeliveryState?.state ?? null };
-/** Plik przyjęty: przetworzony albo w przetwarzaniu po wysłaniu (Apple przetwarza zrzuty po PATCH uploaded). */
+/** Plik przyjęty: przetworzony albo w przetwarzaniu po wysłaniu (Apple przetwarza plik po PATCH uploaded). */
 const przyjety = (x) => ['COMPLETE', 'UPLOAD_COMPLETE'].includes(x?.stan);
 
 export async function stanAsc(k, cel) {
@@ -177,15 +127,8 @@ export async function stanAsc(k, cel) {
 
   const wersje = (await k.wszystkie(`/v1/apps/${e(app)}/appStoreVersions?filter[platform]=IOS&limit=200`)).data;
   const w = wersje.find((x) => EDYTOWALNE.includes(x.attributes?.appStoreState ?? x.attributes?.appVersionState));
-  if (w) {
-    const lok = await mapaLokalizacji(k, `/v1/appStoreVersions/${e(w.id)}/appStoreVersionLocalizations`);
-    for (const l of Object.values(lok)) {
-      const { data, included } = await k.wszystkie(`/v1/appStoreVersionLocalizations/${e(l.id)}/appScreenshotSets?include=appScreenshots&limit=200`);
-      const pliki = new Map(included.filter((x) => x.type === 'appScreenshots').map((x) => [x.id, x]));
-      l.zestawy = Object.fromEntries(data.map((z) => [z.attributes?.screenshotDisplayType, { id: z.id, zrzuty: (z.relationships?.appScreenshots?.data ?? []).map((r) => plikAsc(pliki.get(r.id) ?? { id: r.id })) }]));
-    }
-    stan.wersja = { id: w.id, versionString: w.attributes?.versionString, lok };
-  }
+  // Bez zestawów zrzutów sklepu (appScreenshotSets/appScreenshots): to robi asc-zrzuty.yml (D-366).
+  if (w) stan.wersja = { id: w.id, versionString: w.attributes?.versionString, lok: await mapaLokalizacji(k, `/v1/appStoreVersions/${e(w.id)}/appStoreVersionLocalizations`) };
 
   const grupa = (await k.wszystkie(`/v1/apps/${e(app)}/subscriptionGroups?limit=200`)).data.find((g) => g.attributes?.referenceName === cel.grupa);
   const subs = grupa ? (await k.wszystkie(`/v1/subscriptionGroups/${e(grupa.id)}/subscriptions?limit=200`)).data : [];
@@ -206,7 +149,7 @@ export async function stanAsc(k, cel) {
 }
 
 // ---------------------------------------------------------------------------
-// Wysyłanie plików (zrzuty): POST rezerwacji, PUT fragmentów pod adresy z uploadOperations, PATCH z sumą MD5
+// Wysyłanie pliku (zrzut zakupu): POST rezerwacji, PUT fragmentów pod adresy z uploadOperations, PATCH z sumą MD5
 
 async function wyslijPlik(k, typ, relacje, plik) {
   const b = readFileSync(plik.sciezka);
@@ -223,9 +166,11 @@ async function wyslijPlik(k, typ, relacje, plik) {
 }
 
 // ---------------------------------------------------------------------------
-// Plan: lista operacji; `wykonaj` = null, gdy rodzic jeszcze nie istnieje albo brak plików
+// Plan: lista operacji; `wykonaj` = null, gdy rodzic jeszcze nie istnieje albo krok jest ręczny
 
 const BEZ = 'bez zmian';
+const POZA_SKRYPTEM = 'poza skryptem';
+const ZRZUTY_POZA = 'zrzuty sklepu: wgrywa je workflow „ASC zrzuty ekranu” (.github/workflows/asc-zrzuty.yml, scripts/asc/zrzuty.mjs, App Asset Library), nie ten skrypt (KO-033, D-366)';
 const rel = (type, id) => ({ data: { type, id } });
 const POLA = {
   name: 'nazwa', subtitle: 'podtytuł', privacyPolicyUrl: 'Privacy Policy URL',
@@ -257,33 +202,10 @@ export function planuj(cel, stan) {
       utworz: (k) => k.post('/v1/appStoreVersionLocalizations', { data: { type: 'appStoreVersionLocalizations', attributes: { locale: l.kod, ...l.wersja }, relationships: { appStoreVersion: rel('appStoreVersions', stan.wersja.id) } } }),
       zmien: (id, zm) => (k) => k.patch(`/v1/appStoreVersionLocalizations/${e(id)}`, { data: { type: 'appStoreVersionLocalizations', id, attributes: zm } }),
     });
-
-    for (const [klasa, typ] of Object.entries(cel.klasy)) {
-      const docel = l.ramki[klasa];
-      const zestaw = lw?.zestawy?.[typ];
-      const obecne = zestaw?.zrzuty ?? [];
-      const opis = `zrzuty ${l.kod} ${klasa}`;
-      const tresc = docel.map((r) => r.md5).join(',');
-      if (obecne.length === docel.length && obecne.every((x, i) => x.md5 === docel[i].md5 && przyjety(x))) {
-        // Stan przetwarzania w opisie: COMPLETE potwierdza, że Apple przyjął wymiary pliku dla tego typu ekranu.
-        const stany = Object.entries(obecne.reduce((a, x) => ({ ...a, [x.stan]: (a[x.stan] ?? 0) + 1 }), {})).map(([s, n]) => `${s}×${n}`).join(', ');
-        op(BEZ, 'zrzuty', `${opis}: ${docel.length} ramek (${typ}; ${stany})`, null, tresc, l.kod);
-        continue;
-      }
-      const brakPlikow = docel.filter((r) => !r.sciezka).length;
-      const dopisek = brakPlikow ? ` (pliki poza repo: ${brakPlikow} — do wysłania potrzebne --zrzuty)` : '';
-      // Zestaw należy do lokalizacji wersji niezależnie od jej numeru, więc zrzuty nie czekają na zmianę numeru.
-      const wykonaj = lw && !brakPlikow ? async (k) => {
-        const idZestawu = zestaw?.id ?? (await k.post('/v1/appScreenshotSets', { data: { type: 'appScreenshotSets', attributes: { screenshotDisplayType: typ }, relationships: { appStoreVersionLocalization: rel('appStoreVersionLocalizations', lw.id) } } })).data.id;
-        for (const x of obecne) await k.usun(`/v1/appScreenshots/${e(x.id)}`);
-        const nowe = [];
-        for (const r of docel) nowe.push(await wyslijPlik(k, 'appScreenshots', { appScreenshotSet: rel('appScreenshotSets', idZestawu) }, r));
-        await k.patch(`/v1/appScreenshotSets/${e(idZestawu)}/relationships/appScreenshots`, { data: nowe.map((id) => ({ type: 'appScreenshots', id })) });
-      } : null;
-      if (!zestaw || !obecne.length) op('utworzy', 'zrzuty', `${opis}: ${docel.length} ramek (${typ})${dopisek}`, wykonaj, tresc, l.kod);
-      else op('zmieni', 'zrzuty', `${opis}: zastąpi ${obecne.length} zrzutów w ASC ${docel.length} ramkami z plików${dopisek}`, wykonaj, tresc, l.kod);
-    }
   }
+
+  // Zrzuty sklepu: poza skryptem (KO-033, D-366); jedna pozycja informacyjna, bez odczytu i zapisu w ASC.
+  op(POZA_SKRYPTEM, 'zrzuty', ZRZUTY_POZA);
 
   // Opisy lokalizacji produktów (nazwy ustawia scripts/asc-ustawienia.mjs)
   for (const p of cel.produkty) {
@@ -315,13 +237,15 @@ export function planuj(cel, stan) {
       op(BEZ, 'review', `${opis}: ${cel.zakup.plik}`, null, cel.zakup.md5);
       continue;
     }
+    // Skrypt nigdy nie usuwa (D-366): inny zrzut w ASC (albo ten sam, nieprzetworzony) podmienia właściciel ręcznie.
+    if (obecny) {
+      op('ręcznie', 'review', `${opis}: w App Store Connect jest inny zrzut (${obecny.plik ?? obecny.id}, ${obecny.stan ?? 'stan nieznany'}) niż ${cel.zakup.plik} — podmień w App Store Connect (Review Information produktu, docs/wydanie/zrzut-zakupu.md); skrypt niczego nie usuwa`, null, cel.zakup.md5);
+      continue;
+    }
     const sub = p.plan !== 'lifetime';
     const typ = sub ? 'subscriptionAppStoreReviewScreenshots' : 'inAppPurchaseAppStoreReviewScreenshots';
-    const wykonaj = z ? async (k) => {
-      if (obecny) await k.usun(`/v1/${typ}/${e(obecny.id)}`);
-      await wyslijPlik(k, typ, sub ? { subscription: rel('subscriptions', z.id) } : { inAppPurchaseV2: rel('inAppPurchases', z.id) }, cel.zakup);
-    } : null;
-    op(obecny ? 'zmieni' : 'utworzy', 'review', `${opis}: ${cel.zakup.plik}${z ? '' : ' (produktu nie ma w ASC — najpierw scripts/asc-ustawienia.mjs)'}`, wykonaj, cel.zakup.md5);
+    const wykonaj = z ? (k) => wyslijPlik(k, typ, sub ? { subscription: rel('subscriptions', z.id) } : { inAppPurchaseV2: rel('inAppPurchases', z.id) }, cel.zakup) : null;
+    op('utworzy', 'review', `${opis}: ${cel.zakup.plik}${z ? '' : ' (produktu nie ma w ASC — najpierw scripts/asc-ustawienia.mjs)'}`, wykonaj, cel.zakup.md5);
   }
 
   // App Privacy: publiczne API nie ma zapisu deklaracji (odczyt dokumentacji, raport toru p8c)
@@ -346,7 +270,7 @@ function lokOps(op, opis, obiekt, kod, docel, obecna, akcje) {
 // Raport i skrót planu
 
 const DZIALANIA = ['utworzy', 'zmieni', 'ręcznie'];
-const RODZAJE = [...DZIALANIA, 'czeka', 'poza API'];
+const RODZAJE = [...DZIALANIA, 'czeka', 'poza API', POZA_SKRYPTEM];
 
 /** Skrót obejmuje każdą pozycję poza „bez zmian”, z pełną treścią pól (sha256), nie tylko z listy. */
 export function skrot(ops) {
@@ -360,11 +284,11 @@ function raport(tryb, ops) {
   return [
     `# App Store Connect — zgłoszenie — ${tryb} (${new Date().toISOString().slice(0, 10)})`,
     '',
-    `Różnice: ${ops.filter((o) => DZIALANIA.includes(o.rodzaj)).length} (utworzy ${ile('utworzy')}, zmieni ${ile('zmieni')}, ręcznie ${ile('ręcznie')}); czeka ${ile('czeka')}; poza API ${ile('poza API')}; bez zmian: ${ile(BEZ)}`,
+    `Różnice: ${ops.filter((o) => DZIALANIA.includes(o.rodzaj)).length} (utworzy ${ile('utworzy')}, zmieni ${ile('zmieni')}, ręcznie ${ile('ręcznie')}); czeka ${ile('czeka')}; poza API ${ile('poza API')}; poza skryptem ${ile(POZA_SKRYPTEM)}; bez zmian: ${ile(BEZ)}`,
     `Skrót planu: ${skrot(ops)}`,
     '',
-    '| Obiekt | utworzy | zmieni | ręcznie | czeka | poza API | bez zmian |',
-    '|---|---|---|---|---|---|---|',
+    '| Obiekt | utworzy | zmieni | ręcznie | czeka | poza API | poza skryptem | bez zmian |',
+    '|---|---|---|---|---|---|---|---|',
     ...obiekty.map((ob) => {
       const w = ops.filter((o) => o.obiekt === ob);
       return `| ${ob} | ${[...RODZAJE, BEZ].map((r) => ile(r, w)).join(' | ')} |`;
@@ -373,8 +297,6 @@ function raport(tryb, ops) {
     '## Lista',
     ...ops.filter((o) => o.rodzaj !== BEZ).map((o) => `- ${o.rodzaj} · ${o.opis}`),
     '',
-    // Zrzuty bez zmian ze stanem przetwarzania: dowód, że Apple przyjął typ ekranu (COMPLETE) albo jeszcze przetwarza.
-    ...(ops.some((o) => o.rodzaj === BEZ && o.obiekt === 'zrzuty') ? ['## Zrzuty bez zmian', ...ops.filter((o) => o.rodzaj === BEZ && o.obiekt === 'zrzuty').map((o) => `- ${o.opis}`), ''] : []),
   ].join('\n');
 }
 
@@ -400,28 +322,24 @@ function zgodaZPliku(p) {
 }
 
 /**
- * Zakres z pliku zgody, także przy "zapis": false: {"lokalizacja": "pl", "obiekty": ["zrzuty"]} zawęża plan, listę i skrót
- * (np. próbny zapis zrzutów jednej lokalizacji). Bez zakresu: całe zgłoszenie.
+ * Zakres z pliku zgody, także przy "zapis": false: {"lokalizacja": "pl", "obiekty": ["metadane"]} zawęża plan, listę i skrót
+ * (np. próbny zapis metadanych jednej lokalizacji). Bez zakresu: całe zgłoszenie. „zrzuty” odrzuca: są poza skryptem (D-366).
  */
 function zakresZPliku(p, cel) {
   if (!p || !existsSync(p)) return null;
   const z = JSON.parse(readFileSync(p, 'utf8')).zakres;
   if (z == null) return null;
-  const obiekty = ['wersja', 'info', 'metadane', 'zrzuty', 'produkty', 'review', 'prywatnosc'];
+  const obiekty = ['wersja', 'info', 'metadane', 'produkty', 'review', 'prywatnosc'];
+  if (Array.isArray(z.obiekty) && z.obiekty.includes('zrzuty')) throw new BladZgody(`plik zgody: "zakres.obiekty" bez „zrzuty” — ${ZRZUTY_POZA}`);
   if (!Array.isArray(z.obiekty) || !z.obiekty.length || z.obiekty.some((o) => !obiekty.includes(o))) throw new BladZgody(`plik zgody: "zakres.obiekty" z listy ${obiekty.join(', ')}`);
   if (z.lokalizacja != null && !cel.lokalizacje.some((l) => l.kod === z.lokalizacja)) throw new BladZgody(`plik zgody: lokalizacja „${z.lokalizacja}” spoza ${META}`);
   return z;
 }
 
 async function main(argv) {
-  const opcje = { dane: arg(argv, '--dane'), sumy: arg(argv, '--sumy'), zrzuty: arg(argv, '--zrzuty') ?? null };
-  for (const kl of ['dane', 'sumy']) if (!opcje[kl]) delete opcje[kl];
-  const generuj = arg(argv, '--generuj-sumy');
-  if (generuj) {
-    const n = generujSumy(resolve(generuj), resolve(opcje.sumy ?? sciezka(SUMY)), json(opcje.dane ?? 'docs/wydanie/asc-zgloszenie.json').klasyZrzutow);
-    console.log(`Sumy zrzutów: ${n} lokalizacji → ${opcje.sumy ?? SUMY}`);
-    return 0;
-  }
+  // Opcje zrzutów sklepu usunięte (D-366): stare wywołanie kończy się błędem zamiast cichego pominięcia.
+  for (const stara of ['--zrzuty', '--sumy', '--generuj-sumy']) if (argv.includes(stara)) throw new BladDanych(`opcja ${stara} usunięta: ${ZRZUTY_POZA}`);
+  const opcje = arg(argv, '--dane') ? { dane: arg(argv, '--dane') } : {};
   const api = arg(argv, '--api') ?? API_DOMYSLNE;
   const cel = stanDocelowy(opcje);
   const zgoda = zgodaZPliku(arg(argv, '--zgoda'));
@@ -444,7 +362,7 @@ async function main(argv) {
   wypisz(raport('zapis — plan zatwierdzony', ops));
   const zapis = klient(api, tajne, false);
   let wykonane = 0;
-  // Rundy: zestawy zrzutów potrzebują lokalizacji wersji, która może powstać dopiero w tej samej rundzie.
+  // Rundy: metadane wersji czekają na zmianę numeru wersji w pierwszej rundzie.
   for (let runda = 1; runda <= 3; runda++) {
     const biezace = runda === 1 ? ops : await plan();
     const doWykonania = biezace.filter((o) => o.wykonaj && DZIALANIA.includes(o.rodzaj));
@@ -465,7 +383,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     (kod) => process.exit(kod),
     (blad) => {
       if (blad instanceof BladApi && blad.status === 403) {
-        console.error(`BŁĄD: App Store Connect odmówił dostępu (403): ${zaciemnij(blad.message)}\nKlucz API ma za niską rolę. Metadane, zrzuty i produkty wymagają klucza z rolą Admin albo App Manager: utwórz go w App Store Connect (Users and Access → Integrations) i wpisz w sekretach GitHuba ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8.`);
+        console.error(`BŁĄD: App Store Connect odmówił dostępu (403): ${zaciemnij(blad.message)}\nKlucz API ma za niską rolę. Metadane i produkty wymagają klucza z rolą Admin albo App Manager: utwórz go w App Store Connect (Users and Access → Integrations) i wpisz w sekretach GitHuba ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8.`);
         process.exit(4);
       }
       if (blad instanceof BladZgody) {
