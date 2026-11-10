@@ -1,10 +1,10 @@
 // ============================================================================
 // Piekarz — akcje zapisu ekranu Zakwasy: dokarmienie, edycja profilu, nowy zakwas, usunięcie, „Załóż od nowa”.
 // Wydzielone z app/(tabs)/zakwasy/index.tsx bez zmiany zachowania (limit 20 480 B, M3 p2); ścieżka zapisu ta sama:
-// saveStarter / deleteStarter / restartStarterSetup przez guardSave.
+// saveStarter / deleteStarter / restartStarterSetup przez guardSave; dokarmienie przez dziennik [M1-audytor-generalny-002].
 // ============================================================================
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import { t } from '../../lib/i18n';
 import { guardSave } from '../../lib/save-guard';
@@ -12,7 +12,8 @@ import { resyncNotifications, ensureNotificationPermission } from '../../lib/not
 import { formatFeedingRatio } from '../../core/feeding-ratio';
 import { confirmDeleteStarter, confirmZalozOdNowa } from '../../lib/confirm';
 import { saveStarter, deleteStarter } from '../../data/sqlite-store';
-import { restartStarterSetup } from '../../data/starter-entries-store';
+import { addStarterEntry, createStarterWithEntry, restartStarterSetup } from '../../data/starter-entries-store';
+import { wpisDokarmienia } from '../../lib/kalendarz-akcje';
 import { nowyWpis } from './useStarterLog';
 import type { StoredStarter } from '../../data/db';
 import { pytanieOStalyDzien } from '../../core/notification-feeding';
@@ -43,6 +44,19 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
   const [newStarterFlour, setNewStarterFlour] = useState<string>(() => t('Mąka pszenna chlebowa t750'));
   const [newStarterStorage, setNewStarterStorage] = useState<Miejsce>('ROOM_TEMP');
 
+  // Blokada w trakcie zapisu: drugie stuknięcie przed końcem zapisu nic nie zapisuje (wzór useFinishBake)
+  // [M1-audytor-generalny-028; 08-programista-006]
+  const zapisuje = useRef(false);
+  const jedenNaraz = (fn: () => Promise<void>) => async () => {
+    if (zapisuje.current) return;
+    zapisuje.current = true;
+    try {
+      await fn();
+    } finally {
+      zapisuje.current = false;
+    }
+  };
+
   const podmien = (updated: StoredStarter) => {
     setStarter(updated);
     setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
@@ -50,14 +64,15 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
 
   // Zapis karmienia w Basic (karta i zapis karmień, D-113)
   const handleLogFeeding = async () => {
-    void guardSave(async () => {
+    void guardSave(jedenNaraz(async () => {
       const now = Date.now();
       const updated: StoredStarter = {
         ...starter,
         lastFedAt: now,
         feedingRatio: formatFeedingRatio(selectedRatio),
       };
-      await saveStarter(updated);
+      // Dokarmienie tylko przez dziennik (jedna droga zapisu) [M1-audytor-generalny-002; 05-architekt-501]
+      await addStarterEntry(wpisDokarmienia(starter.id, now, updated.feedingRatio));
       void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)
       podmien(updated);
       odswiezDziennik();
@@ -68,7 +83,7 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
       }
       // Pasek z „Przywróć” zamiast okna (009, D-051 1a) [M3 W-fix2]
       zapamietajCofniecie(starter, now);
-    })();
+    }))();
   };
 
   const handleOpenEditModal = () => {
@@ -99,7 +114,7 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
 
   // Nowy zakwas: limit Basic (1) liczony z bazy przy dodaniu; kolejne zakwasy w Pro (BR-ZAKW-001)
   const handleAddStarter = async () => {
-    dodaj('zakwasy', guardSave(async () => {
+    dodaj('zakwasy', guardSave(jedenNaraz(async () => {
       const trimmedName = newStarterName.trim();
       if (!trimmedName) return;
       const newStarter: StoredStarter = {
@@ -111,13 +126,14 @@ export function useAkcjeZakwasu({ starter, setStarter, startersList, setStarters
         storageState: newStarterStorage,
         lastFedAt: Date.now(),
       };
-      await saveStarter(newStarter);
+      // Zakwas z pierwszym dokarmieniem w jednej transakcji (dokarmienie przez dziennik) [M1-audytor-generalny-002]
+      await createStarterWithEntry(newStarter, wpisDokarmienia(newStarter.id, newStarter.birthDate));
       void resyncNotifications();
       await loadStarterData(newStarter.id);
       setIsAddModalOpen(false);
       setNewStarterName('');
       Alert.alert(t('Dodano zakwas'), t('Kultura „{name}” została utworzona.', { name: trimmedName }));
-    }));
+    })));
   };
 
   // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]; także jedynego zakwasu, żeby w Basic

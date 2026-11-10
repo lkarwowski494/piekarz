@@ -1,0 +1,40 @@
+Po zmianie: d2e791ae (D-335 + D-336); npx jest src/__tests__/ostrzezenie-nad-karta-005.test.tsx src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx --ci --logHeapUsage
+PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx (117 MB heap size)
+FAIL src/__tests__/ostrzezenie-nad-karta-005.test.tsx (123.252 s, 1635 MB heap size)
+  ● Console
+
+    console.log
+      005: 34 przypadków
+
+      at Object.log (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:175:13)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #9 preheat_oven: 15 pt pod paskiem kciuka",
+    + ]
+
+      195 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      196 |         }
+    > 197 |         expect(ponizej).toEqual([]);
+          |                         ^
+      198 |       });
+      199 |     }
+      200 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:197:25)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 113 passed, 114 total
+Snapshots:   0 total
+Time:        123.782 s
+Ran all test suites matching /src\/__tests__\/ostrzezenie-nad-karta-005.test.tsx|src\/__tests__\/karta-kroku-pierwszy-ekran-005.test.tsx/i.
+KOD 1

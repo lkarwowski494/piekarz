@@ -7,16 +7,20 @@ import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
 import { PolaTemperaturDdt, PolaTemperaturDdtProps } from './PolaTemperaturDdt';
+import { Karta } from '../../../ui/karty/Karta';
+import { IkonaKarty } from '../../../ui/karty/IkonaKarty';
 
-import { typografia } from '../../../ui/tokeny';
+import { typografia, promienie } from '../../../ui/tokeny';
 // Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
 // (design-spec §11c „106”, punkt 7) [M1-audytor-generalny-106]
 export interface AccordionDdtSectionProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
-  /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
+  /** Ostrzeżenie reguły RD-05 (status too_hot_danger albo requires_ice); brak = woda w zakresie [M1-audytor-generalny-039; 08-p3-N1]. */
   waterTempWarning?: string;
+  /** Status reguły RD-05 dla ostrzeżenia: requires_ice daje testID alertu zimnej wody [07-przek-4; 08-p3b-N1]. */
+  waterTempStatus?: 'normal' | 'too_hot_danger' | 'requires_ice';
   hydrationDifficulty?: HydrationDifficultyInfo;
   blendAbsorption?: BlendAbsorptionAnalysis;
   /** Pola temperatur mąki, kuchni, zaczynu i tarcia (BR-KALK-004) [M1-audytor-generalny-146] */
@@ -30,6 +34,7 @@ export function AccordionDdtSection({
   onTargetDdtChange,
   waterTempTarget,
   waterTempWarning,
+  waterTempStatus,
   hydrationDifficulty,
   blendAbsorption,
   temperatury,
@@ -38,15 +43,10 @@ export function AccordionDdtSection({
   const unitSystem = useUnitSystem();
 
   return (
-    <View style={styles.sectionBlock}>
-      <Text style={styles.sectionHeaderTitle}>
-        {t('Temperatura wody')}
-      </Text>
-      <Text style={styles.sectionDesc}>
-        {t(
-          'Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.'
-        )}
-      </Text>
+    // Karta systemu (README §2): nagłówek z ikoną zamiast własnego tytułu 14 pt i obwódki `linia`
+    // [M1-audytor-generalny-007; 04-studio-projektowe-003]
+    <Karta testID="karta-temperatury-wody" tytul={t('Temperatura wody')} ikona={<IkonaKarty nazwa="termometr" />}
+      podpis={t('Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.')}>
 
       <View style={styles.ddtResultCard}>
         {brakPola ? (
@@ -63,7 +63,7 @@ export function AccordionDdtSection({
         )}
 
         {!brakPola && waterTempWarning !== undefined && (
-          <View style={styles.hotAlertRow} testID="ddt-too-hot-warning" accessibilityRole="alert">
+          <View style={styles.hotAlertRow} testID={waterTempStatus === 'requires_ice' ? 'ddt-too-cold-warning' : 'ddt-too-hot-warning'} accessibilityRole="alert">
             <Text style={styles.hotAlertText}>{t(waterTempWarning)}</Text>
           </View>
         )}
@@ -124,31 +124,11 @@ export function AccordionDdtSection({
           </Text>
         </View>
       )}
-    </View>
+    </Karta>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionBlock: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  sectionHeaderTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: 4,
-  },
-  sectionDesc: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    marginBottom: theme.spacing.sm,
-    lineHeight: 16,
-  },
   ddtResultCard: {
     backgroundColor: theme.colors.powierzchnia,
     padding: theme.spacing.sm,
@@ -168,7 +148,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   ddtResultValue: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
   },
@@ -199,7 +179,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   paramLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginBottom: 4,
   },
@@ -214,19 +194,19 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     backgroundColor: theme.colors.powierzchnia,
-    borderRadius: 4,
+    borderRadius: promienie.znacznik,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
   },
   miniBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   paramValue: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -263,12 +243,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tloGrupa, // poziom info (hydrationDifficulty.poziom): kolor z komponentu, nie z danych
   },
   diffBadgeText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   diffTipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
   },
@@ -287,7 +267,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   absorptionAdviceText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
 });

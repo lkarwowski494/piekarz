@@ -58,11 +58,14 @@ describe('przekład a5d wpięty (M3 T2, D-123)', () => {
     expect(KLUCZE_A5D.filter((k) => !(k in ZASTAPIONE_D125) && typeof EN[k] !== 'string')).toEqual([]);
   });
 
-  it('14 kluczy zastąpionych (D-126): stary klucz nie wraca do EN, nowy jest w EN i czeka na przekład', () => {
+  // 014 (M2 p2, 2026-11-09): nowe klucze D-126 przełożone (przeklad-m2-014-2026-11-09.json), lista „czeka” pusta
+  // [M1-audytor-generalny-014; 09-lokalizacja-005]
+  it('14 kluczy zastąpionych (D-126): stary klucz nie wraca do EN, nowy jest w EN i ma przekład (nie czeka)', () => {
     const pary = Object.entries(ZASTAPIONE_D125);
     expect(pary).toHaveLength(14);
     expect(pary.filter(([stary]) => typeof EN[stary] === 'string')).toEqual([]);
-    expect(pary.filter(([, nowy]) => typeof EN[nowy] !== 'string' || !CZEKA.includes(nowy))).toEqual([]);
+    expect(pary.filter(([, nowy]) => typeof EN[nowy] !== 'string' || CZEKA.includes(nowy))).toEqual([]);
+    expect(pary.filter(([, nowy]) => !(slownik('de').get(nowy) ?? '').trim())).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy klucz a5d ma własny, niepusty wpis', (kod) => {

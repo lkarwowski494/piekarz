@@ -3,7 +3,7 @@
 // (D-173). Dane z treści roli 06: docs/tresci/pl|en/wersje-drozdzowe.md (procent drożdży świeżych względem mąki,
 // D-100; rodzaj drożdży nieokreślony w źródłach orkiszu i żyta liczony jako świeże, D-178; tartine z przelicznika
 // D-172). Woda i sól zmieniają się tylko tam, gdzie treść je podaje (żyto, ZYT-DRO-001); mąki zostają z receptury.
-// Czasy etapów planu: src/core/yeast-stages.ts (D-155, D-174). Wskazówki to klucze PL dla t() [M3 p9b].
+// Czasy etapów planu: src/recipes/yeast-stages.ts (D-155, D-174). Wskazówki to klucze PL dla t() [M3 p9b].
 // ============================================================================
 
 import type { DoughRecipeInput } from '../core/domain-rules';

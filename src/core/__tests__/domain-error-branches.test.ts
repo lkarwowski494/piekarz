@@ -118,7 +118,7 @@ describe('Domain Rules & Core Error Branches (100% Coverage Hardening - BR-TEST-
 
   test('baking-phases branches', () => {
     const p1 = getDutchOvenPhase('lid_on');
-    expect(p1.temperatureC).toBe(240);
+    expect(p1.temperatureC).toBe(232); // PIE-GAR-001 (D-304) [M1-audytor-generalny-008]
     const p2 = getNextBakePhase('lid_on');
     expect(p2).toBe('lid_off');
     expect(getNextBakePhase('lid_off')).toBeNull();

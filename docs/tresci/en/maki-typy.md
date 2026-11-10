@@ -28,3 +28,20 @@ The type number of wheat and rye flour tells you how much ash it contains. [T:MA
 
 ## wheat_850.descriptionPl (prefix of the description)
 Type 850 isn't in the Polish standard, so each mill makes it its own way. [T:MAK-TYP-003]
+
+## flour names in recipe ingredients and translations (D-307: one flour = one name; the type number in every language, no local equivalent — MAK-EN-900 open; key map: docs/tresci/wektory/maki-nazwy-2026-11-09.json)
+- Wheat flour (Polish type 405) [T:MAK-TYP-004]
+- Wheat flour (Polish type 450, tortowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Wheat flour (Polish type 500, wrocławska) [T:MAK-NAZ-001]
+- Wheat flour (Polish type 550, luksusowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Wheat flour (Polish type 650, bułkowa) [T:MAK-NAZ-001]
+- Wheat flour (Polish type 750, chlebowa) [T:MAK-NAZ-001]
+- Wheat flour (Polish type 850) [T:MAK-TYP-004]
+- Wheat flour (Polish type 1050) [T:MAK-TYP-006]
+- Wheat flour (Polish type 1850, graham) [T:MAK-TYP-004]
+- Wholemeal wheat flour (Polish type 2000) [T:MAK-OGL-007]
+- Rye flour (Polish type 500) [T:MAK-TYP-004]
+- Rye flour (Polish type 720) [T:MAK-TYP-004]
+- Rye flour (Polish type 1400) [T:MAK-TYP-005]
+- Rye flour (Polish type 2000) [T:MAK-TYP-004]
+- Spelt flour (Polish type 2000) [T:MAK-TYP-007]

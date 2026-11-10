@@ -38,34 +38,37 @@ Hamur hesabı ve pişirme planı
 hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,mayalama,fermantasyon
 ```
 
-### Tekst promocyjny (Promotional Text) · 167 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 153 / 170 znaków · wersja 1.0
 
 ```text
-Ekmeğin hazır olacağı saati ayarlayın: Fırıncı miktarları hesaplar, planı geriye doğru oluşturur ve her adımın sonunu haber verir. Hesap yok, internet yok, reklam yok.
+Fırıncı miktarları hesaplar ve her adımın sonunu haber verir. Ekmeğin hazır olacağı saatten geriye doğru plan (Pro). Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3382 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3741 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
 
 TARİFLER VE MİKTARLAR
-15 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar. Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
+26 temel tariften birini (ekşi mayalı, çavdar, mayalı, pizza ve tatlı) ya da kendi tarifinizi seçersiniz; ekşi mayalı 11 tarifte plan ve adım adım rehberlik vardır. Somun sayısını veya un miktarını ayarlarsınız; Fırıncı size un, su, ekşi maya, tuz ve mayanın gram cinsinden miktarını verir. Fırıncı yüzdesi, ekşi mayadaki ve maya hamurundaki un ile suyu da hesaba katar (maya hamuru: Pro). Fırıncı, ulaşmak istediğiniz hamur sıcaklığı için gereken su sıcaklığını da söyler.
 
-“HAZIR” SAATİNDEN PLAN
+MAYALI SÜRÜM VE EKMEK MAKİNESİ
+Ekşi mayalı dört tarifin mayalı sürümü de vardır, bunların üçü planlıdır. Mayalı tarifler ve sürümler ekmek makinesinde de yapılabilir: Fırıncı miktarları makinenize göre ayarlar, malzeme sırasını ve programı, ayrıca seçtiğiniz hazır olma saati için başlatma saatini söyler (Pro).
+
+“HAZIR” SAATİNDEN PLAN (Pro)
 Ekmeğin ne zaman hazır olacağını seçersiniz; Fırıncı her adımın başlangıç saatini geriye doğru hesaplar. Fermantasyon süresi mutfağınızın sıcaklığına bağlıdır. Elinizle yapmanız gereken bir adım geceye denk gelirse (varsayılan olarak 23:00 ile 07:00 arası), Fırıncı buzdolabında daha uzun bir süre önerir. Süre yetmiyorsa mümkün olan en erken saati söyler.
 
 ADIM ADIM REHBERLİK
 Fırıncı mevcut adımı gösterir: ne yapılacağını, ne kadar süreceğini ve sonra ne geleceğini. Bildirimlere izin verirseniz telefon kilitliyken de adımın bittiğini haber verir. Elinizle yapmanız gereken bir adımda rehberlik ekranı kapanmaz. Sıcak kap veya çiğ hamur içeren adımlarda uyarı bulunur. Çavdar ekmeğinin (unun yarısından fazlası çavdar unu) katlama içermeyen kendi adımları vardır. Yanlışlıkla onayladığınız bir adımı geri alabilirsiniz; uygulamayı yeniden açtığınızda mevcut adıma dönülür.
 
 EKŞİ MAYALAR
-Birden fazla ekşi mayayı takip edersiniz. Fırıncı besleme miktarlarını 1:1:1, 1:2:2, 1:3:3 veya 1:5:5 oranında verir. Ekşi maya hacmini ikiye katladığında Fırıncı onu hamura hazır olarak işaretler. Mutfak tezgâhında 12 saat beslenmeden kalırsa bir bildirimle hatırlatır. Yeni bir ekşi mayayı gün gün başlatabilirsiniz. Fırıncı ihtiyat ilkesini uygular: tabaka, renk değişimi veya çürük koku varsa ekşi mayayı atmanızı önerir.
+Yeni bir ekşi mayayı gün gün başlatabilirsiniz. Fırıncı ihtiyat ilkesini uygular: tabaka, renk değişimi veya çürük koku varsa ekşi mayayı atmanızı önerir. Ekşi maya bakımı (Pro): birden fazla ekşi maya, 1:1:1, 1:2:2, 1:3:3 veya 1:5:5 oranında besleme miktarları, ekşi maya hacmini ikiye katladığında hazır işareti ve mutfak tezgâhında 12 saat beslenmeden kalınca hatırlatma.
 
 EKMEK DOKTORU
 Ekmek içi sıkı, kabuk soluk mu? Belirtileri işaretlersiniz; Ekmek Doktoru 9 kusurdan birini belirler, nedenini açıklar ve bir dahaki sefere neyi değiştirmeniz gerektiğini söyler. Dört kurtarma protokolü, fermantasyon sırasında hamurda sorun çıktığında yardımcı olur. Ekşi maya doktoru, ekşi mayanızda sizi endişelendiren bir şey olduğunda yardımcı olur.
 
 GÜNLÜK
-Her somunu değerlendirirsiniz: yıldızlar, ekmek içi, kabuk ve lezzet profili. Günlük istatistikleri gösterir; “Tekrar Pişir” aynı tarifi açar.
+Her somunu değerlendirirsiniz: yıldızlar, ekmek içi, kabuk ve lezzet profili. Günlük ekranı istatistikleri (Pro) gösterir; “Tekrar Pişir” aynı tarifi açar.
 
 VERİLERİNİZ
 Fırıncı son 10 otomatik yedeği telefonunuzda saklar. Tüm verilerinizi bir dosyaya dışa aktarabilir ve dosyadan içe aktarabilir, pişirme geçmişinizi CSV olarak dışa aktarabilirsiniz. Birimler: gram ve °C ya da ons ve °F.
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (2): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

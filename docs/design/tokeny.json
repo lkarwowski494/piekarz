@@ -103,6 +103,7 @@
     "pas": 26, "przyciskGlowny": 18, "chip": 22, "przycisk": 14, "grupa": 12, "ostrzezenie": 12, "znacznik": 6, "pole": 10, "karta": 16
   },
   "cele": { "glownyPrzeplyw": 48, "pozostale": 44, "przyciskKciuka": 64, "_zrodlo": "DEC-15 a, NFR-INT-001" },
+  "uklad": { "niskiEkran": 700, "_zasada": "okno niższe niż niskiEkran pt (iPhone SE 568 i 667, Powiększenie ekranu 320×568) przy tekście mniejszym niż AX (fontScale < 2): zwarty pas prowadzenia i pasek kciuka w jednym rzędzie; przy dużym tekście układ zwykły, zawija się i przewija", "_zrodlo": "M1-audytor-generalny-005, rola 04 p4b (D-319 do weta)" },
   "ruch": {
     "zwoj": { "ms": 300, "krzywa": "easeOut", "kiedy": "po „Zrobione”: zwój bieżący staje się gruby, znacznik przesuwa się" },
     "krotki": { "ms": 200, "krzywa": "easeOut", "kiedy": "pojawienie się paska „Cofnij”, zmiana stanu przycisku" },

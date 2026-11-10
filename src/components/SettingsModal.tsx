@@ -13,13 +13,7 @@ import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
 import { CloseButton } from './CloseButton';
 import { guardSave } from '../lib/save-guard';
 import { resyncNotifications } from '../lib/notifications';
-import {
-  getBakingVessel,
-  setBakingVessel,
-  BakingVessel,
-} from '../data/sqlite-store';
 import { useUnitSystem, setUnitSystem, UnitSystem } from '../lib/unit-converter';
-import { BakerRitualSection } from './settings/BakerRitualSection';
 import { PreferencesSection } from './settings/PreferencesSection';
 import { GodzinySnuSection } from './settings/GodzinySnuSection';
 import { PrzypomnieniaKarmieniaSection } from './settings/PrzypomnieniaKarmieniaSection';
@@ -41,9 +35,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const currentLang = useLang();
   const unitSystem = useUnitSystem();
 
-  // Naczynie do wypieku; bez wyboru stylu wypieku [M1-audytor-generalny-101; BR-START-001]
-  const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
-
+  // Bez wyboru stylu (101) i bez wyboru naczynia: plan bierze naczynie z receptury (D-304) [M1-audytor-generalny-060]
   // Podekran w tym samym arkuszu, bez drugiego arkusza modalnego (D-117): „Źródła wiedzy” (D-123, M3 T2) i
   // „Licencje open source” (Z-08-1, FOR-15); każde otwarcie Ustawień zaczyna od listy ustawień
   const [podekran, setPodekran] = useState<'zrodla' | 'licencje' | null>(null);
@@ -53,14 +45,8 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   useEffect(() => {
     if (visible) {
       setPodekran(null);
-      void getBakingVessel().then(setBakingVesselState);
     }
   }, [visible]);
-
-  const handleVesselChange = async (v: BakingVessel) => {
-    setBakingVesselState(v);
-    await guardSave(() => setBakingVessel(v))();
-  };
 
   // Zmiana od razu i zapis na kolejne uruchomienia [M1-audytor-generalny-048]; nieudany zapis: „Nie zapisano” [M1-audytor-generalny-120]
   const handleLanguageChange = (newLang: Lang) => {
@@ -101,12 +87,6 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           </ScrollView>
         ) : (
         <ScrollView contentContainerStyle={styles.content}>
-          {/* Baking Equipment */}
-          <BakerRitualSection
-            bakingVessel={bakingVessel}
-            onVesselChange={handleVesselChange}
-          />
-
           {/* Language & Unit System */}
           <PreferencesSection
             currentLang={currentLang}

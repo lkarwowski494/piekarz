@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { wInKeep } from '../lib/unit-converter';
 import { theme } from '../ui/theme';
+import { typografia } from '../ui/tokeny';
 
 export interface NumInputProps extends Omit<TextInputProps, 'value' | 'onChangeText'> {
   value?: number | string;
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     color: theme.colors.tusz,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     paddingHorizontal: 12,
     paddingVertical: 10,
     minHeight: 48,

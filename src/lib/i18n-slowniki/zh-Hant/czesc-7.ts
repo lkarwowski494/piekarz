@@ -121,7 +121,7 @@ export const CZESC: Record<string, string> = {
   'w tym lód': '其中冰塊',
   'Waga bochenka': '麵包重量',
   'Waga bochenka po wypieku': '烘烤後麵包重量',
-  'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.': '一層帶有酒精味的液體沒有問題：這是酵母活動的副產物。你可以倒掉或拌回去。若你同時看到表層覆膜或變色，或聞到腐臭味，請在上方勾選。',
+  'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.': '一層帶有酒精味的液體沒有問題：這是酵母活動的副產物。 你可以倒掉或拌回去。 若你同時看到表層覆膜或變色，或聞到腐臭味，請在上方勾選。',
   'Warunki użytkowania': '使用條款',
   'Warunki użytkowania (EULA)': '使用條款（EULA）',
   'wczoraj': '昨天',

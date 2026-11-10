@@ -11,13 +11,24 @@ export interface HeaderButtonProps {
   bold?: boolean;
   label?: string;
   testID?: string;
+  /** Przycisk chwilowo nieczynny (np. w trakcie zapisu); bez wartości: zawsze czynny. */
+  disabled?: boolean;
 }
 
 /**
  * Standardowy przycisk nagłówka (Apps4Brew HIG standard):
  * Minimalny obszar dotykowy 44x44 pt, wsparcie VoiceOver, limit powiększenia Dynamic Type.
  */
-export function HeaderButton({ title, onPress, bold, label, testID }: HeaderButtonProps) {
+export function HeaderButton(props: HeaderButtonProps) {
+  return przyciskNaglowka(props);
+}
+
+/**
+ * Ten sam przycisk jako funkcja rysująca (bez warstwy komponentu): pasek arkusza (`PasekArkusza`) rysuje nim
+ * „Anuluj” / „Zapisz”, żeby w drzewie był jeden element z testID i akcją, jak dawne przyciski arkuszy
+ * [M1-audytor-generalny-007; 04-studio-projektowe-003].
+ */
+export function przyciskNaglowka({ title, onPress, bold, label, testID, disabled }: HeaderButtonProps) {
   return (
     <Pressable
       testID={testID}
@@ -26,6 +37,7 @@ export function HeaderButton({ title, onPress, bold, label, testID }: HeaderButt
       accessibilityLabel={label ?? title}
       hitSlop={10}
       onPress={onPress}
+      {...(disabled !== undefined && { disabled, accessibilityState: { disabled } })}
       style={styles.headerButton}
     >
       <Text

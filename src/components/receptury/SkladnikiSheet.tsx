@@ -10,6 +10,8 @@
 // ============================================================================
 
 import React, { useEffect, useState } from 'react';
+// Zakresy pól jak w imporcie (jedno źródło) [M1-audytor-generalny-027]
+import { ZAKRESY_RECEPTURY } from '../../core/zakresy-receptury';
 import { Modal, View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
@@ -18,7 +20,7 @@ import { nazwaMaki } from '../../lib/nazwa-maki';
 import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { wskazowkaZaczynu } from '../../lib/wskazowka-zaczynu';
 import { POPULAR_FLOUR_BLENDS, FlourItemInput, HydrationDifficultyInfo } from '../../core/domain-rules';
-import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend } from '../../core/flour-atlas';
+import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend, toTenProfil } from '../../core/flour-atlas';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
 import { NumInput } from '../NumInput';
 import { HeaderButton } from '../DraftHeader';
@@ -34,7 +36,7 @@ import { useRodzajDrozdzy, zapiszRodzajDrozdzy, type RodzajDrozdzy } from '../..
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
-import { typografia } from '../../ui/tokeny';
+import { typografia, promienie } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
   visible: boolean;
   onClose: () => void;
@@ -125,7 +127,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   };
 
   const dodajMake = () => {
-    const wolne = FLOUR_PROFILES.filter((f) => !szkic.some((b) => b.name === f.namePl || b.type === f.id));
+    const wolne = FLOUR_PROFILES.filter((f) => !szkic.some((b) => toTenProfil(b, f)));
     pokazMenuWyboru(t('Dodaj mąkę'), wolne.map((f) => nazwaMaki(f)), (i) => {
       const f = wolne[i];
       const reszta = Math.round((100 - suma) * 10) / 10;
@@ -202,13 +204,13 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             </Karta>
 
             <Karta testID="karta-proporcje" tytul={t('Proporcje (procent mąki)')} ikona={<IkonaKarty nazwa="proporcje" />} bezWypelnienia>
-              <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={0} max={150} onChange={p.onWaterPctChange} />
-              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
+              <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={ZAKRESY_RECEPTURY.woda.min} max={ZAKRESY_RECEPTURY.woda.max} onChange={p.onWaterPctChange} />
+              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={ZAKRESY_RECEPTURY.zakwas.min} max={ZAKRESY_RECEPTURY.zakwas.max} onChange={p.onStarterPctChange} />
               {p.starterPct > 0 && (
-                <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={20} max={200} onChange={p.onStarterHydrationChange} />
+                <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={ZAKRESY_RECEPTURY.hydratacjaZakwasu.min} max={ZAKRESY_RECEPTURY.hydratacjaZakwasu.max} onChange={p.onStarterHydrationChange} />
               )}
-              <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={0} max={10} onChange={p.onSaltPctChange} />
-              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={10} onChange={p.onYeastPctChange} ostatnie />
+              <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={ZAKRESY_RECEPTURY.sol.min} max={ZAKRESY_RECEPTURY.sol.max} onChange={p.onSaltPctChange} />
+              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={ZAKRESY_RECEPTURY.drozdze.min} max={ZAKRESY_RECEPTURY.drozdze.max} onChange={p.onYeastPctChange} ostatnie />
               <View style={styles.informacje}>
                 {p.hydrationDifficulty && (
                   <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>
@@ -224,7 +226,16 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
                   {segmentDrozdzy('swieze', 'yeast-type-fresh', t('świeże|drożdże'))}
                   {segmentDrozdzy('suche', 'yeast-type-dry', t('suche|drożdże'))}
                 </View>
-                <Text style={styles.objasnienie}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.')}</Text>
+                {/* Zdanie D-100 i 4 zdania docs/tresci/pl/drozdze-przelicznik.md dosłownie (D-306) [M1-audytor-generalny-040] */}
+                <Text style={styles.objasnienie}>
+                  {t('Procent drożdży w recepturze to drożdże świeże.')}{' '}
+                  {t('Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.')}{' '}
+                  {t('To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.')}
+                </Text>
+                <Text style={styles.objasnienie}>
+                  {t('Drożdże instant można wsypać prosto do mąki.')}{' '}
+                  {t('Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.')}
+                </Text>
               </Karta>
             )}
 
@@ -278,7 +289,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: theme.spacing.xs,
     padding: 3,
-    borderRadius: 12,
+    borderRadius: promienie.grupa,
     backgroundColor: theme.colors.tloGrupa,
   },
   informacje: { paddingTop: theme.spacing.xs, paddingBottom: theme.spacing.md, gap: theme.spacing.xs },
@@ -288,7 +299,7 @@ const styles = StyleSheet.create({
     minHeight: theme.cele.pozostale,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: promienie.pole,
   },
   segmentWybrany: {
     backgroundColor: theme.colors.powierzchnia,

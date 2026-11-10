@@ -258,7 +258,8 @@ export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecK
   });
   return (
     <View style={styles.wypiek}>
-      <Spirala kroki={kroki} wariant="pelna" biezacy={stepIdx} postepKroku={postep} etykieta={etykieta} naPasie={naPasie} />
+      {/* Na pasie prowadzenia mała (92 pt): karta „Co zrobić” i ostrzeżenie w pierwszym ekranie [M1-audytor-generalny-005] */}
+      <Spirala kroki={kroki} wariant={naPasie ? 'mala' : 'pelna'} biezacy={stepIdx} postepKroku={postep} etykieta={etykieta} naPasie={naPasie} />
       <LegendaSpirali kroki={kroki} naPasie={naPasie} />
     </View>
   );

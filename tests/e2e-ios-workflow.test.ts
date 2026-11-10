@@ -79,26 +79,53 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   });
 
   // Jedyny wybór po tekście: przycisk systemowego okna zgody iOS (nie ma id, to okno systemu, nie aplikacji),
-  // w obu językach przebiegu i zawsze opcjonalny. Po „Dalej” w ZgodaPowiadomien (130) okno zasłaniało prowadzenie
-  // (przebieg 39688253940) [M1-audytor-generalny-037]
+  // w obu językach przebiegu. Po „Dalej” w ZgodaPowiadomien (130) okno zasłaniało prowadzenie
+  // (przebieg 39688253940) [M1-audytor-generalny-037]. E2E-96: okno otwiera się po odpowiedzi systemu, więc
+  // opcjonalne stuknięcie przepadało, gdy okno przyszło później; dozwolone tylko czekanie (extendedWaitUntil
+  // z optional: true), warunek runFlow when i stuknięcie bez optional w runFlow z tym samym warunkiem.
   // Drugi wyjątek, nazwany [M3 E2E, flow 05]: przycisk natywnego pytania React Native (Alert.alert nie przyjmuje testID),
   // dokładny tekst „PL|EN” z listy niżej; zawsze tapOn, tekst EN zgodny ze słownikiem aplikacji (test niżej).
   const ALERT_NATYWNY: Record<string, string> = { 'Prowadź oba': 'Run both' };
+  const OKNO_ZGODY = '"Pozwalaj|Zezwalaj|Zezwól|Allow"';
 
-  it('tekst w scenariuszach E2E tylko dla przycisku systemowego okna zgody (opcjonalnie) i przycisków natywnego Alertu z listy', () => {
-    const OKNO_ZGODY = '"Pozwalaj|Zezwalaj|Zezwól|Allow"';
+  it('tekst w scenariuszach E2E tylko dla systemowego okna zgody (czekanie warunkowe, tap bez optional w runFlow when) i przycisków natywnego Alertu z listy', () => {
     const alerty = Object.entries(ALERT_NATYWNY).map(([pl, en]) => `"${pl}|${en}"`);
     const zle: string[] = [];
     for (const [d, f] of plikiE2e()) {
       const linie = readFileSync(join(d, f), 'utf8').split(/\r?\n/);
+      const wiersz = (i: number): string => (linie[i] ?? '').trim();
       linie.forEach((l, i) => {
         const m = /^\s+text:\s*(.*)$/.exec(l);
         if (!m) return;
-        const tapOn = /^- tapOn:\s*$/.test(linie[i - 1] ?? '');
-        const zgoda = m[1].trim() === OKNO_ZGODY && /^\s+optional:\s*true\s*$/.test(linie[i + 1] ?? '');
-        const alert = alerty.includes(m[1].trim());
-        if (!tapOn || !(zgoda || alert)) zle.push(`${f}:${i + 1}: ${l.trim()}`);
+        const tekst = m[1].trim();
+        const alert = /^- tapOn:\s*$/.test(linie[i - 1] ?? '') && alerty.includes(tekst);
+        let zgoda = false;
+        if (tekst === OKNO_ZGODY) {
+          const nast = linie.slice(i + 1, i + 4).map((x) => x.trim());
+          if (wiersz(i - 1) === 'visible:' && wiersz(i - 2) === '- extendedWaitUntil:') zgoda = nast.includes('optional: true');
+          else if (wiersz(i - 1) === 'visible:' && wiersz(i - 2) === 'when:') zgoda = true;
+          else if (wiersz(i - 1) === '- tapOn:') {
+            // tap bez optional, w commands runFlow, którego warunek when to to samo okno
+            const okno = linie.slice(Math.max(0, i - 8), i).map((x) => x.trim());
+            const w = okno.lastIndexOf('when:');
+            zgoda = w >= 0 && okno[w + 1] === 'visible:' && okno[w + 2] === `text: ${OKNO_ZGODY}` && !nast.includes('optional: true');
+          }
+        }
+        if (!(zgoda || alert)) zle.push(`${f}:${i + 1}: ${l.trim()}`);
       });
+    }
+    expect(zle).toEqual([]);
+  });
+
+  // E2E-96: każde stuknięcie okna zgody systemu poprzedza czekanie warunkowe (extendedWaitUntil, optional: true)
+  it('stuknięcie okna zgody systemu poprzedza czekanie warunkowe, bez opcjonalnego tapOn po tekście', () => {
+    const zle: string[] = [];
+    for (const [d, f] of plikiE2e()) {
+      const t = readFileSync(join(d, f), 'utf8');
+      const tapy = [...t.matchAll(/- tapOn:\s*\n\s+text: "Pozwalaj\|Zezwalaj\|Zezwól\|Allow"/g)].length;
+      const czekania = [...t.matchAll(/- extendedWaitUntil:\s*\n\s+visible:\s*\n\s+text: "Pozwalaj\|Zezwalaj\|Zezwól\|Allow"\s*\n\s+timeout: \d+\s*\n\s+optional: true/g)].length;
+      if (tapy !== czekania) zle.push(`${f}: tapów ${tapy}, czekań ${czekania}`);
+      if (/- tapOn:\s*\n\s+text: "Pozwalaj[^\n]*\n\s+optional: true/.test(t)) zle.push(`${f}: opcjonalny tapOn okna zgody`);
     }
     expect(zle).toEqual([]);
   });

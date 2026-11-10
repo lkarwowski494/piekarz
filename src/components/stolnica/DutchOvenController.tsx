@@ -8,11 +8,13 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../core/baking-phases';
+import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase, type DutchOvenPhaseConfig } from '../../core/baking-phases';
 import { formatTemperature, formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 import { typografia } from '../../ui/tokeny';
 export interface DutchOvenControllerProps {
+  /** Fazy kroku pieczenia (fazyGarnka): czas fazy bez pokrywki z danych receptury (D-304); brak = profil domyślny [M1-audytor-generalny-008]. */
+  fazy?: Record<DutchOvenBakePhase, DutchOvenPhaseConfig>;
   dutchOvenPhase: DutchOvenBakePhase;
   onSwitchPhase: (phase: DutchOvenBakePhase) => void;
   unitSystem: UnitSystem;
@@ -21,6 +23,7 @@ export interface DutchOvenControllerProps {
 }
 
 export function DutchOvenController({
+  fazy = DUTCH_OVEN_PHASES,
   dutchOvenPhase,
   onSwitchPhase,
   unitSystem,
@@ -82,15 +85,15 @@ export function DutchOvenController({
           </Text>
           <View style={styles.phaseTempBadge}>
             <Text style={styles.phaseTempBadgeText}>
-              {formatTemperature(DUTCH_OVEN_PHASES[dutchOvenPhase].temperatureC, unitSystem)}
+              {formatTemperature(fazy[dutchOvenPhase].temperatureC, unitSystem)}
             </Text>
           </View>
         </View>
         <Text style={styles.phaseDesc}>
-          {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl), unitSystem)}
+          {formatTextUnits(t(fazy[dutchOvenPhase].descriptionPl), unitSystem)}
         </Text>
         <Text style={styles.phaseTip}>
-          {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl), unitSystem)}
+          {formatTextUnits(t(fazy[dutchOvenPhase].tipPl), unitSystem)}
         </Text>
       </View>
 
@@ -101,12 +104,13 @@ export function DutchOvenController({
             {t('Zdejmij pokrywkę garnka. Wypuść parę.')}
           </Text>
           <Text style={styles.steamAlertDesc}>
-            {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}
+            {/* PIE-GAR-001: bez obniżania temperatury (docs/tresci/pl/pieczenie-receptur.md, D-304) */}
+            {fazy.lid_off.alertHeadlinePl ? t(fazy.lid_off.alertHeadlinePl) : null}
           </Text>
           {/* Ostrzeżenie fazy lid_off (BEZ-OPA-001..003, RD-23-W1) [M1-audytor-generalny-086] */}
-          {DUTCH_OVEN_PHASES.lid_off.safetyWarningPl ? (
+          {fazy.lid_off.safetyWarningPl ? (
             <Text style={styles.steamAlertDesc} accessibilityRole="alert" testID="steam-gate-safety-warning">
-              {t(DUTCH_OVEN_PHASES.lid_off.safetyWarningPl)}
+              {t(fazy.lid_off.safetyWarningPl)}
             </Text>
           ) : null}
           <Pressable
@@ -116,7 +120,7 @@ export function DutchOvenController({
             onPress={onStartPhase2AfterSteamAlert}
           >
             <Text style={styles.steamAlertActionBtnText}>
-              {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: 25 })} @ {formatTemperature(210, unitSystem)})
+              {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: fazy.lid_off.durationMin })} @ {formatTemperature(fazy.lid_off.temperatureC, unitSystem)})
             </Text>
           </Pressable>
         </View>
@@ -156,7 +160,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   phaseTabBtnText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
     textAlign: 'center',
@@ -179,7 +183,7 @@ const styles = StyleSheet.create({
   },
   phaseTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

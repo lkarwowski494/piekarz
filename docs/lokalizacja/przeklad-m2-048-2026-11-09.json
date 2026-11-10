@@ -1,0 +1,243 @@
+{
+ "_opis": "Przekład 5 kluczy M1-audytor-generalny-048 (data odległa po dwukropku zamiast mianownika po słowie; 09-lokalizacja-007 opcja a): MT M2 2026-11-09 z EN i kluczy siostrzanych („Gotowe {dzien} o {godzina}.” itd.) w każdym języku; ja, ko, zh-Hant jak klucz siostrzany (data przed czasownikiem poprawna); parametry sprawdzone skryptem; tekst PL do akceptacji roli 04; drugi przegląd AI: M2 2026-11-09, bez P0/P1; poprawione ru E (P2), es-419 E (P3).",
+ "pl": [
+  "Gotowe: {dzien}, {godzina}.",
+  "Gotowe: {dzien}, {godzina}",
+  "{nazwa} — gotowe: {dzien}, {godzina}",
+  "Start: {dzien}, {godzina}",
+  "Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}."
+ ],
+ "jezyki": {
+  "bg": [
+   "Готово: {dzien}, {godzina}.",
+   "Готово: {dzien}, {godzina}",
+   "{nazwa} — готово: {dzien}, {godzina}",
+   "Начало: {dzien}, {godzina}",
+   "Планът би трябвало да започне: {dzienStartu}, {godzinaStartu}. Хлябът ще бъде готов най-рано: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "cs": [
+   "Hotovo: {dzien}, {godzina}.",
+   "Hotovo: {dzien}, {godzina}",
+   "{nazwa} — hotovo: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Plán by musel začít: {dzienStartu}, {godzinaStartu}. Chléb bude hotový nejdříve: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "da": [
+   "Klar: {dzien}, {godzina}.",
+   "Klar: {dzien}, {godzina}",
+   "{nazwa} — klar: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Planen skulle starte: {dzienStartu}, {godzinaStartu}. Brødet kan tidligst være klar: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "de": [
+   "Fertig: {dzien}, {godzina}.",
+   "Fertig: {dzien}, {godzina}",
+   "{nazwa} — fertig: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Der Plan müsste beginnen: {dzienStartu}, {godzinaStartu}. Das Brot ist frühestens fertig: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "el": [
+   "Έτοιμο: {dzien}, {godzina}.",
+   "Έτοιμο: {dzien}, {godzina}",
+   "{nazwa} — έτοιμο: {dzien}, {godzina}",
+   "Έναρξη: {dzien}, {godzina}",
+   "Το πλάνο θα έπρεπε να ξεκινήσει: {dzienStartu}, {godzinaStartu}. Το ψωμί μπορεί να είναι έτοιμο το νωρίτερο: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "es": [
+   "Listo: {dzien}, {godzina}.",
+   "Listo: {dzien}, {godzina}",
+   "{nazwa} — listo: {dzien}, {godzina}",
+   "Inicio: {dzien}, {godzina}",
+   "El plan tendría que empezar: {dzienStartu}, {godzinaStartu}. Como pronto, el pan estará listo: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "es-419": [
+   "Listo: {dzien}, {godzina}.",
+   "Listo: {dzien}, {godzina}",
+   "{nazwa} — listo: {dzien}, {godzina}",
+   "Inicio: {dzien}, {godzina}",
+   "El plan tendría que empezar: {dzienStartu}, {godzinaStartu}. Lo antes que estará listo el pan: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "et": [
+   "Valmis: {dzien}, {godzina}.",
+   "Valmis: {dzien}, {godzina}",
+   "{nazwa} — valmis: {dzien}, {godzina}",
+   "Algus: {dzien}, {godzina}",
+   "Plaan peaks algama: {dzienStartu}, {godzinaStartu}. Kõige varem on leib valmis: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "fi": [
+   "Valmis: {dzien}, {godzina}.",
+   "Valmis: {dzien}, {godzina}",
+   "{nazwa} — valmis: {dzien}, {godzina}",
+   "Aloitus: {dzien}, {godzina}",
+   "Suunnitelman pitäisi alkaa: {dzienStartu}, {godzinaStartu}. Leipä on valmis aikaisintaan: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "fr": [
+   "Prêt : {dzien}, {godzina}.",
+   "Prêt : {dzien}, {godzina}",
+   "{nazwa} — prêt : {dzien}, {godzina}",
+   "Début : {dzien}, {godzina}",
+   "Le plan devrait commencer : {dzienStartu}, {godzinaStartu}. Le pain sera prêt au plus tôt : {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "hr": [
+   "Gotovo: {dzien}, {godzina}.",
+   "Gotovo: {dzien}, {godzina}",
+   "{nazwa} — gotovo: {dzien}, {godzina}",
+   "Početak: {dzien}, {godzina}",
+   "Plan bi morao početi: {dzienStartu}, {godzinaStartu}. Kruh će najranije biti gotov: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "hu": [
+   "Kész: {dzien}, {godzina}.",
+   "Kész: {dzien}, {godzina}",
+   "{nazwa} — kész: {dzien}, {godzina}",
+   "Kezdés: {dzien}, {godzina}",
+   "A tervnek így kellene kezdődnie: {dzienStartu}, {godzinaStartu}. A kenyér legkorábban ekkor lesz kész: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "id": [
+   "Siap: {dzien}, {godzina}.",
+   "Siap: {dzien}, {godzina}",
+   "{nazwa} — siap: {dzien}, {godzina}",
+   "Mulai: {dzien}, {godzina}",
+   "Rencana harus dimulai: {dzienStartu}, {godzinaStartu}. Paling cepat roti siap: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "it": [
+   "Pronto: {dzien}, {godzina}.",
+   "Pronto: {dzien}, {godzina}",
+   "{nazwa} — pronto: {dzien}, {godzina}",
+   "Inizio: {dzien}, {godzina}",
+   "Il piano dovrebbe iniziare: {dzienStartu}, {godzinaStartu}. Il pane sarà pronto al più presto: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "ja": [
+   "{dzien} {godzina}に完成。",
+   "{dzien} {godzina}に完成",
+   "{nazwa}：{dzien} {godzina}に完成",
+   "{dzien} {godzina}に開始",
+   "このプランは{dzienStartu} {godzinaStartu}に開始する必要があります。パンができあがるのは最短で{dzienGotowe} {godzinaGotowe}です。"
+  ],
+  "ko": [
+   "{dzien} {godzina} 완성.",
+   "{dzien} {godzina} 완성",
+   "{nazwa}: {dzien} {godzina} 완성",
+   "{dzien} {godzina} 시작",
+   "일정을 {dzienStartu} {godzinaStartu}에 시작해야 해요. 빵은 빨라도 {dzienGotowe} {godzinaGotowe}에 완성돼요."
+  ],
+  "lt": [
+   "Paruošta: {dzien}, {godzina}.",
+   "Paruošta: {dzien}, {godzina}",
+   "{nazwa} — paruošta: {dzien}, {godzina}",
+   "Pradžia: {dzien}, {godzina}",
+   "Planą reikėtų pradėti: {dzienStartu}, {godzinaStartu}. Anksčiausiai duona bus paruošta: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "lv": [
+   "Gatavs: {dzien}, {godzina}.",
+   "Gatavs: {dzien}, {godzina}",
+   "{nazwa} — gatavs: {dzien}, {godzina}",
+   "Sākums: {dzien}, {godzina}",
+   "Plānam būtu jāsākas: {dzienStartu}, {godzinaStartu}. Visagrāk maize būs gatava: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "ms": [
+   "Siap: {dzien}, {godzina}.",
+   "Siap: {dzien}, {godzina}",
+   "{nazwa} — siap: {dzien}, {godzina}",
+   "Mula: {dzien}, {godzina}",
+   "Pelan perlu dimulakan: {dzienStartu}, {godzinaStartu}. Paling awal roti akan siap: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "nb": [
+   "Ferdig: {dzien}, {godzina}.",
+   "Ferdig: {dzien}, {godzina}",
+   "{nazwa} — klar: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Planen måtte starte: {dzienStartu}, {godzinaStartu}. Brødet kan tidligst være ferdig: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "nl": [
+   "Klaar: {dzien}, {godzina}.",
+   "Klaar: {dzien}, {godzina}",
+   "{nazwa} — klaar: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Het plan zou moeten beginnen: {dzienStartu}, {godzinaStartu}. Het brood is op zijn vroegst klaar: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "pt": [
+   "Pronto: {dzien}, {godzina}.",
+   "Pronto: {dzien}, {godzina}",
+   "{nazwa} — pronto: {dzien}, {godzina}",
+   "Início: {dzien}, {godzina}",
+   "O plano teria de começar: {dzienStartu}, {godzinaStartu}. O pão estará pronto, no mínimo: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "pt-BR": [
+   "Pronto: {dzien}, {godzina}.",
+   "Pronto: {dzien}, {godzina}",
+   "{nazwa} — pronto: {dzien}, {godzina}",
+   "Início: {dzien}, {godzina}",
+   "O plano teria que começar: {dzienStartu}, {godzinaStartu}. O pão ficará pronto, no mínimo: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "ro": [
+   "Gata: {dzien}, {godzina}.",
+   "Gata: {dzien}, {godzina}",
+   "{nazwa} — gata: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Planul ar trebui să înceapă: {dzienStartu}, {godzinaStartu}. Cel mai devreme, pâinea va fi gata: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "ru": [
+   "Готово: {dzien}, {godzina}.",
+   "Готово: {dzien}, {godzina}",
+   "{nazwa} — готово: {dzien}, {godzina}",
+   "Старт: {dzien}, {godzina}",
+   "План пришлось бы начать: {dzienStartu}, {godzinaStartu}. Хлеб будет готов самое раннее: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "sk": [
+   "Hotové: {dzien}, {godzina}.",
+   "Hotové: {dzien}, {godzina}",
+   "{nazwa} — hotové: {dzien}, {godzina}",
+   "Začiatok: {dzien}, {godzina}",
+   "Plán by musel začať: {dzienStartu}, {godzinaStartu}. Chlieb bude najskôr hotový: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "sl": [
+   "Pripravljeno: {dzien}, {godzina}.",
+   "Pripravljeno: {dzien}, {godzina}",
+   "{nazwa} — pripravljeno: {dzien}, {godzina}",
+   "Začetek: {dzien}, {godzina}",
+   "Načrt bi se moral začeti: {dzienStartu}, {godzinaStartu}. Kruh bo najzgodneje pripravljen: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "sr": [
+   "Готово: {dzien}, {godzina}.",
+   "Готово: {dzien}, {godzina}",
+   "{nazwa} — готово: {dzien}, {godzina}",
+   "Почетак: {dzien}, {godzina}",
+   "План би морао да почне: {dzienStartu}, {godzinaStartu}. Хлеб ће најраније бити готов: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "sv": [
+   "Klart: {dzien}, {godzina}.",
+   "Klart: {dzien}, {godzina}",
+   "{nazwa} — klart: {dzien}, {godzina}",
+   "Start: {dzien}, {godzina}",
+   "Planen skulle behöva starta: {dzienStartu}, {godzinaStartu}. Brödet kan tidigast vara klart: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "tr": [
+   "Hazır: {dzien}, {godzina}.",
+   "Hazır: {dzien}, {godzina}",
+   "{nazwa} — hazır: {dzien}, {godzina}",
+   "Başlangıç: {dzien}, {godzina}",
+   "Planın başlaması gereken zaman: {dzienStartu}, {godzinaStartu}. Ekmeğin en erken hazır olacağı zaman: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "uk": [
+   "Готово: {dzien}, {godzina}.",
+   "Готово: {dzien}, {godzina}",
+   "{nazwa} — готово: {dzien}, {godzina}",
+   "Початок: {dzien}, {godzina}",
+   "План мав би початися: {dzienStartu}, {godzinaStartu}. Найраніше хліб буде готовий: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "vi": [
+   "Sẵn sàng: {dzien}, {godzina}.",
+   "Sẵn sàng: {dzien}, {godzina}",
+   "{nazwa} — xong: {dzien}, {godzina}",
+   "Bắt đầu: {dzien}, {godzina}",
+   "Kế hoạch phải bắt đầu: {dzienStartu}, {godzinaStartu}. Sớm nhất bánh sẽ sẵn sàng: {dzienGotowe}, {godzinaGotowe}."
+  ],
+  "zh-Hant": [
+   "{dzien} {godzina} 完成。",
+   "{dzien} {godzina} 完成",
+   "{nazwa}：{dzien} {godzina} 完成",
+   "{dzien} {godzina} 開始",
+   "計畫必須在{dzienStartu} {godzinaStartu} 開始。麵包最快在{dzienGotowe} {godzinaGotowe} 完成。"
+  ]
+ }
+}

@@ -23,7 +23,7 @@ export const EN_10: Record<string, string> = {
   'Odrzut zakwasu (100% hydratacji)':
     'Sourdough discard (100% hydration)',
   'Mąka pszenna typ 650 lub graham':
-    'Wheat flour type 650 or graham',
+    'Wheat flour (Polish type 650, bułkowa) or (Polish type 1850, graham)',
   'Masło (roztopione) lub oliwa extra virgin':
     'Butter (melted) or extra virgin olive oil',
   'Sól drobna':
@@ -83,7 +83,7 @@ export const EN_10: Record<string, string> = {
   '8–10 gofrów':
     '8–10 waffles',
   'Mąka pszenna typ 500':
-    'Wheat flour type 500',
+    'Wheat flour (Polish type 500, wrocławska)',
   'Mleko ciepłe':
     'Warm milk',
   'Jajka (żółtka i białka osobno)':

@@ -55,56 +55,56 @@ export const EN_11: Record<string, string> = {
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.':
     'Knead with butter and sugar added. After rising, braid the dough, brush with beaten egg and sprinkle with streusel.',
   'Mąka pszenna typ 450 (Tortowa)':
-    'Wheat flour type 450 (Cake)',
+    'Wheat flour (Polish type 450, tortowa)',
   'Niska zawartość popiołu i białka. Szybka autoliza, delikatny gluten, mała chłonność wody.':
     'Low ash and protein content. Fast autolyse, delicate gluten, low water absorption.',
   'Mąka pszenna typ 500 (Wrocławska)':
-    'Wheat flour type 500 (Wroclawska)',
+    'Wheat flour (Polish type 500, wrocławska)',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.':
     'All-purpose wheat flour. Good for rolls, challahs and yeasted bakes.',
   'Mąka pszenna typ 650 (Bułkowa)':
-    'Wheat flour type 650 (Bread roll)',
+    'Wheat flour (Polish type 650, bułkowa)',
   'Średnia zawartość minerałów, elastyczny gluten. Bardzo dobra do chlebów pszennych i bagietek.':
     'Medium mineral content, elastic gluten. Very good for wheat breads and baguettes.',
   'Mąka pszenna chlebowa typ 750':
-    'Wheat bread flour type 750',
+    'Wheat flour (Polish type 750, chlebowa)',
   'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.':
     'A classic Polish bread flour. Excellent balance between dough extensibility and strength.',
   'Mąka pszenna typ 850':
-    'Wheat flour type 850',
+    'Wheat flour (Polish type 850)',
   // MAK-TYP-003 (docs/tresci/en/maki-typy.md) [M1-audytor-generalny-091]
   'Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.':
     "Type 850 isn't in the Polish standard, so each mill makes it its own way. It's a darker bread flour with more enzyme activity and a nutty aroma.",
   'Mąka pszenna typ 1050':
-    'Wheat flour type 1050',
+    'Wheat flour (Polish type 1050)',
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.':
     'High grain husk content, significant water absorption, deep rustic crust profile.',
   'Mąka pszenna typ 1850 (Graham)':
-    'Wheat flour type 1850 (Graham)',
+    'Wheat flour (Polish type 1850, graham)',
   'Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.':
     'Coarsely ground flour with all parts of the grain. Bran cuts the gluten; requires gentle folding.',
   'Mąka pszenna razowa typ 2000':
-    'Whole wheat flour type 2000',
+    'Wholemeal wheat flour (Polish type 2000)',
   'Pełny przemiał pszenicy. Potężna chłonność wody, przyspieszona fermentacja dzięki obfitości minerałów.':
     'Fully milled whole wheat. Huge water absorption, accelerated fermentation thanks to abundant minerals.',
   'Mąka żytnia chlebowa typ 720':
-    'Rye bread flour type 720',
+    'Rye flour (Polish type 720)',
   'Brak struktury glutenowej (funkcję szkieletu pełnią śluzy arabinoksylany). Wymaga zakwasu (pH < 4.5).':
     'No gluten structure (arabinoxylan gums act as the framework). Requires sourdough (pH < 4.5).',
   'Mąka żytnia razowa typ 2000':
-    'Whole rye flour type 2000',
-  'Mąka żytnia typ 2000': 'Rye flour type 2000',
+    'Rye flour (Polish type 2000)',
+  'Mąka żytnia typ 2000': 'Rye flour (Polish type 2000)',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.':
     'An ideal base for maintaining a mother starter. Rich in wild yeasts and lactic acid bacteria.',
   'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.':
     'Super-strong flour from high-protein wheat. Holds huge hydration (80%+) and many hours of cold.',
   'Mąka orkiszowa jasna typ 630':
-    'Light spelt flour type 630',
+    'Spelt flour (Polish type 630)',
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.':
     'Ancient spelt. Very extensible gluten, but prone to weakening under intensive mechanical kneading.',
   'Mąka orkiszowa razowa typ 2000':
-    'Whole spelt flour type 2000',
-  'Mąka orkiszowa typ 2000': 'Spelt flour type 2000',
+    'Spelt flour (Polish type 2000)',
+  'Mąka orkiszowa typ 2000': 'Spelt flour (Polish type 2000)',
   'Pełnoziarnisty orkisz. Wyraźny orzechowo-słodki smak, wysokie zapotrzebowanie na wodę.':
     'Whole-grain spelt. Distinct nutty-sweet flavor, high water demand.',
   'Standardowa mąka chlebowa.':
@@ -113,13 +113,13 @@ export const EN_11: Record<string, string> = {
   'Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.':
     'The type number of wheat and rye flour tells you how much ash it contains.',
   'Mąka pszenna typ 405':
-    'Wheat flour type 405',
+    'Wheat flour (Polish type 405)',
   'Mąka pszenna typ 550 (Luksusowa)':
-    'Wheat flour type 550 (luksusowa)',
+    'Wheat flour (Polish type 550, luksusowa)',
   'Mąka żytnia typ 500':
-    'Rye flour type 500',
+    'Rye flour (Polish type 500)',
   'Mąka żytnia typ 1400':
-    'Rye flour type 1400',
+    'Rye flour (Polish type 1400)',
   'Szacunek na podstawie typu {typ}.':
     'Estimated from type {typ}.',
   'Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.':

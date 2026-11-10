@@ -7,6 +7,7 @@ import {
   RitualCategoryFilter,
 } from '../presets';
 import { calculateDoughRecipe } from '../../core/domain-rules';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 // F-26 (dawne F-51), ZM-14, D-034 wybór 8a: rytuał nie ukrywa receptur [M1-audytor-generalny-032; 03-zakres-010]
 describe('Ritual profile does not hide master recipes', () => {
@@ -95,7 +96,7 @@ describe('Master Recipes Catalogue (src/recipes/presets.ts)', () => {
           expect(Math.abs(sumFlours - result.baseFlourWeightGrams)).toBeLessThanOrEqual(result.flours.length);
         }
       ),
-      { numRuns: 100 }
+      { numRuns: nr(100) }
     );
   });
 });

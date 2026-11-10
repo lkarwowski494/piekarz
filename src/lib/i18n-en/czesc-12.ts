@@ -33,7 +33,7 @@ export const EN_12: Record<string, string> = {
   'Mąka pszenna pełnoziarnista / graham':
     'Whole wheat / graham flour',
   'Mąka żytnia (typ 720 / 2000)':
-    'Rye flour (type 720 / 2000)',
+    'Rye flour (Polish type 720 or 2000)',
   'Woda / Mleko':
     'Water / Milk',
   'Sól drobna kuchenna / morska':

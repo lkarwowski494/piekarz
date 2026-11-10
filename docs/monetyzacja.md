@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22 · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
+Stan: E3 (rola 02 build, badanie modelu D-110) · Aktualizacja: 2026-10-22, M2 2026-11-09 (wynik 1.0 dla samego iOS, DEC-06 a; lista Pro bez F-63, DEC-04 a; Z-1 i ceny w dokumentach wydania, DEC-08 a) · Model: **D-112, D-113** (Basic darmowy, Pro bez próby) · Wejście: BRD roli 01 (`docs/brd/`, z przebudową M3 na `redesign/piekarz-2026-10-22`), ZAL-034, ZAL-038, ZAL-042…ZAL-044
 
 Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jako oferta wprowadzająca subskrypcji, potem „tylko historia”) jest w `docs/archiwum/monetyzacja-d038-2026-10-19.md` razem z tabelą rynku i wartości funkcji z 2026-10-19 (MS-01…MS-27). Badanie zmiany modelu z 2026-10-22 (reguły sklepu z dnia, rynek, StoreKit, rachunki V1, V2, V3, Basic/Pro): `docs/monetyzacja-badanie-2026-10.md` (MS-B01…MS-B24). Surowe odczyty: `audit/02-badanie-modelu-2026-10-22/` (poza gitem).
 
@@ -7,19 +7,21 @@ Jedyny dokument monetyzacji. Poprzedni kontrakt (D-038, D-039: próba 14 dni jak
 „Tak. Wdrożymy ten model jako drugi bo to jednak najsensowniejsze rozwiązanie.” · „Samouczek i dziennik za darmo. Inteligetne wpsomaganja za pro.” → „Tak”.
 
 - **Basic, darmowy na zawsze:** nauka (założenie pierwszego zakwasu, Akademia: pierwszy poziom), podstawowe narzędzia (kalkulator receptury, prowadzenie wypieku krok po kroku z sygnałem przy zablokowanym telefonie), dziennik i wszystkie dane, bezpieczeństwo i pomoc w kryzysie.
-- **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, porównanie, spiżarnia, QR, druk, dalsza Akademia).
+- **Pro:** inteligentne wspomaganie (plan wstecz z ochroną snu, czas fermentacji z temperatury, prowadzenie zakwasu: przypomnienia, proporcje, gotowość, lodówka) i „więcej” (kolejne zakwasy, ponad 5 własnych receptur, dwa wypieki naraz, wypieki zaplanowane na przyszłe dni, statystyki wypieków). Po 1.0, gdy wrócą wejścia (w 1.0 PÓŹNIEJ, wejście ukryte: F-30 spiżarnia, F-08 wysyłanie QR, F-50 druk, dalsze poziomy Akademii), też w Pro — nie są częścią oferty Pro 1.0 (M2-N1, decyzja właściciela 2026-11-09).
 - **Bez próby i bez oferty wprowadzającej:** rolę próby pełni Basic. *Dlaczego:* właściciel odrzucił próbę, która sama zamienia się w opłatę („największy red flag”, D-110).
 - **Drugi model portfela:** Trening i Oczko stosują limit miesięczny dni głównej czynności; Piekarz nie, bo pieczenie i prowadzenie zakwasu da się robić bez aplikacji, więc limit użycia uczy omijania aplikacji (słowa właściciela w D-111, D-112).
 
-## Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, iOS + Google Play, scen. norm.)
-| Model | Wynik | Reguła sklepu | Ryzyko etyczne | Decyzja |
+## Opcje modelu (rachunek: bramka 2026-10-19 na tych samych danych, USD netto/rok, scen. norm.; platforma 1.0: sam iOS)
+**Wynik bramki dla wydania 1.0 (sam iOS; DEC-06 a, D-286, zapis 2026-11-09):** 174–218 USD netto/rok, czyli 35–44% progu 500 USD (`docs/monetyzacja-badanie-2026-10.md`, tabela w E2e, kolumna „sam iOS”: 174 przy podziale E2e, 218 przy mnożniku ok. 1,0). Werdykt „przerobić” bez zmian; praca idzie dalej na D-040. Kolumna „Wynik (iOS + Google Play)” niżej zakłada port na Androida, którego żadna decyzja nie planuje (ADR-007: „Android poza planem 1.0”); kosztu portu ten rachunek nie odejmuje. Przy decyzji o Androidzie: przebieg samej bramki z wariantem „iOS + port Android z kosztem” (02-monetyzacja-002, opcja b).
+
+| Model | Wynik (iOS + Google Play, po porcie) | Reguła sklepu | Ryzyko etyczne | Decyzja |
 |---|---|---|---|---|
-| **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
-| D-038: próba 14 dni zamieniająca się w subskrypcję | 345 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
+| **D-112/D-113 Basic/Pro, 0,99 / 6,99 / 14,99** | sam iOS (1.0): **174–218**; z Google Play po porcie: ok. 345 [OCENA: podział z zakwasem w Pro, mnożnik ok. 1,0; z podziałem E2e bez zakwasu 275, kod 0] | 3.1.2(a) „ongoing value” (MS-05); ujawnienia 3.1.2(c), strona subskrypcji (MS-B08) | przypomnienia o dokarmianiu ustają po wygaśnięciu Pro (uprzedzone, D-113) | **wybrany** |
+| D-038: próba 14 dni zamieniająca się w subskrypcję | 345, sam iOS 218 (do ok. 862, jeśli twarda ściana konwertuje 2,5× lepiej) | 3.1.2(a), oferta wprowadzająca (MS-06) | próba sama zamienia się w opłatę; kupujący dożywotni płaci też za subskrypcję, jeśli nie anuluje | odrzucony (D-110) |
 | V1 / V2: przepustki bez odnawiania | 191 / 200 | 3.1.1 „non-subscription apps” niepewne (MS-B01, Case 103004967270) | wygaśnięcie w trakcie życia zakwasu | odrzucone (D-112) |
 | V3: limit 5 dni wypieku | 189 | „metered paywall” (MS-B08) | limit zniechęca do rejestrowania | odrzucony (D-112) |
 | Sam zakup jednorazowy 14,99 / 19,99 | 322 / 369 | 3.1.1, przywracanie (MS-03) | brak | nie wybrany |
-Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112): przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.
+Pełne wyniki, wrażliwość i metody: `docs/monetyzacja-badanie-2026-10.md` (E2, E2b, E2c, E2e). Próg właściciela 500 USD netto/rok (D-024) nie jest osiągany w scen. norm. żadnym modelem przy cenach portfela; o wyniku decyduje widoczność (`udzial_nowej` 69 → 1 376 USD w Basic/Pro). Przegląd cen po 6 miesiącach od premiery (D-112), liczby iOS + Google Play: przy cenach jak Rise (3,99 / 14,99 / 19,99) ok. 426–533, przy medianach ok. 546–682.
 
 ## Rachunek
 `docs/monetyzacja/rachunek.mjs` na `docs/monetyzacja/rachunek-badanie-us.json` (kod 0, 2026-10-22): wpływ w US po 15% prowizji (Small Business Program aktywny, słowa właściciela przez M1 2026-10-22): miesięczna 0,84 USD, roczna 5,94 USD, dożywotni 12,74 USD; próg 500 USD netto: 40 płacących dożywotniego albo 58 rocznego. PL (VAT 23%, MS-B22; USD 3,8886, MS-B10): ceny 4,99 / 29,99 / 79,99 zł bez zmian (`docs/monetyzacja/rachunek.json`). Bramka: `audit/02-badanie-modelu-2026-10-22/dowody/bramka-basic-pro.txt` (kod 0). Po premierze wpływ z App Store Connect (`wplyw_z_asc`) ma pierwszeństwo.
@@ -31,7 +33,7 @@ Wzorzec dla ról 04, 05, 07, 08. Identyfikatory z `src/lib/platnosci/konfiguracj
 
 | Produkt (ID) | Typ | Cena US / PL | Próba | Family Sharing | Odblokowuje |
 |---|---|---|---|---|---|
-| `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | **brak** (oferta wprowadzająca do usunięcia, MS-B21) | tak (włączony 2026-10-21, nieodwracalny, MS-B05) | Pro |
+| `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | **brak** (oferta wprowadzająca usunięta w ASC 2026-11-03, Z-1, MS-B21) | tak (włączony 2026-10-21, nieodwracalny, MS-B05) | Pro |
 | `com.apps4brew.baker.pro.yearly` | subskrypcja odnawiana, ta sama grupa | 6,99 USD / 29,99 zł rocznie | **brak** | tak | Pro |
 | `com.apps4brew.baker.pro.lifetime` | Non-Consumable | 14,99 USD / 79,99 zł jednorazowo | brak | tak | Pro |
 Ceny pozostałych storefrontów: `audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json` (zapis ASC 2026-10-21).
@@ -45,7 +47,7 @@ Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacj
 | Planowanie | BR-HARMO-004 (przesunięcie kroku, „za późno”), BR-KAL-001…005, -008 (widok tygodnia, „Następne”, arkusz dnia, przeszłość); plan od teraz z ustawieniami nocy i lodówki (D-116, właściciel: „Wg rekomendacji”) | BR-HARMO-001…003 (plan wstecz, ochrona snu, czas fermentacji z temperatury), BR-KAL-009, -015 (wypieki na przyszłe dni), BR-KAL-016 (dwa wypieki naraz), BR-KAL-011…014 (jeśli w 1.0) |
 | Wypiek | BR-ETAP-001…006, BR-CZAS-002, -003, BR-REKA-001, garnek żeliwny | — |
 | Zakwas | BR-ZAKW-005 (założenie pierwszego zakwasu, przypomnienia tylko w czasie zakładania, na końcu „Gratulacje, Twój pierwszy zakwas jest gotowy…”), karta i zapis karmień pierwszego zakwasu, BR-ZAKW-007, ostrzeżenie RD-21, BR-DIAG-002, karta bezpieczeństwa; pierwsze karmienie budzące jako krok planu (`fridge_wake_feed`, D-116); przelicznik hydratacji zakwasu i wylewki (przepisy na resztki zakwasu), wydzielone z karty proporcji (właściciel przez M1, 2026-10-22: „2 zgodnie z rekomendacja”, D-117) | BR-ZAKW-004 (przypomnienia o dokarmianiu), BR-ZAKW-002 (proporcje), BR-KAL-010 (stały dzień w lodówce), BR-ZAKW-003 (gotowość, szczyt; poza zakładaniem), BR-ZAKW-006 (budzenie z lodówki: kolejne karmienia budzące — **rozbieżność z literą tabeli nazwana:** pierwsze karmienie budzące w planie jest w Basic, D-116, decyzja właściciela „Wg rekomendacji”, bo bez niego plan z zimnym zakwasem byłby błędny), BR-ZAKW-001 (drugi i kolejne zakwasy) |
-| Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (porównanie, statystyki), BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |
+| Receptury, dziennik, nauka | BR-RECP-001 (bazowe, presety), BR-RECP-002 do 5 własnych, BR-RECP-003 (dziennik, „Piecz ponownie”, filtr smaku), odczyt i import QR (w limicie 5), BR-NAUK-001 pierwszy poziom i biblioteka technik Akademii (D-116), BR-DIAG-001, BR-DIAG-003…005 | BR-RECP-002 ponad 5, BR-RECP-004 (statystyki; porównanie dwóch wypieków to F-63 PÓŹNIEJ, poza ofertą Pro 1.0, DEC-04 a), po 1.0 (w 1.0 PÓŹNIEJ, bez wejścia): BR-WSP-003 (wysłanie QR), BR-DRUK-001, BR-SPIZ-001, BR-NAUK-001 dalsze poziomy |
 | Zawsze | BR-DANE-001…004, BR-ZAK-001, -003, BR-UST-003, BR-PRYW-001, ustawienia | — |
 
 ### Reguły dostępu
@@ -67,13 +69,13 @@ Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacj
 | PR-02 plan wstecz | ekran Pro przy „gotowe o…” | start wypieku bez planu |
 | PR-04, PR-15 wypiek, powrót | Basic w całości | historia |
 | PR-05 dokarmianie, PR-11 założenie | założenie pierwszego zakwasu: Basic; przypomnienia, proporcje, lodówka, gotowość: ekran Pro | karta zakwasu, zapis karmień, RD-21 |
-| PR-06 dziennik | Basic; porównanie i statystyki: ekran Pro | dziennik |
+| PR-06 dziennik | Basic; statystyki: ekran Pro | dziennik |
 | PR-07 dane | zawsze | wszystko |
-| PR-08 QR, druk | odczyt i import: Basic; wysłanie i druk: ekran Pro | eksport pliku |
+| PR-08 QR, druk | odczyt i import: Basic; wysłanie i druk: PÓŹNIEJ (w 1.0 bez wejścia), potem ekran Pro | eksport pliku |
 | PR-09 zakup, przywracanie, zarządzanie | zawsze | — |
 | PR-10 ustawienia, polityka | zawsze | — |
 | PR-12, PR-19 Dziś, kalendarz | widok Basic; planowanie przyszłych dni, dwa wypieki naraz: ekran Pro | przeszłość bez kłódek (BR-KAL-006) |
-| PR-13, PR-14 Akademia, Doktor | Doktor Basic; Akademia pierwszy poziom Basic, dalsze: ekran Pro | — |
+| PR-13, PR-14 Akademia, Doktor | Doktor Basic; Akademia w 1.0 tylko jako „Po co ten krok” (bez wejścia, PÓŹNIEJ); po powrocie pierwszy poziom Basic, dalsze: ekran Pro | — |
 | PR-16 koniec Pro | uprzedzenie i komunikat (wyżej) | wszystko do odczytu, eksport, import, usunięcie |
 
 ### Wektory dostępu (dla 07 i 08; `T` = teraz)
@@ -114,7 +116,7 @@ ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
 - Family Sharing bez zmian (włączony); prywatność bez zmian (StoreKit, lokalna pamięć uprawnień).
 
 ## Kroki w App Store Connect (M1 za zgodą właściciela)
-1. Usunąć ofertę wprowadzającą „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `.pro.yearly` we wszystkich storefrontach (MS-B21; skrypt `scripts/asc-ustawienia.mjs` albo UI).
+1. Usunąć ofertę wprowadzającą „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `.pro.yearly` we wszystkich storefrontach (MS-B21; skrypt `scripts/asc-ustawienia.mjs` albo UI). **Zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; Z-1).
 2. Notatka dla recenzji przy produktach: „Pro unlocks planning, starter care reminders, more starters and recipes. Basic stays free.”
 3. Opis i zrzuty sklepu według metadanych wyżej (rola 10), 35 lokalizacji.
 4. Produkty, ceny, Family Sharing i dostępność bez zmian.
@@ -132,7 +134,7 @@ ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
 Wdrożenie według rekomendacji (właściciel przez M1: „Według rekomendacji”, D-112).
 | # | Zadanie | Kto | Kiedy / warunek |
 |---|---|---|---|
-| Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | razem z buildem zawierającym kod Basic/Pro, nie wcześniej |
+| Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | **zrobione 2026-11-03** (właściciel: „Obie usuenięte.”; build 1021 z kodem Basic/Pro; `docs/wydanie/dziennik.md`) |
 | Z-2 | kod Basic/Pro według aneksu ADR-007 i sekcji „Przekazanie” (konfiguracja funkcji, limity 5 receptur i 1 zakwas, przypomnienia zależne od Pro, usunięcie oferty wprowadzającej i uprzedzenia próby, ekran Pro, oznaczenia „Pro”, test „Basic tylko rośnie”) | rola 08 z M3 | na `redesign/piekarz-2026-10-22`, po porannym buildzie |
 | Z-3 | przepisać testy kontraktu D-038 na nowy kontrakt (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby, karta bezpieczeństwa bez zakupu) i hipotezę H-01 w `docs/wzrost/hipotezy.json` | rola 08 | z Z-2 |
 | Z-4 | przekład tekstów ekranu Pro, licznika limitów i komunikatów (gratulacje po założeniu zakwasu, uprzedzenie końca Pro) na 35 języków | M1 | wspólny batch a5 |

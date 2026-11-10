@@ -1,5 +1,5 @@
 # Yeast: fresh → dry conversion (D-172) — EN
-<!-- Role 06, E2, 2026-11-03; split from drozdze-plan-przelicznik.md in 06d (D-255, 2026-11-04): the conversion is not in the code yet, the yeast-version plan is (the D-247 exception now covers only this file). Same headers and claims as docs/tresci/pl/drozdze-przelicznik.md. -->
+<!-- Role 06, E2, 2026-11-03; split from drozdze-plan-przelicznik.md in 06d (D-255, 2026-11-04): the conversion is not in the code yet, the yeast-version plan is (the D-247 exception now covers only this file). Same headers and claims as docs/tresci/pl/drozdze-przelicznik.md. M2 p2 (2026-11-09, D-306): the conversion is now in the product with other wording; role 08 wires both sections verbatim (see the PL file). -->
 
 ## yeast.conversionNote
 The app counts dry yeast, instant and active, as 0.35 of the weight of fresh yeast. [T:DRO-INS-030]

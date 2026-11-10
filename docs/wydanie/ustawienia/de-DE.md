@@ -38,34 +38,37 @@ Backplan, Teigrechner & Timer
 anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,stockgare,starter
 ```
 
-### Tekst promocyjny (Promotional Text) · 169 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 165 / 170 znaków · wersja 1.0
 
 ```text
-Stell ein, wann dein Brot fertig sein soll: Bäcker berechnet die Mengen, plant rückwärts und meldet sich am Ende jedes Schritts. Ohne Konto, ohne Internet, ohne Werbung.
+Bäcker berechnet die Mengen und meldet sich am Ende jedes Schritts. Plan rückwärts ab der Fertig-Uhrzeit deines Brots (Pro). Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3640 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3988 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
 
 REZEPTUREN UND MENGEN
-Wähle eine von 15 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig. Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
+Wähle eine von 26 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene; 11 Sauerteigrezepturen haben einen Plan und eine Begleitung Schritt für Schritt. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig (Vorteig: Pro). Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
 
-PLAN AB DER „FERTIG“-UHRZEIT
+HEFEVERSION UND BROTBACKAUTOMAT
+Vier Sauerteigrezepturen gibt es auch mit Hefe, drei davon mit Plan. Hefe-Rezepturen backst du auch im Brotbackautomaten: Bäcker passt die Mengen an, nennt die Reihenfolge der Zutaten , das Programm und die Startzeit für deine Fertig-Uhrzeit (Pro).
+
+PLAN AB DER „FERTIG“-UHRZEIT (Pro)
 Wähle, wann das Brot fertig sein soll, und Bäcker rechnet für jeden Schritt die Startzeit rückwärts aus. Die Gärzeit hängt von der Temperatur in deiner Küche ab. Fällt ein Schritt, bei dem du selbst Hand anlegen musst, in die Nacht (standardmäßig zwischen 23:00 und 07:00), schlägt Bäcker eine längere Zeit im Kühlschrank vor. Reicht die Zeit nicht, nennt Bäcker die frühestmögliche Uhrzeit.
 
 SCHRITT FÜR SCHRITT BEGLEITET
 Bäcker zeigt den aktuellen Schritt: was zu tun ist, wie lange es dauert und was danach kommt. Wenn du Mitteilungen erlaubst, meldet sich Bäcker am Ende eines Schritts auch bei gesperrtem Telefon. In einem Schritt, bei dem du selbst Hand anlegen musst, bleibt der Begleitbildschirm an. Schritte mit heißem Gefäß oder rohem Teig tragen einen Warnhinweis. Roggenbrot (mehr als die Hälfte des Mehls ist Roggenmehl) hat eigene Schritte ohne Dehnen und Falten. Einen versehentlich bestätigten Schritt machst du rückgängig, und beim erneuten Öffnen kehrt die App zum aktuellen Schritt zurück.
 
 SAUERTEIGE
-Führe mehrere Sauerteige. Bäcker nennt dir die Mengen zum Auffrischen im Verhältnis 1:1:1, 1:2:2, 1:3:3 oder 1:5:5. Hat der Sauerteig sein Volumen verdoppelt, markiert Bäcker ihn als bereit für den Teig. Steht er 12 Stunden ohne Auffrischen auf der Arbeitsfläche, erinnert dich eine Mitteilung daran. Einen neuen Sauerteig setzt du Tag für Tag an. Bäcker folgt dem Vorsichtsprinzip: Bei Belag, Verfärbung oder fauligem Geruch rät Bäcker dir, den Sauerteig wegzuwerfen.
+Einen neuen Sauerteig setzt du Tag für Tag an. Bäcker folgt dem Vorsichtsprinzip: Bei Belag, Verfärbung oder fauligem Geruch rät Bäcker dir, den Sauerteig wegzuwerfen. Sauerteigpflege (Pro): mehrere Sauerteige, Mengen zum Auffrischen im Verhältnis 1:1:1, 1:2:2, 1:3:3 oder 1:5:5, Markierung als bereit, wenn der Sauerteig sein Volumen verdoppelt hat, und eine Erinnerung nach 12 Stunden ohne Auffrischen auf der Arbeitsfläche.
 
 BROTDOKTOR
 Krume dicht, Kruste blass? Markiere die Symptome, und der Brotdoktor nennt einen von 9 Fehlern, erklärt die Ursache und sagt dir, was du beim nächsten Mal ändern kannst. Vier Rettungsprotokolle helfen, wenn der Teig während der Gärung Probleme macht. Der Sauerteigdoktor hilft, wenn dich etwas an deinem Sauerteig beunruhigt.
 
 TAGEBUCH
-Bewerte jeden Laib: Sterne, Krume, Kruste und Geschmacksprofil. Das Tagebuch zeigt Statistiken, und „Erneut backen“ öffnet dieselbe Rezeptur.
+Bewerte jeden Laib: Sterne, Krume, Kruste und Geschmacksprofil. Das Tagebuch zeigt Statistiken (Pro), und „Erneut backen“ öffnet dieselbe Rezeptur.
 
 DEINE DATEN
 Bäcker behält die letzten 10 automatischen Backups auf deinem Telefon. Du kannst alle Daten in eine Datei exportieren und aus einer Datei importieren und deinen Backverlauf als CSV exportieren. Einheiten: Gramm und °C oder Unzen und °F.
@@ -116,12 +119,12 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| DEU (Germany) | 0,99 / 7,99 / 17,99 EUR | D-038, docs/wydanie/ceny.json |
+| DEU (Germany) | 0,99 / 7,99 / 17,99 EUR | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (3): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

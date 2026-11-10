@@ -27,6 +27,7 @@ import {
   validateFlourBlend,
   normalizeFlourBlend,
   FlourProfile,
+  toTenProfil,
 } from '../core/flour-atlas';
 
 import { typografia } from '../ui/tokeny';
@@ -74,7 +75,7 @@ export function FlourBlendModal({
 
   const addFlourProfile = (profile: FlourProfile) => {
     const existingIndex = draftBlend.findIndex(
-      (f) => f.name === profile.namePl || f.type === profile.id
+      (f) => toTenProfil(f, profile)
     );
     if (existingIndex >= 0) {
       // Already present in blend, do not add duplicate
@@ -224,7 +225,7 @@ export function FlourBlendModal({
                 style={styles.profileChipsScroll}
               >
                 {FLOUR_PROFILES.filter(
-                  (p) => !draftBlend.some((f) => f.name === p.namePl || f.type === p.id)
+                  (p) => !draftBlend.some((f) => toTenProfil(f, p))
                 ).map((profile) => (
                   <Pressable
                     accessibilityRole="button"
@@ -295,7 +296,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 4,
@@ -346,7 +347,7 @@ const styles = StyleSheet.create({
   },
   normalizeBtnText: {
     color: theme.colors.naAkcencie,
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
   },
   flourListScroll: {
@@ -375,7 +376,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   flourPctText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
   },
@@ -400,7 +401,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stepBtnText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -437,7 +438,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   addSectionNote: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginBottom: 8,
   },
@@ -456,12 +457,12 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   profileChipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     fontWeight: '600',
   },
   profileChipNote: {
-    fontSize: 10,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
   },
@@ -479,7 +480,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   modalCancelBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     fontWeight: '600',
   },
@@ -495,7 +496,7 @@ const styles = StyleSheet.create({
     opacity: 0.4, // stan nieaktywny: brak tokenu (zgłoszenie do roli 04)
   },
   modalConfirmBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.naAkcencie,
     fontWeight: '700',
   },

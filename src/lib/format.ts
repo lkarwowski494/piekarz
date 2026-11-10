@@ -86,7 +86,17 @@ function dateFormatter(locale: string, options: Intl.DateTimeFormatOptions): Int
 }
 
 const DATE_DEFAULT: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
-const TIME_DEFAULT: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit' };
+const TIME_24: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit' };
+const TIME_12: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: '2-digit' };
+
+/**
+ * Opcje godziny: w zegarze 12 h bez zera wiodącego („1:30 PM”), w 24 h z zerem jak dotąd („01:30”)
+ * [M1-audytor-generalny-047; 09-lokalizacja-006, opcja b]. Cykl z resolvedOptions().hourCycle języka.
+ */
+export function opcjeGodziny(locale: string = appLocale()): Intl.DateTimeFormatOptions {
+  const cykl = dateFormatter(locale, { hour: 'numeric' }).resolvedOptions().hourCycle;
+  return cykl === 'h11' || cykl === 'h12' ? TIME_12 : TIME_24;
+}
 
 /** Data (domyślnie PL 25.10.2026, en-GB 25/10/2026, en-US 10/25/2026). */
 export function formatDate(
@@ -109,5 +119,5 @@ export function formatDzienData(value: number | Date, locale: string = appLocale
 
 /** Godzina i minuta według języka (PL 24 h, EN-US 12 h). */
 export function formatTime(value: number | Date, locale: string = appLocale()): string {
-  return dateFormatter(locale, TIME_DEFAULT).format(typeof value === 'number' ? new Date(value) : value);
+  return dateFormatter(locale, opcjeGodziny(locale)).format(typeof value === 'number' ? new Date(value) : value);
 }

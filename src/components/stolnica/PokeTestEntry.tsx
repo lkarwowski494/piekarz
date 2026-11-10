@@ -12,6 +12,7 @@ import { useAppAccess } from '../../lib/app-access';
 import { SessionStep, showsPokeTestEntry } from '../../core/bake-steps';
 import { KitchenTestsGuideSection } from '../doktor/KitchenTestsGuideSection';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
+import { typografia } from '../../ui/tokeny';
 
 export function PokeTestEntry({ step }: { step: Pick<SessionStep, 'id' | 'category'> }) {
   const [open, setOpen] = useState<boolean>(false);
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   entryBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },

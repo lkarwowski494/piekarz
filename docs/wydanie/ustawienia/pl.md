@@ -38,34 +38,37 @@ Plan i kalkulator wypieku
 bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough
 ```
 
-### Tekst promocyjny (Promotional Text) · 157 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 153 / 170 znaków · wersja 1.0
 
 ```text
-Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.
+Piekarz policzy ilości i da znać o końcu każdego kroku. Plan wstecz od godziny, o której chleb ma być gotowy (Pro). Bez konta, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3236 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3614 / 4000 znaków · wersja 1.0
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
 
 RECEPTURY I ILOŚCI
-Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu. Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
+Wybierasz jedną z 26 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną; 11 receptur na zakwasie ma plan i prowadzenie krok po kroku. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu (zaczyn: Pro). Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
 
-PLAN OD GODZINY „GOTOWE”
+WERSJA NA DROŻDŻACH I MASZYNA DO CHLEBA
+Cztery receptury na zakwasie mają też wersję na drożdżach, trzy z nich z planem. Receptury i wersje drożdżowe upieczesz też w maszynie do chleba: Piekarz dopasuje ilości do maszyny i poda kolejność składników oraz program, a dla wybranej godziny gotowości także godzinę startu (Pro).
+
+PLAN OD GODZINY „GOTOWE” (Pro)
 Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.
 
 PROWADZENIE KROK PO KROKU
 Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.
 
 ZAKWASY
-Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.
+Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas. Opieka nad zakwasem (Pro): kilka zakwasów, ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5, oznaczenie gotowości, gdy zakwas podwoi objętość, i przypomnienie po 12 godzinach na blacie bez dokarmienia.
 
 DOKTOR CHLEBA
 Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
 
 DZIENNIK
-Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.
+Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki (Pro), a „Piecz ponownie” otwiera tę samą recepturę.
 
 TWOJE DANE
 Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.
@@ -116,12 +119,12 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| POL (Poland) | 4,99 / 29,99 / 79,99 PLN | D-038, docs/wydanie/ceny.json |
+| POL (Poland) | 4,99 / 29,99 / 79,99 PLN | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (0): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

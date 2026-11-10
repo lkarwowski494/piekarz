@@ -8,6 +8,7 @@
 // zapisu. Kopie innych wersji (np. v2 sprzed starszej migracji) zostają nietknięte.
 // ============================================================================
 
+import { sprawdzKopieBazy } from '../lib/sprawdzenie-kopii';
 import * as FileSystem from 'expo-file-system/legacy';
 import type * as SQLite from 'expo-sqlite';
 import { PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
@@ -43,6 +44,14 @@ export async function sprzatnijKopiePrzedMigracja(nowa: string, fromVersion: num
 export async function kopiaPrzedMigracja(db: SQLite.SQLiteDatabase, fromVersion: number): Promise<string> {
   const path = preMigrationBackupPath(db.databasePath, fromVersion);
   await db.runAsync('VACUUM INTO ?;', path);
+  // Wynik integrity_check kopii obok niej (dla odzyskiwania): <kopia>.sprawdzenie.json [M1-audytor-generalny-033]
+  // Pierwsze uruchomienie (wersja 0, pusta baza): bez sprawdzania, kopia nie ma danych
+  if (fromVersion === 0) {
+    await sprzatnijKopiePrzedMigracja(path, fromVersion).catch(() => undefined);
+    return path;
+  }
+  const integralnosc = await sprawdzKopieBazy(`file://${path}`);
+  await FileSystem.writeAsStringAsync(`file://${path}.sprawdzenie.json`, JSON.stringify({ kopia: path, integralnosc, sprawdzono: new Date().toISOString() })).catch(() => undefined);
   await sprzatnijKopiePrzedMigracja(path, fromVersion).catch(() => undefined);
   return path;
 }

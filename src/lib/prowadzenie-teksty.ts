@@ -16,14 +16,13 @@
 
 import type { SessionStep } from '../core/bake-steps';
 import { isDutchOvenStep } from '../core/bake-steps';
-import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase } from '../core/baking-phases';
+import { fazyGarnka, type DutchOvenBakePhase } from '../core/baking-phases';
 import { stepDurationSec, stepHasTimer } from '../core/bake-session';
 import { gotoweMs } from './gotowe';
 import { lang, t, tPlural } from './i18n';
 import { appLocale, formatTime } from './format';
-import { dzienSlownie } from './spirala-etykieta';
+import { gotoweKiedy, startKiedy } from './spirala-etykieta';
 import { czasTrwania } from './czas-trwania';
-import { dzienWZdaniu } from './plan-za-pozno';
 
 export interface CzasTekst {
   /** Tekst na ekranie: „18 min”, „1 h 5 min”, „45 s”. */
@@ -60,7 +59,7 @@ function wSrodkuZdania(nazwa: string): string {
 function nastepny(steps: readonly SessionStep[], stepIdx: number, faza: DutchOvenBakePhase): { nazwa: string; sec: number } | null {
   const krok = steps[stepIdx];
   if (krok && isDutchOvenStep(krok) && faza === 'lid_on') {
-    return { nazwa: t('pieczenie bez pokrywy'), sec: DUTCH_OVEN_PHASES.lid_off.durationMin * 60 };
+    return { nazwa: t('pieczenie bez pokrywy'), sec: fazyGarnka(krok).lid_off.durationMin * 60 }; // czas receptury (D-304)
   }
   const dalej = steps[stepIdx + 1];
   if (!dalej) return null;
@@ -100,14 +99,14 @@ export function tekstyProwadzenia(w: WejscieProwadzenia): TekstyProwadzenia {
   const gotowe =
     koniec === null
       ? null
-      : t('Gotowe {dzien} o {godzina}', { dzien: dzienSlownie(new Date(koniec), new Date(w.teraz)), godzina: formatTime(koniec) });
+      : gotoweKiedy(new Date(koniec), new Date(w.teraz), false);
   if (!krok) return { gotowe, czas: null, potem: null, ekran: null };
   // Stan „czeka do”: wypiek zaczęty przed godziną startu planu — czas do startu i „Start {dzień} o {godzina}”;
   // ekran gaśnie, powiadomienie przychodzi o starcie (notification-plan.ts) [audyt-niezalezny D-5]
   const start = czekaNaStart(w.steps, w.stepIdx, w.teraz);
   if (start !== null) {
     const doStartu = czasKroku((start - w.teraz) / 1000);
-    const potemStart = t('Start {dzien} o {godzina}', { dzien: dzienWZdaniu(new Date(start), new Date(w.teraz)), godzina: formatTime(start) });
+    const potemStart = startKiedy(new Date(start), new Date(w.teraz));
     return { gotowe, czas: doStartu, potem: potemStart, ekran: null };
   }
   const dalej = nastepny(w.steps, w.stepIdx, w.dutchOvenPhase);

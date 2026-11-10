@@ -1,0 +1,49 @@
+FAIL tests/ci-pelna-historia-110.test.ts
+  110: joby z pełnym Jest mają checkout z pełną historią i tagami (test 079)
+    ✓ znaleziono joby z pełnym Jest (w tym tests-tz.yml i bramkę stref TestFlight) (4 ms)
+    ✓ ci.yml#verify: actions/checkout z fetch-depth: 0 (1 ms)
+    ✓ nightly.yml#nightly: actions/checkout z fetch-depth: 0 (1 ms)
+    ✕ testflight.yml#tz-matrix: actions/checkout z fetch-depth: 0 (2 ms)
+    ✓ testflight.yml#build: actions/checkout z fetch-depth: 0
+    ✕ tests-tz.yml#test-tz: actions/checkout z fetch-depth: 0 (1 ms)
+
+  ● 110: joby z pełnym Jest mają checkout z pełną historią i tagami (test 079) › testflight.yml#tz-matrix: actions/checkout z fetch-depth: 0
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\n\s+fetch-depth:\s*0\s*(\n|$)/
+    Received string:  "actions/checkout@v4"
+
+      48 |     const krok = checkout(job);
+      49 |     expect(krok).not.toBe('');
+    > 50 |     expect(krok).toMatch(/\n\s+fetch-depth:\s*0\s*(\n|$)/);
+         |                  ^
+      51 |   });
+      52 | });
+      53 |
+
+      at toMatch (tests/ci-pelna-historia-110.test.ts:50:18)
+
+  ● 110: joby z pełnym Jest mają checkout z pełną historią i tagami (test 079) › tests-tz.yml#test-tz: actions/checkout z fetch-depth: 0
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\n\s+fetch-depth:\s*0\s*(\n|$)/
+    Received string:  "actions/checkout@v4"
+
+      48 |     const krok = checkout(job);
+      49 |     expect(krok).not.toBe('');
+    > 50 |     expect(krok).toMatch(/\n\s+fetch-depth:\s*0\s*(\n|$)/);
+         |                  ^
+      51 |   });
+      52 | });
+      53 |
+
+      at toMatch (tests/ci-pelna-historia-110.test.ts:50:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 4 passed, 6 total
+Snapshots:   0 total
+Time:        4.243 s
+Ran all test suites matching /tests\/ci-pelna-historia-110.test.ts/i.
+kod 1

@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   glownyTekst: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 20,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
     textAlign: 'center',

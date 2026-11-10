@@ -36,13 +36,13 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Kto: P-7 · Praca: J-06 · Częstotliwość: rzadko · Kontekst: spotkanie, bez sieci.
 - Kroki: otwiera recepturę → pokazuje kod QR albo udostępnia tekst → odbiorca skanuje kod i dostaje recepturę do zapisania.
 
-### PR-09: Wypróbować, kupić albo przywrócić pełną wersję
-- Kto: wszyscy · Praca: J-01…J-11 (dostęp do funkcji) · Częstotliwość: raz, potem przy odnowieniach · Kontekst: pierwsze użycie funkcji.
-- Kroki: przy pierwszym użyciu dowolnej funkcji widzi ofertę 14 dni próby z ceną po próbie i sposobem anulowania → wybiera plan albo zakup dożywotni → po zakupie funkcje działają → na nowym telefonie przywraca zakup → po końcu próby bez zakupu widzi, co zostaje (historia, eksport, usunięcie).
+### PR-09: Kupić albo przywrócić Piekarz Pro
+- Kto: wszyscy · Praca: J-01…J-11 (funkcje Pro) · Częstotliwość: raz, potem przy odnowieniach · Kontekst: stuknięcie funkcji oznaczonej „Pro” albo Ustawienia (D-112; ER-80).
+- Kroki: stuka funkcję Pro → widzi ekran Pro z ceną, okresem odnowienia i sposobem anulowania (bez okresu próbnego) → wybiera plan albo zakup dożywotni → po zakupie funkcje Pro działają → na nowym telefonie przywraca zakup; Basic działa bez zakupu na zawsze.
 
 ### PR-10: Dostosować aplikację do siebie
 - Kto: wszyscy · Praca: J-01 · Częstotliwość: rzadko · Kontekst: dowolny.
-- Kroki: wybiera jednostki (gramy albo uncje, °C albo °F) → język wynika z ustawień telefonu → otwiera politykę prywatności.
+- Kroki: wybiera jednostki (gramy albo uncje, °C albo °F) → język wynika z ustawień telefonu → otwiera politykę prywatności → sprawdza, skąd pochodzą porady (Źródła wiedzy, BR-UST-004) i licencje bibliotek (BR-UST-005).
 
 ### PR-11: Założyć zakwas od zera
 - Kto: P-6 · Praca: J-07 · Częstotliwość: raz albo kilka razy, kilka do kilkunastu dni · Kontekst: kuchnia, krótka sesja codziennie.
@@ -64,9 +64,9 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Kto: P-6, P-7 · Praca: J-02 · Częstotliwość: przy zamknięciu aplikacji, rozładowanym telefonie, spóźnieniu · Kontekst: powrót po godzinach.
 - Kroki: otwiera aplikację → widzi trwający wypiek na bieżącym kroku i czas pozostały liczony od zapisanego terminu → jeśli termin minął, widzi, o ile, i może przesunąć dalsze kroki.
 
-### PR-16: Zakończyć okres próbny bez zakupu
-- Kto: wszyscy · Praca: J-10, J-04 · Częstotliwość: raz · Kontekst: koniec 14 dni.
-- Kroki: przed końcem próby widzi, co zostanie bez zakupu → po końcu przegląda historię, eksportuje i usuwa dane bez opłaty → próba odblokowania innej funkcji pokazuje ofertę zakupu.
+### PR-16: Pro wygasło
+- Kto: subskrybenci · Praca: J-10, J-04 · Częstotliwość: rzadko · Kontekst: koniec opłaconego okresu bez odnowienia, zwrot albo odebranie z Family Sharing (D-112, D-113; ER-80).
+- Kroki: 3 dni przed końcem (gdy sklep podaje koniec bez odnowienia) widzi jasne zdanie, co się zmieni, bez odliczania → po wygaśnięciu dane zostają, Basic działa w całości (Dziennik, eksport, usunięcie), przypomnienia o dokarmianiu ustają → stuknięcie funkcji Pro pokazuje ekran Pro; wypiek rozpoczęty z planem Pro prowadzi się do końca (D-039 pkt 3).
 
 ### PR-17: Przygotować ciasto na pizzę albo pieczywo drożdżowe na godzinę
 - Kto: P-8 · Praca: J-11 · Częstotliwość: około raz w tygodniu · Kontekst: blat, plan na wieczór albo na kolejny dzień.
@@ -113,7 +113,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Miara: stany ostrzeżeń i bezpieczeństwa (RD-21…RD-23, RD-27) rozróżnialne bez koloru. Próg: każdy stan ma tekst albo ikonę (dowód: S-24, rec. 5681544617). Metoda: przegląd zrzutów w skali szarości (rola 04).
 
 ### NFR-INT-003: Sygnał kroku nie tylko dźwiękiem
-- Miara: kanały sygnału kroku. Próg: powiadomienie z tekstem kroku i haptyka obok dźwięku (DEC-02). Metoda: test planowania powiadomień i próba na urządzeniu (krok właściciela).
+- Miara: kanały sygnału kroku. Próg: powiadomienie z tekstem kroku i haptyka obok dźwięku (DEC-02). Metoda: test planowania powiadomień i sprawdzenie na urządzeniu (krok właściciela).
 
 ### NFR-CZAS-001: Punktualność sygnału przy zablokowanym ekranie
 - Miara: różnica między terminem kroku a pojawieniem się powiadomienia na zablokowanym telefonie. Próg: [DO WYJAŚNIENIA] (OP-42). Metoda: test na urządzeniu, ekran zablokowany 30 min (krok właściciela, TestFlight).

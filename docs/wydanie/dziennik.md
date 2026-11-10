@@ -18,12 +18,14 @@ Plan: `docs/wydanie/sklep.md` (DEC-16 a). Jeden wiersz na build i kanał. Zgody 
 | 2026-10-23 | 1.0.0 | 1019 | `d8a0b40` | brak (przed M1 na kandydacie) | TestFlight | [DO USTALENIA] | [DO USTALENIA] | tag `v1.0.0-b1019` (wiersz dopisany 2026-11-08 z tagu: data commitu tagu, SHA tagu); przetworzenie w App Store Connect [DO USTALENIA] |
 | 2026-11-03 | 1.0.0 | 1021 | `39f3890` | brak (przed M1 na kandydacie) | TestFlight | [DO USTALENIA] | [DO USTALENIA] | tag `v1.0.0-b1021` (wiersz dopisany 2026-11-08 z tagu: data commitu tagu, SHA tagu); przetworzenie w App Store Connect [DO USTALENIA] |
 | 2026-11-04 | 1.0.0 | 1022 | `9c255a0` | brak (przed M1 na kandydacie, D-225) | TestFlight | D-220, D-239 | „Po poprawkach z pyt. 1 (Recommended)” (D-220, 2026-11-04) — tylko scalenie do master i ten build | run 41797022837 zielony (tz-matrix 7 stref, verify, archiwum, wysyłka 08:45 UTC); tag `v1.0.0-b1022`; przetworzenie w App Store Connect [DO USTALENIA]; nie wysyłać do recenzji |
+| 2026-11-08 | 1.0.0 | 1023 | `2ef8870` | brak (przed M1 na kandydacie, D-225, D-277) | TestFlight | D-272, D-275…D-280, D-290, D-291 | D-272 (2026-11-04): scalenie kandydata do master i build TestFlight po zielonym E2E — tylko ten build | E2E #95 run 42504224949 zielony (0e5fa7ef; różnica do 2ef8870 tylko słowniki 09l i docs, wyjątek D-276/D-279); `verify` na master kod 0 (574/6017); run 42511360071 zielony (tz 7 stref, verify, archiwum, wysyłka 19:21 UTC); tag `v1.0.0-b1023`; przetworzenie w App Store Connect [DO USTALENIA]; nie wysyłać do recenzji |
 
 ## Ustawienia App Store Connect przez API (`scripts/asc-ustawienia.mjs`)
 
 Osobno od tabeli buildów (wpisy bez buildu) [M1-audytor-generalny-181]:
 - 2026-10-21, commit `bdb854b`, przebieg na sucho (GitHub Actions run 39582555161): 714 operacji do utworzenia, skrót planu `ff854f80…1356`.
 - 2026-10-21, commit `4aaf974`, zapis (run 39583333126). Zgoda właściciela: „Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea41356 (714 operacji), łącznie z nieodwracalnym Family Sharing.” (2026-10-21). Wynik: grupa „Piekarz Pro”, 2 subskrypcje i dożywotni z Family Sharing, nazwy en-US i pl, ceny DEC-01 d i D-038, Free Trial 2 Weeks na obu subskrypcjach, 174 storefronty bez CHN, ankieta wieku D-058; drugi przebieg na sucho w tym samym zadaniu: 0 różnic.
+- 2026-11-03, ręcznie w App Store Connect (właściciel, bez skryptu): Z-1, usunięcie oferty wprowadzającej „Free Trial 2 Weeks” z `com.apps4brew.baker.pro.monthly` i `com.apps4brew.baker.pro.yearly` (D-112, D-113 wdrożenie pkt 1), w dniu scalenia do master i buildu 1021. Słowa właściciela: „Obie usuenięte.” (2026-11-03, `docs/wznowienie-M3.md`, „Z-1 zrobione”). Zrzutu ekranu w repo brak; wpis dopisany 2026-11-09 w M2 (M1-audytor-generalny-057, DEC-08 a). Sprawdzenie w dniu zgłoszenia: §4 `instrukcja-ustawien.md` (kroki 4.1, 4.2).
 
 ## Zgłoszenie App Store przez API (`scripts/asc-zgloszenie.mjs`)
 

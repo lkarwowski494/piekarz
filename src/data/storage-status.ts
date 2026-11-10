@@ -106,6 +106,21 @@ export function subscribeStorageState(fn: (s: StorageState) => void): () => void
   };
 }
 
+/**
+ * Stan po zakończeniu startu bazy: od razu, gdy start się skończył; w trakcie („initializing”) czeka na pierwszą zmianę
+ * stanu. Dla odczytów spoza StorageGate, np. uzgadniania powiadomień po powrocie z tła [M1-audytor-generalny-022].
+ */
+export function poStarcieBazy(): Promise<StorageState> {
+  if (state !== 'initializing') return Promise.resolve(state);
+  return new Promise((resolve) => {
+    const off = subscribeStorageState((s) => {
+      if (s === 'initializing') return;
+      off();
+      resolve(s);
+    });
+  });
+}
+
 /** Wykonuje zapis do bazy; błąd SQLite zamienia na StorageWriteError (ekran pokazuje komunikat). */
 export async function writeOrThrow<T>(op: () => Promise<T>): Promise<T> {
   assertWritable();

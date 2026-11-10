@@ -80,7 +80,7 @@ export function FinishBakeModal({
   // Arkusz na kartach: „Anuluj” i „Zapisz” w pasku arkusza (poza przewijaniem, osiągalne przy 320 pt i AX5),
   // sekcje oceny w kartach (README §1, §3) [M3 p7, 04-002]
   return (
-    <ArkuszKart visible={visible} onRequestClose={onClose} zmieniony={zmieniony} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave }}>
+    <ArkuszKart visible={visible} onRequestClose={onClose} zmieniony={zmieniony} lewy={{ tekst: t('Anuluj'), onPress: onClose }} prawy={{ tekst: t('Zapisz'), onPress: onSave, testID: 'finish-save-btn' }}>
         <Karta testID="karta-oceny" tytul={t('Ocena wypieku')} ikona={<IkonaKarty nazwa="gwiazda" />}>
           {/* Pytanie arkusza w przewijanej treści, w karcie oceny (nagłówek karty: „Ocena wypieku”) */}
           <View style={styles.grupa}>

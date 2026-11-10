@@ -3,11 +3,12 @@
 // 100% Offline-First, Zero Cloud Dependencies.
 // ============================================================================
 
-import { StoredBakeLog } from '../data/db';
+import type { StoredBakeLog } from '../data/db';
 
 export interface BakeStatisticsResult {
   totalBakes: number;
-  averageRating: number;
+  /** Średnia z ocenionych wpisów; null = brak ocen (brak nie jest 5★) [M1-audytor-generalny-026]. */
+  averageRating: number | null;
   averageCrumbScore: number;
   averageCrustScore: number;
   tasteDistribution: Record<'mild' | 'balanced' | 'sour' | 'tangy', number>;
@@ -28,7 +29,7 @@ export function calculateBakeStatistics(logs: StoredBakeLog[]): BakeStatisticsRe
   if (!logs || logs.length === 0) {
     return {
       totalBakes: 0,
-      averageRating: 0,
+      averageRating: null,
       averageCrumbScore: 0,
       averageCrustScore: 0,
       tasteDistribution: { mild: 0, balanced: 0, sour: 0, tangy: 0 },
@@ -37,6 +38,7 @@ export function calculateBakeStatistics(logs: StoredBakeLog[]): BakeStatisticsRe
   }
 
   let ratingSum = 0;
+  let ratingCount = 0;
   let crumbSum = 0;
   let crumbCount = 0;
   let crustSum = 0;
@@ -52,7 +54,10 @@ export function calculateBakeStatistics(logs: StoredBakeLog[]): BakeStatisticsRe
   const recipeCounts: Record<string, number> = {};
 
   for (const log of logs) {
-    ratingSum += log.ratingStars ?? 5;
+    if (log.ratingStars !== undefined && log.ratingStars > 0) {
+      ratingSum += log.ratingStars;
+      ratingCount++;
+    }
 
     if (log.crumbScore !== undefined && log.crumbScore > 0) {
       crumbSum += log.crumbScore;
@@ -72,7 +77,7 @@ export function calculateBakeStatistics(logs: StoredBakeLog[]): BakeStatisticsRe
     recipeCounts[rName] = (recipeCounts[rName] || 0) + 1;
   }
 
-  const avgRating = Number((ratingSum / logs.length).toFixed(1));
+  const avgRating = ratingCount > 0 ? Number((ratingSum / ratingCount).toFixed(1)) : null;
   const avgCrumb = crumbCount > 0 ? Number((crumbSum / crumbCount).toFixed(1)) : 0;
   const avgCrust = crustCount > 0 ? Number((crustSum / crustCount).toFixed(1)) : 0;
 
@@ -116,7 +121,8 @@ export function filterBakeLogs(logs: StoredBakeLog[], filter: BakeHistoryFilter)
 
     // 3. Min rating filter
     if (filter.minRating !== undefined && filter.minRating > 0) {
-      if ((log.ratingStars ?? 5) < filter.minRating) return false;
+      // Wpis bez oceny nie spełnia progu (brak to nie 5★) [M1-audytor-generalny-026]
+      if (log.ratingStars === undefined || log.ratingStars < filter.minRating) return false;
     }
 
     return true;

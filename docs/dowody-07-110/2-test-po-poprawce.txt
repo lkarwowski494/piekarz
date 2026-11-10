@@ -1,0 +1,15 @@
+PASS tests/ci-pelna-historia-110.test.ts
+  110: joby z pełnym Jest mają checkout z pełną historią i tagami (test 079)
+    ✓ znaleziono joby z pełnym Jest (w tym tests-tz.yml i bramkę stref TestFlight) (2 ms)
+    ✓ ci.yml#verify: actions/checkout z fetch-depth: 0 (1 ms)
+    ✓ nightly.yml#nightly: actions/checkout z fetch-depth: 0 (1 ms)
+    ✓ testflight.yml#tz-matrix: actions/checkout z fetch-depth: 0
+    ✓ testflight.yml#build: actions/checkout z fetch-depth: 0
+    ✓ tests-tz.yml#test-tz: actions/checkout z fetch-depth: 0
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        0.505 s, estimated 3 s
+Ran all test suites matching /tests\/ci-pelna-historia-110.test.ts/i.
+kod 0

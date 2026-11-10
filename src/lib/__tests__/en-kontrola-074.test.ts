@@ -10,11 +10,13 @@ const OCZEKIWANE: Record<string, string> = {
   '{n} cz.': '{n} parts',
   'Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.':
     'Cover the container loosely, which makes mold less likely, and leave it for 24 hours in a warm spot, at about 21 °C.',
-  'Mąka pszenna typ 650 (chlebowa jasna)': 'Light wheat bread flour (Polish type 650)',
-  'Mąka pszenna typ 650': 'Light wheat flour (Polish type 650)',
-  'Mąka pszenna luksusowa typ 550': 'Fine light wheat flour (Polish type 550)',
-  'Mąka pszenna graham typ 1850': 'Graham wheat flour (coarse, Polish type 1850)',
-  'Mąka żytnia typ 720': 'Light rye flour (Polish type 720)',
+  // Nazwy mąk: kanon D-307 (jedna mąka = jedna nazwa, bez przymiotników bez źródła; docs/tresci/wektory/
+  // maki-nazwy-2026-11-09.json) zamiast brzmienia z 074 [M1-audytor-generalny-041]
+  'Mąka pszenna typ 650 (chlebowa jasna)': 'Wheat flour (Polish type 650, bułkowa)',
+  'Mąka pszenna typ 650': 'Wheat flour (Polish type 650, bułkowa)',
+  'Mąka pszenna luksusowa typ 550': 'Wheat flour (Polish type 550, luksusowa)',
+  'Mąka pszenna graham typ 1850': 'Wheat flour (Polish type 1850, graham)',
+  'Mąka żytnia typ 720': 'Rye flour (Polish type 720)',
   'Mąka pszenna pełnoziarnista typ 2000': 'Wholemeal wheat flour (Polish type 2000)',
   'Mistrzowski': 'Expert',
   'Zakwas żytni': 'Rye starter',
@@ -50,7 +52,8 @@ describe('074: poprawki EN z kontroli 2026-10-22', () => {
   });
 
   it('nazwy mąk z polskim typem w nawiasie odróżniają 550, 650, 720, 1850 i 2000', () => {
-    const typy = ['550', '650', '720', '1850', '2000'].map((n) => Object.values(EN).filter((v) => v.includes(`(Polish type ${n})`) || v.includes(`Polish type ${n})`)).length);
+    // D-307: „(Polish type NNN)” albo „(Polish type NNN, nazwa handlowa)” [M1-audytor-generalny-041]
+    const typy = ['550', '650', '720', '1850', '2000'].map((n) => Object.values(EN).filter((v) => v.includes(`(Polish type ${n})`) || v.includes(`(Polish type ${n}, `)).length);
     expect(typy.every((x) => x > 0)).toBe(true);
   });
 

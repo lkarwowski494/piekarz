@@ -46,7 +46,7 @@ describe('FlourInventoryModal Component (src/components/FlourInventoryModal.tsx)
 
     const fullText = JSON.stringify(tree!.toJSON());
     expect(fullText).toContain('Spi\u017carnia m\u0105k (Magazyn)');
-    expect(fullText).toContain('M\u0105ka pszenna chlebowa typ 750');
+    expect(fullText).toContain('M\u0105ka pszenna typ 750 (chlebowa)'); // kanon D-307 [M1-audytor-generalny-041]
     expect(fullText).toContain('M\u0105ka \u017cytnia typ 2000'); // bez „razowa” [M2-koordynator-napraw-453 (p12b2)]
   });
 

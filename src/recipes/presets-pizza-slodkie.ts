@@ -10,7 +10,8 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
     id: 'lievito_madre_panettone_brioche',
     namePl: 'Rzemieślnicza maślana brioszka na Lievito Madre',
     category: 'sweet',
-    descriptionPl: 'Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Maślana brioszka na sztywnym zakwasie Lievito Madre.',
     formula: {
       flours: [
         { name: 'Mąka pszenna Manitoba', percentage: 100.0, type: 'pszenna_manitoba' },
@@ -22,10 +23,11 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
       targetDoughWeightGrams: 800,
     },
     targetDDT: 25.0,
+    // Keksówka 177 °C, 28 min (20 + 8–10), bez pary (PIE-BRI-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 0,
     bakeTimeBrowningMinutes: 28,
-    bakeTempSteamC: 175,
-    bakeTempBrowningC: 175,
+    bakeTempSteamC: 177,
+    bakeTempBrowningC: 177,
     recommendedVessel: 'bread_pan',
     notesPl: 'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.',
   },
@@ -45,21 +47,23 @@ export const PRESETY_PIZZA_SLODKIE: RecipePreset[] = [
       targetDoughWeightGrams: 1000,
     },
     targetDDT: 23.0,
+    // 260 °C, 0 + 6 min na stali, grill 2–3 min w notesPl: PIE-PIZ-001 (D-303) [M1-audytor-generalny-009]
     bakeTimeSteamMinutes: 0,
-    bakeTimeBrowningMinutes: 2,
-    bakeTempSteamC: 450,
-    bakeTempBrowningC: 450,
+    bakeTimeBrowningMinutes: 6,
+    bakeTempSteamC: 260,
+    bakeTempBrowningC: 260,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
+    notesPl: 'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.',
   },
   {
     id: 'sweet_chalka',
     namePl: 'Maślana chałka drożdżowa',
     category: 'sweet',
-    descriptionPl: 'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Słodka chałka zaplatana w warkocz, z kruszonką.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 550 (Luksusowa)', percentage: 100.0, type: 'pszenna_550' },
+        { name: 'Mąka pszenna typ 550 (luksusowa)', percentage: 100.0, type: 'pszenna_550' },
       ],
       waterPercentage: 45.0,
       saltPercentage: 1.0,

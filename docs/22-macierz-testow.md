@@ -9,23 +9,23 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 664 | 664 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 641 | 641 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 251 | 251 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 666 | 666 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 682 | 682 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 266 | 266 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1627** | Pokrytych: **1627** | Brakujących: **0**
+Łącznie elementów: **1685** | Pokrytych: **1685** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
 | Kategoria | Nazwa elementu | Plik źródłowy | Status | Pliki testowe |
 | :--- | :--- | :--- | :---: | :--- |
-| `EKRAN` | `/(tabs)/(dzis)/index` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/(tabs)/(dzis)/index` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/architektura-dokumenty-024.test.ts |
+| `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/architektura-dokumenty-024.test.ts |
 | `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/emoji-teksty-techniczne.test.ts |
-| `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
+| `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/architektura-dokumenty-024.test.ts |
+| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/brioszka-bez-planu-089.test.ts, tests/instrukcja-ustawien.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/doktor-zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | tests/nawigacja-d051.test.tsx, src/core/__tests__/starter-doctor.test.ts |
-| `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/architektura-dokumenty-024.test.ts |
 | `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/interaction-guards.test.ts |
 | `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/dzis-d4b.test.tsx |
@@ -33,8 +33,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Dziennik` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
 | `TEKST` | `Doktor Chleba` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Plan wypieku` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
-| `TEKST` | `Receptura` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
+| `TEKST` | `Plan wypieku` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/brioszka-bez-planu-089.test.ts, tests/emoji-teksty-techniczne.test.ts |
+| `TEKST` | `Receptura` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/pieczenie-receptur-008.test.ts |
 | `TEKST` | `Godziny snu` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Klasyczny chleb rzemieślniczy` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/harmonogram-piekarnik-d6.test.tsx |
@@ -47,10 +47,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Więcej działań: receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | src/lib/__tests__/menu-receptury.test.ts, src/__tests__/pas-zakladek-d10.test.tsx |
 | `TEKST` | `Więcej` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Doktor zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | tests/nawigacja-d051.test.tsx, src/lib/__tests__/zakwas-widok.test.tsx |
-| `TEKST` | `Wstecz` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/__tests__/doktor-pas-p5.test.tsx, src/__tests__/pas-zakladek-d10.test.tsx |
+| `TEKST` | `Wstecz` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/__tests__/akcje-pasa-ikony-005.test.tsx, src/__tests__/doktor-pas-p5.test.tsx |
 | `TEKST` | `Co widzisz?` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx, src/__tests__/zakwasy-karty-p2.test.tsx |
 | `TEKST` | `Dzień {n}` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx |
-| `TEKST` | `przed chwilą` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Brak danych o karmieniu` | `app/(tabs)/zakwasy/index.tsx` | ✅ | src/__tests__/brak-to-brak-026.test.tsx |
+| `TEKST` | `przed chwilą` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/brak-to-brak-026.test.tsx |
 | `UI` | `Kopiuj jako tekst` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zakwasy` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
@@ -62,7 +63,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Techniki` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `POZIOM` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zaliczona` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `hydratacji` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5d.test.ts |
+| `TEKST` | `hydratacji` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/liczby-w-tekstach-010.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `soli` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
 | `TEKST` | `Fermentacja i prowadzenie:` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kroki technologiczne:` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -71,7 +72,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Lekcja ukończona (stuknij, aby cofnąć)` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/bread-academy-modal.test.tsx |
 | `TEKST` | `Oznacz lekcję jako zaliczoną` | `src/components/academy/BreadSchoolSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wszystkie` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/martwe-klucze-oferty-203.test.ts |
-| `TEKST` | `Wyrabianie` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wyrabianie` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/plan-brioszki-m2-012.test.ts |
 | `TEKST` | `Składania` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Formowanie` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/wstawki-angielskie-112.test.ts |
 | `TEKST` | `Wypiek i studzenie` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -81,6 +82,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wpisane zmiany nie zostaną zapisane.` | `src/components/arkusz/ArkuszKart.tsx` | ✅ | src/__tests__/odrzucic-zmiany-p7.test.tsx |
 | `TEKST` | `wymaga Piekarz Pro` | `src/components/BlokadaFunkcji.tsx` | ✅ | tests/nazwa-d053.test.ts, tests/store-metadata.test.ts |
 | `TEKST` | `Temperatura wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | src/__tests__/arkusze-w-kartach-007.test.tsx |
 | `TEKST` | `Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | src/__tests__/temperatura-wody-kalk004-146.test.tsx |
 | `TEKST` | `Docelowa temp. wody:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptura-akcje-057.test.tsx |
 | `TEKST` | `Docelowe DDT` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -97,7 +99,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zamknij` | `src/components/CloseButton.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zamknij` | `src/components/calculator/TemperaturaWodySheet.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Baza danych nie otworzyła się przy poprzednim uruchomieniu` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
@@ -180,7 +182,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szukaj np. T65, Tipo 00, 550, Bread Flour...` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nie znaleziono odpowiednika dla podanej frazy.` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `wody` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
+| `TEKST` | `wody` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/brioszka-bez-planu-089.test.ts, tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Popiół:` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Białko:` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5d.test.ts |
 | `TEKST` | `Zastosowanie:` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -208,10 +210,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.` | `src/components/harmonogram/DodajDoKalendarza.tsx` | ✅ | tests/przeklad-a5.test.ts |
 | `TEKST` | `Notatka z poprzedniego wypieku: {notatka}` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | src/__tests__/piecz-ponownie-recp003-146.test.tsx |
 | `TEKST` | `Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.` | `src/components/harmonogram/NotatkiPlanu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/piecz-ponownie-id-d3a.test.tsx |
-| `TEKST` | `Zaplanuj` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/przeklad-a5.test.ts, src/core/__tests__/plany-d5.test.ts |
+| `TEKST` | `Zaplanuj` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
 | `TEKST` | `Zacznij wypiek` | `src/components/harmonogram/PasekStartu.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Ustaw tę godzinę` | `src/components/harmonogram/PlanZaPozno.tsx` | ✅ | src/__tests__/plan-za-pozno-107.test.tsx |
-| `TEKST` | `Start {dzien} o {godzina}` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
 | `TEKST` | `Całość trwa {czas}.` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
 | `TEKST` | `{krok} wypada o {godzina} w nocy` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
 | `TEKST` | `Przesuń do lodówki` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/store-metadata.test.ts, src/__tests__/harmonogram-screen.test.tsx |
@@ -250,14 +251,15 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nieprawidłowy format` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/settings-modal.test.tsx |
 | `TEKST` | `Poprawna formuła` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `DDT` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/ddt-woda-m2-013.test.ts |
 | `TEKST` | `Mieszanka mąk (100%):` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Woda` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Sól` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `Zakwas\|składnik` | `src/components/ImportRecipeModal.tsx` | ✅ | src/lib/__tests__/en-kontrola-074.test.ts, src/lib/__tests__/i18n-kontekst.test.ts |
 | `TEKST` | `Zaimportuj przepis` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{h} {co}` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/lib/__tests__/kalendarz-teksty-d4a.test.ts |
-| `UI` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-plany-d5.test.tsx |
-| `TEKST` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-plany-d5.test.tsx |
+| `UI` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
+| `TEKST` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/kontrakt-zm28-058.test.ts, tests/przeklad-a5.test.ts |
 | `TEKST` | `Tego dnia nic nie zaplanowano.` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Najbliższe dni` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `{dzien}: piekarnik zajęty o {h}` | `src/components/kalendarz/LiniaPiekarnika.tsx` | ✅ | tests/przeklad-a5.test.ts |
@@ -284,13 +286,13 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kup dostęp dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
 | `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Pro` | `src/components/OznaczeniePro.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/asc-zgloszenie.test.ts |
+| `TEKST` | `Pro` | `src/components/OznaczeniePro.tsx` | ✅ | tests/asc-klucz-082.test.ts, tests/asc-ustawienia.test.ts |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
+| `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/obietnice-pro-015.test.ts |
 | `TEKST` | `Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
-| `TEKST` | `Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.` | `src/components/PaywallModal.tsx` | ✅ | tests/przeklad-a5.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
+| `TEKST` | `Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.` | `src/components/PaywallModal.tsx` | ✅ | src/__tests__/ekran-pro-pb.test.tsx |
 | `UI` | `Zakup czeka na zatwierdzenie` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-zgloszenie.test.ts, tests/matrix-ui-text.test.tsx |
@@ -305,7 +307,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
 | `TEKST` | `Zarządzaj subskrypcją` | `src/components/PaywallModal.tsx` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/slownik-akcji.test.ts |
 | `TEKST` | `Jedna opłata, bez odnawiania.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/przeklad-a5.test.ts |
-| `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/przeklad-a5.test.ts |
+| `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/ekran-awaryjny-jezyk-012.test.tsx, tests/martwe-klucze-oferty-203.test.ts |
 | `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Zakupy zostały pomyślnie przywrócone` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
 | `UI` | `Nie znaleziono aktywnych zakupów` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
@@ -317,7 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Skieruj obiektyw na kod QR receptury` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
-| `TEKST` | `drożdże najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
-| `TEKST` | `W większości przeczytanych instrukcji najpierw wlewa się płyny, potem wsypuje mąkę i inne suche składniki, a drożdże na wierzch, tak by nie dotykały płynów.` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1327 kolejnych elementów w pełnym wykazie)*
+*(... i 1385 kolejnych elementów w pełnym wykazie)*

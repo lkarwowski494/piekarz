@@ -11,8 +11,6 @@ export * from './sourdough-physics';
 import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
 import type { PoziomKomunikatu } from './poziom-komunikatu';
 import { Q10_FERMENTATION } from './fermentation-q10';
-import { t } from '../lib/i18n';
-import { formatFixed } from '../lib/format';
 
 export interface FlourItemInput {
   name: string;
@@ -80,8 +78,17 @@ export interface FermentationAdaptationResult {
   adaptedMinutesFormatted: string;
   diffMinutes: number;
   temperatureCelsius: number;
-  /** Komunikat w języku aplikacji (t(), nazwa pola historyczna) [M1-audytor-generalny-070]. */
-  messagePl: string;
+  /** Rodzaj komunikatu i liczby; domena nie składa tekstu (bez i18n, ADR-006). Tekst nie był pokazywany w aplikacji
+   * (znalezisko M2-koordynator-napraw-001) [M1-audytor-generalny-020]. */
+  komunikat: KomunikatAdaptacji;
+}
+
+/** Komunikat adaptacji czasu fermentacji: zgodny z recepturą, skrócony (ciepło) albo wydłużony (chłodno). */
+export interface KomunikatAdaptacji {
+  rodzaj: 'optymalna' | 'cieplo' | 'chlodno';
+  temperaturaC: number;
+  /** Różnica czasu w minutach (bez znaku). */
+  minuty: number;
 }
 
 /** Tolerancja sumy udziałów mąk przy wczytaniu receptury: jak import JSON (recipe-sharing.ts, 95–105%). */
@@ -258,7 +265,9 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
     return {
       waterTempTarget: roundedWater,
       status: 'too_hot_danger',
-      warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.',
+      // Komunikaty dosłownie z docs/tresci/pl/teksty-glownego-przeplywu.md (D-305); progi 45 i 4 °C bez źródła: DDT-WOD-900
+      // [M1-audytor-generalny-010]
+      warningMessagePl: 'Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.',
     };
   }
 
@@ -266,7 +275,7 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
     return {
       waterTempTarget: roundedWater,
       status: 'requires_ice',
-      warningMessagePl: 'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.',
+      warningMessagePl: 'Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.',
     };
   }
 
@@ -339,16 +348,7 @@ export function calculateFermentationAdaptation(
   const m = totalMinutes % 60;
   const formatted = h > 0 ? `${h}h ${m}m` : `${m}m`;
 
-  // Komunikat w języku aplikacji, temperatura z separatorem języka [M1-audytor-generalny-070]
-  const temp = formatFixed(actualTempC, 1);
-  let msg: string;
-  if (Math.abs(diffMinutes) < 5) {
-    msg = t('Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.', { temp });
-  } else if (diffMinutes < 0) {
-    msg = t('Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).', { temp, min: Math.abs(diffMinutes) });
-  } else {
-    msg = t('Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).', { temp, min: diffMinutes });
-  }
+  const rodzaj: KomunikatAdaptacji['rodzaj'] = Math.abs(diffMinutes) < 5 ? 'optymalna' : diffMinutes < 0 ? 'cieplo' : 'chlodno';
 
   return {
     baseHours,
@@ -356,7 +356,7 @@ export function calculateFermentationAdaptation(
     adaptedMinutesFormatted: formatted,
     diffMinutes,
     temperatureCelsius: actualTempC,
-    messagePl: msg,
+    komunikat: { rodzaj, temperaturaC: actualTempC, minuty: Math.abs(diffMinutes) },
   };
 }
 
@@ -479,13 +479,13 @@ export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
   {
     id: 'blend_100_wheat',
     namePl: '100% Pszenna chlebowa',
-    flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+    flours: [{ name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 100.0, type: 'pszenna_750' }],
   },
   {
     id: 'blend_classic_rye_touch',
     namePl: '80% Pszenna + 20% Żytnia (Klasyk)',
     flours: [
-      { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+      { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 80.0, type: 'pszenna_750' },
       { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
     ],
   },
@@ -493,7 +493,7 @@ export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
     id: 'blend_artisan_three_flours',
     namePl: '70% Pszenna + 20% Orkisz + 10% Żytnia',
     flours: [
-      { name: 'Mąka pszenna chlebowa typ 750', percentage: 70.0, type: 'pszenna_750' },
+      { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 70.0, type: 'pszenna_750' },
       { name: 'Mąka orkiszowa', percentage: 20.0, type: 'orkiszowa' },
       { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
     ],
@@ -502,15 +502,15 @@ export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
     id: 'blend_wheat_graham',
     namePl: '80% Pszenna + 20% Graham (Pełne ziarno)',
     flours: [
-      { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
-      { name: 'Mąka pszenna graham typ 1850', percentage: 20.0, type: 'graham' },
+      { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 80.0, type: 'pszenna_750' },
+      { name: 'Mąka pszenna typ 1850 (graham)', percentage: 20.0, type: 'graham' },
     ],
   },
   {
     id: 'blend_half_half',
     namePl: '50% Pszenna + 50% Żytnia (Pół na pół)',
     flours: [
-      { name: 'Mąka pszenna chlebowa typ 750', percentage: 50.0, type: 'pszenna_750' },
+      { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 50.0, type: 'pszenna_750' },
       { name: 'Mąka żytnia typ 720', percentage: 50.0, type: 'zytnia_720' },
     ],
   },

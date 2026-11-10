@@ -10,8 +10,9 @@ import {
   ScheduleOptions,
   StageCategory,
   StageTemplate,
-} from '../scheduler/reverse-scheduler';
+} from './reverse-scheduler';
 import { RYE_STAGE_TEMPLATES, RYE_PROOF_STAGE_ID } from './rye-stages';
+import { ID_PIECZENIA_BEZ_GARNKA, type PieczenieReceptury } from './pieczenie-receptury';
 
 /** Migawka etapu planu zapisana w sesji wypieku; nazwa i instrukcja to klucze PL dla t(). */
 export interface SessionStep {
@@ -41,11 +42,12 @@ export function isStageCategory(v: unknown): v is StageCategory {
 
 /**
  * Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). Chleb żytni piecze się w formie (ZYT-ETA-001); wersja
- * drożdżowa (`yeast_*`, src/core/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
- * (`maszyna_*`, src/lib/plan-maszyny.ts) piecze w maszynie [M3 p9b2].
+ * drożdżowa (`yeast_*`, src/recipes/yeast-stages.ts) nie ma faz garnka w treści (D-155) [M3 p9b]; program maszyny
+ * (`maszyna_*`, src/lib/plan-maszyny.ts) piecze w maszynie [M3 p9b2]; keksówka i stal z danych receptury
+ * (`bake_forma`, `bake_stal`, D-304) bez faz garnka [M1-audytor-generalny-008].
  */
 export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boolean {
-  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !step.id.startsWith('yeast_') && !step.id.startsWith('maszyna_');
+  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id) && !step.id.startsWith('yeast_') && !step.id.startsWith('maszyna_') && !ID_PIECZENIA_BEZ_GARNKA.includes(step.id);
 }
 
 /**
@@ -149,7 +151,8 @@ export function scheduleFromStart(startAt: number, options: ScheduleOptions = {}
  * Kroki wypieku od `startAt`: plan z calculateReverseSchedule (kompensacja temperatury jak w Harmonogramie).
  * Żyto: etapy z rye-stages.ts z czasami tego planu (ryeStepsFromPlan); pszennej listy nie podstawiamy.
  */
-export function planBakeSteps(input: { startAt: number; isHighRye: boolean; ambientTempC?: number }): SessionStep[] {
-  const plan = stepsFromSchedule(scheduleFromStart(input.startAt, { ambientTemperatureC: input.ambientTempC }));
+export function planBakeSteps(input: { startAt: number; isHighRye: boolean; ambientTempC?: number; pieczenie?: PieczenieReceptury }): SessionStep[] {
+  // Pieczenie z danych receptury (D-304) [M1-audytor-generalny-008]
+  const plan = stepsFromSchedule(scheduleFromStart(input.startAt, { ambientTemperatureC: input.ambientTempC, pieczenie: input.pieczenie }));
   return input.isHighRye ? ryeStepsFromPlan(plan, input.startAt) : plan;
 }

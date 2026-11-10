@@ -1,0 +1,252 @@
+FAIL tests/e2e-sterownik-n10.test.ts
+  M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330)
+    ✕ skrypt ponowienia istnieje (4 ms)
+    ✕ sukces za pierwszym razem: jedno wywołanie, kod 0 (13 ms)
+    ✕ timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0 (9 ms)
+    ✕ dwa razy timeout sterownika: najwyżej jedno ponowienie, wynik czerwony (8 ms)
+    ✕ ponowienie, które pada na przepływie: wynik czerwony z drugiej próby (7 ms)
+    ✕ porażka przepływu: bez ponowienia, wynik czerwony (7 ms)
+    ✕ timeout sterownika po wyniku przepływu [Passed]: bez ponowienia, wynik czerwony (8 ms)
+    ✕ timeout sterownika po wyniku przepływu [Failed]: bez ponowienia, wynik czerwony (7 ms)
+    ✕ inny błąd startu (bez komunikatu sterownika): bez ponowienia, wynik czerwony (9 ms)
+    ✕ kod porażki Maestro przechodzi bez zmian (bez ponowienia) (9 ms)
+    ✕ krok pl_PL uruchamia Maestro przez skrypt ponowienia; pozostałe przebiegi bez ponowień (1 ms)
+    ✕ limit startu sterownika: jedno miejsce (env workflow), 600–900 s, zapas ≥ 20% nad zmierzonym 510 s (1 ms)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › skrypt ponowienia istnieje
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      81 | describe('M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330)', () => {
+      82 |   it('skrypt ponowienia istnieje', () => {
+    > 83 |     expect(existsSync(skrypt)).toBe(true);
+         |                                ^
+      84 |   });
+      85 |
+      86 |   it('sukces za pierwszym razem: jedno wywołanie, kod 0', () => {
+
+      at Object.toBe (tests/e2e-sterownik-n10.test.ts:83:32)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › sukces za pierwszym razem: jedno wywołanie, kod 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+    +   127,
+        0,
+    -   1,
+      ]
+
+      86 |   it('sukces za pierwszym razem: jedno wywołanie, kod 0', () => {
+      87 |     const w = uruchom([{ kod: 0, tekst: ZALICZONY }]);
+    > 88 |     expect([w.kod, w.wywolania]).toEqual([0, 1]);
+         |                                  ^
+      89 |   });
+      90 |
+      91 |   it('timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0', () => {
+
+      at Object.toEqual (tests/e2e-sterownik-n10.test.ts:88:34)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+    +   127,
+        0,
+    -   2,
+      ]
+
+      94 |       { kod: 0, tekst: ZALICZONY },
+      95 |     ]);
+    > 96 |     expect([w.kod, w.wywolania]).toEqual([0, 2]);
+         |                                  ^
+      97 |     expect(w.argumenty[0]).toBe('--device UDID-TEST test .maestro/e2e -e JEZYK=pl --output pl.xml');
+      98 |     expect(w.argumenty[1]).toBe(w.argumenty[0]);
+      99 |     expect(w.logi.length).toBe(2); // wyjście obu prób zostaje w artefakcie
+
+      at Object.toEqual (tests/e2e-sterownik-n10.test.ts:96:34)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › dwa razy timeout sterownika: najwyżej jedno ponowienie, wynik czerwony
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      105 |       { kod: 1, tekst: TIMEOUT_STEROWNIKA },
+      106 |     ]);
+    > 107 |     expect(w.wywolania).toBe(2);
+          |                         ^
+      108 |     expect(w.kod).not.toBe(0);
+      109 |   });
+      110 |
+
+      at Object.toBe (tests/e2e-sterownik-n10.test.ts:107:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › ponowienie, które pada na przepływie: wynik czerwony z drugiej próby
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      114 |       { kod: 1, tekst: NIEZALICZONY },
+      115 |     ]);
+    > 116 |     expect(w.wywolania).toBe(2);
+          |                         ^
+      117 |     expect(w.kod).not.toBe(0);
+      118 |   });
+      119 |
+
+      at Object.toBe (tests/e2e-sterownik-n10.test.ts:116:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › porażka przepływu: bez ponowienia, wynik czerwony
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      125 |   ])('%s: bez ponowienia, wynik czerwony', (_opis, tekst) => {
+      126 |     const w = uruchom([{ kod: 1, tekst }]);
+    > 127 |     expect(w.wywolania).toBe(1);
+          |                         ^
+      128 |     expect(w.kod).not.toBe(0);
+      129 |   });
+      130 |
+
+      at toBe (tests/e2e-sterownik-n10.test.ts:127:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › timeout sterownika po wyniku przepływu [Passed]: bez ponowienia, wynik czerwony
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      125 |   ])('%s: bez ponowienia, wynik czerwony', (_opis, tekst) => {
+      126 |     const w = uruchom([{ kod: 1, tekst }]);
+    > 127 |     expect(w.wywolania).toBe(1);
+          |                         ^
+      128 |     expect(w.kod).not.toBe(0);
+      129 |   });
+      130 |
+
+      at toBe (tests/e2e-sterownik-n10.test.ts:127:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › timeout sterownika po wyniku przepływu [Failed]: bez ponowienia, wynik czerwony
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      125 |   ])('%s: bez ponowienia, wynik czerwony', (_opis, tekst) => {
+      126 |     const w = uruchom([{ kod: 1, tekst }]);
+    > 127 |     expect(w.wywolania).toBe(1);
+          |                         ^
+      128 |     expect(w.kod).not.toBe(0);
+      129 |   });
+      130 |
+
+      at toBe (tests/e2e-sterownik-n10.test.ts:127:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › inny błąd startu (bez komunikatu sterownika): bez ponowienia, wynik czerwony
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      125 |   ])('%s: bez ponowienia, wynik czerwony', (_opis, tekst) => {
+      126 |     const w = uruchom([{ kod: 1, tekst }]);
+    > 127 |     expect(w.wywolania).toBe(1);
+          |                         ^
+      128 |     expect(w.kod).not.toBe(0);
+      129 |   });
+      130 |
+
+      at toBe (tests/e2e-sterownik-n10.test.ts:127:25)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › kod porażki Maestro przechodzi bez zmian (bez ponowienia)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   3,
+    -   1,
+    +   127,
+    +   0,
+      ]
+
+      131 |   it('kod porażki Maestro przechodzi bez zmian (bez ponowienia)', () => {
+      132 |     const w = uruchom([{ kod: 3, tekst: NIEZALICZONY }]);
+    > 133 |     expect([w.kod, w.wywolania]).toEqual([3, 1]);
+          |                                  ^
+      134 |   });
+      135 |
+      136 |   it('krok pl_PL uruchamia Maestro przez skrypt ponowienia; pozostałe przebiegi bez ponowień', () => {
+
+      at Object.toEqual (tests/e2e-sterownik-n10.test.ts:133:34)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › krok pl_PL uruchamia Maestro przez skrypt ponowienia; pozostałe przebiegi bez ponowień
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /bash scripts\/ci\/ponow-start-sterownika\.sh maestro --device "\$UDID" test \.maestro\/e2e -e JEZYK=pl /
+    Received string:  "- name: Run E2E flows (.maestro/e2e, pl_PL)
+            run: |
+              xcrun simctl spawn \"$UDID\" defaults write -g AppleLanguages -array pl-PL
+              xcrun simctl spawn \"$UDID\" defaults write -g AppleLocale -string pl_PL
+              xcrun simctl shutdown \"$UDID\"
+              xcrun simctl boot \"$UDID\"
+              xcrun simctl bootstatus \"$UDID\" -b
+              mkdir -p zrzuty-e2e && maestro --device \"$UDID\" test .maestro/e2e -e JEZYK=pl --format junit --output maestro-e2e-pl.xml·
+          # Niezależne przebiegi: po porażce pl_PL wynik en_US, kontroli negatywnej i Basic nadal widać [M1-audytor-generalny-075]"
+
+      136 |   it('krok pl_PL uruchamia Maestro przez skrypt ponowienia; pozostałe przebiegi bez ponowień', () => {
+      137 |     const pl = krok('Run E2E flows (.maestro/e2e, pl_PL)');
+    > 138 |     expect(pl).toMatch(
+          |                ^
+      139 |       /bash scripts\/ci\/ponow-start-sterownika\.sh maestro --device "\$UDID" test \.maestro\/e2e -e JEZYK=pl /,
+      140 |     );
+      141 |     expect(pl).not.toMatch(/continue-on-error|\|\|\s*true|\|\|\s*maestro/);
+
+      at Object.toMatch (tests/e2e-sterownik-n10.test.ts:138:16)
+
+  ● M2-p4-N10: ponowienie Maestro tylko po porażce startu sterownika (KO-011, D-330) › limit startu sterownika: jedno miejsce (env workflow), 600–900 s, zapas ≥ 20% nad zmierzonym 510 s
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 600000
+    Received:    480000
+
+      148 |     expect(wpisy.length).toBe(1);
+      149 |     const ms = Number(wpisy[0][1]);
+    > 150 |     expect(ms).toBeGreaterThanOrEqual(600000); // KO-011: 600–900 s
+          |                ^
+      151 |     expect(ms).toBeLessThanOrEqual(900000);
+      152 |     expect(ms).toBeGreaterThanOrEqual(510000 * 1.2); // #103: 00:35:49 → serwer 00:44:19
+      153 |     // Skrypt nie nadpisuje limitu (jedno miejsce)
+
+      at Object.toBeGreaterThanOrEqual (tests/e2e-sterownik-n10.test.ts:150:16)
+
+Test Suites: 1 failed, 1 total
+Tests:       12 failed, 12 total
+Snapshots:   0 total
+Time:        1.054 s, estimated 2 s
+Ran all test suites matching /tests\/e2e-sterownik-n10.test.ts/i.
+kod 1

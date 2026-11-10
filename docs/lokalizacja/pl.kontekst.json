@@ -240,6 +240,7 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
+      "src/components/ImportRecipeModal.tsx (tekst)",
       "src/components/QrScannerModal.tsx (accessibilityLabel)",
       "src/components/QrScannerModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
@@ -248,7 +249,7 @@
       "src/components/receptury/stos-receptur.ts (options)",
       "src/components/receptury/stos-receptur.ts (text)",
       "src/components/settings/BackupAndDataSection.tsx (text)",
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst)",
       "src/components/zakwas/AddStarterModal.tsx (tekst)",
       "src/components/zakwas/EditStarterModal.tsx (tekst)",
@@ -298,7 +299,12 @@
   },
   "Autoliza (mąka + woda)": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
+    ]
+  },
+  "Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Autoliza i Fermentoliza": {
@@ -494,9 +500,29 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Bochenek na zakwasie o wysokiej hydratacji.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
   "Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: subtitlePl)"
+    ]
+  },
+  "Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Bochenek pszenno-żytni na zakwasie.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
     ]
   },
   "Bochenki": {
@@ -509,12 +535,17 @@
   },
   "Brak danych o karmieniu": {
     "gdzie": [
-      "src/core/sourdough-physics.ts (dane: labelPl)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "Brak katalogu dokumentów aplikacji": {
     "gdzie": [
       "src/lib/backup.ts (dane: kod)"
+    ]
+  },
+  "Brak ocen": {
+    "gdzie": [
+      "src/components/stolnica/BakeStatsCard.tsx (kod)"
     ]
   },
   "Brak otwartego ucha (nacięcie się zasklepiło)": {
@@ -669,6 +700,16 @@
   "Chleb foremkowy o wysokiej wilgotności": {
     "gdzie": []
   },
+  "Chleb na zakwasie w stylu San Francisco.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+    ]
+  },
   "Chleb nocny bez wyrabiania (drożdżowy)": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: namePl)"
@@ -679,6 +720,11 @@
       "src/core/po-co-ten-krok.ts (dane: kod)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Chleb piecze się bez pokrywki, aż w pełni się zrumieni.": {
+    "gdzie": [
+      "src/core/baking-phases.ts (dane: tipPl)"
+    ]
   },
   "Chleb pszenny foremkowy": {
     "gdzie": [
@@ -733,9 +779,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Chleb z semoliny durum na zakwasie": {
     "gdzie": [
@@ -816,9 +860,7 @@
     ]
   },
   "Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Chłonność mąk:": {
     "gdzie": [
@@ -850,7 +892,7 @@
   },
   "Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Ciasto jest już wymieszane, a odważona sól została na blacie.": {
@@ -881,6 +923,11 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ciasto na noc w lodówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
+    ]
+  },
   "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
@@ -895,11 +942,19 @@
   "Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.": {
     "gdzie": []
   },
+  "Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
+    ]
+  },
   "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
+    "gdzie": [],
+    "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik. Stal nagrzewaj w 260 °C co najmniej 30 minut, a po 6 minutach pieczenia włącz górny grill na 2–3 minuty; bez grilla piecz kilka minut dłużej.": {
     "gdzie": [
       "src/recipes/presets-pizza-slodkie.ts (dane: notesPl)"
-    ],
-    "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+    ]
   },
   "Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi.": {
     "gdzie": [
@@ -948,9 +1003,7 @@
     ]
   },
   "Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.": {
     "gdzie": [
@@ -958,9 +1011,7 @@
     ]
   },
   "Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.": {
-    "gdzie": [
-      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Co chcesz wydrukować?": {
     "gdzie": [
@@ -1083,7 +1134,17 @@
   },
   "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności.": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
+    ]
+  },
+  "Czasy są wskazówką, bo tempo rośnięcia zależy od składników, siły ciasta, temperatury i wilgotności. Ciasto jest gotowe, gdy wgłębienie po naciśnięciu palcem zostaje. Przed pieczeniem uformowane ciasto nie powinno więcej niż podwoić objętości.": {
+    "gdzie": [
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Czcionki ({n})": {
@@ -1127,7 +1188,9 @@
     "opis": "opis źródła na ekranie „Źródła wiedzy”: czego dotyczą porady oparte na tym źródle (M3 T2, D-123)"
   },
   "DDT": {
-    "gdzie": []
+    "gdzie": [
+      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+    ]
   },
   "Dalej": {
     "gdzie": [
@@ -1136,7 +1199,7 @@
   },
   "Dam znać o każdym kroku": {
     "gdzie": [
-      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tytul)"
     ]
   },
   "Dane są zapisywane tylko w tym telefonie.": {
@@ -1292,12 +1355,12 @@
   },
   "Dodaj": {
     "gdzie": [
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst)"
     ]
   },
   "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.": {
@@ -1388,9 +1451,7 @@
     ]
   },
   "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Dodatki (orzechy, ziarna)": {
     "gdzie": []
@@ -1402,7 +1463,7 @@
   },
   "Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Dokarm zakwas w proporcji 1:2:2 i odczekaj do osiągnięcia szczytu (podwojenie objętości, wypukła kopuła).": {
@@ -1437,7 +1498,7 @@
   },
   "Dokarmienie zakwasu (osiągnięcie szczytu)": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Dokarmienie zakwasu z lodówki": {
@@ -1509,6 +1570,11 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
+  "Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Drobna niedoskonałość": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (label)",
@@ -1546,6 +1612,11 @@
       "src/core/volume-converter.ts (dane: namePl)"
     ]
   },
+  "Drożdże instant można wsypać prosto do mąki.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
+  },
   "Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
@@ -1554,6 +1625,11 @@
   "Drożdże suche": {
     "gdzie": [
       "src/lib/rodzaj-drozdzy.ts (kod)"
+    ]
+  },
+  "Drożdże suche aktywne część producentów każe najpierw rozpuścić w ciepłej wodzie.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
   "Drożdże świeże (prasowane)": {
@@ -1574,7 +1650,7 @@
   },
   "Drugie rośnięcie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Drukuj": {
@@ -1793,7 +1869,7 @@
   },
   "Etap \"{etap}\" wypada w nocy o {godzina}": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: kod)"
+      "src/core/reverse-scheduler.ts (dane: kod)"
     ]
   },
   "Etap ukończony! Czas na kolejny krok.": {
@@ -1864,7 +1940,7 @@
   },
   "Fermentacja burzliwa ze składaniami": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Fermentacja i prowadzenie:": {
@@ -1893,6 +1969,11 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "Fleischmann's Yeast (producent drożdży), najczęstsze pytania": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Focaccia / Pizza na blasze": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: namePl)"
@@ -1903,15 +1984,18 @@
       "src/recipes/presets-drozdzowe.ts (dane: namePl)"
     ]
   },
+  "Focaccia z oliwą, rozmarynem i solą morską.": {
+    "gdzie": [
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
+    ]
+  },
   "Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"
     ]
   },
   "Foremka z pokrywą": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Forma": {
     "gdzie": []
@@ -1943,7 +2027,7 @@
   },
   "Formowanie ostateczne i koszyk": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).": {
@@ -1951,9 +2035,14 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Formowanie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
+    ]
+  },
   "Formowanie wstępne": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Formowanie wstępne (Pre-shape)": {
@@ -2002,9 +2091,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Garnek żeliwny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Garowanie chłodnicze": {
     "gdzie": [
@@ -2013,7 +2100,7 @@
   },
   "Garowanie chłodnicze w lodówce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Garowanie chłodnicze w lodówce (Cold Retard)": {
@@ -2139,12 +2226,21 @@
   },
   "Gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
-      "src/components/start/WypiekiNaSpirali.tsx (kod)",
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Gotowe: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Gotowe: {dzien}, {godzina}.": {
+    "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -2265,6 +2361,9 @@
     ]
   },
   "Hydratacja wody musi mieścić się w zakresie 35–120%": {
+    "gdzie": []
+  },
+  "Hydratacja wody musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -2285,6 +2384,9 @@
     ]
   },
   "Hydratacja zakwasu musi mieścić się w zakresie 20–200%": {
+    "gdzie": []
+  },
+  "Hydratacja zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -2297,6 +2399,16 @@
   "Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
+    ]
+  },
+  "Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
+  "Ile drożdży suszonych zastępuje drożdże świeże.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
   "Ile mililitrów ma amerykańska szklanka miarowa.": {
@@ -2423,7 +2535,7 @@
   },
   "Importuj recepturę": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tytul)"
     ]
   },
   "Importuj z pliku": {
@@ -2686,9 +2798,7 @@
     ]
   },
   "Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.": {
     "gdzie": [
@@ -2696,9 +2806,7 @@
     ]
   },
   "Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
@@ -2708,9 +2816,7 @@
     ]
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczny rzemieślniczy zakwas 1:1. Zrównoważony profil kwasowy, łatwy do dozowania.": {
     "gdzie": [
@@ -2726,9 +2832,7 @@
     "gdzie": []
   },
   "Klosz ceramiczny": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Kluczem jest pewność i prędkość — gluten buduje się dzięki energii kinetycznej uderzenia o blat.": {
     "gdzie": [
@@ -2949,7 +3053,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
-      "src/components/stolnica/ProwadzenieWypieku.tsx (podtytul)",
+      "src/components/stolnica/PasProwadzenia.tsx (kod)",
       "src/components/stolnica/StrefaKroku.tsx (tytul)"
     ]
   },
@@ -3006,7 +3110,7 @@
   },
   "Kształtowanie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Który zakwas?": {
@@ -3126,6 +3230,11 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "Levain (Rzemieślniczy zaczyn na zakwasie)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
@@ -3197,6 +3306,11 @@
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
+  "Masa ciasta musi mieścić się w zakresie 100–50 000 g": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
   "Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%": {
     "gdzie": [
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
@@ -3242,6 +3356,11 @@
   "Masło (zimne, posiekane w kostkę)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
+    ]
+  },
+  "Maślana brioszka na sztywnym zakwasie Lievito Madre.": {
+    "gdzie": [
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Maślana chałka drożdżowa": {
@@ -3295,17 +3414,22 @@
   "Mieszanie ciasta": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)",
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i wyrabianie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Mieszanie i zaszczepienie": {
     "gdzie": [
       "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
+    "gdzie": [
+      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
   "Mieszanka musi zawierać co najmniej jedną mąkę.": {
@@ -3528,6 +3652,9 @@
       "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
+  "Mąka orkiszowa typ 630": {
+    "gdzie": []
+  },
   "Mąka orkiszowa, białko 12,6%": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
@@ -3598,16 +3725,12 @@
   },
   "Mąka pszenna chlebowa typ 750": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
-      "src/core/flour-atlas.ts (dane: namePl)",
-      "src/data/sqlite-schema.ts (dane: name)",
-      "src/hooks/useParametryReceptury.ts (dane: name)",
-      "src/recipes/presets-zakwas.ts (dane: name)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna chlebowa typ 750')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna graham typ 1850": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
       "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
@@ -3675,6 +3798,13 @@
   },
   "Mąka pszenna typ 1850 (Graham)": {
     "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 1850 (Graham)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 1850 (graham)": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets-zakwas.ts (dane: name)"
     ]
@@ -3686,20 +3816,37 @@
   },
   "Mąka pszenna typ 450 (Tortowa)": {
     "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 450 (Tortowa)')"
+    ]
+  },
+  "Mąka pszenna typ 450 (tortowa)": {
+    "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
   },
   "Mąka pszenna typ 500": {
     "gdzie": [
-      "src/recipes/discard-recipes.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 500')"
     ]
   },
   "Mąka pszenna typ 500 (Wrocławska)": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 500 (Wrocławska)')"
+    ]
+  },
+  "Mąka pszenna typ 500 (wrocławska)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
   "Mąka pszenna typ 550 (Luksusowa)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 550 (Luksusowa)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 550 (luksusowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets-pizza-slodkie.ts (dane: name)"
@@ -3711,6 +3858,12 @@
     ]
   },
   "Mąka pszenna typ 650 (Bułkowa)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: 'Mąka pszenna typ 650 (Bułkowa)')",
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka pszenna typ 650 (bułkowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/katalog-m3-drozdzowe.ts (dane: name)",
@@ -3727,6 +3880,15 @@
   "Mąka pszenna typ 650 lub graham": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
+    ]
+  },
+  "Mąka pszenna typ 750 (chlebowa)": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/data/sqlite-schema.ts (dane: name)",
+      "src/hooks/useParametryReceptury.ts (dane: name)",
+      "src/recipes/presets-zakwas.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 850": {
@@ -3906,7 +4068,7 @@
   "Mąki": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (maka)"
     ]
   },
@@ -4025,6 +4187,21 @@
       "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
+  "Nagrzej piekarnik do 204 °C, a przed włożeniem keksówki obniż temperaturę do 177 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
+  "Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
+  "Nagrzej piekarnik ze stalą do 250 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
   "Nagrzewaj pusty garnek około 30 minut przed włożeniem ciasta, żeby zrobiła się w nim para.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -4032,8 +4209,16 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Nagrzewanie pieca i garnka żeliwnego": {
+    "gdzie": []
+  },
+  "Nagrzewanie piekarnika": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
+    ]
+  },
+  "Nagrzewanie piekarnika i garnka": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
     ]
   },
   "Najbliższe dni": {
@@ -4052,9 +4237,7 @@
     ]
   },
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
-    "gdzie": [
-      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Największa ilość mąki": {
     "gdzie": [
@@ -4099,6 +4282,8 @@
   },
   "Napisz do nas": {
     "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)",
       "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
@@ -4201,6 +4386,11 @@
   "Nie można wczytać listy licencji.": {
     "gdzie": [
       "src/components/settings/LicencjeEkran.tsx (tekst w JSX)"
+    ]
+  },
+  "Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas.": {
+    "gdzie": [
+      "src/lib/import-pakietu.ts (powod)"
     ]
   },
   "Nie podwaja objętości": {
@@ -4307,6 +4497,12 @@
   "Nie udało się zapisać wypieku": {
     "gdzie": []
   },
+  "Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.": {
+    "gdzie": [
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
+    ]
+  },
   "Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: actionPl)"
@@ -4402,9 +4598,7 @@
     ]
   },
   "Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).": {
-    "gdzie": [
-      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Niska temperatura 4°C wyhamowuje drożdże, umożliwiając bakteriom mlekowym powolną produkcję kwasu mlekowego i enzymów.": {
     "gdzie": [
@@ -4428,7 +4622,7 @@
   },
   "Nocny marek": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Notatka z poprzedniego wypieku: {notatka}": {
@@ -4460,16 +4654,18 @@
       "src/lib/confirm.ts (text)"
     ]
   },
-  "Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.": {
+  "Obliczona temperatura wody jest bardzo niska. Zastąp część wody lodem.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
-  "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
+  "Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.": {
+    "gdzie": []
+  },
+  "Obliczona temperatura wody jest za wysoka. Ogrzej mąkę albo zakwas do temperatury pokojowej albo ustaw niższą temperaturę ciasta.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: warningMessagePl)"
-    ],
-    "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
+    ]
   },
   "Obniż docelową temperaturę ciasta": {
     "gdzie": [
@@ -4477,9 +4673,7 @@
     ]
   },
   "Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.": {
-    "gdzie": [
-      "src/core/baking-phases.ts (dane: tipPl)"
-    ]
+    "gdzie": []
   },
   "Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.": {
     "gdzie": [
@@ -4592,7 +4786,7 @@
   },
   "Odgazowanie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Odgazuj je, mocno dociskając, tak jak przy formowaniu.": {
@@ -4625,7 +4819,7 @@
   },
   "Odpoczynek na desce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Odpoczynek na desce (Bench Rest)": {
@@ -4810,9 +5004,7 @@
     "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Ospała fermentacja (Zimna kuchnia)": {
     "gdzie": [
@@ -4822,6 +5014,11 @@
   "Ostatni wypiek: {data}": {
     "gdzie": [
       "src/lib/ostatni-wypiek.ts (kod)"
+    ]
+  },
+  "Ostatnia kopia automatyczna po wypieku nie zapisała się. Zapisz kopię ręcznie przyciskiem niżej.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
   "Ostatnie dokarmienie": {
@@ -4913,6 +5110,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Para w garnku dłużej utrzymuje skórkę miękką, więc bochenek może jeszcze rosnąć.": {
+    "gdzie": [
+      "src/core/baking-phases.ts (dane: tipPl)"
+    ]
+  },
   "Parametry Rzemieślnicze & Mąki": {
     "gdzie": []
   },
@@ -4970,6 +5172,11 @@
   "Piecz w 220°C przez 25–30 minut do złocistego koloru.": {
     "gdzie": []
   },
+  "Piecz w 250 °C.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
+    ]
+  },
   "Piecz w garnku pod pokrywą: para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -4979,6 +5186,11 @@
   "Piecz w najwyższej możliwej temperaturze (piec do pizzy 450°C przez 90s lub piekarnik domowy z grillem i rozgrzaną stalą w 275°C przez 4–5 min).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Piecz w temperaturze i przez czas podane w „O recepturze”.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
   },
   "Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.": {
@@ -5045,6 +5257,11 @@
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
+  "Piekarz liczy drożdże suche, instant i aktywne, jako 0,35 masy drożdży świeżych.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz nie uruchomił się poprawnie": {
     "gdzie": [
       "src/components/RescueScreen.tsx (tekst w JSX)"
@@ -5062,7 +5279,7 @@
   },
   "Pierwsze rośnięcie": {
     "gdzie": [
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Pierścień z drożdżowego ciasta pszennego, który przed pieczeniem warzy się w gorącej wodzie. Formuła pochodzi z jednolitego dokumentu chronionego oznaczenia geograficznego „Obwarzanek krakowski”.": {
@@ -5098,9 +5315,19 @@
       "src/lib/plan-receptury.ts (kod)"
     ]
   },
+  "Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
+    ]
+  },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
-      "src/lib/plan-za-pozno.ts (tresc)"
+      "src/lib/plan-za-pozno.ts (kod)"
+    ]
+  },
+  "Plan musiałby się zacząć: {dzienStartu}, {godzinaStartu}. Najwcześniej chleb będzie gotowy: {dzienGotowe}, {godzinaGotowe}.": {
+    "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)"
     ]
   },
   "Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.": {
@@ -5122,9 +5349,10 @@
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (tytul)",
-      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tytul)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/components/stolnica/StrefaPlanu.tsx (tytul)",
       "src/lib/kalendarz-telefonu.ts (tytul)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -5175,7 +5403,7 @@
   "Po co ten krok": {
     "gdzie": [
       "src/components/stolnica/PasekKciuka.tsx (tekst)",
-      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst w JSX)"
+      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tytul)"
     ]
   },
   "Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.": {
@@ -5303,7 +5531,7 @@
   "Podział i formowanie": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)",
-      "src/core/yeast-stages.ts (dane: name)"
+      "src/recipes/yeast-stages.ts (dane: name)"
     ]
   },
   "Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).": {
@@ -5314,7 +5542,7 @@
   "Podziel ciasto, uformuj je ręcznie i włóż do formy.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)",
-      "src/core/yeast-stages.ts (dane: instructions)"
+      "src/recipes/yeast-stages.ts (dane: instructions)"
     ]
   },
   "Pojemność maszyny": {
@@ -5357,11 +5585,17 @@
     ]
   },
   "Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.": {
+    "gdzie": []
+  },
+  "Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.": {
+    "gdzie": []
+  },
+  "Pokrywka zamknięta: 20 minut w 232 °C.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
   },
-  "Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.": {
+  "Pokrywka zdjęta: 20–25 minut w 232 °C, aż skórka będzie głęboko złotobrązowa.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
@@ -5441,7 +5675,7 @@
   },
   "Poprawna formuła": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tytul)"
     ]
   },
   "Poprzedni miesiąc": {
@@ -5460,9 +5694,7 @@
     ]
   },
   "Porównanie i statystyki": {
-    "gdzie": [
-      "src/lib/platnosci/nazwy-pro.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK": {
     "gdzie": [
@@ -5472,6 +5704,11 @@
   "Posiekaj zimne masło z mąką, cukrem i solą, aż powstaną drobne okruchy.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Posmaruj brioszkę roztrzepanym jajkiem i piecz 20 minut, potem obróć keksówkę i piecz jeszcze 8–10 minut, aż brioszka będzie złotobrązowa. Od razu wyjmij brioszkę z keksówki na kratkę.": {
+    "gdzie": [
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
   },
   "Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.": {
@@ -5546,7 +5783,7 @@
   },
   "Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Pozostaw do całkowitego ostygnięcia — prosto z pieca są miękkie, po ostygnięciu stają się idealnie kruche.": {
@@ -5564,13 +5801,21 @@
     "gdzie": []
   },
   "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.": {
+    "gdzie": []
+  },
+  "Połącz mąkę i wodę, przykryj i odstaw: mąka wchłonie wodę i zacznie się tworzyć gluten.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.": {
     "gdzie": [
       "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
     ]
   },
   "Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.": {
@@ -5617,10 +5862,13 @@
   "Procedura Bassinage ratunkowego": {
     "gdzie": []
   },
-  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.": {
+  "Procent drożdży w recepturze to drożdże świeże.": {
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
-    ],
+    ]
+  },
+  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,35 tej masy. Producent na opakowaniu może podawać inny przelicznik.": {
+    "gdzie": [],
     "opis": "Objaśnienie pod przełącznikiem „świeże / suche” w arkuszu Składniki. Liczba 0,35 to mnożnik masy drożdży świeżych (jedna liczba dla suchych instant i aktywnych, D-172); zapisz ją według konwencji liczb języka. Tekst krytyczny dla ważenia: nie zmieniaj liczby ani znaczenia (D-202, D-205, D-206)."
   },
   "Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%": {
@@ -5753,6 +6001,11 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
+  "Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.": {
+    "gdzie": [
+      "src/recipes/presets-zakwas.ts (dane: notesPl)"
+    ]
+  },
   "Przed krojeniem poczekaj, aż bochenek całkiem ostygnie. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -5783,6 +6036,11 @@
   "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+    ]
+  },
+  "Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte.": {
+    "gdzie": [
+      "src/components/stolnica/PasekCofnijKroku.tsx (tekst)"
     ]
   },
   "Przekwaszenie / Przerośnięcie": {
@@ -5914,14 +6172,22 @@
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
-  "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
+  "Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
+  },
+  "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
+    "gdzie": []
   },
   "Przełóż bochenek szwem do dołu, aby nie pękał od spodu.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
     ]
   },
   "Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.": {
@@ -6025,6 +6291,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -6090,9 +6361,7 @@
     ]
   },
   "Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.": {
-    "gdzie": [
-      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Puszyste amerykańskie pancakes na zakwasie": {
     "gdzie": [
@@ -6100,9 +6369,7 @@
     ]
   },
   "Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.": {
-    "gdzie": [
-      "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Puszysty nalot w dowolnym kolorze, także biały": {
     "gdzie": [
@@ -6166,12 +6433,17 @@
   },
   "Ranny ptaszek": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Razem {masa}": {
     "gdzie": [
       "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ]
+  },
+  "Razowiec żytni w keksówce, bez składania.": {
+    "gdzie": [
+      "src/recipes/presets-zytnie.ts (dane: descriptionPl)"
     ]
   },
   "Reakcja sody z kwasem mlekowym zakwasu nie tylko daje plackom niesamowitą puszystość, ale też całkowicie niweluje kwaśny smak.": {
@@ -6268,10 +6540,13 @@
       "src/components/receptury/ListaReceptur.tsx (tytul)"
     ]
   },
-  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+  "Receptury i Dziennik: więcej własnych receptur i statystyki wypieków.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (teksty)"
     ]
+  },
+  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+    "gdzie": []
   },
   "Receptury mistrzowskie": {
     "gdzie": []
@@ -6305,6 +6580,11 @@
   "Rodzina Apps4Craft Studio": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (tytul)"
+    ]
+  },
+  "Rozciągaj i składaj ciasto w czasie fermentacji.": {
+    "gdzie": [
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Rozciągaj i składaj ciasto w czasie fermentacji: to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
@@ -6408,12 +6688,22 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: instructionsPl)"
+    ]
+  },
   "Rozwiąż kolizję": {
     "gdzie": []
   },
   "Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Rośnięcie w keksówce": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.": {
@@ -6662,7 +6952,7 @@
   },
   "Składniki do odważenia": {
     "gdzie": [
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (tytul)",
       "src/components/stolnica/SkladnikiKroku.tsx (tytul)"
     ]
   },
@@ -6735,9 +7025,7 @@
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Sprzęt i naczynie do wypieku": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tytul)"
-    ]
+    "gdzie": []
   },
   "Spróbuj ponownie": {
     "gdzie": [
@@ -6755,13 +7043,11 @@
     "gdzie": []
   },
   "Stal / Kamień szamotowy": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Standard": {
     "gdzie": [
-      "src/lib/profile-snu.ts (dane: namePl)"
+      "src/core/profile-snu.ts (dane: namePl)"
     ]
   },
   "Standard szklanki:": {
@@ -6789,9 +7075,12 @@
   },
   "Start {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
-      "src/components/start/PlanyWypiekow.tsx (kod)",
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Start: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "Stary zakwas": {
@@ -6802,7 +7091,8 @@
   },
   "Statystyki piekarni domowej": {
     "gdzie": [
-      "src/components/stolnica/BakeStatsCard.tsx (tytul)"
+      "src/components/stolnica/BakeStatsCard.tsx (tytul)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
   },
   "Stały dzień karmienia": {
@@ -6831,6 +7121,7 @@
   "Stolnica": {
     "gdzie": [
       "app/_layout.tsx (title)",
+      "src/components/stolnica/PasProwadzenia.tsx (tytul)",
       "src/components/stolnica/ProwadzenieWypieku.tsx (tytul)"
     ]
   },
@@ -6863,7 +7154,7 @@
   },
   "Studzenie na kratce": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Studzenie na kratce (nie krój gorącego!)": {
@@ -6904,8 +7195,11 @@
     ]
   },
   "Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
+    "gdzie": []
+  },
+  "Sugerowana korekta: wydłuż garowanie w lodówce albo przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: kod)"
+      "src/core/reverse-scheduler.ts (dane: kod)"
     ]
   },
   "Sugerowany zamiennik ze Spiżarni: {nazwa}.": {
@@ -7089,7 +7383,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (sol)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
@@ -7148,6 +7442,11 @@
   "Słaby gluten. Wykonaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Słodka chałka zaplatana w warkocz, z kruszonką.": {
+    "gdzie": [
+      "src/recipes/presets-pizza-slodkie.ts (dane: descriptionPl)"
     ]
   },
   "Słodkawy, orzechowy aromat, lekki maślany miękisz i cienka, chrupiąca skórka.": {
@@ -7237,6 +7536,11 @@
     ],
     "opis": "nagłówek grupy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123)"
   },
+  "Temperatura i czas pieczenia brioszki w keksówce.": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: opis)"
+    ]
+  },
   "Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.": {
     "gdzie": [
       "src/core/zrodla-wiedzy.ts (dane: opis)"
@@ -7248,9 +7552,7 @@
     ]
   },
   "Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.": {
-    "gdzie": [
-      "src/core/domain-rules.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Temperatura otoczenia": {
     "gdzie": [
@@ -7278,8 +7580,7 @@
   "Temperatura wody": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/TemperaturaWodySheet.tsx (tekst w JSX)",
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (tytul)"
     ]
   },
   "Temperatura wody i zaczyny": {
@@ -7343,11 +7644,21 @@
       "src/core/zrodla-wiedzy.ts (dane: opis)"
     ]
   },
+  "The Culinary Institute of America, przepis „Brioche”": {
+    "gdzie": [
+      "src/core/zrodla-wiedzy.ts (dane: nazwa)"
+    ]
+  },
   "To ostatnie rośnięcie ciasta przed pieczeniem.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
+  },
+  "To środek między wartościami dwóch grup producentów, 0,28 i 0,417, a niektórzy podają jeszcze mniej, więc na opakowaniu Twoich drożdży może być inaczej.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ]
   },
   "Tor {n}, {receptura}: {krok}": {
     "gdzie": [
@@ -7359,15 +7670,16 @@
       "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
-  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
+  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%).": {
     "gdzie": [
       "src/recipes/presets-drozdzowe.ts (dane: descriptionPl)"
     ]
   },
+  "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
+    "gdzie": []
+  },
   "Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Tradycyjny chleb 100% żytni razowy": {
     "gdzie": [
@@ -7543,15 +7855,26 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
+  "Udział drożdży musi mieścić się w zakresie {min}–{max}%": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
   "Udział mąki w zaczynie": {
     "gdzie": []
   },
   "Udział soli musi mieścić się w zakresie 0–6%": {
+    "gdzie": []
+  },
+  "Udział soli musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
   "Udział zakwasu musi mieścić się w zakresie 0–150%": {
+    "gdzie": []
+  },
+  "Udział zakwasu musi mieścić się w zakresie {min}–{max}%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]
@@ -7568,7 +7891,7 @@
   },
   "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Uformuj je ponownie i odstaw do garowania.": {
@@ -8118,7 +8441,7 @@
   "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: rye_cool)",
-      "src/core/yeast-stages.ts (dane: studzenieOpis)"
+      "src/recipes/yeast-stages.ts (dane: studzenieOpis)"
     ]
   },
   "Więcej": {
@@ -8151,7 +8474,7 @@
   },
   "Wklej kod JSON udostępniony przez innego piekarza": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (podpis)"
     ]
   },
   "Wklej zawartość pliku JSON kopii zapasowej:": {
@@ -8160,7 +8483,7 @@
   "Wklej zawartość pliku receptury albo kopii zapasowej.": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (accessibilityLabel)",
-      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (podpis)"
     ]
   },
   "Wklej ze schowka": {
@@ -8183,7 +8506,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/TrybMaszyny.tsx (nazwa)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (woda)",
       "src/components/zakwas/StarterFeedingCard.tsx (etykieta)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
@@ -8319,10 +8642,13 @@
   "Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.": {
     "gdzie": []
   },
-  "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
+  "Wstaw garnek do piekarnika i nagrzewaj go 45 minut w 260 °C.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/pieczenie-receptury.ts (dane: instructionsPl)"
     ]
+  },
+  "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
+    "gdzie": []
   },
   "Wstaw gotową mieszankę": {
     "gdzie": [
@@ -8331,8 +8657,11 @@
     ]
   },
   "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.": {
+    "gdzie": []
+  },
+  "Wstaw koszyk w szczelnej torbie do lodówki. Chłód lodówki spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wstaw naczynie z ciastem do wyłączonego piekarnika i zapal samą żarówkę: w środku robi się stopniowo cieplej, ale każdy piekarnik i każda kuchnia dają inny wynik.": {
@@ -8345,7 +8674,7 @@
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (etykieta)",
       "app/doktor.tsx (etykieta)",
-      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)"
+      "src/components/stolnica/PasProwadzenia.tsx (etykieta)"
     ],
     "opis": "Etykieta dostępności (VoiceOver) przycisku powrotu na pasie ekranów Prowadzenie wypieku i Doktor Chleba; przycisk ma tylko ikonę strzałki. Powrót do poprzedniego ekranu, nie zamknięcie okna; jedno słowo (D-195, D-198, D-206)."
   },
@@ -8384,7 +8713,7 @@
   },
   "Wszystkie etapy wypieku": {
     "gdzie": [
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStepsList.tsx (tytul)"
     ]
   },
   "Wszystkie mąki z tej receptury są w spiżarni.": {
@@ -8396,9 +8725,7 @@
     "gdzie": []
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wybierz objawy bochenka": {
     "gdzie": [
@@ -8461,6 +8788,9 @@
     ]
   },
   "Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.": {
+    "gdzie": []
+  },
+  "Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
@@ -8472,7 +8802,7 @@
   },
   "Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
@@ -8502,9 +8832,7 @@
     "gdzie": []
   },
   "Wykonaj 4 serie składań co 30–45 minut.": {
-    "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
-    ]
+    "gdzie": []
   },
   "Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.": {
     "gdzie": [
@@ -8530,9 +8858,7 @@
     "gdzie": []
   },
   "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
-    "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Wymaga obecności": {
     "gdzie": [
@@ -8564,10 +8890,13 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
+  "Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
     "gdzie": [
       "src/recipes/presets-zytnie.ts (dane: notesPl)"
-    ],
+    ]
+  },
+  "Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.": {
+    "gdzie": [],
     "opis": "porada w nowym brzmieniu bez nazwy źródła; nazwy źródeł są tylko na ekranie „Źródła wiedzy” w Ustawieniach, więc przekład też bez „według …” (M3 T2, D-123)"
   },
   "Wymieszaj mąkę pełnoziarnistą (pszenną albo żytnią razową) z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.": {
@@ -8594,7 +8923,7 @@
   "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)",
-      "src/core/yeast-stages.ts (dane: kod)"
+      "src/recipes/yeast-stages.ts (dane: kod)"
     ]
   },
   "Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.": {
@@ -8614,7 +8943,7 @@
   },
   "Wymieszanie z solą i zakwasem": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/reverse-scheduler.ts (dane: namePl)"
     ]
   },
   "Wymieszanie z solą i zakwasem (Bassinage)": {
@@ -8672,13 +9001,16 @@
     ]
   },
   "Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.": {
+    "gdzie": []
+  },
+  "Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
   },
   "Wypiek z parą i rumienienie": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/pieczenie-receptury.ts (dane: namePl)"
     ]
   },
   "Wypiek: {wypiek}.": {
@@ -8708,6 +9040,11 @@
   "Wyrabianie": {
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wyrabianie ciasta z masłem": {
+    "gdzie": [
+      "src/core/brioche-stages.ts (dane: namePl)"
     ]
   },
   "Wyrabianie francuskie (slap & fold)": {
@@ -8748,9 +9085,7 @@
     ]
   },
   "Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).": {
-    "gdzie": [
-      "src/core/baking-phases.ts (dane: tipPl)"
-    ]
+    "gdzie": []
   },
   "Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.": {
     "gdzie": [
@@ -8787,7 +9122,7 @@
   },
   "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.": {
     "gdzie": [
-      "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+      "src/core/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
   "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.": {
@@ -8825,7 +9160,7 @@
   },
   "Właściwa temperatura wody zapewnia docelową temperaturę ciasta po wymieszaniu.": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (podpis)"
     ]
   },
   "Włoska Ciabatta z Bigą (Wysoka Hydratacja 82%)": {
@@ -8881,8 +9216,12 @@
     ]
   },
   "Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.": {
+    "gdzie": []
+  },
+  "Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.": {
     "gdzie": [
-      "src/recipes/presets-zakwas.ts (dane: descriptionPl)"
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
   "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {
@@ -9095,7 +9434,7 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeStepsList.tsx (etykieta)",
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
@@ -9159,8 +9498,13 @@
       "src/components/PaywallModal.tsx (tekst)",
       "src/components/StarterConverterModal.tsx (tekst)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
+      "src/components/calculator/TemperaturaWodySheet.tsx (tekst)",
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
+      "src/components/start/ArkuszPlanu.tsx (tekst)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst)",
+      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
@@ -9498,19 +9842,20 @@
     ]
   },
   "Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.": {
-    "gdzie": [
-      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zdejmij pokrywkę": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
     ]
   },
-  "Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.": {
+  "Zdejmij pokrywkę garnka i piecz dalej w tej samej temperaturze.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: alertHeadlinePl)"
     ]
+  },
+  "Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.": {
+    "gdzie": []
   },
   "Zdejmij pokrywkę garnka. Wypuść parę.": {
     "gdzie": [
@@ -9537,10 +9882,13 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
-  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
+  "Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.": {
     "gdzie": [
       "src/recipes/presets-zakwas.ts (dane: notesPl)"
     ]
+  },
+  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
+    "gdzie": []
   },
   "Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.": {
     "gdzie": [
@@ -10260,6 +10608,7 @@
   "{czas} od dokarmienia": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (kod)",
       "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
   },
@@ -10364,10 +10713,14 @@
       "src/lib/wskazowka-zaczynu.ts (kod)"
     ]
   },
+  "{nazwa} — gotowe: {dzien}, {godzina}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/start/PlanyWypiekow.tsx (kod)",
-      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "{nazwa}: {n} z 5": {

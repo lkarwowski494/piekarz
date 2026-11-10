@@ -30,7 +30,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'VD: San Francisco White, Lievito...',
   'O recepturze': 'Về công thức này',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'Nhiệt độ nước tính được thấp hơn 4°C. Để đạt nhiệt độ này mà không làm đông nước, thay một phần nước bằng đá.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Nhiệt độ nước tính được vượt quá 45°C. Điều này có nguy cơ làm chín nấm men và vi khuẩn axit lactic. Hãy làm lạnh bột mì hoặc hạ nhiệt độ môi trường.',
   'Obniż docelową temperaturę ciasta': 'Hạ nhiệt độ bột mục tiêu',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Hạ nhiệt độ xuống 210°C. Phản ứng Maillard tạo nên vỏ bánh giòn, thơm mùi hạt và caramen.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Giảm nhiệt độ tủ lạnh: trong tủ lạnh lạnh hơn, quá trình lên men diễn ra chậm hơn.',

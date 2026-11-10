@@ -10,7 +10,8 @@ export const PRESETY_ZYTNIE: RecipePreset[] = [
     id: 'rye_100_pan',
     namePl: 'Tradycyjny chleb 100% żytni razowy',
     category: 'rye',
-    descriptionPl: 'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Razowiec żytni w keksówce, bez składania.',
     formula: {
       flours: [
         { name: 'Mąka żytnia typ 2000', percentage: 100.0, type: 'zytnia_2000' },
@@ -27,7 +28,8 @@ export const PRESETY_ZYTNIE: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 195,
     recommendedVessel: 'bread_pan',
-    notesPl: 'Wymieszaj i przełóż od razu do wysmarowanej keksówki posypanej otrębami. Niech raz urośnie w cieple, aż podwoi objętość (ok. 3–4 h). Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Wymieszaj i od razu przełóż ciasto do wysmarowanej keksówki posypanej otrębami. Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
   },
   {
     id: 'borodinsky_rye',

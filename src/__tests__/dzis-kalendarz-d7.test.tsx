@@ -203,7 +203,7 @@ describe('D7: widok miesiąca na „Dziś”', () => {
     expect(dni.every((d) => /Chleb \d/.test(String(d.props.accessibilityLabel)))).toBe(true);
   });
 
-  it('BR-KAL-013 320 pt: siatka od krawędzi do krawędzi, 7 dni w rzędzie, każdy dzień ≥ 44 pt wysokości', async () => {
+  it('BR-KAL-013 320 pt: siatka od krawędzi do krawędzi, 7 dni w rzędzie, każdy dzień ≥ 44 pt wysokości (styl, bez pomiaru)', async () => {
     mockOkno.width = 320;
     const root = await renderStart();
     await nacisnij(przycisk(root, 'kalendarz-tryb-miesiac')[0]);

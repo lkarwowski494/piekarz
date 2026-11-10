@@ -56,7 +56,7 @@ export type Funkcja =
   | 'budzenie-zakwasu' // kolejne karmienia budzące z lodówki (BR-ZAKW-006, RD-33)
   | 'kolejny-zakwas' // drugi i kolejne zakwasy ponad LIMITY_BASIC.zakwasy (BR-ZAKW-001)
   | 'receptury-ponad-limit' // własne receptury ponad LIMITY_BASIC.wlasneReceptury (BR-RECP-002)
-  | 'porownanie' // porównanie i statystyki dziennika (BR-RECP-004)
+  | 'porownanie' // statystyki dziennika; porównanie dwóch wypieków (BR-RECP-004) to F-63 PÓŹNIEJ, bez wejścia w 1.0
   | 'druk' // druk receptury (BR-DRUK-001); w 1.0 bez wejścia
   | 'qr-wysylanie' // wysłanie receptury kodem QR (BR-WSP-003); w 1.0 bez wejścia
   | 'spizarnia' // spiżarnia mąk (BR-SPIZ-001); w 1.0 bez wejścia
@@ -88,7 +88,7 @@ export const BASIC_SZCZEGOLY: readonly string[] = [
   'akademia-biblioteka-technik', // zakładka technik Akademii; dalsze poziomy szkoły w Pro
   'limit-receptur-przywroc-i-kopia-poza-limitem', // „Przywróć” i import kopii nie liczą się; import receptury się liczy
   'plan-ustawienia-nocy-i-lodowki', // godziny snu i czas w lodówce w planie od teraz
-  'dziennik-filtr-smaku', // filtr profilu smaku; porównanie i statystyki w Pro (BR-RECP-004)
+  'dziennik-filtr-smaku', // filtr profilu smaku; statystyki w Pro (porównanie F-63 PÓŹNIEJ)
   // Właściciel przez M1, 2026-10-22: „2 zgodnie z rekomendacja” (P2-5, D-117) [M3 P-b2]
   'zakwas-przelicznik-hydratacji', // przelicznik hydratacji zakwasu (StarterConverterModal), poza proporcjami dokarmiania
   'zakwas-wylewki', // przepisy na resztki zakwasu (DiscardRecipesModal), poza proporcjami dokarmiania

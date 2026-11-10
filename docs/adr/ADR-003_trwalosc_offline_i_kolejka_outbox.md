@@ -1,6 +1,7 @@
 # ADR-003: Protokół trwałości offline-first, kolejka zdarzeń `pending_ops` i standard T-012
 
-**Status:** ACCEPTED  
+**Status:** zastąpiona przez ADR-009 (2026-11-09)  
+**Dlaczego zastąpiona (M1-audytor-generalny-024):** kolejka `pending_ops` nie ma odbiorcy (zegarek i synchronizacja wycięte: `docs/scope-contract.md`, KL-06, KL-14; tabela bez zapisu), autokopia ma 10 plików w puli `piekarz-kopia-*` obok puli kopii bezpieczeństwa, a odtwarzanie z kopii robi użytkownik przez import. Stan kodu opisuje ADR-009; tekst niżej to zapis historyczny z 18.10.2026.  
 **Data:** 18.10.2026  
 **Autor:** Principal System Architect  
 **Kontekst:** Aplikacja działa w warunkach kuchennych, gdzie telefon może ulec rozładowaniu, uśpieniu lub zablokowaniu ekranu w trakcie trwającego procesu. Wymagania NFR (`NFR-DANE-001`, `NFR-DANE-002`) oraz decyzja `DEC-45` narzucają: pełną transakcyjność ACID, autokopię zapasową danych bochenków oraz asynchroniczny bufor operacji dla rozszerzeń systemowych (Apple Watch, Live Activity) bez ryzyka utraty stanu.

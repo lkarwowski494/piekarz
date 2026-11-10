@@ -121,7 +121,7 @@ describe('p5b: Piekarz Pro z pasem marki i treścią w kartach (O3a, README §4)
   });
 });
 
-describe('p5b §7a / D-142: Piekarz Pro przy AX5 i 320 pt', () => {
+describe('p5b §7a / D-142: Piekarz Pro przy AX5 i 320 pt (styl, bez pomiaru)', () => {
   it('AX5: opcja planu w jednej kolumnie (znacznik nad nazwą i ceną), treść z mniejszym wcięciem', async () => {
     mockOkno.fontScale = 3.1;
     produkty();

@@ -7,7 +7,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { odstepy, typografia } from '../../ui/tokeny';
+import { odstepy, typografia, promienie } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { etykietaProfiluSnu } from './TargetReadyCard';
 import type { OknoSnu } from '../../lib/plan-bez-nocy';
@@ -20,7 +20,8 @@ export interface UstawieniaPlanuProps {
   okno: OknoSnu | null;
   coldRetardHours: number;
   onColdRetardHoursChange: (hours: number) => void;
-  onCopySchedule: () => void;
+  /** Bez planu (powodBezPlanu, 089) brak — przycisk kopiowania znika. */
+  onCopySchedule?: () => void;
   /** Plan żytni: rozrost w formie w cieple (ZYT-ETA-005), bez przełącznika lodówki [audyt-niezalezny D-7] */
   bezLodowki?: boolean;
   /** Pod „Kopiuj jako tekst” w tej samej karcie („Dodaj do kalendarza”, M3 p4). */
@@ -57,9 +58,11 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
         </>
       )}
 
-      <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
-        <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
-      </Pressable>
+      {onCopySchedule && (
+        <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
+          <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
+        </Pressable>
+      )}
       {children}
     </Karta>
   );
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     paddingHorizontal: odstepy.m,
-    borderRadius: 22,
+    borderRadius: promienie.chip,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 14,
+    borderRadius: promienie.przycisk,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
   },

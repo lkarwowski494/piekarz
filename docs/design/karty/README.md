@@ -5,6 +5,8 @@ Podstawa: D-139 (słowa właściciela: „Pierwszy screen wygląda ładnie… Po
 ## 1. Zasada
 Każdy ekran ma dwie warstwy: **pas** w kolorze marki z tytułem i stanem ekranu oraz **treść wyłącznie w kartach**. Na tle ekranu nie leży żaden goły nagłówek ani akapit (wyjątek: jedna linia informacji na dole, jak „Piekarz działa bez internetu…” na „Dziś”). *Dlaczego:* właściciel wskazał ten układ jako wzorzec, a znaleziska D-139 („Proporcje dokarmiania” poza kartą, inny krój „Kontroli biologicznej”) wynikają z braku jednej reguły.
 
+**Wyjątki nazwane (arkusze poza systemem kart):** `SkladnikiSheet` i `SettingsModal` — karty w treści bez `ArkuszKart` (D-160 p3, p5). Do 1.0.1 (D-308 pkt 3, 04-studio-projektowe-007): `BreadAcademyModal`, `FlourEquivalentsModal`, `VolumeConverterModal`, `FlourBlendModal`, `FlourInventoryModal` zostają na własnym układzie; przeniesienie na `ArkuszKart` w 1.0.1. Arkusz zgody na powiadomienia (`ZgodaPowiadomien`) jest na kartach od M2-014 (D-308 pkt 2). Listę pilnuje `src/__tests__/arkusze-w-kartach-007.test.tsx`. *Dlaczego:* właściciel wybrał wyjątek do 1.0.1 zamiast przenosin w partii 3; nazwany wyjątek z testem nie rozrasta się po cichu.
+
 ## 2. Tokeny układu (kolory bez zmian: `docs/design/tokeny.json`)
 | Token | Wartość | Uwagi |
 |---|---|---|
@@ -35,7 +37,7 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 | D-138 (nowe) receptura | pas | `#receptura`, `#receptura-maszyna` | segment „Piekarnik / Maszyna do chleba” w karcie „Ile pieczesz”; w trybie maszyny karty „Kolejność wkładania” i „Program i godzina”, przycisk „Zapisz plan” |
 | Arkusz „Składniki” `SkladnikiSheet.tsx` | własny pasek | `#skladniki` | sekcje jako karty z ikonami |
 | Plan `receptury/harmonogram.tsx` | pasek systemowy | `wypiek.html#plan` | pas (O3), „Kiedy gotowy”, temperatura, sen, oś czasu w kartach |
-| Prowadzenie `app/stolnica.tsx` | pasek systemowy | `wypiek.html#prowadzenie` | pas z krokiem i czasem (O3); instrukcja i składniki w kartach; ostrzeżenie bez zmian |
+| Prowadzenie `app/stolnica.tsx` | pasek systemowy | `wypiek.html#prowadzenie` | pas z krokiem i czasem (O3); ostrzeżenie kroku nad kartą „Co zrobić” (§7c); instrukcja i składniki w kartach |
 | Zakwasy `zakwasy/index.tsx` + `src/components/zakwas/*` | pas (odjeżdża) | `zakwasy.html` (3 stany) | czapka; wybór zakwasu jako chipy na pasie; wszystkie karty na tokenach (koniec stylu 16/14/11/10 pt); „Proporcje dokarmiania” i „Kontrola biologiczna” w kartach jednym krojem |
 | Doktor zakwasu, Doktor Chleba | pasek systemowy | (bez osobnej makiety; reguła §1, wiersze `PoleObjawu`) | do makiety w partii, jeśli 08 zgłosi wątpliwość |
 | Dziennik `dziennik/index.tsx` | pas | `inne.html#dziennik-pusty`, `#dziennik` | pusty stan w karcie, wpis jako karta |
@@ -67,6 +69,16 @@ Poprawione: (1) liczby w wierszach nie skalowały się przy AX5 („850 g” 13 
 
 ## 7a. Duży tekst przy 320 pt (D-142)
 Bez dzielenia wyrazów; przy AX5 stos w jednej kolumnie i mniejsze wcięcia (CSS w `karty.css`, sekcja „AX5”). Dla 08: `flexWrap: 'wrap'` i `flexBasis` zależne od `fontScale` zamiast stałych rzędów; nie ustawiać `maxFontSizeMultiplier` w kartach. Słowo dłuższe niż cały wiersz łamie się systemowo. Kontrola: `node docs/design/narzedzia/slowa.mjs docs/design/karty/*.html` (Playwright ze scratchpadu): 0 elementów poza ekranem.
+
+## 7b. Niski ekran: prowadzenie (rola 04 p4b, M1-audytor-generalny-005; D-319 do weta)
+Token `uklad.niskiEkran` = 700 (`tokeny.json`): okno niższe niż 700 pt (iPhone SE 568 i 667 pt, „Powiększenie ekranu” 320×568) przy tekście mniejszym niż AX (`fontScale` < 2) dostaje na prowadzeniu układ zwarty (`src/ui/niski-ekran.ts`):
+- **pas zwarty** (`PasZakladki zwarty`, `PasProwadzenia`): „Krok n z m” w rzędzie nawigacji między wstecz a „Doktor”/„Plan wypieku”, w jednym wierszu (do 0,7 rozmiaru, co najmniej 88 pt szerokości — KO-017, D-336); „Doktor” i „Plan wypieku” jako same ikony 24 pt `naPasie` (kształty kart: bochenek, kalendarz) w polu 44×44 pt z etykietą VoiceOver, więc wstecz, numer i akcje mieszczą się w jednym rzędzie przy 320 pt (KO-018, D-337); tytuł kroku 20 pt jak nagłówek karty; czas 28 pt (`tytulKroku`) z „potem …” (15 pt) obok, zawija się pod czas; odstępy `xs`, dół `m`; pierwszy element treści (ostrzeżenie albo karta kroku) 8 pt pod pasem;
+- **pasek kciuka w jednym rzędzie** (`PasekKciuka`): „Zrobione” (akcent, pierwszy w kolejności czytania), „Cofnij poprzedni”, „Po co ten krok”, cel 48 pt (`cele.glownyPrzeplyw`), rząd się zawija przy długich tekstach. Ten sam pasek, gdy nad nim stoi przełącznik wypieków (dwa trwające), także przy 393×852.
+
+Przy dużym tekście (AX) układ zwykły: zawija się i przewija, nic nie znika. Bez nowych tekstów i kolorów. *Dlaczego:* przy 320×568 karta kroku z ostrzeżeniem bezpieczeństwa była w całości pod paskiem kciuka (dół ostrzeżenia 720 pt przy górze „Zrobione” 376 pt, Expo web); ostrzeżenie ma być widać bez przewijania (005). Dowód: `src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx` (rachunek) i zrzuty Expo web 320×568, 375×667, 393×852 (raport roli 04, fix 2026-11-09, wynik-p4b).
+
+## 7c. Ostrzeżenie kroku nad kartą „Co zrobić” (KO-015, D-335; M1-audytor-generalny-005)
+Na prowadzeniu pole Ostrzeżenia (bezpieczeństwo kroku: gorące naczynie, surowy zakwas, surowe ciasto, dzieci) stoi pod pasem, nad kartą „Co zrobić”; treść, tytuł, kolor, ikona i zachowanie (alert, haptyka) bez zmian. Krok bez ostrzeżenia: karta „Co zrobić” jak dotąd pod pasem. Makieta: `wypiek.html#prowadzenie`. *Dlaczego:* przy długiej instrukcji (pieczenie w garnku, 310 znaków) pole pod kartą wypadało pod paskiem kciuka, a ostrzeżenie ma być widać bez przewijania w każdym kroku i języku; długa instrukcja kończy się pod zgięciem, ale jej początek jest widoczny i karta się przewija. Dowód: `src/__tests__/ostrzezenie-nad-karta-005.test.tsx` (rachunek: każdy krok z ostrzeżeniem w planach wbudowanych receptur, 35 języków, 393×852 i 320×568).
 
 ## 8. Czego nie sprawdzono
 Expo web (brak `react-native-web`, zależności nie dopisuję): „przed” to zrzuty właściciela i wzorce z 2026-10-20, nie bieżący build dla każdego ekranu. Krój treści w makiecie: Noto Sans zastępczo (na iOS SF Pro). Szerokość 430 pt: zrzuty wzorcowe 5 ekranów (E4). Najdłuższy język: nie renderowany — makiety kart nie mają przekładów; pomiar długości języków z `docs/design/pomiar-jezykow.md` obowiązuje dalej, sprawdzenie na zbudowanych ekranach w audycie roli 04 po 08. `warsztat.mjs` nie uruchomiony.

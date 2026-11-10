@@ -35,11 +35,11 @@ Ten plik nie zawiera tekstów ani pól sklepu; prowadzi tylko drogę wersji. Pol
 6. **Wydanie:** po statusie „Pending Developer Release” właściciel klika „Release This Version” (krok 6.3); zgoda na wydanie osobno w dzienniku.
 7. **Aktualizacje (1.0.1 i dalej):** ta sama droga plus wydanie stopniowe 7 dni (krok 6.4). Pierwsza wersja 1.0 idzie do wszystkich naraz: Apple oferuje wydanie stopniowe tylko dla aktualizacji („When you release a version update…”), więc ryzyko 1.0 ogranicza krok 3.
 
-## 3. Blokady przed pierwszą wysyłką do recenzji (stan 2026-10-21)
+## 3. Blokady przed pierwszą wysyłką do recenzji (stan 2026-11-09)
 
 | Blokada | Dowód | Kto odblokowuje |
 |---|---|---|
-| Werdykt 07: ZABLOKOWANE na ebd8471, 1.0.0 (1013) | raport roli 07 z 2026-10-19 (audyt M1) | naprawy partii M2, nowy werdykt 07 na nowym SHA |
+| Pełny M1 przed zgłoszeniem (D-225): audyt 2026-11-08 na kandydacie 1023 (`2ef8870`), naprawy M2 w partiach, potem reaudyt M1 i werdykt 07 na nowym SHA kandydata (stary werdykt ZABLOKOWANE na `ebd8471`, 2026-10-19, to historia) | `docs/decyzje.md` D-225; plan napraw M1 2026-11-08 | M2 (naprawy), M1 (reaudyt), właściciel (zgoda na zgłoszenie) |
 | Kontrakt zakresu B (D-043): QR (F-08), druk (F-50), spiżarnia (F-30) PÓŹNIEJ; strona produktu bez nich | M1-audytor-generalny-080, -081 (partia 6) | rola 10 w zadaniu 081, zrzuty 080 |
 | Minimalny iOS 18.0 | `app.json` (077) | spełnione; nic nie zmieniać |
 

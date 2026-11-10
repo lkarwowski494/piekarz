@@ -14,7 +14,7 @@ import { getDb, memStore } from './sqlite-schema';
 import { assertWritable, writeOrThrow } from './storage-status';
 import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
 import { isObj, isNum, isStr } from './row-parsers';
-import { idSesji, isActiveBakeState, isSessionStep, parseBakeSession, type BakeSession } from './bake-session-store';
+import { idSesji, isActiveBakeState, isSessionStep, parseBakeSession, type BakeSession } from './sesja-parsery';
 import type { ActiveBakeState } from './sqlite-schema';
 
 export type StatusSesji = 'active' | 'planned';

@@ -32,13 +32,13 @@ import {
   deductFlourStocks,
   InventoryCheckResult,
 } from '../core/inventory';
-import { FLOUR_PROFILES, FlourProfile } from '../core/flour-atlas';
+import { FLOUR_PROFILES, FlourProfile, profilPoNazwie } from '../core/flour-atlas';
 import { useAppAccess } from '../lib/app-access';
 
 import { typografia } from '../ui/tokeny';
 /** Zapas zapisany pod nazwą danych atlasu pokazuje się nazwą w języku interfejsu; nazwa własna dosłownie (452). */
 const nazwaZapasu = (n: string): string => {
-  const p = FLOUR_PROFILES.find((x) => x.namePl === n);
+  const p = profilPoNazwie(n); // także nazwa sprzed kanonu D-307 [M1-audytor-generalny-041]
   return p ? nazwaMaki(p) : n;
 };
 
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 18,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
     marginBottom: 4,
@@ -400,7 +400,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   substituteText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginTop: 4,
     fontStyle: 'italic',
@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   adjustBtnText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -481,7 +481,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   deleteBtnText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.blad,
   },
   openAddBtn: {
@@ -516,7 +516,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   inputLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 4,
   },
@@ -536,7 +536,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   presetChipText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
   },
   textInput: {
@@ -589,6 +589,6 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: theme.colors.naAkcencie,
     fontWeight: '700',
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
   },
 });

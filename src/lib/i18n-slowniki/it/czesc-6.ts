@@ -19,7 +19,7 @@ export const CZESC: Record<string, string> = {
   'Profil smakowy': 'Profilo aromatico',
   'Profil zakwasu': 'Profilo del lievito madre',
   'Profil, cykl dokarmiania i szczyt aktywności': 'Profilo, ciclo di rinfresco e picco di attività',
-  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Orario consigliato per impastare: {dzien} alle {godzina}.',
+  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Orario consigliato per impastare: {dzien} alle ore {godzina}.',
   'Proporcja': 'Proporzione',
   'Proporcje (procent mąki)': 'Proporzioni (% sulla farina)',
   'Proporcje dokarmiania': 'Proporzioni del rinfresco',

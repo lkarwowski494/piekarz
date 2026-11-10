@@ -2,7 +2,7 @@
 // z receptury (docs/tresci/pl/wersje-drozdzowe.md, DRO-MOD-016: mieszanie, wyrabianie, pierwsze rośnięcie,
 // odgazowanie, kształtowanie, drugie rośnięcie, pieczenie) [M3 p9b]
 import { isDutchOvenStep, isStageCategory, showsPokeTestEntry } from '../bake-steps';
-import { krokiDrozdzowe, krokiDrozdzoweKonczaceSie, maPlanDrozdzowy } from '../yeast-stages';
+import { krokiDrozdzowe, krokiDrozdzoweKonczaceSie, maPlanDrozdzowy } from '../../recipes/yeast-stages';
 
 const START = Date.UTC(2026, 10, 4, 8, 0);
 const min = (kroki: ReturnType<typeof krokiDrozdzowe>) => kroki?.map((k) => [k.category, k.durationMin]);
@@ -22,7 +22,7 @@ describe('D-155 kroki planu wersji drożdżowej', () => {
 
   it('tartine: noc, co najmniej 8 h, i 90 min po uformowaniu', () => {
     expect(min(krokiDrozdzowe('tartine_high_hydration_80', START))).toEqual([
-      ['mix', 15], ['bulk_ferment', 480], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 90], ['bake', 47], ['cool', 120],
+      ['mix', 15], ['bulk_ferment', 480], ['pre_shape', 10], ['final_shape', 15], ['final_proof', 90], ['bake', 45], ['cool', 120], // bake 22 + 25 → 20 + 25: tartine 20 min pod pokrywką (D-304) [M1-audytor-generalny-008]
     ]);
   });
 

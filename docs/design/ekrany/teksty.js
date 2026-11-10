@@ -222,7 +222,7 @@ window.TEKSTY['en-US'] = {
  "kl.liczeOd": "Calculate amounts from",
  "kl.odBochenkow": "loaves",
  "kl.odMaki": "flour weight",
- "kl.makaZytnia720": "Light rye flour (Polish type 720)",
+ "kl.makaZytnia720": "Rye flour (Polish type 720)",
  "kl.gotowaMieszanka": "Insert a preset blend",
  "kl.proporcje": "Proportions (% of flour)",
  "kl.zakwasP": "Starter",

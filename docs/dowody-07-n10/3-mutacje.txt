@@ -1,0 +1,43 @@
+=== MUTANT M1-ponow-kazda-porazke: 'if grep -qF "$KOMUNIKAT_STEROWNIKA" "$LOG" && ! grep -qE "$WYNIK_PRZEPLYWU" "$LOG"; then' -> 'if true; then'
+    ✕ porażka przepływu: bez ponowienia, wynik czerwony (26 ms)
+    ✕ timeout sterownika po wyniku przepływu [Passed]: bez ponowienia, wynik czerwony (25 ms)
+    ✕ timeout sterownika po wyniku przepływu [Failed]: bez ponowienia, wynik czerwony (26 ms)
+    ✕ inny błąd startu (bez komunikatu sterownika): bez ponowienia, wynik czerwony (27 ms)
+    ✕ kod porażki Maestro przechodzi bez zmian (bez ponowienia) (30 ms)
+Tests:       5 failed, 7 passed, 12 total
+kod 1
+=== MUTANT M2-ignoruj-wyniki-przeplywow: ' && ! grep -qE "$WYNIK_PRZEPLYWU" "$LOG"; then' -> '; then'
+    ✕ timeout sterownika po wyniku przepływu [Passed]: bez ponowienia, wynik czerwony (31 ms)
+    ✕ timeout sterownika po wyniku przepływu [Failed]: bez ponowienia, wynik czerwony (26 ms)
+Tests:       2 failed, 10 passed, 12 total
+kod 1
+=== MUTANT M3-bez-ponowienia: 'proba 2 "$@"' -> 'false'
+    ✕ timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0 (27 ms)
+    ✕ dwa razy timeout sterownika: najwyżej jedno ponowienie, wynik czerwony (22 ms)
+    ✕ ponowienie, które pada na przepływie: wynik czerwony z drugiej próby (21 ms)
+Tests:       3 failed, 9 passed, 12 total
+kod 1
+=== MUTANT M4-zgub-kod-porazki: 'exit "$kod"' -> 'exit 1'
+    ✕ timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0 (35 ms)
+    ✕ kod porażki Maestro przechodzi bez zmian (bez ponowienia) (20 ms)
+Tests:       2 failed, 10 passed, 12 total
+kod 1
+=== MUTANT M5-wynik-tee-zamiast-maestro: 'return "${PIPESTATUS[0]}"' -> 'return $?'
+    ✕ timeout sterownika bez wyników przepływów, potem sukces: dwa wywołania z tymi samymi argumentami, kod 0 (28 ms)
+    ✕ dwa razy timeout sterownika: najwyżej jedno ponowienie, wynik czerwony (20 ms)
+    ✕ ponowienie, które pada na przepływie: wynik czerwony z drugiej próby (20 ms)
+    ✕ porażka przepływu: bez ponowienia, wynik czerwony (21 ms)
+    ✕ timeout sterownika po wyniku przepływu [Passed]: bez ponowienia, wynik czerwony (23 ms)
+    ✕ timeout sterownika po wyniku przepływu [Failed]: bez ponowienia, wynik czerwony (25 ms)
+    ✕ inny błąd startu (bez komunikatu sterownika): bez ponowienia, wynik czerwony (22 ms)
+    ✕ kod porażki Maestro przechodzi bez zmian (bez ponowienia) (25 ms)
+Tests:       8 failed, 4 passed, 12 total
+kod 1
+=== MUTANT M6-limit-480000 (workflow)
+    ✕ limit startu sterownika: jedno miejsce (env workflow), 600–900 s, zapas ≥ 20% nad zmierzonym 510 s (1 ms)
+Tests:       1 failed, 11 passed, 12 total
+kod 1
+=== MUTANT M7-dwa-ponowienia: 'proba 2' -> pętla prób 2 i 3
+    ✕ dwa razy timeout sterownika: najwyżej jedno ponowienie, wynik czerwony (43 ms)
+Tests:       1 failed, 11 passed, 12 total
+kod 1

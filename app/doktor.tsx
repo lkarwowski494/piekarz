@@ -32,7 +32,7 @@ import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona'
 import { PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/PasZakladki';
 import { EkranZPasem } from '../src/components/nawigacja/EkranZPasem';
 
-import { typografia } from '../src/ui/tokeny';
+import { typografia, promienie } from '../src/ui/tokeny';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 14,
+    borderRadius: promienie.przycisk,
   },
   academyHeaderPillText: {
     fontSize: typografia.style.podpis.pt,
@@ -211,12 +211,12 @@ const styles = StyleSheet.create({
   },
   academyBannerTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   academyBannerSubtitle: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 14,
     marginTop: 1,

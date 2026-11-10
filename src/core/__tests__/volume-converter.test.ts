@@ -7,6 +7,7 @@ import {
   CupStandard,
   VOLUME_ACCURACY_WARNING_PL,
 } from '../volume-converter';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Volume to Weight Converter (Z-013 / DEC-14)', () => {
   it('has comprehensive ingredient list including flours, liquids, salts, yeasts, and starter', () => {
@@ -75,7 +76,7 @@ describe('Volume to Weight Converter (Z-013 / DEC-14)', () => {
             expect(resMax.grams).toBeGreaterThanOrEqual(resMin.grams);
           }
         ),
-        { numRuns: 300 }
+        { numRuns: nr(300) }
       );
     });
   });

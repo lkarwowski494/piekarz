@@ -1,0 +1,15 @@
+{
+  "opis": "Plan i prowadzenie brioszki w keksówce (lievito_madre_panettone_brioche, recommendedVessel bread_pan), M2-012: kroki w tej kolejności, kategoria, teksty z docs/tresci/pl|en/plan-brioszki.md (nagłówek = id kroku) albo z podanego pliku, czas w logice. Czas „rezerwa” = nazwane uproszczenie planu bez źródła dla Lievito Madre (PIE-BRI-900), tekst kroku nie podaje liczby. Kroków szablonu bochenka autolyse, bulk_ferment, pre_shape, bench_rest, final_shape, final_proof plan brioszki nie ma.",
+  "zrodlo": "rola 06-tresci, fix M2 p3, 2026-11-09",
+  "kroki": [
+    { "id": "starter_feed", "kategoria": "starter_feed", "tekst": "szablon DEFAULT_STAGE_TEMPLATES bez zmian", "czasMin": 360, "czas": "szablon", "twierdzenie": "-" },
+    { "id": "brioche_mix", "kategoria": "mix", "tekst": "plan-brioszki.md + zdania BEZ-SUR-001, BEZ-SUR-002 kroku mix", "czasMin": 20, "czas": "rezerwa (rachunek 4 + 15 = 19 min miksera, PIE-BRI-002)", "twierdzenie": "PIE-BRI-002, PIE-BRI-900" },
+    { "id": "brioche_cold", "kategoria": "bulk_ferment", "tekst": "plan-brioszki.md", "czasMin": 840, "minCzasMin": 480, "maxCzasMin": 1440, "czas": "rezerwa (szablon final_proof, PLN-KRO-900); bez przeliczania temperaturą otoczenia (Q10 dotyczy fermentacji w cieple); coldRetardHours i podpowiedź kolizji ze snem działają na ten krok", "twierdzenie": "PIE-BRI-002, PIE-BRI-900" },
+    { "id": "brioche_shape", "kategoria": "final_shape", "tekst": "plan-brioszki.md", "czasMin": 15, "czas": "szablon final_shape", "twierdzenie": "PIE-BRI-002" },
+    { "id": "brioche_proof", "kategoria": "final_proof", "tekst": "plan-brioszki.md", "czasMin": 20, "czas": "rezerwa (20 min źródła dla ciasta na drożdżach instant, PIE-BRI-002; dla Lievito Madre [DO USTALENIA])", "twierdzenie": "PIE-BRI-002, PIE-BRI-900" },
+    { "id": "preheat_oven", "kategoria": "preheat_oven", "tekst": "pieczenie-receptur.md, brioszka w keksówce", "czasMin": 45, "czas": "rezerwa D-304", "twierdzenie": "PIE-BRI-001, PIE-BRI-900" },
+    { "id": "bake_forma", "kategoria": "bake", "tekst": "pieczenie-receptur.md, brioszka w keksówce", "czasMin": 28, "czas": "dane receptury (bakeTimeSteamMinutes + bakeTimeBrowningMinutes)", "twierdzenie": "PIE-BRI-001" },
+    { "id": "cool", "kategoria": "cool", "tekst": "szablon DEFAULT_STAGE_TEMPLATES bez zmian", "czasMin": 120, "czas": "szablon (PLN-KRO-900)", "twierdzenie": "-" }
+  ],
+  "nieobecne": ["autolyse", "bulk_ferment", "pre_shape", "bench_rest", "final_shape", "final_proof"]
+}

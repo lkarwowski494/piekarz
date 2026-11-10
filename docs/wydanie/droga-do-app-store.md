@@ -9,7 +9,7 @@ Zasada: ten dokument niczego nie wysyła. Każdy krok w App Store Connect (ASC),
 1. **iOS E2E na HEAD gałęzi** (`.github/workflows/e2e-ios.yml`: pełny katalog `.maestro/e2e` w buildzie z `EXPO_PUBLIC_E2E` i `.maestro/e2e-basic` w drugim buildzie Release bez tej zmiennej). Ostatni znany wynik: run 39924837386 na `b47abea`, failure (2026-10-23; `docs/wznowienie-M3.md`). Zielony: dalej; czerwony: rola 08 `fix` z logiem przebiegu.
 2. **Build TestFlight z gałęzi** (`testflight.yml`), po zielonym E2E; zgoda właściciela z 2026-11-02: „Tak, po zielonym E2E (zalecane)”.
 3. **Test na telefonie** wg `docs/wydanie/lista-kontrolna-telefonu.md` (ok. 30–40 min) i zakupy w piaskownicy (Basic i Pro).
-4. **Krok ASC rano: usunięcie Free Trial** z `.pro.monthly` i `.pro.yearly` (Z-1), razem ze scaleniem do master z kodem Basic/Pro (osobna zgoda).
+4. **Usunięcie Free Trial** z `.pro.monthly` i `.pro.yearly` (Z-1): zrobione przez właściciela 2026-11-03 („Obie usuenięte.”), w dniu scalenia do master i buildu 1021 z kodem Basic/Pro.
 5. **Werdykt 07** na SHA kandydata (tor B nocy 2026-11-02 daje listę blokerów; werdykt na SHA kandydata robi rola 07 po scaleniu).
 6. **Zrzuty z urządzenia** (A-2) i opis wydania, potem zgłoszenie (`sklep.md` §2 krok 4–5).
 
@@ -44,7 +44,7 @@ Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w
 | # | Pozycja | Stan | Blokuje | Kto |
 |---|---|---|---|---|
 | B1 | Produkty: `com.apps4brew.baker.pro.monthly`, `.yearly` (grupa „Piekarz Pro”), `.lifetime` (Non-Consumable); ceny 0,99 / 6,99 / 14,99 USD; Family Sharing włączony 2026-10-21 | zapisane w ASC (`dziennik.md`, run 39583333126) | nie | — |
-| B2 | **Z-1: usunąć Free Trial 2 Weeks** z obu subskrypcji, we wszystkich krajach, razem z buildem Basic/Pro | **nie wykonane**; właściciel 2026-11-02: „Nie, zrobię to rano” | TAK | właściciel |
+| B2 | **Z-1: usunąć Free Trial 2 Weeks** z obu subskrypcji, we wszystkich krajach, razem z buildem Basic/Pro | zrobione 2026-11-03, właściciel: „Obie usuenięte.” (`docs/wydanie/dziennik.md`; 2026-11-02 jeszcze nie) | nie | — |
 | B3 | Zakup w piaskownicy: każdy plan, przywrócenie, tryb samolotowy, zwrot, Family Sharing; arkusz Apple bez oferty wprowadzającej | czeka na A4 (PH-20) | TAK | właściciel |
 | B4 | Zrzut „App Review Screenshot” każdego produktu; opisy produktów (`asc-zgloszenie.mjs`, krok 3.7–3.8) | zrzut zakupu pokazuje ekran Pro po M3 `[DO USTALENIA]`: sprawdzić, że nie pokazuje próby | TAK | agent + właściciel |
 | B5 | Pierwszy zakup każdego typu idzie w tym samym zgłoszeniu co wersja (`sklep.md` §2 krok 4.4) | do wykonania przy zgłoszeniu | TAK | właściciel |
@@ -92,7 +92,7 @@ Kolumny: stan na 2026-11-02 · czy blokuje zgłoszenie · kto. Źródło stanu w
 
 - **Praca agenta** do gotowości zgłoszenia, bez czekania: odświeżenie 4 ramek zrzutów i opisu ok. 2–3 h agenta po teście właściciela; ewentualna poprawka po czerwonym E2E: zależy od logu `[OCENA]`.
 - **Czekanie:** E2E ok. 1–2 h runnera, build TestFlight ok. 1,5 h (wzór `trening`), recenzja Apple `[DO USTALENIA]`.
-- **Czas właściciela:** test na telefonie 30–40 min, ASC (Z-1, kontakt, wysłanie) ok. 30 min, plus decyzje wg `docs/wydanie/plan-wydania-1.0.md` §1.
+- **Czas właściciela:** test na telefonie 30–40 min, ASC (kontakt, wysłanie; Z-1 zrobione 2026-11-03) ok. 30 min, plus decyzje wg `docs/wydanie/plan-wydania-1.0.md` §1.
 
 ## Przeczytane i niezweryfikowane
 

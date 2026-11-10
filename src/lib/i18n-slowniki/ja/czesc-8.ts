@@ -104,7 +104,7 @@ export const CZESC: Record<string, string> = {
   'w tym lód': 'うち氷',
   'Waga bochenka': 'ローフの重量',
   'Waga bochenka po wypieku': '焼成後のローフ重量',
-  'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.': 'アルコールのにおいがする液体の層は問題ありません。酵母が働いてできる副産物です。捨てても、混ぜ込んでもかまいません。表面の膜や変色も見られる場合、または腐ったにおいがする場合は、上の項目でチェックしてください。',
+  'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.': 'アルコールのにおいがする液体の層は問題ありません。酵母が働いてできる副産物です。 捨てても、混ぜ込んでもかまいません。 表面の膜や変色も見られる場合、または腐ったにおいがする場合は、上の項目でチェックしてください。',
   'Warunki użytkowania': '利用規約',
   'Warunki użytkowania (EULA)': '利用規約 (EULA)',
   'wczoraj': '昨日',

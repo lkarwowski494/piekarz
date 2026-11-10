@@ -1,6 +1,7 @@
 import * as fc from 'fast-check';
 import { calculateBakeStatistics, filterBakeLogs } from '../bake-statistics';
 import { StoredBakeLog } from '../../data/db';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () => {
   const sampleLogs: StoredBakeLog[] = [
@@ -38,7 +39,7 @@ describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () =>
   it('handles empty logs gracefully', () => {
     const res = calculateBakeStatistics([]);
     expect(res.totalBakes).toBe(0);
-    expect(res.averageRating).toBe(0);
+    expect(res.averageRating).toBeNull(); // brak ocen to brak, nie 0 [M1-audytor-generalny-026]
     expect(res.averageCrumbScore).toBe(0);
     expect(res.averageCrustScore).toBe(0);
     expect(res.hasEnoughData).toBe(false);
@@ -126,7 +127,7 @@ describe('Bake Statistics & History Engine (src/core/bake-statistics.ts)', () =>
           expect(filtered.length).toBe(logs.length);
         }
       ),
-      { numRuns: 100 }
+      { numRuns: nr(100) }
     );
   });
 });

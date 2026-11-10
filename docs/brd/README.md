@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-11-03 (rola 01 fix: paczka M3, ER-75…ER-78; wcześniej 2026-10-22: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-11-09 (M2: model bez próby w wymaganiach, ER-80; katalog 26 wg D-236, ER-81; BR-DANE-005 CSV, ER-82; rola 01 fix: OP-39 i BR-ZAKW-003, ER-79); 2026-11-03 (rola 01 fix: paczka M3, ER-75…ER-78; wcześniej 2026-10-22: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -19,7 +19,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71), BR-RECP-005 (ER-76) |
-| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
+| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003…005, BR-PRYW, BR-START | E3 + BR-START-001, BR-UST-004, BR-UST-005 (ER-84) |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
 | `wymagania-maszyna.md` | BR-MASZ-001…006 (tryb maszyny do chleba, F-72, PR-25, J-16; reguły RD-37…RD-39) | ER-77, 2026-11-03 |
 | `errata.md` | errata ER-34…ER-78 | E3 + 2026-10-22, 2026-11-03 (ER-75…ER-78) |
@@ -38,7 +38,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-36 | [DO USTALENIA] czy kolor płynu na zakwasie (ciemny) ma znaczenie dla bezpieczeństwa | źródła szczebla 1–3, rola 06 | RD-21 |
 | OP-37 | [DO USTALENIA] zasady bezpieczeństwa przy kamieniu do pieczenia i piecu do pizzy | źródła szczebla 1–3 | RD-23, J-11 |
 | OP-38 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): domyślny odstęp przypomnienia o dokarmianiu na blacie 12 h (S-44) | właściciel z rolą 03 | RD-25 |
-| OP-39 | [DO USTALENIA] progi faz zakwasu w godzinach po dokarmieniu (kod: do 2 h, do 5 h, szczyt 5–9 h, głodny po 14 h) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
+| OP-39 | [DO USTALENIA] okno szczytu zakwasu w godzinach po dokarmieniu (kod `src/core/starter-peak-predictor.ts`, `predictStarterPeak`: okno bazowe 6,0–8,5 h dla 1:2:2, pszenica, 22 °C; mnożniki proporcji 0,72 / 1,0 / 1,45 / 1,9 i mąki 0,88 / 0,95; Q10 = 3,0 w klamrze 15–35 °C) i faza z tego okna (`src/core/sourdough-physics.ts`, `calculateStarterPhase`: przed / w oknie / po szczycie); rejestr roli 06 ZAK-SZC-900 otwarte, S-43 i S-44 (odczyt 2026-11-09) bez czasów do szczytu; do RD ze źródłem bez godziny i bez fazy (BR-ZAKW-003, ER-79) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
 | OP-40 | [DO USTALENIA] czas zimnej fermentacji ciasta na pizzę ze źródła szczebla 1–3 (przewodnik S-60: 24–48 h) | źródła, rola 06 | J-11 |
 | OP-41 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): kopia urządzenia (iCloud systemu) i przypomnienie o eksporcie pliku, bez wyjątku od zakazu sieci (technika: rola 05) | właściciel z rolami 03 i 05 | BR-DANE-002 |
 | OP-42 | [DO WYJAŚNIENIA] dopuszczalne opóźnienie sygnału kroku przy zablokowanym ekranie | właściciel z rolą 05 | NFR-CZAS-001 |
@@ -73,6 +73,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-71 | [DO USTALENIA] (OP-71) temperatury pieca ze specyfikacji (Altamura 250 °C, pierożki karelskie 250–300 °C, obwarzanek 250–320 °C, rupjmaize 280–350 °C; rejestr KAT-ALT-005, KAT-KAR-003, KAT-OBW-012, KAT-RUP-005) wobec piekarnika domowego: czy i jaką temperaturę aplikacja podaje w planie i prowadzeniu | rola 06 | BR-RECP-001, D-177 |
 | OP-72 | [DO USTALENIA] (OP-72) czy przepis w płatnej aplikacji jest „wykorzystywaniem w celach handlowych” nazwy chronionej (rozp. (UE) 2024/1143 art. 26 ust. 1, rejestr KAT-PRA-001, KAT-PRA-002; nazwy GTS: art. 24 rozp. 1151/2012) — opinia prawna; do tego czasu nazwy opisowe (D-177) | właściciel (opinia prawna, krok właściciela) | BR-RECP-001, D-177 |
 | OP-73 | [DO USTALENIA] (OP-73) czy blokada opóźnionego startu (RD-38) obejmuje składniki, które nie trafiają do maszyny (mleko w nadzieniu pierożków karelskich, KAT-KAR-002), i czy pierożki w ogóle mają tryb maszyny (raport roli 06: „nie (formowanie ręczne; źródło milczy)”, D-179 wymienia pierożki przy programie „ciasto”); do tego czasu blokada według całej receptury; 06m (2026-11-04): źródła szczebla 1–3 nie znaleziono | rola 06 | RD-38, RD-39, BR-MASZ-005 |
+| OP-74 | [DO USTALENIA] (OP-74) czasy etapów planu dla receptur drożdżowych z katalogu (plan w 1.0.1, D-312 pkt 3): w `docs/tresci/wektory/m3-2026-11-03.json` (sekcja `czasy_etapow_drozdzowych`) są dane pizzy, bagietki, chałki i focaccii, ciabatta i chleb nocny otwarte (DRO-PRE-900), pozostałe receptury drożdżowe katalogu nieprzejrzane; kroki z rękami bez czasu w źródłach (DRO-PLN-900) | rola 06; zakres 1.0.1: rola 03 | BR-HARMO-001, D-312 |
 
 ## Blokery wydania
 

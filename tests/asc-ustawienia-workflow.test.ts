@@ -23,7 +23,8 @@ describe('workflow asc-ustawienia (M1-audytor-generalny-181)', () => {
   });
 
   it('skrypt uruchamiany z plikiem zgody; zgoda albo wyłączona, albo pełna (skrót planu i słowa właściciela z datą)', () => {
-    const krok = steps.find((s) => s.includes('scripts/asc-ustawienia.mjs')) ?? '';
+    // Dwa zadania (D-314): ostatni krok ze skryptem to zapis z oryginalnym plikiem zgody; przebieg na sucho dostaje kopię z "zapis": false (tests/asc-klucz-082.test.ts)
+    const krok = steps.filter((s) => s.includes('scripts/asc-ustawienia.mjs')).pop() ?? '';
     expect(krok).toMatch(/run: node scripts\/asc-ustawienia\.mjs --zgoda docs\/wydanie\/asc-zgoda\.json$/m);
     if (zgoda.zapis === true) {
       expect(zgoda.skrot).toMatch(/^[0-9a-f]{64}$/);
@@ -34,9 +35,10 @@ describe('workflow asc-ustawienia (M1-audytor-generalny-181)', () => {
   });
 
   it('sekrety ASC tylko w env kroku skryptu, bez set -x i bez wypisywania zmiennych', () => {
+    // Dwa kroki z sekretami od D-314: skrypt na sucho (zadanie na-sucho) i skrypt zapisu (zadanie zapis, środowisko release)
     const zSekretami = steps.filter((s) => /secrets\./.test(s));
-    expect(zSekretami).toHaveLength(1);
-    expect(zSekretami[0]).toContain('scripts/asc-ustawienia.mjs');
+    expect(zSekretami).toHaveLength(2);
+    for (const krok of zSekretami) expect(krok).toContain('scripts/asc-ustawienia.mjs');
     expect(workflow).not.toMatch(/set -x|echo .*ASC_|printenv|env \|/);
   });
 

@@ -4,7 +4,7 @@
 // usunięcie z „Przywróć” (D-051 1a), „Zacznij od nowa”. Po każdej zmianie powiadomienia (resyncNotifications, ADR-006).
 // ============================================================================
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { StoredStarterEntry } from '../../data/db';
 import {
   addStarterEntry,
@@ -42,10 +42,18 @@ export function useStarterLog(starterId: string) {
   }, [reload]);
 
   /** Obserwacja (np. „Podwoił objętość”); zmiana zakwasu w tej samej transakcji. */
+  // Blokada w trakcie zapisu: dwa stuknięcia „Podwoił objętość” = jeden wpis [M1-audytor-generalny-028; 08-programista-006]
+  const zapisuje = useRef(false);
   const zapiszObserwacje = useCallback(
     async (signs: StarterSign[], at: number, patch?: StarterPatch) => {
-      await addStarterEntry(nowyWpis(starterId, 'observation', at, signs), patch);
-      await zmiana();
+      if (zapisuje.current) return;
+      zapisuje.current = true;
+      try {
+        await addStarterEntry(nowyWpis(starterId, 'observation', at, signs), patch);
+        await zmiana();
+      } finally {
+        zapisuje.current = false;
+      }
     },
     [starterId, zmiana]
   );

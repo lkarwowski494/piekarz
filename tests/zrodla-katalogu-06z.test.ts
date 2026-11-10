@@ -20,8 +20,12 @@ const WG = new Map(REJESTR.map((t) => [t.id, t]));
 /**
  * D-247: treści bez tekstu w kodzie (przelicznik drożdży, maszyna; wpina rola 08 w p9). D-255 (06d): wersje drożdżowe
  * i plan drożdżowy wpięte w p9b-1b, zdjęte z listy; przelicznik wydzielony z drozdze-plan-przelicznik.md.
+ * D-304 (M2 p2, rola 06): pieczenie receptur ze źródła (pieczenie-receptur.md) wpięte przez rolę 08 (zdanie pizzy
+ * w notesPl, D-303) razem ze źródłem brioszki (ciafoodies.com) na ekranie, zdjęte z listy [M1-audytor-generalny-009].
+ * D-306: przelicznik drożdży (drozdze-przelicznik.md) wpięty w arkuszu „Składniki” razem z oetker.pl, lesaffre.pl
+ * i fleischmannsyeast.com na ekranie; lista pusta, wyjątek D-247 wygasł [M1-audytor-generalny-040].
  */
-const CZEKAJA_NA_WPIECIE = ['drozdze-przelicznik.md'];
+const CZEKAJA_NA_WPIECIE: string[] = [];
 
 const ADRESY_EKRANU = ZRODLA_WIEDZY.flatMap((g) => g.zrodla.map((z) => z.adres.toLowerCase()));
 const bezPrzedrostka = (adres: string) =>

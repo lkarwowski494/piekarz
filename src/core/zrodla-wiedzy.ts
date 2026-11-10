@@ -194,6 +194,23 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         adres: 'redstaryeast.com',
       },
       {
+        // D-306 (DRO-INS-030, -011, -012): przelicznik drożdży świeże → suche w arkuszu „Składniki”
+        // (docs/tresci/pl/drozdze-przelicznik.md) [M1-audytor-generalny-040]
+        nazwa: 'Dr. Oetker Polska (producent drożdży), „Drożdże suszone instant 7 g”',
+        opis: 'Ile drożdży suszonych zastępuje drożdże świeże.',
+        adres: 'oetker.pl',
+      },
+      {
+        nazwa: 'Lesaffre Polska (producent drożdży), „Drożdże SAF INSTANT czerwone/złote”',
+        opis: 'Ile drożdży suszonych zastępuje drożdże świeże.',
+        adres: 'lesaffre.pl',
+      },
+      {
+        nazwa: "Fleischmann's Yeast (producent drożdży), najczęstsze pytania",
+        opis: 'Ile drożdży suchych zastępuje drożdże świeże i które drożdże suche najpierw rozpuścić w wodzie.',
+        adres: 'fleischmannsyeast.com',
+      },
+      {
         nazwa: 'University of Kentucky Cooperative Extension, „The Art of Baking Bread” (2010)',
         opis: 'Test palca: kiedy ciasto drożdżowe jest gotowe i o ile może urosnąć przed pieczeniem.',
         adres: 'fcs.mgcafe.uky.edu',
@@ -219,6 +236,12 @@ export const ZRODLA_WIEDZY: readonly GrupaZrodel[] = [
         nazwa: 'Brytyjski rejestr chronionych nazw żywności (Defra): angielskie tłumaczenia wniosków „Obwarzanek krakowski” i „Kołocz śląski”',
         opis: 'Temperatura i czas pieczenia obwarzanka i kołacza oraz wyrastanie zaczynu do kołacza.',
         adres: 'assets.publishing.service.gov.uk',
+      },
+      {
+        // D-304 (PIE-BRI-001): pieczenie brioszki w keksówce (docs/tresci/pl/pieczenie-receptur.md) [M1-audytor-generalny-009]
+        nazwa: 'The Culinary Institute of America, przepis „Brioche”',
+        opis: 'Temperatura i czas pieczenia brioszki w keksówce.',
+        adres: 'ciafoodies.com',
       },
       {
         nazwa: 'Illinois 4-H (University of Illinois Extension), „Cooking 301 State Fair Recipes”',

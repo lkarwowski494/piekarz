@@ -133,7 +133,7 @@ describe('[M3 p1] WierszKarty', () => {
     expect(przyciski(tree.root)).toHaveLength(0);
   });
 
-  it('z onPress: przycisk z etykietą „etykieta, wartość”, wywołuje onPress, cel ≥ 44 pt', () => {
+  it('z onPress: przycisk z etykietą „etykieta, wartość”, wywołuje onPress, cel ≥ 44 pt (styl, bez pomiaru)', () => {
     const onPress = jest.fn();
     const tree = render(wiersz({ onPress }));
     const p = przyciski(tree.root, 'w')[0]!;
@@ -225,7 +225,7 @@ describe('[M3 p1] PoleObjawu', () => {
     expect(onZmien).toHaveBeenCalledWith(false);
   });
 
-  it('wiersz: obwódka 1,5 obwodka, promień pole 10, min 52 pt (≥ 44)', () => {
+  it('wiersz: obwódka 1,5 obwodka, promień pole 10, min 52 pt (≥ 44) (styl, bez pomiaru)', () => {
     const s = styl(host(render(pole(false)).root, 'p'));
     expect(s).toMatchObject({ borderWidth: 1.5, borderColor: theme.colors.obwodka, borderRadius: promienie.pole, minHeight: 52 });
     expect(s.minHeight).toBeGreaterThanOrEqual(cele.pozostale);

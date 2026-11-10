@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   cancelBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     color: theme.colors.akcentTekst,
     fontWeight: '600',
   },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   recipeName: {
-    fontSize: 20,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
     textAlign: 'center',

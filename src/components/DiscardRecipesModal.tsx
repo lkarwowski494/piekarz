@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   stepNumberBadge: {
     width: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: 20 / 2,
     backgroundColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',

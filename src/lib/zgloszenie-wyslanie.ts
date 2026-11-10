@@ -31,7 +31,9 @@ export async function napiszDoAutora(): Promise<void> {
   if (!czyAdresWsparcia(adres)) return;
   const { temat, tresc } = trescZgloszenia({
     wersja: Constants.expoConfig?.version ?? null,
-    build: Constants.expoConfig?.ios?.buildNumber ?? null,
+    // Numer z workflow TestFlight (EXPO_PUBLIC_*: Metro wstawia przy budowaniu); app.json nie ma ios.buildNumber
+    // [M1-audytor-generalny-031; 12-niezawodnosc-002]. Lokalnie i w E2E pusty: zgłoszenie bez numeru.
+    build: process.env.EXPO_PUBLIC_BUILD_NUMBER || null,
     systemIos: wersjaIos(),
     jezyk: lang(),
   });

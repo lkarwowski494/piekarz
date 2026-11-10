@@ -1,0 +1,26 @@
+# npm run verify na HEAD 23f0196f (commit poprawki N10, czyste drzewo), 2026-11-10
+# etapy i podsumowanie; lint: 0 błędów (ostrzeżenia w app/src sprzed zmiany, kod aplikacji nietknięty)
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+> piekarz@1.0.0 lint
+> eslint app src
+✖ 2 problems (0 errors, 2 warnings)
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+> piekarz@1.0.0 test
+> jest
+Test Suites: 655 passed, 655 total
+Tests:       6843 passed, 6843 total
+VERIFY_EXIT=0

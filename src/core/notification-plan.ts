@@ -11,6 +11,7 @@ import { planFeedingNotifications } from './notification-feeding';
 import type { KolejneKarmienieBudzace } from './karmienia-budzace';
 import {
   MAX_PENDING_NOTIFICATIONS,
+  OKNO_PIERWSZENSTWA_MS,
   NOTIF_PREFIX,
   TIME_SENSITIVE_STEPS,
   notifBakePrefix,
@@ -236,14 +237,19 @@ export function planNotifications(
   now: number
 ): PlannedNotification[] {
   const nameBake = input.sessions.length > 1;
+  const kroki = input.sessions.map((s) => planBakeStepNotifications(s, now, nameBake));
+  // Najbliższe powiadomienie każdego trwającego wypieku zostaje zawsze (bieżący krok) [M1-audytor-generalny-030]
+  const pierwsze = new Set(kroki.flatMap((l) => (l.length ? [l.reduce((a, b) => (b.triggerAt < a.triggerAt ? b : a)).id] : [])));
   const grupy: PlannedNotification[][] = [
-    input.sessions.flatMap((s) => planBakeStepNotifications(s, now, nameBake)),
+    kroki.flat(),
     planPlannedStartNotifications(input.planned ?? [], now),
     [...planWakeFeedingNotifications(input.budzace ?? [], now), ...planFeedingNotifications(input.starters, now)],
   ];
   return grupy
     .flatMap((lista, grupa) => lista.map((p) => ({ p, grupa })))
-    .sort((a, b) => a.grupa - b.grupa || a.p.triggerAt - b.p.triggerAt)
+    // Najbliższe 24 h po czasie przed grupami: przypomnienie za 2 h nie wypada przez krok za 29 h [M1-audytor-generalny-030]
+    .map((x) => ({ ...x, bliskie: pierwsze.has(x.p.id) ? 0 : x.p.triggerAt <= now + OKNO_PIERWSZENSTWA_MS ? 1 : 2 }))
+    .sort((a, b) => a.bliskie - b.bliskie || (a.bliskie === 2 ? a.grupa - b.grupa : 0) || a.p.triggerAt - b.p.triggerAt)
     .slice(0, MAX_PENDING_NOTIFICATIONS)
     .map((x) => x.p)
     .sort((a, b) => a.triggerAt - b.triggerAt);

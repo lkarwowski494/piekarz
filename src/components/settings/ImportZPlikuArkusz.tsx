@@ -3,11 +3,12 @@
 // docs/design/ekrany/inne.html) [M1-audytor-generalny-113; 04-studio-projektowe-028]. Do czasu zależności wyboru
 // pliku (expo-document-picker, [DO USTALENIA]) treść pliku przychodzi ze schowka albo z pola, jak dotąd. Podgląd
 // według rodzaju pliku; zapis dopiero po „Dodaj” albo „Zastąp dane”, ścieżkami z src/lib/import-z-pliku.ts.
+// Na systemie kart: „Anuluj” / „Dodaj” w pasku arkusza, wklejanie i podgląd w karcie z tytułem według rodzaju pliku
+// (README §1, §3); ścieżki zapisu bez zmian [M1-audytor-generalny-007; 04-studio-projektowe-003].
 // ============================================================================
 
-import React, { useMemo, useState } from 'react';
-import { View, Text, Modal, ScrollView, Pressable, TextInput, StyleSheet, Alert } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useEffect, useMemo, useState } from 'react';
+import { View, Text, Pressable, TextInput, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../../ui/theme';
 import { promienie, typografia } from '../../ui/tokeny';
@@ -15,9 +16,13 @@ import { t } from '../../lib/i18n';
 import { formatNumber } from '../../lib/format';
 import { StorageWriteError } from '../../data/storage-status';
 import { saveErrorText } from '../../lib/save-guard';
-import { importujKopie, importujRecepture, rozpoznajPlik, zdanieKopii } from '../../lib/import-z-pliku';
+import { importujKopie, importujRecepture, rozpoznajPlik, zdanieKopii, type RozpoznanyPlik } from '../../lib/import-z-pliku';
+import { kopiaZPakietu } from '../../lib/import-pakietu';
 import type { StoredRecipe } from '../../data/db';
 import { useAppAccess } from '../../lib/app-access';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 export interface ImportZPlikuArkuszProps {
   onClose: () => void;
@@ -34,7 +39,21 @@ const procent = (v: number) => `${formatNumber(v)}%`;
 export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }: ImportZPlikuArkuszProps) {
   const [tresc, setTresc] = useState<string>('');
   const [zapis, setZapis] = useState<boolean>(false);
-  const plik = useMemo(() => rozpoznajPlik(tresc), [tresc]);
+  const zTresci = useMemo(() => rozpoznajPlik(tresc), [tresc]);
+  // Pakiet plików bazy z trybu awaryjnego: kopia czytana z osobnej bazy, potem podgląd jak kopia; do tego czasu
+  // wskaźnik (plik === undefined) [M1-audytor-generalny-003; 12-niezawodnosc-001]
+  const [zPakietu, setZPakietu] = useState<{ zrodlo: RozpoznanyPlik; wynik: RozpoznanyPlik } | null>(null);
+  useEffect(() => {
+    if (zTresci?.rodzaj !== 'pakiet') return;
+    let aktualny = true;
+    void kopiaZPakietu(zTresci.pakiet).then((wynik) => {
+      if (aktualny) setZPakietu({ zrodlo: zTresci, wynik });
+    });
+    return () => {
+      aktualny = false;
+    };
+  }, [zTresci]);
+  const plik = zTresci?.rodzaj === 'pakiet' ? (zPakietu?.zrodlo === zTresci ? zPakietu.wynik : undefined) : zTresci;
 
   const wklej = async () => {
     try {
@@ -92,102 +111,95 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }
     plik?.rodzaj === 'receptura' ? t('Receptura z pliku') : plik?.rodzaj === 'kopia' ? t('Kopia zapasowa z pliku') : t('Importuj z pliku');
 
   return (
-    <Modal visible animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
-      <SafeAreaView style={styles.arkusz} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.nav} testID="import-file-sheet">
-          <Pressable testID="cancel-import-btn" accessibilityRole="button" style={styles.navBtn} onPress={onClose}>
-            <Text style={styles.navTekst}>{t('Anuluj')}</Text>
-          </Pressable>
-          {plik?.rodzaj === 'receptura' && (
+    <ArkuszKart
+      visible
+      onRequestClose={onClose}
+      trescTestID="import-file-sheet"
+      lewy={{ tekst: t('Anuluj'), onPress: onClose, testID: 'cancel-import-btn' }}
+      prawy={
+        plik?.rodzaj === 'receptura'
+          ? { tekst: t('Dodaj'), onPress: () => dodajRecepture(plik.receptura), testID: 'confirm-import-btn', wylaczony: zapis }
+          : undefined
+      }
+    >
+      <Karta testID="karta-importu-z-pliku" tytul={tytul} ikona={<IkonaKarty nazwa="dysk" />}
+        podpis={t('Wklej zawartość pliku receptury albo kopii zapasowej.')}>
+        <Pressable testID="paste-clipboard-btn" accessibilityRole="button" style={styles.drugi} onPress={wklej}>
+          <Text style={styles.drugiTekst}>{t('Wklej ze schowka')}</Text>
+        </Pressable>
+        <TextInput
+          testID="import-json-input"
+          accessibilityLabel={t('Wklej zawartość pliku receptury albo kopii zapasowej.')}
+          style={styles.pole}
+          multiline
+          value={tresc}
+          onChangeText={setTresc}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+
+        {plik === undefined && <ActivityIndicator testID="import-reading-package" style={styles.podglad} color={theme.colors.akcent} />}
+
+        {plik?.rodzaj === 'receptura' && (
+          <View testID="import-preview-recipe" style={styles.podglad}>
+            <View style={styles.grupa}>
+              <Wiersz etykieta={t('Nazwa')} wartosc={plik.receptura.name} />
+              <Wiersz
+                etykieta={t('Mąki')}
+                wartosc={plik.receptura.formula.flours.map((f) => `${f.name} ${procent(f.percentage)}`).join(', ')}
+              />
+              <Wiersz etykieta={t('Woda')} wartosc={procent(plik.receptura.formula.waterPercentage)} />
+              <Wiersz etykieta={t('Zakwas|składnik')} wartosc={procent(plik.receptura.formula.starterPercentage)} />
+              <Wiersz etykieta={t('Sól')} wartosc={procent(plik.receptura.formula.saltPercentage)} ostatni />
+            </View>
+            <Text style={styles.info}>{t('Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.')}</Text>
+          </View>
+        )}
+
+        {plik?.rodzaj === 'kopia' && (
+          <View testID="import-preview-backup" style={styles.podglad}>
+            <Text style={styles.zdanie}>{zdanieKopii(plik.kopia)}</Text>
+            <Text style={[styles.info, styles.infoTusz]}>
+              {t('Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.')}
+            </Text>
             <Pressable
               testID="confirm-import-btn"
               accessibilityRole="button"
               accessibilityState={{ disabled: zapis }}
               disabled={zapis}
-              style={styles.navBtn}
-              onPress={() => dodajRecepture(plik.receptura)}
+              style={styles.drugi}
+              onPress={zastapDane}
             >
-              <Text style={[styles.navTekst, styles.navWazny]}>{t('Dodaj')}</Text>
+              <Text style={[styles.drugiTekst, styles.blad]}>{t('Zastąp dane')}</Text>
             </Pressable>
-          )}
-        </View>
-        <ScrollView contentContainerStyle={styles.tresc} keyboardShouldPersistTaps="handled">
-          <Text style={styles.tytul} accessibilityRole="header">{tytul}</Text>
-          <Text style={styles.opis}>{t('Wklej zawartość pliku receptury albo kopii zapasowej.')}</Text>
-          <Pressable testID="paste-clipboard-btn" accessibilityRole="button" style={styles.drugi} onPress={wklej}>
-            <Text style={styles.drugiTekst}>{t('Wklej ze schowka')}</Text>
-          </Pressable>
-          <TextInput
-            testID="import-json-input"
-            accessibilityLabel={t('Wklej zawartość pliku receptury albo kopii zapasowej.')}
-            style={styles.pole}
-            multiline
-            value={tresc}
-            onChangeText={setTresc}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
+          </View>
+        )}
 
-          {plik?.rodzaj === 'receptura' && (
-            <View testID="import-preview-recipe" style={styles.podglad}>
-              <View style={styles.grupa}>
-                <Wiersz etykieta={t('Nazwa')} wartosc={plik.receptura.name} />
-                <Wiersz
-                  etykieta={t('Mąki')}
-                  wartosc={plik.receptura.formula.flours.map((f) => `${f.name} ${procent(f.percentage)}`).join(', ')}
-                />
-                <Wiersz etykieta={t('Woda')} wartosc={procent(plik.receptura.formula.waterPercentage)} />
-                <Wiersz etykieta={t('Zakwas|składnik')} wartosc={procent(plik.receptura.formula.starterPercentage)} />
-                <Wiersz etykieta={t('Sól')} wartosc={procent(plik.receptura.formula.saltPercentage)} ostatni />
-              </View>
-              <Text style={styles.info}>{t('Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.')}</Text>
-            </View>
-          )}
+        {/* Kopia z nowszej wersji: aktualizacja aplikacji, bez zapisu [audyt-niezalezny B-7] */}
+        {plik?.rodzaj === 'nowsza' && (
+          <View testID="import-newer-version" style={styles.podglad}>
+            <Text style={styles.zdanie}>
+              {t('Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.')}
+            </Text>
+            <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
+              <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
+            </Pressable>
+          </View>
+        )}
 
-          {plik?.rodzaj === 'kopia' && (
-            <View testID="import-preview-backup" style={styles.podglad}>
-              <Text style={styles.zdanie}>{zdanieKopii(plik.kopia)}</Text>
-              <Text style={[styles.info, styles.infoTusz]}>
-                {t('Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.')}
-              </Text>
-              <Pressable
-                testID="confirm-import-btn"
-                accessibilityRole="button"
-                accessibilityState={{ disabled: zapis }}
-                disabled={zapis}
-                style={styles.drugi}
-                onPress={zastapDane}
-              >
-                <Text style={[styles.drugiTekst, styles.blad]}>{t('Zastąp dane')}</Text>
-              </Pressable>
-            </View>
-          )}
-
-          {/* Kopia z nowszej wersji: aktualizacja aplikacji, bez zapisu [audyt-niezalezny B-7] */}
-          {plik?.rodzaj === 'nowsza' && (
-            <View testID="import-newer-version" style={styles.podglad}>
-              <Text style={styles.zdanie}>
-                {t('Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.')}
-              </Text>
-              <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
-                <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
-              </Pressable>
-            </View>
-          )}
-
-          {plik?.rodzaj === 'nierozpoznany' && (
-            <View testID="import-unrecognized" style={styles.podglad}>
-              <Text style={styles.zdanie}>
-                {t('Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.')}
-              </Text>
-              <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
-                <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
-              </Pressable>
-            </View>
-          )}
-        </ScrollView>
-      </SafeAreaView>
-    </Modal>
+        {plik?.rodzaj === 'nierozpoznany' && (
+          <View testID="import-unrecognized" style={styles.podglad}>
+            <Text style={styles.zdanie}>
+              {t('Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.')}
+            </Text>
+            {plik.powod ? <Text testID="import-unrecognized-reason" style={styles.zdanie}>{plik.powod}</Text> : null}
+            <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
+              <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
+            </Pressable>
+          </View>
+        )}
+      </Karta>
+    </ArkuszKart>
   );
 }
 
@@ -202,14 +214,6 @@ function Wiersz({ etykieta, wartosc, ostatni }: { etykieta: string; wartosc: str
 
 const T = typografia.style;
 const styles = StyleSheet.create({
-  arkusz: { flex: 1, backgroundColor: theme.colors.powierzchnia },
-  nav: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: theme.spacing.sm },
-  navBtn: { minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', paddingHorizontal: theme.spacing.sm },
-  navTekst: { fontSize: T.tresc.pt, color: theme.colors.akcentTekst },
-  navWazny: { fontWeight: '600' },
-  tresc: { padding: theme.spacing.md, gap: theme.spacing.md },
-  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: T.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
-  opis: { fontSize: T.objasnienie.pt, color: theme.colors.tusz2 },
   pole: {
     minHeight: 96,
     backgroundColor: theme.colors.tlo,

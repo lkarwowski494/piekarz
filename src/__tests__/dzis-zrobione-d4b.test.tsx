@@ -36,6 +36,8 @@ import { getStarterEntries } from '../data/starter-entries-store';
 import { dbFilePath, openRaw, useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { setLang } from '../lib/i18n';
+// Zakwas z dokarmieniem przez dziennik (M1-audytor-generalny-002)
+import { zapiszZakwasZDokarmieniem } from '../../tests/helpers/zakwas-z-dokarmieniem';
 
 const H = 3_600_000;
 // Zegar ustawiony na 12:00 (tylko Date; timery i mikrozadania prawdziwe), żeby wynik nie zależał od godziny przebiegu:
@@ -80,7 +82,7 @@ describe('D4b: „Zrobione” przy zaległym karmieniu (SQLite)', () => {
   });
 
   it('BR-KAL-003 Zrobione: zapis dokarmienia z godziną teraz, „Zaległe” znika, „Przywróć” cofa wpis; BR-KAL-007 bez zmiany user_version', async () => {
-    await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 13 * H });
+    await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 13 * H });
     const przed = (await getStarterEntries('zyt')).length;
     const wersja = userVersion();
     let tree!: renderer.ReactTestRenderer;
@@ -111,7 +113,7 @@ describe('D4b: „Zrobione” przy zaległym karmieniu (SQLite)', () => {
   it('BR-KAL-010 Karmienie w inny dzień z „Dziś”: „Zrobione” przy zaległym stałym dniu pyta „Zostaw / Licz od”, „Licz od” zapisuje dzień dokarmienia [M3 D7]', async () => {
     const isoDzis = new Date().getDay() || 7;
     const wczoraj = ((isoDzis + 5) % 7) + 1;
-    await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: Date.now() - 9 * 24 * H, fridgeFeedDay: { weekday: wczoraj, minuteOfDay: 600 } });
+    await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: Date.now() - 9 * 24 * H, fridgeFeedDay: { weekday: wczoraj, minuteOfDay: 600 } });
     const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {

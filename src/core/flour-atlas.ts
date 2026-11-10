@@ -29,7 +29,7 @@ export interface FlourProfile {
 export const FLOUR_PROFILES: FlourProfile[] = [
   {
     id: 'wheat_450',
-    namePl: 'Mąka pszenna typ 450 (Tortowa)',
+    namePl: 'Mąka pszenna typ 450 (tortowa)',
     grain: 'wheat',
     ashTyp: 450,
     proteinPercent: 9.5,
@@ -40,7 +40,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_500',
-    namePl: 'Mąka pszenna typ 500 (Wrocławska)', // MAK-NAZ-001; „Poznańska” bez źródła [M1-audytor-generalny-091]
+    namePl: 'Mąka pszenna typ 500 (wrocławska)', // MAK-NAZ-001; „Poznańska” bez źródła [M1-audytor-generalny-091]
     grain: 'wheat',
     ashTyp: 500,
     proteinPercent: 10.5,
@@ -51,7 +51,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_650',
-    namePl: 'Mąka pszenna typ 650 (Bułkowa)',
+    namePl: 'Mąka pszenna typ 650 (bułkowa)',
     grain: 'wheat',
     ashTyp: 650,
     proteinPercent: 11.5,
@@ -62,7 +62,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_750',
-    namePl: 'Mąka pszenna chlebowa typ 750',
+    namePl: 'Mąka pszenna typ 750 (chlebowa)',
     grain: 'wheat',
     ashTyp: 750,
     proteinPercent: 12.2,
@@ -96,7 +96,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_1850',
-    namePl: 'Mąka pszenna typ 1850 (Graham)',
+    namePl: 'Mąka pszenna typ 1850 (graham)',
     grain: 'wheat',
     ashTyp: 1850,
     proteinPercent: 13.5,
@@ -182,7 +182,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_550',
-    namePl: 'Mąka pszenna typ 550 (Luksusowa)',
+    namePl: 'Mąka pszenna typ 550 (luksusowa)',
     grain: 'wheat',
     ashTyp: 550,
     proteinPercent: 10.5,
@@ -453,3 +453,28 @@ export function normalizeFlourBlend(flours: FlourBlendEntry[]): FlourBlendEntry[
   return result;
 }
 
+
+/**
+ * Nazwy profili sprzed kanonu D-307 (jedna mąka = jedna nazwa) → id profilu: zostają w recepturach i zapasach
+ * zapisanych przez użytkownika i dalej prowadzą do profilu [M1-audytor-generalny-041; 06-tresci-006].
+ */
+export const DAWNE_NAZWY_ATLASU: Readonly<Record<string, string>> = {
+  'Mąka pszenna typ 450 (Tortowa)': 'wheat_450',
+  'Mąka pszenna typ 500 (Wrocławska)': 'wheat_500',
+  'Mąka pszenna typ 500': 'wheat_500', // receptury z odrzutem
+  'Mąka pszenna typ 650 (Bułkowa)': 'wheat_650',
+  'Mąka pszenna chlebowa typ 750': 'wheat_750',
+  'Mąka pszenna typ 1850 (Graham)': 'wheat_1850',
+  'Mąka pszenna typ 550 (Luksusowa)': 'wheat_550',
+};
+
+/** Profil atlasu po nazwie danych: obecna nazwa albo nazwa sprzed kanonu D-307. */
+export function profilPoNazwie(nazwa: string): FlourProfile | undefined {
+  const id = Object.prototype.hasOwnProperty.call(DAWNE_NAZWY_ATLASU, nazwa) ? DAWNE_NAZWY_ATLASU[nazwa] : undefined;
+  return FLOUR_PROFILES.find((p) => p.namePl === nazwa || p.id === id);
+}
+
+/** Mąka w recepturze to ten profil atlasu: nazwa (obecna lub sprzed kanonu D-307) albo typ [M1-audytor-generalny-041]. */
+export function toTenProfil(maka: { name: string; type?: string }, profil: FlourProfile): boolean {
+  return maka.name === profil.namePl || maka.type === profil.id || profilPoNazwie(maka.name)?.id === profil.id;
+}

@@ -50,7 +50,7 @@ describe('src/lib/format.ts', () => {
 
   it('formatTime: PL 24 h, EN 12 h', () => {
     expect(formatTime(D, 'pl')).toBe('21:05');
-    expect(formatTime(D, 'en-US')).toMatch(/^09:05\s?PM$/);
+    expect(formatTime(D, 'en-US')).toMatch(/^9:05\s?PM$/); // 12 h bez zera wiodącego [M1-audytor-generalny-047]
   });
 
   it('appLocale: język aplikacji z regionem urządzenia, gdy język się zgadza', () => {
@@ -92,7 +92,7 @@ describe('miejsca wyświetlania według języka aplikacji', () => {
     setLang('en');
     const en = calculateReverseSchedule(target).sleepCollisions.map((c) => c.time);
     expect(en.length).toBe(pl.length);
-    for (const s of en) expect(s).toMatch(/^\d{2}:\d{2}\s?[AP]M$/);
+    for (const s of en) expect(s).toMatch(/^\d{1,2}:\d{2}\s?[AP]M$/); // 12 h bez zera wiodącego [047]
   });
 
   it("w src/ i app/ nie ma 'pl-PL' ani 'en-US' na sztywno (poza testami)", () => {
@@ -238,18 +238,10 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     expect(t(s.adviceTemplatePl, s.adviceParams)).toContain('(62.5%)');
   });
 
-  it('komunikat adaptacji Q10 (RD-08): PL „21,5°C”, EN po angielsku „21.5°C”', () => {
-    setLang('pl');
-    const pl = calculateFermentationAdaptation(4, 21.5).messagePl;
-    expect(pl).toContain('21,5°C');
-    expect(pl).toContain('wydłużony');
-    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24,0°C');
-    setLang('en');
-    const en = calculateFermentationAdaptation(4, 21.5).messagePl;
-    expect(en).toContain('21.5°C');
-    expect(en).not.toMatch(/[ąćęłńóśźż]|Chłodno|wydłużony/i);
-    expect(calculateFermentationAdaptation(4, 27).messagePl).toContain('27.0°C');
-    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24.0°C');
+  it('adaptacja Q10 (RD-08): domena zwraca rodzaj komunikatu i temperaturę bez tekstu (tekst nie był pokazywany; M1-audytor-generalny-020)', () => {
+    expect(calculateFermentationAdaptation(4, 21.5).komunikat).toEqual(expect.objectContaining({ rodzaj: 'chlodno', temperaturaC: 21.5 }));
+    expect(calculateFermentationAdaptation(4, 24).komunikat).toEqual({ rodzaj: 'optymalna', temperaturaC: 24, minuty: 0 });
+    expect(calculateFermentationAdaptation(4, 27).komunikat.rodzaj).toBe('cieplo');
   });
 });
 

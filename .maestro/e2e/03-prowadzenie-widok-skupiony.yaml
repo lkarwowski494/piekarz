@@ -31,18 +31,47 @@ appId: com.apps4brew.baker
 # jest nieustalona - na runnerze macos-26 mimo launchApp permissions (przebieg 39688253940, zrzut z chwili bledu).
 # "Dalej" wywoluje systemowe okno zgody; jego przycisk nie ma id (okno iOS, nie aplikacji), stad tekst systemu
 # w obu jezykach przebiegu. Oba kroki opcjonalne: przy zgodzie juz nadanej okien nie ma.
-- tapOn:
-    id: "zgoda-dalej-btn"
+# E2E-95: arkusz zgody otwiera sie po odpowiedzi systemu (run 42498413474: 7,15 s), wiec czekanie warunkowe
+# (optional: arkusza nie ma, gdy zgoda juz ustalona) i stukniecie bez optional, gdy arkusz jest
+- extendedWaitUntil:
+    visible:
+      id: "zgoda-dalej-btn"
+    timeout: 30000
     optional: true
-- tapOn:
-    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
-    optional: true
+- runFlow:
+    when:
+      visible:
+        id: "zgoda-dalej-btn"
+    commands:
+      - tapOn:
+          id: "zgoda-dalej-btn"
+      # E2E-96: okno systemu iOS (bez id) otwiera sie po odpowiedzi systemu na prosbe o zgode, wiec jak arkusz wyzej:
+      # czekanie warunkowe i stukniecie bez optional, gdy okno jest. Tylko po "Dalej": bez arkusza okna nie ma
+      - extendedWaitUntil:
+          visible:
+            text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          timeout: 30000
+          optional: true
+      - runFlow:
+          when:
+            visible:
+              text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+          commands:
+            - tapOn:
+                text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
 - extendedWaitUntil:
     visible:
       id: "step-title"
     timeout: 15000
 - assertVisible:
     id: "step-time"
+# Karta "Co zrobic" i ostrzezenie kroku w pierwszym ekranie bez przewijania: na pasie tylko tytul, czas i "potem",
+# Spirala pod karta kroku (M1-audytor-generalny-005, D-318). Pierwszy krok (dokarmienie zakwasu) ma ostrzezenie
+# "Surowy zakwas"; asercja na polu ostrzezenia, nie tylko na karcie (karta przechodzila widoczna w 1/3).
+- assertVisible:
+    id: "karta-kroku"
+- assertVisible:
+    id: "step-warning"
 - assertVisible:
     id: "thumb-bar"
 - assertVisible:
@@ -53,3 +82,5 @@ appId: com.apps4brew.baker
     id: "step-why-btn"
 - assertNotVisible:
     id: "discard-bake-btn"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-03-prowadzenie-widok-skupiony"

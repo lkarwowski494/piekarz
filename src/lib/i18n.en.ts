@@ -32,7 +32,10 @@ import { EN_27 } from './i18n-en/czesc-27';
 import { EN_28 } from './i18n-en/czesc-28';
 import { EN_29 } from './i18n-en/czesc-29';
 import { EN_30 } from './i18n-en/czesc-30';
+import { EN_31 } from './i18n-en/czesc-31';
+import { EN_32 } from './i18n-en/czesc-32';
+import { EN_33 } from './i18n-en/czesc-33';
 
 export const EN: Record<string, string> = {
-  ...EN_1, ...EN_2, ...EN_3, ...EN_4, ...EN_5, ...EN_6, ...EN_7, ...EN_8, ...EN_9, ...EN_10, ...EN_11, ...EN_12, ...EN_13, ...EN_14, ...EN_15, ...EN_16, ...EN_17, ...EN_18, ...EN_19, ...EN_20, ...EN_21, ...EN_22, ...EN_23, ...EN_24, ...EN_25, ...EN_26, ...EN_27, ...EN_28, ...EN_29, ...EN_30,
+  ...EN_1, ...EN_2, ...EN_3, ...EN_4, ...EN_5, ...EN_6, ...EN_7, ...EN_8, ...EN_9, ...EN_10, ...EN_11, ...EN_12, ...EN_13, ...EN_14, ...EN_15, ...EN_16, ...EN_17, ...EN_18, ...EN_19, ...EN_20, ...EN_21, ...EN_22, ...EN_23, ...EN_24, ...EN_25, ...EN_26, ...EN_27, ...EN_28, ...EN_29, ...EN_30, ...EN_31, ...EN_32, ...EN_33,
 };

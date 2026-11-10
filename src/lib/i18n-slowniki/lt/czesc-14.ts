@@ -84,7 +84,7 @@ export const CZESC: Record<string, string> = {
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
     'Duonkepei veikiant, nelieskite garų angos ir jos neuždenkite.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
-    'Vaikus iki 8 metų laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.',
+    'Jaunesnius nei 8 metų vaikus laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':
     'Programos patarimas yra Kepėjo taisyklė, o ne gamintojo rekomendacija, todėl patikrinkite jį savo duonkepės instrukcijoje.',
   'Program „ciasto” podpowiadamy dla wypieków kształtowanych i pieczonych w piekarniku, bo w nim maszyna przygotowuje ciasto, ale go nie piecze.':

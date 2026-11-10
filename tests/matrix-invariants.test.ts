@@ -6,6 +6,7 @@
 import * as fc from 'fast-check';
 import { calculateDoughRecipe, DoughRecipeResult } from '../src/core/domain-rules';
 import { StoredRecipe } from '../src/data/db';
+import { nr } from './helpers/fc-runs';
 
 export interface AppBakeState {
   currentRecipe: StoredRecipe;
@@ -181,7 +182,7 @@ describe('Stateful Random Sequence Property Verification (BR-TEST-006..010)', ()
           }
         }
       ),
-      { numRuns: 500 }
+      { numRuns: nr(500) }
     );
   });
 });

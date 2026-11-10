@@ -1253,7 +1253,7 @@
     "twierdzenie": "Polskim typom mąki odpowiadają typy francuskie (T45–T150), włoskie (Tipo 00–Integrale), niemieckie (Type 405–Vollkornmehl) i kategorie USA (Cake/Pastry, All-Purpose, Bread Flour, Whole Wheat), np. typ 650 ≈ T65 / Tipo 0 / Type 812 / French Style Bread Flour.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Mapowanie w src/core/flour-equivalents.ts (F-46 PÓŹNIEJ, wejście ukryte, D-034) bez przeczytanego źródła; systemy klasyfikacji różnią się podstawą (popiół w Polsce, kategorie USA według białka i zastosowania), więc „≈” to uproszczenie, którego kierunku nie potwierdziło żadne źródło szczebla 1–4. Mapa typów per język: src/core/flour-atlas-ogolne.ts (MAPA_TYPOW_MAK, tylko pl z MAK-TYP-001/002/004/005). Od 2026-10-20 (decyzja przekładu właściciela „Bez numeru”, M1-audytor-generalny-094) w EN i pozostałych 33 językach nazwa ogólna bez polskiego numeru typu i bez odpowiednika lokalnego (docs/tresci/pl/maki-ogolne.md, docs/tresci/en/maki-ogolne.md); do wdrożenia wyświetlania przez rolę 08 EN pokazuje dotychczasową nazwę z typem.",
+    "uwagi": "[DO USTALENIA] Mapowanie w src/core/flour-equivalents.ts (F-46 PÓŹNIEJ, wejście ukryte, D-034) bez przeczytanego źródła; systemy klasyfikacji różnią się podstawą (popiół w Polsce, kategorie USA według białka i zastosowania), więc „≈” to uproszczenie, którego kierunku nie potwierdziło żadne źródło szczebla 1–4. Mapa typów per język: src/core/flour-atlas-ogolne.ts (MAPA_TYPOW_MAK, tylko pl z MAK-TYP-001/002/004/005). Od 2026-10-20 (decyzja przekładu właściciela „Bez numeru”, M1-audytor-generalny-094) w EN i pozostałych 33 językach nazwa ogólna bez polskiego numeru typu i bez odpowiednika lokalnego (docs/tresci/pl/maki-ogolne.md, docs/tresci/en/maki-ogolne.md); do wdrożenia wyświetlania przez rolę 08 EN pokazuje dotychczasową nazwę z typem. D-307 (2026-11-09, M1-audytor-generalny-041, 06-tresci-006): status bez zmian (otwarte) — przekład maszynowy (DEC-06) nie rozstrzyga odpowiedników; nazwy mąk w składnikach receptur i kluczach „Mąka … typ NNN” mają w EN i 33 językach numer polskiego typu i nazwę handlową po polsku, bez odpowiednika i bez przymiotników bez źródła (docs/tresci/pl|en/maki-typy.md, wektor maki-nazwy-2026-11-09.json); opisy ogólne atlasu (OPIS_OGOLNY_MAK) bez numeru jak dotąd.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -10421,5 +10421,219 @@
     "uproszczenie": "Do czasu źródła plan zostawia te czasy jako nazwane uproszczenie planu (D-256): to rezerwa czasu w harmonogramie, nie zalecenie; tekst kroku nie podaje tych liczb. Kierunek: 15 min mieszania i wyrabiania obejmuje 8–10 min wyrabiania ze źródła; krótsze odgazowanie i kształtowanie niż w planie nie skracają rośnięcia (czasy rośnięcia są ze źródeł).",
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "PIE-PIZ-001",
+    "twierdzenie": "Według King Arthur Baking (przepis „Neapolitan-Style Pizza Crust”) piekarnik z płytą stalową albo kamieniem nagrzewa się do 500–550 °F (do 550 °F, jeśli piekarnik tyle osiąga) i trzyma w tej temperaturze co najmniej 30 minut przed pieczeniem; pizzę piecze się około 6 minut na stali albo 7 minut na kamieniu, potem 2–3 minuty pod górnym grillem, a bez grilla kilka minut dłużej (rachunek: 500 °F = 260 °C, 550 °F ≈ 288 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "King Arthur Baking, „Neapolitan-Style Pizza Crust”, Instructions (nagrzewanie i pieczenie) i Tips; tekst strony (python urllib + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F",
+        "cytat": "preheat the oven to 500°F to 550°F (if your oven goes to 550°F) with a baking steel or stone inside.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "jw., Instructions (pieczenie)",
+        "cytat": "Bake the pizza for approximately 6 minutes on the steel or 7 minutes on the stone (give or take). Turn on the oven’s top broiler and continue cooking the pizza for 2 to 3 minutes or until bubbly and charred around the edges.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Wartość dla receptury pizza_napoletana_48h (naczynie: stal): 260 °C, czyli dolna granica przedziału źródła (górna tylko „if your oven goes to 550°F”), i 6 minut na stali; etap pod grillem (2–3 min) w zdaniu wskazówki, bo pola pieczenia receptury opisują dwie fazy w piekarniku. Rachunek: (500 − 32) × 5/9 = 260 °C; (550 − 32) × 5/9 = 287,8 ≈ 288 °C.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "pizza_neapolitanska_temp_pieczenia",
+    "wartosc": 260,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-303",
+    "uwagi": "M1-audytor-generalny-009 (06-tresci-002). Zastępuje 450 °C / 2 min z presetu (bez źródła; ten sam przepis jest źródłem drożdży i czasów receptury, DRO-PIZ-002). Ta sama strona: „Make sure your oven is at the required temperature for at least 30 minutes before baking, so the steel or stone can fully preheat.” oraz „even if you can't use a broiler you can simply bake your pie for a few minutes longer”."
+  },
+  {
+    "id": "PIE-GAR-001",
+    "twierdzenie": "Według King Arthur Baking (przepis „Pain de Campagne”: dwa duże bochenki na zakwasie z 900 g mąki chlebowej, 100 g mąki pełnoziarnistej, 800 g wody, 20 g soli i 40 g zakwasu) garnki nagrzewa się w piekarniku 45 minut w 500 °F; bochenek przekłada się na papier do pieczenia, nacina, na papierze przenosi do garnka i przykrywa pokrywką, a temperaturę od razu obniża do 450 °F i w niej piecze: 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa (rachunek: 500 °F = 260 °C, 450 °F ≈ 232 °C; ciasto 1860 g, czyli ok. 930 g na bochenek).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/pain-de-campagne-recipe",
+        "miejsce": "King Arthur Baking, „Pain de Campagne”, Instructions (pieczenie w garnkach); tekst strony (python urllib + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F",
+        "cytat": "Immediately reduce the oven temperature to 450°F and bake the covered loaves for 20 minutes. Remove the lids from the Dutch ovens and bake the loaves for 20 to 25 minutes uncovered, until they're a deep golden brown.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/pain-de-campagne-recipe",
+        "miejsce": "jw., Instructions (nagrzewanie) i Ingredients („Yield 2 large loaves”; 900 g, 100 g, 800 g, 20 g, 40 g)",
+        "cytat": "Preheat the oven (and Dutch ovens) to 500°F for 45 minutes",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Jeden profil pieczenia dla sześciu receptur bazowych na zakwasie pieczonych w garnku (ciasto 900–950 g na jeden bochenek, jak ok. 930 g bochenka źródła): 232 °C w obu fazach, 20 min pod pokrywką, bez pokrywki wartość receptury z przedziału 20–25 min; nagrzewanie garnka 45 min w 260 °C. Różnice temperatur między recepturami (235–245/205–210 °C) nie miały źródła. Rachunek: (450 − 32) × 5/9 = 232,2 ≈ 232 °C; (500 − 32) × 5/9 = 260 °C; 900 + 100 + 800 + 20 + 40 = 1860 g.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "garnek_zakwas_temp_pieczenia",
+    "wartosc": 232,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-304",
+    "uwagi": "M1-audytor-generalny-008 (06-tresci-001), DEC-03 a. Zgodne co do 450 °F i 20 min pod pokrywką: PIE-GAR-002 (inny przepis KA). Ten przepis ma też 3 serie składań w 45 min i garowanie w lodówce 8–12 h — nie przenoszone do planu (inny proces: 2% zakwasu i 12 h w misce)."
+  },
+  {
+    "id": "PIE-GAR-002",
+    "twierdzenie": "Według King Arthur Baking (przepis „Naturally Leavened Sourdough Bread”, wskazówka o pieczeniu w garnku) pusty garnek nagrzewa się około 30 minut w piekarniku nagrzanym do 450 °F; nacięty bochenek piecze się 20 minut pod pokrywką, potem 10–15 minut bez niej, aż będzie chrupiący i złoty (rachunek: 450 °F ≈ 232 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/naturally-leavened-sourdough-bread-recipe",
+        "miejsce": "King Arthur Baking, „Naturally Leavened Sourdough Bread”, Tips („Want to bake in a Dutch oven?”); tekst strony (python urllib + BeautifulSoup get_text), cytat sprawdzony grep -F",
+        "cytat": "About 30 minutes before the bread is ready to bake, preheat an empty Dutch oven or bread and potato pot in the 450°F oven.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/naturally-leavened-sourdough-bread-recipe",
+        "miejsce": "jw.",
+        "cytat": "bake with the lid on for 20 minutes. Carefully remove the lid and bake for an additional 10 to 15 minutes, until the bread is crusty and golden.",
+        "odczyt": "2026-11-09",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "Potwierdza część wspólną z PIE-GAR-001 (450 °F, 20 min pod pokrywką); krótsza faza bez pokrywki i nagrzewanie 30 min w 450 °F to inny przepis (receptury Piekarza biorą PIE-GAR-001, bochenek tej samej wielkości). Nagrzewanie około 30 min: też KRO-POC-011."
+  },
+  {
+    "id": "PIE-BRI-001",
+    "twierdzenie": "Według The Culinary Institute of America brioszkę w keksówce piecze się tak: piekarnik nagrzewa się do 400 °F, a potem obniża do 350 °F; bochenek smaruje się roztrzepanym jajkiem, piecze 20 minut, obraca i piecze jeszcze 8–10 minut, do złotobrązowego koloru, a po upieczeniu od razu wyjmuje z formy na kratkę (rachunek: 400 °F ≈ 204 °C, 350 °F ≈ 177 °C; razem 28–30 minut).",
+    "zrodla": [
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "The Culinary Institute of America (CIA Foodies), „Brioche”, Directions („For a pan loaf”); tekst strony (python urllib + BeautifulSoup get_text), cytat sprawdzony grep -F",
+        "cytat": "For a pan loaf, preheat the oven to 400°F and then reduce the heat to 350°F. Brush the loaf with egg wash, then bake for 20 minutes. Rotate and bake for an additional 8 to 10 minutes, until golden brown.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Brioszka receptury Piekarza rośnie na Lievito Madre, a źródło na drożdżach instant (DRO-WER-BR-001): parametry pieczenia brioszki w keksówce przeniesione bez zmian (to samo ciasto maślane w tej samej formie; zaczyn dotyczy rośnięcia, nie pieczenia). Wartość dla receptury: 177 °C, bez fazy z parą, 28 min (dolna granica 28–30). Rachunek: (400 − 32) × 5/9 = 204,4 ≈ 204 °C; (350 − 32) × 5/9 = 176,7 ≈ 177 °C; 20 + 8 = 28, 20 + 10 = 30.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "brioszka_keksowka_temp_pieczenia",
+    "wartosc": 177,
+    "jednostka": "°C",
+    "wazne_do": "2027-11-09",
+    "decyzja": "D-304",
+    "uwagi": "M1-audytor-generalny-008 (06-tresci-001). Ta sama strona: „Remove from the pan immediately and transfer to a wire rack to cool.” Czas nagrzewania piekarnika: źródło go nie podaje (PIE-BRI-900)."
+  },
+  {
+    "id": "PIE-BRI-002",
+    "twierdzenie": "Według The Culinary Institute of America ciasto brioszki wyrabia się mikserem: mąkę z drożdżami, częścią masła, jajkami, mlekiem, cukrem i solą miesza się 4 minuty na niskich obrotach, resztę masła dodaje się stopniowo na średnich obrotach, a gdy masło całkiem połączy się z ciastem, miesza się jeszcze 15 minut albo do chwili, gdy ciasto odchodzi od misy; ciasto kładzie się na blasze wyłożonej papierem posmarowanym masłem, szczelnie przykrywa folią i trzyma przez noc w lodówce; do keksówki ciasto rozwałkowuje się dłońmi na długość formy, wkłada do formy lekko posmarowanej masłem, przykrywa folią i zostawia do wyrośnięcia w ciepłym miejscu na 20 minut; potem smaruje się je jajkiem i piecze (PIE-BRI-001).",
+    "zrodla": [
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "The Culinary Institute of America (CIA Foodies), „Brioche”, Directions (wyrabianie); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 63c931215de8",
+        "cytat": "Increase the speed to medium and, with the mixer running, gradually add a scant 1 1/4 cups of the butter, scraping down the sides of the bowl as necessary. After the butter is fully incorporated, mix on medium speed for 15 minutes, or until the dough pulls away from the bowl.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (ciasto na noc w lodówce)",
+        "cytat": "Line a sheet pan with parchment paper, grease it with butter, and place the dough on top. Cover the dough tightly with plastic wrap and refrigerate overnight.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://ciafoodies.com/brioche",
+        "miejsce": "jw., Directions (keksówka: formowanie i rośnięcie)",
+        "cytat": "For the loaf pan, hand roll the dough out to the length of your pan. Grease the pan lightly with butter and place the dough in the pan. Cover with plastic wrap and let proof in a warm place for 20 minutes.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Do planu brioszki Piekarza (Lievito Madre, w recepturze mąka, woda, sól, zakwas i masło; bez jajek, mleka i cukru) przeniesione tylko czynności i ich kolejność: masło stopniowo, wyrabianie do odchodzenia od misy, ciasto na noc w lodówce na blasze, formowanie w keksówce, rośnięcie w ciepłym miejscu pod folią. Nie przeniesione jako zalecenie: czasy (4 + 15 min miksera, 20 min rośnięcia) — dotyczą miksera i ciasta na drożdżach instant (DRO-WER-BR-001); tekst kroków nie podaje liczb, a czasy w logice planu to nazwana rezerwa (PIE-BRI-900, wektor plan-brioszki-2026-11-09.json). Źródło dodaje część masła na początku; notesPl receptury (REC-BAZ-900) każe dodawać masło pod koniec wyrabiania — zdanie kroku („stopniowo, porcjami”, potem wyrabianie do odchodzenia od misy) jest zgodne z oboma.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-012 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2: plan brioszki brał kroki bochenka w koszyku). Zgodne: DRO-WER-BR-002 (20 min w ciepłym miejscu, odczyt 2026-11-03). Teksty: docs/tresci/pl|en/plan-brioszki.md."
+  },
+  {
+    "id": "PIE-BRI-900",
+    "twierdzenie": "[DO USTALENIA] Czasy planu brioszki na Lievito Madre, których źródło receptury (CIA, PIE-BRI-002: ciasto na drożdżach instant, mikser) nie daje dla zaczynu: (1) czy ciasto po wyrobieniu potrzebuje rośnięcia w cieple przed lodówką i jak długo, (2) jak długo ciasto leży w lodówce („przez noc”), (3) jak długo rośnie w keksówce w ciepłym miejscu i po czym poznać gotowość, (4) czas wyrabiania ręcznego, (5) czas nagrzewania piekarnika przed keksówką (krok preheat_oven, dziś 45 min).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła czasy zostają w logice planu jako nazwana rezerwa w harmonogramie (nie zalecenie; tekst kroków nie podaje liczb), jak PLN-KRO-900 i DRO-PLN-900: brioche_mix 20 min (rachunek z PIE-BRI-002: 4 + 15 = 19 min miksera, w górę do 20), brioche_cold 840 min w zakresie 480–1440 (czas i zakres kroku final_proof szablonu, PLN-KRO-900; „na noc” z PIE-BRI-002), brioche_shape 15 min (szablon final_shape), brioche_proof 20 min (czas źródła dla ciasta na drożdżach instant, PIE-BRI-002; dla Lievito Madre zwykle dłużej — dolna rezerwa, tekst każe czekać do wyrośnięcia), preheat_oven 45 min (rezerwa D-304). Kroki (kolejność i czynności) mają źródło: PIE-BRI-002, PIE-BRI-001.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "06-tresci-001 (nowe znalezisko w fix 2026-11-09); M2-012 (fix p3 2026-11-09): kroki rozstrzygnięte źródłem (PIE-BRI-002, plan-brioszki.md), otwarte zostają czasy. Szukane 2026-11-09: przepisów brioszki na zakwasie ze szczebla 1–4 nie znaleziono (wyszukiwarka: King Arthur bez takiego przepisu, adresy sourdough-brioche-recipe 404; pozostałe wyniki to blogi, szczebel 5, czasy rośnięcia od ok. 1,5 do 5 h, nie potwierdzają). M1-audytor-generalny-089 (06-tresci-602, DEC-21 a; rola 06 fix M2 p4, 2026-11-09): do zamknięcia tego wpisu brioszka nie ma planu ani prowadzenia — powodBezPlanu (src/lib/plan-receptury.ts) zwraca powód „Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.” (D-309 → opcja d, do weta D-289); rezerwy czasów wyżej działają już tylko dla wypieków brioszki zaczętych wcześniej. Status: otwarte."
+  },
+  {
+    "id": "PLN-KRO-900",
+    "twierdzenie": "[DO USTALENIA] Liczby planu wypieku na zakwasie bez źródła: 4 serie składań co 30–45 minut (bulk_ferment), lodówka 4–6 °C i garowanie domyślnie 14 h (8–24 h) (final_proof), wydłużenie garowania o 2–4 godziny przy kolizji ze snem, studzenie 120 min (cool), czasy kroków z rękami (src/core/reverse-scheduler.ts, DEFAULT_STAGE_TEMPLATES).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła czasy kroków zostają w logice planu jako nazwane uproszczenie (rezerwa w harmonogramie, nie zalecenie), a teksty kroków nie podają tych liczb (docs/tresci/pl/teksty-glownego-przeplywu.md), jak DRO-PLN-900. Źródła różnią się procesem: King Arthur „Pain de Campagne” — 3 serie składań w 45 minut i garowanie w lodówce 8–12 h przy 2% zakwasu i 12 h w misce (PIE-GAR-001, uwagi).",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Plan bez źródła: komentarz w kodzie „durationMinutes bez źródła (KRO-POC-011)”."
+  },
+  {
+    "id": "DDT-WOD-001",
+    "twierdzenie": "Według King Arthur Baking wymaganą temperaturę wody oblicza się tak: docelową temperaturę ciasta mnoży się przez 3 (ciasto bez zaczynu) albo przez 4 (z zaczynem) i odejmuje od wyniku sumę znanych temperatur — mąki, powietrza, zaczynu i przyrostu od tarcia. Stąd (rachunek): niższa temperatura mąki, powietrza albo zaczynu podnosi wymaganą temperaturę wody o tyle samo stopni, a wyższa ją obniża; niższa docelowa temperatura ciasta obniża ją 3 albo 4 razy tyle. Gdy obliczona woda jest za gorąca, temperaturę wody obniża ogrzanie mąki albo zaczynu albo niższa docelowa temperatura ciasta; gdy jest za zimna, podnosi ją schłodzenie mąki albo zaczynu albo wyższa docelowa temperatura ciasta.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "King Arthur Baking, Pro Reference „Dough Temperatures”, sekcja „Water Temperature” (S-02); tekst strony (curl -L + BeautifulSoup get_text, białe znaki scalone), cytat sprawdzony grep -F; sha256 strony 30bb09273afd",
+        "cytat": "We will multiply this figure by 3 if we are mixing a straight dough, and by 4 if using a preferment. The result will be the total temperature factor. Once we have determined this factor, we subtract from it the sum of the known temperatures, and the result will be the required water temperature.",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "jw., lista czynników (powietrze, mąka, tarcie, zaczyn) i przykłady obliczeń (76 °F × 3 − 72 − 74 − 24 = 58 °F; 75 °F × 4 − 68 − 68 − 71 − 26 = 67 °F)",
+        "cytat": "establish the correct water temperature (the only variable over which we have control)",
+        "odczyt": "2026-11-09",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Kierunek rady to rachunek na wzorze źródła (RD-16 w docs/brd/reguly.md; w kodzie komentarz „RD-05”, src/core/domain-rules.ts calculateDDTWaterTemp): Tw = n × DDT − (Tm + Tp + Tz + Tt), więc ∂Tw/∂Tm = ∂Tw/∂Tp = ∂Tw/∂Tz = −1 i ∂Tw/∂DDT = n (3 albo 4). Przykład (dowody M2-013-rachunek.txt): DDT 25, mąka 15, kuchnia 18, zakwas z lodówki 5, tarcie 10 °C → 52 °C; mąka schłodzona do 10 °C → 57 °C (stara rada pogarsza), mąka i zakwas ogrzane do 18 °C → 36 °C. Źródło nazywa temperatury mąki i powietrza czynnikami „bez kontroli” w piekarni; w domu mąkę i zakwas da się ogrzać do temperatury pokojowej — rada nie każe grzać ich powyżej niej. Rady „obniż temperaturę otoczenia” nie ma: przy za gorącej wodzie chłodniejsze otoczenie podnosi wymaganą temperaturę wody. Rada lodu przy za zimnej wodzie to rachunek bilansu ciepła RD-18 (ciepło topnienia lodu 333,4 J/g, NIST, odczyt 2026-11-09), który aplikacja liczy na danych użytkownika — zdanie ma [T:-].",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-11-09",
+    "uwagi": "M2-013 (D-308 pkt 2; nowe znalezisko 06-tresci fix p2). Progi 45 i 4 °C nadal bez źródła (DDT-WOD-900). NIST „Properties of Ice and Supercooled Water” (tsapps.nist.gov, pub_id=926353): „∆fusH(0 °C) = 333.4 J/g” — pdftotext + grep -F 2026-11-09; źródło RD-18 (S-42), nie tego zdania."
+  },
+  {
+    "id": "DDT-WOD-900",
+    "twierdzenie": "[DO USTALENIA] Progi ostrzeżeń kalkulatora temperatury wody (src/core/domain-rules.ts, calculateDDTWaterTemp): powyżej 45 °C „za gorąca” i poniżej 4 °C „lód”; przyczyna „ugotowanie drożdży i bakterii kwasu mlekowego”.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Do czasu źródła progi zostają w logice bez zmiany wartości, a komunikaty nie podają liczby ani przyczyny (teksty-glownego-przeplywu.md). Źródła w rejestrze nie dają progu szkodliwej temperatury wody dla zakwasu: DRO-INS-010 (Fleischmann’s: płyn 120–130 °F przy drożdżach instant mieszanych z mąką) i DRO-INS-004 (Red Star: 110–115 °F do próby drożdży suchych aktywnych) dotyczą drożdży piekarskich.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Rada „Schłodź mąkę lub obniż temperaturę otoczenia” przy wodzie za gorącej odwracała rachunek wzoru — rozstrzygnięte w M2-013 (fix p3 2026-11-09): kierunek rady w DDT-WOD-001, teksty w teksty-glownego-przeplywu.md. Otwarte zostają progi i przyczyna."
+  },
+  {
+    "id": "REC-BAZ-900",
+    "twierdzenie": "[DO USTALENIA] Liczby i zalecenia receptur bazowych bez źródła (src/recipes/presets-*.ts): białko mąki minimum 13% (tartine_high_hydration_80); 4 serie składań co 30 minut i garowanie w lodówce 12–16 h (country_loaf_72); 3 serie składań (pain_de_campagne); fermentacja 18–24 h w 4 °C (san_francisco_sourdough); moczenie ziaren 2 h (spelt_ancient_seeded); autoliza 45 minut (graham_bread_honey); odświeżanie Lievito Madre 3 razy co 4 h i masło 25% (lievito_madre_panettone_brioche); poolish 20% mąki i 100% hydratacji (baguette_tradition_poolish); nazwa „80%” przy wodzie 76% (tartine_high_hydration_80).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": "Zalecenia (składania, garowanie, moczenie, białko, autoliza 45 min) usunięte z tekstu wersji zweryfikowanej (teksty-glownego-przeplywu.md); skład receptury (masło 25%, poolish 20%/100%, odświeżanie zakwasu) zostaje w kodzie bez zmian do czasu źródła albo decyzji (D-305).",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "M1-audytor-generalny-010 (06-tresci-003). Autoliza 60 minut (tartine) ma źródło: RAT-SOL-004 (20–60 minut)."
   }
 ]

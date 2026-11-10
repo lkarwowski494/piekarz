@@ -194,10 +194,11 @@ describe('D1: sesje wypieków i recipe_id', () => {
     if (!db) throw new Error('brak bazy');
     // D3a-fix: wynik mówi też, czy wiersz kończonego wypieku był (P1-1)
     const wyniki: Array<{ trwal: boolean; recipeId?: string }> = [];
-    await db.withTransactionAsync(async () => {
-      wyniki.push(await sesje.zakonczSesjeWTransakcji(db, {}));
-      wyniki.push(await sesje.zakonczSesjeWTransakcji(db, { sessionId: 'bake_live' }));
-      wyniki.push(await sesje.zakonczSesjeWTransakcji(db, { sessionId: 'bake_live' }));
+    // Treść transakcji przez tx (kolejka zapisów) [M1-audytor-generalny-001]
+    await db.withTransactionAsync(async (tx) => {
+      wyniki.push(await sesje.zakonczSesjeWTransakcji(tx, {}));
+      wyniki.push(await sesje.zakonczSesjeWTransakcji(tx, { sessionId: 'bake_live' }));
+      wyniki.push(await sesje.zakonczSesjeWTransakcji(tx, { sessionId: 'bake_live' }));
     });
     expect(wyniki).toEqual([{ trwal: false }, { trwal: true, recipeId: 'recipe_user_3' }, { trwal: false }]);
     expect(idSesji()).toEqual([]);
@@ -270,7 +271,7 @@ describe('D1: czytajNowePola i zapiszStalyDzien na bazie', () => {
     const db = await app.schema.getDb();
     if (!db) throw new Error('brak bazy');
     const { zapiszStalyDzien, czytajNowePola } = pola();
-    await db.withTransactionAsync(() => zapiszStalyDzien(db, 'starter_lodowka', { weekday: 6, minuteOfDay: 480 }));
+    await db.withTransactionAsync((tx) => zapiszStalyDzien(tx, 'starter_lodowka', { weekday: 6, minuteOfDay: 480 })); // tx [M1-audytor-generalny-001]
     const tel = await czytajNowePola(db);
     expect(tel.dzien.get('starter_lodowka')).toEqual({ weekday: 6, minuteOfDay: 480 });
     expect(tel.dzien.get('starter_blat')).toBeNull();

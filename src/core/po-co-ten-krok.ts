@@ -8,6 +8,8 @@
 import type { SessionStep } from './bake-steps';
 import type { DutchOvenBakePhase } from './baking-phases';
 import { stepKindOf } from './step-warnings';
+import { BRIOCHE_STAGE_IDS } from './brioche-stages';
+import { krokiPieczenia, PIECZENIE_DOMYSLNE } from './pieczenie-receptury';
 
 export interface ZdaniePoCo {
   /** Tekst PL (klucz dla t()). */
@@ -52,11 +54,31 @@ export const PO_CO_TEN_KROK: Readonly<Record<string, readonly ZdaniePoCo[]>> = {
 /** [DO USTALENIA] KRO-POC-900: etapy żytnie bez źródła celu — bez wyjaśnienia (RYZ-21). */
 export const PO_CO_BEZ_ZRODLA: readonly string[] = ['rye_mix', 'rye_rest', 'rye_shape', 'rye_proof', 'rye_bake'];
 
+/** Instrukcja nagrzewania piekarnika pod keksówkę (D-304): krok „preheat_oven” brioszki, nie garnka. */
+const NAGRZEWANIE_KEKSOWKI = krokiPieczenia({ ...PIECZENIE_DOMYSLNE, naczynie: 'bread_pan', tekstZrodla: true }).nagrzewanie.instructionsPl;
+/** Nagrzewanie bez liczb (keksówka i stal spoza wektora D-304): bez zdania o garnku (KRO-POC-011) [M1-audytor-generalny-088]. */
+const NAGRZEWANIE_BEZ_LICZB = krokiPieczenia({ ...PIECZENIE_DOMYSLNE, naczynie: 'bread_pan' }).nagrzewanie.instructionsPl;
+
+/**
+ * Plan brioszki (D-309): tylko zdania o krokach, które plan ma — bez składania (KRO-POC-006), koszyka (KRO-POC-009),
+ * lodówki przy rośnięciu w cieple (KRO-POC-010, zdanie 2), garnka (KRO-POC-011) i nacięcia (KRO-POC-012) [M2-012].
+ * Zdania są podzbiorem sekcji pliku treści, bez nowej treści; null = przycisk nieaktywny.
+ */
+const PO_CO_BRIOSZKI: Readonly<Record<string, readonly ZdaniePoCo[] | null>> = {
+  brioche_mix: PO_CO_TEN_KROK.mix,
+  brioche_cold: PO_CO_TEN_KROK.bulk_ferment.filter((zd) => zd.id === 'KRO-POC-005'),
+  brioche_shape: null,
+  brioche_proof: PO_CO_TEN_KROK.final_proof.slice(0, 1),
+  bake_forma: null,
+};
+
 /**
  * Zdania „po co ten krok” dla kroku sesji; krok w garnku: nacięcie (bake) i zdanie bieżącej fazy pokrywki.
  * Krok bez sekcji w pliku treści albo z KRO-POC-900 → null (przycisk nieaktywny, bez zmyślonej treści).
  */
-export function poCoTenKrok(step: Pick<SessionStep, 'id' | 'category'>, phase?: DutchOvenBakePhase): readonly ZdaniePoCo[] | null {
+export function poCoTenKrok(step: Pick<SessionStep, 'id' | 'category'> & { instructions?: string }, phase?: DutchOvenBakePhase): readonly ZdaniePoCo[] | null {
+  if (BRIOCHE_STAGE_IDS.includes(step.id) || step.id === 'bake_forma') return PO_CO_BRIOSZKI[step.id] ?? null;
+  if (step.category === 'preheat_oven' && (step.instructions === NAGRZEWANIE_KEKSOWKI || step.instructions === NAGRZEWANIE_BEZ_LICZB)) return null;
   const rodzaj = stepKindOf(step);
   if (PO_CO_BEZ_ZRODLA.includes(rodzaj) || !Object.prototype.hasOwnProperty.call(PO_CO_TEN_KROK, rodzaj)) return null;
   const faza = rodzaj === 'bake' && phase ? PO_CO_TEN_KROK[phase] : [];

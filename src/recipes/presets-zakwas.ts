@@ -10,10 +10,11 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
     id: 'country_loaf_72',
     namePl: 'Wiejski chleb codzienny na zakwasie',
     category: 'sourdough',
-    descriptionPl: 'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Bochenek pszenno-żytni na zakwasie.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 80.0, type: 'pszenna_750' },
         { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
       ],
       waterPercentage: 68.0,
@@ -23,18 +24,21 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 900,
     },
     targetDDT: 25.0,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 22,
-    bakeTempSteamC: 240,
-    bakeTempBrowningC: 210,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Wypiek w garnku żeliwnym. Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w lodówce.',
   },
   {
     id: 'tartine_high_hydration_80',
     namePl: 'Wiejski chleb na zakwasie, 80%',
     category: 'sourdough',
-    descriptionPl: 'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Bochenek na zakwasie o wysokiej hydratacji.',
     formula: {
       flours: [
         { name: 'Mąka pszenna Manitoba', percentage: 90.0, type: 'pszenna_manitoba' },
@@ -47,21 +51,24 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 950,
     },
     targetDDT: 26.0,
-    bakeTimeSteamMinutes: 22,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
+    bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 25,
-    bakeTempSteamC: 245,
-    bakeTempBrowningC: 210,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Autoliza 60 minut bez soli. Ciasto rozciągaj i składaj delikatnie w czasie fermentacji.',
   },
   {
     id: 'san_francisco_sourdough',
     namePl: 'Chleb w stylu San Francisco o wyrazistej kwasowości',
     category: 'sourdough',
-    descriptionPl: 'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Chleb na zakwasie w stylu San Francisco.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 90.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 90.0, type: 'pszenna_750' },
         { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
       ],
       waterPercentage: 70.0,
@@ -71,22 +78,25 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 920,
     },
     targetDDT: 24.0,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 24,
-    bakeTempSteamC: 240,
-    bakeTempBrowningC: 210,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Wydłużona fermentacja w chłodzie. Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek w garnku żeliwnym.',
   },
   {
     id: 'pain_de_campagne',
     namePl: 'Francuski Pain de Campagne (Chleb Wiejski)',
     category: 'sourdough',
-    descriptionPl: 'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Bochenek na zakwasie z mąki pszennej jasnej, graham i żytniej.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 75.0, type: 'pszenna_750' },
-        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 15.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 75.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 1850 (graham)', percentage: 15.0, type: 'pszenna_graham' },
         { name: 'Mąka żytnia typ 720', percentage: 10.0, type: 'zytnia_720' },
       ],
       waterPercentage: 69.0,
@@ -96,18 +106,21 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 930,
     },
     targetDDT: 24.5,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 23,
-    bakeTempSteamC: 240,
-    bakeTempBrowningC: 210,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Ciasto rozciągaj i składaj w czasie fermentacji, a garuj w owalnym koszyku.',
   },
   {
     id: 'spelt_ancient_seeded',
     namePl: 'Pradawny chleb orkiszowy z prażonymi ziarnami',
     category: 'sourdough',
-    descriptionPl: 'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Bochenek orkiszowy na zakwasie z prażonym siemieniem, słonecznikiem i sezamem.',
     formula: {
       flours: [
         { name: 'Mąka orkiszowa', percentage: 70.0, type: 'orkisz_630' },
@@ -120,22 +133,25 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 920,
     },
     targetDDT: 24.0,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 22,
-    bakeTempSteamC: 235,
-    bakeTempBrowningC: 205,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Ziarna upraż na suchej patelni i namocz w ciepłej wodzie, zanim dodasz je do ciasta.',
   },
   {
     id: 'graham_bread_honey',
     namePl: 'Chleb Graham z miodem i siemieniem',
     category: 'sourdough',
-    descriptionPl: 'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    descriptionPl: 'Chleb na zakwasie z mąki graham, z miodem i siemieniem lnianym.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 60.0, type: 'pszenna_graham' },
-        { name: 'Mąka pszenna chlebowa typ 750', percentage: 40.0, type: 'pszenna_750' },
+        { name: 'Mąka pszenna typ 1850 (graham)', percentage: 60.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 750 (chlebowa)', percentage: 40.0, type: 'pszenna_750' },
       ],
       waterPercentage: 72.0,
       saltPercentage: 2.0,
@@ -144,11 +160,13 @@ export const PRESETY_ZAKWAS: RecipePreset[] = [
       targetDoughWeightGrams: 900,
     },
     targetDDT: 25.0,
+    // Garnek 232 °C: 20 min pod pokrywką, 20–25 min bez (PIE-GAR-001, D-304) [M1-audytor-generalny-008]
     bakeTimeSteamMinutes: 20,
     bakeTimeBrowningMinutes: 23,
-    bakeTempSteamC: 235,
-    bakeTempBrowningC: 205,
+    bakeTempSteamC: 232,
+    bakeTempBrowningC: 232,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.',
+    // D-305 (docs/tresci/pl/teksty-glownego-przeplywu.md) [M1-audytor-generalny-010]
+    notesPl: 'Przed dodaniem soli i zakwasu zostaw mąkę z wodą na autolizę.',
   },
 ];

@@ -182,7 +182,7 @@ describe('FlourBlendModal Component (src/components/FlourBlendModal.tsx)', () =>
     expect(mockOnApply).not.toHaveBeenCalled();
   });
 
-  it('przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11]', async () => {
+  it('przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11] (styl, bez pomiaru)', async () => {
     await act(async () => {
       tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
     });
@@ -193,7 +193,7 @@ describe('FlourBlendModal Component (src/components/FlourBlendModal.tsx)', () =>
     expect({ flexDirection: s.flexDirection, flexWrap: s.flexWrap }).toEqual({ flexDirection: 'row', flexWrap: 'wrap' });
   });
 
-  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]', async () => {
+  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6] (styl, bez pomiaru)', async () => {
     await act(async () => {
       tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
     });

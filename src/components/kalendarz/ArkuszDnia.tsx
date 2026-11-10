@@ -3,11 +3,12 @@
 // Systemowy arkusz (Modal pageSheet jak „Plan wypieku”): tytuł z datą, w dniu dzisiejszym zaległe na górze z tymi
 // samymi „Zrobione”/„Pomiń” co linia „Następne”, potem zdarzenia dnia w kolejności godzin, każde z przejściem do
 // swojego ekranu; dzień pusty: „Tego dnia nic nie zaplanowano.” bez pustej listy. „+N”: 7 kolejnych dni po dniach.
+// Na systemie kart: „Zamknij” w pasku arkusza, data (albo „Najbliższe dni”) jako nagłówek karty z wierszami dnia,
+// dni „+N” jako podnagłówki w tej karcie (README §1, §3) [M1-audytor-generalny-007; 04-studio-projektowe-003].
 // ============================================================================
 
 import React from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { arkuszDnia, najblizszeZdarzenia } from '../../core/kalendarz-nastepne';
 import { skrotZaplanuj } from '../../core/plany-wypiekow';
 import type { ZdarzenieKalendarza } from '../../core/kalendarz-zdarzenia';
@@ -17,7 +18,10 @@ import { dataSlownie } from '../../lib/kalendarz-pasek';
 import { opisZdarzenia, tekstyNastepne, type OpcjeTekstu } from '../../lib/kalendarz-teksty';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
-import { CloseButton } from '../CloseButton';
+import { CLOSE_TEST_ID } from '../CloseButton';
+import { ArkuszKart } from '../arkusz/ArkuszKart';
+import { Karta } from '../../ui/karty/Karta';
+import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { OznaczeniePro } from '../OznaczeniePro';
 import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
 import { WierszZaleglego, type AkcjeZaleglego } from './LiniaNastepne';
@@ -109,25 +113,19 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, licz
   }
 
   return (
-    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
-      <SafeAreaView style={styles.arkusz} edges={['top', 'bottom', 'left', 'right']}>
-        <View style={styles.naglowek}>
-          <Text style={styles.tytul} accessibilityRole="header" testID="arkusz-dnia-tytul">{tytul}</Text>
-          <CloseButton akcja="zamknij" onPress={onClose} />
-        </View>
-        <ScrollView contentContainerStyle={styles.tresc} keyboardShouldPersistTaps="handled" testID="arkusz-dnia">
+    <ArkuszKart visible={tryb !== null} onRequestClose={onClose} onDismiss={onDismiss}
+      lewy={{ tekst: t('Zamknij'), onPress: onClose, testID: CLOSE_TEST_ID }}>
+      {tryb && (
+        // testID karty „arkusz-dnia”: nagłówek karty niesie „arkusz-dnia-tytul” (E2E 03, testy kalendarza)
+        <Karta testID="arkusz-dnia" tytul={tytul} ikona={<IkonaKarty nazwa="kalendarz" />}>
           {tresc}
-        </ScrollView>
-      </SafeAreaView>
-    </Modal>
+        </Karta>
+      )}
+    </ArkuszKart>
   );
 }
 
 const styles = StyleSheet.create({
-  arkusz: { flex: 1, backgroundColor: theme.colors.tlo },
-  naglowek: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: odstepy.l, paddingVertical: odstepy.s, gap: odstepy.s },
-  tytul: { flex: 1, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
-  tresc: { padding: odstepy.l, paddingBottom: odstepy.xxxl, gap: odstepy.m },
   pusto: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz2 },
   grupa: { gap: odstepy.xs },
   naglowekDnia: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz2, marginTop: odstepy.s },

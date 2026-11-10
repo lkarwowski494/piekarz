@@ -197,7 +197,7 @@ describe('M3 p4: Plan i Prowadzenie na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, w kartach bez maxFontSizeMultiplier', async () => {
+  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, w kartach bez maxFontSizeMultiplier (styl, bez pomiaru)', async () => {
     const pomiar = async (fs: number) => {
       Object.assign(mockOkno, { width: 320, fontScale: fs });
       const p = await plan();

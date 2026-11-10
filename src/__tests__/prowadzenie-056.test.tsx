@@ -143,6 +143,6 @@ describe('056: prowadzenie w widoku skupionym z paskiem kciuka (design-spec §11
     const s = root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'brand-spiral');
     expect(s).toHaveLength(1);
     expect(s[0].props.accessibilityRole).toBe('image');
-    expect(s[0].props.accessibilityLabel).toMatch(/^Plan wypieku, krok 1 z 11: Dokarmienie zakwasu \(osiągnięcie szczytu\), zostało 6 godzin\. Gotowe .+ o \d\d:\d\d\.$/);
+    expect(s[0].props.accessibilityLabel).toMatch(/^Plan wypieku, krok 1 z 11: Dokarmienie zakwasu \(osiągnięcie szczytu\), zostało 6 godzin\. Gotowe(?: .+ o |: .+, )\d\d:\d\d\.$/);
   });
 });

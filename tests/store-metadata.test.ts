@@ -158,6 +158,26 @@ describe('notatki dla App Review (078)', () => {
     expect(notatki).not.toMatch(/introductory offer|Free Trial/i);
   });
 
+  // M1-audytor-generalny-081 (10-wydanie-006, WYD-11): tryb maszyny do chleba (godzina gotowości i opóźniony start w Pro,
+  // D-189, D-152) i przełącznik „na zakwasie / na drożdżach” mają w notatkach ścieżkę z nazw przycisków słownika EN,
+  // w kolejności kroków; nazwa receptury z katalogu (namePl) nie jest kluczem t() w app/, więc sprawdzana tylko w słowniku.
+  const MASZYNA = ['Piekę na drożdżach albo pizzę', 'Ile pieczesz', 'Maszyna do chleba', 'Pojemność maszyny', 'Czas programu', 'Gotowe o', 'Zapisz plan'];
+  const WERSJA = ['na zakwasie|wersja receptury', 'na drożdżach|wersja receptury'];
+  it('prowadzą do trybu maszyny do chleba (Pro) i przełącznika wersji drożdżowej przyciskami z interfejsu EN (081)', () => {
+    for (const pl of [...MASZYNA, 'Chleb pszenny foremkowy', ...WERSJA]) {
+      expect({ pl, jest: notatki.includes(en(pl)) }).toEqual({ pl, jest: true });
+    }
+    const naglowek = 'Bread machine mode (Pro):';
+    expect(notatki).toContain(naglowek);
+    const punkt = notatki.slice(notatki.indexOf(naglowek) + naglowek.length).split('\n- ')[0];
+    const kroki = MASZYNA.map((pl) => punkt.indexOf(en(pl)));
+    expect(kroki.every((i) => i >= 0)).toBe(true);
+    expect(kroki).toEqual([...kroki].sort((a, b) => a - b));
+    for (const pl of [...MASZYNA, ...WERSJA]) {
+      expect({ pl, wInterfejsie: wInterfejsie(pl) }).toEqual({ pl, wInterfejsie: true });
+    }
+  });
+
   it('każda nazwa przycisku z notatek jest tekstem dzisiejszego interfejsu (t() w app/ albo src/components/) (119, 10-wydanie-020)', () => {
     for (const pl of [...KROKI_IMPORTU, ...FUNKCJE.map(([k]) => k)]) {
       expect({ pl, wInterfejsie: wInterfejsie(pl) }).toEqual({ pl, wInterfejsie: true });

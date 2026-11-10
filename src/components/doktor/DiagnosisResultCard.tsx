@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tloGrupa,
   },
   severityBadgeText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
   },
   badgeTextCritical: {
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   diagnosisSubtitle: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
   },
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   },
   checklistTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 8,
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   bulletCheck: {
     color: theme.colors.akcentTekst,
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     marginRight: 8,
     marginTop: 1,

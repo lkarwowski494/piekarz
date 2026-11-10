@@ -14,47 +14,52 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
   if (!db) return [...memStore.recipes];
 
   try {
-    const rows = await db.getAllAsync<{
-      id: string;
-      name: string;
-      formula_json: string;
-      target_ddt: number;
-      notes: string | null;
-      is_built_in: number;
-      created_at: number;
-    }>('SELECT * FROM recipes ORDER BY created_at ASC;');
-
-    if (rows.length === 0) return [...memStore.recipes];
-
-    // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022],
-    // a jego surowa treść trafia do pliku ratunkowego i kopii [M1-audytor-generalny-121]
-    const out: StoredRecipe[] = [];
-    for (const r of rows) {
-      let formula: unknown;
-      try {
-        formula = JSON.parse(r.formula_json);
-      } catch {
-        zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
-        continue;
-      }
-      if (!isRecipeInput(formula)) {
-        zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
-        continue;
-      }
-      out.push({
-        id: r.id,
-        name: r.name,
-        formula,
-        targetDDT: r.target_ddt,
-        notes: r.notes ?? undefined,
-        isBuiltIn: r.is_built_in === 1,
-        createdAt: r.created_at,
-      });
-    }
-    return out;
+    return (await czytajReceptury(db)) ?? [...memStore.recipes];
   } catch (e) {
     return odczytNieudany(e);
   }
+}
+
+/** Receptury z podanego połączenia (także osobnej bazy z pakietu awaryjnego); null = tabela pusta. */
+export async function czytajReceptury(db: import('expo-sqlite').SQLiteDatabase): Promise<StoredRecipe[] | null> {
+  const rows = await db.getAllAsync<{
+    id: string;
+    name: string;
+    formula_json: string;
+    target_ddt: number;
+    notes: string | null;
+    is_built_in: number;
+    created_at: number;
+  }>('SELECT * FROM recipes ORDER BY created_at ASC;');
+
+  if (rows.length === 0) return null;
+
+  // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022],
+  // a jego surowa treść trafia do pliku ratunkowego i kopii [M1-audytor-generalny-121]
+  const out: StoredRecipe[] = [];
+  for (const r of rows) {
+    let formula: unknown;
+    try {
+      formula = JSON.parse(r.formula_json);
+    } catch {
+      zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
+      continue;
+    }
+    if (!isRecipeInput(formula)) {
+      zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
+      continue;
+    }
+    out.push({
+      id: r.id,
+      name: r.name,
+      formula,
+      targetDDT: r.target_ddt,
+      notes: r.notes ?? undefined,
+      isBuiltIn: r.is_built_in === 1,
+      createdAt: r.created_at,
+    });
+  }
+  return out;
 }
 
 export async function saveRecipe(recipe: StoredRecipe): Promise<void> {

@@ -38,34 +38,37 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 魯邦種,天然酵母,裸麥麵包,水合率,揉麵團,發酵時間,烘焙排程,披薩麵團
 ```
 
-### Tekst promocyjny (Promotional Text) · 56 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 57 / 170 znaków · wersja 1.0
 
 ```text
-設定麵包完成的時間：麵包師傅 會算出用量、倒推排好時程，並在每個步驟結束時通知你。不需帳號、不需網路、沒有廣告。
+麵包師傅 會算出用量，並在每個步驟結束時通知你。從麵包完成時間倒推的時程（Pro）。不需帳號、不需網路、沒有廣告。
 ```
 
-### Opis (Description) · 1226 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1347 / 4000 znaków · wersja 1.0
 
 ```text
 麵包師傅 帶你完成天然酵母麵包的烘焙，從配方到出爐的麵包：計算用量、排好時程，並在手機休眠時幫你掌握時間。不需帳號、不需網路，沒有廣告，也不追蹤。你的配方、天然酵母起種和日誌只會留在你的手機裡。
 
 配方與用量
-從 15 種基礎配方（天然酵母、裸麥、酵母、披薩和甜點）中選一種，或使用你自己的配方。設定麵包數量或麵粉重量，麵包師傅 就會算出麵粉、水、天然酵母起種、鹽和酵母的克數。烘焙百分比會計入天然酵母起種與酵頭中的麵粉和水。麵包師傅 也會依你想要的麵團溫度，算出所需水溫。
+從 26 種基礎配方（天然酵母、裸麥、酵母、披薩和甜點）中選一種，或使用你自己的配方；其中 11 種天然酵母配方有時程與逐步引導。設定麵包數量或麵粉重量，麵包師傅 就會算出麵粉、水、天然酵母起種、鹽和酵母的克數。烘焙百分比會計入天然酵母起種與酵頭中的麵粉和水（酵頭：Pro）。麵包師傅 也會依你想要的麵團溫度，算出所需水溫。
 
-從「完成」時間排定時程
+酵母版本與麵包機
+四種天然酵母配方也有酵母版本，其中三種有時程。酵母配方和酵母版本也能用麵包機製作：麵包師傅 會依麵包機調整用量，列出放入材料的順序和行程，並依你選擇的完成時間算出啟動時間（Pro）。
+
+從「完成」時間排定時程（Pro）
 選擇麵包要完成的時間，麵包師傅 會倒推出每個步驟的開始時間。發酵時間依廚房溫度而定。當需要你動手的步驟落在夜間（預設為 23:00 到 07:00），麵包師傅 會建議延長冷藏時間。如果時間不夠，會告訴你最早可能的時間。
 
 逐步引導
 麵包師傅 會顯示目前步驟：該做什麼、需要多久，以及接下來是什麼。允許通知後，即使手機已鎖定，步驟結束時也會通知你。在需要你動手的步驟中，引導畫面不會關閉。涉及高溫鍋具或生麵團的步驟會附上警告。裸麥麵包（裸麥粉佔麵粉一半以上）有專屬步驟，不需翻面拉摺。不小心確認的步驟可以復原，重新開啟 App 時也會回到目前步驟。
 
 天然酵母起種
-你可以同時管理多個天然酵母起種。麵包師傅 會依 1:1:1、1:2:2、1:3:3 或 1:5:5 的比例算出餵養用量。天然酵母起種體積膨脹為兩倍時，麵包師傅 會標示它可以用來做麵團。若在檯面上放置 12 小時未餵養，會以通知提醒你。你也可以一天一天養出新的天然酵母起種。麵包師傅 遵循謹慎原則：只要出現表層覆膜、變色或腐臭味，就會建議你丟掉天然酵母起種。
+你也可以一天一天養出新的天然酵母起種。麵包師傅 遵循謹慎原則：只要出現表層覆膜、變色或腐臭味，就會建議你丟掉天然酵母起種。起種照護（Pro）：管理多個天然酵母起種、依 1:1:1、1:2:2、1:3:3 或 1:5:5 的比例算出餵養用量、體積膨脹為兩倍時標示可用，以及在檯面上放置 12 小時未餵養時的通知提醒。
 
 麵包醫生
 內部組織紮實、外皮蒼白？勾選症狀，麵包醫生就會指出 9 種缺陷之一，說明原因，並告訴你下次該調整什麼。發酵過程中麵團出狀況時，四套救援流程可以幫上忙。當天然酵母起種有讓你擔心的地方，起種醫生會提供協助。
 
 日誌
-為每個麵包評分：星等、內部組織、外皮和風味特性。日誌會顯示統計數據，「再烤一次」則會開啟同一份配方。
+為每個麵包評分：星等、內部組織、外皮和風味特性。日誌會顯示統計數據（Pro），「再烤一次」則會開啟同一份配方。
 
 你的資料
 麵包師傅 會在手機中保留最近 10 份自動備份。你可以把所有資料匯出成檔案、從檔案匯入，也能將烘焙紀錄匯出為 CSV。單位：公克與 °C，或盎司與 °F。
@@ -116,12 +119,12 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 | Storefront | Cena ręczna (mies. / rok / dożywotni) | Źródło |
 |---|---|---|
-| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-038, docs/wydanie/ceny.json |
+| USA (United States), bazowy | 0,99 / 6,99 / 14,99 USD | D-112, docs/wydanie/ceny.json |
 
 Pozostałe storefronty tej karty (3): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

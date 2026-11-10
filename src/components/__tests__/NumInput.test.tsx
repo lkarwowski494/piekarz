@@ -109,7 +109,7 @@ describe('NumInput Component Specification (NFR-INT-003 & RD-ENG-01)', () => {
     expect(onChangeNumber).toHaveBeenCalledWith(100); // clamped to max
   });
 
-  it('provides a touch target meeting RD-ENG-03 (>= 44pt)', () => {
+  it('provides a touch target meeting RD-ENG-03 (>= 44pt) (styl, bez pomiaru)', () => {
     let tree!: renderer.ReactTestRenderer;
     act(() => {
       tree = renderer.create(<NumInput value={1} testID="test-num-input" />);

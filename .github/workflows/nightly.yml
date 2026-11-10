@@ -47,5 +47,19 @@ jobs:
       - name: Full Quality Gate (npm run verify)
         run: npm run verify
 
+      - name: Restore mutation incremental cache
+        uses: actions/cache/restore@v4
+        with:
+          path: reports/stryker-incremental.json
+          key: stryker-incremental-${{ github.run_id }}
+          restore-keys: stryker-incremental-
+
       - name: Stryker Mutation Verification
         run: npm run test:mutation
+
+      - name: Save mutation incremental cache
+        if: always() && hashFiles('reports/stryker-incremental.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: reports/stryker-incremental.json
+          key: stryker-incremental-${{ github.run_id }}

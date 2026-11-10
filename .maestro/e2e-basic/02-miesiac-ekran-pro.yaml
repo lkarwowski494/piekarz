@@ -39,3 +39,5 @@ appId: com.apps4brew.baker
     id: "miesiac-siatka"
 - assertVisible:
     id: "start-czynnosci"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-02-miesiac-ekran-pro"

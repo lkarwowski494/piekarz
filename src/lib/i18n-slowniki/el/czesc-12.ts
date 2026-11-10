@@ -95,7 +95,7 @@ export const CZESC: Record<string, string> = {
   'Zobacz źródła': 'Προβολή πηγών',
   'Zostaje wgłębienie i ciasto siada:': 'Μένει βαθούλωμα και η ζύμη ξεφουσκώνει:',
   'zostało {czas}': 'υπόλοιπο {czas}',
-  'zostało {czas}, do {godzina}': 'υπόλοιπο {czas}, έως τις {godzina}',
+  'zostało {czas}, do {godzina}': 'υπόλοιπο {czas}, έως την ώρα {godzina}',
   'zostanie trwale usunięta z bazy.': 'θα διαγραφεί οριστικά από τη βάση δεδομένων.',
   'zostanie trwale usunięty wraz z całą historią dokarmiania.': 'θα διαγραφεί οριστικά μαζί με όλο το ιστορικό ταΐσματος.',
   'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.': 'Αφήστε τη ζύμη στη φόρμα, μέχρι η επιφάνειά της να φτάσει στο χείλος της φόρμας.',

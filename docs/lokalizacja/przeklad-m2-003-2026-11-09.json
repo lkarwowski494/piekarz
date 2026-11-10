@@ -1,0 +1,189 @@
+{
+  "_opis": "Przekład 3 kluczy M1-audytor-generalny-003 (12-niezawodnosc-001, DEC-17 a: ostrzeżenie przed usunięciem aplikacji, co zrobić z plikiem kopii, nieodczytany pakiet bazy): MT claude-opus-5-5 (M2, 2026-11-09) wzorowany na przetłumaczonych kluczach „Importuj z pliku”, „Ustawienia”, „Napisz do nas”, „Nie udało się zaimportować kopii” i „Kopia danych sprzed aktualizacji… np. zapisać w Plikach” (nazwa aplikacji Pliki) w każdym języku; drugi przegląd AI: nieodbyty (sesja roli 12 jako subagent bez narzędzia subagentów; uruchomi M2); przegląd natywny: brak (DEC-06). Teksty PL do akceptacji roli 04.",
+  "pl": [
+    "Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.",
+    "Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.",
+    "Nie odczytałem danych z tej kopii bazy. Zachowaj plik i napisz do nas."
+  ],
+  "jezyki": {
+    "cs": [
+      "Neodstraňujte aplikaci. Jejím odstraněním smažete data i zálohy uložené v telefonu.",
+      "Soubor zálohy si uložte, např. do Souborů. Až aplikace znovu poběží, importujete ho v Nastavení: Importovat ze souboru.",
+      "Data z této kopie databáze se nepodařilo načíst. Soubor si uschovejte a napište nám."
+    ],
+    "sk": [
+      "Neodstraňujte aplikáciu. Jej odstránením vymažete dáta aj zálohy uložené v telefóne.",
+      "Súbor zálohy si uložte, napr. do apky Súbory. Keď aplikácia znova pobeží, importujete ho v Nastaveniach: Importovať zo súboru.",
+      "Dáta z tejto kópie databázy sa nepodarilo načítať. Súbor si uschovajte a napíšte nám."
+    ],
+    "hu": [
+      "Ne töröld az alkalmazást. A törléssel az adataid és a telefonon tárolt biztonsági másolatok is elvesznek.",
+      "Őrizd meg a másolat fájlját, például a Fájlokban. Ha az alkalmazás újra működik, a Beállításokban importálhatod: Importálás fájlból.",
+      "Nem sikerült beolvasni az adatokat ebből az adatbázis-másolatból. Őrizd meg a fájlt, és írj nekünk."
+    ],
+    "ro": [
+      "Nu șterge aplicația. Ștergerea ei elimină datele și copiile de rezervă salvate în telefon.",
+      "Păstrează fișierul copiei, de exemplu în Fișiere. Când aplicația va funcționa din nou, îl poți importa din Setări: Importă din fișier.",
+      "Nu am putut citi datele din această copie a bazei de date. Păstrează fișierul și scrie-ne."
+    ],
+    "bg": [
+      "Не изтривайте приложението. Изтриването му ще премахне данните и резервните копия, запазени в телефона.",
+      "Запазете файла с копието, напр. във Файлове. Когато приложението заработи отново, импортирайте го от Настройки: Импортирайте от файл.",
+      "Не успях да прочета данните от това копие на базата данни. Запазете файла и ни пишете."
+    ],
+    "hr": [
+      "Nemoj brisati aplikaciju. Brisanjem ćeš izbrisati podatke i sigurnosne kopije spremljene u telefonu.",
+      "Sačuvaj datoteku kopije, npr. u Datotekama. Kad aplikacija ponovno proradi, uvezi je u Postavkama: Uvezi iz datoteke.",
+      "Nisam uspio pročitati podatke iz ove kopije baze. Sačuvaj datoteku i piši nam."
+    ],
+    "sl": [
+      "Ne izbrišite aplikacije. Z izbrisom boste izgubili podatke in varnostne kopije, shranjene v telefonu.",
+      "Datoteko kopije shranite, npr. v Datoteke. Ko bo aplikacija spet delovala, jo uvozite v Nastavitvah: Uvozi iz datoteke.",
+      "Podatkov iz te kopije baze nisem mogel prebrati. Shranite datoteko in nam pišite."
+    ],
+    "sr": [
+      "Немој да бришеш апликацију. Брисањем ћеш обрисати податке и резервне копије сачуване у телефону.",
+      "Сачувај фајл копије, нпр. у апликацији Фајлови. Када апликација поново проради, увези га у Подешавањима: Увези из фајла.",
+      "Нисам успео да прочитам податке из ове копије базе. Сачувај фајл и пиши нам."
+    ],
+    "lt": [
+      "Neištrinkite programėlės. Ją ištrynus bus ištrinti duomenys ir telefone išsaugotos atsarginės kopijos.",
+      "Išsaugokite kopijos failą, pvz., programėlėje Failai. Kai programėlė vėl veiks, importuokite jį nustatymuose: Importuoti iš failo.",
+      "Nepavyko nuskaityti duomenų iš šios duomenų bazės kopijos. Išsaugokite failą ir parašykite mums."
+    ],
+    "lv": [
+      "Nedzēsiet lietotni. Dzēšot to, tiks izdzēsti dati un tālrunī saglabātās rezerves kopijas.",
+      "Saglabājiet kopijas failu, piemēram, lietotnē Faili. Kad lietotne atkal darbosies, importējiet to iestatījumos: Importēt no faila.",
+      "Neizdevās nolasīt datus no šīs datubāzes kopijas. Saglabājiet failu un rakstiet mums."
+    ],
+    "et": [
+      "Ära kustuta rakendust. Kustutamisel kaovad andmed ja telefoni salvestatud varukoopiad.",
+      "Hoia koopiafail alles, nt rakenduses Failid. Kui rakendus jälle töötab, impordi see seadetes: Impordi failist.",
+      "Ma ei saanud selle andmebaasi koopia andmeid lugeda. Hoia fail alles ja kirjuta meile."
+    ],
+    "uk": [
+      "Не видаляйте застосунок. Видалення зітре дані та резервні копії, збережені в телефоні.",
+      "Збережіть файл копії, напр. у Файлах. Коли застосунок знову запрацює, імпортуйте його в Налаштуваннях: Імпортувати з файлу.",
+      "Не вдалося прочитати дані з цієї копії бази даних. Збережіть файл і напишіть нам."
+    ],
+    "es": [
+      "No elimines la aplicación. Si la eliminas, se borrarán tus datos y las copias de seguridad guardadas en el teléfono.",
+      "Guarda el archivo de la copia, por ejemplo, en Archivos. Cuando la aplicación vuelva a funcionar, impórtalo en Ajustes: Importar desde archivo.",
+      "No he podido leer los datos de esta copia de la base de datos. Guarda el archivo y escríbenos."
+    ],
+    "es-419": [
+      "No elimines la aplicación. Si la eliminas, se borrarán tus datos y las copias de seguridad guardadas en el teléfono.",
+      "Guarda el archivo de la copia, por ejemplo, en Archivos. Cuando la aplicación vuelva a funcionar, impórtalo en Ajustes: Importar desde archivo.",
+      "No pude leer los datos de esta copia de la base de datos. Guarda el archivo y escríbenos."
+    ],
+    "pt": [
+      "Não apague a aplicação. Apagá-la elimina os dados e as cópias de segurança guardadas no telemóvel.",
+      "Guarde o ficheiro da cópia, por exemplo em Ficheiros. Quando a aplicação voltar a funcionar, importe-o em Definições: Importar de ficheiro.",
+      "Não consegui ler os dados desta cópia da base de dados. Guarde o ficheiro e envie-nos uma mensagem."
+    ],
+    "pt-BR": [
+      "Não apague o aplicativo. Apagá-lo exclui seus dados e os backups salvos no telefone.",
+      "Guarde o arquivo de backup, por exemplo em Arquivos. Quando o aplicativo voltar a funcionar, importe-o em Ajustes: Importar de arquivo.",
+      "Não consegui ler os dados desta cópia do banco de dados. Guarde o arquivo e fale conosco."
+    ],
+    "de": [
+      "Lösch die App nicht. Dabei werden deine Daten und die auf dem Telefon gespeicherten Sicherungskopien gelöscht.",
+      "Bewahre die Sicherungsdatei auf, z. B. in der Dateien-App. Wenn die App wieder läuft, importierst du sie in den Einstellungen: Aus Datei importieren.",
+      "Ich konnte die Daten aus dieser Datenbankkopie nicht lesen. Bewahre die Datei auf und schreib uns."
+    ],
+    "fr": [
+      "Ne supprimez pas l'application. Sa suppression effacera vos données et les sauvegardes enregistrées sur le téléphone.",
+      "Conservez le fichier de sauvegarde, par exemple dans Fichiers. Quand l'application fonctionnera à nouveau, importez-le dans Réglages : Importer depuis un fichier.",
+      "Je n'ai pas pu lire les données de cette copie de la base. Conservez le fichier et écrivez-nous."
+    ],
+    "it": [
+      "Non eliminare l'app. Eliminandola cancelli i dati e i backup salvati sul telefono.",
+      "Conserva il file del backup, ad esempio in File. Quando l'app funzionerà di nuovo, importalo in Impostazioni: Importa da file.",
+      "Non sono riuscito a leggere i dati da questa copia del database. Conserva il file e scrivici."
+    ],
+    "nl": [
+      "Verwijder de app niet. Daarmee wis je je gegevens en de back-ups die op je telefoon staan.",
+      "Bewaar het back-upbestand, bijvoorbeeld in Bestanden. Als de app weer werkt, importeer je het via Instellingen: Importeer uit bestand.",
+      "Ik kon de gegevens uit deze databasekopie niet lezen. Bewaar het bestand en mail ons."
+    ],
+    "sv": [
+      "Radera inte appen. Då raderas dina data och de säkerhetskopior som sparats i telefonen.",
+      "Spara kopiefilen, t.ex. i Filer. När appen fungerar igen importerar du den i Inställningar: Importera från fil.",
+      "Jag kunde inte läsa data från den här databaskopian. Spara filen och mejla oss."
+    ],
+    "da": [
+      "Slet ikke appen. Så slettes dine data og de sikkerhedskopier, der er gemt på telefonen.",
+      "Gem kopifilen, fx i Filer. Når appen virker igen, importerer du den under Indstillinger: Importér fra fil.",
+      "Jeg kunne ikke læse dataene i denne databasekopi. Gem filen, og skriv til os."
+    ],
+    "nb": [
+      "Ikke slett appen. Da slettes dataene dine og sikkerhetskopiene som er lagret på telefonen.",
+      "Ta vare på kopifilen, for eksempel i Filer. Når appen fungerer igjen, importerer du den under Innstillinger: Importer fra fil.",
+      "Jeg kunne ikke lese dataene i denne databasekopien. Ta vare på filen og skriv til oss."
+    ],
+    "fi": [
+      "Älä poista sovellusta. Poistaminen pyyhkii tietosi ja puhelimeen tallennetut varmuuskopiot.",
+      "Säilytä varmuuskopiotiedosto, esimerkiksi Tiedostot-appissa. Kun sovellus toimii taas, tuo se asetuksista: Tuo tiedostosta.",
+      "En pystynyt lukemaan tietoja tästä tietokannan kopiosta. Säilytä tiedosto ja kirjoita meille."
+    ],
+    "tr": [
+      "Uygulamayı silmeyin. Silerseniz verileriniz ve telefonda kayıtlı yedekler de silinir.",
+      "Yedek dosyasını saklayın, örneğin Dosyalar'da. Uygulama yeniden çalıştığında Ayarlar'dan içe aktarın: Dosyadan İçe Aktar.",
+      "Bu veritabanı kopyasındaki verileri okuyamadım. Dosyayı saklayın ve bize yazın."
+    ],
+    "el": [
+      "Μη διαγράψετε την εφαρμογή. Η διαγραφή της θα σβήσει τα δεδομένα και τα αντίγραφα ασφαλείας που είναι αποθηκευμένα στο τηλέφωνο.",
+      "Κρατήστε το αρχείο του αντιγράφου, π.χ. στα Αρχεία. Όταν η εφαρμογή λειτουργήσει ξανά, εισαγάγετέ το από τις Ρυθμίσεις: Εισαγωγή από αρχείο.",
+      "Δεν μπόρεσα να διαβάσω τα δεδομένα από αυτό το αντίγραφο της βάσης δεδομένων. Κρατήστε το αρχείο και γράψτε μας."
+    ],
+    "id": [
+      "Jangan hapus aplikasi. Menghapusnya akan menghapus data dan cadangan yang tersimpan di ponsel.",
+      "Simpan file cadangan, misalnya di File. Setelah aplikasi berfungsi lagi, impor file itu di Pengaturan: Impor dari File.",
+      "Saya tidak dapat membaca data dari salinan database ini. Simpan filenya dan hubungi kami."
+    ],
+    "ms": [
+      "Jangan padam apl. Memadamkannya akan memadam data dan sandaran yang disimpan dalam telefon.",
+      "Simpan fail sandaran, contohnya dalam Fail. Apabila apl berfungsi semula, import fail itu dalam Tetapan: Import dari Fail.",
+      "Saya tidak dapat membaca data daripada salinan pangkalan data ini. Simpan fail dan hubungi kami."
+    ],
+    "vi": [
+      "Đừng xóa ứng dụng. Xóa ứng dụng sẽ xóa dữ liệu và các bản sao lưu đã lưu trong điện thoại.",
+      "Hãy giữ tệp sao lưu, ví dụ trong Tệp. Khi ứng dụng hoạt động trở lại, hãy nhập tệp trong Cài đặt: Nhập từ tệp.",
+      "Tôi không đọc được dữ liệu từ bản sao cơ sở dữ liệu này. Hãy giữ tệp và gửi email cho chúng tôi."
+    ],
+    "ru": [
+      "Не удаляйте приложение. При удалении сотрутся данные и резервные копии, сохранённые в телефоне.",
+      "Сохраните файл копии, например в «Файлы». Когда приложение снова заработает, импортируйте его в Настройках: Импортировать из файла.",
+      "Не удалось прочитать данные из этой копии базы данных. Сохраните файл и напишите нам."
+    ],
+    "ja": [
+      "アプリを削除しないでください。削除すると、データとiPhoneに保存されたバックアップも消去されます。",
+      "バックアップファイルは「ファイル」などに保存しておいてください。アプリが再び動作したら、設定の「ファイルからインポート」で読み込めます。",
+      "このデータベースのコピーからデータを読み取れませんでした。ファイルを保存して、お問い合わせください。"
+    ],
+    "ko": [
+      "앱을 삭제하지 마세요. 삭제하면 데이터와 휴대폰에 저장된 백업도 지워져요.",
+      "백업 파일을 파일 앱 등에 보관하세요. 앱이 다시 작동하면 설정의 ‘파일에서 가져오기’로 가져올 수 있어요.",
+      "이 데이터베이스 사본에서 데이터를 읽지 못했어요. 파일을 보관하고 문의해 주세요."
+    ],
+    "zh-Hant": [
+      "請勿刪除 App。刪除後，資料和儲存在手機中的備份都會被清除。",
+      "請保留備份檔案，例如存到「檔案」App。App 恢復正常後，可在「設定」的「從檔案匯入」匯入。",
+      "無法讀取這份資料庫副本中的資料。請保留檔案並寫信給我們。"
+    ]
+  },
+  "drugi_przeglad": {
+    "data": "2026-11-09",
+    "kto": "subagent M2 w świeżym kontekście (model, nie rodzimy użytkownik)",
+    "przyjete": [
+      "de 1",
+      "de 2",
+      "et 1",
+      "bg 2",
+      "ro 2",
+      "pt-BR 2"
+    ],
+    "pominiete": "pt-BR 1 „o app” i wielka litera nazwy ekranu w lt/lv/et/fi — opcjonalne, poprawne gramatycznie",
+    "bez_uwag": "pozostałe języki"
+  }
+}

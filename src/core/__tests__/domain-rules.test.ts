@@ -154,7 +154,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       });
 
       expect(result.status).toBe('too_hot_danger');
-      expect(result.warningMessagePl).toContain('przekracza 45°C');
+      expect(result.warningMessagePl).toContain('jest za wysoka'); // D-305: tekst bez progu i przyczyny bez źródła (DDT-WOD-900) [M1-audytor-generalny-010]
     });
 
     it('Alerts with requires_ice when water temp drops below 4°C', () => {
@@ -211,7 +211,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
 
       expect(result.adaptedHours).toBeCloseTo(5.56, 2);
       expect(result.diffMinutes).toBeGreaterThan(0);
-      expect(result.messagePl).toContain('wydłużony');
+      expect(result.komunikat.rodzaj).toBe('chlodno'); // wydłużony (M1-audytor-generalny-020: domena bez tekstu)
     });
 
     it('Adapts time correctly for warmer environment (26°C vs 24°C baseline)', () => {
@@ -220,7 +220,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
 
       expect(result.adaptedHours).toBeCloseTo(3.21, 2);
       expect(result.diffMinutes).toBeLessThan(0);
-      expect(result.messagePl).toContain('skrócony');
+      expect(result.komunikat.rodzaj).toBe('cieplo'); // skrócony (M1-audytor-generalny-020: domena bez tekstu)
     });
   });
 

@@ -38,34 +38,37 @@ Plán pečení a kalkulačka
 bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice,fermentace
 ```
 
-### Tekst promocyjny (Promotional Text) · 153 / 170 znaków · wersja 1.0
+### Tekst promocyjny (Promotional Text) · 145 / 170 znaków · wersja 1.0
 
 ```text
-Nastavte čas, kdy má být chléb hotový: Pekař spočítá množství, sestaví plán zpětně a dá vědět o konci každého kroku. Bez účtu, bez internetu, bez reklam.
+Pekař spočítá množství a dá vědět o konci každého kroku. Plán zpětně od času, kdy má být chléb hotový (Pro). Bez účtu, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 2902 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3226 / 4000 znaków · wersja 1.0
 
 ```text
 Pekař vás provede pečením chleba z kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. Funguje bez účtu a bez internetu, bez reklam a bez sledování. Vaše recepty, kvásky a deník zůstávají jen ve vašem telefonu.
 
 RECEPTY A MNOŽSTVÍ
-Vyberte jeden z 15 základních receptů (kváskové, žitné, droždové, pizza a sladké) nebo vlastní. Nastavte počet bochníků nebo hmotnost mouky a Pekař uvede gramy mouky, vody, kvásku, soli a droždí. Pekařská procenta zahrnují mouku a vodu z kvásku i ze zákvasu. Pekař také uvede teplotu vody pro teplotu těsta, které chcete dosáhnout.
+Vyberte jeden z 26 základních receptů (kváskové, žitné, droždové, pizza a sladké) nebo vlastní; 11 kváskových receptů má plán a vedení krok za krokem. Nastavte počet bochníků nebo hmotnost mouky a Pekař uvede gramy mouky, vody, kvásku, soli a droždí. Pekařská procenta zahrnují mouku a vodu z kvásku i ze zákvasu (zákvas: Pro). Pekař také uvede teplotu vody pro teplotu těsta, které chcete dosáhnout.
 
-PLÁN OD ČASU „HOTOVO“
+VERZE S DROŽDÍM A DOMÁCÍ PEKÁRNA
+Čtyři kváskové recepty mají i verzi s droždím, tři z nich s plánem. Droždové recepty a verze upečete i v domácí pekárně: Pekař přizpůsobí množství pekárně, uvede pořadí surovin a program a pro zvolený čas dokončení i čas spuštění (Pro).
+
+PLÁN OD ČASU „HOTOVO“ (Pro)
 Vyberte, kdy má být chléb hotový, a Pekař zpětně spočítá čas začátku každého kroku. Doba kvašení závisí na teplotě v kuchyni. Když krok, který vyžaduje vaše ruce, připadne na noc (ve výchozím nastavení mezi 23:00 a 07:00), Pekař navrhne delší dobu v lednici. Když je času málo, uvede nejdřívější možný čas.
 
 VEDENÍ KROK ZA KROKEM
 Pekař ukazuje aktuální krok: co udělat, jak dlouho to trvá a co bude následovat. Když povolíte oznámení, dá vědět o konci kroku i při zamčeném telefonu. V kroku, který vyžaduje vaše ruce, obrazovka vedení nezhasne. Kroky s horkou nádobou nebo syrovým těstem mají varování. Žitný chléb (víc než polovina mouky je žitná mouka) má vlastní kroky bez překládání. Omylem potvrzený krok vrátíte zpět a po opětovném otevření se aplikace vrátí k aktuálnímu kroku.
 
 KVÁSKY
-Veďte několik kvásků. Pekař uvádí množství na krmení v poměru 1:1:1, 1:2:2, 1:3:3 nebo 1:5:5. Když kvásek zdvojnásobí objem, Pekař ho označí jako připravený do těsta. Po 12 hodinách na lince bez krmení vám ho připomene oznámením. Nový kvásek založíte den po dni. Pekař se řídí zásadou opatrnosti: při povlaku, změně barvy nebo zahnilém zápachu radí kvásek vyhodit.
+Nový kvásek založíte den po dni. Pekař se řídí zásadou opatrnosti: při povlaku, změně barvy nebo zahnilém zápachu radí kvásek vyhodit. Péče o kvásek (Pro): několik kvásků, množství na krmení v poměru 1:1:1, 1:2:2, 1:3:3 nebo 1:5:5, označení připravenosti, když kvásek zdvojnásobí objem, a připomenutí po 12 hodinách na lince bez krmení.
 
 DOKTOR CHLEBA
 Střídka je hutná a kůrka bledá? Označte příznaky a Doktor chleba určí jednu z 9 vad, vysvětlí příčinu a poradí, co příště změnit. Čtyři záchranné postupy pomohou, když má těsto během kvašení potíže. Doktor kvásku pomůže, když vás na kvásku něco znepokojuje.
 
 DENÍK
-Ohodnoťte každý bochník: hvězdičky, střídka, kůrka a chuťový profil. Deník ukazuje statistiky a „Péct znovu“ otevře stejný recept.
+Ohodnoťte každý bochník: hvězdičky, střídka, kůrka a chuťový profil. Deník ukazuje statistiky (Pro) a „Péct znovu“ otevře stejný recept.
 
 VAŠE DATA
 Pekař uchovává v telefonu 10 posledních automatických záloh. Všechna data vyexportujete do souboru a naimportujete ze souboru a historii pečení vyexportujete jako CSV. Jednotky: gramy a °C nebo unce a °F.
@@ -116,8 +119,8 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 ## Ceny i oferta w storefrontach tej karty
 
-Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-038).
+Produkty (`src/lib/platnosci/konfiguracja.ts`): `com.apps4brew.baker.pro.monthly` / `com.apps4brew.baker.pro.yearly` / `com.apps4brew.baker.pro.lifetime` (miesięczny / roczny / dożywotni). Cena bazowa: 0,99 / 6,99 / 14,99 USD (storefront USA, D-112).
 
 Pozostałe storefronty tej karty (1): cena automatycznie od ceny bazowej USD — zostaw ceny, które App Store Connect proponuje („comparable prices”), bez zmian (Apple, „Set a price for an In-App Purchase” i „Manage pricing for auto-renewable subscriptions”, odczyt 2026-10-21).
 
-Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1, instrukcja §4).
+Bez oferty wprowadzającej na `com.apps4brew.baker.pro.monthly`, `com.apps4brew.baker.pro.yearly` i `com.apps4brew.baker.pro.lifetime` (D-112): oferta „Free Trial 2 Weeks” usunięta w App Store Connect 2026-11-03 (Z-1); przed zgłoszeniem sprawdź, że jej nie ma (instrukcja §4).

@@ -5,7 +5,7 @@ export const CZESC: Record<string, string> = {
   'Sprawdź gotowość: test palca': 'Comprueba si está lista: prueba del dedo',
   'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.': 'Revisa la temperatura en el centro de la hogaza con un termómetro de sonda: según King Arthur Baking, la mayoría de las hogazas están listas a unos 88 °C.',
   'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': 'Revisa con un termómetro de sonda la temperatura en el centro de la hogaza: la mayoría de las hogazas están listas a unos 88 °C, y el pan de centeno debe alcanzar 96–99 °C por dentro.',
-  'Sprawdź, czy podwoi objętość do {godzina}.': 'Revisa si duplica su volumen para las {godzina}.',
+  'Sprawdź, czy podwoi objętość do {godzina}.': 'Revisa si duplica su volumen antes de {godzina}.',
   'Sprawdź, czy sól jest w cieście: ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.': 'Revisa si la masa tiene sal: la masa sin sal queda pegajosa y floja, porque la sal retiene la humedad y tensa el gluten.',
   'Sprężystość': 'Elasticidad',
   'Spróbuj ponownie': 'Reintentar',

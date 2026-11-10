@@ -25,7 +25,7 @@ describe('etykietaPro i nazwaBlokady (P2-4)', () => {
     expect(nazwaBlokady('gotowosc-zakwasu')).toBe('Gotowość zakwasu do ciasta');
     expect(nazwaBlokady('staly-dzien')).toBe('Stały dzień karmienia');
     expect(nazwaBlokady('proporcje-zakwasu')).toBe('Proporcje dokarmiania');
-    expect(nazwaBlokady('porownanie')).toBe('Porównanie i statystyki');
+    expect(nazwaBlokady('porownanie')).toBe('Statystyki piekarni domowej'); // F-63 PÓŹNIEJ, bez obietnicy porównania (015)
     expect(nazwaBlokady('druk')).toBe(t('Piekarz Pro'));
   });
 });

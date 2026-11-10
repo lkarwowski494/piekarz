@@ -18,7 +18,7 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
-import { typografia } from '../ui/tokeny';
+import { typografia, promienie } from '../ui/tokeny';
 export interface QrScannerModalProps {
   visible: boolean;
   onClose: () => void;
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   cancelBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     color: '#D4924B',
     fontWeight: '600',
   },
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   },
   permissionBtnText: {
     color: theme.colors.naAkcencie,
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
   },
   cameraWrapper: {
@@ -247,13 +247,13 @@ const styles = StyleSheet.create({
   },
   hintText: {
     color: '#FBF8F3',
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     marginTop: 24,
     textAlign: 'center',
     backgroundColor: 'rgba(26, 17, 10, 0.75)',
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: promienie.pole,
   },
 });

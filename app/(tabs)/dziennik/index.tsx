@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — zakładka „Dziennik” (D-051 2a): historia wypieków ze statystykami, „Piecz ponownie”, usuwanie
-// i wejście do Doktora Chleba. Dziennik, „Piecz ponownie” i Doktor w Basic; statystyki i porównanie w Pro
+// i wejście do Doktora Chleba. Dziennik, „Piecz ponownie” i Doktor w Basic; statystyki w Pro (porównanie F-63 PÓŹNIEJ)
 // (BR-RECP-004, D-113, D-116). [M1-audytor-generalny-101]
 // Wejście z kalendarza z parametrem `wpis` wyróżnia ten wpis i przewija do niego (BR-KAL-013) [M3 D7].
 // ============================================================================

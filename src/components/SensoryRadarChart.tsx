@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     opacity: 0.35,
   },
   stepperBtnText: {
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

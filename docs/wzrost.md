@@ -1,4 +1,4 @@
-# Wzrost — Piekarz (Crust) — 2026-10-20
+# Wzrost — Piekarz (Crust) — 2026-10-20 (aktualizacja 2026-11-09)
 
 Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/archiwum/2.0-craft/A4.md`, rozdz. 15.1). Plan wydania i dziennik są w `docs/wydanie/` (rola 10); tu ich nie powtarzam. Każde działanie zewnętrzne (wpis, wiadomość, odpowiedź na recenzję, kod w App Store Connect) wykonuje właściciel po osobnej zgodzie, wpisanej jego słowami do dziennika działań (sekcja „Lista startowa”).
 
@@ -6,7 +6,7 @@ Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/arch
 
 ## Budżet i horyzont
 
-- Budżet godzin tygodniowo: `[DO USTALENIA: decyzja właściciela]`. Do decyzji plan ma najwyżej 3 działania naraz (zasada roli 1).
+- Budżet godzin tygodniowo: 2 h po wydaniu, razem z odpowiedziami na recenzje (D-286, DEC-15 a; opcja a znaleziska 11-wzrost-002: „budżet 2 h/tydz.”; mieści się w apetycie D-040). Plan ma najwyżej 3 działania naraz (zasada roli 1). Przed zgłoszeniem 1.0 (DEC-15 a): regulamin kanału startu odczytany (sekcja „Kanały”, 2026-11-09) i szkic wpisu gotowy; publikacja dopiero po wydaniu, za osobną zgodą właściciela.
 - Horyzont: eksperyment 90 dni od wydania (D-040, kryterium w `docs/monetyzacja.md` roli 02); data wydania z `docs/wydanie/dziennik.md`.
 - Reklamy płatne: nie. Opcja tylko decyzją właściciela z kosztem, rachunkiem 02 i ADR prywatności (zasada roli 9, CLAUDE.md: zero telemetrii).
 
@@ -52,25 +52,38 @@ Zasady: kody to narzędzie marketingu, nie zmiana modelu płatności (D-038 bez 
 
 ## Kanały
 
-Kanał wchodzi na listę startową dopiero po odczycie jego regulaminu z cytatem i datą (zasada roli 2). Stan 2026-10-20:
+Kanał wchodzi na listę startową dopiero po odczycie jego regulaminu z cytatem i datą (zasada roli 2). Stan 2026-11-09 (surowy tekst stron: `audit/M1-2026-11-08/role/11-wzrost/fix-2026-11-09/dowody/e1-kanal-tfl-2026-11-09.txt`):
 
 | Kanał (adres) | Dowód niszy | Reguła (cytat, data) | Forma dozwolona | Godziny | Decyzja |
 |---|---|---|---|---|---|
-| r/Sourdough (reddit.com/r/Sourdough) | z BRD 0.1, bez wątków z datą `[DO USTALENIA]` | regulamin społeczności nieodczytany: `reddit.com/r/Sourdough/about/rules.json` zwrócił 403 (2026-10-20) | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
-| r/Breadit (reddit.com/r/Breadit) | jak wyżej | 403 (2026-10-20) | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
+| The Fresh Loaf, forum „Introductions and Ideas” (https://www.thefreshloaf.com/forums/general/introductions-and-ideas-0), po angielsku | wątki autorów aplikacji z odpowiedziami: „Miette – a small Android app I made to plan my bakes (feedback welcome)” (https://www.thefreshloaf.com/node/80160, 13 Oct 2026), „Building a bread baking app: what features would you actually use?” (https://www.thefreshloaf.com/node/79496, 16 Feb 2026) | Site FAQs (https://www.thefreshloaf.com/sitefaq) bez zasady o autopromocji; lista forów: „Spam will not be tolerated.”; administrator Floydm (kontakt w Site FAQs) w wątku node/80160, 14 Oct 2026: „Sharing an app you built to address bakers' needs, including your own, is not spam IMO.” oraz „If someone incessantly posts about their app and nothing else and clearly is trying to drive people to purchase the app, yeah, ok, it'd be spam.” (odczyt 2026-11-09) | jeden wątek autora z prośbą o uwagi i odpowiedzi w nim; bez powtarzania wpisu i bez wpisów tylko o aplikacji | ok. 1 h na wpis, potem odpowiedzi w budżecie 2 h/tydz. | **kanał startu** (DEC-15 a, D-286): wpis po wydaniu, za osobną zgodą |
+| r/Sourdough (reddit.com/r/Sourdough) | z BRD 0.1, bez wątków z datą `[DO USTALENIA]` | regulamin społeczności nieodczytany: `reddit.com/r/Sourdough/about/rules.json` zwrócił 403 (2026-10-20 i 2026-11-09) | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
+| r/Breadit (reddit.com/r/Breadit) | jak wyżej | 403 (2026-10-20 i 2026-11-09) | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
 | r/Pizza (reddit.com/r/Pizza) | jak wyżej | nieodczytany | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
 | Polskie grupy piekarskie na Facebooku (nazwy z BRD 0.1) | jak wyżej | regulaminy grup wymagają logowania | `[DO USTALENIA]` | — | nie wchodzi do odczytu regulaminu |
 | Twórcy niszy (Instagram, YouTube, TikTok) | `[DO USTALENIA]` | oznaczanie według sekcji „Jawność i prawo”; regulamin platformy do odczytu | materiał oznaczony `#reklama` + marka, dwupoziomowo | — | po wydaniu, kilka osób, nie lista do wysyłki |
 | Strona produktu i odpowiedzi na recenzje | App Store | rola 10 (WYD-06), odpowiedzi rzeczowe, bez danych osobowych i marketingu (5.6.1 w module) | — | — | domyślnie zawsze |
 
-Krok właściciela (ok. 1–2 h): zalogowany odczyt regulaminów r/Sourdough, r/Breadit, r/Pizza i wybranych grup; do tabeli wklejasz adres, datę i zdanie o autopromocji. Rola 11 w trybie build wybiera wtedy jeden kanał na start (rekomendacja z audytu 11-wzrost-006, opcja a).
+Ryzyko kanału startu (ten sam wątek node/80160, odczyt 2026-11-09): część członków przyjmuje wpisy o aplikacjach źle — „the site has been flooded with offers of new ones during the last few months” (tpassin, 14 Oct 2026) i „trying to use a forum, which you have no previous contribution to, just to push your app” (ElPanadero, 14 Oct 2026). Dlatego wpis nie jest pierwszym wpisem właściciela na forum `[OCENA]`: wcześniej co najmniej jedna odpowiedź albo zdjęcie własnego wypieku w zwykłym wątku; wpis o aplikacji mówi wprost, że jest tylko na iPhone'a, i co robi z danymi (tylko to, co potwierdza inwentarz 05).
+
+Kanały polskie i Reddit po wydaniu, nie przed: krok właściciela (ok. 1–2 h, opcjonalny) to zalogowany odczyt regulaminów r/Sourdough, r/Breadit, r/Pizza i wybranych grup; do tabeli wklejasz adres, datę i zdanie o autopromocji. Drugi kanał dopiero po ocenie pierwszego i w budżecie 2 h/tydz.
+
+## Złe przyjęcie
+
+Kto i w jakim czasie (DEC-15 a; zasada roli 6 modułu `kanaly-i-start`). *Dlaczego:* w kanale startu krytyka wpisów o aplikacjach już padła (wyżej), a odpowiedź po tygodniach wygląda jak porzucenie wątku.
+
+1. **Krytyka w wątku:** odpowiada właściciel, w ciągu 2 dni od wpisu krytycznego, rzeczowo i bez kasowania wpisów; szkic odpowiedzi daje rola 11. Nie spiera się o gust; dziękuje i mówi, co sprawdzi.
+2. **Zła recenzja (≤ 2★) w App Store:** odpowiada właściciel w ciągu 7 dni, bez danych osobowych recenzenta i bez marketingu (5.6.1); odpowiedź za osobną zgodą, w budżecie 2 h/tydz.
+3. **Zgłoszony błąd głównej pracy** (wypiek, plan, zakwas, dane): wpis ER/ZM w rejestrze zmian w ciągu 7 dni, ślad w odpowiedzi („sprawdzamy, wpis ER-nn”); utrata danych ma pierwszeństwo przed wszystkim (CLAUDE.md §1.3).
+4. **Prośba moderatora o usunięcie albo zmianę wpisu:** wykonuje właściciel bez dyskusji; wpis do dziennika działań, kanał wraca do oceny przed kolejnym wpisem.
+5. **Fala krytyki** (np. więcej krytycznych odpowiedzi niż pytań): bez kolejnych wpisów w tym kanale; rola 11 w trybie audit ocenia kanał przed następnym krokiem.
 
 ## Lista startowa
 
 | Krok | Kanał (adres) | Szkic (miejsce poza repo) | Link kampanii `ct=` | Kto publikuje | Zgoda (słowa, data) | Wynik (adres, data) |
 |---|---|---|---|---|---|---|
 
-Pusta do wydania i do odczytu regulaminów. Link kampanii tylko z `pt` z App Store Connect („You can't create one manually”, moduł `pomiar-prywatny`); bez `pt` wpis bez linku kampanii.
+Pusta do wydania; pierwszy wiersz: The Fresh Loaf (kanał startu), szkic po wydaniu, zgoda właściciela przed publikacją. Link kampanii tylko z `pt` z App Store Connect („You can't create one manually”, moduł `pomiar-prywatny`); bez `pt` wpis bez linku kampanii.
 
 Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja <praca, którą wykonuje, słowami społeczności>. Co robi: <2–3 punkty z wydanej wersji>. Ograniczenia: tylko iPhone, 14 dni pełnej wersji, potem płatnie. Prywatność: <tylko to, co potwierdza inwentarz 05 i etykieta 10>. Proszę o uwagi, zwłaszcza krytyczne.”
 
@@ -84,7 +97,7 @@ Pętla opinii F-69 (BR-OPIN-001…003): `docs/wzrost/petla-opinii.md` (zadania 0
 
 | H | Pytanie (decyzja, od której zależy) | Metryka i źródło | Mierzalność: oczekiwane n, zastępnik | Próg (ID decyzji) | Min. próba | Data oceny | Werdykt |
 |---|---|---|---|---|---|---|---|
-| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby bezwzględne z kryterium | **kryterium:** średnio ≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; zamrożenie przy ≤ 3,5 albo ≤ 21 USD/mies. (D-038, `docs/monetyzacja.md` roli 02); w skrypcie ≥ 8,5% | 100 pobrań (propozycja roli 11, do potwierdzenia) | wydanie + 90 dni (najwcześniej 2027-01-19) | czeka na dane |
+| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby bezwzględne z kryterium | **kryterium:** średnio ≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; zamrożenie przy ≤ 3,5 albo ≤ 21 USD/mies. (D-038, `docs/monetyzacja.md` roli 02); w skrypcie ≥ 8,5% | bez osobnej minimalnej próby, rozstrzyga kryterium (D-315; w skrypcie 1) | data wydania z `docs/wydanie/dziennik.md` + 90 dni; do wydania najwcześniej 2027-02-07 (D-315) | czeka na dane |
 
 Dane: `docs/wzrost/hipotezy.json`, skrypt `docs/wzrost/hipotezy.mjs` (`node docs/wzrost/hipotezy.mjs docs/wzrost/hipotezy.json`, kod 0; test `tests/wzrost-hipotezy.test.ts`). Zmierzone wartości (`dane`) wpisuje się w kopii lokalnej, poza publicznym repo.
 

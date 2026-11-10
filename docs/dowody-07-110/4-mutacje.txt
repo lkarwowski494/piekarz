@@ -1,0 +1,13 @@
+=== MUTANT M1 tests-tz: fetch-depth: 1
+    ✕ tests-tz.yml#test-tz: actions/checkout z fetch-depth: 0 (2 ms)
+Tests:       1 failed, 5 passed, 6 total
+kod 1
+=== MUTANT M2 testflight: fetch-depth wykomentowane (wszystkie joby)
+    ✕ testflight.yml#tz-matrix: actions/checkout z fetch-depth: 0 (2 ms)
+    ✕ testflight.yml#build: actions/checkout z fetch-depth: 0 (1 ms)
+Tests:       2 failed, 4 passed, 6 total
+kod 1
+=== MUTANT M3 tests-tz: npm run verify i fetch-tags zamiast fetch-depth
+    ✕ tests-tz.yml#test-tz: actions/checkout z fetch-depth: 0 (1 ms)
+Tests:       1 failed, 5 passed, 6 total
+kod 1

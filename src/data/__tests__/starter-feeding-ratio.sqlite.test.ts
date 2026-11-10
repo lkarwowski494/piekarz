@@ -60,7 +60,9 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194', 'ebd8471'])('baza z wydanego bui
     let app = restartApp();
     await app.schema.initDatabase();
     const [first] = await app.store.getStarters();
-    await app.store.saveStarter({ ...first, lastFedAt: 5000, feedingRatio: '1:5:5' });
+    // Dokarmienie tylko przez dziennik (M1-audytor-generalny-002): saveStarter nie tworzy już wpisu z lastFedAt
+    const wpisy = require('../starter-entries-store') as typeof import('../starter-entries-store');
+    await wpisy.addStarterEntry({ id: `feed-${first.id}-5000`, starterId: first.id, kind: 'feeding', occurredAt: 5000, feedRatio: '1:5:5', signs: [], createdAt: 5000, updatedAt: 5000 });
 
     app = restartApp();
     await app.schema.initDatabase();

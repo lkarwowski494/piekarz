@@ -2,7 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Profil, cykl dokarmiania i szczyt aktywności': 'Perfil, ciclo de alimentação e pico do fermento',
-  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Sugestão para misturar a massa: {dzien} às {godzina}.',
+  'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Sugestão para misturar a massa: {dzien}, {godzina}.',
   'Proporcja': 'Proporção',
   'Proporcje (procent mąki)': 'Proporções (% da farinha)',
   'Proporcje dokarmiania': 'Proporções de alimentação',

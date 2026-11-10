@@ -83,7 +83,6 @@ describe('M3 p5: Ustawienia na kartach', () => {
   it('sekcje jako karty z ikoną; kontrolki sekcji w swojej karcie; brak gołych nagłówków na tle', async () => {
     const tree = await ustawienia();
     const sekcje: [string, string][] = [
-      ['Sprzęt i naczynie do wypieku', 'vessel-dutch-oven-btn'],
       ['Język i jednostki', 'lang-pl'],
       ['Język i jednostki', 'unit-metric'],
       ['Godziny snu', 'sleep-profile-brak'],
@@ -116,7 +115,7 @@ describe('M3 p5: Ustawienia na kartach', () => {
   it('akcje jako wiersze (min 52, linia nad wierszem, bez promienia przycisku) zamiast siatek przycisków', async () => {
     const tree = await ustawienia();
     const wiersze = [
-      'vessel-dutch-oven-btn', 'vessel-cloche-btn', 'sleep-profile-brak', 'settings-restore-purchases-btn',
+      'sleep-profile-brak', 'settings-restore-purchases-btn',
       'export-backup-btn', 'delete-all-data-btn', 'export-bakes-csv-btn', 'settings-zrodla-btn', 'settings-privacy-link',
     ];
     for (const id of wiersze) {
@@ -128,7 +127,7 @@ describe('M3 p5: Ustawienia na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach', async () => {
+  it('duży tekst (AX5 przy 320 pt): język i jednostki w jednej kolumnie (flexBasis 100%), bez maxFontSizeMultiplier w kartach (styl, bez pomiaru)', async () => {
     const pomiar = async (fs: number) => {
       Object.assign(mockOkno, { fontScale: fs });
       const tree = await ustawienia();

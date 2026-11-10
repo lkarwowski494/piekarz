@@ -20,3 +20,7 @@ Feeding doesn't have to happen on the dot. [T:ZAK-LOD-006]
 ## karmienie.staly-dzien.pominiete (minął dzień karmienia)
 A starter that's missed a day, two or even a week of feeding can almost certainly be revived by feeding it every 12 hours and keeping it at room temperature until it's healthy again. [T:ZAK-LOD-007]
 The less often a starter has been fed, the longer it takes to get it ready for baking. [T:ZAK-LOD-003]
+
+## karmienie.staly-dzien.warunek-ustawienia (starter settings, StalyDzienKarmienia)
+You can set a fixed feeding day once the starter is ready. [T:-]
+A starter goes into the fridge only 7–10 days after you start it. [T:ZAK-ZAL-012]

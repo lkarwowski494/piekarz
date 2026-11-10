@@ -1,7 +1,6 @@
 // Słownik it, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calcolata dell\'acqua supera i 45 °C. Questo rischia di cuocere i lieviti e i batteri lattici. Raffredda la farina o abbassa la temperatura ambiente.',
   'Obniż docelową temperaturę ciasta': 'Abbassa la temperatura desiderata dell\'impasto',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Abbassa la temperatura a 210 °C. La reazione di Maillard crea una crosta croccante dalle note di nocciola e caramello.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Abbassa la temperatura del frigorifero: in un frigo più freddo la fermentazione procede più lentamente.',
@@ -81,7 +80,7 @@ export const CZESC: Record<string, string> = {
   'Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.': 'Cuoci nello stampo a 230 °C per 20 min con vapore, poi 20 min a 200 °C.',
   'Pieczenie': 'Cottura',
   'pieczenie bez pokrywy': 'cottura senza coperchio',
-  'Piekarnik zajęty o {h}': 'Forno occupato alle {h}',
+  'Piekarnik zajęty o {h}': 'Forno occupato alle ore {h}',
   'Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie': 'Forno occupato: {r1} e {r2} cuociono contemporaneamente',
   'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.': 'Fornaio funziona senza internet e senza account. Le tue ricette e i tuoi appunti restano su questo telefono.',
   'Piekarz nie uruchomił się poprawnie': 'Fornaio non si è avviato correttamente',
@@ -95,7 +94,7 @@ export const CZESC: Record<string, string> = {
   'Pizza i słodkie': 'Pizza e dolci',
   'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Pizza w stylu neapolitańskim': 'Pizza in stile napoletano',
-  'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Il piano dovrebbe iniziare {dzienStartu} alle {godzinaStartu}. Il pane sarà pronto al più presto {dzienGotowe} alle {godzinaGotowe}.',
+  'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Il piano dovrebbe iniziare {dzienStartu} alle ore {godzinaStartu}. Il pane sarà pronto al più presto {dzienGotowe} alle ore {godzinaGotowe}.',
   'Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.': 'Il piano non tiene conto delle ore di sonno. Puoi impostarle nelle Impostazioni.',
   'Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.': 'Il piano arriverà nel calendario del telefono come file con un evento. Fornaio non ottiene l\'accesso al tuo calendario.',
   'Plan wstecz od godziny „gotowe”': 'Programma a ritroso dall\'ora «pronto»',
@@ -149,7 +148,7 @@ export const CZESC: Record<string, string> = {
   'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.': 'Unisci farina e acqua fino a inumidire tutto. Copri e lascia riposare per lo sviluppo spontaneo del glutine.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Unisci la farina e l\'acqua, non aggiungere ancora il lievito madre né il sale. Lascia che glutine ed enzimi sviluppino da soli la struttura dell\'impasto.',
   'Pomiń': 'Salta',
-  'Pomiń {co} z {h}': 'Salta {co} delle {h}',
+  'Pomiń {co} z {h}': 'Salta {co} delle ore {h}',
   'Pon.': 'Lun.',
   'poolish': 'poolish',
   'Poolish (Rzadki zaczyn 100%)': 'Poolish (lievitino liquido 100%)',
@@ -165,7 +164,7 @@ export const CZESC: Record<string, string> = {
   'Postaw zakwas w miejscu o temperaturze około 21 °C.': 'Metti il lievito madre in un luogo a circa 21 °C.',
   'Postęp do szczytu:': 'Avanzamento verso il picco:',
   'Potem: {krok}': 'Poi: {krok}',
-  'Potem: {krok}, {czas}, do {godzina}': 'Poi: {krok}, {czas}, fino alle {godzina}',
+  'Potem: {krok}, {czas}, do {godzina}': 'Poi: {krok}, {czas}, fino alle ore {godzina}',
   'Potoczne nazwy mąk pszennych: tortowa, wrocławska, luksusowa, bułkowa i chlebowa.': 'I nomi comuni polacchi delle farine di frumento: tortowa, wrocławska, luksusowa, bułkowa e chlebowa.',
   'Potrzebny zakwas': 'Lievito madre necessario',
 };

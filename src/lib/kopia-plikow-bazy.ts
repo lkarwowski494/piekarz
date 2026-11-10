@@ -7,12 +7,13 @@
 
 import * as FileSystem from 'expo-file-system/legacy';
 import { AUTO_DIR, RESCUE_DIR, rescueAfterOpenFailure, stampOf } from './backup';
+import type { WynikSprawdzenia } from './sprawdzenie-kopii';
 
 export const PAKIET_FORMAT = 'piekarz-pliki-bazy';
 export const PAKIET_PREFIX = 'piekarz-pliki-bazy-';
 
 /** Zapisuje pakiet istniejących plików bazy; null, gdy żadnego pliku nie ma albo zapis się nie udał. */
-export async function pakietPlikowBazy(dbUri: string, blad?: string): Promise<string | null> {
+export async function pakietPlikowBazy(dbUri: string, blad?: string, sprawdzenie?: WynikSprawdzenia): Promise<string | null> {
   const docDir = FileSystem.documentDirectory;
   if (!docDir) return null;
   try {
@@ -29,7 +30,7 @@ export async function pakietPlikowBazy(dbUri: string, blad?: string): Promise<st
     const target = `${dir}${PAKIET_PREFIX}${stampOf(new Date())}.json`;
     await FileSystem.writeAsStringAsync(
       target,
-      JSON.stringify({ format: PAKIET_FORMAT, wersja: 1, utworzono: new Date().toISOString(), ...(blad ? { blad } : {}), pliki })
+      JSON.stringify({ format: PAKIET_FORMAT, wersja: 1, utworzono: new Date().toISOString(), ...(blad ? { blad } : {}), ...(sprawdzenie ? { sprawdzenie } : {}), pliki })
     );
     return target;
   } catch {
@@ -70,8 +71,10 @@ export async function ratujPlikiBazy(dbUri: string, message: string): Promise<st
       // Brak albo uszkodzony zapis ostatniego ratunku: nowy zestaw
     }
   }
-  await rescueAfterOpenFailure(dbUri, message);
-  const pakiet = await pakietPlikowBazy(dbUri, message);
+  // Wynik integrity_check surowej kopii trafia do pakietu (pole „sprawdzenie”) [M1-audytor-generalny-033]
+  const wynik: { sprawdzenie?: WynikSprawdzenia } = {};
+  await rescueAfterOpenFailure(dbUri, message, wynik);
+  const pakiet = await pakietPlikowBazy(dbUri, message, wynik.sprawdzenie);
   if (zapis && podpis && pakiet) await FileSystem.writeAsStringAsync(zapis, JSON.stringify({ podpis, pakiet })).catch(() => undefined);
   return pakiet;
 }

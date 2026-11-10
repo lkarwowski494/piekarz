@@ -1,16 +1,12 @@
 // ============================================================================
 // Piekarz — prowadzenie jednego wypieku (Stolnica), wydzielone z app/stolnica.tsx (limit 20 KB) [M3 D3a]: ekran
-// wybiera wypiek z listy trwających (id z trasy, przełącznik), a ten komponent prowadzi tylko jego; zapis kroku,
-// koniec i przerwanie dotyczą tylko tego wypieku (BR-KAL-016 Koniec jednego).
+// wybiera trwający wypiek (id z trasy, przełącznik); zapis kroku, koniec i przerwanie tylko jego (BR-KAL-016).
 // ============================================================================
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import {
-  View,
-  AppState,
-} from 'react-native';
+import { View, AppState } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { PasZakladki, usePasekStanuJasny } from '../nawigacja/PasZakladki';
+import { usePasekStanuJasny } from '../nawigacja/PasZakladki';
 import { EkranZPasem } from '../nawigacja/EkranZPasem';
 import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
@@ -32,7 +28,7 @@ import { confirmDiscardBake } from '../../lib/confirm';
 import type { ActiveBakeState } from '../../data/sqlite-store';
 import { useUnitSystem } from '../../lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../lib/timer-audio';
-import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../core/baking-phases';
+import type { DutchOvenBakePhase } from '../../core/baking-phases';
 import { SessionStep, isDutchOvenStep } from '../../core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../../core/bake-session';
 import { StepUndo, canUndoConfirm, confirmStep, skokDoKroku, undoConfirm } from '../../core/step-confirm';
@@ -41,13 +37,14 @@ import { ostrzezeniaKroku } from '../../core/ostrzezenia-kroku';
 import { useAppAccess } from '../../lib/app-access';
 import { BlokadaFunkcji } from '../BlokadaFunkcji';
 import { FinishBakeModal } from './FinishBakeModal';
-import { CzasKrokuNaPasie, StrefaKroku } from './StrefaKroku';
+import { StrefaKroku } from './StrefaKroku';
+import { PasProwadzenia } from './PasProwadzenia';
+import { useNiskiEkran } from '../../ui/niski-ekran';
 import { StolnicaKeepAwake } from './StolnicaKeepAwake';
 import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
 import { PasekCofnijKroku } from './PasekCofnijKroku';
 import { PoCoTenKrokArkusz } from './PoCoTenKrokArkusz';
-import { PrzyciskiProwadzenia } from './PrzyciskiProwadzenia';
 import { StrefaPlanu } from './StrefaPlanu';
 import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
@@ -103,18 +100,19 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
   const endAtMsRef = useRef<number | null>(null);
   // Koniec zegara bieżącego kroku także po jego upływie: termin kroku dla „Zrobione” (BR-HARMO-005) [M1-audytor-generalny-102]
   const ostatniKoniecRef = useRef<number | null>(null);
-  // Migawka do „Cofnij poprzedni” w pamięci ekranu (bez nowego pola w zapisie sesji) i pasek „Cofnięto …” z „Przywróć”
+  // „Cofnij poprzedni”, pasek „Przywróć” (też po skoku, 006) tylko w pamięci
   const [undo, setUndo] = useState<StepUndo | null>(null);
-  const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo } | null>(null);
+  const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo | null; skok?: true } | null>(null);
   const ukryjCofniete = useCallback(() => setCofniete(null), []);
 
-  // Czas kroku biegnie od planu, bez „Start”/„Wstrzymaj” (design-spec §11b „056”) [M1-audytor-generalny-056]
+  // Czas kroku od planu, bez „Start”/„Wstrzymaj” (§11b „056”) [M1-audytor-generalny-056]; nowy zegar chowa pasek (006)
   const runFor = (sec: number) => {
     endAtMsRef.current = sec > 0 ? Date.now() + sec * 1000 : null;
     ostatniKoniecRef.current = endAtMsRef.current;
     setTimeLeftSec(sec);
     setIsRunning(sec > 0);
     setIsCompleted(false);
+    setCofniete(null);
   };
 
   /** Postęp z ekranu na wejście logiki kroków (src/core/step-confirm.ts). */
@@ -229,35 +227,36 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
 
   // Jump to or advance step
   const goToStep = (idx: number) => {
-    if (idx < 0 || idx >= steps.length) return;
+    if (idx < 0 || idx >= steps.length || idx === currentStepIdx) return; // bieżący: zegar bez zmian (006)
     // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
-    const skok = skokDoKroku(postep(), idx, Date.now());
+    const przed = postep();
+    const skok = skokDoKroku(przed, idx, Date.now());
     setSteps(skok.steps);
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
     runFor(stepDurationSec(skok.steps[idx], 'lid_on'));
     setUndo(null);
-    setCofniete(null);
+    setCofniete({ nazwa: t(skok.steps[idx].name), ponow: przed, undo, skok: true });
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
   const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
     if (phase === dutchOvenPhase) return; // aktywna faza: bez zerowania zegara [04-studio-projektowe-019]
     setDutchOvenPhase(phase);
-    runFor(DUTCH_OVEN_PHASES[phase].durationMin * 60);
+    runFor(stepDurationSec(currentStep, phase)); // czas fazy z receptury (D-304)
     tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   const handleStartPhase2AfterSteamAlert = () => {
     setDutchOvenPhase('lid_off');
-    runFor(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
+    runFor(stepDurationSec(currentStep, 'lid_off'));
     void zapytajOZgode();
     tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
 
   // „Zrobione” przed terminem przesuwa dalsze kroki i powiadomienia wcześniej, po terminie — później (BR-HARMO-005)
   const handleNextStep = () => {
-    // Krok w garnku: kciuk prowadzi przez fazy (DUTCH_OVEN_PHASES); z pokrywką „Zrobione” zdejmuje pokrywkę, a krok
+    // Krok w garnku: kciuk prowadzi przez fazy (fazyGarnka); z pokrywką „Zrobione” zdejmuje pokrywkę, a krok
     // kończy dopiero w fazie bez pokrywki, z jej zegarem i powiadomieniem [04-studio-projektowe-002]
     if (currentStep && isDutchOvenStep(currentStep) && dutchOvenPhase === 'lid_on') {
       handleStartPhase2AfterSteamAlert();
@@ -312,35 +311,27 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
 
   // „Gotowe {dzień} o {godzina}”, czas kroku, „do {godzina}, potem …”, „Ekran nie zgaśnie…” (makieta prowadzenia, 114)
   const teksty = useTekstyProwadzenia({ steps, stepIdx: currentStepIdx, dutchOvenPhase, koniecKrokuMs: ostatniKoniecRef.current, poCzasie: isCompleted });
+  // Niski ekran: pas zwarty, karta kroku 8 pt pod pasem (005, rola 04 p4b)
+  const niski = useNiskiEkran();
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
-      {/* Pas: wstecz · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003); tytuł kroku
-          (nagłówek VoiceOver), czas, „potem …”, Spirala koszyka z planu (058) i „Gotowe …” */}
+      {/* Pas: tytuł kroku, czas i „potem …”; niski ekran: pas zwarty (005, rola 04 p4b); Spirala z „Gotowe …” pod kartą (D-318) */}
       <EkranZPasem gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} contentContainerStyle={styles.container} pas={(onLayout) => (
-        <PasZakladki gora={gora} tytul={aktywny ? t(currentStep.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
-          podtytul={aktywny ? t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length }) : undefined} podtytulTestID="step-number"
-          wstecz={{ etykieta: t('Wstecz'), onPress: () => router.back() }} onLayout={onLayout}
-          akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />}>
-          {aktywny && (
-            <>
-              <CzasKrokuNaPasie step={currentStep} formattedTime={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} />
-              <StrefaPlanu naPasie recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
-                pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-            </>
-          )}
-        </PasZakladki>
+        <PasProwadzenia gora={gora} krok={aktywny ? currentStep : undefined} numer={{ n: currentStepIdx + 1, m: steps.length }}
+          czas={teksty.czas?.tekst ?? ''} czasEtykieta={teksty.czas?.etykieta} potem={teksty.potem} onLayout={onLayout}
+          onWstecz={() => router.back()} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} />
       )}>
-        <View style={styles.tresc}>
+        <View style={[styles.tresc, niski && styles.trescZwarta]}>
         {aktywny ? naglowek : null}
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
           <BlokadaFunkcji {...blokadaWypieku}>
           <View>
             <NotificationsOffBanner />
-            {/* Strefa kroku: karta instrukcji, ostrzeżenie, test palca, fazy garnka (tytuł i czas na pasie) */}
+            {/* Strefa kroku: ostrzeżenie nad kartą instrukcji (D-335), test palca, fazy garnka (tytuł i czas na pasie) */}
             <StrefaKroku
               naglowekNaPasie
               step={currentStep}
@@ -355,6 +346,8 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
               onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
               ostrzezenia={ostrzezeniaKroku(steps, currentStepIdx, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined)}
             />
+            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe} koniecKrokuMs={ostatniKoniecRef.current}
+              pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
             {/* Krok czynny przesunięty w godziny snu z Ustawień: kolizja jak w planie (BR-HARMO-004, D-066 1a) [130] */}
             {kolizjeNocy.length > 0 && (
               <SleepGuardBanner hasSleepCollision sleepCollisions={kolizjeNocy} autoResolved={null} onApplyAutoResolution={() => {}} />
@@ -370,7 +363,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
         </View>
       </EkranZPasem>
 
-      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
+      {aktywny && cofniete && <PasekCofnijKroku nazwa={cofniete.nazwa} skok={cofniete.skok} onPrzywroc={handleRestore} onUkryj={ukryjCofniete} />}
       {aktywny ? naglowekStaly : null}
       {aktywny && (
         <BlokadaFunkcji {...blokadaWypieku}>
@@ -381,6 +374,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
             cofnijDostepne={cofnijDostepne}
             onPoCo={() => setPoCoOpen(true)}
             poCoDostepne={poCo !== null}
+            przyPrzelaczniku={!!naglowekStaly}
           />
         </BlokadaFunkcji>
       )}

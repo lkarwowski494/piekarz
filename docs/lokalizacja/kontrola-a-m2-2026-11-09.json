@@ -1,0 +1,1895 @@
+{
+ "_opis": "Kontrola (a) — tłumaczenie zwrotne tekstów krytycznych (warunek 7 rejestru języków) dla 9 kluczy (k52, k53, k56–k60 trybu maszyny; notatki Rupjmaize i obwarzanka z BEZ-WRZ-001) w 21 językach bez wcześniejszej kontroli [M1-audytor-generalny-011; 09-lokalizacja-001]. Metoda M2 2026-11-09: trzy osobne sesje tłumaczenia zwrotnego na PL bez dostępu do źródła (7 języków każda), potem osobna sesja porównania sensu ze źródłem PL/EN. Wynik: zgodne / drobna (bez wpływu na bezpieczeństwo) / poprawka. Poprawki notatek wdrożone (poprawki-przekladu.json); poprawki zdań maszyny wdrożone decyzją właściciela D-308 (wyjątek od D-287). Przegląd natywny: brak (DEC-06).",
+ "wpisy": [
+  {
+   "jezyk": "cs",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji do wypiekaczy zabrania opóźnionego startu z niektórymi z tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmujcie formę w rękawicach kuchennych, ponieważ forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "drobna",
+   "opis": "Forma 2. os. l.mn./grzecznościowa zamiast „ty” — styl, bez wpływu na bezpieczeństwo.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka mieszająca, która została w bochenku, może być bardzo gorąca: wyjmijcie ją dopiero po ostygnięciu chleba, narzędziem z zestawu lub plastikową szpatułką, bez noża i widelca, i dalej uważajcie na oparzenie.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na jego końcu może uchodzić gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykajcie otworu na parę i nie zakrywajcie go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci młodsze niż 8 lat trzymajcie poza zasięgiem wypiekacza i przewodu zasilającego, starsze dzieci mogą go używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji w przepisie na 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w ciągu 2 sekund. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, potem schładza się ją i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zakwasu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg przefermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10 % mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100 %, woda stanowi 60–80 %, sól 1,5–2 %, cukier 8–16 %, kminek 0,8–1 %, słód 0,5–3 % i zakwas 4–16 %. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je kleikiem skrobiowym albo wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „na topeništi” (palenisko) dziwne dla trzonu pieca — styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "cs",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30 % mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a początkowe wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane krążki po krótkim wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, dopóki nie wypłyną na powierzchnię, potem się je dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w ciągu 2 sekund. Według wniosku o rejestrację krążki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy krążek ma średnicę 12–17 cm, grubość warkocza 2–4 cm i masę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne. „po krátkém kynutí” = po krótkim wyrastaniu — odpowiada „podgarowaniu”; zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji obsługi zabrania opóźnionego startu z niektórymi z tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij formę rękawicami kuchennymi (łapkami do garnków), bo forma, jej uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło (ugniatacz), które zostało w chlebie, może być bardzo gorące: wyjmij je dopiero, gdy chleb ostygnie, narzędziem z zestawu albo plastikową szpatułką, nie nożem ani widelcem, i nadal uważaj, żeby się nie oparzyć.",
+   "wynik": "drobna",
+   "opis": "„Ælteren” — nietypowe słowo (zwykle „æltekrogen”/„æltebladet”), zrozumiałe; polecenia wierne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gdy otwierasz pokrywę w trakcie lub pod koniec programu, może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "„mod/mot slutningen/slutten” = pod koniec — jak PL; zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Nie dotykaj otworu parowego i nie zakrywaj go, gdy maszyna pracuje.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki parzy się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (przedciasta) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się bezpośrednio na dnie (trzonie) pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (efter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „kommen” = kminek — poprawnie.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "da",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według wspólnego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie (obwarzanki) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego pierścienie (obwarzanki) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy pierścień ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (efter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „det fælles dokument” — unijny termin to „enhedsdokument”; styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z instrukcji maszyn, które przeczytaliśmy, zabrania opóźnionego startu z niektórymi z tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij pojemnik rękawicami kuchennymi, bo pojemnik, jego uchwyt i wnętrze pokrywy są bardzo gorące (parzące).",
+   "wynik": "poprawka",
+   "opis": "„γάντια κουζίνας” może oznaczać gumowe rękawice kuchenne; do gorącej formy — „γάντια φούρνου” (rękawice do piekarnika). „δοχείο” to standardowa nazwa formy w el instrukcjach — OK.",
+   "poprawiony": "Μετά το ψήσιμο, βγάλτε το δοχείο με γάντια φούρνου, γιατί το δοχείο, η λαβή του και το εσωτερικό του καπακιού είναι καυτά.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "el",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero, gdy chleb ostygnie, narzędziem z zestawu albo plastikową szpatułką, bez noża i widelca, i nadal uważaj, żeby się nie oparzyć.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gdy otwierasz pokrywę w trakcie lub na końcu programu, może wydostać się bardzo gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna pracuje, nie dotykaj otworu pary i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i kabla, a starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "el",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki parzy się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku (dosł. „dzikiego kminu”, Carum carvi) i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu zakwasowego (dosł. „drożdży zakwasu”) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn zakwasowy 4–16%. Bochenki piecze się na trzonie (palenisku), najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "poprawka",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „αγριοκύμινο (Carum carvi)” = kminek — poprawnie. Ale „ζυμώνεται 3–6 ώρες” można odczytać „ugniata się 3–6 godzin” (ζυμώνω = też ugniatać) — niejasny etap/czas; ujednolicono z resztą tekstu na „υφίσταται ζύμωση”.",
+   "poprawiony": "Δίνω τις ποσότητες και τις θερμοκρασίες όπως στην περιγραφή παραγωγής της πηγής, χωρίς μετατροπή για σπιτική κουζίνα και σπιτικό φούρνο. Σύμφωνα με τις προδιαγραφές, σε συνταγή με 10 kg αλεύρι, 3 kg χοντρό αλεύρι σίκαλης ζεματίζονται με 0,08–0,1 kg αγριοκύμινο (Carum carvi) και 6–8 l ζεστό νερό θερμοκρασίας 85–95 °C. Τόσο ζεστό νερό προκαλεί εγκαύματα: ήδη νερό θερμοκρασίας 150 °F, δηλαδή περίπου 66 °C, προκαλεί στους περισσότερους ενήλικες έγκαυμα τρίτου βαθμού σε 2 δευτερόλεπτα. Μετά το ζεμάτισμα, η μάζα έχει 63–68 °C. Το ζεματισμένο αλεύρι με 50–300 g αζύμωτης βύνης σίκαλης διατηρείται στους 63–65 °C για 2–4 ώρες, έπειτα ψύχεται και υφίσταται ζύμωση 12–24 ώρες. Σε 7–10 kg κρυωμένου ζεματισμένου αλευριού προστίθενται 0,4–1,6 kg μαγιάς προζυμιού και υφίσταται ζύμωση 3–6 ώρες στους 35–36 °C. Η ζύμη αποτελείται από 7–12 kg ζυμωμένου ζεματισμένου αλευριού, 7–10 kg αλεύρι σίκαλης, 0,8–1,6 kg ζάχαρη και 0,15–0,2 kg αλάτι, και υφίσταται ζύμωση 2–3 ώρες στους 30–34 °C. Μπορεί να προστεθεί το πολύ 10% αλεύρι σίτου. Σε αρτοποιητικά ποσοστά, όταν τα 10 kg αλεύρι αντιστοιχούν στο 100%, το νερό είναι 60–80%, το αλάτι 1,5–2%, η ζάχαρη 8–16%, το αγριοκύμινο 0,8–1%, η βύνη 0,5–3% και η μαγιά προζυμιού 4–16%. Τα καρβέλια ψήνονται στην εστία πρώτα στους 280–350 °C, έπειτα στους 200–250 °C, συνολικά περίπου 1–2 ώρες ανάλογα με το μέγεθος. Μετά το ψήσιμο αλείφονται με πάστα αμύλου ή νερό.",
+   "stan": "wdrożona"
+  },
+  {
+   "jezyk": "el",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane „pierścionki” (pierścienie) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego „pierścionki” (pierścienie) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy „pierścionek” (pierścień) ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne. „δαχτυλίδια” (pierścionki) jako nazwa wyrobu dziwne — styl (EN „rings”).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, bo formuła (receptura) zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "drobna",
+   "opis": "„fórmula” zamiast „receta” — termin piekarski, brzmi technicznie; lista składników wierna.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Wszystkie przeczytane instrukcje maszyn zabraniają opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po upieczeniu wyjmij formę w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka do wyrabiania, która została w bochenku, może być bardzo gorąca: wyjmij ją dopiero, gdy chleb ostygnie, dołączonym narzędziem lub plastikową szpatułką, bez noża i widelca, i dalej uważaj, żeby się nie oparzyć.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykaj wylotu pary ani go nie zakrywaj.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak występują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię ani piekarnik. Według specyfikacji (pliego de condiciones), w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w 2 sekundy. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (fermento) i zostawia do fermentacji na 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, przy 10 kg mąki jako 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na trzonie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „fermento” — niejednoznaczny termin na zaczyn; kropka dziesiętna typowa dla części Ameryki Łacińskiej.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "es-419",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak występują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię ani piekarnik. Według jednolitego dokumentu na każde 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępna fermentacja trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki (roscas) po końcowej fermentacji zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię; potem się je dekoruje i piecze. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w 2 sekundy. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, aż osiągną pożądany kolor i rozmiar. Gotowy obwarzanek ma 12–17 cm średnicy, grubość splotu 2–4 cm i wagę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ w przepisie są jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda przeczytana instrukcja maszyny zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "poprawka",
+   "opis": "Szyk „keelab viivitatud stardi osa nende koostisosadega” można odczytać „zabrania części opóźnionego startu z tymi składnikami” — niejasne, czego dotyczy zakaz. Zmieniono na „mõne nende koostisosaga” (z niektórymi z tych składników).",
+   "poprawiony": "Iga loetud masinajuhend keelab viivitatud stardi mõne nende koostisosaga, sest need riknevad kergesti.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "et",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij formę w rękawicach do piekarnika, ponieważ forma, jej uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka mieszająca, która została w bochenku chleba, może być bardzo gorąca: wyjmij ją dopiero po ostygnięciu chleba, narzędziem należącym do zestawu albo plastikową szpatułką, nie nożem ani widelcem, i nadal uważaj na oparzenie.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykaj otworu na parę ani go nie zakrywaj.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu, starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji w przepisie z 10 kg mąki podgrzewa się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych w 2 sekundy oparzenie trzeciego stopnia. Po podgrzaniu masa ma 63–68 °C. Podgrzaną mąkę razem z 50–300 g niesfermentowanego słodu żytniego trzyma się w 63–65 °C przez 2–4 godziny, następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej podgrzanej mąki dodaje się 0,4–1,6 kg przedciasta (zaczynu) i fermentuje 3–6 godzin w temperaturze 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej podgrzanej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w temperaturze 30–34 °C. Mąki pszennej można dodać do 10%. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3% i przedciasto 4–16%. Bochenki piecze się na trzonie pieca najpierw w 280–350 °C, następnie w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „kuumutatakse” (podgrzewa się) zamiast „zaparza się” — słabiej oddaje parzenie wrzątkiem, ale temperatura 85–95 °C i ostrzeżenie są.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "et",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych w 2 sekundy oparzenie trzeciego stopnia. Według wniosku o rejestrację pierścienie piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Średnica gotowego pierścienia wynosi 12–17 cm, grubość warkocza 2–4 cm, a masa 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji wypiekaczy zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "drobna",
+   "opis": "„pekač” bez dookreślenia — w hr zwykle zrozumiałe jako urządzenie, ale jednoznaczniej „pekač kruha”. Styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmuj formę w rękawicach kuchennych, ponieważ forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero, gdy chleb ostygnie, narzędziem z kompletu lub plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenia.",
+   "wynik": "drobna",
+   "opis": "„Mješalica” to też mikser jako urządzenie; w kontekście (zostało w bochenku) zrozumiałe jako mieszadło. Standardowo „lopatica za miješenje”.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub przy jego końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy urządzenie pracuje, nie dotykaj otworu na parę i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci młodsze niż 8 lat trzymaj z dala od wypiekacza i kabla, a starsze mogą go używać tylko pod nadzorem.",
+   "wynik": "drobna",
+   "opis": "„pekač” — jak w k53, jednoznaczniej „pekač kruha”. Wiek „mlađu od 8 godina” = poniżej 8 lat, poprawny.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji, w przepisie z 10 kg mąki, 3 kg grubej mąki żytniej zalewa się z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Po zalaniu masa ma 63–68 °C. Zalaną mąkę z 50–300 g niesfermentowanego słodu żytniego trzyma się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zalanej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zalanej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10 % mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100 %, woda stanowi 60–80 %, sól 1,5–2 %, cukier 8–16 %, kminek 0,8–1 %, słód 0,5–3 %, a zaczyn 4–16 %. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (nakon 2 sekunde) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (za 2 sekunde), najlepiej razem ze źródłem PL. Poza tym: „prelijeva se” (zalewa się) zamiast „zaparza się” — sens zaparzania zachowany.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "hr",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30 % mąki pszennej można zastąpić żytnią. Ciasto przygotowuje się metodą jednofazową, a początkowe wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane krążki po dodatkowym (końcowym) wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, dopóki nie wypłyną na powierzchnię, następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację krążki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy krążek ma średnicę 12–17 cm, grubość warkocza 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (nakon 2 sekunde) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (za 2 sekunde), najlepiej razem ze źródłem PL.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis używa jajek, świeżego mleka, sera, jogurtu, soku, świeżych owoców lub warzyw.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda instrukcja maszyny, którą przeczytaliśmy, zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij blachę/formę rękawicą kuchenną, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "poprawka",
+   "opis": "„sarung tangan dapur” — niejasne, czy żaroodporne; do gorącej formy „sarung tangan oven”. „loyang” — w id instrukcjach maszyn do chleba to standardowa nazwa formy (loyang roti) — OK.",
+   "poprawiony": "Setelah memanggang, keluarkan loyang dengan sarung tangan oven, karena loyang, gagangnya, dan bagian dalam tutup panas.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "id",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w chlebie, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem dołączonym albo plastikową szpatułką, bez noża i widelca, i dalej uważaj na oparzenia.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gorąca para może wydostać się, gdy otwierasz pokrywę w trakcie lub na końcu programu.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna pracuje, nie dotykaj otworu pary i nie zakrywaj/zamykaj.",
+   "wynik": "poprawka",
+   "opis": "„jangan tutup” bez dopełnienia — dwuznaczne („nie zamykaj [pokrywy]” / „pokrywa”); zakaz zasłaniania otworu pary niejasny. Zmieniono na „jangan menutupinya”.",
+   "poprawiony": "Saat mesin bekerja, jangan sentuh lubang uap dan jangan menutupinya.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "id",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i jej kabla, a starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "id",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku/kuminu (jintan) i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (biang) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek/kumin (jintan) 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na dnie pieca (paleniska), najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "poprawka",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. Składnik niejednoznaczny: „jintan” bez dookreślenia potocznie = kmin rzymski (jintan putih); źródło: kminek (Carum carvi). Dodano nazwę łacińską przy pierwszym wystąpieniu (jak w el).",
+   "poprawiony": "Jumlah dan suhu saya tuliskan seperti dalam uraian produksi di sumbernya, tanpa dikonversi untuk dapur dan oven rumahan. Menurut spesifikasi, pada resep dengan 10 kg tepung, 3 kg tepung gandum hitam kasar diseduh dengan 0,08–0,1 kg jintan (Carum carvi) dan 6–8 l air panas bersuhu 85–95 °C. Air sepanas ini melepuhkan: air bersuhu 150 °F, atau sekitar 66 °C, saja sudah menyebabkan luka bakar derajat tiga pada sebagian besar orang dewasa dalam 2 detik. Setelah diseduh, suhu campuran 63–68 °C. Tepung seduh bersama 50–300 g malt gandum hitam yang tidak difermentasi dijaga pada 63–65 °C selama 2–4 jam, lalu didinginkan dan difermentasi 12–24 jam. Ke dalam 7–10 kg tepung seduh yang sudah dingin ditambahkan 0,4–1,6 kg biang, lalu difermentasi 3–6 jam pada 35–36 °C. Adonan terdiri dari 7–12 kg tepung seduh yang sudah difermentasi, 7–10 kg tepung gandum hitam, 0,8–1,6 kg gula, dan 0,15–0,2 kg garam, lalu difermentasi 2–3 jam pada 30–34 °C. Tepung terigu boleh ditambahkan paling banyak 10%. Dalam persentase baker, dengan 10 kg tepung sebagai 100%, air 60–80%, garam 1,5–2%, gula 8–16%, jintan 0,8–1%, malt 0,5–3%, dan biang 4–16%. Roti dipanggang di atas dasar tungku, mula-mula pada 280–350 °C, lalu pada 200–250 °C, total sekitar 1–2 jam tergantung ukuran. Setelah matang, roti diolesi pasta pati atau air.",
+   "stan": "wdrożona"
+  },
+  {
+   "jezyk": "id",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według jednolitego (pojedynczego) dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane „pierścionki” (cincin) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego „pierścionki” (cincin) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy „pierścionek” (cincin) ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne („melepuhkan” = parzy, „dalam 2 detik”). „cincin” (pierścionek) jako nazwa wyrobu — styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z niektórymi z tych składników, bo łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij pojemnik (cestello) w łapkach kuchennych, bo pojemnik, jego uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "drobna",
+   "opis": "„cestello” to standardowa nazwa formy w wł. instrukcjach maszyn do chleba — poprawne. „presine da forno” = łapki do piekarnika (nie rękawice) — ochrona przed gorącem zachowana; ewent. „guanti da forno”.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Hak do wyrabiania, który został w chlebie, może być bardzo gorący: wyjmij go dopiero, gdy chleb ostygnie, narzędziem z wyposażenia lub plastikową szpatułką, bez noża i widelca, i nadal uważaj na oparzenia.",
+   "wynik": "poprawka",
+   "opis": "„gancio impastatore” = hak do ciasta (mikser planetarny); w maszynie do chleba to „pala impastatrice” (mieszadło/łopatka) — zła część maszyny. Zmieniono z uzgodnieniem rodzaju.",
+   "poprawiony": "La pala impastatrice rimasta nel pane può essere molto calda: toglila solo dopo che il pane si è raffreddato, con l'utensile in dotazione o con una spatola di plastica, senza coltello né forchetta, e continua a fare attenzione alle ustioni.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "it",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie lub na końcu programu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykaj wylotu pary i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "it",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według specyfikacji (disciplinare), w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminu (cumino) i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia w 2 sekundy. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, potem schładza się ją i fermentuje przez 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (lievitino) i zostawia do fermentacji na 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda to 60–80%, sól 1,5–2%, cukier 8–16%, kmin 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się bezpośrednio na trzonie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pędzlem klajstrem skrobiowym lub wodą.",
+   "wynik": "poprawka",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. Błąd składnika: „cumino” po włosku = kmin rzymski (Cuminum cyminum), a źródło ma kminek (caraway, Carum carvi) = „carvi”. Zmieniono oba wystąpienia.",
+   "poprawiony": "Indico quantità e temperature come nella descrizione della produzione della fonte, senza conversione per la cucina e il forno di casa. Secondo il disciplinare, in una ricetta con 10 kg di farina si scottano 3 kg di farina di segale grossa con 0,08–0,1 kg di carvi e 6–8 l di acqua calda a 85–95 °C. Un'acqua così calda ustiona: già l'acqua a 150 °F, cioè circa 66 °C, provoca nella maggior parte degli adulti un'ustione di terzo grado in 2 secondi. Dopo la scottatura la massa è a 63–68 °C. La farina scottata con 50–300 g di malto di segale non fermentato si mantiene a 63–65 °C per 2–4 ore, poi si raffredda e fermenta per 12–24 ore. A 7–10 kg di farina scottata raffreddata si aggiungono 0,4–1,6 kg di lievitino e si fa fermentare per 3–6 ore a 35–36 °C. L'impasto è composto da 7–12 kg di farina scottata fermentata, 7–10 kg di farina di segale, 0,8–1,6 kg di zucchero e 0,15–0,2 kg di sale, e fermenta per 2–3 ore a 30–34 °C. Si può aggiungere al massimo il 10% di farina di frumento. In percentuali del panettiere, quando 10 kg di farina sono il 100%, l'acqua è il 60–80%, il sale 1,5–2%, lo zucchero 8–16%, il carvi 0,8–1%, il malto 0,5–3% e il lievitino 4–16%. I pani si cuociono direttamente sul piano del forno, prima a 280–350 °C, poi a 200–250 °C, in totale circa 1–2 ore a seconda delle dimensioni. Dopo la cottura si spennellano con salda d'amido o con acqua.",
+   "stan": "wdrożona"
+  },
+  {
+   "jezyk": "it",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczów i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Po końcowym wyrastaniu uformowane pierścienie zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną, potem dekoruje się je i piecze. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia w 2 sekundy. Według wniosku o rejestrację pierścienie piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i rozmiaru. Gotowy pierścień ma średnicę 12–17 cm, grubość splotu 2–4 cm i wagę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźnione uruchomienie jest wyłączone, ponieważ w recepturze są jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda przeczytana instrukcja wypiekacza do chleba zabrania opóźnionego uruchomienia z częścią tych składników, ponieważ szybko się psują.",
+   "wynik": "drobna",
+   "opis": "„greitai genda” = szybko się psują zamiast łatwo — styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmijcie formę w rękawicach kuchennych, ponieważ forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka mieszająca, która pozostała w bochenku, może być bardzo gorąca: wyjmijcie ją dopiero, gdy chleb ostygnie, narzędziem z zestawu lub plastikową szpatułką, nie nożem i nie widelcem, i nadal uważajcie, żeby się nie oparzyć.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na końcu może buchać gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy wypiekacz pracuje, nie dotykajcie otworu na parę i nie zakrywajcie go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci do 8 lat trzymajcie z dala od wypiekacza i przewodu, a starsze mogą z niego korzystać tylko pod nadzorem.",
+   "wynik": "poprawka",
+   "opis": "„Vaikus iki 8 metų” = „do 8 lat” — niejasne, czy 8-latek jest objęty zakazem; źródło: poniżej 8 lat (EN under 8). Zmieniono na „jaunesnius nei 8 metų”.",
+   "poprawiony": "Jaunesnius nei 8 metų vaikus laikykite atokiau nuo duonkepės ir laido, o vyresni gali ja naudotis tik prižiūrimi.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "lt",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji, w przepisie z 10 kg mąki, 3 kg grubej mąki żytniej zaparza się 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych w ciągu 2 sekund powoduje oparzenie trzeciego stopnia. Po zaparzeniu temperatura masy wynosi 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego trzyma się w temperaturze 63–65 °C 2–4 godziny, potem schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w temperaturze 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, fermentuje ono 2–3 godziny w temperaturze 30–34 °C. Można dodać najwyżej 10 % mąki pszennej. W procentach piekarza, gdy 10 kg mąki to 100 %, woda stanowi 60–80 %, sól 1,5–2 %, cukier 8–16 %, kminek 0,8–1 %, słód 0,5–3 %, a zaczyn 4–16 %. Bochenki piecze się na palenisku (trzonie) najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin, zależnie od wielkości. Po upieczeniu smaruje się je kleikiem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. Składnia „3 kg … užplikoma … kmynų ir … vandens” niezręczna (mąka „zaparza” kminek i wodę), sens zrozumiały.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "lt",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki przypada 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30 % mąki pszennej można zastąpić żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie po ostatnim wyrastaniu zanurza się w wodzie o temperaturze nie niższej niż 90 °C i gotuje, aż wypłyną na powierzchnię, potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych w ciągu 2 sekund powoduje oparzenie trzeciego stopnia. Według wniosku o rejestrację pierścienie piecze się w temperaturze 250–320 °C przez 10–17 minut, aż uzyskają pożądany kolor i wielkość. Średnica gotowego pierścienia 12–17 cm, grubość warkocza 2–4 cm, a masa 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda instrukcja obsługi maszyny, którą przeczytaliśmy, zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij blachę/formę rękawicą kuchenną, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "poprawka",
+   "opis": "„sarung tangan dapur” — niejasne, czy żaroodporne; do gorącej formy „sarung tangan ketuhar” (ketuhar jak w n1/n2). „loyang” — standardowa nazwa formy maszyny (loyang roti) — OK.",
+   "poprawiony": "Selepas membakar, keluarkan loyang dengan sarung tangan ketuhar, kerana loyang, pemegangnya dan bahagian dalam penutup panas.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka mieszadła, która została w chlebie, może być bardzo gorąca: wyjmij ją dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową szpatułką, bez noża i widelca, i dalej uważaj na oparzenia.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gorąca para może wydostać się, gdy otwierasz pokrywę w trakcie lub na końcu programu.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna działa, nie dotykaj otworu pary i nie zakrywaj go.",
+   "wynik": "poprawka",
+   "opis": "„jangan tutupnya” niegramatyczne (można czytać jako rzeczownik „tutup” = pokrywa); poprawnie „jangan menutupnya”.",
+   "poprawiony": "Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan menutupnya.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "ms",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i jej przewodu, a starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "ms",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki polewa się (zalewa) 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku/kuminu (jintan) i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (biang) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek/kumin (jintan) 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na podłodze (trzonie) pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "poprawka",
+   "opis": "Ostrzeżenie osłabione: „boleh melecur” = „może oparzyć”, źródło: „parzy” (scalds) — zmieniono na „melecurkan”. Składnik niejednoznaczny: „jintan” potocznie = kmin rzymski; dodano „(Carum carvi)”. Liczby zgodne (kropka dziesiętna typowa dla ms). „disiram” (polewa się) zamiast „zaparza” — drobne.",
+   "poprawiony": "Kuantiti dan suhu saya nyatakan seperti dalam huraian pengeluaran di sumbernya, tanpa ditukar untuk dapur dan ketuhar rumah. Menurut spesifikasi, dalam resipi dengan 10 kg tepung, 3 kg tepung rai kasar disiram dengan 0.08–0.1 kg jintan (Carum carvi) dan 6–8 l air panas bersuhu 85–95 °C. Air sepanas ini melecurkan: air bersuhu 150 °F, iaitu kira-kira 66 °C, pun menyebabkan lecur darjah ketiga pada kebanyakan orang dewasa dalam masa 2 saat. Selepas disiram, suhu adunan ialah 63–68 °C. Tepung yang disiram bersama 50–300 g malt rai yang tidak ditapai dikekalkan pada 63–65 °C selama 2–4 jam, kemudian disejukkan dan ditapai 12–24 jam. Kepada 7–10 kg tepung disiram yang telah sejuk ditambah 0.4–1.6 kg biang, dan ditapai 3–6 jam pada 35–36 °C. Doh terdiri daripada 7–12 kg tepung disiram yang telah ditapai, 7–10 kg tepung rai, 0.8–1.6 kg gula dan 0.15–0.2 kg garam, dan ditapai 2–3 jam pada 30–34 °C. Paling banyak 10% tepung gandum boleh ditambah. Dalam peratusan pembuat roti, dengan 10 kg tepung sebagai 100%, air ialah 60–80%, garam 1.5–2%, gula 8–16%, jintan 0.8–1%, malt 0.5–3% dan biang 4–16%. Roti dibakar di atas lantai relau, mula-mula pada 280–350 °C, kemudian pada 200–250 °C, jumlahnya kira-kira 1–2 jam bergantung pada saiz. Selepas dibakar, roti disapu dengan pes kanji atau air.",
+   "stan": "wdrożona"
+  },
+  {
+   "jezyk": "ms",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według jednolitego (pojedynczego) dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane „pierścionki” (cincin) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego „pierścionki” (cincin) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy „pierścionek” (cincin) ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "poprawka",
+   "opis": "Ostrzeżenie osłabione: „boleh melecur” = „może oparzyć”, źródło: „parzy” — zmieniono na „melecurkan”. Reszta zgodna (liczby, ≥90 °C, „dalam masa 2 saat”).",
+   "poprawiony": "Kuantiti dan suhu saya nyatakan seperti dalam huraian pengeluaran di sumbernya, tanpa ditukar untuk dapur dan ketuhar rumah. Menurut dokumen tunggal, bagi 100 kg tepung digunakan 40–48 l air, 1–2 kg yis, 1–1.5 kg garam, 2–3 kg lemak dan 2–4 kg gula. Sehingga 30% tepung gandum boleh diganti dengan tepung rai. Doh disediakan dengan kaedah satu fasa, dan pengembangan awal mengambil masa dari beberapa minit pada musim panas hingga sejam pada musim sejuk. Cincin yang telah dibentuk, selepas pengembangan akhir, dicelup ke dalam air bersuhu sekurang-kurangnya 90 °C dan direbus sehingga timbul, kemudian dihias dan dibakar. Air sepanas ini melecurkan: air bersuhu 150 °F, iaitu kira-kira 66 °C, pun menyebabkan lecur darjah ketiga pada kebanyakan orang dewasa dalam masa 2 saat. Menurut permohonan pendaftaran, cincin dibakar pada 250–320 °C selama 10–17 minit, sehingga warna dan saiz yang dikehendaki. Cincin yang siap bergaris pusat 12–17 cm, dengan ketebalan anyaman 2–4 cm, dan berat 80–120 g.",
+   "stan": "wdrożona"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z instrukcji obsługi, które przeczytaliśmy, zabrania opóźnionego startu z niektórymi z tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij formę łapkami kuchennymi, bo forma, uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Hak do ugniatania, który został w chlebie, może być bardzo gorący: wyjmij go dopiero, gdy chleb ostygnie, narzędziem dołączonym do zestawu albo plastikową szpatułką, nie nożem ani widelcem, i nadal uważaj, żeby się nie oparzyć.",
+   "wynik": "drobna",
+   "opis": "„Eltekroken” = hak do ugniatania; w nb instrukcjach maszyn do chleba utarta nazwa mieszadła — akceptowalne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gdy otwierasz pokrywę w trakcie lub pod koniec programu, może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "„mod/mot slutningen/slutten” = pod koniec — jak PL; zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Nie dotykaj otworu parowego i nie zakrywaj go, gdy maszyna pracuje.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki parzy się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (przedciasta) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się bezpośrednio na dnie (trzonie) pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (etter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „varmt vann” = gorąca woda (standardowo); „fordeig” — termin.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nb",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według wspólnego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie (obwarzanki) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego pierścienie (obwarzanki) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy pierścień ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (etter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „det felles dokumentet” — termin niejasny; styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda przeczytana instrukcja maszyny zabrania opóźnionego startu z częścią tych składników, ponieważ szybko się psują.",
+   "wynik": "drobna",
+   "opis": "„snel bederven” = szybko się psują zamiast łatwo — styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij formę w rękawicach do piekarnika, bo forma, uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Hak do wyrabiania, który został w chlebie, może być bardzo gorący: wyjmij go dopiero, gdy chleb ostygnie, dołączonym narzędziem lub plastikową szpatułką, nie nożem ani widelcem, i nadal uważaj na oparzenia.",
+   "wynik": "drobna",
+   "opis": "„kneedhaak” — dosłownie hak, ale to utarta nazwa mieszadła w nl instrukcjach broodbakmachine (np. „kneedhaakverwijderaar”); akceptowalne, ewent. „kneedschoep”.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie lub na końcu programu może ulatniać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Nie dotykaj otworu parowego podczas użytkowania i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci młodsze niż 8 lat z dala od maszyny i przewodu; starsze dzieci mogą używać maszyny tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i domowy piekarnik. Według dokumentacji produktu (productdossier) w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda powoduje oparzenia: już woda o 150 °F, około 66 °C, daje u większości dorosłych w ciągu 2 sekund oparzenia trzeciego stopnia. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się przez 2–4 godziny w 63–65 °C, a potem schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg przedciasta (voordeeg) i to fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda to 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a przedciasto 4–16%. Bochenki piecze się na trzonie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin, zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „binnen 2 seconden” = w ciągu 2 s — zgodne z EN. „voordeeg” — termin na zaczyn.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "nl",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się w jednej fazie, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Po końcowym wyrastaniu uformowane pierścienie zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną, potem dekoruje i piecze. Tak gorąca woda powoduje oparzenia: już woda o 150 °F, około 66 °C, daje u większości dorosłych w ciągu 2 sekund oparzenia trzeciego stopnia. Według wniosku o rejestrację pierścienie piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i rozmiaru. Gotowy pierścień ma średnicę 12–17 cm, grubość splotu 2–4 cm i waży 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne. Błąd gramatyczny „het enig document” → „het enige document”; styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, bo przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Wszystkie przeczytane instrukcje maszyn zabraniają opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po upieczeniu wyjmij formę w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka do wyrabiania, która została w chlebie, może być bardzo gorąca: wyjmij ją dopiero, gdy chleb ostygnie, dołączonym narzędziem lub plastikową szpatułką, bez noża i widelca, i nadal uważaj na oparzenia.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykaj wylotu pary ani go nie zakrywaj.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak figurują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według specyfikacji (caderno de especificações), w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje oparzenia trzeciego stopnia u większości dorosłych w 2 sekundy. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, potem schładza się ją i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (isco) i zostawia do fermentacji na 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, przy 10 kg mąki jako 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na trzonie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „isco” = zaczyn — termin, poprawny w pt-PT.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak figurują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według jednolitego dokumentu na każde 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępna fermentacja trwa od kilku minut latem do godziny zimą. Po końcowej fermentacji uformowane obwarzanki (roscas) zanurza się w wodzie o temperaturze co najmniej 90 °C i parzy, aż wypłyną na powierzchnię; potem dekoruje się je i piecze. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje oparzenia trzeciego stopnia u większości dorosłych w 2 sekundy. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, aż osiągną pożądany kolor i rozmiar. Gotowy obwarzanek ma 12–17 cm średnicy, 2–4 cm grubości splotu i waży 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Programowany start jest wyłączony, bo przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "drobna",
+   "opis": "„início programado” zamiast „início diferido” — w pt-BR to standardowa nazwa funkcji w maszynach do chleba; lista składników wierna.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Wszystkie przeczytane instrukcje maszyn zabraniają programowanego startu z częścią tych składników, bo łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po upieczeniu wyjmij formę w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka do wyrabiania, która została w chlebie, może być bardzo gorąca: wyjmij ją dopiero, gdy chleb ostygnie, narzędziem dołączonym do maszyny lub plastikową szpatułką, bez noża i widelca, i nadal uważaj na oparzenia.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykaj wylotu pary ani go nie przykrywaj.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak figurują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według specyfikacji (caderno de especificações), w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje oparzenia trzeciego stopnia u większości dorosłych w 2 sekundy. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, potem schładza się ją i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg przedfermentu (pré-fermento) i zostawia do fermentacji na 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, przy 10 kg mąki jako 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a przedferment 4–16%. Bochenki piecze się na spodzie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. Tekst zawiera formy europejskie („arrefece”, „consoante”, „numa”, „juntam-se”) — prawie kopia pt-PT; styl/wariant, do ujednolicenia z pt-BR.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "pt-BR",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak figurują w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i piekarnik. Według jednolitego dokumentu na każde 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępna fermentacja trwa od kilku minut latem do godziny zimą. Po końcowej fermentacji uformowane obwarzanki (roscas) zanurza się w wodzie o temperaturze co najmniej 90 °C i parzy, aż wypłyną na powierzchnię; potem dekoruje się je i piecze. Tak gorąca woda parzy: już woda o 150 °F, czyli około 66 °C, powoduje oparzenia trzeciego stopnia u większości dorosłych w 2 sekundy. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, aż osiągną pożądany kolor i rozmiar. Gotowy obwarzanek ma 12–17 cm średnicy, 2–4 cm grubości splotu i waży 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ receptura zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji do wypiekaczy zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmujcie formę w rękawicach kuchennych, ponieważ forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka mieszająca, która została w bochenku, może być bardzo gorąca: wyjmijcie ją dopiero po ostygnięciu chleba, narzędziem z zestawu lub plastikową szpatułką, bez noża i widelca, i dalej uważajcie na oparzenie.",
+   "wynik": "zgodne",
+   "opis": "Zgodne; „stierka” = szpatułka. Bez uwag merytorycznych.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na jego końcu może uchodzić gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykajcie otworu na parę i nie zakrywajcie go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci młodsze niż 8 lat trzymajcie poza zasięgiem wypiekacza i przewodu zasilającego, starsze dzieci mogą go używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji w przepisie na 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w ciągu 2 sekund. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, potem schładza się ją i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg przedzaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg przefermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10 % mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100 %, woda stanowi 60–80 %, sól 1,5–2 %, cukier 8–16 %, kminek 0,8–1 %, słód 0,5–3 % i przedzaczyn 4–16 %. Bochenki piecze się na palenisku (ognisku) najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową albo wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „nezkvaseného” to forma czeska (sk „neskvaseného”) — literówka; „na ohnisku” dziwne dla trzonu pieca.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sk",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30 % mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a początkowe wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane kółka po krótkim wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, dopóki nie wypłyną na powierzchnię, potem się je dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia w ciągu 2 sekund. Według wniosku o rejestrację kółka piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowe kółko ma średnicę 12–17 cm, grubość warkocza 2–4 cm i masę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne. „po krátkom kysnutí” odpowiada „podgarowaniu”; zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźnione uruchomienie jest wyłączone, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji wypiekaczy zabrania opóźnionego uruchomienia z częścią tych składników, ponieważ szybko się psują.",
+   "wynik": "poprawka",
+   "opis": "„pekač” w sl to zwykle blacha/naczynie do pieczenia, nie maszyna do chleba — zła rzecz. Dodano „kruha”. („hitro” = szybko zamiast łatwo — drobne.)",
+   "poprawiony": "Vsako od prebranih navodil pekačev kruha prepoveduje zakasnjeni zagon z delom teh sestavin, ker se hitro pokvarijo.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmijcie naczynie w rękawicach kuchennych, ponieważ naczynie, jego uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "drobna",
+   "opis": "„posoda” = naczynie/pojemnik; w sl instrukcjach maszyn do chleba „posoda (za peko)” jest używana — akceptowalne. Rękawice kuchenne i gorące części wierne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło (ugniatacz), które zostało w bochenku, może być bardzo gorące: wyjmijcie je dopiero, gdy chleb ostygnie, narzędziem z kompletu lub plastikową łopatką, bez noża i widelca, i nadal uważajcie na oparzenia.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub na jego końcu może uchodzić gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas działania nie dotykajcie otworu na parę i nie zakrywajcie go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci młodsze niż 8 lat trzymajcie z dala od wypiekacza i kabla, starsze zaś mogą go używać tylko pod nadzorem.",
+   "wynik": "poprawka",
+   "opis": "„od pekača” = od blachy/naczynia do pieczenia, a ostrzeżenie dotyczy maszyny i jej przewodu — zła rzecz w ostrzeżeniu dla dzieci. Wiek „mlajše od 8 let” poprawny.",
+   "poprawiony": "Otroke, mlajše od 8 let, držite stran od pekača kruha in kabla, starejši pa ga smejo uporabljati samo pod nadzorom.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "sl",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji w przepisie z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, to jest około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego trzyma się w 63–65 °C 2–4 godziny, potem schładza się ją i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, fermentuje zaś 2–3 godziny w 30–34 °C. Można dodać najwyżej 10 % mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100 %, wody jest 60–80 %, soli 1,5–2 %, cukru 8–16 %, kminku 0,8–1 %, słodu 0,5–3 %, zaczynu zaś 4–16 %. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (po 2 sekundah) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (v 2 sekundah), najlepiej razem ze źródłem PL. „kumina” w sl = kminek zwyczajny — poprawnie.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sl",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży piekarskich, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30 % mąki pszennej można zastąpić żytnią. Ciasto przygotowuje się metodą jednofazową, pierwsze wyrastanie zaś trwa od kilku minut latem do jednej godziny zimą. Uformowane obręcze po dodatkowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, dopóki nie wypłyną na powierzchnię, następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, to jest około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obręcze piecze się w 250–320 °C 10–17 minut, do pożądanego koloru i wielkości. Gotowa obręcz ma średnicę 12–17 cm, grubość warkocza 2–4 cm i wagę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (po 2 sekundah) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (v 2 sekundah), najlepiej razem ze źródłem PL.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji do maszyn zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "„упутства за машине” — ogólnie „instrukcje maszyn”, jak w źródle PL. Zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmuj naczynie w rękawicach kuchennych, ponieważ naczynie, jego uchwyt i wnętrze pokrywy są gorące.",
+   "wynik": "drobna",
+   "opis": "„посуда” = naczynie zamiast „forma”; w sr instrukcjach maszyn do chleba „посуда за печење” jest typowa — akceptowalne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero, gdy chleb ostygnie, narzędziem z kompletu lub plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenia.",
+   "wynik": "drobna",
+   "opis": "„Мешалица” — jak hr; zrozumiałe w kontekście.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie programu lub przy jego końcu może wydostać się gorąca (wrząca) para.",
+   "wynik": "zgodne",
+   "opis": "„врела пара” = bardzo gorąca para — wzmocnienie, zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna pracuje, nie dotykaj otworu na parę i nie zasłaniaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci młodsze niż 8 lat trzymaj z dala od maszyny i kabla, a starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według specyfikacji, w przepisie z 10 kg mąki, 3 kg grubej mąki żytniej zaparza się z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego trzyma się w 63–65 °C 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg przedciasta (zaczynu) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a przedciasto 4–16%. Bochenki piecze się w palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (после 2 секунде) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (за 2 секунде), najlepiej razem ze źródłem PL. „предтесто” = zaczyn/przedciasto — termin, bez wpływu na bezpieczeństwo.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sr",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak są w opisie produkcji ze źródła, bez przeliczania na kuchnię domową i domowy piekarnik. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić żytnią. Ciasto przygotowuje się metodą jednofazową, a początkowe wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane krążki po dodatkowym (końcowym) wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, dopóki nie wypłyną na powierzchnię, następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, u większości dorosłych powoduje oparzenia trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację krążki piecze się w 250–320 °C 10–17 minut, do pożądanego koloru i wielkości. Gotowy krążek ma średnicę 12–17 cm, grubość warkocza 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (после 2 секунде) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (за 2 секунде), najlepiej razem ze źródłem PL.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, ponieważ przepis zawiera jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda instrukcja obsługi, którą przeczytaliśmy, zabrania opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Wyjmij formę w rękawicach kuchennych po pieczeniu, bo forma, jej uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w chlebie, może być bardzo gorące: wyjmij je dopiero, gdy chleb ostygnie, dołączonym narzędziem lub plastikową szpatułką, nie nożem ani widelcem, i nadal uważaj, żeby się nie oparzyć.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gdy otwierasz pokrywę w trakcie lub pod koniec programu, może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "„mot slutet” = pod koniec — dokładnie jak PL „pod koniec”; zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Nie dotykaj otworu parowego i nie zakrywaj go, gdy maszyna pracuje.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak stoją w opisie produkcji w źródle, bez przeliczania na domową kuchnię i domowy piekarnik. Według specyfikacji w recepturze z 10 kg mąki zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem schładza i fermentuje przez 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg przedciasta (fördeg) i fermentuje to 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a przedciasto 4–16%. Bochenki piecze się na trzonie pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pędzlem klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (efter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „fördeg” = zaczyn/przedciasto — termin.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "sv",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak stoją w opisie produkcji w źródle, bez przeliczania na domową kuchnię i domowy piekarnik. Według wspólnego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto robi się metodą jednoetapową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie zostawia się do końcowego wyrośnięcia, a potem zanurza w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, po czym dekoruje się je i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację pierścienie piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i rozmiaru. Gotowy pierścień ma średnicę 12–17 cm, splot o grubości 2–4 cm i wagę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (efter 2 sekunder) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (på 2 sekunder), najlepiej razem ze źródłem PL. „det gemensamma dokumentet” — unijny termin to „samlat dokument”; styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start jest wyłączony, bo w przepisie są jajka, świeże mleko, ser, jogurt, sok owocowy, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Wszystkie przeczytane przez nas instrukcje maszyn zabraniają opóźnionego startu z częścią tych składników, ponieważ łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij pojemnik rękawicą kuchenną, bo pojemnik, jego rączka i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "poprawka",
+   "opis": "„mutfak eldiveni” może oznaczać zwykłe/gumowe rękawice kuchenne; do gorącej formy potrzebne rękawice do piekarnika — „fırın eldiveni”. („kap” = pojemnik — akceptowalne.)",
+   "poprawiony": "Pişirmeden sonra kabı fırın eldiveniyle çıkarın; çünkü kap, sapı ve kapağın iç kısmı sıcaktır.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Mieszadło, które zostało w chlebie, może być bardzo gorące: wyjmij je po ostygnięciu chleba narzędziem z zestawu albo plastikową szpatułką; nie używaj noża ani widelca i nadal uważaj na ryzyko oparzenia.",
+   "wynik": "drobna",
+   "opis": "„ekmek soğuduktan sonra … çıkarın” — brak wyraźnego „dopiero”, ale polecenie „wyjmij po ostygnięciu” zachowane; zakaz noża/widelca i ostrzeżenie wierne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Przy otwieraniu pokrywy w trakcie lub na końcu programu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna pracuje, nie dotykaj otworu wylotu pary i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci młodsze niż 8 lat z dala od maszyny i kabla; starsze dzieci mogą jej używać tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki parzy się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg ciasta drożdżowego (zaczynu) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a ciasto drożdżowe (zaczyn) 4–16%. Bochenki piecze się w piecu z trzonem (paleniskiem), najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. „frenk kimyonu” = kminek — poprawnie. Zdanie o parzeniu składniowo niezręczne („6–8 l” zawieszone), „maya hamuru” może sugerować drożdże zamiast zaczynu.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "tr",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie (obwarzanki) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i obgotowuje (parzy), aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego pierścienie (obwarzanki) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy pierścień ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Opóźniony start wyłączono, bo w recepturze są jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Każda z przeczytanych instrukcji wypiekaczy do chleba zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "wynik": "zgodne",
+   "opis": "Dwuznaczność „z częścią tych składników” — jak w źródle. Zgodne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmujcie formę w rękawicach kuchennych, bo forma, jej rączka i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "zgodne",
+   "opis": "Forma grzecznościowa „виймайте” — styl.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka, która została w bochenku, może być bardzo gorąca: wyjmujcie ją dopiero po tym, jak chleb ostygnie, narzędziem z zestawu albo plastikową łopatką, nie nożem i nie widelcem, i nadal uważajcie na oparzenia.",
+   "wynik": "drobna",
+   "opis": "To samo słowo „лопатка” dla mieszadła i plastikowej szpatułki — brzmi niezręcznie (można „пластиковим шпателем”), sens i polecenia wierne.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Podczas otwierania pokrywy w trakcie programu albo na końcu może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Podczas pracy nie dotykajcie otworu na parę i nie zakrywajcie go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Dzieci w wieku do 8 lat trzymajcie z dala od wypiekacza i przewodu, a starsze mogą z niego korzystać tylko pod nadzorem.",
+   "wynik": "poprawka",
+   "opis": "„Дітей віком до 8 років” = „do 8 lat” — niejasne, czy 8-latek jest objęty zakazem; źródło: poniżej 8 lat. Zmieniono na „молодших за 8 років”.",
+   "poprawiony": "Дітей, молодших за 8 років, тримайте подалі від хлібопічки та шнура, а старші можуть користуватися нею лише під наглядом.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "uk",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i domowy piekarnik. Zgodnie ze specyfikacją, w recepturze z 10 kg mąki 3 kg grubo mielonej mąki żytniej zaparza się 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Taka gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia w 2 sekundy. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg rozczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a rozczyn 4–16%. Bochenki piecze się na trzonie pieca najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym albo wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, 2 s, „parzy”); liczby zgodne. Brak „з”: „3 кг борошна … заварюють 0,08–0,1 кг кмину та 6–8 л води” — dosłownie zaparza się kminek i wodę; lepiej „заварюють з 0,08–0,1 кг кмину…”. „опара” = rozczyn (termin).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "uk",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczania na domową kuchnię i domowy piekarnik. Zgodnie z jednolitym dokumentem na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić żytnią. Ciasto przygotowuje się metodą jednofazową, a początkowe wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie po rozroście zanurza się w wodzie o temperaturze co najmniej 90 °C i gotuje, aż wypłyną na powierzchnię, potem dekoruje i piecze. Taka gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia w 2 sekundy. Zgodnie z wnioskiem o rejestrację pierścienie piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i rozmiaru. Gotowy pierścień ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "wynik": "zgodne",
+   "opis": "Zdanie BEZ-WRZ-001 wierne (150 °F ≈ 66 °C, trzeci stopień, w 2 s, „parzy”); liczby zgodne ze źródłem; uwagi tłumacza zwrotnego tylko terminologiczne (nazwa zaczynu/wyrobu).",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k52",
+   "klucz": "Opóźniony start jest wyłączony, bo receptura ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce albo warzywa.",
+   "zwrotne_pl": "Minutnik (ustawianie czasu) jest wyłączony, ponieważ przepis ma jajka, świeże mleko, ser, jogurt, sok, świeże owoce lub warzywa.",
+   "wynik": "drobna",
+   "opis": "„Hẹn giờ” (timer) to standardowa nazwa funkcji opóźnionego startu w wietnamskich maszynach do chleba (przycisk/„chức năng hẹn giờ”), więc zrozumiałe; jednoznaczniej „Hẹn giờ khởi động” lub „Khởi động trễ”. Lista składników wierna.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k53",
+   "klucz": "Każda z przeczytanych instrukcji maszyn zabrania opóźnionego startu z częścią tych składników, bo łatwo się psują.",
+   "zwrotne_pl": "Wszystkie instrukcje maszyn, które przeczytaliśmy, zabraniają ustawiania czasu z niektórymi z tych składników, ponieważ łatwo się psują.",
+   "wynik": "drobna",
+   "opis": "„hẹn giờ” jak w k52 — standardowy termin, akceptowalny.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k56",
+   "klucz": "Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.",
+   "zwrotne_pl": "Po pieczeniu wyjmij formę rękawicami kuchennymi, bo forma, uchwyt i wewnętrzna strona pokrywy są gorące.",
+   "wynik": "poprawka",
+   "opis": "„găng tay nhà bếp” — niejasne, czy żaroodporne; do gorącej formy „găng tay chống nóng” (rękawice żaroodporne). „khuôn” = forma — OK.",
+   "poprawiony": "Sau khi nướng, hãy lấy khuôn ra bằng găng tay chống nóng, vì khuôn, tay cầm và mặt trong nắp đều nóng.",
+   "stan": "wdrożona (D-308)"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k57",
+   "klucz": "Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.",
+   "zwrotne_pl": "Łopatka do ugniatania, która została w bochenku, może być bardzo gorąca: wyjmij ją dopiero, gdy chleb ostygnie, dołączonym narzędziem albo plastikową szpatułką, nie używaj noża i widelca, i nadal uważaj, żeby się nie oparzyć.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k58",
+   "klucz": "Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.",
+   "zwrotne_pl": "Gdy otwierasz pokrywę w trakcie działania lub na końcu programu, może wydostać się gorąca para.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k59",
+   "klucz": "W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.",
+   "zwrotne_pl": "Gdy maszyna pracuje, nie dotykaj otworu wylotu pary i nie zakrywaj go.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "k60",
+   "klucz": "Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.",
+   "zwrotne_pl": "Trzymaj dzieci poniżej 8 lat z dala od maszyny i przewodu; starsze dzieci mogą używać maszyny tylko pod nadzorem.",
+   "wynik": "zgodne",
+   "opis": "Sens, liczby i polecenia zgodne ze źródłem PL/EN.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "n1",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według specyfikacji, w przepisie z 10 kg mąki, zaparza się 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niesfermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a potem chłodzi i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli, a fermentuje 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na palenisku najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je pastą skrobiową lub wodą.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według specyfikacji w przepisie z 10 kg mąki blanszuje się (parzy) 3 kg grubej mąki żytniej z 0,08–0,1 kg kminku (caraway) i 6–8 l gorącej wody o temperaturze 85–95 °C. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Po zaparzeniu masa ma 63–68 °C. Zaparzoną mąkę z 50–300 g niefermentowanego słodu żytniego utrzymuje się w 63–65 °C przez 2–4 godziny, a następnie schładza i fermentuje 12–24 godziny. Do 7–10 kg schłodzonej zaparzonej mąki dodaje się 0,4–1,6 kg zaczynu (bột men) i fermentuje 3–6 godzin w 35–36 °C. Ciasto składa się z 7–12 kg sfermentowanej zaparzonej mąki, 7–10 kg mąki żytniej, 0,8–1,6 kg cukru i 0,15–0,2 kg soli i rośnie 2–3 godziny w 30–34 °C. Można dodać najwyżej 10% mąki pszennej. W procentach piekarskich, gdy 10 kg mąki to 100%, woda stanowi 60–80%, sól 1,5–2%, cukier 8–16%, kminek (caraway) 0,8–1%, słód 0,5–3%, a zaczyn 4–16%. Bochenki piecze się na podłodze (trzonie) pieca, najpierw w 280–350 °C, potem w 200–250 °C, łącznie około 1–2 godzin zależnie od wielkości. Po upieczeniu smaruje się je klajstrem skrobiowym lub wodą.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (sau 2 giây) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (trong 2 giây), najlepiej razem ze źródłem PL. „chần” (blanszować) dla zaparzania mąki brzmi nietypowo; „hạt caraway” — zapożyczenie, ale jednoznacznie kminek.",
+   "poprawiony": null,
+   "stan": "—"
+  },
+  {
+   "jezyk": "vi",
+   "id": "n2",
+   "klucz": "Ilości i temperatury podaję tak, jak w opisie produkcji ze źródła, bez przeliczenia na kuchnię domową i piekarnik domowy. Według jednolitego dokumentu na 100 kg mąki stosuje się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a wstępne wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane obwarzanki po podgarowaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i warzy, aż wypłyną na powierzchnię, a potem dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenie trzeciego stopnia po 2 sekundach. Według wniosku o rejestrację obwarzanki piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy obwarzanek ma średnicę 12–17 cm, grubość splotu 2–4 cm i masę 80–120 g.",
+   "zwrotne_pl": "Podaję ilości i temperatury tak, jak są w opisie produkcji w źródle, bez przeliczania na kuchnię domową i piekarnik domowy. Według ujednoliconego dokumentu na 100 kg mąki używa się 40–48 l wody, 1–2 kg drożdży, 1–1,5 kg soli, 2–3 kg tłuszczu i 2–4 kg cukru. Do 30% mąki pszennej można zastąpić mąką żytnią. Ciasto przygotowuje się metodą jednofazową, a pierwsze wyrastanie trwa od kilku minut latem do godziny zimą. Uformowane pierścienie (vòng bánh) po końcowym wyrastaniu zanurza się w wodzie o temperaturze co najmniej 90 °C i blanszuje (obgotowuje), aż wypłyną na powierzchnię, a następnie dekoruje i piecze. Tak gorąca woda parzy: już woda o temperaturze 150 °F, czyli około 66 °C, powoduje u większości dorosłych oparzenia trzeciego stopnia po 2 sekundach. Według wniosku rejestracyjnego pierścienie (vòng bánh) piecze się w 250–320 °C przez 10–17 minut, do pożądanego koloru i wielkości. Gotowy pierścień ma średnicę 12–17 cm, splot (warkocz) grubości 2–4 cm i masę 80–120 g.",
+   "wynik": "drobna",
+   "opis": "Zdanie BEZ-WRZ-001: liczby 150 °F / 66 °C / 2 s wierne, ostrzeżenie „parzy” zachowane. Czas oddany jako „po 2 sekundach” (sau 2 giây) — dosłownie jak w źródle PL („po 2 sekundach”); EN ma „in 2 seconds”. Sens ten sam (2 s kontaktu), nie osłabia ostrzeżenia; opcjonalnie ujednolicić na „w ciągu/in” (trong 2 giây), najlepiej razem ze źródłem PL.",
+   "poprawiony": null,
+   "stan": "—"
+  }
+ ]
+}

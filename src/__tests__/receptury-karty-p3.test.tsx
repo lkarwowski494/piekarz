@@ -180,7 +180,7 @@ describe('M3 p3: Receptury na kartach', () => {
     act(() => tree.unmount());
   });
 
-  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, bez maxFontSizeMultiplier', async () => {
+  it('duży tekst (AX5 przy 320 pt): flexBasis zależny od fontScale, bez maxFontSizeMultiplier (styl, bez pomiaru)', async () => {
     const pomiar = async (fs: number) => {
       Object.assign(mockOkno, { fontScale: fs });
       const tree = await zamontuj(<EkranReceptury />);

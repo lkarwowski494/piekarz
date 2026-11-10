@@ -19,7 +19,7 @@ import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
 
-export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki', onLayout }: {
+export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestID, podtytul, podtytulTestID, wstecz, akcje, filtry, children, testID = 'pas-zakladki', onLayout, zwarty = false, srodek }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
@@ -43,6 +43,10 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   testID?: string;
   /** Wysokość pasa: ekran z pasem pokazuje mały tytuł w czapce, gdy pas schowa się pod paskiem stanu (EkranZPasem). */
   onLayout?: (wysokosc: number) => void;
+  /** Niski ekran (prowadzenie, token uklad.niskiEkran): tytuł 20 pt jak nagłówek karty, mniejsze odstępy (rola 04 p4b, 005). */
+  zwarty?: boolean;
+  /** W rzędzie nawigacji między wstecz a akcjami (pas zwarty prowadzenia: „Krok n z m”, rola 04 p4b, 005). */
+  srodek?: React.ReactNode;
 }) {
   // Krój Sofia reaguje na „Pogrubiony tekst” jak tytuł kroku (158) [04-studio-projektowe-014]
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
@@ -57,19 +61,20 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
   ) : null;
   return (
     <>
-    <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID} onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.height) : undefined}>
+    <View style={[styles.pas, zwarty && styles.pasZwarty, { paddingTop: gora + odstepy.xs }]} testID={testID} onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.height) : undefined}>
       {(wstecz || akcje) && (
         <View style={styles.gora}>
           {wstecz ? (
             <PrzyciskNaglowka testID="pas-wstecz-btn" etykieta={wstecz.etykieta ?? wstecz.tekst ?? ''} tekst={wstecz.tekst} naPasie onPress={wstecz.onPress}
               ikona={<IkonaStartu nazwa="wstecz" kolor={theme.colors.naPasie} rozmiar={22} />} />
           ) : <View />}
+          {srodek}
           <View style={styles.akcje}>{akcje}</View>
         </View>
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text testID={tytulTestID} style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul && !duzy ? <Text testID={podtytulTestID} style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}
@@ -156,6 +161,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.naPasie,
   },
+  // Zwarty (niski ekran): tytuł jak nagłówek karty (tytul2 − 2 = 20 pt), odstępy xs, dół m (005, rola 04 p4b)
+  pasZwarty: { gap: odstepy.xs, paddingBottom: odstepy.m },
+  tytulZwarty: { fontSize: typografia.style.tytul2.pt - 2 },
   podtytul: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie2, marginTop: -odstepy.xs },
   nadPasem: { position: 'absolute', top: -1000, left: 0, right: 0, height: 1000, backgroundColor: theme.colors.pas },
   filtry: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, marginTop: odstepy.xs },

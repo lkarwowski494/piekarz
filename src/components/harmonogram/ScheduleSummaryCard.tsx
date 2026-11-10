@@ -9,9 +9,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
-import { formatTime } from '../../lib/format';
 import { czasTrwania } from '../../lib/czas-trwania';
-import { dzienWZdaniu } from '../../lib/plan-za-pozno';
+import { startKiedy } from '../../lib/spirala-etykieta';
 
 export interface ScheduleSummaryCardProps {
   /** Początek pierwszego kroku planu; null = bez linii „Start …” (stan „za późno”, §11c 107). */
@@ -27,7 +26,7 @@ export function ScheduleSummaryCard({ start, czasMin, teraz }: ScheduleSummaryCa
     <View style={styles.opis}>
       {start ? (
         <Text style={styles.linia}>
-          {t('Start {dzien} o {godzina}', { dzien: dzienWZdaniu(start, new Date(teraz)), godzina: formatTime(start) })}
+          {startKiedy(start, new Date(teraz))}
         </Text>
       ) : null}
       <Text style={styles.linia} accessibilityLabel={t('Całość trwa {czas}.', { czas: czas.etykieta })}>

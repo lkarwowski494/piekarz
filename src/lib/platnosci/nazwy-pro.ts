@@ -24,7 +24,8 @@ export function nazwaBlokady(funkcja: Funkcja): string {
     case 'proporcje-zakwasu':
       return t('Proporcje dokarmiania');
     case 'porownanie':
-      return t('Porównanie i statystyki');
+      // Za blokadą jest tylko karta statystyk; porównanie dwóch wypieków to F-63 PÓŹNIEJ (DEC-04 a) [M1-audytor-generalny-015]
+      return t('Statystyki piekarni domowej');
     default:
       return t('Piekarz Pro');
   }

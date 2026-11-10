@@ -18,7 +18,7 @@ export const CZESC: Record<string, string> = {
   'Standardowe dokarmienie przed pieczeniem.': 'Alimentação padrão antes de assar.',
   'stare ciasto': 'massa velha',
   'Start': 'Iniciar',
-  'Start {dzien} o {godzina}': 'Início {dzien} às {godzina}',
+  'Start {dzien} o {godzina}': 'Início {dzien}, {godzina}',
   'Stary zakwas': 'Fermento natural antigo',
   'Statystyki piekarni domowej': 'Estatísticas da padaria caseira',
   'Stępniewska S. i in., „Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour”, Foods 2019': 'Stępniewska S. et al., “Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour”, Foods 2019',

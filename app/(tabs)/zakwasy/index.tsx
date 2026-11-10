@@ -142,7 +142,9 @@ export default function ZakwasScreen() {
 
   // Time since last feeding label
   const lastFedLabel = useMemo(() => {
-    const diffHours = Math.floor((Date.now() - (starter.lastFedAt ?? Date.now())) / (1000 * 60 * 60));
+    // Brak dokarmienia zostaje brakiem, nie „przed chwilą” [M1-audytor-generalny-026; 08-programista-003]
+    if (starter.lastFedAt === undefined) return t('Brak danych o karmieniu');
+    const diffHours = Math.floor((Date.now() - starter.lastFedAt) / (1000 * 60 * 60));
     if (diffHours < 1) return t('przed chwilą');
     if (diffHours < 24) return godzinTemu(diffHours);
     const diffDays = Math.floor(diffHours / 24);

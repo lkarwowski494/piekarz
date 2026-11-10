@@ -107,7 +107,8 @@ const EKRANY: Record<string, () => React.ReactElement> = {
   'app/(tabs)/zakwasy/index.tsx': () => <ZakwasScreen />,
   'app/doktor.tsx': () => <DoctorScreen />,
   'src/components/PaywallModal.tsx': () => <PaywallModal visible onClose={() => undefined} onSubscribe={() => undefined} onRestore={() => false} />,
-  'src/components/stolnica/ProwadzenieWypieku.tsx': () => {
+  // Pas prowadzenia wydzielony z ProwadzenieWypieku (005, rola 04 p4b); ekran ten sam: ProwadzenieWypieku → app/stolnica
+  'src/components/stolnica/PasProwadzenia.tsx': () => {
     setActiveBake({ id: 'bake_c', recipeName: 'Wiejski', startedAt: teraz, currentStageId: 'pm', steps: [krok('pm', 'Mieszanie i autoliza', 'mix', 0), krok('pp', 'Pieczenie', 'bake', 1)] });
     return <StolnicaScreen />;
   },

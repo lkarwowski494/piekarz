@@ -1,0 +1,403 @@
+{
+  "opis": "Pieczenie receptur ze źródła (DEC-03 a, D-303): temperatura, czas i naczynie w danych receptury (src/recipes/*.ts), w krokach planu „preheat_oven” i „bake” oraz w fazach prowadzenia. Teksty: docs/tresci/pl|en/pieczenie-receptur.md. Granica „przedział”: wartość w danych receptury musi leżeć w [min, max] (włącznie).",
+  "zrodlo": "rola 06-tresci, fix M2 p2, 2026-11-09",
+  "parametry": [
+    {
+      "parametr": "pizza_napoletana_48h.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 260,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-PIZ-001"
+    },
+    {
+      "parametr": "pizza_napoletana_48h.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 260,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-PIZ-001"
+    },
+    {
+      "parametr": "pizza_napoletana_48h.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 0,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-PIZ-001",
+      "uwagi": "źródło nie ma fazy z parą"
+    },
+    {
+      "parametr": "pizza_napoletana_48h.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "wartosc": 6,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-PIZ-001",
+      "uwagi": "6 min na stali; grill 2–3 min w zdaniu notesPl (pieczenie-receptur.md)"
+    },
+    {
+      "parametr": "pizza_napoletana_48h.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "baking_steel",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-PIZ-001"
+    },
+    {
+      "parametr": "country_loaf_72.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "country_loaf_72.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "country_loaf_72.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "country_loaf_72.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "country_loaf_72.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "tartine_high_hydration_80.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "san_francisco_sourdough.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "san_francisco_sourdough.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "san_francisco_sourdough.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "san_francisco_sourdough.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "san_francisco_sourdough.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "pain_de_campagne.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "pain_de_campagne.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "pain_de_campagne.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "pain_de_campagne.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "pain_de_campagne.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "spelt_ancient_seeded.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "graham_bread_honey.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "graham_bread_honey.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 232,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "graham_bread_honey.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 20,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "graham_bread_honey.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 20,
+      "max": 25,
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "wartość receptury zostaje, jeśli leży w przedziale"
+    },
+    {
+      "parametr": "graham_bread_honey.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "dutch_oven",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "lievito_madre_panettone_brioche.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 177,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-BRI-001"
+    },
+    {
+      "parametr": "lievito_madre_panettone_brioche.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 177,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-BRI-001"
+    },
+    {
+      "parametr": "lievito_madre_panettone_brioche.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 0,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-BRI-001",
+      "uwagi": "źródło nie ma fazy z parą"
+    },
+    {
+      "parametr": "lievito_madre_panettone_brioche.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "granica": "przedział",
+      "min": 28,
+      "max": 30,
+      "twierdzenie": "PIE-BRI-001"
+    },
+    {
+      "parametr": "lievito_madre_panettone_brioche.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "bread_pan",
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-BRI-001"
+    },
+    {
+      "parametr": "durum_semolina_sourdough.bakeTempSteamC",
+      "jednostka": "°C",
+      "wartosc": 250,
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005"
+    },
+    {
+      "parametr": "durum_semolina_sourdough.bakeTempBrowningC",
+      "jednostka": "°C",
+      "wartosc": 250,
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005"
+    },
+    {
+      "parametr": "durum_semolina_sourdough.bakeTimeSteamMinutes",
+      "jednostka": "min",
+      "wartosc": 0,
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005",
+      "uwagi": "15 min przy otwartym piecu + 45 przy zamkniętym = 60 min jednej fazy (rachunek); przeniesienie na piekarnik domowy [DO USTALENIA] (uwaga KAT-ALT-005)"
+    },
+    {
+      "parametr": "durum_semolina_sourdough.bakeTimeBrowningMinutes",
+      "jednostka": "min",
+      "wartosc": 60,
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005"
+    },
+    {
+      "parametr": "durum_semolina_sourdough.recommendedVessel",
+      "jednostka": "naczynie",
+      "wartosc": "baking_steel",
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005"
+    },
+    {
+      "parametr": "plan.preheat_oven.dutch_oven.tempC",
+      "jednostka": "°C",
+      "wartosc": 260,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "potem obniżenie do bakeTempSteamC receptury przy włożeniu bochenka"
+    },
+    {
+      "parametr": "plan.preheat_oven.dutch_oven.durationMinutes",
+      "jednostka": "min",
+      "wartosc": 45,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-GAR-001"
+    },
+    {
+      "parametr": "plan.preheat_oven.bread_pan.tempC",
+      "jednostka": "°C",
+      "wartosc": 204,
+      "granica": "wartość dokładna",
+      "twierdzenie": "PIE-BRI-001",
+      "uwagi": "potem obniżenie do 177 °C"
+    },
+    {
+      "parametr": "plan.preheat_oven.bread_pan.durationMinutes",
+      "jednostka": "min",
+      "wartosc": null,
+      "granica": "[DO USTALENIA]",
+      "twierdzenie": "PIE-BRI-900",
+      "uwagi": "rezerwa planu bez liczby w tekście (jak DRO-PLN-900)"
+    },
+    {
+      "parametr": "plan.preheat_oven.baking_steel.tempC",
+      "jednostka": "°C",
+      "wartosc": 250,
+      "granica": "wartość dokładna",
+      "twierdzenie": "KAT-ALT-005"
+    },
+    {
+      "parametr": "plan.bake.durationMinutes",
+      "jednostka": "min",
+      "wartosc": "bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury",
+      "granica": "rachunek",
+      "twierdzenie": "PIE-GAR-001, PIE-BRI-001, KAT-ALT-005"
+    },
+    {
+      "parametr": "faza.lid_on",
+      "jednostka": "min, °C",
+      "wartosc": "bakeTimeSteamMinutes, bakeTempSteamC receptury",
+      "granica": "rachunek",
+      "twierdzenie": "PIE-GAR-001",
+      "uwagi": "fazy garnka tylko przy recommendedVessel = dutch_oven"
+    },
+    {
+      "parametr": "faza.lid_off",
+      "jednostka": "min, °C",
+      "wartosc": "bakeTimeBrowningMinutes, bakeTempBrowningC receptury",
+      "granica": "rachunek",
+      "twierdzenie": "PIE-GAR-001"
+    }
+  ],
+  "otwarte": [
+    "rye_100_pan 230/195 °C 15+45 min, borodinsky_rye 230/190 °C 15+50 min: bez źródła (D-256); bez zmiany wartości",
+    "latvian_scalded_rye 225 °C 90 min wobec KAT-RUP-005 (palenisko 280–350, potem 200–250 °C, 1–2 h): poza zakresem 008 (receptura żytnia), do sprawdzenia",
+    "PIE-BRI-900: czas nagrzewania i kroki planu brioszki"
+  ]
+}

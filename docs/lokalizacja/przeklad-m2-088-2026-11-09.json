@@ -1,0 +1,141 @@
+{
+ "_opis": "Przekład 2 kluczy M1-audytor-generalny-088 (06-tresci-601, opcja a; krok nagrzewania i pieczenia w keksówce i na stali poza wektorem D-304 bez liczb, z odesłaniem do „O recepturze”): MT claude-opus-5-5 (rola 06, M2 p4, 2026-11-09) wzorowany w każdym języku na przetłumaczonych kluczach „Nagrzej piekarnik ze stalą do 250 °C.”, „Piecz w 250 °C.” (forma zwracania się) i „O recepturze” (nazwa karty dosłownie z przekładu języka, w cudzysłowie języka); drugi przegląd AI: nieodbyty (uruchomi M2); przegląd natywny: brak (DEC-06). Teksty PL do akceptacji roli 04.",
+ "pl": [
+  "Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.",
+  "Piecz w temperaturze i przez czas podane w „O recepturze”."
+ ],
+ "jezyki": {
+  "cs": [
+   "Rozehřejte troubu na teplotu pečení uvedenou v části „O receptu“.",
+   "Pečte při teplotě a po dobu uvedené v části „O receptu“."
+  ],
+  "sk": [
+   "Rozohrejte rúru na teplotu pečenia uvedenú v časti „O receptúre“.",
+   "Pečte pri teplote a počas času uvedených v časti „O receptúre“."
+  ],
+  "hu": [
+   "Melegítsd elő a sütőt „A receptről” részben megadott sütési hőmérsékletre.",
+   "Süsd „A receptről” részben megadott hőmérsékleten és ideig."
+  ],
+  "ro": [
+   "Încălzește cuptorul la temperatura de coacere indicată în „Despre rețetă”.",
+   "Coace la temperatura și pe durata indicate în „Despre rețetă”."
+  ],
+  "bg": [
+   "Загрейте фурната до температурата на печене, посочена в „За рецептата“.",
+   "Печете при температурата и за времето, посочени в „За рецептата“."
+  ],
+  "hr": [
+   "Zagrij pećnicu na temperaturu pečenja navedenu u „O recepturi”.",
+   "Peci na temperaturi i onoliko dugo koliko je navedeno u „O recepturi”."
+  ],
+  "sl": [
+   "Pečico segrejte na temperaturo peke, navedeno v »O receptu«.",
+   "Pecite pri temperaturi in toliko časa, kot je navedeno v »O receptu«."
+  ],
+  "sr": [
+   "Загреј рерну на температуру печења наведену у „О рецептури”.",
+   "Пеци на температури и онолико дуго колико је наведено у „О рецептури”."
+  ],
+  "lt": [
+   "Įkaitinkite orkaitę iki kepimo temperatūros, nurodytos skiltyje „Apie receptūrą“.",
+   "Kepkite skiltyje „Apie receptūrą“ nurodytoje temperatūroje ir nurodytą laiką."
+  ],
+  "lv": [
+   "Uzkarsējiet cepeškrāsni līdz cepšanas temperatūrai, kas norādīta sadaļā “Par receptūru”.",
+   "Cepiet sadaļā “Par receptūru” norādītajā temperatūrā un norādīto laiku."
+  ],
+  "et": [
+   "Kuumuta ahi küpsetustemperatuurini, mis on kirjas jaotises „Retseptist“.",
+   "Küpseta jaotises „Retseptist“ kirjas oleval temperatuuril ja nii kaua, kui seal on märgitud."
+  ],
+  "uk": [
+   "Розігрійте духовку до температури випікання, указаної в розділі «Про рецептуру».",
+   "Випікайте за температури й стільки часу, скільки вказано в розділі «Про рецептуру»."
+  ],
+  "es": [
+   "Precalienta el horno a la temperatura de horneado indicada en «Sobre la receta».",
+   "Hornea a la temperatura y durante el tiempo indicados en «Sobre la receta»."
+  ],
+  "es-419": [
+   "Precalienta el horno a la temperatura de horneado indicada en «Sobre la fórmula».",
+   "Hornea a la temperatura y durante el tiempo indicados en «Sobre la fórmula»."
+  ],
+  "pt": [
+   "Aqueça o forno à temperatura de cozedura indicada em «Sobre a receita».",
+   "Coza à temperatura e durante o tempo indicados em «Sobre a receita»."
+  ],
+  "pt-BR": [
+   "Preaqueça o forno à temperatura de assar indicada em “Sobre a receita”.",
+   "Asse na temperatura e pelo tempo indicados em “Sobre a receita”."
+  ],
+  "de": [
+   "Heize den Ofen auf die Backtemperatur aus „Über die Rezeptur“ vor.",
+   "Backe bei der Temperatur und so lange, wie unter „Über die Rezeptur“ angegeben."
+  ],
+  "fr": [
+   "Préchauffez le four à la température de cuisson indiquée dans « À propos de la recette ».",
+   "Faites cuire à la température et pendant la durée indiquées dans « À propos de la recette »."
+  ],
+  "it": [
+   "Scalda il forno alla temperatura di cottura indicata in «Info sulla ricetta».",
+   "Cuoci alla temperatura e per il tempo indicati in «Info sulla ricetta»."
+  ],
+  "nl": [
+   "Verwarm de oven voor op de baktemperatuur die bij ‘Over dit recept’ staat.",
+   "Bak op de temperatuur en zo lang als bij ‘Over dit recept’ staat."
+  ],
+  "sv": [
+   "Värm ugnen till den gräddningstemperatur som står under ”Om receptet”.",
+   "Grädda i den temperatur och den tid som står under ”Om receptet”."
+  ],
+  "da": [
+   "Forvarm ovnen til den bagetemperatur, der står under »Om opskriften«.",
+   "Bag ved den temperatur og i den tid, der står under »Om opskriften«."
+  ],
+  "nb": [
+   "Varm ovnen til steketemperaturen som står under «Om oppskriften».",
+   "Stek på temperaturen og i tiden som står under «Om oppskriften»."
+  ],
+  "fi": [
+   "Kuumenna uuni kohdassa ”Tietoa reseptistä” mainittuun paistolämpötilaan.",
+   "Paista kohdassa ”Tietoa reseptistä” mainitussa lämpötilassa ja mainitun ajan."
+  ],
+  "tr": [
+   "Fırını “Tarif Hakkında” bölümünde yazan pişirme sıcaklığına ısıtın.",
+   "“Tarif Hakkında” bölümünde yazan sıcaklıkta ve sürede pişirin."
+  ],
+  "el": [
+   "Προθερμάνετε τον φούρνο στη θερμοκρασία ψησίματος που αναφέρεται στο «Σχετικά με τη συνταγή».",
+   "Ψήστε στη θερμοκρασία και για τον χρόνο που αναφέρονται στο «Σχετικά με τη συνταγή»."
+  ],
+  "id": [
+   "Panaskan oven hingga suhu pemanggangan yang tertera di “Tentang Resep”.",
+   "Panggang pada suhu dan selama waktu yang tertera di “Tentang Resep”."
+  ],
+  "ms": [
+   "Panaskan ketuhar hingga suhu bakar yang dinyatakan dalam “Tentang Resipi Ini”.",
+   "Bakar pada suhu dan selama masa yang dinyatakan dalam “Tentang Resipi Ini”."
+  ],
+  "vi": [
+   "Làm nóng lò đến nhiệt độ nướng ghi trong “Về công thức này”.",
+   "Nướng ở nhiệt độ và trong thời gian ghi trong “Về công thức này”."
+  ],
+  "ru": [
+   "Разогрейте духовку до температуры выпечки, указанной в разделе «О рецептуре».",
+   "Выпекайте при температуре и столько времени, сколько указано в разделе «О рецептуре»."
+  ],
+  "ja": [
+   "オーブンを「この配合について」に記載の焼成温度に予熱します。",
+   "「この配合について」に記載の温度と時間で焼きます。"
+  ],
+  "ko": [
+   "오븐을 ‘배합표 정보’에 적힌 굽기 온도로 예열하세요.",
+   "‘배합표 정보’에 적힌 온도와 시간으로 구우세요."
+  ],
+  "zh-Hant": [
+   "將烤箱預熱至「關於此配方」中的烘烤溫度。",
+   "依「關於此配方」中的溫度與時間烘烤。"
+  ]
+ }
+}

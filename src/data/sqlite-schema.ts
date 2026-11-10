@@ -1,7 +1,8 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { kopiaPrzedMigracja } from './kopie-przed-migracja';
+import { uruchomMigracje, NewerDatabaseError, MigrationError, type SchemaMigration } from './runner-migracji';
 import { ratujPlikiBazy } from '../lib/kopia-plikow-bazy';
+import { zKolejka, type BazaZKolejka } from './kolejka-zapisow';
 import {
   StoredRecipe,
   StoredStarter,
@@ -48,8 +49,8 @@ export interface ActiveBakeState {
   tryb?: 'piekarnik' | 'maszyna';
 }
 
-let dbInstance: SQLite.SQLiteDatabase | null = null;
-let dbOpening: Promise<SQLite.SQLiteDatabase | null> | null = null;
+let dbInstance: BazaZKolejka | null = null;
+let dbOpening: Promise<BazaZKolejka | null> | null = null;
 
 // In-memory fallback for test and non-native environments
 export const memStore = {
@@ -86,9 +87,10 @@ export function _resetMemStore(): void {
 
 /**
  * Jedno połączenie na proces: równoległe wywołania czekają na to samo otwarcie, a klucze obce (starter_entries,
- * ADR-008) włączamy zaraz po otwarciu, poza transakcją (05-architekt-fix-p5-001) [M1-audytor-generalny-104].
+ * ADR-008) włączamy zaraz po otwarciu, poza transakcją (05-architekt-fix-p5-001) [M1-audytor-generalny-104]; zapisy w kolejce
+ * (kolejka-zapisow.ts) [M1-audytor-generalny-001].
  */
-export function getDb(): Promise<SQLite.SQLiteDatabase | null> {
+export function getDb(): Promise<BazaZKolejka | null> {
   if (dbInstance) return Promise.resolve(dbInstance);
   if (!dbOpening) {
     dbOpening = openDb().then((db) => {
@@ -99,7 +101,7 @@ export function getDb(): Promise<SQLite.SQLiteDatabase | null> {
   return dbOpening;
 }
 
-async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
+async function openDb(): Promise<BazaZKolejka | null> {
   try {
     const defaultDir = SQLite.defaultDatabaseDirectory;
     const safeDir = dbDirectory(defaultDir);
@@ -107,7 +109,7 @@ async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
       ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
       : await SQLite.openDatabaseAsync(DB_NAME);
     await db.execAsync('PRAGMA foreign_keys = ON;');
-    dbInstance = db;
+    dbInstance = zKolejka(db);
     return dbInstance;
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
@@ -138,13 +140,7 @@ export async function ratunekPoBledzie(msg: string): Promise<void> {
   if (pakiet) markStorageUnavailable(msg, pakiet, 'pliki-bazy');
 }
 
-export interface SchemaMigration {
-  version: number;
-  description: string;
-  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
-  przed?: (db: SQLite.SQLiteDatabase) => Promise<void>;
-  run: (db: SQLite.SQLiteDatabase) => Promise<void>;
-}
+export type { SchemaMigration } from './runner-migracji';
 
 export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
   {
@@ -341,13 +337,8 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
   MIGRACJA_V7,
 ];
 
-export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
-  // Wersja przed czymkolwiek innym: bazy nowszej niż aplikacja nie zmienia nawet PRAGMA journal_mode [M1-audytor-generalny-061]
-  const known = Math.max(...SCHEMA_MIGRATIONS.map((m) => m.version));
-  const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
-  if (found > known) throw new NewerDatabaseError(found, known);
-
-  await db.execAsync(`
+/** Pragmy i tabela wykonanych migracji, przed migracjami (po sprawdzeniu wersji). */
+export const PRZYGOTOWANIE_MIGRACJI = `
     PRAGMA journal_mode = WAL;
     PRAGMA foreign_keys = ON;
     PRAGMA busy_timeout = 5000;
@@ -357,52 +348,14 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
       applied_at TEXT NOT NULL,
       description TEXT NOT NULL
     );
-  `);
+  `;
 
-  const currentVersion = found;
-
-  const pendingMigrations = SCHEMA_MIGRATIONS.filter((m) => m.version > currentVersion);
-  if (pendingMigrations.length === 0) return;
-
-  // Kopia przed migracją przez VACUUM INTO: spójna także z danymi z pliku -wal; bez kopii nie migrujemy
-  // [M1-audytor-generalny-004]. Nieudana migracja wycofuje swoją transakcję — plik bazy nie jest podmieniany.
-  const backupPath = await kopiaPrzedMigracja(db, currentVersion);
-
-  for (const m of pendingMigrations) {
-    try {
-      if (m.przed) await m.przed(db);
-      await db.execAsync('BEGIN TRANSACTION;');
-      await m.run(db);
-      await db.runAsync(
-        'INSERT INTO schema_migrations (version, applied_at, description) VALUES (?, ?, ?);',
-        m.version,
-        new Date().toISOString(),
-        m.description
-      );
-      await db.execAsync(`PRAGMA user_version = ${m.version};`);
-      await db.execAsync('COMMIT;');
-    } catch (err: unknown) {
-      await db.execAsync('ROLLBACK;').catch(() => {});
-      throw new MigrationError(err, backupPath);
-    }
-  }
+/** Migracje aplikacji na bazie; runner: runner-migracji.ts. */
+export function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
+  return uruchomMigracje(db, SCHEMA_MIGRATIONS, PRZYGOTOWANIE_MIGRACJI);
 }
 
-/** Baza zapisana przez nowszą wersję aplikacji (user_version > najwyższa znana migracja). */
-export class NewerDatabaseError extends Error {
-  constructor(readonly dbVersion: number, readonly appVersion: number) {
-    super(`Database version ${dbVersion} is newer than the app (${appVersion})`);
-    this.name = 'NewerDatabaseError';
-  }
-}
-
-export class MigrationError extends Error {
-  constructor(cause: unknown, readonly backupPath: string) {
-    super(cause instanceof Error ? cause.message : String(cause));
-    this.name = 'MigrationError';
-  }
-}
-
+export { NewerDatabaseError, MigrationError } from './runner-migracji';
 export { preMigrationBackupPath } from './kopie-przed-migracja';
 
 export async function initDatabase(): Promise<void> {
@@ -440,7 +393,7 @@ export async function initDatabase(): Promise<void> {
     memStore.flourInventory = [
       {
         id: 'flour_inv_wheat_750',
-        name: 'Mąka pszenna chlebowa typ 750',
+        name: 'Mąka pszenna typ 750 (chlebowa)',
         stockGrams: 2000,
         proteinPct: 12.0,
         updatedAt: Date.now(),

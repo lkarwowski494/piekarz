@@ -54,8 +54,14 @@ const WYJATKI_ZAKLADKI: Record<string, Record<string, string>> = {
 const WYJATKI_JEDEN_WIERSZ: Record<string, string> = {
   'src/components/harmonogram/TargetReadyCard.tsx': 'godzina „gotowe” na planie (token czas)',
   'src/components/stolnica/StrefaKroku.tsx': 'czas kroku w prowadzeniu (token czas)',
+  // Nazwany wyjątek (KO-017, D-336; KO-020, D-338): „Krok n z m” w zwartym pasie prowadzenia w jednym wierszu ze skalą
+  // MIN_SKALA_NUMERU (0,7) zamiast łamania na znaki przy 320 pt. Zwarty pas tylko przy fontScale < 2 (useNiskiEkran),
+  // więc przy dużym tekście (AX) numer bez ograniczenia; po D-337 (ikony) numer ma ok. 172 pt i zwykle się nie zmniejsza.
+  'src/components/stolnica/PasProwadzenia.tsx': 'numer kroku w zwartym pasie prowadzenia (KO-017, D-336, D-338)',
 };
 const JEDEN_WIERSZ: Record<string, string> = { numberOfLines: '{1}', adjustsFontSizeToFit: '', minimumFontScale: '{0.5}' };
+/** Skala inna niż 0,5 w nazwanym wyjątku: tylko stała z pliku i decyzji (D-336: 0,7). */
+const SKALA_JEDEN_WIERSZ: Record<string, string> = { 'src/components/stolnica/PasProwadzenia.tsx': '{MIN_SKALA_NUMERU}' };
 const STYL_TYTULU = /^(title|heading)$|Title|Heading|Clock|Price/;
 
 describe('055: duży tekst i krój tytułów', () => {
@@ -74,7 +80,9 @@ describe('055: duży tekst i krój tytułów', () => {
             // tego samego stylu (czas 99 / 56) — rozmiar przy AX5 z tokenów, nie dowolny limit [M1-audytor-generalny-201]
             const zTokenow = nazwa === 'maxFontSizeMultiplier' &&
               /^\{\s*typografia\.style\.(\w+)\.ax5\s*\/\s*typografia\.style\.\1\.pt\s*\}$/.test(a.initializer?.getText(sf) ?? '');
-            const jedenWiersz = !!WYJATKI_JEDEN_WIERSZ[rel(f)] && JEDEN_WIERSZ[nazwa] === (a.initializer?.getText(sf) ?? '');
+            const wartosc = a.initializer?.getText(sf) ?? '';
+            const jedenWiersz = !!WYJATKI_JEDEN_WIERSZ[rel(f)] &&
+              (JEDEN_WIERSZ[nazwa] === wartosc || (nazwa === 'minimumFontScale' && SKALA_JEDEN_WIERSZ[rel(f)] === wartosc));
             const zakladka = WYJATKI_ZAKLADKI[rel(f)]?.[nazwa] === (a.initializer?.getText(sf) ?? '');
             if (LIMITY.includes(nazwa) && !zTokenow && !jedenWiersz && !zakladka) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
             if (nazwa === 'allowFontScaling' && /false/.test(a.initializer?.getText(sf) ?? '') && !WYJATKI_SKALI[rel(f)]) {

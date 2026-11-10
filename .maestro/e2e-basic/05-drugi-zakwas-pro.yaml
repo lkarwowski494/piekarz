@@ -19,9 +19,19 @@ appId: com.apps4brew.baker
       id: "zakladanie-pierwsze-dokarmienie-btn"
 - tapOn:
     id: "zakladanie-pierwsze-dokarmienie-btn"
-- tapOn:
-    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+# E2E-96: okno systemu iOS (bez id) otwiera sie po odpowiedzi systemu; czekanie warunkowe, stukniecie bez optional
+- extendedWaitUntil:
+    visible:
+      text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    timeout: 15000
     optional: true
+- runFlow:
+    when:
+      visible:
+        text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    commands:
+      - tapOn:
+          text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
 - extendedWaitUntil:
     notVisible:
       id: "zakladanie-start"
@@ -54,3 +64,5 @@ appId: com.apps4brew.baker
     id: "new-starter-name-input"
 - assertVisible:
     id: "add-starter-btn"
+# Zrzut punktu kontrolnego na końcu scenariusza (artefakt zrzuty-e2e) [M1-audytor-generalny-075]
+- takeScreenshot: "zrzuty-e2e/${JEZYK}-05-drugi-zakwas-pro"

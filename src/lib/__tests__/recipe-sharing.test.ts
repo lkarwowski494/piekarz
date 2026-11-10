@@ -16,6 +16,7 @@ import {
 } from '../recipe-sharing';
 import { MASTER_RECIPES } from '../../recipes/presets';
 import { StoredRecipe } from '../../data/db';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Recipe Sharing & JSON Serialization', () => {
   describe('exportRecipeToJson', () => {
@@ -173,7 +174,7 @@ describe('Recipe Sharing & JSON Serialization', () => {
         name: 'Zupa chlebowa',
         formula: {
           flours: [{ name: 'Mąka', percentage: 100 }],
-          waterPercentage: 150, // 150% is beyond physical bound
+          waterPercentage: 151, // poza zakresem arkusza „Składniki” (0–150%, jedno źródło od M1-audytor-generalny-027)
           saltPercentage: 2,
           starterPercentage: 20,
         },
@@ -252,7 +253,7 @@ describe('Recipe Sharing & JSON Serialization', () => {
             expect(Math.abs(result.recipe.formula.starterPercentage - data.starterPct)).toBeLessThanOrEqual(0.1);
           }
         }),
-        { numRuns: 100 }
+        { numRuns: nr(100) }
       );
     });
 
@@ -265,7 +266,7 @@ describe('Recipe Sharing & JSON Serialization', () => {
             expect(typeof result.error).toBe('string');
           }
         }),
-        { numRuns: 200 }
+        { numRuns: nr(200) }
       );
     });
   });

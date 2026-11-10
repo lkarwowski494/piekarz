@@ -1,0 +1,7 @@
+# Dowód CI po poprawce 110 (odczyt MCP GitHub actions_list, 2026-11-10 06:33Z)
+Przed: tests-tz run 42765008836 (#189) na b7c77c37 — conclusion: failure, 7/7 jobów: FAIL tests/dziennik-wydan-tagi-079.test.ts
+       („Expected: > 0 / Received: 0”), Tests: 1 failed, 6842 passed, 6843 total.
+Po:    tests-tz run 42768501784 (#191) na dff73e9c — event: push, status: completed, conclusion: success
+       (7 jobów: UTC, Europe/Warsaw, America/New_York, America/Los_Angeles, Asia/Tokyo, Australia/Sydney, Pacific/Auckland).
+       CI run 42768501895 (#231) na dff73e9c — conclusion: success.
+Koszt pełnej historii: krok „Run actions/checkout@v4” w jobach #191 trwał 3–6 s (06:26:21–06:26:28Z).

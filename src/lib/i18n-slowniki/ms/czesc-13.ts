@@ -78,13 +78,13 @@ export const CZESC: Record<string, string> = {
   'Według czterech z pięciu przeczytanych instrukcji opóźniony start nie działa albo nie jest zalecany w programie samego ciasta, więc Piekarz go nie proponuje.':
     'Menurut empat daripada lima buku panduan yang kami baca, mula tertunda tidak berfungsi atau tidak disyorkan dalam program doh sahaja, jadi Tukang Roti tidak mencadangkannya.',
   'Po pieczeniu formę wyjmuj w rękawicach kuchennych, bo forma, jej uchwyt i wnętrze pokrywy są gorące.':
-    'Selepas membakar, keluarkan loyang dengan sarung tangan dapur, kerana loyang, pemegangnya dan bahagian dalam penutup panas.',
+    'Selepas membakar, keluarkan loyang dengan sarung tangan ketuhar, kerana loyang, pemegangnya dan bahagian dalam penutup panas.',
   'Mieszadło, które zostało w bochenku, może być bardzo gorące: wyjmij je dopiero po ostygnięciu chleba, narzędziem z zestawu albo plastikową łopatką, bez noża i widelca, i dalej uważaj na oparzenie.':
     'Bilah pengadun yang tertinggal dalam roti mungkin sangat panas: keluarkan hanya selepas roti sejuk, dengan alat dalam set atau sudip plastik, tanpa pisau dan garpu, dan terus berhati-hati terhadap lecur.',
   'Przy otwieraniu pokrywy w trakcie albo pod koniec programu może wydostać się gorąca para.':
     'Wap panas mungkin keluar apabila anda membuka penutup semasa atau pada akhir program.',
   'W czasie pracy nie dotykaj otworu pary i go nie zasłaniaj.':
-    'Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan tutupnya.',
+    'Semasa mesin berfungsi, jangan sentuh lubang wap dan jangan menutupnya.',
   'Dzieci poniżej 8 lat trzymaj z dala od maszyny i przewodu, a starsze mogą jej używać tylko pod nadzorem.':
     'Jauhkan kanak-kanak di bawah umur 8 tahun daripada mesin dan kordnya, dan kanak-kanak yang lebih besar hanya boleh menggunakannya di bawah penyeliaan.',
   'Podpowiedź programu to reguła Piekarza, nie zalecenie producenta, więc sprawdź ją w instrukcji swojej maszyny.':

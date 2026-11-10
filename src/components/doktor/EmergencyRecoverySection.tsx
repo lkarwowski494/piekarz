@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   recoveryCardTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
     flex: 1,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     minWidth: theme.cele.pozostale,
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: 28 / 2,
     backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   immediateAlertLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.blad,
     marginBottom: 2,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   recoveryStepIndexPill: {
     width: 20,
     height: 20,
-    borderRadius: 10,
+    borderRadius: 20 / 2,
     backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   recoveryStepIndexText: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   scienceLabel: {
-    fontSize: 11,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz3,
     marginBottom: 2,

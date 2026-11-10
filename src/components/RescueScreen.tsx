@@ -1,6 +1,8 @@
 // ============================================================================
 // Piekarz — ekran awaryjny [M1-audytor-generalny-018]
 // Po wyjątku renderu albo dwóch nieudanych startach: eksport danych i ponowna próba.
+// Ostrzeżenie przed usunięciem aplikacji, co zrobić z plikiem (import w aplikacji) i „Napisz do nas”
+// [M1-audytor-generalny-003; 12-niezawodnosc-001, DEC-17 a].
 // ============================================================================
 
 import React, { useState } from 'react';
@@ -10,6 +12,7 @@ import { exportBackup } from '../lib/backup';
 import { dbFileUri } from '../data/sqlite-schema';
 import { pakietPlikowBazy } from '../lib/kopia-plikow-bazy';
 import { shareRescueFile } from './StorageGate';
+import { napiszDoAutora } from '../lib/zgloszenie-wyslanie';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
@@ -59,6 +62,9 @@ export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry, bezMigracji
       <Text style={styles.body}>
         {t('Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.')}
       </Text>
+      <Text style={[styles.body, styles.ostrzezenie]} testID="rescue-warning">
+        {t('Nie usuwaj aplikacji. Usunięcie jej skasuje dane i kopie zapasowe zapisane w telefonie.')}
+      </Text>
       <Pressable
         style={styles.button}
         onPress={handleExport}
@@ -69,8 +75,19 @@ export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry, bezMigracji
       >
         <Text style={styles.buttonText}>{t('Eksportuj kopię danych')}</Text>
       </Pressable>
+      <Text style={styles.body}>
+        {t('Zachowaj plik kopii, np. w Plikach. Gdy aplikacja znów zadziała, zaimportujesz go w Ustawieniach: Importuj z pliku.')}
+      </Text>
       <Pressable style={styles.secondaryButton} onPress={onRetry} accessibilityRole="button" testID="rescue-retry">
         <Text style={styles.secondaryButtonText}>{t('Spróbuj ponownie')}</Text>
+      </Pressable>
+      <Pressable
+        style={[styles.secondaryButton, styles.kontakt]}
+        onPress={() => void napiszDoAutora()}
+        accessibilityRole="button"
+        testID="rescue-contact"
+      >
+        <Text style={styles.secondaryButtonText}>{t('Napisz do nas')}</Text>
       </Pressable>
     </ScrollView>
   );
@@ -81,7 +98,9 @@ const styles = StyleSheet.create({
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
   title: { get fontFamily() { return theme.typography.krojTytulow; },
            color: theme.colors.tusz, fontSize: typografia.style.tytul2.pt, fontWeight: '700', marginBottom: theme.spacing.md },
-  body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
+  body: { color: theme.colors.tusz2, fontSize: typografia.style.naglowek.pt, lineHeight: 22, marginBottom: theme.spacing.lg },
+  ostrzezenie: { color: theme.colors.tusz, fontWeight: '700' },
+  kontakt: { marginTop: theme.spacing.md },
   button: {
     backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
@@ -93,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: theme.spacing.md,
   },
-  buttonText: { color: theme.colors.naAkcencie, fontSize: 16, fontWeight: '700' },
+  buttonText: { color: theme.colors.naAkcencie, fontSize: typografia.style.naglowek.pt, fontWeight: '700' },
   secondaryButton: {
     borderColor: theme.colors.akcent,
     borderWidth: 1,
@@ -105,5 +124,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: 16, fontWeight: '700' },
+  secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: typografia.style.naglowek.pt, fontWeight: '700' },
 });

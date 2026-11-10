@@ -4,6 +4,8 @@ name: App Store Connect — ustawienia przez API
 # Uruchamia tylko właściciel ręcznie: Actions → „Run workflow” na master (workflow_dispatch, wybór a 10-wydanie-601).
 # Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy docs/wydanie/asc-zgoda.json ma
 # "zapis": true i skrót planu pokazanego właścicielowi (docs/wydanie/instrukcja-ustawien.md).
+# Dwa zadania (D-314, M1-audytor-generalny-082): „na-sucho” bez środowiska (skrypt dostaje kopię zgody z "zapis": false,
+# więc zapisać nie może); „zapis” tylko przy "zapis": true i dopiero po akceptacji właściciela w środowisku GitHub `release`.
 
 on:
   workflow_dispatch:
@@ -16,8 +18,42 @@ permissions:
   contents: read
 
 jobs:
-  asc:
-    name: Ustawienia ASC (na sucho; zapis tylko ze zgodą)
+  na-sucho:
+    name: Ustawienia ASC na sucho (tylko GET)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      zapis: ${{ steps.zgoda.outputs.zapis }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Zgoda na zapis (plik zgody) i kopia na sucho
+        id: zgoda
+        run: |
+          echo "zapis=$(node -p "require('./docs/wydanie/asc-zgoda.json').zapis === true")" >> "$GITHUB_OUTPUT"
+          node -e "const z = require('./docs/wydanie/asc-zgoda.json'); z.zapis = false; require('fs').writeFileSync(process.argv[1], JSON.stringify(z))" "$RUNNER_TEMP/zgoda-na-sucho.json"
+
+      - name: Ustawienia App Store Connect na sucho (skrypt bez zależności)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+        run: node scripts/asc-ustawienia.mjs --zgoda "$RUNNER_TEMP/zgoda-na-sucho.json"
+
+  zapis:
+    name: Ustawienia ASC — zapis (zgoda w pliku i akceptacja w środowisku release)
+    needs: na-sucho
+    if: needs.na-sucho.outputs.zapis == 'true'
+    environment: release
     runs-on: ubuntu-latest
     timeout-minutes: 30
 

@@ -6,6 +6,7 @@ import {
   getNearestEquivalentByAshTyp,
   FlourEquivalentEntry,
 } from '../flour-equivalents';
+import { nr } from '../../../tests/helpers/fc-runs';
 
 describe('Flour Equivalents Dictionary (DEC-25 / Z-052)', () => {
   it('contains at least 6 standard flour classifications covering pastry to whole grain', () => {
@@ -79,7 +80,7 @@ describe('Flour Equivalents Dictionary (DEC-25 / Z-052)', () => {
           expect(match.plType).toBeTruthy();
           expect(match.typicalAbsorptionPercent).toBeGreaterThan(50);
         }),
-        { numRuns: 500 }
+        { numRuns: nr(500) }
       );
     });
 

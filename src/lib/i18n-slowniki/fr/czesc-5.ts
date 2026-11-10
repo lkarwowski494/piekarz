@@ -14,7 +14,6 @@ export const CZESC: Record<string, string> = {
   'np. San Francisco White, Lievito...': 'ex. : San Francisco White, Lievito...',
   'O recepturze': 'À propos de la recette',
   'Obliczona temperatura wody jest poniżej 4°C. Aby uzyskać tę temperaturę bez zamrażania, zastąp część wody lodem.': 'La température d\'eau calculée est inférieure à 4 °C. Pour l\'atteindre sans congeler, remplacez une partie de l\'eau par de la glace.',
-  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La température d\'eau calculée dépasse 45 °C. Cela risque de tuer les levures et les bactéries lactiques. Refroidissez la farine ou abaissez la température ambiante.',
   'Obniż docelową temperaturę ciasta': 'Baisser la température de pâte désirée',
   'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.': 'Baissez la température à 210 °C. La réaction de Maillard crée une croûte croustillante aux notes de noisette et de caramel.',
   'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.': 'Baissez la température du réfrigérateur : dans un réfrigérateur plus froid, la fermentation est plus lente.',

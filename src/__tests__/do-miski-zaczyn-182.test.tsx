@@ -14,6 +14,7 @@ import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-stor
 import { ZACZYNY_W_MENU, PROCENTY_MAKI_W_ZACZYNIE } from '../components/receptury/nazwy-receptur';
 import { procentyFormulyZZaczynem, zaczynWFormule } from '../core/zaczyn-w-formule';
 import type { PrefermentType } from '../core/preferments';
+import { nr } from '../../tests/helpers/fc-runs';
 
 jest.setTimeout(60000);
 jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
@@ -152,7 +153,7 @@ describe('182: karta „Do miski” z zaczynem sumuje się do masy ciasta (D-061
             expect(typ === 'levain' ? r.doughStarterGrams : r.prefermentStarterGrams).toBe(0);
           },
         ),
-        { numRuns: 20000, ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}) },
+        { numRuns: nr(20000), ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}) },
       );
     } catch (error: unknown) {
       console.warn(`[182 PBT FAILURE] ziarno: ${PBT_SEED ?? 'losowe: patrz raport fast-check (seed)'}`);

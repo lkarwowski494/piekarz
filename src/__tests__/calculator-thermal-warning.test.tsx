@@ -69,7 +69,9 @@ describe('ostrzeżenie o zbyt gorącej wodzie', () => {
     const tree = await renderWithDdt(14);
     const found = alerts(tree);
     expect(found).toHaveLength(1);
-    expect(text(found[0])).toContain('przekracza 45°C');
+    expect(text(found[0])).toContain('Obliczona temperatura wody jest za wysoka.'); // D-305: tekst bez progu i przyczyny bez źródła (DDT-WOD-900) [M1-audytor-generalny-010]
+    // Gorąca woda nie ma identyfikatora alertu zimnej wody [07-przek-4; 08-p3b-N1]
+    expect(tree.root.findAll((n) => typeof n.type === 'string' && n.props?.testID === 'ddt-too-cold-warning')).toHaveLength(0);
     act(() => tree.unmount());
   });
 
@@ -78,7 +80,7 @@ describe('ostrzeżenie o zbyt gorącej wodzie', () => {
     const tree = await renderWithDdt(14);
     const found = alerts(tree);
     expect(found).toHaveLength(1);
-    expect(text(found[0])).toMatch(/exceeds 45/);
+    expect(text(found[0])).toMatch(/water temperature is too high/); // D-305: tekst bez progu i przyczyny bez źródła (DDT-WOD-900) [M1-audytor-generalny-010]
     act(() => tree.unmount());
   });
 });

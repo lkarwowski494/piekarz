@@ -116,7 +116,7 @@ describe('SpiralaWypieku: dane z planu użytkownika', () => {
     const root = await render(<SpiralaWypieku steps={steps} stepIdx={3} pozostaloSec={18 * 60} pelnySec={30 * 60} />);
     const s = root.findAll((n) => n.props.testID === 'brand-spiral' && n.props.accessibilityRole === 'image')[0];
     expect(s.props.accessibilityLabel).toMatch(
-      new RegExp(`^Plan wypieku, krok 4 z ${steps.length}: ${t(steps[3].name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}, zostało 18 minut\\. Gotowe .+ o \\d\\d:\\d\\d\\.$`),
+      new RegExp(`^Plan wypieku, krok 4 z ${steps.length}: ${t(steps[3].name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}, zostało 18 minut\\. Gotowe(?: .+ o |: .+, )\\d\\d:\\d\\d\\.$`), // data odległa po dwukropku [M1-audytor-generalny-048]
     );
     expect(root.findAll((n) => n.props.testID === `brand-spiral-odcinek-${steps.length - 1}` && n.props.strokeWidth !== undefined).length).toBeGreaterThan(0);
   });

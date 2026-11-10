@@ -22,3 +22,7 @@ Dokarmienie nie musi wypaść co do godziny. [T:ZAK-LOD-006]
 ## karmienie.staly-dzien.pominiete (minął dzień karmienia)
 Zakwas, którego nie dokarmiono przez dzień, dwa albo nawet tydzień, prawie na pewno da się ożywić, jeśli dokarmiasz go co 12 godzin i trzymasz w temperaturze pokojowej, aż dojdzie do siebie. [T:ZAK-LOD-007]
 Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia. [T:ZAK-LOD-003]
+
+## karmienie.staly-dzien.warunek-ustawienia (Ustawienia zakwasu, StalyDzienKarmienia)
+Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. [T:-]
+Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia. [T:ZAK-ZAL-012]

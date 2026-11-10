@@ -1,0 +1,107 @@
+{
+ "_opis": "Przekład 1 klucza M1-audytor-generalny-006 (pasek „Przywróć” po skoku do kroku z „Plan wypieku”): MT M2 (2026-11-09) z EN i istniejącego przekładu siostrzanego klucza „Cofnięto „{krok}”…” (cudzysłowy i forma jak w danym języku); parametr {krok} zachowany; tekst PL do akceptacji roli 04; drugi przegląd AI: M2 2026-11-09, bez P0/P1; poprawione et (P2), ja, fi, es, es-419, it, da (P3).",
+ "pl": [
+  "Przejście do „{krok}”: dalsze kroki i powiadomienia przesunięte."
+ ],
+ "jezyki": {
+  "bg": [
+   "Преминахте към „{krok}“: следващите стъпки и известията са преместени."
+  ],
+  "cs": [
+   "Přechod na krok „{krok}“: další kroky a oznámení se posunuly."
+  ],
+  "da": [
+   "Skiftet til »{krok}«: de næste trin og notifikationerne er rykket."
+  ],
+  "de": [
+   "Zu „{krok}“ gewechselt: Die weiteren Schritte und Mitteilungen wurden verschoben."
+  ],
+  "el": [
+   "Μετάβαση στο «{krok}»: τα επόμενα βήματα και οι ειδοποιήσεις μετακινήθηκαν."
+  ],
+  "es": [
+   "Se ha pasado a «{krok}»: los pasos siguientes y las notificaciones se han reprogramado."
+  ],
+  "es-419": [
+   "Se pasó a “{krok}”: los pasos siguientes y las notificaciones se reprogramaron."
+  ],
+  "et": [
+   "Liiguti sammule „{krok}“: järgmised sammud ja teavitused nihkusid."
+  ],
+  "fi": [
+   "Siirrytty: ”{krok}”. Seuraavien vaiheiden ja ilmoitusten ajat muuttuivat."
+  ],
+  "fr": [
+   "Passage à « {krok} » : les étapes suivantes et les notifications ont été décalées."
+  ],
+  "hr": [
+   "Prijelaz na „{krok}”: sljedeći koraci i obavijesti su pomaknuti."
+  ],
+  "hu": [
+   "Áttérés erre: „{krok}”. A további lépések és az értesítések eltolódtak."
+  ],
+  "id": [
+   "Pindah ke “{krok}”: langkah berikutnya dan notifikasi bergeser."
+  ],
+  "it": [
+   "Passaggio a «{krok}»: i passaggi successivi e le notifiche sono stati spostati."
+  ],
+  "ja": [
+   "「{krok}」に移動しました。以降の工程と通知の時刻を調整しました。"
+  ],
+  "ko": [
+   "“{krok}” 단계로 이동했어요. 이후 단계와 알림 시간이 바뀌었어요."
+  ],
+  "lt": [
+   "Pereita prie „{krok}“: tolesni žingsniai ir pranešimai perkelti."
+  ],
+  "lv": [
+   "Pāriets uz „{krok}”: nākamie soļi un paziņojumi pārbīdīti."
+  ],
+  "ms": [
+   "Beralih ke “{krok}”: langkah seterusnya dan pemberitahuan dianjakkan."
+  ],
+  "nb": [
+   "Gikk til «{krok}»: de neste trinnene og varslene er flyttet."
+  ],
+  "nl": [
+   "Naar “{krok}” gegaan: de volgende stappen en meldingen zijn verschoven."
+  ],
+  "pt": [
+   "Passou para «{krok}»: os passos seguintes e as notificações foram reajustados."
+  ],
+  "pt-BR": [
+   "Você foi para “{krok}”: as próximas etapas e as notificações foram remarcadas."
+  ],
+  "ro": [
+   "S-a trecut la „{krok}”: pașii următori și notificările s-au mutat."
+  ],
+  "ru": [
+   "Переход к «{krok}»: следующие шаги и уведомления сдвинуты."
+  ],
+  "sk": [
+   "Prechod na „{krok}“: ďalšie kroky a upozornenia sa posunuli."
+  ],
+  "sl": [
+   "Prehod na „{krok}“: naslednji koraki in obvestila so premaknjeni."
+  ],
+  "sr": [
+   "Прелазак на „{krok}“: следећи кораци и обавештења су померени."
+  ],
+  "sv": [
+   "Gick till ”{krok}”: följande steg och aviseringar har flyttats."
+  ],
+  "tr": [
+   "“{krok}” adımına geçildi: sonraki adımlar ve bildirimler kaydırıldı."
+  ],
+  "uk": [
+   "Перехід до «{krok}»: наступні кроки та сповіщення зсунуто."
+  ],
+  "vi": [
+   "Đã chuyển đến “{krok}”: các bước tiếp theo và thông báo đã được dời."
+  ],
+  "zh-Hant": [
+   "已跳到「{krok}」：後續步驟和通知時間已調整。"
+  ]
+ }
+}
