@@ -6,6 +6,7 @@
 jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createExpoSqliteMock());
 
 import * as fs from 'node:fs';
+import * as os from 'node:os';
 import * as FileSystem from 'expo-file-system/legacy';
 import { useTempDbDir, restartApp, dbFilePath, openRaw } from './helpers/node-sqlite-adapter';
 
@@ -26,7 +27,8 @@ beforeEach(() => {
   });
   infoMock.mockImplementation(async (uri: string, o?: FileSystem.InfoOptions) => {
     const sciezka = uri.replace(/^file:\/\//, '');
-    if (sciezka.startsWith('/tmp/') && fs.existsSync(sciezka)) return { exists: true, isDirectory: false, uri, size: fs.statSync(sciezka).size, modificationTime: 0 };
+    // Katalog tymczasowy z os.tmpdir(), nie stała ścieżka: na macOS to /var/folders/... (TestFlight #24, D-339)
+    if (sciezka.startsWith(os.tmpdir()) && fs.existsSync(sciezka)) return { exists: true, isDirectory: false, uri, size: fs.statSync(sciezka).size, modificationTime: 0 };
     return infoOryginal!(uri, o);
   });
   deleteMock.mockImplementation(async (uri: string) => {
