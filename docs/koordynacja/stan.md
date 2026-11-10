@@ -58,6 +58,7 @@ Zadania do wznowienia (kolejność):
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
 | K (Z-8) | `session_01T66VBx6LM9T3GMFoF9Pbta` | 09 fix (`polecenia/K.md` @ `a8b8fd5e`) | `naprawy/M2-koordynator-napraw-2026-11-10-z8` od `2047ab00` | 0 (20:43) | 0 | zarchiwizowana 21:08; D-356 |
+| L (odnawianie) | `session_01T66VBwKU6Gi7iBt4SMWpd6` | 09 fix (`polecenia/L.md` @ `f24b8c54`) | `naprawy/M2-koordynator-napraw-2026-11-10-odnawianie` od `b5007a00` | 0 (21:17) | 0 | start 21:17, PENDING; D-359…D-361 |
 | J (zrzuty natywne) | `session_01T66VBwZAMSc6TkE1YqimAY` | 08 fix (`polecenia/J.md` @ `490d0875`) | `naprawy/M2-koordynator-napraw-2026-11-10-zrzuty` od `c2c5e206` | 0 (20:41) | 0 | start 20:41, PENDING; D-352…D-355 |
 | H (109) | `session_01T66VBxyhmM8hPWZQFw4euT` | 10-wydanie fix (`polecenia/H.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-109` od `c2c5e206` | 0 (20:33) | 0 | zarchiwizowana 20:47 (4,46 USD); D-346 |
 | I (werdykt 07) | `session_01T66VBx2Vv87uPCJpYVqCdQ` | 07-jakosc audit (`polecenia/I.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-werdykt07` od `c2c5e206` | 0 (20:33) | 0 | zarchiwizowana 21:00; werdykt GOTOWE Z ZASTRZEŻENIAMI |
@@ -206,3 +207,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:15 | M9 | Restart kontenera; skaner w prompts gotowy (`9553f6b`, wynik subagenta odczytany z transkryptu); KO-029 → subagent tłumaczenia zwrotnego | J, tłumaczenie zwrotne |
 | 10.11 21:2x | M9 | KO-030: `prompts` main FF → `9553f6b` (skaner sekretów) | J, tłumaczenie zwrotne |
 | 10.11 21:25 | M9 | Tłumaczenie zwrotne → `redesign` @ `b5007a00` (FF, 1 plik docs) | J; pytanie G-1 |
+| 10.11 21:18 | M9 | KO-031 → sesja L (create_session 21:17, PENDING) | kontrola J/L 21:30 |
