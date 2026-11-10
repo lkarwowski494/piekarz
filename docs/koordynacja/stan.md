@@ -203,3 +203,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:05 | M9 | KO-028: J rozszerzona o 032 (delivered); `prompts` dołączone (push), klon @ `f701ce9`, register_repo_root; subagent: skaner sekretów w `role/10-wydanie/wzorce.md` na gałęzi | raport subagenta; kontrola J/K 21:30 |
 | 10.11 21:08 | M9 | K → `redesign` @ `1d78752b` (merge --no-ff, poza docs tylko 2 testy); K zarchiwizowana | J, skaner; pytanie: przegląd człowieka płatności |
 | 10.11 21:15 | M9 | Restart kontenera; skaner w prompts gotowy (`9553f6b`, wynik subagenta odczytany z transkryptu); KO-029 → subagent tłumaczenia zwrotnego | J, tłumaczenie zwrotne |
+| 10.11 21:2x | M9 | KO-030: `prompts` main FF → `9553f6b` (skaner sekretów) | J, tłumaczenie zwrotne |
