@@ -1,0 +1,52 @@
+$ node scripts/check-i18n.mjs --kod src,app --uwagi — WT 1c723632 vs sonda ea249c9c (diff uwag; < baza, > teraz)
+i18n: 922 tekstów t('…') w kodzie, 2217 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+i18n: 923 tekstów t('…') w kodzie, 2220 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+98a99
+> UWAGA kod src/components/stolnica/PasProwadzenia.tsx:36 t(krok.name): klucz dynamiczny, sprawdź listę wartości
+100,106c101,106
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:204 t(step?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:238 t(skok.steps[idx].name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:282 t(progress.steps[progress.stepIdx]?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:320 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:321 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:376 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:395 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+---
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:205 t(step?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:239 t(skok.steps[idx].name): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:283 t(progress.steps[progress.stepIdx]?.name ?? ''): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:322 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:371 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:391 t(currentStep.name): klucz dynamiczny, sprawdź listę wartości
+108,113c108,113
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:110 t(tytul): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:110 t(w.text): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:86 t(step.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:92 t(step.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:98 t(step.name): klucz dynamiczny, sprawdź listę wartości
+< UWAGA kod src/components/stolnica/StrefaKroku.tsx:99 t(step.instructions): klucz dynamiczny, sprawdź listę wartości
+---
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:102 t(step.name): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:103 t(step.instructions): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:114 t(tytul): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:114 t(w.text): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:90 t(step.name): klucz dynamiczny, sprawdź listę wartości
+> UWAGA kod src/components/stolnica/StrefaKroku.tsx:96 t(step.name): klucz dynamiczny, sprawdź listę wartości
+diff kod: 0
+
+rodzaje uwag (teraz):
+      6 UWAGA kod src/components/calculator/accordion/AccordionDdtSection.tsx:
+      4 UWAGA kod src/components/doktor/EmergencyRecoverySection.tsx:N t(selec
+      3 UWAGA kod src/components/zakwas/StarterSetupCard.tsx:N t(z): klucz dyn
+      3 UWAGA kod src/components/stolnica/StrefaKroku.tsx:N t(step.name): kluc
+      3 UWAGA kod src/components/stolnica/ProwadzenieWypieku.tsx:N t(currentSt
+      3 UWAGA kod src/components/doktor/DiagnosisResultCard.tsx:N t(diagnosis.
+      3 UWAGA kod src/components/academy/TechniquesLibrarySection.tsx:N t(tech
+      3 UWAGA kod src/components/StarterConverterModal.tsx:N: tekst na sztywno
+      3 UWAGA kod src/components/SensoryRadarChart.tsx:N t(axis.labelPl): kluc
+      2 UWAGA kod src/lib/notifications.ts:N t(p.params.klucz dynamiczny, spra
+      2 UWAGA kod src/components/zakwas/StarterSetupCard.tsx:N t(wynik.texts[N
+      2 UWAGA kod src/components/zakwas/StarterSafetyCard.tsx:N t(safetyResult
+      2 UWAGA kod src/components/zakwas/StarterPeakActivityCard.tsx:N t(f.labe
+      2 UWAGA kod src/components/stolnica/DutchOvenController.tsx:N t(fazy[dut
+      2 UWAGA kod src/components/stolnica/DutchOvenController.tsx:N t(fazy.lid

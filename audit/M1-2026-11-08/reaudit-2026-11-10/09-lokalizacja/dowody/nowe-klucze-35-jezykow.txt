@@ -1,0 +1,246 @@
+# Sonda G2 — commit 1c723632 — t() dla 3 nowych kluczy (088: nagrzewanie, pieczenie; 089: powód) oraz kluczy odniesienia „O recepturze”, „Pieczenie”, „Ułóż plan” w 35 językach (kolejność wierszy stała)
+### pl
+  Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.
+  Piecz w temperaturze i przez czas podane w „O recepturze”.
+  Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.
+  O recepturze
+  Pieczenie
+  Ułóż plan
+### en
+  Heat the oven to the baking temperature given in “About This Recipe”.
+  Bake at the temperature and for the time given in “About This Recipe”.
+  The plan for this sourdough recipe is waiting for dough rising times. Amounts and tips are above.
+  About This Recipe
+  Bake
+  Make a Plan
+### cs
+  Rozehřejte troubu na teplotu pečení uvedenou v části „O receptu“.
+  Pečte při teplotě a po dobu uvedené v části „O receptu“.
+  Plán pro tento recept na kvásku čeká na doby kynutí těsta. Množství a tipy jsou výše.
+  O receptu
+  Pečení
+  Sestavit plán
+### sk
+  Rozohrejte rúru na teplotu pečenia uvedenú v časti „O receptúre“.
+  Pečte pri teplote a počas času uvedených v časti „O receptúre“.
+  Plán pre túto receptúru na kvásku čaká na časy kysnutia cesta. Množstvá a tipy sú vyššie.
+  O receptúre
+  Pečenie
+  Zostaviť plán
+### hu
+  Melegítsd elő a sütőt „A receptről” részben megadott sütési hőmérsékletre.
+  Süsd „A receptről” részben megadott hőmérsékleten és ideig.
+  Ennek a kovászos receptnek a terve a tészta kelesztési idejére vár. A mennyiségek és a tippek feljebb találhatók.
+  A receptről
+  Sütés
+  Terv készítése
+### ro
+  Încălzește cuptorul la temperatura de coacere indicată în „Despre rețetă”.
+  Coace la temperatura și pe durata indicate în „Despre rețetă”.
+  Planul pentru această rețetă cu maia așteaptă timpii de dospire a aluatului. Cantitățile și sfaturile sunt mai sus.
+  Despre rețetă
+  Coacere
+  Fă un plan
+### bg
+  Загрейте фурната до температурата на печене, посочена в „За рецептата“.
+  Печете при температурата и за времето, посочени в „За рецептата“.
+  Планът за тази рецепта с квас чака времената за втасване на тестото. Количествата и съветите са по-горе.
+  За рецептата
+  Печене
+  Съставете план
+### hr
+  Zagrij pećnicu na temperaturu pečenja navedenu u „O recepturi”.
+  Peci na temperaturi i onoliko dugo koliko je navedeno u „O recepturi”.
+  Plan za ovu recepturu na kvasu čeka vremena dizanja tijesta. Količine i savjeti su iznad.
+  O recepturi
+  Pečenje
+  Napravi plan
+### sl
+  Pečico segrejte na temperaturo peke, navedeno v »O receptu«.
+  Pecite pri temperaturi in toliko časa, kot je navedeno v »O receptu«.
+  Načrt za ta recept s kislim testom čaka na čase vzhajanja testa. Količine in nasveti so zgoraj.
+  O receptu
+  Peka
+  Naredi načrt
+### sr
+  Загреј рерну на температуру печења наведену у „О рецептури”.
+  Пеци на температури и онолико дуго колико је наведено у „О рецептури”.
+  План за ову рецептуру на киселом квасцу чека на времена дизања теста. Количине и савети су изнад.
+  О рецептури
+  Печење
+  Направи план
+### lt
+  Įkaitinkite orkaitę iki kepimo temperatūros, nurodytos skiltyje „Apie receptūrą“.
+  Kepkite skiltyje „Apie receptūrą“ nurodytoje temperatūroje ir nurodytą laiką.
+  Šios natūralaus raugo receptūros planui dar trūksta tešlos kilimo laikų. Kiekiai ir patarimai pateikti aukščiau.
+  Apie receptūrą
+  Kepimas
+  Sudaryti planą
+### lv
+  Uzkarsējiet cepeškrāsni līdz cepšanas temperatūrai, kas norādīta sadaļā “Par receptūru”.
+  Cepiet sadaļā “Par receptūru” norādītajā temperatūrā un norādīto laiku.
+  Šīs receptūras ar dabīgo ieraugu plānam vēl trūkst mīklas rūgšanas laiku. Daudzumi un padomi ir augstāk.
+  Par receptūru
+  Cepšana
+  Sastādīt plānu
+### et
+  Kuumuta ahi küpsetustemperatuurini, mis on kirjas jaotises „Retseptist“.
+  Küpseta jaotises „Retseptist“ kirjas oleval temperatuuril ja nii kaua, kui seal on märgitud.
+  Selle juuretisega retsepti plaan ootab taigna kerkimise aegu. Kogused ja nõuanded on ülalpool.
+  Retseptist
+  Küpsetamine
+  Koosta plaan
+### uk
+  Розігрійте духовку до температури випікання, указаної в розділі «Про рецептуру».
+  Випікайте за температури й стільки часу, скільки вказано в розділі «Про рецептуру».
+  План для цієї рецептури на заквасці чекає на час підйому тіста. Кількості й підказки — вище.
+  Про рецептуру
+  Випікання
+  Скласти план
+### es
+  Precalienta el horno a la temperatura de horneado indicada en «Sobre la receta».
+  Hornea a la temperatura y durante el tiempo indicados en «Sobre la receta».
+  El plan de esta receta con masa madre está esperando los tiempos de levado de la masa. Las cantidades y los consejos están más arriba.
+  Sobre la receta
+  Horneado
+  Crear plan
+### es-419
+  Precalienta el horno a la temperatura de horneado indicada en «Sobre la fórmula».
+  Hornea a la temperatura y durante el tiempo indicados en «Sobre la fórmula».
+  El plan de esta fórmula con masa madre está esperando los tiempos de levado de la masa. Las cantidades y los consejos están más arriba.
+  Sobre la fórmula
+  Horneado
+  Crear plan
+### pt
+  Aqueça o forno à temperatura de cozedura indicada em «Sobre a receita».
+  Coza à temperatura e durante o tempo indicados em «Sobre a receita».
+  O plano desta receita com massa-mãe aguarda os tempos de levedação da massa. As quantidades e as dicas estão acima.
+  Sobre a receita
+  Cozedura
+  Criar plano
+### pt-BR
+  Preaqueça o forno à temperatura de assar indicada em “Sobre a receita”.
+  Asse na temperatura e pelo tempo indicados em “Sobre a receita”.
+  O plano desta receita com fermento natural está esperando os tempos de crescimento da massa. As quantidades e as dicas estão acima.
+  Sobre a receita
+  Assar
+  Montar plano
+### de
+  Heize den Ofen auf die Backtemperatur aus „Über die Rezeptur“ vor.
+  Backe bei der Temperatur und so lange, wie unter „Über die Rezeptur“ angegeben.
+  Der Plan für dieses Sauerteigrezept wartet auf die Gehzeiten des Teigs. Mengen und Tipps stehen oben.
+  Über die Rezeptur
+  Backen
+  Plan erstellen
+### fr
+  Préchauffez le four à la température de cuisson indiquée dans « À propos de la recette ».
+  Faites cuire à la température et pendant la durée indiquées dans « À propos de la recette ».
+  Le plan de cette recette au levain attend les temps de pousse de la pâte. Les quantités et les conseils sont plus haut.
+  À propos de la recette
+  Cuisson
+  Planifier
+### it
+  Scalda il forno alla temperatura di cottura indicata in «Info sulla ricetta».
+  Cuoci alla temperatura e per il tempo indicati in «Info sulla ricetta».
+  Il piano per questa ricetta con lievito madre attende i tempi di lievitazione dell'impasto. Quantità e consigli sono sopra.
+  Info sulla ricetta
+  Cottura
+  Pianifica
+### nl
+  Verwarm de oven voor op de baktemperatuur die bij ‘Over dit recept’ staat.
+  Bak op de temperatuur en zo lang als bij ‘Over dit recept’ staat.
+  Het plan voor dit zuurdesemrecept wacht op de rijstijden van het deeg. De hoeveelheden en tips staan hierboven.
+  Over dit recept
+  Bakken
+  Maak een plan
+### sv
+  Värm ugnen till den gräddningstemperatur som står under ”Om receptet”.
+  Grädda i den temperatur och den tid som står under ”Om receptet”.
+  Planen för det här surdegsreceptet väntar på jästider för degen. Mängder och tips finns ovan.
+  Om receptet
+  Gräddning
+  Gör en plan
+### da
+  Forvarm ovnen til den bagetemperatur, der står under »Om opskriften«.
+  Bag ved den temperatur og i den tid, der står under »Om opskriften«.
+  Planen for denne surdejsopskrift venter på hævetider for dejen. Mængder og tips står ovenfor.
+  Om opskriften
+  Bagning
+  Lav en plan
+### nb
+  Varm ovnen til steketemperaturen som står under «Om oppskriften».
+  Stek på temperaturen og i tiden som står under «Om oppskriften».
+  Planen for denne surdeigsoppskriften venter på hevetider for deigen. Mengder og tips står ovenfor.
+  Om oppskriften
+  Steking
+  Lag en plan
+### fi
+  Kuumenna uuni kohdassa ”Tietoa reseptistä” mainittuun paistolämpötilaan.
+  Paista kohdassa ”Tietoa reseptistä” mainitussa lämpötilassa ja mainitun ajan.
+  Tämän hapanjuurireseptin suunnitelma odottaa taikinan kohoamisaikoja. Määrät ja vinkit ovat ylempänä.
+  Tietoa reseptistä
+  Paisto
+  Tee suunnitelma
+### tr
+  Fırını “Tarif Hakkında” bölümünde yazan pişirme sıcaklığına ısıtın.
+  “Tarif Hakkında” bölümünde yazan sıcaklıkta ve sürede pişirin.
+  Bu ekşi mayalı tarifin planı hamurun mayalanma sürelerini bekliyor. Miktarlar ve ipuçları yukarıda.
+  Tarif Hakkında
+  Pişirme
+  Plan Yap
+### el
+  Προθερμάνετε τον φούρνο στη θερμοκρασία ψησίματος που αναφέρεται στο «Σχετικά με τη συνταγή».
+  Ψήστε στη θερμοκρασία και για τον χρόνο που αναφέρονται στο «Σχετικά με τη συνταγή».
+  Το πλάνο για αυτή τη συνταγή με προζύμι περιμένει τους χρόνους φουσκώματος της ζύμης. Οι ποσότητες και οι συμβουλές είναι παραπάνω.
+  Σχετικά με τη συνταγή
+  Ψήσιμο
+  Δημιουργία πλάνου
+### id
+  Panaskan oven hingga suhu pemanggangan yang tertera di “Tentang Resep”.
+  Panggang pada suhu dan selama waktu yang tertera di “Tentang Resep”.
+  Rencana untuk resep sourdough ini menunggu waktu pengembangan adonan. Takaran dan saran ada di atas.
+  Tentang Resep
+  Memanggang
+  Buat rencana
+### ms
+  Panaskan ketuhar hingga suhu bakar yang dinyatakan dalam “Tentang Resipi Ini”.
+  Bakar pada suhu dan selama masa yang dinyatakan dalam “Tentang Resipi Ini”.
+  Pelan untuk resipi sourdough ini menunggu masa naik doh. Sukatan dan petua ada di atas.
+  Tentang Resipi Ini
+  Membakar
+  Buat Pelan
+### vi
+  Làm nóng lò đến nhiệt độ nướng ghi trong “Về công thức này”.
+  Nướng ở nhiệt độ và trong thời gian ghi trong “Về công thức này”.
+  Kế hoạch cho công thức men tự nhiên này đang chờ thời gian ủ nở của bột. Lượng nguyên liệu và gợi ý ở phía trên.
+  Về công thức này
+  Nướng
+  Lập kế hoạch
+### ru
+  Разогрейте духовку до температуры выпечки, указанной в разделе «О рецептуре».
+  Выпекайте при температуре и столько времени, сколько указано в разделе «О рецептуре».
+  План для этой рецептуры на закваске ждёт времени подъёма теста. Количества и советы выше.
+  О рецептуре
+  Выпечка
+  Составить план
+### ja
+  オーブンを「この配合について」に記載の焼成温度に予熱します。
+  「この配合について」に記載の温度と時間で焼きます。
+  このサワードウレシピのプランは、生地の発酵時間が入るのを待っています。分量とヒントは上にあります。
+  この配合について
+  焼成
+  プランを作成
+### ko
+  오븐을 ‘배합표 정보’에 적힌 굽기 온도로 예열하세요.
+  ‘배합표 정보’에 적힌 온도와 시간으로 구우세요.
+  이 사워도우 레시피의 계획에는 아직 반죽 발효 시간이 없어요. 재료 양과 팁은 위에 있어요.
+  배합표 정보
+  굽기
+  계획 세우기
+### zh-Hant
+  將烤箱預熱至「關於此配方」中的烘烤溫度。
+  依「關於此配方」中的溫度與時間烘烤。
+  這份天然酵母配方的計畫正在等待麵團的發酵時間。用量與提示請見上方。
+  關於此配方
+  烘烤
+  擬定計畫

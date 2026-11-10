@@ -1,0 +1,4 @@
+$ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json <33 katalogi językowe: bg/ cs/ da/ de/ el/ es-419/ es/ et/ fi/ fr/ hr/ hu/ id/ it/ ja/ ko/ lt/ lv/ ms/ nb/ nl/ pt-BR/ pt/ ro/ ru/ sk/ sl/ sr/ sv/ tr/ uk/ vi/ zh-Hant/> (WT 1c723632); podsumowanie rodzajów błędów
+kod wyjścia: 1
+     41 przegląd dotyczy innej wersji zdań
+41 błędów, 0 uwag

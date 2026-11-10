@@ -1,0 +1,5 @@
+$ node g2-klucze.mjs WT dowody/nowe-klucze-35-jezykow.txt  (skrypt: dowody/g2-klucze.mjs.txt)
+języki w src/lib/i18n-slowniki: 33 (bg, cs, da, de, el, es, es-419, et, fi, fr, hr, hu, id, it, ja, ko, lt, lv, ms, nb, nl, pt, pt-BR, ro, ru, sk, sl, sr, sv, tr, uk, vi, zh-Hant)
+sprawdzone: 33 języków × 3 klucze; własny wpis w słowniku, t() = wpis, ≠ PL, ≠ EN, bez polskich/angielskich słów, bez cyfr i parametrów (źródło ich nie ma), pismo języka, tytuł karty z t('O recepturze') w obu zdaniach 088, pliki części ≤ 20 480 B i zaimportowane w index.ts
+błędy: 0
+kod wyjścia: 0

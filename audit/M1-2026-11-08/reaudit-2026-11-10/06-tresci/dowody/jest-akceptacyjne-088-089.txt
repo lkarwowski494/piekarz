@@ -1,0 +1,133 @@
+$ (WT 1c723632) npx jest tests/pieczenie-bez-cudzych-liczb-088.test.ts tests/brioszka-bez-planu-089.test.ts tests/brioszka-bez-eksportu-089.test.tsx tests/kontrakt-receptury-plan-061.test.ts tests/pieczenie-receptur-008.test.ts tests/brioszka-tylko-brioszka-m2-012.test.ts --maxWorkers=2
+PASS tests/pieczenie-receptur-008.test.ts
+  008 (D-304): dane receptury = wektor roli 06
+    ✓ wektor obejmuje 6 receptur w garnku, brioszkę, durum i pizzę (4 ms)
+    ✓ pizza_napoletana_48h.bakeTempSteamC zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTempBrowningC zgodne z wektorem (1 ms)
+    ✓ pizza_napoletana_48h.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ pizza_napoletana_48h.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ pizza_napoletana_48h.recommendedVessel zgodne z wektorem
+    ✓ country_loaf_72.bakeTempSteamC zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.bakeTempBrowningC zgodne z wektorem
+    ✓ country_loaf_72.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ country_loaf_72.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ country_loaf_72.recommendedVessel zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTempSteamC zgodne z wektorem (1 ms)
+    ✓ tartine_high_hydration_80.bakeTempBrowningC zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ tartine_high_hydration_80.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ tartine_high_hydration_80.recommendedVessel zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTempSteamC zgodne z wektorem
+    ✓ san_francisco_sourdough.bakeTempBrowningC zgodne z wektorem (8 ms)
+    ✓ san_francisco_sourdough.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ san_francisco_sourdough.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ san_francisco_sourdough.recommendedVessel zgodne z wektorem
+    ✓ pain_de_campagne.bakeTempSteamC zgodne z wektorem
+    ✓ pain_de_campagne.bakeTempBrowningC zgodne z wektorem
+    ✓ pain_de_campagne.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ pain_de_campagne.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ pain_de_campagne.recommendedVessel zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTempSteamC zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTempBrowningC zgodne z wektorem
+    ✓ spelt_ancient_seeded.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ spelt_ancient_seeded.bakeTimeBrowningMinutes zgodne z wektorem (1 ms)
+    ✓ spelt_ancient_seeded.recommendedVessel zgodne z wektorem
+    ✓ graham_bread_honey.bakeTempSteamC zgodne z wektorem
+    ✓ graham_bread_honey.bakeTempBrowningC zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ graham_bread_honey.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ graham_bread_honey.recommendedVessel zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTempSteamC zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTempBrowningC zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeSteamMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ lievito_madre_panettone_brioche.recommendedVessel zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTempSteamC zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTempBrowningC zgodne z wektorem
+    ✓ durum_semolina_sourdough.bakeTimeSteamMinutes zgodne z wektorem (1 ms)
+    ✓ durum_semolina_sourdough.bakeTimeBrowningMinutes zgodne z wektorem
+    ✓ durum_semolina_sourdough.recommendedVessel zgodne z wektorem
+  008 (D-304): plan bierze nagrzewanie i pieczenie z receptury
+    ✓ country_loaf_72: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ tartine_high_hydration_80: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ san_francisco_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ pain_de_campagne: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ spelt_ancient_seeded: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ graham_bread_honey: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ lievito_madre_panettone_brioche: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury (1 ms)
+    ✓ durum_semolina_sourdough: krok „bake” trwa bakeTimeSteamMinutes + bakeTimeBrowningMinutes receptury
+    ✓ country_loaf_72 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (2 ms)
+    ✓ tartine_high_hydration_80 (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✓ san_francisco_sourdough (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✓ pain_de_campagne (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (1 ms)
+    ✓ spelt_ancient_seeded (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (2 ms)
+    ✓ graham_bread_honey (garnek): kroki i fazy z PIE-GAR-001 i danych receptury (5 ms)
+    ✓ brioszka (keksówka): nagrzewanie do 204 °C, pieczenie 177 °C, bez faz garnka (PIE-BRI-001) (1 ms)
+    ✓ durum (stal): 250 °C z danych receptury, bez faz garnka (KAT-ALT-005) (1 ms)
+    ✓ plan bez receptury: profil garnka ze źródła, bez szablonu 240/210 °C (odrzucony w D-304) (1 ms)
+    ✓ pieczenieDlaId: receptura żytnia, na drożdżach albo nieznana nie zmienia planu (bez pieczenia z receptury) (1 ms)
+    ✓ krokiPieczenia: id pieczenia według naczynia (garnek „bake”, keksówka i stal bez faz garnka)
+    ✓ pieczenieDlaPlanu: receptura z „Ułóż plan”; wersja drożdżowa i żyto bez pieczenia z receptury (1 ms)
+
+PASS tests/pieczenie-bez-cudzych-liczb-088.test.ts
+  088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką
+    ✓ TEKST_PIECZENIA_ZE_ZRODLA = receptury wektora D-304 w keksówce i na stali (brioszka, durum) (4 ms)
+    ✓ katalog ma receptury z zakwasem spoza wektora D-304 (żytnie w keksówce, łotewska na stali) (1 ms)
+    ✓ country_loaf_72: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (2 ms)
+    ✓ tartine_high_hydration_80: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ san_francisco_sourdough: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ pain_de_campagne: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ rye_100_pan: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ borodinsky_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ spelt_ancient_seeded: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ lievito_madre_panettone_brioche: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (11 ms)
+    ✓ graham_bread_honey: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ durum_semolina_sourdough: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+    ✓ latvian_scalded_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb (1 ms)
+    ✓ rye_100_pan przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (1 ms)
+    ✓ borodinsky_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (5 ms)
+    ✓ latvian_scalded_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur (1 ms)
+    ✓ tekst bez liczb dosłownie z pieczenie-receptur.md (PL i EN), nagrzewanie bez zdania o garnku (1 ms)
+
+PASS tests/brioszka-bez-planu-089.test.ts
+  089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900
+    ✓ powodBezPlanu dla brioszki zwraca powód: czasy rośnięcia bez źródła, ilości i wskazówki wyżej (2 ms)
+    ✓ katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3 (2 ms)
+    ✓ PL i EN dosłownie z docs/tresci/pl|en/powody-bez-planu.md
+
+PASS tests/kontrakt-receptury-plan-061.test.ts
+  kontrakt: receptury bazowe z planem i bez planu w 1.0 (061)
+    ✓ F-26 podaje liczbę receptur bazowych i ile z nich ma plan i prowadzenie (liczone z katalogu) (1 ms)
+    ✓ F-26 podaje wersje drożdżowe z przełącznikiem i ile z nich ma plan (1 ms)
+    ✓ F-55 i ZM-25 mówią wprost, że receptury bez zakwasu zostają w 1.0 bez planu (D-252)
+
+PASS tests/brioszka-tylko-brioszka-m2-012.test.ts
+  M2-012: szablon brioszki tylko dla receptury brioszki
+    ✓ borodinsky_rye z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki (1 ms)
+    ✓ rye_100_pan z żytem ≤ 50%: pieczenie z receptury, ale bez kroków brioszki (1 ms)
+    ✓ brioszka nadal dostaje swoje kroki (1 ms)
+
+(node:1375) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/brioszka-bez-eksportu-089.test.tsx
+  089 (przegląd ścieżki planu P2-1): plan zablokowany nie eksportuje osi czasu
+    ✓ brioszka z „Piecz ponownie”: bez „Dodaj do kalendarza” i „Kopiuj jako tekst”, start nieaktywny (501 ms)
+    ✓ receptura z planem: oba eksporty jak dotąd (198 ms)
+
+Test Suites: 6 passed, 6 total
+Tests:       94 passed, 94 total
+Snapshots:   0 total
+Time:        4.815 s
+Ran all test suites matching /tests\/pieczenie-bez-cudzych-liczb-088.test.ts|tests\/brioszka-bez-planu-089.test.ts|tests\/brioszka-bez-eksportu-089.test.tsx|tests\/kontrakt-receptury-plan-061.test.ts|tests\/pieczenie-receptur-008.test.ts|tests\/brioszka-tylko-brioszka-m2-012.test.ts/i.
+kod wyjścia: 0
+
+$ npx jest tests/tresci-tlumaczen-135.test.ts tests/tresci-produkt-044.test.ts src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts --maxWorkers=2
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/data/__tests__/brioszka-wznowienie-m2-012.sqlite.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       73 passed, 73 total
+Snapshots:   0 total
+Time:        3.82 s
+Ran all test suites matching /tests\/tresci-tlumaczen-135.test.ts|tests\/tresci-produkt-044.test.ts|src\/data\/__tests__\/brioszka-wznowienie-m2-012.sqlite.test.ts/i.
+kod wyjścia: 0

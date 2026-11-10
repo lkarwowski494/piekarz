@@ -1,0 +1,3 @@
+$ node K/narzedzia/sprawdz-raport.mjs 09-lokalizacja-reaudit-2026-11-10.md WT R/09-lokalizacja --rola 09-lokalizacja
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 09-lokalizacja
+kod wyjścia: 0

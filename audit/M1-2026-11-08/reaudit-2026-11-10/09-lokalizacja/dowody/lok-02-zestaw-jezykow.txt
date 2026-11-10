@@ -1,0 +1,2 @@
+supportedLocales ios 35 android 35 ACTIVE_LANGS 35 słowniki+pl+en 35 languages/*.json 35
+ios = ACTIVE_LANGS: true ; słowniki+pl+en = ACTIVE_LANGS: true ; languages = ACTIVE_LANGS: true ; supportsRTL: false ; ar/he w zestawie: false

@@ -1,0 +1,11 @@
+$ (WT 1c723632) npx jest tests/sieroty-slownikow-p13a.test.ts tests/check-i18n-gate.test.ts src/lib/__tests__/i18n-35-jezykow.test.ts src/lib/__tests__/plural-intl.test.ts src/lib/__tests__/i18n-kontekst.test.ts src/lib/__tests__/i18n-locales.test.ts src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx --maxWorkers=2
+PASS src/lib/__tests__/plural-intl.test.ts
+PASS src/lib/__tests__/i18n-35-jezykow.test.ts
+PASS src/lib/__tests__/i18n-kontekst.test.ts
+PASS tests/sieroty-slownikow-p13a.test.ts
+PASS src/lib/__tests__/i18n-locales.test.ts
+PASS tests/check-i18n-gate.test.ts (7.058 s)
+PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx
+Test Suites: 7 passed, 7 total
+Tests:       71 passed, 71 total
+kod wyjścia: 0

@@ -1,0 +1,57 @@
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+const [wt, plikSondy] = process.argv.slice(2);
+const KL = ['Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.', 'Piecz w temperaturze i przez czas podane w „O recepturze”.', 'Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.'];
+const PISMO = { bg: 'Cyrillic', sr: 'Cyrillic', uk: 'Cyrillic', ru: 'Cyrillic', el: 'Greek', ja: 'Han|Hiragana|Katakana', ko: 'Hangul', 'zh-Hant': 'Han' };
+const PL_ZNAKI = /[ąęłńśźż]|\b(piekarnik|receptur[zy]e|pieczenia|zakwasie|ciasta|wyżej)\b/i;
+// „tips” (da, nb, sv, nl) i „oven” (nl, id) to słowa tych języków: pierwszy przebieg dał 6 fałszywych trafień, lista zawężona
+const EN_SLOWA = /\b(the|recipe|baking|given|above|amounts|heat the|bake at|waiting)\b/i;
+// 1. własne wpisy w słownikach
+const kat = join(wt, 'src/lib/i18n-slowniki');
+const jezyki = readdirSync(kat).filter((d) => statSync(join(kat, d)).isDirectory()).sort();
+let bledy = 0; const b = (s) => { bledy++; console.log('BŁĄD', s); };
+console.log(`języki w src/lib/i18n-slowniki: ${jezyki.length} (${jezyki.join(', ')})`);
+const wart = {};
+for (const j of jezyki) {
+  const pliki = readdirSync(join(kat, j)).filter((f) => /^czesc-\d+\.ts$/.test(f));
+  const idx = readFileSync(join(kat, j, 'index.ts'), 'utf8');
+  wart[j] = {};
+  for (const f of pliki) {
+    const p = join(kat, j, f), t = readFileSync(p, 'utf8');
+    if (statSync(p).size > 20480) b(`${j}/${f}: ${statSync(p).size} B > 20480`);
+    if (!idx.includes(`'./${f.replace('.ts', '')}'`)) b(`${j}/${f}: brak importu w index.ts`);
+    for (const k of KL) {
+      const i = t.indexOf(`'${k}':`);
+      if (i < 0) continue;
+      const m = t.slice(i + k.length + 3).match(/^\s*(['"`])((?:\\.|(?!\1).)*)\1,/s);
+      if (!m) { b(`${j}/${f}: nie odczytano wartości klucza`); continue; }
+      if (wart[j][k]) b(`${j}: klucz powtórzony w dwóch częściach`);
+      wart[j][k] = m[2].replace(/\\'/g, "'");
+    }
+  }
+  for (const k of KL) if (!wart[j][k]) b(`${j}: brak wpisu „${k.slice(0, 30)}…”`);
+}
+// 2. tytuł karty i treść z sondy t()
+const sonda = {}; let cur;
+for (const l of readFileSync(plikSondy, 'utf8').split('\n')) { if (l.startsWith('### ')) sonda[(cur = l.slice(4))] = []; else if (cur && l.startsWith('  ')) sonda[cur].push(l.slice(2)); }
+const pl = sonda.pl, en = sonda.en;
+for (const j of jezyki) {
+  const s = sonda[j]; if (!s) { b(`${j}: brak w sondzie t()`); continue; }
+  const [nag, piecz, powod, karta] = s;
+  KL.forEach((k, i) => { if (wart[j][k] !== s[i]) b(`${j}: t() ≠ wpis słownika dla klucza ${i + 1} (${wart[j][k]} / ${s[i]})`); });
+  for (const [i, v] of [nag, piecz, powod].entries()) {
+    if (v === pl[i]) b(`${j}: klucz ${i + 1} = tekst polski`);
+    if (v === en[i]) b(`${j}: klucz ${i + 1} = tekst angielski`);
+    if (PL_ZNAKI.test(v) && !['cs', 'sk', 'hr', 'sl', 'lt', 'lv', 'ro', 'hu', 'tr', 'vi'].includes(j)) b(`${j}: klucz ${i + 1} — możliwy polski tekst: ${v}`);
+    if (/\b(piekarnik|pieczenia|zakwasie|wskazówki)\b/i.test(v)) b(`${j}: klucz ${i + 1} — polskie słowo: ${v}`);
+    if (EN_SLOWA.test(v)) b(`${j}: klucz ${i + 1} — angielskie słowo: ${v}`);
+    if (/\d|\{|\}|</.test(v)) b(`${j}: klucz ${i + 1} — cyfra albo parametr, którego nie ma w źródle: ${v}`);
+    if (PISMO[j] && !new RegExp(PISMO[j].split('|').map((x) => `\\p{Script=${x}}`).join('|'), 'u').test(v)) b(`${j}: klucz ${i + 1} bez liter pisma języka`);
+    if (!v.trim()) b(`${j}: klucz ${i + 1} pusty`);
+  }
+  for (const [i, v] of [nag, piecz].entries()) if (!v.includes(karta)) b(`${j}: klucz ${i + 1} nie zawiera tytułu karty „${karta}” (t('O recepturze'))`);
+  if (karta === 'O recepturze') b(`${j}: tytuł karty nieprzetłumaczony`);
+}
+console.log(`sprawdzone: ${jezyki.length} języków × 3 klucze; własny wpis w słowniku, t() = wpis, ≠ PL, ≠ EN, bez polskich/angielskich słów, bez cyfr i parametrów (źródło ich nie ma), pismo języka, tytuł karty z t('O recepturze') w obu zdaniach 088, pliki części ≤ 20 480 B i zaimportowane w index.ts`);
+console.log(`błędy: ${bledy}`);
+process.exit(bledy ? 1 : 0);

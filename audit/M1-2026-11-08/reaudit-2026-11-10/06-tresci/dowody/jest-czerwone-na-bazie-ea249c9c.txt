@@ -1,0 +1,217 @@
+$ (sonda ea249c9c + pliki testów z 1c723632; kod i treści sprzed poprawki) npx jest <3 testy> --maxWorkers=2
+FAIL tests/pieczenie-bez-cudzych-liczb-088.test.ts
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › TEKST_PIECZENIA_ZE_ZRODLA = receptury wektora D-304 w keksówce i na stali (brioszka, durum)
+
+    TypeError: _pieczeniePlanu.TEKST_PIECZENIA_ZE_ZRODLA is not iterable
+
+      51 |   it('TEKST_PIECZENIA_ZE_ZRODLA = receptury wektora D-304 w keksówce i na stali (brioszka, durum)', () => {
+      52 |     const pozaGarnkiem = CATALOG_RECIPES.filter((r) => Z_WEKTORA.has(r.id) && r.formula.starterPercentage > 0 && r.recommendedVessel !== 'dutch_oven');
+    > 53 |     expect([...TEKST_PIECZENIA_ZE_ZRODLA].sort()).toEqual(pozaGarnkiem.map((r) => r.id).sort());
+         |                ^
+      54 |     expect([...TEKST_PIECZENIA_ZE_ZRODLA].sort()).toEqual(['durum_semolina_sourdough', 'lievito_madre_panettone_brioche']);
+      55 |   });
+      56 |
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › rye_100_pan: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 195, 15, 45, 60]
+
+      66 |         expect(TRESC).toContain(k.instructions);
+      67 |       } else {
+    > 68 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      69 |       }
+      70 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      71 |     }
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › borodinsky_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 190, 15, 50, 65]
+
+      66 |         expect(TRESC).toContain(k.instructions);
+      67 |       } else {
+    > 68 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      69 |       }
+      70 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      71 |     }
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › latvian_scalded_rye: liczby °C i min w krokach nagrzewania i pieczenia = dane receptury albo brak liczb
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 250
+    Received array: [225, 225, 0, 90, 90]
+
+      66 |         expect(TRESC).toContain(k.instructions);
+      67 |       } else {
+    > 68 |         for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                           ^
+      69 |       }
+      70 |       if (id !== 'lievito_madre_panettone_brioche') expect(tekst.toLowerCase()).not.toContain('brioszk');
+      71 |     }
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › rye_100_pan przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 195, 15, 45, 60]
+
+      83 |       const tekst = `${k.name} ${k.instructions}`;
+      84 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 85 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      86 |     }
+      87 |   });
+      88 |
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › borodinsky_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 204
+    Received array: [230, 190, 15, 50, 65]
+
+      83 |       const tekst = `${k.name} ${k.instructions}`;
+      84 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 85 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      86 |     }
+      87 |   });
+      88 |
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › latvian_scalded_rye przy 50% żyta: plan bez „brioszk” i bez obcych temperatur
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 250
+    Received array: [225, 225, 0, 90, 90]
+
+      83 |       const tekst = `${k.name} ${k.instructions}`;
+      84 |       expect(tekst.toLowerCase()).not.toContain('brioszk');
+    > 85 |       for (const n of liczbyTempICzasu(tekst)) expect(danePieczenia(r)).toContain(n);
+         |                                                                         ^
+      86 |     }
+      87 |   });
+      88 |
+
+
+  ● 088: tekst pieczenia bez cudzych liczb i bez brioszki poza brioszką › tekst bez liczb dosłownie z pieczenie-receptur.md (PL i EN), nagrzewanie bez zdania o garnku
+
+    TypeError: Cannot read properties of undefined (reading 'split')
+
+      91 |       const plik = fs.readFileSync(path.join(root, 'docs', 'tresci', jezyk, 'pieczenie-receptur.md'), 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+      92 |       const blok = plik.split('\n## ').find((b) => b.startsWith(poczatek))!;
+    > 93 |       return blok.split('\n').slice(1).filter((l) => l.trim()).map((l) => l.replace(/\s*\[T:[^\]]*\]\s*$/, '').trim()).join(' ');
+         |                   ^
+      94 |     };
+      95 |     const kroki = krokiPieczenia(plan(pieczenieDlaId('latvian_scalded_rye', false)));
+      96 |     const nag = kroki.find((k) => k.category === 'preheat_oven')!;
+
+
+FAIL tests/brioszka-bez-planu-089.test.ts
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › powodBezPlanu dla brioszki zwraca powód: czasy rośnięcia bez źródła, ilości i wskazówki wyżej
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej."
+    Received: null
+
+      35 |     const r = receptura(BRIOSZKA);
+      36 |     expect(r.formula.starterPercentage).toBeGreaterThan(0);
+    > 37 |     expect(powodBezPlanu(r.formula, { recipeId: BRIOSZKA })).toBe(POWOD);
+         |                                                              ^
+      38 |     // „Piecz ponownie” z Dziennika przekazuje wersję zakwasową albo brak wersji — w obu przypadkach blokada
+      39 |     expect(powodBezPlanu(r.formula, { recipeId: BRIOSZKA, wersja: 'zakwas' })).toBe(POWOD);
+      40 |     expect(BRIOCHE_RECIPE_IDS).toEqual([BRIOSZKA]);
+
+
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+    @@ -2,10 +2,11 @@
+        "borodinsky_rye",
+        "country_loaf_72",
+        "durum_semolina_sourdough",
+        "graham_bread_honey",
+        "latvian_scalded_rye",
+    +   "lievito_madre_panettone_brioche",
+        "pain_de_campagne",
+        "rye_100_pan",
+        "san_francisco_sourdough",
+        "spelt_ancient_seeded",
+        "tartine_high_hydration_80",
+
+      43 |   it('katalog: brioszka bez planu, pozostałe receptury z zakwasem z planem bez zmian, bez zakwasu jak D-3', () => {
+      44 |     const zPlanem = CATALOG_RECIPES.filter((r) => powodBezPlanu(r.formula, { recipeId: r.id }) === null).map((r) => r.id).sort();
+    > 45 |     expect(zPlanem).toEqual(Z_PLANEM_BEZ_ZMIAN);
+         |                     ^
+      46 |     for (const r of CATALOG_RECIPES.filter((x) => x.formula.starterPercentage <= 0)) {
+      47 |       expect(powodBezPlanu(r.formula, { recipeId: r.id })).toBe(t('Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.'));
+      48 |     }
+
+
+  ● 089: brioszka na Lievito Madre bez planu do zamknięcia PIE-BRI-900 › PL i EN dosłownie z docs/tresci/pl|en/powody-bez-planu.md
+
+    ENOENT: no such file or directory, open '/tmp/claude-0/-home-user-piekarz/5eafc561-9bc2-54a9-9a04-f27c4daeaf0c/scratchpad/G2-sonda-baza/docs/tresci/pl/powody-bez-planu.md'
+
+      14 | /** Sekcja brioszki w pliku treści powody-bez-planu.md (089) bez znacznika [T:…]. */
+      15 | function powodZTresci(jezyk: 'pl' | 'en'): string {
+    > 16 |   const plik = fs.readFileSync(path.join(__dirname, '..', 'docs', 'tresci', jezyk, 'powody-bez-planu.md'), 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+         |                   ^
+      17 |   const blok = plik.split('\n## ').find((b) => b.startsWith('lievito_madre_panettone_brioche'))!;
+      18 |   return blok.split('\n').slice(1).filter((l) => l.trim()).map((l) => l.replace(/\s*\[T:[^\]]*\]\s*$/, '').trim()).join(' ');
+      19 | }
+
+
+(node:1469) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL tests/brioszka-bez-eksportu-089.test.tsx (11.641 s)
+  ● 089 (przegląd ścieżki planu P2-1): plan zablokowany nie eksportuje osi czasu › brioszka z „Piecz ponownie”: bez „Dodaj do kalendarza” i „Kopiuj jako tekst”, start nieaktywny
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 5
+
+      Object {
+    -   "disabled": true,
+    +   "busy": undefined,
+    +   "checked": undefined,
+    +   "disabled": false,
+    +   "expanded": undefined,
+    +   "selected": undefined,
+      }
+
+      75 |   it('brioszka z „Piecz ponownie”: bez „Dodaj do kalendarza” i „Kopiuj jako tekst”, start nieaktywny', async () => {
+      76 |     tree = await otworzPlan('lievito_madre_panettone_brioche');
+    > 77 |     expect(host(tree.root, 'plan-start-bake-btn')[0].props.accessibilityState).toEqual({ disabled: true });
+         |                                                                                ^
+      78 |     expect(host(tree.root, 'plan-kalendarz-btn')).toHaveLength(0);
+      79 |     expect(host(tree.root, 'copy-schedule-btn')).toHaveLength(0);
+      80 |   });
+
+
+Test Suites: 3 failed, 3 total
+Tests:       12 failed, 10 passed, 22 total
+Snapshots:   0 total
+Time:        12.269 s
+Ran all test suites matching /tests\/pieczenie-bez-cudzych-liczb-088.test.ts|tests\/brioszka-bez-planu-089.test.ts|tests\/brioszka-bez-eksportu-089.test.tsx/i.
+kod wyjścia: 1

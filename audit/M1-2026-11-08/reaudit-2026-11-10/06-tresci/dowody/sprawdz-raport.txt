@@ -1,0 +1,3 @@
+$ node K/narzedzia/sprawdz-raport.mjs 06-tresci-reaudit-2026-11-10.md WT R/06-tresci --rola 06-tresci
+OK: odwołania, cytaty, pliki dowodów i sekrety sprawdzone; format raportu 06-tresci
+kod wyjścia: 0

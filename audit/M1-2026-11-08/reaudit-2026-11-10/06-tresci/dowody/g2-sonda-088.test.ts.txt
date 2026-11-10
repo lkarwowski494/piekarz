@@ -1,0 +1,98 @@
+import * as fs from 'node:fs';
+import { CATALOG_RECIPES } from '../src/recipes/katalog';
+import { calculateReverseSchedule } from '../src/core/reverse-scheduler';
+import { stepsFromSchedule, ryeStepsEndingAt, type SessionStep } from '../src/core/bake-steps';
+import { calculateDoughRecipe } from '../src/core/domain-rules';
+import { pieczenieDlaPlanu, pieczenieDlaId } from '../src/lib/pieczenie-planu';
+import { powodBezPlanu } from '../src/lib/plan-receptury';
+import { poCoTenKrok } from '../src/core/po-co-ten-krok';
+import { stepsForBake } from '../src/data/bake-session-store';
+import { krokiDrozdzoweKonczaceSie, maPlanDrozdzowy } from '../src/recipes/yeast-stages';
+import { wersjaDrozdzowa } from '../src/recipes/wersje-drozdzowe';
+import { setLang, t, ACTIVE_LANGS } from '../src/lib/i18n';
+
+const out: string[] = [];
+const w = (s = '') => out.push(s);
+const CEL = new Date(2026, 10, 12, 18, 0);
+const piecz = (k: SessionStep) => k.category === 'preheat_oven' || k.category === 'bake' || k.id.startsWith('bake');
+const liczby = (s: string) => [...s.matchAll(/(\d+)(?:[–-](\d+))?\s*(?:°\s?C|minut\w*|min\b)/g)].flatMap((m) => [Number(m[1]), ...(m[2] ? [Number(m[2])] : [])]);
+const dane = (r: (typeof CATALOG_RECIPES)[number]) => `naczynie=${r.recommendedVessel} para=${r.bakeTempSteamC}°C/${r.bakeTimeSteamMinutes}min rumienienie=${r.bakeTempBrowningC}°C/${r.bakeTimeBrowningMinutes}min`;
+const zbior = (r: (typeof CATALOG_RECIPES)[number]) => [r.bakeTempSteamC, r.bakeTempBrowningC, r.bakeTimeSteamMinutes, r.bakeTimeBrowningMinutes, r.bakeTimeSteamMinutes + r.bakeTimeBrowningMinutes];
+
+function wypisz(r: (typeof CATALOG_RECIPES)[number], kroki: SessionStep[], wszystkie = false) {
+  for (const k of kroki) {
+    if (!wszystkie && !piecz(k)) continue;
+    const tekst = `${k.name} ${k.instructions}`;
+    const obce = piecz(k) ? liczby(tekst).filter((n) => !zbior(r).includes(n)) : [];
+    const poCo = poCoTenKrok(k);
+    w(`  [${k.id} | ${k.category} | ${k.durationMin} min] ${k.name}: ${k.instructions}`);
+    if (piecz(k)) w(`      liczby °C/min w tekście: [${liczby(tekst).join(', ')}]; spoza danych receptury: [${obce.join(', ')}]; „brioszk”: ${/brioszk/i.test(tekst) ? 'TAK' : 'nie'}; „Po co ten krok”: ${poCo ? poCo.map((z) => `${z.id} „${z.tekst}”`).join(' | ') : 'brak (null)'}`);
+  }
+}
+
+test('sonda 088', () => {
+  setLang('pl');
+  w('# Sonda G2 088 — commit 1c723632 — teksty kroków nagrzewania i pieczenia z planu (pieczenieDlaPlanu → calculateReverseSchedule → stepsFromSchedule, jak app/(tabs)/receptury/harmonogram.tsx)');
+  w('');
+  w('## A. Żytnie przy 50% żyta (50% mąki żytniej receptury + 50% pszennej 650)');
+  for (const id of ['rye_100_pan', 'borodinsky_rye', 'latvian_scalded_rye']) {
+    const r = CATALOG_RECIPES.find((x) => x.id === id)!;
+    const zyto = r.formula.flours[0]!;
+    const recipeFormula = { ...r.formula, flours: [{ ...zyto, percentage: 50 }, { name: 'Mąka pszenna typ 650 (bułkowa)', percentage: 50, type: 'pszenna_650' }] } as typeof r.formula;
+    const calculatedRecipe = calculateDoughRecipe(recipeFormula);
+    const rp = { recipeName: r.namePl, recipeId: id, calculatedRecipe, recipeFormula };
+    const p = pieczenieDlaPlanu(rp);
+    w(`### ${id} — ${r.namePl}`);
+    w(`  dane receptury: ${dane(r)}; isHighRye=${calculatedRecipe.isHighRye}; powodBezPlanu=${JSON.stringify(powodBezPlanu(recipeFormula, rp))}; pieczenie=${JSON.stringify(p)}`);
+    const kroki = stepsFromSchedule(calculateReverseSchedule(CEL, { pieczenie: p }));
+    w('  plan (wszystkie kroki):');
+    wypisz(r, kroki, true);
+    w('  Stolnica bez migawki (stepsForBake, recipeId + isHighRye=false):');
+    wypisz(r, stepsForBake({ id: 'x', startedAt: CEL.getTime(), recipeId: id, isHighRye: false } as never));
+    setLang('en');
+    w('  EN: ' + kroki.filter(piecz).map((k) => `${t(k.name)}: ${t(k.instructions)}`).join(' || '));
+    setLang('pl');
+    w('');
+  }
+  w('## B. Te same trzy przy oryginalnych mąkach (isHighRye → etapy żytnie, ryeStepsEndingAt)');
+  for (const id of ['rye_100_pan', 'borodinsky_rye', 'latvian_scalded_rye']) {
+    const r = CATALOG_RECIPES.find((x) => x.id === id)!;
+    const calculatedRecipe = calculateDoughRecipe(r.formula);
+    const p = pieczenieDlaPlanu({ recipeName: r.namePl, recipeId: id, calculatedRecipe, recipeFormula: r.formula });
+    const plan = stepsFromSchedule(calculateReverseSchedule(CEL, { pieczenie: p }));
+    const kroki = calculatedRecipe.isHighRye ? ryeStepsEndingAt(plan, CEL.getTime()) : plan;
+    w(`### ${id}: dane ${dane(r)}; isHighRye=${calculatedRecipe.isHighRye}; pieczenie=${JSON.stringify(p)}`);
+    wypisz(r, kroki.filter((k) => piecz(k) || /bake|piecz/i.test(k.id)));
+    w('');
+  }
+  w('## C. Pozostałe receptury z zakwasem (pieczenieDlaId(id,false)); keksówka i stal oznaczone');
+  for (const r of CATALOG_RECIPES.filter((x) => x.formula.starterPercentage > 0)) {
+    const calculatedRecipe = calculateDoughRecipe(r.formula);
+    const rp = { recipeName: r.namePl, recipeId: r.id, calculatedRecipe, recipeFormula: r.formula };
+    w(`### ${r.id} — ${r.namePl}${r.recommendedVessel !== 'dutch_oven' ? '  <<< ' + r.recommendedVessel : ''}`);
+    w(`  dane receptury: ${dane(r)}; isHighRye=${calculatedRecipe.isHighRye}; powodBezPlanu=${JSON.stringify(powodBezPlanu(r.formula, rp))}`);
+    wypisz(r, stepsFromSchedule(calculateReverseSchedule(CEL, { pieczenie: pieczenieDlaId(r.id, false) })));
+    w('');
+  }
+  w('## D. Receptury bez zakwasu w keksówce/na stali/na blasze z planem drożdżowym (krokiDrozdzoweKonczaceSie) — poza zakresem D-317, dla porównania');
+  for (const r of CATALOG_RECIPES) {
+    if (!maPlanDrozdzowy(r.id)) continue;
+    const kroki = krokiDrozdzoweKonczaceSie(r.id, CEL.getTime()) ?? [];
+    w(`### ${r.id} — ${r.namePl} (${r.recommendedVessel}; wersja drożdżowa: ${wersjaDrozdzowa(r.id) ? 'tak' : 'nie'}); dane ${dane(r)}`);
+    for (const k of kroki.filter(piecz)) w(`  [${k.id} | ${k.category} | ${k.durationMin} min] ${k.name}: ${k.instructions}`);
+  }
+  w('');
+  w('## E. Brioszka — kroki planu, gdyby plan otwarto (zapisany plan/sesja sprzed poprawki; stepsForBake bez migawki)');
+  const b = CATALOG_RECIPES.find((x) => x.id === 'lievito_madre_panettone_brioche')!;
+  wypisz(b, stepsForBake({ id: 'x', startedAt: CEL.getTime(), recipeId: b.id, isHighRye: false } as never), true);
+  w('');
+  w('## F. Dwa nowe teksty 088 i powód 089 we wszystkich językach (t())');
+  const KL = ['Nagrzej piekarnik do temperatury pieczenia podanej w „O recepturze”.', 'Piecz w temperaturze i przez czas podane w „O recepturze”.', 'Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.', 'O recepturze', 'Pieczenie', 'Ułóż plan'];
+  for (const l of ACTIVE_LANGS) {
+    setLang(l);
+    w(`### ${l}`);
+    for (const k of KL) w(`  ${t(k)}`);
+  }
+  setLang('pl');
+  fs.writeFileSync(process.env.G2_OUT!, out.join('\n') + '\n');
+});

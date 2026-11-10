@@ -1,0 +1,144 @@
+$ git -C WT diff --stat ea249c9c..1c723632 -- src/lib/i18n-slowniki src/lib/i18n-en src/lib/i18n.ts docs/lokalizacja scripts/check-i18n.mjs scripts/wepnij-przeklad.mjs scripts/i18n-wyjatki.json
+ docs/lokalizacja/pl.kontekst.json                |  21 +++-
+ docs/lokalizacja/przeklad-m2-088-2026-11-09.json | 141 +++++++++++++++++++++++
+ docs/lokalizacja/przeklad-m2-089-2026-11-09.json | 107 +++++++++++++++++
+ src/lib/i18n-en/czesc-31.ts                      |   8 ++
+ src/lib/i18n-slowniki/bg/czesc-33.ts             |   5 +
+ src/lib/i18n-slowniki/bg/czesc-34.ts             |   6 +
+ src/lib/i18n-slowniki/bg/index.ts                |   6 +-
+ src/lib/i18n-slowniki/cs/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/cs/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/cs/index.ts                |   6 +-
+ src/lib/i18n-slowniki/da/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/da/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/da/index.ts                |   6 +-
+ src/lib/i18n-slowniki/de/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/de/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/de/index.ts                |   6 +-
+ src/lib/i18n-slowniki/el/czesc-34.ts             |   5 +
+ src/lib/i18n-slowniki/el/czesc-35.ts             |   6 +
+ src/lib/i18n-slowniki/el/index.ts                |   6 +-
+ src/lib/i18n-slowniki/es-419/czesc-31.ts         |   5 +
+ src/lib/i18n-slowniki/es-419/czesc-32.ts         |   6 +
+ src/lib/i18n-slowniki/es-419/index.ts            |   6 +-
+ src/lib/i18n-slowniki/es/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/es/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/es/index.ts                |   6 +-
+ src/lib/i18n-slowniki/et/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/et/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/et/index.ts                |   6 +-
+ src/lib/i18n-slowniki/fi/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/fi/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/fi/index.ts                |   6 +-
+ src/lib/i18n-slowniki/fr/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/fr/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/fr/index.ts                |   6 +-
+ src/lib/i18n-slowniki/hr/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/hr/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/hr/index.ts                |   6 +-
+ src/lib/i18n-slowniki/hu/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/hu/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/hu/index.ts                |   6 +-
+ src/lib/i18n-slowniki/id/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/id/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/id/index.ts                |   6 +-
+ src/lib/i18n-slowniki/it/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/it/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/it/index.ts                |   6 +-
+ src/lib/i18n-slowniki/ja/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/ja/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/ja/index.ts                |   6 +-
+ src/lib/i18n-slowniki/ko/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/ko/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/ko/index.ts                |   6 +-
+ src/lib/i18n-slowniki/lt/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/lt/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/lt/index.ts                |   6 +-
+ src/lib/i18n-slowniki/lv/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/lv/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/lv/index.ts                |   6 +-
+ src/lib/i18n-slowniki/ms/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/ms/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/ms/index.ts                |   6 +-
+ src/lib/i18n-slowniki/nb/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/nb/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/nb/index.ts                |   6 +-
+ src/lib/i18n-slowniki/nl/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/nl/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/nl/index.ts                |   6 +-
+ src/lib/i18n-slowniki/pt-BR/czesc-31.ts          |   5 +
+ src/lib/i18n-slowniki/pt-BR/czesc-32.ts          |   6 +
+ src/lib/i18n-slowniki/pt-BR/index.ts             |   6 +-
+ src/lib/i18n-slowniki/pt/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/pt/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/pt/index.ts                |   6 +-
+ src/lib/i18n-slowniki/ro/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/ro/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/ro/index.ts                |   6 +-
+ src/lib/i18n-slowniki/ru/czesc-33.ts             |   5 +
+ src/lib/i18n-slowniki/ru/czesc-34.ts             |   6 +
+ src/lib/i18n-slowniki/ru/index.ts                |   6 +-
+ src/lib/i18n-slowniki/sk/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/sk/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/sk/index.ts                |   6 +-
+ src/lib/i18n-slowniki/sl/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/sl/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/sl/index.ts                |   6 +-
+ src/lib/i18n-slowniki/sr/czesc-33.ts             |   5 +
+ src/lib/i18n-slowniki/sr/czesc-34.ts             |   6 +
+ src/lib/i18n-slowniki/sr/index.ts                |   6 +-
+ src/lib/i18n-slowniki/sv/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/sv/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/sv/index.ts                |   6 +-
+ src/lib/i18n-slowniki/tr/czesc-30.ts             |   5 +
+ src/lib/i18n-slowniki/tr/czesc-31.ts             |   6 +
+ src/lib/i18n-slowniki/tr/index.ts                |   6 +-
+ src/lib/i18n-slowniki/uk/czesc-33.ts             |   5 +
+ src/lib/i18n-slowniki/uk/czesc-34.ts             |   6 +
+ src/lib/i18n-slowniki/uk/index.ts                |   6 +-
+ src/lib/i18n-slowniki/vi/czesc-31.ts             |   5 +
+ src/lib/i18n-slowniki/vi/czesc-32.ts             |   6 +
+ src/lib/i18n-slowniki/vi/index.ts                |   6 +-
+ src/lib/i18n-slowniki/zh-Hant/czesc-30.ts        |   5 +
+ src/lib/i18n-slowniki/zh-Hant/czesc-31.ts        |   6 +
+ src/lib/i18n-slowniki/zh-Hant/index.ts           |   6 +-
+ 103 files changed, 770 insertions(+), 68 deletions(-)
+
+$ git diff --numstat … | usunięte linie w słownikach (kolumna 2 > 0)
+4	2	src/lib/i18n-slowniki/bg/index.ts
+4	2	src/lib/i18n-slowniki/cs/index.ts
+4	2	src/lib/i18n-slowniki/da/index.ts
+4	2	src/lib/i18n-slowniki/de/index.ts
+4	2	src/lib/i18n-slowniki/el/index.ts
+4	2	src/lib/i18n-slowniki/es-419/index.ts
+4	2	src/lib/i18n-slowniki/es/index.ts
+4	2	src/lib/i18n-slowniki/et/index.ts
+4	2	src/lib/i18n-slowniki/fi/index.ts
+4	2	src/lib/i18n-slowniki/fr/index.ts
+4	2	src/lib/i18n-slowniki/hr/index.ts
+4	2	src/lib/i18n-slowniki/hu/index.ts
+4	2	src/lib/i18n-slowniki/id/index.ts
+4	2	src/lib/i18n-slowniki/it/index.ts
+4	2	src/lib/i18n-slowniki/ja/index.ts
+4	2	src/lib/i18n-slowniki/ko/index.ts
+4	2	src/lib/i18n-slowniki/lt/index.ts
+4	2	src/lib/i18n-slowniki/lv/index.ts
+4	2	src/lib/i18n-slowniki/ms/index.ts
+4	2	src/lib/i18n-slowniki/nb/index.ts
+4	2	src/lib/i18n-slowniki/nl/index.ts
+4	2	src/lib/i18n-slowniki/pt-BR/index.ts
+4	2	src/lib/i18n-slowniki/pt/index.ts
+4	2	src/lib/i18n-slowniki/ro/index.ts
+4	2	src/lib/i18n-slowniki/ru/index.ts
+4	2	src/lib/i18n-slowniki/sk/index.ts
+4	2	src/lib/i18n-slowniki/sl/index.ts
+4	2	src/lib/i18n-slowniki/sr/index.ts
+4	2	src/lib/i18n-slowniki/sv/index.ts
+4	2	src/lib/i18n-slowniki/tr/index.ts
+4	2	src/lib/i18n-slowniki/uk/index.ts
+4	2	src/lib/i18n-slowniki/vi/index.ts
+4	2	src/lib/i18n-slowniki/zh-Hant/index.ts
+
+$ status plików (A/M/D)
+     66 A
+     34 M

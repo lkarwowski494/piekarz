@@ -1,0 +1,126 @@
+# Sonda G2 089 — commit 1c723632 — ekran planu (app/(tabs)/receptury/harmonogram.tsx) dla brioszki ustawionej jak z „Piecz ponownie”
+
+## Przyciski
+plan-start-bake-btn: 1 szt. {"disabled":true}
+plan-kalendarz-btn: 0 szt.
+copy-schedule-btn: 0 szt.
+plan-schedule-btn: 0 szt.
+plan-zaplanuj-btn: 0 szt.
+
+## testID na ekranie
+pas-zakladki, pas-wstecz-btn, pas-pod, karta-gotowosci, karta-gotowosci-naglowek, karta-gotowosci-ikona, ikona-karty-zegar, karta-gotowosci-tytul, plan-pole-gotowosci, plan-dni, plan-dzien-0, plan-dzien-1, plan-dzien-2, plan-dzien-3, plan-dzien-4, plan-dzien-5, plan-dzien-6, plan-dzien-7, plan-dzien-8, plan-dzien-9, plan-dzien-10, plan-dzien-11, plan-dzien-12, plan-dzien-13, plan-dzien-14, karta-temperatury, karta-temperatury-naglowek, karta-temperatury-ikona, ikona-karty-termometr, karta-temperatury-tytul, karta-snu, karta-snu-naglowek, karta-snu-ikona, ikona-karty-ptaszek, karta-snu-tytul, sleep-guard-banner, karta-osi-czasu, karta-osi-czasu-naglowek, karta-osi-czasu-ikona, ikona-karty-lista, karta-osi-czasu-tytul, brand-spiral, brand-spiral-odcinek-0, brand-spiral-odcinek-1, brand-spiral-odcinek-2, brand-spiral-odcinek-3, brand-spiral-odcinek-4, brand-spiral-odcinek-5, brand-spiral-odcinek-6, brand-spiral-odcinek-7, timeline-item-0, timeline-time-0, timeline-item-1, timeline-time-1, timeline-item-2, timeline-time-2, timeline-item-3, timeline-time-3, timeline-item-4, timeline-time-4, timeline-item-5, timeline-time-5, timeline-item-6, timeline-time-6, timeline-item-7, timeline-time-7, karta-ustawien-planu, karta-ustawien-planu-naglowek, karta-ustawien-planu-ikona, ikona-karty-zebatka, karta-ustawien-planu-tytul, czapka-paska, plan-thumb-bar, plan-start-bake-btn
+
+## Teksty na ekranie (kolejność drzewa)
+Receptura
+Plan wypieku
+lievito_madre_panettone_brioche
+Kiedy chleb ma być gotowy?
+-30 min
+Jutro
+10:50
++30 min
+Dziś
+Jutro
+Pojutrze
+pt., 13 lis
+sob., 14 lis
+niedz., 15 lis
+pon., 16 lis
+wt., 17 lis
+śr., 18 lis
+czw., 19 lis
+pt., 20 lis
+sob., 21 lis
+niedz., 22 lis
+pon., 23 lis
+wt., 24 lis
+-2 godziny
++2 godziny
+Temperatura w kuchni: 23°C
+20°C
+22°C
+24°C
+26°C
+Wpływa na tempo fermentacji burzliwej: 10 °C chłodniej to około 3 razy dłuższa fermentacja (to przybliżenie, sprawdza się w 20–26 °C).
+Ochrona snu aktywna
+Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 07:00).
+Oś czasu przygotowania
+Start dziś o 10:42
+Całość trwa 24 h 8 min.
+10:42
+–
+16:42
+Dziś
+Dokarmienie zakwasu (osiągnięcie szczytu)
+6 h
+Ręce tylko na starcie
+Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.
+16:42
+–
+17:02
+Dziś
+Wyrabianie ciasta z masłem
+20 min
+Wymaga obecności
+Połącz mąkę, wodę, sól i zakwas i wyrabiaj. Masło dodawaj stopniowo, porcjami. Gdy całe masło połączy się z ciastem, wyrabiaj dalej, aż ciasto zacznie odchodzić od ścianek misy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+17:02
+–
+07:02
+Dziś
+Ciasto na noc w lodówce
+14 h
+Pasywne
+Przełóż ciasto na blachę wyłożoną papierem do pieczenia posmarowanym masłem. Szczelnie przykryj je folią i wstaw na noc do lodówki.
+07:02
+–
+07:17
+Jutro
+Formowanie w keksówce
+15 min
+Wymaga obecności
+Rozwałkuj ciasto dłońmi na długość keksówki. Keksówkę lekko posmaruj masłem i włóż do niej ciasto.
+07:17
+–
+07:37
+Jutro
+Rośnięcie w keksówce
+20 min
+Pasywne
+Przykryj keksówkę folią i odstaw ciasto do wyrośnięcia w ciepłe miejsce.
+07:37
+–
+08:22
+Jutro
+Nagrzewanie piekarnika
+45 min
+Ręce tylko na starcie
+Nagrzej piekarnik do 204 °C, a przed włożeniem keksówki obniż temperaturę do 177 °C.
+08:22
+–
+08:50
+Jutro
+Pieczenie
+28 min
+Wymaga obecności
+Posmaruj brioszkę roztrzepanym jajkiem i piecz 20 minut, potem obróć keksówkę i piecz jeszcze 8–10 minut, aż brioszka będzie złotobrązowa. Od razu wyjmij brioszkę z keksówki na kratkę.
+08:50
+–
+10:50
+Jutro
+Studzenie na kratce
+2 h
+Pasywne
+Wyjmij chleb na metalową kratkę. Chleb oddaje wilgoć, gdy stygnie, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.
+Ustawienia
+Godziny snu:
+23:00 – 07:00
+Czas w lodówce:
+14 h
+10 h
+12 h
+14 h
+16 h
+18 h
+Elastyczny bufor regulujący porę formowania i pieczenia
+Zacznij wypiek
+Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta. Ilości i wskazówki są wyżej.

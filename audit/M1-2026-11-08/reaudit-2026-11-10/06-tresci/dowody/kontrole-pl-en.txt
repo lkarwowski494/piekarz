@@ -1,0 +1,7 @@
+$ node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/pl docs/tresci/en  (WT 1c723632)
+BŁĄD docs/tresci/pl/powody-bez-planu.md:6: zdanie bez znacznika: „Plan dla tej receptury na zakwasie czeka na czasy rośnięcia ciasta.”
+BŁĄD docs/tresci/en/powody-bez-planu.md:6: zdanie bez znacznika: „The plan for this sourdough recipe is waiting for dough rising times.”
+UWAGA docs/tresci/pl/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+UWAGA docs/tresci/en/katalog-m3.md:75: 10 bez słowa granicy, w rejestrze „<=”
+2 błędów, 2 uwag
+kod wyjścia: 1
