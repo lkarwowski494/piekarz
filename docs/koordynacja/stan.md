@@ -30,6 +30,7 @@ Zadania do wznowienia (kolejność):
 6. Koordynator `…ByVFXN3K6UyZ9U7yZ8`: rola M9 niezłożona (brak `prompts`) — przy wznowieniu zgoda albo nowa sesja koordynatora z dostępem.
 
 ## Teraz
+- **10.11 20:42 (KO-025):** J `session_01T66VBwZAMSc6TkE1YqimAY` (rola 08: port natywnych zrzutów z Oczka + pełny log wysyłki w testflight.yml, `polecenia/J.md`), PENDING. **K (rola 09, Z-8: przekład akapitu „Dostęp i zakup” na 29 lokalizacji + notatka App Review: brak oferty, stała wartość Pro) — start DOPIERO po scaleniu H** (te same pliki `docs/wydanie/metadane`); polecenie K do napisania. Właściciel przy teście: symbole buildu 1025 w ASC (032).
 - **10.11 20:34 (KO-024):** test telefonu właściciela jutro w dzień (build 1025). Równolegle: H `session_01T66VBxyhmM8hPWZQFw4euT` (rola 10 fix, 109, `polecenia/H.md`) i I `session_01T66VBx2Vv87uPCJpYVqCdQ` (rola 07 audit: reaudyt 005, 067, werdykt 07 na `c2c5e206`, `polecenia/I.md`); obie od master `c2c5e206`, PENDING. Subagent koordynatora: analiza ASC w oczku (klon read `/home/user/lkarwowski494/oczko`, gałęzie `claude/build3-2026-11-10`, `claude/e-zrzuty-sklepu-2026-11-10`) → odpowiedzi na B4, B6, 032, Z-8, zrzuty. Zrzuty (017) dopiero po teście telefonu. Po H: scalenie do redesign; po I: werdykt do właściciela.
 - **10.11 20:01:** **Nightly #29 ZIELONY** na master @ `c2c5e206` (run 42870153152: verify success, Stryker 104 min < limit 120, wynik mutacji **64,33 ≥ 60**, cache przyrostowy zapisany) → warunek 067 spełniony: 067 naprawione-do-weryfikacji (status w `plan-napraw.json` na K zaktualizuje następna sesja M2/M1; nie piszę na `audit-m1`). Nic nie biegnie. Czeka: test telefonu właściciela (build 1025). Potem (do decyzji): zrzuty przed App Store (017, 109), 106/107 P3, test rozpoznawalności ikon.
 - **10.11 17:58 (KO-023):** `master` FF `540229c9`→`c2c5e206` (= `redesign`, ls-remote). **Nightly #29 run 42870153152** (master @ `c2c5e206`, 067: zielony + Stryker ≥ 60). Push na master uruchamia też E2E (informacyjnie). Czeka: test telefonu właściciela (build 1025; lista PH-33…PH-35 teraz także na master).
@@ -51,6 +52,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| J (zrzuty natywne) | `session_01T66VBwZAMSc6TkE1YqimAY` | 08 fix (`polecenia/J.md` @ `490d0875`) | `naprawy/M2-koordynator-napraw-2026-11-10-zrzuty` od `c2c5e206` | 0 (20:41) | 0 | start 20:41, PENDING; D-352…D-355 |
 | H (109) | `session_01T66VBxyhmM8hPWZQFw4euT` | 10-wydanie fix (`polecenia/H.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-109` od `c2c5e206` | 0 (20:33) | 0 | start 20:33, PENDING; D-346…D-348 |
 | I (werdykt 07) | `session_01T66VBx2Vv87uPCJpYVqCdQ` | 07-jakosc audit (`polecenia/I.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-werdykt07` od `c2c5e206` | 0 (20:33) | 0 | start 20:33, PENDING; D-349…D-351 |
 | G (porządki) | `session_01T66VBwBc51pCE4yMdFzDZH` | 07-jakosc docs (`polecenia/G.md` @ `cdd8236f`) | `naprawy/M2-koordynator-napraw-2026-11-10-porzadki` od `540229c9` | 0 (15:50) | 0 | zarchiwizowana 16:06 (21,1%, 4,64 USD); D-292 |
@@ -189,3 +191,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 20:01 | M9 | Nightly #29 ZIELONY (conclusion success 19:45; log: „Final mutation score of 64.33 is greater than or equal to break threshold 60”, „Done in 104 minutes”). 067: warunek reaudytu spełniony | linia 05:00 |
 | 10.11 20:34 | M9 | KO-024 (wariant A + oczko/ASC). Sesje H i I (create_session 20:33, PENDING); subagent analiza ASC oczka w tle | raporty H, I, subagenta |
 | 10.11 20:50 | M9 | Raport ASC z oczka zapisany (`docs/koordynacja/asc-oczko-2026-11-10.md`); weryfikacja koordynatora: uploadSymbols true, brak zakup.png, appScreenshotSets — „deprecated” niepotwierdzone, 032 dla 1025 nierozstrzygnięte (log eksportu ucięty) | decyzje właściciela |
+| 10.11 20:42 | M9 | KO-025; sesja J (create_session 20:41, PENDING); K czeka na H | kontrola H/I/J 21:30 |
