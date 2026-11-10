@@ -44,7 +44,7 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Brutar calculează cantitățile și te anunță la finalul fiecărui pas. Plan invers de la ora la care vrei pâinea gata (Pro). Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3624 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3613 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
@@ -59,7 +59,7 @@ PLAN DE LA ORA „GATA” (Pro)
 Alegi când trebuie să fie gata pâinea, iar Brutar calculează invers ora de start a fiecărui pas. Durata fermentării depinde de temperatura din bucătărie. Când un pas care are nevoie de mâinile tale cade noaptea (implicit între 23:00 și 07:00), Brutar îți propune un timp mai lung la frigider. Când timpul nu ajunge, îți dă cea mai devreme oră posibilă.
 
 GHIDARE PAS CU PAS
-Brutar îți arată pasul curent: ce ai de făcut, cât durează și ce urmează. Dacă permiți notificările, te anunță la finalul pasului și când telefonul e blocat. Într-un pas care are nevoie de mâinile tale, ecranul de ghidare nu se stinge. Pașii cu vas fierbinte sau aluat crud au un avertisment. Pâinea de secară (peste jumătate din făină este făină de secară) are pași proprii, fără împăturire. Un pas confirmat din greșeală îl poți anula, iar la redeschidere aplicația revine la pasul curent.
+Brutar îți arată pasul curent: ce ai de făcut, cât durează și ce urmează. Dacă permiți notificările, te anunță la finalul pasului și când telefonul e blocat. Într-un pas care are nevoie de mâinile tale, ecranul de ghidare nu se stinge. Pașii cu vas fierbinte sau aluat crud au un avertisment. Pâinea de secară (peste jumătate din făină este făină de secară) are pași proprii, fără împăturire.
 
 MAIA NATURALĂ
 O maia nouă o pornești zi de zi. Brutar aplică principiul precauției: la depunere, decolorare sau miros de putred te sfătuiește să arunci maiaua. Îngrijirea maialei (Pro): mai multe maiale, cantități pentru hrănire în proporție de 1:1:1, 1:2:2, 1:3:3 sau 1:5:5, marcaj „gata” când maiaua își dublează volumul și memento după 12 ore pe blat fără hrănire.
@@ -74,10 +74,10 @@ DATELE TALE
 Brutar păstrează pe telefon ultimele 10 copii de rezervă automate. Poți exporta toate datele într-un fișier și le poți importa din fișier, iar istoricul coacerilor îl poți exporta ca CSV. Unități: grame și °C sau uncii și °F.
 
 BINE DE ȘTIUT
-Brutar funcționează pe iPhone și nu sincronizează datele între dispozitive; datele le muți cu fișierul de backup. Fără permisiunea pentru notificări, Brutar arată finalul pasului doar pe ecranul deschis.
+Brutar funcționează pe iPhone și nu sincronizează datele între dispozitive; datele le muți cu fișierul de backup.
 
 ACCES ȘI ACHIZIȚIE
-Basic este gratuit pentru totdeauna, fără perioadă de probă. Pro adaugă planificare, îngrijirea maielei, mai multe maiele și rețete. Pro este un abonament lunar sau anual ori o achiziție unică pe viață în App Store.
+Basic este gratuit pentru totdeauna, fără perioadă de probă. Pro adaugă planificare, îngrijirea maielei, mai multe maiele și rețete. Pro este un abonament lunar sau anual ori o achiziție unică pe viață în App Store. Abonamentul se reînnoiește automat până când îl anulezi: în Configurări, apasă pe numele tău, apoi pe Abonamente. Pe un iPhone nou, apasă „Restaurează achizițiile” în aplicație.
 Termeni de utilizare (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Limbi: 35.

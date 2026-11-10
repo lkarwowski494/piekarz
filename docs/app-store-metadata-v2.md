@@ -24,7 +24,7 @@
 | **Tekst promocyjny (Promotional Text)** | `Piekarz policzy ilości i da znać o końcu każdego kroku. Plan wstecz od godziny, o której chleb ma być gotowy (Pro). Bez konta, bez internetu, bez reklam.` | **153** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 614 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 612 / 4 000 znaków)
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -39,7 +39,7 @@ PLAN OD GODZINY „GOTOWE” (Pro)
 Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 07:00), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.
 
 PROWADZENIE KROK PO KROKU
-Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.
+Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. W kroku wymagającym twoich rąk ekran prowadzenia nie gaśnie. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania.
 
 ZAKWASY
 Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas. Opieka nad zakwasem (Pro): kilka zakwasów, ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5, oznaczenie gotowości, gdy zakwas podwoi objętość, i przypomnienie po 12 godzinach na blacie bez dokarmienia.
@@ -54,7 +54,7 @@ TWOJE DANE
 Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.
 
 WARTO WIEDZIEĆ
-Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.
+Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii.
 
 DOSTĘP I ZAKUP
 Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje. Na nowym iPhonie stuknij w aplikacji „Przywróć zakupy”.
@@ -76,7 +76,7 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 | **Promotional Text** | `Baker works out the amounts and tells you when each step ends. A plan back from the time you want bread ready (Pro). No account, no internet, no ads.` | **149** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 566 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 550 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -91,7 +91,7 @@ A PLAN FROM THE "READY" TIME (Pro)
 Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 07:00 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
 
 STEP-BY-STEP GUIDANCE
-Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
+Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding.
 
 STARTERS
 You can start a new starter day by day. Baker follows a precautionary rule: with any film, discoloration or rotten smell, it advises you to throw the starter away. Starter care (Pro): several starters, feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio, a ready mark when the starter has doubled in volume, and a reminder after 12 hours on the counter without a feeding.
@@ -106,7 +106,7 @@ YOUR DATA
 Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.
 
 GOOD TO KNOW
-Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
+Baker runs on iPhone and does not sync between devices; you move data with a backup file.
 
 ACCESS AND PURCHASE
 Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.
@@ -285,7 +285,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 568 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 552 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -300,7 +300,7 @@ A PLAN FROM THE "READY" TIME (Pro)
 Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 07:00 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
 
 STEP-BY-STEP GUIDANCE
-Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
+Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. During a hands-on step, the guidance screen stays on. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding.
 
 STARTERS
 You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away. Starter care (Pro): several starters, feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio, a ready mark when the starter has doubled in volume, and a reminder after 12 hours on the counter without a feeding.
@@ -315,7 +315,7 @@ YOUR DATA
 Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.
 
 GOOD TO KNOW
-Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
+Baker runs on iPhone and does not sync between devices; you move data with a backup file.
 
 ACCESS AND PURCHASE
 Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.

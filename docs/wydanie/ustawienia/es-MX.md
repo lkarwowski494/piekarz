@@ -44,7 +44,7 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Panadero calcula cantidades y te avisa al terminar cada paso. Plan hacia atrás desde la hora en que quieres el pan listo (Pro). Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3878 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3856 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, de la fórmula a la hogaza: calcula las cantidades, arma el plan y lleva el tiempo aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus fórmulas, masas madre y bitácora se quedan solo en tu teléfono.
@@ -59,7 +59,7 @@ UN PLAN DESDE LA HORA “LISTO” (Pro)
 Elige cuándo debe estar listo el pan y Panadero calcula hacia atrás la hora de inicio de cada paso. El tiempo de fermentación depende de la temperatura de tu cocina. Si un paso que requiere tus manos cae de noche (por defecto entre las 23:00 y las 07:00), Panadero te propone más tiempo en el refrigerador. Si no alcanza el tiempo, te indica la hora más temprana posible.
 
 GUÍA PASO A PASO
-Panadero muestra el paso actual: qué hacer, cuánto dura y qué viene después. Si permites las notificaciones, te avisa del final de un paso incluso con el teléfono bloqueado. En un paso que requiere tus manos, la pantalla de la guía no se apaga. Los pasos con un recipiente caliente o masa cruda llevan una advertencia. El pan de centeno (más de la mitad de la harina es harina de centeno) tiene sus propios pasos, sin pliegues. Puedes deshacer un paso confirmado por error y, al volver a abrir la app, regresas al paso actual.
+Panadero muestra el paso actual: qué hacer, cuánto dura y qué viene después. Si permites las notificaciones, te avisa del final de un paso incluso con el teléfono bloqueado. En un paso que requiere tus manos, la pantalla de la guía no se apaga. Los pasos con un recipiente caliente o masa cruda llevan una advertencia. El pan de centeno (más de la mitad de la harina es harina de centeno) tiene sus propios pasos, sin pliegues.
 
 MASAS MADRE
 Puedes crear una masa madre nueva día a día. Panadero aplica el principio de precaución: si hay película, cambio de color u olor a podrido, te aconseja desechar la masa madre. Cuidado de la masa madre (Pro): varias masas madre, cantidades para alimentarlas en proporción 1:1:1, 1:2:2, 1:3:3 o 1:5:5, marca de lista cuando duplica su volumen y aviso tras 12 horas fuera del refrigerador sin alimentar.
@@ -74,10 +74,10 @@ TUS DATOS
 Panadero guarda en el teléfono las 10 copias de seguridad automáticas más recientes. Puedes exportar todos tus datos a un archivo e importarlos desde un archivo, y exportar tu historial de horneados como CSV. Unidades: gramos y °C u onzas y °F.
 
 CONVIENE SABER
-Panadero funciona en iPhone y no sincroniza datos entre dispositivos; los datos se transfieren con el archivo de copia. Sin permiso para notificaciones, Panadero muestra el final de un paso solo con la pantalla abierta.
+Panadero funciona en iPhone y no sincroniza datos entre dispositivos; los datos se transfieren con el archivo de copia.
 
 ACCESO Y COMPRA
-Basic es gratis para siempre, sin periodo de prueba. Pro añade planificación, cuidado de la masa madre, más masas madre y fórmulas. Pro es una suscripción mensual o anual, o una compra única de por vida en el App Store.
+Basic es gratis para siempre, sin periodo de prueba. Pro añade planificación, cuidado de la masa madre, más masas madre y fórmulas. Pro es una suscripción mensual o anual, o una compra única de por vida en el App Store. La suscripción se renueva automáticamente hasta que la canceles: en Configuración, toca tu nombre y luego Suscripciones. En un iPhone nuevo, toca “Restaurar compras” en la app.
 Términos de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.

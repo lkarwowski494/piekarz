@@ -44,7 +44,7 @@ idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poo
 Fornaio calcola le dosi e ti avvisa alla fine di ogni passaggio. Programma a ritroso dall'ora in cui vuoi il pane pronto (Pro). Senza account, internet e pubblicità.
 ```
 
-### Opis (Description) · 3999 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3974 / 4000 znaków · wersja 1.0
 
 ```text
 Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.
@@ -59,7 +59,7 @@ UN PROGRAMMA A PARTIRE DALL'ORA «PRONTO» (Pro)
 Scegli quando vuoi il pane pronto e Fornaio calcola a ritroso l'orario d'inizio di ogni passaggio. Il tempo di fermentazione dipende dalla temperatura della tua cucina. Se un passaggio che richiede le tue mani cade di notte (per impostazione predefinita tra le 23:00 e le 07:00), Fornaio ti propone un tempo più lungo in frigo. Se il tempo non basta, ti indica l'orario più vicino possibile.
 
 GUIDA PASSO PASSO
-Fornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Durante un passaggio che richiede le tue mani, lo schermo della guida resta acceso. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (oltre metà della farina è di segale) ha passaggi propri, senza pieghe. Un passaggio confermato per errore si può annullare e, riaprendo l'app, torni al passaggio in corso.
+Fornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Durante un passaggio che richiede le tue mani, lo schermo della guida resta acceso. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (oltre metà della farina è di segale) ha passaggi propri, senza pieghe.
 
 LIEVITI MADRE
 Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre. Cura del lievito madre (Pro): più lieviti madre, dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5, segno di pronto quando il lievito madre raddoppia di volume e promemoria dopo 12 ore sul piano di lavoro senza rinfresco.
@@ -74,10 +74,10 @@ I TUOI DATI
 Fornaio conserva sul telefono gli ultimi 10 backup automatici. Esporti e importi tutti i dati con un file; la cronologia delle sfornate si esporta in CSV. Unità: grammi e °C oppure once e °F.
 
 BUONO A SAPERSI
-Fornaio funziona su iPhone e non sincronizza i dati tra dispositivi; i dati si trasferiscono con il file di backup. Senza il permesso per le notifiche, Fornaio mostra la fine di un passaggio solo a schermo aperto.
+Fornaio funziona su iPhone e non sincronizza i dati tra dispositivi; i dati si trasferiscono con il file di backup.
 
 ACCESSO E ACQUISTO
-Basic è gratuito per sempre, senza periodo di prova. Pro aggiunge la pianificazione, la cura del lievito madre, più lieviti madre e più ricette. Pro è un abbonamento mensile o annuale oppure un acquisto a vita una tantum sull'App Store.
+Basic è gratuito per sempre, senza periodo di prova. Pro aggiunge la pianificazione, la cura del lievito madre, più lieviti madre e più ricette. Pro è un abbonamento mensile o annuale oppure un acquisto a vita una tantum sull'App Store. L'abbonamento si rinnova automaticamente finché non lo annulli: in Impostazioni tocca il tuo nome, poi Abbonamenti. Su un nuovo iPhone, tocca «Ripristina acquisti» nell’app.
 Termini di utilizzo (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Lingue: 35.

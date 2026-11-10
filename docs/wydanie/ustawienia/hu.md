@@ -44,7 +44,7 @@ cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjeszté
 A Pék kiszámolja a mennyiségeket, és szól minden lépés végén. Visszafelé tervezés a „kész” időponttól (Pro). Fiók, internet és reklám nélkül.
 ```
 
-### Opis (Description) · 3761 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3755 / 4000 znaków · wersja 1.0
 
 ```text
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
@@ -59,7 +59,7 @@ TERV A „KÉSZ” IDŐPONTTÓL (Pro)
 Kiválasztod, mikorra legyen kész a kenyér, a Pék pedig visszafelé kiszámolja minden lépés kezdési idejét. Az erjedési idő a konyha hőmérsékletétől függ. Ha egy kézi munkát igénylő lépés éjszakára esik (alapértelmezés szerint 23:00 és 07:00 között), a Pék hosszabb időt javasol a hűtőben. Ha kevés az idő, megadja a legkorábbi lehetséges időpontot.
 
 LÉPÉSRŐL LÉPÉSRE
-A Pék mutatja az aktuális lépést: mit kell tenni, mennyi ideig tart, és mi jön utána. Ha engedélyezed az értesítéseket, zárolt telefonon is szól a lépés végén. Kézi munkát igénylő lépésnél a vezetett képernyő nem kapcsol ki. A forró edénnyel vagy nyers tésztával járó lépéseknél figyelmeztetés jelenik meg. A rozskenyérnek (ha a liszt több mint fele rozsliszt) saját, hajtogatás nélküli lépései vannak. A tévedésből jóváhagyott lépést visszavonhatod, újranyitáskor pedig az alkalmazás az aktuális lépésre tér vissza.
+A Pék mutatja az aktuális lépést: mit kell tenni, mennyi ideig tart, és mi jön utána. Ha engedélyezed az értesítéseket, zárolt telefonon is szól a lépés végén. Kézi munkát igénylő lépésnél a vezetett képernyő nem kapcsol ki. A forró edénnyel vagy nyers tésztával járó lépéseknél figyelmeztetés jelenik meg. A rozskenyérnek (ha a liszt több mint fele rozsliszt) saját, hajtogatás nélküli lépései vannak.
 
 KOVÁSZOK
 Új kovászt napról napra indíthatsz el. A Pék az elővigyázatosság elvét követi: bevonat, elszíneződés vagy rothadt szag esetén azt tanácsolja, hogy dobd ki a kovászt. Kovászgondozás (Pro): több kovász, etetési mennyiségek 1:1:1, 1:2:2, 1:3:3 vagy 1:5:5 arányban, készre jelölés, amikor a kovász megduplázza a térfogatát, és emlékeztető, ha 12 órája áll a pulton etetés nélkül.
@@ -74,10 +74,10 @@ AZ ADATAID
 A Pék az utolsó 10 automatikus biztonsági mentést a telefonon tárolja. Minden adatodat fájlba exportálhatod és fájlból importálhatod, a sütési előzményeket pedig CSV-be exportálhatod. Mértékegységek: gramm és °C vagy uncia és °F.
 
 JÓ TUDNI
-A Pék iPhone-on működik, és nem szinkronizál az eszközök között; az adatokat biztonsági mentési fájllal viheted át. Ha nem engedélyezed az értesítéseket, a Pék csak a nyitott képernyőn jelzi a lépés végét.
+A Pék iPhone-on működik, és nem szinkronizál az eszközök között; az adatokat biztonsági mentési fájllal viheted át.
 
 HOZZÁFÉRÉS ÉS VÁSÁRLÁS
-A Basic örökre ingyenes, próbaidőszak nélkül. A Pro hozzáadja a tervezést és a kovászgondozást, valamint további kovászokat és recepteket. A Pro havi vagy éves előfizetés, illetve egyszeri vásárlás élethosszig tartó hozzáféréssel az App Store-ban.
+A Basic örökre ingyenes, próbaidőszak nélkül. A Pro hozzáadja a tervezést és a kovászgondozást, valamint további kovászokat és recepteket. A Pro havi vagy éves előfizetés, illetve egyszeri vásárlás élethosszig tartó hozzáféréssel az App Store-ban. Az előfizetés automatikusan megújul, amíg le nem mondod: a Beállításokban koppints a nevedre, majd az Előfizetések lehetőségre. Új iPhone-on koppints az appban a „Vásárlások visszaállítása” gombra.
 Felhasználási feltételek (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Nyelvek: 35.

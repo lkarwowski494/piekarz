@@ -44,7 +44,7 @@ boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcen
 Mitron calcule les quantités et signale la fin de chaque étape. Planning à rebours depuis l'heure où le pain doit être prêt (Pro). Sans compte, sans internet, sans pub.
 ```
 
-### Opis (Description) · 3998 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3989 / 4000 znaków · wersja 1.0
 
 ```text
 Mitron vous guide dans la fournée de pain au levain, de la recette à la miche : il calcule les quantités, établit le planning et surveille le temps quand le téléphone est en veille. Il fonctionne sans compte et sans internet, sans publicité et sans pistage. Vos recettes, vos levains et votre journal restent uniquement sur votre téléphone.
@@ -59,7 +59,7 @@ UN PLANNING À PARTIR DE L'HEURE « PRÊT » (Pro)
 Choisissez quand le pain doit être prêt, et Mitron calcule à rebours l'heure de début de chaque étape. La durée de fermentation dépend de la température de votre cuisine. Quand une étape qui demande vos mains tombe la nuit (par défaut entre 23:00 et 07:00), Mitron propose un temps plus long au réfrigérateur. S'il n'y a pas assez de temps, il indique l'heure la plus tôt possible.
 
 GUIDAGE ÉTAPE PAR ÉTAPE
-Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. Pendant une étape qui demande vos mains, l'écran de guidage reste allumé. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de moitié de farine de seigle) a ses propres étapes, sans rabats. Une étape validée par erreur peut s'annuler, et l'application revient à l'étape en cours à la réouverture.
+Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. Pendant une étape qui demande vos mains, l'écran de guidage reste allumé. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de moitié de farine de seigle) a ses propres étapes, sans rabats.
 
 LEVAINS
 Vous pouvez créer un nouveau levain jour après jour. Mitron applique le principe de précaution : en cas de pellicule, de décoloration ou d'odeur de pourri, il conseille de jeter le levain. Suivi du levain (Pro) : plusieurs levains, quantités pour le rafraîchi selon un rapport 1:1:1, 1:2:2, 1:3:3 ou 1:5:5, repère « prêt » quand le levain a doublé de volume et rappel après 12 heures à température ambiante sans rafraîchi.
@@ -74,10 +74,10 @@ VOS DONNÉES
 Mitron conserve sur votre téléphone les 10 dernières sauvegardes automatiques. Vous exportez et importez toutes vos données par fichier, et exportez l'historique de vos fournées en CSV. Unités : grammes et °C ou onces et °F.
 
 BON À SAVOIR
-Mitron fonctionne sur iPhone et ne synchronise pas les données entre appareils ; vous les transférez avec un fichier de sauvegarde. Sans autorisation des notifications, Mitron n'affiche la fin d'une étape que sur l'écran ouvert.
+Mitron fonctionne sur iPhone et ne synchronise pas les données entre appareils ; vous les transférez avec un fichier de sauvegarde.
 
 ACCÈS ET ACHAT
-Basic est gratuit pour toujours, sans période d'essai. Pro ajoute la planification, l'entretien du levain naturel, davantage de levains et de recettes. Pro est un abonnement mensuel ou annuel, ou un achat unique à vie sur l'App Store.
+Basic est gratuit pour toujours, sans période d'essai. Pro ajoute la planification, l'entretien du levain naturel, davantage de levains et de recettes. Pro est un abonnement mensuel ou annuel, ou un achat unique à vie sur l'App Store. L’abonnement se renouvelle automatiquement jusqu’à ce que vous l’annuliez : dans Réglages, touchez votre nom, puis Abonnements. Sur un nouvel iPhone, touchez « Restaurer les achats » dans l’app.
 Conditions d’utilisation (EULA) : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Langues : 35.

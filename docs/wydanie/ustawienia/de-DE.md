@@ -44,7 +44,7 @@ anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,
 Bäcker berechnet die Mengen und meldet sich am Ende jedes Schritts. Plan rückwärts ab der Fertig-Uhrzeit deines Brots (Pro). Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3988 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3949 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
@@ -59,7 +59,7 @@ PLAN AB DER „FERTIG“-UHRZEIT (Pro)
 Wähle, wann das Brot fertig sein soll, und Bäcker rechnet für jeden Schritt die Startzeit rückwärts aus. Die Gärzeit hängt von der Temperatur in deiner Küche ab. Fällt ein Schritt, bei dem du selbst Hand anlegen musst, in die Nacht (standardmäßig zwischen 23:00 und 07:00), schlägt Bäcker eine längere Zeit im Kühlschrank vor. Reicht die Zeit nicht, nennt Bäcker die frühestmögliche Uhrzeit.
 
 SCHRITT FÜR SCHRITT BEGLEITET
-Bäcker zeigt den aktuellen Schritt: was zu tun ist, wie lange es dauert und was danach kommt. Wenn du Mitteilungen erlaubst, meldet sich Bäcker am Ende eines Schritts auch bei gesperrtem Telefon. In einem Schritt, bei dem du selbst Hand anlegen musst, bleibt der Begleitbildschirm an. Schritte mit heißem Gefäß oder rohem Teig tragen einen Warnhinweis. Roggenbrot (mehr als die Hälfte des Mehls ist Roggenmehl) hat eigene Schritte ohne Dehnen und Falten. Einen versehentlich bestätigten Schritt machst du rückgängig, und beim erneuten Öffnen kehrt die App zum aktuellen Schritt zurück.
+Bäcker zeigt den aktuellen Schritt: was zu tun ist, wie lange es dauert und was danach kommt. Wenn du Mitteilungen erlaubst, meldet sich Bäcker am Ende eines Schritts auch bei gesperrtem Telefon. In einem Schritt, bei dem du selbst Hand anlegen musst, bleibt der Begleitbildschirm an. Schritte mit heißem Gefäß oder rohem Teig tragen einen Warnhinweis. Roggenbrot (mehr als die Hälfte des Mehls ist Roggenmehl) hat eigene Schritte ohne Dehnen und Falten.
 
 SAUERTEIGE
 Einen neuen Sauerteig setzt du Tag für Tag an. Bäcker folgt dem Vorsichtsprinzip: Bei Belag, Verfärbung oder fauligem Geruch rät Bäcker dir, den Sauerteig wegzuwerfen. Sauerteigpflege (Pro): mehrere Sauerteige, Mengen zum Auffrischen im Verhältnis 1:1:1, 1:2:2, 1:3:3 oder 1:5:5, Markierung als bereit, wenn der Sauerteig sein Volumen verdoppelt hat, und eine Erinnerung nach 12 Stunden ohne Auffrischen auf der Arbeitsfläche.
@@ -74,10 +74,10 @@ DEINE DATEN
 Bäcker behält die letzten 10 automatischen Backups auf deinem Telefon. Du kannst alle Daten in eine Datei exportieren und aus einer Datei importieren und deinen Backverlauf als CSV exportieren. Einheiten: Gramm und °C oder Unzen und °F.
 
 GUT ZU WISSEN
-Bäcker läuft auf dem iPhone und synchronisiert keine Daten zwischen Geräten; deine Daten überträgst du mit einer Backup-Datei. Ohne Erlaubnis für Mitteilungen zeigt Bäcker das Ende eines Schritts nur auf dem geöffneten Bildschirm.
+Bäcker läuft auf dem iPhone und synchronisiert keine Daten zwischen Geräten; deine Daten überträgst du mit einer Backup-Datei.
 
 ZUGANG UND KAUF
-Basic ist für immer kostenlos, ohne Probezeitraum. Pro bietet zusätzlich Planung, Sauerteigpflege sowie mehr Sauerteige und Rezepturen. Pro gibt es als Monats- oder Jahresabo oder als einmaligen Kauf auf Lebenszeit im App Store.
+Basic ist für immer kostenlos, ohne Probezeitraum. Pro bietet zusätzlich Planung, Sauerteigpflege sowie mehr Sauerteige und Rezepturen. Pro gibt es als Monats- oder Jahresabo oder als einmaligen Kauf auf Lebenszeit im App Store. Das Abo verlängert sich automatisch, bis du es kündigst: Tippe in den Einstellungen auf deinen Namen, dann auf „Abonnements“. Auf einem neuen iPhone tippe in der App auf „Käufe wiederherstellen“.
 Nutzungsbedingungen (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Sprachen: 35.

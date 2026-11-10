@@ -44,7 +44,7 @@ bochník,pizza,hydratácia,cesto,žitný,levain,poolish,časovač,recept,droždi
 Pekár vypočíta množstvá a upozorní vás na koniec každého kroku. Spätný plán od času, kedy má byť chlieb hotový (Pro). Bez účtu, bez internetu, bez reklám.
 ```
 
-### Opis (Description) · 3364 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3360 / 4000 znaków · wersja 1.0
 
 ```text
 Pekár vás prevedie pečením kváskového chleba od receptúry až po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. Funguje bez účtu a bez internetu, bez reklám a bez sledovania. Vaše receptúry, kvásky a denník zostávajú len vo vašom telefóne.
@@ -59,7 +59,7 @@ PLÁN OD ČASU „HOTOVO“ (Pro)
 Vyberte, kedy má byť chlieb hotový, a Pekár spätne vypočíta čas začiatku každého kroku. Čas kvasenia závisí od teploty v kuchyni. Keď krok, ktorý si vyžaduje vaše ruky, pripadne na noc (predvolene medzi 23:00 a 07:00), Pekár navrhne dlhší čas v chladničke. Keď je času málo, uvedie najskorší možný čas.
 
 SPRIEVODCA KROK ZA KROKOM
-Pekár ukazuje aktuálny krok: čo urobiť, ako dlho to trvá a čo bude nasledovať. Keď povolíte hlásenia, upozorní vás na koniec kroku aj pri zamknutom telefóne. V kroku, ktorý si vyžaduje vaše ruky, obrazovka sprievodcu nezhasne. Kroky s horúcou nádobou alebo surovým cestom majú upozornenie. Ražný chlieb (viac ako polovicu múky tvorí ražná múka) má vlastné kroky bez prekladania. Omylom potvrdený krok môžete vrátiť a po opätovnom otvorení sa aplikácia vráti k aktuálnemu kroku.
+Pekár ukazuje aktuálny krok: čo urobiť, ako dlho to trvá a čo bude nasledovať. Keď povolíte hlásenia, upozorní vás na koniec kroku aj pri zamknutom telefóne. V kroku, ktorý si vyžaduje vaše ruky, obrazovka sprievodcu nezhasne. Kroky s horúcou nádobou alebo surovým cestom majú upozornenie. Ražný chlieb (viac ako polovicu múky tvorí ražná múka) má vlastné kroky bez prekladania.
 
 KVÁSKY
 Nový kvások založíte deň po dni. Pekár uplatňuje zásadu opatrnosti: pri povlaku, zafarbení alebo hnilobnom zápachu odporúča kvások vyhodiť. Starostlivosť o kvások (Pro): niekoľko kváskov, množstvá na kŕmenie v pomere 1:1:1, 1:2:2, 1:3:3 alebo 1:5:5, označenie pripravenosti, keď kvások zdvojnásobí objem, a pripomenutie po 12 hodinách na linke bez kŕmenia.
@@ -74,10 +74,10 @@ VAŠE ÚDAJE
 Pekár uchováva v telefóne 10 posledných automatických záloh. Všetky údaje exportujete do súboru a importujete zo súboru a históriu pečenia exportujete ako CSV. Jednotky: gramy a °C alebo unce a °F.
 
 DOBRÉ VEDIEŤ
-Pekár funguje na iPhone a nesynchronizuje údaje medzi zariadeniami; údaje prenesiete súborom zálohy. Bez povolenia hlásení Pekár zobrazí koniec kroku len na otvorenej obrazovke.
+Pekár funguje na iPhone a nesynchronizuje údaje medzi zariadeniami; údaje prenesiete súborom zálohy.
 
 PRÍSTUP A NÁKUP
-Basic je navždy zadarmo, bez skúšobného obdobia. Pro pridáva plánovanie, starostlivosť o kvások, viac kváskov a receptúr. Pro je mesačné alebo ročné predplatné alebo jednorazový doživotný nákup v App Store.
+Basic je navždy zadarmo, bez skúšobného obdobia. Pro pridáva plánovanie, starostlivosť o kvások, viac kváskov a receptúr. Pro je mesačné alebo ročné predplatné alebo jednorazový doživotný nákup v App Store. Predplatné sa obnovuje automaticky, kým ho nezrušíte: v Nastaveniach klepnite na svoje meno, potom na Predplatné. Na novom iPhone klepnite v aplikácii na „Obnoviť nákupy“.
 Podmienky používania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jazyky: 35.

@@ -82,6 +82,28 @@ describe('KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokali
   });
 });
 
+describe('KO-032: miejsce na dopisek — dwa zdania usunięte w 34 lokalizacjach i w źródle PL/EN', () => {
+  // Właściciel 2026-11-10 (KO-032, D-359): „Usuń 2 zdania wszędzie”. Zdania usunięte (cofanie kroku w „Prowadzeniu”,
+  // brak zgody na powiadomienia w „Warto wiedzieć”) zapisane per lokalizacja w dowodzie; nie mogą wrócić, bo bez nich
+  // 10 lokalizacji z dopiskiem KO-031 przekracza 4000 znaków.
+  const usuniete: Record<string, { prowadzenie: string; wartoWiedziec: string }> = JSON.parse(
+    fs.readFileSync(path.join(root, 'docs/dowody-09-odnawianie/usuniete-zdania-ko032.json'), 'utf8'),
+  );
+  it('dowód obejmuje 34 lokalizacje', () => {
+    expect(Object.keys(usuniete).sort()).toEqual(KODY);
+  });
+  it.each(KODY)('%s: opis bez usuniętych zdań', (kod) => {
+    const o = opis(kod);
+    expect({ kod, prowadzenie: o.includes(usuniete[kod].prowadzenie), warto: o.includes(usuniete[kod].wartoWiedziec) }).toEqual({
+      kod, prowadzenie: false, warto: false,
+    });
+  });
+  it('źródło PL/EN bez usuniętych zdań', () => {
+    const zrodlo = fs.readFileSync(path.join(root, 'docs/app-store-metadata-v2.md'), 'utf8');
+    for (const kod of ['pl', 'en-US']) for (const z of Object.values(usuniete[kod])) expect(zrodlo).not.toContain(z);
+  });
+});
+
 describe('KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)', () => {
   it.each(['en-AU', 'en-CA', 'en-GB', 'en-US'])('%s: Basic bez okresu próbnego, jak PL (R-1)', (kod) => {
     expect(tresc(opis(kod))).toMatch(/^Basic is free forever, with no trial period\./);

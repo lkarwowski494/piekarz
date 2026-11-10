@@ -45,7 +45,7 @@ hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija
 Pek izračuna količine in vas obvesti o koncu vsakega koraka. Obratni urnik od ure, ko naj bo kruh pripravljen (Pro). Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 3454 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3442 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
@@ -60,7 +60,7 @@ NAČRT OD URE „PRIPRAVLJENO“ (Pro)
 Izberete, kdaj naj bo kruh pripravljen, Pek pa nazaj izračuna začetno uro vsakega koraka. Čas fermentacije je odvisen od temperature v kuhinji. Ko korak, pri katerem so potrebne vaše roke, pade v noč (privzeto med 23:00 in 07:00), Pek predlaga daljši čas v hladilniku. Če je časa premalo, poda najzgodnejšo možno uro.
 
 VODENJE KORAK ZA KORAKOM
-Pek prikaže trenutni korak: kaj storiti, koliko traja in kaj sledi. Če dovolite obvestila, vas o koncu koraka obvesti tudi pri zaklenjenem telefonu. Pri koraku, pri katerem so potrebne vaše roke, zaslon vodenja ne ugasne. Koraki z vročo posodo ali surovim testom imajo opozorilo. Rženi kruh (več kot polovica moke je ržena moka) ima lastne korake brez raztezanja in prepogibanja. Pomotoma potrjen korak lahko razveljavite, po ponovnem odprtju pa se aplikacija vrne na trenutni korak.
+Pek prikaže trenutni korak: kaj storiti, koliko traja in kaj sledi. Če dovolite obvestila, vas o koncu koraka obvesti tudi pri zaklenjenem telefonu. Pri koraku, pri katerem so potrebne vaše roke, zaslon vodenja ne ugasne. Koraki z vročo posodo ali surovim testom imajo opozorilo. Rženi kruh (več kot polovica moke je ržena moka) ima lastne korake brez raztezanja in prepogibanja.
 
 KVASI
 Nov kvas lahko vzgojite dan za dnem. Pek upošteva načelo previdnosti: pri oblogi, razbarvanju ali gnilem vonju svetuje, da kvas zavržete. Skrb za kvas (Pro): več kvasov, količine za hranjenje v razmerju 1:1:1, 1:2:2, 1:3:3 ali 1:5:5, oznaka pripravljenosti, ko kvas podvoji prostornino, in opomnik po 12 urah na pultu brez hranjenja.
@@ -75,10 +75,10 @@ VAŠI PODATKI
 Pek v telefonu hrani 10 zadnjih samodejnih varnostnih kopij. Vse podatke lahko izvozite v datoteko in jih uvozite iz datoteke, zgodovino peke pa izvozite kot CSV. Enote: grami in °C ali unče in °F.
 
 DOBRO JE VEDETI
-Pek deluje na iPhonu in ne sinhronizira podatkov med napravami; podatke prenesete z datoteko varnostne kopije. Brez dovoljenja za obvestila Pek prikaže konec koraka le na odprtem zaslonu.
+Pek deluje na iPhonu in ne sinhronizira podatkov med napravami; podatke prenesete z datoteko varnostne kopije.
 
 DOSTOP IN NAKUP
-Basic je za vedno brezplačen, brez preizkusnega obdobja. Pro doda načrtovanje, nego kvasa ter več kvasov in receptov. Pro je mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu.
+Basic je za vedno brezplačen, brez preizkusnega obdobja. Pro doda načrtovanje, nego kvasa ter več kvasov in receptov. Pro je mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu. Naročnina se samodejno podaljšuje, dokler je ne prekličeš: v Nastavitvah tapni svoje ime in priimek, nato Naročnine. Na novem iPhonu v aplikaciji tapni »Obnovi nakupe«.
 Pogoji uporabe (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jeziki: 35.
