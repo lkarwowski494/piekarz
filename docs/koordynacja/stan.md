@@ -188,3 +188,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 17:58 | M9 | KO-023: `master` FF → `c2c5e206` (push, ls-remote). Nightly #29 run 42870153152 queued 17:57 | kontrola verify 18:15 |
 | 10.11 20:01 | M9 | Nightly #29 ZIELONY (conclusion success 19:45; log: „Final mutation score of 64.33 is greater than or equal to break threshold 60”, „Done in 104 minutes”). 067: warunek reaudytu spełniony | linia 05:00 |
 | 10.11 20:34 | M9 | KO-024 (wariant A + oczko/ASC). Sesje H i I (create_session 20:33, PENDING); subagent analiza ASC oczka w tle | raporty H, I, subagenta |
+| 10.11 20:50 | M9 | Raport ASC z oczka zapisany (`docs/koordynacja/asc-oczko-2026-11-10.md`); weryfikacja koordynatora: uploadSymbols true, brak zakup.png, appScreenshotSets — „deprecated” niepotwierdzone, 032 dla 1025 nierozstrzygnięte (log eksportu ucięty) | decyzje właściciela |
