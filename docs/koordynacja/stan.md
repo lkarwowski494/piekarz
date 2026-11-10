@@ -33,13 +33,12 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 ## Plan 24 h (UTC)
 | Kiedy | Co | Kto (sesja/rola) | Zależy od | Od właściciela |
 |---|---|---|---|---|
-| 09.11 ~22:00 | Scalenie p3 → `redesign`, verify UTC + Asia/Tokyo, raport partii 3, kopia K | A (M2) | E2E #100 zielone (jest) | — |
-| po scaleniu | Odbiór: SHA `redesign`, verify kod 0 na tym SHA (dowód sesji), E2E iOS na tym samym SHA (`e2e-ios.yml` workflow_dispatch na `redesign`, jeśli SHA ≠ `6a412c9a`) | koordynator | scalenie | — |
-| 09.11 ~23:00 → 10.11 ~04:00 | Reaudyt M1 (D-277) na HEAD `redesign`, reguła D-288 (nowe P0/P1 → plan; nowe P2 → P3 backlog 1.0.1 z `klasa`) | sesja M1 uruchamiana przez M2 (A albo następczyni) | odbiór partii 3 | — |
-| po reaudycie | P0/P1 z reaudytu → M2 naprawia → reaudyt tych ID → E2E zielone na HEAD `redesign` = kandydat (DEC-18) | M2 / M1 | reaudyt | — |
-| 10.11 06:25 | **Raport poranny** (zastępuje linię 05:00 tej doby; słowa właściciela z przekazania 18:55: „RANO do właściciela (~06:30 UTC): raport + zgoda na merge do master i build TestFlight (nowa, D-272 zużyte), test telefonu (docs/wydanie/lista-kontrolna-telefonu.md), weto decyzji nocnych, sprzątanie gałęzi (docs/wydanie/sprzatanie-galezi-2026-11-08.txt — krok właściciela), potem rola 10. Nic dla 1.1.”) — jedno pytanie z przyciskami | koordynator | kandydat | zgody i weto |
+| 10.11 ~01:15 | Wynik E2E #103 (run 42725323063) na p4 `1c723632` (`actions_get`) | koordynator | — | — |
+| zielone | Scalenie p4 → `redesign` (`git merge`, bez konfliktu; push dozwolony D-300), E2E na SHA scalenia (workflow_dispatch na `redesign`) | koordynator | #103 | — |
+| czerwone | Diagnoza → C (subagent roli 07; poprzednia: zgubiony dotyk symulatora, N8 wstrzymane KO-008) | C | #103 | — |
+| po scaleniu | Reaudyt M1 pętla 2 (ostatnia, D-043) na HEAD `redesign`: nowa sesja wg `polecenia/B.md` z bazą = SHA przed partią 4 (`ea249c9c`) i K @ najnowszy `audit-m1`; uwaga: sesja potrzebuje dostępu do `prompts` (add_repo w sesji podrzędnej odrzucany przez klasyfikator; B dostała zgodę właściciela w swoim czacie) → jeśli zablokowane, czeka do raportu porannego | M1 (nowa sesja) | scalenie | ew. zgoda na prompts w sesji |
+| 10.11 06:25 | **Raport poranny** (słowa właściciela z 18:55 w punkcie „Czeka na właściciela”) — jedno pytanie z przyciskami | koordynator | — | zgody i weto |
 | 10.11 14:00 | Linia 14:00 | koordynator | — | — |
-| po zgodzie | merge `redesign` → `master`, build TestFlight, test telefonu, rola 10 | właściciel + sesje | zgoda | tak |
 
 ## Czeka na właściciela (raport poranny)
 - Zgoda: merge `redesign` → `master` + nowy build TestFlight (D-272 zużyte), po zielonym E2E na SHA kandydata (DEC-18).
@@ -47,7 +46,11 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Weto decyzji nocnych: D-315 (H-01: bez osobnej minimalnej próby, ocena = wydanie + 90 dni), D-316 (bramka E2E przed TestFlight: lista ścieżek spoza buildu; filtr E2E o słowniki, zasoby, konfigurację) i dalsze M2 od D-317; KO od KO-001 (`docs/koordynacja/decyzje.md`).
 - Od M2 (stara sesja, przy archiwizacji 19:49): scalić `asc-kontrola-brak-ofert` → `main` w `apps4brew-narzedzia` (polecenie właściciela; zwykły merge albo rebase, nie squash; sesja nie miała prawa zapisu — nie obchodzone); podać rolę klucza ASC (D-314).
 - Sprzątanie gałęzi: `docs/wydanie/sprzatanie-galezi-2026-11-08.txt` (proxy sesji nie pozwala usuwać) + gałąź `koordynacja` zostaje.
-- Pułapy kosztu (mandat [DO USTALENIA]).
+- Pułapy kosztu (mandat [DO USTALENIA]); B przekroczyła propozycję 60 USD o 4,7% (62,81).
+- Weto nocne (do raportu): KO-005…KO-009 (`docs/koordynacja/decyzje.md`), M2: D-315…D-319 (D-317 DEC-21 a: brioszka LM bez planu; D-318/D-319 ekran prowadzenia przy 393/320 pt).
+- Decyzja: M2-p4-N8 (ponowne stuknięcie w przepływach E2E po zgubionym dotyku symulatora, #101) — zmiana kontroli, tylko słowa właściciela (KO-008).
+- Prywatność (realne, niskie): złożone prompty prywatnej biblioteki `prompts` są w publicznym repo — na `audit-m1` (`naprawy/polecenia/*-prompt.md`, od wcześniejszych przebiegów) i w historii `koordynacja` (`f41071cc`, cofnięte `b24169f3`). Opcje: (a) przyjąć; (b) usunąć z gałęzi i historii (force-push, zgoda); rekomendacja (a) bez sekretów, chyba że biblioteka ma być tajna.
+- Brzegowe: M2-p4-N9 (320 pt + dwa wypieki: ostrzeżenie pod przełącznikiem); 066 czeka na zielone E2E; 067 na nightly.
 - Archiwizacja (odrzucona przez klasyfikator; krok właściciela albo reguła dla `archive_session`): poprzednik M3 `session_01T66VBwuR25xmeQCZYdPG2r`, sesja A `session_01T66VBx5s4zkdFqT2gZ5CDQ` (praca na GitHubie, idle).
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
@@ -87,3 +90,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 23:13 | M9 | E2E #101 czerwone (pl_PL; `actions_list` jobs); C 15,6%, 7,97 USD, 005 w toku (subagent roli 08) → C dostała diagnozę #101 | kontrola 00:14 |
 | 09.11 23:31 | M9 | C koniec partii 4: p4 @ `292870c0` (sprawdzone: log, przodek `d04c94ca`), K @ `b4b0b8f2`; D-317, D-318; diagnoza #101 (dotyk symulatora); E2E #102 wyzwolony; KO-008 → C partia 4b | kontrola 00:14 |
 | 10.11 00:04 | M9 | C koniec 4b: p4 @ `1c723632` (sprawdzone: log, przodek `292870c0`), K @ `b7afc26d`; C 17%; E2E #103 wyzwolony (KO-009) | kontrola 00:14, wynik #103 ~01:15 |
+| 10.11 00:16 | M9 | Kontrola: #103 w toku, C idle 17%; własny kontekst 30,5% → przekazanie koordynatora (E6) | następca |
