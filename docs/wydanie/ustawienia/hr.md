@@ -44,7 +44,7 @@ Plan pečenja i kalkulator
 Pekar će izračunati količine i javiti ti kraj svakog koraka. Plan unatrag od vremena kad kruh treba biti gotov (Pro). Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 3432 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3430 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
@@ -77,7 +77,7 @@ DOBRO JE ZNATI
 Pekar radi na iPhoneu i ne sinkronizira podatke između uređaja; podatke prenosiš datotekom sigurnosne kopije. Bez dopuštenja za obavijesti Pekar će kraj koraka prikazati samo na otvorenom zaslonu.
 
 PRISTUP I KUPNJA
-Basic je besplatan zauvijek, bez probnog razdoblja. Pro dodaje planiranje, brigu o kvasu, više kvasova i receptura. Pro je mjesečna ili godišnja pretplata ili jednokratna doživotna kupnja u App Storeu.
+Basic je besplatan zauvijek, bez probnog razdoblja. Pro dodaje planiranje, brigu o kvasu, više kvasa i receptura. Pro je mjesečna ili godišnja pretplata ili jednokratna doživotna kupnja u App Storeu.
 Uvjeti korištenja (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jezici: 35.

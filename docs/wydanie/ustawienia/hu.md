@@ -44,7 +44,7 @@ cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjeszté
 A Pék kiszámolja a mennyiségeket, és szól minden lépés végén. Visszafelé tervezés a „kész” időponttól (Pro). Fiók, internet és reklám nélkül.
 ```
 
-### Opis (Description) · 3748 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3761 / 4000 znaków · wersja 1.0
 
 ```text
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
@@ -77,7 +77,7 @@ JÓ TUDNI
 A Pék iPhone-on működik, és nem szinkronizál az eszközök között; az adatokat biztonsági mentési fájllal viheted át. Ha nem engedélyezed az értesítéseket, a Pék csak a nyitott képernyőn jelzi a lépés végét.
 
 HOZZÁFÉRÉS ÉS VÁSÁRLÁS
-A Basic örökre ingyenes, próbaidőszak nélkül. A Pro hozzáadja a tervezést és a kovászgondozást, valamint további kovászokat és recepteket. A Pro havi vagy éves előfizetés, illetve egyszeri, élethosszig tartó vásárlás az App Store-ban.
+A Basic örökre ingyenes, próbaidőszak nélkül. A Pro hozzáadja a tervezést és a kovászgondozást, valamint további kovászokat és recepteket. A Pro havi vagy éves előfizetés, illetve egyszeri vásárlás élethosszig tartó hozzáféréssel az App Store-ban.
 Felhasználási feltételek (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Nyelvek: 35.
