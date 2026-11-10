@@ -218,8 +218,12 @@ describe('strona produktu: główna praca i prywatność na początku (081)', ()
   it('prywatność (bez konta, bez śledzenia) w pierwszych trzech zdaniach i ograniczenia nazwane', () => {
     expect(zdania(pl).slice(0, 3).join(' ')).toMatch(/bez konta[\s\S]*bez śledzenia/);
     expect(zdania(en).slice(0, 3).join(' ')).toMatch(/without an account[\s\S]*no tracking/);
-    expect(pl).toMatch(/iPhon[\s\S]*nie synchronizuje[\s\S]*Bez zgody na powiadomienia/);
-    expect(en).toMatch(/iPhone[\s\S]*does not sync[\s\S]*Without permission for notifications/);
+    // Ograniczenie powiadomień nazwane warunkiem w „Prowadzeniu” zamiast osobnego zdania w „Warto wiedzieć”:
+    // wyjątek nazwany KO-034 (właściciel 2026-11-10: „Zmień test”, D-359); zdanie usunięte w KO-032 dla miejsca na dopisek KO-031.
+    expect(pl).toMatch(/Gdy zezwolisz na powiadomienia[^\n]*przy zablokowanym telefonie/);
+    expect(en).toMatch(/If you allow notifications[^\n]*even when your phone is locked/);
+    expect(pl).toMatch(/iPhon[\s\S]*nie synchronizuje/);
+    expect(en).toMatch(/iPhone[\s\S]*does not sync/);
   });
 
   it('tekst promocyjny PL i EN mówi o głównej pracy i prywatności, bez żargonu (True Baker, 4-DDT)', () => {
