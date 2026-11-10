@@ -1,4 +1,4 @@
-# Koordynacja Piekarz — stan (aktualizacja 2026-11-10 01:23 UTC)
+# Koordynacja Piekarz — stan (aktualizacja 2026-11-10 02:45 UTC)
 
 Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR25xmeQCZYdPG2r` na polecenie właściciela 2026-11-09 ~21:35 UTC: „Przejdź na rolę M9: … wykonaj moduł „migracja”.” Dawne pliki stanu (nie usunięte): `docs/wznowienie-M3.md` na `redesign/piekarz-2026-10-22` (sekcje „PUNKT CZYSZCZENIA” i dziennik M3), `docs/decyzje.md` (D-035+, M3 D-286…D-289, M2 D-300…D-316), stan M2 na `audit-m1/piekarz-2026-11-08` (`audit/M1-2026-11-08/punkt-wznowienia-M2-2026-11-09*.md`, `postep-napraw.md`, `plan-napraw.json`), K M3 poza gitem w kontenerze `session_01T66VBwuR25xmeQCZYdPG2r`: `/home/user/piekarz/audit/M3-2026-11-08/` (przepada z kontenerem).
 
@@ -15,9 +15,9 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 ## Teraz
 - Partia 4 (C): p4 @ `292870c0`, verify UTC+Tokyo kod 0 (6827 testów) wg C — niesprawdzone bezpośrednio; 087/088/089 naprawione-do-weryfikacji; 005 częściowo (393 pt OK z rachunku, 320 pt nie) → partia 4b (KO-008 a, rola 04, D-319).
 - Partia 4b (C): p4 @ `1c723632` (005: `2f4a260e`, `d5a6dc4c`; D-319), verify UTC+Tokyo 6831 kod 0 wg C; zrzuty Expo web 320/375/393 w K (`role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*`); brzegowe M2-p4-N9 (320 + dwa wypieki).
-- **E2E #103 (run 42725323063) na `1c723632` CZERWONE** (01:12): padł tylko krok pl_PL; en_US, kontrola negatywna, Basic zielone (wzór jak #101) → diagnoza C: sterownik XCUITest nie wstał w 8 min (log l. 2135 „iOS driver not ready in time”, zero przepływów pl), klasa C ~95%; **ponowienie runu (próba 2) od 01:22** (KO-010).
+- **Partia 4 scalona: `redesign` @ `1c723632`** (02:41, fast-forward z `ea249c9c`); E2E #103 próba 2 zielone na tym SHA (run 42725323063: pl 6/6, en 6/6, Basic 5/5, kontrola negatywna czerwona — log joba 129562014399). Próba 1 czerwona przez start sterownika (KO-010).
 - E2E #101 na `ea249c9c` czerwone: diagnoza roli 07 — zgubiony dotyk symulatora w `06-koniec-wypieku.yaml:18–21` (pl_PL), błąd aplikacji nie znaleziony, pewność ~90% (K/role/07-jakosc/fix-2026-11-09/diagnoza-e2e-101.md); poprawka N8 wstrzymana (KO-008) do właściciela.
-- Dalej: 4b → E2E na head p4 → scalenie p4 → `redesign` → reaudyt pętla 2 (ostatnia, D-043) → kandydat.
+- Dalej: reaudyt M1 pętla 2 (ostatnia, D-043) wg `polecenia/B2.md` — wstrzymany do raportu porannego (dostęp do `prompts` w nowej sesji wymaga zgody właściciela) → kandydat.
 
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
@@ -96,3 +96,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 00:20 | M9 (`…ByVFXN3K6UyZ9U7yZ8`) | Przejęcie (E6 pkt 5): wpis w mandacie, 3 przypomnienia, „kontrola przekazania” poprzednika usunięta, send_message do C (delivered; C idle 19,8%, 20,47 USD), brak wiadomości właściciela do poprzednika po 00:14 (`list_events`); archiwizacja poprzednika odrzucona (klasyfikator); rola M9 niezłożona (add_repo prompts odrzucony) | wynik #103 01:15 |
 | 10.11 01:17 | M9 | E2E #103 czerwone (`actions_get` conclusion failure; `list_workflow_jobs`: krok 10 pl_PL failure, 11 en_US / 12 kontrola negatywna / 15 Basic success); C 20,2%, 20,63 USD → diagnoza (rola 07): błąd aplikacji → poprawka i nowe E2E; zgubiony dotyk → bez N8 (KO-008), do właściciela | odpowiedź C; kontrola 01:50 |
 | 10.11 01:22 | M9 | Diagnoza C #103 (K `78d2e8c9`, diagnoza-e2e-103.md): start sterownika > limit 480 s, potwierdzone w logu joba (l. 2135; pl: 0 przepływów; en_US 6/6, Basic 5/5, kontrola negatywna czerwona); KO-010: `rerun_workflow_run` 42725323063 (201) na `1c723632`, N10 do właściciela | wynik ~02:30 |
+| 10.11 02:41 | M9 | E2E #103 próba 2 ZIELONE (`list_workflow_jobs` wszystkie kroki success; log: pl 6/6, en 6/6, Basic 5/5, kontrola negatywna [Failed]); `redesign` FF `ea249c9c`→`1c723632` (push, sprawdzone `rev-parse`); E2E po scaleniu zbędne (ten sam SHA). Reaudyt pętla 2: `polecenia/B2.md` gotowe, start wstrzymany (prompts → zgoda właściciela, plan 24 h); C idle — bez zadań | raport poranny 06:25 |
