@@ -247,7 +247,8 @@ export async function przebieg({ kOdczyt, kZapis = null, fetchFn = fetch, zrzuty
   if (kod) { log('Zapis wstrzymany — błędy planu, nic nie zapisano.'); return 1; }
   if (zgoda.skrot !== s) { log(`ODMOWA: zgoda na inny plan (skrót w pliku zgody ≠ ${s}); nic nie zapisano.`); return 3; }
   const k = bezUsuwania(kZapis);
-  const refOf = (w, f) => `piekarz-1.0/${w.kod}/${f.name}`;
+  // MD5 w nazwie: nowa ramka o tym samym rozmiarze nie użyje starego obrazu z biblioteki (recenzja bezpieczeństwa M, P2-2)
+  const refOf = (w, f) => `piekarz-1.0/${w.kod}/${f.name}/${f.md5.slice(0, 12)}`;
   const plan = new Map(); for (const w of wiersze.filter((x) => x.action === 'wgraj')) for (const f of w.files) plan.set(refOf(w, f), f);
   const lib = plan.size ? await czytajBiblioteke(kOdczyt, d.biblioteka) : [];
   const obrazy = new Map();

@@ -113,6 +113,8 @@ describe('scripts/asc/zrzuty.mjs: App Asset Library (D-366)', () => {
     expect(r.zadania.filter((z: string[]) => z[1] === '/v1/appAssetLibraryPlacementOrderingRequests').map((z: string[]) => z[2])).toEqual([7, 7]);
     expect(r.log).not.toMatch(/magazyn\.example|tajne-/);
     expect(r.log).toMatch(/Zapisano 2 z 2 zestawów/);
+    expect(r.zadania.filter((z: string[]) => z[0] === 'GET' && /referenceName/.test(z[1]))).toEqual([]);
+    expect(read('scripts/asc/zrzuty.mjs')).toMatch(/\$\{f\.name\}\/\$\{f\.md5\.slice\(0, 12\)\}/);
   });
 
   it('grupa z istniejącymi zrzutami: pominięta (nic nie usuwa), reszta planu dalej', () => {
@@ -150,6 +152,11 @@ describe('.github/workflows/asc-zrzuty.yml (D-366)', () => {
   const wf = read('.github/workflows/asc-zrzuty.yml');
   const zadanie = (n: string) => wf.split(new RegExp(`\\n {2}${n}:\\n`))[1]?.split(/\n {2}[a-z-]+:\n/)[0] ?? '';
 
+  it('poprawny YAML (każdy workflow z tej sesji parsuje się; jednolinijkowe run z „: ” psuło plik)', () => {
+    const yaml = require('js-yaml') as { load: (t: string) => unknown };
+    for (const f of ['asc-zrzuty.yml', 'zrzuty-sklepu.yml', 'e2e-ios.yml', 'asc-zgloszenie.yml']) expect(() => yaml.load(read(`.github/workflows/${f}`))).not.toThrow();
+  });
+
   it('tylko ręcznie; uprawnienia do odczytu; checkout bez poświadczeń; sekrety tylko ASC_* i GITHUB_TOKEN', () => {
     expect(wf).toMatch(/^on:\n {2}workflow_dispatch:\n/m);
     expect(wf).not.toMatch(/^\s+(push|pull_request|schedule):/m);
@@ -173,6 +180,8 @@ describe('.github/workflows/asc-zrzuty.yml (D-366)', () => {
   it('wejście: artefakt sklep-ramki z przebiegu zrzuty-sklepu.yml (ID tylko cyfry), wejścia przez env, nie wklejane w skrypt', () => {
     expect(wf.match(/name: sklep-ramki/g)?.length).toBe(2);
     expect(wf).toMatch(/case "\$PRZEBIEG" in ''\|\*\[!0-9\]\*\) echo "::error::/);
+    expect(wf).toMatch(/\.github\/workflows\/zrzuty-sklepu\.yml push \$GITHUB_REPOSITORY" \]/);
+    expect(wf.indexOf('actions/runs/$PRZEBIEG')).toBeLessThan(wf.indexOf('name: sklep-ramki'));
     for (const l of wf.split('\n').filter((x) => /^\s+run: /.test(x))) expect(l).not.toMatch(/\$\{\{\s*inputs\./);
     expect(read('.github/workflows/zrzuty-sklepu.yml')).toMatch(/name: sklep-ramki\n {10}path: sklep-ramki\n {10}retention-days: 14/);
   });

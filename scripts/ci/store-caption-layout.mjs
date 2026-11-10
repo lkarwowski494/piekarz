@@ -69,7 +69,8 @@ export function podpisyLokalizacji(kod, root = ROOT) {
   const podpisy = {};
   cfg.ekrany.forEach((e, i) => {
     const n = ramki[i]?.naglowek;
-    if (typeof n === 'string' && n.trim()) podpisy[e] = n.trim();
+    // label: ImageMagicka czyta plik dla „@” na początku i rozwija „%” — taki podpis nie trafia nawet do pomiaru (recenzja M, P2-4)
+    if (typeof n === 'string' && n.trim() && !/^@|%/.test(n.trim())) podpisy[e] = n.trim();
   });
   return { jezyk: typeof m.jezyk === 'string' ? m.jezyk : kod, podpisy };
 }

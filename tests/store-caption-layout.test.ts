@@ -35,6 +35,12 @@ describe('podpisy ramek: łamanie wierszy i rozmiar czcionki (port z Treningu)',
     expect(Object.values(pl.podpisy)).toEqual(meta.ramki.map((r: { naglowek: string }) => r.naglowek));
     expect(Object.keys(pl.podpisy)[2]).toBe('03-prowadzenie-ciemny');
     expect(run(`console.log(JSON.stringify(L.podpisyLokalizacji('xx')))`)).toEqual({ blad: 'brak metadanych xx' });
+    /* „@” na początku i „%” nie trafiają do pomiaru (label: czytałby plik) — katalog tymczasowy z metadanymi testowymi */
+    const tmp = fs.mkdtempSync(path.join(require('os').tmpdir(), 'pod-'));
+    fs.mkdirSync(path.join(tmp, 'docs/wydanie/metadane'), { recursive: true }); fs.mkdirSync(path.join(tmp, 'docs/wydanie/zrzuty'), { recursive: true });
+    fs.copyFileSync(path.join(root, 'docs/wydanie/zrzuty/ramki-sklepu.json'), path.join(tmp, 'docs/wydanie/zrzuty/ramki-sklepu.json'));
+    fs.writeFileSync(path.join(tmp, 'docs/wydanie/metadane/pl.json'), JSON.stringify({ jezyk: 'pl', ramki: [{ naglowek: '@/etc/passwd' }, { naglowek: '100% chleba' }, { naglowek: 'Dobry' }] }));
+    expect(run(`console.log(JSON.stringify(L.podpisyLokalizacji('pl', ${JSON.stringify(tmp)}).podpisy))`)).toEqual({ '03-prowadzenie-ciemny': 'Dobry' });
   });
 
   test('każda lokalizacja sklepu: jeden rozmiar dla wszystkich podpisów, najwyżej 2 wiersze, bez wiersza od interpunkcji, tekst bez zmian', () => {

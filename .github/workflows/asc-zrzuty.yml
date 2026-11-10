@@ -54,7 +54,17 @@ jobs:
       - name: Wejście (ID przebiegu tylko cyfry)
         env:
           PRZEBIEG: ${{ inputs.ramki_z_przebiegu }}
-        run: case "$PRZEBIEG" in ''|*[!0-9]*) echo "::error::ramki_z_przebiegu: tylko cyfry"; exit 1 ;; esac
+        run: |
+          case "$PRZEBIEG" in ''|*[!0-9]*) echo "::error::ramki_z_przebiegu: tylko cyfry"; exit 1 ;; esac
+      - name: Przebieg z workflowu zrzuty-sklepu.yml w tym repo, nie z PR (recenzja M, P2-1)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRZEBIEG: ${{ inputs.ramki_z_przebiegu }}
+        run: |
+          set -euo pipefail
+          o=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$PRZEBIEG" --jq '[.path, .event, .head_repository.full_name] | join(" ")')
+          [ "$o" = ".github/workflows/zrzuty-sklepu.yml push $GITHUB_REPOSITORY" ] || [ "$o" = ".github/workflows/zrzuty-sklepu.yml workflow_dispatch $GITHUB_REPOSITORY" ] \
+            || { echo "::error::przebieg $PRZEBIEG nie jest przebiegiem zrzuty-sklepu.yml z tego repo (push/workflow_dispatch): $o"; exit 1; }
       - uses: actions/download-artifact@v4
         with:
           name: sklep-ramki
