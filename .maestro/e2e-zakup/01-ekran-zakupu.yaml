@@ -1,0 +1,40 @@
+# Zrzut ekranu zakupu Piekarz Pro dla App Review (KO-033, właściciel 2026-11-10: „Jak w treningu”; D-365). Build Release Basic
+# z atrapą ofert (EXPO_PUBLIC_STORE_FAKE=1, src/lib/platnosci/sklep.ts): plany z cenami USD bez StoreKit. Język symulatora: en_US
+# (krok ustawienia języka wcześniej w e2e-ios.yml). Ekran Pro otwiera funkcja Pro (widok miesiąca), jak .maestro/e2e-basic/02.
+# Plik review-zakup.png trafia do artefaktu maestro-e2e; właściciel wgrywa go ręcznie (docs/wydanie/zrzut-zakupu.md).
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "kalendarz-tryb-miesiac"
+- extendedWaitUntil:
+    visible:
+      id: "plan-yearly-btn"
+    timeout: 20000
+- assertVisible:
+    id: "plan-monthly-btn"
+- waitForAnimationToEnd
+- takeScreenshot: "zrzuty-e2e/review-zakup"
+# Po zrzucie: ujawnienia subskrypcji i plan dożywotni na tym samym ekranie (oferta z cenami, nie stan „niedostępna”)
+- scrollUntilVisible:
+    element:
+      id: "plan-lifetime-btn"
+    direction: DOWN
+    timeout: 20000
+- scrollUntilVisible:
+    element:
+      id: "subscription-terms"
+    direction: DOWN
+    timeout: 20000
+- scrollUntilVisible:
+    element:
+      id: "restore-purchases-btn"
+    direction: DOWN
+    timeout: 20000

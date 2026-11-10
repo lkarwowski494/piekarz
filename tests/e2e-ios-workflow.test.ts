@@ -15,9 +15,11 @@ const bundleId: string = appJson.expo.ios.bundleIdentifier;
 const e2eDir = join(root, '.maestro', 'e2e');
 // Scenariusze w Basic: drugi build Release bez EXPO_PUBLIC_E2E (decyzja M1 2026-10-23, wariant a) [M3 E2E-basic]
 const e2eBasicDir = join(root, '.maestro', 'e2e-basic');
-/** Pliki .yaml scenariuszy prawdziwego E2E: główny przepływ (build z dostępem) i Basic (build bez flagi). */
+// Zrzut ekranu zakupu: trzeci build, Basic z atrapą ofert EXPO_PUBLIC_STORE_FAKE (KO-033, D-365)
+const e2eZakupDir = join(root, '.maestro', 'e2e-zakup');
+/** Pliki .yaml scenariuszy prawdziwego E2E: główny przepływ (build z dostępem), Basic (build bez flagi) i ekran zakupu (atrapa ofert). */
 const plikiE2e = (): [string, string][] =>
-  [e2eDir, e2eBasicDir].flatMap((d) => readdirSync(d).filter((f) => f.endsWith('.yaml')).map((f): [string, string] => [d, f]));
+  [e2eDir, e2eBasicDir, e2eZakupDir].flatMap((d) => readdirSync(d).filter((f) => f.endsWith('.yaml')).map((f): [string, string] => [d, f]));
 /** Kroki workflow (`- name: …` na poziomie kroków joba). */
 const krokiWorkflow = workflow.split(/\n(?= {6}- name: )/).slice(1);
 
@@ -183,8 +185,9 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
 
   it('drugi build Release bez EXPO_PUBLIC_E2E, potem Maestro dla .maestro/e2e-basic; flaga tylko w kroku pierwszego buildu', () => {
     const buildy = krokiWorkflow.filter((k) => /xcodebuild[\s\S]*-configuration Release[\s\S]*-sdk iphonesimulator/.test(k));
-    expect(buildy.length).toBe(2);
-    const [zFlaga, bezFlagi] = buildy as [string, string];
+    // trzeci build: Basic z atrapą ofert do zrzutu zakupu (D-365), sprawdzany w osobnym teście niżej
+    expect(buildy.length).toBe(3);
+    const [zFlaga, bezFlagi] = buildy as [string, string, string];
     // Flaga nie jest w env całego workflow ani joba (inaczej drugi build by ją dziedziczył), tylko w kroku pierwszego buildu
     const przedKrokami = workflow.slice(0, workflow.indexOf('    steps:'));
     expect(przedKrokami).not.toMatch(/EXPO_PUBLIC_E2E/);
@@ -203,6 +206,27 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     // Instalacja buildu Basic na symulatorze przed scenariuszami Basic
     expect(krokiWorkflow.slice(krokiWorkflow.indexOf(bezFlagi), basic + 1).join('\n')).toMatch(/xcrun simctl install/);
     expect(workflow).toMatch(/maestro-e2e-basic\.xml/);
+  });
+
+  it('trzeci build: Basic z atrapą ofert (EXPO_PUBLIC_STORE_FAKE tylko w jego kroku), potem scena .maestro/e2e-zakup z takeScreenshot (D-365)', () => {
+    const buildy = krokiWorkflow.filter((k) => /xcodebuild[\s\S]*-configuration Release[\s\S]*-sdk iphonesimulator/.test(k));
+    const zakup = buildy[2] ?? '';
+    expect(zakup).toMatch(/\n {8}env:\n(?: {10}.*\n)*? {10}EXPO_PUBLIC_STORE_FAKE:\s*'1'/);
+    expect(zakup).not.toMatch(/EXPO_PUBLIC_E2E:\s*['"]/);
+    expect(zakup).toMatch(/if \[ -n "\$\{EXPO_PUBLIC_E2E:-\}" \]; then[\s\S]*?exit 1/);
+    expect(zakup).toMatch(/rm -rf [^\n]*metro/);
+    expect(zakup).toMatch(/xcrun simctl install/);
+    for (const k of buildy.slice(0, 2)) expect(k).not.toMatch(/STORE_FAKE/);
+    expect(workflow.slice(0, workflow.indexOf('    steps:'))).not.toMatch(/STORE_FAKE/);
+    const idx = (re: RegExp) => krokiWorkflow.findIndex((k) => re.test(k));
+    const scena = idx(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e-zakup\b/);
+    expect(scena).toBeGreaterThan(krokiWorkflow.indexOf(zakup));
+    expect(krokiWorkflow.indexOf(zakup)).toBeGreaterThan(idx(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e-basic\b/));
+    const flow = readFileSync(join(e2eZakupDir, '01-ekran-zakupu.yaml'), 'utf8');
+    expect(flow).toMatch(/takeScreenshot: "zrzuty-e2e\/review-zakup"/);
+    expect(flow.indexOf('id: "plan-yearly-btn"')).toBeLessThan(flow.indexOf('takeScreenshot'));
+    expect(workflow).toMatch(/\.maestro\/\*\*\/zrzuty-e2e/);
+    expect(workflow).toMatch(/maestro-e2e-zakup\.xml/);
   });
 
   // Systemowe okno zgody na powiadomienia zasłaniało ekran w przebiegu 39581379222 [M1-audytor-generalny-037]

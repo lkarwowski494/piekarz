@@ -200,6 +200,39 @@ jobs:
         if: (success() || failure()) && steps.basic_install.outcome == 'success' && steps.maestro.outcome == 'success'
         run: maestro --device "$UDID" test .maestro/e2e-basic -e JEZYK=basic --format junit --output maestro-e2e-basic.xml
 
+      # Zrzut ekranu zakupu dla App Review (KO-033, właściciel 2026-11-10: „Jak w treningu”; D-365): trzeci build Release, Basic
+      # (bez EXPO_PUBLIC_E2E) z atrapą ofert EXPO_PUBLIC_STORE_FAKE=1 (src/lib/platnosci/sklep.ts: 3 plany z cenami USD, bez StoreKit).
+      # Osobny build, żeby scenariusze Basic dalej sprawdzały ekran Pro bez oferty sklepu. Plik: artefakt maestro-e2e,
+      # .maestro/e2e-zakup/zrzuty-e2e/review-zakup.png — właściciel wgrywa go ręcznie przy 3 produktach (docs/wydanie/zrzut-zakupu.md).
+      - name: Build Release for simulator (Basic + fake store offers, EXPO_PUBLIC_STORE_FAKE)
+        id: zakup_build
+        if: (success() || failure()) && steps.basic_build.outcome == 'success'
+        env:
+          EXPO_PUBLIC_STORE_FAKE: '1'
+        run: |
+          set -o pipefail
+          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then
+            echo "::error::EXPO_PUBLIC_E2E jest ustawiona — build z atrapą ofert musi być Basic."
+            exit 1
+          fi
+          rm -rf "${TMPDIR:-/tmp}"/metro-* "${TMPDIR:-/tmp}"/haste-map-* node_modules/.cache/metro
+          BUNDLE_BASIC_SHA=$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -n 80
+          if [ "$(shasum -a 256 build/Build/Products/Release-iphonesimulator/*.app/main.jsbundle | cut -d ' ' -f 1)" = "$BUNDLE_BASIC_SHA" ]; then
+            echo "::error::main.jsbundle z atrapą ofert jest taki sam jak Basic — bundle nie zbudował się od nowa."
+            exit 1
+          fi
+          BUNDLE_ID=$(node -p 'require("./app.json").expo.ios.bundleIdentifier')
+          xcrun simctl uninstall "$UDID" "$BUNDLE_ID" || true
+          xcrun simctl install "$UDID" "$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)"
+
+      - name: Purchase screen screenshot (.maestro/e2e-zakup)
+        if: (success() || failure()) && steps.zakup_build.outcome == 'success' && steps.maestro.outcome == 'success'
+        run: maestro --device "$UDID" test .maestro/e2e-zakup -e JEZYK=zakup --format junit --output maestro-e2e-zakup.xml
+
       - name: Upload Maestro report and screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -209,6 +242,7 @@ jobs:
             maestro-e2e-pl.xml
             maestro-e2e-en.xml
             maestro-e2e-basic.xml
+            maestro-e2e-zakup.xml
             ~/.maestro/tests
             zrzuty-e2e
             .maestro/**/zrzuty-e2e

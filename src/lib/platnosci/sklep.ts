@@ -117,10 +117,24 @@ export interface Oferta {
 }
 
 /**
+ * Atrapa ofert TYLKO w buildzie E2E „Basic + atrapa ofert” (e2e-ios.yml; EXPO_PUBLIC_* wstawia Metro przy budowaniu): symulator
+ * w CI nie ma StoreKit, a zrzut ekranu zakupu dla App Review ma pokazać plany z cenami (KO-033 „Jak w treningu”, D-365).
+ * Ceny bazowe USD z docs/wydanie/ceny.json (USA). Zakup, przywracanie i uprawnienia bez zmian. testflight.yml odrzuca flagę;
+ * test: src/lib/__tests__/atrapa-ofert-e2e.test.ts.
+ */
+const ATRAPA_OFERT = process.env.EXPO_PUBLIC_STORE_FAKE === '1';
+const OFERTA_ATRAPY: readonly Oferta[] = [
+  { plan: 'yearly', cena: '$6.99' },
+  { plan: 'monthly', cena: '$0.99' },
+  { plan: 'lifetime', cena: '$14.99' },
+];
+
+/**
  * Produkty z App Store Connect; ceny wyłącznie z displayPrice. Bez oferty wprowadzającej i okresu próbnego (D-112):
  * rolę próby pełni Basic, więc aplikacja nie pyta sklepu o uprawnienie do oferty.
  */
 export async function pobierzOferte(): Promise<Oferta[]> {
+  if (ATRAPA_OFERT) return [...OFERTA_ATRAPY];
   await polacz();
   const produkty = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
   const wynik: Oferta[] = [];
