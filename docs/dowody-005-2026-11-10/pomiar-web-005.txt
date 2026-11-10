@@ -1,0 +1,20 @@
+Pomiar z DOM, Expo web (react-native-web, kopia w scratchpadzie jak p4b), krok 10 z 11 „Wypiek z parą i rumienienie” (garnek, lid_on), zegar 1 800 000 000 000 ms, deviceScaleFactor 1.
+y w pt od góry ekranu (pasek stanu 20/59 pt, wskaźnik Home 0/34 pt dołożone); [góra, dół]. Krój treści przeglądarki zamiast SF Pro — to nie iOS.
+
+PRZED (1c723632, StrefaKroku z HEAD):
+320x568 pl (Wypiek z parą i rumienienie): ostrzeżenie 498,690 karta 158,498 pasek kciuka góra 504 → ostrzeżenie POD paskiem
+320x568 en (Baking with steam and browning): ostrzeżenie 537,709 karta 158,537 pasek kciuka góra 504 → ostrzeżenie POD paskiem
+320x568 id (Pemanggangan dengan uap dan pencokelatan): ostrzeżenie 604,816 karta 245,604 pasek kciuka góra 504 → ostrzeżenie POD paskiem
+393x852 pl (Wypiek z parą i rumienienie): ostrzeżenie 675,827 karta 375,675 pasek kciuka góra 672 → ostrzeżenie POD paskiem
+393x852 en (Baking with steam and browning): ostrzeżenie 675,807 karta 375,675 pasek kciuka góra 672 → ostrzeżenie POD paskiem
+393x852 id (Pemanggangan dengan uap dan pencokelatan): ostrzeżenie 695,867 karta 395,695 pasek kciuka góra 664 → ostrzeżenie POD paskiem
+
+PO (ostrzeżenie nad kartą „Co zrobić”):
+320x568 pl (Wypiek z parą i rumienienie): ostrzeżenie 158,350 karta 366,706 pasek kciuka góra 504 → ostrzeżenie NAD paskiem
+320x568 en (Baking with steam and browning): ostrzeżenie 158,330 karta 346,725 pasek kciuka góra 504 → ostrzeżenie NAD paskiem
+320x568 id (Pemanggangan dengan uap dan pencokelatan): ostrzeżenie 245,457 karta 473,832 pasek kciuka góra 504 → ostrzeżenie NAD paskiem
+393x852 pl (Wypiek z parą i rumienienie): ostrzeżenie 375,527 karta 543,843 pasek kciuka góra 672 → ostrzeżenie NAD paskiem
+393x852 en (Baking with steam and browning): ostrzeżenie 375,507 karta 523,823 pasek kciuka góra 672 → ostrzeżenie NAD paskiem
+393x852 id (Pemanggangan dengan uap dan pencokelatan): ostrzeżenie 395,567 karta 583,883 pasek kciuka góra 664 → ostrzeżenie NAD paskiem
+
+Pas i pasek kciuka bez zmian między przed i po (góra pierwszego elementu treści 158/245/375/395 pt w obu) — 106/107 nie pogorszone.

@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — strefa kroku na ekranie prowadzenia (design-spec §11b „056”): tytuł kroku, czas do końca
-// (etap żytni bez czasu w planie idzie bez minutnika, 030), „do {godzina}, potem …”, treść kroku, Ostrzeżenie,
+// (etap żytni bez czasu w planie idzie bez minutnika, 030), „do {godzina}, potem …”, Ostrzeżenie (nad kartą, D-335), treść kroku,
 // „Ekran nie zgaśnie…” w kroku czynnym (114), test palca i dwie fazy garnka. Na prowadzeniu tytuł, czas i „potem …” są
 // na pasie ekranu (O3a, D-194: `naglowekNaPasie`, CzasKroku); ogłoszenie nowego kroku zostaje tutaj.
 // ============================================================================
@@ -97,8 +97,10 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
           <CzasKroku step={step} formattedTime={formattedTime} czasEtykieta={czasEtykieta} potem={potem} waga={waga} />
         </>
       )}
-      {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4);
-          Ostrzeżenie bez zmian treści i zachowania, jak w makiecie pod kartą instrukcji */}
+      {/* Ostrzeżenie bezpieczeństwa kroku nad kartą „Co zrobić”, w pierwszym ekranie także przy długiej instrukcji
+          (KO-015, D-335) [M1-audytor-generalny-005]; treść i zachowanie bez zmian */}
+      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
+      {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4) */}
       <Karta testID="karta-kroku" tytul={naglowekNaPasie ? t('Co zrobić') : numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
       {ekran !== null && (
@@ -111,7 +113,6 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
         </View>
       )}
       </Karta>
-      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
       <PokeTestEntry step={step} />
 
       {/* Dutch Oven Two-Phase Controller for the bake step */}

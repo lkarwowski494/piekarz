@@ -331,7 +331,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, naglowekStaly, onK
           <BlokadaFunkcji {...blokadaWypieku}>
           <View>
             <NotificationsOffBanner />
-            {/* Strefa kroku: karta instrukcji, ostrzeżenie, test palca, fazy garnka (tytuł i czas na pasie) */}
+            {/* Strefa kroku: ostrzeżenie nad kartą instrukcji (D-335), test palca, fazy garnka (tytuł i czas na pasie) */}
             <StrefaKroku
               naglowekNaPasie
               step={currentStep}

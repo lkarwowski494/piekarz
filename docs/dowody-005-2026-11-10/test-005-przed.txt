@@ -1,0 +1,2250 @@
+Przed zmianą: commit 1c723632 (worktree, nowy test dodany bez zmiany kodu aplikacji); npx jest src/__tests__/ostrzezenie-nad-karta-005.test.tsx --ci
+FAIL src/__tests__/ostrzezenie-nad-karta-005.test.tsx (132.366 s)
+  005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki
+    ✓ zbiór przypadków obejmuje krok pieczenia w garnku (Gorące naczynie), żyto i wersję drożdżową (2 ms)
+    ✕ 393×852, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (3780 ms)
+    ✕ 393×852, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1136 ms)
+    ✕ 393×852, cs: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1696 ms)
+    ✕ 393×852, sk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1777 ms)
+    ✕ 393×852, hu: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1615 ms)
+    ✕ 393×852, ro: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1572 ms)
+    ✕ 393×852, bg: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1682 ms)
+    ✕ 393×852, hr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1460 ms)
+    ✕ 393×852, sl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1519 ms)
+    ✕ 393×852, sr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1518 ms)
+    ✕ 393×852, lt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1511 ms)
+    ✕ 393×852, lv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2556 ms)
+    ✕ 393×852, et: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1544 ms)
+    ✕ 393×852, uk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1492 ms)
+    ✕ 393×852, es: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1191 ms)
+    ✕ 393×852, es-419: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1183 ms)
+    ✕ 393×852, pt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1747 ms)
+    ✕ 393×852, pt-BR: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2069 ms)
+    ✕ 393×852, de: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1518 ms)
+    ✕ 393×852, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1727 ms)
+    ✕ 393×852, it: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1471 ms)
+    ✕ 393×852, nl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1590 ms)
+    ✕ 393×852, sv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1853 ms)
+    ✕ 393×852, da: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1749 ms)
+    ✕ 393×852, nb: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2284 ms)
+    ✕ 393×852, fi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2023 ms)
+    ✕ 393×852, tr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1625 ms)
+    ✕ 393×852, el: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1464 ms)
+    ✕ 393×852, id: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1612 ms)
+    ✕ 393×852, ms: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1555 ms)
+    ✕ 393×852, vi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1702 ms)
+    ✕ 393×852, ru: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (3024 ms)
+    ✓ 393×852, ja: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1897 ms)
+    ✓ 393×852, ko: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1419 ms)
+    ✓ 393×852, zh-Hant: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1372 ms)
+    ✕ 320×568, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1583 ms)
+    ✕ 320×568, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1251 ms)
+    ✕ 320×568, cs: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2952 ms)
+    ✕ 320×568, sk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1517 ms)
+    ✕ 320×568, hu: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1267 ms)
+    ✕ 320×568, ro: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1345 ms)
+    ✕ 320×568, bg: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1399 ms)
+    ✕ 320×568, hr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1271 ms)
+    ✕ 320×568, sl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2896 ms)
+    ✕ 320×568, sr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1339 ms)
+    ✕ 320×568, lt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1238 ms)
+    ✕ 320×568, lv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1393 ms)
+    ✕ 320×568, et: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1549 ms)
+    ✕ 320×568, uk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1296 ms)
+    ✕ 320×568, es: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2502 ms)
+    ✕ 320×568, es-419: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1272 ms)
+    ✕ 320×568, pt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1299 ms)
+    ✕ 320×568, pt-BR: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1225 ms)
+    ✕ 320×568, de: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1282 ms)
+    ✕ 320×568, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2254 ms)
+    ✕ 320×568, it: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (3349 ms)
+    ✕ 320×568, nl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1560 ms)
+    ✕ 320×568, sv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1086 ms)
+    ✕ 320×568, da: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2577 ms)
+    ✕ 320×568, nb: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1535 ms)
+    ✕ 320×568, fi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2684 ms)
+    ✕ 320×568, tr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1297 ms)
+    ✕ 320×568, el: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1306 ms)
+    ✕ 320×568, id: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1472 ms)
+    ✕ 320×568, ms: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2985 ms)
+    ✕ 320×568, vi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2457 ms)
+    ✕ 320×568, ru: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1248 ms)
+    ✓ 320×568, ja: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2757 ms)
+    ✓ 320×568, ko: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1548 ms)
+    ✓ 320×568, zh-Hant: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (2719 ms)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 159 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 115 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, cs: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 115 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, sk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #7 final_shape: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 122 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, hu: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, ro: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 144 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 144 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 144 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 144 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, bg: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, hr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 137 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, sl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 137 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, sr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #10 bake lid_on: 129 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 129 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 129 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 129 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, lt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 181 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, lv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 137 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 137 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, et: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, uk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 180 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 22 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 180 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 22 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 180 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 180 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 22 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, es: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, es-419: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 67 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 49 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, pt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 159 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, pt-BR: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 118 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 118 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, de: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 59 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 59 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 15
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 56 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 56 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 210 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 52 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 210 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 52 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 210 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 210 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 52 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, it: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 17
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 29 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 29 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 29 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, nl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 37 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, sv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 74 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, da: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, nb: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 74 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 122 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, fi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 49 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 49 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 96 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 96 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 96 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 96 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, tr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 166 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, el: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, id: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 17
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 49 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 49 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 26 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 4 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #4 rye_shape: 4 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 4 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 181 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #3 yeast_shape: 4 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 8 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 4 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, ms: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 118 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 33 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 52 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 52 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #6 yeast_cool: 7 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 52 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, vi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 107 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 107 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 107 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 107 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 393×852, ru: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 173 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 173 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 173 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 173 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #10 bake lid_on: 197 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 197 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 197 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 197 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 20 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 20 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, cs: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 15 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, sk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 194 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 8 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 194 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 34 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 194 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 194 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 34 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, hu: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 16
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 41 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 59 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 39 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 39 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, ro: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 16
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 61 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 231 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 44 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 231 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 83 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 231 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 231 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 17 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 83 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, bg: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 18
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 34 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 32 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 42 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 57 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 3 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 13 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 57 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 3 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 5 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 7 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, hr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, sl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 13 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 2 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 55 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 2 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 188 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 55 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 2 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, sr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 9
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 6 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 157 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 157 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 46 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 157 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 157 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 46 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, lt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 15
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 32 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 13 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 258 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 25 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 258 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 258 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 258 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 42 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, lv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 15
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 240 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 240 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 240 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 240 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, et: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 19 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 196 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 8 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 196 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 196 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 196 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 17 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, uk: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 6 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 2 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 28 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 18 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 44 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 18 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 44 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 18 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, es: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 15
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 22 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 40 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 25 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 87 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 20 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 87 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, es-419: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 16
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 22 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 62 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 25 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 87 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 20 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 87 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, pt: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 32 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 13 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 189 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 3 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 189 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 189 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 189 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, pt-BR: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 32 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 13 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 25 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 212 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, de: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 17
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 63 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 39 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 63 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 122 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 122 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, fr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 100 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 51 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 32 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 76 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 119 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 321 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 66 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #4 rye_shape: 10 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #6 rye_bake: 76 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 321 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 120 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #6 yeast_bake: 32 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 66 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 321 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 321 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 54 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #3 yeast_shape: 10 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #5 yeast_bake: 32 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 120 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #7 yeast_bake: 32 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 66 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 54 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 32 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, it: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 23
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 98 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 71 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 52 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 71 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 86 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #6 rye_bake: 10 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #7 rye_cool: 1 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 121 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 67 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 273 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 76 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #6 yeast_cool: 1 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 121 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 67 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 30 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 7 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, nl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 16
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 41 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 17 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 238 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 238 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 238 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 238 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 39 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, sv: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 15
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 22 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 11 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 175 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 20 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, da: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 22 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 18 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 11 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 11 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 153 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 64 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 11 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, nb: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 41 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 172 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 8 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 172 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 8 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 172 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 172 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 17 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 61 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 8 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, fi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 26
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 98 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 71 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 7 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 76 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 30 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 270 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 106 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #4 rye_shape: 7 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #6 rye_bake: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 270 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 140 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #6 yeast_bake: 7 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 86 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 270 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 270 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 74 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #3 yeast_shape: 7 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #5 yeast_bake: 7 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 140 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #7 yeast_bake: 7 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 86 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 30 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 27 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, tr: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 14
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 41 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 15 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 30 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 39 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 216 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 39 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, el: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 17
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 61 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 59 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 59 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 37 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 253 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 44 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 253 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 253 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 253 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 81 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 106 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 30 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 17 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, id: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 33
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 217 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 127 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 87 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 85 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 149 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 190 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 372 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 186 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #1 rye_starter: 85 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #4 rye_shape: 104 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #6 rye_bake: 151 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #7 rye_cool: 98 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 372 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 173 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #3 yeast_degas: 41 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #4 yeast_shape: 41 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #6 yeast_bake: 127 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 186 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 372 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 372 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 149 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #3 yeast_shape: 85 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #5 yeast_bake: 127 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #6 yeast_cool: 120 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 173 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #3 yeast_degas: 41 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #5 yeast_shape: 41 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #7 yeast_bake: 127 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 186 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 129 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 127 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, ms: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 28
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 122 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #2 autolyse: 51 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #4 bulk_ferment: 11 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #5 pre_shape: 10 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #7 final_shape: 97 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 73 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 294 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 86 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #1 rye_starter: 10 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #4 rye_shape: 10 pt pod paskiem kciuka",
+    +   "bez receptury (żyto) #6 rye_bake: 32 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 294 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 98 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #6 yeast_bake: 29 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 66 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 294 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 294 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 73 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #3 yeast_shape: 10 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #5 yeast_bake: 29 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #6 yeast_cool: 22 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 98 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #7 yeast_bake: 29 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 66 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #9 preheat_oven: 32 pt pod paskiem kciuka",
+    +   "durum_semolina_sourdough #10 bake_stal: 49 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, vi: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #1 starter_feed: 6 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 161 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 18 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 161 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 24 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 18 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 161 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 161 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 24 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 18 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekranie — wszystkie kroki, receptury i języki › 320×568, ru: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 13
+
+    - Array []
+    + Array [
+    +   "bez receptury (garnek) #9 preheat_oven: 2 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #11 cool: 18 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #2 yeast_rise: 44 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) #7 yeast_cool: 18 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 249 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) #2 yeast_rise: 2 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #2 yeast_rise: 44 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) #8 yeast_cool: 18 pt pod paskiem kciuka",
+    + ]
+
+      181 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+      182 |         }
+    > 183 |         expect(ponizej).toEqual([]);
+          |                         ^
+      184 |       });
+      185 |     }
+      186 |   }
+
+      at Object.toEqual (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:183:25)
+      at asyncGeneratorStep (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (../../../../../../home/user/piekarz/node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       64 failed, 7 passed, 71 total
+Snapshots:   0 total
+Time:        133.046 s
+Ran all test suites matching /src\/__tests__\/ostrzezenie-nad-karta-005.test.tsx/i.
+KOD WYJŚCIA JEST: 1
