@@ -1,0 +1,90 @@
+{
+ "_opis": "Ramki zrzutów App Store (KO-033, właściciel 2026-11-10: „Ma byc jak w treningu”; D-363, D-364). Czyta scripts/ci/store-frames.sh i scripts/ci/store-caption-layout.mjs. Podpis ramki = `ramki[i].naglowek` z docs/wydanie/metadane/<kod>.json (jedno źródło, tego pliku tu nie powielamy), najwyżej `maxZnakow` znaków i 2 wiersze; podtytuł zostaje w metadanych (D-363 A). Oznaczenie funkcji płatnej na ekranach z `pro` (D-364 A; wytyczne App Store 2.3.2) = t(\"wymaga Piekarz Pro\") w języku lokalizacji. Kolory z src/ui/tokeny.ts według motywu zrzutu (jasny; 03 ciemny jak scena). Kroje: Sofia Sans Semi Condensed Bold (krój tytułów D-050), w językach poza krojem (JEZYKI_POZA_KROJEM_TYTULOW, JEZYKI_CYRYLICY_BEZ_FORM_KROJU w src/ui/kroj-tytulow.ts) Noto Sans Bold, a CJK Noto Sans CJK Bold. Pilnuje tests/ramki-sklepu-podpisy.test.ts.",
+ "maxZnakow": 40,
+ "ekrany": [
+  "01-plan",
+  "02-receptura",
+  "03-prowadzenie-ciemny",
+  "04-doktor",
+  "05-zakwasy",
+  "06-dziennik",
+  "07-offline"
+ ],
+ "motyw": {
+  "01-plan": "jasny",
+  "02-receptura": "jasny",
+  "03-prowadzenie-ciemny": "ciemny",
+  "04-doktor": "jasny",
+  "05-zakwasy": "jasny",
+  "06-dziennik": "jasny",
+  "07-offline": "jasny"
+ },
+ "pro": [
+  "01-plan",
+  "05-zakwasy"
+ ],
+ "kolory": {
+  "jasny": {
+   "tlo": "#F5F5F2",
+   "tekst": "#1C1D1B",
+   "oznaczenie": "#4B4D48",
+   "obwodkaOznaczenia": "#7E8079",
+   "obwodkaZrzutu": "#D6D6CF"
+  },
+  "ciemny": {
+   "tlo": "#141A1C",
+   "tekst": "#F1F1EC",
+   "oznaczenie": "#B9BDB8",
+   "obwodkaOznaczenia": "#6E7A7D",
+   "obwodkaZrzutu": "#354044"
+  }
+ },
+ "kroje": {
+  "cjk": [
+   "ja",
+   "ko",
+   "zh-Hant"
+  ],
+  "noto": [
+   "vi",
+   "ru",
+   "uk"
+  ]
+ },
+ "oznaczenie": {
+  "cs": "vyžaduje Pekař Pro",
+  "da": "kræver Bageren Pro",
+  "de-DE": "erfordert Bäcker Pro",
+  "el": "απαιτεί Αρτοποιός Pro",
+  "en-AU": "requires Baker Pro",
+  "en-CA": "requires Baker Pro",
+  "en-GB": "requires Baker Pro",
+  "en-US": "requires Baker Pro",
+  "es-ES": "requiere Panadero Pro",
+  "es-MX": "requiere Panadero Pro",
+  "fi": "vaatii Leipuri Pron",
+  "fr-CA": "nécessite Mitron Pro",
+  "fr-FR": "nécessite Mitron Pro",
+  "hr": "zahtijeva Pekar Pro",
+  "hu": "Pék Pro szükséges",
+  "id": "memerlukan Tukang Roti Pro",
+  "it": "richiede Fornaio Pro",
+  "ja": "パン職人 Proが必要",
+  "ko": "제빵사 Pro 필요",
+  "ms": "memerlukan Tukang Roti Pro",
+  "nl-NL": "vereist Bakker Pro",
+  "no": "krever Bakeren Pro",
+  "pl": "wymaga Piekarz Pro",
+  "pt-BR": "requer o Padeiro Pro",
+  "pt-PT": "requer o Padeiro Pro",
+  "ro": "necesită Brutar Pro",
+  "ru": "требует Хлебопёк Pro",
+  "sk": "vyžaduje Pekár Pro",
+  "sl": "zahteva Pek Pro",
+  "sv": "kräver Bagaren Pro",
+  "tr": "Fırıncı Pro gerektirir",
+  "uk": "потребує Пекар Pro",
+  "vi": "cần Thợ Bánh Mì Pro",
+  "zh-Hant": "需要 麵包師傅 Pro"
+ }
+}

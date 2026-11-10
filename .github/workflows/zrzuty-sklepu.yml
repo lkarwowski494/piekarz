@@ -293,3 +293,56 @@ jobs:
           path: sklep-zrzuty
           retention-days: 14
           if-no-files-found: ignore
+
+  ramki:
+    name: podpisy i ramki (jak Trening, D-363)
+    # KO-033 (właściciel 2026-11-10: „Ma byc jak w treningu”): podpis u góry (nagłówek z metadanych), oznaczenie Pro na ekranach płatnych (D-364),
+    # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
+    # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
+    # CJK z apt (fonts-noto-cjk). 0 zł, bez sekretów i bez zależności aplikacji.
+    needs: zbierz
+    if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: ImageMagick i czcionki CJK
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick fonts-noto-cjk >/dev/null
+      - name: Kroje Bold (instancje plików zmiennych)
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/ft"
+          "$RUNNER_TEMP/ft/bin/pip" install --quiet --disable-pip-version-check fonttools==4.68.0
+          "$RUNNER_TEMP/ft/bin/fonttools" varLib.instancer assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700 -o "$RUNNER_TEMP/Sofia-Bold.ttf" -q
+          "$RUNNER_TEMP/ft/bin/fonttools" varLib.instancer docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100 -o "$RUNNER_TEMP/Noto-Bold.ttf" -q
+          { echo "FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf"; echo "FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf"; echo "FONT_CJK=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"; } >> "$GITHUB_ENV"
+      - uses: actions/download-artifact@v4
+        with:
+          name: sklep-zrzuty
+          path: sklep-zrzuty
+      - name: Podpisy i ramki
+        run: bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Kontrola (wymiar jak zrzut, bez alfy, każdy zrzut ma ramkę)
+        run: |
+          set -uo pipefail
+          bledy=0
+          while IFS= read -r f; do
+            rel="${f#sklep-zrzuty/}"; r="sklep-ramki/$rel"
+            [ -f "$r" ] || { echo "::error::brak ramki $rel"; bledy=$((bledy + 1)); continue; }
+            [ "$(identify -format '%wx%h' "$f")" = "$(identify -format '%wx%h' "$r")" ] || { echo "::error::$rel: inny wymiar ramki"; bledy=$((bledy + 1)); }
+            case "$(identify -format '%[channels]' "$r")" in *a) echo "::error::$rel: kanał alfa"; bledy=$((bledy + 1)) ;; esac
+          done < <(find sklep-zrzuty -path '*/iphone-*/*.png' | sort)
+          echo "Ramki: $(find sklep-ramki -name '*.png' | wc -l | tr -d ' '), błędy: $bledy" | tee -a "$GITHUB_STEP_SUMMARY"
+          [ "$bledy" -eq 0 ]
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sklep-ramki
+          path: sklep-ramki
+          retention-days: 14
+          if-no-files-found: ignore

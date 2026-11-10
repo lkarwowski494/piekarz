@@ -52,7 +52,7 @@ describe('zrzuty-sklepu.yml: bezpieczeństwo (KO-025)', () => {
   it('uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń', () => {
     expect(wf).toMatch(/^permissions:\n {2}contents: read\n {2}actions: read\n/m);
     const checkouty = kroki.filter((k) => /uses: actions\/checkout@/.test(k));
-    expect(checkouty.length).toBe(3);
+    expect(checkouty.length).toBe(4); // plan, build, zrzuty, ramki (D-363)
     for (const k of checkouty) expect(k).toMatch(/persist-credentials: false/);
   });
 
