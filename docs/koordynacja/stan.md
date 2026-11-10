@@ -212,3 +212,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 21:26 | M9 | L PYTANIE (limit 4000 w 11 lok.) → KO-032 opcja A, przekazane L (send_message) | kontrola 21:30 |
 | 10.11 21:30 | M9 | J PRZEKAZANIE (zrzuty/log/dSYM) przyjęte; prośba do J: D-356→D-362 + merge redesign + verify | J ponownie; L |
 | 10.11 21:35 | M9 | KO-033: subagent analizuje zrzuty i zrzut zakupu w Treningu (repo publiczne); potem: zmiana Piekarza + przekazanie do koordynatora Oczka; App Asset Library — sesja po analizie | raport subagenta |
+| 10.11 21:41 | M9 | KO-034 → L (delivered). Raport Treningu zapisany (`docs/koordynacja/zrzuty-trening-2026-11-10.md`); dalej: sesja M (ramki+podpisy, App Asset Library, zakup z E2E) po scaleniu J; wiadomość do koordynatora Oczka | J, L |
