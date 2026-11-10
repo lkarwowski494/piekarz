@@ -1,0 +1,13 @@
+# Sesja I: reaudyt 005 i werdykt 07 na kandydacie (rola 07, audit) — Piekarz
+Koordynator: session_01T66VBwJhDDVhFKP86KKRQA (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID). Gałąź stanu: `koordynacja` (tylko do odczytu).
+
+1. Rola: 07-jakosc (tryb audit — nie naprawiasz kodu). Prompt roli: `git show origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/naprawy/polecenia/rola-07-jakosc-prompt.md` — przeczytaj w całości, jesteś tą rolą (zadanie bierzesz z tego polecenia). Biblioteki prompts nie dołączasz.
+2. Start: `master` @ `c2c5e206` (= build TestFlight 1.0.0 (1025) na `540229c9` + tylko docs). Gałąź wyników `naprawy/M2-koordynator-napraw-2026-11-10-werdykt07` od `c2c5e206` (tylko pliki w `docs/`). `npm ci`.
+3. Wejście: reaudyt M1 pętla 2 (`origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/M1-audytor-generalny-reaudit-2026-11-10.md`, plan `origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/plan-napraw.json`): werdykt ZABLOKOWANE do weryfikacji naprawy 005 (P1); 017 odłożone do App Store (D-292); 067 — nightly #29 run 42870153152 zielony na `c2c5e206` (Stryker 64,33 ≥ 60). Naprawa 005: sesje E/E2, D-335…D-338, KO-018, KO-020; E2E #107 run 42806813060 zielony na `540229c9`.
+4. Zadania:
+   1. Reaudyt 005 wg pola „test_akceptacyjny” pozycji M1-audytor-generalny-005 w planie: dowód z testów repo (test 005 i test akcji pasa, 055) uruchomionych przez Ciebie, kod źródłowy (plik:linia) i zrzuty z artefaktu E2E #107 (`actions_list list_workflow_run_artifacts 42806813060`, jeśli dostępny; czego nie da się sprawdzić bez urządzenia — wskaż punkt listy telefonu PH-33…PH-35). Werdykt: zweryfikowane / nadal otwarte (z dowodem).
+   2. Weryfikacja 067 z logu nightly #29 (job 130018944888).
+   3. Werdykt 07 na SHA `c2c5e206` (GOTOWE / GOTOWE Z ZASTRZEŻENIAMI / ZABLOKOWANE) wg rubryki z promptu roli: zastrzeżenia nazwane (017 + 109 przed App Store, test telefonu właściciela, P3 do 1.0.1, 032 dSYM — status nieustalony, do koordynatora). Plik `docs/wydanie/werdykt-07-2026-11-10.md`, `npm run verify` kod 0 (dowód w `docs/dowody-07-werdykt/verify.txt`), push, PRZEKAZANIE (werdykt, lista zastrzeżeń, SHA).
+5. Zakazy: nie zmieniasz kodu aplikacji, testów ani workflowów; nie scalasz do `redesign` ani `master`; nie uruchamiasz workflowów; nie piszesz na `koordynacja` ani `audit-m1` (status pozycji w K zaktualizuje koordynator albo M2); nie tworzysz i nie archiwizujesz sesji; nigdy --no-verify ani force-push; nie pytasz właściciela.
+6. Decyzje: tryb „właściciel” — pytanie do koordynatora z ≥ 2 opcjami i rekomendacją. Numery: D-349…D-351.
+7. Kontekst: od 30% okna kończysz krok, stan w `docs/stan-07-werdykt-2026-11-10.md`, push, PRZEKAZANIE.
