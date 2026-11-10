@@ -41,6 +41,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 14:00 | Linia 14:00 | koordynator | — | — |
 
 ## Czeka na właściciela (raport poranny)
+- **Start reaudytu M1 pętla 2** (`polecenia/B2.md`, `redesign` @ `1c723632`): nowa sesja potrzebuje `prompts` — opcje: (a) zgoda właściciela w czacie nowej sesji B2 na `add_repo` (jak B 21:59; rekomendacja); (b) reguła uprawnień dla `add_repo` w ustawieniach; (c) bez reaudytu pętli 2 (wbrew D-043, odradzam).
 - Zgoda: merge `redesign` → `master` + nowy build TestFlight (D-272 zużyte), po zielonym E2E na SHA kandydata (DEC-18).
 - Test telefonu: `docs/wydanie/lista-kontrolna-telefonu.md`.
 - Weto decyzji nocnych: D-315 (H-01: bez osobnej minimalnej próby, ocena = wydanie + 90 dni), D-316 (bramka E2E przed TestFlight: lista ścieżek spoza buildu; filtr E2E o słowniki, zasoby, konfigurację) i dalsze M2 od D-317; KO od KO-001 (`docs/koordynacja/decyzje.md`).
