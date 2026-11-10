@@ -93,6 +93,7 @@ jobs:
       version: ${{ steps.ver.outputs.version }}
       build_number: ${{ steps.ver.outputs.build_number }}
       symbole: ${{ steps.log_eksportu.outputs.symbole }}
+      dsym_dodane: ${{ steps.dsym.outputs.dodane }}
 
     steps:
       - name: Checkout
@@ -245,6 +246,10 @@ jobs:
       # binaria bez dSYM („Upload Symbols Failed” w TF #25). dSYM tej samej wersji z Maven, kontrola SHA-256 i UUID, do
       # <archiwum>/dSYMs przed eksportem (uploadSymbols wysyła stamtąd). Bez sekretów; porażka = ostrzeżenie, wydanie idzie dalej.
       - name: Add dSYMs of prebuilt React Native frameworks to archive
+        id: dsym
+        # ok. 570 MB z Maven: skrypt ma budżet 8 min na pobieranie i zawsze kończy kodem 0; limit kroku to tylko bezpiecznik
+        # (recenzja J2, P1; bez wyciszania błędów kroku — bramka 07-jakosc-011)
+        timeout-minutes: 12
         run: bash scripts/ci/dsym-ramy.sh "$RUNNER_TEMP/$APP_SCHEME.xcarchive"
 
       - name: Prepare App Store Connect API Key (.p8) after pod install & archive
@@ -355,10 +360,10 @@ jobs:
           if [ ! -s "$LOG" ]; then echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; echo "symbole=brak-logu" >> "$GITHUB_OUTPUT"; echo "Brak logu eksportu (krok eksportu się nie wykonał)."; exit 0; fi
           # (1) symbole: test akceptacyjny 032 — log wysyłki bez „Upload Symbols Failed”
           if grep -q 'Upload Symbols Failed' "$LOG"; then echo "symbole=nieudane" >> "$GITHUB_OUTPUT"; else echo "symbole=ok" >> "$GITHUB_OUTPUT"; fi
-          SYMBOLE=$(grep -iE 'dsym|symbol' "$LOG" | sed -E 's/[[:space:]]+/ /g' | sort | uniq -c | sort -rn | head -20)
           # (2) nazwy certyfikatów i profili (imię i nazwisko właściciela) przed podsumowaniem i artefaktem
           sed -E -e 's/((Apple|iPhone|iOS) (Distribution|Development|Developer)): [^"()]*/\1: <NAZWA>/g' \
             -e 's/(Provisioning Profile|profile)( name)?:? "[^"]*"/\1\2 "<PROFIL>"/g' "$LOG" > "$LOG.maska" && mv "$LOG.maska" "$LOG"
+          SYMBOLE=$(grep -iE 'dsym|symbol' "$LOG" | sed -E 's/[[:space:]]+/ /g' | sort | uniq -c | sort -rn | head -20)
           # (3) sekrety: wartości (stałe napisy, bez wielkości liter) i wzorce; kod grep ≥ 2 = nie wiadomo → bez artefaktu
           umask 077; WARTOSCI="$RUNNER_TEMP/wartosci-sekretow.txt"; : > "$WARTOSCI"
           for v in "$ASC_KEY_ID" "$ASC_ISSUER_ID" "$APPLE_TEAM_ID"; do if [ -n "$v" ]; then printf '%s\n' "$v" >> "$WARTOSCI"; fi; done
@@ -373,7 +378,7 @@ jobs:
           {
             echo "### Eksport: linie o symbolach (dSYM) — pełny log w artefakcie testflight-export-log-${GITHUB_RUN_NUMBER}"
             echo "Linii logu: $(wc -l < "$LOG" | tr -d ' '); linii o symbolach: $(grep -iE 'dsym|symbol' "$LOG" | wc -l | tr -d ' ')"
-            if [ -n "$SYMBOLE" ]; then echo '```'; printf '%s\n' "$SYMBOLE" | sed -E 's/((Apple|iPhone|iOS) (Distribution|Development|Developer)): [^"()]*/\1: <NAZWA>/g'; echo '```'; else echo "Brak linii o symbolach w logu."; fi
+            if [ -n "$SYMBOLE" ]; then echo '```'; printf '%s\n' "$SYMBOLE"; echo '```'; else echo "Brak linii o symbolach w logu."; fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload full export log (retention 3 days)
@@ -427,10 +432,16 @@ jobs:
       - name: Check symbol upload result from export log
         env:
           SYMBOLE: ${{ needs.build.outputs.symbole }}
+          DSYM_DODANE: ${{ needs.build.outputs.dsym_dodane }}
         run: |
-          echo "Wynik wysyłki symboli: ${SYMBOLE:-brak}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Wynik wysyłki symboli: ${SYMBOLE:-brak}; dSYM frameworków dodane: ${DSYM_DODANE:-brak} z 3" >> "$GITHUB_STEP_SUMMARY"
           if [ "$SYMBOLE" != ok ]; then
             echo "::error::Log eksportu: ${SYMBOLE:-brak wyniku} — dSYM nie zostały wysłane w całości (032; pełny log w artefakcie testflight-export-log-*)"
+            exit 1
+          fi
+          # Brak napisu w logu to nie dowód (recenzja J2, P1): wymagane też 3 dSYM dołożone do archiwum
+          if [ "$DSYM_DODANE" != 3 ]; then
+            echo "::error::dSYM prebudowanych frameworków dodane: ${DSYM_DODANE:-brak} z 3 (krok „Add dSYMs…”, D-356)"
             exit 1
           fi
 

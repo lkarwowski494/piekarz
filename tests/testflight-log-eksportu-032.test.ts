@@ -90,6 +90,15 @@ describe('testflight.yml: dSYM prebudowanych frameworków w archiwum (032, KO-02
     expect(steps[dsym]).not.toMatch(/secrets\./);
   });
 
+  it('pobieranie nie zawiesza wydania: budżet w skrypcie, limit kroku jako bezpiecznik; zadanie symbole wymaga 3 dodanych dSYM', () => {
+    expect(steps[dsym]).toMatch(/\n {8}id: dsym\n/);
+    expect(Number(/\n {8}timeout-minutes: (\d+)\n/.exec(steps[dsym])?.[1])).toBeLessThanOrEqual(15);
+    expect(steps[dsym]).not.toMatch(/continue-on-error/);
+    expect(buildJob).toMatch(/\n {6}dsym_dodane: \$\{\{ steps\.dsym\.outputs\.dodane \}\}\n/);
+    const zadanie = wf.split(/\n {2}symbole:\n/)[1]?.split(/\n {2}tag:\n/)[0] ?? '';
+    expect(zadanie).toMatch(/if \[ "\$DSYM_DODANE" != 3 \]; then[\s\S]*::error::[\s\S]*exit 1/);
+  });
+
   it.each([
     ['React', 'reactnative-core-dSYM-release.tar.gz', 'ios-arm64/React.framework.dSYM'],
     ['ReactNativeDependencies', 'reactnative-dependencies-dSYM-release.tar.gz', 'ios-arm64/ReactNativeDependencies.framework.dSYM'],
@@ -99,7 +108,14 @@ describe('testflight.yml: dSYM prebudowanych frameworków w archiwum (032, KO-02
   });
 
   it('kontrole: curl -L (Maven przekierowuje), SHA-256 z pliku .sha256, UUID dSYM = UUID binarki w archiwum', () => {
-    expect(skrypt).toContain('curl -fsSL --retry 5');
+    expect(skrypt).toContain('--max-time "$(reszta)" -o "$plik"');
+    expect(skrypt).toMatch(/BUDZET_S=\$\{DSYM_BUDZET_S:-(\d+)\}/);
+    expect(Number(/BUDZET_S=\$\{DSYM_BUDZET_S:-(\d+)\}/.exec(skrypt)?.[1])).toBeLessThanOrEqual(600);
+    expect(skrypt).toContain('budżet czasu pobierania wyczerpany');
+    expect(skrypt.trimEnd().endsWith('exit 0')).toBe(true);
+    expect(skrypt).toContain('--max-time 30 "$MAVEN/$sciezka.sha256"');
+    expect(skrypt).toContain('awk \'$3 == "(arm64)" {print $2; exit}\'');
+    expect(skrypt).toContain('echo "dodane=$DODANE" >> "$GITHUB_OUTPUT"');
     expect(skrypt).toContain('"$MAVEN/$sciezka.sha256"');
     expect(skrypt).toContain('"$oczek" != "$jest"');
     expect(skrypt).toContain('dwarfdump --uuid "$bin"');

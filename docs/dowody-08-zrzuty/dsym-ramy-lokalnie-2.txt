@@ -1,0 +1,23 @@
+dSYM React: dodany (UUID EE15B752-FB46-35F2-B0BB-A46636572385)
+dSYM ReactNativeDependencies: dodany (UUID DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2)
+dSYM hermesvm: dodany (UUID BE274A23-47CC-3F5A-9E98-8474553DF5A8)
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 3 z 3
+rc=0 wyjście: dodane=3
+React.framework.dSYM
+ReactNativeDependencies.framework.dSYM
+hermesvm.framework.dSYM
+--- bez argumentu
+::warning::dSYM: brak ścieżki archiwum
+rc=0
+--- budżet 0 s (kontrola negatywna)
+::warning::dSYM React: budżet czasu pobierania wyczerpany — pominięty
+::warning::dSYM ReactNativeDependencies: budżet czasu pobierania wyczerpany — pominięty
+::warning::dSYM hermesvm: budżet czasu pobierania wyczerpany — pominięty
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 0 z 3
+rc=0
+--- budżet domyślny
+dSYM React: dodany (UUID EE15B752-FB46-35F2-B0BB-A46636572385)
+dSYM ReactNativeDependencies: dodany (UUID DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2)
+dSYM hermesvm: dodany (UUID BE274A23-47CC-3F5A-9E98-8474553DF5A8)
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 3 z 3
+rc=0
