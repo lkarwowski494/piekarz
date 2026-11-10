@@ -198,3 +198,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 20:47 | M9 | H → `redesign` @ `2047ab00` (FF); H zarchiwizowana; KO-026 (DSA approved, zrzuty 34 lok.) → J (delivered); polecenie K | start K |
 | 10.11 20:50 | M9 | K `session_01T66VBx6LM9T3GMFoF9Pbta` start 20:43 (od `2047ab00`). KO-027 (sekrety: zawęzić wzorce); skrypt tylko w `prompts` → pytanie o dostęp | odpowiedź właściciela; kontrola 21:30 |
 | 10.11 21:00 | M9 | Werdykt 07 (I) scalony do `redesign` @ `0975cbab` (merge --no-ff, tylko docs); 032 potwierdzone w logu; I zarchiwizowana | pytanie 032 + prompts |
+| 10.11 21:05 | M9 | KO-028: J rozszerzona o 032 (delivered); `prompts` dołączone (push), klon @ `f701ce9`, register_repo_root; subagent: skaner sekretów w `role/10-wydanie/wzorce.md` na gałęzi | raport subagenta; kontrola J/K 21:30 |
