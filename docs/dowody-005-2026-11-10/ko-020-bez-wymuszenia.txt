@@ -1,0 +1,127 @@
+KO-020 (właściciel 2026-11-10): „Najpierw sprawdź bez wymuszenia”.
+
+ŚCIEŻKA 1 — bez wymuszenia jednego wiersza (PasProwadzenia: usunięte numberOfLines/adjustsFontSizeToFit/minimumFontScale, minWidth 88 bez zmian), drzewo robocze na 1dacf03b, każdy plik osobno, --runInBand:
+=== tests/duzy-tekst-kroj.test.ts
+PASS tests/duzy-tekst-kroj.test.ts
+Tests:       5 passed, 5 total
+kod: 0
+=== src/__tests__/akcje-pasa-ikony-005.test.tsx
+PASS src/__tests__/akcje-pasa-ikony-005.test.tsx
+Tests:       5 passed, 5 total
+kod: 0
+=== src/__tests__/ostrzezenie-nad-karta-005.test.tsx
+FAIL src/__tests__/ostrzezenie-nad-karta-005.test.tsx (149.678 s)
+    ✕ 320×568, pl: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (38 ms)
+    ✕ 320×568, en: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (30 ms)
+    ✕ 320×568, cs: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (40 ms)
+    ✕ 320×568, sk: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (38 ms)
+    ✕ 320×568, hu: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (46 ms)
+    ✕ 320×568, ro: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (50 ms)
+    ✕ 320×568, bg: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (40 ms)
+    ✕ 320×568, hr: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (27 ms)
+    ✕ 320×568, sl: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (46 ms)
+    ✕ 320×568, sr: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (55 ms)
+    ✕ 320×568, lt: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (52 ms)
+    ✕ 320×568, lv: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (156 ms)
+    ✕ 320×568, et: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (1391 ms)
+    ✕ 320×568, uk: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (68 ms)
+    ✕ 320×568, es: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (59 ms)
+    ✕ 320×568, es-419: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (52 ms)
+    ✕ 320×568, pt: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (51 ms)
+    ✕ 320×568, pt-BR: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (52 ms)
+    ✕ 320×568, de: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (56 ms)
+    ✕ 320×568, fr: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (51 ms)
+    ✕ 320×568, it: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (51 ms)
+    ✕ 320×568, nl: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (49 ms)
+    ✕ 320×568, sv: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (30 ms)
+    ✕ 320×568, da: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (35 ms)
+    ✕ 320×568, nb: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (37 ms)
+    ✕ 320×568, fi: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (27 ms)
+    ✕ 320×568, tr: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (37 ms)
+    ✕ 320×568, el: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (36 ms)
+    ✕ 320×568, id: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (32 ms)
+    ✕ 320×568, ms: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (37 ms)
+    ✕ 320×568, vi: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (42 ms)
+    ✕ 320×568, ru: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (30 ms)
+    ✕ 320×568, ja: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (42 ms)
+    ✕ 320×568, ko: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (41 ms)
+    ✕ 320×568, zh-Hant: „Krok n z m” w jednym wierszu bez wielokropka przy skali 0.7 (44 ms)
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+    - Expected  - 3
+    + Received  + 3
+Tests:       35 failed, 71 passed, 106 total
+kod: 1
+Wszystkie 35 czerwonych: asercja props { jeden: 1, dopasuj: true, skala: 0.7 } (test numeru kroku D-336) — Received undefined; 71 przypadków ostrzeżeń zielonych.
+Wynik: czerwony → wariant A (wyjątek nazwany w 055, D-338); zmiana z ścieżki 1 cofnięta (git checkout).
+
+ŚCIEŻKA 2 — wariant A: tests/duzy-tekst-kroj.test.ts z wyjątkiem nazwanym dla PasProwadzenia.tsx (minimumFontScale tylko {MIN_SKALA_NUMERU}):
+PASS tests/duzy-tekst-kroj.test.ts
+Tests:       5 passed, 5 total
+Pozostałe trzy pliki (005, ikony, numer) — kod PasProwadzenia jak w 8cea3dd0: wynik w pełnym verify (verify.txt).

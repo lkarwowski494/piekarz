@@ -1882,3 +1882,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Otwarte:** zrzut z iOS 320 pt (E2E iOS, koordynator) — przy szerszym kroju systemowym `minWidth` 88 pt może nadal zepchnąć akcje do drugiego wiersza; test 44 pt sprawdza styl (minWidth/minHeight), nie zmierzone pole dotyku; test rozpoznawalności ikon z ludźmi (3–5 osób) — nieprzeprowadzony.
 - **Zależy od:** D-319, D-336, KO-018, RD-ENG-03 (44 pt).
 - **Status:** KO-018 (decyzja właściciela; wybór kształtów ikon — rola 04) — do weta.
+
+### [D-338] 2026-11-10 — Numer kroku w zwartym pasie: jeden wiersz z D-336 zostaje, nazwany wyjątek w teście 055 (M2, sesja E2; M1-audytor-generalny-005; KO-020, KO-017)
+- **Źródło:** `npm run verify` na 8cea3dd0: `tests/duzy-tekst-kroj.test.ts` (055) czerwony na `PasProwadzenia.tsx:38` (numberOfLines, adjustsFontSizeToFit, minimumFontScale z D-336; czerwony już na 69af687c). KO-020 właściciela: „Najpierw sprawdź bez wymuszenia”; czerwony którykolwiek → wariant A.
+- **Sprawdzenie bez wymuszenia (ścieżka 1):** 055 i `akcje-pasa-ikony-005` zielone, `ostrzezenie-nad-karta-005` 71/106 — 35 czerwonych w teście numeru kroku (asercja jednego wiersza ze skalą 0,7). Zmiana cofnięta. Dowód `docs/dowody-005-2026-11-10/ko-020-bez-wymuszenia.txt`.
+- **Decyzja (wariant A):** jeden wiersz numeru kroku (D-336) zostaje; w 055 nazwany wyjątek `WYJATKI_JEDEN_WIERSZ` dla `PasProwadzenia.tsx` z powodem i `SKALA_JEDEN_WIERSZ` (dozwolone tylko `{MIN_SKALA_NUMERU}`, inna skala nadal czerwona). Zwarty pas tylko przy fontScale < 2, więc przy dużym tekście (AX) numer bez ograniczenia; po D-337 numer ma ok. 172 pt (web 320) i zwykle się nie zmniejsza.
+- **Odrzucone:** (B) skala 0,5 (mniejszy numer w długich językach); (C) cofnięcie jednego wiersza (35 czerwonych w teście numeru, ryzyko łamania na znaki jak przed D-336).
+- **Zależy od:** D-336, D-337, KO-017, KO-020.
+- **Status:** KO-020 (decyzja właściciela, ścieżka warunkowa) — do weta.
