@@ -14,7 +14,8 @@ Migracja na M9 (moduł `migracja`, D-056) z koordynatora M3 `session_01T66VBwuR2
 
 ## Teraz
 - Partia 4 (C): p4 @ `292870c0`, verify UTC+Tokyo kod 0 (6827 testów) wg C — niesprawdzone bezpośrednio; 087/088/089 naprawione-do-weryfikacji; 005 częściowo (393 pt OK z rachunku, 320 pt nie) → partia 4b (KO-008 a, rola 04, D-319).
-- **E2E #102 (run 42720983459) na `292870c0`** w toku od 23:30.
+- Partia 4b (C): p4 @ `1c723632` (005: `2f4a260e`, `d5a6dc4c`; D-319), verify UTC+Tokyo 6831 kod 0 wg C; zrzuty Expo web 320/375/393 w K (`role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*`); brzegowe M2-p4-N9 (320 + dwa wypieki).
+- **E2E #103 (run 42725323063) na `1c723632`** od 00:03 (KO-009; #102 anulowany).
 - E2E #101 na `ea249c9c` czerwone: diagnoza roli 07 — zgubiony dotyk symulatora w `06-koniec-wypieku.yaml:18–21` (pl_PL), błąd aplikacji nie znaleziony, pewność ~90% (K/role/07-jakosc/fix-2026-11-09/diagnoza-e2e-101.md); poprawka N8 wstrzymana (KO-008) do właściciela.
 - Dalej: 4b → E2E na head p4 → scalenie p4 → `redesign` → reaudyt pętla 2 (ostatnia, D-043) → kandydat.
 
@@ -56,7 +57,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
 ## Pule numerów decyzji
-- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005…KO-008 zajęte; KO następny: KO-009.
+- Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005…KO-009 zajęte; KO następny: KO-010.
 - M2 (sesja A i następczynie): od D-300; zajęte do D-316; pula D-317…D-319; następny wolny: **D-317**.
 - B (reaudyt M1): D-320…D-329.
 
@@ -85,3 +86,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 22:57 | M9 | A: p4 @ `d04c94ca` (089 `3e05396e`, 088 `d04c94ca`; sprawdzone: log, przodek `bb162ddf`), K @ `4723a98d`; następczyni C `session_01T66VBxPQkXtF6hFvYsPtHe` (prompt 09c dosłownie + dopisek); A 31,4%, 23,88 USD, archiwizacja odrzucona | kontrola 23:12 |
 | 09.11 23:13 | M9 | E2E #101 czerwone (pl_PL; `actions_list` jobs); C 15,6%, 7,97 USD, 005 w toku (subagent roli 08) → C dostała diagnozę #101 | kontrola 00:14 |
 | 09.11 23:31 | M9 | C koniec partii 4: p4 @ `292870c0` (sprawdzone: log, przodek `d04c94ca`), K @ `b4b0b8f2`; D-317, D-318; diagnoza #101 (dotyk symulatora); E2E #102 wyzwolony; KO-008 → C partia 4b | kontrola 00:14 |
+| 10.11 00:04 | M9 | C koniec 4b: p4 @ `1c723632` (sprawdzone: log, przodek `292870c0`), K @ `b7afc26d`; C 17%; E2E #103 wyzwolony (KO-009) | kontrola 00:14, wynik #103 ~01:15 |
