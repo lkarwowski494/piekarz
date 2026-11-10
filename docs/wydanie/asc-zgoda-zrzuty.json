@@ -1,0 +1,6 @@
+{
+  "opis": "Zgoda właściciela na wgranie zrzutów sklepu do App Store Connect przez App Asset Library (scripts/asc/zrzuty.mjs, .github/workflows/asc-zrzuty.yml; KO-033, D-366). Zapis tylko przy \"zapis\": true i skrócie planu z przebiegu na sucho pokazanego właścicielowi (ten sam artefakt, klasa i lokalizacje); \"zgoda\": „RRRR-MM-DD: słowa właściciela”. Skrypt nigdy nie usuwa i pomija grupy z istniejącymi zrzutami. Domyślnie wyłączona.",
+  "zapis": false,
+  "skrot": null,
+  "zgoda": null
+}

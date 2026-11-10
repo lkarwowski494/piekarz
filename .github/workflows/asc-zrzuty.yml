@@ -1,0 +1,103 @@
+# Wgranie zrzutów sklepu (ramki z podpisami) do App Store Connect przez App Asset Library (KO-033, właściciel 2026-11-10: „Przenieść jak Oczko”;
+# D-366). Wzór: oczko/trening .github/workflows/asc-zrzuty.yml; skrypt scripts/asc/zrzuty.mjs. Wejście: artefakt `sklep-ramki` przebiegu
+# zrzuty-sklepu.yml (14 dni). Tylko ręcznie. Zawsze najpierw przebieg na sucho (tylko GET, skrót planu). Zapis: osobne zadanie w środowisku
+# `release` (akceptacja właściciela), tylko gdy tryb = apply i docs/wydanie/asc-zgoda-zrzuty.json ma "zapis": true ze skrótem planu
+# (jak asc-zgloszenie.yml). Skrypt NIGDY nie usuwa i pomija grupy, które mają już zrzuty. Sekrety jak asc-zgloszenie.yml (ASC_KEY_ID,
+# ASC_ISSUER_ID, ASC_KEY_P8_BASE64 albo ASC_KEY_P8); klucz tylko w zmiennej środowiska kroku, w logu bez identyfikatorów i adresów.
+name: ASC zrzuty ekranu
+
+on:
+  workflow_dispatch:
+    inputs:
+      tryb:
+        description: 'dry-run = tylko lista i skrót planu; apply = wgraj (wymaga zgody w docs/wydanie/asc-zgoda-zrzuty.json i akceptacji release)'
+        type: choice
+        options: [dry-run, apply]
+        default: dry-run
+      ramki_z_przebiegu:
+        description: 'ID przebiegu (run ID z adresu …/actions/runs/<ID>) zrzuty-sklepu.yml z artefaktem sklep-ramki'
+        required: true
+        type: string
+      klasa:
+        description: 'Klasa iPhone: iphone-6.9 (1320 × 2868, domyślna) albo iphone-6.3 (1206 × 2622)'
+        type: choice
+        options: [iphone-6.9, iphone-6.3]
+        default: iphone-6.9
+      lokalizacje:
+        description: 'Tylko te lokalizacje ASC, np. pl albo pl,en-US (puste = wszystkie z docs/wydanie/metadane)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: asc-zrzuty
+  cancel-in-progress: false
+
+jobs:
+  na-sucho:
+    name: Zrzuty ASC na sucho (tylko GET)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      zapis: ${{ steps.zgoda.outputs.zapis }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Wejście (ID przebiegu tylko cyfry)
+        env:
+          PRZEBIEG: ${{ inputs.ramki_z_przebiegu }}
+        run: case "$PRZEBIEG" in ''|*[!0-9]*) echo "::error::ramki_z_przebiegu: tylko cyfry"; exit 1 ;; esac
+      - uses: actions/download-artifact@v4
+        with:
+          name: sklep-ramki
+          path: sklep-ramki
+          run-id: ${{ inputs.ramki_z_przebiegu }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Zgoda na zapis (plik zgody)
+        id: zgoda
+        run: echo "zapis=$(node -p "require('./docs/wydanie/asc-zgoda-zrzuty.json').zapis === true")" >> "$GITHUB_OUTPUT"
+      - name: Plan na sucho (skrypt bez zależności)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+          KLASA: ${{ inputs.klasa }}
+          LOKALIZACJE: ${{ inputs.lokalizacje }}
+        run: node scripts/asc/zrzuty.mjs --katalog sklep-ramki --klasa "$KLASA" --lokalizacje "$LOKALIZACJE"
+
+  zapis:
+    name: Zrzuty ASC — zapis (zgoda w pliku i akceptacja w środowisku release)
+    needs: na-sucho
+    if: inputs.tryb == 'apply' && needs.na-sucho.outputs.zapis == 'true'
+    environment: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: sklep-ramki
+          path: sklep-ramki
+          run-id: ${{ inputs.ramki_z_przebiegu }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Wgranie zrzutów (nigdy nie usuwa; skrót planu = skrót w pliku zgody)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+          KLASA: ${{ inputs.klasa }}
+          LOKALIZACJE: ${{ inputs.lokalizacje }}
+        run: node scripts/asc/zrzuty.mjs --katalog sklep-ramki --klasa "$KLASA" --lokalizacje "$LOKALIZACJE" --zgoda docs/wydanie/asc-zgoda-zrzuty.json
