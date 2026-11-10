@@ -141,6 +141,8 @@ Do ponownego odtworzenia (pliki zmienione po audycie, tor B): 042, 043 (D-284, `
 - 23:22 p4: 005 częściowo 2f4a260e (opcja A, D-318 292870c0): 393×852 OK rachunkiem, 320×568 niewykonalne w A → rola 04 (P); status zatwierdzone (otwarte) z uwagą; E2E #101 diagnoza: zgubiony dotyk symulatora (C/B), M2-p4-N8
 - 23:31 KO-008 (M9): 4b — 005 przy 320×568 opcja (a) przez rolę 04 (polecenie 04-studio-projektowe-p4b.md, D-319); M2-p4-N8 bez wdrożenia do decyzji właściciela; M9 uruchamia E2E na 292870c0
 - 00:02 4b: 005 d5a6dc4c (rola 04) + D-319 1c723632 → naprawione-do-weryfikacji; verify UTC/Tokyo 6831 kod 0; N9
+- 00:16 2026-11-10 00:17 UTC: koordynator aktywny session_01T66VByVFXN3K6UyZ9U7yZ8 (następca M9 session_01T66VBvnDeKWC3vg8bd7wL9, wg jego wiadomości); M2 czeka na E2E #103 (run 42725323063) na p4 1c723632
+- 01:19 E2E #103 na 1c723632: pl_PL czerwone — timeout startu sterownika XCUITest (klasa C, 95%), żaden przepływ pl nie ruszył; en 6/6, Basic 5/5; bez zmian w kodzie (KO-008); M2-p4-N10
 
 ## Czekające zgody i kroki właściciela
 - brak (partia 1 w toku)
