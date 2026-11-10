@@ -66,10 +66,10 @@ const now = 1_800_000_000_000;
 const start = now - 60_000;
 
 /** Plany prowadzenia wbudowanych receptur: zakwasowe (z planem), wersje drożdżowe z planem, plan bez receptury (garnek, żyto). */
-function planyWbudowane(): { nazwa: string; kroki: SessionStep[] }[] {
+function planyWbudowane(): { nazwa: string; kroki: SessionStep[]; tylko?: number }[] {
   const bake = (recipeId: string | undefined, isHighRye: boolean) =>
     stepsForBake({ id: 'p', recipeId, recipeName: 'p', startedAt: start, isHighRye } as Parameters<typeof stepsForBake>[0]);
-  const plany = [
+  const plany: { nazwa: string; kroki: SessionStep[]; tylko?: number }[] = [
     { nazwa: 'bez receptury (garnek)', kroki: bake(undefined, false) },
     { nazwa: 'bez receptury (żyto)', kroki: bake(undefined, true) },
   ];
@@ -83,7 +83,7 @@ function planyWbudowane(): { nazwa: string; kroki: SessionStep[] }[] {
   // Plan z „Ułóż plan” przy zakwasie z lodówki: pierwszy krok „Dokarmienie zakwasu z lodówki” (harmonogram.tsx, recenzja GEN-10)
   for (const p of [...plany]) {
     const zLodowki = withFridgeWake(p.kroki, { storageState: 'FRIDGE' });
-    if (zLodowki.length > p.kroki.length) plany.push({ nazwa: `${p.nazwa} (zakwas z lodówki)`, kroki: zLodowki });
+    if (zLodowki.length > p.kroki.length) plany.push({ nazwa: `${p.nazwa} (zakwas z lodówki)`, kroki: zLodowki, tylko: 0 });
   }
   return plany;
 }
@@ -96,8 +96,11 @@ interface Przypadek { opis: string; kroki: SessionStep[]; idx: number; faza: Dut
  */
 function przypadki(): Przypadek[] {
   const wynik = new Map<string, Przypadek>();
-  for (const { nazwa, kroki } of planyWbudowane()) {
+  // Plan z lodówki: tylko nowy krok (dokarmienie z lodówki); dalsze kroki to te same co w planie bazowym z numerem +1
+  // (pamięć Jest: każdy render to cały ekran)
+  for (const { nazwa, kroki, tylko } of planyWbudowane()) {
     kroki.forEach((k, idx) => {
+      if (tylko !== undefined && idx !== tylko) return;
       const fazy: DutchOvenBakePhase[] = isDutchOvenStep(k) ? ['lid_on', 'lid_off'] : ['lid_on'];
       for (const faza of fazy) {
         const ostrz = ostrzezeniaKroku(kroki, idx, isDutchOvenStep(k) ? faza : undefined);
@@ -169,6 +172,7 @@ describe('005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekran
     expect(opisy.some((o) => o.includes('(drożdże)'))).toBe(true);
     expect(opisy.some((o) => /\(zakwas z lodówki\) #1 /.test(o))).toBe(true);
     expect(PRZYPADKI.length).toBeGreaterThan(10);
+    console.log(`005: ${PRZYPADKI.length} przypadków`);
   });
 
   for (const e of EKRANY) {
