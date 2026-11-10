@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — kontrakt workflow zrzutów sklepu z symulatora iOS (KO-025, 2026-11-10; sesja J, D-352..D-355).
-// Workflow ma: nie mieć sekretów App Store Connect ani niczego nie wysyłać, budować Pro (EXPO_PUBLIC_E2E) i Basic,
+// Workflow ma: nie mieć sekretów App Store Connect ani niczego nie wysyłać, budować Pro (EXPO_PUBLIC_E2E; bez Basic od D-365),
 // przypiąć Maestro (wersja + SHA-256), robić 7 ramek z docs/wydanie/zrzuty/README.md dla lokalizacji z metadanych
 // i sprawdzać wymiary klas 6,9″ i 6,3″. Sam przebieg na macOS sprawdza GitHub Actions; ten test pilnuje kroków.
 // ============================================================================
@@ -72,13 +72,13 @@ describe('zrzuty-sklepu.yml: bezpieczeństwo (KO-025)', () => {
 });
 
 describe('zrzuty-sklepu.yml: build i Maestro', () => {
-  it('build Pro z EXPO_PUBLIC_E2E, build Basic bez flagi i z innym bundle JS', () => {
+  it('jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365)', () => {
     const pro = kroki.find((k) => /Build Release for simulator \(Pro/.test(k)) ?? '';
-    const basic = kroki.find((k) => /Build Release for simulator \(Basic/.test(k)) ?? '';
     expect(pro).toMatch(/EXPO_PUBLIC_E2E: '1'/);
-    expect(basic).not.toMatch(/EXPO_PUBLIC_E2E: /);
-    expect(basic).toMatch(/BUNDLE_PRO_SHA/);
+    expect(pro).toMatch(/zip -qry zrzuty-sklepu-app\.zip aplikacje/);
+    expect(kroki.filter((k) => /xcodebuild -workspace/.test(k))).toHaveLength(1);
     expect(wf.match(/EXPO_PUBLIC_E2E: '1'/g)).toHaveLength(1);
+    expect(wf).not.toMatch(/STORE_FAKE|aplikacje\/basic|APP_BASIC/);
   });
 
   it('Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev', () => {
@@ -97,10 +97,10 @@ describe('zrzuty-sklepu.yml: build i Maestro', () => {
 
 describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   const sceny = pliki(scenyDir);
-  it('jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zakup', () => {
+  it('jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)', () => {
     expect(ramki).toHaveLength(7);
     const nazwy = readdirSync(scenyDir).filter((f) => f.endsWith('.yaml')).map((f) => f.replace(/\.yaml$/, ''));
-    expect(nazwy.sort()).toEqual(['00-przygotuj', '00-zgoda', ...ramki, 'zakup', 'zakup-oferta'].sort());
+    expect(nazwy.sort()).toEqual(['00-przygotuj', '00-zgoda', ...ramki].sort());
   });
 
   it('skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7', () => {
@@ -135,13 +135,15 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     expect(przyg).toMatch(/- tapOn:\n {4}id: "zakladanie-pierwsze-dokarmienie-btn"\n(?:#[^\n]*\n)*- runFlow: sub\/okno-systemu\.yaml/);
   });
 
-  it('zakup: plik do review/ tylko z ofertą sklepu, bez oferty osobny katalog bez-oferty/', () => {
-    expect(skrypt).toMatch(/zakup-oferta[\s\S]*mv "\$TMP_ZAKUP" "\$OUT\/review\/zakup.png"[\s\S]*bez-oferty\/review/);
+  it('bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert', () => {
+    const bezKomentarzy = (t: string) => t.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
+    for (const t of [skrypt, wf]) expect(bezKomentarzy(t)).not.toMatch(/zakup\.yaml|zakup-oferta|bez-oferty|review\/zakup|ZAKUP/);
+    expect(e2e).toMatch(/test \.maestro\/e2e-zakup/);
     expect(JSON.parse(read('docs/wydanie/asc-zgloszenie.json')).zrzutZakupu).toBe('docs/wydanie/zrzuty/review/zakup.png');
   });
 });
 
-type Czesc = { rozmiar: string; katalog: string; czesc: string; jezyki: string; zakup: string };
+type Czesc = { rozmiar: string; katalog: string; czesc: string; jezyki: string; zakup?: string };
 type Plan = { matrix: { include: Czesc[] }; jezyki: string[]; rozmiary: string[] };
 const PLAN = join(root, 'scripts', 'ci', 'zrzuty-sklepu-plan.mjs');
 const planuj = (...a: string[]): Plan => JSON.parse(execFileSync(process.execPath, [PLAN, ...a], { encoding: 'utf8' }));
@@ -160,17 +162,16 @@ describe('plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs', () => {
     for (const c of w.matrix.include) for (const j of c.jezyki.split(' ')) expect(j).toMatch(/^[A-Za-z-]+:[A-Za-z-]+:[a-z]{2}_[A-Z]{2}$/);
   });
 
-  it('tylko=pl: dwa zadania (6,9″ i 6,3″), zakup w 6,9″ dla pierwszej lokalizacji, gdy brak en-US', () => {
+  it('tylko=pl: dwa zadania (6,9″ i 6,3″)', () => {
     const w = planuj('--tylko', 'pl');
-    expect(w.matrix.include.map((c) => [c.czesc, c.jezyki, c.zakup])).toEqual([
-      ['iphone-6.9-1', 'pl:pl:pl_PL', 'pl'],
-      ['iphone-6.3-1', 'pl:pl:pl_PL', ''],
+    expect(w.matrix.include.map((c) => [c.czesc, c.jezyki])).toEqual([
+      ['iphone-6.9-1', 'pl:pl:pl_PL'],
+      ['iphone-6.3-1', 'pl:pl:pl_PL'],
     ]);
   });
 
-  it('ekran zakupu dokładnie raz, en-US w 6,9″', () => {
-    const z = planuj().matrix.include.filter((c) => c.zakup);
-    expect(z.map((c) => [c.rozmiar, c.zakup])).toEqual([['6.9', 'en-US']]);
+  it('plan bez pola zakupu (D-365)', () => {
+    expect(planuj().matrix.include.filter((c) => 'zakup' in c)).toEqual([]);
   });
 
   it.each([

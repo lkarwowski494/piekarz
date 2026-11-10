@@ -1,8 +1,8 @@
 # Zrzuty sklepu (App Store Connect) z symulatora iOS: iPhone 17 Pro Max (6,9″, 1320 × 2868) i iPhone 17 Pro (6,3″, 1206 × 2622),
-# 7 ramek z docs/wydanie/zrzuty/README.md (sceny .maestro/zrzuty-sklepu/), lokalizacje z docs/wydanie/metadane/, plus ekran zakupu
-# dla App Review (`review/zakup.png`). Decyzja właściciela KO-025 (2026-11-10): natywnie jak w Oczku; zrzuty po teście telefonu
+# 7 ramek z docs/wydanie/zrzuty/README.md (sceny .maestro/zrzuty-sklepu/), lokalizacje z docs/wydanie/metadane/; ekran zakupu
+# dla App Review robi E2E z atrapą ofert (D-365, e2e-ios.yml). Decyzja właściciela KO-025 (2026-11-10): natywnie jak w Oczku; zrzuty po teście telefonu
 # właściciela, teraz tylko mechanizm. Wzór: oczko .github/workflows/zrzuty-sklepu.yml @ 87ade5a (gałąź claude/build3-2026-11-10).
-# Surowe zrzuty aplikacji, BEZ pasa podpisu (obecne ramki w repo mają podpis z generuj.mjs; decyzja D-352 w docs/decyzje.md).
+# Surowe zrzuty (zadanie zbierz, artefakt sklep-zrzuty) i ramki z podpisem jak w Treningu (zadanie ramki, artefakt sklep-ramki; D-363).
 # Bez sekretów App Store Connect i bez środowiska `release`; niczego nie wysyła (wysyłka zrzutów to osobny skrypt wydania, za zgodą właściciela).
 # Wyzwalacze: workflow_dispatch (działa, gdy plik jest na gałęzi domyślnej) albo push na gałąź `zrzuty-sklepu/**`
 # (gałąź tworzy koordynator za zgodą; zwykłe gałęzie napraw tego workflowu nie uruchamiają). Przy push wejścia z PIERWSZEJ linii
@@ -95,8 +95,8 @@ jobs:
         run: npm ci --legacy-peer-deps
       - name: Expo prebuild (iOS)
         run: npx expo prebuild --platform ios --clean
-      # Jak e2e-ios.yml: build z dostępem (EXPO_PUBLIC_E2E=1, pełny Pro — ramki 01 i 05 pokazują funkcje Pro), potem przyrostowy
-      # build Basic bez flagi do ekranu zakupu. testflight.yml odrzuca flagę w kroku „Guard against test/mock flags”.
+      # Jak e2e-ios.yml: build z dostępem (EXPO_PUBLIC_E2E=1, pełny Pro — ramki 01 i 05 pokazują funkcje Pro). Build Basic do ekranu
+      # zakupu usunięty (D-365: bez StoreKit dawał tylko ekran bez cen). testflight.yml odrzuca flagę w kroku „Guard against test/mock flags”.
       - name: Build Release for simulator (Pro, EXPO_PUBLIC_E2E)
         env:
           EXPO_PUBLIC_E2E: '1'
@@ -104,27 +104,11 @@ jobs:
           set -o pipefail
           WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
           SCHEME=$(basename "$WORKSPACE" .xcworkspace)
-          echo "SCHEME=$SCHEME" >> "$GITHUB_ENV"
           xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tee xcodebuild-pro.log | tail -n 80
           APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
-          echo "BUNDLE_PRO_SHA=$(shasum -a 256 "$APP/main.jsbundle" | cut -d ' ' -f 1)" >> "$GITHUB_ENV"
           mkdir -p aplikacje/pro && cp -R "$APP" aplikacje/pro/
-      - name: Build Release for simulator (Basic, without EXPO_PUBLIC_E2E)
-        run: |
-          set -o pipefail
-          if [ -n "${EXPO_PUBLIC_E2E:-}" ]; then echo "::error::EXPO_PUBLIC_E2E ustawiona — build Basic musi być bez dostępu E2E"; exit 1; fi
-          rm -rf "${TMPDIR:-/tmp}"/metro-* "${TMPDIR:-/tmp}"/haste-map-* node_modules/.cache/metro
-          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
-          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
-            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tee xcodebuild-basic.log | tail -n 80
-          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
-          if [ "$(shasum -a 256 "$APP/main.jsbundle" | cut -d ' ' -f 1)" = "$BUNDLE_PRO_SHA" ]; then
-            echo "::error::main.jsbundle Basic taki sam jak Pro — bundle nie zbudował się od nowa"; exit 1
-          fi
-          mkdir -p aplikacje/basic && cp -R "$APP" aplikacje/basic/
           zip -qry zrzuty-sklepu-app.zip aplikacje
           echo "Aplikacje: $(du -sh aplikacje | cut -f1)" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
@@ -145,7 +129,7 @@ jobs:
     if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
     runs-on: macos-26
     # 3 lokalizacje na zadanie: każda to restart symulatora, zimny start sterownika (do 12 min, D-330), 00-przygotuj i 7 scen
-    # (szacunek 25–35 min na lokalizację, recenzja J, P2) + zgoda i zakup; do zmierzenia w pierwszym przebiegu
+    # (szacunek 25–35 min na lokalizację, recenzja J, P2) + zgoda; do zmierzenia w pierwszym przebiegu
     timeout-minutes: 150
     strategy:
       fail-fast: false
@@ -218,12 +202,10 @@ jobs:
         env:
           KLASA: ${{ matrix.katalog }}
           JEZYKI: ${{ matrix.jezyki }}
-          ZAKUP: ${{ matrix.zakup }}
           CZESC: ${{ matrix.czesc }}
         run: |
           APP_PRO=$(ls -d aplikacje/pro/*.app | head -n 1)
-          APP_BASIC=$(ls -d aplikacje/basic/*.app 2>/dev/null | head -n 1); APP_BASIC=${APP_BASIC:--}
-          bash scripts/ci/zrzuty-sklepu.sh "$UDID" "$KLASA" zrzuty-surowe dzienniki "$APP_PRO" "$APP_BASIC" "$JEZYKI"
+          bash scripts/ci/zrzuty-sklepu.sh "$UDID" "$KLASA" zrzuty-surowe dzienniki "$APP_PRO" "$JEZYKI"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -272,7 +254,6 @@ jobs:
             case "$rel" in
               */iphone-6.9/*) [ "$wym" = 1320x2868 ] || { echo "::error::$rel: wymiar $wym ≠ 1320x2868"; bledy=$((bledy + 1)); } ;;
               */iphone-6.3/*) [ "$wym" = 1206x2622 ] || { echo "::error::$rel: wymiar $wym ≠ 1206x2622"; bledy=$((bledy + 1)); } ;;
-              review/zakup.png|bez-oferty/review/zakup.png) ;;
               *) echo "::error::$rel: nieznany katalog"; bledy=$((bledy + 1)) ;;
             esac
           done < <(find surowe -name '*.png' | sort)
@@ -282,8 +263,6 @@ jobs:
               [ -f "sklep-zrzuty/$kod/$klasa/$n.png" ] || { echo "::error::brak $kod/$klasa/$n.png"; bledy=$((bledy + 1)); }
             done
           done < <(printf '%s' "$MATRIX" | node -e 'const m=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const c of m.include)for(const j of c.jezyki.split(" "))console.log(c.katalog+" "+j.split(":")[0])')
-          if [ -f sklep-zrzuty/review/zakup.png ]; then echo "Ekran zakupu: review/zakup.png (z ofertą sklepu)" >> "$GITHUB_STEP_SUMMARY"
-          elif [ -f sklep-zrzuty/bez-oferty/review/zakup.png ]; then echo "::warning::Ekran zakupu tylko bez oferty sklepu (bez-oferty/review/zakup.png) — nie do App Review" ; fi
           echo "Pliki: $(find sklep-zrzuty -name '*.png' | wc -l | tr -d ' '), błędy: $bledy" | tee -a "$GITHUB_STEP_SUMMARY"
           [ "$bledy" -eq 0 ]
       - uses: actions/upload-artifact@v4

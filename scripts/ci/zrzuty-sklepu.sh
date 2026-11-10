@@ -6,14 +6,14 @@
 # Scena 03 w trybie ciemnym (jak obecna ramka) i ostatnia, bo zostawia trwający wypiek. Nieudana scena: jedno ponowienie;
 # po drugiej porażce wpis w `nieudane-<część>.txt`, reszta idzie dalej, kod wyjścia 1.
 # Zgoda na powiadomienia raz na zadanie w en-US (00-zgoda.yaml), potem lokalizacje bez ponownej instalacji aplikacji.
-# Ekran zakupu (opcjonalnie, `ZAKUP=<kod lokalizacji>`, po wszystkich lokalizacjach): aplikacja Basic (bez EXPO_PUBLIC_E2E), scena zakup.yaml, potem
-# zakup-oferta.yaml — z ofertą sklepu plik idzie do `review/zakup.png`, bez oferty do `bez-oferty/review/zakup.png` (ostrzeżenie).
+# Ekranu zakupu tu nie ma (D-365): bez StoreKit symulator nie dawał cen (`bez-oferty/`, D-353); zrzut zakupu robi E2E z atrapą
+# ofert (.maestro/e2e-zakup, e2e-ios.yml; docs/wydanie/zrzut-zakupu.md).
 # W logu tylko kody lokalizacji, nazwy plików i liczby (repo publiczne). Bez sekretów.
-# Użycie: bash scripts/ci/zrzuty-sklepu.sh <UDID> <katalog klasy, np. iphone-6.9> <wyjście> <dzienniki> <app Pro> <app Basic|-> "<kod:AppleLanguages:AppleLocale> …"
-# Zmienne: ZAKUP (kod lokalizacji ekranu zakupu albo puste), CZESC (nazwa części do nazw plików dziennika).
+# Użycie: bash scripts/ci/zrzuty-sklepu.sh <UDID> <katalog klasy, np. iphone-6.9> <wyjście> <dzienniki> <app Pro> "<kod:AppleLanguages:AppleLocale> …"
+# Zmienne: CZESC (nazwa części do nazw plików dziennika).
 set -uo pipefail
-UDID="$1"; KLASA="$2"; OUT="$3"; LOGI="$4"; APP_PRO="$5"; APP_BASIC="$6"; JEZYKI="$7"
-ZAKUP="${ZAKUP:-}"; CZESC="${CZESC:-$KLASA}"
+UDID="$1"; KLASA="$2"; OUT="$3"; LOGI="$4"; APP_PRO="$5"; JEZYKI="$6"
+CZESC="${CZESC:-$KLASA}"
 FLOWS="$(cd "$(dirname "$0")/../.." && pwd)/.maestro/zrzuty-sklepu"
 BUNDLE_ID="com.apps4brew.baker"
 # Kolejność: 03 ostatnia (zostawia trwający wypiek); pozostałe nie zmieniają danych.
@@ -91,32 +91,6 @@ for wpis in $JEZYKI; do
   xcrun simctl ui "$UDID" appearance light >/dev/null 2>&1 || true
   echo "::endgroup::"
 done
-
-# --- ekran zakupu po wszystkich lokalizacjach (aplikacja Basic zastępuje Pro) ---
-if [ -n "$ZAKUP" ]; then
-  wpis=$(printf '%s\n' $JEZYKI | grep "^$ZAKUP:" | head -1)
-  if [ -z "$wpis" ]; then echo "::error::ekran zakupu: lokalizacji $ZAKUP nie ma w tej części"; echo "$ZAKUP zakup" >> "$NIEUDANE"
-  else
-    IFS=: read -r KOD LANG_SYM LOCALE_SYM <<< "$wpis"
-    echo "::group::zakup $KOD"
-    jezyk "$LANG_SYM" "$LOCALE_SYM"
-    if [ "$APP_BASIC" = "-" ] || [ ! -d "$APP_BASIC" ]; then
-      echo "::error::ekran zakupu: brak aplikacji Basic"; echo "$KOD zakup" >> "$NIEUDANE"
-    else
-      instaluj "$APP_BASIC"
-      TMP_ZAKUP="$OUT/.zakup-$KOD.png"
-      if scena "$KOD" zakup "$TMP_ZAKUP"; then
-        if maestro_run "$KOD" zakup-oferta 1; then
-          mkdir -p "$OUT/review"; mv "$TMP_ZAKUP" "$OUT/review/zakup.png"; echo "zakup: oferta sklepu widoczna → review/zakup.png"
-        else
-          mkdir -p "$OUT/bez-oferty/review"; mv "$TMP_ZAKUP" "$OUT/bez-oferty/review/zakup.png"
-          echo "::warning::zakup: sklep nie zwrócił oferty na symulatorze (brak cen) — plik w bez-oferty/review/zakup.png, NIE do App Review"
-        fi
-      fi
-    fi
-    echo "::endgroup::"
-  fi
-fi
 
 xcrun simctl status_bar "$UDID" clear >/dev/null 2>&1 || true
 echo "Zrzuty ($CZESC): $(find "$OUT" -name '*.png' | wc -l | tr -d ' ') plików; nieudane: $(wc -l < "$NIEUDANE" | tr -d ' ')"

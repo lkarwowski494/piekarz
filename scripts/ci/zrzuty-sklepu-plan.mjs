@@ -30,9 +30,6 @@ export const JEZYK_SYMULATORA = {
   uk: ['uk', 'uk_UA'], vi: ['vi', 'vi_VN'], 'zh-Hant': ['zh-Hant', 'zh_TW'],
 };
 
-/** Lokalizacja ekranu zakupu dla App Review (`review/zakup.png`, jeden plik): en-US, gdy jest w przebiegu, inaczej pierwsza z listy. */
-export const JEZYK_ZAKUPU = 'en-US';
-
 /** Lokalizacje sklepu z katalogu metadanych (posortowane). */
 export function lokalizacjeSklepu(katalog = join(ROOT, 'docs', 'wydanie', 'metadane')) {
   return readdirSync(katalog).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)).sort();
@@ -48,8 +45,8 @@ export function parsujListe(tekst, dozwolone, nazwa) {
 }
 
 /**
- * Plan przebiegu: części po `naZadanie` lokalizacji dla każdego rozmiaru. Ekran zakupu robi jedna część (rozmiar 6.9,
- * część z JEZYK_ZAKUPU albo z pierwszą lokalizacją). Zwraca { matrix, jezyki, rozmiary } albo { blad }.
+ * Plan przebiegu: części po `naZadanie` lokalizacji dla każdego rozmiaru. Ekranu zakupu tu nie ma (D-365: E2E z atrapą ofert).
+ * Zwraca { matrix, jezyki, rozmiary } albo { blad }.
  */
 export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = lokalizacjeSklepu() } = {}) {
   const bezMapy = wszystkie.filter((k) => !JEZYK_SYMULATORA[k]);
@@ -60,7 +57,6 @@ export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = l
   if ('blad' in rozm) return rozm;
   const n = Number(naZadanie);
   if (!Number.isInteger(n) || n < 1 || n > 34) return { blad: 'na-zadanie: liczba całkowita 1–34' };
-  const zakup = jezyki.includes(JEZYK_ZAKUPU) ? JEZYK_ZAKUPU : jezyki[0];
   const include = [];
   for (const r of rozm) {
     for (let i = 0; i < jezyki.length; i += n) {
@@ -71,14 +67,8 @@ export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = l
         symulator: ROZMIARY[r].symulator,
         czesc: `${ROZMIARY[r].katalog}-${include.filter((x) => x.rozmiar === r).length + 1}`,
         jezyki: czesc.map((k) => `${k}:${JEZYK_SYMULATORA[k][0]}:${JEZYK_SYMULATORA[k][1]}`).join(' '),
-        zakup: r === '6.9' && czesc.includes(zakup) ? zakup : '',
       });
     }
-  }
-  // Zakup bez rozmiaru 6.9 w przebiegu: pierwsza część dowolnego rozmiaru, jeśli ma tę lokalizację
-  if (!include.some((x) => x.zakup)) {
-    const c = include.find((x) => x.jezyki.split(' ').some((j) => j.startsWith(`${zakup}:`)));
-    if (c) c.zakup = zakup;
   }
   return { matrix: { include }, jezyki, rozmiary: rozm };
 }
