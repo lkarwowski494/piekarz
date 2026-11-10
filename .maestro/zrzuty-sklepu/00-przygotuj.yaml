@@ -14,12 +14,13 @@ appId: com.apps4brew.baker
 # Zakwas: zakładanie od zera, pierwsze dokarmienie tworzy zakwas (BR-ZAKW-005)
 - tapOn:
     id: "tab-zakwasy"
-- extendedWaitUntil:
-    visible:
+- scrollUntilVisible:
+    element:
       id: "zakladanie-pierwsze-dokarmienie-btn"
-    timeout: 15000
 - tapOn:
     id: "zakladanie-pierwsze-dokarmienie-btn"
+# Okno zgody systemu po pierwszym dokarmieniu (E2E-96; recenzja J, P0); zwykle już rozstrzygnięte przez 00-zgoda.yaml
+- runFlow: sub/okno-systemu.yaml
 - extendedWaitUntil:
     visible:
       id: "zakwas-karta"

@@ -100,7 +100,7 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   it('jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zakup', () => {
     expect(ramki).toHaveLength(7);
     const nazwy = readdirSync(scenyDir).filter((f) => f.endsWith('.yaml')).map((f) => f.replace(/\.yaml$/, ''));
-    expect(nazwy.sort()).toEqual(['00-przygotuj', ...ramki, 'zakup', 'zakup-oferta'].sort());
+    expect(nazwy.sort()).toEqual(['00-przygotuj', '00-zgoda', ...ramki, 'zakup', 'zakup-oferta'].sort());
   });
 
   it('skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7', () => {
@@ -126,6 +126,15 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     for (const r of ramki) expect(readFileSync(join(scenyDir, `${r}.yaml`), 'utf8')).not.toMatch(/clearState: true/);
   });
 
+  it('okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu', () => {
+    const przed = skrypt.split('for wpis in $JEZYKI; do')[0];
+    const petla = skrypt.split('for wpis in $JEZYKI; do')[1].split('\ndone\n')[0];
+    expect(przed).toMatch(/jezyk en-US en_US\ninstaluj "\$APP_PRO"\nif ! maestro_run en-US 00-zgoda 1/);
+    expect(petla).not.toMatch(/instaluj/);
+    const przyg = readFileSync(join(scenyDir, '00-przygotuj.yaml'), 'utf8');
+    expect(przyg).toMatch(/- tapOn:\n {4}id: "zakladanie-pierwsze-dokarmienie-btn"\n(?:#[^\n]*\n)*- runFlow: sub\/okno-systemu\.yaml/);
+  });
+
   it('zakup: plik do review/ tylko z ofertą sklepu, bez oferty osobny katalog bez-oferty/', () => {
     expect(skrypt).toMatch(/zakup-oferta[\s\S]*mv "\$TMP_ZAKUP" "\$OUT\/review\/zakup.png"[\s\S]*bez-oferty\/review/);
     expect(JSON.parse(read('docs/wydanie/asc-zgloszenie.json')).zrzutZakupu).toBe('docs/wydanie/zrzuty/review/zakup.png');
@@ -142,9 +151,10 @@ const metadane = readdirSync(join(root, 'docs', 'wydanie', 'metadane')).filter((
 describe('plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs', () => {
   it('pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd)', () => {
     expect(metadane.length).toBeGreaterThanOrEqual(34);
-    const w = planuj('--na-zadanie', '4');
+    const w = planuj('--na-zadanie', '3');
     expect(w.jezyki).toEqual(metadane);
-    expect(w.matrix.include).toHaveLength(2 * Math.ceil(metadane.length / 4));
+    expect(w.matrix.include).toHaveLength(2 * Math.ceil(metadane.length / 3));
+    expect(wf).toContain('--na-zadanie 3');
     const wszystkie = w.matrix.include.filter((c) => c.rozmiar === '6.9').flatMap((c) => c.jezyki.split(' ').map((j) => j.split(':')[0]));
     expect(wszystkie).toEqual(metadane);
     for (const c of w.matrix.include) for (const j of c.jezyki.split(' ')) expect(j).toMatch(/^[A-Za-z-]+:[A-Za-z-]+:[a-z]{2}_[A-Z]{2}$/);

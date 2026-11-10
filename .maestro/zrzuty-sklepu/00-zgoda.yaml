@@ -1,0 +1,25 @@
+# Raz na zadanie, w en-US (scripts/ci/zrzuty-sklepu.sh): pierwsze dokarmienie wywołuje prośbę o zgodę na powiadomienia,
+# okno systemu ma wtedy angielski przycisk „Allow”. Decyzja systemu zostaje przy zmianie języka i przy clearState,
+# bo aplikacja nie jest instalowana ponownie [DO USTALENIA w pierwszym przebiegu: czy clearState Maestro jej nie kasuje].
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+    permissions:
+      notifications: allow
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn:
+    id: "tab-zakwasy"
+- scrollUntilVisible:
+    element:
+      id: "zakladanie-pierwsze-dokarmienie-btn"
+- tapOn:
+    id: "zakladanie-pierwsze-dokarmienie-btn"
+- runFlow: sub/okno-systemu.yaml
+- extendedWaitUntil:
+    visible:
+      id: "zakwas-karta"
+    timeout: 15000

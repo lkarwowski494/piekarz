@@ -1,0 +1,16 @@
+    ✓ kroki: eksport → kontrola logu → artefakt → sprzątanie poświadczeń (2 ms)
+    ✓ log eksportu ma maskowane identyfikatory klucza, wydawcy i zespołu (1 ms)
+    ✕ kontrola: wzorce (klucz, base64 klucza EC, JWT, Bearer, AuthKey) i prawdziwe wartości sekretów bez wielkości liter (2 ms)
+    ✕ trafienie albo błąd odczytu (grep ≥ 2) = log usunięty, bez artefaktu
+    ✕ sekrety tylko w env kroku, nigdy przez ${{ }} w run; nazwy certyfikatów maskowane (1 ms)
+    ✓ podsumowanie joba ma linie o symbolach (dSYM)
+    ✓ artefakt tylko po kontroli, tylko log eksportu, retencja ≤ 3 dni
+    ✕ wynik symboli: „Upload Symbols Failed” → wyjście build.symbole; osobne zadanie symbole pada, tag od niego nie zależy (KO-028) (1 ms)
+    ✕ krok po archiwum, przed kluczem .p8 i eksportem, bez sekretów (1 ms)
+    ✓ React: dSYM release z Maven tej samej wersji, do <archiwum>/dSYMs (1 ms)
+    ✓ ReactNativeDependencies: dSYM release z Maven tej samej wersji, do <archiwum>/dSYMs
+    ✓ hermesvm: dSYM release z Maven tej samej wersji, do <archiwum>/dSYMs
+    ✓ kontrole: curl -L (Maven przekierowuje), SHA-256 z pliku .sha256, UUID dSYM = UUID binarki w archiwum (1 ms)
+    ✓ wersje: React Native z node_modules, Hermes jak hermes-engine.podspec (V1, chyba że RCT_HERMES_V1_ENABLED=0)
+Tests:       5 failed, 9 passed, 14 total
+kod=1

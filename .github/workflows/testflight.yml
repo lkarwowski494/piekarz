@@ -92,6 +92,7 @@ jobs:
     outputs:
       version: ${{ steps.ver.outputs.version }}
       build_number: ${{ steps.ver.outputs.build_number }}
+      symbole: ${{ steps.log_eksportu.outputs.symbole }}
 
     steps:
       - name: Checkout
@@ -240,6 +241,12 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      # 032 (KO-028; D-356): React.framework, ReactNativeDependencies.framework i hermesvm.framework przychodzą z Maven jako
+      # binaria bez dSYM („Upload Symbols Failed” w TF #25). dSYM tej samej wersji z Maven, kontrola SHA-256 i UUID, do
+      # <archiwum>/dSYMs przed eksportem (uploadSymbols wysyła stamtąd). Bez sekretów; porażka = ostrzeżenie, wydanie idzie dalej.
+      - name: Add dSYMs of prebuilt React Native frameworks to archive
+        run: bash scripts/ci/dsym-ramy.sh "$RUNNER_TEMP/$APP_SCHEME.xcarchive"
+
       - name: Prepare App Store Connect API Key (.p8) after pod install & archive
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
@@ -329,28 +336,44 @@ jobs:
           tail -30 /tmp/xcodebuild-export.log
 
       # 032 (KO-025, 2026-11-10): pełny log eksportu i wysyłki jako artefakt — dowód, czy xcodebuild wysłał symbole (dSYM),
-      # bo tail -30 ich nie pokazuje (TF #25, job 129890129906). Log ma już zamaskowane KEY_ID, ISSUER_ID i TEAM_ID (sed wyżej);
-      # przed wysyłką artefaktu kontrola wzorców sekretów: przy trafieniu log jest usuwany i artefaktu nie ma (bez przerywania
-      # wydania, które już poszło). Ostrzeżenia o symbolach trafiają do podsumowania joba.
+      # bo tail -30 ich nie pokazuje (TF #25, job 129890129906). Kolejność: (1) „Upload Symbols Failed” → wyjście dla zadania
+      # `symbole` (KO-028; D-356); (2) maskowanie nazw certyfikatów i profili (dane osobowe właściciela); (3) kontrola sekretów:
+      # prawdziwe wartości KEY_ID, ISSUER_ID, TEAM_ID i treść klucza .p8 (bez rozróżniania wielkości liter) oraz wzorce
+      # (klucz prywatny, base64 klucza EC „MIG…”, JWT, Bearer, AuthKey_*.p8); trafienie albo błąd odczytu (grep ≥ 2) = log
+      # usunięty, bez artefaktu, bez przerywania wydania, które już poszło (recenzja J, P1). Linie o symbolach do podsumowania.
       - name: Full export log (secret scan, symbol warnings)
         id: log_eksportu
         if: always()
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID || '8NQ9GHY8GF' }}
         run: |
+          set +x
           LOG=/tmp/xcodebuild-export.log
-          if [ ! -s "$LOG" ]; then echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; echo "Brak logu eksportu (krok eksportu się nie wykonał)."; exit 0; fi
-          WZORY='BEGIN [A-Z ]*PRIVATE KEY|eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}|[Bb]earer [A-Za-z0-9._~+/=-]{20,}|AuthKey_[A-Z0-9]{6,16}\.p8'
-          # bez pipefail (domyślny bash -e): kod potoku = kod wc, więc brak trafień grep nie przerywa kroku
-          TRAFIENIA=$(grep -E "$WZORY" "$LOG" | wc -l | tr -d ' ')
-          if [ "$TRAFIENIA" -ne 0 ]; then
-            echo "::warning::Log eksportu ma $TRAFIENIA linii pasujących do wzorców sekretów — log usunięty, bez artefaktu."
-            rm -f "$LOG"; echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          echo "bezpieczny=true" >> "$GITHUB_OUTPUT"
+          niebezpieczny() { echo "::warning::$1 — log eksportu usunięty, bez artefaktu."; rm -f "$LOG"; echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          if [ ! -s "$LOG" ]; then echo "bezpieczny=false" >> "$GITHUB_OUTPUT"; echo "symbole=brak-logu" >> "$GITHUB_OUTPUT"; echo "Brak logu eksportu (krok eksportu się nie wykonał)."; exit 0; fi
+          # (1) symbole: test akceptacyjny 032 — log wysyłki bez „Upload Symbols Failed”
+          if grep -q 'Upload Symbols Failed' "$LOG"; then echo "symbole=nieudane" >> "$GITHUB_OUTPUT"; else echo "symbole=ok" >> "$GITHUB_OUTPUT"; fi
           SYMBOLE=$(grep -iE 'dsym|symbol' "$LOG" | sed -E 's/[[:space:]]+/ /g' | sort | uniq -c | sort -rn | head -20)
+          # (2) nazwy certyfikatów i profili (imię i nazwisko właściciela) przed podsumowaniem i artefaktem
+          sed -E -e 's/((Apple|iPhone|iOS) (Distribution|Development|Developer)): [^"()]*/\1: <NAZWA>/g' \
+            -e 's/(Provisioning Profile|profile)( name)?:? "[^"]*"/\1\2 "<PROFIL>"/g' "$LOG" > "$LOG.maska" && mv "$LOG.maska" "$LOG"
+          # (3) sekrety: wartości (stałe napisy, bez wielkości liter) i wzorce; kod grep ≥ 2 = nie wiadomo → bez artefaktu
+          umask 077; WARTOSCI="$RUNNER_TEMP/wartosci-sekretow.txt"; : > "$WARTOSCI"
+          for v in "$ASC_KEY_ID" "$ASC_ISSUER_ID" "$APPLE_TEAM_ID"; do if [ -n "$v" ]; then printf '%s\n' "$v" >> "$WARTOSCI"; fi; done
+          if [ -n "${KEY_PATH:-}" ] && [ -f "$KEY_PATH" ]; then grep -v -- '-----' "$KEY_PATH" | tr -d '\r\n' | fold -w 16 | awk 'length($0) == 16' >> "$WARTOSCI"; fi  # każdy fragment ≥ 31 znaków zawiera pełny kawałek
+          RC=0; grep -qiF -f "$WARTOSCI" "$LOG" || RC=$?
+          rm -f "$WARTOSCI"
+          [ "$RC" -eq 1 ] || niebezpieczny "Log zawiera wartość sekretu albo nie dał się sprawdzić (grep $RC)"
+          WZORY='BEGIN [A-Z ]*PRIVATE KEY|MIG[A-Za-z0-9+/]{40,}|eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}|[Bb]earer [A-Za-z0-9._~+/=-]{20,}|AuthKey_[A-Z0-9]{6,16}\.p8'
+          RC=0; grep -qE "$WZORY" "$LOG" || RC=$?
+          [ "$RC" -eq 1 ] || niebezpieczny "Log pasuje do wzorca sekretu albo nie dał się sprawdzić (grep $RC)"
+          echo "bezpieczny=true" >> "$GITHUB_OUTPUT"
           {
             echo "### Eksport: linie o symbolach (dSYM) — pełny log w artefakcie testflight-export-log-${GITHUB_RUN_NUMBER}"
             echo "Linii logu: $(wc -l < "$LOG" | tr -d ' '); linii o symbolach: $(grep -iE 'dsym|symbol' "$LOG" | wc -l | tr -d ' ')"
-            if [ -n "$SYMBOLE" ]; then echo '```'; printf '%s\n' "$SYMBOLE"; echo '```'; else echo "Brak linii o symbolach w logu."; fi
+            if [ -n "$SYMBOLE" ]; then echo '```'; printf '%s\n' "$SYMBOLE" | sed -E 's/((Apple|iPhone|iOS) (Distribution|Development|Developer)): [^"()]*/\1: <NAZWA>/g'; echo '```'; else echo "Brak linii o symbolach w logu."; fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload full export log (retention 3 days)
@@ -391,6 +414,25 @@ jobs:
           name: testflight-xcodebuild-logs-${{ github.run_number }}
           path: /tmp/xcodebuild-*.log
           retention-days: 1
+
+  # 032 (KO-028; D-356): test akceptacyjny „log wysyłki bez Upload Symbols Failed”. Osobne zadanie, żeby czerwony wynik
+  # nie blokował tagu i mapy źródeł wydania, które już poszło do TestFlight (zadanie tag zależy tylko od build).
+  symbole:
+    name: Symbole (dSYM) wysłane bez „Upload Symbols Failed”
+    needs: build
+    if: always() && needs.build.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check symbol upload result from export log
+        env:
+          SYMBOLE: ${{ needs.build.outputs.symbole }}
+        run: |
+          echo "Wynik wysyłki symboli: ${SYMBOLE:-brak}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$SYMBOLE" != ok ]; then
+            echo "::error::Log eksportu: ${SYMBOLE:-brak wyniku} — dSYM nie zostały wysłane w całości (032; pełny log w artefakcie testflight-export-log-*)"
+            exit 1
+          fi
 
   tag:
     name: Create Git Tag

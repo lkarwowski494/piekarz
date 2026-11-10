@@ -5,7 +5,8 @@
 # (restart na tych samych danych + nawigacja), po nim `xcrun simctl io screenshot` (natywne piksele, bez ramki Maestro).
 # Scena 03 w trybie ciemnym (jak obecna ramka) i ostatnia, bo zostawia trwający wypiek. Nieudana scena: jedno ponowienie;
 # po drugiej porażce wpis w `nieudane-<część>.txt`, reszta idzie dalej, kod wyjścia 1.
-# Ekran zakupu (opcjonalnie, `ZAKUP=<kod lokalizacji>`): aplikacja Basic (bez EXPO_PUBLIC_E2E), scena zakup.yaml, potem
+# Zgoda na powiadomienia raz na zadanie w en-US (00-zgoda.yaml), potem lokalizacje bez ponownej instalacji aplikacji.
+# Ekran zakupu (opcjonalnie, `ZAKUP=<kod lokalizacji>`, po wszystkich lokalizacjach): aplikacja Basic (bez EXPO_PUBLIC_E2E), scena zakup.yaml, potem
 # zakup-oferta.yaml — z ofertą sklepu plik idzie do `review/zakup.png`, bez oferty do `bez-oferty/review/zakup.png` (ostrzeżenie).
 # W logu tylko kody lokalizacji, nazwy plików i liczby (repo publiczne). Bez sekretów.
 # Użycie: bash scripts/ci/zrzuty-sklepu.sh <UDID> <katalog klasy, np. iphone-6.9> <wyjście> <dzienniki> <app Pro> <app Basic|-> "<kod:AppleLanguages:AppleLocale> …"
@@ -61,12 +62,20 @@ scena() {   # $1 = kod lokalizacji, $2 = scena, $3 = plik docelowy; dwie próby
   echo "$1 $2" >> "$NIEUDANE"; return 1
 }
 
+# --- zgoda na powiadomienia raz na zadanie, w en-US (okno systemu rozpoznawane tekstem „Allow”; recenzja J, P0) ---
+# Potem lokalizacje bez ponownej instalacji: decyzja systemu zostaje przy zmianie języka [DO USTALENIA: i przy clearState].
+jezyk en-US en_US
+instaluj "$APP_PRO"
+if ! maestro_run en-US 00-zgoda 1; then
+  echo "::warning::00-zgoda nieudane — okno zgody może zasłonić sceny w językach innych niż pl i en"
+  tail -15 "$LOGI/$CZESC-en-US-00-zgoda-1/maestro.log" | sed 's/^/    /'
+fi
+
 for wpis in $JEZYKI; do
   IFS=: read -r KOD LANG_SYM LOCALE_SYM <<< "$wpis"
   [ -n "$KOD" ] && [ -n "$LANG_SYM" ] && [ -n "$LOCALE_SYM" ] || { echo "::error::zły wpis lokalizacji: $wpis"; exit 2; }
   echo "::group::$KOD ($LANG_SYM, $LOCALE_SYM) $KLASA"
   jezyk "$LANG_SYM" "$LOCALE_SYM"
-  instaluj "$APP_PRO"
   if ! maestro_run "$KOD" 00-przygotuj 1; then
     echo "::warning::$KOD 00-przygotuj: próba 1 nieudana — ponawiam (scenariusz zaczyna od clearState)"
     tail -15 "$LOGI/$CZESC-$KOD-00-przygotuj-1/maestro.log" | sed 's/^/    /'
@@ -80,7 +89,17 @@ for wpis in $JEZYKI; do
     scena "$KOD" "$s" "$OUT/$KOD/$KLASA/$s.png"
   done
   xcrun simctl ui "$UDID" appearance light >/dev/null 2>&1 || true
-  if [ "$KOD" = "$ZAKUP" ]; then
+  echo "::endgroup::"
+done
+
+# --- ekran zakupu po wszystkich lokalizacjach (aplikacja Basic zastępuje Pro) ---
+if [ -n "$ZAKUP" ]; then
+  wpis=$(printf '%s\n' $JEZYKI | grep "^$ZAKUP:" | head -1)
+  if [ -z "$wpis" ]; then echo "::error::ekran zakupu: lokalizacji $ZAKUP nie ma w tej części"; echo "$ZAKUP zakup" >> "$NIEUDANE"
+  else
+    IFS=: read -r KOD LANG_SYM LOCALE_SYM <<< "$wpis"
+    echo "::group::zakup $KOD"
+    jezyk "$LANG_SYM" "$LOCALE_SYM"
     if [ "$APP_BASIC" = "-" ] || [ ! -d "$APP_BASIC" ]; then
       echo "::error::ekran zakupu: brak aplikacji Basic"; echo "$KOD zakup" >> "$NIEUDANE"
     else
@@ -95,9 +114,9 @@ for wpis in $JEZYKI; do
         fi
       fi
     fi
+    echo "::endgroup::"
   fi
-  echo "::endgroup::"
-done
+fi
 
 xcrun simctl status_bar "$UDID" clear >/dev/null 2>&1 || true
 echo "Zrzuty ($CZESC): $(find "$OUT" -name '*.png' | wc -l | tr -d ' ') plików; nieudane: $(wc -l < "$NIEUDANE" | tr -d ' ')"

@@ -6,7 +6,7 @@
 # Bez sekretów App Store Connect i bez środowiska `release`; niczego nie wysyła (wysyłka zrzutów to osobny skrypt wydania, za zgodą właściciela).
 # Wyzwalacze: workflow_dispatch (działa, gdy plik jest na gałęzi domyślnej) albo push na gałąź `zrzuty-sklepu/**`
 # (gałąź tworzy koordynator za zgodą; zwykłe gałęzie napraw tego workflowu nie uruchamiają). Przy push wejścia z PIERWSZEJ linii
-# komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [zrzuty-app:<numer przebiegu>]; brak = wszystkie lokalizacje i oba rozmiary.
+# komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [zrzuty-app:<ID przebiegu>]; brak = wszystkie lokalizacje i oba rozmiary.
 name: Zrzuty sklepu
 
 on:
@@ -25,7 +25,7 @@ on:
         type: string
         default: ''
       aplikacja_z_przebiegu:
-        description: 'Numer przebiegu TEGO workflowu z gotowymi aplikacjami (artefakt zrzuty-sklepu-app, 3 dni); puste = budowa (~40 min)'
+        description: 'ID przebiegu (run ID, długa liczba z adresu …/actions/runs/<ID>, nie #numer) TEGO workflowu z artefaktem zrzuty-sklepu-app (3 dni); puste = budowa (~40 min)'
         required: false
         type: string
         default: ''
@@ -72,7 +72,7 @@ jobs:
             app=$(printf '%s' "$linia" | sed -n 's/.*\[zrzuty-app:\([0-9][0-9]*\)\].*/\1/p' | head -1)
           fi
           case "$app" in ''|*[!0-9]*) [ -z "$app" ] || { echo "::error::aplikacja_z_przebiegu: tylko cyfry"; exit 1; } ;; esac
-          wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko "$tylko" --rozmiary "$rozmiary" --na-zadanie 4)
+          wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko "$tylko" --rozmiary "$rozmiary" --na-zadanie 3)
           matrix=$(printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));process.stdout.write(JSON.stringify(w.matrix))')
           { echo "matrix=$matrix"; echo "app_przebieg=$app"; } >> "$GITHUB_OUTPUT"
           printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));console.log(`Lokalizacje (${w.jezyki.length}): ${w.jezyki.join(", ")}; rozmiary: ${w.rozmiary.join(", ")}; zadania macOS: ${w.matrix.include.length}`)' | tee -a "$GITHUB_STEP_SUMMARY"
@@ -144,7 +144,9 @@ jobs:
     needs: [plan, build]
     if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
     runs-on: macos-26
-    timeout-minutes: 120
+    # 3 lokalizacje na zadanie: każda to restart symulatora, zimny start sterownika (do 12 min, D-330), 00-przygotuj i 7 scen
+    # (szacunek 25–35 min na lokalizację, recenzja J, P2) + zgoda i zakup; do zmierzenia w pierwszym przebiegu
+    timeout-minutes: 150
     strategy:
       fail-fast: false
       max-parallel: 4

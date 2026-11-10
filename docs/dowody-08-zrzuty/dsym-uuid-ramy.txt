@@ -1,0 +1,6 @@
+y/React.xcframework/ios-arm64/React.framework/React [(16777228, 'EE15B752-FB46-35F2-B0BB-A46636572385')]
+y/packages/react-native/third-party/ReactNativeDependencies.xcframework/ios-arm64/ReactNativeDependencies.framework/ReactNativeDependencies [(16777228, 'DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2')]
+y/destroot/Library/Frameworks/universal/hermesvm.xcframework/ios-arm64/hermesvm.framework/hermesvm [(16777228, 'BE274A23-47CC-3F5A-9E98-8474553DF5A8')]
+x/ios-arm64/React.framework.dSYM/Contents/Resources/DWARF/React [(16777228, 'EE15B752-FB46-35F2-B0BB-A46636572385')]
+x/ios-arm64/ReactNativeDependencies.framework.dSYM/Contents/Resources/DWARF/ReactNativeDependencies [(16777228, 'DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2')]
+x/iphoneos/hermesvm.framework.dSYM/Contents/Resources/DWARF/hermesvm [(16777228, 'BE274A23-47CC-3F5A-9E98-8474553DF5A8')]

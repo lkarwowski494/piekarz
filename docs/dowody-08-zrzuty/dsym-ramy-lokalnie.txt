@@ -1,0 +1,23 @@
+dSYM React: dodany (UUID EE15B752-FB46-35F2-B0BB-A46636572385)
+dSYM ReactNativeDependencies: dodany (UUID DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2)
+dSYM hermesvm: dodany (UUID BE274A23-47CC-3F5A-9E98-8474553DF5A8)
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 3 z 3
+rc=0
+React.framework.dSYM
+ReactNativeDependencies.framework.dSYM
+hermesvm.framework.dSYM
+--- kontrola negatywna: binarka hermesvm podmieniona na React
+dSYM React: dodany (UUID EE15B752-FB46-35F2-B0BB-A46636572385)
+dSYM ReactNativeDependencies: dodany (UUID DB4E1216-70C6-36F0-8A46-FDD48FCAE1F2)
+::warning::dSYM hermesvm: UUID niezgodny (aplikacja EE15B752-FB46-35F2-B0BB-A46636572385, dSYM BE274A23-47CC-3F5A-9E98-8474553DF5A8) — pominięty
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 2 z 3
+rc=0
+React.framework.dSYM
+ReactNativeDependencies.framework.dSYM
+--- kontrola negatywna: zła suma SHA-256 ReactNativeDependencies
+dSYM React: dodany (UUID EE15B752-FB46-35F2-B0BB-A46636572385)
+::warning::dSYM ReactNativeDependencies: SHA-256 niezgodne z Maven
+::warning::dSYM hermesvm: UUID niezgodny (aplikacja EE15B752-FB46-35F2-B0BB-A46636572385, dSYM BE274A23-47CC-3F5A-9E98-8474553DF5A8) — pominięty
+dSYM prebudowanych frameworków (RN 0.86.3, Hermes 250829098.0.17): dodane 1 z 3
+rc=0
+React.framework.dSYM

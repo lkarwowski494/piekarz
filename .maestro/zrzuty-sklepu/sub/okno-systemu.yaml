@@ -1,0 +1,17 @@
+# Okno zgody systemu iOS na powiadomienia (bez id; jak .maestro/e2e-basic/05-drugi-zakwas-pro.yaml, E2E-96): czekanie warunkowe
+# i stuknięcie. Tekst przycisku tylko pl i en — dlatego scripts/ci/zrzuty-sklepu.sh nadaje zgodę raz na zadanie w en-US
+# (00-zgoda.yaml), a lokalizacje idą potem bez ponownej instalacji aplikacji (decyzja systemu zostaje).
+appId: com.apps4brew.baker
+---
+- extendedWaitUntil:
+    visible:
+      text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    timeout: 15000
+    optional: true
+- runFlow:
+    when:
+      visible:
+        text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    commands:
+      - tapOn:
+          text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
