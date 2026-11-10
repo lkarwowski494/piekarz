@@ -37,7 +37,7 @@ export function PasProwadzenia({ gora, krok, numer, czas, czasEtykieta, potem, o
       podtytul={zwarty ? undefined : numerKroku} podtytulTestID="step-number" zwarty={zwarty}
       srodek={zwarty && numerKroku ? <Text testID="step-number" style={styles.numer} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={MIN_SKALA_NUMERU}>{numerKroku}</Text> : undefined}
       wstecz={{ etykieta: t('Wstecz'), onPress: onWstecz }} onLayout={onLayout}
-      akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={onPlan} onDoktor={onDoktor} />}>
+      akcje={<PrzyciskiProwadzenia naPasie ikony={zwarty} aktywny={aktywny} onPlan={onPlan} onDoktor={onDoktor} />}>
       {aktywny && <CzasKrokuNaPasie step={krok} formattedTime={czas} czasEtykieta={czasEtykieta} potem={potem} zwarty={zwarty} />}
     </PasZakladki>
   );

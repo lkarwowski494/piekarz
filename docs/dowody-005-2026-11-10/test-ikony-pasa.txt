@@ -1,0 +1,18 @@
+Test akcje-pasa-ikony-005 PRZED (kod 69af687c bez zmian w PrzyciskiProwadzenia/PasProwadzenia/IkonaKarty): kod 1
+    TypeError: Cannot read properties of undefined (reading 'doktor')
+    ✓ 393×852: przyciski z tekstem jak dotąd (szersze i wyższe ekrany bez zmian) (5 ms)
+    ✕ 320×568 bez wypieku: sam Doktor jako ikona (8 ms)
+    ✕ 320×568, fr: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (49 ms)
+    ✕ 320×568, id: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (46 ms)
+    ✕ 320×568, pl: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (63 ms)
+Tests:       4 failed, 1 passed, 5 total
+
+PO: 
+    ✓ 320×568, pl: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (84 ms)
+    ✓ 320×568, fr: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (48 ms)
+    ✓ 320×568, id: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (49 ms)
+    ✓ 320×568 bez wypieku: sam Doktor jako ikona (4 ms)
+    ✓ 393×852: przyciski z tekstem jak dotąd (szersze i wyższe ekrany bez zmian) (4 ms)
+Tests:       5 passed, 5 total
+kod 0
+Uwaga: przed — 3 przypadki 320×568 padają na braku eksportu IKONY_AKCJI_PASA (TypeError), przypadek „bez wypieku” z właściwego powodu (tekst „Doktor” na przycisku); 393×852 zielony przed i po (bez zmian, zamierzone).

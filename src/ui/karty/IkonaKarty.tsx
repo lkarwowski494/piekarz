@@ -6,6 +6,7 @@
 
 import React from 'react';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
+import type { ColorValue } from 'react-native';
 import { theme } from '../theme';
 
 export type NazwaIkonyKarty =
@@ -13,8 +14,9 @@ export type NazwaIkonyKarty =
   | 'bochenek' | 'miska' | 'pizza' | 'ksiazka' | 'receptury' | 'gwiazda' | 'termometr' | 'ptaszek' | 'zebatka'
   | 'dzwonek' | 'dysk' | 'jezyk' | 'koszyk';
 
-export function IkonaKarty({ nazwa, rozmiar = 24 }: { nazwa: NazwaIkonyKarty; rozmiar?: number }) {
-  const p = { fill: 'none', stroke: theme.colors.ratan, strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+/** `kolor`: domyślnie `ratan` (nagłówek karty); na pasie prowadzenia `naPasie` (akcje pasa jako ikony, D-337). */
+export function IkonaKarty({ nazwa, rozmiar = 24, kolor = theme.colors.ratan }: { nazwa: NazwaIkonyKarty; rozmiar?: number; kolor?: ColorValue }) {
+  const p = { fill: 'none', stroke: kolor, strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
   return (
     <Svg width={rozmiar} height={rozmiar} viewBox="0 0 24 24" accessible={false} testID={`ikona-karty-${nazwa}`}>
       {nazwa === 'sloik' && (

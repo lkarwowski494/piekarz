@@ -47,7 +47,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Więcej działań: receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | src/lib/__tests__/menu-receptury.test.ts, src/__tests__/pas-zakladek-d10.test.tsx |
 | `TEKST` | `Więcej` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Doktor zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | tests/nawigacja-d051.test.tsx, src/lib/__tests__/zakwas-widok.test.tsx |
-| `TEKST` | `Wstecz` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/__tests__/doktor-pas-p5.test.tsx, src/__tests__/pas-zakladek-d10.test.tsx |
+| `TEKST` | `Wstecz` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/__tests__/akcje-pasa-ikony-005.test.tsx, src/__tests__/doktor-pas-p5.test.tsx |
 | `TEKST` | `Co widzisz?` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx, src/__tests__/zakwasy-karty-p2.test.tsx |
 | `TEKST` | `Dzień {n}` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/lib/__tests__/zakwas-widok.test.tsx |
 | `TEKST` | `Brak danych o karmieniu` | `app/(tabs)/zakwasy/index.tsx` | ✅ | src/__tests__/brak-to-brak-026.test.tsx |
