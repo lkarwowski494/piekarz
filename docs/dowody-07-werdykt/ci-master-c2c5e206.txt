@@ -1,0 +1,8 @@
+Odczyt MCP GitHub 2026-11-10 (actions_list list_workflow_runs, branch master), ostatni przebieg każdego workflowu:
+CI #255 run 42870147640 push head_sha c2c5e206 success
+Tests across Timezones #215 run 42870147677 push head_sha c2c5e206 success
+Nightly #29 run 42870153152 workflow_dispatch head_sha c2c5e206 success (wcześniej #28 run 42848440921 na 540229c9 failure: tests/dziennik-wydan-tagi-079.test.ts:42, build 1025 bez wiersza dziennika; naprawione wpisem w 26c32d7 — tylko docs)
+iOS E2E #108 run 42827869574 push head_sha 540229c9 success (na c2c5e206 brak przebiegu; 540229c9..c2c5e206 = 7 plików, wszystkie w docs/)
+iOS E2E #107 run 42806813060 workflow_dispatch head_sha 540229c9 (gałąź redesign) success; artefakt maestro-e2e id 13769371444, sha256 8b096c107dfbb62a98d1e288b4fbee4fe15dbdff0f27159c18204f6c4af64c84
+  JUnit: pl 6/6 SUCCESS, en 6/6 SUCCESS, basic 5/5 SUCCESS, failures 0; urządzenie iPhone 17 Pro - iOS 26.5
+Build & Upload to TestFlight #25 run 42827876117 head_sha 540229c9 success (build 1.0.0 (1025)); joby: E2E na tym SHA, Jest w 7 strefach, Archive & Upload, tag

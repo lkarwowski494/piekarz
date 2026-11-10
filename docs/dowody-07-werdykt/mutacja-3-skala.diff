@@ -1,0 +1,13 @@
+diff --git a/src/components/stolnica/PasProwadzenia.tsx b/src/components/stolnica/PasProwadzenia.tsx
+index 975b312..b01ba90 100644
+--- a/src/components/stolnica/PasProwadzenia.tsx
++++ b/src/components/stolnica/PasProwadzenia.tsx
+@@ -44,7 +44,7 @@ export function PasProwadzenia({ gora, krok, numer, czas, czasEtykieta, potem, o
+ }
+ 
+ /** Najmniejsza skala numeru kroku w zwartym pasie (KO-017, D-336): jak czas kroku, jeden wiersz zamiast łamania na znaki. */
+-export const MIN_SKALA_NUMERU = 0.7;
++export const MIN_SKALA_NUMERU = 0.5;
+ /** Najmniejsza szerokość numeru (pt): gdy wstecz, numer i akcje pasa nie mieszczą się w rzędzie, akcje schodzą niżej (KO-017, D-336). */
+ export const MIN_SZER_NUMERU = 88;
+ 

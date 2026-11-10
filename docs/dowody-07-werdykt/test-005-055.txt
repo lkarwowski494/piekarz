@@ -1,0 +1,19 @@
+PASS tests/duzy-tekst-kroj.test.ts
+PASS src/__tests__/akcje-pasa-ikony-005.test.tsx (7.346 s)
+(node:712) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/ostrzezenie-nad-karta-005.test.tsx (142.62 s)
+  ● Console
+
+    console.log
+      005: 34 przypadków
+
+      at Object.log (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:175:13)
+
+
+Test Suites: 3 passed, 3 total
+Tests:       116 passed, 116 total
+Snapshots:   0 total
+Time:        143.431 s
+Ran all test suites matching /src\/__tests__\/ostrzezenie-nad-karta-005.test.tsx|src\/__tests__\/akcje-pasa-ikony-005.test.tsx|tests\/duzy-tekst-kroj.test.ts/i.
+kod=0
