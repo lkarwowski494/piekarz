@@ -32,6 +32,9 @@ jobs:
           - Pacific/Auckland
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Pełna historia z tagami: test 079 sprawdza każdy tag v*-b* (M1-audytor-generalny-110, D-331)
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22

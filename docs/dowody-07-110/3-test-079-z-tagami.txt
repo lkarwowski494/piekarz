@@ -1,0 +1,18 @@
+=== pełny klon (fetch-depth: 0), HEAD b7c77c37
+    ✓ tag v*-b* → wiersz z tym buildem i SHA tagu (skrót) (79 ms)
+    ✓ build 1023: SHA 2ef8870, kanał TestFlight, zgoda D-272 (2 ms)
+    ✓ Z-1 w dzienniku słowami właściciela z datą (1 ms)
+    ✓ sklep.md §3: ZABLOKOWANE na ebd8471 nie jest bieżącą blokadą, droga przez M1 i reaudyt (D-225) (2 ms)
+    ✓ plan-wydania-1.0.md §1 pkt 3 rozstrzygnięty przez D-225, bez [DO USTALENIA] (1 ms)
+Tests:       5 passed, 5 total
+kod 0
+=== płytki klon (--depth 1, jak actions/checkout domyślnie), HEAD b7c77c3, tagi v*-b*: 0
+    ✕ tag v*-b* → wiersz z tym buildem i SHA tagu (skrót) (8 ms)
+    ✓ build 1023: SHA 2ef8870, kanał TestFlight, zgoda D-272 (1 ms)
+    ✓ Z-1 w dzienniku słowami właściciela z datą (1 ms)
+    ✓ sklep.md §3: ZABLOKOWANE na ebd8471 nie jest bieżącą blokadą, droga przez M1 i reaudyt (D-225) (1 ms)
+    ✓ plan-wydania-1.0.md §1 pkt 3 rozstrzygnięty przez D-225, bez [DO USTALENIA] (1 ms)
+    Expected: > 0
+    Received:   0
+Tests:       1 failed, 4 passed, 5 total
+kod 1

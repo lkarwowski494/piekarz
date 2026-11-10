@@ -1,0 +1,26 @@
+# npm run verify — drzewo z poprawką 110 (workflowy, strażnik, D-331); po przebiegu doszły tylko docs/stan-07-n10-2026-11-10.md i pliki dowodów, 2026-11-10
+# lint: 0 błędów (2 ostrzeżenia w app/src sprzed zmiany; app/src nietknięte)
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+> piekarz@1.0.0 lint
+> eslint app src
+✖ 2 problems (0 errors, 2 warnings)
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+> piekarz@1.0.0 test
+> jest
+Test Suites: 656 passed, 656 total
+Tests:       6849 passed, 6849 total
+VERIFY_EXIT=0
