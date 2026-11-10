@@ -91,3 +91,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 09.11 23:31 | M9 | C koniec partii 4: p4 @ `292870c0` (sprawdzone: log, przodek `d04c94ca`), K @ `b4b0b8f2`; D-317, D-318; diagnoza #101 (dotyk symulatora); E2E #102 wyzwolony; KO-008 → C partia 4b | kontrola 00:14 |
 | 10.11 00:04 | M9 | C koniec 4b: p4 @ `1c723632` (sprawdzone: log, przodek `292870c0`), K @ `b7afc26d`; C 17%; E2E #103 wyzwolony (KO-009) | kontrola 00:14, wynik #103 ~01:15 |
 | 10.11 00:16 | M9 | Kontrola: #103 w toku, C idle 17%; własny kontekst 30,5% → przekazanie koordynatora (E6) | następca |
+| 10.11 00:17 | M9 | przekazane do `session_01T66VByVFXN3K6UyZ9U7yZ8` (create_session OK, PENDING); moje przypomnienia raport poranny i linia 14:00 usunięte; „kontrola przekazania” za 30 min (następca usuwa). Archiwizacja poprzedniczek (M3 `…wuR25xmeQCZYdPG2r`, A `…x5s4zkdFqT2gZ5CDQ`) odrzucana przez klasyfikator | przejęcie E6 pkt 5 |
