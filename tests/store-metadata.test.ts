@@ -155,7 +155,10 @@ describe('notatki dla App Review (078)', () => {
     }
     expect(notatki).toMatch(/Sleep Guard/);
     expect(notatki).toMatch(/Basic is free forever, with no trial/);
-    expect(notatki).not.toMatch(/introductory offer|Free Trial/i);
+    // KO-025 (Z-8, 2026-11-10): notatka mówi wprost „no introductory offer and no free trial”; zakazana jest tylko
+    // obietnica próby albo oferty (wyraz bez poprzedzającego „no”), jak w kontrakcie D-038
+    expect(notatki).toMatch(/no introductory offer and no free trial/);
+    expect(notatki.replace(/no introductory offer and no free trial/g, '')).not.toMatch(/introductory offer|Free Trial/i);
   });
 
   // M1-audytor-generalny-081 (10-wydanie-006, WYD-11): tryb maszyny do chleba (godzina gotowości i opóźniony start w Pro,

@@ -1,0 +1,3 @@
+$ node sprawdz-wydanie.mjs metadane store-przed.json  (stan 2047ab00)
+OK
+kod wyjścia: 0
