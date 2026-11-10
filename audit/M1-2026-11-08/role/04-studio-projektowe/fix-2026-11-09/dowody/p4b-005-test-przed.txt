@@ -1,0 +1,67 @@
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+(node:16662) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+FAIL src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx
+  ● 005: karta kroku i ostrzeżenie w pierwszym ekranie prowadzenia › 320×568, pl: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 376
+    Received:    723
+
+      150 |       const naPasie = ['step-title', 'step-number', 'step-time', 'step-next'].filter((id) => tree.root.findAll((n) => n.props?.testID === id).length > 0);
+      151 |       act(() => tree.unmount());
+    > 152 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+          |                                             ^
+      153 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      154 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+      155 |     });
+
+      at Object.toBeLessThanOrEqual (src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx:152:45)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: karta kroku i ostrzeżenie w pierwszym ekranie prowadzenia › 320×568, en: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 376
+    Received:    704
+
+      150 |       const naPasie = ['step-title', 'step-number', 'step-time', 'step-next'].filter((id) => tree.root.findAll((n) => n.props?.testID === id).length > 0);
+      151 |       act(() => tree.unmount());
+    > 152 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+          |                                             ^
+      153 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      154 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+      155 |     });
+
+      at Object.toBeLessThanOrEqual (src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx:152:45)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● 005: karta kroku i ostrzeżenie w pierwszym ekranie prowadzenia › 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku ani ostrzeżenia
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 597
+    Received:    654
+
+      168 |     expect(Math.round(karta.y + karta.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+      169 |     // Rola 04 p4b: przy przełączniku pasek kciuka w jednym rzędzie — ostrzeżenie nie chowa się pod przełącznikiem
+    > 170 |     expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+          |                                           ^
+      171 |   });
+      172 |
+      173 |   it('E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania', () => {
+
+      at Object.toBeLessThanOrEqual (src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx:170:43)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       3 failed, 8 passed, 11 total
+Snapshots:   0 total
+Time:        2.379 s
+Ran all test suites matching /src\/__tests__\/karta-kroku-pierwszy-ekran-005.test.tsx|src\/ui\/__tests__\/tokeny-zgodnosc.test.ts/i.
+kod 1

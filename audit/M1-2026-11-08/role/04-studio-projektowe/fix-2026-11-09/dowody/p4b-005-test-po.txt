@@ -1,0 +1,27 @@
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+  src/ui/tokeny.ts zgodny z docs/design/tokeny.json
+    ✓ kolory: te same cztery warianty i te same wartości (4 ms)
+    ✓ każdy wariant ma ten sam zestaw kluczy kolorów (1 ms)
+    ✓ odstępy, promienie i cele dotykowe
+    ✓ typografia
+    ✓ ruch i haptyka
+
+(node:21945) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx
+  005: karta kroku i ostrzeżenie w pierwszym ekranie prowadzenia
+    ✓ 393×852, pl: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (328 ms)
+    ✓ 393×852, en: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (89 ms)
+    ✓ 320×568, pl: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (84 ms)
+    ✓ 320×568, en: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (78 ms)
+    ✓ próg niskiego ekranu z tokenu: 568 i 667 pt zwarte, 852 pt nie; przy dużym tekście (AX, fontScale ≥ 2) układ zwykły (4 ms)
+    ✓ 320×568 przy AX5 (fontScale 3,1): nic nie znika — pas i pasek kciuka zwykłe, wszystkie elementy prowadzenia są (68 ms)
+    ✓ 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku ani ostrzeżenia (74 ms)
+    ✓ E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania (4 ms)
+
+Test Suites: 2 passed, 2 total
+Tests:       13 passed, 13 total
+Snapshots:   0 total
+Time:        2.003 s, estimated 3 s
+Ran all test suites matching /src\/__tests__\/karta-kroku-pierwszy-ekran-005.test.tsx|src\/ui\/__tests__\/tokeny-zgodnosc.test.ts/i.
+kod 0

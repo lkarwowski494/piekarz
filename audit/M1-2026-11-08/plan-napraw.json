@@ -634,8 +634,8 @@
       "decyzja": null,
       "raport": "role/04-studio-projektowe/04-studio-projektowe-2026-11-08.md",
       "test_akceptacyjny": "na 320 pt i 393 pt instrukcja kroku i ostrzeżenie bezpieczeństwa są w pierwszym ekranie prowadzenia (zrzut z telefonu właściciela lub test układu)",
-      "status": "zatwierdzone",
-      "commit": "2f4a260e",
+      "status": "naprawione-do-weryfikacji",
+      "commit": "2f4a260e, d5a6dc4c",
       "reaudyt": {
         "petla": 1,
         "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
@@ -643,7 +643,7 @@
       },
       "zatwierdzenie": "koordynator M9, KO-007, tryb D-289, 2026-11-09 22:30",
       "przyczyna": null,
-      "uwagi": "nadal otwarte (P1); częściowo 2f4a260e (opcja A, D-318): 393×852 spełnione rachunkiem; 320×568 niewykonalne w opcji A — decyzja roli 04 (a zwarty pas i pasek kciuka w jednym rzędzie, rekomendacja / b przewinięcie / c przyjęcie); dwa wypieki przy 393: ostrzeżenie ok. 56 pt pod przełącznikiem; zrzuty i E2E iOS na SHA p4"
+      "uwagi": "D-318 (opcja A) + D-319 (niski ekran); zrzuty Expo web 320/375/393 w role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*; otwarte brzegowe M2-p4-N9 (320 + dwa wypieki); zrzuty iOS i AX5 — E2E"
     },
     {
       "id": "M1-audytor-generalny-006",

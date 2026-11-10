@@ -1,0 +1,29 @@
+// Tylko zrzuty Expo web (scratchpad, nie repo): ten sam wypiek co test 005 (pierwszy krok — dokarmienie zakwasu z
+// ostrzeżeniem), potem Stolnica z ?wypiek=bake_chleb. ?jezyk=en, ?dwa=1 (drugi wypiek: Pizza, krok 2).
+import { useEffect } from 'react';
+import { Text } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { initDatabase } from '../src/data/sqlite-store';
+import { planBakeSteps } from '../src/core/bake-steps';
+import { saveBakeSession, type BakeSession } from '../src/data/bake-session-store';
+import { setLang } from '../src/lib/i18n';
+export default function Zrzut() {
+  const { jezyk, dwa } = useLocalSearchParams<{ jezyk?: string; dwa?: string }>();
+  const router = useRouter();
+  useEffect(() => {
+    void (async () => {
+      setLang(jezyk === 'en' ? 'en' : 'pl');
+      await initDatabase();
+      const now = Date.now();
+      const kroki = planBakeSteps({ startAt: now - 60_000, isHighRye: false });
+      const w = (id: string, nazwa: string, stepIdx: number): BakeSession => ({ version: 2, steps: kroki, stepIdx, dutchOvenPhase: 'lid_on',
+        timerEndsAt: now + 30 * 60_000, pausedLeftSec: null, recipeName: nazwa, startedAt: now - 60_000,
+        bake: { id, recipeName: nazwa, startedAt: now - 60_000, currentStageId: kroki[stepIdx].id, zaczetyZDostepem: true } });
+      await saveBakeSession(null);
+      await saveBakeSession(w('bake_chleb', 'Wiejski chleb codzienny na zakwasie', 0));
+      if (dwa === '1') await saveBakeSession(w('bake_pizza', 'Pizza', 1));
+      router.replace('/stolnica?wypiek=bake_chleb');
+    })();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  return <Text>…</Text>;
+}
