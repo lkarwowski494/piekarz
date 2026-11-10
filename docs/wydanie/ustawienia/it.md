@@ -77,7 +77,7 @@ BUONO A SAPERSI
 Fornaio funziona su iPhone e non sincronizza i dati tra dispositivi; i dati si trasferiscono con il file di backup.
 
 ACCESSO E ACQUISTO
-Basic è gratuito per sempre, senza periodo di prova. Pro aggiunge la pianificazione, la cura del lievito madre, più lieviti madre e più ricette. Pro è un abbonamento mensile o annuale oppure un acquisto a vita una tantum sull'App Store. L'abbonamento si rinnova automaticamente finché non lo annulli: in Impostazioni tocca il tuo nome, poi Abbonamenti. Su un nuovo iPhone, tocca «Ripristina acquisti» nell’app.
+Basic è gratuito per sempre, senza periodo di prova. Pro aggiunge la pianificazione, la cura del lievito madre, più lieviti madre e più ricette. Pro è un abbonamento mensile o annuale oppure un acquisto a vita una tantum sull'App Store. L'abbonamento si rinnova automaticamente finché non lo annulli: in Impostazioni tocca il tuo nome, poi Abbonamenti. Su un nuovo iPhone, tocca «Ripristina acquisti» nell'app.
 Termini di utilizzo (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Lingue: 35.

@@ -76,7 +76,7 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 | **Promotional Text** | `Baker works out the amounts and tells you when each step ends. A plan back from the time you want bread ready (Pro). No account, no internet, no ads.` | **149** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 550 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 552 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -109,7 +109,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file.
 
 ACCESS AND PURCHASE
-Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.
+Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap "Restore Purchases" in the app.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
@@ -285,7 +285,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 552 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 554 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready (Pro) and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -318,7 +318,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file.
 
 ACCESS AND PURCHASE
-Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.
+Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap "Restore Purchases" in the app.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.

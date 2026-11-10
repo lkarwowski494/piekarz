@@ -77,7 +77,7 @@ PERLU DIKETAHUI
 Tukang Roti berjalan di iPhone dan tidak menyinkronkan data antarperangkat; data dipindahkan dengan file cadangan.
 
 AKSES DAN PEMBELIAN
-Basic gratis selamanya, tanpa masa uji coba. Pro menambahkan perencanaan, perawatan starter, serta lebih banyak starter dan resep. Pro tersedia sebagai langganan bulanan atau tahunan, atau pembelian satu kali untuk akses seumur hidup di App Store. Langganan diperpanjang secara otomatis hingga Anda membatalkannya: di Pengaturan, ketuk nama Anda, lalu Langganan. Di iPhone baru, ketuk “Pulihkan Pembelian” di app.
+Basic gratis selamanya, tanpa masa uji coba. Pro menambahkan perencanaan, perawatan starter, serta lebih banyak starter dan resep. Pro tersedia sebagai langganan bulanan atau tahunan, atau pembelian satu kali untuk akses seumur hidup di App Store. Langganan diperpanjang secara otomatis hingga Anda membatalkannya: di Pengaturan, ketuk nama Anda, lalu Langganan. Di iPhone baru, ketuk "Pulihkan Pembelian" di app.
 Ketentuan Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Bahasa: 35.

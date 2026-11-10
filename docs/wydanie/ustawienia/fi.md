@@ -44,7 +44,7 @@ taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resept
 Leipuri laskee määrät ja kertoo vaiheiden päättymisestä. Aikataulu taaksepäin siitä ajasta, jolloin leivän pitää olla valmis (Pro). Ei tiliä, nettiä eikä mainoksia.
 ```
 
-### Opis (Description) · 3645 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3652 / 4000 znaków · wersja 1.0
 
 ```text
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
@@ -77,7 +77,7 @@ HYVÄ TIETÄÄ
 Leipuri toimii iPhonessa eikä synkronoi tietoja laitteiden välillä; tiedot siirretään varmuuskopiotiedostolla.
 
 KÄYTTÖOIKEUS JA OSTO
-Basic on ilmainen ikuisesti, ilman kokeilujaksoa. Pro tuo lisäksi suunnittelun, hapanjuuren hoidon sekä lisää hapanjuuria ja reseptejä. Pro on kuukausi- tai vuositilaus tai kertaosto elinikäiseen käyttöön App Storessa. Tilaus uusiutuu automaattisesti, kunnes perut sen: napauta Asetuksissa nimeäsi ja sitten Tilaukset. Uudessa iPhonessa napauta apissa ”Palauta ostot”.
+Basic on ilmainen ikuisesti, ilman kokeilujaksoa. Pro tuo lisäksi suunnittelun, hapanjuuren hoidon sekä lisää hapanjuuria ja reseptejä. Pro on kuukausi- tai vuositilaus tai kertaosto elinikäiseen käyttöön App Storessa. Tilaus uusiutuu automaattisesti, kunnes perut sen: napauta Asetuksissa nimeäsi ja sitten Tilaukset. Uudessa iPhonessa napauta sovelluksessa ”Palauta ostot”.
 Käyttöehdot (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Kielet: 35.

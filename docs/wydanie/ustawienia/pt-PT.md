@@ -77,7 +77,7 @@ BOM SABER
 O Padeiro funciona no iPhone e não sincroniza dados entre dispositivos; os dados são transferidos com o ficheiro de cópia de segurança.
 
 ACESSO E COMPRA
-O Basic é gratuito para sempre, sem período experimental. O Pro acrescenta planeamento, cuidados com o fermento natural, mais fermentos naturais e mais receitas. O Pro é uma subscrição mensal ou anual, ou uma compra vitalícia única na App Store. A subscrição é renovada automaticamente até a cancelar: em Definições, toque no seu nome e, depois, em Subscrições. Num novo iPhone, toque em “Restaurar compras” na app.
+O Basic é gratuito para sempre, sem período experimental. O Pro acrescenta planeamento, cuidados com o fermento natural, mais fermentos naturais e mais receitas. O Pro é uma subscrição mensal ou anual, ou uma compra vitalícia única na App Store. A subscrição é renovada automaticamente até a cancelar: em Definições, toque no seu nome e, depois, em Subscrições. Num novo iPhone, toque em «Restaurar compras» na app.
 Termos de Utilização (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.

@@ -77,7 +77,7 @@ BON À SAVOIR
 Mitron fonctionne sur iPhone et ne synchronise pas les données entre appareils ; vous les transférez avec un fichier de sauvegarde.
 
 ACCÈS ET ACHAT
-Basic est gratuit pour toujours, sans période d'essai. Pro ajoute la planification, l'entretien du levain naturel, davantage de levains et de recettes. Pro est un abonnement mensuel ou annuel, ou un achat unique à vie sur l'App Store. L’abonnement se renouvelle automatiquement jusqu’à ce que vous l’annuliez : dans Réglages, touchez votre nom, puis Abonnements. Sur un nouvel iPhone, touchez « Restaurer les achats » dans l’app.
+Basic est gratuit pour toujours, sans période d'essai. Pro ajoute la planification, l'entretien du levain naturel, davantage de levains et de recettes. Pro est un abonnement mensuel ou annuel, ou un achat unique à vie sur l'App Store. L’abonnement se renouvelle automatiquement jusqu’à ce que vous l’annuliez : dans Réglages, touchez votre nom, puis Abonnements. Sur un nouvel iPhone, touchez « Restaurer les achats » dans l'app.
 Conditions d’utilisation (EULA) : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Langues : 35.

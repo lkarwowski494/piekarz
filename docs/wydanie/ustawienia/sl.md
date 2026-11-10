@@ -78,7 +78,7 @@ DOBRO JE VEDETI
 Pek deluje na iPhonu in ne sinhronizira podatkov med napravami; podatke prenesete z datoteko varnostne kopije.
 
 DOSTOP IN NAKUP
-Basic je za vedno brezplačen, brez preizkusnega obdobja. Pro doda načrtovanje, nego kvasa ter več kvasov in receptov. Pro je mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu. Naročnina se samodejno podaljšuje, dokler je ne prekličeš: v Nastavitvah tapni svoje ime in priimek, nato Naročnine. Na novem iPhonu v aplikaciji tapni »Obnovi nakupe«.
+Basic je za vedno brezplačen, brez preizkusnega obdobja. Pro doda načrtovanje, nego kvasa ter več kvasov in receptov. Pro je mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu. Naročnina se samodejno podaljšuje, dokler je ne prekličeš: v Nastavitvah tapni svoje ime in priimek, nato Naročnine. Na novem iPhonu v aplikaciji tapni „Obnovi nakupe“.
 Pogoji uporabe (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jeziki: 35.
