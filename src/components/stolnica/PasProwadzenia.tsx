@@ -35,7 +35,7 @@ export function PasProwadzenia({ gora, krok, numer, czas, czasEtykieta, potem, o
   return (
     <PasZakladki gora={gora} tytul={aktywny ? t(krok.name) : t('Stolnica')} tytulTestID={aktywny ? 'step-title' : undefined}
       podtytul={zwarty ? undefined : numerKroku} podtytulTestID="step-number" zwarty={zwarty}
-      srodek={zwarty && numerKroku ? <Text testID="step-number" style={styles.numer}>{numerKroku}</Text> : undefined}
+      srodek={zwarty && numerKroku ? <Text testID="step-number" style={styles.numer} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={MIN_SKALA_NUMERU}>{numerKroku}</Text> : undefined}
       wstecz={{ etykieta: t('Wstecz'), onPress: onWstecz }} onLayout={onLayout}
       akcje={<PrzyciskiProwadzenia naPasie aktywny={aktywny} onPlan={onPlan} onDoktor={onDoktor} />}>
       {aktywny && <CzasKrokuNaPasie step={krok} formattedTime={czas} czasEtykieta={czasEtykieta} potem={potem} zwarty={zwarty} />}
@@ -43,7 +43,13 @@ export function PasProwadzenia({ gora, krok, numer, czas, czasEtykieta, potem, o
   );
 }
 
+/** Najmniejsza skala numeru kroku w zwartym pasie (KO-017, D-336): jak czas kroku, jeden wiersz zamiast łamania na znaki. */
+export const MIN_SKALA_NUMERU = 0.7;
+/** Najmniejsza szerokość numeru (pt): gdy wstecz, numer i akcje pasa nie mieszczą się w rzędzie, akcje schodzą niżej (KO-017, D-336). */
+export const MIN_SZER_NUMERU = 88;
+
 const styles = StyleSheet.create({
-  // Jak zdanie pod tytułem pasa (objasnienie, naPasie2), w rzędzie nawigacji; zawija się, nie ucina
-  numer: { flex: 1, minWidth: 0, paddingHorizontal: theme.spacing.xs, fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie2 },
+  // Jak zdanie pod tytułem pasa (objasnienie, naPasie2), w rzędzie nawigacji; jeden wiersz, w długich językach mniejszy
+  // (do 0,7), zamiast łamania na znaki (KO-017, D-336) [M1-audytor-generalny-005, -107]
+  numer: { flex: 1, minWidth: MIN_SZER_NUMERU, paddingHorizontal: theme.spacing.xs, fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie2 },
 });

@@ -3,7 +3,9 @@
  * kartą „Co zrobić”, w pierwszym ekranie prowadzenia. Dla każdego kroku z ostrzeżeniem w każdym planie wbudowanych
  * receptur (zakwas, żyto, wersja drożdżowa; krok w garnku w obu fazach pokrywki), w 35 językach, przy 393×852 i 320×568:
  * dolna krawędź całego pola ostrzeżenia (tytuł i wszystkie zdania) nie niżej niż dolna krawędź okna przewijania, czyli
- * góra paska kciuka. Układ to rachunek z tokenów i stylów (tests/helpers/uklad-ekranu.ts), nie pomiar z urządzenia.
+ * góra paska kciuka. Plany także z dokarmieniem zakwasu z lodówki. Do tego (KO-017, D-336) „Krok n z m” w zwartym pasie
+ * przy 320 pt w jednym wierszu bez wielokropka. Układ to rachunek z tokenów i stylów (tests/helpers/uklad-ekranu.ts),
+ * nie pomiar z urządzenia; zrzuty Expo web w docs/dowody-005-2026-11-10/ są dowodem pomocniczym.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
@@ -32,7 +34,7 @@ jest.mock('expo-router', () => {
 });
 
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
@@ -46,8 +48,10 @@ import { ACTIVE_LANGS, setLang } from '../lib/i18n';
 import { powodBezPlanu } from '../lib/plan-receptury';
 import { CATALOG_RECIPES } from '../recipes/katalog';
 import { krokiDrozdzowe } from '../recipes/yeast-stages';
+import { withFridgeWake } from '../core/fridge-wake';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
-import { ramka, ukladEkranu, type Ramka } from '../../tests/helpers/uklad-ekranu';
+import { dzieciHost, ramka, szerokoscTresci, ukladEkranu, type Ramka } from '../../tests/helpers/uklad-ekranu';
+import { MIN_SKALA_NUMERU } from '../components/stolnica/PasProwadzenia';
 
 jest.setTimeout(600_000);
 
@@ -76,6 +80,11 @@ function planyWbudowane(): { nazwa: string; kroki: SessionStep[] }[] {
     const drozdze = krokiDrozdzowe(r.id, start);
     if (drozdze) plany.push({ nazwa: `${r.id} (drożdże)`, kroki: drozdze });
   }
+  // Plan z „Ułóż plan” przy zakwasie z lodówki: pierwszy krok „Dokarmienie zakwasu z lodówki” (harmonogram.tsx, recenzja GEN-10)
+  for (const p of [...plany]) {
+    const zLodowki = withFridgeWake(p.kroki, { storageState: 'FRIDGE' });
+    if (zLodowki.length > p.kroki.length) plany.push({ nazwa: `${p.nazwa} (zakwas z lodówki)`, kroki: zLodowki });
+  }
   return plany;
 }
 
@@ -93,7 +102,7 @@ function przypadki(): Przypadek[] {
       for (const faza of fazy) {
         const ostrz = ostrzezeniaKroku(kroki, idx, isDutchOvenStep(k) ? faza : undefined);
         if (ostrz.length === 0) continue;
-        const klucz = JSON.stringify([k.name, k.instructions, k.durationMin, ostrz.map((w) => w.text), kroki[idx + 1]?.name ?? null, idx, kroki.length, faza]);
+        const klucz = JSON.stringify([k.id, k.name, k.instructions, k.durationMin, ostrz.map((w) => w.text), kroki[idx + 1]?.name ?? null, idx, kroki.length, faza]);
         if (!wynik.has(klucz)) wynik.set(klucz, { opis: `${nazwa} #${idx + 1} ${k.id}${isDutchOvenStep(k) ? ` ${faza}` : ''}`, kroki, idx, faza });
       }
     });
@@ -153,11 +162,12 @@ describe('005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekran
     });
   });
 
-  it('zbiór przypadków obejmuje krok pieczenia w garnku (Gorące naczynie), żyto i wersję drożdżową', () => {
+  it('zbiór przypadków obejmuje krok pieczenia w garnku (Gorące naczynie), żyto, wersję drożdżową i zakwas z lodówki', () => {
     const opisy = PRZYPADKI.map((p) => p.opis);
     expect(opisy.some((o) => /\bbake lid_on$/.test(o))).toBe(true);
     expect(opisy.some((o) => o.includes('(żyto)'))).toBe(true);
     expect(opisy.some((o) => o.includes('(drożdże)'))).toBe(true);
+    expect(opisy.some((o) => /\(zakwas z lodówki\) #1 /.test(o))).toBe(true);
     expect(PRZYPADKI.length).toBeGreaterThan(10);
   });
 
@@ -183,5 +193,46 @@ describe('005: ostrzeżenie kroku nad kartą „Co zrobić”, w pierwszym ekran
         expect(ponizej).toEqual([]);
       });
     }
+  }
+
+  const liczba = (v: unknown): number => (typeof v === 'number' ? v : 0);
+
+  /**
+   * KO-017 (D-336): przy 320×568 „Krok n z m” w zwartym pasie ma jeden wiersz (adjustsFontSizeToFit do 0,7). Rachunek
+   * najgorszego przypadku: numer (flex: 1) dostaje rząd nawigacji minus przycisk wstecz, a gdy wstecz i akcje pasa
+   * mieszczą się w jednym wierszu (bez zawinięcia akcji) — także minus akcje; tekst przy skali 0,7 ma się zmieścić bez
+   * wielokropka. Szerokości tekstu z helpera (średnia szerokość znaku), nie pomiar.
+   */
+  for (const jezyk of ACTIVE_LANGS) {
+    it(`320×568, ${jezyk}: „Krok n z m” w jednym wierszu bez wielokropka przy skali ${MIN_SKALA_NUMERU}`, async () => {
+      setLang(jezyk);
+      const e = EKRANY[1];
+      act(() => {
+        Dimensions.set({ window: { width: e.szer, height: e.wys, scale: 2, fontScale: 1 }, screen: { width: e.szer, height: e.wys, scale: 2, fontScale: 1 } });
+      });
+      Object.assign(mockWciecia, { top: e.gora, bottom: e.dol });
+      const p = PRZYPADKI.find((x) => x.idx + 1 >= 10) ?? PRZYPADKI[0];
+      await saveBakeSession(sesja(p));
+      const tree = await render();
+      const host = (id: string) => tree.root.findAll((n) => n.props?.testID === id && typeof n.type === 'string')[0];
+      const pas = host('pas-zakladki');
+      const numer = host('step-number');
+      const rzad = pas.findAll((n) => typeof n.type === 'string' && dzieciHost(n).includes(numer))[0];
+      const [wstecz, , akcje] = dzieciHost(rzad);
+      const sp = StyleSheet.flatten(pas.props.style) ?? {};
+      const sr = StyleSheet.flatten(rzad.props.style) ?? {};
+      const sn = StyleSheet.flatten(numer.props.style) ?? {};
+      const w = e.szer - 2 * liczba(sp.paddingHorizontal ?? sp.padding) - 2 * liczba(sr.marginHorizontal);
+      const wWstecz = szerokoscTresci(wstecz);
+      const wAkcje = szerokoscTresci(akcje);
+      // Yoga łamie rząd po podstawach: numer (flex: 1) ma podstawę 0, ale nie mniejszą niż minWidth
+      const wolne = w - wWstecz - (wWstecz + liczba(sn.minWidth) + wAkcje <= w ? wAkcje : 0);
+      const wciecie = 2 * liczba(sn.paddingHorizontal);
+      const potrzeba = (szerokoscTresci(numer) - wciecie) * MIN_SKALA_NUMERU + wciecie;
+      const props = { jeden: numer.props.numberOfLines, dopasuj: numer.props.adjustsFontSizeToFit, skala: numer.props.minimumFontScale };
+      act(() => tree.unmount());
+      expect(props).toEqual({ jeden: 1, dopasuj: true, skala: MIN_SKALA_NUMERU });
+      expect({ potrzeba: Math.ceil(potrzeba), miesciSie: potrzeba <= wolne }).toEqual({ potrzeba: Math.ceil(potrzeba), miesciSie: true });
+    });
   }
 });

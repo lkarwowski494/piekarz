@@ -74,7 +74,7 @@ function szerokoscTekstu(n: Wezel): number {
  * obwódka, dzieci obok siebie (rząd) albo najszersze (kolumna); co najmniej minWidth. Rola 04 p4b: przycisk pasa
  * („Plan wypieku”) w rzędzie nawigacji nie dzieli się już po równo z przyciskiem wstecz (zrzut web 320: 44 pt, nie 66).
  */
-function szerokoscTresci(n: Wezel): number {
+export function szerokoscTresci(n: Wezel): number {
   const s = styl(n);
   const stala = num(s.width) ?? num(n.props?.width);
   if (stala !== undefined) return stala;
@@ -98,7 +98,8 @@ function szerokoscWRzedzie(n: Wezel): { podstawa: number; rosnie: boolean } {
   if (stala !== undefined) return { podstawa: stala + bok(s, 'Left', 'margin') + bok(s, 'Right', 'margin'), rosnie: false };
   const rosnie = (num(s.flex) ?? 0) > 0 || (num(s.flexGrow) ?? 0) > 0;
   if (num(s.flexBasis) !== undefined) return { podstawa: num(s.flexBasis)!, rosnie };
-  if (rosnie) return { podstawa: 0, rosnie: true };
+  // Yoga: podstawa flex (0) nie mniejsza niż minWidth — także przy łamaniu rzędu z zawijaniem (KO-017, D-336)
+  if (rosnie) return { podstawa: num(s.minWidth) ?? 0, rosnie: true };
   return { podstawa: szerokoscTresci(n), rosnie: false };
 }
 

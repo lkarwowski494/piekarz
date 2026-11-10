@@ -1063,6 +1063,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dla roli 09 (po p5, D-160):** „Co zrobić” (nagłówek karty instrukcji, README §6); wtedy „Krok {n} z {m}” wraca na pas (D-191).
 - **Do przeglądu roli 04:** ikony kart planu i prowadzenia; „Ustawienia” jako nagłówek karty ustawień planu; panel garnka poza kartą.
 - **Status:** dzień, do weta.
+- **Zastąpione w części (2026-11-10):** położenie ostrzeżenia — nad kartą „Co zrobić” (D-335).
 
 ### [D-193] 2026-11-03 — Duży tekst w planie i prowadzeniu (§7a, D-142): flexBasis od fontScale; limit cyfr czasu na tokenie AX5 zostaje (M3 p4, rola 08)
 - **Rodzaj:** decyzja techniczna roli 08 (D-183: opcja rekomendowana).
@@ -1851,3 +1852,22 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Otwarte:** 320×568 z dwoma wypiekami — ostrzeżenie dalej pod przełącznikiem (M2-p4-N9); zrzut AX5 i zrzut z iOS — E2E iOS (koordynator); długość tekstów 33 języków na niskim ekranie niezmierzona.
 - **Zależy od:** D-318, D-194, RD-ENG-03 (44 pt — 48 pt spełnia).
 - **Status:** M2 w trybie nocnym D-289 (KO-008, opcja rekomendowana) — do weta (D-289).
+
+### [D-335] 2026-11-10 — Ekran prowadzenia: ostrzeżenie bezpieczeństwa kroku nad kartą „Co zrobić”; test każdego kroku z ostrzeżeniem w planach wbudowanych receptur, 35 języków, 393×852 i 320×568 (M2, sesja E, rola 04 fix; M1-audytor-generalny-005; KO-015)
+- **Źródło:** reaudyt M1 pętla 2 (`audit/M1-2026-11-08/M1-audytor-generalny-reaudit-2026-11-10.md`, 005 opcja 1; weryfikacja `reaudit-2026-11-10/weryfikacja/005.md`: krok pieczenia w garnku — „Gorące naczynie” pod paskiem kciuka); KO-015 właściciela 2026-11-10 („Napraw teraz”: ostrzeżenie nad kartą + test wszystkich kroków i języków).
+- **Decyzja:** w `StrefaKroku` pole Ostrzeżenia stoi nad kartą „Co zrobić” (treść, tytuł, kolor, alert, haptyka bez zmian; VoiceOver czyta je przed instrukcją); makieta `docs/design/karty/wypiek.html#prowadzenie` i `docs/design/karty/README.md` §7c. Test `src/__tests__/ostrzezenie-nad-karta-005.test.tsx`: plany wszystkich receptur z planem (zakwas, żyto, wersje drożdżowe, także z dokarmieniem zakwasu z lodówki), każdy krok z ostrzeżeniem (garnek w obu fazach), 35 języków, 393×852 i 320×568 — dół całego pola ostrzeżenia nad górą paska kciuka. Przed (1c723632): 64/70 czerwonych (pieczenie w garnku 159 pt pod paskiem przy 393 pl); po: zielony (z D-336). Zrzuty Expo web kroku pieczenia (pl/en/id, 320 i 393): przed 6/6 pod paskiem, po 6/6 nad (`docs/dowody-005-2026-11-10/`).
+- **Odrzucone:** (2) przyjęcie ryzyka na czas TestFlight; (3) krótsza instrukcja kroku pieczenia (nie rozwiązuje innych kroków i języków); ostrzeżenie na pasie (pas już zwarty, D-319).
+- **Kompromis:** długa instrukcja kroku kończy się pod zgięciem (karta się przewija, jej początek jest w pierwszym ekranie).
+- **Otwarte:** rachunek, nie pomiar z iOS — zrzut z symulatora/telefonu (E2E iOS, koordynator); test nie obejmuje banera „Powiadomienia wyłączone” nad ostrzeżeniem (stan z odmową powiadomień) ani kroku programu maszyny (bez prowadzenia krok po kroku).
+- **Zależy od:** D-318, D-319, D-177 (treść ostrzeżeń bez zmian).
+- **Status:** wykonanie KO-015 (decyzja właściciela) — do weta.
+
+### [D-336] 2026-11-10 — Zwarty pas prowadzenia: „Krok n z m” w jednym wierszu (do 0,7 rozmiaru, co najmniej 88 pt), akcje pasa schodzą do drugiego wiersza, gdy się nie mieszczą (M2, sesja E; M1-audytor-generalny-005, -107; KO-017)
+- **Źródło:** po D-335 test 005 czerwony tylko przy 320×568 id: „Krok n z m” (flex: 1, podstawa 0) dostawał w rzędzie nawigacji ok. 20 pt i łamał się na znaki (156 pt wysokości, pozycja 107); KO-017 koordynatora: opcja 1 (jeden wiersz, adjustsFontSizeToFit, minimumFontScale 0,7) i test „bez wielokropka” dla id/ms/fi.
+- **Decyzja:** `PasProwadzenia` (pas zwarty): numer kroku `numberOfLines={1}`, `adjustsFontSizeToFit`, `minimumFontScale` 0,7 (`MIN_SKALA_NUMERU`) i `minWidth` 88 pt (`MIN_SZER_NUMERU`). Sama opcja 1 dawała w rachunku wielokropek w 14 językach (np. id: 23 pt miejsca przy potrzebie 103 pt), bo przy podstawie 0 akcje pasa nie schodzą niżej; `minWidth` sprawia, że Yoga przenosi akcje do drugiego wiersza, gdy wstecz, numer i akcje się nie mieszczą (tak jak w renderze web id). Test: 35 języków przy 320×568 bez wielokropka (rachunek najgorszego przypadku). Helper `tests/helpers/uklad-ekranu.ts`: w rzędzie podstawa elementu flex nie mniejsza niż minWidth (jak Yoga).
+- **Odrzucone:** wyjątek w teście dla id (005 zostaje otwarte); krótszy przekład (rola 09, kruche); flexBasis „auto” (akcje schodzą niżej także po polsku).
+- **Kompromis:** w ok. 14 językach przy 320 pt pas zwarty ma o jeden rząd więcej (akcje w drugim wierszu); próg 88 pt jest blisko polskiego (91 pt wolne w rachunku) — na urządzeniu akcje mogą zejść niżej także po polsku (pas wyższy, ostrzeżenie nadal w oknie z zapasem).
+- **Otwarte:** 106 (łamanie słów w pasku kciuka) bez zmian; niedokładność helpera (szerokość znaku, zawijanie akcji) — P3 w backlogu (`docs/stan-04-005-2026-11-10.md`); zrzut iOS 320 pt.
+- **Zależy od:** D-319, D-335, KO-017.
+- **Status:** KO-017 (koordynator, opcja 1 z uzupełnieniem minWidth) — do weta.
+
