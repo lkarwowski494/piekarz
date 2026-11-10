@@ -57,7 +57,7 @@ WARTO WIEDZIEĆ
 Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.
 
 DOSTĘP I ZAKUP
-Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store.
+Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje. Na nowym iPhonie stuknij w aplikacji „Przywróć zakupy”.
 Warunki użytkowania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim.
@@ -109,7 +109,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
 
 ACCESS AND PURCHASE
-Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store.
+Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
@@ -318,7 +318,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
 
 ACCESS AND PURCHASE
-Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store.
+Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store. The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions. On a new iPhone, tap Restore Purchases in the app.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.

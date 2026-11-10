@@ -103,7 +103,7 @@ Lista zatwierdzona (D-112, D-113); pełna tabela z dowodem WTP: `docs/monetyzacj
 4. Dożywotni: jedna opłata, bez odnawiania.
 5. Widoczne zamknięcie, neutralna odmowa; zakup wymaga połączenia z App Store.
 - **Zakazane wzorce:** odliczanie, „oferta tylko dziś”, „najpopularniejszy” bez danych, zawstydzanie przy odmowie, ekran Pro w trakcie kroku albo przy starcie, odblokowanie za ocenę (MS-10), dane tylko dla płacących, hasło „No subscriptions” (model ma subskrypcje), push o Pro bez osobnej zgody (4.5.4, E2d).
-- **Metadane sklepu (rola 10):** opis „Free Basic forever. Pro adds planning, starter care, more starters and recipes.” (2.3.2); bez „free trial” i bez „free app” bez zastrzeżenia (2005/29/WE zał. I pkt 20).
+- **Metadane sklepu (rola 10):** opis „Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes.” (2.3.2; „no trial” jak w PL od KO-031, 2026-11-10, D-359), zdanie aplikacji o automatycznym odnawianiu i anulowaniu oraz „Restore Purchases” (KO-031); bez „free trial” i bez „free app” bez zastrzeżenia (2005/29/WE zał. I pkt 20).
 
 ### Warunek subskrypcji (3.1.2(a))
 Pro musi dawać stałą wartość: prowadzenie zakwasu i planowanie to użycie powtarzalne, a rytm nowych treści dla Pro (lekcje i techniki Akademii, profile mąk z kolejnych krajów, narzędzia planowania) ustala rola 03. Bez tego rytmu recenzja może zakwestionować subskrypcję w aplikacji offline.

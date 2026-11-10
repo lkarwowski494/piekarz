@@ -58,10 +58,12 @@ describe('Offer terms are the same in code, README, metadata and App Review note
     expect(text).toMatch(/Basic stays free/);
   });
 
-  it('store description uses the contract wording „Free Basic forever. Pro adds planning, starter care, more starters and recipes.”', () => {
-    expect(read('docs/app-store-metadata-v2.md')).toContain('Free Basic forever. Pro adds planning, starter care, more starters and recipes.');
+  // Brzmienie kontraktu zmienione decyzją KO-031 (2026-11-10, D-359): „no trial” jak w PL (R-1 z docs/dowody-09-z8/tlumaczenie-zwrotne.md)
+  const KONTRAKT_EN = 'Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes.';
+  it('store description uses the contract wording „Basic is free forever, with no trial period. Pro adds planning, starter care, more starters and recipes.”', () => {
+    expect(read('docs/app-store-metadata-v2.md')).toContain(KONTRAKT_EN);
     for (const kod of ['en-US', 'en-GB', 'en-AU', 'en-CA']) {
-      expect({ kod, opis: read(`docs/wydanie/metadane/${kod}.json`).includes('Free Basic forever. Pro adds planning, starter care, more starters and recipes.') }).toEqual({ kod, opis: true });
+      expect({ kod, opis: read(`docs/wydanie/metadane/${kod}.json`).includes(KONTRAKT_EN) }).toEqual({ kod, opis: true });
     }
   });
 
