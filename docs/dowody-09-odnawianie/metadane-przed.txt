@@ -1,0 +1,3 @@
+$ node sprawdz-wydanie.mjs metadane store-przed.json  — stan b5007a00 (store.config.json zbudowany w scratchpadzie z docs/wydanie/metadane/*.json: nazwa→title, podtytul→subtitle, slowaKluczowe→keywords, tekstPromocyjny→promoText, opis→description; skrypt: kopia z audit/M1-2026-11-08/naprawy/polecenia/rola-10-wydanie-prompt.md, sekcja „Narzędzie sprawdz-wydanie.mjs”, gałąź audit-m1/piekarz-2026-11-08)
+OK
+kod wyjścia: 0

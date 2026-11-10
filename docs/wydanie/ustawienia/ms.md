@@ -45,7 +45,7 @@ resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread
 Tukang Roti mengira kuantiti dan memberitahu bila setiap langkah tamat. Pelan songsang dari masa roti perlu siap (Pro). Tanpa akaun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3784 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3764 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
@@ -60,7 +60,7 @@ PELAN DARI MASA “SIAP” (Pro)
 Pilih bila roti perlu siap, dan Tukang Roti mengira secara songsang masa mula setiap langkah. Masa penapaian bergantung pada suhu dapur anda. Apabila langkah yang memerlukan tangan anda jatuh pada waktu malam (secara lalai antara 23:00 dan 07:00), Tukang Roti mencadangkan masa lebih lama dalam peti sejuk. Jika masa tidak mencukupi, Tukang Roti memberikan masa paling awal yang mungkin.
 
 BIMBINGAN LANGKAH DEMI LANGKAH
-Tukang Roti menunjukkan langkah semasa: apa perlu dibuat, berapa lama dan apa seterusnya. Jika anda membenarkan pemberitahuan, Tukang Roti memaklumkan tamat langkah walaupun telefon dikunci. Semasa langkah yang memerlukan tangan anda, skrin bimbingan tidak padam. Langkah dengan peralatan masak panas atau doh mentah mempunyai amaran. Roti rai (lebih separuh tepung ialah tepung rai) mempunyai langkah tersendiri tanpa lipatan. Langkah yang tersilap disahkan boleh dibatalkan, dan apabila dibuka semula, aplikasi kembali ke langkah semasa.
+Tukang Roti menunjukkan langkah semasa: apa perlu dibuat, berapa lama dan apa seterusnya. Jika anda membenarkan pemberitahuan, Tukang Roti memaklumkan tamat langkah walaupun telefon dikunci. Semasa langkah yang memerlukan tangan anda, skrin bimbingan tidak padam. Langkah dengan peralatan masak panas atau doh mentah mempunyai amaran. Roti rai (lebih separuh tepung ialah tepung rai) mempunyai langkah tersendiri tanpa lipatan.
 
 PEMULA
 Pemula baharu boleh dimulakan hari demi hari. Tukang Roti mengamalkan prinsip berjaga-jaga: jika ada selaput, perubahan warna atau bau busuk, Tukang Roti menasihatkan anda membuang pemula. Penjagaan pemula (Pro): beberapa pemula, kuantiti pemberian makan dalam nisbah 1:1:1, 1:2:2, 1:3:3 atau 1:5:5, tanda sedia apabila pemula mengembang dua kali ganda dan peringatan selepas 12 jam di atas kaunter tanpa diberi makan.
@@ -75,10 +75,10 @@ DATA ANDA
 Tukang Roti menyimpan 10 sandaran automatik terakhir dalam telefon anda. Eksport semua data ke fail dan import daripada fail, serta eksport sejarah bakaran sebagai CSV. Unit: gram dan °C atau auns dan °F.
 
 PERLU DIKETAHUI
-Tukang Roti berfungsi pada iPhone dan tidak menyegerakkan data antara peranti; pindahkan data dengan fail sandaran. Tanpa kebenaran pemberitahuan, Tukang Roti menunjukkan tamat langkah hanya pada skrin yang dibuka.
+Tukang Roti berfungsi pada iPhone dan tidak menyegerakkan data antara peranti; pindahkan data dengan fail sandaran.
 
 AKSES DAN PEMBELIAN
-Basic percuma selama-lamanya, tanpa tempoh percubaan. Pro menambah perancangan, penjagaan pemula, lebih banyak pemula dan resipi. Pro ialah langganan bulanan atau tahunan, atau pembelian sekali seumur hidup di App Store.
+Basic percuma selama-lamanya, tanpa tempoh percubaan. Pro menambah perancangan, penjagaan pemula, lebih banyak pemula dan resipi. Pro ialah langganan bulanan atau tahunan, atau pembelian sekali untuk akses seumur hidup di App Store. Langganan diperbaharui secara automatik sehingga anda membatalkannya: dalam Seting, ketik nama anda, kemudian Langganan. Pada iPhone baharu, ketik “Pulihkan Pembelian” dalam app.
 Terma Penggunaan (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Bahasa: 35.

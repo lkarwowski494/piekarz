@@ -1,0 +1,90 @@
+PASS tests/opis-sklepu-odnawianie-ko031.test.ts
+  KO-031: odnawianie i anulowanie subskrypcji w opisie sklepu, 34 lokalizacje
+    ✓ 34 lokalizacje, każda ze słownikiem aplikacji (1151 ms)
+    ✓ cs: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ da: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ de-DE: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ el: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ en-AU: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ en-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ en-GB: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ en-US: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ es-ES: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ es-MX: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ fi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ fr-CA: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ fr-FR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ hr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ hu: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ id: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ it: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ ja: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ ko: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ ms: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ nl-NL: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ no: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ pl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ pt-BR: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ pt-PT: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ ro: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ ru: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ sk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ sl: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ sv: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ tr: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ uk: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ vi: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków (1 ms)
+    ✓ zh-Hant: zdanie o odnawianiu i „Przywróć zakupy” jak w aplikacji, opis ≤ 4000 znaków
+    ✓ źródło PL i EN (docs/app-store-metadata-v2.md) ma to samo zdanie co pl.json i en-US.json (1 ms)
+    ✓ kontrola negatywna: akapit bez zdania, ze zdaniem innego języka albo ponad limit daje błędy (1 ms)
+  KO-032: miejsce na dopisek — dwa zdania usunięte w 34 lokalizacjach i w źródle PL/EN
+    ✓ dowód obejmuje 34 lokalizacje
+    ✓ cs: opis bez usuniętych zdań (1 ms)
+    ✓ da: opis bez usuniętych zdań
+    ✓ de-DE: opis bez usuniętych zdań
+    ✓ el: opis bez usuniętych zdań (1 ms)
+    ✓ en-AU: opis bez usuniętych zdań (3 ms)
+    ✓ en-CA: opis bez usuniętych zdań
+    ✓ en-GB: opis bez usuniętych zdań
+    ✓ en-US: opis bez usuniętych zdań
+    ✓ es-ES: opis bez usuniętych zdań
+    ✓ es-MX: opis bez usuniętych zdań
+    ✓ fi: opis bez usuniętych zdań
+    ✓ fr-CA: opis bez usuniętych zdań
+    ✓ fr-FR: opis bez usuniętych zdań
+    ✓ hr: opis bez usuniętych zdań
+    ✓ hu: opis bez usuniętych zdań
+    ✓ id: opis bez usuniętych zdań
+    ✓ it: opis bez usuniętych zdań (1 ms)
+    ✓ ja: opis bez usuniętych zdań
+    ✓ ko: opis bez usuniętych zdań
+    ✓ ms: opis bez usuniętych zdań
+    ✓ nl-NL: opis bez usuniętych zdań
+    ✓ no: opis bez usuniętych zdań (1 ms)
+    ✓ pl: opis bez usuniętych zdań
+    ✓ pt-BR: opis bez usuniętych zdań
+    ✓ pt-PT: opis bez usuniętych zdań
+    ✓ ro: opis bez usuniętych zdań
+    ✓ ru: opis bez usuniętych zdań (1 ms)
+    ✓ sk: opis bez usuniętych zdań
+    ✓ sl: opis bez usuniętych zdań
+    ✓ sv: opis bez usuniętych zdań
+    ✓ tr: opis bez usuniętych zdań (1 ms)
+    ✓ uk: opis bez usuniętych zdań
+    ✓ vi: opis bez usuniętych zdań
+    ✓ zh-Hant: opis bez usuniętych zdań
+    ✓ źródło PL/EN bez usuniętych zdań (1 ms)
+  KO-031: poprawki P3 z kontroli tłumaczeniem zwrotnym (R-1, R-2, R-3)
+    ✓ en-AU: Basic bez okresu próbnego, jak PL (R-1) (1 ms)
+    ✓ en-CA: Basic bez okresu próbnego, jak PL (R-1)
+    ✓ en-GB: Basic bez okresu próbnego, jak PL (R-1)
+    ✓ en-US: Basic bez okresu próbnego, jak PL (R-1)
+    ✓ ms: zakup dożywotni nazwany jednoznacznie, bez „sekali seumur hidup” (R-2)
+    ✓ ko: „App Store” określa subskrypcję i zakup dożywotni, nie tylko zakup (R-3)
+
+Test Suites: 1 passed, 1 total
+Tests:       79 passed, 79 total
+Snapshots:   0 total
+Time:        1.631 s
+Ran all test suites matching /tests\/opis-sklepu-odnawianie-ko031.test.ts/i.
+kod wyjścia: 0

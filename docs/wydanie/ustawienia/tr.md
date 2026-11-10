@@ -59,7 +59,7 @@ Ekşi mayalı dört tarifin mayalı sürümü de vardır, bunların üçü planl
 Ekmeğin ne zaman hazır olacağını seçersiniz; Fırıncı her adımın başlangıç saatini geriye doğru hesaplar. Fermantasyon süresi mutfağınızın sıcaklığına bağlıdır. Elinizle yapmanız gereken bir adım geceye denk gelirse (varsayılan olarak 23:00 ile 07:00 arası), Fırıncı buzdolabında daha uzun bir süre önerir. Süre yetmiyorsa mümkün olan en erken saati söyler.
 
 ADIM ADIM REHBERLİK
-Fırıncı mevcut adımı gösterir: ne yapılacağını, ne kadar süreceğini ve sonra ne geleceğini. Bildirimlere izin verirseniz telefon kilitliyken de adımın bittiğini haber verir. Elinizle yapmanız gereken bir adımda rehberlik ekranı kapanmaz. Sıcak kap veya çiğ hamur içeren adımlarda uyarı bulunur. Çavdar ekmeğinin (unun yarısından fazlası çavdar unu) katlama içermeyen kendi adımları vardır. Yanlışlıkla onayladığınız bir adımı geri alabilirsiniz; uygulamayı yeniden açtığınızda mevcut adıma dönülür.
+Fırıncı mevcut adımı gösterir: ne yapılacağını, ne kadar süreceğini ve sonra ne geleceğini. Bildirimlere izin verirseniz telefon kilitliyken de adımın bittiğini haber verir. Elinizle yapmanız gereken bir adımda rehberlik ekranı kapanmaz. Sıcak kap veya çiğ hamur içeren adımlarda uyarı bulunur. Çavdar ekmeğinin (unun yarısından fazlası çavdar unu) katlama içermeyen kendi adımları vardır.
 
 EKŞİ MAYALAR
 Yeni bir ekşi mayayı gün gün başlatabilirsiniz. Fırıncı ihtiyat ilkesini uygular: tabaka, renk değişimi veya çürük koku varsa ekşi mayayı atmanızı önerir. Ekşi maya bakımı (Pro): birden fazla ekşi maya, 1:1:1, 1:2:2, 1:3:3 veya 1:5:5 oranında besleme miktarları, ekşi maya hacmini ikiye katladığında hazır işareti ve mutfak tezgâhında 12 saat beslenmeden kalınca hatırlatma.
@@ -74,10 +74,10 @@ VERİLERİNİZ
 Fırıncı son 10 otomatik yedeği telefonunuzda saklar. Tüm verilerinizi bir dosyaya dışa aktarabilir ve dosyadan içe aktarabilir, pişirme geçmişinizi CSV olarak dışa aktarabilirsiniz. Birimler: gram ve °C ya da ons ve °F.
 
 BİLMENİZDE FAYDA VAR
-Fırıncı iPhone'da çalışır ve verileri cihazlar arasında eşitlemez; verileri yedek dosyasıyla taşırsınız. Bildirim izni olmadan Fırıncı adımın bittiğini yalnızca açık ekranda gösterir.
+Fırıncı iPhone'da çalışır ve verileri cihazlar arasında eşitlemez; verileri yedek dosyasıyla taşırsınız.
 
 ERİŞİM VE SATIN ALMA
-Basic, deneme süresi olmadan, süresiz olarak ücretsizdir. Pro; planlama, ekşi maya bakımı, daha fazla ekşi maya ve tarif ekler. Pro, App Store'da aylık veya yıllık abonelik ya da tek seferlik ömür boyu satın alma olarak sunulur.
+Basic, deneme süresi olmadan, süresiz olarak ücretsizdir. Pro; planlama, ekşi maya bakımı, daha fazla ekşi maya ve tarif ekler. Pro, App Store'da aylık veya yıllık abonelik ya da tek seferlik ömür boyu satın alma olarak sunulur. Abonelik siz iptal edene kadar otomatik olarak yenilenir: Ayarlar'da adınıza, ardından Abonelikler'e dokunun. Yeni bir iPhone'da uygulamada “Satın Alımları Geri Yükle” seçeneğine dokunun.
 Kullanım Koşulları (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Diller: 35.

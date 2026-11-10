@@ -59,7 +59,7 @@ PLÁN OD ČASU „HOTOVO“ (Pro)
 Vyberte, kdy má být chléb hotový, a Pekař zpětně spočítá čas začátku každého kroku. Doba kvašení závisí na teplotě v kuchyni. Když krok, který vyžaduje vaše ruce, připadne na noc (ve výchozím nastavení mezi 23:00 a 07:00), Pekař navrhne delší dobu v lednici. Když je času málo, uvede nejdřívější možný čas.
 
 VEDENÍ KROK ZA KROKEM
-Pekař ukazuje aktuální krok: co udělat, jak dlouho to trvá a co bude následovat. Když povolíte oznámení, dá vědět o konci kroku i při zamčeném telefonu. V kroku, který vyžaduje vaše ruce, obrazovka vedení nezhasne. Kroky s horkou nádobou nebo syrovým těstem mají varování. Žitný chléb (víc než polovina mouky je žitná mouka) má vlastní kroky bez překládání. Omylem potvrzený krok vrátíte zpět a po opětovném otevření se aplikace vrátí k aktuálnímu kroku.
+Pekař ukazuje aktuální krok: co udělat, jak dlouho to trvá a co bude následovat. Když povolíte oznámení, dá vědět o konci kroku i při zamčeném telefonu. V kroku, který vyžaduje vaše ruce, obrazovka vedení nezhasne. Kroky s horkou nádobou nebo syrovým těstem mají varování. Žitný chléb (víc než polovina mouky je žitná mouka) má vlastní kroky bez překládání.
 
 KVÁSKY
 Nový kvásek založíte den po dni. Pekař se řídí zásadou opatrnosti: při povlaku, změně barvy nebo zahnilém zápachu radí kvásek vyhodit. Péče o kvásek (Pro): několik kvásků, množství na krmení v poměru 1:1:1, 1:2:2, 1:3:3 nebo 1:5:5, označení připravenosti, když kvásek zdvojnásobí objem, a připomenutí po 12 hodinách na lince bez krmení.
@@ -74,10 +74,10 @@ VAŠE DATA
 Pekař uchovává v telefonu 10 posledních automatických záloh. Všechna data vyexportujete do souboru a naimportujete ze souboru a historii pečení vyexportujete jako CSV. Jednotky: gramy a °C nebo unce a °F.
 
 DOBRÉ VĚDĚT
-Pekař funguje na iPhonu a nesynchronizuje data mezi zařízeními; data přenesete souborem zálohy. Bez povolení oznámení ukáže Pekař konec kroku jen na otevřené obrazovce.
+Pekař funguje na iPhonu a nesynchronizuje data mezi zařízeními; data přenesete souborem zálohy.
 
 PŘÍSTUP A NÁKUP
-Basic je navždy zdarma, bez zkušební doby. Pro přidává plánování, péči o kvásek, více kvásků a receptů. Pro je měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu.
+Basic je navždy zdarma, bez zkušební doby. Pro přidává plánování, péči o kvásek, více kvásků a receptů. Pro je měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu. Předplatné se obnovuje automaticky, dokud ho nezrušíte: v Nastavení klepněte na své jméno a potom na Předplatné. Na novém iPhonu klepněte v aplikaci na „Obnovit nákupy“.
 Podmínky použití (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jazyky: 35.

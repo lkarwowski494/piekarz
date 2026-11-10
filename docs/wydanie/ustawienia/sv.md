@@ -44,7 +44,7 @@ jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påmi
 Bagaren räknar ut mängderna och säger till när varje steg är slut. Plan bakåt från tiden då brödet ska vara klart (Pro). Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3554 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3528 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
@@ -59,7 +59,7 @@ PLAN FRÅN TIDEN ”KLART” (Pro)
 Du väljer när brödet ska vara klart, och Bagaren räknar bakåt fram starttiden för varje steg. Jästiden beror på temperaturen i köket. Om ett steg som kräver dina händer infaller på natten (som standard mellan 23:00 och 07:00) föreslår Bagaren en längre tid i kylskåpet. Om tiden inte räcker anger Bagaren den tidigaste möjliga tiden.
 
 STEG FÖR STEG
-Bagaren visar det aktuella steget: vad du ska göra, hur lång tid det tar och vad som kommer sedan. Om du tillåter notiser säger Bagaren till när steget är slut, även när telefonen är låst. I ett steg som kräver dina händer släcks inte guideskärmen. Steg med hett kärl eller rå deg har en varning. Rågbröd (mer än hälften av mjölet är rågmjöl) har egna steg utan vikningar. Ett steg som du bekräftat av misstag kan du ångra, och när du öppnar appen igen återgår den till det aktuella steget.
+Bagaren visar det aktuella steget: vad du ska göra, hur lång tid det tar och vad som kommer sedan. Om du tillåter notiser säger Bagaren till när steget är slut, även när telefonen är låst. I ett steg som kräver dina händer släcks inte guideskärmen. Steg med hett kärl eller rå deg har en varning. Rågbröd (mer än hälften av mjölet är rågmjöl) har egna steg utan vikningar.
 
 SURDEGSGRUNDER
 En ny surdegsgrund startar du dag för dag. Bagaren följer försiktighetsprincipen: vid beläggning, missfärgning eller ruttnande lukt rekommenderar Bagaren att du slänger surdegsgrunden. Skötsel av surdegsgrund (Pro): flera surdegsgrunder, mängder för matning i förhållandet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5, markering som redo när surdegsgrunden har fördubblat sin volym och en påminnelse efter 12 timmar på bänken utan matning.
@@ -74,10 +74,10 @@ DINA DATA
 Bagaren sparar de 10 senaste automatiska säkerhetskopiorna i telefonen. Du kan exportera all data till en fil och importera från en fil, och exportera bakhistoriken som CSV. Enheter: gram och °C eller uns och °F.
 
 BRA ATT VETA
-Bagaren fungerar på iPhone och synkar inte data mellan enheter; du flyttar data med en säkerhetskopia. Utan tillstånd för notiser visar Bagaren slutet på ett steg bara när skärmen är öppen.
+Bagaren fungerar på iPhone och synkar inte data mellan enheter; du flyttar data med en säkerhetskopia.
 
 ÅTKOMST OCH KÖP
-Basic är gratis för alltid, utan provperiod. Pro lägger till planering, skötsel av surdegsgrunden, fler surdegsgrunder och fler recept. Pro är ett månads- eller årsabonnemang eller ett engångsköp för livstid i App Store.
+Basic är gratis för alltid, utan provperiod. Pro lägger till planering, skötsel av surdegsgrunden, fler surdegsgrunder och fler recept. Pro är ett månads- eller årsabonnemang eller ett engångsköp för livstid i App Store. Prenumerationen förnyas automatiskt tills du avslutar den: tryck på ditt namn i Inställningar och sedan på Prenumerationer. På en ny iPhone trycker du på ”Återställ köp” i appen.
 Användarvillkor (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Språk: 35.

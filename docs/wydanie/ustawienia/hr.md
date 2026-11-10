@@ -44,7 +44,7 @@ Plan pečenja i kalkulator
 Pekar će izračunati količine i javiti ti kraj svakog koraka. Plan unatrag od vremena kad kruh treba biti gotov (Pro). Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 3430 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3400 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
@@ -59,7 +59,7 @@ PLAN OD VREMENA „GOTOVO” (Pro)
 Biraš kada kruh treba biti gotov, a Pekar unatrag računa vrijeme početka svakog koraka. Vrijeme fermentacije ovisi o temperaturi u kuhinji. Kad korak koji traži tvoje ruke padne noću (zadano između 23:00 i 07:00), Pekar će predložiti dulje vrijeme u hladnjaku. Kad je vremena premalo, dat će najranije moguće vrijeme.
 
 VOĐENJE KORAK PO KORAK
-Pekar pokazuje trenutačni korak: što napraviti, koliko traje i što slijedi. Ako dopustiš obavijesti, javit će ti kraj koraka i kad je telefon zaključan. U koraku koji traži tvoje ruke zaslon vođenja se ne gasi. Koraci s vrućim posuđem ili sirovim tijestom imaju upozorenje. Raženi kruh (više od polovice brašna je raženo brašno) ima vlastite korake bez preklapanja. Greškom potvrđen korak možeš poništiti, a nakon ponovnog otvaranja aplikacija se vraća na trenutačni korak.
+Pekar pokazuje trenutačni korak: što napraviti, koliko traje i što slijedi. Ako dopustiš obavijesti, javit će ti kraj koraka i kad je telefon zaključan. U koraku koji traži tvoje ruke zaslon vođenja se ne gasi. Koraci s vrućim posuđem ili sirovim tijestom imaju upozorenje. Raženi kruh (više od polovice brašna je raženo brašno) ima vlastite korake bez preklapanja.
 
 KVASI
 Novi kvas pokrećeš dan po dan. Pekar primjenjuje načelo opreza: kod naslage, promjene boje ili trulog mirisa savjetuje da baciš kvas. Briga o kvasu (Pro): nekoliko kvasa, količine za hranjenje u omjeru 1:1:1, 1:2:2, 1:3:3 ili 1:5:5, oznaka spremnosti kad kvas udvostruči volumen i podsjetnik nakon 12 sati na radnoj površini bez hranjenja.
@@ -74,10 +74,10 @@ TVOJI PODACI
 Pekar na telefonu čuva 10 posljednjih automatskih sigurnosnih kopija. Sve podatke možeš izvesti u datoteku i uvesti iz datoteke, a povijest pečenja izvesti kao CSV. Jedinice: grami i °C ili unce i °F.
 
 DOBRO JE ZNATI
-Pekar radi na iPhoneu i ne sinkronizira podatke između uređaja; podatke prenosiš datotekom sigurnosne kopije. Bez dopuštenja za obavijesti Pekar će kraj koraka prikazati samo na otvorenom zaslonu.
+Pekar radi na iPhoneu i ne sinkronizira podatke između uređaja; podatke prenosiš datotekom sigurnosne kopije.
 
 PRISTUP I KUPNJA
-Basic je besplatan zauvijek, bez probnog razdoblja. Pro dodaje planiranje, brigu o kvasu, više kvasa i receptura. Pro je mjesečna ili godišnja pretplata ili jednokratna doživotna kupnja u App Storeu.
+Basic je besplatan zauvijek, bez probnog razdoblja. Pro dodaje planiranje, brigu o kvasu, više kvasa i receptura. Pro je mjesečna ili godišnja pretplata ili jednokratna doživotna kupnja u App Storeu. Pretplata se automatski obnavlja dok je ne otkažeš: u Postavkama dodirni svoje ime i prezime, zatim Pretplate. Na novom iPhoneu dodirni „Vrati kupnje” u aplikaciji.
 Uvjeti korištenja (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jezici: 35.

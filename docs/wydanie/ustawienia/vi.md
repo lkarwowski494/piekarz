@@ -59,7 +59,7 @@ KẾ HOẠCH TÍNH TỪ GIỜ “XONG” (Pro)
 Chọn thời điểm bánh cần xong, Thợ Bánh Mì sẽ tính ngược giờ bắt đầu của từng bước. Thời gian lên men phụ thuộc vào nhiệt độ trong bếp. Khi một bước cần bạn trực tiếp làm rơi vào ban đêm (mặc định từ 23:00 đến 07:00), Thợ Bánh Mì sẽ đề xuất để trong tủ lạnh lâu hơn. Khi không đủ thời gian, Thợ Bánh Mì sẽ cho biết giờ sớm nhất có thể.
 
 HƯỚNG DẪN TỪNG BƯỚC
-Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Ở bước cần bạn trực tiếp làm, màn hình hướng dẫn không tắt. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột. Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.
+Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Ở bước cần bạn trực tiếp làm, màn hình hướng dẫn không tắt. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột.
 
 MEN TỰ NHIÊN
 Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi. Chăm sóc men tự nhiên (Pro): nhiều men tự nhiên, lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5, đánh dấu sẵn sàng khi men tự nhiên nở gấp đôi thể tích và nhắc nhở sau 12 giờ trên bàn bếp mà chưa cho ăn.
@@ -74,10 +74,10 @@ DỮ LIỆU CỦA BẠN
 Thợ Bánh Mì lưu 10 bản sao lưu tự động gần nhất trên điện thoại. Bạn có thể xuất toàn bộ dữ liệu ra tệp và nhập lại từ tệp, còn lịch sử nướng bánh có thể xuất dạng CSV. Đơn vị: gam và °C hoặc ounce và °F.
 
 CẦN BIẾT
-Thợ Bánh Mì chạy trên iPhone và không đồng bộ dữ liệu giữa các thiết bị; bạn chuyển dữ liệu bằng tệp sao lưu. Nếu không cho phép thông báo, Thợ Bánh Mì chỉ báo kết thúc bước khi màn hình đang mở.
+Thợ Bánh Mì chạy trên iPhone và không đồng bộ dữ liệu giữa các thiết bị; bạn chuyển dữ liệu bằng tệp sao lưu.
 
 QUYỀN TRUY CẬP VÀ MUA
-Gói Basic miễn phí vĩnh viễn, không có thời gian dùng thử. Gói Pro bổ sung tính năng lập kế hoạch, chăm sóc men tự nhiên, thêm nhiều men tự nhiên và công thức. Pro là gói đăng ký theo tháng hoặc theo năm, hoặc mua một lần trọn đời trên App Store.
+Gói Basic miễn phí vĩnh viễn, không có thời gian dùng thử. Gói Pro bổ sung tính năng lập kế hoạch, chăm sóc men tự nhiên, thêm nhiều men tự nhiên và công thức. Pro là gói đăng ký theo tháng hoặc theo năm, hoặc mua một lần trọn đời trên App Store. Gói đăng ký tự động gia hạn cho đến khi bạn hủy: trong Cài đặt, chạm vào tên của bạn, sau đó chạm vào Đăng ký. Trên iPhone mới, chạm vào “Khôi phục giao dịch mua” trong ứng dụng.
 Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Ngôn ngữ: 35.
