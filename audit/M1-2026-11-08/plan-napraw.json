@@ -8,7 +8,7 @@
   },
   "werdykt": {
     "kurs": "trafny",
-    "stan": "GOTOWE Z ZASTRZEŻENIAMI"
+    "stan": "ZABLOKOWANE"
   },
   "przyczyny": [
     {
@@ -643,11 +643,11 @@
         "raport": "reaudit-2026-11-09/04-studio-projektowe/04-studio-projektowe-reaudit-2026-11-09.md",
         "wynik": "nadal otwarte: instrukcja i ostrzeżenie poza pierwszym ekranem (402 pt: nagłówek i kilka wierszy, bez ostrzeżenia; 320 pt: karta poza ekranem); test akceptacyjny nie sprawdza tytułu; potwierdzone w weryfikacja/V1"
       },
-      "zatwierdzenie": "2026-11-10, właściciel: „Zgodnie z rekomendacja.” (naprawa opcją 1 przed App Store)",
+      "zatwierdzenie": "2026-11-10, właściciel, KO-015/KO-019: „Napraw teraz” (naprawa przed TestFlight, sesje E/E2 M2)",
       "przyczyna": null,
       "uwagi": "D-318 (opcja A) + D-319 (niski ekran); zrzuty Expo web 320/375/393 w role/04-studio-projektowe/fix-2026-11-09/dowody/p4b-005-*; otwarte brzegowe M2-p4-N9 (320 + dwa wypieki); zrzuty iOS i AX5 — E2E",
       "reaudit": "reaudit pętla 2, 2026-11-10, commit 1c723632: nadal otwarte (naprawione częściowo). D-318 i D-319 wykonane, pierwszy krok w pl/en w pierwszym ekranie (zrzut E2E 402×874); na kroku pieczenia w garnku ostrzeżenie „Gorące naczynie” pod paskiem kciuka przy 393×852 i 320×568 (rachunek, potwierdzony weryfikacją przeciwną reaudit-2026-11-10/weryfikacja/005.md); test akceptacyjny liczy tylko krok 1 w pl i en; w części z 33 języków ostrzeżenie kroku 1 pod „Zrobione”. Pętla 2 = ostatnia (D-043): opcje dla właściciela w raporcie M1, bez trzeciej pętli fix",
-      "decyzja_wlasciciela": "2026-11-10, sesja B2 po STOP 2, słowa właściciela: „Zgodnie z rekomendacja.” — rekomendacja M1: opcja 2 teraz (przyjęcie ryzyka na czas TestFlight, kontrola zastępcza: zrzut kroku pieczenia z telefonu właściciela), opcja 1 (ostrzeżenie nad kartą „Co zrobić” + test układu wszystkich kroków i języków, rola 04) przed zgłoszeniem do App Store razem z 106 i 107; P1 rozwiązane decyzją właściciela dla wydania TestFlight (nie zweryfikowane)"
+      "decyzja_wlasciciela": "KO-019 (2026-11-10 07:01 UTC, czat koordynatora), słowa właściciela: „Napraw teraz (E2 dalej)” — obowiązują KO-015 („Napraw teraz”: ostrzeżenie nad kartą „Co zrobić” + test wszystkich kroków i języków; rola 04, potem 08) i KO-018 (przy 320 pt akcje pasa jako ikony 44 pt); 005 naprawiane przed TestFlight. ZASTĄPIONE: wpis z sesji B2 po STOP 2 („Zgodnie z rekomendacja.” = opcja 2 teraz, opcja 1 przed App Store; K @ 0d7625b9) — nieobowiązujący"
     },
     {
       "id": "M1-audytor-generalny-006",

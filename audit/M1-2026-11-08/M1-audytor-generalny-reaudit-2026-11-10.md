@@ -130,3 +130,11 @@ Słowa właściciela w sesji reaudytu: „Zgodnie z rekomendacja.” Dotyczy M1-
   - Wyniki układu z rachunku (320×568, języki, AX): do potwierdzenia zrzutem.
 - Wpis do `docs/decyzje.md` aplikacji: przez koordynatora (reaudyt nie zmienia plików aplikacji).
 - Następny krok: rola 10 (wydanie TestFlight).
+
+### Zastąpienie decyzji (KO-019, 2026-11-10 07:01 UTC)
+
+Sekcja „Decyzja właściciela po STOP 2” wyżej jest nieobowiązująca. Właściciel rozstrzygnął sprzeczność w czacie koordynatora słowami „Napraw teraz (E2 dalej)” (KO-019 w `docs/koordynacja/decyzje.md` na gałęzi `koordynacja`): obowiązują KO-015 (005 naprawiane przed TestFlight: ostrzeżenie nad kartą „Co zrobić” i test wszystkich kroków i języków; tests-tz naprawiany przed kandydatem) oraz KO-018 (przy 320 pt akcje pasa jako ikony 44 pt).
+
+- Stan: **ZABLOKOWANE** do zweryfikowania naprawy 005 (P1 zatwierdzone do naprawy, nie rozwiązane decyzją); 017 pozostaje rozwiązane decyzją właściciela dla TestFlight (KO-014).
+- 005 i 110 nie są już zastrzeżeniami „przed App Store”: naprawia je M2 przed kandydatem TestFlight. Pozostałe zastrzeżenia (017 z 109, 067, 032, wyniki układu z rachunku) bez zmian.
+- Naprawa po tej pętli jest decyzją właściciela (KO-015), nie trzecią pętlą zleconą przez M1 (D-043); jej weryfikacja należy do koordynatora (E2E na końcowym SHA według KO-015).
