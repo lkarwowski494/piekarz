@@ -1,0 +1,20 @@
+diff --git a/src/components/stolnica/StrefaKroku.tsx b/src/components/stolnica/StrefaKroku.tsx
+index 38d0484..bb19b9a 100644
+--- a/src/components/stolnica/StrefaKroku.tsx
++++ b/src/components/stolnica/StrefaKroku.tsx
+@@ -99,7 +99,6 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
+       )}
+       {/* Ostrzeżenie bezpieczeństwa kroku nad kartą „Co zrobić”, w pierwszym ekranie także przy długiej instrukcji
+           (KO-015, D-335) [M1-audytor-generalny-005]; treść i zachowanie bez zmian */}
+-      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
+       {/* Instrukcja kroku i „Ekran nie zgaśnie…” w karcie (README §4 prowadzenie, makieta wypiek.html#prowadzenie, M3 p4) */}
+       <Karta testID="karta-kroku" tytul={naglowekNaPasie ? t('Co zrobić') : numer ? t('Krok {n} z {m}', numer) : t(step.name)} ikona={<IkonaKarty nazwa="ksiazka" />}>
+       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
+@@ -113,6 +112,7 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
+         </View>
+       )}
+       </Karta>
++      {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
+       <PokeTestEntry step={step} />
+ 
+       {/* Dutch Oven Two-Phase Controller for the bake step */}

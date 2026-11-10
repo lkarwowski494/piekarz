@@ -1,0 +1,34 @@
+# mutacja 1: ostrzeżenie pod kartą (cofnięcie D-335), kopia w scratchpadzie
+    ✕ 393×852, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (3246 ms)
+    ✕ 393×852, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1279 ms)
+    ✕ 320×568, pl: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1474 ms)
+    ✕ 320×568, en: dół całego ostrzeżenia nad paskiem kciuka na każdym kroku z ostrzeżeniem (1351 ms)
+    +   "bez receptury (garnek) #7 final_shape: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #9 preheat_oven: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 159 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) (zakwas z lodówki) #1 fridge_wake_feed: 71 pt pod paskiem kciuka",
+    +   "rye_100_pan (drożdże) (zakwas z lodówki) #1 fridge_wake_feed: 71 pt pod paskiem kciuka",
+    +   "graham_bread_honey (drożdże) (zakwas z lodówki) #1 fridge_wake_feed: 71 pt pod paskiem kciuka",
+      195 |           if (brak > 0) ponizej.push(`${p.opis}: ${brak} pt pod paskiem kciuka`);
+    +   "bez receptury (garnek) #1 starter_feed: 4 pt pod paskiem kciuka",
+    +   "bez receptury (garnek) #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "country_loaf_72 #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "san_francisco_sourdough #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "pain_de_campagne #10 bake lid_on: 115 pt pod paskiem kciuka",
+    +   "tartine_high_hydration_80 (drożdże) (zakwas z lodówki) #1 fridge_wake_feed: 49 pt pod paskiem kciuka",
+# kod=1
+
+# mutacja 2: ikony={false} + MIN_SKALA_NUMERU 0.5
+PASS tests/duzy-tekst-kroj.test.ts
+FAIL src/__tests__/akcje-pasa-ikony-005.test.tsx
+Tests:       4 failed, 6 passed, 10 total
+# kod=1 (akcje-pasa 4 czerwone; duzy-tekst-kroj 055 ZIELONY mimo skali 0,5)
+
+# mutacja 3: tylko MIN_SKALA_NUMERU 0.7 -> 0.5 (mut3.diff), testy 055 i „Krok n z m … bez wielokropka”
+PASS tests/duzy-tekst-kroj.test.ts
+PASS src/__tests__/ostrzezenie-nad-karta-005.test.tsx
+Tests:       71 skipped, 40 passed, 111 total
+# kod=0 — mutant przeżył (07-jakosc-801)
