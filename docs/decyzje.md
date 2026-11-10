@@ -1915,3 +1915,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Kompromis:** strażnik jest statyczny (literał), więc nie złapie założenia o `/tmp` zapisanego inaczej (np. `path.join('/', 'tmp')`); pełny dowód na macOS daje dopiero następny build TestFlight.
 - **Zależy od:** KO-015 (kandydat 1.0).
 - **Status:** wykonanie polecenia F koordynatora (pkt 4.2) — do weta.
+
+### [D-292] 2026-11-10 — Build TestFlight bez nowych zrzutów sklepu; zrzuty (017) i opis sklepu (109) przed zgłoszeniem do App Store (właściciel; KO-014)
+- **Źródło:** KO-014 (`docs/koordynacja/decyzje.md` na gałęzi `koordynacja`, 2026-11-10 05:59, właściciel): „Swiadomie wydanie testlight bez zrzutow. Zrzurty zrobimy na koncu przed samym apple store.” Reaudyt M1 pętla 2 (`audit/M1-2026-11-08/M1-audytor-generalny-reaudit-2026-11-10.md` na gałęzi `audit-m1/piekarz-2026-11-08`, wiersz 017: „nienaprawione; rozwiązane decyzją właściciela dla TestFlight”).
+- **Decyzja:** M1-audytor-generalny-017 (P1, rola 10: zrzuty w `docs/wydanie/zrzuty/` oznaczają funkcje Basic jako płatne i pokazują interfejs sprzed M3) odłożone do bramki App Store. Build TestFlight 1.0.0 (1025) wyszedł bez zmiany zrzutów w repo (017 dotyczy zgłoszenia do App Store, nie buildu TestFlight: raport `reaudit-2026-11-10/07-jakosc/07-jakosc-reaudit-2026-11-10.md`, wiersz 5, ta sama gałąź). **Zobowiązanie:** przed zgłoszeniem do App Store nowe zrzuty z buildu kandydata (017) oraz opis sklepu i README zgodne z liczbą receptur (M1-audytor-generalny-109, P3, 10-wydanie-701: „opis sklepu i README podają 11 receptur z planem, jest 10”).
+- **Odrzucone:** naprawa 017 przed TestFlight (opcja odrzucona w KO-014; właściciel: zrzuty „na koncu przed samym apple store”).
+- **Kompromis:** P1 otwarte do zgłoszenia: werdykt 07 reaudytu na `1c723632` to „ZABLOKOWANE” wyłącznie przez 017 (`07-jakosc-reaudit-2026-11-10.md`, wiersze 4–5), a w raporcie audytora generalnego samo 017 dawałoby „GOTOWE Z ZASTRZEŻENIAMI” (`M1-audytor-generalny-reaudit-2026-11-10.md`, wiersz 115). Przed App Store potrzebny nowy werdykt 07 po zamknięciu 017.
+- **Zależy od:** KO-014; D-225 (M1 na buildzie kandydata); `docs/wydanie/sklep.md` (plan zgłoszenia).
+- **Status:** właściciel (zapis z puli koordynatora D-290…D-299, wykonany w sesji G porządków po buildzie 1025, KO-022).
