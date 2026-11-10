@@ -54,7 +54,7 @@ describe('005 / D-337: akcje pasa jako ikony 44 pt w zwartym pasie', () => {
   });
 
   for (const jezyk of ['pl', 'fr', 'id'] as Lang[]) {
-    it(`320×568, ${jezyk}: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt`, () => {
+    it(`320×568, ${jezyk}: Doktor i Plan wypieku bez tekstu, ikona, etykieta VoiceOver, cel ≥ 44×44 pt (styl, bez pomiaru)`, () => {
       setLang(jezyk);
       ekran(320, 568);
       const tree = pas();
