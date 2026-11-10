@@ -1,0 +1,32 @@
+diff --git a/tests/helpers/uklad-ekranu.ts b/tests/helpers/uklad-ekranu.ts
+index aa6d8d38..dde9a894 100644
+--- a/tests/helpers/uklad-ekranu.ts
++++ b/tests/helpers/uklad-ekranu.ts
+@@ -61,12 +61,14 @@ function wiersze(t: string, rozmiar: number, znak: number, w: number): number {
+ }
+ 
+ const rozmiarTekstu = (s: Styl) => num(s.fontSize) ?? 14;
++/** SONDA G3: skala tekstu (fontScale) z ograniczeniem maxFontSizeMultiplier. */
++const skalaG3 = (n: Wezel): number => Math.min(((globalThis as { __G3_SKALA?: number }).__G3_SKALA ?? 1), num(n.props?.maxFontSizeMultiplier) ?? Infinity);
+ const znakTekstu = (s: Styl) => (typeof s.fontFamily === 'string' && /Sofia/.test(s.fontFamily) ? ZNAK_TYTUL : ZNAK_TRESC);
+ 
+ /** Naturalna szerokość tekstu w jednym wierszu (do rzędów bez flex). */
+ function szerokoscTekstu(n: Wezel): number {
+   const s = styl(n);
+-  return tekst(n).length * rozmiarTekstu(s) * znakTekstu(s);
++  return tekst(n).length * rozmiarTekstu(s) * skalaG3(n) * znakTekstu(s) * ((globalThis as { __G3_ZNAK?: number }).__G3_ZNAK ?? 1);
+ }
+ 
+ /**
+@@ -113,9 +115,9 @@ function uloz(n: Wezel, y: number, w: number, ramki: Map<Wezel, Ramka>): number
+   const wew = Math.max(1, w - bok(s, 'Left', 'padding') - bok(s, 'Right', 'padding') - 2 * (num(s.borderWidth) ?? 0));
+   let h: number;
+   if (typ(n) === 'Text') {
+-    const rozmiar = rozmiarTekstu(s);
++    const rozmiar = rozmiarTekstu(s) * skalaG3(n);
+     const limit = n.props.adjustsFontSizeToFit ? 1 : num(n.props.numberOfLines);
+-    const ile = wiersze(tekst(n), rozmiar, znakTekstu(s), wew);
++    const ile = wiersze(tekst(n), rozmiar, znakTekstu(s) * ((globalThis as { __G3_ZNAK?: number }).__G3_ZNAK ?? 1), wew);
+     h = pt + pb + Math.min(ile, limit ?? ile) * (num(s.lineHeight) ?? rozmiar * (znakTekstu(s) === ZNAK_TYTUL ? WIERSZ_TYTUL : WIERSZ));
+   } else {
+     const dzieci = dzieciHost(n).filter((d) => !pominiety(d));

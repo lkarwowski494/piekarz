@@ -1,0 +1,144 @@
+/**
+ * M1-audytor-generalny-005 (04-studio-projektowe-001, opcja A z reauditu 2026-11-09; decyzja M2 D-318 do weta D-289):
+ * na pasie prowadzenia tylko tytuł kroku, czas i „potem …”; Spirala z nazwą receptury i „Gotowe …” w karcie pod kartą
+ * kroku. Przy 393×852 pt (domyślny tekst, pl i en) dół ostrzeżenia bezpieczeństwa nad górą „Zrobione”; przy dwóch
+ * wypiekach przełącznik nie zasłania karty kroku. 320×568 pt (rola 04, p4b, opcja a): zwarty pas i pasek kciuka w jednym
+ * rzędzie na niskim ekranie — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt. Wcześniej (rola 08): niewykonalne w opcji A (sama karta z ostrzeżeniem i pasek
+ * kciuka są wyższe niż okno pod najmniejszym pasem) — otwarte, rachunek w raporcie roli 08 (fix-2026-11-09, wynik-p4).
+ * Układ to rachunek z tokenów i stylów (tests/helpers/uklad-ekranu.ts), nie pomiar: zrzut z symulatora daje E2E iOS
+ * (.maestro/e2e/03-prowadzenie-widok-skupiony.yaml, `step-warning`).
+ */
+jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
+jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
+jest.mock('expo-haptics', () => ({
+  notificationAsync: jest.fn(),
+  impactAsync: jest.fn(),
+  NotificationFeedbackType: { Success: 'success' },
+  ImpactFeedbackStyle: { Light: 'light', Medium: 'medium', Heavy: 'heavy' },
+}));
+const mockWciecia = { top: 0, left: 0, right: 0, bottom: 0 };
+jest.mock('react-native-safe-area-context', () => {
+  const React = require('react');
+  return {
+    SafeAreaView: ({ children, style }: { children: React.ReactNode; style?: unknown }) => React.createElement('View', { style }, children),
+    useSafeAreaInsets: () => mockWciecia,
+  };
+});
+let mockParams: Record<string, string> = {};
+jest.mock('expo-router', () => {
+  const React = require('react');
+  return {
+    useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
+    useLocalSearchParams: () => mockParams,
+    useFocusEffect: (cb: () => void) => React.useEffect(cb, []),
+    Stack: Object.assign(({ children }: { children: React.ReactNode }) => children, { Screen: () => null }),
+  };
+});
+
+import fs from 'fs';
+import path from 'path';
+import React from 'react';
+import { Dimensions, StyleSheet } from 'react-native';
+import renderer, { act } from 'react-test-renderer';
+import StolnicaScreen from '../../app/stolnica';
+import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
+import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
+import { planBakeSteps } from '../core/bake-steps';
+import { ostrzezeniaKroku } from '../core/ostrzezenia-kroku';
+import { saveBakeSession, type BakeSession } from '../data/bake-session-store';
+import { setLang } from '../lib/i18n';
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { ramka, ukladEkranu } from '../../tests/helpers/uklad-ekranu';
+import { czyNiskiEkran } from '../ui/niski-ekran';
+import { uklad } from '../ui/tokeny';
+
+jest.setTimeout(30000);
+
+/** iPhone 16 (393×852 pt): pasek stanu 59 pt, wskaźnik Home 34 pt. */
+const EKRAN = { szer: 393, wys: 852, gora: 59, dol: 34 } as const;
+/** iPhone SE 1. gen. i „Powiększenie ekranu” (320×568 pt): pasek stanu 20 pt, bez wskaźnika Home (rola 04, p4b). */
+const NISKI = { szer: 320, wys: 568, gora: 20, dol: 0 } as const;
+type Ekran = { szer: number; wys: number; gora: number; dol: number };
+
+const now = 1_800_000_000_000;
+let kroki = planBakeSteps({ startAt: now - 60_000, isHighRye: false });
+const wypiek = (id: string, nazwa: string, stepIdx: number, faza: 'lid_on' | 'lid_off' = 'lid_on'): BakeSession => ({
+  version: 2,
+  steps: kroki,
+  stepIdx,
+  dutchOvenPhase: faza,
+  timerEndsAt: now + 30 * 60_000,
+  pausedLeftSec: null,
+  recipeName: nazwa,
+  startedAt: now - 60_000,
+  bake: { id, recipeName: nazwa, startedAt: now - 60_000, currentStageId: kroki[stepIdx].id, zaczetyZDostepem: true },
+});
+
+async function render(): Promise<renderer.ReactTestRenderer> {
+  let tree: renderer.ReactTestRenderer | null = null;
+  await act(async () => {
+    tree = renderer.create(<StolnicaScreen />);
+  });
+  await act(async () => {
+    for (let i = 0; i < 30; i++) await Promise.resolve();
+  });
+  return tree!;
+}
+
+
+import { ACTIVE_LANGS, t as tt } from '../lib/i18n';
+import { isDutchOvenStep } from '../core/bake-steps';
+const DOMYSLNE = Dimensions.get('window');
+const WY = process.env.G3_WY as string;
+const G = globalThis as { __G3_SKALA?: number; __G3_ZNAK?: number };
+type Sc = { nazwa: string; szer: number; wys: number; gora: number; dol: number; jezyk: string; krok: number; zyto?: boolean; faza?: 'lid_on' | 'lid_off'; dwa?: boolean; skala?: number; znak?: number };
+const E = { e393: { szer: 393, wys: 852, gora: 59, dol: 34 }, e320: { szer: 320, wys: 568, gora: 20, dol: 0 }, e375: { szer: 375, wys: 667, gora: 20, dol: 0 }, e375x: { szer: 375, wys: 812, gora: 50, dol: 34 }, e320z: { szer: 320, wys: 693, gora: 48, dol: 34 } } as const;
+const sc: Sc[] = [];
+for (const [n, e] of Object.entries(E)) for (const jezyk of ['pl', 'en']) for (const dwa of [false, true]) sc.push({ nazwa: `${n}`, ...e, jezyk, krok: 0, dwa });
+const N = planBakeSteps({ startAt: now - 60_000, isHighRye: false }).length; const NZ = planBakeSteps({ startAt: now - 60_000, isHighRye: true }).length;
+for (const n of ['e393', 'e320'] as const) for (const jezyk of ['pl', 'en']) { for (let k = 0; k < N; k++) for (const faza of ['lid_on', 'lid_off'] as const) sc.push({ nazwa: `${n}-kroki`, ...E[n], jezyk, krok: k, faza }); for (let k = 0; k < NZ; k++) sc.push({ nazwa: `${n}-zyto`, ...E[n], jezyk, krok: k, zyto: true }); }
+for (const n of ['e393', 'e320'] as const) for (const jezyk of ACTIVE_LANGS) for (const znak of [1, 1.12]) sc.push({ nazwa: `${n}-jezyki`, ...E[n], jezyk, krok: 0, znak });
+for (const n of ['e393', 'e320', 'e375'] as const) for (const skala of [1.12, 1.35, 1.64, 1.94, 2.35, 3.1]) sc.push({ nazwa: `${n}-skala`, ...E[n], jezyk: 'pl', krok: 0, skala });
+for (const znak of [1.12]) for (const n of ['e393', 'e320', 'e375', 'e375x', 'e320z'] as const) for (const jezyk of ['pl', 'en']) for (const dwa of [false, true]) sc.push({ nazwa: `${n}-znak`, ...E[n], jezyk, krok: 0, dwa, znak });
+
+describe('G3 sonda', () => {
+  it('macierz', async () => {
+    const wyniki: unknown[] = [];
+    for (const s of sc) {
+      zUprawnieniem(); useTempDbDir(); _resetMemStore(); setActiveBake(null);
+      mockParams = { wypiek: 'bake_chleb' };
+      jest.spyOn(Date, 'now').mockImplementation(() => now);
+      await initDatabase(); await saveBakeSession(null);
+      kroki = planBakeSteps({ startAt: now - 60_000, isHighRye: !!s.zyto });
+      const krok = kroki[s.krok];
+      if (s.faza === 'lid_off' && !isDutchOvenStep(krok)) continue;
+      setLang(s.jezyk as never);
+      await saveBakeSession(wypiek('bake_chleb', 'Wiejski chleb codzienny na zakwasie', s.krok, s.faza ?? 'lid_on'));
+      if (s.dwa) await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1));
+      const fs_ = s.skala ?? 1;
+      act(() => { Dimensions.set({ window: { width: s.szer, height: s.wys, scale: 2, fontScale: fs_ }, screen: { width: s.szer, height: s.wys, scale: 2, fontScale: fs_ } }); });
+      Object.assign(mockWciecia, { top: s.gora, bottom: s.dol });
+      G.__G3_SKALA = fs_; G.__G3_ZNAK = s.znak ?? 1;
+      const tree = await render();
+      let w: Record<string, unknown> = { ...s, idKroku: krok.id, tytul: tt(krok.name) };
+      try {
+        const ramki = ukladEkranu(tree.root, s.szer, s.wys, s.dol);
+        const r = (id: string) => { try { const x = ramka(tree.root, ramki, id); return { y: Math.round(x.y), d: Math.round(x.y + x.h), h: Math.round(x.h) }; } catch { return null; } };
+        const pasek = tree.root.findAll((n) => n.props?.testID === 'thumb-bar' && typeof n.type === 'string')[0];
+        const txt = (id: string) => { const n = tree.root.findAll((x) => x.props?.testID === id && typeof x.type === 'string')[0]; const f = (x: any): string => typeof x === 'string' ? x : x.children.map(f).join(''); return n ? f(n) : null; };
+        const prz = r('przelacznik-wypiekow'); const zr = r('next-or-finish-step-btn'); const tb = r('thumb-bar');
+        const przWTresci = prz && tb ? prz.y < (r('karta-kroku')?.y ?? 0) : false;
+        const okno = Math.min(...[prz && !przWTresci ? prz.y - 8 : Infinity, tb ? tb.y : Infinity]);
+        w = { ...w, pas: r('pas-zakladki'), tytulR: r('step-title'), czas: r('step-time'), potem: r('step-next'), karta: r('karta-kroku'), ostrz: r('step-warning'), garnek: r('dutch-oven-controller'), plan: r('karta-planu'), gotowe: r('plan-ready'), prz, przWTresci, zr, cof: r('step-undo-btn'), poco: r('step-why-btn'), tb, okno,
+          zwartyPasek: StyleSheet.flatten(pasek.props.style).flexDirection === 'row', teksty: [txt('next-or-finish-step-btn'), txt('step-undo-btn'), txt('step-why-btn'), txt('step-number'), txt('step-next'), txt('bake-plan-btn'), txt('stolnica-doctor-shortcut-btn')] };
+      } catch (e) { w.blad = String(e); }
+      act(() => tree.unmount());
+      jest.restoreAllMocks();
+      wyniki.push(w);
+    }
+    G.__G3_SKALA = 1; G.__G3_ZNAK = 1;
+    act(() => { Dimensions.set({ window: DOMYSLNE, screen: DOMYSLNE }); });
+    fs.writeFileSync(WY, JSON.stringify(wyniki));
+    expect(wyniki.length).toBeGreaterThan(0);
+  }, 600000);
+});

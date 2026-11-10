@@ -1,0 +1,17 @@
+# WT 1c723632: npx jest <5 plików> --maxWorkers=2
+PASS src/ui/__tests__/theme-contrast.test.ts
+(node:1566) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1572) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS src/__tests__/pas-plan-prowadzenie-p4b.test.tsx
+PASS src/__tests__/pas-prowadzenia-005.test.tsx
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+PASS src/__tests__/karta-kroku-pierwszy-ekran-005.test.tsx
+
+Test Suites: 5 passed, 5 total
+Tests:       115 passed, 115 total
+Snapshots:   0 total
+Time:        5.214 s
+Ran all test suites matching /src\/__tests__\/karta-kroku-pierwszy-ekran-005.test.tsx|src\/__tests__\/pas-prowadzenia-005.test.tsx|src\/__tests__\/pas-plan-prowadzenie-p4b.test.tsx|src\/ui\/__tests__\/tokeny-zgodnosc.test.ts|src\/ui\/__tests__\/theme-contrast.test.ts/i.
+KOD WYJŚCIA: 0

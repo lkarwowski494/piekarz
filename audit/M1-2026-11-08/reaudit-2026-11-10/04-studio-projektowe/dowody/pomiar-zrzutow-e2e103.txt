@@ -1,0 +1,35 @@
+# Pomiar zrzutów z symulatora iOS, artefakt maestro-e2e przebiegu iOS E2E 42725323063 (headSha 1c723632, wniosek: success); 1206x2622 px = 402x874 pt @3x
+# Metoda: przebiegi koloru w kolumnie pikseli; wartości w pt = px/3. Zrzuty pomniejszone do 1x w zrzuty/e2e103-*.png
+
+## pl-03-prowadzenie-widok-skupiony.png
+ pas (kolumna x=2 pt, kolor akcent/pas): dół pasa ok. [345] pt
+ ostrzeżenie (żółte, x=301 pt):  [(488, 531), (541, 556), (558, 601)] pt (góra, dół)
+ akcent w kolumnie x=40 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 770.0, 64.0)]
+ akcent w kolumnie x=201 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 735.7, 29.7), (743.3, 770.0, 26.7)]
+ akcent w kolumnie x=352 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 770.0, 64.0)]
+
+## pl-05-dwa-wypieki.png
+ pas (kolumna x=2 pt, kolor akcent/pas): dół pasa ok. [305] pt
+ ostrzeżenie (żółte, x=301 pt):  [(468, 536), (537, 581)] pt (góra, dół)
+ akcent w kolumnie x=40 pt (góra, dół, wysokość) poniżej 55% ekranu: [(703.7, 719.0, 15.3), (762.7, 776.0, 13.3), (784.0, 832.0, 48.0)]
+ akcent w kolumnie x=201 pt (góra, dół, wysokość) poniżej 55% ekranu: []
+ akcent w kolumnie x=352 pt (góra, dół, wysokość) poniżej 55% ekranu: []
+
+## en-03-prowadzenie-widok-skupiony.png
+ pas (kolumna x=2 pt, kolor akcent/pas): dół pasa ok. [345] pt
+ ostrzeżenie (żółte, x=301 pt):  [(508, 553), (555, 584), (598, 642)] pt (góra, dół)
+ akcent w kolumnie x=40 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 770.0, 64.0)]
+ akcent w kolumnie x=201 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 737.0, 31.0), (742.0, 770.0, 28.0)]
+ akcent w kolumnie x=352 pt (góra, dół, wysokość) poniżej 55% ekranu: [(706.0, 770.0, 64.0)]
+
+## en-05-dwa-wypieki.png
+ pas (kolumna x=2 pt, kolor akcent/pas): dół pasa ok. [305] pt
+ ostrzeżenie (żółte, x=301 pt):  [(468, 511), (513, 543), (545, 581)] pt (góra, dół)
+ akcent w kolumnie x=40 pt (góra, dół, wysokość) poniżej 55% ekranu: [(762.7, 776.0, 13.3), (784.0, 832.0, 48.0)]
+ akcent w kolumnie x=201 pt (góra, dół, wysokość) poniżej 55% ekranu: []
+ akcent w kolumnie x=352 pt (góra, dół, wysokość) poniżej 55% ekranu: []
+
+
+## Dół pasa w kolumnie środkowej (x=201 pt, poza zaokrągleniem rogów; kolor pasa do pierwszej zmiany poniżej 280 pt)
+  pl-03-prowadzenie-widok-skupiony.png dół pasa: 361.3 pt
+  (pozostałe trzy zrzuty: kolumnę środkową przecina tekst pasa, pomiar pominięty)

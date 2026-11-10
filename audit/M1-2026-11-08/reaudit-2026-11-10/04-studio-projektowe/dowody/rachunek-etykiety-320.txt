@@ -1,0 +1,39 @@
+# RACHUNEK: 320×568, układ zwarty, tekst domyślny. Szerokość słowa = liczba znaków × rozmiar × 0,5 em (model projektu; cyrylica i greka są w SF Pro szersze, więc wynik dla nich jest zaniżony).
+# Dostępna szerokość tekstu: „Zrobione” 74,7 pt (98,7 − 2×12), przyciski drugie 75,7 pt (86,7 − 2×4 − 2×1,5), „Krok n z m” = 304 − 44 − szerokość akcji − 8 (rząd nawigacji pasa).
+# język | Zrobione (najdłuższe słowo pt) | Cofnij poprzedni | Po co ten krok | Krok n z m: dostępne pt / najdłuższe słowo pt | łamanie w słowie
+pl | Zrobione (68) | Cofnij poprzedni (68) | Po co ten krok (30) | Krok 1 z 11: 83 / 30 | -
+en | Done (34) | Undo Previous (60) | Why this step (30) | Step 1 of 11: 109 / 30 | -
+cs | Hotovo (51) | Vrátit předchozí (68) | Proč tento krok (38) | Krok 1 z 11: 92 / 30 | -
+sk | Hotovo (51) | Vrátiť predchádzajúci (105) | Prečo tento krok (38) | Krok 1 z 11: 83 / 30 | Cofnij
+hu | Kész (34) | Előző visszavonása (90) | Mire jó ez a lépés (38) | Lépés: 1/11: 92 / 45 | Cofnij
+ro | Gata (34) | Anulează precedentul (83) | De ce acest pas (38) | Pasul 1 din 11: 58 / 38 | Cofnij
+bg | Готово (51) | Отменете предишната (75) | Защо тази стъпка (45) | Стъпка 1 от 11: 32 / 45 | Krok n z m
+hr | Gotovo (51) | Poništi prethodni (68) | Čemu ovaj korak (38) | Korak 1 od 11: 83 / 38 | -
+sl | Opravljeno (85) | Razveljavi prejšnji (75) | Zakaj ta korak (38) | Korak 1 od 11: 100 / 38 | Zrobione
+sr | Готово (51) | Опозови претходни (68) | Зашто овај корак (38) | Корак 1 од 11: 92 / 38 | -
+lt | Atlikta (60) | Atšaukti ankstesnį (68) | Kam šis žingsnis (60) | Žingsnis 1 iš 11: 58 / 60 | Krok n z m
+lv | Izdarīts (68) | Atsaukt iepriekšējo (83) | Kāpēc šis solis (38) | 1. solis no 11: 83 / 38 | Cofnij
+et | Tehtud (51) | Võta eelmine tagasi (53) | Milleks see samm (53) | Samm 1/11: 75 / 30 | -
+uk | Зроблено (68) | Скасувати попередній (75) | Навіщо цей крок (45) | Крок 1 з 11: 83 / 30 | -
+es | Hecho (43) | Deshacer anterior (60) | Por qué este paso (30) | Paso 1 de 11: 49 / 30 | -
+es-419 | Hecho (43) | Deshacer anterior (60) | Por qué este paso (30) | Paso 1 de 11: 49 / 30 | -
+pt | Feito (43) | Anular anterior (60) | Porquê este passo (45) | Passo 1 de 11: 49 / 38 | -
+pt-BR | Feito (43) | Desfazer anterior (60) | Por que esta etapa (38) | Etapa 1 de 11: 49 / 38 | -
+de | Erledigt (68) | Vorherigen rückgängig (75) | Wozu dieser Schritt (53) | Schritt 1 von 11: 117 / 53 | -
+fr | Terminé (60) | Annuler le précédent (68) | Pourquoi cette étape (60) | Étape 1 sur 11: 49 / 38 | -
+it | Fatto (43) | Annulla il precedente (75) | A cosa serve (38) | Passaggio 1 di 11: 32 / 68 | Krok n z m
+nl | Klaar (43) | Vorige ongedaan maken (60) | Waarom deze stap (45) | Stap 1 van 11: 126 / 30 | -
+sv | Klart (43) | Ångra föregående (75) | Varför det här steget (45) | Steg 1 av 11: 117 / 30 | -
+da | Færdig (51) | Fortryd forrige (53) | Hvorfor dette trin (53) | Trin 1 af 11: 117 / 30 | -
+nb | Ferdig (51) | Angre forrige (53) | Hvorfor dette steget (53) | Steg 1 av 11: 117 / 30 | -
+fi | Tehty (43) | Kumoa edellinen (68) | Miksi tämä vaihe (38) | Vaihe 1/11: 15 / 38 | Krok n z m
+tr | Tamamlandı (85) | Öncekini Geri Al (60) | Bu adım neden gerekli (53) | Adım 1/11: 75 / 30 | Zrobione
+el | Έγινε (43) | Αναίρεση προηγούμενου (90) | Γιατί αυτό το βήμα (38) | Βήμα 1 από 11: 49 / 30 | Cofnij
+id | Selesai (60) | Batalkan Sebelumnya (75) | Mengapa langkah ini (53) | Langkah 1 dari 11: 15 / 53 | Krok n z m
+ms | Selesai (60) | Buat Asal Sebelumnya (75) | Mengapa langkah ini (53) | Langkah 1 daripada 11: 75 / 60 | -
+vi | Xong (34) | Hoàn tác bước trước (38) | Vì sao có bước này (30) | Bước 1/11: 66 / 30 | -
+ru | Готово (51) | Отменить предыдущий (75) | Зачем этот шаг (38) | Шаг 1 из 11: 83 / 23 | -
+ja | 完了 (17) | 前の工程を取り消す (68) | この工程の目的 (53) | 工程 1/11: 160 / 30 | -
+ko | 완료 (17) | 이전 단계 취소 (15) | 이 단계가 필요한 이유 (23) | 단계 1/11: 168 / 30 | -
+zh-Hant | 完成 (17) | 復原上一步 (38) | 這個步驟的用意 (53) | 第 1 步，共 11 步: 185 / 23 | -
+# Języki z łamaniem w słowie (według modelu): 12 z 35: sk, hu, ro, bg, sl, lt, lv, it, fi, tr, el, id

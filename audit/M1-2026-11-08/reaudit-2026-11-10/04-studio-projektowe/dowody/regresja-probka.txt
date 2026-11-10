@@ -1,0 +1,54 @@
+# Próbka regresji G3, WT 1c723632, 2026-11-10
+## SP-03: literały kolorów i krojów w plikach zmienionych od ea249c9c (stolnica, nawigacja, harmonogram, src/ui/niski-ekran.ts)
+(usunięto 96 wierszy modułu tokenów src/ui/tokeny.ts — to definicje, nie literały w komponentach; poza nim: 0 trafień)
+## SP-03: liczby poza tokenami dodane w diffie (fontSize, gap, flexBasis)
+20:+  tytulZwarty: { fontSize: typografia.style.tytul2.pt - 2 },
+69:+  numer: { flex: 1, minWidth: 0, paddingHorizontal: theme.spacing.xs, fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie2 },
+88:+  glownyZwarty: { minHeight: theme.cele.glownyPrzeplyw, flexGrow: 1, flexBasis: 96 },
+89:+  rzadZwarty: { flexGrow: 2, flexBasis: 176, gap: odstepy.s },
+90:+  drugiZwarty: { flexBasis: 84, paddingHorizontal: odstepy.xs, paddingVertical: odstepy.xs },
+140:+  czasZwarty: { fontSize: typografia.style.tytulKroku.pt, marginBottom: 0 },
+141:+  potemZwarty: { flexGrow: 1, flexShrink: 1, flexBasis: 150, marginBottom: 0, fontSize: typografia.style.objasnienie.pt },
+## SP-07: allowFontScaling / numberOfLines / stałe height w zmienionych plikach
+src/components/nawigacja/PasZakladki.tsx:77:      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+src/components/nawigacja/PasZakladki.tsx:168:  nadPasem: { position: 'absolute', top: -1000, left: 0, right: 0, height: 1000, backgroundColor: theme.colors.pas },
+src/components/stolnica/StrefaKroku.tsx:69:          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+src/components/stolnica/StrefaKroku.tsx:70:          numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
+## SP-18: role i etykiety w zmienionych plikach
+src/components/stolnica/PasekKciuka.tsx:33:      accessibilityRole="button"
+src/components/stolnica/PasekKciuka.tsx:34:      accessibilityState={{ disabled: !dostepny }}
+src/components/stolnica/PasekKciuka.tsx:51:          accessibilityRole="button"
+src/components/stolnica/PasekKciuka.tsx:52:          accessibilityLabel={t('Zrobione: {krok}', { krok: nazwaKroku })}
+src/components/stolnica/PrzelacznikWypiekow.tsx:36:    <View style={[styles.rzad, staly ? styles.staly : styles.wTresci]} accessibilityRole="tablist" testID="przelacznik-wypiekow">
+src/components/stolnica/PrzelacznikWypiekow.tsx:46:            accessibilityRole="tab"
+src/components/stolnica/PrzelacznikWypiekow.tsx:47:            accessibilityState={{ selected: wyb }}
+src/components/stolnica/PrzelacznikWypiekow.tsx:48:            accessibilityLabel={
+src/components/nawigacja/PasZakladki.tsx:77:      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</
+src/components/nawigacja/PasZakladki.tsx:130:    <View style={styles.filtry} accessibilityRole="radiogroup" accessibilityLabel={etykieta} testID="pas-filtry">
+src/components/nawigacja/PasZakladki.tsx:134:          <Pressable key={f.id} testID={f.testID} accessibilityRole="button" accessibilityState={{ selected: wyb }}
+src/components/nawigacja/PrzyciskNaglowka.tsx:24:    <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={etykieta} style={[styles.przycisk, tekst !== undefined && ikona ? styles.
+112:    ? { accessible: true, accessibilityRole: 'image' as const, accessibilityLabel: etykieta }
+113:    : { accessible: false, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true };
+174:      ? { accessible: false, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true }
+175:      : { accessible: true, accessibilityRole: 'image' as const, accessibilityLabel: etykieta };
+## SP-04 (poza zmienionymi plikami): pary pasa w teście kontrastu
+124:      ['naPasie2', 'pas', 4.5],
+127:      ['ostrzTusz', 'ostrzTlo', 4.5],
+137:        naPasie2: ['#C8D8DC', '#BFD0D4', '#E2ECEE', '#E2ECEE'],
+## SP-08 (poza zmienionymi plikami): Ogranicz ruch
+src/components/Spirala.tsx
+## SP-14 (poza zmienionymi plikami): kroje i licencja
+OFL-sofiasanssemicondensed.txt
+SofiaSansSemiCondensed-wght.ttf
+assets/fonts/OFL-sofiasanssemicondensed.txt
+docs/design/fonty/OFL-alegreyasans.txt
+docs/design/fonty/OFL-bigshouldersstencil.txt
+## check:size zmienionych plików (limit 20480 B)
+20170 src/components/stolnica/ProwadzenieWypieku.tsx
+ 2814 src/components/stolnica/PasProwadzenia.tsx
+ 4797 src/components/stolnica/PasekKciuka.tsx
+ 9646 src/components/nawigacja/PasZakladki.tsx
+37427 total
+## git -C WT status --porcelain
+(koniec; puste = brak zmian)
+1c7236327901e7b693d1934775ecd8bebcd8b865

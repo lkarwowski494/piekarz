@@ -1,0 +1,77 @@
+# Sonda g3-sonda (worktree 1c723632): test 005 z 1c723632 na komponentach sprzed poprawek
+## A. komponenty z ea249c9c (src/components/stolnica, PasZakladki.tsx); test, helper, niski-ekran.ts i tokeny z 1c723632
+    ✕ 393×852, pl: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (1919 ms)
+    ✕ 393×852, en: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (90 ms)
+    ✕ 320×568, pl: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (87 ms)
+    ✕ 320×568, en: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (103 ms)
+    ✓ próg niskiego ekranu z tokenu: 568 i 667 pt zwarte, 852 pt nie; przy dużym tekście (AX, fontScale ≥ 2) układ zwykły (5 ms)
+    ✓ 320×568 przy AX5 (fontScale 3,1): nic nie znika — pas i pasek kciuka zwykłe, wszystkie elementy prowadzenia są (80 ms)
+    ✕ 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku ani ostrzeżenia (94 ms)
+    ✓ E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania (6 ms)
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 684
+    Received:    907
+    > 135 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      136 |       expect(naPasie).toEqual(['step-title', 'step-time', 'step-next']);
+      137 |       expect(spirala.y).toBeGreaterThan(karta.y + karta.h);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 684
+    Received:    950
+    > 135 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      136 |       expect(naPasie).toEqual(['step-title', 'step-time', 'step-next']);
+      137 |       expect(spirala.y).toBeGreaterThan(karta.y + karta.h);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 376
+    Received:    974
+    > 154 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      155 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      156 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 376
+    Received:    977
+    > 154 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      155 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      156 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 597
+    Received:    765
+    > 191 |     expect(Math.round(karta.y + karta.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+      193 |     expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+Tests:       5 failed, 3 passed, 8 total
+## B. komponenty z 2f4a260e (tylko p4, bez p4b)
+    ✓ 393×852, pl: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (391 ms)
+    ✓ 393×852, en: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (86 ms)
+    ✕ 320×568, pl: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (85 ms)
+    ✕ 320×568, en: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (88 ms)
+    ✓ próg niskiego ekranu z tokenu: 568 i 667 pt zwarte, 852 pt nie; przy dużym tekście (AX, fontScale ≥ 2) układ zwykły (3 ms)
+    ✓ 320×568 przy AX5 (fontScale 3,1): nic nie znika — pas i pasek kciuka zwykłe, wszystkie elementy prowadzenia są (75 ms)
+    ✕ 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku ani ostrzeżenia (82 ms)
+    ✓ E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania (5 ms)
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 376
+    Received:    700
+    > 154 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      155 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      156 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 376
+    Received:    704
+    > 154 |       expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(zrobione.y));
+      155 |       for (const [id, h] of cele) expect([id, h >= 44]).toEqual([id, true]);
+      156 |       expect(naPasie).toEqual(['step-title', 'step-number', 'step-time', 'step-next']);
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 597
+    Received:    654
+      191 |     expect(Math.round(karta.y + karta.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+    > 193 |     expect(Math.round(ostrz.y + ostrz.h)).toBeLessThanOrEqual(Math.floor(przelacznik.y));
+Tests:       3 failed, 5 passed, 8 total
+## C. powrót do 1c723632
+    ✓ 393×852, pl: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (339 ms)
+    ✓ 393×852, en: dół ostrzeżenia nad górą „Zrobione”, Spirala pod kartą kroku, nie na pasie (87 ms)
+    ✓ 320×568, pl: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (88 ms)
+    ✓ 320×568, en: zwarty pas i pasek kciuka — dół ostrzeżenia nad górą „Zrobione”, cele ≥ 44 pt (styl, bez pomiaru) (88 ms)
+    ✓ próg niskiego ekranu z tokenu: 568 i 667 pt zwarte, 852 pt nie; przy dużym tekście (AX, fontScale ≥ 2) układ zwykły (3 ms)
+    ✓ 320×568 przy AX5 (fontScale 3,1): nic nie znika — pas i pasek kciuka zwykłe, wszystkie elementy prowadzenia są (74 ms)
+    ✓ 393×852, dwa wypieki: przełącznik nad paskiem kciuka nie zasłania karty kroku ani ostrzeżenia (86 ms)
+    ✓ E2E 03: assertVisible na ostrzeżeniu kroku (step-warning), nie tylko na całej karcie, bez przewijania (4 ms)
+Tests:       8 passed, 8 total

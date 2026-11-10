@@ -1,0 +1,26 @@
+# Próby renderu (G3, 2026-11-10) — sonda g3-sonda (worktree 1c723632 w scratchpadzie), pliki śledzone WT nietknięte
+Stan wyjściowy: package.json nie ma react-native-web ani react-dom (projekt nie wspiera Expo web).
+
+## Próba 1: w sondzie npm i --no-save react-dom react-native-web @expo/metro-runtime; npx expo export -p web --max-workers 2 → kod 1
+Koniec logu:
+ node_modules/expo-sqlite/web/SQLiteModule.ts | import "./wa-sqlite/wa-sqlite.wasm" (Metro nie rozwiązuje .wasm)
+
+## Próba 2: w sondzie metro.config.js z assetExts += wasm, wersje z bundledNativeModules (react-native-web ~0.21, @expo/metro-runtime ~57.0.17); export → kod 0
+
+› web bundles (3):
+_expo/static/js/web/entry-2bc5f63d06a5e5b244ee0c1be5c08b65.js (14MB)
+_expo/static/js/web/index-3cd1a5f343b4309b337b70b046d5400f.js (45KB)
+_expo/static/js/web/worker-bb161ac4497c806f9d785501b631b2ef.js (133KB)
+
+› Files (3):
+favicon.ico (15KB)
+index.html (1.2KB)
+metadata.json (49B)
+
+Exported: /tmp/claude-0/-home-user-piekarz/5eafc561-9bc2-54a9-9a04-f27c4daeaf0c/scratchpad/g3-web
+Serwer statyczny z COOP/COEP (127.0.0.1:8791), Playwright (jedna instancja Chromium, 393×852, deviceScaleFactor 1): aplikacja otwiera ekran ratunkowy (rescue-screen), nie prowadzenie:
+ console.error: TypeError: n.default.isBoldTextEnabled is not a function
+ pageerror: Error: Cannot find native module 'ExpoIap'
+Zrzut: zrzuty/web-proba2-ekran-ratunkowy-393.png
+
+## Wniosek: render Expo web nie udał się w dwóch próbach; zgodnie z poleceniem dalej test układu i rachunek wysokości z kodu (nazwany rachunkiem). Serwer zatrzymany, Chromium zamknięty.

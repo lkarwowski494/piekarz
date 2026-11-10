@@ -1,0 +1,36 @@
+pl p0 starter_feed garnek=false instr=82zn ostrz=2 [37,61]zn lid_off=0 :: Surowy zakwas :: Nie próbuj surowego zakwasu ani mąki. / Po pracy z mąką i zakwasem umyj ręce mydłem pod bieżącą wodą.
+pl p1 autolyse garnek=false instr=87zn ostrz=2 [36,53]zn lid_off=0 :: Surowe ciasto i mąka :: Nie próbuj surowego ciasta ani mąki. / Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+pl p2 mix garnek=false instr=173zn ostrz=0 []zn lid_off=0 :: - :: 
+pl p3 bulk_ferment garnek=false instr=48zn ostrz=2 [36,53]zn lid_off=0 :: Surowe ciasto i mąka :: Nie próbuj surowego ciasta ani mąki. / Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+pl p4 pre_shape garnek=false instr=71zn ostrz=2 [36,53]zn lid_off=0 :: Surowe ciasto i mąka :: Nie próbuj surowego ciasta ani mąki. / Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+pl p5 bench_rest garnek=false instr=88zn ostrz=0 []zn lid_off=0 :: - :: 
+pl p6 final_shape garnek=false instr=91zn ostrz=2 [36,53]zn lid_off=0 :: Surowe ciasto i mąka :: Nie próbuj surowego ciasta ani mąki. / Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+pl p7 final_proof garnek=false instr=124zn ostrz=0 []zn lid_off=0 :: - :: 
+pl p8 preheat_oven garnek=false instr=60zn ostrz=2 [83,64]zn lid_off=0 :: Gorące naczynie :: Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami. / Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.
+pl p9 bake garnek=true instr=310zn ostrz=2 [83,64]zn lid_off=0 :: Gorące naczynie :: Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami. / Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz. :: INSTR: Przełóż bochenek na papier do pieczenia i natnij go, trzymając ostrze pod kątem około 30° do powierzchni ciasta. Na papierze przenieś bochenek do garnka, przykryj pokrywką i od razu obniż temperaturę do 232 °C. Piecz 20 minut pod pokrywką, potem 20–25 minut bez pokrywki, aż skórka będzie głęboko złotobrązowa.
+pl p10 cool garnek=false instr=158zn ostrz=1 [83]zn lid_off=0 :: Gorące naczynie :: Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.
+en p0 starter_feed garnek=false instr=98zn ostrz=2 [34,80]zn lid_off=0 :: Raw starter :: Do not taste raw starter or flour. / After handling flour and starter, wash your hands with soap under running water.
+en p1 autolyse garnek=false instr=104zn ostrz=2 [32,68]zn lid_off=0 :: Raw dough and flour :: Do not taste raw dough or flour. / After handling dough, wash your hands with soap under running water.
+en p2 mix garnek=false instr=167zn ostrz=0 []zn lid_off=0 :: - :: 
+en p3 bulk_ferment garnek=false instr=47zn ostrz=2 [32,68]zn lid_off=0 :: Raw dough and flour :: Do not taste raw dough or flour. / After handling dough, wash your hands with soap under running water.
+en p4 pre_shape garnek=false instr=88zn ostrz=2 [32,68]zn lid_off=0 :: Raw dough and flour :: Do not taste raw dough or flour. / After handling dough, wash your hands with soap under running water.
+en p5 bench_rest garnek=false instr=67zn ostrz=0 []zn lid_off=0 :: - :: 
+en p6 final_shape garnek=false instr=97zn ostrz=2 [32,68]zn lid_off=0 :: Raw dough and flour :: Do not taste raw dough or flour. / After handling dough, wash your hands with soap under running water.
+en p7 final_proof garnek=false instr=133zn ostrz=0 []zn lid_off=0 :: - :: 
+en p8 preheat_oven garnek=false instr=61zn ostrz=2 [67,69]zn lid_off=0 :: Hot cookware :: Handle the hot pot, lid and tin with dry oven mitts or pot holders. / Keep children away from the stove and the area where you are working.
+en p9 bake garnek=true instr=329zn ostrz=2 [67,69]zn lid_off=0 :: Hot cookware :: Handle the hot pot, lid and tin with dry oven mitts or pot holders. / Keep children away from the stove and the area where you are working. :: INSTR: Turn the loaf out onto baking paper and score it, holding the blade at about 30° to the surface of the dough. Using the paper, move the loaf into the pot, put the lid on and lower the temperature to 232 °C right away. Bake for 20 minutes with the lid on, then 20–25 minutes with the lid off, until the crust is deep golden brown.
+en p10 cool garnek=false instr=144zn ostrz=1 [67]zn lid_off=0 :: Hot cookware :: Handle the hot pot, lid and tin with dry oven mitts or pot holders.
+pl ż0 rye_starter garnek=false instr=0zn ostrz=2 [37,61]zn lid_off=0 :: Surowy zakwas :: Nie próbuj surowego zakwasu ani mąki. / Po pracy z mąką i zakwasem umyj ręce mydłem pod bieżącą wodą.
+pl ż1 rye_mix garnek=false instr=140zn ostrz=0 []zn lid_off=0 :: - :: 
+pl ż2 rye_rest garnek=false instr=0zn ostrz=0 []zn lid_off=0 :: - :: 
+pl ż3 rye_shape garnek=false instr=51zn ostrz=2 [36,53]zn lid_off=0 :: Surowe ciasto i mąka :: Nie próbuj surowego ciasta ani mąki. / Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.
+pl ż4 rye_proof garnek=false instr=69zn ostrz=0 []zn lid_off=0 :: - :: 
+pl ż5 rye_bake garnek=false instr=47zn ostrz=2 [83,64]zn lid_off=0 :: Gorące naczynie :: Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami. / Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.
+pl ż6 rye_cool garnek=false instr=87zn ostrz=1 [83]zn lid_off=0 :: Gorące naczynie :: Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.
+en ż0 rye_starter garnek=false instr=0zn ostrz=2 [34,80]zn lid_off=0 :: Raw starter :: Do not taste raw starter or flour. / After handling flour and starter, wash your hands with soap under running water.
+en ż1 rye_mix garnek=false instr=142zn ostrz=0 []zn lid_off=0 :: - :: 
+en ż2 rye_rest garnek=false instr=0zn ostrz=0 []zn lid_off=0 :: - :: 
+en ż3 rye_shape garnek=false instr=57zn ostrz=2 [32,68]zn lid_off=0 :: Raw dough and flour :: Do not taste raw dough or flour. / After handling dough, wash your hands with soap under running water.
+en ż4 rye_proof garnek=false instr=72zn ostrz=0 []zn lid_off=0 :: - :: 
+en ż5 rye_bake garnek=false instr=49zn ostrz=2 [67,69]zn lid_off=0 :: Hot cookware :: Handle the hot pot, lid and tin with dry oven mitts or pot holders. / Keep children away from the stove and the area where you are working.
+en ż6 rye_cool garnek=false instr=68zn ostrz=1 [67]zn lid_off=0 :: Hot cookware :: Handle the hot pot, lid and tin with dry oven mitts or pot holders.
