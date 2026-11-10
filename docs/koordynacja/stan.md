@@ -53,6 +53,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| K (Z-8) | `session_01T66VBx6LM9T3GMFoF9Pbta` | 09 fix (`polecenia/K.md` @ `a8b8fd5e`) | `naprawy/M2-koordynator-napraw-2026-11-10-z8` od `2047ab00` | 0 (20:43) | 0 | start 20:43, PENDING; D-356…D-358 |
 | J (zrzuty natywne) | `session_01T66VBwZAMSc6TkE1YqimAY` | 08 fix (`polecenia/J.md` @ `490d0875`) | `naprawy/M2-koordynator-napraw-2026-11-10-zrzuty` od `c2c5e206` | 0 (20:41) | 0 | start 20:41, PENDING; D-352…D-355 |
 | H (109) | `session_01T66VBxyhmM8hPWZQFw4euT` | 10-wydanie fix (`polecenia/H.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-109` od `c2c5e206` | 0 (20:33) | 0 | zarchiwizowana 20:47 (4,46 USD); D-346 |
 | I (werdykt 07) | `session_01T66VBx2Vv87uPCJpYVqCdQ` | 07-jakosc audit (`polecenia/I.md` @ `db9519dd`) | `naprawy/M2-koordynator-napraw-2026-11-10-werdykt07` od `c2c5e206` | 0 (20:33) | 0 | start 20:33, PENDING; D-349…D-351 |
@@ -194,3 +195,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 10.11 20:50 | M9 | Raport ASC z oczka zapisany (`docs/koordynacja/asc-oczko-2026-11-10.md`); weryfikacja koordynatora: uploadSymbols true, brak zakup.png, appScreenshotSets — „deprecated” niepotwierdzone, 032 dla 1025 nierozstrzygnięte (log eksportu ucięty) | decyzje właściciela |
 | 10.11 20:42 | M9 | KO-025; sesja J (create_session 20:41, PENDING); K czeka na H | kontrola H/I/J 21:30 |
 | 10.11 20:47 | M9 | H → `redesign` @ `2047ab00` (FF); H zarchiwizowana; KO-026 (DSA approved, zrzuty 34 lok.) → J (delivered); polecenie K | start K |
+| 10.11 20:50 | M9 | K `session_01T66VBx6LM9T3GMFoF9Pbta` start 20:43 (od `2047ab00`). KO-027 (sekrety: zawęzić wzorce); skrypt tylko w `prompts` → pytanie o dostęp | odpowiedź właściciela; kontrola 21:30 |
