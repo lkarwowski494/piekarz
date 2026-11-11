@@ -1,0 +1,63 @@
+FAIL tests/zrzuty-sklepu-kadry.test.ts
+  kadry scen zrzutów sklepu (KO-048 P2 c)
+    ✕ 01-plan kończy się przewinięciem do sleep-guard-banner z centerElement (treść karty „Ochrona snu aktywna” na środku ekranu, nad paskiem przycisków) (6 ms)
+    ✕ 02-receptura kończy się przewinięciem do scale-item-water z centerElement (wiersz „Woda” na środku: nad nim pełne wiersze mąki, pod nim kolejne składniki) (1 ms)
+    ✕ 02-receptura sprawdza liczbę bochenków przed przewinięciem (po przewinięciu karta „Ile pieczesz” może wyjść z kadru) (1 ms)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 01-plan kończy się przewinięciem do sleep-guard-banner z centerElement (treść karty „Ochrona snu aktywna” na środku ekranu, nad paskiem przycisków)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "sleep-guard-banner"
+    Received: undefined
+
+      31 |   ])('%s kończy się przewinięciem do %s z centerElement (%s)', (scena, id) => {
+      32 |     const ostatni = przewiniecie(kroki(scena).at(-1));
+    > 33 |     expect(idElementu(ostatni)).toBe(id);
+         |                                 ^
+      34 |     expect(ostatni?.centerElement).toBe(true);
+      35 |   });
+      36 |
+
+      at toBe (tests/zrzuty-sklepu-kadry.test.ts:33:33)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 02-receptura kończy się przewinięciem do scale-item-water z centerElement (wiersz „Woda” na środku: nad nim pełne wiersze mąki, pod nim kolejne składniki)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "scale-item-water"
+    Received: undefined
+
+      31 |   ])('%s kończy się przewinięciem do %s z centerElement (%s)', (scena, id) => {
+      32 |     const ostatni = przewiniecie(kroki(scena).at(-1));
+    > 33 |     expect(idElementu(ostatni)).toBe(id);
+         |                                 ^
+      34 |     expect(ostatni?.centerElement).toBe(true);
+      35 |   });
+      36 |
+
+      at toBe (tests/zrzuty-sklepu-kadry.test.ts:33:33)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 02-receptura sprawdza liczbę bochenków przed przewinięciem (po przewinięciu karta „Ile pieczesz” może wyjść z kadru)
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < -1
+    Received:   4
+
+      40 |     const scroll = k.findIndex((c) => idElementu(przewiniecie(c)) === 'scale-item-water');
+      41 |     expect(assert).toBeGreaterThan(-1);
+    > 42 |     expect(assert).toBeLessThan(scroll);
+         |                    ^
+      43 |   });
+      44 | });
+      45 |
+
+      at Object.toBeLessThan (tests/zrzuty-sklepu-kadry.test.ts:42:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 total
+Snapshots:   0 total
+Time:        0.702 s, estimated 1 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts/i.
+KOD 1

@@ -13,3 +13,10 @@ appId: com.apps4brew.baker
     visible:
       id: "plan-dzien-2"
     timeout: 15000
+# Zrzuty #4 (KO-048 P2): na 6,3″ karty „Ochrona snu aktywna” nie było w kadrze, na 6,9″ jej treść leżała pod paskiem
+# przycisków. Treść karty (sleep-guard-banner) na środku ekranu; karta istnieje, gdy plan omija godziny snu
+# (przy innej godzinie maszyny może to być karta kolizji z tym samym id) [DO USTALENIA w przebiegu].
+- scrollUntilVisible:
+    element:
+      id: "sleep-guard-banner"
+    centerElement: true

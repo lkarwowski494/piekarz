@@ -1,0 +1,12 @@
+PASS tests/zrzuty-sklepu-kadry.test.ts
+  kadry scen zrzutów sklepu (KO-048 P2 c)
+    ✓ 01-plan kończy się przewinięciem do sleep-guard-banner z centerElement (treść karty „Ochrona snu aktywna” na środku ekranu, nad paskiem przycisków) (4 ms)
+    ✓ 02-receptura kończy się przewinięciem do scale-item-water z centerElement (wiersz „Woda” na środku: nad nim pełne wiersze mąki, pod nim kolejne składniki) (1 ms)
+    ✓ 02-receptura sprawdza liczbę bochenków przed przewinięciem (po przewinięciu karta „Ile pieczesz” może wyjść z kadru) (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.492 s, estimated 1 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts/i.
+KOD 0

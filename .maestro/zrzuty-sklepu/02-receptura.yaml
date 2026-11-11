@@ -12,3 +12,9 @@ appId: com.apps4brew.baker
     timeout: 15000
 - assertVisible:
     id: "loaves-count-display"
+# Zrzuty #4 (KO-048 P2): na 6,3″ jeden pełny składnik. Wiersz „Woda” na środku ekranu: nad nim pełne wiersze mąki,
+# pod nim zakwas i sól. Liczba bochenków sprawdzona wyżej, bo po przewinięciu karta „Ile pieczesz” może wyjść z kadru.
+- scrollUntilVisible:
+    element:
+      id: "scale-item-water"
+    centerElement: true
