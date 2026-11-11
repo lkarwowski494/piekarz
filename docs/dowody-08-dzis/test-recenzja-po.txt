@@ -1,0 +1,30 @@
+PASS src/__tests__/dzis-d4b.test.tsx
+  D4b: „Dziś” 3+1 z kalendarzem 1.0
+    ✓ BR-KAL-005 Pierwsze uruchomienie: pas z adnotacją (D-105), bez „Następne”, trzy kafle obok siebie, pusta spirala (338 ms)
+    ✓ BR-KAL-001 Etykieta dla czytnika ekranu: dzień czyta pełną datę, „dziś” i „Nic w planach” (89 ms)
+    ✓ jeden wypiek: duża spirala pod kaflami, krok i „Wróć do wypieku” do Stolnicy tego wypieku; bez karty „Trwa wypiek” (135 ms)
+    ✓ BR-KAL-016 Jedna spirala z dwoma torami: dwa tory, legenda kartami POD spiralą z „Wróć do: {receptura}” (44 pt) (139 ms)
+    ✓ Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a) (styl, bez pomiaru) (159 ms)
+    ✓ Dwa wypieki: stuknięcie w kartę legendy otwiera Stolnicę tego wypieku; spirala dwóch torów nie zgaduje toru (nie jest przyciskiem) (110 ms)
+    ✓ BR-KAL-007 Decyzja o zaległym bez zmiany schematu: „Pomiń” zapisuje decyzję w app_settings, zaległe znika (123 ms)
+    ✓ D-389 Zakwas z karmieniami bez wypieku (Pro): karta spirali bez zdania pustego stanu, ze zdaniem o karmieniach (107 ms)
+    ✓ D-389 Zakwas z karmieniami bez wypieku (Basic (same karmienia zrobione, D-113)): karta spirali bez zdania pustego stanu, ze zdaniem o karmieniach (90 ms)
+    ✓ D-389 Zakwas z dawnym dokarmieniem (Basic, 40 dni temu): na pasku nic, karta z dotychczasowym zdaniem (70 ms)
+    ✓ D-389 Bez zakwasu: dotychczasowy pusty stan bez zmian (72 ms)
+    ✓ BR-KAL-003 Pomiń krok wypieku: wypiek przechodzi do następnego kroku; „Zrobione” otwiera Stolnicę tego wypieku (178 ms)
+    ✓ BR-KAL-004 Arkusz dnia: dzień pusty „Tego dnia nic nie zaplanowano.”; dziś z zaległym na górze; „+N” — najbliższe dni (182 ms)
+    ✓ VoiceOver: zdanie „Następne” czyta pełną listę, „+N” osobną akcją (57 ms)
+    ✓ AX5: lista dni zamiast 7 kolumn („Pokaż cały tydzień”), kafle pod sobą, przy dwóch wypiekach karty bez spirali (101 ms)
+    ✓ 320 pt: dni od krawędzi do krawędzi (bez marginesu), każdy dzień cały przycisk ≥ 44 pt; kafle bez ucinania tekstu (styl, bez pomiaru) (66 ms)
+    ✓ BR-KAL-002 Przejścia z arkusza dnia: krok wypieku → Stolnica tego wypieku, karmienie → karta zakwasu, wpis → Dziennik (BR-KAL-004 Dzień ze zdarzeniami) (270 ms)
+    ✓ BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia (82 ms)
+    ✓ BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień (146 ms)
+    ✓ pasek stanu jasny na pasie przy wejściu na „Dziś” (86 ms)
+    ✓ nowe teksty „Dziś” mają wpis EN (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       21 passed, 21 total
+Snapshots:   0 total
+Time:        4.516 s
+Ran all test suites matching /src\/__tests__\/dzis-d4b.test.tsx/i.
+KOD 0

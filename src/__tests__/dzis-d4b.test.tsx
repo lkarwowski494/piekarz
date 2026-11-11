@@ -265,6 +265,16 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(host(root, 'start-trwa-wypiek')).toHaveLength(0);
   });
 
+  // Recenzja niezależna (sesja S, P1): stare wpisy karmień są w `zdarzenia` mimo zakresu; zdanie tylko przy karmieniu na pokazanych dniach
+  it('D-389 Zakwas z dawnym dokarmieniem (Basic, 40 dni temu): na pasku nic, karta z dotychczasowym zdaniem', async () => {
+    await pustaBaza();
+    await zapiszZakwasZDokarmieniem({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 40 * 24 * H });
+    const root = await renderStart();
+    expect(host(root, 'pas-dzis')[0].findAll((n) => n.props.testID === 'glif-karmienie')).toHaveLength(0);
+    const txt = host(root, 'start-pusta-spirala')[0].findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
+    expect(txt).toBe(PUSTY_STAN);
+  });
+
   it('D-389 Bez zakwasu: dotychczasowy pusty stan bez zmian', async () => {
     await pustaBaza();
     const root = await renderStart();
