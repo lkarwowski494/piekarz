@@ -1,7 +1,7 @@
 # Sesja N: nagłówki zrzutów 1, 3, 7 z atutami — Piekarz
 Koordynator: session_01T66VBxmzZbniLNyXVufzPk (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: `koordynacja` (tylko do odczytu).
 
-1. Rola: 10-wydanie w trybie fix. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+1. Rola: 10-wydanie w trybie fix. Prompt roli: `git fetch origin audit-m1/piekarz-2026-11-08 && git show origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/naprawy/polecenia/rola-10-wydanie-prompt.md` — przeczytaj w całości, jesteś tą rolą. Przekłady i tłumaczenie zwrotne według `rola-09-lokalizacja-prompt.md` z tego samego miejsca. Biblioteki prompts nie dołączasz.
 2. Start: gałąź `naprawy/M2-koordynator-napraw-2026-11-11-naglowki` od `master` @ `2ce594e9` (= `redesign`; inny HEAD: zgłoś). Instalacja: `npm ci`. Tożsamość commitów według CLAUDE.md (`Claude <noreply@anthropic.com>`), sprawdź przed pierwszym commitem.
 3. Kontekst decyzji: KO-039 (właściciel 2026-11-11: „Popraw 3 nagłówki (Recommended)”). Na zrzucie widać tylko `ramki[i].naglowek` z `docs/wydanie/metadane/<lok>.json` (D-363, `scripts/ci/store-frames.sh`), podtytuły nie trafiają na obraz. Kolejność i tematy ramek bez zmian (D-055). Źródło PL/EN: `docs/app-store-metadata-v2.md` §3.
 4. Zadania:
