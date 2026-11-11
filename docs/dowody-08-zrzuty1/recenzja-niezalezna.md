@@ -20,3 +20,9 @@ wynik `ready` (`starter-log.ts:199-200`); po restarcie `zakladanie = false`, `st
 dostęp Pro (`app-access.ts:34-38`), więc `zakwas-gotowy` się renderuje (`ZakwasDziennik.tsx:137`); sceny przed 05 nie zapisują wpisów zakwasu;
 test KO-043 pilnuje kolejności kroków; `direction: UP` i `centerElement: true` jak w `04-doktor.yaml`.
 P2 (odnotowane): test nie pilnuje kolejności SCENY (05 przed 03); nagłówek `05-zakwasy.yaml:1` ogólny; kadr niesprawdzony na symulatorze.
+
+# Recenzja niezależna 3 — D-373 / KO-044 (kroki ImageMagick)
+Subagent bez uzasadnienia sesji, tylko odczyt. Wynik: **P0/P1 brak.**
+Potwierdzone: bash/YAML poprawne (`set -euo pipefail`, `$APT_OPCJE` celowo bez cudzysłowu, `exit 0` kończy krok); warunek pominięcia zgodny z użyciem
+(`convert`/`identify`, ścieżka FONT_CJK = domyślna w `store-frames.sh`); `timeout-minutes` kroku — poprawna składnia; test KO-044 czerwony na starej formie.
+P2 (odnotowane w D-373, bez zmiany): timeout apt nie obejmuje DNS; brak testu dymnego `label:`; test nie pilnuje `set -euo pipefail`; wyzwalacze man-db jako ryzyko limitu 8 min.

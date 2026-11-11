@@ -95,6 +95,32 @@ describe('zrzuty-sklepu.yml: build i Maestro', () => {
   });
 });
 
+// KO-044 (właściciel, 2026-11-11, D-373): zrzuty #1 — krok ImageMagick w `komplet` wisiał na `apt-get update`
+// („Temporary failure resolving 'azure.archive.ubuntu.com'”) aż do timeout-minutes zadania (20 min).
+describe('zrzuty-sklepu.yml: instalacja ImageMagick odporna na awarię sieci (KO-044)', () => {
+  const krok = (nazwa: string) => kroki.find((k) => k.startsWith(`      - name: ${nazwa}\n`)) ?? '';
+  it.each([
+    ['ImageMagick', 'imagemagick'],
+    ['ImageMagick i czcionki CJK', 'imagemagick fonts-noto-cjk'],
+  ])('%s: własny limit 8 min, pominięcie apt przy obecnych narzędziach, apt z ponowieniami i limitem połączenia', (nazwa, pakiety) => {
+    const k = krok(nazwa);
+    expect(k).toMatch(/\n {8}timeout-minutes: 8\n/);
+    // Skrypty wołają `convert` i `identify` (store-frames.sh, store-caption-layout.mjs, krok komplet) — oba muszą być
+    expect(k).toMatch(/command -v convert >\/dev\/null && command -v identify >\/dev\/null/);
+    const apt = [...k.matchAll(/sudo apt-get ([^\n]*)/g)].map((m) => m[1]);
+    expect(apt).toHaveLength(2);
+    for (const a of apt) expect(a).toMatch(/^\$APT_OPCJE (update|install)/);
+    expect(k).toMatch(/APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"/);
+    expect(k).toContain(`install -y -qq ${pakiety} >/dev/null`);
+  });
+  it('podpisy: pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK', () => {
+    const k = krok('ImageMagick i czcionki CJK');
+    const fontCjk = /echo "FONT_CJK=([^"]+)"/.exec(wf)?.[1];
+    expect(fontCjk).toBe('/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc');
+    expect(k).toContain(`[ -f ${fontCjk} ]`);
+  });
+});
+
 describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   const sceny = pliki(scenyDir);
   it('jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)', () => {

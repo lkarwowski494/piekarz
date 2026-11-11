@@ -237,7 +237,14 @@ jobs:
           path: surowe
           merge-multiple: true
       - name: ImageMagick
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null
+        # Zrzuty #1: apt-get update wisiał na DNS aż do limitu zadania (KO-044, D-373); krok ma własny limit i ponowienia
+        timeout-minutes: 8
+        run: |
+          set -euo pipefail
+          if command -v convert >/dev/null && command -v identify >/dev/null; then echo "ImageMagick z obrazu: $(convert -version | head -n 1)"; exit 0; fi
+          APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          sudo apt-get $APT_OPCJE update -qq
+          sudo apt-get $APT_OPCJE install -y -qq imagemagick >/dev/null
       - name: Alpha off, dimensions and completeness
         env:
           MATRIX: ${{ needs.plan.outputs.matrix }}
@@ -291,7 +298,16 @@ jobs:
         with:
           node-version: 22
       - name: ImageMagick i czcionki CJK
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick fonts-noto-cjk >/dev/null
+        # Jak w zadaniu komplet (KO-044, D-373); pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK
+        timeout-minutes: 8
+        run: |
+          set -euo pipefail
+          if command -v convert >/dev/null && command -v identify >/dev/null && [ -f /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc ]; then
+            echo "ImageMagick i Noto Sans CJK z obrazu: $(convert -version | head -n 1)"; exit 0
+          fi
+          APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
+          sudo apt-get $APT_OPCJE update -qq
+          sudo apt-get $APT_OPCJE install -y -qq imagemagick fonts-noto-cjk >/dev/null
       - name: Kroje Bold (instancje plików zmiennych)
         run: |
           set -euo pipefail

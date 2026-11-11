@@ -1,0 +1,10 @@
+PASS tests/zrzuty-sklepu-workflow.test.ts
+PASS tests/ramki-sklepu-podpisy.test.ts
+PASS tests/store-caption-layout.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       82 passed, 82 total
+Snapshots:   0 total
+Time:        3.33 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts|tests\/ramki-sklepu-podpisy.test.ts|tests\/store-caption-layout.test.ts/i.
+KOD WYJŚCIA: 0
