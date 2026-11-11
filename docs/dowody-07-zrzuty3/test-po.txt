@@ -1,0 +1,54 @@
+PASS tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ✓ bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect (3 ms)
+    ✓ uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń (1 ms)
+    ✓ wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają) (1 ms)
+    ✓ wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run (5 ms)
+  zrzuty-sklepu.yml: build i Maestro
+    ✓ jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365) (1 ms)
+    ✓ Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev (1 ms)
+    ✓ symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376)
+    ✓ workflow nie woła apt (1 ms)
+    ✓ zbierz: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja (5 ms)
+    ✓ ramki: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja (1 ms)
+    ✓ ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK (1 ms)
+    ✓ ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✓ jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365) (1 ms)
+    ✓ skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7 (1 ms)
+    ✓ 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie (192 ms)
+    ✓ 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (7 ms)
+    ✓ 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie (33 ms)
+    ✓ 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie (16 ms)
+    ✓ 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie (19 ms)
+    ✓ 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie (16 ms)
+    ✓ 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie (6 ms)
+    ✓ 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie (5 ms)
+    ✓ 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie (6 ms)
+    ✓ sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ✓ sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie (5 ms)
+    ✓ sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (1 ms)
+    ✓ dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych (1 ms)
+    ✓ okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ✓ sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny (2 ms)
+    ✓ po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374)
+    ✓ ramka 04: przewinięcie do „Kopiuj jako tekst” (koniec karty diagnozy), bez centerElement (KO-046, D-377)
+    ✓ ramka 04: „Doktor Chleba” przewinięty do widoku przed tapnięciem, bo na 6,3″ jest pod krawędzią ekranu (D-378) (1 ms)
+    ✓ przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+    ✓ bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert (66 ms)
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ✓ pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd) (49 ms)
+    ✓ tylko=pl: dwa zadania (6,9″ i 6,3″) (42 ms)
+    ✓ plan bez pola zakupu (D-365) (43 ms)
+    ✓ złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór (43 ms)
+    ✓ złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór (43 ms)
+    ✓ złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór (35 ms)
+    ✓ złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór (37 ms)
+    ✓ wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       42 passed, 42 total
+Snapshots:   0 total
+Time:        1.132 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i.

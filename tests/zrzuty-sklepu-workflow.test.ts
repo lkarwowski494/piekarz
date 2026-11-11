@@ -217,6 +217,16 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     expect(read('src/components/doktor/DiagnosisResultCard.tsx')).toContain('testID="copy-diagnosis-btn"');
   });
 
+  // Zrzuty #3 (run 43072716967, job 130706952647, 2026-11-11): na 6,3″ (402×874 pt) „Doktor Chleba” leży na końcu listy
+  // Dziennika pod krawędzią ekranu (maestro.log: dziennik-doktor-btn bounds=[16,854][386,906], tap w (201,880)); tapOn
+  // nie przewija, więc Doktor się nie otworzył. Na 6,9″ przycisk mieścił się (y 830–882 przy 956). Przewinięcie przed tapnięciem (D-378).
+  it('ramka 04: „Doktor Chleba” przewinięty do widoku przed tapnięciem, bo na 6,3″ jest pod krawędzią ekranu (D-378)', () => {
+    const r04 = readFileSync(join(scenyDir, '04-doktor.yaml'), 'utf8').replace(/\r\n/g, '\n');
+    const kroki04 = r04.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
+    expect(kroki04).toMatch(/- tapOn:\n {4}id: "tab-dziennik"\n- scrollUntilVisible:\n {4}element:\n {6}id: "dziennik-doktor-btn"\n- tapOn:\n {4}id: "dziennik-doktor-btn"\n/);
+    expect(read('app/(tabs)/dziennik/index.tsx')).toContain('testID="dziennik-doktor-btn"');
+  });
+
   // KO-043 (właściciel, 2026-11-11): ramka 05 = zakwas po zakładaniu. „Podwoił objętość” w 0–8 h po dokarmieniu kończy
   // zakładanie (isReadyAfterFeeding, setupCompletedAt), po restarcie karta cyklu z „Gotowy do ciasta.” (D-372).
   it('przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)', () => {

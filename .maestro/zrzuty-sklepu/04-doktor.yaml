@@ -1,10 +1,14 @@
 # Ramka 04 „Doktor Chleba”: po wyborze objawu „Jaskinie” cała karta diagnozy (nazwa wady, przyczyna, co zrobić).
+# D-378: na 6,3″ „Doktor Chleba” leży pod krawędzią ekranu (zrzuty #3), więc przewinięcie przed tapnięciem.
 # KO-046, D-377: nagłówka nie da się wyśrodkować (koniec listy, pod kartą tylko „Kuchenne testy”), więc przewinięcie do ostatniego elementu karty, bez centerElement.
 appId: com.apps4brew.baker
 ---
 - runFlow: sub/start.yaml
 - tapOn:
     id: "tab-dziennik"
+- scrollUntilVisible:
+    element:
+      id: "dziennik-doktor-btn"
 - tapOn:
     id: "dziennik-doktor-btn"
 - scrollUntilVisible:
