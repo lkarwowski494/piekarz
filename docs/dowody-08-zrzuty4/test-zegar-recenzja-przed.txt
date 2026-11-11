@@ -1,0 +1,77 @@
+FAIL tests/zrzuty-sklepu-zegar.test.ts
+  zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385)
+    ✕ kolejność: NTP wyłączone, 03:35 dokarmienie, 09:35 podwojenie i wypiek, 09:41 przed każdą sceną; dni przyszłe; przywrócenie na końcu (187 ms)
+    ✓ bez sudo: ostrzeżenie, sceny idą jak dotąd na zegarze maszyny (bez przerwania przebiegu) (128 ms)
+    ✕ dzień lokalizacji liczony od znacznika startu skryptu (sprzed zmiany zegara), nie od bieżącego zegara
+
+  ● zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385) › kolejność: NTP wyłączone, 03:35 dokarmienie, 09:35 podwojenie i wypiek, 09:41 przed każdą sceną; dni przyszłe; przywrócenie na końcu
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 8
+    + Received  + 8
+
+      Array [
+        "sudo -n systemsetup -setusingnetworktime off",
+        "maestro 00-zgoda",
+    -   "sudo -n date 111203352026",
+    +   "sudo -n date 202611120335",
+        "maestro 00-przygotuj",
+    -   "sudo -n date 111209352026",
+    +   "sudo -n date 202611120935",
+        "maestro 00-przygotuj-podwojenie",
+    -   "sudo -n date 111209412026",
+    +   "sudo -n date 202611120941",
+        "maestro 05-zakwasy",
+    -   "sudo -n date 111209412026",
+    +   "sudo -n date 202611120941",
+        "maestro 07-offline",
+    -   "sudo -n date 111303352026",
+    +   "sudo -n date 202611130335",
+        "maestro 00-przygotuj",
+    -   "sudo -n date 111309352026",
+    +   "sudo -n date 202611130935",
+        "maestro 00-przygotuj-podwojenie",
+    -   "sudo -n date 111309412026",
+    +   "sudo -n date 202611130941",
+        "maestro 05-zakwasy",
+    -   "sudo -n date 111309412026",
+    +   "sudo -n date 202611130941",
+        "maestro 07-offline",
+        "sudo -n systemsetup -setusingnetworktime on",
+        "sudo -n sntp -sS time.apple.com",
+      ]
+
+      51 |     const { kod, wywolania } = uruchom(true, '05-zakwasy 07-offline');
+      52 |     expect(kod).toBe(0);
+    > 53 |     expect(wywolania).toEqual([
+         |                       ^
+      54 |       'sudo -n systemsetup -setusingnetworktime off',
+      55 |       'maestro 00-zgoda',
+      56 |       ustaw(1, '0335'), 'maestro 00-przygotuj',
+
+      at Object.toEqual (tests/zrzuty-sklepu-zegar.test.ts:53:23)
+
+  ● zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385) › dzień lokalizacji liczony od znacznika startu skryptu (sprzed zmiany zegara), nie od bieżącego zegara
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > -1
+    Received:   -1
+
+      79 |     const skrypt = readFileSync(SKRYPT, 'utf8');
+      80 |     const start = skrypt.indexOf('START_ZEGARA=');
+    > 81 |     expect(start).toBeGreaterThan(-1);
+         |                   ^
+      82 |     expect(start).toBeLessThan(skrypt.indexOf('systemsetup -setusingnetworktime off'));
+      83 |     const funkcja = skrypt.split('dzien_za() {')[1]?.split('\n')[0] ?? '';
+      84 |     expect(funkcja).toContain('START_ZEGARA');
+
+      at Object.toBeGreaterThan (tests/zrzuty-sklepu-zegar.test.ts:81:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 1 passed, 3 total
+Snapshots:   0 total
+Time:        0.877 s, estimated 1 s
+Ran all test suites matching /tests\/zrzuty-sklepu-zegar.test.ts/i.
+KOD 1

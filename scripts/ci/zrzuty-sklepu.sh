@@ -36,11 +36,13 @@ mkdir -p "$OUT" "$LOGI"
 NIEUDANE="$LOGI/nieudane-$CZESC.txt"; : > "$NIEUDANE"
 
 # --- zegar maszyny (KO-049, D-385)
-ZEGAR=0; DZIEN=""
-dzien_za() { date -v+"$1"d +%Y%m%d 2>/dev/null || date -d "+$1 day" +%Y%m%d; }   # macOS (BSD) albo GNU
-zegar() {   # $1 = GGMM w dniu $DZIEN (format BSD date: ccyymmddHHMM)
+# Dzień lokalizacji od znacznika startu (sprzed zmiany zegara): liczony od bieżącego zegara narastałby (+1, +3, +6…; recenzja R, P1).
+START_ZEGARA="$(date +%s)"
+ZEGAR=0; DZIEN=""; ROK=""
+dzien_za() { local t=$(( START_ZEGARA + $1 * 86400 )); date -r "$t" "+$2" 2>/dev/null || date -d "@$t" "+$2"; }   # macOS albo GNU
+zegar() {   # $1 = GGMM w dniu $DZIEN; argument `date` w macOS i GNU: mmddHHMMccyy ([[[mm]dd]HH]MM[[cc]yy])
   [ "$ZEGAR" = 1 ] || return 0
-  sudo -n date "$DZIEN$1" >/dev/null 2>&1 || echo "::warning::zegar: nie ustawiono $DZIEN $1 (godziny w scenach z zegara maszyny)"
+  sudo -n date "$DZIEN$1$ROK" >/dev/null 2>&1 || echo "::warning::zegar: nie ustawiono $DZIEN $1 $ROK (godziny w scenach z zegara maszyny)"
 }
 przywroc_zegar() {
   [ "$ZEGAR" = 1 ] || return 0
@@ -108,7 +110,7 @@ for wpis in $JEZYKI; do
   [ -n "$KOD" ] && [ -n "$LANG_SYM" ] && [ -n "$LOCALE_SYM" ] || { echo "::error::zły wpis lokalizacji: $wpis"; exit 2; }
   echo "::group::$KOD ($LANG_SYM, $LOCALE_SYM) $KLASA"
   jezyk "$LANG_SYM" "$LOCALE_SYM"
-  NR_JEZYKA=$(( ${NR_JEZYKA:-0} + 1 )); DZIEN="$(dzien_za "$NR_JEZYKA")"
+  NR_JEZYKA=$(( ${NR_JEZYKA:-0} + 1 )); DZIEN="$(dzien_za "$NR_JEZYKA" %m%d)"; ROK="$(dzien_za "$NR_JEZYKA" %Y)"
   gotowe=0
   for proba in 1 2; do   # obie części od nowa (00-przygotuj zaczyna od clearState)
     zegar 0335

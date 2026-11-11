@@ -36,11 +36,13 @@ function uruchom(sudoDziala: boolean, sceny: string) {
   return { kod: r.status, wyjscie: r.stdout + r.stderr, wywolania };
 }
 
+// Argument `date` w macOS (BSD z Apple) i GNU: [[[mm]dd]HH]MM[[cc]yy] — miesiąc i dzień, godzina, rok na końcu (recenzja
+// niezależna, P1: wcześniej ccyymmddHHMM, odrzucany jako zły format). Funkcja zwraca mmdd i ccyy dnia dziś + n.
 const dzien = (n: number) => {
-  const d = new Date();
-  d.setDate(d.getDate() + n);
-  return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+  const d = new Date(Date.now() + n * 86400000);
+  return { md: `${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`, r: String(d.getFullYear()) };
 };
+const ustaw = (n: number, ggmm: string) => `sudo -n date ${dzien(n).md}${ggmm}${dzien(n).r}`;
 
 jest.setTimeout(30000);
 
@@ -48,18 +50,17 @@ describe('zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385)', (
   it('kolejność: NTP wyłączone, 03:35 dokarmienie, 09:35 podwojenie i wypiek, 09:41 przed każdą sceną; dni przyszłe; przywrócenie na końcu', () => {
     const { kod, wywolania } = uruchom(true, '05-zakwasy 07-offline');
     expect(kod).toBe(0);
-    const d1 = dzien(1), d2 = dzien(2);
     expect(wywolania).toEqual([
       'sudo -n systemsetup -setusingnetworktime off',
       'maestro 00-zgoda',
-      `sudo -n date ${d1}0335`, 'maestro 00-przygotuj',
-      `sudo -n date ${d1}0935`, 'maestro 00-przygotuj-podwojenie',
-      `sudo -n date ${d1}0941`, 'maestro 05-zakwasy',
-      `sudo -n date ${d1}0941`, 'maestro 07-offline',
-      `sudo -n date ${d2}0335`, 'maestro 00-przygotuj',
-      `sudo -n date ${d2}0935`, 'maestro 00-przygotuj-podwojenie',
-      `sudo -n date ${d2}0941`, 'maestro 05-zakwasy',
-      `sudo -n date ${d2}0941`, 'maestro 07-offline',
+      ustaw(1, '0335'), 'maestro 00-przygotuj',
+      ustaw(1, '0935'), 'maestro 00-przygotuj-podwojenie',
+      ustaw(1, '0941'), 'maestro 05-zakwasy',
+      ustaw(1, '0941'), 'maestro 07-offline',
+      ustaw(2, '0335'), 'maestro 00-przygotuj',
+      ustaw(2, '0935'), 'maestro 00-przygotuj-podwojenie',
+      ustaw(2, '0941'), 'maestro 05-zakwasy',
+      ustaw(2, '0941'), 'maestro 07-offline',
       'sudo -n systemsetup -setusingnetworktime on',
       'sudo -n sntp -sS time.apple.com',
     ]);
@@ -71,5 +72,16 @@ describe('zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385)', (
     expect(wyjscie).toMatch(/::warning::.*zegar/);
     expect(wywolania).toEqual(['maestro 00-zgoda', 'maestro 00-przygotuj', 'maestro 00-przygotuj-podwojenie', 'maestro 05-zakwasy',
       'maestro 00-przygotuj', 'maestro 00-przygotuj-podwojenie', 'maestro 05-zakwasy']);
+  });
+
+  // Recenzja niezależna, P1: dzień liczony od bieżącego zegara narastał (po lokalizacji 1 zegar jest już jutro) — dziś + 1, + 3, + 6…
+  it('dzień lokalizacji liczony od znacznika startu skryptu (sprzed zmiany zegara), nie od bieżącego zegara', () => {
+    const skrypt = readFileSync(SKRYPT, 'utf8');
+    const start = skrypt.indexOf('START_ZEGARA=');
+    expect(start).toBeGreaterThan(-1);
+    expect(start).toBeLessThan(skrypt.indexOf('systemsetup -setusingnetworktime off'));
+    const funkcja = skrypt.split('dzien_za() {')[1]?.split('\n')[0] ?? '';
+    expect(funkcja).toContain('START_ZEGARA');
+    expect(funkcja).not.toMatch(/-v\+|\+\$1 day/);
   });
 });
