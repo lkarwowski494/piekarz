@@ -14,3 +14,9 @@ Dwa subagenty bez uzasadnienia sesji: dostały diff, artefakty przebiegu 4305010
 - Brak uwag P0/P1. Sprawdzone: zmienne `${ImageOS:-?}`/`${ImageVersion:-?}` przy `set -u`; setup-python 3.12 jest przed `python -m venv`; adres raw zwraca 200 i plik 20 050 760 B, a nie wskaźnik LFS; format `sha256sum -c` jest poprawny; `$RUNNER_TEMP` w `FONT_CJK` rozwija się przy zapisie; `store-frames.sh` sprawdza `-f` krojów; workflow nic nie publikuje, nie ma sekretów ani `${{ }}` w nowych `run:`.
 - Testy nie są osłabione: asercje apt z KO-044 zastąpił zakaz apt, `ubuntu-22.04`, `::error::`/`exit 1`, adres i SHA-256 kroju oraz kolejność kroków.
 - Poniżej P1: `timeout-minutes: 2` nie jest sprawdzany testem; wygaszenie obrazu 22.04 jest zapisane w D-376.
+
+## 3. Ramka 04: `git diff 5c2e9855..8636cb3a` (D-377, KO-046)
+
+- **P1 (ryzyko kadru, pewność średnia):** krok przejdzie na obu rozmiarach (Doktor to ekran stosu bez paska zakładek, przycisk mieści się w 100%). Przewijanie najpewniej kończy się jednak na samym dole listy. Na 6,3″ nagłówek karty wypada wtedy na y≈75–99, pod nieprzezroczystą `czapka-paska` (0–94 pt), więc zrzut może nie pokazać nazwy wady. Na 6,9″ zapas wynosi ok. 12 pt, a dłuższe języki go zmniejszają. Rozstrzygnie to dopiero przebieg #3 (surowy zrzut 04 z 6,3″). Ryzyko zapisane w D-377 i przekazane koordynatorowi.
+- **Błędne uzasadnienie:** „karta kończy listę” — pod kartą jest sekcja „Kuchenne testy piekarskie”. Poprawione w D-377 i w komentarzu `04-doktor.yaml`.
+- **Test KO-046:** słaby, ale nie fałszywie pozytywny. Sprawdza tylko tekst YAML, więc nie wykryje nakładki.
