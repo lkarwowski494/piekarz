@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/01-plan.png` | 夜間免操作，依你的時間出爐 | 倒推時程，深夜不安排步驟 |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/01-plan.png` | 依你的時間出爐，睡眠受保護 | 倒推時程，深夜不安排步驟 |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/02-receptura.png` | 每種材料的克數一次算好 | 天然酵母起種中的麵粉和水，皆計入烘焙百分比 |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/03-prowadzenie-ciemny.png` | 手機休眠時，通知照樣提醒你 | 該做什麼、要多久，步驟結束時通知你 |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/04-doktor.png` | 下一個麵包哪裡可以更好 | 症狀、原因，以及下次烘焙的一項調整 |

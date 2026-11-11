@@ -124,9 +124,9 @@ Kolejność i liczba ramek według D-055 (§5.2): 7 ramek, jedna w motywie ciemn
 Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 a, 2026-10-19; partie 5–6); wartości na ekranie biorą się z danych przykładowych w chwili zrzutu, nie z tego dokumentu. Podpisy nie pokazują funkcji PÓŹNIEJ i NIE z kontraktu B (OG-05).
 
 ### Ramka 1: Plan od godziny „gotowe” z ochroną snu
-- **Główny nagłówek (PL):** *Na twoją godzinę, bez kroków w nocy* (KO-040, D-367)
+- **Główny nagłówek (PL):** *Na twoją godzinę, z ochroną snu* (KO-041, D-370)
 - **Podtytuł (PL):** *Plan wstecz bez kroków w środku nocy*
-- **Main Headline (EN):** *Ready at Your Time, No Steps at Night*
+- **Main Headline (EN):** *Ready at Your Time, Sleep Protected*
 - **Sub-headline (EN):** *A plan worked back from your time, with no steps at night*
 - **Widok w ramce:** ekran „Plan wypieku” (`app/(tabs)/receptury/harmonogram.tsx`) ze Spiralą planu, godziną „gotowe” i propozycją „Przesuń do lodówki” dla kroku, który wypada w nocy.
 

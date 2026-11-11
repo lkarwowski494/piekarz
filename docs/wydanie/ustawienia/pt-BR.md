@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.3/01-plan.png` | Na sua hora, sem etapas à noite | Plano reverso sem etapas no meio da noite |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.3/01-plan.png` | Na sua hora, com sono protegido | Plano reverso sem etapas no meio da noite |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.3/02-receptura.png` | Gramas de cada ingrediente na hora | Farinha e água do fermento natural incluídas na porcentagem do padeiro |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.3/03-prowadzenie-ciemny.png` | Notificação com o celular dormindo | O que fazer, quanto tempo leva e aviso no fim da etapa |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-BR/iphone-6.3/04-doktor.png` | O que melhorar no próximo pão | Sintomas, causa e uma mudança para a próxima fornada |

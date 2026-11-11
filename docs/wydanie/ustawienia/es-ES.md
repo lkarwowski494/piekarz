@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/01-plan.png` | Listo a tu hora, sin pasos de noche | Plan hacia atrás sin pasos en plena noche |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/01-plan.png` | A tu hora, con protección del sueño | Plan hacia atrás sin pasos en plena noche |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/02-receptura.png` | Gramos de cada ingrediente al momento | Harina y agua de la masa madre incluidas en el porcentaje del panadero |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/03-prowadzenie-ciemny.png` | Notificación con el teléfono en reposo | Qué hacer, cuánto dura y aviso al terminar cada paso |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/04-doktor.png` | Qué mejorar en tu próxima hogaza | Síntomas, causa y un solo cambio para el próximo horneado |

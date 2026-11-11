@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/01-plan.png` | 夜間の工程なしで、決めた時刻に完成 | 逆算プランで、真夜中の作業はなし |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/01-plan.png` | 決めた時刻に、睡眠保護つき | 逆算プランで、真夜中の作業はなし |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/02-receptura.png` | 材料ごとのグラム数をすぐ表示 | サワー種の粉と水もベーカーズパーセントに算入 |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/03-prowadzenie-ciemny.png` | 端末がスリープ中も通知でお知らせ | やること・所要時間・工程終了の通知 |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/04-doktor.png` | 次のローフで改善すべき点 | 症状、原因、次回の焼成で変えるひとつのこと |

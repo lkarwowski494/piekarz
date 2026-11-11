@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.3/01-plan.png` | Alla tua ora, senza passaggi di notte | Programma a ritroso senza passaggi nel cuore della notte |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.3/01-plan.png` | Alla tua ora, sonno protetto | Programma a ritroso senza passaggi nel cuore della notte |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.3/02-receptura.png` | I grammi di ogni ingrediente, subito | Farina e acqua del lievito madre incluse nella percentuale del fornaio |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.3/03-prowadzenie-ciemny.png` | Una notifica a telefono in standby | Cosa fare, quanto dura e notifica a fine passaggio |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/it/iphone-6.3/04-doktor.png` | Come migliorare la prossima pagnotta | Sintomi, causa e una modifica per la prossima sfornata |

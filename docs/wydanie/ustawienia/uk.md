@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.3/01-plan.png` | На вашу годину, без кроків уночі | Зворотний план без кроків посеред ночі |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.3/01-plan.png` | На вашу годину, із захистом сну | Зворотний план без кроків посеред ночі |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.3/02-receptura.png` | Грами кожного інгредієнта одразу | Борошно й вода із закваски враховані в пекарському відсотку |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.3/03-prowadzenie-ciemny.png` | Сповіщення, коли телефон заблоковано | Що зробити, скільки це триває, і сповіщення про кінець кроку |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/uk/iphone-6.3/04-doktor.png` | Що покращити в наступній хлібині | Симптоми, причина й одна зміна на наступну випічку |

@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.3/01-plan.png` | Til din tid, ingen trin om natten | Baglæns plan uden trin midt om natten |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.3/01-plan.png` | Til din tid, med søvnvagt | Baglæns plan uden trin midt om natten |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.3/02-receptura.png` | Gram for hver ingrediens straks | Mel og vand fra surdejen tæller med i bagerprocenten |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.3/03-prowadzenie-ciemny.png` | Notifikation, når telefonen sover | Hvad du skal gøre, hvor længe det tager, og besked, når trinnet slutter |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/da/iphone-6.3/04-doktor.png` | Hvad du kan forbedre i næste brød | Symptomer, årsag og én ændring til næste bagning |

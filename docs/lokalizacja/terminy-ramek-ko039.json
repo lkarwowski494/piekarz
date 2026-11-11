@@ -1,16 +1,23 @@
 {
-  "opis": "Rdzenie terminów nagłówków ramek 1, 3, 7 (KO-039/KO-040, D-367). Rdzeń musi wystąpić w tekście aplikacji z `zrodla` w danym języku i w nagłówku ekranu; pilnuje tests/ramki-sklepu-atuty-ko039.test.ts. Klucz = język aplikacji (pole `jezyk` metadanych).",
+  "opis": "Rdzenie terminów nagłówków ramek 1, 3, 7 (KO-039/KO-040/KO-041, D-367, D-370). Rdzeń musi wystąpić w co najmniej jednym tekście aplikacji z `zrodla` w danym języku i w nagłówku ekranu; pilnuje tests/ramki-sklepu-atuty-ko039.test.ts. Klucz = język aplikacji (pole `jezyk` metadanych).",
   "zrodla": {
     "powiadomienie": {
-      "klucz": "Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.",
+      "klucze": [
+        "Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę."
+      ],
       "ekran": 3
     },
     "reklamy": {
-      "klucz": "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.",
+      "klucze": [
+        "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia."
+      ],
       "ekran": 7
     },
-    "noc": {
-      "klucz": "{krok} wypada o {godzina} w nocy",
+    "sen": {
+      "klucze": [
+        "Ochrona snu aktywna",
+        "Godziny snu"
+      ],
       "ekran": 1
     }
   },
@@ -18,152 +25,152 @@
     "cs": {
       "powiadomienie": "oznámení",
       "reklamy": "reklam",
-      "noc": "noc"
+      "sen": "spánk"
     },
     "da": {
       "powiadomienie": "notifikation",
       "reklamy": "reklamer",
-      "noc": "natten"
+      "sen": "søvn"
     },
     "de": {
       "powiadomienie": "mitteilung",
       "reklamy": "werbung",
-      "noc": "nachts"
+      "sen": "schlaf"
     },
     "el": {
       "powiadomienie": "ειδοποίη",
       "reklamy": "διαφημ",
-      "noc": "νύχτ"
+      "sen": "ύπν"
     },
     "en": {
       "powiadomienie": "notif",
       "reklamy": "ads",
-      "noc": "night"
+      "sen": "sleep"
     },
     "es": {
       "powiadomienie": "notificaci",
       "reklamy": "anuncio",
-      "noc": "noche"
+      "sen": "sueño"
     },
     "es-419": {
       "powiadomienie": "notificaci",
       "reklamy": "anuncio",
-      "noc": "noche"
+      "sen": "sueño"
     },
     "fi": {
       "powiadomienie": "ilmoitus",
       "reklamy": "mainoks",
-      "noc": "yöhön"
+      "sen": "nukku"
     },
     "fr": {
       "powiadomienie": "notification",
       "reklamy": "publicit",
-      "noc": "nuit"
+      "sen": "sommeil"
     },
     "hr": {
       "powiadomienie": "obavijest",
       "reklamy": "oglas",
-      "noc": "noć"
+      "sen": "sna"
     },
     "hu": {
       "powiadomienie": "értesítés",
       "reklamy": "hirdetés",
-      "noc": "éjszak"
+      "sen": "alvás"
     },
     "id": {
       "powiadomienie": "notifikasi",
       "reklamy": "iklan",
-      "noc": "malam"
+      "sen": "tidur"
     },
     "it": {
       "powiadomienie": "notific",
       "reklamy": "pubblicit",
-      "noc": "notte"
+      "sen": "sonno"
     },
     "ja": {
       "powiadomienie": "通知",
       "reklamy": "広告",
-      "noc": "夜間"
+      "sen": "睡眠"
     },
     "ko": {
       "powiadomienie": "알림",
       "reklamy": "광고",
-      "noc": "밤"
+      "sen": "수면"
     },
     "ms": {
       "powiadomienie": "pemberitahuan",
       "reklamy": "iklan",
-      "noc": "malam"
+      "sen": "tidur"
     },
     "nb": {
       "powiadomienie": "varsel",
       "reklamy": "reklame",
-      "noc": "natten"
+      "sen": "søvn"
     },
     "nl": {
       "powiadomienie": "melding",
       "reklamy": "advertenties",
-      "noc": "nachts"
+      "sen": "slaap"
     },
     "pl": {
       "powiadomienie": "powiadomieni",
       "reklamy": "reklam",
-      "noc": "w nocy"
+      "sen": "snu"
     },
     "pt": {
       "powiadomienie": "notifica",
       "reklamy": "anúncio",
-      "noc": "noite"
+      "sen": "sono"
     },
     "pt-BR": {
       "powiadomienie": "notifica",
       "reklamy": "anúncio",
-      "noc": "noite"
+      "sen": "sono"
     },
     "ro": {
       "powiadomienie": "notificare",
       "reklamy": "reclam",
-      "noc": "noap"
+      "sen": "somn"
     },
     "ru": {
       "powiadomienie": "уведомлен",
       "reklamy": "реклам",
-      "noc": "ноч"
+      "sen": "сна"
     },
     "sk": {
       "powiadomienie": "upozorneni",
       "reklamy": "rekl",
-      "noc": "noc"
+      "sen": "spánk"
     },
     "sl": {
       "powiadomienie": "obvestil",
       "reklamy": "oglas",
-      "noc": "noč"
+      "sen": "spanc"
     },
     "sv": {
       "powiadomienie": "notis",
       "reklamy": "annons",
-      "noc": "natten"
+      "sen": "sömn"
     },
     "tr": {
       "powiadomienie": "bildirim",
       "reklamy": "reklam",
-      "noc": "gece"
+      "sen": "uyku"
     },
     "uk": {
       "powiadomienie": "сповіщен",
       "reklamy": "реклам",
-      "noc": "ноч"
+      "sen": "сну"
     },
     "vi": {
       "powiadomienie": "thông báo",
       "reklamy": "quảng cáo",
-      "noc": "ban đêm"
+      "sen": "giấc ngủ"
     },
     "zh-Hant": {
       "powiadomienie": "通知",
       "reklamy": "廣告",
-      "noc": "夜間"
+      "sen": "睡眠"
     }
   }
 }

@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/01-plan.png` | La ora ta, fără pași noaptea | Plan invers, fără pași în miezul nopții |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/01-plan.png` | La ora ta, cu protecția somnului | Plan invers, fără pași în miezul nopții |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/02-receptura.png` | Gramele fiecărui ingredient, imediat | Făina și apa din maia naturală, incluse în procentele brutărești |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/03-prowadzenie-ciemny.png` | Notificare când telefonul doarme | Ce ai de făcut, cât durează și notificare la finalul pasului |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/04-doktor.png` | Ce să corectezi la următoarea pâine | Simptome, cauză și o singură schimbare pentru următoarea coacere |

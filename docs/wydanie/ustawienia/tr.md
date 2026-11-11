@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.3/01-plan.png` | İstediğiniz saatte, gece adım yok | Gece yarısı adım olmadan geriye doğru plan |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.3/01-plan.png` | İstediğiniz saatte, uyku korumalı | Gece yarısı adım olmadan geriye doğru plan |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.3/02-receptura.png` | Her malzemenin gramı anında | Ekşi mayadaki un ve su fırıncı yüzdesine dahil |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.3/03-prowadzenie-ciemny.png` | Telefon uykudayken bildirim gelir | Ne yapılacağı, ne kadar süreceği ve adım sonu bildirimi |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/tr/iphone-6.3/04-doktor.png` | Sonraki somunda neyi iyileştirmeli | Belirtiler, neden ve sonraki pişirme için tek değişiklik |

@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/01-plan.png` | Na váš čas, bez krokov v noci | Spätný plán bez krokov uprostred noci |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/01-plan.png` | Na váš čas, s ochranou spánku | Spätný plán bez krokov uprostred noci |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/02-receptura.png` | Gramy každej suroviny hneď | Múka a voda z kvásku započítané v pekárskych percentách |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/03-prowadzenie-ciemny.png` | Upozornenie, keď telefón spí | Čo urobiť, ako dlho to trvá a hlásenie o konci kroku |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/04-doktor.png` | Čo zlepšiť pri ďalšom bochníku | Príznaky, príčina a jedna zmena na ďalšie pečenie |

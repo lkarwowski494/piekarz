@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/01-plan.png` | Siap pada jam Anda, tanpa langkah malam | Jadwal mundur tanpa langkah di tengah malam |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/01-plan.png` | Siap pada jam Anda, tidur terlindungi | Jadwal mundur tanpa langkah di tengah malam |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/02-receptura.png` | Gram setiap bahan seketika | Tepung dan air dari starter dihitung dalam persentase baker |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/03-prowadzenie-ciemny.png` | Notifikasi saat ponsel terkunci | Apa yang dilakukan, berapa lama, dan notifikasi saat langkah selesai |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/04-doktor.png` | Perbaikan untuk roti berikutnya | Gejala, penyebab, dan satu perubahan untuk hasil panggangan berikutnya |

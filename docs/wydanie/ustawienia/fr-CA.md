@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/01-plan.png` | Prêt à votre heure, sans étape la nuit | Un planning à rebours, sans étape en pleine nuit |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/01-plan.png` | À votre heure, sommeil protégé | Un planning à rebours, sans étape en pleine nuit |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/02-receptura.png` | Les grammes de chaque ingrédient | Farine et eau du levain comptées dans le pourcentage boulanger |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/03-prowadzenie-ciemny.png` | Une notification, téléphone en veille | Que faire, combien de temps et une alerte en fin d'étape |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/04-doktor.png` | Améliorez votre prochaine miche | Symptômes, cause et un seul changement pour la prochaine fournée |

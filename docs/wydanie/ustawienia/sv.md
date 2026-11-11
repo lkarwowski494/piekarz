@@ -109,7 +109,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/01-plan.png` | På din tid, inga steg på natten | Bakåtschema utan steg mitt i natten |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/01-plan.png` | På din tid, med sömnskydd | Bakåtschema utan steg mitt i natten |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/02-receptura.png` | Gram för varje ingrediens direkt | Mjöl och vatten i surdegsgrunden räknas in i bagarprocenten |
 | 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/03-prowadzenie-ciemny.png` | Notis när telefonen är låst | Vad du ska göra, hur lång tid det tar och en notis när steget är slut |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/04-doktor.png` | Förbättra nästa limpa | Symtom, orsak och en ändring till nästa bak |

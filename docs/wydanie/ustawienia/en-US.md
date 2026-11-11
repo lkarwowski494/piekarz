@@ -109,7 +109,7 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `docs/wydanie/zrzuty/en-US/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/en-US/iphone-6.3/01-plan.png` | Ready at Your Time, No Steps at Night | A plan worked back from your time, with no steps at night |
+| 1 | `docs/wydanie/zrzuty/en-US/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/en-US/iphone-6.3/01-plan.png` | Ready at Your Time, Sleep Protected | A plan worked back from your time, with no steps at night |
 | 2 | `docs/wydanie/zrzuty/en-US/iphone-6.9/02-receptura.png` | `docs/wydanie/zrzuty/en-US/iphone-6.3/02-receptura.png` | Grams for Every Ingredient | Flour and water from your starter counted in the baker's percentage |
 | 3 | `docs/wydanie/zrzuty/en-US/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/en-US/iphone-6.3/03-prowadzenie-ciemny.png` | Notified Even When Your Phone Sleeps | What to do, how long it takes and a notification when it ends |
 | 4 | `docs/wydanie/zrzuty/en-US/iphone-6.9/04-doktor.png` | `docs/wydanie/zrzuty/en-US/iphone-6.3/04-doktor.png` | Make Your Next Loaf Better | Symptoms, the cause and one change for your next bake |
