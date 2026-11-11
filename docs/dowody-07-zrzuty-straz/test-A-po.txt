@@ -1,0 +1,23 @@
+PASS tests/zrzuty-sklepu-przewijanie.test.ts
+  sceny zrzutów sklepu: tapOn po id poprzedza scrollUntilVisible (KO-047, D-379)
+    ✓ 00-przygotuj.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (6 ms)
+    ✓ 00-zgoda.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (1 ms)
+    ✓ 01-plan.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ 02-receptura.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ 03-prowadzenie-ciemny.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (1 ms)
+    ✓ 04-doktor.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ 05-zakwasy.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (1 ms)
+    ✓ 06-dziennik.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ 07-offline.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ sub/okno-systemu.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (1 ms)
+    ✓ sub/start.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id
+    ✓ sub/zgoda.yaml: każde stuknięcie po id spoza listy DOZWOLONE ma przed sobą przewinięcie do tego id (1 ms)
+    ✓ lista DOZWOLONE nie ma martwych wpisów: każde id jest stukane bez przewinięcia w którejś scenie (2 ms)
+    ✓ łapie scenę 04 sprzed D-378 (stuknięcie w „Doktor Chleba” bez przewinięcia) (1 ms)
+    ✓ przewinięcie do innego id albo z odstępem nie liczy się; stuknięcie w zagnieżdżonym runFlow też jest sprawdzane
+
+Test Suites: 1 passed, 1 total
+Tests:       15 passed, 15 total
+Snapshots:   0 total
+Time:        1.16 s
+Ran all test suites matching /tests\/zrzuty-sklepu-przewijanie.test.ts/i.

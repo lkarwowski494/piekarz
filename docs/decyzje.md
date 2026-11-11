@@ -2119,3 +2119,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dowody:** test „ramka 04: „Doktor Chleba” przewinięty … (D-378)” czerwony przed (`docs/dowody-07-zrzuty3/test-przed.txt`), zielony po (`test-po.txt`); `docs/dowody-07-zrzuty3/verify.txt`.
 - **Otwarte:** kadr 04 na 6,3″ (ryzyko z D-377, nagłówek pod `czapka-paska`) nadal niesprawdzony — scena nie doszła do kadru w #3 [DO USTALENIA]; potwierdzi przebieg #4.
 - **Status:** wykonanie — sesja Q, do weta.
+
+### [D-379] 2026-11-11 — Straż scen zrzutów: `tapOn` po id wymaga poprzedzającego przewinięcia (M2, sesja Q; KO-047 opcja A)
+- **Powód:** trzy czerwone przebiegi zrzutów z rzędu, każdy z inną wadą scenariusza, wykrytą dopiero po ok. 50 min CI; #3 — stuknięcie w element pod krawędzią ekranu 6,3″ (D-378). Klasę „tapOn bez przewinięcia” da się wykryć statycznie.
+- **Decyzja (właściciel, KO-047: A):** `tests/zrzuty-sklepu-przewijanie.test.ts` — każdy `tapOn` po id w `.maestro/zrzuty-sklepu/**` (także w `commands` zagnieżdżonych) ma bezpośrednio przed sobą `scrollUntilVisible` tego samego id, chyba że id jest na liście `DOZWOLONE` z uzasadnieniem i zmierzonym położeniem na 6,3″ (maestro.log #3). Lista bez martwych wpisów (osobny test). Parser `js-yaml` jak w `tests/asc-zrzuty.test.ts`.
+- **Zakres i granice:** łapie brak przewinięcia; nie łapie elementu, który po przewinięciu staje pod paskiem kart (Maestro liczy widoczność względem ekranu) ani zmian układu, przez które element z listy `DOZWOLONE` wyjedzie poza ekran — wtedy pomiar z logów przebiegu i aktualizacja listy. Tapnięcia po tekście (okno systemu) poza zakresem.
+- **Odrzucone:** zakaz bez listy (przewijanie do paska kart i nagłówków bez zysku); skrypt nad logami Maestro (C — wykrywa dopiero po przebiegu).
+- **Dowody:** ten sam test na scenach z `b27fcd3e` (przed D-378) czerwony tylko w `04-doktor.yaml` z `dziennik-doktor-btn` (`docs/dowody-07-zrzuty-straz/test-A-przed-b27fcd3e.txt`), zielony na `935cd8dc` (`test-A-po.txt`); przypadek sprzed D-378 zapisany w teście na stałe.
+- **Status:** wybór — właściciel (KO-047); wykonanie — sesja Q, do weta.
