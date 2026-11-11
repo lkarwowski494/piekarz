@@ -31,6 +31,7 @@ Zadania do wznowienia (kolejność):
 6. Koordynator `…ByVFXN3K6UyZ9U7yZ8`: rola M9 niezłożona (brak `prompts`) — przy wznowieniu zgoda albo nowa sesja koordynatora z dostępem.
 
 ## Teraz
+- **11.11 15:12:** zrzuty #1 run 43030916299 **CZERWONE**: oba zadania „Zrzuty” (6,9″ job 130569207483, 6,3″ job 130569207705) failure; `komplet` anulowany po 20 min na ImageMagick (apt: „Temporary failure resolving azure.archive.ubuntu.com”). E2E #111 zielone na `05cccd55` (master w pełni zielony: CI #287, tests-tz #247, E2E #111). Diagnoza: sesja O (rola 08). Ponowny przebieg zrzutów = nowa zgoda właściciela.
 - **11.11 14:02 — PLAN DLA NASTĘPCY (STOP koordynatora `…xmzZbniLNyXVufzPk`, kontekst 30,5%):**
   - Gałęzie: `master` = `redesign` = `05cccd55` (L, M, N; CI/tests-tz/E2E zielone na `2ce594e9`; push `05cccd55` 13:37 uruchomił CI/E2E — sprawdź wynik). `koordynacja` @ ten commit. `prompts` main @ `9553f6b` (dołączanie: zgoda właściciela 11.11 „Zgoda na prompts”).
   - Biegnie: **zrzuty-sklepu.yml #1 run 43030916299** (master @ `05cccd55`, tylko=pl; plan i build zielone 14:00, zadania zrzuty 6.9/6.3 w toku, potem zbierz i ramki; ~1–1,5 h). Zielone → artefakt `sklep-ramki`: przegląd obrazów (L-004; subagent ogląda 7 ramek × 2 klasy, raport w pliku: nagłówek KO-040/041 czytelny, bez ucięć, znacznik Pro na 01 i 05, zgodność ekranu z podpisem) → pokaż właścicielowi (Artifact/obrazy) → zgoda na `asc-zrzuty.yml` dry-run z ID przebiegu, potem pełne 34 lok. (~8–10 h) i apply — każde za zgodą (KO-042 tego nie obejmuje). Czerwone → diagnoza sesją roli 08.
@@ -78,6 +79,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| O (diagnoza zrzutów #1) | `session_01T66VBy3DrLAA79gfcz9N6h` | 08 fix (`polecenia/O.md` @ `76f2e1f0`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty1` od `05cccd55` | 0 (15:11) | 0 | start 15:11, PENDING; D-371…D-374 |
 | N (nagłówki zrzutów) | `session_01T66VBwgKE5K2d2SGjtR1iY` | 10 fix (`polecenia/N.md` @ `310c916e`) | `naprawy/M2-koordynator-napraw-2026-11-11-naglowki` @ `05cccd55` | 27,0 | 9,14 | przyjęta, `redesign` FF `05cccd55`; idle; archiwizacja = krok właściciela; D-367…D-370 do weta |
 | K (Z-8) | `session_01T66VBx6LM9T3GMFoF9Pbta` | 09 fix (`polecenia/K.md` @ `a8b8fd5e`) | `naprawy/M2-koordynator-napraw-2026-11-10-z8` od `2047ab00` | 0 (20:43) | 0 | zarchiwizowana 21:08; D-356 |
 | M (ramki, zakup, AAL) | `session_01T66VBzbFx2Bq4rmP86bH9H` | 08 fix (`polecenia/M.md` @ `9afdd2b1`) | `naprawy/M2-koordynator-napraw-2026-11-10-ramki` @ `2ce594e9` | 42,8 | 17,51 | scalona (FF redesign `2ce594e9`); idle; ponad 30% — bez nowej pracy; archiwizacja = krok właściciela; D-363…D-366, KO-036 |
@@ -261,3 +263,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 14:02 | M9 | Linia 14:00 wysłana. Zrzuty #1: plan+build zielone, zadania zrzuty w toku. Kontekst 30,5% (get_session 305k) ≥ 30% → STOP i przekazanie (E6) | następca |
 | 11.11 14:03 | M9 | **przekazane do `session_01T66VByLLFQ4u3bXqP2hE4m`** (create_session 14:01, opus, źródło `koordynacja`; właściciel: „Tak, otwórz nową i zarchiwizuj tę”). Moją kontrolę 15:10 `trig_01Qdk4f9n2t5HWAhKJSgqU4c` usuwam przy archiwizacji. Po przekazaniu nie piszę na tę gałąź | następca: E6 pkt 5 |
 | 11.11 14:05 | M9 (`…ByLLFQ4u3bXqP2hE4m`) | Przejęcie (E6 pkt 5): wpis w mandacie, 3 przypomnienia; zdarzenia poprzednika (user, 100) — jedyna wiadomość właściciela „Zgoda” 13:37 = KO-042, zgodne z przekazaniem. Stan: zrzuty #1 run 43030916299 in_progress; na master `05cccd55` CI #287 i tests-tz #247 zielone, E2E #111 run 43030905282 w toku. Rola M9 niezłożona: `add_repo` prompts odrzucony przez klasyfikator → prośba do właściciela, praca wg stan.md | kontrola 15:10 |
+| 11.11 15:12 | M9 | Kontrola: zrzuty #1 czerwone (szczegóły w „Teraz”); E2E #111 run 43030905282 zielone. Kontrola 15:10 poprzednika już usunięta (get_trigger: not found); send_message do poprzednika: session_inactive. Sesja O `…y3DrLAA79gfcz9N6h` (rola 08, `polecenia/O.md` @ `76f2e1f0`) — diagnoza; kontrola O `send_later` +50 min | DIAGNOZA O |
