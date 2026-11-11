@@ -1,0 +1,107 @@
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ○ skipped bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect
+    ○ skipped uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń
+    ○ skipped wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają)
+    ○ skipped wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run
+  zrzuty-sklepu.yml: build i Maestro
+    ○ skipped jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365)
+    ○ skipped Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev
+    ○ skipped symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✕ przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043) (3 ms)
+    ○ skipped jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)
+    ○ skipped skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7
+    ○ skipped 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych
+    ○ skipped okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ○ skipped sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny
+    ○ skipped bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ○ skipped pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd)
+    ○ skipped tylko=pl: dwa zadania (6,9″ i 6,3″)
+    ○ skipped plan bez pola zakupu (D-365)
+    ○ skipped złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór
+    ○ skipped wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/
+    Received string:  "# Wypiek do końca z oceną (wpis w Dzienniku)
+    - tapOn:
+        id: \"tab-receptury\"
+    - tapOn:
+        id: \"recipe-row-country_loaf_72\"
+    - tapOn:
+        id: \"start-bake-btn\"
+    - scrollUntilVisible:
+        element:
+          id: \"plan-start-bake-btn\"
+    - tapOn:
+        id: \"plan-start-bake-btn\"
+    - runFlow: sub/zgoda.yaml
+    - extendedWaitUntil:
+        visible:
+          id: \"step-title\"
+        timeout: 15000
+    - tapOn:
+        id: \"bake-plan-btn\"
+    - scrollUntilVisible:
+        element:
+          id: \"plan-krok-ostatni\"
+    - tapOn:
+        id: \"plan-krok-ostatni\"
+    - extendedWaitUntil:
+        visible:
+          id: \"next-or-finish-step-btn\"
+        timeout: 15000
+    - tapOn:
+        id: \"next-or-finish-step-btn\"
+    - extendedWaitUntil:
+        visible:
+          id: \"finish-rating-star-4\"
+        timeout: 15000
+    - tapOn:
+        id: \"finish-rating-star-4\"
+    - tapOn:
+        id: \"finish-save-btn\"
+    - tapOn:
+        id: \"tab-dziennik\"
+    - extendedWaitUntil:
+        visible:
+          id: \"bake-log-card-.*\"
+        timeout: 15000
+    "
+
+      160 |     const przyg = readFileSync(join(scenyDir, '00-przygotuj.yaml'), 'utf8').replace(/\r\n/g, '\n');
+      161 |     const poPasie = przyg.split('      id: "zakwas-cykl"\n    timeout: 15000\n')[1] ?? '';
+    > 162 |     expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
+          |                     ^
+      163 |     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
+      164 |     expect(r05).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n {4}centerElement: true\n/);
+      165 |     expect(read('src/components/zakwas/ZakwasDziennik.tsx')).toContain('testID="zakwas-gotowy"');
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:162:21)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 33 skipped, 34 total
+Snapshots:   0 total
+Time:        1.155 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i with tests matching "KO-043".
+KOD WYJŚCIA: 1

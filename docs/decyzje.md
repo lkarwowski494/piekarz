@@ -2065,3 +2065,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) `scrollUntilVisible` do `zakwas-karta` — w ramce 05 przewinięcie zmienia kadr zrzutu (zrzut robi `simctl io` po scenie); (b) zmiana kolejności kart w aplikacji — zmiana `src/` i wyglądu (rola 04), poza zakresem.
 - **Nie rozstrzygnięte (pytanie produktowe do koordynatora):** ramka 05 pokazuje zakwas w zakładaniu („Dzień 1”), nie zwykły cykl dokarmiania z kartą „Podwoił objętość”.
 - **Status:** sprawa techniczna, sesja O, do weta.
+
+### [D-372] 2026-11-11 — Ramka 05: zakwas po zakładaniu, karta cyklu z „Gotowy do ciasta.” (M2, sesja O; KO-043)
+- **Decyzja (właściciel przez koordynatora, KO-043: „ramka 05 = A”):** `00-przygotuj.yaml` po pierwszym dokarmieniu stuka „Podwoił objętość” (`zakwas-podwoil-btn`); `isReadyAfterFeeding` (`src/core/starter-log.ts:51-58`, podwojenie w 0–8 h po dokarmieniu) daje wynik `ready` i `setupCompletedAt`, więc po restarcie w ramce 05 nie ma karty zakładania. `05-zakwasy.yaml` przewija do `zakwas-gotowy` (`centerElement: true`). Test: `tests/zrzuty-sklepu-workflow.test.ts` („…KO-043”), czerwony przed (`docs/dowody-08-zrzuty1/test-ko043-przed.txt`), zielony po (`test-ko043-po.txt`).
+- **Odrzucone:** B — Dzień 1 zakładania (brak karty cyklu, „następne o” tą samą godziną); C — scena z oknem „Zapisz dokarmienie” (inny kadr). Ścieżka `add-starter-btn` wymaga wpisania nazwy (sceny bez `inputText`).
+- **Ograniczenia:** podpis ramki 05 bez zmian (KO-043); ilości do dokarmienia i rada „co 12 h” nie są na tym ekranie. Kadr niesprawdzony na symulatorze [DO USTALENIA w przebiegu #2]. Dane fikcyjne: zakwas „gotowy” kilka minut po założeniu — tylko do zrzutu.
+- **Status:** wybór opcji — właściciel (KO-043); wykonanie — sesja O, do weta.

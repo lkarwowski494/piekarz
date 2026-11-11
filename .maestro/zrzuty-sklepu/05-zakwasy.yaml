@@ -4,11 +4,13 @@ appId: com.apps4brew.baker
 - runFlow: sub/start.yaml
 - tapOn:
     id: "tab-zakwasy"
-# Pas zakwasu ze spiralą cyklu na górze ekranu; karta cyklu (`zakwas-karta`, `zakwas-dokarm-btn`) jest w zakładaniu
-# pod kartą zakładania, poza ekranem (zrzuty #1, D-371)
+# Pas zakwasu ze spiralą cyklu (D-371); zakwas po zakładaniu z 00-przygotuj (KO-043, D-372): karta cyklu
+# z „Gotowy do ciasta.” pod profilem, przewinięta na środek ekranu (zrzut robi simctl io po scenie)
 - extendedWaitUntil:
     visible:
       id: "zakwas-cykl"
     timeout: 15000
-- assertVisible:
-    id: "brand-spiral"
+- scrollUntilVisible:
+    element:
+      id: "zakwas-gotowy"
+    centerElement: true

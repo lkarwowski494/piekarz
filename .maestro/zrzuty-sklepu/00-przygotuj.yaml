@@ -31,6 +31,17 @@ appId: com.apps4brew.baker
     visible:
       id: "zakwas-cykl"
     timeout: 15000
+# Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
+# (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
+- scrollUntilVisible:
+    element:
+      id: "zakwas-podwoil-btn"
+- tapOn:
+    id: "zakwas-podwoil-btn"
+- scrollUntilVisible:
+    element:
+      id: "zakladanie-wynik-ready"
+    direction: UP
 # Wypiek do końca z oceną (wpis w Dzienniku)
 - tapOn:
     id: "tab-receptury"

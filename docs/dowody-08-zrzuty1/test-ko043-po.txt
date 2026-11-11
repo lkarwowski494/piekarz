@@ -1,0 +1,46 @@
+PASS tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ✓ bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect (3 ms)
+    ✓ uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń (1 ms)
+    ✓ wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają) (6 ms)
+    ✓ wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run (3 ms)
+  zrzuty-sklepu.yml: build i Maestro
+    ✓ jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365) (1 ms)
+    ✓ Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev (1 ms)
+    ✓ symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✓ jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365) (1 ms)
+    ✓ skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7 (1 ms)
+    ✓ 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie (185 ms)
+    ✓ 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (8 ms)
+    ✓ 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie (47 ms)
+    ✓ 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie (24 ms)
+    ✓ 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie (30 ms)
+    ✓ 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie (27 ms)
+    ✓ 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie (8 ms)
+    ✓ 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie (6 ms)
+    ✓ 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie (10 ms)
+    ✓ sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ✓ sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie (5 ms)
+    ✓ sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (1 ms)
+    ✓ dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych (1 ms)
+    ✓ okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ✓ sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny (2 ms)
+    ✓ przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043) (1 ms)
+    ✓ bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert (1 ms)
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ✓ pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd) (49 ms)
+    ✓ tylko=pl: dwa zadania (6,9″ i 6,3″) (43 ms)
+    ✓ plan bez pola zakupu (D-365) (39 ms)
+    ✓ złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór (50 ms)
+    ✓ złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór (38 ms)
+    ✓ złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór (41 ms)
+    ✓ złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór (51 ms)
+    ✓ wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        1.267 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i.
+KOD WYJŚCIA: 0
