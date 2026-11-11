@@ -314,3 +314,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 21:15 | CI | E2E #116 (43098216422) in_progress od ~21:02 na `7e9b3b31` (kolejka ~14 min). R idle, gałąź = `7e9b3b31`. | kontrola ~21:50 |
 | 11.11 21:25 | M9 | Wyjątek nazwany (E1 pkt 3): prompty S z `audit-m1/piekarz-2026-11-08` (jak R), nie świeżo z biblioteki — trzy złożone role = 180 KB, nie mieszczą się w create_session (subagent: odczyt ucięty). Kontrola zastępcza: te same role z biblioteki z 08.11, użyte przez R z wynikiem przyjętym. | start S |
 | 11.11 21:25 | S | Start S `session_01T66VBxmbzcEEQefbz69EHX` (opus, auto, env jak R), gałąź `…-dzis` @ `7e9b3b31`. | kontrola 21:51 |
+| 11.11 21:22 | S | Raport 1 (04): D-389 `014a0f4c` lokalnie; nowe zdanie PL/EN w tej samej karcie, zrzuty 320/390/AX5 OK (wg S). KO-054 do weta (różnica wobec przykładu z KO-053). Szacunek reszty ~1 h 45 min. | kontrola 21:51 |
