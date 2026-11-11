@@ -111,7 +111,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 |---|---|---|---|---|
 | 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/01-plan.png` | 원하는 시간에, 수면 보호와 함께 | 역산 일정으로 한밤중 작업 없이 |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/02-receptura.png` | 모든 재료의 그램 수를 바로 | 스타터 속 가루와 물까지 베이커스 퍼센트에 반영 |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/03-prowadzenie-ciemny.png` | 휴대폰이 잠겨 있어도 알림이 와요 | 할 일, 소요 시간, 단계 종료 알림 |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/03-prowadzenie-ciemny.png` | 단계별로, 알림과 함께 | 할 일, 소요 시간, 단계 종료 알림 |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/04-doktor.png` | 다음 빵 덩어리에서 고칠 점 | 증상, 원인, 다음 베이킹을 위한 한 가지 변화 |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/05-zakwasy.png` | 언제나 제때 준비되는 스타터 | 먹이 주기 분량과 12시간 후 알림 |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/06-dziennik.png` | 모든 베이킹을 기록 | 빵 평가와 탭 한 번으로 ‘다시 굽기’ |

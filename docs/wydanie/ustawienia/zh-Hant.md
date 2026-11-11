@@ -111,7 +111,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 |---|---|---|---|---|
 | 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/01-plan.png` | 依你的時間出爐，睡眠受保護 | 倒推時程，深夜不安排步驟 |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/02-receptura.png` | 每種材料的克數一次算好 | 天然酵母起種中的麵粉和水，皆計入烘焙百分比 |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/03-prowadzenie-ciemny.png` | 手機休眠時，通知照樣提醒你 | 該做什麼、要多久，步驟結束時通知你 |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/03-prowadzenie-ciemny.png` | 按步驟進行，並有通知提醒 | 該做什麼、要多久，步驟結束時通知你 |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/04-doktor.png` | 下一個麵包哪裡可以更好 | 症狀、原因，以及下次烘焙的一項調整 |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/05-zakwasy.png` | 天然酵母起種，準時就緒 | 餵養用量，12 小時後提醒 |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/06-dziennik.png` | 每次烘焙都有紀錄 | 為麵包評分，輕點一下「再烤一次」 |

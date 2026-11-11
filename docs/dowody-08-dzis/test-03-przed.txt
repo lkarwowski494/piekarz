@@ -1,0 +1,841 @@
+FAIL tests/zrzuty-sklepu-kadry.test.ts
+  kadry scen zrzutów sklepu (KO-048 P2 c)
+    ✓ 01-plan kończy się przewinięciem do sleep-guard-banner z centerElement (treść karty „Ochrona snu aktywna” na środku ekranu, nad paskiem przycisków) (7 ms)
+    ✓ 02-receptura kończy się przewinięciem do scale-item-water z centerElement (wiersz „Woda” na środku: nad nim pełne wiersze mąki, pod nim kolejne składniki) (1 ms)
+    ✓ 02-receptura sprawdza liczbę bochenków przed przewinięciem (po przewinięciu karta „Ile pieczesz” może wyjść z kadru) (2 ms)
+    ✓ 05-zakwasy: najmniejsze przewinięcie do „Gotowy do ciasta.” (bez centerElement), pas zakwasu przed nim, „Gotowy do ciasta.” widoczny na końcu (KO-052) (2 ms)
+    ✓ 07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051) (2 ms)
+    ✓ ramka 03 (pl): nagłówek zgodny z ekranem prowadzenia, ten sam we wszystkich źródłach podpisów (KO-050) (2 ms)
+    ✓ ramka 03: 33 lokalizacje sklepu poza PL
+    ✕ ramka 03 (cs): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (5 ms)
+    ✕ ramka 03 (da): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (de-DE): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (el): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (en-AU): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (en-CA): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (en-GB): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (en-US): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (es-ES): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (es-MX): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (fi): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (fr-CA): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (fr-FR): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (hr): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (hu): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (id): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (it): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (ja): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (ko): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (ms): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (nl-NL): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (no): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (pt-BR): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (pt-PT): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (ro): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (ru): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (sk): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+    ✕ ramka 03 (sl): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (sv): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (tr): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (uk): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (vi): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390) (1 ms)
+    ✕ ramka 03 (zh-Hant): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (cs): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "cs",
+        "n": "Oznámení, když telefon spí",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (da): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "da",
+        "n": "Notifikation, når telefonen sover",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (de-DE): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "de-DE",
+        "n": "Mitteilung bei gesperrtem iPhone",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (el): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "el",
+        "n": "Ειδοποίηση, όταν κοιμάται το τηλέφωνο",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (en-AU): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-AU",
+        "n": "Notified Even When Your Phone Sleeps",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (en-CA): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-CA",
+        "n": "Notified Even When Your Phone Sleeps",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (en-GB): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-GB",
+        "n": "Notified Even When Your Phone Sleeps",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (en-US): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-US",
+        "n": "Notified Even When Your Phone Sleeps",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (es-ES): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "es-ES",
+        "n": "Notificación con el teléfono en reposo",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (es-MX): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "es-MX",
+        "n": "Notificación con el teléfono en reposo",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (fi): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fi",
+        "n": "Ilmoitus, kun puhelin on lukittuna",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (fr-CA): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fr-CA",
+        "n": "Une notification, téléphone en veille",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (fr-FR): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fr-FR",
+        "n": "Une notification, téléphone en veille",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (hr): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "hr",
+        "n": "Obavijest, kad telefon spava",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (hu): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "hu",
+        "n": "Értesítés, amikor a telefon alszik",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (id): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "id",
+        "n": "Notifikasi saat ponsel terkunci",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (it): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "it",
+        "n": "Una notifica a telefono in standby",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (ja): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ja",
+        "n": "端末がスリープ中も通知でお知らせ",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (ko): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ko",
+        "n": "휴대폰이 잠겨 있어도 알림이 와요",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (ms): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ms",
+        "n": "Pemberitahuan semasa telefon tidur",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (nl-NL): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "nl-NL",
+        "n": "Melding als je telefoon slaapt",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (no): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "no",
+        "n": "Varsel når telefonen sover",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (pt-BR): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "pt-BR",
+        "n": "Notificação com o celular dormindo",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (pt-PT): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "pt-PT",
+        "n": "Notificação com o telemóvel em repouso",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (ro): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ro",
+        "n": "Notificare când telefonul doarme",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (ru): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ru",
+        "n": "Уведомление, пока телефон спит",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (sk): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sk",
+        "n": "Upozornenie, keď telefón spí",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (sl): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sl",
+        "n": "Obvestilo, ko telefon miruje",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (sv): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sv",
+        "n": "Notis när telefonen är låst",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (tr): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "tr",
+        "n": "Telefon uykudayken bildirim gelir",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (uk): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "uk",
+        "n": "Сповіщення, коли телефон заблоковано",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (vi): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "vi",
+        "n": "Thông báo khi điện thoại khóa màn hình",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (zh-Hant): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "zh-Hant",
+        "n": "手機休眠時，通知照樣提醒你",
+    -   "sen": false,
+    +   "sen": true,
+      }
+
+      88 |   it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+      89 |     const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    > 90 |     expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+         |                                          ^
+      91 |     const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+      92 |     for (const plik of zrodla) {
+      93 |       let tekst: string;
+
+      at toEqual (tests/zrzuty-sklepu-kadry.test.ts:90:42)
+
+Test Suites: 1 failed, 1 total
+Tests:       33 failed, 7 passed, 40 total
+Snapshots:   0 total
+Time:        1.001 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts/i.
+KOD 1

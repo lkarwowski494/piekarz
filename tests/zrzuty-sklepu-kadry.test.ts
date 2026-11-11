@@ -77,4 +77,22 @@ describe('kadry scen zrzutów sklepu (KO-048 P2 c)', () => {
       expect([plik, czytaj(plik).includes(n)]).toEqual([plik, true]);
     }
   });
+
+  // KO-050 w pozostałych 33 lokalizacjach sklepu (sesja S, rola 09; D-390; 34 z PL — bg, et, lt, lv, sr nie mają lokalizacji App Store): nagłówek 03 = przekład „Krok po kroku, z powiadomieniem”,
+  // bez obietnicy snu lub blokady telefonu; te same źródła podpisów co w PL (gdzie lokalizacja je ma). Rdzeń powiadomienia: KO-039.
+  const SEN = /sleep|spí|sover|gesperrt|κοιμ|reposo|lukit|veille|spava|alszik|terkunci|standby|スリープ|잠겨|tidur|slaapt|dormindo|repouso|doarme|спит|miruje|låst|uyku|заблок|khóa|休眠/iu;
+  const czytajRepo = (p: string) => readFileSync(join(__dirname, '..', p), 'utf8');
+  const lokalizacje = (require('node:fs') as typeof import('node:fs')).readdirSync(join(__dirname, '..', 'docs/wydanie/metadane'))
+    .filter((f: string) => f.endsWith('.json') && f !== 'pl.json').map((f: string) => f.slice(0, -5));
+  it('ramka 03: 33 lokalizacje sklepu poza PL', () => expect(lokalizacje).toHaveLength(33));
+  it.each(lokalizacje)('ramka 03 (%s): nagłówek o kroku, bez snu i blokady, ten sam w źródłach podpisów (KO-050, D-390)', (kod) => {
+    const n = (JSON.parse(czytajRepo(`docs/wydanie/metadane/${kod}.json`)) as { ramki: Array<{ naglowek: string }> }).ramki[2].naglowek;
+    expect({ kod, n, sen: SEN.test(n) }).toEqual({ kod, n, sen: false });
+    const zrodla = [`docs/wydanie/ustawienia/${kod}.md`, `docs/wydanie/zrzuty/${kod}/podpisy.json`].concat(kod === 'en-US' ? ['docs/app-store-metadata-v2.md'] : []);
+    for (const plik of zrodla) {
+      let tekst: string;
+      try { tekst = czytajRepo(plik); } catch { continue; } // podpisy.json mają tylko en-US i nl-NL
+      expect({ plik, n, jest: tekst.includes(n) }).toEqual({ plik, n, jest: true });
+    }
+  });
 });

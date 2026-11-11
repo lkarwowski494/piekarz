@@ -140,7 +140,7 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 ### Ramka 3: Prowadzenie krok po kroku z minutnikiem (motyw ciemny)
 - **Główny nagłówek (PL):** *Krok po kroku, z powiadomieniem* (KO-050, D-384; zastępuje nagłówek z KO-040, D-367; powiadomienie po zgodzie — warunek w opisie, KO-034)
 - **Podtytuł (PL):** *Co zrobić, ile to trwa i powiadomienie o końcu kroku*
-- **Main Headline (EN):** *Notified Even When Your Phone Sleeps*
+- **Main Headline (EN):** *Step by Step, with a Notification*
 - **Sub-headline (EN):** *What to do, how long it takes and a notification when it ends*
 - **Widok w ramce:** ekran prowadzenia (`app/stolnica.tsx`) w motywie ciemnym: bieżący krok z czasem, „Krok n z N” i informacją o powiadomieniu.
 

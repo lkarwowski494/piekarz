@@ -1,0 +1,14 @@
+PASS tests/zrzuty-sklepu-kadry.test.ts
+PASS tests/instrukcja-ustawien.test.ts
+PASS tests/store-metadata.test.ts
+PASS tests/metadane-sklepu.test.ts
+PASS tests/opis-sklepu-pro-078.test.ts
+PASS tests/store-caption-layout.test.ts
+PASS tests/ramki-sklepu-atuty-ko039.test.ts (5.902 s)
+
+Test Suites: 7 passed, 7 total
+Tests:       322 passed, 322 total
+Snapshots:   0 total
+Time:        10.878 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts|tests\/ramki-sklepu-atuty-ko039.test.ts|tests\/store-caption-layout.test.ts|tests\/metadane-sklepu.test.ts|tests\/store-metadata.test.ts|tests\/instrukcja-ustawien.test.ts|tests\/opis-sklepu-pro-078.test.ts/i.
+KOD 0
