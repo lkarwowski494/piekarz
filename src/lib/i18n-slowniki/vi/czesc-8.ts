@@ -6,7 +6,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Đang nướng bánh',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Tôi giữ 10 bản sao gần nhất trên điện thoại này.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Kế hoạch mẻ bánh và lịch cho men ăn trong tuần sẽ hiện ở đây khi bạn bắt đầu.',
-  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Lịch cho men tự nhiên ăn nằm ở lịch phía trên. Kế hoạch mẻ bánh sẽ hiện ở đây khi bạn bắt đầu.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Các lần cho men tự nhiên ăn nằm ở lịch phía trên. Kế hoạch nướng sẽ hiện ở đây khi bạn bắt đầu một mẻ bánh.',
   'Tu zapiszą się twoje wypieki': 'Các mẻ bánh của bạn sẽ được lưu ở đây',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Dữ liệu của bạn không bị thay đổi, nhưng hiện ứng dụng không thể đọc hoặc lưu. Khởi động lại ứng dụng. Nếu sự cố tái diễn, giải phóng dung lượng trên điện thoại.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Dữ liệu của bạn được lưu trong điện thoại. Trước khi thử lại, bạn có thể xuất một bản sao.',

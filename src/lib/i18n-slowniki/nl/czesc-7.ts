@@ -84,7 +84,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Bezig met bakken',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Ik bewaar de laatste 10 back-ups op deze telefoon.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Hier verschijnen je bakplan en de week met voedingen zodra je iets begint.',
-  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'De voedingen van je zuurdesem staan in de kalender hierboven. Je bakplan verschijnt hier zodra je een bak begint.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'De voedingen van je zuurdesem staan in de kalender hierboven. Je bakplan verschijnt hier zodra je een baksel begint.',
   'Tu zapiszą się twoje wypieki': 'Hier verschijnen je baksels',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Je gegevens zijn niet gewijzigd, maar de app kan ze nu niet lezen of bewaren. Start de app opnieuw. Als het probleem terugkomt, maak dan opslagruimte vrij op je telefoon.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Je gegevens staan op je telefoon. Voordat je het opnieuw probeert, kun je er een kopie van exporteren.',
