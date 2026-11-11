@@ -2079,3 +2079,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Ograniczenia (recenzja niezależna, P2):** `Acquire::http(s)::Timeout` nie obejmuje rozwiązywania nazw — przy awarii DNS przed zawieszeniem chroni głównie limit 8 min (zamiast 20); pominięcie apt nie sprawdza, że `label:` działa (freetype); test nie pilnuje `set -euo pipefail`. Czy `ubuntu-latest` ma ImageMagick w obrazie [DO USTALENIA w przebiegu #2: komunikat „z obrazu” w logu].
 - **Dowody:** `tests/zrzuty-sklepu-workflow.test.ts` („KO-044”), czerwony przed (`docs/dowody-08-zrzuty1/test-ko044-przed.txt`, KOD 1), zielony po (`test-ko044-po.txt`); `verify-2.txt` KOD 0; recenzja w `recenzja-niezalezna.md`.
 - **Status:** wariant — właściciel (KO-044); wykonanie — sesja O, do weta.
+
+### [D-375] 2026-11-11 — Zrzuty sklepu: ramka 04 przewija do `karta-diagnoza-naglowek`; test id rozwija testID z NaglowekKarty (M2, sesja P; zrzuty #2)
+- **Przyczyna (run 43050106530, job 130626995206, 6,9″):** `04-doktor.yaml` „Scrolling DOWN until id: karta-diagnoza is visible… FAILED” w obu próbach. `DiagnosisResultCard.tsx:94` przekazuje `testID="karta-diagnoza"` do `NaglowekKarty`, która renderuje tylko `${testID}-naglowek/-tytul/-ikona/-znacznik` (`src/ui/karty/Karta.tsx:38-47`); w hierarchii step-012 diagnoza jest na ekranie (`karta-diagnoza-naglowek` [34,157][406,181]), elementu `karta-diagnoza` nie ma. Test „id elementów istnieją w kodzie” przepuścił, bo szukał literału w źródle.
+- **Decyzja:** scena przewija do `karta-diagnoza-naglowek` (`centerElement: true` bez zmian; Maestro 2.11.0 `Orchestra.kt` `scrollUntilVisible`: po 4 próbach centrowania wystarcza widoczność, odczyt 2026-11-11). `wKodzie` w `tests/zrzuty-sklepu-workflow.test.ts` zamienia `<NaglowekKarty testID="X"` na id faktycznie renderowane, więc samo `X` nie przechodzi.
+- **Odrzucone:** `testID` na kontenerze karty diagnozy — zmiana `src/` poza zakresem; `karta-diagnoza-tytul` — równoważne, nagłówek zgodny z `src/__tests__/doktor-kolejnosc-p7.test.tsx`.
+- **Ograniczenia:** kadr ramki 04 z nagłówkiem diagnozy w środku niesprawdzony na symulatorze [DO USTALENIA w przebiegu #3].
+- **Dowody:** test „04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie” czerwony przed (`docs/dowody-08-zrzuty2/test-przed.txt`), zielony po (`test-po.txt`).
+- **Status:** techniczna, sesja P, do weta.

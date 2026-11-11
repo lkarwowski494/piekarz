@@ -1,0 +1,289 @@
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ✓ bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect (4 ms)
+    ✓ uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń (2 ms)
+    ✓ wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają) (1 ms)
+    ✓ wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run (4 ms)
+  zrzuty-sklepu.yml: build i Maestro
+    ✓ jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365) (1 ms)
+    ✓ Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev (1 ms)
+    ✓ symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd (1 ms)
+  zrzuty-sklepu.yml: instalacja ImageMagick odporna na awarię sieci (KO-044)
+    ✓ ImageMagick: własny limit 8 min, pominięcie apt przy obecnych narzędziach, apt z ponowieniami i limitem połączenia (1 ms)
+    ✓ ImageMagick i czcionki CJK: własny limit 8 min, pominięcie apt przy obecnych narzędziach, apt z ponowieniami i limitem połączenia (1 ms)
+    ✓ podpisy: pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK (1 ms)
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✓ jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365) (1 ms)
+    ✓ skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7 (1 ms)
+    ✓ 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie (208 ms)
+    ✓ 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (7 ms)
+    ✓ 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie (33 ms)
+    ✓ 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie (17 ms)
+    ✓ 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie (19 ms)
+    ✕ 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie (36 ms)
+    ✓ 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie (7 ms)
+    ✓ 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie (6 ms)
+    ✓ 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie (10 ms)
+    ✓ sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ✓ sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie (6 ms)
+    ✓ sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie (2 ms)
+    ✓ dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych (1 ms)
+    ✓ okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ✕ sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny (5 ms)
+    ✕ po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374) (1 ms)
+    ✕ przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043) (1 ms)
+    ✓ bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert (1 ms)
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ✓ pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd) (53 ms)
+    ✓ tylko=pl: dwa zadania (6,9″ i 6,3″) (39 ms)
+    ✓ plan bez pola zakupu (D-365) (42 ms)
+    ✓ złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór (43 ms)
+    ✓ złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór (49 ms)
+    ✓ złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór (50 ms)
+    ✓ złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór (52 ms)
+    ✓ wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz (2 ms)
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "karta-diagnoza",
+    -   true,
+    +   false,
+      ]
+
+      149 |     expect(/^appId: (.+)$/m.exec(tekst)?.[1]).toBe(bundleId);
+      150 |     const ids = [...tekst.matchAll(/^\s+id: "([^"]+)"/gm)].map((m) => m[1]).filter((id) => !/[.*|]/.test(id));
+    > 151 |     for (const id of ids) expect([id, wKodzie(id)]).toEqual([id, true]);
+          |                                                     ^
+      152 |   });
+      153 |
+      154 |   it('dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych', () => {
+
+      at toEqual (tests/zrzuty-sklepu-workflow.test.ts:151:53)
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 66
+
+      Array [
+        "00-przygotuj",
+    -   StringMatching /^(?:#[^\n]*\n)*- extendedWaitUntil:\n {4}notVisible:\n {6}id: "zakladanie-start"\n {4}timeout: \d+\n(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n/,
+    +   "# Zakwas w zakładaniu: karta zakładania stoi nad kartą cyklu (`zakwas-karta` poza ekranem, zrzuty #1, D-371);
+    + # czekanie jak E2E 05-drugi-zakwas-pro (start zakładania znika) i na pas zakwasu na górze ekranu
+    + - extendedWaitUntil:
+    +     notVisible:
+    +       id: \"zakladanie-start\"
+    +     timeout: 15000
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"zakwas-cykl\"
+    +     timeout: 15000
+    + # Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
+    + # (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"zakwas-podwoil-btn\"
+    + - tapOn:
+    +     id: \"zakwas-podwoil-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"zakladanie-wynik-ready\"
+    +     direction: UP
+    + # Wypiek do końca z oceną (wpis w Dzienniku)
+    + - tapOn:
+    +     id: \"tab-receptury\"
+    + - tapOn:
+    +     id: \"recipe-row-country_loaf_72\"
+    + - tapOn:
+    +     id: \"start-bake-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"plan-start-bake-btn\"
+    + - tapOn:
+    +     id: \"plan-start-bake-btn\"
+    + - runFlow: sub/zgoda.yaml
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"step-title\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"bake-plan-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"plan-krok-ostatni\"
+    + - tapOn:
+    +     id: \"plan-krok-ostatni\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"next-or-finish-step-btn\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"next-or-finish-step-btn\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"finish-rating-star-4\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"finish-rating-star-4\"
+    + - tapOn:
+    +     id: \"finish-save-btn\"
+    + - tapOn:
+    +     id: \"tab-dziennik\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"bake-log-card-.*\"
+    +     timeout: 15000
+    + ",
+      ]
+
+      183 |       const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
+      184 |       const poOknie = tekst.split('- runFlow: sub/okno-systemu.yaml\n')[1] ?? '';
+    > 185 |       expect([s, poOknie]).toEqual([s, expect.stringMatching(/^(?:#[^\n]*\n)*- extendedWaitUntil:\n {4}notVisible:\n {6}id: "zakladanie-start"\n {4}timeout: \d+\n(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n/)]);
+          |                            ^
+      186 |     }
+      187 |   });
+      188 |
+
+      at Object.toEqual (tests/zrzuty-sklepu-workflow.test.ts:185:28)
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 89
+
+      Array [
+        "00-przygotuj",
+    -   StringMatching /- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n {4}direction: UP\n {4}timeout: 15000\n/,
+    +   "# Zrzuty sklepu (KO-025, 2026-11-10): dane FIKCYJNE dla scen 01–07 — zakwas założony w aplikacji (pierwsze dokarmienie)
+    + # i jeden zakończony wypiek wbudowanej receptury z oceną 4 (wpis w Dzienniku). Bez danych właściciela, bez wpisywania tekstu.
+    + # Build z dostępem E2E (EXPO_PUBLIC_E2E=1, pełny Pro), jak .maestro/e2e/06-koniec-wypieku.yaml. Elementy tylko po id.
+    + appId: com.apps4brew.baker
+    + ---
+    + - launchApp:
+    +     clearState: true
+    +     permissions:
+    +       notifications: allow
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"start-czynnosci\"
+    +     timeout: 60000
+    + # Zakwas: zakładanie od zera, pierwsze dokarmienie tworzy zakwas (BR-ZAKW-005)
+    + - tapOn:
+    +     id: \"tab-zakwasy\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"zakladanie-pierwsze-dokarmienie-btn\"
+    + - tapOn:
+    +     id: \"zakladanie-pierwsze-dokarmienie-btn\"
+    + # Okno zgody systemu po pierwszym dokarmieniu (E2E-96; recenzja J, P0); zwykle już rozstrzygnięte przez 00-zgoda.yaml
+    + - runFlow: sub/okno-systemu.yaml
+    + # Zakwas w zakładaniu: karta zakładania stoi nad kartą cyklu (`zakwas-karta` poza ekranem, zrzuty #1, D-371);
+    + # czekanie jak E2E 05-drugi-zakwas-pro (start zakładania znika) i na pas zakwasu na górze ekranu
+    + - extendedWaitUntil:
+    +     notVisible:
+    +       id: \"zakladanie-start\"
+    +     timeout: 15000
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"zakwas-cykl\"
+    +     timeout: 15000
+    + # Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
+    + # (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"zakwas-podwoil-btn\"
+    + - tapOn:
+    +     id: \"zakwas-podwoil-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"zakladanie-wynik-ready\"
+    +     direction: UP
+    + # Wypiek do końca z oceną (wpis w Dzienniku)
+    + - tapOn:
+    +     id: \"tab-receptury\"
+    + - tapOn:
+    +     id: \"recipe-row-country_loaf_72\"
+    + - tapOn:
+    +     id: \"start-bake-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"plan-start-bake-btn\"
+    + - tapOn:
+    +     id: \"plan-start-bake-btn\"
+    + - runFlow: sub/zgoda.yaml
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"step-title\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"bake-plan-btn\"
+    + - scrollUntilVisible:
+    +     element:
+    +       id: \"plan-krok-ostatni\"
+    + - tapOn:
+    +     id: \"plan-krok-ostatni\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"next-or-finish-step-btn\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"next-or-finish-step-btn\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"finish-rating-star-4\"
+    +     timeout: 15000
+    + - tapOn:
+    +     id: \"finish-rating-star-4\"
+    + - tapOn:
+    +     id: \"finish-save-btn\"
+    + - tapOn:
+    +     id: \"tab-dziennik\"
+    + - extendedWaitUntil:
+    +     visible:
+    +       id: \"bake-log-card-.*\"
+    +     timeout: 15000
+    + ",
+      ]
+
+      194 |       const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
+      195 |       expect([s, tekst]).toEqual([s, expect.stringMatching(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-pierwsze-dokarmienie-btn"\n/)]);
+    > 196 |       expect([s, tekst]).toEqual([s, expect.stringMatching(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n {4}direction: UP\n {4}timeout: 15000\n/)]);
+          |                          ^
+      197 |       expect([s, tekst]).toEqual([s, expect.not.stringMatching(/visible:\n {6}id: "zakwas-cykl"/)]);
+      198 |     }
+      199 |   });
+
+      at Object.toEqual (tests/zrzuty-sklepu-workflow.test.ts:196:26)
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/
+    Received string:  ""
+
+      204 |     const przyg = readFileSync(join(scenyDir, '00-przygotuj.yaml'), 'utf8').replace(/\r\n/g, '\n');
+      205 |     const poPasie = przyg.split('      id: "zakwas-cykl"\n    direction: UP\n    timeout: 15000\n')[1] ?? '';
+    > 206 |     expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
+          |                     ^
+      207 |     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
+      208 |     expect(r05).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n {4}centerElement: true\n/);
+      209 |     expect(read('src/components/zakwas/ZakwasDziennik.tsx')).toContain('testID="zakwas-gotowy"');
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:206:21)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 34 passed, 38 total
+Snapshots:   0 total
+Time:        3.231 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i.

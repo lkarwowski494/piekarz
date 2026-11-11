@@ -11,7 +11,8 @@ appId: com.apps4brew.baker
       id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
 - tapOn:
     id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
+# NaglowekKarty renderuje `karta-diagnoza-naglowek`, nie samo `karta-diagnoza` (zrzuty #2, D-375)
 - scrollUntilVisible:
     element:
-      id: "karta-diagnoza"
+      id: "karta-diagnoza-naglowek"
     centerElement: true

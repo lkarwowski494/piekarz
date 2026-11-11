@@ -32,8 +32,14 @@ function plikiKodu(dir: string): string[] {
   });
 }
 let zrodla: string | null = null;
+/**
+ * NaglowekKarty nie renderuje swojego `testID`, tylko `${testID}-naglowek/-tytul/-ikona/-znacznik` (src/ui/karty/Karta.tsx).
+ * Zrzuty #2 (run 43050106530): scena 04 czekała na `karta-diagnoza` — literał jest w kodzie jako props, elementu nie ma (D-375).
+ */
+const naglowekKarty = (kod: string) =>
+  kod.replace(/<NaglowekKarty testID="([^"]+)"/g, (_m, id: string) => `<NaglowekKarty ${['naglowek', 'tytul', 'ikona', 'znacznik'].map((s) => `"${id}-${s}"`).join(' ')}`);
 function wKodzie(id: string): boolean {
-  zrodla ??= ['app', 'src'].flatMap((d) => plikiKodu(join(root, d))).map((p) => readFileSync(p, 'utf8')).join('\n');
+  zrodla ??= naglowekKarty(['app', 'src'].flatMap((d) => plikiKodu(join(root, d))).map((p) => readFileSync(p, 'utf8')).join('\n'));
   if (zrodla.includes(`"${id}"`) || zrodla.includes(`'${id}'`)) return true;
   // szablon z przedrostkiem (`start-${czynnosc}`, `recipe-row-${id}`): każdy przedrostek do myślnika
   const czesci = id.split('-');
