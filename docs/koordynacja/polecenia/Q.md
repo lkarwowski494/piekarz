@@ -1,7 +1,7 @@
 # Sesja Q: diagnoza i poprawka czerwonego przebiegu zrzutów sklepu #3 — Piekarz
 Koordynator: session_01T66VByLLFQ4u3bXqP2hE4m (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; przy zmianie koordynatora pisz do nowego). Gałąź stanu `koordynacja` tylko do odczytu.
 
-1. Rola: 07-jakosc w trybie fix. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+1. Rola: 07-jakosc w trybie fix. Prompt roli: `git fetch origin audit-m1/piekarz-2026-11-08 && git show origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/naprawy/polecenia/rola-07-jakosc-prompt.md` — przeczytaj w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
 2. Start: gałąź `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty3` od `master` @ `b27fcd3e` (= `redesign`; inny HEAD: zgłoś). `npm ci`. Tożsamość commitów wg CLAUDE.md, sprawdź przed pierwszym commitem.
 3. Kontekst: przebiegi `zrzuty-sklepu.yml` #1 (run 43030916299) i #2 (run 43050106530) czerwone; poprawki sesji O i P: D-371…D-377 w `docs/decyzje.md`, dowody `docs/dowody-08-zrzuty1/`, `docs/dowody-08-zrzuty2/`, stan P `docs/stan-08-zrzuty2-2026-11-11.md` (przeczytaj: diagnozy, otwarte ryzyka — 04 na 6,3″ pod paskiem, 05 centerElement na 6,3″, krój CJK). Decyzje właściciela: KO-043 (ramka 05 po zakładaniu), KO-045 (ImageMagick na ubuntu-22.04 bez apt, setup-python 3.12), KO-046 (ramka 04 = cała karta diagnozy, bez centerElement). **Przebieg #3 run 43072716967** (workflow_dispatch master `b27fcd3e`, tylko=pl, aplikacja z przebiegu 43030916299 — app/src bez zmian od `05cccd55`, E2E #111 zielone): conclusion failure, szczegóły jobów nieczytane przez koordynatora.
 4. Zadania:
