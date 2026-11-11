@@ -141,6 +141,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': '베이킹 진행 중',
   'Trzymam 10 ostatnich kopii na tym telefonie.': '이 휴대폰에 최근 백업 10개를 보관해요.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': '무언가를 시작하면 여기에 베이킹 계획과 한 주의 먹이 주기가 표시돼요.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': '스타터 먹이 주기는 위 캘린더에 있어요. 베이킹을 시작하면 여기에 계획이 표시돼요.',
   'Tu zapiszą się twoje wypieki': '베이킹 기록이 여기에 표시돼요',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': '데이터는 변경되지 않았지만, 지금은 앱이 데이터를 읽거나 저장할 수 없어요. 앱을 다시 시작하세요. 문제가 계속되면 휴대폰 저장 공간을 확보하세요.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': '데이터는 휴대폰에 저장되어 있어요. 다시 시도하기 전에 사본을 내보낼 수 있어요.',

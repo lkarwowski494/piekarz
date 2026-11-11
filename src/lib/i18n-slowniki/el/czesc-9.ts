@@ -133,5 +133,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Ψήσιμο σε εξέλιξη',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Κρατώ τα 10 τελευταία αντίγραφα σε αυτό το τηλέφωνο.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Εδώ θα εμφανιστεί το πλάνο ψησίματος και η εβδομάδα με τα ταΐσματα, μόλις ξεκινήσετε κάτι.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Τα ταΐσματα του προζυμιού είναι στο ημερολόγιο παραπάνω. Το πλάνο ψησίματος θα εμφανιστεί εδώ μόλις ξεκινήσετε ένα ψήσιμο.',
   'Tu zapiszą się twoje wypieki': 'Εδώ θα εμφανίζονται τα ψησίματά σας',
 };

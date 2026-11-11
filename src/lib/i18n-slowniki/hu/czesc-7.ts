@@ -115,6 +115,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Sütés folyamatban',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Az utolsó 10 másolatot ezen a telefonon tartom meg.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Itt jelenik meg a sütési terv és a hét etetései, ha elkezdesz valamit.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'A kovász etetései fent, a naptárban vannak. A sütési terv itt jelenik meg, ha elkezdesz egy sütést.',
   'Tu zapiszą się twoje wypieki': 'Itt jelennek meg a sütéseid',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Az adataid nem változtak, de az alkalmazás most nem tudja beolvasni vagy menteni őket. Indítsd újra az alkalmazást. Ha a probléma visszatér, szabadíts fel tárhelyet a telefonon.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Az adataid a telefonodon vannak mentve. Mielőtt újrapróbálod, exportálhatsz róluk másolatot.',

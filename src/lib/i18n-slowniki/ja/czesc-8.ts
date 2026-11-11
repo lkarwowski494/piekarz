@@ -28,6 +28,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': '焼成中',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'このiPhoneに最新のバックアップを10件保存します。',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': '何かを始めると、ここに焼成の計画とその週の種継ぎが表示されます。',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'サワー種の種継ぎは上のカレンダーにあります。焼成を始めると、ここにその計画が表示されます。',
   'Tu zapiszą się twoje wypieki': 'ここに焼成の記録が表示されます',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'データは変更されていませんが、アプリは現在データを読み書きできません。アプリを再起動してください。問題が続く場合は、iPhoneのストレージの空き容量を増やしてください。',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'データはiPhoneに保存されています。再試行する前に、データのコピーを書き出すことができます。',

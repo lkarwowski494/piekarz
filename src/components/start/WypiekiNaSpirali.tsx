@@ -3,7 +3,8 @@
 // Jeden wypiek: duża Spirala z planu, krok, „zostało … do …”, „gotowe” i „Wróć do wypieku” (F-58). Dwa wypieki: jedna
 // Spirala z dwoma torami (tor 2 kropkami), legenda POD spiralą jako karty: numer, kształt toru, „{receptura}: {krok}”,
 // czas i „Wróć do: {receptura}” (44 pt, cała szerokość karty). AX5: spirala dwóch torów znika, zostają karty.
-// Bez trwającego wypieku: pusta spirala z adnotacją (pierwsze uruchomienie). Zastępuje kartę „Trwa wypiek” x2 z D3a.
+// Bez trwającego wypieku: pusta spirala z adnotacją (pierwsze uruchomienie); gdy kalendarz na pasie ma już karmienia
+// zakwasu, adnotacja odsyła do nich (D-389, C2). Zastępuje kartę „Trwa wypiek” x2 z D3a.
 // ============================================================================
 
 import React, { useMemo } from 'react';
@@ -40,11 +41,15 @@ function opisWypieku({ sesja, zegar }: TrwajacyNaStarcie, teraz: number) {
   return { nazwa: nazwaReceptury(sesja.recipeName), nazwaKroku, pozostaloMin, postep, czas, gotowe, gotoweTekst, etykieta };
 }
 
-function PustaSpirala() {
+function PustaSpirala({ zKarmieniami }: { zKarmieniami: boolean }) {
   return (
     <View style={styles.pusta} testID="start-pusta-spirala">
       <Spirala kroki={[]} wariant="pusta" />
-      <Text style={styles.objasnienie}>{t('Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.')}</Text>
+      <Text style={styles.objasnienie}>
+        {zKarmieniami
+          ? t('Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.')
+          : t('Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.')}
+      </Text>
     </View>
   );
 }
@@ -121,13 +126,15 @@ function Dwa({ wypieki, teraz, duzyTekst, onWroc }: { wypieki: readonly Trwajacy
   );
 }
 
-export function WypiekiNaSpirali({ wypieki, teraz, duzyTekst, onWroc }: {
+export function WypiekiNaSpirali({ wypieki, teraz, duzyTekst, onWroc, zKarmieniami = false }: {
   wypieki: readonly TrwajacyNaStarcie[];
   teraz: number;
   duzyTekst: boolean;
   onWroc: (id: string) => void;
+  /** Kalendarz „Dziś” pokazuje karmienia zakwasu (D-389): pusta spirala odsyła do nich zamiast je zapowiadać. */
+  zKarmieniami?: boolean;
 }) {
-  if (wypieki.length === 0) return <PustaSpirala />;
+  if (wypieki.length === 0) return <PustaSpirala zKarmieniami={zKarmieniami} />;
   if (wypieki.length === 1) return <Jeden w={wypieki[0]} teraz={teraz} duzyTekst={duzyTekst} onWroc={onWroc} />;
   return <Dwa wypieki={wypieki.slice(0, 2)} teraz={teraz} duzyTekst={duzyTekst} onWroc={onWroc} />;
 }

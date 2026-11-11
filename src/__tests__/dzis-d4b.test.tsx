@@ -246,6 +246,32 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(teksty(root)).toMatch(/Następne: .*karmienie zakwasu Żytni/);
   });
 
+  // C2 (KO-053, D-389): karmienia zakwasu są już w kalendarzu na pasie, więc karta pustej spirali nie obiecuje „tygodnia z karmieniami”
+  const PUSTY_STAN = 'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.';
+  const Z_KARMIENIAMI = 'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.';
+  it.each([
+    ['Pro', true],
+    ['Basic (same karmienia zrobione, D-113)', false],
+  ])('D-389 Zakwas z karmieniami bez wypieku (%s): karta spirali bez zdania pustego stanu, ze zdaniem o karmieniach', async (_n, pro) => {
+    if (pro) zDostepem();
+    await pustaBaza();
+    await zakwasZalegly();
+    const root = await renderStart();
+    expect(host(root, 'pas-dzis')[0].findAll((n) => n.props.testID === 'glif-karmienie').length).toBeGreaterThan(0);
+    const karta = host(root, 'start-pusta-spirala')[0];
+    const txt = karta.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
+    expect(txt).not.toContain(PUSTY_STAN);
+    expect(txt).toContain(Z_KARMIENIAMI);
+    expect(host(root, 'start-trwa-wypiek')).toHaveLength(0);
+  });
+
+  it('D-389 Bez zakwasu: dotychczasowy pusty stan bez zmian', async () => {
+    await pustaBaza();
+    const root = await renderStart();
+    const txt = host(root, 'start-pusta-spirala')[0].findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
+    expect(txt).toBe(PUSTY_STAN);
+  });
+
   it('BR-KAL-003 Pomiń krok wypieku: wypiek przechodzi do następnego kroku; „Zrobione” otwiera Stolnicę tego wypieku', async () => {
     zDostepem();
     await pustaBaza();

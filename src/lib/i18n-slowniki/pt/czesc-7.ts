@@ -119,6 +119,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Fornada em curso',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Guardo as últimas 10 cópias neste telemóvel.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Aqui vai aparecer o plano da fornada e a semana com as alimentações, quando começar alguma coisa.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'As alimentações do seu fermento estão no calendário acima. O plano da fornada vai aparecer aqui quando começar uma.',
   'Tu zapiszą się twoje wypieki': 'As suas fornadas aparecerão aqui',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Os seus dados não foram alterados, mas a app não os consegue ler nem guardar neste momento. Reinicie a app. Se o problema voltar, liberte espaço no armazenamento do telemóvel.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Os seus dados estão guardados no telemóvel. Antes de tentar novamente, pode exportar uma cópia.',

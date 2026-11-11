@@ -95,6 +95,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Leivonta käynnissä',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Säilytän 10 viimeisintä kopiota tässä puhelimessa.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Leivontasuunnitelmasi ja viikon ruokinnat näkyvät tässä, kun aloitat jotain.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Hapanjuuren ruokinnat näkyvät yllä olevassa kalenterissa. Leivontasuunnitelmasi näkyy tässä, kun aloitat leivonnan.',
   'Tu zapiszą się twoje wypieki': 'Leivontasi tallentuvat tähän',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Tietojasi ei ole muutettu, mutta sovellus ei voi juuri nyt lukea tai tallentaa niitä. Käynnistä sovellus uudelleen. Jos ongelma toistuu, vapauta tallennustilaa puhelimesta.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Tietosi on tallennettu puhelimeen. Ennen kuin yrität uudelleen, voit viedä niistä kopion.',

@@ -115,6 +115,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Vyksta kepimas',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Šiame telefone laikau 10 paskutinių kopijų.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Kai ką nors pradėsite, čia atsiras kepinio planas ir savaitė su maitinimais.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Raugo maitinimai yra kalendoriuje viršuje. Kepinio planas atsiras čia, kai pradėsite kepti.',
   'Tu zapiszą się twoje wypieki': 'Čia bus išsaugoti jūsų kepiniai',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Jūsų duomenys nepakeisti, tačiau programėlė dabar negali jų nuskaityti ar išsaugoti. Paleiskite programėlę iš naujo. Jei problema pasikartos, atlaisvinkite vietos telefono atmintyje.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Jūsų duomenys išsaugoti telefone. Prieš bandydami dar kartą, galite eksportuoti jų kopiją.',

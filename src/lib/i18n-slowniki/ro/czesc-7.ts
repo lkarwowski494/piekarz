@@ -120,6 +120,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Coacere în curs',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Păstrez ultimele 10 copii pe acest telefon.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Aici vor apărea planul de coacere și săptămâna cu hrănirile, când începi ceva.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Hrănirile maielei sunt în calendarul de mai sus. Planul de coacere va apărea aici când începi o coacere.',
   'Tu zapiszą się twoje wypieki': 'Aici vor apărea coacerile tale',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Datele tale nu au fost modificate, dar aplicația nu le poate citi sau salva acum. Repornește aplicația. Dacă problema revine, eliberează spațiu în memoria telefonului.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Datele tale sunt salvate în telefon. Înainte să încerci din nou, poți exporta o copie a lor.',

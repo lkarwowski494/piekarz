@@ -163,7 +163,9 @@ export default function StartScreen() {
             ))}
           </View>
           {dane.gotowe && (dane.wypieki.length > 0 || dane.plany.length === 0) && (
-            <WypiekiNaSpirali wypieki={dane.wypieki} teraz={dane.teraz} duzyTekst={duzyTekst} onWroc={otworzWypiek} />
+            // Karmienia zakwasu w kalendarzu (zakładanie, następne, zrobione): pusta spirala do nich odsyła (D-389, C2)
+            <WypiekiNaSpirali wypieki={dane.wypieki} teraz={dane.teraz} duzyTekst={duzyTekst} onWroc={otworzWypiek}
+              zKarmieniami={kal.zdarzenia.some((z) => z.zrodlo.typ === 'zakwas')} />
           )}
           {/* Plany: bez trwającego najbliższy na spirali, inaczej lista pod spiralą (makieta a2-03 w31) [M3 D5]; plany
               zapisane z Pro zostają widoczne i do startu także bez Pro (start w Basic) */}

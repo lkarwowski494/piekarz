@@ -85,6 +85,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Probíhá pečení',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Uchovávám 10 posledních záloh v tomto telefonu.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Až něco začnete, objeví se tu plán pečení a týden s krmeními.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Krmení kvásku najdete v kalendáři výše. Plán pečení se tu objeví, až pečení začnete.',
   'Tu zapiszą się twoje wypieki': 'Sem se budou ukládat vaše pečení',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Vaše data se nezměnila, ale aplikace je teď nemůže načíst ani uložit. Spusťte aplikaci znovu. Pokud se problém vrátí, uvolněte místo v úložišti telefonu.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Vaše data jsou uložena v telefonu. Než to zkusíte znovu, můžete exportovat jejich kopii.',

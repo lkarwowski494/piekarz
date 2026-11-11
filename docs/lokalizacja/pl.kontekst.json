@@ -2736,6 +2736,12 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
+  "Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
+    ],
+    "opis": "Karta pustej spirali na „Dziś”, gdy kalendarz na pasie (wyżej) pokazuje karmienia zakwasu, a nic nie trwa ani nie jest zaplanowane (D-389). „Kalendarz wyżej” = pasek tygodnia/miesiąca na pasie. Ok. 90 znaków, zawija się."
+  },
   "Karmienie co 7 dni: {dzien}, {h}.": {
     "gdzie": [
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"

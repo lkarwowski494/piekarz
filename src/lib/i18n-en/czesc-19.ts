@@ -108,6 +108,7 @@ export const EN_19: Record<string, string> = {
   'Nic nie mamy w planach': 'Nothing planned yet',
   'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.': 'The calendar is empty. It fills up when you start a sourdough starter or plan a bake.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Your bake plan and the week\'s feedings will show up here once you start something.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Your starter feedings are in the calendar above. Your bake plan will appear here once you start one.',
   'Tego dnia nic nie zaplanowano.': 'Nothing is planned for this day.',
   'Najbliższe dni': 'Coming days',
   'Zapisano dokarmienie zakwasu {zakwas}.': 'Feeding of the starter {zakwas} saved.',

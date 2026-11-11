@@ -73,6 +73,7 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Bak pågår',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Jag sparar de 10 senaste kopiorna på den här telefonen.',
   'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.': 'Här visas din bakplan och veckans matningar när du startar något.',
+  'Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.': 'Surdegens matningar finns i kalendern ovanför. Din bakplan visas här när du startar ett bak.',
   'Tu zapiszą się twoje wypieki': 'Här sparas dina bak',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Dina data har inte ändrats, men appen kan inte läsa eller spara dem just nu. Starta om appen. Om problemet kommer tillbaka, frigör lagringsutrymme i telefonen.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Dina data är sparade i telefonen. Innan du försöker igen kan du exportera en kopia av dem.',
