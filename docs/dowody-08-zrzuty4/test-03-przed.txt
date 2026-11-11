@@ -1,0 +1,32 @@
+FAIL tests/zrzuty-sklepu-kadry.test.ts
+  kadry scen zrzutów sklepu (KO-048 P2 c)
+    ✕ ramka 03 (pl): nagłówek zgodny z ekranem prowadzenia, ten sam we wszystkich źródłach podpisów (KO-050) (3 ms)
+    ○ skipped 01-plan kończy się przewinięciem do sleep-guard-banner z centerElement (treść karty „Ochrona snu aktywna” na środku ekranu, nad paskiem przycisków)
+    ○ skipped 02-receptura kończy się przewinięciem do scale-item-water z centerElement (wiersz „Woda” na środku: nad nim pełne wiersze mąki, pod nim kolejne składniki)
+    ○ skipped 02-receptura sprawdza liczbę bochenków przed przewinięciem (po przewinięciu karta „Ile pieczesz” może wyjść z kadru)
+    ○ skipped 05-zakwasy: najmniejsze przewinięcie do „Gotowy do ciasta.” (bez centerElement), pas zakwasu przed nim, „Gotowy do ciasta.” widoczny na końcu (KO-052)
+    ○ skipped 07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › ramka 03 (pl): nagłówek zgodny z ekranem prowadzenia, ten sam we wszystkich źródłach podpisów (KO-050)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /śpi/
+    Received string:      "Powiadomienie, gdy telefon śpi"
+
+      71 |     const meta = JSON.parse(czytaj('docs/wydanie/metadane/pl.json')) as { ramki: Array<{ naglowek: string }> };
+      72 |     const n = meta.ramki[2].naglowek;
+    > 73 |     expect(n).not.toMatch(/śpi/);
+         |                   ^
+      74 |     expect(n).toMatch(/^Krok po kroku/);
+      75 |     for (const plik of ['docs/wydanie/zrzuty/pl/podpisy.json', 'docs/wydanie/ustawienia/pl.md', 'docs/app-store-metadata-v2.md', 'docs/wydanie/asc-kontrola-oczekiwane.json']) {
+      76 |       expect([plik, czytaj(plik).includes('Powiadomienie, gdy telefon śpi')]).toEqual([plik, false]);
+
+      at Object.toMatch (tests/zrzuty-sklepu-kadry.test.ts:73:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 skipped, 6 total
+Snapshots:   0 total
+Time:        0.645 s, estimated 1 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts/i with tests matching "ramka 03".
+KOD 1

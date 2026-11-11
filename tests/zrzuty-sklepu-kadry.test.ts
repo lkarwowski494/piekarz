@@ -63,4 +63,18 @@ describe('kadry scen zrzutów sklepu (KO-048 P2 c)', () => {
     expect(obiekt(ostatni?.extendedWaitUntil) && obiekt(ostatni.extendedWaitUntil.visible) && ostatni.extendedWaitUntil.visible.id)
       .toBe('start-trwa-wypiek');
   });
+
+  // KO-050 (D-384): ramka 03 pokazuje krok prowadzenia z czasem, nie ekran blokady — nagłówek PL nie obiecuje „gdy telefon śpi”,
+  // mówi o kroku; rdzeń „powiadomieni” (KO-039, D-367) zostaje. Inne języki: otwarte dla roli 09.
+  it('ramka 03 (pl): nagłówek zgodny z ekranem prowadzenia, ten sam we wszystkich źródłach podpisów (KO-050)', () => {
+    const czytaj = (p: string) => readFileSync(join(__dirname, '..', p), 'utf8');
+    const meta = JSON.parse(czytaj('docs/wydanie/metadane/pl.json')) as { ramki: Array<{ naglowek: string }> };
+    const n = meta.ramki[2].naglowek;
+    expect(n).not.toMatch(/śpi/);
+    expect(n).toMatch(/^Krok po kroku/);
+    for (const plik of ['docs/wydanie/zrzuty/pl/podpisy.json', 'docs/wydanie/ustawienia/pl.md', 'docs/app-store-metadata-v2.md']) {
+      expect([plik, czytaj(plik).includes('Powiadomienie, gdy telefon śpi')]).toEqual([plik, false]);
+      expect([plik, czytaj(plik).includes(n)]).toEqual([plik, true]);
+    }
+  });
 });

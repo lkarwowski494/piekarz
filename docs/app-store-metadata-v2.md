@@ -138,7 +138,7 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 - **Widok w ramce:** ekran receptury (`app/(tabs)/receptury/receptura.tsx`) z ilościami „Do miski” i przyciskiem „Ułóż plan”.
 
 ### Ramka 3: Prowadzenie krok po kroku z minutnikiem (motyw ciemny)
-- **Główny nagłówek (PL):** *Powiadomienie, gdy telefon śpi* (KO-040, D-367; powiadomienie po zgodzie — warunek w opisie, KO-034)
+- **Główny nagłówek (PL):** *Krok po kroku, z powiadomieniem* (KO-050, D-384; zastępuje nagłówek z KO-040, D-367; powiadomienie po zgodzie — warunek w opisie, KO-034)
 - **Podtytuł (PL):** *Co zrobić, ile to trwa i powiadomienie o końcu kroku*
 - **Main Headline (EN):** *Notified Even When Your Phone Sleeps*
 - **Sub-headline (EN):** *What to do, how long it takes and a notification when it ends*

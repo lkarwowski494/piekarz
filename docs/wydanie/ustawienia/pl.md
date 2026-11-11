@@ -111,7 +111,7 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 |---|---|---|---|---|
 | 1 | `docs/wydanie/zrzuty/pl/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/01-plan.png` | Na twoją godzinę, z ochroną snu | Plan wstecz bez kroków w środku nocy |
 | 2 | `docs/wydanie/zrzuty/pl/iphone-6.9/02-receptura.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/02-receptura.png` | Gramy każdego składnika od razu | Mąka i woda z zakwasu wliczone w procent piekarski |
-| 3 | `docs/wydanie/zrzuty/pl/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/03-prowadzenie-ciemny.png` | Powiadomienie, gdy telefon śpi | Co zrobić, ile to trwa i powiadomienie o końcu kroku |
+| 3 | `docs/wydanie/zrzuty/pl/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/03-prowadzenie-ciemny.png` | Krok po kroku, z powiadomieniem | Co zrobić, ile to trwa i powiadomienie o końcu kroku |
 | 4 | `docs/wydanie/zrzuty/pl/iphone-6.9/04-doktor.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/04-doktor.png` | Co poprawić w następnym bochenku | Objawy, przyczyna i jedna zmiana na następny wypiek |
 | 5 | `docs/wydanie/zrzuty/pl/iphone-6.9/05-zakwasy.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/05-zakwasy.png` | Zakwas zawsze gotowy na czas | Ilości do dokarmienia i przypomnienie po 12 godzinach |
 | 6 | `docs/wydanie/zrzuty/pl/iphone-6.9/06-dziennik.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/06-dziennik.png` | Każdy wypiek zapisany | Ocena bochenka i „Piecz ponownie” jednym dotknięciem |

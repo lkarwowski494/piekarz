@@ -2162,3 +2162,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dowody:** `docs/dowody-08-zrzuty4/test-07-przed.txt` (2 czerwone), `test-07-po.txt` (252/252 testów zrzutów).
 - **Otwarte:** czy spirala wypieku i „Wróć do wypieku” mieszczą się w kadrze 6,3″ pod kaflami [DO USTALENIA, przebieg]; czy start po 03 nie otwiera od razu prowadzenia (scena stuka `tab-dzis`, więc pasek kart musi być widoczny) [DO USTALENIA, przebieg].
 - **Status:** wybór — koordynator (KO-051); wykonanie — sesja R, do weta.
+
+### [D-384] 2026-11-11 — Ramka 03 (pl): nagłówek „Krok po kroku, z powiadomieniem” (M2, sesja R, rola 04; KO-050 B3)
+- **Powód (zrzuty #4):** nagłówek „Powiadomienie, gdy telefon śpi” obiecywał ekran blokady z powiadomieniem, a ramka 03 pokazuje aktywny krok prowadzenia z czasem (simulator nie daje ekranu blokady z prawdziwym powiadomieniem bez dodatkowej pracy, B1).
+- **Decyzja (koordynator, KO-050: B3; tekst — rola 04, do weta):** PL `ramki[2].naglowek` = „Krok po kroku, z powiadomieniem” w `docs/wydanie/metadane/pl.json`, `docs/wydanie/zrzuty/pl/podpisy.json`, `docs/wydanie/ustawienia/pl.md`, `docs/app-store-metadata-v2.md` §3. Dlaczego ten tekst: mówi o tym, co widać (krok prowadzenia), zachowuje rdzeń „powiadomieni” wymagany testem KO-039 (`tests/ramki-sklepu-atuty-ko039.test.ts`, wybór właściciela D-367) i ma 31 znaków przy dawnych 30 (ten sam układ podpisu). Podtytuł bez zmian („Co zrobić, ile to trwa i powiadomienie o końcu kroku”). Obietnica snu zostaje w ramce 01 (karta „Ochrona snu aktywna”, kadr z `tests/zrzuty-sklepu-kadry.test.ts`).
+- **Odrzucone teksty:** „Każdy krok z minutnikiem” (bez rdzenia KO-039, łamie test właściciela); „Co zrobić i ile to trwa” (powtarza podtytuł, bez rdzenia).
+- **Otwarte:** pozostałe 34 lokalizacje nadal mają nagłówek „gdy telefon śpi” — przekład dla roli 09 [DO USTALENIA]; B1 (ekran blokady z prawdziwym powiadomieniem: zegar runnera za końcem kroku + blokada symulatora) — próba później (`sceny=03`).
+- **Dowody:** `docs/dowody-08-zrzuty4/test-03-przed.txt` (czerwony: „Powiadomienie, gdy telefon śpi”), `test-03-po.txt` (154/154, w tym KO-039, podpisy, metadane).
+- **Status:** wybór opcji — koordynator (KO-050, tryb nocny); tekst — rola 04, sesja R; do weta.
