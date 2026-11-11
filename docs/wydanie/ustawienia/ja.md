@@ -115,7 +115,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/04-doktor.png` | 次のローフで改善すべき点 | 症状、原因、次回の焼成で変えるひとつのこと |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/05-zakwasy.png` | サワー種をいつも時間どおりに | 種継ぎの分量と12時間後のリマインダー |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/06-dziennik.png` | すべての焼成を記録 | ローフを評価、「もう一度焼く」をワンタップで |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/07-offline.png` | アカウントも広告もネットも不要 | 広告もトラッキングもなし。データはスマートフォンの中だけ |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/07-offline.png` | アカウントも広告もなし、ネットも不要 | 広告もトラッキングもなし。データはスマートフォンの中だけ |
 
 ## Ceny i oferta w storefrontach tej karty
 

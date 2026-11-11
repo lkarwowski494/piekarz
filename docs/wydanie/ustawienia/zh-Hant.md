@@ -115,7 +115,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/04-doktor.png` | 下一個麵包哪裡可以更好 | 症狀、原因，以及下次烘焙的一項調整 |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/05-zakwasy.png` | 天然酵母起種，準時就緒 | 餵養用量，12 小時後提醒 |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/06-dziennik.png` | 每次烘焙都有紀錄 | 為麵包評分，輕點一下「再烤一次」 |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/07-offline.png` | 不需帳號、廣告和網路 | 無廣告、不追蹤；資料只存在你的手機 |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/zh-Hant/iphone-6.3/07-offline.png` | 無帳號、無廣告、免網路 | 無廣告、不追蹤；資料只存在你的手機 |
 
 ## Ceny i oferta w storefrontach tej karty
 

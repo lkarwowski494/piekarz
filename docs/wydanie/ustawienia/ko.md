@@ -115,7 +115,7 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/04-doktor.png` | 다음 빵 덩어리에서 고칠 점 | 증상, 원인, 다음 베이킹을 위한 한 가지 변화 |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/05-zakwasy.png` | 언제나 제때 준비되는 스타터 | 먹이 주기 분량과 12시간 후 알림 |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/06-dziennik.png` | 모든 베이킹을 기록 | 빵 평가와 탭 한 번으로 ‘다시 굽기’ |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/07-offline.png` | 계정도 광고도 인터넷도 필요 없어요 | 광고·추적 없음, 데이터는 휴대폰에만 저장 |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ko/iphone-6.3/07-offline.png` | 계정도 광고도 인터넷도 없어요 | 광고·추적 없음, 데이터는 휴대폰에만 저장 |
 
 ## Ceny i oferta w storefrontach tej karty
 
