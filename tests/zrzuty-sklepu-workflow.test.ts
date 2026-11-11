@@ -182,7 +182,19 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     for (const s of ['00-przygotuj', '00-zgoda']) {
       const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
       const poOknie = tekst.split('- runFlow: sub/okno-systemu.yaml\n')[1] ?? '';
-      expect([s, poOknie]).toEqual([s, expect.stringMatching(/^(?:#[^\n]*\n)*- extendedWaitUntil:\n {4}notVisible:\n {6}id: "zakladanie-start"\n {4}timeout: \d+\n- extendedWaitUntil:\n {4}visible:\n {6}id: "zakwas-cykl"\n/)]);
+      expect([s, poOknie]).toEqual([s, expect.stringMatching(/^(?:#[^\n]*\n)*- extendedWaitUntil:\n {4}notVisible:\n {6}id: "zakladanie-start"\n {4}timeout: \d+\n(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n/)]);
+    }
+  });
+
+  // Zrzuty #2 (run 43050106530, 2026-11-11): na 6,3″ w pl ekran Zakwasy jest przewinięty w dół do przycisku pierwszego
+  // dokarmienia, więc pas zakwasu (`zakwas-cykl`, PasZakwasu) leży NAD kadrem i `extendedWaitUntil visible` nie przechodzi
+  // (hierarchia step-013: karta-profil y=-49). Na 6,9″ i w en-US przewinięcie było mniejsze. Czekanie = przewijanie w górę (D-374).
+  it('po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374)', () => {
+    for (const s of ['00-przygotuj', '00-zgoda']) {
+      const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
+      expect([s, tekst]).toEqual([s, expect.stringMatching(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-pierwsze-dokarmienie-btn"\n/)]);
+      expect([s, tekst]).toEqual([s, expect.stringMatching(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-cykl"\n {4}direction: UP\n {4}timeout: 15000\n/)]);
+      expect([s, tekst]).toEqual([s, expect.not.stringMatching(/visible:\n {6}id: "zakwas-cykl"/)]);
     }
   });
 
@@ -190,7 +202,7 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   // zakładanie (isReadyAfterFeeding, setupCompletedAt), po restarcie karta cyklu z „Gotowy do ciasta.” (D-372).
   it('przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)', () => {
     const przyg = readFileSync(join(scenyDir, '00-przygotuj.yaml'), 'utf8').replace(/\r\n/g, '\n');
-    const poPasie = przyg.split('      id: "zakwas-cykl"\n    timeout: 15000\n')[1] ?? '';
+    const poPasie = przyg.split('      id: "zakwas-cykl"\n    direction: UP\n    timeout: 15000\n')[1] ?? '';
     expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
     expect(r05).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n {4}centerElement: true\n/);

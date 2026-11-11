@@ -25,7 +25,10 @@ appId: com.apps4brew.baker
     notVisible:
       id: "zakladanie-start"
     timeout: 15000
-- extendedWaitUntil:
-    visible:
+# Zrzuty #2 (D-374): na 6,3″ w pl ekran jest przewinięty w dół do przycisku dokarmienia, pas leży nad kadrem;
+# przewijanie w górę z limitem czasu czeka na pas (powstaje po dokarmieniu) i przywraca go do kadru na każdym rozmiarze
+- scrollUntilVisible:
+    element:
       id: "zakwas-cykl"
+    direction: UP
     timeout: 15000
