@@ -1,0 +1,22 @@
+PASS src/components/__tests__/radar-etykiety-zrzuty4.test.tsx
+  radar smaku, język pl (KO-048 P1, D-381)
+    ✓ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (53 ms)
+    ✓ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (14 ms)
+  radar smaku, język it (KO-048 P1, D-381)
+    ✓ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (59 ms)
+    ✓ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (5 ms)
+  radar smaku, język de (KO-048 P1, D-381)
+    ✓ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (50 ms)
+    ✓ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (11 ms)
+  radar smaku, język ja (KO-048 P1, D-381)
+    ✓ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (53 ms)
+    ✓ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (9 ms)
+  radar smaku przy dużym tekście (fontScale ≥ 2, reguła duzyTekst, D-381)
+    ✓ etykiety są pod wykresem, jedna pod drugą, w kolejności osi, bez limitu linii (7 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        0.912 s, estimated 1 s
+Ran all test suites matching /src\/components\/__tests__\/radar-etykiety-zrzuty4.test.tsx/i.
+KOD 0

@@ -6,11 +6,12 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import Svg, { Polygon, Line, Circle, Text as SvgText } from 'react-native-svg';
+import Svg, { Polygon, Line, Circle } from 'react-native-svg';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
-import { typografia } from '../ui/tokeny';
+import { odstepy, typografia } from '../ui/tokeny';
+import { useDuzyTekst } from '../ui/karty/duzy-tekst';
 export interface BreadSensoryProfile {
   crustCrispness: number;  // 1 - 5 (Chrupkość skórki)
   crumbElasticity: number; // 1 - 5 (Sprężystość miękiszu)
@@ -61,7 +62,9 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
   testID,
 }) => {
   const center = size / 2;
-  const maxRadius = (size / 2) * 0.68;
+  // Etykiety poza SVG (D-381), więc wykres zajmuje płótno; zapas na kropki wierzchołków.
+  const maxRadius = (size / 2) * 0.93;
+  const duzyTekst = useDuzyTekst();
   const levels = [1, 2, 3, 4, 5];
   const numAxes = BREAD_SENSORY_AXES.length;
 
@@ -102,12 +105,29 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
     });
   };
 
+  // Nazwa i wartość jednym napisem: osobne kawałki tekstu rozjeżdżały się na iOS (oderwane „(4)”, D-381).
+  const etykieta = (i: number, wyrownanie: 'left' | 'center' | 'right') => {
+    const axis = BREAD_SENSORY_AXES[i];
+    if (!axis) return null;
+    return (
+      <Text key={axis.key} testID={`radar-etykieta-${axis.key}`}
+        style={[styles.etykieta, wyrownanie !== 'center' && !duzyTekst && styles.etykietaWRzedzie, { textAlign: wyrownanie }]}>
+        {`${t(axis.labelPl)} (${profile[axis.key] ?? 3})`}
+      </Text>
+    );
+  };
+
   return (
     <View style={styles.wrapper} testID={testID}>
-      {/* Wykres jako jeden obraz z wartościami osi dla VoiceOver [audyt-niezalezny G-3] */}
-      <View style={[styles.chartContainer, { width: size, height: size }]} accessible accessibilityRole="image"
+      {/* Wykres z etykietami jako jeden obraz z wartościami osi dla VoiceOver [audyt-niezalezny G-3] */}
+      <View style={styles.radar} accessible accessibilityRole="image"
         accessibilityLabel={BREAD_SENSORY_AXES.map((axis) =>
           t('{nazwa}: {n} z 5', { nazwa: t(axis.labelPl), n: Math.min(5, Math.max(1, profile[axis.key] ?? 3)) })).join(', ')}>
+        {/* Etykiety osi poza SVG (SVG ucinało je na brzegu płótna, zrzuty #4 06-dziennik): oś 0 nad wykresem,
+            4 | 1 i 3 | 2 po stronie swoich wierzchołków; przy dużym tekście lista pod wykresem (D-381, duzyTekst) */}
+        {showLabels && !duzyTekst && etykieta(0, 'center')}
+        {showLabels && !duzyTekst && <View style={styles.etykietyRzad}>{etykieta(4, 'left')}{etykieta(1, 'right')}</View>}
+        <View style={[styles.chartContainer, { width: size, height: size }]}>
         <Svg width={size} height={size} testID="bread-sensory-radar-svg">
           {/* Concentric grid polygons */}
           {levels.map((level) => (
@@ -158,35 +178,14 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
             />
           ))}
 
-          {/* Outer Labels */}
-          {showLabels &&
-            BREAD_SENSORY_AXES.map((axis, i) => {
-              const labelRadius = maxRadius + 14;
-              const { x, y } = getCoordinates(i, labelRadius);
-              // Etykieta w języku aplikacji (t), nie z propsa pl/en (Z-3 z 080) [M1-audytor-generalny-093]
-              const labelText = t(axis.labelPl);
-
-              let textAnchor: 'middle' | 'start' | 'end' = 'middle';
-              if (i === 1 || i === 2) textAnchor = 'start';
-              else if (i === 3 || i === 4) textAnchor = 'end';
-
-              const dy = i === 0 ? -4 : i === 2 || i === 3 ? 10 : 4;
-
-              return (
-                <SvgText
-                  key={`label-${axis.key}`}
-                  x={x}
-                  y={y + dy}
-                  fill={theme.colors.tusz}
-                  fontSize="10"
-                  fontWeight="600"
-                  textAnchor={textAnchor}
-                >
-                  {labelText} ({profile[axis.key] ?? 3})
-                </SvgText>
-              );
-            })}
         </Svg>
+        </View>
+        {showLabels && !duzyTekst && <View style={styles.etykietyRzad}>{etykieta(3, 'left')}{etykieta(2, 'right')}</View>}
+        {showLabels && duzyTekst && (
+          <View style={styles.etykietyLista} testID="radar-etykiety-lista">
+            {BREAD_SENSORY_AXES.map((_, i) => etykieta(i, 'left'))}
+          </View>
+        )}
       </View>
 
       {/* Interactive Controls (Steppers) */}
@@ -236,11 +235,35 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
 
 const styles = StyleSheet.create({
   wrapper: {
-    alignItems: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'stretch',
+  },
+  radar: {
+    alignSelf: 'stretch',
+    gap: odstepy.xs,
   },
   chartContainer: {
+    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  etykieta: {
+    fontSize: typografia.style.podpis.pt,
+    fontWeight: '600',
+    color: theme.colors.tusz,
+  },
+  // Szerokość z treści: krótka etykieta oddaje miejsce długiej (it „Caramellizzazione” przy 320 pt, D-381)
+  etykietaWRzedzie: {
+    flexShrink: 1,
+    minWidth: 0,
+  },
+  etykietyRzad: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: odstepy.s,
+  },
+  etykietyLista: {
+    gap: odstepy.xs,
   },
   controlsContainer: {
     width: '100%',

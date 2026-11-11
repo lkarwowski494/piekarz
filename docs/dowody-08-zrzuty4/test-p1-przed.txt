@@ -1,0 +1,296 @@
+FAIL src/components/__tests__/radar-etykiety-zrzuty4.test.tsx
+  radar smaku, język pl (KO-048 P1, D-381)
+    ✕ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (82 ms)
+    ✕ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (18 ms)
+  radar smaku, język it (KO-048 P1, D-381)
+    ✕ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (59 ms)
+    ✕ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (9 ms)
+  radar smaku, język de (KO-048 P1, D-381)
+    ✕ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (53 ms)
+    ✕ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (8 ms)
+  radar smaku, język ja (KO-048 P1, D-381)
+    ✕ przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (49 ms)
+    ✕ przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem (11 ms)
+  radar smaku przy dużym tekście (fontScale ≥ 2, reguła duzyTekst, D-381)
+    ✕ etykiety są pod wykresem, jedna pod drugą, w kolejności osi, bez limitu linii (14 ms)
+
+  ● radar smaku, język pl (KO-048 P1, D-381) › przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…246 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…208 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -38…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -82…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język pl (KO-048 P1, D-381) › przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…246 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…208 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -38…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -82…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język it (KO-048 P1, D-381) › przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…240 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…195 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -50…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -113…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język it (KO-048 P1, D-381) › przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…240 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…195 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -50…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -113…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język de (KO-048 P1, D-381) › przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…246 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…183 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -63…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -107…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język de (KO-048 P1, D-381) › przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…246 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…183 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -63…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -107…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język ja (KO-048 P1, D-381) › przy 320 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…198 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…172 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -52…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -68…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku, język ja (KO-048 P1, D-381) › przy 440 pt każda etykieta z wartością mieści się w obszarze wykresu i jest jednym napisem
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 11
+
+    - Array []
+    + Array [
+    +   "crustCrispness: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: nazwa i wartość w 4 kawałkach",
+    +   "crumbElasticity: SVG 153…198 pt poza 0…170",
+    +   "acidity: nazwa i wartość w 4 kawałkach",
+    +   "acidity: SVG 127…172 pt poza 0…170",
+    +   "openCrumb: nazwa i wartość w 4 kawałkach",
+    +   "openCrumb: SVG -52…43 pt poza 0…170",
+    +   "caramelization: nazwa i wartość w 4 kawałkach",
+    +   "caramelization: SVG -68…17 pt poza 0…170",
+    + ]
+
+      109 |       if (slowo > miejsce) bledy.push(`${os}: słowo ${Math.round(slowo)} pt > miejsce ${Math.round(miejsce)} pt`);
+      110 |     }
+    > 111 |     expect(bledy).toEqual([]);
+          |                   ^
+      112 |   });
+      113 | });
+      114 |
+
+      at toEqual (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:111:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● radar smaku przy dużym tekście (fontScale ≥ 2, reguła duzyTekst, D-381) › etykiety są pod wykresem, jedna pod drugą, w kolejności osi, bez limitu linii
+
+    No instances found with props: {"testID":"radar-etykiety-lista"}
+
+      118 |     const root = await renderuj();
+      119 |     const svg = root.findByProps({ testID: 'bread-sensory-radar-svg' });
+    > 120 |     const lista = root.findByProps({ testID: 'radar-etykiety-lista' });
+          |                        ^
+      121 |     expect(lista.findAllByType(Svg)).toHaveLength(0);
+      122 |     expect(StyleSheet.flatten(lista.props.style)?.flexDirection ?? 'column').toBe('column');
+      123 |     const teksty = lista.findAllByType(Text).map(tekstWezla);
+
+      at expectOne (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:15161:13)
+      at ReactTestInstance.Object.<anonymous>.process.env.NODE_ENV._proto.findByProps (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:17219:18)
+      at Object.findByProps (src/components/__tests__/radar-etykiety-zrzuty4.test.tsx:120:24)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       9 failed, 9 total
+Snapshots:   0 total
+Time:        1.021 s, estimated 2 s
+Ran all test suites matching /src\/components\/__tests__\/radar-etykiety-zrzuty4.test.tsx/i.
+KOD 1
