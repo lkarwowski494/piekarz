@@ -1,0 +1,71 @@
+# Test na przepływach z master 05cccd55 (git stash -- .maestro), test w wersji końcowej
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ○ skipped bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect
+    ○ skipped uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń
+    ○ skipped wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają)
+    ○ skipped wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run
+  zrzuty-sklepu.yml: build i Maestro
+    ○ skipped jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365)
+    ○ skipped Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev
+    ○ skipped symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✕ sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny (7 ms)
+    ○ skipped jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)
+    ○ skipped skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7
+    ○ skipped 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych
+    ○ skipped okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ○ skipped bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ○ skipped pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd)
+    ○ skipped tylko=pl: dwa zadania (6,9″ i 6,3″)
+    ○ skipped plan bez pola zakupu (D-365)
+    ○ skipped złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór
+    ○ skipped wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+      Array [
+        "00-przygotuj.yaml",
+    -   Array [],
+    +   Array [
+    +     "zakwas-karta",
+    +   ],
+      ]
+
+      146 |       const tekst = readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
+      147 |       const czekane = [...tekst.matchAll(/(?:^|\n)\s*(?:- )?(?:visible|assertVisible):\n\s+id: "([^"]+)"/g)].map((m) => m[1]);
+    > 148 |       expect([p.slice(scenyDir.length + 1), czekane.filter((id) => idKarty.includes(id))]).toEqual([p.slice(scenyDir.length + 1), []]);
+          |                                                                                            ^
+      149 |     }
+      150 |     for (const s of ['00-przygotuj', '00-zgoda']) {
+      151 |       const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
+
+      at Object.toEqual (tests/zrzuty-sklepu-workflow.test.ts:148:92)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 32 skipped, 33 total
+Snapshots:   0 total
+Time:        0.514 s, estimated 1 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i with tests matching "karty cyklu".
+KOD WYJŚCIA: 1

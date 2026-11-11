@@ -19,7 +19,13 @@ appId: com.apps4brew.baker
 - tapOn:
     id: "zakladanie-pierwsze-dokarmienie-btn"
 - runFlow: sub/okno-systemu.yaml
+# Zakwas w zakładaniu: karta zakładania stoi nad kartą cyklu (`zakwas-karta` poza ekranem, zrzuty #1, D-371);
+# czekanie jak E2E 05-drugi-zakwas-pro (start zakładania znika) i na pas zakwasu na górze ekranu
+- extendedWaitUntil:
+    notVisible:
+      id: "zakladanie-start"
+    timeout: 15000
 - extendedWaitUntil:
     visible:
-      id: "zakwas-karta"
+      id: "zakwas-cykl"
     timeout: 15000

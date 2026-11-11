@@ -135,6 +135,25 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     expect(przyg).toMatch(/- tapOn:\n {4}id: "zakladanie-pierwsze-dokarmienie-btn"\n(?:#[^\n]*\n)*- runFlow: sub\/okno-systemu\.yaml/);
   });
 
+  // Zrzuty #1 (run 43030916299, 2026-11-11): po pierwszym dokarmieniu zakwas jest w zakładaniu, a ZakwasDziennik renderuje
+  // kartę zakładania PRZED kartą cyklu (StarterCycleCard), więc `zakwas-karta` leży pod ekranem i `visible` nie przechodzi
+  // na żadnym rozmiarze. Czekanie na ekranie: pas (`zakwas-cykl`) i zniknięcie startu zakładania, jak E2E 05-drugi-zakwas-pro.
+  it('sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny', () => {
+    const karta = read('src/components/zakwas/StarterCycleCard.tsx').split('export function StarterCycleCard')[1].split('const styles')[0];
+    const idKarty = [...karta.matchAll(/testID="([^"]+)"/g)].map((m) => m[1]);
+    expect(idKarty).toEqual(expect.arrayContaining(['zakwas-karta', 'zakwas-dokarm-btn']));
+    for (const p of sceny) {
+      const tekst = readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
+      const czekane = [...tekst.matchAll(/(?:^|\n)\s*(?:- )?(?:visible|assertVisible):\n\s+id: "([^"]+)"/g)].map((m) => m[1]);
+      expect([p.slice(scenyDir.length + 1), czekane.filter((id) => idKarty.includes(id))]).toEqual([p.slice(scenyDir.length + 1), []]);
+    }
+    for (const s of ['00-przygotuj', '00-zgoda']) {
+      const tekst = readFileSync(join(scenyDir, `${s}.yaml`), 'utf8').replace(/\r\n/g, '\n');
+      const poOknie = tekst.split('- runFlow: sub/okno-systemu.yaml\n')[1] ?? '';
+      expect([s, poOknie]).toEqual([s, expect.stringMatching(/^(?:#[^\n]*\n)*- extendedWaitUntil:\n {4}notVisible:\n {6}id: "zakladanie-start"\n {4}timeout: \d+\n- extendedWaitUntil:\n {4}visible:\n {6}id: "zakwas-cykl"\n/)]);
+    }
+  });
+
   it('bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert', () => {
     const bezKomentarzy = (t: string) => t.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
     for (const t of [skrypt, wf]) expect(bezKomentarzy(t)).not.toMatch(/zakup\.yaml|zakup-oferta|bez-oferty|review\/zakup|ZAKUP/);

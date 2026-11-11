@@ -4,9 +4,11 @@ appId: com.apps4brew.baker
 - runFlow: sub/start.yaml
 - tapOn:
     id: "tab-zakwasy"
+# Pas zakwasu ze spiralą cyklu na górze ekranu; karta cyklu (`zakwas-karta`, `zakwas-dokarm-btn`) jest w zakładaniu
+# pod kartą zakładania, poza ekranem (zrzuty #1, D-371)
 - extendedWaitUntil:
     visible:
-      id: "zakwas-karta"
+      id: "zakwas-cykl"
     timeout: 15000
 - assertVisible:
-    id: "zakwas-dokarm-btn"
+    id: "brand-spiral"
