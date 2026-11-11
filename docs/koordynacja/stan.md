@@ -81,7 +81,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
-| Q (diagnoza zrzutów #3) | [ID] | 07-jakosc fix (`polecenia/Q.md`, prompt z `audit-m1`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty3` od `b27fcd3e` | 0 | 0 | start 19:0x; D-378…D-381 |
+| Q (diagnoza zrzutów #3) | `session_01T66VByX3vSvAm67ps7B3qH` | 07-jakosc fix (`polecenia/Q.md`, prompt z `audit-m1`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty3` od `b27fcd3e` | 0 | 0 | start 19:01, PENDING; D-378…D-381 |
 | P (diagnoza zrzutów #2) | `session_01T66VByd1Ly6ATCBk2NmwT4` | 08 fix (`polecenia/P.md`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty2` od `7fc74679` | 34,4 | 13,55 | przyjęta, `master`=`redesign` FF `b27fcd3e`; idle, ponad 30% — bez nowej pracy; archiwizacja = krok właściciela; D-374…D-377 do weta |
 | O (diagnoza zrzutów #1) | `session_01T66VBy3DrLAA79gfcz9N6h` | 08 fix (`polecenia/O.md` @ `76f2e1f0`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty1` @ `7fc74679` | 26,5 | 8,37 | przyjęta, bez nowej pracy (blisko 30%); `master`=`redesign` FF `7fc74679`; idle (rezerwa na diagnozę #2); D-371…D-373 do weta |
 | N (nagłówki zrzutów) | `session_01T66VBwgKE5K2d2SGjtR1iY` | 10 fix (`polecenia/N.md` @ `310c916e`) | `naprawy/M2-koordynator-napraw-2026-11-11-naglowki` @ `05cccd55` | 27,0 | 9,14 | przyjęta, `redesign` FF `05cccd55`; idle; archiwizacja = krok właściciela; D-367…D-370 do weta |
