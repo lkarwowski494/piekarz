@@ -140,7 +140,8 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   it('jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)', () => {
     expect(ramki).toHaveLength(7);
     const nazwy = readdirSync(scenyDir).filter((f) => f.endsWith('.yaml')).map((f) => f.replace(/\.yaml$/, ''));
-    expect(nazwy.sort()).toEqual(['00-przygotuj', '00-zgoda', ...ramki].sort());
+    // KO-049 (D-385): przygotowanie w dwóch częściach, między nimi skrypt przestawia zegar maszyny (dokarmienie → podwojenie po 6 h)
+    expect(nazwy.sort()).toEqual(['00-przygotuj', '00-przygotuj-podwojenie', '00-zgoda', ...ramki].sort());
   });
 
   // KO-051 (D-383): 07 po 03 — „Dziś” z wypiekiem zostawionym przez 03 zamiast pustego stanu; 07 w trybie jasnym.
@@ -232,8 +233,13 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   // KO-043 (właściciel, 2026-11-11): ramka 05 = zakwas po zakładaniu. „Podwoił objętość” w 0–8 h po dokarmieniu kończy
   // zakładanie (isReadyAfterFeeding, setupCompletedAt), po restarcie karta cyklu z „Gotowy do ciasta.” (D-372).
   it('przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)', () => {
+    // KO-049 (D-385): podwojenie w części 2 przygotowania (00-przygotuj-podwojenie.yaml), po restarcie i zakładce Zakwasy;
+    // część 1 kończy się na pasie zakwasu po pierwszym dokarmieniu
     const przyg = readFileSync(join(scenyDir, '00-przygotuj.yaml'), 'utf8').replace(/\r\n/g, '\n');
-    const poPasie = przyg.split('      id: "zakwas-cykl"\n    direction: UP\n    timeout: 15000\n')[1] ?? '';
+    expect(przyg.trimEnd().endsWith('      id: "zakwas-cykl"\n    direction: UP\n    timeout: 15000')).toBe(true);
+    const czesc2 = readFileSync(join(scenyDir, '00-przygotuj-podwojenie.yaml'), 'utf8').replace(/\r\n/g, '\n');
+    expect(czesc2).not.toMatch(/clearState: true/);
+    const poPasie = czesc2.split('- runFlow: sub/start.yaml\n- tapOn:\n    id: "tab-zakwasy"\n')[1] ?? '';
     expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
     // KO-052 (D-382): przewinięcie do „Gotowy do ciasta.” najmniejsze (bez centerElement, które wypychało pas ze spiralą

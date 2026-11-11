@@ -1,0 +1,16 @@
+PASS tests/zrzuty-sklepu-zegar.test.ts
+PASS tests/asc-zrzuty.test.ts
+PASS tests/ramki-sklepu-podpisy.test.ts
+PASS tests/zrzuty-sklepu-workflow.test.ts
+PASS tests/zrzuty-sklepu-przewijanie.test.ts
+PASS tests/zrzuty-sklepu-kadry.test.ts
+PASS tests/opis-sklepu-pro-078.test.ts
+PASS tests/asc-zgloszenie-workflow.test.ts
+PASS tests/instrukcja-ustawien.test.ts
+
+Test Suites: 9 passed, 9 total
+Tests:       257 passed, 257 total
+Snapshots:   0 total
+Time:        2.18 s, estimated 19 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts|tests\/instrukcja-ustawien.test.ts|tests\/zrzuty-sklepu-przewijanie.test.ts|tests\/opis-sklepu-pro-078.test.ts|tests\/zrzuty-sklepu-zegar.test.ts|tests\/ramki-sklepu-podpisy.test.ts|tests\/asc-zrzuty.test.ts|tests\/zrzuty-sklepu-workflow.test.ts|tests\/asc-zgloszenie-workflow.test.ts/i.
+KOD 0

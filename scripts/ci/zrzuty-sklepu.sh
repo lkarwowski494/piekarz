@@ -10,7 +10,12 @@
 # ofert (.maestro/e2e-zakup, e2e-ios.yml; docs/wydanie/zrzut-zakupu.md).
 # W logu tylko kody lokalizacji, nazwy plików i liczby (repo publiczne). Bez sekretów.
 # Użycie: bash scripts/ci/zrzuty-sklepu.sh <UDID> <katalog klasy, np. iphone-6.9> <wyjście> <dzienniki> <app Pro> "<kod:AppleLanguages:AppleLocale> …"
-# Zmienne: CZESC (nazwa części do nazw plików dziennika), ZRZUTY_SCENY (podzbiór SCENY z planu, KO-047, D-380; puste = wszystkie).
+# Zmienne: CZESC (nazwa części do nazw plików dziennika), ZRZUTY_SCENY (podzbiór SCENY z planu, KO-047, D-380; puste = wszystkie),
+# ZRZUTY_PAUZA (sekundy po scenie przed zrzutem, domyślnie 3; test: 0).
+# Zegar maszyny (KO-049, D-385): symulator bierze czas z maszyny, a pasek pokazuje 9:41 — skrypt ustawia zegar runnera
+# (sudo bez hasła): dokarmienie 03:35 (00-przygotuj), podwojenie i wypiek 09:35 (00-przygotuj-podwojenie), każda scena 09:41.
+# Dni zawsze przyszłe (lokalizacja n = dziś + n dni), więc skoki idą do przodu; NTP wyłączone na czas przebiegu, na końcu
+# włączone i zegar zsynchronizowany (trap EXIT). Bez sudo: ostrzeżenie i zegar maszyny jak dotąd.
 set -uo pipefail
 UDID="$1"; KLASA="$2"; OUT="$3"; LOGI="$4"; APP_PRO="$5"; JEZYKI="$6"
 CZESC="${CZESC:-$KLASA}"
@@ -29,6 +34,24 @@ fi
 
 mkdir -p "$OUT" "$LOGI"
 NIEUDANE="$LOGI/nieudane-$CZESC.txt"; : > "$NIEUDANE"
+
+# --- zegar maszyny (KO-049, D-385)
+ZEGAR=0; DZIEN=""
+dzien_za() { date -v+"$1"d +%Y%m%d 2>/dev/null || date -d "+$1 day" +%Y%m%d; }   # macOS (BSD) albo GNU
+zegar() {   # $1 = GGMM w dniu $DZIEN (format BSD date: ccyymmddHHMM)
+  [ "$ZEGAR" = 1 ] || return 0
+  sudo -n date "$DZIEN$1" >/dev/null 2>&1 || echo "::warning::zegar: nie ustawiono $DZIEN $1 (godziny w scenach z zegara maszyny)"
+}
+przywroc_zegar() {
+  [ "$ZEGAR" = 1 ] || return 0
+  sudo -n systemsetup -setusingnetworktime on >/dev/null 2>&1 || true
+  sudo -n sntp -sS time.apple.com >/dev/null 2>&1 || echo "::warning::zegar: synchronizacja po przebiegu nieudana"
+}
+if sudo -n systemsetup -setusingnetworktime off >/dev/null 2>&1; then
+  ZEGAR=1; trap przywroc_zegar EXIT
+else
+  echo "::warning::zegar maszyny bez zmian (brak sudo bez hasła): godziny w scenach nie będą zgodne z paskiem 9:41"
+fi
 
 maestro_run() {   # $1 = kod lokalizacji, $2 = scenariusz (bez .yaml), $3 = próba
   local log="$LOGI/$CZESC-$1-$2-$3"; mkdir -p "$log"
@@ -61,7 +84,7 @@ scena() {   # $1 = kod lokalizacji, $2 = scena, $3 = plik docelowy; dwie próby
   local proba
   for proba in 1 2; do
     if maestro_run "$1" "$2" "$proba"; then
-      sleep 3   # animacje przejścia kończą się po asercji; bez tego zrzut łapie stan pośredni
+      sleep "${ZRZUTY_PAUZA:-3}"   # animacje przejścia kończą się po asercji; bez tego zrzut łapie stan pośredni
       if zrzut "$3"; then echo "zrzut $1 $KLASA $2: $(pomiar "$3"), $(wc -c < "$3" | tr -d ' ') B"; return 0; fi
       echo "::warning::$1 $2: simctl screenshot nie zapisał pliku (próba $proba)"
     else
@@ -85,15 +108,26 @@ for wpis in $JEZYKI; do
   [ -n "$KOD" ] && [ -n "$LANG_SYM" ] && [ -n "$LOCALE_SYM" ] || { echo "::error::zły wpis lokalizacji: $wpis"; exit 2; }
   echo "::group::$KOD ($LANG_SYM, $LOCALE_SYM) $KLASA"
   jezyk "$LANG_SYM" "$LOCALE_SYM"
-  if ! maestro_run "$KOD" 00-przygotuj 1; then
-    echo "::warning::$KOD 00-przygotuj: próba 1 nieudana — ponawiam (scenariusz zaczyna od clearState)"
-    tail -15 "$LOGI/$CZESC-$KOD-00-przygotuj-1/maestro.log" | sed 's/^/    /'
-    if ! maestro_run "$KOD" 00-przygotuj 2; then
-      echo "::error::$KOD 00-przygotuj nieudane dwukrotnie — brak danych do zrzutów tej lokalizacji"
-      echo "$KOD 00-przygotuj" >> "$NIEUDANE"; echo "::endgroup::"; continue
+  NR_JEZYKA=$(( ${NR_JEZYKA:-0} + 1 )); DZIEN="$(dzien_za "$NR_JEZYKA")"
+  gotowe=0
+  for proba in 1 2; do   # obie części od nowa (00-przygotuj zaczyna od clearState)
+    zegar 0335
+    if maestro_run "$KOD" 00-przygotuj "$proba"; then
+      zegar 0935
+      if maestro_run "$KOD" 00-przygotuj-podwojenie "$proba"; then gotowe=1; break; fi
+      echo "::warning::$KOD 00-przygotuj-podwojenie: próba $proba nieudana"
+      tail -15 "$LOGI/$CZESC-$KOD-00-przygotuj-podwojenie-$proba/maestro.log" | sed 's/^/    /'
+    else
+      echo "::warning::$KOD 00-przygotuj: próba $proba nieudana"
+      tail -15 "$LOGI/$CZESC-$KOD-00-przygotuj-$proba/maestro.log" | sed 's/^/    /'
     fi
+  done
+  if [ "$gotowe" != 1 ]; then
+    echo "::error::$KOD 00-przygotuj nieudane dwukrotnie — brak danych do zrzutów tej lokalizacji"
+    echo "$KOD 00-przygotuj" >> "$NIEUDANE"; echo "::endgroup::"; continue
   fi
   for s in $SCENY; do
+    zegar 0941
     [ "$s" = 03-prowadzenie-ciemny ] && xcrun simctl ui "$UDID" appearance dark >/dev/null 2>&1
     [ "$s" = 07-offline ] && xcrun simctl ui "$UDID" appearance light >/dev/null 2>&1
     scena "$KOD" "$s" "$OUT/$KOD/$KLASA/$s.png"

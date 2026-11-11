@@ -1,0 +1,75 @@
+FAIL tests/zrzuty-sklepu-zegar.test.ts (18.505 s)
+  zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385)
+    ✕ kolejność: NTP wyłączone, 03:35 dokarmienie, 09:35 podwojenie i wypiek, 09:41 przed każdą sceną; dni przyszłe; przywrócenie na końcu (12173 ms)
+    ✕ bez sudo: ostrzeżenie, sceny idą jak dotąd na zegarze maszyny (bez przerwania przebiegu) (6122 ms)
+
+  ● zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385) › kolejność: NTP wyłączone, 03:35 dokarmienie, 09:35 podwojenie i wypiek, 09:41 przed każdą sceną; dni przyszłe; przywrócenie na końcu
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 13
+    + Received  +  0
+
+      Array [
+    -   "sudo -n systemsetup -setusingnetworktime off",
+        "maestro 00-zgoda",
+    -   "sudo -n date 202611120335",
+        "maestro 00-przygotuj",
+    -   "sudo -n date 202611120935",
+    -   "maestro 00-przygotuj-podwojenie",
+    -   "sudo -n date 202611120941",
+        "maestro 05-zakwasy",
+    -   "sudo -n date 202611120941",
+        "maestro 07-offline",
+    -   "sudo -n date 202611130335",
+        "maestro 00-przygotuj",
+    -   "sudo -n date 202611130935",
+    -   "maestro 00-przygotuj-podwojenie",
+    -   "sudo -n date 202611130941",
+        "maestro 05-zakwasy",
+    -   "sudo -n date 202611130941",
+        "maestro 07-offline",
+    -   "sudo -n systemsetup -setusingnetworktime on",
+    -   "sudo -n sntp -sS time.apple.com",
+      ]
+
+      50 |     expect(kod).toBe(0);
+      51 |     const d1 = dzien(1), d2 = dzien(2);
+    > 52 |     expect(wywolania).toEqual([
+         |                       ^
+      53 |       'sudo -n systemsetup -setusingnetworktime off',
+      54 |       'maestro 00-zgoda',
+      55 |       `sudo -n date ${d1}0335`, 'maestro 00-przygotuj',
+
+      at Object.toEqual (tests/zrzuty-sklepu-zegar.test.ts:52:23)
+
+  ● zrzuty sklepu: zegar maszyny zgodny z paskiem 9:41 (KO-049, D-385) › bez sudo: ostrzeżenie, sceny idą jak dotąd na zegarze maszyny (bez przerwania przebiegu)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /::warning::.*zegar/
+    Received string:  "::group::pl (pl, pl_PL) iphone-6.3
+    zrzut pl iphone-6.3 05-zakwasy: 1x1, 1 B
+    ::endgroup::
+    ::group::en-US (en-US, en_US) iphone-6.3
+    zrzut en-US iphone-6.3 05-zakwasy: 1x1, 1 B
+    ::endgroup::
+    Zrzuty (iphone-6.3): 2 plików; nieudane: 0
+    "
+
+      69 |     const { kod, wyjscie, wywolania } = uruchom(false, '05-zakwasy');
+      70 |     expect(kod).toBe(0);
+    > 71 |     expect(wyjscie).toMatch(/::warning::.*zegar/);
+         |                     ^
+      72 |     expect(wywolania).toEqual(['maestro 00-zgoda', 'maestro 00-przygotuj', 'maestro 00-przygotuj-podwojenie', 'maestro 05-zakwasy',
+      73 |       'maestro 00-przygotuj', 'maestro 00-przygotuj-podwojenie', 'maestro 05-zakwasy']);
+      74 |   });
+
+      at Object.toMatch (tests/zrzuty-sklepu-zegar.test.ts:71:21)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 2 total
+Snapshots:   0 total
+Time:        18.67 s
+Ran all test suites matching /tests\/zrzuty-sklepu-zegar.test.ts/i.
+KOD 1

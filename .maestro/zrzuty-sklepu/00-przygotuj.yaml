@@ -1,5 +1,6 @@
-# Zrzuty sklepu (KO-025, 2026-11-10): dane FIKCYJNE dla scen 01–07 — zakwas założony w aplikacji (pierwsze dokarmienie)
-# i jeden zakończony wypiek wbudowanej receptury z oceną 4 (wpis w Dzienniku). Bez danych właściciela, bez wpisywania tekstu.
+# Zrzuty sklepu (KO-025, 2026-11-10): dane FIKCYJNE dla scen 01–07 — zakwas założony w aplikacji (pierwsze dokarmienie).
+# Część 2 (podwojenie i zakończony wypiek z oceną 4) w 00-przygotuj-podwojenie.yaml: skrypt przestawia między nimi zegar
+# maszyny z 03:35 na 09:35 (KO-049, D-385), więc „Podwoił objętość” stoi 6 h po dokarmieniu, nie minutę. Bez danych właściciela, bez wpisywania tekstu.
 # Build z dostępem E2E (EXPO_PUBLIC_E2E=1, pełny Pro), jak .maestro/e2e/06-koniec-wypieku.yaml. Elementy tylko po id.
 appId: com.apps4brew.baker
 ---
@@ -33,59 +34,4 @@ appId: com.apps4brew.baker
     element:
       id: "zakwas-cykl"
     direction: UP
-    timeout: 15000
-# Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
-# (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
-- scrollUntilVisible:
-    element:
-      id: "zakwas-podwoil-btn"
-- tapOn:
-    id: "zakwas-podwoil-btn"
-- scrollUntilVisible:
-    element:
-      id: "zakladanie-wynik-ready"
-    direction: UP
-# Wypiek do końca z oceną (wpis w Dzienniku)
-- tapOn:
-    id: "tab-receptury"
-- tapOn:
-    id: "recipe-row-country_loaf_72"
-- tapOn:
-    id: "start-bake-btn"
-- scrollUntilVisible:
-    element:
-      id: "plan-start-bake-btn"
-- tapOn:
-    id: "plan-start-bake-btn"
-- runFlow: sub/zgoda.yaml
-- extendedWaitUntil:
-    visible:
-      id: "step-title"
-    timeout: 15000
-- tapOn:
-    id: "bake-plan-btn"
-- scrollUntilVisible:
-    element:
-      id: "plan-krok-ostatni"
-- tapOn:
-    id: "plan-krok-ostatni"
-- extendedWaitUntil:
-    visible:
-      id: "next-or-finish-step-btn"
-    timeout: 15000
-- tapOn:
-    id: "next-or-finish-step-btn"
-- extendedWaitUntil:
-    visible:
-      id: "finish-rating-star-4"
-    timeout: 15000
-- tapOn:
-    id: "finish-rating-star-4"
-- tapOn:
-    id: "finish-save-btn"
-- tapOn:
-    id: "tab-dziennik"
-- extendedWaitUntil:
-    visible:
-      id: "bake-log-card-.*"
     timeout: 15000
