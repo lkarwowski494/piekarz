@@ -2187,3 +2187,15 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dowody:** `tests/zrzuty-sklepu-kadry.test.ts`; `docs/dowody-08-zrzuty4/test-kadry-przed.txt` (3/3 czerwone), `test-kadry-po.txt`; commit 9abc3b7.
 - **Otwarte [DO USTALENIA, przebieg `sceny=01,02`]:** czy po centrowaniu górna część ramki 01 (godzina „gotowe”) zostaje w kadrze; karta snu przy planie z 09:41 (D-385) może być kartą kolizji z tym samym id.
 - **Status:** wykonanie — sesja R, do weta.
+
+### [D-389] 2026-11-11 — „Dziś” bez wypieku przy zakwasie z karmieniami: ta sama karta pustej spirali, zdanie o karmieniach w kalendarzu (M2, sesja S, rola 04 fix; KO-053, C2)
+- **Powód (zrzuty #4, C2; decyzja właściciela KO-053 2026-11-11 „Poprawić przed 1.0 (Recommended)”):** pod pasem z kropkami karmień i wierszem „Następne: dokarmić …” karta pustej spirali mówiła „Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.” (`src/components/start/WypiekiNaSpirali.tsx:47`) — sprzeczne z tym, co użytkownik widzi wyżej.
+- **Warunki stanu (od góry; karta spirali nadal tylko, gdy nie ma planów albo coś trwa — bez zmian):**
+  1. wypiek w toku → spirala wypieku (bez zmian);
+  2. bez wypieku, a kalendarz „Dziś” ma zdarzenie zakwasu (`zrodlo.typ === 'zakwas'`: dzień zakładania, karmienie następne albo zrobione) → **nowy stan** „z karmieniami”;
+  3. pozostałe (brak zakwasu, zakwas bez karmień w kalendarzu, np. w Basic po Pro, D-113) → dotychczasowy pusty stan bez zmian.
+  Warunek z kalendarza, nie z samego „ma zakwas”: zdanie mówi o karmieniach widocznych wyżej, więc musi być prawdziwe dokładnie wtedy, gdy kalendarz je pokazuje.
+- **Treść i wygląd:** ta sama karta (`wygladKarty`), pusta spirala (`wariant="pusta"`), styl `objasnienie` (tusz2). Tekst PL: „Karmienia zakwasu masz w kalendarzu wyżej. Plan wypieku pojawi się tu, gdy go zaczniesz.” EN: „Your starter feedings are in the calendar above. Your bake plan will appear here once you start one.” Bez nowych tokenów i komponentów. Makieta: `docs/design/karty/dzis.html`, ekran `zakwas-bez-wypieku`; zrzuty `docs/design/karty/zrzuty/dzis-zakwas-bez-wypieku-{320,390}-{light,dark}[-ax5].png` (320 AX5: tekst zawija się w karcie, nic nie ucięte).
+- **Odrzucone:** (a) przycisk „Zacznij wypiek” w karcie — ta sama akcja co kafel „Piekę na zakwasie” tuż wyżej pod inną nazwą (słownik interakcji, SP-09) albo dubel tej samej nazwy; (b) karta „Zakwasy” z wierszem stanu (nazwa, „na blacie, dokarmić o 20:00”, makieta `trwa-wypiek`) — powtarza „Następne” z pasa i wymaga odczytu wpisów każdego zakwasu na „Dziś” (więcej kodu i tekstów ×35); (c) ukrycie karty — znika miejsce na plan i element firmowy na pierwszym ekranie.
+- **Brzegowe:** zdarzenia kalendarza pochodzą z pokazanego okresu i dziś + 7 dni (`useKalendarz`); przy przewinięciu na tydzień bez karmień karta wraca do pierwotnego zdania (prawdziwego dla tego widoku).
+- **Status:** rola 04, sesja S, tryb „analogia” koordynatora; do weta.
