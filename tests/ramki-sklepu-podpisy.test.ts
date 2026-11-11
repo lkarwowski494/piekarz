@@ -126,7 +126,8 @@ describe('ramki sklepu: podpisy z metadanych, oznaczenie Pro, kolory i kroje (KO
     expect(wf).toContain('assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700');
     expect(wf).toContain('docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100');
     expect(wf).toMatch(/fonttools==\d+\.\d+\.\d+/);
-    expect(wf).toMatch(/fonts-noto-cjk/);
+    // Krój CJK: od KO-045 (D-376) plik z wydania Noto Sans 2.004 z przypiętym SHA-256 zamiast apt fonts-noto-cjk
+    expect(wf).toContain('noto-cjk/Sans2.004/Sans/OTC/NotoSansCJK-Bold.ttc');
     expect(wf).toContain('bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki');
     expect(wf).toMatch(/\n {2}ramki:\n[\s\S]*?needs: \[?zbierz/);
   });

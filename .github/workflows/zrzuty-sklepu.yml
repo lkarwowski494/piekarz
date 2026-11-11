@@ -228,7 +228,8 @@ jobs:
     name: komplet (bez alfy, wymiary, 7 ramek)
     needs: [plan, zrzuty]
     if: ${{ !cancelled() && needs.plan.result == 'success' && needs.zrzuty.result != 'skipped' }}
-    runs-on: ubuntu-latest
+    # KO-045, D-376: obraz 24.04 nie ma ImageMagick, a apt nie rozwiązywał mirrora Azure (zrzuty #1, #2); 22.04 ma IM6 w obrazie
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     steps:
       - uses: actions/download-artifact@v4
@@ -237,14 +238,12 @@ jobs:
           path: surowe
           merge-multiple: true
       - name: ImageMagick
-        # Zrzuty #1: apt-get update wisiał na DNS aż do limitu zadania (KO-044, D-373); krok ma własny limit i ponowienia
-        timeout-minutes: 8
+        # Bez apt (KO-045, D-376): narzędzia z obrazu ubuntu-22.04; brak = błąd, nie instalacja
+        timeout-minutes: 2
         run: |
           set -euo pipefail
           if command -v convert >/dev/null && command -v identify >/dev/null; then echo "ImageMagick z obrazu: $(convert -version | head -n 1)"; exit 0; fi
-          APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
-          sudo apt-get $APT_OPCJE update -qq
-          sudo apt-get $APT_OPCJE install -y -qq imagemagick >/dev/null
+          echo "::error::brak convert/identify w obrazie ${ImageOS:-?} ${ImageVersion:-?} (KO-045: bez apt)"; exit 1
       - name: Alpha off, dimensions and completeness
         env:
           MATRIX: ${{ needs.plan.outputs.matrix }}
@@ -285,10 +284,10 @@ jobs:
     # KO-033 (właściciel 2026-11-10: „Ma byc jak w treningu”): podpis u góry (nagłówek z metadanych), oznaczenie Pro na ekranach płatnych (D-364),
     # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
     # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
-    # CJK z apt (fonts-noto-cjk). 0 zł, bez sekretów i bez zależności aplikacji.
+    # CJK z wydania Noto Sans 2.004 (przypięty SHA-256; KO-045, D-376). 0 zł, bez sekretów i bez zależności aplikacji.
     needs: zbierz
     if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
@@ -297,25 +296,33 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: ImageMagick i czcionki CJK
-        # Jak w zadaniu komplet (KO-044, D-373); pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK
-        timeout-minutes: 8
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: ImageMagick
+        # Jak w zadaniu komplet (KO-045, D-376): z obrazu ubuntu-22.04, bez apt
+        timeout-minutes: 2
         run: |
           set -euo pipefail
-          if command -v convert >/dev/null && command -v identify >/dev/null && [ -f /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc ]; then
-            echo "ImageMagick i Noto Sans CJK z obrazu: $(convert -version | head -n 1)"; exit 0
-          fi
-          APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"
-          sudo apt-get $APT_OPCJE update -qq
-          sudo apt-get $APT_OPCJE install -y -qq imagemagick fonts-noto-cjk >/dev/null
+          if command -v convert >/dev/null && command -v identify >/dev/null; then echo "ImageMagick z obrazu: $(convert -version | head -n 1)"; exit 0; fi
+          echo "::error::brak convert/identify w obrazie ${ImageOS:-?} ${ImageVersion:-?} (KO-045: bez apt)"; exit 1
+      - name: Krój CJK (Noto Sans CJK Bold, wydanie Sans2.004)
+        # Ten sam plik co w 03_NotoSansCJK-OTC.zip wydania Sans2.004 (SHA-256 sprawdzony 2026-11-11, D-376)
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-all-errors --retry-delay 10 --connect-timeout 30 -o "$RUNNER_TEMP/NotoSansCJK-Bold.ttc" \
+            "https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/OTC/NotoSansCJK-Bold.ttc"
+          printf '%s  %s\n' faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb "$RUNNER_TEMP/NotoSansCJK-Bold.ttc" | sha256sum -c - \
+            || { echo "::error::NotoSansCJK-Bold.ttc ma inny SHA-256 niż przypięty"; exit 1; }
       - name: Kroje Bold (instancje plików zmiennych)
         run: |
           set -euo pipefail
-          python3 -m venv "$RUNNER_TEMP/ft"
+          python -m venv "$RUNNER_TEMP/ft"
           "$RUNNER_TEMP/ft/bin/pip" install --quiet --disable-pip-version-check fonttools==4.68.0
           "$RUNNER_TEMP/ft/bin/fonttools" varLib.instancer assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700 -o "$RUNNER_TEMP/Sofia-Bold.ttf" -q
           "$RUNNER_TEMP/ft/bin/fonttools" varLib.instancer docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100 -o "$RUNNER_TEMP/Noto-Bold.ttf" -q
-          { echo "FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf"; echo "FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf"; echo "FONT_CJK=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"; } >> "$GITHUB_ENV"
+          { echo "FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf"; echo "FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf"; echo "FONT_CJK=$RUNNER_TEMP/NotoSansCJK-Bold.ttc"; } >> "$GITHUB_ENV"
       - uses: actions/download-artifact@v4
         with:
           name: sklep-zrzuty

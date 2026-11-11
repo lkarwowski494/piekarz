@@ -103,27 +103,35 @@ describe('zrzuty-sklepu.yml: build i Maestro', () => {
 
 // KO-044 (właściciel, 2026-11-11, D-373): zrzuty #1 — krok ImageMagick w `komplet` wisiał na `apt-get update`
 // („Temporary failure resolving 'azure.archive.ubuntu.com'”) aż do timeout-minutes zadania (20 min).
-describe('zrzuty-sklepu.yml: instalacja ImageMagick odporna na awarię sieci (KO-044)', () => {
+// KO-045 (właściciel, 2026-11-11), D-376: zastępuje wariant KO-044/D-373. Zrzuty #1 i #2: apt-get na ubuntu-24.04 nie rozwiązywał
+// azure.archive.ubuntu.com, a obraz 24.04 (20261101.360.1) nie ma ImageMagick. Komplet i ramki idą na ubuntu-22.04 (IM6 w obrazie),
+// krój CJK z wydania Noto (przypięty SHA-256), Python do fonttools z setup-python — bez apt.
+describe('zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376)', () => {
   const krok = (nazwa: string) => kroki.find((k) => k.startsWith(`      - name: ${nazwa}\n`)) ?? '';
-  it.each([
-    ['ImageMagick', 'imagemagick'],
-    ['ImageMagick i czcionki CJK', 'imagemagick fonts-noto-cjk'],
-  ])('%s: własny limit 8 min, pominięcie apt przy obecnych narzędziach, apt z ponowieniami i limitem połączenia', (nazwa, pakiety) => {
-    const k = krok(nazwa);
-    expect(k).toMatch(/\n {8}timeout-minutes: 8\n/);
-    // Skrypty wołają `convert` i `identify` (store-frames.sh, store-caption-layout.mjs, krok komplet) — oba muszą być
-    expect(k).toMatch(/command -v convert >\/dev\/null && command -v identify >\/dev\/null/);
-    const apt = [...k.matchAll(/sudo apt-get ([^\n]*)/g)].map((m) => m[1]);
-    expect(apt).toHaveLength(2);
-    for (const a of apt) expect(a).toMatch(/^\$APT_OPCJE (update|install)/);
-    expect(k).toMatch(/APT_OPCJE="-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30"/);
-    expect(k).toContain(`install -y -qq ${pakiety} >/dev/null`);
+  const zadanie = (id: string) => wf.split(`\n  ${id}:\n`)[1]?.split(/\n  [a-z]+:\n/)[0] ?? '';
+  it('workflow nie woła apt', () => {
+    expect(wf).not.toMatch(/apt-get|\bapt install/);
   });
-  it('podpisy: pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK', () => {
-    const k = krok('ImageMagick i czcionki CJK');
+  it.each(['zbierz', 'ramki'])('%s: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja', (id) => {
+    const z = zadanie(id);
+    expect(z).toMatch(/\n {4}runs-on: ubuntu-22\.04\n/);
+    const k = z.split('\n      - ').find((s) => s.startsWith('name: ImageMagick')) ?? '';
+    expect(k).toMatch(/command -v convert >\/dev\/null && command -v identify >\/dev\/null/);
+    expect(k).toMatch(/::error::/);
+    expect(k).toMatch(/exit 1/);
+  });
+  it('ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK', () => {
+    const k = krok('Krój CJK (Noto Sans CJK Bold, wydanie Sans2.004)');
+    expect(k).toContain('https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/OTC/NotoSansCJK-Bold.ttc');
+    expect(k).toContain('faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb');
+    expect(k).toMatch(/sha256sum -c/);
     const fontCjk = /echo "FONT_CJK=([^"]+)"/.exec(wf)?.[1];
-    expect(fontCjk).toBe('/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc');
-    expect(k).toContain(`[ -f ${fontCjk} ]`);
+    expect(fontCjk).toBe('$RUNNER_TEMP/NotoSansCJK-Bold.ttc');
+  });
+  it('ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)', () => {
+    const z = zadanie('ramki');
+    expect(z).toMatch(/uses: actions\/setup-python@v5\n {8}with:\n {10}python-version: '3\.12'\n/);
+    expect(z.indexOf('actions/setup-python@')).toBeLessThan(z.indexOf('fonttools=='));
   });
 });
 

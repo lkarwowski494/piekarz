@@ -1,0 +1,654 @@
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ○ skipped bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect
+    ○ skipped uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń
+    ○ skipped wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają)
+    ○ skipped wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run
+  zrzuty-sklepu.yml: build i Maestro
+    ○ skipped jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365)
+    ○ skipped Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev
+    ○ skipped symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376)
+    ✕ workflow nie woła apt (3 ms)
+    ✕ zbierz: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja (1 ms)
+    ✕ ramki: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja
+    ✕ ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK
+    ✕ ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)
+  sceny Maestro .maestro/zrzuty-sklepu
+    ○ skipped jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)
+    ○ skipped skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7
+    ○ skipped 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych
+    ○ skipped okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ○ skipped sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny
+    ○ skipped po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374)
+    ○ skipped przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+    ○ skipped bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ○ skipped pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd)
+    ○ skipped tylko=pl: dwa zadania (6,9″ i 6,3″)
+    ○ skipped plan bez pola zakupu (D-365)
+    ○ skipped złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór
+    ○ skipped wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz
+
+  ● zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376) › workflow nie woła apt
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /apt-get|\bapt install/
+    Received string:      "# Zrzuty sklepu (App Store Connect) z symulatora iOS: iPhone 17 Pro Max (6,9″, 1320 × 2868) i iPhone 17 Pro (6,3″, 1206 × 2622),
+    # 7 ramek z docs/wydanie/zrzuty/README.md (sceny .maestro/zrzuty-sklepu/), lokalizacje z docs/wydanie/metadane/; ekran zakupu
+    # dla App Review robi E2E z atrapą ofert (D-365, e2e-ios.yml). Decyzja właściciela KO-025 (2026-11-10): natywnie jak w Oczku; zrzuty po teście telefonu
+    # właściciela, teraz tylko mechanizm. Wzór: oczko .github/workflows/zrzuty-sklepu.yml @ 87ade5a (gałąź claude/build3-2026-11-10).
+    # Surowe zrzuty (zadanie zbierz, artefakt sklep-zrzuty) i ramki z podpisem jak w Treningu (zadanie ramki, artefakt sklep-ramki; D-363).
+    # Bez sekretów App Store Connect i bez środowiska `release`; niczego nie wysyła (wysyłka zrzutów to osobny skrypt wydania, za zgodą właściciela).
+    # Wyzwalacze: workflow_dispatch (działa, gdy plik jest na gałęzi domyślnej) albo push na gałąź `zrzuty-sklepu/**`
+    # (gałąź tworzy koordynator za zgodą; zwykłe gałęzie napraw tego workflowu nie uruchamiają). Przy push wejścia z PIERWSZEJ linii
+    # komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [zrzuty-app:<ID przebiegu>]; brak = wszystkie lokalizacje i oba rozmiary.
+    name: Zrzuty sklepu
+
+    on:
+      push:
+        branches: ['zrzuty-sklepu/**']
+      workflow_dispatch:
+        inputs:
+          tylko:
+            description: 'Lokalizacje ASC rozdzielone przecinkami (np. pl albo pl,en-US); puste = wszystkie z docs/wydanie/metadane'
+            required: false
+            type: string
+            default: ''
+          rozmiary:
+            description: 'Klasy iPhone: 6.9, 6.3 albo 6.9,6.3; puste = obie'
+            required: false
+            type: string
+            default: ''
+          aplikacja_z_przebiegu:
+            description: 'ID przebiegu (run ID, długa liczba z adresu …/actions/runs/<ID>, nie #numer) TEGO workflowu z artefaktem zrzuty-sklepu-app (3 dni); puste = budowa (~40 min)'
+            required: false
+            type: string
+            default: ''
+
+    permissions:
+      contents: read
+      actions: read
+
+    concurrency:
+      group: zrzuty-sklepu-${{ github.ref }}
+      cancel-in-progress: false
+
+    jobs:
+      plan:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        outputs:
+          matrix: ${{ steps.plan.outputs.matrix }}
+          app_przebieg: ${{ steps.plan.outputs.app_przebieg }}
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-node@v4
+            with:
+              node-version: 22
+          - name: Plan (lokalizacje, rozmiary, części)
+            id: plan
+            env:
+              ZDARZENIE: ${{ github.event_name }}
+              KOMUNIKAT: ${{ github.event.head_commit.message }}
+              WE_TYLKO: ${{ inputs.tylko }}
+              WE_ROZMIARY: ${{ inputs.rozmiary }}
+              WE_APP: ${{ inputs.aplikacja_z_przebiegu }}
+            run: |
+              set -euo pipefail
+              if [ \"$ZDARZENIE\" = workflow_dispatch ]; then
+                tylko=\"$WE_TYLKO\"; rozmiary=\"$WE_ROZMIARY\"; app=\"$WE_APP\"
+              else
+                # znaczniki tylko z pierwszej linii: treść commitu może je opisywać (Oczko, przebieg 1)
+                linia=$(printf '%s\\n' \"$KOMUNIKAT\" | head -1)
+                tylko=$(printf '%s' \"$linia\" | sed -n 's/.*\\[tylko=\\([A-Za-z0-9,.-]*\\)\\].*/\\1/p' | head -1)
+                rozmiary=$(printf '%s' \"$linia\" | sed -n 's/.*\\[rozmiary=\\([0-9,.]*\\)\\].*/\\1/p' | head -1)
+                app=$(printf '%s' \"$linia\" | sed -n 's/.*\\[zrzuty-app:\\([0-9][0-9]*\\)\\].*/\\1/p' | head -1)
+              fi
+              case \"$app\" in ''|*[!0-9]*) [ -z \"$app\" ] || { echo \"::error::aplikacja_z_przebiegu: tylko cyfry\"; exit 1; } ;; esac
+              wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko \"$tylko\" --rozmiary \"$rozmiary\" --na-zadanie 3)
+              matrix=$(printf '%s' \"$wynik\" | node -e 'const w=JSON.parse(require(\"fs\").readFileSync(0,\"utf8\"));process.stdout.write(JSON.stringify(w.matrix))')
+              { echo \"matrix=$matrix\"; echo \"app_przebieg=$app\"; } >> \"$GITHUB_OUTPUT\"
+              printf '%s' \"$wynik\" | node -e 'const w=JSON.parse(require(\"fs\").readFileSync(0,\"utf8\"));console.log(`Lokalizacje (${w.jezyki.length}): ${w.jezyki.join(\", \")}; rozmiary: ${w.rozmiary.join(\", \")}; zadania macOS: ${w.matrix.include.length}`)' | tee -a \"$GITHUB_STEP_SUMMARY\"
+              echo \"Aplikacja z przebiegu: ${app:-(budowa)}\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+
+      build:
+        needs: plan
+        if: needs.plan.outputs.app_przebieg == ''
+        runs-on: macos-26
+        timeout-minutes: 90
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-node@v4
+            with:
+              node-version: 22
+              cache: npm
+          - name: Install dependencies
+            run: npm ci --legacy-peer-deps
+          - name: Expo prebuild (iOS)
+            run: npx expo prebuild --platform ios --clean
+          # Jak e2e-ios.yml: build z dostępem (EXPO_PUBLIC_E2E=1, pełny Pro — ramki 01 i 05 pokazują funkcje Pro). Build Basic do ekranu
+          # zakupu usunięty (D-365: bez StoreKit dawał tylko ekran bez cen). testflight.yml odrzuca flagę w kroku „Guard against test/mock flags”.
+          - name: Build Release for simulator (Pro, EXPO_PUBLIC_E2E)
+            env:
+              EXPO_PUBLIC_E2E: '1'
+            run: |
+              set -o pipefail
+              WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+              SCHEME=$(basename \"$WORKSPACE\" .xcworkspace)
+              xcodebuild -workspace \"$WORKSPACE\" -scheme \"$SCHEME\" -configuration Release \\
+                -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \\
+                -derivedDataPath build CODE_SIGNING_ALLOWED=NO build 2>&1 | tee xcodebuild-pro.log | tail -n 80
+              APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+              mkdir -p aplikacje/pro && cp -R \"$APP\" aplikacje/pro/
+              zip -qry zrzuty-sklepu-app.zip aplikacje
+              echo \"Aplikacje: $(du -sh aplikacje | cut -f1)\" >> \"$GITHUB_STEP_SUMMARY\"
+          - uses: actions/upload-artifact@v4
+            with:
+              name: zrzuty-sklepu-app
+              path: zrzuty-sklepu-app.zip
+              retention-days: 3
+          - uses: actions/upload-artifact@v4
+            if: failure()
+            with:
+              name: zrzuty-sklepu-xcodebuild-log
+              path: xcodebuild-*.log
+              retention-days: 3
+
+      zrzuty:
+        name: zrzuty (${{ matrix.czesc }})
+        needs: [plan, build]
+        if: ${{ !cancelled() && needs.plan.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
+        runs-on: macos-26
+        # 3 lokalizacje na zadanie: każda to restart symulatora, zimny start sterownika (do 12 min, D-330), 00-przygotuj i 7 scen
+        # (szacunek 25–35 min na lokalizację, recenzja J, P2) + zgoda; do zmierzenia w pierwszym przebiegu
+        timeout-minutes: 150
+        strategy:
+          fail-fast: false
+          max-parallel: 4
+          matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+        env:
+          MAESTRO_CLI_NO_ANALYTICS: 1
+          # Zimny start sterownika XCUITest po restarcie symulatora: limit jak w e2e-ios.yml (D-330)
+          MAESTRO_DRIVER_STARTUP_TIMEOUT: 720000
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-java@v4
+            with:
+              distribution: temurin
+              java-version: 17
+          - uses: actions/download-artifact@v4
+            if: needs.plan.outputs.app_przebieg != ''
+            with:
+              name: zrzuty-sklepu-app
+              run-id: ${{ needs.plan.outputs.app_przebieg }}
+              github-token: ${{ secrets.GITHUB_TOKEN }}
+          - uses: actions/download-artifact@v4
+            if: needs.plan.outputs.app_przebieg == ''
+            with:
+              name: zrzuty-sklepu-app
+          - name: Simulator (exact model, newest iOS runtime)
+            env:
+              SYMULATOR: ${{ matrix.symulator }}
+            run: |
+              set -euo pipefail
+              unzip -q zrzuty-sklepu-app.zip
+              UDID=$(xcrun simctl list devices available -j | SYMULATOR=\"$SYMULATOR\" node -e '
+                const d = JSON.parse(require(\"fs\").readFileSync(0, \"utf8\")).devices;
+                const wersja = (k) => (k.match(/iOS-(\\d+)-(\\d+)/) || [0, 0, 0]).slice(1).map(Number);
+                const ios = Object.keys(d).filter((k) => k.includes(\"iOS\")).sort((a, b) => { const [x1, y1] = wersja(a), [x2, y2] = wersja(b); return x2 - x1 || y2 - y1; });
+                for (const k of ios) { const p = d[k].find((x) => x.name === process.env.SYMULATOR); if (p) { console.log(p.udid); process.exit(0); } }
+                process.exit(1);') || { echo \"::error::Brak symulatora $SYMULATOR\"; xcrun simctl list devices available | grep -E 'iPhone' | sed -E 's/\\([0-9A-F-]{36}\\)//'; exit 1; }
+              echo \"UDID=$UDID\" >> \"$GITHUB_ENV\"
+              echo \"Symulator: $(xcrun simctl list devices available | grep -F \"$UDID\" | sed -E 's/\\([0-9A-F-]{36}\\)//' | xargs)\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              xcrun simctl boot \"$UDID\" || true
+              xcrun simctl bootstatus \"$UDID\" -b
+          # Maestro nadaje zgody iOS (launchApp: permissions) przez applesimutils (e2e-ios.yml, przebiegi 39581379222, 39591487157)
+          - name: Install applesimutils
+            run: |
+              brew tap wix/brew
+              brew trust --formula wix/brew/applesimutils
+              brew install applesimutils
+              applesimutils --version
+          - name: Install Maestro CLI (pinned zip, SHA-256)
+            env:
+              # Wersja jak e2e-ios.yml (scenariusze po id sprawdzone na niej). Paczka wprost z GitHub Releases z ponowieniami (wzór Oczka, P-626 d);
+              # SHA-256 maestro.zip cli-2.11.0 policzony 2026-11-10 z adresu niżej (sesja J). Zmiana wersji = commit obu wartości.
+              MAESTRO_VERSION: '2.11.0'
+              MAESTRO_ZIP_SHA256: '5384593cb4e7a106489e75a821d157dd43f4e438df6bc308b72e82c685e1283a'
+            run: |
+              set -euo pipefail
+              zip=\"$RUNNER_TEMP/maestro.zip\"
+              curl -fsSL --retry 5 --retry-all-errors --retry-delay 20 --connect-timeout 30 -o \"$zip\" \"https://github.com/mobile-dev-inc/maestro/releases/download/cli-$MAESTRO_VERSION/maestro.zip\"
+              printf '%s  %s\\n' \"$MAESTRO_ZIP_SHA256\" \"$zip\" | shasum -a 256 -c - || { echo \"::error::maestro.zip $MAESTRO_VERSION ma inny SHA-256 niż przypięty\"; exit 1; }
+              rm -rf \"$RUNNER_TEMP/maestro-zip\" \"$HOME/.maestro\" && mkdir -p \"$HOME/.maestro\"
+              unzip -q \"$zip\" -d \"$RUNNER_TEMP/maestro-zip\"
+              cp -R \"$RUNNER_TEMP/maestro-zip/maestro/.\" \"$HOME/.maestro/\"
+              echo \"$HOME/.maestro/bin\" >> \"$GITHUB_PATH\"
+              v=$(\"$HOME/.maestro/bin/maestro\" --version)
+              printf '%s\\n' \"$v\" | grep -qF \"$MAESTRO_VERSION\" || { echo \"::error::zainstalowano Maestro $v, przypięta $MAESTRO_VERSION\"; exit 1; }
+              echo \"Maestro: $v\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+          - name: Zrzuty
+            env:
+              KLASA: ${{ matrix.katalog }}
+              JEZYKI: ${{ matrix.jezyki }}
+              CZESC: ${{ matrix.czesc }}
+            run: |
+              APP_PRO=$(ls -d aplikacje/pro/*.app | head -n 1)
+              bash scripts/ci/zrzuty-sklepu.sh \"$UDID\" \"$KLASA\" zrzuty-surowe dzienniki \"$APP_PRO\" \"$JEZYKI\"
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: zrzuty-surowe-${{ matrix.czesc }}
+              path: zrzuty-surowe
+              retention-days: 7
+              if-no-files-found: ignore
+          - name: Pack logs (Maestro writes directory names with \":\" that upload-artifact rejects)
+            if: always()
+            run: '[ -d dzienniki ] && zip -qry dzienniki.zip dzienniki || true'
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: zrzuty-dzienniki-${{ matrix.czesc }}
+              path: dzienniki.zip
+              retention-days: 3
+              if-no-files-found: ignore
+
+      zbierz:
+        name: komplet (bez alfy, wymiary, 7 ramek)
+        needs: [plan, zrzuty]
+        if: ${{ !cancelled() && needs.plan.result == 'success' && needs.zrzuty.result != 'skipped' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+          - uses: actions/download-artifact@v4
+            with:
+              pattern: zrzuty-surowe-*
+              path: surowe
+              merge-multiple: true
+          - name: ImageMagick
+            # Zrzuty #1: apt-get update wisiał na DNS aż do limitu zadania (KO-044, D-373); krok ma własny limit i ponowienia
+            timeout-minutes: 8
+            run: |
+              set -euo pipefail
+              if command -v convert >/dev/null && command -v identify >/dev/null; then echo \"ImageMagick z obrazu: $(convert -version | head -n 1)\"; exit 0; fi
+              APT_OPCJE=\"-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30\"
+              sudo apt-get $APT_OPCJE update -qq
+              sudo apt-get $APT_OPCJE install -y -qq imagemagick >/dev/null
+          - name: Alpha off, dimensions and completeness
+            env:
+              MATRIX: ${{ needs.plan.outputs.matrix }}
+            run: |
+              set -uo pipefail
+              mkdir -p sklep-zrzuty; bledy=0
+              { echo \"### Zrzuty sklepu (surowe, bez pasa podpisu)\"; echo \"| plik | wymiar | kanały | bajty |\"; echo \"|---|---|---|---|\"; } >> \"$GITHUB_STEP_SUMMARY\"
+              while IFS= read -r f; do
+                rel=\"${f#surowe/}\"; cel=\"sklep-zrzuty/$rel\"; mkdir -p \"$(dirname \"$cel\")\"
+                convert \"$f\" -alpha off -define png:color-type=2 \"$cel\"
+                wym=$(identify -format '%wx%h' \"$cel\"); kan=$(identify -format '%[channels]' \"$cel\")
+                echo \"| $rel | $wym | $kan | $(wc -c < \"$cel\" | tr -d ' ') |\" >> \"$GITHUB_STEP_SUMMARY\"
+                case \"$kan\" in *a) echo \"::error::$rel nadal ma kanał alfa ($kan)\"; bledy=$((bledy + 1)) ;; esac
+                case \"$rel\" in
+                  */iphone-6.9/*) [ \"$wym\" = 1320x2868 ] || { echo \"::error::$rel: wymiar $wym ≠ 1320x2868\"; bledy=$((bledy + 1)); } ;;
+                  */iphone-6.3/*) [ \"$wym\" = 1206x2622 ] || { echo \"::error::$rel: wymiar $wym ≠ 1206x2622\"; bledy=$((bledy + 1)); } ;;
+                  *) echo \"::error::$rel: nieznany katalog\"; bledy=$((bledy + 1)) ;;
+                esac
+              done < <(find surowe -name '*.png' | sort)
+              # Komplet: 7 ramek na lokalizację i klasę z planu
+              while IFS=' ' read -r klasa kod; do
+                for n in 01-plan 02-receptura 03-prowadzenie-ciemny 04-doktor 05-zakwasy 06-dziennik 07-offline; do
+                  [ -f \"sklep-zrzuty/$kod/$klasa/$n.png\" ] || { echo \"::error::brak $kod/$klasa/$n.png\"; bledy=$((bledy + 1)); }
+                done
+              done < <(printf '%s' \"$MATRIX\" | node -e 'const m=JSON.parse(require(\"fs\").readFileSync(0,\"utf8\"));for(const c of m.include)for(const j of c.jezyki.split(\" \"))console.log(c.katalog+\" \"+j.split(\":\")[0])')
+              echo \"Pliki: $(find sklep-zrzuty -name '*.png' | wc -l | tr -d ' '), błędy: $bledy\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              [ \"$bledy\" -eq 0 ]
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: sklep-zrzuty
+              path: sklep-zrzuty
+              retention-days: 14
+              if-no-files-found: ignore
+
+      ramki:
+        name: podpisy i ramki (jak Trening, D-363)
+        # KO-033 (właściciel 2026-11-10: „Ma byc jak w treningu”): podpis u góry (nagłówek z metadanych), oznaczenie Pro na ekranach płatnych (D-364),
+        # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
+        # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
+        # CJK z apt (fonts-noto-cjk). 0 zł, bez sekretów i bez zależności aplikacji.
+        needs: zbierz
+        if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 45
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-node@v4
+            with:
+              node-version: 22
+          - name: ImageMagick i czcionki CJK
+            # Jak w zadaniu komplet (KO-044, D-373); pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK
+            timeout-minutes: 8
+            run: |
+              set -euo pipefail
+              if command -v convert >/dev/null && command -v identify >/dev/null && [ -f /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc ]; then
+                echo \"ImageMagick i Noto Sans CJK z obrazu: $(convert -version | head -n 1)\"; exit 0
+              fi
+              APT_OPCJE=\"-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30\"
+              sudo apt-get $APT_OPCJE update -qq
+              sudo apt-get $APT_OPCJE install -y -qq imagemagick fonts-noto-cjk >/dev/null
+          - name: Kroje Bold (instancje plików zmiennych)
+            run: |
+              set -euo pipefail
+              python3 -m venv \"$RUNNER_TEMP/ft\"
+              \"$RUNNER_TEMP/ft/bin/pip\" install --quiet --disable-pip-version-check fonttools==4.68.0
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700 -o \"$RUNNER_TEMP/Sofia-Bold.ttf\" -q
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100 -o \"$RUNNER_TEMP/Noto-Bold.ttf\" -q
+              { echo \"FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf\"; echo \"FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf\"; echo \"FONT_CJK=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc\"; } >> \"$GITHUB_ENV\"
+          - uses: actions/download-artifact@v4
+            with:
+              name: sklep-zrzuty
+              path: sklep-zrzuty
+          - name: Podpisy i ramki
+            run: bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki | tee -a \"$GITHUB_STEP_SUMMARY\"
+          - name: Kontrola (wymiar jak zrzut, bez alfy, każdy zrzut ma ramkę)
+            run: |
+              set -uo pipefail
+              bledy=0
+              while IFS= read -r f; do
+                rel=\"${f#sklep-zrzuty/}\"; r=\"sklep-ramki/$rel\"
+                [ -f \"$r\" ] || { echo \"::error::brak ramki $rel\"; bledy=$((bledy + 1)); continue; }
+                [ \"$(identify -format '%wx%h' \"$f\")\" = \"$(identify -format '%wx%h' \"$r\")\" ] || { echo \"::error::$rel: inny wymiar ramki\"; bledy=$((bledy + 1)); }
+                case \"$(identify -format '%[channels]' \"$r\")\" in *a) echo \"::error::$rel: kanał alfa\"; bledy=$((bledy + 1)) ;; esac
+              done < <(find sklep-zrzuty -path '*/iphone-*/*.png' | sort)
+              echo \"Ramki: $(find sklep-ramki -name '*.png' | wc -l | tr -d ' '), błędy: $bledy\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              [ \"$bledy\" -eq 0 ]
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: sklep-ramki
+              path: sklep-ramki
+              retention-days: 14
+              if-no-files-found: ignore
+    "
+
+      111 |   const zadanie = (id: string) => wf.split(`\n  ${id}:\n`)[1]?.split(/\n  [a-z]+:\n/)[0] ?? '';
+      112 |   it('workflow nie woła apt', () => {
+    > 113 |     expect(wf).not.toMatch(/apt-get|\bapt install/);
+          |                    ^
+      114 |   });
+      115 |   it.each(['zbierz', 'ramki'])('%s: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja', (id) => {
+      116 |     const z = zadanie(id);
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:113:20)
+
+  ● zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376) › zbierz: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\n {4}runs-on: ubuntu-22\.04\n/
+    Received string:  "    name: komplet (bez alfy, wymiary, 7 ramek)
+        needs: [plan, zrzuty]
+        if: ${{ !cancelled() && needs.plan.result == 'success' && needs.zrzuty.result != 'skipped' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+          - uses: actions/download-artifact@v4
+            with:
+              pattern: zrzuty-surowe-*
+              path: surowe
+              merge-multiple: true
+          - name: ImageMagick
+            # Zrzuty #1: apt-get update wisiał na DNS aż do limitu zadania (KO-044, D-373); krok ma własny limit i ponowienia
+            timeout-minutes: 8
+            run: |
+              set -euo pipefail
+              if command -v convert >/dev/null && command -v identify >/dev/null; then echo \"ImageMagick z obrazu: $(convert -version | head -n 1)\"; exit 0; fi
+              APT_OPCJE=\"-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30\"
+              sudo apt-get $APT_OPCJE update -qq
+              sudo apt-get $APT_OPCJE install -y -qq imagemagick >/dev/null
+          - name: Alpha off, dimensions and completeness
+            env:
+              MATRIX: ${{ needs.plan.outputs.matrix }}
+            run: |
+              set -uo pipefail
+              mkdir -p sklep-zrzuty; bledy=0
+              { echo \"### Zrzuty sklepu (surowe, bez pasa podpisu)\"; echo \"| plik | wymiar | kanały | bajty |\"; echo \"|---|---|---|---|\"; } >> \"$GITHUB_STEP_SUMMARY\"
+              while IFS= read -r f; do
+                rel=\"${f#surowe/}\"; cel=\"sklep-zrzuty/$rel\"; mkdir -p \"$(dirname \"$cel\")\"
+                convert \"$f\" -alpha off -define png:color-type=2 \"$cel\"
+                wym=$(identify -format '%wx%h' \"$cel\"); kan=$(identify -format '%[channels]' \"$cel\")
+                echo \"| $rel | $wym | $kan | $(wc -c < \"$cel\" | tr -d ' ') |\" >> \"$GITHUB_STEP_SUMMARY\"
+                case \"$kan\" in *a) echo \"::error::$rel nadal ma kanał alfa ($kan)\"; bledy=$((bledy + 1)) ;; esac
+                case \"$rel\" in
+                  */iphone-6.9/*) [ \"$wym\" = 1320x2868 ] || { echo \"::error::$rel: wymiar $wym ≠ 1320x2868\"; bledy=$((bledy + 1)); } ;;
+                  */iphone-6.3/*) [ \"$wym\" = 1206x2622 ] || { echo \"::error::$rel: wymiar $wym ≠ 1206x2622\"; bledy=$((bledy + 1)); } ;;
+                  *) echo \"::error::$rel: nieznany katalog\"; bledy=$((bledy + 1)) ;;
+                esac
+              done < <(find surowe -name '*.png' | sort)
+              # Komplet: 7 ramek na lokalizację i klasę z planu
+              while IFS=' ' read -r klasa kod; do
+                for n in 01-plan 02-receptura 03-prowadzenie-ciemny 04-doktor 05-zakwasy 06-dziennik 07-offline; do
+                  [ -f \"sklep-zrzuty/$kod/$klasa/$n.png\" ] || { echo \"::error::brak $kod/$klasa/$n.png\"; bledy=$((bledy + 1)); }
+                done
+              done < <(printf '%s' \"$MATRIX\" | node -e 'const m=JSON.parse(require(\"fs\").readFileSync(0,\"utf8\"));for(const c of m.include)for(const j of c.jezyki.split(\" \"))console.log(c.katalog+\" \"+j.split(\":\")[0])')
+              echo \"Pliki: $(find sklep-zrzuty -name '*.png' | wc -l | tr -d ' '), błędy: $bledy\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              [ \"$bledy\" -eq 0 ]
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: sklep-zrzuty
+              path: sklep-zrzuty
+              retention-days: 14
+              if-no-files-found: ignore
+    "
+
+      115 |   it.each(['zbierz', 'ramki'])('%s: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja', (id) => {
+      116 |     const z = zadanie(id);
+    > 117 |     expect(z).toMatch(/\n {4}runs-on: ubuntu-22\.04\n/);
+          |               ^
+      118 |     const k = z.split('\n      - ').find((s) => s.startsWith('name: ImageMagick')) ?? '';
+      119 |     expect(k).toMatch(/command -v convert >\/dev\/null && command -v identify >\/dev\/null/);
+      120 |     expect(k).toMatch(/::error::/);
+
+      at toMatch (tests/zrzuty-sklepu-workflow.test.ts:117:15)
+
+  ● zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376) › ramki: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /\n {4}runs-on: ubuntu-22\.04\n/
+    Received string:  "    name: podpisy i ramki (jak Trening, D-363)
+        # KO-033 (właściciel 2026-11-10: „Ma byc jak w treningu”): podpis u góry (nagłówek z metadanych), oznaczenie Pro na ekranach płatnych (D-364),
+        # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
+        # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
+        # CJK z apt (fonts-noto-cjk). 0 zł, bez sekretów i bez zależności aplikacji.
+        needs: zbierz
+        if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 45
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-node@v4
+            with:
+              node-version: 22
+          - name: ImageMagick i czcionki CJK
+            # Jak w zadaniu komplet (KO-044, D-373); pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK
+            timeout-minutes: 8
+            run: |
+              set -euo pipefail
+              if command -v convert >/dev/null && command -v identify >/dev/null && [ -f /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc ]; then
+                echo \"ImageMagick i Noto Sans CJK z obrazu: $(convert -version | head -n 1)\"; exit 0
+              fi
+              APT_OPCJE=\"-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30\"
+              sudo apt-get $APT_OPCJE update -qq
+              sudo apt-get $APT_OPCJE install -y -qq imagemagick fonts-noto-cjk >/dev/null
+          - name: Kroje Bold (instancje plików zmiennych)
+            run: |
+              set -euo pipefail
+              python3 -m venv \"$RUNNER_TEMP/ft\"
+              \"$RUNNER_TEMP/ft/bin/pip\" install --quiet --disable-pip-version-check fonttools==4.68.0
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700 -o \"$RUNNER_TEMP/Sofia-Bold.ttf\" -q
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100 -o \"$RUNNER_TEMP/Noto-Bold.ttf\" -q
+              { echo \"FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf\"; echo \"FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf\"; echo \"FONT_CJK=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc\"; } >> \"$GITHUB_ENV\"
+          - uses: actions/download-artifact@v4
+            with:
+              name: sklep-zrzuty
+              path: sklep-zrzuty
+          - name: Podpisy i ramki
+            run: bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki | tee -a \"$GITHUB_STEP_SUMMARY\"
+          - name: Kontrola (wymiar jak zrzut, bez alfy, każdy zrzut ma ramkę)
+            run: |
+              set -uo pipefail
+              bledy=0
+              while IFS= read -r f; do
+                rel=\"${f#sklep-zrzuty/}\"; r=\"sklep-ramki/$rel\"
+                [ -f \"$r\" ] || { echo \"::error::brak ramki $rel\"; bledy=$((bledy + 1)); continue; }
+                [ \"$(identify -format '%wx%h' \"$f\")\" = \"$(identify -format '%wx%h' \"$r\")\" ] || { echo \"::error::$rel: inny wymiar ramki\"; bledy=$((bledy + 1)); }
+                case \"$(identify -format '%[channels]' \"$r\")\" in *a) echo \"::error::$rel: kanał alfa\"; bledy=$((bledy + 1)) ;; esac
+              done < <(find sklep-zrzuty -path '*/iphone-*/*.png' | sort)
+              echo \"Ramki: $(find sklep-ramki -name '*.png' | wc -l | tr -d ' '), błędy: $bledy\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              [ \"$bledy\" -eq 0 ]
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: sklep-ramki
+              path: sklep-ramki
+              retention-days: 14
+              if-no-files-found: ignore
+    "
+
+      115 |   it.each(['zbierz', 'ramki'])('%s: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja', (id) => {
+      116 |     const z = zadanie(id);
+    > 117 |     expect(z).toMatch(/\n {4}runs-on: ubuntu-22\.04\n/);
+          |               ^
+      118 |     const k = z.split('\n      - ').find((s) => s.startsWith('name: ImageMagick')) ?? '';
+      119 |     expect(k).toMatch(/command -v convert >\/dev\/null && command -v identify >\/dev\/null/);
+      120 |     expect(k).toMatch(/::error::/);
+
+      at toMatch (tests/zrzuty-sklepu-workflow.test.ts:117:15)
+
+  ● zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376) › ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/OTC/NotoSansCJK-Bold.ttc"
+    Received string:    ""
+
+      123 |   it('ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK', () => {
+      124 |     const k = krok('Krój CJK (Noto Sans CJK Bold, wydanie Sans2.004)');
+    > 125 |     expect(k).toContain('https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/OTC/NotoSansCJK-Bold.ttc');
+          |               ^
+      126 |     expect(k).toContain('faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb');
+      127 |     expect(k).toMatch(/sha256sum -c/);
+      128 |     const fontCjk = /echo "FONT_CJK=([^"]+)"/.exec(wf)?.[1];
+
+      at Object.toContain (tests/zrzuty-sklepu-workflow.test.ts:125:15)
+
+  ● zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376) › ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /uses: actions\/setup-python@v5\n {8}with:\n {10}python-version: '3\.12'\n/
+    Received string:  "    name: podpisy i ramki (jak Trening, D-363)
+        # KO-033 (właściciel 2026-11-10: „Ma byc jak w treningu”): podpis u góry (nagłówek z metadanych), oznaczenie Pro na ekranach płatnych (D-364),
+        # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
+        # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
+        # CJK z apt (fonts-noto-cjk). 0 zł, bez sekretów i bez zależności aplikacji.
+        needs: zbierz
+        if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 45
+        steps:
+          - uses: actions/checkout@v4
+            with:
+              persist-credentials: false
+          - uses: actions/setup-node@v4
+            with:
+              node-version: 22
+          - name: ImageMagick i czcionki CJK
+            # Jak w zadaniu komplet (KO-044, D-373); pominięcie apt także wymaga kroju CJK pod ścieżką FONT_CJK
+            timeout-minutes: 8
+            run: |
+              set -euo pipefail
+              if command -v convert >/dev/null && command -v identify >/dev/null && [ -f /usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc ]; then
+                echo \"ImageMagick i Noto Sans CJK z obrazu: $(convert -version | head -n 1)\"; exit 0
+              fi
+              APT_OPCJE=\"-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30\"
+              sudo apt-get $APT_OPCJE update -qq
+              sudo apt-get $APT_OPCJE install -y -qq imagemagick fonts-noto-cjk >/dev/null
+          - name: Kroje Bold (instancje plików zmiennych)
+            run: |
+              set -euo pipefail
+              python3 -m venv \"$RUNNER_TEMP/ft\"
+              \"$RUNNER_TEMP/ft/bin/pip\" install --quiet --disable-pip-version-check fonttools==4.68.0
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer assets/fonts/SofiaSansSemiCondensed-wght.ttf wght=700 -o \"$RUNNER_TEMP/Sofia-Bold.ttf\" -q
+              \"$RUNNER_TEMP/ft/bin/fonttools\" varLib.instancer docs/design/fonty/NotoSans-wdth-wght.ttf wght=700 wdth=100 -o \"$RUNNER_TEMP/Noto-Bold.ttf\" -q
+              { echo \"FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf\"; echo \"FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf\"; echo \"FONT_CJK=/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc\"; } >> \"$GITHUB_ENV\"
+          - uses: actions/download-artifact@v4
+            with:
+              name: sklep-zrzuty
+              path: sklep-zrzuty
+          - name: Podpisy i ramki
+            run: bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki | tee -a \"$GITHUB_STEP_SUMMARY\"
+          - name: Kontrola (wymiar jak zrzut, bez alfy, każdy zrzut ma ramkę)
+            run: |
+              set -uo pipefail
+              bledy=0
+              while IFS= read -r f; do
+                rel=\"${f#sklep-zrzuty/}\"; r=\"sklep-ramki/$rel\"
+                [ -f \"$r\" ] || { echo \"::error::brak ramki $rel\"; bledy=$((bledy + 1)); continue; }
+                [ \"$(identify -format '%wx%h' \"$f\")\" = \"$(identify -format '%wx%h' \"$r\")\" ] || { echo \"::error::$rel: inny wymiar ramki\"; bledy=$((bledy + 1)); }
+                case \"$(identify -format '%[channels]' \"$r\")\" in *a) echo \"::error::$rel: kanał alfa\"; bledy=$((bledy + 1)) ;; esac
+              done < <(find sklep-zrzuty -path '*/iphone-*/*.png' | sort)
+              echo \"Ramki: $(find sklep-ramki -name '*.png' | wc -l | tr -d ' '), błędy: $bledy\" | tee -a \"$GITHUB_STEP_SUMMARY\"
+              [ \"$bledy\" -eq 0 ]
+          - uses: actions/upload-artifact@v4
+            if: always()
+            with:
+              name: sklep-ramki
+              path: sklep-ramki
+              retention-days: 14
+              if-no-files-found: ignore
+    "
+
+      131 |   it('ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)', () => {
+      132 |     const z = zadanie('ramki');
+    > 133 |     expect(z).toMatch(/uses: actions\/setup-python@v5\n {8}with:\n {10}python-version: '3\.12'\n/);
+          |               ^
+      134 |     expect(z.indexOf('actions/setup-python@')).toBeLessThan(z.indexOf('fonttools=='));
+      135 |   });
+      136 | });
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:133:15)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 35 skipped, 40 total
+Snapshots:   0 total
+Time:        1.279 s, estimated 2 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i with tests matching "KO-045".
