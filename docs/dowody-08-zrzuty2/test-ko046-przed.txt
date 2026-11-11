@@ -1,0 +1,86 @@
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  zrzuty-sklepu.yml: bezpieczeństwo (KO-025)
+    ○ skipped bez sekretów poza GITHUB_TOKEN (pobranie artefaktu), bez środowiska i bez wysyłki do App Store Connect
+    ○ skipped uprawnienia tylko do odczytu, checkout bez zapisanych poświadczeń
+    ○ skipped wyzwalacze: tylko gałęzie zrzuty-sklepu/** i workflow_dispatch (gałęzie napraw go nie uruchamiają)
+    ○ skipped wejścia i komunikat commita idą przez env, nigdy przez ${{ }} w run
+  zrzuty-sklepu.yml: build i Maestro
+    ○ skipped jeden build: Pro z EXPO_PUBLIC_E2E; bez buildu Basic i bez atrapy ofert (zrzut zakupu robi E2E, D-365)
+    ○ skipped Maestro przypięty: ta sama wersja co e2e-ios.yml i SHA-256 paczki, bez skryptu get.maestro.mobile.dev
+    ○ skipped symulator wybierany po dokładnej nazwie modelu z planu; brak = błąd
+  zrzuty-sklepu.yml: ImageMagick i kroje bez apt (KO-045, D-376)
+    ○ skipped workflow nie woła apt
+    ○ skipped zbierz: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja
+    ○ skipped ramki: ubuntu-22.04 (ImageMagick 6 w obrazie), brak narzędzi = głośny błąd, nie instalacja
+    ○ skipped ramki: krój CJK z wydania Noto Sans 2.004 z przypiętym SHA-256 pod ścieżką FONT_CJK
+    ○ skipped ramki: Python 3.12 z setup-python przed fonttools (fonttools 4.68.0 wymaga Pythona >= 3.11, obraz 22.04 ma 3.10)
+  sceny Maestro .maestro/zrzuty-sklepu
+    ✕ ramka 04: przewinięcie do „Kopiuj jako tekst” (koniec karty diagnozy), bez centerElement (KO-046, D-377) (3 ms)
+    ○ skipped jedna scena na każdą z 7 ramek README (nazwy plików jak w obecnym zestawie) plus przygotowanie i zgoda (zakup: E2E, D-365)
+    ○ skipped skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7
+    ○ skipped 00-przygotuj.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 00-zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 01-plan.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 02-receptura.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 03-prowadzenie-ciemny.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 04-doktor.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 05-zakwasy.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 06-dziennik.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped 07-offline.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/okno-systemu.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/start.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped sub/zgoda.yaml: appId aplikacji i id elementów istnieją w kodzie
+    ○ skipped dane fikcyjne: przygotowanie czyści stan i nie wpisuje tekstu; sceny ramek nie czyszczą danych
+    ○ skipped okno zgody systemu: raz na zadanie w en-US przed lokalizacjami, bez ponownej instalacji Pro w pętli; obsłużone po pierwszym dokarmieniu
+    ○ skipped sceny nie czekają na elementy karty cyklu zakwasu (pod kartą zakładania, poza ekranem); po dokarmieniu: start zakładania znika, pas zakwasu widoczny
+    ○ skipped po przewinięciu w dół do pierwszego dokarmienia pas zakwasu jest szukany przewijaniem w górę z limitem czasu, nie samym czekaniem (D-374)
+    ○ skipped przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+    ○ skipped bez ekranu zakupu w zrzutach sklepu (D-365): ani scen, ani katalogów review/ i bez-oferty/; plik daje E2E z atrapą ofert
+  plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs
+    ○ skipped pusty filtr = wszystkie lokalizacje z docs/wydanie/metadane (każda ma język symulatora, inaczej błąd)
+    ○ skipped tylko=pl: dwa zadania (6,9″ i 6,3″)
+    ○ skipped plan bez pola zakupu (D-365)
+    ○ skipped złe wejście --tylko xx: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --tylko pl;rm -rf: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --rozmiary 5.5: kod 1 i ::error::, nie cichy wybór
+    ○ skipped złe wejście --na-zadanie 0: kod 1 i ::error::, nie cichy wybór
+    ○ skipped wymiary klas zgodne z tabelą README (podpisy.json) i sprawdzane w zadaniu zbierz
+
+  ● sceny Maestro .maestro/zrzuty-sklepu › ramka 04: przewinięcie do „Kopiuj jako tekst” (koniec karty diagnozy), bez centerElement (KO-046, D-377)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /centerElement/
+    Received string:      "appId: com.apps4brew.baker
+    ---
+    - runFlow: sub/start.yaml
+    - tapOn:
+        id: \"tab-dziennik\"
+    - tapOn:
+        id: \"dziennik-doktor-btn\"
+    - scrollUntilVisible:
+        element:
+          id: \"objaw-crumbHasHugeTopHolesWithDenseBottom\"
+    - tapOn:
+        id: \"objaw-crumbHasHugeTopHolesWithDenseBottom\"
+    - scrollUntilVisible:
+        element:
+          id: \"karta-diagnoza-naglowek\"
+        centerElement: true
+    "
+
+      213 |     const r04 = readFileSync(join(scenyDir, '04-doktor.yaml'), 'utf8').replace(/\r\n/g, '\n');
+      214 |     const kroki04 = r04.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
+    > 215 |     expect(kroki04).not.toMatch(/centerElement/);
+          |                         ^
+      216 |     expect(kroki04).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "copy-diagnosis-btn"\n?$/);
+      217 |     expect(read('src/components/doktor/DiagnosisResultCard.tsx')).toContain('testID="copy-diagnosis-btn"');
+      218 |   });
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:215:25)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 40 skipped, 41 total
+Snapshots:   0 total
+Time:        3.856 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts/i with tests matching "KO-046".

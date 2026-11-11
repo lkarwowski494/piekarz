@@ -206,6 +206,17 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     }
   });
 
+  // KO-046 (właściciel, 2026-11-11), D-377: nagłówka diagnozy nie da się wyśrodkować (koniec listy Doktora), a Maestro 2.11
+  // przyjmuje samą widoczność dopiero po 5 próbach centrowania (~4–5 s każda) — dłużej niż limit 20 s. Ramka 04 = cała karta
+  // diagnozy: przewinięcie do ostatniego elementu karty, bez centerElement.
+  it('ramka 04: przewinięcie do „Kopiuj jako tekst” (koniec karty diagnozy), bez centerElement (KO-046, D-377)', () => {
+    const r04 = readFileSync(join(scenyDir, '04-doktor.yaml'), 'utf8').replace(/\r\n/g, '\n');
+    const kroki04 = r04.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
+    expect(kroki04).not.toMatch(/centerElement/);
+    expect(kroki04).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "copy-diagnosis-btn"\n?$/);
+    expect(read('src/components/doktor/DiagnosisResultCard.tsx')).toContain('testID="copy-diagnosis-btn"');
+  });
+
   // KO-043 (właściciel, 2026-11-11): ramka 05 = zakwas po zakładaniu. „Podwoił objętość” w 0–8 h po dokarmieniu kończy
   // zakładanie (isReadyAfterFeeding, setupCompletedAt), po restarcie karta cyklu z „Gotowy do ciasta.” (D-372).
   it('przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)', () => {

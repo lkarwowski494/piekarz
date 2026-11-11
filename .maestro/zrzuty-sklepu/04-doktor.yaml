@@ -1,4 +1,5 @@
-# Ramka 04 „Doktor Chleba”: objaw „Jaskinie” i wynik diagnozy w środku kadru.
+# Ramka 04 „Doktor Chleba”: po wyborze objawu „Jaskinie” cała karta diagnozy (nazwa wady, przyczyna, co zrobić).
+# KO-046, D-377: nagłówka nie da się wyśrodkować (karta kończy listę), więc przewinięcie do ostatniego elementu karty, bez centerElement.
 appId: com.apps4brew.baker
 ---
 - runFlow: sub/start.yaml
@@ -11,8 +12,6 @@ appId: com.apps4brew.baker
       id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
 - tapOn:
     id: "objaw-crumbHasHugeTopHolesWithDenseBottom"
-# NaglowekKarty renderuje `karta-diagnoza-naglowek`, nie samo `karta-diagnoza` (zrzuty #2, D-375)
 - scrollUntilVisible:
     element:
-      id: "karta-diagnoza-naglowek"
-    centerElement: true
+      id: "copy-diagnosis-btn"
