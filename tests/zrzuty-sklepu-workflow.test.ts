@@ -143,11 +143,13 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     expect(nazwy.sort()).toEqual(['00-przygotuj', '00-zgoda', ...ramki].sort());
   });
 
-  it('skrypt robi wszystkie 7 ramek, scenę ciemną 03 na końcu, a zbierz sprawdza komplet tych samych 7', () => {
+  // KO-051 (D-383): 07 po 03 — „Dziś” z wypiekiem zostawionym przez 03 zamiast pustego stanu; 07 w trybie jasnym.
+  it('skrypt robi wszystkie 7 ramek, scenę ciemną 03 przed 07 (ostatnią, jasną), a zbierz sprawdza komplet tych samych 7', () => {
     const lista = /^SCENY="([^"]+)"/m.exec(skrypt)?.[1].split(' ') ?? [];
     expect([...lista].sort()).toEqual([...ramki].sort());
-    expect(lista[lista.length - 1]).toBe('03-prowadzenie-ciemny');
+    expect(lista.slice(-2)).toEqual(['03-prowadzenie-ciemny', '07-offline']);
     expect(skrypt).toMatch(/03-prowadzenie-ciemny \] && xcrun simctl ui "\$UDID" appearance dark/);
+    expect(skrypt).toMatch(/07-offline \] && xcrun simctl ui "\$UDID" appearance light/);
     const komplet = /for n in ([^;]+); do/.exec(wf.split('zbierz:')[1])?.[1].split(' ') ?? [];
     expect([...komplet].sort()).toEqual([...ramki].sort());
   });

@@ -3,7 +3,7 @@
 # Dla każdej lokalizacji: język i region symulatora (defaults + restart, jak e2e-ios.yml), pasek stanu 9:41, tryb jasny,
 # 00-przygotuj.yaml (dane FIKCYJNE: zakwas i jeden zakończony wypiek), potem sceny 01…07 — każda to osobny scenariusz Maestro
 # (restart na tych samych danych + nawigacja), po nim `xcrun simctl io screenshot` (natywne piksele, bez ramki Maestro).
-# Scena 03 w trybie ciemnym (jak obecna ramka) i ostatnia, bo zostawia trwający wypiek. Nieudana scena: jedno ponowienie;
+# Scena 03 w trybie ciemnym (jak obecna ramka) i przedostatnia, bo zostawia trwający wypiek; 07 po niej, jasna (D-383). Nieudana scena: jedno ponowienie;
 # po drugiej porażce wpis w `nieudane-<część>.txt`, reszta idzie dalej, kod wyjścia 1.
 # Zgoda na powiadomienia raz na zadanie w en-US (00-zgoda.yaml), potem lokalizacje bez ponownej instalacji aplikacji.
 # Ekranu zakupu tu nie ma (D-365): bez StoreKit symulator nie dawał cen (`bez-oferty/`, D-353); zrzut zakupu robi E2E z atrapą
@@ -16,8 +16,9 @@ UDID="$1"; KLASA="$2"; OUT="$3"; LOGI="$4"; APP_PRO="$5"; JEZYKI="$6"
 CZESC="${CZESC:-$KLASA}"
 FLOWS="$(cd "$(dirname "$0")/../.." && pwd)/.maestro/zrzuty-sklepu"
 BUNDLE_ID="com.apps4brew.baker"
-# Kolejność: 03 ostatnia (zostawia trwający wypiek); pozostałe nie zmieniają danych.
-SCENY="07-offline 02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny"
+# Kolejność: 03 zostawia trwający wypiek, więc idzie po scenach, które go nie chcą; 07 po 03 pokazuje „Dziś” z tym wypiekiem
+# zamiast pustego stanu (KO-051, D-383). Pozostałe nie zmieniają danych.
+SCENY="02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny 07-offline"
 # --- wybór scen (KO-047, D-380): plan podaje sceny w kolejności SCENY; tu tylko obrona przed nazwą spoza listy
 if [ -n "${ZRZUTY_SCENY:-}" ]; then
   for s in $ZRZUTY_SCENY; do
@@ -94,6 +95,7 @@ for wpis in $JEZYKI; do
   fi
   for s in $SCENY; do
     [ "$s" = 03-prowadzenie-ciemny ] && xcrun simctl ui "$UDID" appearance dark >/dev/null 2>&1
+    [ "$s" = 07-offline ] && xcrun simctl ui "$UDID" appearance light >/dev/null 2>&1
     scena "$KOD" "$s" "$OUT/$KOD/$KLASA/$s.png"
   done
   xcrun simctl ui "$UDID" appearance light >/dev/null 2>&1 || true

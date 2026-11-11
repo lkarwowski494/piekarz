@@ -26,6 +26,7 @@ export const DOZWOLONE: Record<string, string> = {
   'tab-zakwasy': 'pasek kart, stały element (6,3″: y 791–840)',
   'tab-receptury': 'pasek kart, stały element (6,3″: y 791–840)',
   'tab-dziennik': 'pasek kart, stały element (6,3″: y 791–840)',
+  'tab-dzis': 'pasek kart, stały element (ten sam pasek co tab-zakwasy, tab-receptury, tab-dziennik; KO-051, D-383)',
   'recipe-row-country_loaf_72': 'pierwszy wiersz listy receptur (6,3″: y 283–367)',
   'start-bake-btn': 'ekran receptury po wejściu, nad paskiem (6,3″: y 644–708)',
   'bake-plan-btn': 'nagłówek ekranu (6,3″: y 66–110)',

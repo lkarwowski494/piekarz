@@ -2153,3 +2153,12 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dowody:** `docs/dowody-08-zrzuty4/test-05-przed.txt` (2 czerwone: `centerElement` i brak asercji widoczności — test wyraża kadr przez kroki sceny, piksele pasa sprawdzi dopiero przebieg), `test-05-po.txt` (70/70 testów scen zrzutów).
 - **Otwarte:** czy pas mieści się w kadrze razem z „Gotowy do ciasta.” na 6,3″ i 6,9″ [DO USTALENIA, przebieg zrzutów, scena 05].
 - **Status:** wybór — koordynator (KO-052, tryb nocny właściciela); wykonanie — sesja R, do weta.
+
+### [D-383] 2026-11-11 — Ramka 07: „Dziś” z trwającym wypiekiem; scena 07 po 03 (M2, sesja R; KO-051 C1)
+- **Powód (zrzuty #4):** ramka 07 pokazywała pusty stan „Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.” obok kalendarza ze znacznikami i wiersza „Następne: … karmienie zakwasu” — wygląda na pustą, sprzeczną aplikację.
+- **Decyzja (koordynator w trybie „analogia”, KO-051: C1, do weta):** `scripts/ci/zrzuty-sklepu.sh` — `SCENY` kończy się `03-prowadzenie-ciemny 07-offline`; 03 zostawia trwający wypiek, 07 (tryb jasny ustawiany przed sceną) pokazuje „Dziś” z jego spiralą. `07-offline.yaml`: `tapOn tab-dzis`, a gdy wypieku nie ma (wybór samej sceny 07, D-380) — warunkowy start wypieku tymi samymi krokami co 03; koniec na `start-trwa-wypiek`. `tab-dzis` dopisany do `DOZWOLONE` (D-379; ten sam pasek kart co pozostałe zakładki).
+- **Zmieniony test cudzy (jak D-380):** `tests/zrzuty-sklepu-workflow.test.ts`, „skrypt robi wszystkie 7 ramek…” — wymagał 03 na końcu; teraz 03 przedostatnia, 07 ostatnia i tryb jasny przed 07. Powód: KO-051. Nowy przypadek 07 w `tests/zrzuty-sklepu-kadry.test.ts`.
+- **Odrzucone:** C2 — zmiana pustego stanu w aplikacji (rola 04, tekst w 35 językach) — zapisane jako znalezisko w `docs/stan-08-zrzuty4-2026-11-11.md`, nie wdrażane; 07 z własnym startem wypieku przed 03 (dwa trwające wypieki w 03).
+- **Dowody:** `docs/dowody-08-zrzuty4/test-07-przed.txt` (2 czerwone), `test-07-po.txt` (252/252 testów zrzutów).
+- **Otwarte:** czy spirala wypieku i „Wróć do wypieku” mieszczą się w kadrze 6,3″ pod kaflami [DO USTALENIA, przebieg]; czy start po 03 nie otwiera od razu prowadzenia (scena stuka `tab-dzis`, więc pasek kart musi być widoczny) [DO USTALENIA, przebieg].
+- **Status:** wybór — koordynator (KO-051); wykonanie — sesja R, do weta.

@@ -1,10 +1,40 @@
-# Ramka 07 „Bez konta, reklam i internetu” (KO-040): ekran Dziś z „Co dziś robisz?”.
+# Ramka 07 „Bez konta, reklam i internetu” (KO-040): ekran „Dziś”.
+# KO-051 (D-383): zrzuty #4 pokazały pusty stan („Tu pojawi się plan…”) mimo zakwasu z karmieniami — scena idzie po 03
+# (scripts/ci/zrzuty-sklepu.sh) i pokazuje „Dziś” z wypiekiem, który 03 zostawia. Przy wyborze samej sceny 07 (D-380)
+# wypieku nie ma, więc scena zaczyna go sama (te same kroki co 03).
 appId: com.apps4brew.baker
 ---
 - runFlow: sub/start.yaml
+- tapOn:
+    id: "tab-dzis"
 - extendedWaitUntil:
     visible:
       id: "start-czynnosci"
     timeout: 15000
-- assertVisible:
-    id: "start-zakladam-zakwas"
+- runFlow:
+    when:
+      notVisible:
+        id: "start-trwa-wypiek"
+    commands:
+      - tapOn:
+          id: "tab-receptury"
+      - tapOn:
+          id: "recipe-row-country_loaf_72"
+      - tapOn:
+          id: "start-bake-btn"
+      - scrollUntilVisible:
+          element:
+            id: "plan-start-bake-btn"
+      - tapOn:
+          id: "plan-start-bake-btn"
+      - runFlow: sub/zgoda.yaml
+      - extendedWaitUntil:
+          visible:
+            id: "next-or-finish-step-btn"
+          timeout: 15000
+      - tapOn:
+          id: "tab-dzis"
+- extendedWaitUntil:
+    visible:
+      id: "start-trwa-wypiek"
+    timeout: 15000

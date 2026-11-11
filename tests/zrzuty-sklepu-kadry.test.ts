@@ -50,4 +50,17 @@ describe('kadry scen zrzutów sklepu (KO-048 P2 c)', () => {
     const ostatni = k.at(-1);
     expect(obiekt(ostatni?.assertVisible) && ostatni.assertVisible.id).toBe('zakwas-gotowy');
   });
+
+  it('07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051)', () => {
+    const k = kroki('07-offline');
+    const tekst = JSON.stringify(k);
+    expect(tekst).not.toContain('start-zakladam-zakwas');
+    const warunek = k.find((c) => obiekt(c.runFlow) && obiekt(c.runFlow.when) && obiekt(c.runFlow.when.notVisible));
+    expect(warunek && obiekt(warunek.runFlow) && obiekt(warunek.runFlow.when) && obiekt(warunek.runFlow.when.notVisible)
+      ? warunek.runFlow.when.notVisible.id : undefined).toBe('start-trwa-wypiek');
+    expect(JSON.stringify(warunek)).toContain('plan-start-bake-btn');
+    const ostatni = k.at(-1);
+    expect(obiekt(ostatni?.extendedWaitUntil) && obiekt(ostatni.extendedWaitUntil.visible) && ostatni.extendedWaitUntil.visible.id)
+      .toBe('start-trwa-wypiek');
+  });
 });
