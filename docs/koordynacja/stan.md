@@ -240,3 +240,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 ~08:3x | M9 | KO-037: właściciel — jeden klucz ASC (P6 zamknięte, bez zmian w repo) | test telefonu; zgody |
 | 11.11 08:37 | M9 | KO-038: `master` FF `c2c5e206`→`2ce594e9` (ls-remote; E2E #109 zielone na tym SHA). Push uruchamia ci, e2e-ios, tests-tz (informacyjnie); testflight.yml tylko na tagi v* — build nie startuje | wyniki CI na master; zgody na zrzuty |
 | 11.11 09:51 | M9 | master @ `2ce594e9`: CI #280 run 42988557499 zielone, tests-tz #240 run 42988557368 zielone (08:44); E2E #110 run 42988557524 w toku | kontrola 10:35 |
+| 11.11 10:36 | M9 | E2E #110 run 42988557524 zielone na master @ `2ce594e9` (09:57, wszystkie kroki success, w tym zrzut zakupu). master w pełni zielony (CI, tests-tz, E2E). Nic nie biegnie; bez kontroli do zgody właściciela | linia 14:00 |
