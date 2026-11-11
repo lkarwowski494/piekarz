@@ -6,7 +6,8 @@
 # Bez sekretów App Store Connect i bez środowiska `release`; niczego nie wysyła (wysyłka zrzutów to osobny skrypt wydania, za zgodą właściciela).
 # Wyzwalacze: workflow_dispatch (działa, gdy plik jest na gałęzi domyślnej) albo push na gałąź `zrzuty-sklepu/**`
 # (gałąź tworzy koordynator za zgodą; zwykłe gałęzie napraw tego workflowu nie uruchamiają). Przy push wejścia z PIERWSZEJ linii
-# komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [zrzuty-app:<ID przebiegu>]; brak = wszystkie lokalizacje i oba rozmiary.
+# komunikatu commita: [tylko=pl,en-US] [rozmiary=6.9] [sceny=04] [zrzuty-app:<ID przebiegu>]; brak = wszystkie lokalizacje, oba rozmiary
+# i 7 scen. Niepełny wybór scen (KO-047, D-380) daje artefakty `sklep-zrzuty-czesciowe` i `sklep-ramki-czesciowe` — nie komplet do wysyłki.
 name: Zrzuty sklepu
 
 on:
@@ -21,6 +22,11 @@ on:
         default: ''
       rozmiary:
         description: 'Klasy iPhone: 6.9, 6.3 albo 6.9,6.3; puste = obie'
+        required: false
+        type: string
+        default: ''
+      sceny:
+        description: 'Sceny rozdzielone przecinkami (pełna nazwa albo numer, np. 04 albo 04,05); puste = wszystkie 7. Niepełny wybór = artefakty -czesciowe, nie komplet'
         required: false
         type: string
         default: ''
@@ -45,6 +51,8 @@ jobs:
     outputs:
       matrix: ${{ steps.plan.outputs.matrix }}
       app_przebieg: ${{ steps.plan.outputs.app_przebieg }}
+      sceny: ${{ steps.plan.outputs.sceny }}
+      przyrostek: ${{ steps.plan.outputs.przyrostek }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -60,21 +68,25 @@ jobs:
           WE_TYLKO: ${{ inputs.tylko }}
           WE_ROZMIARY: ${{ inputs.rozmiary }}
           WE_APP: ${{ inputs.aplikacja_z_przebiegu }}
+          WE_SCENY: ${{ inputs.sceny }}
         run: |
           set -euo pipefail
           if [ "$ZDARZENIE" = workflow_dispatch ]; then
-            tylko="$WE_TYLKO"; rozmiary="$WE_ROZMIARY"; app="$WE_APP"
+            tylko="$WE_TYLKO"; rozmiary="$WE_ROZMIARY"; app="$WE_APP"; sceny="$WE_SCENY"
           else
             # znaczniki tylko z pierwszej linii: treść commitu może je opisywać (Oczko, przebieg 1)
             linia=$(printf '%s\n' "$KOMUNIKAT" | head -1)
             tylko=$(printf '%s' "$linia" | sed -n 's/.*\[tylko=\([A-Za-z0-9,.-]*\)\].*/\1/p' | head -1)
             rozmiary=$(printf '%s' "$linia" | sed -n 's/.*\[rozmiary=\([0-9,.]*\)\].*/\1/p' | head -1)
             app=$(printf '%s' "$linia" | sed -n 's/.*\[zrzuty-app:\([0-9][0-9]*\)\].*/\1/p' | head -1)
+            sceny=$(printf '%s' "$linia" | sed -n 's/.*\[sceny=\([a-z0-9,-]*\)\].*/\1/p' | head -1)
           fi
           case "$app" in ''|*[!0-9]*) [ -z "$app" ] || { echo "::error::aplikacja_z_przebiegu: tylko cyfry"; exit 1; } ;; esac
-          wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko "$tylko" --rozmiary "$rozmiary" --na-zadanie 3)
+          wynik=$(node scripts/ci/zrzuty-sklepu-plan.mjs --tylko "$tylko" --rozmiary "$rozmiary" --sceny "$sceny" --na-zadanie 3)
           matrix=$(printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));process.stdout.write(JSON.stringify(w.matrix))')
-          { echo "matrix=$matrix"; echo "app_przebieg=$app"; } >> "$GITHUB_OUTPUT"
+          pole() { printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));const v=w[process.argv[1]];process.stdout.write(Array.isArray(v)?v.join(" "):String(v))' "$1"; }
+          { echo "matrix=$matrix"; echo "app_przebieg=$app"; echo "sceny=$(pole sceny)"; echo "przyrostek=$(pole przyrostek)"; } >> "$GITHUB_OUTPUT"
+          echo "Sceny: $(pole sceny)$( [ "$(pole komplet)" = true ] || echo ' — NIEPEŁNY ZESTAW, artefakty -czesciowe')" | tee -a "$GITHUB_STEP_SUMMARY"
           printf '%s' "$wynik" | node -e 'const w=JSON.parse(require("fs").readFileSync(0,"utf8"));console.log(`Lokalizacje (${w.jezyki.length}): ${w.jezyki.join(", ")}; rozmiary: ${w.rozmiary.join(", ")}; zadania macOS: ${w.matrix.include.length}`)' | tee -a "$GITHUB_STEP_SUMMARY"
           echo "Aplikacja z przebiegu: ${app:-(budowa)}" | tee -a "$GITHUB_STEP_SUMMARY"
 
@@ -203,6 +215,7 @@ jobs:
           KLASA: ${{ matrix.katalog }}
           JEZYKI: ${{ matrix.jezyki }}
           CZESC: ${{ matrix.czesc }}
+          ZRZUTY_SCENY: ${{ needs.plan.outputs.sceny }}
         run: |
           APP_PRO=$(ls -d aplikacje/pro/*.app | head -n 1)
           bash scripts/ci/zrzuty-sklepu.sh "$UDID" "$KLASA" zrzuty-surowe dzienniki "$APP_PRO" "$JEZYKI"
@@ -247,8 +260,10 @@ jobs:
       - name: Alpha off, dimensions and completeness
         env:
           MATRIX: ${{ needs.plan.outputs.matrix }}
+          SCENY_PLAN: ${{ needs.plan.outputs.sceny }}
         run: |
           set -uo pipefail
+          [ -n "$SCENY_PLAN" ] || { echo "::error::plan nie podał listy scen (pusta = komplet niesprawdzalny)"; exit 1; }
           mkdir -p sklep-zrzuty; bledy=0
           { echo "### Zrzuty sklepu (surowe, bez pasa podpisu)"; echo "| plik | wymiar | kanały | bajty |"; echo "|---|---|---|---|"; } >> "$GITHUB_STEP_SUMMARY"
           while IFS= read -r f; do
@@ -263,9 +278,10 @@ jobs:
               *) echo "::error::$rel: nieznany katalog"; bledy=$((bledy + 1)) ;;
             esac
           done < <(find surowe -name '*.png' | sort)
-          # Komplet: 7 ramek na lokalizację i klasę z planu
+          # Komplet: 7 ramek na lokalizację i klasę z planu; przy wyborze scen (D-380) tylko wybrane, a artefakt ma przyrostek -czesciowe
           while IFS=' ' read -r klasa kod; do
             for n in 01-plan 02-receptura 03-prowadzenie-ciemny 04-doktor 05-zakwasy 06-dziennik 07-offline; do
+              case " $SCENY_PLAN " in *" $n "*) ;; *) continue ;; esac
               [ -f "sklep-zrzuty/$kod/$klasa/$n.png" ] || { echo "::error::brak $kod/$klasa/$n.png"; bledy=$((bledy + 1)); }
             done
           done < <(printf '%s' "$MATRIX" | node -e 'const m=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const c of m.include)for(const j of c.jezyki.split(" "))console.log(c.katalog+" "+j.split(":")[0])')
@@ -274,7 +290,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: sklep-zrzuty
+          name: sklep-zrzuty${{ needs.plan.outputs.przyrostek }}
           path: sklep-zrzuty
           retention-days: 14
           if-no-files-found: ignore
@@ -285,7 +301,7 @@ jobs:
     # zrzut 78% z obwódką, kolory motywu zrzutu, ten sam rozmiar obrazu; bez obudów Apple. Wzór: trening store-screenshots.yml, zadanie „ramki”.
     # Kroje: Sofia Sans Semi Condensed (krój tytułów, assets/fonts) i Noto Sans (docs/design/fonty) jako instancje Bold (fonttools, przypięty),
     # CJK z wydania Noto Sans 2.004 (przypięty SHA-256; KO-045, D-376). 0 zł, bez sekretów i bez zależności aplikacji.
-    needs: zbierz
+    needs: [zbierz, plan]
     if: ${{ !cancelled() && needs.zbierz.result == 'success' }}
     runs-on: ubuntu-22.04
     timeout-minutes: 45
@@ -325,7 +341,7 @@ jobs:
           { echo "FONT_SOFIA=$RUNNER_TEMP/Sofia-Bold.ttf"; echo "FONT_NOTO=$RUNNER_TEMP/Noto-Bold.ttf"; echo "FONT_CJK=$RUNNER_TEMP/NotoSansCJK-Bold.ttc"; } >> "$GITHUB_ENV"
       - uses: actions/download-artifact@v4
         with:
-          name: sklep-zrzuty
+          name: sklep-zrzuty${{ needs.plan.outputs.przyrostek }}
           path: sklep-zrzuty
       - name: Podpisy i ramki
         run: bash scripts/ci/store-frames.sh sklep-zrzuty sklep-ramki | tee -a "$GITHUB_STEP_SUMMARY"
@@ -344,7 +360,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: sklep-ramki
+          name: sklep-ramki${{ needs.plan.outputs.przyrostek }}
           path: sklep-ramki
           retention-days: 14
           if-no-files-found: ignore

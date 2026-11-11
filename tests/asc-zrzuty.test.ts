@@ -183,6 +183,7 @@ describe('.github/workflows/asc-zrzuty.yml (D-366)', () => {
     expect(wf).toMatch(/\.github\/workflows\/zrzuty-sklepu\.yml push \$GITHUB_REPOSITORY" \]/);
     expect(wf.indexOf('actions/runs/$PRZEBIEG')).toBeLessThan(wf.indexOf('name: sklep-ramki'));
     for (const l of wf.split('\n').filter((x) => /^\s+run: /.test(x))) expect(l).not.toMatch(/\$\{\{\s*inputs\./);
-    expect(read('.github/workflows/zrzuty-sklepu.yml')).toMatch(/name: sklep-ramki\n {10}path: sklep-ramki\n {10}retention-days: 14/);
+    // D-380 (KO-047): pełny przebieg ma przyrostek pusty (`sklep-ramki`), wybór scen daje `sklep-ramki-czesciowe`, którego ten workflow nie pobierze
+    expect(read('.github/workflows/zrzuty-sklepu.yml')).toMatch(/name: sklep-ramki\$\{\{ needs\.plan\.outputs\.przyrostek \}\}\n {10}path: sklep-ramki\n {10}retention-days: 14/);
   });
 });

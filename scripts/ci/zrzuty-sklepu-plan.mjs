@@ -2,8 +2,10 @@
 // (lista z docs/wydanie/zrzuty/README.md: „Pozostałe … lokalizacje z docs/wydanie/metadane/”), dla każdej język i region symulatora,
 // podział na części (jedno zadanie macOS = rozmiar × część). Filtr `tylko` (np. `pl` albo `pl,en-US`); pusty = wszystkie.
 // Wyjście: JSON z `matrix` (include) dla strategii zadania `zrzuty`. W logu tylko kody lokalizacji (repo publiczne).
-//   node scripts/ci/zrzuty-sklepu-plan.mjs [--tylko pl,en-US] [--rozmiary 6.9,6.3] [--na-zadanie 4]
-import { readdirSync } from 'node:fs';
+// Filtr `sceny` (KO-047, D-380): pełne nazwy albo numery (np. `04` albo `04-doktor,05-zakwasy`); pusty = wszystkie 7 (komplet).
+// Niepełny zestaw dostaje `przyrostek` `-czesciowe` do nazw artefaktów, żeby asc-zrzuty.yml (artefakt `sklep-ramki`) go nie wysłał.
+//   node scripts/ci/zrzuty-sklepu-plan.mjs [--tylko pl,en-US] [--rozmiary 6.9,6.3] [--sceny 04] [--na-zadanie 4]
+import { readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -35,6 +37,22 @@ export function lokalizacjeSklepu(katalog = join(ROOT, 'docs', 'wydanie', 'metad
   return readdirSync(katalog).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)).sort();
 }
 
+/** Sceny ramek w kolejności wykonania z `scripts/ci/zrzuty-sklepu.sh` (jedno źródło; 03 ostatnia, bo zostawia trwający wypiek). */
+export function scenySkryptu(plik = join(ROOT, 'scripts', 'ci', 'zrzuty-sklepu.sh')) {
+  const m = /^SCENY="([^"]+)"/m.exec(readFileSync(plik, 'utf8'));
+  if (!m) throw new Error('brak SCENY="…" w scripts/ci/zrzuty-sklepu.sh');
+  return m[1].split(' ');
+}
+
+/** Lista scen (pełna nazwa albo numer NN) → sceny w kolejności skryptu albo { blad }. Pusta = wszystkie. */
+export function parsujSceny(tekst, kolejnosc = scenySkryptu()) {
+  const wpisy = String(tekst ?? '').split(',').map((x) => x.trim()).filter(Boolean);
+  if (wpisy.some((x) => !/^[0-9a-z-]{1,30}$/.test(x))) return { blad: 'sceny: dozwolone małe litery, cyfry i myślnik, rozdzielone przecinkami' };
+  const zle = wpisy.filter((x) => !kolejnosc.some((s) => s === x || s.slice(0, 2) === x));
+  if (zle.length) return { blad: `sceny: nieznane ${zle.join(', ')} (dozwolone: ${kolejnosc.join(', ')} albo ich numery)` };
+  return wpisy.length ? kolejnosc.filter((s) => wpisy.some((x) => s === x || s.slice(0, 2) === x)) : [...kolejnosc];
+}
+
 /** Lista kodów rozdzielona przecinkami → tablica albo { blad }. Pusta = wszystkie. */
 export function parsujListe(tekst, dozwolone, nazwa) {
   const kody = String(tekst ?? '').split(',').map((x) => x.trim()).filter(Boolean);
@@ -46,15 +64,18 @@ export function parsujListe(tekst, dozwolone, nazwa) {
 
 /**
  * Plan przebiegu: części po `naZadanie` lokalizacji dla każdego rozmiaru. Ekranu zakupu tu nie ma (D-365: E2E z atrapą ofert).
- * Zwraca { matrix, jezyki, rozmiary } albo { blad }.
+ * Zwraca { matrix, jezyki, rozmiary, sceny, komplet, przyrostek } albo { blad }.
  */
-export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = lokalizacjeSklepu() } = {}) {
+export function planuj({ tylko = '', rozmiary = '', sceny = '', naZadanie = 4, wszystkie = lokalizacjeSklepu() } = {}) {
   const bezMapy = wszystkie.filter((k) => !JEZYK_SYMULATORA[k]);
   if (bezMapy.length) return { blad: `lokalizacje bez języka symulatora (JEZYK_SYMULATORA): ${bezMapy.join(', ')}` };
   const jezyki = parsujListe(tylko, wszystkie, 'tylko');
   if ('blad' in jezyki) return jezyki;
   const rozm = parsujListe(rozmiary, Object.keys(ROZMIARY), 'rozmiary');
   if ('blad' in rozm) return rozm;
+  const wybrane = parsujSceny(sceny);
+  if ('blad' in wybrane) return wybrane;
+  const komplet = wybrane.length === scenySkryptu().length;
   const n = Number(naZadanie);
   if (!Number.isInteger(n) || n < 1 || n > 34) return { blad: 'na-zadanie: liczba całkowita 1–34' };
   const include = [];
@@ -70,7 +91,7 @@ export function planuj({ tylko = '', rozmiary = '', naZadanie = 4, wszystkie = l
       });
     }
   }
-  return { matrix: { include }, jezyki, rozmiary: rozm };
+  return { matrix: { include }, jezyki, rozmiary: rozm, sceny: wybrane, komplet, przyrostek: komplet ? '' : '-czesciowe' };
 }
 
 function arg(nazwa) {
@@ -79,7 +100,7 @@ function arg(nazwa) {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  const wynik = planuj({ tylko: arg('tylko') ?? '', rozmiary: arg('rozmiary') ?? '', naZadanie: arg('na-zadanie') ?? 4 });
+  const wynik = planuj({ tylko: arg('tylko') ?? '', rozmiary: arg('rozmiary') ?? '', sceny: arg('sceny') ?? '', naZadanie: arg('na-zadanie') ?? 4 });
   if ('blad' in wynik) {
     console.error(`::error::${wynik.blad}`);
     process.exit(1);

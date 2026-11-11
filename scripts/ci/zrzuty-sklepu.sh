@@ -10,7 +10,7 @@
 # ofert (.maestro/e2e-zakup, e2e-ios.yml; docs/wydanie/zrzut-zakupu.md).
 # W logu tylko kody lokalizacji, nazwy plików i liczby (repo publiczne). Bez sekretów.
 # Użycie: bash scripts/ci/zrzuty-sklepu.sh <UDID> <katalog klasy, np. iphone-6.9> <wyjście> <dzienniki> <app Pro> "<kod:AppleLanguages:AppleLocale> …"
-# Zmienne: CZESC (nazwa części do nazw plików dziennika).
+# Zmienne: CZESC (nazwa części do nazw plików dziennika), ZRZUTY_SCENY (podzbiór SCENY z planu, KO-047, D-380; puste = wszystkie).
 set -uo pipefail
 UDID="$1"; KLASA="$2"; OUT="$3"; LOGI="$4"; APP_PRO="$5"; JEZYKI="$6"
 CZESC="${CZESC:-$KLASA}"
@@ -18,6 +18,14 @@ FLOWS="$(cd "$(dirname "$0")/../.." && pwd)/.maestro/zrzuty-sklepu"
 BUNDLE_ID="com.apps4brew.baker"
 # Kolejność: 03 ostatnia (zostawia trwający wypiek); pozostałe nie zmieniają danych.
 SCENY="07-offline 02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny"
+# --- wybór scen (KO-047, D-380): plan podaje sceny w kolejności SCENY; tu tylko obrona przed nazwą spoza listy
+if [ -n "${ZRZUTY_SCENY:-}" ]; then
+  for s in $ZRZUTY_SCENY; do
+    case " $SCENY " in *" $s "*) ;; *) echo "::error::ZRZUTY_SCENY: nieznana scena $s"; exit 2 ;; esac
+  done
+  SCENY="$ZRZUTY_SCENY"
+fi
+
 mkdir -p "$OUT" "$LOGI"
 NIEUDANE="$LOGI/nieudane-$CZESC.txt"; : > "$NIEUDANE"
 

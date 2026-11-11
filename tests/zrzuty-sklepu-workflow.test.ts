@@ -298,3 +298,68 @@ describe('plan przebiegu scripts/ci/zrzuty-sklepu-plan.mjs', () => {
     }
   });
 });
+
+// KO-047 (właściciel, 2026-11-11), D-380: wejście `sceny` — przebieg wybranych scen (np. 04 na 6,3″) zamiast wszystkich 7.
+// Puste = wszystkie, jak dotąd. Niepełny zestaw nie udaje kompletu: artefakty z przyrostkiem `-czesciowe`, więc asc-zrzuty.yml
+// (pobiera `sklep-ramki`) nie dostanie go do wysyłki, a komplet sprawdza tylko wybrane sceny.
+describe('wybór scen: wejście `sceny` (KO-047, D-380)', () => {
+  type PlanSceny = Plan & { sceny: string[]; komplet: boolean; przyrostek: string };
+  const planS = (...a: string[]) => planuj(...a) as PlanSceny;
+  const kolejnosc = /^SCENY="([^"]+)"/m.exec(skrypt)?.[1].split(' ') ?? [];
+  const zadanie = (id: string) => wf.split(`\n  ${id}:\n`)[1]?.split(/\n  [a-z]+:\n/)[0] ?? '';
+
+  it('puste = wszystkie 7 w kolejności skryptu, komplet, bez przyrostka (domyślne zachowanie bez zmian)', () => {
+    const w = planS('--tylko', 'pl');
+    expect(kolejnosc).toHaveLength(7);
+    expect(w.sceny).toEqual(kolejnosc);
+    expect(w.komplet).toBe(true);
+    expect(w.przyrostek).toBe('');
+  });
+
+  it('wybór po pełnej nazwie albo numerze, w kolejności skryptu (03 ostatnia), bez powtórzeń; niepełny = `-czesciowe`', () => {
+    const w = planS('--sceny', '03-prowadzenie-ciemny,04,04-doktor');
+    expect(w.sceny).toEqual(['04-doktor', '03-prowadzenie-ciemny']);
+    expect(w.komplet).toBe(false);
+    expect(w.przyrostek).toBe('-czesciowe');
+    expect(planS('--sceny', [...kolejnosc].reverse().join(',')).komplet).toBe(true);
+  });
+
+  it.each([['xx'], ['08'], ['04;rm -rf'], ['00-przygotuj']])('złe sceny %s: kod 1 i ::error::', (s) => {
+    const r = planujKod('--sceny', s);
+    expect(r.status).toBe(1);
+    expect(r.stderr).toMatch(/::error::/);
+    expect(r.stdout).toBe('');
+  });
+
+  it('workflow: wejście `sceny` (domyślnie puste) i znacznik [sceny=…] z pierwszej linii commita idą przez env do planu', () => {
+    expect(wf).toMatch(/\n {6}sceny:\n {8}description: '[^']+'\n {8}required: false\n {8}type: string\n {8}default: ''\n/);
+    const plan = zadanie('plan');
+    expect(plan).toMatch(/WE_SCENY: \$\{\{ inputs\.sceny \}\}/);
+    expect(plan).toMatch(/sceny="\$WE_SCENY"/);
+    expect(plan).toMatch(/sceny=\$\(printf '%s' "\$linia" \| sed -n 's\/\.\*\\\[sceny=/);
+    expect(plan).toMatch(/--sceny "\$sceny"/);
+    expect(plan).toMatch(/sceny: \$\{\{ steps\.plan\.outputs\.sceny \}\}/);
+    expect(plan).toMatch(/przyrostek: \$\{\{ steps\.plan\.outputs\.przyrostek \}\}/);
+  });
+
+  it('zrzuty: lista scen z planu do skryptu przez env; skrypt odrzuca scenę spoza swojej listy', () => {
+    expect(zadanie('zrzuty')).toMatch(/ZRZUTY_SCENY: \$\{\{ needs\.plan\.outputs\.sceny \}\}/);
+    const wybor = skrypt.split('# --- wybór scen')[1]?.split('\n\n')[0] ?? '';
+    expect(wybor).toMatch(/ZRZUTY_SCENY/);
+    expect(wybor).toMatch(/::error::/);
+    expect(wybor).toMatch(/exit 2/);
+  });
+
+  it('komplet sprawdza tylko sceny z planu, a niepełny zestaw ma artefakty z przyrostkiem (nie `sklep-zrzuty`/`sklep-ramki`)', () => {
+    const zb = zadanie('zbierz');
+    expect(zb).toMatch(/SCENY_PLAN: \$\{\{ needs\.plan\.outputs\.sceny \}\}/);
+    expect(zb).toMatch(/case " \$SCENY_PLAN " in \*" \$n "\*\) ;; \*\) continue ;; esac/);
+    expect(zb).toMatch(/\[ -n "\$SCENY_PLAN" \] \|\| \{ echo "::error::[^"]+"; exit 1; \}/);
+    expect(zb).toMatch(/name: sklep-zrzuty\$\{\{ needs\.plan\.outputs\.przyrostek \}\}/);
+    const rm = zadanie('ramki');
+    expect(rm).toMatch(/needs: \[zbierz, plan\]/);
+    expect(rm.match(/name: sklep-zrzuty\$\{\{ needs\.plan\.outputs\.przyrostek \}\}/g)).toHaveLength(1);
+    expect(rm).toMatch(/name: sklep-ramki\$\{\{ needs\.plan\.outputs\.przyrostek \}\}/);
+    expect(wf).not.toMatch(/name: sklep-(?:zrzuty|ramki)\n/);
+  });
+});

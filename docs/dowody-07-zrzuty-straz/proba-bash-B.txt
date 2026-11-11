@@ -1,0 +1,47 @@
+== plan: dispatch tylko=pl sceny=04
+Sceny: 04-doktor — NIEPEŁNY ZESTAW, artefakty -czesciowe
+Lokalizacje (1): pl; rozmiary: 6.3; zadania macOS: 1
+Aplikacja z przebiegu: (budowa)
+kod 0
+app_przebieg=
+sceny=04-doktor
+przyrostek=-czesciowe
+== plan: dispatch puste sceny
+Sceny: 07-offline 02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny
+Lokalizacje (1): pl; rozmiary: 6.9, 6.3; zadania macOS: 2
+Aplikacja z przebiegu: (budowa)
+kod 0
+app_przebieg=
+sceny=07-offline 02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny
+przyrostek=
+== plan: push, znacznik w 1. linii
+Sceny: 05-zakwasy 04-doktor — NIEPEŁNY ZESTAW, artefakty -czesciowe
+Lokalizacje (1): pl; rozmiary: 6.3; zadania macOS: 1
+Aplikacja z przebiegu: (budowa)
+kod 0
+app_przebieg=
+sceny=05-zakwasy 04-doktor
+przyrostek=-czesciowe
+== plan: zła scena
+::error::sceny: dozwolone małe litery, cyfry i myślnik, rozdzielone przecinkami
+kod 1
+== skrypt: wybór scen (blok z pliku)
+SCENY=04-doktor 03-prowadzenie-ciemny
+kod 0
+::error::ZRZUTY_SCENY: nieznana scena 99-zle
+kod 2
+SCENY=07-offline 02-receptura 01-plan 05-zakwasy 06-dziennik 04-doktor 03-prowadzenie-ciemny
+kod 0
+== komplet: sceny=04-doktor, jest tylko 04 dla pl/6.3
+bledy=0
+== komplet: wszystkie 7 (plan bez wyboru), jest tylko 04
+::error::brak pl/iphone-6.3/01-plan.png
+::error::brak pl/iphone-6.3/02-receptura.png
+::error::brak pl/iphone-6.3/03-prowadzenie-ciemny.png
+::error::brak pl/iphone-6.3/05-zakwasy.png
+::error::brak pl/iphone-6.3/06-dziennik.png
+::error::brak pl/iphone-6.3/07-offline.png
+bledy=6
+== komplet: pusty SCENY_PLAN
+::error::plan nie podał listy scen (pusta = komplet niesprawdzalny)
+kod 1

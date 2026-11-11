@@ -1,0 +1,10 @@
+PASS tests/asc-zrzuty.test.ts
+PASS tests/zrzuty-sklepu-przewijanie.test.ts
+PASS tests/zrzuty-sklepu-workflow.test.ts
+PASS tests/ramki-sklepu-podpisy.test.ts
+
+Test Suites: 4 passed, 4 total
+Tests:       117 passed, 117 total
+Snapshots:   0 total
+Time:        2.189 s
+Ran all test suites matching /tests\/zrzuty-sklepu-workflow.test.ts|tests\/ramki-sklepu-podpisy.test.ts|tests\/asc-zrzuty.test.ts|tests\/zrzuty-sklepu-przewijanie.test.ts/i.
