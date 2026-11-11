@@ -15,4 +15,4 @@ Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na sta
 | B2 (reaudyt M1 p2) | M1 reaudit | — | 36,32 | 28,3 | 05:37 → 05:42 → G1 ~05:52 → — → STOP 2 06:14; KO-019 c7a5450d 07:00 | ~5 min: prompts (WG-03); model zmieniony przez właściciela 06:0x | subagenci 1,27 mln tok.; zarchiwizowana 07:02 |
 | E2 (005 cz. 2 + kandydat) | 04 fix | — | 8,29 | 25,3 | 06:57 → 06:58 → 8cea3dd0 ~07:05 → E2E #105 zielone 09:37 → przyjęte 09:45 | ~50 min: restart workera koordynatora (07:24→08:16) przy pytaniu KO-020; E2E 67 min | zarchiwizowana 11:10 |
 | R | 04→08 fix | — | 12,62 | 36,3 | 20:13 → 20:14 → 20:2x → E2E #116 zielone 22:05 → przyjęte 22:23 | E2E #115 startup_failure ~11 min (infra) | P1+P2 jedna sesja |
-| S | 04→08→09 fix | — | 7,45 | 28,4 | 21:17 → 21:18 → 21:2x → E2E #117 (w toku) → odbiór częściowy 21:40 | — | ~1,5 h agenta wg S, faktycznie 22 min |
+| S | 04→08→09 fix | — | 7,45 | 28,4 | 21:17 → 21:18 → 21:2x → E2E #117 zielone 22:46 → przyjęte 22:50 | — | ~1,5 h agenta wg S, faktycznie 22 min |
