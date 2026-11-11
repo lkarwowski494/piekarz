@@ -318,3 +318,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 21:22 | S | Raport 1 (04): D-389 `014a0f4c` lokalnie; nowe zdanie PL/EN w tej samej karcie, zrzuty 320/390/AX5 OK (wg S). KO-054 do weta (różnica wobec przykładu z KO-053). Szacunek reszty ~1 h 45 min. | kontrola 21:51 |
 | 11.11 21:25 | S | Zad. 2 push `983cc2cf` (test dzis-d4b czerwony→zielony 20/20, check:i18n KOD 0 — wg S). E2E na S: jeden przebieg na końcowym SHA (nie równolegle z #116). | kontrola 21:51 |
 | 11.11 21:40 | S | PRZEKAZANIE @ `0a0b9970` (kod `1cbce380`, verify KOD 0 7390/7390 — plik, niesprawdzone przeze mnie poza końcówką; autor OK; FF z `7e9b3b31`). Kontekst 28,4%, 7,45 USD. **E2E #117 43105037579** dispatch. | kontrola 21:51 |
+| 11.11 21:52 | CI | E2E #116 (R) in_progress od 21:02 (50 min); #117 (S) in_progress od 21:40. | kontrola 22:21 |
