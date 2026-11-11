@@ -1,0 +1,10 @@
+PASS tests/zrzuty-sklepu-przewijanie.test.ts
+PASS tests/zrzuty-sklepu-kadry.test.ts
+PASS tests/zrzuty-sklepu-workflow.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       70 passed, 70 total
+Snapshots:   0 total
+Time:        1.875 s, estimated 2 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts|tests\/zrzuty-sklepu-workflow.test.ts|tests\/zrzuty-sklepu-przewijanie.test.ts/i.
+KOD 0

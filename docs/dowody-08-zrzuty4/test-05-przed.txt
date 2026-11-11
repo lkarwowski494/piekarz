@@ -1,0 +1,57 @@
+FAIL tests/zrzuty-sklepu-kadry.test.ts
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 05-zakwasy: najmniejsze przewinięcie do „Gotowy do ciasta.” (bez centerElement), pas zakwasu przed nim, „Gotowy do ciasta.” widoczny na końcu (KO-052)
+
+    expect(received).toBeUndefined()
+
+    Received: true
+
+      47 |     const przewiniecia = k.map(przewiniecie).filter((x): x is Komenda => x !== null);
+      48 |     expect(przewiniecia.map(idElementu)).toEqual(['zakwas-gotowy']);
+    > 49 |     expect(przewiniecia[0].centerElement).toBeUndefined();
+         |                                           ^
+      50 |     const ostatni = k.at(-1);
+      51 |     expect(obiekt(ostatni?.assertVisible) && ostatni.assertVisible.id).toBe('zakwas-gotowy');
+      52 |   });
+
+      at Object.toBeUndefined (tests/zrzuty-sklepu-kadry.test.ts:49:43)
+
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  ● sceny Maestro .maestro/zrzuty-sklepu › przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n(?:#[^\n]*\n)*- assertVisible:\n {4}id: "zakwas-gotowy"\n/
+    Received string:  "# Ramka 05 „Zakwasy”: zakwas z 00-przygotuj.yaml, cykl dokarmiania.
+    appId: com.apps4brew.baker
+    ---
+    - runFlow: sub/start.yaml
+    - tapOn:
+        id: \"tab-zakwasy\"
+    # Pas zakwasu ze spiralą cyklu (D-371); zakwas po zakładaniu z 00-przygotuj (KO-043, D-372): karta cyklu
+    # z „Gotowy do ciasta.” pod profilem, przewinięta na środek ekranu (zrzut robi simctl io po scenie)
+    - extendedWaitUntil:
+        visible:
+          id: \"zakwas-cykl\"
+        timeout: 15000
+    - scrollUntilVisible:
+        element:
+          id: \"zakwas-gotowy\"
+        centerElement: true
+    "
+
+      237 |     // KO-052 (D-382): przewinięcie do „Gotowy do ciasta.” najmniejsze (bez centerElement, które wypychało pas ze spiralą
+      238 |     // z kadru, zrzuty #4), a po nim asercja widoczności — „Gotowy do ciasta.” zostaje w kadrze (istota KO-043).
+    > 239 |     expect(r05).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n(?:#[^\n]*\n)*- assertVisible:\n {4}id: "zakwas-gotowy"\n/);
+          |                 ^
+      240 |     expect(r05.split("\n").filter((l) => !/^\s*#/.test(l)).join("\n")).not.toMatch(/centerElement/);
+      241 |     expect(read('src/components/zakwas/ZakwasDziennik.tsx')).toContain('testID="zakwas-gotowy"');
+      242 |   });
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:239:17)
+
+Test Suites: 2 failed, 2 total
+Tests:       2 failed, 52 skipped, 1 passed, 55 total
+Snapshots:   0 total
+Time:        0.688 s, estimated 2 s
+Ran all test suites matching /tests\/zrzuty-sklepu-kadry.test.ts|tests\/zrzuty-sklepu-workflow.test.ts/i with tests matching "05|KO-043".
+KOD 1

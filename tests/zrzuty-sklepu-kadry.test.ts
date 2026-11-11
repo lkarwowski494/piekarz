@@ -3,8 +3,8 @@
 // Przegląd zrzutów #4 (run 43085791241, `koordynacja:docs/koordynacja/przeglad-zrzuty4-pl.md`):
 // 01 na 6,3″ bez karty „Ochrona snu aktywna” (a na 6,9″ sam nagłówek, treść pod paskiem przycisków),
 // 02 na 6,3″ jeden pełny składnik. Kontrola: scena kończy się kadrem, który pokazuje element z nagłówka ramki.
-// Ramka 05 (pas ze spiralą wypchnięty przez centerElement na „Gotowy do ciasta.”) czeka na decyzję: kadr z D-372 (KO-043)
-// pilnuje tests/zrzuty-sklepu-workflow.test.ts.
+// 05: centerElement na „Gotowy do ciasta.” wypychał pas ze spiralą z kadru — KO-052 (D-382): przewinięcie najmniejsze,
+// „Gotowy do ciasta.” nadal w kadrze (KO-043; kształt kroków pilnuje też tests/zrzuty-sklepu-workflow.test.ts).
 // Granica: Maestro liczy widoczność względem ekranu, nie pasków aplikacji — kadr potwierdza dopiero przebieg zrzutów.
 // ============================================================================
 
@@ -40,5 +40,14 @@ describe('kadry scen zrzutów sklepu (KO-048 P2 c)', () => {
     const scroll = k.findIndex((c) => idElementu(przewiniecie(c)) === 'scale-item-water');
     expect(assert).toBeGreaterThan(-1);
     expect(assert).toBeLessThan(scroll);
+  });
+
+  it('05-zakwasy: najmniejsze przewinięcie do „Gotowy do ciasta.” (bez centerElement), pas zakwasu przed nim, „Gotowy do ciasta.” widoczny na końcu (KO-052)', () => {
+    const k = kroki('05-zakwasy');
+    const przewiniecia = k.map(przewiniecie).filter((x): x is Komenda => x !== null);
+    expect(przewiniecia.map(idElementu)).toEqual(['zakwas-gotowy']);
+    expect(przewiniecia[0].centerElement).toBeUndefined();
+    const ostatni = k.at(-1);
+    expect(obiekt(ostatni?.assertVisible) && ostatni.assertVisible.id).toBe('zakwas-gotowy');
   });
 });
