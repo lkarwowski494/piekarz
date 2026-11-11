@@ -31,6 +31,7 @@ Zadania do wznowienia (kolejność):
 6. Koordynator `…ByVFXN3K6UyZ9U7yZ8`: rola M9 niezłożona (brak `prompts`) — przy wznowieniu zgoda albo nowa sesja koordynatora z dostępem.
 
 ## Teraz
+- **11.11 21:25:** właściciel (krótko online): KO-050 przyjęte (nowy nagłówek 03), KO-053 „Poprawić przed 1.0” pusty stan „Dziś” → sesja S (04→08→09) od `7e9b3b31`, + nagłówek 03 w 34 lokalizacjach. E2E #116 na `7e9b3b31` w toku; kontrola 21:51. Zrzuty #5 po S (wtedy obejmą też 03 i „Dziś”).
 - **11.11 20:50:** R PRZEKAZANIE @ `7e9b3b31` (P1 radar + P2 sceny/zegar; D-381…D-386, KO-049…052 do weta). **E2E #116 run 43098216422** (workflow_dispatch) na `7e9b3b31` — #115 startup_failure. Zielone → FF `redesign` ← `7e9b3b31` (D-300) + CI na wyniku. Rano za zgodą: FF master, zrzuty #5 pełne tylko=pl (sprawdzić sudo date, kadry 01/02/05/07, radar 06), przegląd L-004, pokaz arkuszem, asc-zrzuty dry-run; KO-050 przyjęte przez właściciela (nowy nagłówek 03); otwarte: C2 (rola 04), nagłówek 03 w 34 językach (rola 09).
 - **11.11 20:15:** sesja R (KO-048) zlecona: P1 radar Dziennika (04 decyzja → 08 kod, test czerwony→zielony), P2 sceny (pytania o treść/wygląd → właściciel przez koordynatora). Po pushu P1: E2E `e2e-ios.yml` workflow_dispatch na SHA gałęzi R (koordynator). Potem: zgoda na FF master + zrzuty #5 tylko=pl (wejście `sceny`), przegląd L-004, pokaz, zgoda na asc-zrzuty dry-run — każde osobno.
 - **11.11 20:10 — PLAN DLA NASTĘPCY (STOP koordynatora `…ByLLFQ4u3bXqP2hE4m`, kontekst 32%):**
@@ -91,6 +92,7 @@ Zadania do wznowienia (kolejność):
 ## Sesje
 | Litera | ID | Rola, tryb | Gałąź @ SHA | Kontekst % | Koszt USD | Stan |
 |---|---|---|---|---|---|---|
+| S (KO-053: pusty „Dziś” + nagłówek 03 ×34) | `session_01T66VBxmbzcEEQefbz69EHX` | 04 fix → 08 fix → 09 fix (`polecenia/S.md` @ `208dd01f`, prompty z `audit-m1`) | `naprawy/M2-koordynator-napraw-2026-11-11-dzis` od `7e9b3b31` | 0 (21:17) | 0 | start 21:17, PENDING; pula D-389…D-396 |
 | R (KO-048: radar + sceny) | `session_01T66VBwmAvHeFbsgiheyFfS` | 04 fix → 08 fix (`polecenia/R.md`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty4` @ `7e9b3b31` (od `2668d7d3`, FF z redesign) | 36,3 | 12,62 | PRZEKAZANIE 20:48; idle, bez nowej pracy (>30%); odbiór: autor OK, verify R KOD 0 na `0aa1806` (dalej tylko docs), recenzja niezależna (subagent R) 2 P1 naprawione; czeka E2E #116; D-381…D-386 do weta |
 | Q (diagnoza zrzutów #3) | `session_01T66VByX3vSvAm67ps7B3qH` | 07-jakosc fix (`polecenia/Q.md`, prompt z `audit-m1`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty3` od `b27fcd3e` | 19,4 | 2,93 | D-378 przyjęte (`935cd8dc`); A+B przyjęte (`2668d7d3`); idle; D-378…D-380 do weta |
 | P (diagnoza zrzutów #2) | `session_01T66VByd1Ly6ATCBk2NmwT4` | 08 fix (`polecenia/P.md`) | `naprawy/M2-koordynator-napraw-2026-11-11-zrzuty2` od `7fc74679` | 34,4 | 13,55 | przyjęta, `master`=`redesign` FF `b27fcd3e`; idle, ponad 30% — bez nowej pracy; archiwizacja = krok właściciela; D-374…D-377 do weta |
@@ -311,3 +313,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 20:55 | właściciel | Pytanie o „gdy telefon śpi” → odpowiedź: „Nowy nagłówek (Recommended)” — KO-050 / D-384 przyjęte (B1 bez próby). | kontrola 21:14 (E2E #116) |
 | 11.11 21:15 | CI | E2E #116 (43098216422) in_progress od ~21:02 na `7e9b3b31` (kolejka ~14 min). R idle, gałąź = `7e9b3b31`. | kontrola ~21:50 |
 | 11.11 21:25 | M9 | Wyjątek nazwany (E1 pkt 3): prompty S z `audit-m1/piekarz-2026-11-08` (jak R), nie świeżo z biblioteki — trzy złożone role = 180 KB, nie mieszczą się w create_session (subagent: odczyt ucięty). Kontrola zastępcza: te same role z biblioteki z 08.11, użyte przez R z wynikiem przyjętym. | start S |
+| 11.11 21:25 | S | Start S `session_01T66VBxmbzcEEQefbz69EHX` (opus, auto, env jak R), gałąź `…-dzis` @ `7e9b3b31`. | kontrola 21:51 |
