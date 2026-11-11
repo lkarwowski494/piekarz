@@ -28,7 +28,7 @@
   "ramki": [
     {
       "plik": "01-plan.png",
-      "naglowek": "Chleb gotowy na twoją godzinę",
+      "naglowek": "Na twoją godzinę, bez kroków w nocy",
       "podtytul": "Plan wstecz bez kroków w środku nocy",
       "oznaczenie": "wymaga Piekarz Pro",
       "funkcje": [
@@ -48,7 +48,7 @@
     },
     {
       "plik": "03-prowadzenie-ciemny.png",
-      "naglowek": "Jeden krok naraz",
+      "naglowek": "Powiadomienie, gdy telefon śpi",
       "podtytul": "Co zrobić, ile to trwa i powiadomienie o końcu kroku",
       "oznaczenie": null,
       "funkcje": [
@@ -91,7 +91,7 @@
     },
     {
       "plik": "07-offline.png",
-      "naglowek": "Bez konta i bez internetu",
+      "naglowek": "Bez konta, reklam i internetu",
       "podtytul": "Bez reklam i śledzenia; dane tylko w twoim telefonie",
       "oznaczenie": null,
       "funkcje": [],

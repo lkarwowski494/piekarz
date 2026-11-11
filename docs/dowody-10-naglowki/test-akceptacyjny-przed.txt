@@ -1,0 +1,929 @@
+FAIL tests/ramki-sklepu-atuty-ko039.test.ts
+  KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367)
+    ✓ źródła terminów to teksty aplikacji: klucz istnieje w źródle PL i stoi w kodzie ekranu (3 ms)
+    ✓ glosariusz obejmuje każdy język aplikacji użyty w metadanych sklepu (3 ms)
+    ✕ cs: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (46 ms)
+    ✕ da: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ de-DE: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ el: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (43 ms)
+    ✕ en-AU: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✕ en-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+    ✕ en-GB: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+    ✕ en-US: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+    ✕ es-ES: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ es-MX: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (42 ms)
+    ✕ fi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (44 ms)
+    ✕ fr-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (41 ms)
+    ✕ fr-FR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✕ hr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (39 ms)
+    ✕ hu: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ id: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (40 ms)
+    ✕ it: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✕ ja: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (41 ms)
+    ✕ ko: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✕ ms: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (38 ms)
+    ✕ nl-NL: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ no: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (38 ms)
+    ✕ pl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✕ pt-BR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ pt-PT: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ ro: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (47 ms)
+    ✕ ru: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (52 ms)
+    ✕ sk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (42 ms)
+    ✕ sl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (38 ms)
+    ✕ sv: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✕ tr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (46 ms)
+    ✕ uk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (61 ms)
+    ✕ vi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (56 ms)
+    ✕ zh-Hant: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › cs: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "cs",
+        "naglowek": "jeden krok po druhém",
+        "p": "powiadomienie",
+        "rdzen": "oznámení",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › da: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "da",
+        "naglowek": "ét trin ad gangen",
+        "p": "powiadomienie",
+        "rdzen": "notifikation",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › de-DE: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "de-DE",
+        "naglowek": "ein schritt nach dem anderen",
+        "p": "powiadomienie",
+        "rdzen": "mitteilung",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › el: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "el",
+        "naglowek": "ένα βήμα τη φορά",
+        "p": "powiadomienie",
+        "rdzen": "ειδοποίη",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › en-AU: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-AU",
+        "naglowek": "one step at a time",
+        "p": "powiadomienie",
+        "rdzen": "notif",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › en-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-CA",
+        "naglowek": "one step at a time",
+        "p": "powiadomienie",
+        "rdzen": "notif",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › en-GB: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-GB",
+        "naglowek": "one step at a time",
+        "p": "powiadomienie",
+        "rdzen": "notif",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › en-US: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "en-US",
+        "naglowek": "one step at a time",
+        "p": "powiadomienie",
+        "rdzen": "notif",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › es-ES: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "es-ES",
+        "naglowek": "un paso cada vez",
+        "p": "powiadomienie",
+        "rdzen": "notificaci",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › es-MX: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "es-MX",
+        "naglowek": "un paso a la vez",
+        "p": "powiadomienie",
+        "rdzen": "notificaci",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › fi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fi",
+        "naglowek": "yksi vaihe kerrallaan",
+        "p": "powiadomienie",
+        "rdzen": "ilmoitus",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › fr-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fr-CA",
+        "naglowek": "une étape à la fois",
+        "p": "powiadomienie",
+        "rdzen": "notification",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › fr-FR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "fr-FR",
+        "naglowek": "une étape à la fois",
+        "p": "powiadomienie",
+        "rdzen": "notification",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › hr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "hr",
+        "naglowek": "jedan po jedan korak",
+        "p": "powiadomienie",
+        "rdzen": "obavijest",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › hu: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "hu",
+        "naglowek": "egyszerre egy lépés",
+        "p": "powiadomienie",
+        "rdzen": "értesítés",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › id: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "id",
+        "naglowek": "selangkah demi selangkah",
+        "p": "powiadomienie",
+        "rdzen": "notifikasi",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › it: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "it",
+        "naglowek": "un passaggio alla volta",
+        "p": "powiadomienie",
+        "rdzen": "notific",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › ja: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ja",
+        "naglowek": "一度にひとつの工程",
+        "p": "powiadomienie",
+        "rdzen": "通知",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › ko: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ko",
+        "naglowek": "한 번에 한 단계씩",
+        "p": "powiadomienie",
+        "rdzen": "알림",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › ms: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ms",
+        "naglowek": "satu langkah pada satu masa",
+        "p": "powiadomienie",
+        "rdzen": "pemberitahuan",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › nl-NL: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "nl-NL",
+        "naglowek": "eén stap tegelijk",
+        "p": "powiadomienie",
+        "rdzen": "melding",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › no: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "no",
+        "naglowek": "ett steg om gangen",
+        "p": "powiadomienie",
+        "rdzen": "varsel",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › pl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "pl",
+        "naglowek": "jeden krok naraz",
+        "p": "powiadomienie",
+        "rdzen": "powiadomieni",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › pt-BR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "pt-BR",
+        "naglowek": "uma etapa por vez",
+        "p": "powiadomienie",
+        "rdzen": "notifica",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › pt-PT: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "pt-PT",
+        "naglowek": "um passo de cada vez",
+        "p": "powiadomienie",
+        "rdzen": "notifica",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › ro: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ro",
+        "naglowek": "un pas pe rând",
+        "p": "powiadomienie",
+        "rdzen": "notificare",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › ru: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "ru",
+        "naglowek": "один шаг за раз",
+        "p": "powiadomienie",
+        "rdzen": "уведомлен",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › sk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sk",
+        "naglowek": "jeden krok naraz",
+        "p": "powiadomienie",
+        "rdzen": "upozorneni",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › sl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sl",
+        "naglowek": "en korak naenkrat",
+        "p": "powiadomienie",
+        "rdzen": "obvestil",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › sv: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "sv",
+        "naglowek": "ett steg i taget",
+        "p": "powiadomienie",
+        "rdzen": "notis",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › tr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "tr",
+        "naglowek": "her seferinde tek adım",
+        "p": "powiadomienie",
+        "rdzen": "bildirim",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › uk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "uk",
+        "naglowek": "один крок за раз",
+        "p": "powiadomienie",
+        "rdzen": "сповіщен",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › vi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "vi",
+        "naglowek": "từng bước một",
+        "p": "powiadomienie",
+        "rdzen": "thông báo",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+  ● KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367) › zh-Hant: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Object {
+        "kod": "zh-Hant",
+        "naglowek": "一次一個步驟",
+        "p": "powiadomienie",
+        "rdzen": "通知",
+    -   "wNaglowku": true,
+    +   "wNaglowku": false,
+      }
+
+      53 |         const naglowek = (naglowki[ekran - 1] ?? '').toLocaleLowerCase(jezyk);
+      54 |         expect({ kod, p, rdzen, wAplikacji: rdzen.length > 0 && tekstAplikacji.includes(rdzen) }).toEqual({ kod, p, rdzen, wAplikacji: true });
+    > 55 |         expect({ kod, p, rdzen, naglowek, wNaglowku: rdzen.length > 0 && naglowek.includes(rdzen) }).toEqual({ kod, p, rdzen, naglowek, wNaglowku: true });
+         |                                                                                                      ^
+      56 |       }
+      57 |     } finally {
+      58 |       setLang('pl');
+
+      at toEqual (tests/ramki-sklepu-atuty-ko039.test.ts:55:102)
+
+Test Suites: 1 failed, 1 total
+Tests:       34 failed, 2 passed, 36 total
+Snapshots:   0 total
+Time:        2.044 s
+Ran all test suites matching /tests\/ramki-sklepu-atuty-ko039.test.ts/i.
+KOD WYJŚCIA: 1

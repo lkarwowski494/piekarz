@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/01-plan.png` | Brot fertig zu deiner Wunschzeit | Rückwärts geplant, ohne Schritte mitten in der Nacht |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/01-plan.png` | Zu deiner Zeit, ohne Schritte nachts | Rückwärts geplant, ohne Schritte mitten in der Nacht |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/02-receptura.png` | Jede Zutat sofort in Gramm | Mehl und Wasser aus dem Sauerteig in Bäckerprozenten eingerechnet |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/03-prowadzenie-ciemny.png` | Ein Schritt nach dem anderen | Was zu tun ist, wie lange es dauert, Mitteilung zum Schrittende |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/03-prowadzenie-ciemny.png` | Mitteilung bei gesperrtem iPhone | Was zu tun ist, wie lange es dauert, Mitteilung zum Schrittende |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/04-doktor.png` | Was du am nächsten Laib verbesserst | Symptome, Ursache und eine Änderung fürs nächste Backen |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/05-zakwasy.png` | Sauerteig immer pünktlich bereit | Mengen zum Auffrischen und Erinnerung nach 12 Stunden |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/06-dziennik.png` | Jedes Backen festgehalten | Laib bewerten und „Erneut backen“ mit einem Tippen |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/07-offline.png` | Ohne Konto und ohne Internet | Ohne Werbung und Tracking; Daten nur auf deinem Telefon |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/de-DE/iphone-6.3/07-offline.png` | Ohne Konto, Werbung und Internet | Ohne Werbung und Tracking; Daten nur auf deinem Telefon |
 
 ## Ceny i oferta w storefrontach tej karty
 

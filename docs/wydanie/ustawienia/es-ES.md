@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/01-plan.png` | Pan listo a la hora que tú elijas | Plan hacia atrás sin pasos en plena noche |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/01-plan.png` | Listo a tu hora, sin pasos de noche | Plan hacia atrás sin pasos en plena noche |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/02-receptura.png` | Gramos de cada ingrediente al momento | Harina y agua de la masa madre incluidas en el porcentaje del panadero |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/03-prowadzenie-ciemny.png` | Un paso cada vez | Qué hacer, cuánto dura y aviso al terminar cada paso |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/03-prowadzenie-ciemny.png` | Notificación con el teléfono en reposo | Qué hacer, cuánto dura y aviso al terminar cada paso |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/04-doktor.png` | Qué mejorar en tu próxima hogaza | Síntomas, causa y un solo cambio para el próximo horneado |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/05-zakwasy.png` | Masa madre siempre lista a tiempo | Cantidades de refresco y recordatorio a las 12 horas |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/06-dziennik.png` | Cada horneado, registrado | Valora la hogaza y «Hornear de nuevo» con un toque |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/07-offline.png` | Sin cuenta y sin internet | Sin anuncios ni rastreo; tus datos, solo en tu teléfono |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/es-ES/iphone-6.3/07-offline.png` | Sin cuenta, anuncios ni internet | Sin anuncios ni rastreo; tus datos, solo en tu teléfono |
 
 ## Ceny i oferta w storefrontach tej karty
 

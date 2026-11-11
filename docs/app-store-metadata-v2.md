@@ -124,9 +124,9 @@ Kolejność i liczba ramek według D-055 (§5.2): 7 ramek, jedna w motywie ciemn
 Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 a, 2026-10-19; partie 5–6); wartości na ekranie biorą się z danych przykładowych w chwili zrzutu, nie z tego dokumentu. Podpisy nie pokazują funkcji PÓŹNIEJ i NIE z kontraktu B (OG-05).
 
 ### Ramka 1: Plan od godziny „gotowe” z ochroną snu
-- **Główny nagłówek (PL):** *Chleb gotowy na twoją godzinę*
+- **Główny nagłówek (PL):** *Na twoją godzinę, bez kroków w nocy* (KO-040, D-367)
 - **Podtytuł (PL):** *Plan wstecz bez kroków w środku nocy*
-- **Main Headline (EN):** *Bread Ready When You Want It*
+- **Main Headline (EN):** *Ready at Your Time, No Steps at Night*
 - **Sub-headline (EN):** *A plan worked back from your time, with no steps at night*
 - **Widok w ramce:** ekran „Plan wypieku” (`app/(tabs)/receptury/harmonogram.tsx`) ze Spiralą planu, godziną „gotowe” i propozycją „Przesuń do lodówki” dla kroku, który wypada w nocy.
 
@@ -138,9 +138,9 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 - **Widok w ramce:** ekran receptury (`app/(tabs)/receptury/receptura.tsx`) z ilościami „Do miski” i przyciskiem „Ułóż plan”.
 
 ### Ramka 3: Prowadzenie krok po kroku z minutnikiem (motyw ciemny)
-- **Główny nagłówek (PL):** *Jeden krok naraz*
+- **Główny nagłówek (PL):** *Powiadomienie, gdy telefon śpi* (KO-040, D-367; powiadomienie po zgodzie — warunek w opisie, KO-034)
 - **Podtytuł (PL):** *Co zrobić, ile to trwa i powiadomienie o końcu kroku*
-- **Main Headline (EN):** *One Step at a Time*
+- **Main Headline (EN):** *Notified Even When Your Phone Sleeps*
 - **Sub-headline (EN):** *What to do, how long it takes and a notification when it ends*
 - **Widok w ramce:** ekran prowadzenia (`app/stolnica.tsx`) w motywie ciemnym: bieżący krok z czasem, „Krok n z N” i informacją o powiadomieniu.
 
@@ -166,9 +166,9 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 - **Widok w ramce:** zakładka Dziennik (`app/(tabs)/dziennik/index.tsx`) ze statystykami i wpisem z oceną.
 
 ### Ramka 7: Offline i prywatność
-- **Główny nagłówek (PL):** *Bez konta i bez internetu*
+- **Główny nagłówek (PL):** *Bez konta, reklam i internetu* (KO-040, D-367)
 - **Podtytuł (PL):** *Bez reklam i śledzenia; dane tylko w twoim telefonie*
-- **Main Headline (EN):** *No Account, No Internet*
+- **Main Headline (EN):** *No Account, Ads or Internet*
 - **Sub-headline (EN):** *No ads or tracking; your data stays on your phone*
 - **Widok w ramce:** ekran „Co dziś robisz?” (`app/(tabs)/(dzis)/index.tsx`) przy pierwszym uruchomieniu, z tekstem „Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.”
 

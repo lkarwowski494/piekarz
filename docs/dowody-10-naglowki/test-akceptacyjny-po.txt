@@ -1,0 +1,45 @@
+PASS tests/ramki-sklepu-atuty-ko039.test.ts
+  KO-039: nagłówki ramek 1, 3, 7 z atutami (termin ze słownika aplikacji, D-367)
+    ✓ źródła terminów to teksty aplikacji: klucz istnieje w źródle PL i stoi w kodzie ekranu (3 ms)
+    ✓ glosariusz obejmuje każdy język aplikacji użyty w metadanych sklepu (4 ms)
+    ✓ cs: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (43 ms)
+    ✓ da: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ de-DE: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ el: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (47 ms)
+    ✓ en-AU: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+    ✓ en-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✓ en-GB: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✓ en-US: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy)
+    ✓ es-ES: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (41 ms)
+    ✓ es-MX: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (34 ms)
+    ✓ fi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (33 ms)
+    ✓ fr-CA: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ fr-FR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✓ hr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (34 ms)
+    ✓ hu: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✓ id: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ it: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ ja: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (34 ms)
+    ✓ ko: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ ms: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ nl-NL: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (34 ms)
+    ✓ no: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (31 ms)
+    ✓ pl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (1 ms)
+    ✓ pt-BR: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ pt-PT: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ ro: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (35 ms)
+    ✓ ru: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (42 ms)
+    ✓ sk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✓ sl: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ sv: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (36 ms)
+    ✓ tr: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (37 ms)
+    ✓ uk: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (42 ms)
+    ✓ vi: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (38 ms)
+    ✓ zh-Hant: rdzeń terminu jest w tekście aplikacji i w nagłówku ekranu (1 noc, 3 powiadomienie, 7 reklamy) (34 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       36 passed, 36 total
+Snapshots:   0 total
+Time:        1.505 s, estimated 2 s
+Ran all test suites matching /tests\/ramki-sklepu-atuty-ko039.test.ts/i.
+KOD WYJŚCIA: 0

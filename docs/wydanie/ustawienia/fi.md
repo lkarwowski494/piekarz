@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/01-plan.png` | Leipä valmiina silloin kun haluat | Aikataulu taaksepäin ilman vaiheita keskellä yötä |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/01-plan.png` | Omaan aikaan, ei vaiheita yöhön | Aikataulu taaksepäin ilman vaiheita keskellä yötä |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/02-receptura.png` | Jokaisen aineksen grammat heti | Hapanjuuren jauhot ja vesi mukana leipurin prosentissa |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/03-prowadzenie-ciemny.png` | Yksi vaihe kerrallaan | Mitä tehdä, kauanko se kestää ja ilmoitus vaiheen päättyessä |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/03-prowadzenie-ciemny.png` | Ilmoitus, kun puhelin on lukittuna | Mitä tehdä, kauanko se kestää ja ilmoitus vaiheen päättyessä |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/04-doktor.png` | Mitä parantaa seuraavassa leivässä | Oireet, syy ja yksi muutos seuraavaan leivontaan |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/05-zakwasy.png` | Hapanjuuri aina ajoissa valmiina | Ruokintamäärät ja muistutus 12 tunnin jälkeen |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/06-dziennik.png` | Jokainen leivonta tallessa | Arvioi leipä ja ”Leivo uudelleen” yhdellä napautuksella |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/07-offline.png` | Ei tiliä eikä internetiä | Ei mainoksia eikä seurantaa; tiedot vain puhelimessasi |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fi/iphone-6.3/07-offline.png` | Ei tiliä, mainoksia eikä internetiä | Ei mainoksia eikä seurantaa; tiedot vain puhelimessasi |
 
 ## Ceny i oferta w storefrontach tej karty
 

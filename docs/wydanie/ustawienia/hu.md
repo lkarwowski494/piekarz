@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/01-plan.png` | Kenyér pont akkorra, amikorra kell | Visszafelé ütemezés éjszakai lépések nélkül |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/01-plan.png` | Az órádra, éjszakai lépések nélkül | Visszafelé ütemezés éjszakai lépések nélkül |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/02-receptura.png` | Minden hozzávaló grammja azonnal | A kovász lisztje és vize is benne van a pékszázalékban |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/03-prowadzenie-ciemny.png` | Egyszerre egy lépés | Mi a teendő, meddig tart, és értesítés a lépés végén |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/03-prowadzenie-ciemny.png` | Értesítés, amikor a telefon alszik | Mi a teendő, meddig tart, és értesítés a lépés végén |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/04-doktor.png` | Mit javíts a következő cipón | Tünetek, ok és egy változtatás a következő sütésre |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/05-zakwasy.png` | A kovász mindig időben kész | Etetési mennyiségek és emlékeztető 12 óra után |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/06-dziennik.png` | Minden sütés feljegyezve | Cipóértékelés és „Süsd újra” egy koppintással |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/07-offline.png` | Fiók és internet nélkül | Reklám és követés nélkül; az adatok csak a telefonodon |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/hu/iphone-6.3/07-offline.png` | Fiók, hirdetés és internet nélkül | Reklám és követés nélkül; az adatok csak a telefonodon |
 
 ## Ceny i oferta w storefrontach tej karty
 

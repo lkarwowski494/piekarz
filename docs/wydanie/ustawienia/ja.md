@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/01-plan.png` | 決めた時刻にパンが完成 | 逆算プランで、真夜中の作業はなし |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/01-plan.png` | 夜間の工程なしで、決めた時刻に完成 | 逆算プランで、真夜中の作業はなし |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/02-receptura.png` | 材料ごとのグラム数をすぐ表示 | サワー種の粉と水もベーカーズパーセントに算入 |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/03-prowadzenie-ciemny.png` | 一度にひとつの工程 | やること・所要時間・工程終了の通知 |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/03-prowadzenie-ciemny.png` | 端末がスリープ中も通知でお知らせ | やること・所要時間・工程終了の通知 |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/04-doktor.png` | 次のローフで改善すべき点 | 症状、原因、次回の焼成で変えるひとつのこと |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/05-zakwasy.png` | サワー種をいつも時間どおりに | 種継ぎの分量と12時間後のリマインダー |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/06-dziennik.png` | すべての焼成を記録 | ローフを評価、「もう一度焼く」をワンタップで |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/07-offline.png` | アカウントもネットも不要 | 広告もトラッキングもなし。データはスマートフォンの中だけ |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ja/iphone-6.3/07-offline.png` | アカウントも広告もネットも不要 | 広告もトラッキングもなし。データはスマートフォンの中だけ |
 
 ## Ceny i oferta w storefrontach tej karty
 

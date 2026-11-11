@@ -110,13 +110,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/01-plan.png` | Kruh, pripravljen ob vaši uri | Obratni urnik brez korakov sredi noči |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/01-plan.png` | Ob vaši uri, brez korakov ponoči | Obratni urnik brez korakov sredi noči |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/02-receptura.png` | Grami vsake sestavine takoj | Moka in voda iz kvasa vključeni v pekovski odstotek |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/03-prowadzenie-ciemny.png` | En korak naenkrat | Kaj storiti, koliko traja in obvestilo ob koncu koraka |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/03-prowadzenie-ciemny.png` | Obvestilo, ko telefon miruje | Kaj storiti, koliko traja in obvestilo ob koncu koraka |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/04-doktor.png` | Kaj izboljšati pri naslednjem hlebcu | Simptomi, vzrok in ena sprememba za naslednjo peko |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/05-zakwasy.png` | Kvas vedno pravočasno pripravljen | Količine za hranjenje in opomnik po 12 urah |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/06-dziennik.png` | Vsaka peka zabeležena | Ocena hlebca in „Speci znova“ z enim dotikom |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/07-offline.png` | Brez računa in brez interneta | Brez oglasov in sledenja; podatki le v vašem telefonu |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sl/iphone-6.3/07-offline.png` | Brez računa, oglasov in interneta | Brez oglasov in sledenja; podatki le v vašem telefonu |
 
 ## Ceny i oferta w storefrontach tej karty
 

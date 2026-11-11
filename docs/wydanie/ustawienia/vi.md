@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/01-plan.png` | Bánh mì xong đúng giờ của bạn | Lịch trình ngược, không có bước nào giữa đêm |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/01-plan.png` | Đúng giờ bạn chọn, không bước ban đêm | Lịch trình ngược, không có bước nào giữa đêm |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/02-receptura.png` | Có ngay số gam từng nguyên liệu | Bột mì và nước trong men tự nhiên được tính vào tỷ lệ thợ làm bánh |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/03-prowadzenie-ciemny.png` | Từng bước một | Cần làm gì, mất bao lâu và thông báo khi bước kết thúc |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/03-prowadzenie-ciemny.png` | Thông báo khi điện thoại khóa màn hình | Cần làm gì, mất bao lâu và thông báo khi bước kết thúc |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/04-doktor.png` | Sửa gì cho ổ bánh sau | Triệu chứng, nguyên nhân và một thay đổi cho mẻ bánh sau |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/05-zakwasy.png` | Men tự nhiên luôn sẵn sàng đúng lúc | Lượng cho men ăn và lời nhắc sau 12 giờ |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/06-dziennik.png` | Mọi mẻ bánh đều được lưu lại | Đánh giá ổ bánh và “Nướng lại” chỉ với một chạm |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/07-offline.png` | Không tài khoản, không internet | Không quảng cáo, không theo dõi; dữ liệu chỉ trên điện thoại bạn |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/vi/iphone-6.3/07-offline.png` | Không tài khoản, quảng cáo hay internet | Không quảng cáo, không theo dõi; dữ liệu chỉ trên điện thoại bạn |
 
 ## Ceny i oferta w storefrontach tej karty
 

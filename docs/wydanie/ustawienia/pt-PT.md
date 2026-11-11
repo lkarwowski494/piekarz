@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/01-plan.png` | Pão pronto à hora que quiser | Plano inverso sem passos a meio da noite |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/01-plan.png` | À sua hora, sem passos de noite | Plano inverso sem passos a meio da noite |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/02-receptura.png` | Gramas de cada ingrediente na hora | Farinha e água do fermento natural incluídas na percentagem de padeiro |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/03-prowadzenie-ciemny.png` | Um passo de cada vez | O que fazer, quanto demora e notificação no fim do passo |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/03-prowadzenie-ciemny.png` | Notificação com o telemóvel em repouso | O que fazer, quanto demora e notificação no fim do passo |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/04-doktor.png` | O que melhorar no próximo pão | Sintomas, causa e uma alteração para a próxima fornada |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/05-zakwasy.png` | Fermento natural sempre pronto a tempo | Quantidades para alimentar e lembrete após 12 horas |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/06-dziennik.png` | Cada fornada registada | Avaliação do pão e «Cozer novamente» com um toque |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/07-offline.png` | Sem conta e sem internet | Sem anúncios nem rastreio; dados só no seu telemóvel |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/pt-PT/iphone-6.3/07-offline.png` | Sem conta, anúncios nem internet | Sem anúncios nem rastreio; dados só no seu telemóvel |
 
 ## Ceny i oferta w storefrontach tej karty
 

@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/01-plan.png` | Chlieb hotový na váš čas | Spätný plán bez krokov uprostred noci |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/01-plan.png` | Na váš čas, bez krokov v noci | Spätný plán bez krokov uprostred noci |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/02-receptura.png` | Gramy každej suroviny hneď | Múka a voda z kvásku započítané v pekárskych percentách |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/03-prowadzenie-ciemny.png` | Jeden krok naraz | Čo urobiť, ako dlho to trvá a hlásenie o konci kroku |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/03-prowadzenie-ciemny.png` | Upozornenie, keď telefón spí | Čo urobiť, ako dlho to trvá a hlásenie o konci kroku |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/04-doktor.png` | Čo zlepšiť pri ďalšom bochníku | Príznaky, príčina a jedna zmena na ďalšie pečenie |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/05-zakwasy.png` | Kvások vždy pripravený načas | Množstvá na kŕmenie a pripomienka po 12 hodinách |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/06-dziennik.png` | Každé pečenie zaznamenané | Hodnotenie bochníka a „Piecť znova“ jedným ťuknutím |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/07-offline.png` | Bez účtu a bez internetu | Bez reklám a sledovania; údaje len vo vašom telefóne |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sk/iphone-6.3/07-offline.png` | Bez účtu, reklám a internetu | Bez reklám a sledovania; údaje len vo vašom telefóne |
 
 ## Ceny i oferta w storefrontach tej karty
 

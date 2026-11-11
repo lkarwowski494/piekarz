@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/01-plan.png` | Roti siap tepat pada jam Anda | Jadwal mundur tanpa langkah di tengah malam |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/01-plan.png` | Siap pada jam Anda, tanpa langkah malam | Jadwal mundur tanpa langkah di tengah malam |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/02-receptura.png` | Gram setiap bahan seketika | Tepung dan air dari starter dihitung dalam persentase baker |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/03-prowadzenie-ciemny.png` | Selangkah demi selangkah | Apa yang dilakukan, berapa lama, dan notifikasi saat langkah selesai |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/03-prowadzenie-ciemny.png` | Notifikasi saat ponsel terkunci | Apa yang dilakukan, berapa lama, dan notifikasi saat langkah selesai |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/04-doktor.png` | Perbaikan untuk roti berikutnya | Gejala, penyebab, dan satu perubahan untuk hasil panggangan berikutnya |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/05-zakwasy.png` | Starter selalu siap tepat waktu | Takaran pemberian makan dan pengingat setelah 12 jam |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/06-dziennik.png` | Setiap hasil panggangan tercatat | Nilai bongkah roti dan “Panggang lagi” dengan satu ketukan |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/07-offline.png` | Tanpa akun dan tanpa internet | Tanpa iklan dan pelacakan; data hanya di ponsel Anda |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/id/iphone-6.3/07-offline.png` | Tanpa akun, iklan, dan internet | Tanpa iklan dan pelacakan; data hanya di ponsel Anda |
 
 ## Ceny i oferta w storefrontach tej karty
 

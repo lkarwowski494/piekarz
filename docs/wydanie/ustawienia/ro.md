@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/01-plan.png` | Pâinea gata la ora ta | Plan invers, fără pași în miezul nopții |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/01-plan.png` | La ora ta, fără pași noaptea | Plan invers, fără pași în miezul nopții |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/02-receptura.png` | Gramele fiecărui ingredient, imediat | Făina și apa din maia naturală, incluse în procentele brutărești |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/03-prowadzenie-ciemny.png` | Un pas pe rând | Ce ai de făcut, cât durează și notificare la finalul pasului |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/03-prowadzenie-ciemny.png` | Notificare când telefonul doarme | Ce ai de făcut, cât durează și notificare la finalul pasului |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/04-doktor.png` | Ce să corectezi la următoarea pâine | Simptome, cauză și o singură schimbare pentru următoarea coacere |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/05-zakwasy.png` | Maia naturală mereu gata la timp | Cantități pentru hrănire și memento după 12 ore |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/06-dziennik.png` | Fiecare coacere, consemnată | Evaluarea pâinii și „Coace din nou” dintr-o atingere |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/07-offline.png` | Fără cont și fără internet | Fără reclame și urmărire; datele doar pe telefonul tău |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ro/iphone-6.3/07-offline.png` | Fără cont, reclame și internet | Fără reclame și urmărire; datele doar pe telefonul tău |
 
 ## Ceny i oferta w storefrontach tej karty
 

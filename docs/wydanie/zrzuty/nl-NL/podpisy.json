@@ -30,7 +30,7 @@
   "ramki": [
     {
       "plik": "01-plan.png",
-      "naglowek": "Brood klaar wanneer jij wilt",
+      "naglowek": "Op jouw tijd, geen stappen 's nachts",
       "podtytul": "Teruggerekend schema zonder stappen midden in de nacht",
       "oznaczenie": "vereist Bakker Pro",
       "funkcje": [
@@ -50,7 +50,7 @@
     },
     {
       "plik": "03-prowadzenie-ciemny.png",
-      "naglowek": "Eén stap tegelijk",
+      "naglowek": "Melding als je telefoon slaapt",
       "podtytul": "Wat te doen, hoe lang het duurt en een melding als de stap klaar is",
       "oznaczenie": null,
       "funkcje": [
@@ -93,7 +93,7 @@
     },
     {
       "plik": "07-offline.png",
-      "naglowek": "Geen account, geen internet",
+      "naglowek": "Geen account, advertenties of internet",
       "podtytul": "Geen reclame of tracking; je gegevens alleen op je telefoon",
       "oznaczenie": null,
       "funkcje": [],

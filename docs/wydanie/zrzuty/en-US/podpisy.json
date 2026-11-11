@@ -30,7 +30,7 @@
   "ramki": [
     {
       "plik": "01-plan.png",
-      "naglowek": "Bread Ready When You Want It",
+      "naglowek": "Ready at Your Time, No Steps at Night",
       "podtytul": "A plan worked back from your time, with no steps at night",
       "oznaczenie": "requires Baker Pro",
       "funkcje": [
@@ -50,7 +50,7 @@
     },
     {
       "plik": "03-prowadzenie-ciemny.png",
-      "naglowek": "One Step at a Time",
+      "naglowek": "Notified Even When Your Phone Sleeps",
       "podtytul": "What to do, how long it takes and a notification when it ends",
       "oznaczenie": null,
       "funkcje": [
@@ -93,7 +93,7 @@
     },
     {
       "plik": "07-offline.png",
-      "naglowek": "No Account, No Internet",
+      "naglowek": "No Account, Ads or Internet",
       "podtytul": "No ads or tracking; your data stays on your phone",
       "oznaczenie": null,
       "funkcje": [],

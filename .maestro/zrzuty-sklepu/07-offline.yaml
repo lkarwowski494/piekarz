@@ -1,4 +1,4 @@
-# Ramka 07 „Bez konta i bez internetu”: ekran Dziś z „Co dziś robisz?”.
+# Ramka 07 „Bez konta, reklam i internetu” (KO-040): ekran Dziś z „Co dziś robisz?”.
 appId: com.apps4brew.baker
 ---
 - runFlow: sub/start.yaml

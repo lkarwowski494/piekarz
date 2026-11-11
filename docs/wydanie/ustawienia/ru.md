@@ -110,13 +110,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/01-plan.png` | Хлеб готов к нужному вам часу | Обратный план без шагов посреди ночи |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/01-plan.png` | К нужному часу, без шагов ночью | Обратный план без шагов посреди ночи |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/02-receptura.png` | Граммы каждого ингредиента сразу | Мука и вода из закваски учтены в пекарском проценте |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/03-prowadzenie-ciemny.png` | Один шаг за раз | Что сделать, сколько это займёт, и уведомление о конце шага |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/03-prowadzenie-ciemny.png` | Уведомление, пока телефон спит | Что сделать, сколько это займёт, и уведомление о конце шага |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/04-doktor.png` | Что улучшить в следующем каравае | Симптомы, причина и одно изменение для следующей выпечки |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/05-zakwasy.png` | Закваска всегда готова вовремя | Количества для подкормки и напоминание через 12 часов |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/06-dziennik.png` | Каждая выпечка записана | Оценка каравая и «Испечь снова» одним касанием |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/07-offline.png` | Без аккаунта и без интернета | Без рекламы и слежки; данные только на вашем телефоне |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/ru/iphone-6.3/07-offline.png` | Без аккаунта, рекламы и интернета | Без рекламы и слежки; данные только на вашем телефоне |
 
 ## Ceny i oferta w storefrontach tej karty
 

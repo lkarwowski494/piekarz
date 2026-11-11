@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/01-plan.png` | Brødet ferdig til ditt tidspunkt | Plan bakover uten steg midt på natten |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/01-plan.png` | Til din tid, ingen steg om natten | Plan bakover uten steg midt på natten |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/02-receptura.png` | Gram for hver ingrediens med en gang | Mel og vann fra starteren regnes med i bakerprosenten |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/03-prowadzenie-ciemny.png` | Ett steg om gangen | Hva du skal gjøre, hvor lenge det tar og varsel når steget er ferdig |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/03-prowadzenie-ciemny.png` | Varsel når telefonen sover | Hva du skal gjøre, hvor lenge det tar og varsel når steget er ferdig |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/04-doktor.png` | Hva du kan forbedre i neste brød | Symptomer, årsak og én endring til neste bakst |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/05-zakwasy.png` | Starteren alltid klar i tide | Mengder til mating og påminnelse etter 12 timer |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/06-dziennik.png` | Hver bakst lagret | Vurder brødet og «Bak igjen» med ett trykk |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/07-offline.png` | Uten konto og uten internett | Uten reklame og sporing; data kun på telefonen din |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/no/iphone-6.3/07-offline.png` | Uten konto, reklame og internett | Uten reklame og sporing; data kun på telefonen din |
 
 ## Ceny i oferta w storefrontach tej karty
 

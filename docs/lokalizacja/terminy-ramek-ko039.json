@@ -1,0 +1,169 @@
+{
+  "opis": "Rdzenie terminów nagłówków ramek 1, 3, 7 (KO-039/KO-040, D-367). Rdzeń musi wystąpić w tekście aplikacji z `zrodla` w danym języku i w nagłówku ekranu; pilnuje tests/ramki-sklepu-atuty-ko039.test.ts. Klucz = język aplikacji (pole `jezyk` metadanych).",
+  "zrodla": {
+    "powiadomienie": {
+      "klucz": "Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.",
+      "ekran": 3
+    },
+    "reklamy": {
+      "klucz": "Aplikacja Piekarz nie zbiera żadnych danych. Wszystko, co wpisujesz, zostaje na Twoim iPhonie. Aplikacja nie łączy się z internetem, nie ma konta, reklam, analityki ani śledzenia.",
+      "ekran": 7
+    },
+    "noc": {
+      "klucz": "{krok} wypada o {godzina} w nocy",
+      "ekran": 1
+    }
+  },
+  "rdzenie": {
+    "cs": {
+      "powiadomienie": "oznámení",
+      "reklamy": "reklam",
+      "noc": "noc"
+    },
+    "da": {
+      "powiadomienie": "notifikation",
+      "reklamy": "reklamer",
+      "noc": "natten"
+    },
+    "de": {
+      "powiadomienie": "mitteilung",
+      "reklamy": "werbung",
+      "noc": "nachts"
+    },
+    "el": {
+      "powiadomienie": "ειδοποίη",
+      "reklamy": "διαφημ",
+      "noc": "νύχτ"
+    },
+    "en": {
+      "powiadomienie": "notif",
+      "reklamy": "ads",
+      "noc": "night"
+    },
+    "es": {
+      "powiadomienie": "notificaci",
+      "reklamy": "anuncio",
+      "noc": "noche"
+    },
+    "es-419": {
+      "powiadomienie": "notificaci",
+      "reklamy": "anuncio",
+      "noc": "noche"
+    },
+    "fi": {
+      "powiadomienie": "ilmoitus",
+      "reklamy": "mainoks",
+      "noc": "yöhön"
+    },
+    "fr": {
+      "powiadomienie": "notification",
+      "reklamy": "publicit",
+      "noc": "nuit"
+    },
+    "hr": {
+      "powiadomienie": "obavijest",
+      "reklamy": "oglas",
+      "noc": "noć"
+    },
+    "hu": {
+      "powiadomienie": "értesítés",
+      "reklamy": "hirdetés",
+      "noc": "éjszak"
+    },
+    "id": {
+      "powiadomienie": "notifikasi",
+      "reklamy": "iklan",
+      "noc": "malam"
+    },
+    "it": {
+      "powiadomienie": "notific",
+      "reklamy": "pubblicit",
+      "noc": "notte"
+    },
+    "ja": {
+      "powiadomienie": "通知",
+      "reklamy": "広告",
+      "noc": "夜間"
+    },
+    "ko": {
+      "powiadomienie": "알림",
+      "reklamy": "광고",
+      "noc": "밤"
+    },
+    "ms": {
+      "powiadomienie": "pemberitahuan",
+      "reklamy": "iklan",
+      "noc": "malam"
+    },
+    "nb": {
+      "powiadomienie": "varsel",
+      "reklamy": "reklame",
+      "noc": "natten"
+    },
+    "nl": {
+      "powiadomienie": "melding",
+      "reklamy": "advertenties",
+      "noc": "nachts"
+    },
+    "pl": {
+      "powiadomienie": "powiadomieni",
+      "reklamy": "reklam",
+      "noc": "w nocy"
+    },
+    "pt": {
+      "powiadomienie": "notifica",
+      "reklamy": "anúncio",
+      "noc": "noite"
+    },
+    "pt-BR": {
+      "powiadomienie": "notifica",
+      "reklamy": "anúncio",
+      "noc": "noite"
+    },
+    "ro": {
+      "powiadomienie": "notificare",
+      "reklamy": "reclam",
+      "noc": "noap"
+    },
+    "ru": {
+      "powiadomienie": "уведомлен",
+      "reklamy": "реклам",
+      "noc": "ноч"
+    },
+    "sk": {
+      "powiadomienie": "upozorneni",
+      "reklamy": "rekl",
+      "noc": "noc"
+    },
+    "sl": {
+      "powiadomienie": "obvestil",
+      "reklamy": "oglas",
+      "noc": "noč"
+    },
+    "sv": {
+      "powiadomienie": "notis",
+      "reklamy": "annons",
+      "noc": "natten"
+    },
+    "tr": {
+      "powiadomienie": "bildirim",
+      "reklamy": "reklam",
+      "noc": "gece"
+    },
+    "uk": {
+      "powiadomienie": "сповіщен",
+      "reklamy": "реклам",
+      "noc": "ноч"
+    },
+    "vi": {
+      "powiadomienie": "thông báo",
+      "reklamy": "quảng cáo",
+      "noc": "ban đêm"
+    },
+    "zh-Hant": {
+      "powiadomienie": "通知",
+      "reklamy": "廣告",
+      "noc": "夜間"
+    }
+  }
+}

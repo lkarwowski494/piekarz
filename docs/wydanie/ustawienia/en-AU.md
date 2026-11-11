@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/01-plan.png` | Bread Ready When You Want It | A plan worked back from your time, with no steps at night |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/01-plan.png` | Ready at Your Time, No Steps at Night | A plan worked back from your time, with no steps at night |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/02-receptura.png` | Grams for Every Ingredient | Flour and water from your starter counted in the baker's percentage |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/03-prowadzenie-ciemny.png` | One Step at a Time | What to do, how long it takes and a notification when it ends |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/03-prowadzenie-ciemny.png` | Notified Even When Your Phone Sleeps | What to do, how long it takes and a notification when it ends |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/04-doktor.png` | Make Your Next Loaf Better | Symptoms, the cause and one change for your next bake |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/05-zakwasy.png` | Your Starter, Ready on Time | Feeding amounts and a reminder after 12 hours |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/06-dziennik.png` | Every Bake on Record | Rate the loaf and tap "Bake Again" |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/07-offline.png` | No Account, No Internet | No ads or tracking; your data stays on your phone |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/en-AU/iphone-6.3/07-offline.png` | No Account, Ads or Internet | No ads or tracking; your data stays on your phone |
 
 ## Ceny i oferta w storefrontach tej karty
 

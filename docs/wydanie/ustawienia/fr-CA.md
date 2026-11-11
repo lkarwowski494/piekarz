@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/01-plan.png` | Du pain prêt à l'heure voulue | Un planning à rebours, sans étape en pleine nuit |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/01-plan.png` | Prêt à votre heure, sans étape la nuit | Un planning à rebours, sans étape en pleine nuit |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/02-receptura.png` | Les grammes de chaque ingrédient | Farine et eau du levain comptées dans le pourcentage boulanger |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/03-prowadzenie-ciemny.png` | Une étape à la fois | Que faire, combien de temps et une alerte en fin d'étape |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/03-prowadzenie-ciemny.png` | Une notification, téléphone en veille | Que faire, combien de temps et une alerte en fin d'étape |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/04-doktor.png` | Améliorez votre prochaine miche | Symptômes, cause et un seul changement pour la prochaine fournée |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/05-zakwasy.png` | Un levain toujours prêt à temps | Quantités pour le rafraîchi et rappel après 12 heures |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/06-dziennik.png` | Chaque fournée enregistrée | Notez la miche et « Cuire à nouveau » en un seul geste |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/07-offline.png` | Sans compte ni internet | Sans pub ni pistage ; vos données restent uniquement sur votre téléphone |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/fr-CA/iphone-6.3/07-offline.png` | Sans compte, publicité ni internet | Sans pub ni pistage ; vos données restent uniquement sur votre téléphone |
 
 ## Ceny i oferta w storefrontach tej karty
 

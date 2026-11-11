@@ -109,13 +109,13 @@ Pliki lokalnie u właściciela, poza gitem (ścieżka względem katalogu repo). 
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/01-plan.png` | Brödet klart när du vill | Bakåtschema utan steg mitt i natten |
+| 1 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/01-plan.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/01-plan.png` | På din tid, inga steg på natten | Bakåtschema utan steg mitt i natten |
 | 2 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/02-receptura.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/02-receptura.png` | Gram för varje ingrediens direkt | Mjöl och vatten i surdegsgrunden räknas in i bagarprocenten |
-| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/03-prowadzenie-ciemny.png` | Ett steg i taget | Vad du ska göra, hur lång tid det tar och en notis när steget är slut |
+| 3 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/03-prowadzenie-ciemny.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/03-prowadzenie-ciemny.png` | Notis när telefonen är låst | Vad du ska göra, hur lång tid det tar och en notis när steget är slut |
 | 4 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/04-doktor.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/04-doktor.png` | Förbättra nästa limpa | Symtom, orsak och en ändring till nästa bak |
 | 5 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/05-zakwasy.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/05-zakwasy.png` | Surdegsgrunden alltid redo i tid | Mängder för matning och påminnelse efter 12 timmar |
 | 6 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/06-dziennik.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/06-dziennik.png` | Varje bak sparat | Betygsätt limpan och ”Baka igen” med ett tryck |
-| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/07-offline.png` | Inget konto, inget internet | Ingen reklam eller spårning; data bara i din telefon |
+| 7 | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.9/07-offline.png` | `audit/M1-2026-10-19/M1-2026-10-19/zrzuty-sklepu/sv/iphone-6.3/07-offline.png` | Utan konto, annonser och internet | Ingen reklam eller spårning; data bara i din telefon |
 
 ## Ceny i oferta w storefrontach tej karty
 

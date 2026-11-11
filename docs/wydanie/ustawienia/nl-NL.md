@@ -109,13 +109,13 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/01-plan.png` | Brood klaar wanneer jij wilt | Teruggerekend schema zonder stappen midden in de nacht |
+| 1 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/01-plan.png` | Op jouw tijd, geen stappen 's nachts | Teruggerekend schema zonder stappen midden in de nacht |
 | 2 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/02-receptura.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/02-receptura.png` | Direct de grammen van elk ingrediënt | Meel en water uit de zuurdesemstarter tellen mee in het bakkerspercentage |
-| 3 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/03-prowadzenie-ciemny.png` | Eén stap tegelijk | Wat te doen, hoe lang het duurt en een melding als de stap klaar is |
+| 3 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/03-prowadzenie-ciemny.png` | Melding als je telefoon slaapt | Wat te doen, hoe lang het duurt en een melding als de stap klaar is |
 | 4 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/04-doktor.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/04-doktor.png` | Wat beter kan bij je volgende brood | Symptomen, oorzaak en één aanpassing voor je volgende baksel |
 | 5 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/05-zakwasy.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/05-zakwasy.png` | Zuurdesemstarter altijd op tijd klaar | Hoeveelheden voor het voeden en een herinnering na 12 uur |
 | 6 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/06-dziennik.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/06-dziennik.png` | Elk baksel vastgelegd | Beoordeel het brood en „Opnieuw bakken” met één tik |
-| 7 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/07-offline.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/07-offline.png` | Geen account, geen internet | Geen reclame of tracking; je gegevens alleen op je telefoon |
+| 7 | `docs/wydanie/zrzuty/nl-NL/iphone-6.9/07-offline.png` | `docs/wydanie/zrzuty/nl-NL/iphone-6.3/07-offline.png` | Geen account, advertenties of internet | Geen reclame of tracking; je gegevens alleen op je telefoon |
 
 ## Ceny i oferta w storefrontach tej karty
 

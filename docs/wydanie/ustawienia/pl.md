@@ -109,13 +109,13 @@ Pliki w repo. Przeciągnij do „Previews and Screenshots” w kolejności 1–7
 
 | Nr | iPhone 6,9″ (1320 × 2868) | iPhone 6,3″ (1206 × 2622), wymagana | Nagłówek | Podtytuł |
 |---|---|---|---|---|
-| 1 | `docs/wydanie/zrzuty/pl/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/01-plan.png` | Chleb gotowy na twoją godzinę | Plan wstecz bez kroków w środku nocy |
+| 1 | `docs/wydanie/zrzuty/pl/iphone-6.9/01-plan.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/01-plan.png` | Na twoją godzinę, bez kroków w nocy | Plan wstecz bez kroków w środku nocy |
 | 2 | `docs/wydanie/zrzuty/pl/iphone-6.9/02-receptura.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/02-receptura.png` | Gramy każdego składnika od razu | Mąka i woda z zakwasu wliczone w procent piekarski |
-| 3 | `docs/wydanie/zrzuty/pl/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/03-prowadzenie-ciemny.png` | Jeden krok naraz | Co zrobić, ile to trwa i powiadomienie o końcu kroku |
+| 3 | `docs/wydanie/zrzuty/pl/iphone-6.9/03-prowadzenie-ciemny.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/03-prowadzenie-ciemny.png` | Powiadomienie, gdy telefon śpi | Co zrobić, ile to trwa i powiadomienie o końcu kroku |
 | 4 | `docs/wydanie/zrzuty/pl/iphone-6.9/04-doktor.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/04-doktor.png` | Co poprawić w następnym bochenku | Objawy, przyczyna i jedna zmiana na następny wypiek |
 | 5 | `docs/wydanie/zrzuty/pl/iphone-6.9/05-zakwasy.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/05-zakwasy.png` | Zakwas zawsze gotowy na czas | Ilości do dokarmienia i przypomnienie po 12 godzinach |
 | 6 | `docs/wydanie/zrzuty/pl/iphone-6.9/06-dziennik.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/06-dziennik.png` | Każdy wypiek zapisany | Ocena bochenka i „Piecz ponownie” jednym dotknięciem |
-| 7 | `docs/wydanie/zrzuty/pl/iphone-6.9/07-offline.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/07-offline.png` | Bez konta i bez internetu | Bez reklam i śledzenia; dane tylko w twoim telefonie |
+| 7 | `docs/wydanie/zrzuty/pl/iphone-6.9/07-offline.png` | `docs/wydanie/zrzuty/pl/iphone-6.3/07-offline.png` | Bez konta, reklam i internetu | Bez reklam i śledzenia; dane tylko w twoim telefonie |
 
 ## Ceny i oferta w storefrontach tej karty
 
