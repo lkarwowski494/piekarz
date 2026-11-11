@@ -1,0 +1,35 @@
+it	5	17	Croccantezza | Acidità | Caramellizzazione | Alveolatura | Elasticità
+ms	5	17	Kerangupan | Keasidan | Karamelisasi | Keterbukaan remah | Keanjalan
+de	5	16	Knusprigkeit | Säure | Karamellisierung | Offene Porung | Elastizität
+et	5	16	Krõbedus | Happesus | Karamellistumine | Poorsus | Elastsus
+da	5	15	Sprødhed | Syrlighed | Karamellisering | Åben krumme | Elasticitet
+nb	5	15	Sprøhet | Syrlighet | Karamellisering | Åpen krumme | Spenst
+sv	5	15	Krispighet | Syrlighet | Karamellisering | Öppenhet | Spänst
+el	5	14	Τραγανότητα | Οξύτητα | Καραμελοποίηση | Ανοιχτή ψίχα | Ελαστικότητα
+es	5	14	Crujiente | Acidez | Caramelización | Miga abierta | Elasticidad
+es-419	5	14	Crocancia | Acidez | Caramelización | Apertura | Elasticidad
+fr	5	14	Croustillant | Acidité | Caramélisation | Mie alvéolée | Élasticité
+hr	5	14	Hrskavost | Kiselost | Karamelizacija | Otvorenost | Elastičnost
+hu	5	14	Ropogósság | Savasság | Karamellizáció | Nyitott bélzet | Rugalmasság
+lt	5	14	Traškumas | Rūgštumas | Karamelizacija | Akytumas | Elastingumas
+lv	5	14	Kraukšķīgums | Skābums | Karamelizācija | Porainība | Elastīgums
+nl	5	14	Krokantheid | Zuurgraad | Karamellisatie | Openheid | Veerkracht
+sl	5	14	Hrustljavost | Kislost | Karamelizacija | Odprtost | Prožnost
+sr	5	14	Хрскавост | Киселост | Карамелизација | Отвореност | Еластичност
+tr	5	14	Çıtırlık | Asitlik | Karamelizasyon | Gözeneklilik | Esneklik
+en	5	14	Crispiness | Springiness | Sourness | Openness | Caramelization
+bg	5	13	Хрупкавост | Киселинност | Карамелизация | Шуплестост | Еластичност
+fi	5	13	Rapeus | Happamuus | Karamellisuus | Ilmavuus | Kimmoisuus
+pt	5	13	Crocância | Acidez | Caramelização | Miolo aberto | Elasticidade
+pt-BR	5	13	Crocância | Acidez | Caramelização | Abertura | Elasticidade
+ru	5	13	Хрусткость | Кислотность | Карамелизация | Открытость | Упругость
+sk	5	13	Chrumkavosť | Kyslosť | Karamelizácia | Otvorenosť | Pružnosť
+uk	5	13	Хрусткість | Кислотність | Карамелізація | Відкритість | Пружність
+cs	5	12	Křupavost | Kyselost | Karamelizace | Otevřenost | Pružnost
+id	5	12	Kerenyahan | Keasaman | Karamelisasi | Pori terbuka | Elastisitas
+ro	5	12	Crocanță | Aciditate | Caramelizare | Alveolare | Elasticitate
+pl	5	12	Chrupkość | Sprężystość | Kwasowość | Otwartość | Karmelizacja
+vi	5	11	Độ giòn | Độ chua | Caramen hóa | Độ thoáng | Độ đàn hồi
+ja	5	7	クリスピー感 | キャラメル化 | 酸味 | オープンクラム | 弾力
+ko	5	5	바삭함 | 산미 | 캐러멜화 | 벌집 기공 | 탄력
+zh-Hant	5	5	酥脆度 | 酸度 | 焦糖化 | 氣孔開放度 | 彈性

@@ -1,0 +1,12 @@
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+const keys = ['Chrupkość','Sprężystość','Kwasowość','Otwartość','Karmelizacja'];
+const root = 'src/lib/i18n-slowniki';
+const out = {};
+const scan = (lang, dir) => { for (const f of readdirSync(dir)) { if (!f.endsWith('.ts')) continue; const s = readFileSync(join(dir,f),'utf8');
+  for (const k of keys) { const m = s.match(new RegExp(`'${k}':\\s*'((?:[^'\\\\]|\\\\.)*)'`)); if (m) (out[lang] ??= {})[k] = m[1]; } } };
+for (const l of readdirSync(root)) if (!l.endsWith('.ts')) scan(l, join(root,l));
+scan('en','src/lib/i18n-en');
+out.pl = Object.fromEntries(keys.map(k=>[k,k]));
+const rows = Object.entries(out).map(([l,v])=>[l, Object.keys(v).length, Math.max(...Object.values(v).map(x=>[...x].length)), Object.values(v).join(' | ')]);
+rows.sort((a,b)=>b[2]-a[2]); for (const r of rows) console.log(r.join('\t'));
