@@ -160,7 +160,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
-- Koordynatora `…xoysanqZq26zhDpGT` (aktualne): ID w dzienniku 13:50 (kontrola zrzutów #7, linia 05:00 13.11; linia 14:00 12.11 wysłana 13:5x).
+- Koordynatora `…xoysanqZq26zhDpGT` (aktualne): `trig_01DxcFiDFqY4abWGgQ23HXmJ` kontrola zrzutów #7 12.11 14:08 · `trig_01XzL1BSoj7nXuG5secftZAA` linia 05:00 13.11 · linia 14:00 12.11 wysłana 13:48 (następna 14:00 13.11 planuje linia 05:00).
 - Koordynatora `…z19rgrgixEvBYBvVd` (aktualne): `trig_01CMTz3bctLebNL96JUGKn4c` kontrola zrzutów #7 12.11 13:45 (12:30 wykonana) · `trig_01JfmPV8Jmqp9bjmrzvm3fYt` linia 14:00 12.11 · `trig_01FGhc1zSmmYeUwmhmnPDMp3` linia 05:00 13.11.
 - Koordynatora `…w2HUmSmpTzryFK8eF` (aktualne): `trig_0155sxxMamMjnCjm5dXunJFj` linia 05:00 13.11 (12.11 wysłana), kontrola U `trig_01CeVwU1TJVp1EaG9RDp4nvA` 10:40 — wszystkie usuwam po starcie następcy · `trig_018gAP41FxWSssuTwjKVpkD9` linia 14:00 12.11 · kontrola R `send_later` ~21:15.
 - Koordynatora `…ByLLFQ4u3bXqP2hE4m` (aktualne): `trig_01CRccH1F2LbbPu9KMdpxeQo` kontrola zrzutów #1 11.11 15:10 · `trig_01FoCKhBHCbvs4c5GZPmuUaq` linia 05:00 12.11 · `trig_01BWc1TcjvDBRnPyDh4rUkDN` linia 14:00 12.11. Kontrolę 15:10 poprzednika `trig_01Qdk4f9n2t5HWAhKJSgqU4c` usuwa poprzednik.
@@ -358,3 +358,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 12.11 13:46 | M9 | Zrzuty #7 in_progress (13:33 ostatnia zmiana). Kontekst koordynatora 32,2% → E6: przekazanie następcy. | następca |
 | 12.11 13:47 | M9 | **Przekazane do `session_01T66VBxoysanqZq26zhDpGT`** (Koordynator M9 (10), start bez błędu, RUNNING). Przypomnienia poprzednika `…z19rgrgixEvBYBvVd` usunięte (linia 14:00, linia 05:00 13.11; kontrola 13:45 wykonana); zostaje kontrola przekazania `trig_01BcYEvxakF3yapJss3S9D1T` 14:17. | PRZEJĄŁEM od następcy |
 | 12.11 13:50 | M9 | Przejęcie przez `…xoysanqZq26zhDpGT`: mandat — siebie jako aktywnego; zrzuty #7 in_progress (`actions_get` 13:47, ostatnia zmiana 13:33). | linia 14:00, kontrola #7, PRZEJĄŁEM |
+| 12.11 13:48 | M9 | Linia 14:00 wysłana; „PRZEJĄŁEM, stan @ `d0d8d80`” do `…z19rgrgixEvBYBvVd` (delivered). | kontrola 14:08 |
