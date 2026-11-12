@@ -17,3 +17,4 @@ Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na sta
 | R | 04→08 fix | — | 12,62 | 36,3 | 20:13 → 20:14 → 20:2x → E2E #116 zielone 22:05 → przyjęte 22:23 | E2E #115 startup_failure ~11 min (infra) | P1+P2 jedna sesja |
 | S | 04→08→09 fix | — | 8,65 | 28,4 | 21:17 → 21:18 → 21:2x → E2E #117 zielone 22:46 → przyjęte 22:50 | — | ~1,5 h agenta wg S, faktycznie 22 min |
 | T | 07→08 fix | — | 4,81 | 24,6 | 07:15 → 07:16 → 07:2x → zrzuty #6 zielone 08:15 → przyjęte 08:24 | — | diagnoza 6 min |
+| U (D-392 nagłówek karty, D-393 kadr 05) | 04→08 fix | [brak szacunku] | 10,65 | 31,8 | 09:54 → 09:54 → ~10:10 → E2E 12:00 → 12:31 | pytanie do właściciela ~5 min; kolejka macOS 14 min; E2E 88 min | KO-055, KO-056 |
