@@ -1,0 +1,16 @@
+# Sesja U: karta „Szczyt aktywności” łamana po literach (P1) + kadr 05 (P2) — Piekarz
+Koordynator: session_01T66VBw2HUmSmpTzryFK8eF (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID). Gałąź stanu `koordynacja` tylko do odczytu.
+
+1. Rola: zadanie 1 jako 04-studio-projektowe (fix), zadania 2–4 jako 08 (fix). Prompty: `git fetch origin audit-m1/piekarz-2026-11-08`, `git show origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/naprawy/polecenia/rola-04-studio-projektowe-prompt.md` i `…/rola-08-prompt.md` — przeczytaj w całości. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `naprawy/M2-koordynator-napraw-2026-11-12-szczyt` od `master` @ `e387da72` (inny HEAD: zgłoś). `npm ci`. Tożsamość commitów wg CLAUDE.md.
+3. Kontekst: decyzja właściciela 2026-11-12 ~08:40 UTC: „Napraw teraz”. Przegląd zrzutów #6 (run 43176824676): `git show origin/koordynacja:docs/koordynacja/przeglad-zrzuty5-pl.md`. P1: ramka 05 na iPhone 6,3″ (393 pt): tytuł karty „Szczyt aktywności” na ekranie Zakwasy łamie się po literach („Szcz/yt/akty/wnoś/ci”), bo chip „6 godzin 6 minut od dokarmienia” zabiera szerokość wiersza — błąd układu aplikacji. Ramki: `gh run download 43176824676 -R lkarwowski494/piekarz -n sklep-ramki`. P2: ramka 05 — na 6,9″ jest pas ze spiralą bez „Gotowy do ciasta.”, na 6,3″ odwrotnie; KO-043/D-372 (właściciel): „Gotowy do ciasta.” w kadrze; P2 z KO-048: pas ze spiralą w kadrze. Zmiany scen 05: D-372, D-382 (`docs/decyzje.md`).
+4. Zadania:
+   1. **Projekt (04):** układ nagłówka karty z chipem w systemie projektu (np. chip pod tytułem, gdy brak miejsca; tytuł nigdy nie łamany wewnątrz słowa). Sprawdź 320 pt, 393 pt, 440 pt, AX5 i najdłuższe języki (de, fi, ru, ja itd.); przejrzyj też inne karty z tym samym wzorcem tytuł+chip. Gotowe: decyzja D-… z przyczyną i rozwiązaniem. Rozwiązanie poza systemem projektu → PYTANIE z ≥ 2 opcjami i rekomendacją.
+   2. **Kod (08):** test najpierw czerwony (tytuł karty nie łamie się w słowie / chip przechodzi pod tytuł przy wąskim ekranie, PL i najdłuższy język, 320 i 393 pt, fontScale AX5), potem poprawka, zielony. Gotowe: commit, dowód w `docs/dowody-08-szczyt/`.
+   3. **Kadr 05 (P2):** scena 05 tak, by na OBU rozmiarach w kadrze był pas ze spiralą i „Gotowy do ciasta.”; jeśli to niemożliwe na jednym rozmiarze, PYTANIE z opcjami. Test sceny (jak D-379/D-391) czerwony→zielony. Zachowaj straż PO_PRZEWINIECIU (D-391).
+   4. `npm run verify` KOD 0 na końcowym SHA → `docs/dowody-08-szczyt/verify.txt`; recenzja niezależna (subagent, sam diff) bez P0/P1. Gotowe: PRZEKAZANIE.
+5. Zakazy: nie scalasz do `redesign`/`master`, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie uruchamiasz workflowów (E2E i zrzuty wyzwala koordynator), nigdy --no-verify ani force-push, bez AskUserQuestion. STOP-y i punkt czyszczenia → raport do koordynatora.
+6. Decyzje: tryb „właściciel”: techniczne sama do weta, produktowe/wyglądu poza systemem projektu jako PYTANIE. Numery tylko D-392…D-399.
+7. Od 30% okna: stan w `docs/stan-08-szczyt-2026-11-12.md`, push, PRZEKAZANIE.
+8. Push zbiorczo na końcu (koordynator uruchomi E2E na końcowym SHA).
+9. Raporty (≤ 10 linii, send_message): po zadaniu 1 (przyczyna, decyzja, szacunek); PYTANIE; PRZEKAZANIE (SHA, dowody, decyzje, czy aplikacja zmieniona → nowy build zrzutów).
