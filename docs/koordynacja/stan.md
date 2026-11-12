@@ -160,7 +160,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
-- Koordynatora `…xoysanqZq26zhDpGT` (aktualne): `trig_01DxcFiDFqY4abWGgQ23HXmJ` kontrola #7 14:08 (wykonana) · kontrola #7 14:32 (ID w dzienniku) · `trig_01XzL1BSoj7nXuG5secftZAA` linia 05:00 13.11 · linia 14:00 12.11 wysłana 13:48 (następna 14:00 13.11 planuje linia 05:00).
+- Koordynatora `…xoysanqZq26zhDpGT` (aktualne): `trig_01DxcFiDFqY4abWGgQ23HXmJ` kontrola #7 14:08 (wykonana) · `trig_016p8Ytpd7o9YgQKWR4P2oT9` kontrola #7 14:32 (wykonana) · `trig_01XzL1BSoj7nXuG5secftZAA` linia 05:00 13.11 · linia 14:00 12.11 wysłana 13:48 (następna 14:00 13.11 planuje linia 05:00).
 - Koordynatora `…z19rgrgixEvBYBvVd` (aktualne): `trig_01CMTz3bctLebNL96JUGKn4c` kontrola zrzutów #7 12.11 13:45 (12:30 wykonana) · `trig_01JfmPV8Jmqp9bjmrzvm3fYt` linia 14:00 12.11 · `trig_01FGhc1zSmmYeUwmhmnPDMp3` linia 05:00 13.11.
 - Koordynatora `…w2HUmSmpTzryFK8eF` (aktualne): `trig_0155sxxMamMjnCjm5dXunJFj` linia 05:00 13.11 (12.11 wysłana), kontrola U `trig_01CeVwU1TJVp1EaG9RDp4nvA` 10:40 — wszystkie usuwam po starcie następcy · `trig_018gAP41FxWSssuTwjKVpkD9` linia 14:00 12.11 · kontrola R `send_later` ~21:15.
 - Koordynatora `…ByLLFQ4u3bXqP2hE4m` (aktualne): `trig_01CRccH1F2LbbPu9KMdpxeQo` kontrola zrzutów #1 11.11 15:10 · `trig_01FoCKhBHCbvs4c5GZPmuUaq` linia 05:00 12.11 · `trig_01BWc1TcjvDBRnPyDh4rUkDN` linia 14:00 12.11. Kontrolę 15:10 poprzednika `trig_01Qdk4f9n2t5HWAhKJSgqU4c` usuwa poprzednik.
@@ -360,3 +360,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 12.11 13:50 | M9 | Przejęcie przez `…xoysanqZq26zhDpGT`: mandat — siebie jako aktywnego; zrzuty #7 in_progress (`actions_get` 13:47, ostatnia zmiana 13:33). | linia 14:00, kontrola #7, PRZEJĄŁEM |
 | 12.11 13:48 | M9 | Linia 14:00 wysłana; „PRZEJĄŁEM, stan @ `d0d8d80`” do `…z19rgrgixEvBYBvVd` (delivered). | kontrola 14:08 |
 | 12.11 14:09 | CI | Zrzuty #7: plan, build (12:34→12:56), 6,3″ **zielone** (Zrzuty 13:16→13:38); 6,9″ „Zrzuty” w toku od 13:38. Czekanie: job 6,9″ utworzony 12:56, start 13:33 (37 min kolejki macOS; 6,3″ 15 min) — kandydat WG (kolejka macOS, por. E2E #120 14 min). | kontrola 14:32 |
+| 12.11 14:34 | CI / M9 | **Zrzuty #7 ZIELONE** (completed success 14:10; 6,9″ „Zrzuty” 13:38→~14:08). Artefakty: `sklep-ramki` 13952191225, `sklep-zrzuty` 13952066304 (retencja do 26.11). Przegląd L-004 zlecony subagentowi → `przeglad-zrzuty7-pl.md`. | wynik przeglądu → bez P1: zrzuty 34 lokalizacji (KO-056) |
