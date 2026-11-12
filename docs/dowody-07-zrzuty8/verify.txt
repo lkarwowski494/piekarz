@@ -1,0 +1,26 @@
+# npm run verify na 8294e6872fd90fd6e9618a14200d56606b9d2c2a, 2026-11-12T17:35:55Z
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+i18n: 924 tekstów t('…') w kodzie, 2221 w słowniku EN, języki przekładu: 33; błędy: 0, uwagi: 155 (skan kodu: src,app; uwagi wypisuje --uwagi)
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+> piekarz@1.0.0 lint
+> eslint app src
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+> piekarz@1.0.0 test
+> jest
+Test Suites: 676 passed, 676 total
+Tests:       7480 passed, 7480 total
+KOD: 0
