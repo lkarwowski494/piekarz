@@ -1,0 +1,24 @@
+# npm run verify na a8e4eeac (2026-11-12), sesja T
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+> piekarz@1.0.0 lint
+> eslint app src
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+> piekarz@1.0.0 test
+> jest
+Test Suites: 673 passed, 673 total
+Tests:       7405 passed, 7405 total
+KOD=0
