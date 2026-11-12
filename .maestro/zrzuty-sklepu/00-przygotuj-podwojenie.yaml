@@ -9,7 +9,8 @@ appId: com.apps4brew.baker
 # Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
 # (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
 # Zrzuty #8 (D-394): bez centerElement środek przycisku leżał w pasie kart (6,9″ de-DE y 885–933, pasek od 873) i stuknięcie
-# trafiło w kartę „Zakwasy” w 7 lokalizacjach; centerElement (Maestro 2.11: środek elementu nad dolną piątą ekranu) kładzie go nad paskiem.
+# trafiło w kartę „Zakwasy” w 7 lokalizacjach; centerElement (Maestro 2.11: środek elementu powyżej 70% wysokości ekranu,
+# D-394) kładzie go nad paskiem; po 5 nieudanych próbach Maestro wraca do samej widoczności (element na końcu treści).
 - scrollUntilVisible:
     element:
       id: "zakwas-podwoil-btn"

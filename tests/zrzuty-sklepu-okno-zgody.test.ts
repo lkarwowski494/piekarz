@@ -39,9 +39,9 @@ export function wzorceOkna(tekst: string): string[] {
   return wynik;
 }
 
-/** Czy wzorzec trafia w etykietę przy obu semantykach Maestro (cały tekst albo fragment). */
+/** Czy wzorzec trafia w etykietę przy obu semantykach (cały tekst albo fragment); bez rozróżniania wielkości liter jak Maestro 2.11 (Filters.textMatches, IGNORE_CASE). */
 const trafia = (wzorzec: string, etykieta: string): boolean =>
-  new RegExp(`^(?:${wzorzec})$`, 'u').test(etykieta) || new RegExp(wzorzec, 'u').test(etykieta);
+  new RegExp(`^(?:${wzorzec})$`, 'iu').test(etykieta) || new RegExp(wzorzec, 'iu').test(etykieta);
 
 /** id stukane po przewinięciu, którego przewinięcie bezpośrednio przed tapOn nie ma centerElement: true. */
 export function tapyBezSrodka(tekst: string): string[] {
@@ -73,17 +73,22 @@ export const BEZ_SRODKA: Record<string, string> = {
   'objaw-crumbHasHugeTopHolesWithDenseBottom': 'Doktor Chleba nad zakładkami, bez paska kart; ramka 04 bez centerElement (KO-046, D-377)',
 };
 
-/** Przewinięcia z centerElement przed tapOn, których limit jest krótszy niż 30 s (5 prób wyśrodkowania, D-377). */
+/** Przewinięcia z centerElement przed tapOn (także w `commands` zagnieżdżonych komend), z limitem krótszym niż 30 s (5 prób wyśrodkowania, D-377). */
 export function srodkowaniaZKrotkimLimitem(tekst: string): string[] {
   const docs = yaml.loadAll(tekst);
   const kroki = Array.isArray(docs[1]) ? (docs[1] as unknown[]) : [];
-  return kroki.flatMap((c, i) => {
-    const n = kroki[i + 1];
-    if (!obiekt(c) || !obiekt(c.scrollUntilVisible) || !obiekt(n) || !obiekt(n.tapOn)) return [];
-    const sv = c.scrollUntilVisible;
-    const id = obiekt(sv.element) ? sv.element.id : undefined;
-    return sv.centerElement === true && !(typeof sv.timeout === 'number' && sv.timeout >= 30000) ? [String(id)] : [];
-  });
+  const wynik: string[] = [];
+  const lista = (l: unknown[]) =>
+    l.forEach((c, i) => {
+      if (!obiekt(c)) return;
+      const n = l[i + 1];
+      const sv = c.scrollUntilVisible;
+      if (obiekt(sv) && obiekt(n) && obiekt(n.tapOn) && sv.centerElement === true && !(typeof sv.timeout === 'number' && sv.timeout >= 30000))
+        wynik.push(String(obiekt(sv.element) ? sv.element.id : undefined));
+      for (const v of Object.values(c)) if (obiekt(v) && Array.isArray(v.commands)) lista(v.commands);
+    });
+  lista(kroki);
+  return wynik;
 }
 
 describe('sceny zrzutów sklepu po przebiegu #8 (D-394)', () => {
@@ -126,6 +131,11 @@ describe('sceny zrzutów sklepu po przebiegu #8 (D-394)', () => {
   });
 
   // Stan z przebiegu #8 (00-przygotuj-podwojenie.yaml @ 69edd0fb): kontrola musi go odrzucić.
+  it('łapie wyśrodkowanie z domyślnym limitem 20 s także w zagnieżdżonych commands', () => {
+    const zle = ['appId: com.apps4brew.baker', '---', '- runFlow:', '    when:', '      visible:', '        id: "x"', '    commands:', '      - scrollUntilVisible:', '          element:', '            id: "x"', '          centerElement: true', '      - tapOn:', '          id: "x"'].join('\n');
+    expect(srodkowaniaZKrotkimLimitem(zle)).toEqual(['x']);
+  });
+
   it('łapie przewinięcie do „Podwoił objętość” bez wyśrodkowania (przebieg #8)', () => {
     const przed = ['appId: com.apps4brew.baker', '---', '- scrollUntilVisible:', '    element:', '      id: "zakwas-podwoil-btn"', '- tapOn:', '    id: "zakwas-podwoil-btn"'].join('\n');
     expect(tapyBezSrodka(przed)).toEqual(['zakwas-podwoil-btn']);
