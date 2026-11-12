@@ -85,6 +85,7 @@
     "react-test-renderer": "19.2.3",
     "sharp": "^0.35.5",
     "typescript": "^5.5.4",
-    "typescript-eslint": "8.71.1"
+    "typescript-eslint": "8.71.1",
+    "yoga-layout": "3.2.1"
   }
 }

@@ -77,13 +77,13 @@ export function DutchOvenController({
 
       {/* Phase Info Card */}
       <View style={styles.phaseInfoCard}>
-        <View style={styles.phaseHeaderRow}>
-          <Text style={styles.phaseTitle}>
+        <View style={styles.phaseHeaderRow} testID="dutch-oven-faza-naglowek">
+          <Text style={styles.phaseTitle} testID="dutch-oven-faza-tytul">
             {dutchOvenPhase === 'lid_on'
               ? t('Faza 1: Pod pokrywką (Para)')
               : t('Faza 2: Bez pokrywki (Karmelizacja)')}
           </Text>
-          <View style={styles.phaseTempBadge}>
+          <View style={styles.phaseTempBadge} testID="dutch-oven-faza-znacznik">
             <Text style={styles.phaseTempBadgeText}>
               {formatTemperature(fazy[dutchOvenPhase].temperatureC, unitSystem)}
             </Text>
