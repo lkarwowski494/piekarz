@@ -5,7 +5,7 @@ appId: com.apps4brew.baker
 - tapOn:
     id: "tab-zakwasy"
 # Pas zakwasu ze spiralą cyklu (D-371); zakwas po zakładaniu z 00-przygotuj (KO-043, D-372): karta cyklu
-# z „Gotowy do ciasta.” pod profilem (zrzut robi simctl io po scenie)
+# z „Gotowy do ciasta.” nad profilem od D-393 (zrzut robi simctl io po scenie)
 - extendedWaitUntil:
     visible:
       id: "zakwas-cykl"
