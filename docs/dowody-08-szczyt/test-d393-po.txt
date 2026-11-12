@@ -1,0 +1,10 @@
+PASS tests/zrzuty-sklepu-kadry.test.ts
+PASS src/__tests__/zakwasy-kolejnosc-kart-d393.test.tsx
+PASS tests/zrzuty-sklepu-workflow.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       95 passed, 95 total
+Snapshots:   0 total
+Time:        1.941 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/zakwasy-kolejnosc-kart-d393.test.tsx|tests\/zrzuty-sklepu-kadry.test.ts|tests\/zrzuty-sklepu-workflow.test.ts/i.
+kod wyjścia: 0

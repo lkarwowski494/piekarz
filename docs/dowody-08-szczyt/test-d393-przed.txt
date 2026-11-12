@@ -1,0 +1,119 @@
+FAIL tests/zrzuty-sklepu-kadry.test.ts
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 05-zakwasy: bez przewijania; „Gotowy do ciasta.” widoczny na końcu (KO-043, KO-055, D-393)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 7
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "element": Object {
+    +       "id": "zakwas-gotowy",
+    +     },
+    +   },
+    + ]
+
+      50 |   it('05-zakwasy: bez przewijania; „Gotowy do ciasta.” widoczny na końcu (KO-043, KO-055, D-393)', () => {
+      51 |     const k = kroki('05-zakwasy');
+    > 52 |     expect(k.map(przewiniecie).filter((x) => x !== null)).toEqual([]);
+         |                                                           ^
+      53 |     expect(k.some((c) => 'scroll' in c || 'swipe' in c)).toBe(false);
+      54 |     const ostatni = k.at(-1);
+      55 |     expect(obiekt(ostatni?.assertVisible) && ostatni.assertVisible.id).toBe('zakwas-gotowy');
+
+      at Object.toEqual (tests/zrzuty-sklepu-kadry.test.ts:52:59)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 05-zakwasy na 6,3″: pas i „Gotowy do ciasta.” mieszczą się nad paskiem kart z zapasem (D-393)
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 10329
+    Received:   10543
+
+      63 |     const ekran = readFileSync(join(__dirname, '..', 'app', '(tabs)', 'zakwasy', 'index.tsx'), 'utf8');
+      64 |     expect(ekran.indexOf('<ZakwasDziennik')).toBeGreaterThan(-1);
+    > 65 |     expect(ekran.indexOf('<ZakwasDziennik')).toBeLessThan(ekran.indexOf('<StarterProfileCard'));
+         |                                              ^
+      66 |   });
+      67 |
+      68 |   it('07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051)', () => {
+
+      at toBeLessThan (tests/zrzuty-sklepu-kadry.test.ts:65:46)
+
+  ● kadry scen zrzutów sklepu (KO-048 P2 c) › 05-zakwasy na 6,9″: pas i „Gotowy do ciasta.” mieszczą się nad paskiem kart z zapasem (D-393)
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 10329
+    Received:   10543
+
+      63 |     const ekran = readFileSync(join(__dirname, '..', 'app', '(tabs)', 'zakwasy', 'index.tsx'), 'utf8');
+      64 |     expect(ekran.indexOf('<ZakwasDziennik')).toBeGreaterThan(-1);
+    > 65 |     expect(ekran.indexOf('<ZakwasDziennik')).toBeLessThan(ekran.indexOf('<StarterProfileCard'));
+         |                                              ^
+      66 |   });
+      67 |
+      68 |   it('07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051)', () => {
+
+      at toBeLessThan (tests/zrzuty-sklepu-kadry.test.ts:65:46)
+
+FAIL src/__tests__/zakwasy-kolejnosc-kart-d393.test.tsx
+  ● D-393: kolejność kart na ekranie Zakwasy › „Cykl dokarmiania” nad „Profilem zakwasu”, reszta kart pod nimi
+
+    expect(received).toBeLessThan(expected)
+
+    Expected: < 0
+    Received:   1
+
+      73 |     expect(i('Cykl dokarmiania')).toBeGreaterThan(-1);
+      74 |     expect(i('Profil zakwasu')).toBeGreaterThan(-1);
+    > 75 |     expect(i('Cykl dokarmiania')).toBeLessThan(i('Profil zakwasu'));
+         |                                   ^
+      76 |     expect(i('Profil zakwasu')).toBeLessThan(i('Szczyt aktywności'));
+      77 |     act(() => tree.unmount());
+      78 |   });
+
+      at Object.toBeLessThan (src/__tests__/zakwasy-kolejnosc-kart-d393.test.tsx:75:35)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+FAIL tests/zrzuty-sklepu-workflow.test.ts
+  ● sceny Maestro .maestro/zrzuty-sklepu › przygotowanie kończy zakładanie przez „Podwoił objętość”, a ramka 05 pokazuje kartę cyklu z „Gotowy do ciasta.” (KO-043)
+
+    expect(received).not.toMatch(expected)
+
+    Expected pattern: not /scrollUntilVisible|^- scroll|swipe/m
+    Received string:      "appId: com.apps4brew.baker
+    ---
+    - runFlow: sub/start.yaml
+    - tapOn:
+        id: \"tab-zakwasy\"
+    - extendedWaitUntil:
+        visible:
+          id: \"zakwas-cykl\"
+        timeout: 15000
+    - scrollUntilVisible:
+        element:
+          id: \"zakwas-gotowy\"
+    - assertVisible:
+        id: \"zakwas-gotowy\"
+    "
+
+      248 |     // „Gotowy do ciasta.” (istota KO-043). Rachunek kadru: tests/zrzuty-sklepu-kadry.test.ts.
+      249 |     expect(r05).toMatch(/- assertVisible:\n {4}id: "zakwas-gotowy"\n?$/);
+    > 250 |     expect(r05.split("\n").filter((l) => !/^\s*#/.test(l)).join("\n")).not.toMatch(/scrollUntilVisible|^- scroll|swipe/m);
+          |                                                                            ^
+      251 |     expect(r05.split("\n").filter((l) => !/^\s*#/.test(l)).join("\n")).not.toMatch(/centerElement/);
+      252 |     expect(read('src/components/zakwas/ZakwasDziennik.tsx')).toContain('testID="zakwas-gotowy"');
+      253 |   });
+
+      at Object.toMatch (tests/zrzuty-sklepu-workflow.test.ts:250:76)
+
+Test Suites: 3 failed, 3 total
+Tests:       5 failed, 90 passed, 95 total
+Snapshots:   0 total
+Time:        1.841 s, estimated 2 s
+Ran all test suites matching /src\/__tests__\/zakwasy-kolejnosc-kart-d393.test.tsx|tests\/zrzuty-sklepu-kadry.test.ts|tests\/zrzuty-sklepu-workflow.test.ts/i.
+kod wyjścia: 1

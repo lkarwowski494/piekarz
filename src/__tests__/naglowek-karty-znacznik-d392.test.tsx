@@ -51,8 +51,9 @@ const kartaSzczytu = () => (
 
 const wDwochRzedach = (a: Pudelko, b: Pudelko) => b.y >= a.y + a.h - 0.5;
 
-/** Naruszenia układu nagłówka: tytuł węższy od najdłuższego słowa (gdy słowo mieści się w wierszu), znacznik poza
- * kartą, znacznik obok tytułu mimo braku miejsca (tytuł w więcej niż jednym wierszu przy znaczniku w tym samym rzędzie). */
+/** Naruszenia układu nagłówka (`kartaId` = rząd nagłówka): tytuł węższy od najdłuższego słowa (gdy słowo mieści się
+ * w wierszu z zapasem 64 pt na ikonę i odstępy), znacznik poza rzędem nagłówka. Położenie znacznika pod tytułem
+ * sprawdza osobny przypadek (PL 393 pt). */
 function naruszenia(m: Map<string, Pudelko>, tytulId: string, znacznikId: string, kartaId: string, opis: string): string[] {
   const tyt = m.get(tytulId), zn = m.get(znacznikId), karta = m.get(kartaId);
   if (!tyt?.tekst || !tyt.styl || !zn || !karta) return [`${opis}: brak elementu`];

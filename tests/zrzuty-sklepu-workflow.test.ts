@@ -244,9 +244,10 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     const poPasie = czesc2.split('- runFlow: sub/start.yaml\n- tapOn:\n    id: "tab-zakwasy"\n')[1] ?? '';
     expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
-    // KO-052 (D-382): przewinięcie do „Gotowy do ciasta.” najmniejsze (bez centerElement, które wypychało pas ze spiralą
-    // z kadru, zrzuty #4), a po nim asercja widoczności — „Gotowy do ciasta.” zostaje w kadrze (istota KO-043).
-    expect(r05).toMatch(/- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-gotowy"\n(?:#[^\n]*\n)*- assertVisible:\n {4}id: "zakwas-gotowy"\n/);
+    // KO-055 (D-393, zmienia KO-052/D-382): karta cyklu nad profilem, więc bez przewijania; na końcu asercja widoczności
+    // „Gotowy do ciasta.” (istota KO-043). Rachunek kadru: tests/zrzuty-sklepu-kadry.test.ts.
+    expect(r05).toMatch(/- assertVisible:\n {4}id: "zakwas-gotowy"\n?$/);
+    expect(r05.split("\n").filter((l) => !/^\s*#/.test(l)).join("\n")).not.toMatch(/scrollUntilVisible|^- scroll|swipe/m);
     expect(r05.split("\n").filter((l) => !/^\s*#/.test(l)).join("\n")).not.toMatch(/centerElement/);
     expect(read('src/components/zakwas/ZakwasDziennik.tsx')).toContain('testID="zakwas-gotowy"');
   });

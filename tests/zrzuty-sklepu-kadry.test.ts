@@ -3,8 +3,8 @@
 // Przegląd zrzutów #4 (run 43085791241, `koordynacja:docs/koordynacja/przeglad-zrzuty4-pl.md`):
 // 01 na 6,3″ bez karty „Ochrona snu aktywna” (a na 6,9″ sam nagłówek, treść pod paskiem przycisków),
 // 02 na 6,3″ jeden pełny składnik. Kontrola: scena kończy się kadrem, który pokazuje element z nagłówka ramki.
-// 05: centerElement na „Gotowy do ciasta.” wypychał pas ze spiralą z kadru — KO-052 (D-382): przewinięcie najmniejsze,
-// „Gotowy do ciasta.” nadal w kadrze (KO-043; kształt kroków pilnuje też tests/zrzuty-sklepu-workflow.test.ts).
+// 05: centerElement na „Gotowy do ciasta.” wypychał pas ze spiralą z kadru (KO-052, D-382), a na 6,3″ pas i „Gotowy do
+// ciasta.” nie mieściły się razem (zrzuty #6) — KO-055 (D-393): karta cyklu nad profilem, scena bez przewijania.
 // Granica: Maestro liczy widoczność względem ekranu, nie pasków aplikacji — kadr potwierdza dopiero przebieg zrzutów.
 // ============================================================================
 
@@ -42,13 +42,27 @@ describe('kadry scen zrzutów sklepu (KO-048 P2 c)', () => {
     expect(assert).toBeLessThan(scroll);
   });
 
-  it('05-zakwasy: najmniejsze przewinięcie do „Gotowy do ciasta.” (bez centerElement), pas zakwasu przed nim, „Gotowy do ciasta.” widoczny na końcu (KO-052)', () => {
+  // D-393 (KO-055, właściciel: „B: karta wyżej”): karta cyklu nad profilem, więc ramka 05 bez przewijania. Rachunek kadru
+  // z surowych zrzutów #6 (run 43176824676, pt od góry ekranu): na 6,9″ pas 0–436, góra spirali 182; karta cyklu od góry
+  // do dołu „Gotowy do ciasta.” 169 pt na obu rozmiarach (6,3″: 227–396, 6,9″: 742–911); odstęp między kartami 12 (+ 2 × 1 pt
+  // obwódki); pasek kart od 791 (6,3″, 402×874) i 873 (6,9″, 440×956). Pas na 6,3″ nie jest zmierzony — zapas pokazuje,
+  // o ile może być wyższy niż na 6,9″, zanim „Gotowy do ciasta.” zejdzie pod pasek kart.
+  it('05-zakwasy: bez przewijania; „Gotowy do ciasta.” widoczny na końcu (KO-043, KO-055, D-393)', () => {
     const k = kroki('05-zakwasy');
-    const przewiniecia = k.map(przewiniecie).filter((x): x is Komenda => x !== null);
-    expect(przewiniecia.map(idElementu)).toEqual(['zakwas-gotowy']);
-    expect(przewiniecia[0].centerElement).toBeUndefined();
+    expect(k.map(przewiniecie).filter((x) => x !== null)).toEqual([]);
+    expect(k.some((c) => 'scroll' in c || 'swipe' in c)).toBe(false);
     const ostatni = k.at(-1);
     expect(obiekt(ostatni?.assertVisible) && ostatni.assertVisible.id).toBe('zakwas-gotowy');
+  });
+
+  it.each([['6,3″', 791], ['6,9″', 873]])('05-zakwasy na %s: pas i „Gotowy do ciasta.” mieszczą się nad paskiem kart z zapasem (D-393)', (_r, pasekKart) => {
+    const PAS_6_9 = 436, ODSTEP = 12 + 2, KARTA_DO_GOTOWY = 169, ZAPAS_MIN = 100;
+    const dolGotowy = PAS_6_9 + ODSTEP + KARTA_DO_GOTOWY;
+    expect(pasekKart - dolGotowy).toBeGreaterThanOrEqual(ZAPAS_MIN);
+    // Kolejność w kodzie ekranu: karta cyklu (ZakwasDziennik) przed profilem — bez niej rachunek nie obowiązuje
+    const ekran = readFileSync(join(__dirname, '..', 'app', '(tabs)', 'zakwasy', 'index.tsx'), 'utf8');
+    expect(ekran.indexOf('<ZakwasDziennik')).toBeGreaterThan(-1);
+    expect(ekran.indexOf('<ZakwasDziennik')).toBeLessThan(ekran.indexOf('<StarterProfileCard'));
   });
 
   it('07-offline: „Dziś” z trwającym wypiekiem, nie pusty stan; bez wypieku z 03 (wybór sceny 07) scena sama go zaczyna (KO-051)', () => {

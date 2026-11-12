@@ -38,7 +38,7 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 | Arkusz „Składniki” `SkladnikiSheet.tsx` | własny pasek | `#skladniki` | sekcje jako karty z ikonami |
 | Plan `receptury/harmonogram.tsx` | pasek systemowy | `wypiek.html#plan` | pas (O3), „Kiedy gotowy”, temperatura, sen, oś czasu w kartach |
 | Prowadzenie `app/stolnica.tsx` | pasek systemowy | `wypiek.html#prowadzenie` | pas z krokiem i czasem (O3); ostrzeżenie kroku nad kartą „Co zrobić” (§7c); instrukcja i składniki w kartach |
-| Zakwasy `zakwasy/index.tsx` + `src/components/zakwas/*` | pas (odjeżdża) | `zakwasy.html` (3 stany) | czapka; wybór zakwasu jako chipy na pasie; wszystkie karty na tokenach (koniec stylu 16/14/11/10 pt); „Proporcje dokarmiania” i „Kontrola biologiczna” w kartach jednym krojem |
+| Zakwasy `zakwasy/index.tsx` + `src/components/zakwas/*` | pas (odjeżdża) | `zakwasy.html` (3 stany) | czapka; od D-393 (KO-055) karta „Cykl dokarmiania” nad „Profilem zakwasu”; wybór zakwasu jako chipy na pasie; wszystkie karty na tokenach (koniec stylu 16/14/11/10 pt); „Proporcje dokarmiania” i „Kontrola biologiczna” w kartach jednym krojem |
 | Doktor zakwasu, Doktor Chleba | pasek systemowy | (bez osobnej makiety; reguła §1, wiersze `PoleObjawu`) | do makiety w partii, jeśli 08 zgłosi wątpliwość |
 | Dziennik `dziennik/index.tsx` | pas | `inne.html#dziennik-pusty`, `#dziennik` | pusty stan w karcie, wpis jako karta |
 | Ustawienia `SettingsModal.tsx` | własny pasek | `inne.html#ustawienia` | sekcje jako karty z ikonami; wiersze zamiast siatek przycisków (język jako wiersz → lista) |

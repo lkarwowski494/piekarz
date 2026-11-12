@@ -10,10 +10,7 @@ appId: com.apps4brew.baker
     visible:
       id: "zakwas-cykl"
     timeout: 15000
-# KO-052 (D-382): centerElement wypychał pas ze spiralą z kadru (zrzuty #4) — przewinięcie najmniejsze, aż „Gotowy do ciasta.”
-# wejdzie w ekran; asercja pilnuje, że zostaje w kadrze (KO-043).
-- scrollUntilVisible:
-    element:
-      id: "zakwas-gotowy"
+# KO-055 (D-393): karta cyklu nad profilem — bez przewijania pas ze spiralą i „Gotowy do ciasta.” są w kadrze na 6,3″
+# i 6,9″ (rachunek: tests/zrzuty-sklepu-kadry.test.ts); asercja pilnuje „Gotowy do ciasta.” (KO-043).
 - assertVisible:
     id: "zakwas-gotowy"

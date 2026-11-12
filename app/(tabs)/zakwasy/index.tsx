@@ -202,16 +202,6 @@ export default function ZakwasScreen() {
         {/* Pierwsze uruchomienie: „Dodaj nowy zakwas” pod kartą zakładania [M1-audytor-generalny-087; makieta „pusty”] */}
         {!maZakwas && wybor}
 
-        {/* Profile Card */}
-        {maZakwas && (
-          <StarterProfileCard
-            starter={starter}
-            ageDays={ageDays}
-            lastFedLabel={lastFedLabel}
-            unitSystem={unitSystem}
-          />
-        )}
-
         {maZakwas && (
           <ZakwasDziennik
             starter={starter}
@@ -222,6 +212,16 @@ export default function ZakwasScreen() {
             blokadaGotowosci={blokada('gotowosc-zakwasu')}
             zPro={moze('przypomnienia-zakwasu')}
             onZmianaZakwasu={() => loadStarterData(starter.id)}
+          />
+        )}
+
+        {/* Profil (dane stałe) pod kartą cyklu z codzienną akcją — D-393 (KO-055, właściciel: „B: karta wyżej”) */}
+        {maZakwas && (
+          <StarterProfileCard
+            starter={starter}
+            ageDays={ageDays}
+            lastFedLabel={lastFedLabel}
+            unitSystem={unitSystem}
           />
         )}
 
