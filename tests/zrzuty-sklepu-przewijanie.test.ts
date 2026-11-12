@@ -103,3 +103,89 @@ describe('sceny zrzutów sklepu: tapOn po id poprzedza scrollUntilVisible (KO-04
     expect(tapyBezPrzewiniecia(t)).toEqual(['b', 'c', 'd']);
   });
 });
+
+// ============================================================================
+// Pas pod paskiem kart (zrzuty #5, run 43166559855, D-391). Maestro 2.11.0 liczy widoczność z ramki ekranu,
+// bez zasłonięcia (maestro-client UiElement.getVisiblePercentage), więc element między górą paska kart a dolną
+// krawędzią ekranu jest dla `scrollUntilVisible` „widoczny w 100%”, a `tapOn` w jego środek trafia w zakładkę.
+// Na 6,9″ „Doktor Chleba” leżał na y 885–937 przy pasku od 873; stuknięcie (220, 911) otworzyło „Zakwasy”.
+// Dlatego każde id stukane po przewinięciu ma zapisane położenie; nowe id bez wpisu albo bez pomiaru pada tu.
+// ============================================================================
+
+type Polozenie =
+  /** ostatni element treści ekranu zakładki: scena przewija do końca (`scroll`) przed stuknięciem; na końcu treści leży nad paskiem */
+  | 'koniec-tresci'
+  /** zmierzony zapas nad paskiem kart na obu rozmiarach (maestro.log zrzutów #5) */
+  | 'nad-paskiem'
+  /** ekran bez paska kart (app/_layout.tsx albo BEZ_PASKA w app/(tabs)/_layout.tsx) */
+  | 'bez-paska';
+
+/** Położenia (pt) z maestro.log zrzutów #5 (artefakty zrzuty-dzienniki-iphone-6.3-1 / -6.9-1); pasek kart od 791 / 873 pt. */
+export const PO_PRZEWINIECIU: Record<string, { polozenie: Polozenie; dowod: string }> = {
+  'dziennik-doktor-btn': { polozenie: 'koniec-tresci', dowod: 'ostatni wiersz Dziennika; 6,9″ bez przewinięcia y 885–937 pod paskiem od 873 (#5), po przewinięciu do końca 6,3″ y 699–751 przy pasku od 791' },
+  'zakwas-podwoil-btn': { polozenie: 'nad-paskiem', dowod: '6,3″ y 683–731 (pasek 791); 6,9″ y 536–584 (pasek 873)' },
+  'zakladanie-pierwsze-dokarmienie-btn': { polozenie: 'nad-paskiem', dowod: '6,3″ y 596–644 (pasek 791); 6,9″ y 555–603 (pasek 873)' },
+  'plan-start-bake-btn': { polozenie: 'bez-paska', dowod: 'plan wypieku (harmonogram) na liście BEZ_PASKA' },
+  'plan-krok-ostatni': { polozenie: 'bez-paska', dowod: 'plan wypieku (harmonogram) na liście BEZ_PASKA' },
+  'objaw-crumbHasHugeTopHolesWithDenseBottom': { polozenie: 'bez-paska', dowod: 'Doktor Chleba otwiera się nad zakładkami (app/_layout.tsx)' },
+};
+
+/** id stuknięte bezpośrednio po `scrollUntilVisible` tego id, z krokiem sprzed przewinięcia (także w `commands`). */
+export function tapyPoPrzewinieciu(tekst: string): { id: string; przedPrzewinieciem: unknown }[] {
+  const docs = yaml.loadAll(tekst);
+  const kroki = Array.isArray(docs[1]) ? (docs[1] as unknown[]) : [];
+  const wynik: { id: string; przedPrzewinieciem: unknown }[] = [];
+  const lista = (l: unknown[]) =>
+    l.forEach((c, i) => {
+      if (!obiekt(c)) return;
+      const tap = c.tapOn;
+      const p = l[i - 1];
+      const sv = obiekt(p) && obiekt(p.scrollUntilVisible) ? p.scrollUntilVisible : null;
+      if (obiekt(tap) && typeof tap.id === 'string' && sv && obiekt(sv.element) && sv.element.id === tap.id) {
+        wynik.push({ id: tap.id, przedPrzewinieciem: l[i - 2] });
+      }
+      for (const v of Object.values(c)) if (obiekt(v) && Array.isArray(v.commands)) lista(v.commands);
+    });
+  lista(kroki);
+  return wynik;
+}
+
+/** Naruszenia: id bez wpisu w PO_PRZEWINIECIU albo 'koniec-tresci' bez `scroll` przed ostatnim przewinięciem. */
+export function naruszeniaPasa(tekst: string): string[] {
+  return tapyPoPrzewinieciu(tekst).flatMap(({ id, przedPrzewinieciem }) => {
+    const wpis = PO_PRZEWINIECIU[id];
+    if (!wpis) return [`${id}: brak wpisu w PO_PRZEWINIECIU`];
+    if (wpis.polozenie === 'koniec-tresci' && przedPrzewinieciem !== 'scroll') return [`${id}: koniec treści bez \`scroll\` przed stuknięciem`];
+    return [];
+  });
+}
+
+describe('sceny zrzutów sklepu: stuknięcie po przewinięciu nie trafia w pas pod paskiem kart (zrzuty #5, D-391)', () => {
+  const sceny = pliki(scenyDir).map((p) => [relative(scenyDir, p), readFileSync(p, 'utf8')] as const);
+
+  it.each(sceny)('%s: każde id stukane po przewinięciu ma położenie, a ostatni element treści jest przewinięty do końca', (_n, tekst) => {
+    expect(naruszeniaPasa(tekst)).toEqual([]);
+  });
+
+  it('PO_PRZEWINIECIU nie ma martwych wpisów', () => {
+    const uzyte = new Set(sceny.flatMap(([, t]) => tapyPoPrzewinieciu(t).map((x) => x.id)));
+    expect(Object.keys(PO_PRZEWINIECIU).filter((id) => !uzyte.has(id))).toEqual([]);
+  });
+
+  // Stan z zrzutów #5 (04-doktor.yaml @ 0a0b9970, kroki bez komentarzy): kontrola musi go odrzucić.
+  it('łapie scenę 04 z zrzutów #5 (przewinięcie do „Doktor Chleba” bez przewinięcia do końca treści) i nowe id bez pomiaru', () => {
+    const przed = [
+      'appId: com.apps4brew.baker', '---',
+      '- runFlow: sub/start.yaml',
+      '- tapOn:', '    id: "tab-dziennik"',
+      '- scrollUntilVisible:', '    element:', '      id: "dziennik-doktor-btn"',
+      '- tapOn:', '    id: "dziennik-doktor-btn"',
+      '- scrollUntilVisible:', '    element:', '      id: "nowy-przycisk"',
+      '- tapOn:', '    id: "nowy-przycisk"', '',
+    ].join('\n');
+    expect(naruszeniaPasa(przed)).toEqual([
+      'dziennik-doktor-btn: koniec treści bez `scroll` przed stuknięciem',
+      'nowy-przycisk: brak wpisu w PO_PRZEWINIECIU',
+    ]);
+  });
+});

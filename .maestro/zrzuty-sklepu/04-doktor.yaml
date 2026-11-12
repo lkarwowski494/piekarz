@@ -6,6 +6,13 @@ appId: com.apps4brew.baker
 - runFlow: sub/start.yaml
 - tapOn:
     id: "tab-dziennik"
+# D-391 (zrzuty #5): na 6,9″ „Doktor Chleba” bez przewinięcia leżał pod paskiem kart (y 885–937, pasek od 873), a Maestro
+# liczy widoczność bez zasłonięcia, więc stuknięcie trafiło w „Zakwasy”. To ostatni element treści: `scroll` do końca
+# treści kładzie go nad paskiem na każdym rozmiarze; drugie przewinięcie potwierdza go przed stuknięciem.
+- scrollUntilVisible:
+    element:
+      id: "dziennik-doktor-btn"
+- scroll
 - scrollUntilVisible:
     element:
       id: "dziennik-doktor-btn"

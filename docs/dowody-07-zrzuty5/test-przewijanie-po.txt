@@ -1,0 +1,4 @@
+# Zielony po poprawce sceny, 2026-11-12T07:23:16Z
+$ npx jest tests/zrzuty-sklepu-przewijanie.test.ts tests/zrzuty-sklepu-kadry.test.ts tests/zrzuty-sklepu-workflow.test.ts tests/asc-zrzuty.test.ts tests/maestro-flows.test.tsx
+Test Suites: 5 passed, 5 total
+Tests:       140 passed, 140 total

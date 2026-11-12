@@ -223,10 +223,12 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
   // Zrzuty #3 (run 43072716967, job 130706952647, 2026-11-11): na 6,3″ (402×874 pt) „Doktor Chleba” leży na końcu listy
   // Dziennika pod krawędzią ekranu (maestro.log: dziennik-doktor-btn bounds=[16,854][386,906], tap w (201,880)); tapOn
   // nie przewija, więc Doktor się nie otworzył. Na 6,9″ przycisk mieścił się (y 830–882 przy 956). Przewinięcie przed tapnięciem (D-378).
-  it('ramka 04: „Doktor Chleba” przewinięty do widoku przed tapnięciem, bo na 6,3″ jest pod krawędzią ekranu (D-378)', () => {
+  // Zrzuty #5 (run 43166559855): po D-381 na 6,9″ przycisk spadł pod pasek kart (y 885–937, pasek od 873) i stuknięcie trafiło
+  // w „Zakwasy”; D-391 dokłada `scroll` do końca treści i ponowne przewinięcie przed tapnięciem (straż: zrzuty-sklepu-przewijanie).
+  it('ramka 04: „Doktor Chleba” przewinięty do końca treści przed tapnięciem (6,3″ pod krawędzią ekranu D-378, 6,9″ pod paskiem kart D-391)', () => {
     const r04 = readFileSync(join(scenyDir, '04-doktor.yaml'), 'utf8').replace(/\r\n/g, '\n');
     const kroki04 = r04.split('\n').filter((l) => !/^\s*#/.test(l)).join('\n');
-    expect(kroki04).toMatch(/- tapOn:\n {4}id: "tab-dziennik"\n- scrollUntilVisible:\n {4}element:\n {6}id: "dziennik-doktor-btn"\n- tapOn:\n {4}id: "dziennik-doktor-btn"\n/);
+    expect(kroki04).toMatch(/- tapOn:\n {4}id: "tab-dziennik"\n- scrollUntilVisible:\n {4}element:\n {6}id: "dziennik-doktor-btn"\n- scroll\n- scrollUntilVisible:\n {4}element:\n {6}id: "dziennik-doktor-btn"\n- tapOn:\n {4}id: "dziennik-doktor-btn"\n/);
     expect(read('app/(tabs)/dziennik/index.tsx')).toContain('testID="dziennik-doktor-btn"');
   });
 

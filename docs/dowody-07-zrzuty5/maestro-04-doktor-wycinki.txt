@@ -1,0 +1,24 @@
+# Wycinki maestro.log, scena 04-doktor (zrzuty #5 run 43166559855, #4 run 43085791241)
+## #5, iphone-6.9-1, próba 1 (artefakt zrzuty-dzienniki-iphone-6.9-1)
+09:41:52.329 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={accessibilityText=Dziennik, title=, value=, text=, hintText=, resource-id=tab-dziennik, bounds=[330,873][440,922]
+09:41:52.756 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (385, 897) using hierarchy based logic for wait
+09:41:55.337 [ INFO] maestro.orchestra.Orchestra.scrollUntilVisible: Element bounds: Bounds(x=16, y=885, width=408, height=52)
+09:41:55.340 [ INFO] maestro.orchestra.Orchestra.scrollUntilVisible: Visibility Percent: 1.0
+09:41:55.741 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={accessibilityText=Doktor Chleba, title=, value=, text=, hintText=, resource-id=dziennik-doktor-btn, bounds=[16,885][424,937]
+09:41:56.223 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (220, 911) using hierarchy based logic for wait
+09:41:58.966 [ WARN] maestro.orchestra.Orchestra.scrollUntilVisible: Error: maestro.MaestroException$ElementNotFound: Element not found: Id matching regex: objaw-crumbHasHugeTopHolesWithDenseBottom
+09:42:04.034 [ WARN] maestro.orchestra.Orchestra.scrollUntilVisible: Error: maestro.MaestroException$ElementNotFound: Element not found: Id matching regex: objaw-crumbHasHugeTopHolesWithDenseBottom
+09:42:08.617 [ WARN] maestro.orchestra.Orchestra.scrollUntilVisible: Error: maestro.MaestroException$ElementNotFound: Element not found: Id matching regex: objaw-crumbHasHugeTopHolesWithDenseBottom
+## #5, hierarchia po porażce (step-011): pasek kart
+tab-dzis [0,873][110,922]; tab-receptury [110,873][220,922]; tab-zakwasy [220,873][330,922] selected=true; tab-dziennik [330,873][440,922]
+## #5, iphone-6.3-1 (zielony)
+09:41:47.657 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={accessibilityText=Dziennik, title=, value=, text=, hintText=, resource-id=tab-dziennik, bounds=[301,791][402,840]
+09:41:48.084 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (351, 815) using hierarchy based logic for wait
+09:41:51.766 [ INFO] maestro.Maestro.swipeFromCenter: Swiping UP from center
+09:41:54.406 [ INFO] maestro.orchestra.Orchestra.scrollUntilVisible: Element bounds: Bounds(x=16, y=699, width=370, height=52)
+09:41:54.764 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={accessibilityText=Doktor Chleba, title=, value=, text=, hintText=, resource-id=dziennik-doktor-btn, bounds=[16,699][386,751]
+09:41:55.986 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (201, 725) using hierarchy based logic for wait
+## #4, iphone-6.9-1 (zielony)
+19:56:31.992 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (385, 897) using hierarchy based logic for wait
+19:56:35.064 [ INFO] maestro.orchestra.Orchestra.scrollUntilVisible: Element bounds: Bounds(x=16, y=830, width=408, height=52)
+19:56:35.895 [ INFO] maestro.Maestro.screenshotBasedTap-ogj28Uc: Try tapping at (220, 856) using hierarchy based logic for wait
