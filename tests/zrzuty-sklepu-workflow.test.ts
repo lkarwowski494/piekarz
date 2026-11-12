@@ -242,7 +242,8 @@ describe('sceny Maestro .maestro/zrzuty-sklepu', () => {
     const czesc2 = readFileSync(join(scenyDir, '00-przygotuj-podwojenie.yaml'), 'utf8').replace(/\r\n/g, '\n');
     expect(czesc2).not.toMatch(/clearState: true/);
     const poPasie = czesc2.split('- runFlow: sub/start.yaml\n- tapOn:\n    id: "tab-zakwasy"\n')[1] ?? '';
-    expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
+    // D-394 (zrzuty #8): przewinięcie z wyśrodkowaniem nad pasek kart i limitem 30 s (straż: zrzuty-sklepu-okno-zgody.test.ts)
+    expect(poPasie).toMatch(/^(?:#[^\n]*\n)*- scrollUntilVisible:\n {4}element:\n {6}id: "zakwas-podwoil-btn"\n {4}centerElement: true\n(?: {4}#[^\n]*\n)* {4}timeout: 30000\n- tapOn:\n {4}id: "zakwas-podwoil-btn"\n- scrollUntilVisible:\n {4}element:\n {6}id: "zakladanie-wynik-ready"\n {4}direction: UP\n/);
     const r05 = readFileSync(join(scenyDir, '05-zakwasy.yaml'), 'utf8').replace(/\r\n/g, '\n');
     // KO-055 (D-393, zmienia KO-052/D-382): karta cyklu nad profilem, więc bez przewijania; na końcu asercja widoczności
     // „Gotowy do ciasta.” (istota KO-043). Rachunek kadru: tests/zrzuty-sklepu-kadry.test.ts.

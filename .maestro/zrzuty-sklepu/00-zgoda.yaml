@@ -1,6 +1,9 @@
 # Raz na zadanie, w en-US (scripts/ci/zrzuty-sklepu.sh): pierwsze dokarmienie wywołuje prośbę o zgodę na powiadomienia,
 # okno systemu ma wtedy angielski przycisk „Allow”. Decyzja systemu zostaje przy zmianie języka i przy clearState,
 # bo aplikacja nie jest instalowana ponownie [DO USTALENIA w pierwszym przebiegu: czy clearState Maestro jej nie kasuje].
+# Rozstrzygnięte w zrzutach #8 (run 43238947035, D-394): pierwsze dokarmienie NIE wywołuje prośby (okno nie pojawia się tu
+# w żadnej części), a clearState kasuje decyzję (pl zezwoliło, pt-BR po clearState dostało okno ponownie). Okno obsługuje więc
+# sub/okno-systemu.yaml w języku każdej lokalizacji; ten scenariusz zostaje jako rozgrzewka sterownika (tylko ostrzeżenie).
 appId: com.apps4brew.baker
 ---
 - launchApp:
@@ -16,6 +19,9 @@ appId: com.apps4brew.baker
 - scrollUntilVisible:
     element:
       id: "zakladanie-pierwsze-dokarmienie-btn"
+    centerElement: true
+    # 5 prób wyśrodkowania po ~4–5 s, gdy element jest na końcu treści (D-377): limit ponad domyślne 20 s (D-394)
+    timeout: 30000
 - tapOn:
     id: "zakladanie-pierwsze-dokarmienie-btn"
 - runFlow: sub/okno-systemu.yaml

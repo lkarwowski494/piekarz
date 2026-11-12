@@ -18,6 +18,9 @@ appId: com.apps4brew.baker
 - scrollUntilVisible:
     element:
       id: "zakladanie-pierwsze-dokarmienie-btn"
+    centerElement: true
+    # 5 prób wyśrodkowania po ~4–5 s, gdy element jest na końcu treści (D-377): limit ponad domyślne 20 s (D-394)
+    timeout: 30000
 - tapOn:
     id: "zakladanie-pierwsze-dokarmienie-btn"
 # Okno zgody systemu po pierwszym dokarmieniu (E2E-96; recenzja J, P0); zwykle już rozstrzygnięte przez 00-zgoda.yaml

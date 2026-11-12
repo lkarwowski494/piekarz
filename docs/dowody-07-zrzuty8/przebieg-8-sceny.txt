@@ -1,0 +1,119 @@
+iphone-6.3-4-en-US-00-zgoda-1 | OK | 
+iphone-6.3-4-es-MX-00-przygotuj-1 | OK | 
+iphone-6.3-4-es-MX-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | 
+iphone-6.3-4-es-MX-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | 
+iphone-6.3-6-en-US-00-zgoda-1 | FAIL: Scrolling DOWN until id: zakladanie-pierwsze-dokarmienie-btn is visibl | 
+iphone-6.3-6-id-00-przygotuj-1 | OK | 
+iphone-6.3-6-id-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | “Tukang Roti” Ingin Mengirimi Anda Pemberitahuan
+iphone-6.3-6-id-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | “Tukang Roti” Ingin Mengirimi Anda Pemberitahuan
+iphone-6.9-1-cs-00-przygotuj-1 | OK | 
+iphone-6.9-1-cs-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | Aplikace „Pekař“ vám chce posílat oznámení
+iphone-6.9-1-cs-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | Aplikace „Pekař“ vám chce posílat oznámení
+iphone-6.9-1-da-00-przygotuj-1 | OK | 
+iphone-6.9-1-da-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | “Bageren” vil gerne sende dig notifikationer
+iphone-6.9-1-da-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | “Bageren” vil gerne sende dig notifikationer
+iphone-6.9-1-de-DE-00-przygotuj-1 | OK | 
+iphone-6.9-1-de-DE-00-przygotuj-2 | OK | 
+iphone-6.9-1-de-DE-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-1-de-DE-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-1-en-US-00-zgoda-1 | OK | 
+iphone-6.9-12-en-US-00-zgoda-1 | OK | 
+iphone-6.9-12-zh-Hant-00-przygotuj-1 | OK | 
+iphone-6.9-12-zh-Hant-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | 「麵包師傅」想要傳送通知
+iphone-6.9-12-zh-Hant-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | 「麵包師傅」想要傳送通知
+iphone-6.9-2-el-00-przygotuj-1 | OK | 
+iphone-6.9-2-el-00-przygotuj-2 | OK | 
+iphone-6.9-2-el-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-2-el-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-2-en-AU-00-przygotuj-1 | OK | 
+iphone-6.9-2-en-AU-00-przygotuj-podwojenie-1 | OK | 
+iphone-6.9-2-en-AU-01-plan-1 | OK | 
+iphone-6.9-2-en-AU-02-receptura-1 | OK | 
+iphone-6.9-2-en-AU-03-prowadzenie-ciemny-1 | OK | 
+iphone-6.9-2-en-AU-04-doktor-1 | OK | 
+iphone-6.9-2-en-AU-05-zakwasy-1 | OK | 
+iphone-6.9-2-en-AU-06-dziennik-1 | OK | 
+iphone-6.9-2-en-AU-07-offline-1 | OK | 
+iphone-6.9-2-en-CA-00-przygotuj-1 | OK | 
+iphone-6.9-2-en-CA-00-przygotuj-podwojenie-1 | OK | 
+iphone-6.9-2-en-CA-01-plan-1 | OK | 
+iphone-6.9-2-en-CA-02-receptura-1 | OK | 
+iphone-6.9-2-en-CA-03-prowadzenie-ciemny-1 | OK | 
+iphone-6.9-2-en-CA-04-doktor-1 | OK | 
+iphone-6.9-2-en-CA-05-zakwasy-1 | OK | 
+iphone-6.9-2-en-CA-06-dziennik-1 | OK | 
+iphone-6.9-2-en-CA-07-offline-1 | OK | 
+iphone-6.9-2-en-US-00-zgoda-1 | OK | 
+iphone-6.9-3-en-GB-00-przygotuj-1 | OK | 
+iphone-6.9-3-en-GB-00-przygotuj-podwojenie-1 | OK | 
+iphone-6.9-3-en-GB-01-plan-1 | OK | 
+iphone-6.9-3-en-GB-02-receptura-1 | OK | 
+iphone-6.9-3-en-GB-03-prowadzenie-ciemny-1 | OK | 
+iphone-6.9-3-en-GB-04-doktor-1 | OK | 
+iphone-6.9-3-en-GB-05-zakwasy-1 | OK | 
+iphone-6.9-3-en-GB-06-dziennik-1 | OK | 
+iphone-6.9-3-en-GB-07-offline-1 | OK | 
+iphone-6.9-3-en-US-00-przygotuj-1 | OK | 
+iphone-6.9-3-en-US-00-przygotuj-podwojenie-1 | OK | 
+iphone-6.9-3-en-US-00-zgoda-1 | OK | 
+iphone-6.9-3-en-US-01-plan-1 | OK | 
+iphone-6.9-3-en-US-02-receptura-1 | OK | 
+iphone-6.9-3-en-US-03-prowadzenie-ciemny-1 | OK | 
+iphone-6.9-3-en-US-04-doktor-1 | OK | 
+iphone-6.9-3-en-US-05-zakwasy-1 | OK | 
+iphone-6.9-3-en-US-06-dziennik-1 | OK | 
+iphone-6.9-3-en-US-07-offline-1 | OK | 
+iphone-6.9-3-es-ES-00-przygotuj-1 | OK | 
+iphone-6.9-3-es-ES-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | 
+iphone-6.9-3-es-ES-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | 
+iphone-6.9-4-en-US-00-zgoda-1 | OK | 
+iphone-6.9-4-es-MX-00-przygotuj-1 | OK | 
+iphone-6.9-4-es-MX-00-przygotuj-2 | OK | 
+iphone-6.9-4-es-MX-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-4-es-MX-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-4-fi-00-przygotuj-1 | FAIL: Assert that id: zakladanie-start is not visible | 
+iphone-6.9-4-fi-00-przygotuj-2 | OK | 
+iphone-6.9-4-fi-00-przygotuj-podwojenie-2 | FAIL: Assert that id: step-title is visible | 
+iphone-6.9-4-fr-CA-00-przygotuj-1 | OK | 
+iphone-6.9-4-fr-CA-00-przygotuj-2 | OK | 
+iphone-6.9-4-fr-CA-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-4-fr-CA-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-6-en-US-00-zgoda-1 | OK | 
+iphone-6.9-6-id-00-przygotuj-1 | OK | 
+iphone-6.9-6-id-00-przygotuj-2 | OK | 
+iphone-6.9-6-id-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-6-id-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-6-it-00-przygotuj-1 | OK | 
+iphone-6.9-6-it-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | “Fornaio” vorrebbe inviarti delle notifiche
+iphone-6.9-6-it-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | “Fornaio” vorrebbe inviarti delle notifiche
+iphone-6.9-6-ja-00-przygotuj-1 | OK | 
+iphone-6.9-6-ja-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | “パン職人”は通知を送信します。よろしいですか?
+iphone-6.9-6-ja-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | “パン職人”は通知を送信します。よろしいですか?
+iphone-6.9-7-en-US-00-zgoda-1 | OK | 
+iphone-6.9-7-ko-00-przygotuj-1 | OK | 
+iphone-6.9-7-ko-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | ‘제빵사’에서 알림을 보내고자 합니다.
+iphone-6.9-7-ko-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | ‘제빵사’에서 알림을 보내고자 합니다.
+iphone-6.9-7-ms-00-przygotuj-1 | OK | 
+iphone-6.9-7-ms-00-przygotuj-2 | OK | 
+iphone-6.9-7-ms-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-7-ms-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-7-nl-NL-00-przygotuj-1 | OK | 
+iphone-6.9-7-nl-NL-00-przygotuj-2 | OK | 
+iphone-6.9-7-nl-NL-00-przygotuj-podwojenie-1 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-7-nl-NL-00-przygotuj-podwojenie-2 | FAIL: Scrolling UP until id: zakladanie-wynik-ready is visible with speed 40 | 
+iphone-6.9-8-en-US-00-zgoda-1 | OK | 
+iphone-6.9-8-no-00-przygotuj-1 | OK | 
+iphone-6.9-8-no-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | 
+iphone-6.9-8-no-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | 
+iphone-6.9-8-pl-00-przygotuj-1 | OK | 
+iphone-6.9-8-pl-00-przygotuj-podwojenie-1 | OK | 
+iphone-6.9-8-pl-01-plan-1 | OK | 
+iphone-6.9-8-pl-02-receptura-1 | OK | 
+iphone-6.9-8-pl-03-prowadzenie-ciemny-1 | OK | 
+iphone-6.9-8-pl-04-doktor-1 | OK | 
+iphone-6.9-8-pl-05-zakwasy-1 | OK | 
+iphone-6.9-8-pl-06-dziennik-1 | OK | 
+iphone-6.9-8-pl-07-offline-1 | OK | 
+iphone-6.9-8-pt-BR-00-przygotuj-1 | OK | 
+iphone-6.9-8-pt-BR-00-przygotuj-2 | FAIL: Assert that id: start-czynnosci is visible | 
+iphone-6.9-8-pt-BR-00-przygotuj-podwojenie-1 | FAIL: Assert that id: step-title is visible | 

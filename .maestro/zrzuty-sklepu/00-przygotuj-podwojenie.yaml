@@ -8,9 +8,14 @@ appId: com.apps4brew.baker
     id: "tab-zakwasy"
 # Ramka 05 = zakwas po zakładaniu (KO-043, D-372): „Podwoił objętość” w 0–8 h po dokarmieniu kończy zakładanie
 # (isReadyAfterFeeding, setupCompletedAt); wynik „ready” w karcie zakładania nad kartą cyklu
+# Zrzuty #8 (D-394): bez centerElement środek przycisku leżał w pasie kart (6,9″ de-DE y 885–933, pasek od 873) i stuknięcie
+# trafiło w kartę „Zakwasy” w 7 lokalizacjach; centerElement (Maestro 2.11: środek elementu nad dolną piątą ekranu) kładzie go nad paskiem.
 - scrollUntilVisible:
     element:
       id: "zakwas-podwoil-btn"
+    centerElement: true
+    # 5 prób wyśrodkowania po ~4–5 s, gdy element jest na końcu treści (D-377): limit ponad domyślne 20 s (D-394)
+    timeout: 30000
 - tapOn:
     id: "zakwas-podwoil-btn"
 - scrollUntilVisible:

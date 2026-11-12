@@ -1,0 +1,73 @@
+# CZERWONY: tests/zrzuty-sklepu-okno-zgody.test.ts na scenach z 69edd0fb (worktree), 2026-11-12T17:30:23Z
+    ✓ okno-systemu.yaml ma jeden wzorzec w każdym kroku (czekanie, warunek, stuknięcie) (2 ms)
+    ✓ każda lokalizacja z docs/wydanie/metadane ma wpis przycisków okna zgody (1 ms)
+    ✕ cs: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (4 ms)
+    ✕ da: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ de-DE: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ el: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ en-AU: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ en-CA: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ en-GB: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ en-US: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ es-ES: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ es-MX: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ fi: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ fr-CA: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ fr-FR: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ hr: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ hu: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ id: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ it: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ ja: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ ko: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ ms: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ nl-NL: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ no: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✓ pl: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ pt-BR: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ pt-PT: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ ro: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ ru: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ sk: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (5 ms)
+    ✕ sl: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ sv: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ tr: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ uk: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✕ vi: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (1 ms)
+    ✕ zh-Hant: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✓ etykiety z przebiegu #8 są w danych (12 lokalizacji z hierarchii okna i pl ze stuknięcia)
+    ✕ 00-przygotuj-podwojenie.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (2 ms)
+    ✕ 00-przygotuj.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✕ 00-zgoda.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ 01-plan.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ 02-receptura.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✓ 03-prowadzenie-ciemny.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ 04-doktor.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✓ 05-zakwasy.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ 06-dziennik.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✓ 07-offline.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ sub/okno-systemu.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✓ sub/start.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)
+    ✓ sub/zgoda.yaml: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA) (1 ms)
+    ✓ 00-przygotuj-podwojenie.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ 00-przygotuj.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ 00-zgoda.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ 01-plan.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ 02-receptura.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ 03-prowadzenie-ciemny.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ 04-doktor.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ 05-zakwasy.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ 06-dziennik.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ 07-offline.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ sub/okno-systemu.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ sub/start.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377) (1 ms)
+    ✓ sub/zgoda.yaml: wyśrodkowanie przed stuknięciem ma limit co najmniej 30 s (D-377)
+    ✓ lista BEZ_SRODKA nie ma martwych wpisów (2 ms)
+    ✓ łapie przewinięcie do „Podwoił objętość” bez wyśrodkowania (przebieg #8) (1 ms)
+Tests:       36 failed, 29 passed, 65 total
+kod wyjścia: 1
+
+# ZIELONY: tests/zrzuty-sklepu-* na drzewie roboczym (poprawione sceny)
+Test Suites: 6 passed, 6 total
+Tests:       204 passed, 204 total
+kod wyjścia: 0
