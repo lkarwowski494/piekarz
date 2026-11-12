@@ -1,0 +1,15 @@
+PASS src/__tests__/naglowek-karty-znacznik-d392.test.tsx (12.728 s)
+  D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł
+    ✓ „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 1 (3045 ms)
+    ✓ „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 3.1176470588235294 (1909 ms)
+    ✓ PL 393 pt (ramka 05, 6,3″): znacznik pod tytułem, tytuł w jednym wierszu (9 ms)
+    ✓ krótki znacznik (Pro) zostaje w rzędzie z tytułem (5 ms)
+    ✓ DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 1 (3503 ms)
+    ✓ DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 3.1176470588235294 (3457 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        12.834 s, estimated 13 s
+Ran all test suites matching /src\/__tests__\/naglowek-karty-znacznik-d392.test.tsx/i.
+kod wyjścia: 0

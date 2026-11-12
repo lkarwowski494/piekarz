@@ -1,0 +1,565 @@
+FAIL src/__tests__/naglowek-karty-znacznik-d392.test.tsx (12.9 s)
+  D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł
+    ✕ „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 1 (3044 ms)
+    ✕ „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 3.1176470588235294 (1862 ms)
+    ✕ PL 393 pt (ramka 05, 6,3″): znacznik pod tytułem, tytuł w jednym wierszu (16 ms)
+    ✓ krótki znacznik (Pro) zostaje w rzędzie z tytułem (11 ms)
+    ✕ DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 1 (3406 ms)
+    ✕ DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 3.1176470588235294 (3698 ms)
+
+  ● D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł › „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 1
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 111
+
+    - Array []
+    + Array [
+    +   "pl 320 pt: tytuł „Szczyt aktywności” 0 pt < słowo 102 pt",
+    +   "pl 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "pl 393 pt: tytuł „Szczyt aktywności” 30 pt < słowo 102 pt",
+    +   "pl 440 pt: tytuł „Szczyt aktywności” 77 pt < słowo 102 pt",
+    +   "en 320 pt: tytuł „Activity peak” 0 pt < słowo 69 pt",
+    +   "en 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "en 393 pt: tytuł „Activity peak” 30 pt < słowo 69 pt",
+    +   "cs 320 pt: tytuł „Vrchol aktivity” 4 pt < słowo 67 pt",
+    +   "sk 320 pt: tytuł „Vrchol aktivity” 0 pt < słowo 67 pt",
+    +   "sk 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "hu 320 pt: tytuł „A kovász csúcspontja” 0 pt < słowo 110 pt",
+    +   "hu 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "hu 393 pt: tytuł „A kovász csúcspontja” 73 pt < słowo 110 pt",
+    +   "ro 320 pt: tytuł „Vârful activității” 0 pt < słowo 86 pt",
+    +   "ro 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "ro 393 pt: tytuł „Vârful activității” 58 pt < słowo 86 pt",
+    +   "bg 320 pt: tytuł „Пик на активността” 0 pt < słowo 140 pt",
+    +   "bg 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "bg 393 pt: tytuł „Пик на активността” 53 pt < słowo 140 pt",
+    +   "bg 440 pt: tytuł „Пик на активността” 100 pt < słowo 140 pt",
+    +   "hr 320 pt: tytuł „Vrhunac aktivnosti” 0 pt < słowo 90 pt",
+    +   "hr 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "hr 393 pt: tytuł „Vrhunac aktivnosti” 53 pt < słowo 90 pt",
+    +   "sl 320 pt: tytuł „Vrh aktivnosti” 4 pt < słowo 90 pt",
+    +   "sl 393 pt: tytuł „Vrh aktivnosti” 77 pt < słowo 90 pt",
+    +   "sr 320 pt: tytuł „Врхунац активности” 0 pt < słowo 120 pt",
+    +   "sr 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "sr 393 pt: tytuł „Врхунац активности” 69 pt < słowo 120 pt",
+    +   "sr 440 pt: tytuł „Врхунац активности” 116 pt < słowo 120 pt",
+    +   "lt 320 pt: tytuł „Aktyvumo pikas” 7 pt < słowo 91 pt",
+    +   "lt 393 pt: tytuł „Aktyvumo pikas” 7 pt < słowo 91 pt",
+    +   "lt 440 pt: tytuł „Aktyvumo pikas” 54 pt < słowo 91 pt",
+    +   "lv 320 pt: tytuł „Aktivitātes maksimums” 8 pt < słowo 109 pt",
+    +   "lv 393 pt: tytuł „Aktivitātes maksimums” 7 pt < słowo 109 pt",
+    +   "lv 440 pt: tytuł „Aktivitātes maksimums” 54 pt < słowo 109 pt",
+    +   "et 320 pt: tytuł „Aktiivsuse tipp” 0 pt < słowo 92 pt",
+    +   "et 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "et 393 pt: tytuł „Aktiivsuse tipp” 49 pt < słowo 92 pt",
+    +   "uk 320 pt: tytuł „Пік активності” 23 pt < słowo 120 pt",
+    +   "uk 393 pt: tytuł „Пік активності” 7 pt < słowo 120 pt",
+    +   "uk 440 pt: tytuł „Пік активності” 54 pt < słowo 120 pt",
+    +   "es 320 pt: tytuł „Pico de actividad” 0 pt < słowo 82 pt",
+    +   "es 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "es 393 pt: tytuł „Pico de actividad” 3 pt < słowo 82 pt",
+    +   "es 440 pt: tytuł „Pico de actividad” 50 pt < słowo 82 pt",
+    +   "es-419 320 pt: tytuł „Punto máximo de actividad” 0 pt < słowo 82 pt",
+    +   "es-419 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "es-419 393 pt: tytuł „Punto máximo de actividad” 0 pt < słowo 82 pt",
+    +   "es-419 393 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "es-419 440 pt: tytuł „Punto máximo de actividad” 19 pt < słowo 82 pt",
+    +   "pt 320 pt: tytuł „Pico de atividade” 4 pt < słowo 82 pt",
+    +   "pt 393 pt: tytuł „Pico de atividade” 0 pt < słowo 82 pt",
+    +   "pt 393 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "pt 440 pt: tytuł „Pico de atividade” 34 pt < słowo 82 pt",
+    +   "pt-BR 320 pt: tytuł „Pico do fermento” 4 pt < słowo 85 pt",
+    +   "pt-BR 393 pt: tytuł „Pico do fermento” 0 pt < słowo 85 pt",
+    +   "pt-BR 393 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "pt-BR 440 pt: tytuł „Pico do fermento” 34 pt < słowo 85 pt",
+    +   "de 320 pt: tytuł „Reifehöhepunkt” 0 pt < słowo 145 pt",
+    +   "de 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "de 393 pt: tytuł „Reifehöhepunkt” 0 pt < słowo 145 pt",
+    +   "de 393 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "de 440 pt: tytuł „Reifehöhepunkt” 11 pt < słowo 145 pt",
+    +   "fr 320 pt: tytuł „Pic d'activité” 0 pt < słowo 84 pt",
+    +   "fr 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "fr 393 pt: tytuł „Pic d'activité” 0 pt < słowo 84 pt",
+    +   "fr 393 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "fr 440 pt: tytuł „Pic d'activité” 27 pt < słowo 84 pt",
+    +   "it 320 pt: tytuł „Picco di attività” 0 pt < słowo 65 pt",
+    +   "it 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "it 393 pt: tytuł „Picco di attività” 53 pt < słowo 65 pt",
+    +   "nl 320 pt: tytuł „Piek van de starter” 0 pt < słowo 62 pt",
+    +   "nl 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "nl 393 pt: tytuł „Piek van de starter” 26 pt < słowo 62 pt",
+    +   "sv 320 pt: tytuł „Aktivitetstopp” 8 pt < słowo 129 pt",
+    +   "sv 393 pt: tytuł „Aktivitetstopp” 22 pt < słowo 129 pt",
+    +   "sv 440 pt: tytuł „Aktivitetstopp” 69 pt < słowo 129 pt",
+    +   "da 320 pt: tytuł „Surdejens toppunkt” 8 pt < słowo 90 pt",
+    +   "da 393 pt: tytuł „Surdejens toppunkt” 22 pt < słowo 90 pt",
+    +   "da 440 pt: tytuł „Surdejens toppunkt” 69 pt < słowo 90 pt",
+    +   "nb 320 pt: tytuł „Starterens toppunkt” 0 pt < słowo 96 pt",
+    +   "nb 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "nb 393 pt: tytuł „Starterens toppunkt” 30 pt < słowo 96 pt",
+    +   "nb 440 pt: tytuł „Starterens toppunkt” 77 pt < słowo 96 pt",
+    +   "fi 320 pt: tytuł „Hapanjuuren huippu” 35 pt < słowo 115 pt",
+    +   "fi 393 pt: tytuł „Hapanjuuren huippu” 18 pt < słowo 115 pt",
+    +   "fi 440 pt: tytuł „Hapanjuuren huippu” 65 pt < słowo 115 pt",
+    +   "tr 320 pt: tytuł „Zirve noktası” 0 pt < słowo 66 pt",
+    +   "tr 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "tr 393 pt: tytuł „Zirve noktası” 30 pt < słowo 66 pt",
+    +   "el 320 pt: tytuł „Κορύφωση προζυμιού” 0 pt < słowo 102 pt",
+    +   "el 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "el 393 pt: tytuł „Κορύφωση προζυμιού” 58 pt < słowo 102 pt",
+    +   "id 320 pt: tytuł „Puncak aktivitas” 0 pt < słowo 77 pt",
+    +   "id 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "id 393 pt: tytuł „Puncak aktivitas” 3 pt < słowo 77 pt",
+    +   "id 440 pt: tytuł „Puncak aktivitas” 50 pt < słowo 77 pt",
+    +   "ms 320 pt: tytuł „Kemuncak aktiviti” 0 pt < słowo 95 pt",
+    +   "ms 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "ms 393 pt: tytuł „Kemuncak aktiviti” 3 pt < słowo 95 pt",
+    +   "ms 440 pt: tytuł „Kemuncak aktiviti” 50 pt < słowo 95 pt",
+    +   "vi 320 pt: tytuł „Đỉnh hoạt động” 0 pt < słowo 48 pt",
+    +   "vi 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "vi 393 pt: tytuł „Đỉnh hoạt động” 31 pt < słowo 48 pt",
+    +   "ru 320 pt: tytuł „Пик активности” 0 pt < słowo 120 pt",
+    +   "ru 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "ru 393 pt: tytuł „Пик активности” 30 pt < słowo 120 pt",
+    +   "ru 440 pt: tytuł „Пик активности” 77 pt < słowo 120 pt",
+    +   "zh-Hant 320 pt: tytuł „起種活力高峰” 9 pt < słowo 20 pt",
+    + ]
+
+      80 |       }
+      81 |     }
+    > 82 |     expect(bledy).toEqual([]);
+         |                   ^
+      83 |   });
+      84 |
+      85 |   it('PL 393 pt (ramka 05, 6,3″): znacznik pod tytułem, tytuł w jednym wierszu', async () => {
+
+      at toEqual (src/__tests__/naglowek-karty-znacznik-d392.test.tsx:82:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł › „Szczyt aktywności” ze znacznikiem czasu: 35 języków × 320/393/440 pt, fontScale 3.1176470588235294
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 71
+
+    - Array []
+    + Array [
+    +   "pl 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "en 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "en 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "cs 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "cs 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "sk 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "sk 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "hu 320 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "hu 393 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "hu 440 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "ro 320 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "ro 440 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "bg 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "bg 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "hr 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "hr 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "sl 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "sl 393 pt: znacznik wystaje poza kartę o 6 pt",
+    +   "sl 440 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "sr 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "lt 320 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "lt 393 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "lv 320 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "et 320 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "uk 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "es 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "es 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "es 440 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "es-419 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "es-419 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "es-419 440 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "pt 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "pt 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "pt 440 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "pt-BR 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "pt-BR 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "pt-BR 440 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "de 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "de 440 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "fr 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "it 320 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "it 440 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "nl 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "nl 440 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "sv 320 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "sv 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "da 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "da 393 pt: znacznik wystaje poza kartę o 21 pt",
+    +   "nb 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "fi 320 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "tr 320 pt: znacznik wystaje poza kartę o 34 pt",
+    +   "el 440 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "id 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "id 393 pt: znacznik wystaje poza kartę o 30 pt",
+    +   "id 440 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "ms 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "ms 393 pt: znacznik wystaje poza kartę o 30 pt",
+    +   "ms 440 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "vi 320 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "vi 393 pt: znacznik wystaje poza kartę o 6 pt",
+    +   "vi 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "ru 320 pt: znacznik wystaje poza kartę o 19 pt",
+    +   "ru 440 pt: znacznik wystaje poza kartę o 32 pt",
+    +   "ja 320 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "ja 393 pt: znacznik wystaje poza kartę o 1 pt",
+    +   "ko 320 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "ko 393 pt: znacznik wystaje poza kartę o 1 pt",
+    +   "zh-Hant 320 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "zh-Hant 393 pt: znacznik wystaje poza kartę o 1 pt",
+    + ]
+
+      80 |       }
+      81 |     }
+    > 82 |     expect(bledy).toEqual([]);
+         |                   ^
+      83 |   });
+      84 |
+      85 |   it('PL 393 pt (ramka 05, 6,3″): znacznik pod tytułem, tytuł w jednym wierszu', async () => {
+
+      at toEqual (src/__tests__/naglowek-karty-znacznik-d392.test.tsx:82:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł › PL 393 pt (ramka 05, 6,3″): znacznik pod tytułem, tytuł w jednym wierszu
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      88 |     const m = await uklad(drzewo(kartaSzczytu(), 393), 393 - 2 * MARGINES);
+      89 |     const tyt = m.get('karta-szczyt-tytul')!, zn = m.get('karta-szczyt-znacznik')!;
+    > 90 |     expect(wDwochRzedach(tyt, zn)).toBe(true);
+         |                                    ^
+      91 |     expect(tyt.h).toBeLessThan(tyt.styl!.fontSize * 1.2 * 1.5); // jeden wiersz
+      92 |     expect(zn.x).toBeCloseTo(tyt.x, 0); // znacznik wyrównany do tytułu, nie do ikony
+      93 |   });
+
+      at Object.toBe (src/__tests__/naglowek-karty-znacznik-d392.test.tsx:90:36)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł › DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 1
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 53
+
+    - Array []
+    + Array [
+    +   "pl lid_on 320 pt: znacznik wystaje poza kartę o 8 pt",
+    +   "en lid_off 320 pt: znacznik wystaje poza kartę o 40 pt",
+    +   "cs lid_off 320 pt: znacznik wystaje poza kartę o 51 pt",
+    +   "sk lid_on 320 pt: znacznik wystaje poza kartę o 10 pt",
+    +   "ro lid_off 320 pt: znacznik wystaje poza kartę o 47 pt",
+    +   "hr lid_on 320 pt: znacznik wystaje poza kartę o 17 pt",
+    +   "sl lid_on 320 pt: znacznik wystaje poza kartę o 6 pt",
+    +   "sl lid_off 393 pt: znacznik wystaje poza kartę o 4 pt",
+    +   "sr lid_off 440 pt: znacznik wystaje poza kartę o 18 pt",
+    +   "lv lid_off 320 pt: znacznik wystaje poza kartę o 44 pt",
+    +   "et lid_off 393 pt: znacznik wystaje poza kartę o 17 pt",
+    +   "uk lid_on 320 pt: znacznik wystaje poza kartę o 39 pt",
+    +   "uk lid_off 393 pt: znacznik wystaje poza kartę o 38 pt",
+    +   "es lid_off 320 pt: znacznik wystaje poza kartę o 43 pt",
+    +   "es-419 lid_off 320 pt: znacznik wystaje poza kartę o 45 pt",
+    +   "pt lid_on 320 pt: znacznik wystaje poza kartę o 2 pt",
+    +   "pt-BR lid_on 320 pt: znacznik wystaje poza kartę o 2 pt",
+    +   "de lid_on 320 pt: znacznik wystaje poza kartę o 10 pt",
+    +   "de lid_off 393 pt: znacznik wystaje poza kartę o 20 pt",
+    +   "fr lid_on 320 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "fr lid_off 320 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "fr lid_off 440 pt: znacznik wystaje poza kartę o 15 pt",
+    +   "it lid_on 320 pt: znacznik wystaje poza kartę o 52 pt",
+    +   "it lid_off 393 pt: znacznik wystaje poza kartę o 47 pt",
+    +   "nl lid_on 320 pt: znacznik wystaje poza kartę o 42 pt",
+    +   "nl lid_off 393 pt: znacznik wystaje poza kartę o 2 pt",
+    +   "sv lid_off 320 pt: znacznik wystaje poza kartę o 46 pt",
+    +   "da lid_off 320 pt: znacznik wystaje poza kartę o 47 pt",
+    +   "fi lid_on 320 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "fi lid_off 393 pt: znacznik wystaje poza kartę o 44 pt",
+    +   "tr lid_on 320 pt: znacznik wystaje poza kartę o 29 pt",
+    +   "el lid_on 320 pt: znacznik wystaje poza kartę o 4 pt",
+    +   "el lid_off 393 pt: znacznik wystaje poza kartę o 30 pt",
+    +   "id lid_on 320 pt: znacznik wystaje poza kartę o 4 pt",
+    +   "ms lid_on 320 pt: znacznik wystaje poza kartę o 35 pt",
+    +   "vi lid_on 320 pt: znacznik wystaje poza kartę o 25 pt",
+    +   "vi lid_on 393 pt: znacznik wystaje poza kartę o 2 pt",
+    +   "vi lid_off 320 pt: znacznik wystaje poza kartę o 52 pt",
+    +   "vi lid_off 393 pt: znacznik wystaje poza kartę o 20 pt",
+    +   "ru lid_on 320 pt: znacznik wystaje poza kartę o 30 pt",
+    +   "ru lid_off 393 pt: znacznik wystaje poza kartę o 38 pt",
+    +   "ja lid_on 320 pt: znacznik wystaje poza kartę o 52 pt",
+    +   "ja lid_off 320 pt: znacznik wystaje poza kartę o 39 pt",
+    +   "ja lid_off 393 pt: znacznik wystaje poza kartę o 42 pt",
+    +   "ja lid_off 440 pt: znacznik wystaje poza kartę o 9 pt",
+    +   "ko lid_on 320 pt: znacznik wystaje poza kartę o 52 pt",
+    +   "ko lid_off 320 pt: znacznik wystaje poza kartę o 52 pt",
+    +   "ko lid_off 393 pt: znacznik wystaje poza kartę o 30 pt",
+    +   "zh-Hant lid_on 320 pt: znacznik wystaje poza kartę o 25 pt",
+    +   "zh-Hant lid_off 320 pt: znacznik wystaje poza kartę o 45 pt",
+    +   "zh-Hant lid_off 393 pt: znacznik wystaje poza kartę o 10 pt",
+    + ]
+
+      113 |       }
+      114 |     }
+    > 115 |     expect(bledy).toEqual([]);
+          |                   ^
+      116 |   });
+      117 | });
+      118 |
+
+      at toEqual (src/__tests__/naglowek-karty-znacznik-d392.test.tsx:115:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+  ● D-392: tytuł karty i znacznik — tytuł nie łamie się wewnątrz słowa, znacznik schodzi pod tytuł › DutchOvenController: nagłówek fazy ze znacznikiem temperatury, 35 języków × 320/393/440 pt, fontScale 3.1176470588235294
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 212
+
+    - Array []
+    + Array [
+    +   "pl lid_on 320 pt: znacznik wystaje poza kartę o 103 pt",
+    +   "pl lid_on 393 pt: znacznik wystaje poza kartę o 58 pt",
+    +   "pl lid_on 440 pt: znacznik wystaje poza kartę o 113 pt",
+    +   "pl lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pl lid_off 393 pt: znacznik wystaje poza kartę o 123 pt",
+    +   "pl lid_off 440 pt: znacznik wystaje poza kartę o 76 pt",
+    +   "en lid_on 320 pt: znacznik wystaje poza kartę o 72 pt",
+    +   "en lid_on 393 pt: znacznik wystaje poza kartę o 71 pt",
+    +   "en lid_on 440 pt: znacznik wystaje poza kartę o 87 pt",
+    +   "en lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "en lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "en lid_off 440 pt: znacznik wystaje poza kartę o 125 pt",
+    +   "cs lid_on 320 pt: znacznik wystaje poza kartę o 127 pt",
+    +   "cs lid_on 393 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "cs lid_on 440 pt: znacznik wystaje poza kartę o 47 pt",
+    +   "cs lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "cs lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "cs lid_off 440 pt: znacznik wystaje poza kartę o 85 pt",
+    +   "sk lid_on 320 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "sk lid_on 393 pt: znacznik wystaje poza kartę o 58 pt",
+    +   "sk lid_on 440 pt: znacznik wystaje poza kartę o 119 pt",
+    +   "sk lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sk lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sk lid_off 440 pt: znacznik wystaje poza kartę o 100 pt",
+    +   "hu lid_on 320 pt: znacznik wystaje poza kartę o 113 pt",
+    +   "hu lid_on 393 pt: znacznik wystaje poza kartę o 96 pt",
+    +   "hu lid_on 440 pt: znacznik wystaje poza kartę o 49 pt",
+    +   "hu lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hu lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hu lid_off 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "ro lid_on 320 pt: znacznik wystaje poza kartę o 117 pt",
+    +   "ro lid_on 393 pt: znacznik wystaje poza kartę o 88 pt",
+    +   "ro lid_on 440 pt: znacznik wystaje poza kartę o 41 pt",
+    +   "ro lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ro lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ro lid_off 440 pt: znacznik wystaje poza kartę o 84 pt",
+    +   "bg lid_on 320 pt: znacznik wystaje poza kartę o 58 pt",
+    +   "bg lid_on 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "bg lid_on 440 pt: znacznik wystaje poza kartę o 68 pt",
+    +   "bg lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "bg lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "bg lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hr lid_on 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hr lid_on 393 pt: znacznik wystaje poza kartę o 60 pt",
+    +   "hr lid_on 440 pt: znacznik wystaje poza kartę o 13 pt",
+    +   "hr lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hr lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "hr lid_off 440 pt: znacznik wystaje poza kartę o 107 pt",
+    +   "sl lid_on 320 pt: znacznik wystaje poza kartę o 96 pt",
+    +   "sl lid_on 393 pt: znacznik wystaje poza kartę o 58 pt",
+    +   "sl lid_on 440 pt: znacznik wystaje poza kartę o 105 pt",
+    +   "sl lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sl lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sl lid_off 440 pt: znacznik wystaje poza kartę o 107 pt",
+    +   "sr lid_on 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sr lid_on 393 pt: znacznik wystaje poza kartę o 107 pt",
+    +   "sr lid_on 440 pt: znacznik wystaje poza kartę o 60 pt",
+    +   "sr lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sr lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sr lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "lt lid_on 320 pt: znacznik wystaje poza kartę o 99 pt",
+    +   "lt lid_on 393 pt: znacznik wystaje poza kartę o 26 pt",
+    +   "lt lid_on 440 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "lt lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "lt lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "lt lid_off 440 pt: znacznik wystaje poza kartę o 112 pt",
+    +   "lv lid_on 320 pt: znacznik wystaje poza kartę o 102 pt",
+    +   "lv lid_on 393 pt: znacznik wystaje poza kartę o 95 pt",
+    +   "lv lid_on 440 pt: znacznik wystaje poza kartę o 48 pt",
+    +   "lv lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "lv lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "lv lid_off 440 pt: znacznik wystaje poza kartę o 125 pt",
+    +   "et lid_on 320 pt: znacznik wystaje poza kartę o 84 pt",
+    +   "et lid_on 393 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "et lid_on 440 pt: znacznik wystaje poza kartę o 119 pt",
+    +   "et lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "et lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "et lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "uk lid_on 320 pt: znacznik wystaje poza kartę o 98 pt",
+    +   "uk lid_on 393 pt: znacznik wystaje poza kartę o 107 pt",
+    +   "uk lid_on 440 pt: znacznik wystaje poza kartę o 60 pt",
+    +   "uk lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "uk lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "uk lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "es lid_on 320 pt: znacznik wystaje poza kartę o 90 pt",
+    +   "es lid_on 393 pt: znacznik wystaje poza kartę o 78 pt",
+    +   "es lid_on 440 pt: znacznik wystaje poza kartę o 122 pt",
+    +   "es lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "es lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "es lid_off 440 pt: znacznik wystaje poza kartę o 125 pt",
+    +   "es-419 lid_on 320 pt: znacznik wystaje poza kartę o 90 pt",
+    +   "es-419 lid_on 393 pt: znacznik wystaje poza kartę o 82 pt",
+    +   "es-419 lid_on 440 pt: znacznik wystaje poza kartę o 122 pt",
+    +   "es-419 lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "es-419 lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "es-419 lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pt lid_on 320 pt: znacznik wystaje poza kartę o 51 pt",
+    +   "pt lid_on 393 pt: znacznik wystaje poza kartę o 123 pt",
+    +   "pt lid_on 440 pt: znacznik wystaje poza kartę o 76 pt",
+    +   "pt lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pt lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pt lid_off 440 pt: znacznik wystaje poza kartę o 117 pt",
+    +   "pt-BR lid_on 320 pt: znacznik wystaje poza kartę o 51 pt",
+    +   "pt-BR lid_on 393 pt: znacznik wystaje poza kartę o 123 pt",
+    +   "pt-BR lid_on 440 pt: znacznik wystaje poza kartę o 76 pt",
+    +   "pt-BR lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pt-BR lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "pt-BR lid_off 440 pt: znacznik wystaje poza kartę o 117 pt",
+    +   "de lid_on 320 pt: znacznik wystaje poza kartę o 123 pt",
+    +   "de lid_on 393 pt: znacznik wystaje poza kartę o 77 pt",
+    +   "de lid_on 440 pt: znacznik wystaje poza kartę o 102 pt",
+    +   "de lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "de lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "de lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "fr lid_on 320 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "fr lid_on 393 pt: znacznik wystaje poza kartę o 123 pt",
+    +   "fr lid_on 440 pt: znacznik wystaje poza kartę o 76 pt",
+    +   "fr lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "fr lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "fr lid_off 440 pt: znacznik wystaje poza kartę o 125 pt",
+    +   "it lid_on 320 pt: znacznik wystaje poza kartę o 112 pt",
+    +   "it lid_on 393 pt: znacznik wystaje poza kartę o 98 pt",
+    +   "it lid_on 440 pt: znacznik wystaje poza kartę o 84 pt",
+    +   "it lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "it lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "it lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "nl lid_on 320 pt: znacznik wystaje poza kartę o 111 pt",
+    +   "nl lid_on 393 pt: znacznik wystaje poza kartę o 108 pt",
+    +   "nl lid_on 440 pt: znacznik wystaje poza kartę o 61 pt",
+    +   "nl lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "nl lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "nl lid_off 440 pt: znacznik wystaje poza kartę o 102 pt",
+    +   "sv lid_on 320 pt: znacznik wystaje poza kartę o 127 pt",
+    +   "sv lid_on 393 pt: znacznik wystaje poza kartę o 83 pt",
+    +   "sv lid_on 440 pt: znacznik wystaje poza kartę o 36 pt",
+    +   "sv lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sv lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "sv lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "da lid_on 320 pt: znacznik wystaje poza kartę o 62 pt",
+    +   "da lid_on 393 pt: znacznik wystaje poza kartę o 70 pt",
+    +   "da lid_on 440 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "da lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "da lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "da lid_off 440 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "nb lid_on 320 pt: znacznik wystaje poza kartę o 126 pt",
+    +   "nb lid_on 393 pt: znacznik wystaje poza kartę o 108 pt",
+    +   "nb lid_on 440 pt: znacznik wystaje poza kartę o 61 pt",
+    +   "nb lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "nb lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "nb lid_off 440 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "fi lid_on 320 pt: znacznik wystaje poza kartę o 63 pt",
+    +   "fi lid_on 393 pt: znacznik wystaje poza kartę o 70 pt",
+    +   "fi lid_on 440 pt: znacznik wystaje poza kartę o 113 pt",
+    +   "fi lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "fi lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "fi lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "tr lid_on 320 pt: znacznik wystaje poza kartę o 85 pt",
+    +   "tr lid_on 393 pt: znacznik wystaje poza kartę o 111 pt",
+    +   "tr lid_on 440 pt: znacznik wystaje poza kartę o 104 pt",
+    +   "tr lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "tr lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "tr lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "el lid_on 320 pt: znacznik wystaje poza kartę o 119 pt",
+    +   "el lid_on 393 pt: znacznik wystaje poza kartę o 67 pt",
+    +   "el lid_on 440 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "el lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "el lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "el lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "id lid_on 320 pt: znacznik wystaje poza kartę o 62 pt",
+    +   "id lid_on 393 pt: znacznik wystaje poza kartę o 117 pt",
+    +   "id lid_on 440 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "id lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "id lid_off 393 pt: znacznik wystaje poza kartę o 120 pt",
+    +   "id lid_off 440 pt: znacznik wystaje poza kartę o 73 pt",
+    +   "ms lid_on 320 pt: znacznik wystaje poza kartę o 95 pt",
+    +   "ms lid_on 393 pt: znacznik wystaje poza kartę o 22 pt",
+    +   "ms lid_on 440 pt: znacznik wystaje poza kartę o 122 pt",
+    +   "ms lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ms lid_off 393 pt: znacznik wystaje poza kartę o 120 pt",
+    +   "ms lid_off 440 pt: znacznik wystaje poza kartę o 73 pt",
+    +   "vi lid_on 320 pt: znacznik wystaje poza kartę o 83 pt",
+    +   "vi lid_on 393 pt: znacznik wystaje poza kartę o 94 pt",
+    +   "vi lid_on 440 pt: znacznik wystaje poza kartę o 88 pt",
+    +   "vi lid_off 320 pt: znacznik wystaje poza kartę o 126 pt",
+    +   "vi lid_off 393 pt: znacznik wystaje poza kartę o 66 pt",
+    +   "vi lid_off 440 pt: znacznik wystaje poza kartę o 88 pt",
+    +   "ru lid_on 320 pt: znacznik wystaje poza kartę o 98 pt",
+    +   "ru lid_on 393 pt: znacznik wystaje poza kartę o 107 pt",
+    +   "ru lid_on 440 pt: znacznik wystaje poza kartę o 60 pt",
+    +   "ru lid_off 320 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ru lid_off 393 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ru lid_off 440 pt: znacznik wystaje poza kartę o 129 pt",
+    +   "ja lid_on 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "ja lid_on 393 pt: znacznik wystaje poza kartę o 96 pt",
+    +   "ja lid_on 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "ja lid_off 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "ja lid_off 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "ja lid_off 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "ko lid_on 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "ko lid_on 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "ko lid_on 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "ko lid_off 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "ko lid_off 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "ko lid_off 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "zh-Hant lid_on 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "zh-Hant lid_on 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "zh-Hant lid_on 440 pt: znacznik wystaje poza kartę o 109 pt",
+    +   "zh-Hant lid_off 320 pt: znacznik wystaje poza kartę o 128 pt",
+    +   "zh-Hant lid_off 393 pt: znacznik wystaje poza kartę o 115 pt",
+    +   "zh-Hant lid_off 440 pt: znacznik wystaje poza kartę o 128 pt",
+    + ]
+
+      113 |       }
+      114 |     }
+    > 115 |     expect(bledy).toEqual([]);
+          |                   ^
+      116 |   });
+      117 | });
+      118 |
+
+      at toEqual (src/__tests__/naglowek-karty-znacznik-d392.test.tsx:115:19)
+      at asyncGeneratorStep (node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:17)
+      at _next (node_modules/@babel/runtime/helpers/asyncToGenerator.js:17:9)
+
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 1 passed, 6 total
+Snapshots:   0 total
+Time:        13.021 s, estimated 15 s
+Ran all test suites matching /src\/__tests__\/naglowek-karty-znacznik-d392.test.tsx/i.
+kod wyjścia: 1

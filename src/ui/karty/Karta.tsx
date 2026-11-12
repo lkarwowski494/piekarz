@@ -2,7 +2,7 @@
 // Piekarz — Karta: treść ekranu wyłącznie w kartach (design-spec §14, karty/README.md §1–§3, D-141) [M3 p1]
 // Tło `powierzchnia`, obwódka 1 px `kartaLinia` (w ciemnym równa powierzchni, więc niewidoczna), promień `karta`,
 // wypełnienie 16 (przy dużym tekście 12). Nagłówek: ikona 24 pt + tytuł jednym krojem (tytul2 − 2 = 20 pt, 700) +
-// opcjonalny znacznik po prawej (np. „Pro”) i opcjonalny podpis pod nagłówkiem (przypis, `tusz2`; M3 p6b). Przy dużym tekście ikona i znacznik nad tytułem, tytuł bez limitu linii.
+// opcjonalny znacznik po prawej (np. „Pro”; bez miejsca — pod tytułem, D-392) i opcjonalny podpis pod nagłówkiem (przypis, `tusz2`; M3 p6b). Przy dużym tekście ikona i znacznik nad tytułem, tytuł bez limitu linii.
 // Komponent nie ma własnych tekstów: tytuł i znacznik dostaje od ekranu.
 // ============================================================================
 
@@ -39,9 +39,9 @@ export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
       {ikona}
     </View>
   ) : null;
-  const zn = znacznik ? <View testID={`${testID}-znacznik`}>{znacznik}</View> : null;
+  const zn = znacznik ? <View testID={`${testID}-znacznik`} style={styles.znacznik}>{znacznik}</View> : null;
   const tyt = (
-    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && styles.tytulWiersz, waga]}>{tytul}</Text>
+    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && (zn ? styles.tytulZeZnacznikiem : styles.tytulWiersz), waga]}>{tytul}</Text>
   );
   return (
     <View testID={`${testID}-naglowek`} style={[styles.naglowek, duzy ? styles.naglowekStos : styles.naglowekRzad, style]}>
@@ -53,8 +53,9 @@ export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
       ) : (
         <>
           {ik}
-          {tyt}
-          {zn}
+          {/* Tytuł i znacznik w grupie z zawijaniem: gdy obok tytułu brak miejsca, znacznik schodzi pod tytuł (wyrównany
+              do tytułu), a tytuł nie łamie się wewnątrz słowa (D-392; zrzuty #6, „Szcz/yt/akty/wnoś/ci”) */}
+          {zn ? <View style={styles.tytulIZnacznik}>{tyt}{zn}</View> : tyt}
         </>
       )}
     </View>
@@ -107,6 +108,11 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   tytulWiersz: { flex: 1, flexShrink: 1 },
+  // D-392: grupa tytułu ze znacznikiem; tytuł z szerokością własną (bez flex: 1, który oddawał rząd znacznikowi)
+  tytulIZnacznik: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: odstepy.m, rowGap: odstepy.xs },
+  tytulZeZnacznikiem: { flexGrow: 1, flexShrink: 1 },
+  // Znacznik nie szerszy niż wiersz: długi tekst zawija się w znaczniku zamiast wystawać poza kartę (D-392)
+  znacznik: { flexShrink: 1, maxWidth: '100%' },
   // Podpis pod nagłówkiem (makieta: t-przyp p2, wypełnienie 0 16 8)
   podpis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   podpisWKarcie: { paddingHorizontal: odstepy.l, paddingBottom: odstepy.s },

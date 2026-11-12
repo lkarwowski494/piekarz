@@ -11,7 +11,7 @@ import { t } from '../../lib/i18n';
 import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase, type DutchOvenPhaseConfig } from '../../core/baking-phases';
 import { formatTemperature, formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
-import { typografia } from '../../ui/tokeny';
+import { odstepy, typografia } from '../../ui/tokeny';
 export interface DutchOvenControllerProps {
   /** Fazy kroku pieczenia (fazyGarnka): czas fazy bez pokrywki z danych receptury (D-304); brak = profil domyślny [M1-audytor-generalny-008]. */
   fazy?: Record<DutchOvenBakePhase, DutchOvenPhaseConfig>;
@@ -175,19 +175,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
+  // D-392: tytuł fazy i znacznik temperatury zawijają się — znacznik pod tytułem zamiast poza kartą
   phaseHeaderRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
+    columnGap: odstepy.s,
+    rowGap: odstepy.xs,
     marginBottom: 6,
   },
   phaseTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
+    flexShrink: 1,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   phaseTempBadge: {
+    flexShrink: 1,
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 8,
     paddingVertical: 3,

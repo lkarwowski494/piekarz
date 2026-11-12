@@ -23,7 +23,7 @@ Kontrast nowych par: `kontrast-karty.md` (24 pary, kod 0). „Zwiększ kontrast�
 
 ## 3. Komponenty
 - Systemowe bez zmian zachowania: pasek zakładek, arkusze (uchwyt, „Anuluj”/„Zamknij” z lewej, „Gotowe”/„Zapisz” z prawej), przełącznik, segment.
-- Wspólne do zbudowania przez 08 (jeden komponent na wzór, nie kopie): `Karta` (nagłówek z ikoną, opcjonalny znacznik Pro po prawej), `WierszKarty`, `CzapkaPaska`, `PoleObjawu`. Pas: istniejący `PasZakladki` na wszystkich ekranach (O3).
+- Wspólne do zbudowania przez 08 (jeden komponent na wzór, nie kopie): `Karta` (nagłówek z ikoną, opcjonalny znacznik Pro po prawej); znacznik dłuższy niż miejsce obok tytułu schodzi pod tytuł, tytuł nie łamie się wewnątrz słowa (D-392), `WierszKarty`, `CzapkaPaska`, `PoleObjawu`. Pas: istniejący `PasZakladki` na wszystkich ekranach (O3).
 - Element firmowy (spirala koszyka) bez zmian: pas „Dziś”, pas zakwasu, prowadzenie.
 
 ## 4. Ekran AS IS → TO BE (partie wdrożenia dla 08)
