@@ -148,7 +148,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - (21:55) Rola M9 złożona `assemble.mjs` po zgodzie właściciela 21:53 („Zgoda na wszystko co potrzebujesz zeby wystarowac”); wyjątek z 21:50 zamknięty.
 
 ## Przypomnienia
-- Koordynatora `…w2HUmSmpTzryFK8eF` (aktualne): `trig_01QuhNXsuh7bMPW3HcA2obzA` linia 05:00 12.11 · `trig_018gAP41FxWSssuTwjKVpkD9` linia 14:00 12.11 · kontrola R `send_later` ~21:15.
+- Koordynatora `…w2HUmSmpTzryFK8eF` (aktualne): `trig_0155sxxMamMjnCjm5dXunJFj` linia 05:00 13.11 (12.11 wysłana) · `trig_018gAP41FxWSssuTwjKVpkD9` linia 14:00 12.11 · kontrola R `send_later` ~21:15.
 - Koordynatora `…ByLLFQ4u3bXqP2hE4m` (aktualne): `trig_01CRccH1F2LbbPu9KMdpxeQo` kontrola zrzutów #1 11.11 15:10 · `trig_01FoCKhBHCbvs4c5GZPmuUaq` linia 05:00 12.11 · `trig_01BWc1TcjvDBRnPyDh4rUkDN` linia 14:00 12.11. Kontrolę 15:10 poprzednika `trig_01Qdk4f9n2t5HWAhKJSgqU4c` usuwa poprzednik.
 - Koordynatora `…xmzZbniLNyXVufzPk` (aktualne): `trig_01CdpzvbLMCeUBV96gh4jXsA` kontrola L i M 10.11 22:30 (wykonana) · wynik E2E #109 11.11 01:00 · `trig_01FnJY88Mo7gRRthrSS5mG4Z` linia 05:00 11.11 · `trig_01XLd3HNtyDEikUWMtnM6cpb` linia 14:00 11.11. Usunięte: `trig_0144xzxYUJoDZZnuvXEC2b2d` (linia 05:00 poprzednika).
 - Koordynatora `…wJhDDVhFKP86KKRQA` (aktualne): `trig_01HXSiTsWTnyyRthsXjX4bap` wynik E2E #107 10.11 12:35 · `trig_017oei6Nej6bykf8Ee13D7CE` linia 14:00 · `trig_0144xzxYUJoDZZnuvXEC2b2d` linia 05:00 11.11. Przypomnienia poprzednika `…xLgo9xjN2mSW5Tg8t` nie ruszane.
@@ -322,3 +322,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 11.11 21:52 | CI | E2E #116 (R) in_progress od 21:02 (50 min); #117 (S) in_progress od 21:40. | kontrola 22:21 |
 | 11.11 22:23 | R / CI | **E2E #116 (43098216422) ZIELONE** na `7e9b3b31` (20:48→22:05). R przyjęta; `redesign` FF `2668d7d3..7e9b3b31` (D-300). #117 (S) in_progress od 21:40. | kontrola 22:48 |
 | 11.11 22:50 | S / CI | **E2E #117 (43105037579) ZIELONE** na `0a0b9970` (21:40→22:46); CI #315 i tests-tz #275 zielone na tym SHA (CI #314 czerwone na `9e613d0b` — ms > 40 zn., naprawione w `1cbce380`). S przyjęta; `redesign` FF `7e9b3b31..0a0b9970`. Brak kontroli do linii 05:00. | linia 05:00 |
+| 12.11 05:01 | M9 | Linia 05:00 wysłana. `master` `935cd8dc`, `redesign` `0a0b9970` bez zmian od 22:50. Czeka na właściciela: FF master, zrzuty #5, przegląd/pokaz, asc-zrzuty dry-run (osobne zgody); weto KO-049/051/052/054, D-381…D-390. Następna linia 05:00 13.11 `trig_0155sxxMamMjnCjm5dXunJFj`. | odpowiedź właściciela; linia 14:00 |
