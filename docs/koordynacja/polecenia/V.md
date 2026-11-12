@@ -1,0 +1,14 @@
+# Sesja V: diagnoza zrzutów #8 (34 lokalizacje, 6,9″ czerwone) — Piekarz
+Koordynator: session_01T66VBxoysanqZq26zhDpGT (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID). Gałąź stanu `koordynacja` tylko do odczytu.
+
+1. Rola: 07-jakosc (fix), poprawka kodu/sceny jako 08 (fix). Prompty: `git fetch origin audit-m1/piekarz-2026-11-08`, `git show origin/audit-m1/piekarz-2026-11-08:audit/M1-2026-11-08/naprawy/polecenia/rola-07-jakosc-prompt.md` i `…/rola-08-prompt.md` — przeczytaj w całości. Biblioteki prompts nie dołączasz.
+2. Start: nowa gałąź `naprawy/M2-koordynator-napraw-2026-11-12-zrzuty8` od `master` @ `69edd0fb` (inny HEAD: zgłoś). `npm ci`. Tożsamość commitów wg CLAUDE.md.
+3. Kontekst: zrzuty #8 run 43238947035 (master `69edd0fb`, wszystkie lokalizacje, `aplikacja_z_przebiegu=43218573090`, workflow_dispatch), anulowany przez koordynatora 16:5x po czerwonych częściach. 6,9″: części 1, 2, 3, 4, 6, 7, 12 FAILURE w kroku „Zrzuty” (np. job 6,9-1 131253920406: 14:39→15:07), części 5, 9, 10, 11 cancelled, 8 przerwana; 6,3″: żadna nie wystartowała. Na tej samej aplikacji zrzuty #7 run 43218573090 (tylko=pl) były ZIELONE na obu rozmiarach. Artefakty #8: `zrzuty-dzienniki-iphone-6.9-<n>` (logi Maestro) i ewentualne zrzuty surowe — pobierz przez MCP GitHub (download_workflow_run_artifact) albo get_job_logs. Ogon logu 6,9-1 nie pokazuje przyczyny (szukaj w dziennikach Maestro). Podział lokalizacji na części: job `plan` i `.github/workflows/zrzuty-sklepu.yml`.
+4. Zadania:
+   1. Diagnoza: które sceny i lokalizacje padły na 6,9″ i dlaczego (pl przechodzi); czy to samo dotknie 6,3″. Dowód z logu/zrzutu w `docs/dowody-07-zrzuty8/`. Gotowe: raport do koordynatora (przyczyna, dowód, plan poprawki, zasięg: rozmiary/lokalizacje/sceny).
+   2. Poprawka: test najpierw czerwony (odtwarza przyczynę), potem poprawka, zielony. Zmiana treści ramki, tłumaczenia widocznego w sklepie albo wyglądu aplikacji → PYTANIE z ≥ 2 opcjami i rekomendacją. Gotowe: commit z dowodem czerwony→zielony.
+   3. `npm run verify` KOD 0 na końcowym SHA → `docs/dowody-07-zrzuty8/verify.txt`; recenzja niezależna (subagent, sam diff) bez P0/P1. Gotowe: PRZEKAZANIE z propozycją wejść ponownego przebiegu (tylko, rozmiary, sceny, aplikacja_z_przebiegu=43218573090, jeśli app/src bez zmian — artefakt aplikacji wygasa 15.11 12:56 UTC).
+5. Zakazy: nie scalasz do `redesign`/`master`, nie tworzysz/archiwizujesz sesji, nie piszesz na `koordynacja`, nie uruchamiasz workflowów, nigdy --no-verify ani force-push, bez AskUserQuestion. STOP-y i punkt czyszczenia → raport do koordynatora.
+6. Decyzje: tryb „właściciel” (dzień): techniczne sama do weta, produktowe/wyglądu jako PYTANIE. Numery tylko D-394…D-399.
+7. Od 30% okna: stan w `docs/stan-07-zrzuty8-2026-11-12.md`, push, PRZEKAZANIE.
+8. Raporty (≤ 10 linii, send_message): po zadaniu 1; PYTANIE; PRZEKAZANIE.
