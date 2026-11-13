@@ -1,19 +1,19 @@
 # Okno zgody systemu iOS na powiadomienia (bez id; jak .maestro/e2e-basic/05-drugi-zakwas-pro.yaml, E2E-96): czekanie warunkowe
 # i stuknięcie „zezwól”. Okno jest w języku systemu, a clearState kasuje decyzję (zrzuty #8, run 43238947035: pl zezwoliło,
 # pt-BR po clearState dostało okno ponownie), więc wzorzec ma etykietę każdej lokalizacji z docs/wydanie/metadane (D-394).
-# Etykiety i ich źródło: tests/dane/okno-zgody-ios.json (12 języków odczytanych z hierarchii #8, reszta niezweryfikowana);
+# Etykiety i ich źródło: tests/dane/okno-zgody-ios.json (z przebiegów #8 i #9; hr „Dozvoli” z #9, D-400; niezweryfikowane: en-*, fr-CA);
 # straż: tests/zrzuty-sklepu-okno-zgody.test.ts. Zakotwiczenie ^…$: „Permitir” zawiera się w „Não Permitir”, „Allow” w „Don’t Allow”.
 appId: com.apps4brew.baker
 ---
 - extendedWaitUntil:
     visible:
-      text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dopusti|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"
+      text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dozvoli|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"
     timeout: 15000
     optional: true
 - runFlow:
     when:
       visible:
-        text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dopusti|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"
+        text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dozvoli|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"
     commands:
       - tapOn:
-          text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dopusti|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"
+          text: "^(Pozwalaj|Zezwalaj|Zezwól|Allow|Povolit|Tillad|Erlauben|Να επιτρέπεται|Permitir|Salli|Autoriser|Dozvoli|Engedélyezés|Izinkan|Consenti|許可|허용|Benarkan|Sta toe|Tillat|Permiteți|Разрешить|Povoliť|Dovoli|Tillåt|İzin Ver|Дозволити|Cho phép|允許)$"

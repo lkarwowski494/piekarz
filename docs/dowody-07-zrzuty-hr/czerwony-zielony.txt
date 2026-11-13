@@ -1,0 +1,18 @@
+# D-400 czerwony→zielony (tests/zrzuty-sklepu-okno-zgody.test.ts)
+## Czerwony: dane hr z #9 (Dozvoli), wzorzec a6eb5144 (Dopusti) — npx jest tests/zrzuty-sklepu-okno-zgody.test.ts, kod 1
+    ✕ hr: wzorzec stuka „zezwól” i nigdy „nie zezwalaj” (3 ms)
+        "kod": "hr",
+    -   "zezwol": true,
+    +   "zezwol": false,
+    > 110 |     expect({ kod, zezwol: trafia(wzorce[0], p.zezwol), odmow: trafia(wzorce[0], p.odmow) }).toEqual({ kod, zezwol: true, odmow: false });
+Tests:       1 failed, 67 passed, 68 total
+## Zielony: wzorzec z Dozvoli — kod 0
+    ✓ hr: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
+    ✓ etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)
+    ✓ wpisy niezweryfikowane to tylko jawna lista (reszta ze źródłem z przebiegu) (3 ms)
+Tests:       68 passed, 68 total
+## Mutacja kontroli (kopia git worktree na 551e4462, cofnięta): wpis sl → "zrodlo": "niezweryfikowane" — kod 1
+    ✕ etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)
+    ✕ wpisy niezweryfikowane to tylko jawna lista (reszta ze źródłem z przebiegu)
+    +   "sl",
+Tests:       2 failed, 66 passed, 68 total

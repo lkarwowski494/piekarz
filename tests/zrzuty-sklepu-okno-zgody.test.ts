@@ -115,6 +115,20 @@ describe('sceny zrzutów sklepu po przebiegu #8 (D-394)', () => {
     expect(z8.sort()).toEqual(['cs', 'da', 'es-ES', 'es-MX', 'fi', 'id', 'it', 'ja', 'ko', 'no', 'pl', 'pt-BR', 'zh-Hant']);
   });
 
+  // Przebieg #9 (run 43284925139, docs/dowody-07-zrzuty-hr/diagnoza.md): hr padło na „Dopusti” z pamięci modelu
+  // (iOS: „Dozvoli” / „Nemoj dozvoliti”); 15 etykiet „zezwól” potwierdziło stuknięcie wzorcem (cs ma źródło #8; D-400).
+  it('etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)', () => {
+    const z9 = Object.entries(dane.przyciski).filter(([, p]) => p.zrodlo.startsWith('przebieg 43284925139')).map(([k]) => k);
+    expect(z9.sort()).toEqual(['de-DE', 'el', 'fr-FR', 'hr', 'hu', 'ms', 'nl-NL', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi']);
+    expect(dane.przyciski.hr).toMatchObject({ zezwol: 'Dozvoli', odmow: 'Nemoj dozvoliti' });
+  });
+
+  // Trwała kontrola (D-400): wpis z pamięci modelu wolno dodać tylko jawnie, przez tę listę; każdy inny ma źródło z przebiegu.
+  it('wpisy niezweryfikowane to tylko jawna lista (reszta ze źródłem z przebiegu)', () => {
+    const niezw = Object.entries(dane.przyciski).filter(([, p]) => !/^przebieg \d+/.test(p.zrodlo)).map(([k]) => k);
+    expect(niezw.sort()).toEqual(['en-AU', 'en-CA', 'en-GB', 'en-US', 'fr-CA']);
+  });
+
   const sceny = pliki(scenyDir).map((p) => [relative(scenyDir, p), readFileSync(p, 'utf8')] as const);
 
   it.each(sceny)('%s: stuknięcie po przewinięciu poprzedza przewinięcie z centerElement (poza BEZ_SRODKA)', (_n, tekst) => {
