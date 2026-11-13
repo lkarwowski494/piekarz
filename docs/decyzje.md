@@ -2244,3 +2244,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** stuknięcie w punkt ekranu (it, id: przyciski okna jeden pod drugim, położenie zależy od języka); zgoda raz na zadanie (`clearState` ją kasuje); `centerElement` na wszystkich stuknięciach (stopka planu nie da się wyśrodkować: 5 prób zamiast jednego stuknięcia).
 - **Zakres:** tylko `.maestro/zrzuty-sklepu/` i `tests/`; `app/`, `src/`, treść ramek i tłumaczenia bez zmian, więc aplikacja z przebiegu 43218573090 nadal pasuje. E2E (`.maestro/e2e*`) ma ten sam wzorzec okna, ale biegnie w pl/en — poza zakresem.
 - **Status:** techniczna, sesja V, do weta.
+
+### [D-400] 2026-11-13 — Zrzuty #9: etykieta okna zgody hr z przebiegu i jawna lista wpisów niezweryfikowanych (M2, sesja W, rola 07/08 fix)
+- **Problem:** próbka #9 (run 43284925139, master a6eb5144) — hr pada na obu rozmiarach: iOS 26.5 pokazuje „Dozvoli” / „Nemoj dozvoliti”, a wzorzec `sub/okno-systemu.yaml` miał „Dopusti” (wpis z pamięci modelu, wyjątek nazwany w D-394). Dowód: `docs/dowody-07-zrzuty-hr/diagnoza.md` (hierarchia i zrzut 6,9″ i 6,3″).
+- **Decyzja:** wzorzec „Dopusti” → „Dozvoli”; dane `tests/dane/okno-zgody-ios.json`: hr z hierarchii #9, 16 etykiet „zezwól” potwierdzonych stuknięciem w #9 (de-DE, el, fr-FR, hu, ms, nl-NL, pt-PT, ro, ru, sk, sl, sv, tr, uk, vi) ze źródłem przebiegu. Trwała kontrola: test wymaga, by wpisy bez źródła z przebiegu były dokładnie na jawnej liście (dziś en-AU, en-CA, en-GB, en-US, fr-CA); nowy wpis z pamięci wymaga zmiany tej listy.
+- **Odrzucone:** wzorzec z kilkoma wariantami chorwackimi „na zapas” (zgadywanie; „Dopusti” nie występuje w oknie); dopasowanie po pozycji przycisku (D-394: układ zależy od języka).
+- **Zakres:** tylko `.maestro/zrzuty-sklepu/sub/okno-systemu.yaml`, `tests/`, `docs/`; aplikacja z przebiegu 43218573090 nadal pasuje. Części 6,9″ nl-NL, pt-PT, ro, vi, cs (anulowane w #9): nie sprawdzono; ich etykiety potwierdzone na 6,3″.
+- **Status:** techniczna, sesja W, do weta.
