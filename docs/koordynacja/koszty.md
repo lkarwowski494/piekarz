@@ -19,3 +19,5 @@ Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na sta
 | T | 07→08 fix | — | 4,81 | 24,6 | 07:15 → 07:16 → 07:2x → zrzuty #6 zielone 08:15 → przyjęte 08:24 | — | diagnoza 6 min |
 | U (D-392 nagłówek karty, D-393 kadr 05) | 04→08 fix | [brak szacunku] | 10,65 | 31,8 | 09:54 → 09:54 → ~10:10 → E2E 12:00 → 12:31 | pytanie do właściciela ~5 min; kolejka macOS 14 min; E2E 88 min | KO-055, KO-056 |
 | V (diagnoza zrzutów #8, D-394) | 07→08 fix | — | 11,46 | 39,1 | 12.11 17:16 → 17:16 → bd507cbc ~17:32 → E2E #122 zielone 18:51 → przyjęte 18:58 | kolejka macOS (E2E); próbka #9 czerwona (hr) 21:20 | ponad 30% (39%) — wyjątek: koordynator 8/8 nie mógł tworzyć następcy; zarchiwizowana 13.11 07:2x na polecenie właściciela |
+| W (hr zrzuty #9, D-400) | 07→08 fix, opus | 8 | 3,77 | 20,5 | 07:15 → 07:15 → 551e4462 ~07:28 → E2E #124 zielone 08:34 → przyjęte 09:00 | E2E 63 min | recenzja: subagent koordynatora |
+| X (ASC v2, D-406/407) | 10 build, sonnet | 8 | 2,88+ | 24,5 | 07:14 → 07:14 → 24a0e48c ~07:17 → (bez E2E, verify) → przyjęte 07:50 | — | scalenie z redesign w toku |
