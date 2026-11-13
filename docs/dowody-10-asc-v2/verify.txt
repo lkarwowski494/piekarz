@@ -1,12 +1,9 @@
-SHA: e3fb428b74458bc618252282f1d955e4a0d0411d
-Komenda: npm run verify -> KOD 0 (Test Suites 676 passed, Tests 7486 passed)
-Uwaga: uruchomione na drzewie roboczym identycznym z e3fb428b74458bc618252282f1d955e4a0d0411d poza docs/dowody-10-asc-v2/ (dowody wpisane po przebiegu).
---- końcówka logu ---
-PASS tests/asc-ustawienia.test.ts (12.086 s)
+SHA kodu: ce92cc646431448f81d8feaf1138741fdcfeb4a1 (kolejny commit zmienia tylko ten plik)
+npm run verify -> KOD 0 (676 suites, 7489 testów); uruchomione na drzewie = ce92cc646431448f81d8feaf1138741fdcfeb4a1
 
 Test Suites: 676 passed, 676 total
-Tests:       7486 passed, 7486 total
+Tests:       7489 passed, 7489 total
 Snapshots:   0 total
-Time:        249.676 s
+Time:        228.52 s, estimated 241 s
 Ran all test suites.
 KOD 0
