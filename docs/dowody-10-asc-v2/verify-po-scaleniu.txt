@@ -1,0 +1,8 @@
+SHA: 2a43fcf5eed8c2b3d1c7acd04710951ea40e2c9d (scalenie origin/redesign/piekarz-2026-10-22 @ c6e34ba6; konflikt docs/decyzje.md rozwiązany: D-400, D-406, D-407)
+npm run verify -> KOD 0 (676 suites, 7491 testów), drzewo = 2a43fcf5eed8c2b3d1c7acd04710951ea40e2c9d
+Test Suites: 676 passed, 676 total
+Tests:       7491 passed, 7491 total
+Snapshots:   0 total
+Time:        279.058 s
+Ran all test suites.
+KOD 0
