@@ -83,8 +83,21 @@ appId: com.apps4brew.baker
     id: "finish-rating-star-4"
 - tapOn:
     id: "finish-save-btn"
+# Po zapisie Stolnica robi router.replace('/') (app/stolnica.tsx:62-64): stuknięcie zakładki w trakcie przejścia
+# zostaje nadpisane (E2E #125, en-US) [KO-061]. Czekamy na Dziś, potem stukamy; jedno ponowienie, gdy karta nie przełączona.
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 15000
 - tapOn:
     id: "tab-dziennik"
+- runFlow:
+    when:
+      notVisible:
+        id: "bake-log-card-.*"
+    commands:
+      - tapOn:
+          id: "tab-dziennik"
 - extendedWaitUntil:
     visible:
       id: "bake-log-card-.*"

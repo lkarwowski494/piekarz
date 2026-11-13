@@ -61,8 +61,20 @@ appId: com.apps4brew.baker
     id: "finish-rating-star-4"
 - tapOn:
     id: "finish-save-btn"
+# Po zapisie Stolnica robi router.replace('/') (app/stolnica.tsx:62-64): czekamy na Dziś przed stuknięciem zakładki [KO-061]
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 15000
 - tapOn:
     id: "tab-dziennik"
+- runFlow:
+    when:
+      notVisible:
+        id: "bake-log-card-.*"
+    commands:
+      - tapOn:
+          id: "tab-dziennik"
 - extendedWaitUntil:
     visible:
       id: "bake-log-card-.*"
