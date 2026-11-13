@@ -1,0 +1,26 @@
+# npm run verify — czyste drzewo na 30dea228, 2026-11-13, Linux, Node v22.23.4; kod 0
+# Commit z tym plikiem dodaje tylko docs/dowody-07-zrzuty-hr/verify.txt.
+> piekarz@1.0.0 verify
+> npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:licencje && npm run check:size && npm run lint && npm run verify:native && npm run verify:matrix && npm test
+> piekarz@1.0.0 typecheck
+> tsc --noEmit
+> piekarz@1.0.0 check:i18n
+> node scripts/check-i18n.mjs --kod src,app
+> piekarz@1.0.0 check:licenses
+> node scripts/check-licenses.mjs
+> piekarz@1.0.0 check:licencje
+> node scripts/licencje.mjs --check
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+> piekarz@1.0.0 check:size
+> node scripts/check-file-size.mjs
+> piekarz@1.0.0 lint
+> eslint app src
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+> piekarz@1.0.0 test
+> jest
+Test Suites: 676 passed, 676 total
+Tests:       7482 passed, 7482 total
+KOD 0
