@@ -116,8 +116,8 @@ describe('sceny zrzutów sklepu po przebiegu #8 (D-394)', () => {
   });
 
   // Przebieg #9 (run 43284925139, docs/dowody-07-zrzuty-hr/diagnoza.md): hr padło na „Dopusti” z pamięci modelu
-  // (iOS: „Dozvoli” / „Nemoj dozvoliti”); 16 etykiet „zezwól” potwierdziło stuknięcie wzorcem (D-400).
-  it('etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 16 lokalizacji ze stuknięcia)', () => {
+  // (iOS: „Dozvoli” / „Nemoj dozvoliti”); 15 etykiet „zezwól” potwierdziło stuknięcie wzorcem (cs ma źródło #8; D-400).
+  it('etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)', () => {
     const z9 = Object.entries(dane.przyciski).filter(([, p]) => p.zrodlo.startsWith('przebieg 43284925139')).map(([k]) => k);
     expect(z9.sort()).toEqual(['de-DE', 'el', 'fr-FR', 'hr', 'hu', 'ms', 'nl-NL', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sv', 'tr', 'uk', 'vi']);
     expect(dane.przyciski.hr).toMatchObject({ zezwol: 'Dozvoli', odmow: 'Nemoj dozvoliti' });

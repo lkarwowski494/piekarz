@@ -8,6 +8,11 @@
 Tests:       1 failed, 67 passed, 68 total
 ## Zielony: wzorzec z Dozvoli — kod 0
     ✓ hr: wzorzec stuka „zezwól” i nigdy „nie zezwalaj”
-    ✓ etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 16 lokalizacji ze stuknięcia)
+    ✓ etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)
     ✓ wpisy niezweryfikowane to tylko jawna lista (reszta ze źródłem z przebiegu) (3 ms)
 Tests:       68 passed, 68 total
+## Mutacja kontroli (kopia git worktree na 551e4462, cofnięta): wpis sl → "zrodlo": "niezweryfikowane" — kod 1
+    ✕ etykiety z przebiegu #9 są w danych (hr z hierarchii okna, 15 lokalizacji ze stuknięcia)
+    ✕ wpisy niezweryfikowane to tylko jawna lista (reszta ze źródłem z przebiegu)
+    +   "sl",
+Tests:       2 failed, 66 passed, 68 total
