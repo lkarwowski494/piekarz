@@ -23,7 +23,7 @@ import { appendFileSync, existsSync, readFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BladApi, BladDanych, BladZgody, klient, sekrety, zaciemnij } from './asc-ustawienia.mjs';
+import { BladApi, BladDanych, BladZgody, EDYTOWALNA, klient, sekrety, wybierzWersje, zaciemnij } from './asc-ustawienia.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const API_DOMYSLNE = 'https://api.appstoreconnect.apple.com';
@@ -114,10 +114,9 @@ async function mapaLokalizacji(k, sciezkaListy) {
 /** ASC API 4.4.1: lokalizacje produktu należą do jego wersji (docs/wydanie/asc-api-v2-zrodla.md). Wersja do edycji, a bez niej najnowsza (tylko odczyt). */
 async function lokalizacjeProduktu(k, sub, id) {
   const { data } = await k.wszystkie(`${sub ? `/v1/subscriptions/${e(id)}` : `/v2/inAppPurchases/${e(id)}`}/versions?limit=200`);
-  const wersje = [...data].sort((a, b) => (b.attributes?.version ?? 0) - (a.attributes?.version ?? 0));
-  const w = wersje.find((x) => x.attributes?.state === 'PREPARE_FOR_SUBMISSION') ?? wersje[0] ?? null;
+  const w = wybierzWersje(data);
   if (!w) return { edytowalna: false, lok: {} };
-  return { edytowalna: w.attributes?.state === 'PREPARE_FOR_SUBMISSION', lok: await mapaLokalizacji(k, `/v1/${sub ? 'subscriptionVersions' : 'inAppPurchaseVersions'}/${e(w.id)}/localizations`) };
+  return { edytowalna: w.attributes?.state === EDYTOWALNA, lok: await mapaLokalizacji(k, `/v1/${sub ? 'subscriptionVersions' : 'inAppPurchaseVersions'}/${e(w.id)}/localizations`) };
 }
 
 const plikAsc = (x) => x && { id: x.id, plik: x.attributes?.fileName, md5: x.attributes?.sourceFileChecksum ?? null, stan: x.attributes?.assetDeliveryState?.state ?? null };

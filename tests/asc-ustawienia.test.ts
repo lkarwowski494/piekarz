@@ -297,4 +297,48 @@ describe('scripts/asc-ustawienia.mjs na atrapie App Store Connect API (M1-audyto
       expect(a.lokIap).toHaveLength(2);
     });
   });
+  // --- Samokontrola KO-058: wersje w skrócie zgody, opis planu przy wersji nieedytowalnej, 409 ---
+  const zatwierdz = (a: AtrapaAsc) => a.wersje.forEach((v) => (v.attributes!.state = 'APPROVED'));
+  const zapisz = async (a: AtrapaAsc, nazwa: string) => {
+    const sucho = await uruchom(a.adres);
+    const w = await uruchom(a.adres, ['--zgoda', zgoda(nazwa, { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+    expect(w.kod).toBe(0);
+  };
+
+  it('plan na sucho pokazuje wiersze „wersja do edycji” także przed utworzeniem rodzica (są w skrócie zgody)', async () => {
+    await zAtrapa({}, async (a) => {
+      const w = await uruchom(a.adres);
+      expect(w.wyjscie.match(/utworzy · [^\n]*wersja do edycji lokalizacji/g)).toHaveLength(4);
+    });
+  });
+
+  it('wersja nieedytowalna i inna nazwa: plan „utworzy” wersję i lokalizacje na nowej wersji (nie „zmieni”); po zapisie 0 różnic, stara lokalizacja nietknięta', async () => {
+    await zAtrapa({}, async (a) => {
+      await zapisz(a, 'ne1.json');
+      zatwierdz(a);
+      const stara = a.lokIap[0];
+      stara.attributes!.name = 'Inna nazwa';
+      const sucho = await uruchom(a.adres);
+      expect(sucho.wyjscie).toMatch(/utworzy · [^\n]*wersja do edycji lokalizacji[^\n]*nieedytowalna/);
+      expect(sucho.wyjscie).toMatch(/utworzy · [^\n]*na nowej wersji/);
+      expect(sucho.wyjscie).not.toMatch(/zmieni · [^\n]*lokalizacja/);
+      const przed = a.zapytania.length;
+      const w = await uruchom(a.adres, ['--zgoda', zgoda('ne2.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      expect(w.wyjscie).toMatch(/Po zapisie: różnice 0/);
+      expect(a.zapytania.slice(przed).filter((z) => z.metoda === 'PATCH' && /Localizations/.test(z.sciezka))).toEqual([]);
+      expect(stara.attributes!.name).toBe('Inna nazwa');
+    });
+  });
+
+  it('wersja nieedytowalna, ale nazwy zgodne: 0 różnic, żadnej wersji ani zapisu', async () => {
+    await zAtrapa({}, async (a) => {
+      await zapisz(a, 'ne3.json');
+      zatwierdz(a);
+      const przed = a.zapytania.length;
+      const w = await uruchom(a.adres);
+      expect(roznice(w)).toBe(0);
+      expect(a.zapytania.slice(przed).filter((z) => z.metoda !== 'GET')).toEqual([]);
+    });
+  });
 });

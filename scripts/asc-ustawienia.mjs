@@ -180,13 +180,18 @@ async function lokalizacje(k, sciezka) {
   return Object.fromEntries(data.map((l) => [l.attributes.locale, { id: l.id, name: l.attributes.name }]));
 }
 
-const EDYTOWALNA = 'PREPARE_FOR_SUBMISSION';
+export const EDYTOWALNA = 'PREPARE_FOR_SUBMISSION';
+
+/** Wersja do edycji, a bez niej najnowsza (wg attributes.version); null bez wersji. Wspólne dla asc-ustawienia i asc-zgloszenie. */
+export function wybierzWersje(data) {
+  const posortowane = [...data].sort((a, b) => (b.attributes?.version ?? 0) - (a.attributes?.version ?? 0));
+  return posortowane.find((x) => x.attributes?.state === EDYTOWALNA) ?? posortowane[0] ?? null;
+}
 
 /** ASC API 4.4.1: lokalizacje należą do wersji zasobu (docs/wydanie/asc-api-v2-zrodla.md). Wersja do edycji, a bez niej najnowsza (tylko odczyt). */
 async function lokalizacjeWersji(k, sciezkaWersji, prefiksWersji) {
   const { data } = await k.wszystkie(`${sciezkaWersji}?limit=200`);
-  const posortowane = [...data].sort((a, b) => (b.attributes?.version ?? 0) - (a.attributes?.version ?? 0));
-  const w = posortowane.find((x) => x.attributes?.state === EDYTOWALNA) ?? posortowane[0] ?? null;
+  const w = wybierzWersje(data);
   return { wersja: w ? { id: w.id, edytowalna: w.attributes?.state === EDYTOWALNA } : null, lok: w ? await lokalizacje(k, `${prefiksWersji}/${e(w.id)}/localizations`) : {} };
 }
 
@@ -429,16 +434,22 @@ export function planuj(cel, stan, pp) {
   return ops;
 }
 
-/** `ver` = { wersja, lok } wybranej wersji rodzica (undefined, gdy rodzic nie istnieje); `cel` = { wersja: utworzenie wersji, lok(idWersji): ścieżka, typ, relacja }. */
+/**
+ * `ver` = { wersja, lok } wybranej wersji rodzica (undefined, gdy rodzic nie istnieje); `cel` = { wersja: utworzenie wersji, lok(idWersji) } albo null.
+ * Wiersz „:wersja” jest w planie (i w skrócie zgody) także, gdy rodzica jeszcze nie ma: Apple może nie utworzyć wersji razem z produktem
+ * [DO USTALENIA], a zgoda obejmuje wszystko, co skrypt zapisze. Przy wersji nieedytowalnej treść nowej wersji nie jest znana, więc
+ * każda lokalizacja jest w planie jako „utworzy” na nowej wersji; w kolejnej rundzie plan czyta rzeczywisty stan.
+ */
 function lokOps(op, obiekt, nazwa, docel, ver, cel) {
   const edytowalna = ver?.wersja?.edytowalna === true;
   const potrzeba = Object.entries(docel).some(([loc, { name }]) => ver?.lok?.[loc]?.name !== name);
-  if (cel && potrzeba && !edytowalna) op('utworzy', `${obiekt}:wersja`, `wersja do edycji lokalizacji ${nazwa} (obecna ${ver?.wersja ? 'nieedytowalna' : 'nie istnieje'})`, cel.wersja);
+  if (potrzeba && !edytowalna) op('utworzy', `${obiekt}:wersja`, `wersja do edycji lokalizacji ${nazwa} (${ver?.wersja ? 'obecna nieedytowalna' : ver ? 'brak wersji' : 'wersji nie ma lub powstanie z produktem; wtedy ten krok odpada'})`, cel ? cel.wersja : null);
   for (const [loc, { name }] of Object.entries(docel)) {
     const opis = `lokalizacja ${nazwa} ${loc}: „${name}”`;
     const x = ver?.lok?.[loc];
     const c = cel && edytowalna ? cel.lok(ver.wersja.id) : null;
-    if (!x) op('utworzy', `${obiekt}:lok`, opis, c ? (k) => k.post(c.path, { data: { type: c.type, attributes: { locale: loc, name }, relationships: c.rel } }) : null);
+    const nowaWersja = potrzeba && !edytowalna;
+    if (!x || nowaWersja) op('utworzy', `${obiekt}:lok`, nowaWersja ? `${opis} (na nowej wersji)` : opis, c ? (k) => k.post(c.path, { data: { type: c.type, attributes: { locale: loc, name }, relationships: c.rel } }) : null);
     else if (x.name === name) op(BEZ, `${obiekt}:lok`, opis);
     else op('zmieni', `${obiekt}:lok`, `${opis}; teraz „${x.name}”`, c ? (k) => k.patch(`${c.path}/${e(x.id)}`, { data: { type: c.type, id: x.id, attributes: { name } } }) : null);
   }

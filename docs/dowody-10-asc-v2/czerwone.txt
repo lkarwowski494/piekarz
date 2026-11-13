@@ -31,3 +31,7 @@ zgloszenie, stary skrypt:
     ✕ opisy produktów przez wersje v2: odczyt z …/versions, zapis PATCH /v2/…Localizations/{id}, żadnych starych ścieżek lokalizacji (441 ms)
     ✕ wersja produktu nieedytowalna: opis jako „ręcznie”, zapis nie rusza produktów (144 ms)
 Tests:       5 failed, 10 passed, 15 total
+KO-058 — stary skrypt e3fb428b + nowe testy/atrapa:
+    ✕ plan na sucho pokazuje wiersze „wersja do edycji” także przed utworzeniem rodzica (są w skrócie zgody) (134 ms)
+    ✕ wersja nieedytowalna i inna nazwa: plan „utworzy” wersję i lokalizacje na nowej wersji (nie „zmieni”); po zapisie 0 różnic, stara lokalizacja nietknięta (1234 ms)
+Tests:       2 failed, 14 passed, 16 total

@@ -36,3 +36,5 @@ Stan wersji (`attributes.state`): `PREPARE_FOR_SUBMISSION`, `READY_FOR_REVIEW`, 
 - Wersja 4.4.1: data publikacji nie odczytana (strona notatek jej nie podaje).
 - Czy produkt tworzony przez API dostaje od razu pierwszą wersję w `PREPARE_FOR_SUBMISSION`, i czy PATCH lokalizacji wersji zatwierdzonej zwraca 409: nieprzetestowane (zakaz uruchamiania na koncie). Skrypt: bierze wersję edytowalną, a gdy jej nie ma, planuje `POST …Versions` i czeka na kolejną rundę.
 - Czy v1 zachowa dotychczasowe zachowanie do daty usunięcia: spec 4.6 nie oznacza operacji v1 flagą `deprecated`, dokumentacja oznacza je jako wycofane.
+
+**Stan 2026-11-13 (KO-058):** trzy powyższe [DO USTALENIA] (data usunięcia v1, auto-wersja nowego produktu, PATCH na wersji zatwierdzonej) zostają otwarte; decyzje D-406, D-407 w `docs/decyzje.md`.

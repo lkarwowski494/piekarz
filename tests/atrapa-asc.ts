@@ -261,13 +261,14 @@ export class AtrapaAsc {
     }
     for (const [sciezka, rodzaj, typ] of [['subscriptionGroupVersions', 'grupa', 'subscriptionGroup'], ['subscriptionVersions', 'sub', 'subscription'], ['inAppPurchaseVersions', 'iap', 'inAppPurchase']] as const) {
       if (metoda === 'POST' && p === `/v1/${sciezka}`) {
+        if (rel(typ)?.type !== { grupa: 'subscriptionGroups', sub: 'subscriptions', iap: 'inAppPurchases' }[rodzaj] || d.type !== sciezka) return this.wyslij(res, 409, { errors: [{ status: '409', code: 'ENTITY_ERROR', title: 'atrapa: zły typ albo relacja rodzica wersji' }] });
         const w = this.autoWersja(rodzaj, rel(typ).id, true);
         return this.wyslij(res, 201, { data: w });
       }
     }
     for (const [sciezka, typ, rodzaj, zbior] of [['subscriptionGroupLocalizations', 'subscriptionGroupLocalizations', 'grupa', this.lokGrup], ['subscriptionLocalizations', 'subscriptionLocalizations', 'sub', this.lokSub], ['inAppPurchaseLocalizations', 'inAppPurchaseLocalizations', 'iap', this.lokIap]] as const) {
       if (metoda === 'POST' && p === `/v2/${sciezka}`) {
-        const w = this.wersje.find((x) => x.id === rel('version')?.id && x.rodzaj === rodzaj);
+        const w = this.wersje.find((x) => x.id === rel('version')?.id && x.rodzaj === rodzaj && x.type === rel('version')?.type);
         if (!w) return this.wyslij(res, 409, { errors: [{ status: '409', code: 'ENTITY_ERROR.RELATIONSHIP.INVALID', title: 'atrapa: brak wersji' }] });
         if (w.attributes!.state !== 'PREPARE_FOR_SUBMISSION') return this.wyslij(res, 409, { errors: [{ status: '409', code: 'STATE_ERROR', title: 'atrapa: wersja nieedytowalna' }] });
         const z = { ...utworz(typ), wersja: w.id };
@@ -345,6 +346,8 @@ export class AtrapaAsc {
       const zbior = { 'v1/subscriptions': this.subskrypcje, 'v2/subscriptionGroupLocalizations': this.lokGrup, 'v2/subscriptionLocalizations': this.lokSub, 'v2/inAppPurchases': this.iap, 'v2/inAppPurchaseLocalizations': this.lokIap }[m[1]] as Zasob[];
       const z = zbior.find((x) => x.id === m![2]);
       if (!z) return this.wyslij(res, 404, {});
+      const wl = (z as { wersja?: string }).wersja;
+      if (wl && this.wersje.find((w) => w.id === wl)?.attributes?.state !== 'PREPARE_FOR_SUBMISSION') return this.wyslij(res, 409, { errors: [{ status: '409', code: 'STATE_ERROR', title: 'atrapa: wersja nieedytowalna' }] });
       Object.assign(z.attributes!, a);
       return this.wyslij(res, 200, { data: z });
     }
