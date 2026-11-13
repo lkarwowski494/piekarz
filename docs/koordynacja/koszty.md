@@ -22,3 +22,4 @@ Mnożnik szacunku: [DO USTALENIA] (brak szacunków USD w dawnych plikach; na sta
 | W (hr zrzuty #9, D-400) | 07→08 fix, opus | 8 | 3,77 | 20,5 | 07:15 → 07:15 → 551e4462 ~07:28 → E2E #124 zielone 08:34 → przyjęte 09:00 | E2E 63 min | recenzja: subagent koordynatora |
 | X (ASC v2, D-406/407) | 10 build, sonnet | 8 | 3,85 | 25,4 | 07:14 → 07:14 → 24a0e48c ~07:17 → verify (bez E2E) → przyjęte 07:50; scalenie 09:05 | — | zarchiwizowana 09:07 |
 | W | 07→08 (hr zrzuty, diagnozy #10 i #125) | — | 9,04 | 27,7 | 13.11 07:15 → 07:20 → c6e34ba6 07:32 → E2E #124 08:34 → przyjęte 09:00; diagnozy do 13:55 | kolejka macOS (WG-04) | archiwizacja 18:35 |
+| Y | 08 fix, sonnet (KO-061, e2e 06) | — | 0,87 | 14,8 | 13.11 16:55 → 18:34 → 98efd38b 18:43 → E2E #126 zielone 19:50 → przyjęte i FF master 20:09 | start odrzucony filtrem 17:00 → 18:34 (odpowiedź właściciela 94 min); kolejka E2E 5 min, przebieg 64 min | archiwizacja 20:15 (zgoda właściciela) |
