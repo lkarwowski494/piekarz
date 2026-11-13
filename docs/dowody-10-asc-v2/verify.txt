@@ -7,3 +7,4 @@ Snapshots:   0 total
 Time:        228.52 s, estimated 241 s
 Ran all test suites.
 KOD 0
+Uwaga: commit kodu po przeniesieniu na gałąź = d6aac73423499a54b0e3188e945c722a893a1086 (ce92cc64 to ten sam diff, cherry-pick).
