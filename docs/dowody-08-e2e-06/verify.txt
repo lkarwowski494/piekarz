@@ -1,0 +1,31 @@
+npm run verify na drzewie = 42d74ced (kolejny commit dodaje tylko ten plik), 2026-11-13; ostatnie 30 linii:
+PASS tests/design-spec-pasek-cofnij-n18.test.ts
+PASS tests/matrix-kolejnosc-plikow.test.ts
+PASS tests/makiety-nazwa-en-n15.test.ts
+PASS src/lib/__tests__/przypomnienia-po-imporcie-b6.test.ts
+PASS tests/brd-katalog-037.test.ts
+PASS src/lib/__tests__/csv-nazwy-f9.test.ts
+PASS src/core/__tests__/lesson-no-health-claims.test.ts
+PASS tests/dokumenty-bez-team-id.test.ts
+PASS src/__tests__/naczynie-bez-skutku-060.test.tsx
+PASS src/lib/__tests__/corrupt-state.test.ts
+PASS src/recipes/__tests__/presets-bez-twierdzen-zdrowotnych-e8.test.ts
+PASS src/lib/__tests__/wstrzymana-akcja-w2.test.ts
+PASS src/lib/__tests__/db-path.test.ts
+PASS src/components/__tests__/czas-lodowki-f4.test.tsx
+PASS tests/crust-odmiana-f6.test.ts
+PASS tests/korpus-regresji-073.test.ts
+PASS src/lib/__tests__/plakietka-dnia.test.ts
+PASS src/lib/__tests__/data-planu-intl-f3.test.ts
+PASS tests/workflow-pages-077.test.ts
+PASS src/lib/__tests__/haptics.test.ts
+PASS src/core/__tests__/feeding-ratio.test.ts
+PASS src/__tests__/plan-zmiana-czasu-d13.test.tsx
+PASS src/__tests__/plan-zmiana-czasu-d13-nowy-jork.test.tsx
+
+Test Suites: 677 passed, 677 total
+Tests:       7497 passed, 7497 total
+Snapshots:   0 total
+Time:        225.196 s
+Ran all test suites.
+kod wyjścia: 0
