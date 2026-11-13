@@ -31,6 +31,8 @@ export type OpcjeAtrapy = {
   zabronZapis?: boolean;
   /** Zrzut zakupu dla App Review już w ASC przy każdym z 3 produktów (przetworzony), z tą sumą MD5. */
   zrzutZakupuWAsc?: string;
+  /** Stan wersji produktów (ASC 4.4.1: lokalizacje należą do wersji); domyślnie PREPARE_FOR_SUBMISSION. */
+  stanWersjiProduktow?: string;
 };
 
 export type Zapytanie = { metoda: string; sciezka: string };
@@ -47,6 +49,7 @@ export class AtrapaZgloszenia {
   readonly subskrypcje: Zasob[] = [];
   readonly iap: Zasob[] = [];
   readonly lokProduktow: (Zasob & { produkt: string })[] = [];
+  readonly wersjeProduktow: (Zasob & { produkt: string })[] = [];
   private licznik = 0;
   private serwer: Server | null = null;
   adres = '';
@@ -62,6 +65,9 @@ export class AtrapaZgloszenia {
     const p = o.produkty;
     this.subskrypcje.push({ type: 'subscriptions', id: 'sub-m', attributes: { productId: p.monthly } }, { type: 'subscriptions', id: 'sub-y', attributes: { productId: p.yearly } });
     this.iap.push({ type: 'inAppPurchases', id: 'iap-l', attributes: { productId: p.lifetime } });
+    for (const produkt of ['sub-m', 'sub-y', 'iap-l']) {
+      this.wersjeProduktow.push({ type: produkt.startsWith('sub') ? 'subscriptionVersions' : 'inAppPurchaseVersions', id: `wer-${produkt}`, produkt, attributes: { version: 1, state: o.stanWersjiProduktow ?? 'PREPARE_FOR_SUBMISSION' } });
+    }
     for (const [produkt, nazwy] of [['sub-m', ['Baker Pro Monthly', 'Piekarz Pro miesięcznie']], ['sub-y', ['Baker Pro Yearly', 'Piekarz Pro rocznie']], ['iap-l', ['Baker Pro Lifetime', 'Piekarz Pro dożywotnio']]] as const) {
       this.lokProduktow.push({ type: produkt.startsWith('sub') ? 'subscriptionLocalizations' : 'inAppPurchaseLocalizations', id: `lp-${produkt}-en`, produkt, attributes: { locale: 'en-US', name: nazwy[0], description: null } });
       this.lokProduktow.push({ type: produkt.startsWith('sub') ? 'subscriptionLocalizations' : 'inAppPurchaseLocalizations', id: `lp-${produkt}-pl`, produkt, attributes: { locale: 'pl', name: nazwy[1], description: null } });
@@ -172,7 +178,8 @@ export class AtrapaZgloszenia {
     }
     if (p === '/v1/apps/app-1/subscriptionGroups') return this.lista(res, url, [{ type: 'subscriptionGroups', id: 'grupa-1', attributes: { referenceName: 'Piekarz Pro' } }]);
     if (p === '/v1/subscriptionGroups/grupa-1/subscriptions') return this.lista(res, url, this.subskrypcje);
-    if ((m = /^\/v1\/subscriptions\/([^/]+)\/subscriptionLocalizations$/.exec(p)) || (m = /^\/v2\/inAppPurchases\/([^/]+)\/inAppPurchaseLocalizations$/.exec(p))) return this.lista(res, url, this.lokProduktow.filter((l) => l.produkt === m![1]));
+    if ((m = /^\/v1\/subscriptions\/([^/]+)\/versions$/.exec(p)) || (m = /^\/v2\/inAppPurchases\/([^/]+)\/versions$/.exec(p))) return this.lista(res, url, this.wersjeProduktow.filter((w) => w.produkt === m![1]));
+    if ((m = /^\/v1\/(?:subscriptionVersions|inAppPurchaseVersions)\/wer-([^/]+)\/localizations$/.exec(p))) return this.lista(res, url, this.lokProduktow.filter((l) => l.produkt === m![1]));
     if ((m = /^\/v1\/subscriptions\/([^/]+)\/appStoreReviewScreenshot$/.exec(p)) || (m = /^\/v2\/inAppPurchases\/([^/]+)\/appStoreReviewScreenshot$/.exec(p))) {
       const z = this.zrzutyReview.find((x) => x.wlasciciel === m![1]);
       return z ? this.wyslij(res, 200, { data: this.zasobPliku(z) }) : this.wyslij(res, 404, { errors: [{ status: '404' }] });
@@ -210,10 +217,18 @@ export class AtrapaZgloszenia {
       this.lokWersji.push(z);
       return this.wyslij(res, 201, { data: z });
     }
-    if (metoda === 'PATCH' && ((m = /^\/v1\/(appInfoLocalizations|appStoreVersionLocalizations|subscriptionLocalizations|inAppPurchaseLocalizations)\/([^/]+)$/.exec(p)))) {
-      const zbior = ({ appInfoLocalizations: this.lokInfo, appStoreVersionLocalizations: this.lokWersji, subscriptionLocalizations: this.lokProduktow, inAppPurchaseLocalizations: this.lokProduktow } as Record<string, Zasob[]>)[m[1]];
+    if (metoda === 'PATCH' && ((m = /^\/v1\/(appInfoLocalizations|appStoreVersionLocalizations)\/([^/]+)$/.exec(p)))) {
+      const zbior = ({ appInfoLocalizations: this.lokInfo, appStoreVersionLocalizations: this.lokWersji } as Record<string, Zasob[]>)[m[1]];
       const z = zbior.find((x) => x.id === m![2]);
       if (!z) return this.wyslij(res, 404, {});
+      if ('locale' in a) return this.wyslij(res, 409, { errors: [{ status: '409', title: 'locale nie do zmiany' }] });
+      Object.assign(z.attributes, a);
+      return this.wyslij(res, 200, { data: z });
+    }
+    if (metoda === 'PATCH' && (m = /^\/v2\/(?:subscriptionLocalizations|inAppPurchaseLocalizations)\/([^/]+)$/.exec(p))) {
+      const z = this.lokProduktow.find((x) => x.id === m![1]);
+      if (!z) return this.wyslij(res, 404, {});
+      if (this.wersjeProduktow.find((w) => w.produkt === z.produkt)?.attributes?.state !== 'PREPARE_FOR_SUBMISSION') return this.wyslij(res, 409, { errors: [{ status: '409', title: 'wersja nieedytowalna' }] });
       if ('locale' in a) return this.wyslij(res, 409, { errors: [{ status: '409', title: 'locale nie do zmiany' }] });
       Object.assign(z.attributes, a);
       return this.wyslij(res, 200, { data: z });

@@ -1,0 +1,33 @@
+SHA skryptu: a6eb5144 (stary), testy+atrapa v2 z drzewa roboczego
+      1     ✓ 403 przy zapisie: kod 4 i komunikat o roli klucza (Admin albo App Manager) (263 ms)
+      1     ✓ bez sekretów: kod 1 z nazwą brakującej zmiennej, bez zapytań do API (47 ms)
+      1     ✓ bez zgody w pliku (zapis: false) skrypt nie zapisuje (141 ms)
+      1     ✓ brak punktu cenowego z ceny.json: kod ≠ 0, żadna cena nie zapisana (317 ms)
+      1     ✓ przebieg na sucho na pustym koncie: tylko GET, pełna lista „utworzy”, skrót planu (186 ms)
+      1     ✓ w wyjściu nie ma klucza, tokenu JWT, identyfikatora klucza ani wystawcy; klucz PEM też działa (429 ms)
+      1     ✓ zgoda na inny plan (inny skrót) = odmowa bez zapisu, kod 3 (165 ms)
+      1     ✕ lokalizacje przez zasoby wersji v2: odczyt z …/versions i …Versions/{id}/localizations, zapis POST /v2/…Localizations z relacją version, żadnej starej ścieżki (285 ms)
+      1     ✕ oferta wprowadzająca w ASC (stan sprzed Z-1): „ręcznie” do usunięcia, zapis jej nie tworzy ani nie usuwa (294 ms)
+      1     ✕ rodzic bez wersji: skrypt tworzy wersję (POST /v1/…Versions) przed lokalizacjami (274 ms)
+      1     ✕ wersja zatwierdzona (nieedytowalna): skrypt tworzy nową wersję i zapisuje lokalizacje do niej (279 ms)
+      1     ✕ zapis ze zgodą na pokazany plan: stan zgodny z decyzjami, drugi przebieg na sucho = 0 różnic (334 ms)
+      1     ✕ zmiana nazwy lokalizacji idzie PATCH /v2/…Localizations/{id}, bez starych ścieżek (589 ms)
+      1 Tests:       6 failed, 7 passed, 13 total
+Powód czerwieni: stary skrypt czyta/zapisuje /v1/…Localizations, a atrapa v2 (jak ASC po usunięciu) zwraca 404 'atrapa: brak …'; bezpośredni brak wersji (/versions) w żądaniach.
+zgloszenie, stary skrypt:
+    ✓ przebieg na sucho na danych repo: tylko GET; 34 lokalizacje, czekające opisy i zrzut zakupu, zrzuty sklepu poza skryptem, App Privacy poza API (178 ms)
+    ✓ zrzuty sklepu poza skryptem (D-366): jedna pozycja informacyjna z odesłaniem do asc-zrzuty.yml; żadnego zapytania appScreenshotSets/appScreenshots, także GET (155 ms)
+    ✓ opcje zrzutów usunięte (D-366): --zrzuty, --sumy i --generuj-sumy = kod 1 z odesłaniem do asc-zrzuty.yml, bez zapytań do API (111 ms)
+    ✓ zgoda na inny plan (inny skrót) = odmowa bez zapisu, kod 3; zgoda wyłączona = bez zapisu (334 ms)
+    ✕ zapis ze zgodą: metadane, opisy i zrzut zakupu jak w plikach, bez DELETE i bez zrzutów sklepu; drugi przebieg na sucho = 0 różnic (438 ms)
+    ✕ inny zrzut zakupu już w ASC: „ręcznie” (podmień w App Store Connect, docs/wydanie/zrzut-zakupu.md); po zapisie ze zgodą bez DELETE i bez POST zrzutu (425 ms)
+    ✓ bez wersji iOS w stanie edycji: krok ręczny, bez zapisu metadanych wersji (151 ms)
+    ✕ numer wersji w ASC inny niż app.json (1.0 wobec 1.0.0): zmieni numer, potem metadane tej wersji; 0 różnic (471 ms)
+    ✓ zakres z pliku zgody (pl, metadane): lista i skrót tylko z zakresu, zapis tylko tych lokalizacji; reszta planu nietknięta (576 ms)
+    ✓ zakres z obiektem „zrzuty” w pliku zgody: kod 3 z odesłaniem do asc-zrzuty.yml (D-366), bez zapytań do API (45 ms)
+    ✓ opis produktu ponad 45 znaków (limit opisu In-App Purchase): kod 1 przed zapytaniami do API (53 ms)
+    ✓ 403 przy zapisie: kod 4; w wyjściu nie ma klucza, tokenu, identyfikatora klucza ani wystawcy (279 ms)
+    ✓ bez sekretów: kod 1 z nazwą brakującej zmiennej, bez zapytań do API (43 ms)
+    ✕ opisy produktów przez wersje v2: odczyt z …/versions, zapis PATCH /v2/…Localizations/{id}, żadnych starych ścieżek lokalizacji (441 ms)
+    ✕ wersja produktu nieedytowalna: opis jako „ręcznie”, zapis nie rusza produktów (144 ms)
+Tests:       5 failed, 10 passed, 15 total

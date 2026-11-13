@@ -24,6 +24,10 @@ export type OpcjeAtrapy = {
   bezPunktow?: string[];
   /** Każde zapytanie inne niż GET dostaje 403 FORBIDDEN_ERROR. */
   zabronZapis?: boolean;
+  /** Rodzic powstaje bez wersji (v2 IAP/subskrypcji: lokalizacje wymagają wersji → skrypt musi ją utworzyć). */
+  bezAutoWersji?: boolean;
+  /** Stan wersji tworzonej przez atrapę (domyślnie PREPARE_FOR_SUBMISSION). */
+  stanWersji?: string;
 };
 
 export type Zapytanie = { metoda: string; sciezka: string };
@@ -34,14 +38,16 @@ const STRONA = 50;
 export class AtrapaAsc {
   readonly zapytania: Zapytanie[] = [];
   readonly grupy: Zasob[] = [];
-  readonly lokGrup: (Zasob & { grupa: string })[] = [];
+  /** Wersje zasobów (v2): `rodzic` to id grupy, subskrypcji albo zakupu; `rodzaj` = typ rodzica. */
+  readonly wersje: (Zasob & { rodzaj: 'grupa' | 'sub' | 'iap'; rodzic: string })[] = [];
+  readonly lokGrup: (Zasob & { wersja: string })[] = [];
   readonly subskrypcje: (Zasob & { grupa: string })[] = [];
-  readonly lokSub: (Zasob & { sub: string })[] = [];
+  readonly lokSub: (Zasob & { wersja: string })[] = [];
   readonly dostSub = new Map<string, { id: string; nowe: boolean; terytoria: string[] }>();
   readonly cenySub: Cena[] = [];
   readonly oferty: (Zasob & { sub: string; terytorium: string })[] = [];
   readonly iap: Zasob[] = [];
-  readonly lokIap: (Zasob & { iap: string })[] = [];
+  readonly lokIap: (Zasob & { wersja: string })[] = [];
   readonly dostIap = new Map<string, { id: string; nowe: boolean; terytoria: string[] }>();
   readonly planyCenIap = new Map<string, { id: string; baza: string; reczne: Cena[] }>();
   dostApp: { id: string; nowe: boolean; terytoria: { id: string; terytorium: string; dostepne: boolean }[] } | null = null;
@@ -137,6 +143,16 @@ export class AtrapaAsc {
     };
   }
 
+  /** Wersja rodzica; przy tworzeniu rodzica tylko bez opcji `bezAutoWersji` (wymuszone: `wymus`). */
+  private autoWersja(rodzaj: 'grupa' | 'sub' | 'iap', rodzic: string, wymus = false) {
+    if (this.o.bezAutoWersji && !wymus) return null;
+    const nr = this.wersje.filter((w) => w.rodzaj === rodzaj && w.rodzic === rodzic).length + 1;
+    const typ = { grupa: 'subscriptionGroupVersions', sub: 'subscriptionVersions', iap: 'inAppPurchaseVersions' }[rodzaj];
+    const w = { type: typ, id: this.nowyId(typ), attributes: { version: nr, state: wymus ? 'PREPARE_FOR_SUBMISSION' : (this.o.stanWersji ?? 'PREPARE_FOR_SUBMISSION') }, rodzaj, rodzic };
+    this.wersje.push(w);
+    return w;
+  }
+
   private obsluz(req: IncomingMessage, res: ServerResponse): void {
     let tekst = '';
     req.on('data', (c) => (tekst += c));
@@ -167,9 +183,13 @@ export class AtrapaAsc {
       return this.lista(res, url, dane);
     }
     if (p === '/v1/apps/app-1/subscriptionGroups') return this.lista(res, url, this.grupy);
-    if ((m = /^\/v1\/subscriptionGroups\/([^/]+)\/subscriptionGroupLocalizations$/.exec(p))) return this.lista(res, url, this.lokGrup.filter((l) => l.grupa === m![1]));
+    if ((m = /^\/v1\/subscriptionGroups\/([^/]+)\/versions$/.exec(p))) return this.lista(res, url, this.wersje.filter((w) => w.rodzaj === 'grupa' && w.rodzic === m![1]));
+    if ((m = /^\/v1\/subscriptions\/([^/]+)\/versions$/.exec(p))) return this.lista(res, url, this.wersje.filter((w) => w.rodzaj === 'sub' && w.rodzic === m![1]));
+    if ((m = /^\/v2\/inAppPurchases\/([^/]+)\/versions$/.exec(p))) return this.lista(res, url, this.wersje.filter((w) => w.rodzaj === 'iap' && w.rodzic === m![1]));
+    if ((m = /^\/v1\/subscriptionGroupVersions\/([^/]+)\/localizations$/.exec(p))) return this.lista(res, url, this.lokGrup.filter((l) => l.wersja === m![1]));
+    if ((m = /^\/v1\/subscriptionVersions\/([^/]+)\/localizations$/.exec(p))) return this.lista(res, url, this.lokSub.filter((l) => l.wersja === m![1]));
+    if ((m = /^\/v1\/inAppPurchaseVersions\/([^/]+)\/localizations$/.exec(p))) return this.lista(res, url, this.lokIap.filter((l) => l.wersja === m![1]));
     if ((m = /^\/v1\/subscriptionGroups\/([^/]+)\/subscriptions$/.exec(p))) return this.lista(res, url, this.subskrypcje.filter((s) => s.grupa === m![1]));
-    if ((m = /^\/v1\/subscriptions\/([^/]+)\/subscriptionLocalizations$/.exec(p))) return this.lista(res, url, this.lokSub.filter((l) => l.sub === m![1]));
     if ((m = /^\/v1\/subscriptions\/([^/]+)\/subscriptionAvailability$/.exec(p))) {
       const d = this.dostSub.get(m[1]);
       return d ? this.wyslij(res, 200, { data: { type: 'subscriptionAvailabilities', id: d.id, attributes: { availableInNewTerritories: d.nowe } } }) : this.wyslij(res, 404, { errors: [{ status: '404' }] });
@@ -194,7 +214,6 @@ export class AtrapaAsc {
       const pid = url.searchParams.get('filter[productId]');
       return this.lista(res, url, this.iap.filter((i) => !pid || i.attributes?.productId === pid));
     }
-    if ((m = /^\/v2\/inAppPurchases\/([^/]+)\/inAppPurchaseLocalizations$/.exec(p))) return this.lista(res, url, this.lokIap.filter((l) => l.iap === m![1]));
     if ((m = /^\/v2\/inAppPurchases\/([^/]+)\/inAppPurchaseAvailability$/.exec(p))) {
       const d = this.dostIap.get(m[1]);
       return d ? this.wyslij(res, 200, { data: { type: 'inAppPurchaseAvailabilities', id: d.id, attributes: { availableInNewTerritories: d.nowe } } }) : this.wyslij(res, 404, { errors: [{ status: '404' }] });
@@ -237,21 +256,29 @@ export class AtrapaAsc {
       if (rel('app')?.id !== 'app-1') return this.wyslij(res, 409, {});
       const z = utworz('subscriptionGroups');
       this.grupy.push(z);
+      this.autoWersja('grupa', z.id);
       return this.wyslij(res, 201, { data: z });
     }
-    if (metoda === 'POST' && p === '/v1/subscriptionGroupLocalizations') {
-      const z = { ...utworz('subscriptionGroupLocalizations'), grupa: rel('subscriptionGroup').id };
-      this.lokGrup.push(z);
-      return this.wyslij(res, 201, { data: z });
+    for (const [sciezka, rodzaj, typ] of [['subscriptionGroupVersions', 'grupa', 'subscriptionGroup'], ['subscriptionVersions', 'sub', 'subscription'], ['inAppPurchaseVersions', 'iap', 'inAppPurchase']] as const) {
+      if (metoda === 'POST' && p === `/v1/${sciezka}`) {
+        const w = this.autoWersja(rodzaj, rel(typ).id, true);
+        return this.wyslij(res, 201, { data: w });
+      }
+    }
+    for (const [sciezka, typ, rodzaj, zbior] of [['subscriptionGroupLocalizations', 'subscriptionGroupLocalizations', 'grupa', this.lokGrup], ['subscriptionLocalizations', 'subscriptionLocalizations', 'sub', this.lokSub], ['inAppPurchaseLocalizations', 'inAppPurchaseLocalizations', 'iap', this.lokIap]] as const) {
+      if (metoda === 'POST' && p === `/v2/${sciezka}`) {
+        const w = this.wersje.find((x) => x.id === rel('version')?.id && x.rodzaj === rodzaj);
+        if (!w) return this.wyslij(res, 409, { errors: [{ status: '409', code: 'ENTITY_ERROR.RELATIONSHIP.INVALID', title: 'atrapa: brak wersji' }] });
+        if (w.attributes!.state !== 'PREPARE_FOR_SUBMISSION') return this.wyslij(res, 409, { errors: [{ status: '409', code: 'STATE_ERROR', title: 'atrapa: wersja nieedytowalna' }] });
+        const z = { ...utworz(typ), wersja: w.id };
+        (zbior as (Zasob & { wersja: string })[]).push(z);
+        return this.wyslij(res, 201, { data: z });
+      }
     }
     if (metoda === 'POST' && p === '/v1/subscriptions') {
       const z = { ...utworz('subscriptions'), grupa: rel('group').id };
       this.subskrypcje.push(z);
-      return this.wyslij(res, 201, { data: z });
-    }
-    if (metoda === 'POST' && p === '/v1/subscriptionLocalizations') {
-      const z = { ...utworz('subscriptionLocalizations'), sub: rel('subscription').id };
-      this.lokSub.push(z);
+      this.autoWersja('sub', z.id);
       return this.wyslij(res, 201, { data: z });
     }
     if (metoda === 'POST' && (p === '/v1/subscriptionAvailabilities' || p === '/v1/inAppPurchaseAvailabilities')) {
@@ -281,11 +308,7 @@ export class AtrapaAsc {
     if (metoda === 'POST' && p === '/v2/inAppPurchases') {
       const z = utworz('inAppPurchases');
       this.iap.push(z);
-      return this.wyslij(res, 201, { data: z });
-    }
-    if (metoda === 'POST' && p === '/v1/inAppPurchaseLocalizations') {
-      const z = { ...utworz('inAppPurchaseLocalizations'), iap: rel('inAppPurchaseV2').id };
-      this.lokIap.push(z);
+      this.autoWersja('iap', z.id);
       return this.wyslij(res, 201, { data: z });
     }
     if (metoda === 'POST' && p === '/v1/inAppPurchasePriceSchedules') {
@@ -318,8 +341,8 @@ export class AtrapaAsc {
       Object.assign(this.wiek.attributes!, a);
       return this.wyslij(res, 200, { data: this.wiek });
     }
-    if (metoda === 'PATCH' && (m = /^\/(v1\/subscriptions|v1\/subscriptionGroupLocalizations|v1\/subscriptionLocalizations|v2\/inAppPurchases|v1\/inAppPurchaseLocalizations)\/([^/]+)$/.exec(p))) {
-      const zbior = { 'v1/subscriptions': this.subskrypcje, 'v1/subscriptionGroupLocalizations': this.lokGrup, 'v1/subscriptionLocalizations': this.lokSub, 'v2/inAppPurchases': this.iap, 'v1/inAppPurchaseLocalizations': this.lokIap }[m[1]] as Zasob[];
+    if (metoda === 'PATCH' && (m = /^\/(v1\/subscriptions|v2\/subscriptionGroupLocalizations|v2\/subscriptionLocalizations|v2\/inAppPurchases|v2\/inAppPurchaseLocalizations)\/([^/]+)$/.exec(p))) {
+      const zbior = { 'v1/subscriptions': this.subskrypcje, 'v2/subscriptionGroupLocalizations': this.lokGrup, 'v2/subscriptionLocalizations': this.lokSub, 'v2/inAppPurchases': this.iap, 'v2/inAppPurchaseLocalizations': this.lokIap }[m[1]] as Zasob[];
       const z = zbior.find((x) => x.id === m![2]);
       if (!z) return this.wyslij(res, 404, {});
       Object.assign(z.attributes!, a);

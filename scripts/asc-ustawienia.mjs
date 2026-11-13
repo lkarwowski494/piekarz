@@ -180,6 +180,16 @@ async function lokalizacje(k, sciezka) {
   return Object.fromEntries(data.map((l) => [l.attributes.locale, { id: l.id, name: l.attributes.name }]));
 }
 
+const EDYTOWALNA = 'PREPARE_FOR_SUBMISSION';
+
+/** ASC API 4.4.1: lokalizacje należą do wersji zasobu (docs/wydanie/asc-api-v2-zrodla.md). Wersja do edycji, a bez niej najnowsza (tylko odczyt). */
+async function lokalizacjeWersji(k, sciezkaWersji, prefiksWersji) {
+  const { data } = await k.wszystkie(`${sciezkaWersji}?limit=200`);
+  const posortowane = [...data].sort((a, b) => (b.attributes?.version ?? 0) - (a.attributes?.version ?? 0));
+  const w = posortowane.find((x) => x.attributes?.state === EDYTOWALNA) ?? posortowane[0] ?? null;
+  return { wersja: w ? { id: w.id, edytowalna: w.attributes?.state === EDYTOWALNA } : null, lok: w ? await lokalizacje(k, `${prefiksWersji}/${e(w.id)}/localizations`) : {} };
+}
+
 async function dostepnosc(k, sciezkaRel, typ) {
   const d = await k.jeden(sciezkaRel);
   if (!d) return null;
@@ -212,7 +222,7 @@ export async function stanAsc(k, cel) {
 
   const grupa = (await k.wszystkie(`/v1/apps/${e(app)}/subscriptionGroups?limit=200`)).data.find((g) => g.attributes?.referenceName === cel.grupa.nazwa);
   if (grupa) {
-    stan.grupa = { id: grupa.id, lok: await lokalizacje(k, `/v1/subscriptionGroups/${e(grupa.id)}/subscriptionGroupLocalizations`) };
+    stan.grupa = { id: grupa.id, ver: await lokalizacjeWersji(k, `/v1/subscriptionGroups/${e(grupa.id)}/versions`, '/v1/subscriptionGroupVersions') };
     const subs = (await k.wszystkie(`/v1/subscriptionGroups/${e(grupa.id)}/subscriptions?limit=200`)).data;
     for (const s of cel.subskrypcje) {
       const z = subs.find((x) => x.attributes?.productId === s.productId);
@@ -221,7 +231,7 @@ export async function stanAsc(k, cel) {
       stan.sub[s.plan] = {
         id: z.id,
         atr: z.attributes,
-        lok: await lokalizacje(k, `/v1/subscriptions/${e(z.id)}/subscriptionLocalizations`),
+        ver: await lokalizacjeWersji(k, `/v1/subscriptions/${e(z.id)}/versions`, '/v1/subscriptionVersions'),
         dost: await dostepnosc(k, `/v1/subscriptions/${e(z.id)}/subscriptionAvailability`, 'subscriptionAvailabilities'),
         ceny: cenyZListy(await k.wszystkie(`/v1/subscriptions/${e(z.id)}/prices?include=subscriptionPricePoint,territory&limit=200`), 'subscriptionPricePoint'),
         oferty: new Map(oferty.map((o) => [relId(o, 'territory'), o.attributes])),
@@ -234,7 +244,7 @@ export async function stanAsc(k, cel) {
     stan.iap = {
       id: iap.id,
       atr: iap.attributes,
-      lok: await lokalizacje(k, `/v2/inAppPurchases/${e(iap.id)}/inAppPurchaseLocalizations`),
+      ver: await lokalizacjeWersji(k, `/v2/inAppPurchases/${e(iap.id)}/versions`, '/v1/inAppPurchaseVersions'),
       dost: await dostepnosc(k, `/v2/inAppPurchases/${e(iap.id)}/inAppPurchaseAvailability`, 'inAppPurchaseAvailabilities'),
       harmonogram: h
         ? {
@@ -318,7 +328,7 @@ export function planuj(cel, stan, pp) {
   const g = stan.grupa;
   if (!g) op('utworzy', 'grupa', `grupa subskrypcji „${cel.grupa.nazwa}”`, (k) => k.post('/v1/subscriptionGroups', { data: { type: 'subscriptionGroups', attributes: { referenceName: cel.grupa.nazwa }, relationships: { app: rel('apps', stan.app) } } }));
   else op(BEZ, 'grupa', `grupa subskrypcji „${cel.grupa.nazwa}”`);
-  lokOps(op, 'grupa', `grupa „${cel.grupa.nazwa}”`, cel.grupa.lokalizacje, g?.lok, g && ((loc, a) => ({ path: '/v1/subscriptionGroupLocalizations', type: 'subscriptionGroupLocalizations', rel: { subscriptionGroup: rel('subscriptionGroups', g.id) } })));
+  lokOps(op, 'grupa', `grupa „${cel.grupa.nazwa}”`, cel.grupa.lokalizacje, g?.ver, g && { wersja: (k) => k.post('/v1/subscriptionGroupVersions', { data: { type: 'subscriptionGroupVersions', relationships: { subscriptionGroup: rel('subscriptionGroups', g.id) } } }), lok: (w) => ({ path: '/v2/subscriptionGroupLocalizations', type: 'subscriptionGroupLocalizations', rel: { version: rel('subscriptionGroupVersions', w) } }) });
 
   // Subskrypcje
   for (const s of cel.subskrypcje) {
@@ -327,7 +337,7 @@ export function planuj(cel, stan, pp) {
     const opis = `subskrypcja ${s.productId} (${s.okres}, poziom ${s.poziom}, Family Sharing: ${s.familySharable ? 'tak, nieodwracalne' : 'nie'})`;
     if (!z) op('utworzy', s.plan, opis, g ? (k) => k.post('/v1/subscriptions', { data: { type: 'subscriptions', attributes: atr, relationships: { group: rel('subscriptionGroups', g.id) } } }) : null);
     else atrOps(op, s.plan, opis, atr, z.atr, ['productId'], (zm) => (k) => k.patch(`/v1/subscriptions/${e(z.id)}`, { data: { type: 'subscriptions', id: z.id, attributes: zm } }));
-    lokOps(op, s.plan, s.productId, s.lokalizacje, z?.lok, z && (() => ({ path: '/v1/subscriptionLocalizations', type: 'subscriptionLocalizations', rel: { subscription: rel('subscriptions', z.id) } })));
+    lokOps(op, s.plan, s.productId, s.lokalizacje, z?.ver, z && { wersja: (k) => k.post('/v1/subscriptionVersions', { data: { type: 'subscriptionVersions', relationships: { subscription: rel('subscriptions', z.id) } } }), lok: (w) => ({ path: '/v2/subscriptionLocalizations', type: 'subscriptionLocalizations', rel: { version: rel('subscriptionVersions', w) } }) });
     dostOps(op, s.plan, s.productId, cel, z?.dost, z && ((k) => k.post('/v1/subscriptionAvailabilities', { data: { type: 'subscriptionAvailabilities', attributes: { availableInNewTerritories: cel.noweKraje }, relationships: { subscription: rel('subscriptions', z.id), availableTerritories: { data: cel.terytoria.map((t) => ({ type: 'territories', id: t })) } } } })));
 
     // Ceny: każde dostępne terytorium osobno (API nie ma zapisu zbiorczego)
@@ -369,7 +379,7 @@ export function planuj(cel, stan, pp) {
   const opisI = `zakup dożywotni ${d.productId} (${d.typ}, Family Sharing: ${d.familySharable ? 'tak, nieodwracalne' : 'nie'})`;
   if (!zi) op('utworzy', 'lifetime', opisI, (k) => k.post('/v2/inAppPurchases', { data: { type: 'inAppPurchases', attributes: atrI, relationships: { app: rel('apps', stan.app) } } }));
   else atrOps(op, 'lifetime', opisI, atrI, zi.atr, ['productId', 'inAppPurchaseType'], (zm) => (k) => k.patch(`/v2/inAppPurchases/${e(zi.id)}`, { data: { type: 'inAppPurchases', id: zi.id, attributes: zm } }));
-  lokOps(op, 'lifetime', d.productId, d.lokalizacje, zi?.lok, zi && (() => ({ path: '/v1/inAppPurchaseLocalizations', type: 'inAppPurchaseLocalizations', rel: { inAppPurchaseV2: rel('inAppPurchases', zi.id) } })));
+  lokOps(op, 'lifetime', d.productId, d.lokalizacje, zi?.ver, zi && { wersja: (k) => k.post('/v1/inAppPurchaseVersions', { data: { type: 'inAppPurchaseVersions', relationships: { inAppPurchase: rel('inAppPurchases', zi.id) } } }), lok: (w) => ({ path: '/v2/inAppPurchaseLocalizations', type: 'inAppPurchaseLocalizations', rel: { version: rel('inAppPurchaseVersions', w) } }) });
   dostOps(op, 'lifetime', d.productId, cel, zi?.dost, zi && ((k) => k.post('/v1/inAppPurchaseAvailabilities', { data: { type: 'inAppPurchaseAvailabilities', attributes: { availableInNewTerritories: cel.noweKraje }, relationships: { inAppPurchase: rel('inAppPurchases', zi.id), availableTerritories: { data: cel.terytoria.map((t) => ({ type: 'territories', id: t })) } } } })));
   const opisH = `harmonogram cen ${d.productId}: baza USA ${d.reczne.USA} USD; ręczne (D-038): ${Object.entries(d.reczne).filter(([t]) => t !== 'USA').map(([t, kw]) => `${t} ${kw}`).join(', ')}; pozostałe storefronty: ceny Apple od bazy`;
   const h = zi?.harmonogram;
@@ -419,11 +429,15 @@ export function planuj(cel, stan, pp) {
   return ops;
 }
 
-function lokOps(op, obiekt, nazwa, docel, obecne, cel) {
+/** `ver` = { wersja, lok } wybranej wersji rodzica (undefined, gdy rodzic nie istnieje); `cel` = { wersja: utworzenie wersji, lok(idWersji): ścieżka, typ, relacja }. */
+function lokOps(op, obiekt, nazwa, docel, ver, cel) {
+  const edytowalna = ver?.wersja?.edytowalna === true;
+  const potrzeba = Object.entries(docel).some(([loc, { name }]) => ver?.lok?.[loc]?.name !== name);
+  if (cel && potrzeba && !edytowalna) op('utworzy', `${obiekt}:wersja`, `wersja do edycji lokalizacji ${nazwa} (obecna ${ver?.wersja ? 'nieedytowalna' : 'nie istnieje'})`, cel.wersja);
   for (const [loc, { name }] of Object.entries(docel)) {
     const opis = `lokalizacja ${nazwa} ${loc}: „${name}”`;
-    const x = obecne?.[loc];
-    const c = cel ? cel() : null;
+    const x = ver?.lok?.[loc];
+    const c = cel && edytowalna ? cel.lok(ver.wersja.id) : null;
     if (!x) op('utworzy', `${obiekt}:lok`, opis, c ? (k) => k.post(c.path, { data: { type: c.type, attributes: { locale: loc, name }, relationships: c.rel } }) : null);
     else if (x.name === name) op(BEZ, `${obiekt}:lok`, opis);
     else op('zmieni', `${obiekt}:lok`, `${opis}; teraz „${x.name}”`, c ? (k) => k.patch(`${c.path}/${e(x.id)}`, { data: { type: c.type, id: x.id, attributes: { name } } }) : null);
@@ -527,7 +541,7 @@ async function main(argv) {
   const zapis = klient(api, tajne, false);
   let wykonane = 0;
   // Rundy: dzieci (lokalizacje, ceny, oferty) dostają identyfikator rodzica dopiero po jego utworzeniu.
-  for (let runda = 1; runda <= 4; runda++) {
+  for (let runda = 1; runda <= 6; runda++) {
     const biezace = runda === 1 ? ops : await plan(odczyt, cel);
     // Ceny i oferty dopiero, gdy istnieją wszystkie produkty: wtedy punkty() sprawdziło kwoty każdego produktu
     // i brak kwoty zatrzymuje przebieg przed zapisem jakiejkolwiek ceny.

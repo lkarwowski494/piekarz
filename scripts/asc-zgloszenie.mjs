@@ -111,6 +111,15 @@ async function mapaLokalizacji(k, sciezkaListy) {
   return Object.fromEntries(data.map((l) => [l.attributes?.locale, { id: l.id, atr: l.attributes ?? {} }]));
 }
 
+/** ASC API 4.4.1: lokalizacje produktu należą do jego wersji (docs/wydanie/asc-api-v2-zrodla.md). Wersja do edycji, a bez niej najnowsza (tylko odczyt). */
+async function lokalizacjeProduktu(k, sub, id) {
+  const { data } = await k.wszystkie(`${sub ? `/v1/subscriptions/${e(id)}` : `/v2/inAppPurchases/${e(id)}`}/versions?limit=200`);
+  const wersje = [...data].sort((a, b) => (b.attributes?.version ?? 0) - (a.attributes?.version ?? 0));
+  const w = wersje.find((x) => x.attributes?.state === 'PREPARE_FOR_SUBMISSION') ?? wersje[0] ?? null;
+  if (!w) return { edytowalna: false, lok: {} };
+  return { edytowalna: w.attributes?.state === 'PREPARE_FOR_SUBMISSION', lok: await mapaLokalizacji(k, `/v1/${sub ? 'subscriptionVersions' : 'inAppPurchaseVersions'}/${e(w.id)}/localizations`) };
+}
+
 const plikAsc = (x) => x && { id: x.id, plik: x.attributes?.fileName, md5: x.attributes?.sourceFileChecksum ?? null, stan: x.attributes?.assetDeliveryState?.state ?? null };
 /** Plik przyjęty: przetworzony albo w przetwarzaniu po wysłaniu (Apple przetwarza plik po PATCH uploaded). */
 const przyjety = (x) => ['COMPLETE', 'UPLOAD_COMPLETE'].includes(x?.stan);
@@ -141,7 +150,7 @@ export async function stanAsc(k, cel) {
     const baza = sub ? `/v1/subscriptions/${e(z.id)}` : `/v2/inAppPurchases/${e(z.id)}`;
     stan.produkty[p.plan] = {
       id: z.id,
-      lok: await mapaLokalizacji(k, `${baza}/${sub ? 'subscriptionLocalizations' : 'inAppPurchaseLocalizations'}`),
+      ...(await lokalizacjeProduktu(k, sub, z.id)),
       review: plikAsc(await k.jeden(`${baza}/appStoreReviewScreenshot`)),
     };
   }
@@ -216,10 +225,11 @@ export function planuj(cel, stan) {
       const x = z?.lok[loc];
       if (opis == null) op('czeka', 'produkty', `${nazwa}: brak w źródłach — decyzja właściciela (docs/wydanie/asc-zgloszenie.json, opisyProduktow)`);
       else if (!x) op('ręcznie', 'produkty', `${nazwa}: brak lokalizacji produktu w ASC — najpierw scripts/asc-ustawienia.mjs`);
+      else if (x.atr.description !== opis && !z.edytowalna) op('ręcznie', 'produkty', `${nazwa}: wersja produktu nieedytowalna w ASC — utwórz wersję do edycji w App Store Connect (scripts/asc-ustawienia.mjs tworzy ją tylko przy zmianie nazw)`);
       else if (x.atr.description === opis) op(BEZ, 'produkty', `${nazwa}: „${opis}”`);
       else {
         const typ = sub ? 'subscriptionLocalizations' : 'inAppPurchaseLocalizations';
-        op(x.atr.description ? 'zmieni' : 'utworzy', 'produkty', `${nazwa}: „${opis}”`, (k) => k.patch(`/v1/${typ}/${e(x.id)}`, { data: { type: typ, id: x.id, attributes: { description: opis } } }));
+        op(x.atr.description ? 'zmieni' : 'utworzy', 'produkty', `${nazwa}: „${opis}”`, (k) => k.patch(`/v2/${typ}/${e(x.id)}`, { data: { type: typ, id: x.id, attributes: { description: opis } } }));
       }
     }
   }

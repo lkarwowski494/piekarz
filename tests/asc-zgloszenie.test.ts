@@ -302,4 +302,27 @@ describe('scripts/asc-zgloszenie.mjs na atrapie App Store Connect API (M1-audyto
       expect(a.zapytania).toEqual([]);
     });
   });
+  // --- Migracja na zasoby wersji (ASC API 4.4.1), docs/wydanie/asc-api-v2-zrodla.md ---
+  it('opisy produktów przez wersje v2: odczyt z …/versions, zapis PATCH /v2/…Localizations/{id}, żadnych starych ścieżek lokalizacji', async () => {
+    await zAtrapa({}, async (a) => {
+      const arg = ['--dane', daneTestowe];
+      const sucho = await uruchom(a.adres, arg);
+      const w = await uruchom(a.adres, [...arg, '--zgoda', plik('v2.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      const sciezki = a.zapytania.map((q) => `${q.metoda} ${q.sciezka}`);
+      expect(sciezki.some((p) => /^GET \/v1\/subscriptions\/[^/]+\/versions$/.test(p))).toBe(true);
+      expect(sciezki.some((p) => /^GET \/v2\/inAppPurchases\/[^/]+\/versions$/.test(p))).toBe(true);
+      expect(sciezki.filter((p) => /^PATCH \/v2\/(subscriptionLocalizations|inAppPurchaseLocalizations)\//.test(p))).toHaveLength(6);
+      expect(sciezki.filter((p) => /\/v1\/(subscriptionLocalizations|inAppPurchaseLocalizations)|\/subscriptionLocalizations$|\/inAppPurchaseLocalizations$/.test(p))).toEqual([]);
+    });
+  });
+
+  it('wersja produktu nieedytowalna: opis jako „ręcznie”, zapis nie rusza produktów', async () => {
+    await zAtrapa({ stanWersjiProduktow: 'APPROVED' }, async (a) => {
+      const sucho = await uruchom(a.adres, ['--dane', daneTestowe]);
+      expect(sucho.kod).toBe(0);
+      expect(sucho.wyjscie).toMatch(/ręcznie · .*opis produktu .*wersja.*nieedytowalna/);
+      expect(a.zapytania.filter((q) => q.metoda !== 'GET')).toEqual([]);
+    });
+  });
 });

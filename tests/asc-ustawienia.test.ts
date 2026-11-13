@@ -123,7 +123,7 @@ describe('scripts/asc-ustawienia.mjs na atrapie App Store Connect API (M1-audyto
       expect(sub('yearly').attributes).toMatchObject({ subscriptionPeriod: 'ONE_YEAR', familySharable: true, groupLevel: 1, name: 'Piekarz Pro rocznie' });
       expect(a.iap).toHaveLength(1);
       expect(a.iap[0].attributes).toMatchObject({ productId: PRODUKTY.lifetime, inAppPurchaseType: 'NON_CONSUMABLE', familySharable: true, name: 'Piekarz Pro dożywotnio' });
-      expect(a.lokSub.filter((l) => l.sub === sub('monthly').id).map((l) => `${l.attributes?.locale}=${l.attributes?.name}`).sort()).toEqual(['en-US=Baker Pro Monthly', 'pl=Piekarz Pro miesięcznie']);
+      expect(a.lokSub.filter((l) => a.wersje.find((w) => w.id === l.wersja)?.rodzic === sub('monthly').id).map((l) => `${l.attributes?.locale}=${l.attributes?.name}`).sort()).toEqual(['en-US=Baker Pro Monthly', 'pl=Piekarz Pro miesięcznie']);
       expect(a.lokIap.map((l) => `${l.attributes?.locale}=${l.attributes?.name}`).sort()).toEqual(['en-US=Baker Pro Lifetime', 'pl=Piekarz Pro dożywotnio']);
 
       // Dostępność: 174 storefronty bez CHN, nowe kraje (D-057)
@@ -232,6 +232,69 @@ describe('scripts/asc-ustawienia.mjs na atrapie App Store Connect API (M1-audyto
       expect(w.kod).toBe(1);
       expect(w.wyjscie).toMatch(/ASC_KEY_ID/);
       expect(a.zapytania).toEqual([]);
+    });
+  });
+  // --- Migracja na zasoby wersji (ASC API 4.4.1: lokalizacje v1 wycofane), docs/wydanie/asc-api-v2-zrodla.md ---
+  const STARE = [
+    /^\/v1\/(inAppPurchaseLocalizations|subscriptionLocalizations|subscriptionGroupLocalizations)(\/|$)/,
+    /^\/v1\/subscriptionGroups\/[^/]+\/subscriptionGroupLocalizations$/,
+    /^\/v1\/subscriptions\/[^/]+\/subscriptionLocalizations$/,
+    /^\/v2\/inAppPurchases\/[^/]+\/inAppPurchaseLocalizations$/,
+  ];
+  const stare = (a: AtrapaAsc) => a.zapytania.filter((z) => STARE.some((r) => r.test(z.sciezka))).map((z) => `${z.metoda} ${z.sciezka}`);
+
+  it('lokalizacje przez zasoby wersji v2: odczyt z …/versions i …Versions/{id}/localizations, zapis POST /v2/…Localizations z relacją version, żadnej starej ścieżki', async () => {
+    await zAtrapa({}, async (a) => {
+      const sucho = await uruchom(a.adres);
+      const w = await uruchom(a.adres, ['--zgoda', zgoda('v2.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      expect(w.wyjscie).toMatch(/Po zapisie: różnice 0/);
+      expect(stare(a)).toEqual([]);
+      const sciezki = a.zapytania.map((z) => `${z.metoda} ${z.sciezka}`);
+      for (const p of ['/v2/subscriptionGroupLocalizations', '/v2/subscriptionLocalizations', '/v2/inAppPurchaseLocalizations']) expect(sciezki).toContain(`POST ${p}`);
+      expect(a.zapytania.some((z) => /^\/v1\/subscriptionGroupVersions\/[^/]+\/localizations$/.test(z.sciezka))).toBe(true);
+      expect(a.zapytania.some((z) => /^\/v1\/subscriptionVersions\/[^/]+\/localizations$/.test(z.sciezka))).toBe(true);
+      expect(a.zapytania.some((z) => /^\/v1\/inAppPurchaseVersions\/[^/]+\/localizations$/.test(z.sciezka))).toBe(true);
+      expect(a.lokGrup).toHaveLength(2);
+      expect(a.lokSub).toHaveLength(4);
+      expect(a.lokIap).toHaveLength(2);
+    });
+  });
+
+  it('zmiana nazwy lokalizacji idzie PATCH /v2/…Localizations/{id}, bez starych ścieżek', async () => {
+    await zAtrapa({}, async (a) => {
+      const sucho = await uruchom(a.adres);
+      await uruchom(a.adres, ['--zgoda', zgoda('v2a.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      for (const l of [...a.lokGrup, ...a.lokSub, ...a.lokIap]) l.attributes!.name = 'Stara nazwa';
+      const przed = a.zapytania.length;
+      const s2 = await uruchom(a.adres);
+      const w = await uruchom(a.adres, ['--zgoda', zgoda('v2b.json', { zapis: true, skrot: skrot(s2), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      const nowe = a.zapytania.slice(przed).filter((z) => z.metoda === 'PATCH').map((z) => z.sciezka.replace(/\/[^/]+$/, ''));
+      expect(new Set(nowe)).toEqual(new Set(['/v2/subscriptionGroupLocalizations', '/v2/subscriptionLocalizations', '/v2/inAppPurchaseLocalizations']));
+      expect(stare(a)).toEqual([]);
+    });
+  });
+
+  it('rodzic bez wersji: skrypt tworzy wersję (POST /v1/…Versions) przed lokalizacjami', async () => {
+    await zAtrapa({ bezAutoWersji: true }, async (a) => {
+      const sucho = await uruchom(a.adres);
+      const w = await uruchom(a.adres, ['--zgoda', zgoda('v2c.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      expect(w.wyjscie).toMatch(/Po zapisie: różnice 0/);
+      expect(a.wersje.map((v) => v.type).sort()).toEqual(['inAppPurchaseVersions', 'subscriptionGroupVersions', 'subscriptionVersions', 'subscriptionVersions']);
+      expect(a.lokSub).toHaveLength(4);
+      expect(stare(a)).toEqual([]);
+    });
+  });
+
+  it('wersja zatwierdzona (nieedytowalna): skrypt tworzy nową wersję i zapisuje lokalizacje do niej', async () => {
+    await zAtrapa({ stanWersji: 'APPROVED' }, async (a) => {
+      const sucho = await uruchom(a.adres);
+      const w = await uruchom(a.adres, ['--zgoda', zgoda('v2d.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-11-13: test' })]);
+      expect(w.kod).toBe(0);
+      expect(a.wersje.filter((v) => v.attributes!.state === 'PREPARE_FOR_SUBMISSION')).toHaveLength(4);
+      expect(a.lokIap).toHaveLength(2);
     });
   });
 });
