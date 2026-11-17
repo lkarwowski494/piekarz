@@ -26,8 +26,9 @@ export const theme = {
   },
   // Cele dotykowe (DEC-15 a): 48 prowadzenie i akcje główne, 44 pozostałe, 64 przycisk kciuka [M1-audytor-generalny-052]
   // Krój tytułów, czasów i cen (D-050); treść krojem systemowym (fontFamily nieustawione) [M1-audytor-generalny-055]
-  // W językach bez liter w kroju (vi, ja, ko, zh-Hant) krój systemowy; getter, więc style czytają go przy renderze,
-  // także po zmianie języka (`get fontFamily()` w stylach) [M1-audytor-generalny-171; 09-lokalizacja-508]
+  // W językach bez liter w kroju (vi, ja, ko, zh-Hant) krój systemowy; getter (język czytany przy odczycie). Style czytają
+  // go tylko w fabryce `stylePoKroju` albo przy renderze, nigdy przez `get fontFamily()` (D-423, tests/kroj-tytulow-straznik-d423)
+  // [M1-audytor-generalny-171; 09-lokalizacja-508]
   typography: {
     get krojTytulow(): string | undefined {
       return krojTytulowDlaJezyka();

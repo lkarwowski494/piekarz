@@ -37,6 +37,7 @@ import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
 import { typografia, promienie } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface SkladnikiSheetProps {
   visible: boolean;
   onClose: () => void;
@@ -259,7 +260,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   wiersz: {
     minHeight: theme.cele.glownyPrzeplyw,
   },
@@ -274,7 +275,7 @@ const styles = StyleSheet.create({
   },
   tytul: {
     flex: 1,
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -309,4 +310,4 @@ const styles = StyleSheet.create({
   segmentTekstWybrany: {
     fontWeight: '600',
   },
-});
+}));

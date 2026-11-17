@@ -19,18 +19,39 @@ export const JEZYKI_POZA_KROJEM_TYTULOW: readonly Lang[] = ['vi', 'ja', 'ko', 'z
  */
 export const JEZYKI_CYRYLICY_BEZ_FORM_KROJU: readonly Lang[] = ['uk', 'ru', 'sr'];
 
-/** Krój tytułów dla bieżącego języka; `undefined` = krój systemowy. Czytany przy renderze (getter w stylach). */
+/** Krój tytułów dla bieżącego języka; `undefined` = krój systemowy. Czytany przy renderze albo w fabryce `stylePoKroju`. */
 export function krojTytulowDlaJezyka(): string | undefined {
   const l = lang();
   return JEZYKI_POZA_KROJEM_TYTULOW.includes(l) || JEZYKI_CYRYLICY_BEZ_FORM_KROJU.includes(l) ? undefined : typografia.krojTytulow;
 }
 
 /**
- * Krój tytułu zapisany w stylu przy KAŻDYM renderze (D-419, L004-13-P2-ru/uk07). `get fontFamily()` w `StyleSheet.create`
- * liczy się leniwie: po zmianie języka przy zamontowanym ekranie stary i nowy `style` dają ten sam, bieżący krój, więc
- * natywny widok nie dostaje zmiany (ru/uk zostawały przy Sofii z bułgarskimi formami). Dopisany na końcu tablicy stylu
- * obiekt ma wartość z chwili renderu; getter w arkuszu zostaje (pilnuje go tests/duzy-tekst-kroj.test.ts).
+ * Arkusz stylów osobny dla każdego kroju tytułów (D-423, KO-070; zastępuje `get fontFamily()` z D-050 i `krojTytulowStyl()`
+ * z D-419). Leniwy getter w `StyleSheet.create` liczył krój przy każdym odczycie, więc styl z poprzedniego renderu po
+ * zmianie języka dawał już nowy krój i natywny diff nie widział zmiany (ru/uk zostawały przy Sofii z bułgarskimi formami).
+ * Tu `fabryka` (`() => StyleSheet.create({... fontFamily: theme.typography.krojTytulow ...})`) wykonuje się raz na krój;
+ * obiekty stylów mają wartość statyczną, a zmiana języka daje inny obiekt (nowy krój) albo ten sam (ten sam krój).
+ * Komponent dostaje nową wartość przy renderze, który i tak wywołuje zmiana języka (`t()`, `useLang()`); stan ekranu
+ * i nawigacja zostają, bez `key` na korzeniu. Odczyt kroju poza funkcją pilnuje tests/kroj-tytulow-straznik-d423.test.ts.
  */
-export function krojTytulowStyl(): { fontFamily: string | undefined } {
-  return { fontFamily: krojTytulowDlaJezyka() };
+export function stylePoKroju<T extends object>(fabryka: () => T): T {
+  const arkusze = new Map<string, T>();
+  const biezacy = (): T => {
+    const klucz = krojTytulowDlaJezyka() ?? '';
+    let a = arkusze.get(klucz);
+    if (!a) {
+      a = fabryka();
+      arkusze.set(klucz, a);
+    }
+    return a;
+  };
+  return new Proxy({} as T, {
+    get: (_c, k) => Reflect.get(biezacy(), k),
+    has: (_c, k) => Reflect.has(biezacy(), k),
+    ownKeys: () => Reflect.ownKeys(biezacy()),
+    getOwnPropertyDescriptor: (_c, k) => {
+      const d = Reflect.getOwnPropertyDescriptor(biezacy(), k);
+      return d ? { ...d, configurable: true } : undefined;
+    },
+  });
 }

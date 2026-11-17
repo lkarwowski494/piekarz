@@ -31,6 +31,7 @@ import {
 } from '../core/flour-atlas';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export interface FlourBlendModalProps {
   visible: boolean;
   initialBlend: FlourItemInput[];
@@ -278,7 +279,7 @@ export function FlourBlendModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   modalOverlay: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -295,7 +296,7 @@ const styles = StyleSheet.create({
     maxHeight: '90%',
   },
   modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -431,7 +432,7 @@ const styles = StyleSheet.create({
     borderTopColor: theme.colors.linia,
   },
   addSectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
@@ -500,4 +501,4 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
-});
+}));

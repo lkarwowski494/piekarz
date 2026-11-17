@@ -18,6 +18,7 @@ import {
 } from '../recipes/discard-recipes';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 interface DiscardRecipesModalProps {
   visible: boolean;
   onClose: () => void;
@@ -238,7 +239,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   categoryScroll: {
     marginTop: 4,
   },
@@ -278,12 +279,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardTitleBlock: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flex: 1,
     marginRight: 8,
   },
   cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -396,7 +397,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   proTipTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
@@ -407,4 +408,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     lineHeight: 16,
   },
-});
+}));

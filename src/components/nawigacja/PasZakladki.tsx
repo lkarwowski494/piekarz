@@ -11,11 +11,11 @@ import React, { useCallback } from 'react';
 import { Pressable, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { theme } from '../../ui/theme';
-import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { PrzyciskNaglowka } from './PrzyciskNaglowka';
 import { IkonaStartu } from '../start/IkonaStartu';
 import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
 const DUZY_TEKST = 2;
@@ -75,7 +75,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga, krojTytulowStyl()]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul && !duzy ? <Text testID={podtytulTestID} style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}
@@ -145,7 +145,7 @@ export function FiltryNaPasie<T extends string>({ filtry, wybrany, onWybierz, et
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   pas: {
     backgroundColor: theme.colors.pas,
     paddingHorizontal: odstepy.l,
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   gora: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: -odstepy.s },
   akcje: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end', marginLeft: 'auto' },
   tytul: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytulDuzy.pt,
     fontWeight: '700',
     color: theme.colors.naPasie,
@@ -185,4 +185,4 @@ const styles = StyleSheet.create({
   chipPodWybrany: { backgroundColor: theme.colors.akcent, borderColor: theme.colors.akcent },
   chipTekstPod: { color: theme.colors.tusz },
   chipTekstPodWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
-});
+}));

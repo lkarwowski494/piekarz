@@ -19,10 +19,10 @@ import { gotoweMs } from '../../lib/gotowe';
 import { czasSlownie, etykietaPlanuWypieku, gotoweKiedy, gotoweNazwa } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
-import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { wygladKarty } from '../../ui/karty/Karta';
 import { Spirala } from '../Spirala';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Stan jednego wypieku na „Dziś”: krok, czas do końca kroku, postęp i godzina „gotowe” (jak w prowadzeniu, N-4). */
 function opisWypieku({ sesja, zegar }: TrwajacyNaStarcie, teraz: number) {
@@ -64,7 +64,7 @@ function Jeden({ w, teraz, duzyTekst, onWroc }: { w: TrwajacyNaStarcie; teraz: n
       <Pressable testID="spirala-otworz" accessibilityRole="button" accessibilityLabel={t('{wypiek}: {krok}. Otwórz prowadzenie wypieku', { wypiek: o.nazwa, krok: o.nazwaKroku })} style={styles.dotyk} onPress={() => onWroc(w.id)}>
         <Spirala kroki={kroki} wariant="pelna" biezacy={w.sesja.stepIdx} postepKroku={o.postep} etykieta={o.etykieta} rozmiar={duzyTekst ? 150 : 220} />
       </Pressable>
-      <Text style={[styles.krok, krojTytulowStyl()]}>{o.nazwaKroku}</Text>
+      <Text style={[styles.krok]}>{o.nazwaKroku}</Text>
       {o.czas !== null && <Text style={styles.tresc}>{o.czas}</Text>}
       <Text style={styles.objasnienie}>
         {o.gotowe === null ? o.nazwa : gotoweNazwa(o.nazwa, o.gotowe, new Date(teraz))}
@@ -140,13 +140,13 @@ export function WypiekiNaSpirali({ wypieki, teraz, duzyTekst, onWroc, zKarmienia
   return <Dwa wypieki={wypieki.slice(0, 2)} teraz={teraz} duzyTekst={duzyTekst} onWroc={onWroc} />;
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   // Pusta spirala i karta wypieku na wyglądzie karty (README §2, §4; dzis.html) [M3 p7, 04-003]
   pusta: { ...wygladKarty, alignItems: 'center', gap: odstepy.m, padding: odstepy.l },
   jeden: { alignItems: 'center', gap: odstepy.xs },
   srodek: { alignItems: 'center' },
   dwa: { gap: odstepy.m },
-  krok: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz, textAlign: 'center', marginTop: odstepy.s },
+  krok: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz, textAlign: 'center', marginTop: odstepy.s },
   tresc: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz, textAlign: 'center' },
   objasnienie: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, textAlign: 'center' },
   glowny: { alignSelf: 'stretch', minHeight: theme.cele.przyciskKciuka, borderRadius: promienie.przyciskGlowny, backgroundColor: theme.colors.akcent, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.s, marginTop: odstepy.m },
@@ -160,4 +160,4 @@ const styles = StyleSheet.create({
   lewo: { textAlign: 'left' },
   drugi: { minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
   drugiTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz, textAlign: 'center' },
-});
+}));

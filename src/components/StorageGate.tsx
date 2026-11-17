@@ -15,6 +15,7 @@ import { t } from '../lib/i18n';
 import { napiszDoAutora } from '../lib/zgloszenie-wyslanie';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 /** Udostępnia plik kopii bazy (np. do Plików) — droga eksportu po nieudanej migracji [M1-audytor-generalny-004]. */
 export async function shareRescueFile(filePath: string): Promise<boolean> {
   if (!(await Sharing.isAvailableAsync())) return false;
@@ -126,7 +127,7 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
   );
 };
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.tusz,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
@@ -203,4 +204,4 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
   },
-});
+}));

@@ -22,6 +22,7 @@ import {
 } from '../core/volume-converter';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 interface VolumeConverterModalProps {
   visible: boolean;
   onClose: () => void;
@@ -258,7 +259,7 @@ export function VolumeConverterModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -270,14 +271,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 4,
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -382,7 +383,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -487,4 +488,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
-});
+}));

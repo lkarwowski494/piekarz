@@ -17,6 +17,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 interface RescueScreenProps {
   onRetry: () => Promise<void>;
   /** Tryb awaryjny startu: baza nie była otwierana ani migrowana w tym uruchomieniu [M1-audytor-generalny-123]. */
@@ -93,10 +94,10 @@ export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry, bezMigracji
   );
 };
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.colors.tlo },
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
-  title: { get fontFamily() { return theme.typography.krojTytulow; },
+  title: { fontFamily: theme.typography.krojTytulow,
            color: theme.colors.tusz, fontSize: typografia.style.tytul2.pt, fontWeight: '700', marginBottom: theme.spacing.md },
   body: { color: theme.colors.tusz2, fontSize: typografia.style.naglowek.pt, lineHeight: 22, marginBottom: theme.spacing.lg },
   ostrzezenie: { color: theme.colors.tusz, fontWeight: '700' },
@@ -125,4 +126,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: typografia.style.naglowek.pt, fontWeight: '700' },
-});
+}));

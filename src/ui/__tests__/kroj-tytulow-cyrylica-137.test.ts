@@ -15,7 +15,7 @@ import { kolory, typografia } from '../tokeny';
 import { opcjeNaglowka } from '../naglowek';
 
 // Opcje nagłówka liczone z palety (a1, M3 p1); krój tytułu nie zależy od wariantu, więc paleta jasna wystarcza
-const naglowekZwykly = opcjeNaglowka(kolory.jasny, false);
+const naglowekZwykly = () => opcjeNaglowka(kolory.jasny, false); // krój z chwili wywołania (D-423)
 
 const PLIK = join(__dirname, '..', '..', '..', 'assets/fonts/SofiaSansSemiCondensed-wght.ttf');
 
@@ -55,7 +55,7 @@ describe('krój tytułów a cyrylica (137)', () => {
   });
 
   it('uk, ru, sr: tytuł krojem systemowym przy renderze; bg i pl: krojem tytułów', () => {
-    const tytul = () => StyleSheet.flatten(naglowekZwykly.headerTitleStyle).fontFamily;
+    const tytul = () => StyleSheet.flatten(naglowekZwykly().headerTitleStyle).fontFamily;
     for (const l of ['uk', 'ru', 'sr'] as const) {
       setLang(l);
       expect({ l, kroj: tytul() }).toEqual({ l, kroj: undefined });

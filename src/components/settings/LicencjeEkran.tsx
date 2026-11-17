@@ -15,6 +15,7 @@ import { typografia } from '../../ui/tokeny';
 import { identyfikatoryLicencji, wczytajLicencje, type DaneLicencji, type WpisLicencji } from '../../lib/licencje';
 import surowe from '../../../assets/licencje.generated.json';
 import { WIERSZ } from './wiersz-ustawien';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 type Teksty = DaneLicencji['teksty'];
 const klucz = (w: WpisLicencji) => `licencja-${w.nazwa}@${w.wersja}`;
@@ -110,7 +111,7 @@ export function LicencjeEkran() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   // Wiersz (karty/README §2): min 52, linia nad wierszem; tekst się zawija
   wiersz: { minHeight: 52, ...WIERSZ },
   zawartosc: { padding: theme.spacing.md, paddingBottom: theme.spacing.xl },
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sekcja: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -132,4 +133,4 @@ const styles = StyleSheet.create({
   tresc: { paddingBottom: theme.spacing.sm, gap: theme.spacing.sm },
   etykieta: { fontSize: typografia.style.podpis.pt, fontWeight: '700', color: theme.colors.tusz2 },
   tekstLicencji: { fontSize: typografia.style.podpis.pt, color: theme.colors.tusz2 },
-});
+}));

@@ -19,6 +19,7 @@ import { typografia, promienie } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export function StudioEcosystemSection({ onOtworzLicencje }: { onOtworzLicencje?: () => void } = {}) {
   return (
     <>
@@ -132,7 +133,7 @@ export function StudioEcosystemSection({ onOtworzLicencje }: { onOtworzLicencje?
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   // Wiersz w karcie (README §2): min 52, linia nad wierszem
   wiersz: { minHeight: 52, ...WIERSZ },
   cardDescription: {
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   appItemTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -208,4 +209,4 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     marginBottom: theme.spacing.sm,
   },
-});
+}));

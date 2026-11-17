@@ -11,6 +11,7 @@
 
 import { useMemo } from 'react';
 import { Platform } from 'react-native';
+import { useLang } from '../lib/i18n';
 import { useMotyw, type PaletaHex } from './motyw';
 import { theme } from './theme';
 
@@ -21,7 +22,8 @@ import { theme } from './theme';
  * Tło ekranu zostaje w contentStyle; ScrollView z contentInsetAdjustmentBehavior wchodzi pod przezroczysty pasek.
  */
 export function opcjeNaglowka(paleta: PaletaHex, duzy: boolean, platforma: string = Platform.OS) {
-  const tytul = { get fontFamily() { return theme.typography.krojTytulow; }, fontWeight: '700' as const, color: paleta.tusz };
+  // Krój z chwili wywołania (nie getter): obiekt z innego języka ma inną wartość, więc natywny pasek dostaje zmianę (D-423)
+  const tytul = { fontFamily: theme.typography.krojTytulow, fontWeight: '700' as const, color: paleta.tusz };
   const bezTlaPaska = duzy && platforma === 'ios';
   const tloPaska: { backgroundColor?: string } = bezTlaPaska ? {} : { backgroundColor: paleta.tlo };
   return {
@@ -44,5 +46,8 @@ export function opcjeNaglowka(paleta: PaletaHex, duzy: boolean, platforma: strin
  */
 export function useNaglowek() {
   const { kolory } = useMotyw();
-  return useMemo(() => ({ zwykly: opcjeNaglowka(kolory, false), duzy: opcjeNaglowka(kolory, true) }), [kolory]);
+  // Język w zależnościach: zmiana kroju tytułu (ru/uk/vi/CJK) daje nowe opcje, a nie memoizowane stare (D-423)
+  const jezyk = useLang();
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- `jezyk` wymusza przeliczenie; krój czytany w opcjeNaglowka
+  return useMemo(() => ({ zwykly: opcjeNaglowka(kolory, false), duzy: opcjeNaglowka(kolory, true) }), [kolory, jezyk]);
 }

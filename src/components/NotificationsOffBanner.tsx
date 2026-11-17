@@ -10,6 +10,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export const NotificationsOffBanner: React.FC = () => {
   const [status, setStatus] = useState<NotificationPermission>('undetermined');
 
@@ -44,7 +45,7 @@ export const NotificationsOffBanner: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   banner: {
     backgroundColor: theme.colors.powierzchnia,
     borderColor: theme.colors.obwodka,
@@ -53,9 +54,9 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
   },
-  title: { get fontFamily() { return theme.typography.krojTytulow; },
+  title: { fontFamily: theme.typography.krojTytulow,
            color: theme.colors.tusz, fontSize: typografia.style.objasnienie.pt, fontWeight: '700', marginBottom: 4 },
   body: { color: theme.colors.tusz2, fontSize: typografia.style.przypis.pt, lineHeight: 18, marginBottom: theme.spacing.sm },
   button: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },
   buttonText: { color: theme.colors.akcentTekst, fontSize: typografia.style.objasnienie.pt, fontWeight: '700' },
-});
+}));

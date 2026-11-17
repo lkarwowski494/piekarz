@@ -15,8 +15,8 @@ import { pobierzStan, subskrybujStan } from '../../lib/platnosci/stan';
 import { zarzadzajSubskrypcja } from '../../lib/platnosci/sklep';
 import { KLUCZ_KONCA_PRO, KLUCZ_UPRZEDZENIA, uprzedzenieKoncaPro } from '../../lib/platnosci/uprzedzenie';
 import { theme } from '../../ui/theme';
-import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export type WariantKoncaPro = { rodzaj: 'przed'; koniec: number } | { rodzaj: 'wygaslo' };
 
@@ -63,7 +63,7 @@ export function UprzedzenieKoncaPro({ wariant, onZamknij }: { wariant: WariantKo
   const przed = wariant.rodzaj === 'przed';
   return (
     <View style={styles.baner} testID={przed ? 'start-uprzedzenie-konca-pro' : 'start-koniec-pro'}>
-      <Text style={[styles.tytul, krojTytulowStyl()]} accessibilityRole="header">
+      <Text style={[styles.tytul]} accessibilityRole="header">
         {wariant.rodzaj === 'przed'
           ? t('Piekarz Pro kończy się {data}', { data: formatDate(wariant.koniec, appLocale(), { day: 'numeric', month: 'long' }) })
           : t('Piekarz Pro nie jest aktywny')}
@@ -91,7 +91,7 @@ export function UprzedzenieKoncaPro({ wariant, onZamknij }: { wariant: WariantKo
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   baner: {
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: promienie.grupa,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     padding: odstepy.l,
     gap: odstepy.s,
   },
-  tytul: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, get fontFamily() { return theme.typography.krojTytulow; } },
+  tytul: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, fontFamily: theme.typography.krojTytulow },
   tekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   drugi: {
     minHeight: theme.cele.glownyPrzeplyw,
@@ -112,4 +112,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: odstepy.m,
   },
   drugiTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
-});
+}));

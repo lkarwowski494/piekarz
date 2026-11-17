@@ -4,6 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 
 import { typografia } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export type AcademyTab = 'school' | 'techniques';
 
 export interface AcademyHeaderProps {
@@ -63,7 +64,7 @@ export function AcademyHeader({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   header: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,
@@ -71,14 +72,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 6,
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -126,4 +127,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     fontWeight: '700',
   },
-});
+}));

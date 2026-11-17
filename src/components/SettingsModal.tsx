@@ -26,6 +26,7 @@ import { LicencjeEkran } from './settings/LicencjeEkran';
 import { HeaderButton } from './DraftHeader';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export interface SettingsModalProps {
   visible: boolean;
   onClose: () => void;
@@ -122,7 +123,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -150,4 +151,4 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
     gap: theme.spacing.md,
   },
-});
+}));

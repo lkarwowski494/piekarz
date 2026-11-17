@@ -17,6 +17,7 @@ import { addCalendarDays, startOfLocalDay } from '../../core/dzien-lokalny';
 import { przesunGotowe } from '../../lib/godzina-gotowe';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
@@ -180,7 +181,7 @@ export function TargetReadyCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   rzadPola: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s, marginBottom: odstepy.s },
   pole: {
     flexGrow: 1,
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
   polePelne: { flexBasis: '100%' },
   dzien: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   godzina: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.czas.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -223,4 +224,4 @@ const styles = StyleSheet.create({
   chipNieaktywny: { opacity: 0.6 }, // stan nieaktywny jak w PaywallModal: brak tokenu (zgłoszenie do roli 04)
   zmianaCzasu: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, marginBottom: odstepy.m },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
-});
+}));

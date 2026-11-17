@@ -18,6 +18,7 @@ import {
 } from '../core/flour-equivalents';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 interface FlourEquivalentsModalProps {
   visible: boolean;
   onClose: () => void;
@@ -150,7 +151,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -162,14 +163,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 4,
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -319,4 +320,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     lineHeight: 15,
   },
-});
+}));

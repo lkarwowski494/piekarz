@@ -12,8 +12,9 @@ import { JEZYKI_POZA_KROJEM_TYTULOW } from '../kroj-tytulow';
 import { kolory, typografia } from '../tokeny';
 import { opcjeNaglowka } from '../naglowek';
 
-// Opcje nagłówka liczone z palety (a1, M3 p1); krój tytułu nie zależy od wariantu, więc paleta jasna wystarcza
-const naglowekZwykly = opcjeNaglowka(kolory.jasny, false);
+// Opcje nagłówka liczone z palety (a1, M3 p1); krój tytułu nie zależy od wariantu, więc paleta jasna wystarcza.
+// Krój z chwili wywołania (D-423): opcje liczone po każdej zmianie języka, jak robi useNaglowek.
+const naglowekZwykly = () => opcjeNaglowka(kolory.jasny, false);
 
 const ROOT = join(__dirname, '..', '..', '..');
 
@@ -77,7 +78,7 @@ describe('krój tytułów a litery języka (171)', () => {
   });
 
   it('tytuł: krojem tytułów w pl, krojem systemowym w vi, ja, ko, zh-Hant (przy renderze, po zmianie języka)', () => {
-    const tytul = () => StyleSheet.flatten(naglowekZwykly.headerTitleStyle).fontFamily;
+    const tytul = () => StyleSheet.flatten(naglowekZwykly().headerTitleStyle).fontFamily;
     setLang('pl');
     expect(tytul()).toBe(typografia.krojTytulow);
     for (const l of JEZYKI_POZA_KROJEM_TYTULOW) {
@@ -88,10 +89,6 @@ describe('krój tytułów a litery języka (171)', () => {
     expect(tytul()).toBe(typografia.krojTytulow);
   });
 
-  it('żaden styl nie zapisuje kroju tytułów na stałe przy ładowaniu modułu', () => {
-    const stale = [...plikiTs(join(ROOT, 'src')), ...plikiTs(join(ROOT, 'app'))]
-      .filter((p) => /fontFamily:\s*(theme\.typography|typografia)\.krojTytulow/.test(readFileSync(p, 'utf8')))
-      .map((p) => relative(ROOT, p));
-    expect(stale).toEqual([]);
-  });
+  // Dawny test „żaden styl nie zapisuje kroju na stałe” (regex na `fontFamily: …krojTytulow`) wymuszał getter; zastąpił go
+  // strażnik AST tests/kroj-tytulow-straznik-d423.test.ts (odczyt tylko w funkcji, brak `get fontFamily()`) [D-423]
 });

@@ -8,6 +8,7 @@ import {
 } from '../../core/baking-techniques';
 
 import { typografia, promienie } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface TechniquesLibrarySectionProps {
   techniques: TechniqueCard[];
   techCategory: TechniqueCategory | 'all';
@@ -140,7 +141,7 @@ export function TechniquesLibrarySection({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   tabIntroText: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   lessonTitleBlock: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flex: 1,
     marginRight: 8,
   },
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   cardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.sm,
   },
   subSectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   subSectionTitleMistake: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.blad,
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.akcent,
   },
   proTipTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
@@ -297,4 +298,4 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
-});
+}));

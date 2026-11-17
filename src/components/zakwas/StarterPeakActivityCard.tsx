@@ -19,6 +19,7 @@ import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' };
 
 /** Etykieta fazy zakwasu w języku aplikacji; liczba dni formami CLDR [M1-audytor-generalny-093; M1-audytor-generalny-071]. */
@@ -177,7 +178,7 @@ export function StarterPeakActivityCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   phaseBadge: {
     paddingHorizontal: odstepy.s,
     paddingVertical: odstepy.xs,
@@ -244,7 +245,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   tempSelectorHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
@@ -277,4 +278,4 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '600',
   },
-});
+}));

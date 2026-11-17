@@ -33,6 +33,7 @@ import { PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/Pas
 import { EkranZPasem } from '../src/components/nawigacja/EkranZPasem';
 
 import { typografia, promienie } from '../src/ui/tokeny';
+import { stylePoKroju } from '../src/ui/kroj-tytulow';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
@@ -166,7 +167,7 @@ export default function DoctorScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   academyBannerTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -221,4 +222,4 @@ const styles = StyleSheet.create({
     lineHeight: 14,
     marginTop: 1,
   },
-});
+}));

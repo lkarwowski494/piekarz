@@ -16,10 +16,10 @@ import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { dzienSlownie, etykietaPlanuPrzedStartem, gotoweNazwa, startKiedy } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
-import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Spirala } from '../Spirala';
 import { GlifZdarzenia } from '../kalendarz/GlifZdarzenia';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Godzina „gotowe” planu: koniec ostatniego kroku; brak zostaje brakiem. */
 export const gotowePlanu = (p: PlannedBake): number | null => p.steps[p.steps.length - 1]?.plannedEnd ?? null;
@@ -44,7 +44,7 @@ function NaSpirali({ p, teraz, duzyTekst, onZobacz }: { p: PlannedBake; teraz: n
   return (
     <View style={styles.jeden} testID="start-plan-spirala">
       <Spirala kroki={kroki} wariant="plan" etykieta={etykieta} rozmiar={duzyTekst ? 150 : 220} />
-      <Text style={[styles.tytul, krojTytulowStyl()]}>{tytulPlanu(p, teraz)}</Text>
+      <Text style={[styles.tytul]}>{tytulPlanu(p, teraz)}</Text>
       <Text style={styles.objasnienie}>{startPlanuTekst(p, teraz)}</Text>
       <Pressable testID={`plan-zobacz-${p.id}`} accessibilityRole="button" accessibilityLabel={t('Zobacz plan')} style={styles.drugi} onPress={() => onZobacz(p.id)}>
         <Text style={styles.drugiTekst}>{t('Zobacz plan')}</Text>
@@ -87,14 +87,14 @@ export function PlanyWypiekow({ plany, teraz, naSpirali, duzyTekst, onZobacz }: 
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   plany: { gap: odstepy.m },
   jeden: { alignItems: 'center', gap: odstepy.xs },
-  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz, textAlign: 'center', marginTop: odstepy.s },
+  tytul: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz, textAlign: 'center', marginTop: odstepy.s },
   objasnienie: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, textAlign: 'center' },
   drugi: { alignSelf: 'stretch', minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.m },
   drugiTekst: { fontSize: typografia.style.naglowek.pt, color: theme.colors.tusz, textAlign: 'center' },
   lista: { borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia, paddingHorizontal: odstepy.m },
   wiersz: { flexDirection: 'row', alignItems: 'center', gap: odstepy.s, minHeight: theme.cele.pozostale, paddingVertical: odstepy.s, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.colors.linia },
   wierszTekst: { flexShrink: 1, fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
-});
+}));

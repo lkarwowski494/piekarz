@@ -15,6 +15,7 @@ import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 
 import { typografia, promienie } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Szerokość kolumny godzin przy zwykłym tekście (makieta planu). */
 const SZEROKOSC_GODZIN = 65;
@@ -115,7 +116,7 @@ export function TimelineStagesList({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   timeline: {
     paddingLeft: 4,
   },
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   stageTitleRow: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -262,4 +263,4 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     marginTop: 2,
   },
-});
+}));

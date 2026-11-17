@@ -11,6 +11,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export function OpcjaPlanu({
   nazwa,
@@ -48,7 +49,7 @@ export function OpcjaPlanu({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   opcja: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   tresc: { minWidth: 0, gap: 2 },
   trescRzad: { flex: 1 },
   nazwa: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
-  cena: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', get fontFamily() { return theme.typography.krojTytulow; }, color: theme.colors.tusz },
+  cena: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', fontFamily: theme.typography.krojTytulow, color: theme.colors.tusz },
   opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   znacznik: {
     width: 24,
@@ -77,4 +78,4 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   znacznikWybrany: { borderWidth: 8, borderColor: theme.colors.akcent },
-});
+}));

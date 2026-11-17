@@ -14,6 +14,7 @@ import type { DiagnosticResult } from '../../doctor/diagnostics';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Karta, NaglowekKarty } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface DiagnosisResultCardProps {
   diagnosis: DiagnosticResult | null;
   unitSystem: UnitSystem;
@@ -162,7 +163,7 @@ export function DiagnosisResultCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   diagnosisCard: {
     borderRadius: promienie.karta,
     padding: odstepy.l,
@@ -239,7 +240,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   checklistTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -301,4 +302,4 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
   },
-});
+}));

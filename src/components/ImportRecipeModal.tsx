@@ -31,6 +31,7 @@ import { Karta } from '../ui/karty/Karta';
 import { IkonaKarty } from '../ui/karty/IkonaKarty';
 
 import { typografia, promienie } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export interface ImportRecipeModalProps {
   visible: boolean;
   onClose: () => void;
@@ -244,7 +245,7 @@ export function ImportRecipeModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   actionRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -309,7 +310,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.blad,
   },
   errorTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.blad,
@@ -343,7 +344,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   previewSectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
@@ -427,4 +428,4 @@ const styles = StyleSheet.create({
   confirmBtnTextDisabled: {
     color: theme.colors.tusz3,
   },
-});
+}));

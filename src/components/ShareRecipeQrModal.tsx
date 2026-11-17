@@ -26,6 +26,7 @@ import { encodeRecipeToShareUrl } from '../lib/recipe-sharing';
 import { QrCodeSvg } from './QrCodeSvg';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export interface ShareRecipeQrModalProps {
   visible: boolean;
   onClose: () => void;
@@ -126,7 +127,7 @@ export function ShareRecipeQrModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(26, 17, 10, 0.65)',
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -230,4 +231,4 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
   },
-});
+}));

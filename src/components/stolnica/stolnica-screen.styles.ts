@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
-export const styles = StyleSheet.create({
+export const styles = stylePoKroju(() => StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -58,14 +59,14 @@ export const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   activeStepTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytulKroku.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: odstepy.xs,
   },
   czas: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.czas.pt,
     fontWeight: '700',
     fontVariant: ['tabular-nums'],
@@ -80,4 +81,4 @@ export const styles = StyleSheet.create({
     fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,
   },
-});
+}));

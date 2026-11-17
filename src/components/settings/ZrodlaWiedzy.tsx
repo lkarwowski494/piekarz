@@ -14,6 +14,7 @@ import { ZRODLA_WIEDZY, ZRODLA_WIEDZY_WSTEP } from '../../core/zrodla-wiedzy';
 import { Karta } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Karta w Ustawieniach z wejściem na ekran źródeł (M3 p5: karta z ikoną, wejście jako wiersz). */
 export function ZrodlaWiedzySection({ onOtworz }: { onOtworz: () => void }) {
@@ -54,7 +55,7 @@ export function ZrodlaWiedzyEkran() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   // Wiersz w karcie (README §2): min 52, linia nad wierszem
   wiersz: { minHeight: 52, ...WIERSZ },
   card: {
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   sectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -95,4 +96,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     marginTop: 2,
   },
-});
+}));

@@ -10,6 +10,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export interface CalculatorActionButtonsProps {
   onMakePlan: () => void;
@@ -59,7 +60,7 @@ export function CalculatorActionButtons({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   obszar: {
     marginTop: theme.spacing.lg,
     gap: 10,
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     borderRadius: promienie.przyciskGlowny,
   },
   glownyTekst: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
@@ -109,4 +110,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     textAlign: 'center',
   },
-});
+}));

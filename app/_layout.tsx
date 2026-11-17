@@ -1,7 +1,7 @@
 import '../src/lib/intl-polyfills';
 import React, { useEffect, useRef, useState } from 'react';
 import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
-import { StatusBar, AppState, View, StyleSheet } from 'react-native';
+import { StatusBar, AppState, View, StyleSheet, ActivityIndicator } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import { configureNotificationHandler, resyncNotifications, uzgadniajZDostepem } from '../src/lib/notifications';
 import { initDatabase } from '../src/data/sqlite-store';
@@ -15,6 +15,7 @@ import { initLanguage, t, useLang, ustawJezykSystemu } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
+import { theme } from '../src/ui/theme';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -30,10 +31,16 @@ async function retryDatabase(): Promise<void> {
  * Start aplikacji wspólny dla zwykłego startu i „Spróbuj ponownie” w trybie awaryjnym [M1-audytor-generalny-140].
  * Zwraca zatrzymanie nasłuchu płatności.
  */
-async function startAplikacji(): Promise<() => void> {
+async function startAplikacji(poJezyku: () => void): Promise<() => void> {
   await initDatabase();
   // Język z zapisu albo z systemu, po bazie (zapis w app_settings) [M1-audytor-generalny-048]
-  await initLanguage();
+  try {
+    await initLanguage();
+  } finally {
+    // Ekrany rysują się dopiero teraz: pierwszy render w języku źródłowym zostawiał ru/uk przy kroju z bułgarskimi
+    // formami, a vi/CJK przy kroju bez glifów [KO-070, D-423]
+    poJezyku();
+  }
   // Jednostki z zapisu albo według regionu urządzenia (D-044); rejestruje przeliczanie tekstów t() [M1-audytor-generalny-096]
   await initUnitSystem();
   // Nasłuch transakcji StoreKit od startu, zanim użytkownik otworzy ekran zakupu (MON-04) [M1-audytor-generalny-008]
@@ -50,6 +57,9 @@ export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
 export default function RootLayout() {
   // null = wynik beginStartup jeszcze nieznany (nie wiadomo, czy start jest awaryjny) [reaudit-noc N-16; M1-audytor-generalny-215]
   const [rescue, setRescue] = useState<boolean | null>(null);
+  // Drzewo ekranów dopiero po initLanguage() (D-423); zmianę języka w Ustawieniach obsługują style przeliczane przy renderze
+  const [jezykGotowy, setJezykGotowy] = useState(false);
+  const poJezyku = () => setJezykGotowy(true);
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
   useLang();
   // Kolory nagłówka bieżącego wariantu (jasny/ciemny/kontrast), nie DynamicColorIOS [M3 p1 a1]
@@ -68,7 +78,7 @@ export default function RootLayout() {
         return;
       }
       setRescue(false);
-      stopPlatnosci.current = await startAplikacji();
+      stopPlatnosci.current = await startAplikacji(poJezyku);
     })();
     return () => stopPlatnosci.current?.();
   }, []);
@@ -121,7 +131,7 @@ export default function RootLayout() {
         onRetry={async () => {
           // Pełny start bez zerowania licznika: zeruje go dopiero kamień milowy [M1-audytor-generalny-140]
           setRescue(false);
-          stopPlatnosci.current = await startAplikacji();
+          stopPlatnosci.current = await startAplikacji(poJezyku);
         }}
       />
     );
@@ -133,6 +143,11 @@ export default function RootLayout() {
       <StatusBar barStyle="default" />
       <StorageGate onRetry={retryDatabase}>
         {/* onLayout = kamień milowy strażnika startu (pierwszy ekran po bazie) [M1-audytor-generalny-140] */}
+        {!jezykGotowy ? (
+          <View style={styles.ladowanie} testID="start-jezyk-ladowanie" accessibilityRole="progressbar">
+            <ActivityIndicator color={theme.colors.akcent} />
+          </View>
+        ) : (
         <View style={styles.korzen} onLayout={pierwszyEkran} testID="start-kamien-milowy">
           {/* Jeden stan dostępu i jeden ekran zakupu dla wszystkich zakładek [M1-audytor-generalny-025] */}
           <AppAccessProvider>
@@ -153,9 +168,13 @@ export default function RootLayout() {
             </Stack>
           </AppAccessProvider>
         </View>
+        )}
       </StorageGate>
     </>
   );
 }
 
-const styles = StyleSheet.create({ korzen: { flex: 1 } });
+const styles = StyleSheet.create({
+  korzen: { flex: 1 },
+  ladowanie: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.colors.tlo },
+});

@@ -5,6 +5,7 @@ import { t } from '../../lib/i18n';
 import { BreadSchoolLesson } from '../../core/bread-school';
 
 import { typografia, promienie } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface BreadSchoolSectionProps {
   lessons: BreadSchoolLesson[];
   completedLevels: number[];
@@ -135,7 +136,7 @@ export function BreadSchoolSection({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   tabIntroText: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   lessonTitleBlock: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flex: 1,
     marginRight: 8,
   },
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   lessonTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.sm,
   },
   subSectionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.obwodka,
   },
   scienceCalloutTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -297,7 +298,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.obwodka,
   },
   passingTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -333,4 +334,4 @@ const styles = StyleSheet.create({
   toggleCompleteBtnTextActive: {
     color: theme.colors.tusz,
   },
-});
+}));

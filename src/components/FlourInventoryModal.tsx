@@ -36,6 +36,7 @@ import { FLOUR_PROFILES, FlourProfile, profilPoNazwie } from '../core/flour-atla
 import { useAppAccess } from '../lib/app-access';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 /** Zapas zapisany pod nazwą danych atlasu pokazuje się nazwą w języku interfejsu; nazwa własna dosłownie (452). */
 const nazwaZapasu = (n: string): string => {
   const p = profilPoNazwie(n); // także nazwa sprzed kanonu D-307 [M1-audytor-generalny-041]
@@ -343,7 +344,7 @@ export function FlourInventoryModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   modalOverlay: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
@@ -361,7 +362,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   modalTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -387,16 +388,16 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   stockBannerTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
   },
   stockBannerTitleSuccess: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.tusz,
   },
   stockBannerTitleWarning: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.tusz,
   },
   substituteText: {
@@ -426,7 +427,7 @@ const styles = StyleSheet.create({
     maxHeight: 380,
   },
   sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -509,7 +510,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   formTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -591,4 +592,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: typografia.style.objasnienie.pt,
   },
-});
+}));

@@ -14,6 +14,7 @@ import { t } from '../../lib/i18n';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export interface PrzyciskArkusza {
   /** Tekst już przetłumaczony. */
@@ -96,7 +97,7 @@ export function ArkuszKart({ visible, onRequestClose, onDismiss, trescTestID, ty
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   ekran: { flex: 1, backgroundColor: theme.colors.tlo },
   pasek: {
     minHeight: 52,
@@ -115,10 +116,10 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
     textAlign: 'center',
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     color: theme.colors.tusz,
   },
   przewijane: { flex: 1 },
   tresc: { padding: odstepy.l, paddingBottom: odstepy.xxl, gap: odstepy.m },
-});
+}));

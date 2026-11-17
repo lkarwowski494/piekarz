@@ -13,6 +13,7 @@ import { typografia } from '../../ui/tokeny';
 import { wygladKarty } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export function KitchenTestsGuideSection() {
   // §7a / D-142 (M3 p5b): przy dużym tekście ikona i strzałka w rzędzie nad tytułem, tytuł na całą szerokość
   const duzy = useDuzyTekst();
@@ -91,12 +92,12 @@ export function KitchenTestsGuideSection() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   container: {
     marginBottom: theme.spacing.lg,
   },
   sectionHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   guideWstep: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   guideRozciagnijWRzedzie: { flex: 1, flexShrink: 1 },
   guideTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt - 2,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -146,4 +147,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
   },
-});
+}));

@@ -11,8 +11,8 @@ import { StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-na
 import { theme } from '../theme';
 import { odstepy, promienie, typografia } from '../tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../pogrubiony-tekst';
-import { krojTytulowStyl } from '../kroj-tytulow';
 import { useDuzyTekst } from './duzy-tekst';
+import { stylePoKroju } from '../kroj-tytulow';
 
 /** Rozmiar ikony w nagłówku karty (README §2). */
 const IKONA = 24;
@@ -42,7 +42,7 @@ export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
   ) : null;
   const zn = znacznik ? <View testID={`${testID}-znacznik`} style={styles.znacznik}>{znacznik}</View> : null;
   const tyt = (
-    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && (zn ? styles.tytulZeZnacznikiem : styles.tytulWiersz), waga, krojTytulowStyl()]}>{tytul}</Text>
+    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && (zn ? styles.tytulZeZnacznikiem : styles.tytulWiersz), waga]}>{tytul}</Text>
   );
   return (
     <View testID={`${testID}-naglowek`} style={[styles.naglowek, duzy ? styles.naglowekStos : styles.naglowekRzad, style]}>
@@ -87,7 +87,7 @@ export function Karta({ testID = 'karta', tytul, ikona, znacznik, podpis, bezWyp
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   karta: {
     ...wygladKarty,
     gap: odstepy.m,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   wstep: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: odstepy.m },
   ikona: { width: IKONA, height: IKONA, alignItems: 'center', justifyContent: 'center' },
   tytul: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     // Jeden krój i rozmiar dla wszystkich kart (README §2): tytul2 − 2 = 20 pt
     fontSize: typografia.style.tytul2.pt - 2,
     fontWeight: '700',
@@ -117,4 +117,4 @@ const styles = StyleSheet.create({
   // Podpis pod nagłówkiem (makieta: t-przyp p2, wypełnienie 0 16 8)
   podpis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   podpisWKarcie: { paddingHorizontal: odstepy.l, paddingBottom: odstepy.s },
-});
+}));

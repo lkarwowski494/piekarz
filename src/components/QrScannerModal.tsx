@@ -19,6 +19,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
 import { typografia, promienie } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export interface QrScannerModalProps {
   visible: boolean;
   onClose: () => void;
@@ -123,7 +124,7 @@ export function QrScannerModal({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: '#FBF8F3',
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   permissionTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -256,4 +257,4 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: promienie.pole,
   },
-});
+}));

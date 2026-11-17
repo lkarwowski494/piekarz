@@ -16,6 +16,7 @@ import { zarzadzajSubskrypcja, zrealizujKod } from '../../lib/platnosci/sklep';
 import { wygladKarty } from '../../ui/karty/Karta';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { WIERSZ, wierszUstawien } from './wiersz-ustawien';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
   const [trwa, setTrwa] = useState(false);
@@ -69,17 +70,17 @@ export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   // Wiersz w karcie (README §2): min 52, linia nad wierszem
   wiersz: { minHeight: 52, ...WIERSZ },
   karta: { ...wygladKarty, padding: odstepy.l, gap: odstepy.xs },
   naglowek: { flexDirection: 'row', alignItems: 'center', gap: odstepy.m, flexWrap: 'wrap' },
   tytul: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexShrink: 1,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   akcja: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.akcentTekst },
-});
+}));

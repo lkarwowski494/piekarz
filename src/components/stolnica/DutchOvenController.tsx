@@ -12,6 +12,7 @@ import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase, type DutchOvenPhaseConfig }
 import { formatTemperature, formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 import { odstepy, typografia } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface DutchOvenControllerProps {
   /** Fazy kroku pieczenia (fazyGarnka): czas fazy bez pokrywki z danych receptury (D-304); brak = profil domyślny [M1-audytor-generalny-008]. */
   fazy?: Record<DutchOvenBakePhase, DutchOvenPhaseConfig>;
@@ -129,7 +130,7 @@ export function DutchOvenController({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   dutchOvenContainer: {
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   phaseTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     flexShrink: 1,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   steamAlertTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
     color: theme.colors.ostrzTusz,
@@ -249,4 +250,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.ostrzTusz,
   },
-});
+}));

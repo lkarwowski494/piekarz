@@ -10,6 +10,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
 import { typografia } from '../ui/tokeny';
+import { stylePoKroju } from '../ui/kroj-tytulow';
 export const CorruptStateRecoveryBanner: React.FC = () => {
   const [corruptInfo, setCorruptInfo] = useState<CorruptStateRecovery | null>(null);
 
@@ -48,7 +49,7 @@ export const CorruptStateRecoveryBanner: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   banner: {
     backgroundColor: theme.colors.powierzchnia, // błąd: tekst blad + obwódka blad (mapa-rol.md §3)
     borderColor: theme.colors.blad,
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   title: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.blad,
     fontWeight: '700',
     fontSize: typografia.style.objasnienie.pt,
@@ -93,4 +94,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: typografia.style.przypis.pt,
   },
-});
+}));

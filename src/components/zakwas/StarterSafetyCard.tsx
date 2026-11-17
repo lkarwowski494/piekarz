@@ -13,6 +13,7 @@ import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Karta } from '../../ui/karty/Karta';
 import { PoleObjawu } from '../../ui/karty/PoleObjawu';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 export interface StarterSafetyCardProps {
   hasHooch: boolean;
@@ -98,7 +99,7 @@ export function StarterSafetyCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   podpis: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
   objawy: { gap: odstepy.s },
   granica: { flexDirection: 'row', gap: odstepy.s, alignItems: 'flex-start' },
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     color: theme.colors.ostrzTusz,
   },
   safetyTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -154,4 +155,4 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     textAlign: 'center',
   },
-});
+}));

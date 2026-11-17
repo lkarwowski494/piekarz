@@ -17,6 +17,7 @@ import { Karta } from '../../ui/karty/Karta';
 import { WierszKarty } from '../../ui/karty/WierszKarty';
 import { IkonaKarty } from '../../ui/karty/IkonaKarty';
 import { useDuzyTekst } from '../../ui/karty/duzy-tekst';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 
 /** Części proporcji karmienia z formą liczby (EN: 1 part, 2 parts) [M1-audytor-generalny-074]. */
 const CZESCI = { one: '{n} cz.', few: '{n} cz.', many: '{n} cz.', other: '{n} cz.' };
@@ -161,9 +162,9 @@ export function StarterFeedingCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   podpis: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
-  subHeading: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
+  subHeading: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz },
   chipy: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s },
   // Chip na karcie jak chip pasa: promień `chip`, obwódka, wybrany `akcent` (karty/README.md §2) [M3 p2]
   chip: {
@@ -196,4 +197,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   copyFeedingBtnText: { fontSize: typografia.style.objasnienie.pt, fontWeight: '700', color: theme.colors.akcentTekst, textAlign: 'center' },
-});
+}));

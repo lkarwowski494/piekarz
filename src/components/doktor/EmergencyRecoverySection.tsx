@@ -19,6 +19,7 @@ import {
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 import { typografia } from '../../ui/tokeny';
+import { stylePoKroju } from '../../ui/kroj-tytulow';
 export interface EmergencyRecoverySectionProps {
   selectedRecoveryId: EmergencyCode | null;
   onSelectRecoveryId: (id: EmergencyCode | null) => void;
@@ -125,7 +126,7 @@ export function EmergencyRecoverySection({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = stylePoKroju(() => StyleSheet.create({
   sectionSubheading: {
     fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   recoveryCardTitle: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.naglowek.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
     lineHeight: 17,
   },
   recoveryStepsHeading: {
-    get fontFamily() { return theme.typography.krojTytulow; },
+    fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -281,4 +282,4 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontStyle: 'italic',
   },
-});
+}));
