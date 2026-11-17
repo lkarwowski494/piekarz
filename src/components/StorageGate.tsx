@@ -66,6 +66,8 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
     setBusy(true);
     try {
       await onRetry();
+    } catch {
+      // Nieudane ponowienie: ekran błędu bazy zostaje (stan z storage-status), a odrzucenie nie ma innego odbiorcy [KO-072, AC-04]
     } finally {
       setBusy(false);
     }

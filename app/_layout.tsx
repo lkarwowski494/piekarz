@@ -156,7 +156,11 @@ export default function RootLayout() {
         onRetry={async () => {
           // Pełny start bez zerowania licznika: zeruje go dopiero kamień milowy [M1-audytor-generalny-140]
           setRescue(false);
-          await startAplikacji(uruchomPoBazie);
+          try {
+            await startAplikacji(uruchomPoBazie);
+          } catch {
+            // Nieudany start: ekran błędu bazy (StorageGate) ma własne „Spróbuj ponownie” [KO-072, AC-04]
+          }
         }}
       />
     );

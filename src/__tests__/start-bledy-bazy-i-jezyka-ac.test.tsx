@@ -12,13 +12,15 @@ const flush = async () => {
 type Opcje = {
   initDatabase: () => Promise<void>;
   initLanguage: () => Promise<void>;
+  /** Tryb awaryjny (dwa nieudane starty): `beginStartup` zwraca `rescue: true`. */
+  rescue?: boolean;
 };
 
 function uruchom(o: Opcje) {
   jest.resetModules();
   jest.doMock('../lib/startup-guard', () => ({
     ...jest.requireActual('../lib/startup-guard'),
-    beginStartup: jest.fn(async () => ({ rescue: false })),
+    beginStartup: jest.fn(async () => ({ rescue: o.rescue === true })),
     markStartupSucceeded: jest.fn(async () => undefined),
   }));
   jest.doMock('../data/sqlite-store', () => ({ ...jest.requireActual('../data/sqlite-store'), initDatabase: jest.fn(o.initDatabase) }));
@@ -158,6 +160,59 @@ describe('AB-06/AB-07: initLanguage rzuca albo wisi', () => {
     expect(maTestId(tree, 'start-jezyk-ladowanie')).toBe(false);
     expect(maTestId(tree, 'start-kamien-milowy')).toBe(true);
     expect(m.ustawJezykSystemu).toHaveBeenCalled();
+    m.TR.act(() => tree.unmount());
+  });
+});
+
+describe('AC-04 (KO-072, D-427): odrzucone „Spróbuj ponownie” nie zostaje nieobsłużone', () => {
+  it('StorageGate: retryDatabase rzuca (initDatabase) — przycisk kończy się bez odrzucenia, ekran błędu zostaje', async () => {
+    let wywolania = 0;
+    const m = uruchom({
+      initDatabase: async () => {
+        wywolania += 1;
+        m.st.markStorageUnavailable('brak miejsca');
+        if (wywolania > 1) throw new Error('ratunek padł');
+      },
+      initLanguage: async () => undefined,
+    });
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    expect(maTestId(tree, 'storage-unavailable-screen')).toBe(true);
+    let wynik: unknown = 'nie wywołano';
+    await m.TR.act(async () => {
+      wynik = await tree.root.findByProps({ testID: 'storage-retry' }).props.onPress().then(() => 'ok', (e: unknown) => e);
+      await flush();
+    });
+    expect(wynik).toBe('ok');
+    expect(maTestId(tree, 'storage-unavailable-screen')).toBe(true);
+    expect(odrzucenia).not.toHaveBeenCalled();
+    m.TR.act(() => tree.unmount());
+  });
+
+  it('RescueScreen: „Spróbuj ponownie” w trybie awaryjnym, gdy initDatabase rzuca — bez odrzucenia', async () => {
+    const m = uruchom({
+      rescue: true,
+      initDatabase: async () => {
+        throw new Error('baza nadal niedostępna');
+      },
+      initLanguage: async () => undefined,
+    });
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    expect(maTestId(tree, 'rescue-retry')).toBe(true);
+    let wynik: unknown = 'nie wywołano';
+    await m.TR.act(async () => {
+      wynik = await tree.root.findByProps({ testID: 'rescue-retry' }).props.onPress().then(() => 'ok', (e: unknown) => e);
+      await flush();
+    });
+    expect(wynik).toBe('ok');
+    expect(odrzucenia).not.toHaveBeenCalled();
     m.TR.act(() => tree.unmount());
   });
 });
