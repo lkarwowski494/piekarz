@@ -6,7 +6,7 @@ import { PasZakwasu } from '../../../src/components/zakwas/PasZakwasu';
 import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 import { odstepy } from '../../../src/ui/tokeny';
 import { theme } from '../../../src/ui/theme';
-import { t } from '../../../src/lib/i18n';
+import { t, useLang } from '../../../src/lib/i18n';
 import { dniTemu, godzinTemu } from '../../../src/lib/czas-temu';
 import { guardSave } from '../../../src/lib/save-guard';
 import { resyncNotifications } from '../../../src/lib/notifications';
@@ -139,6 +139,8 @@ export default function ZakwasScreen() {
     return calculateStarterFeeding(targetYield, selectedRatio);
   }, [targetYield, selectedRatio]);
 
+  // Język w zależnościach: etykieta liczy t(), a useMemo nie widzi zmiany języka sam [KO-072, AC-01, D-427]
+  const jezyk = useLang();
   // Time since last feeding label
   const lastFedLabel = useMemo(() => {
     // Brak dokarmienia zostaje brakiem, nie „przed chwilą” [M1-audytor-generalny-026; 08-programista-003]
@@ -148,7 +150,7 @@ export default function ZakwasScreen() {
     if (diffHours < 24) return godzinTemu(diffHours);
     const diffDays = Math.floor(diffHours / 24);
     return dniTemu(diffDays);
-  }, [starter.lastFedAt]);
+  }, [starter.lastFedAt, jezyk]);
 
   const akcje = useAkcjeZakwasu({
     starter, setStarter, startersList, setStartersList, selectedRatio, loadStarterData,
