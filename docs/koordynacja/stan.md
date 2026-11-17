@@ -33,6 +33,7 @@ Zadania do wznowienia (kolejność):
 6. Koordynator `…ByVFXN3K6UyZ9U7yZ8`: rola M9 niezłożona (brak `prompts`) — przy wznowieniu zgoda albo nowa sesja koordynatora z dostępem.
 
 ## Teraz
+- **17.11 06:25 — WZNOWIONE** (właściciel: „Kontynuuj”). Stan bez zmian od 14.11 (`master` = `redesign` = `98efd38b`); poprzednik `…BykptcTHHjD4xZ9HCQ` zarchiwizowany (15,35 USD); aplikacja 43218573090 wygasła 15.11 → nowe zrzuty wymagają nowego buildu. Właściciel: „Naprawa + P2 aplikacji” (KO-067). **Sesja AA** (08 fix, `polecenia/AA.md`, gałąź `naprawy/M2-koordynator-napraw-2026-11-17-zrzuty13` @ `98efd38b`, pula D-418…D-423) — start. Dalej: odbiór → E2E na gałęzi AA → pytanie o master → nowy build + pełne zrzuty → L-004 → pytanie o asc-zrzuty.
 - **14.11 09:02 — WSTRZYMANE przez właściciela.** Słowa (AskUserQuestion, odpowiedź na pytanie o P1 zrzutów #13): „Zapisz stan i wstrzymaj pracę. Wznowie jak będę chciał”; na pytanie o en-US 02: „Jak q1”. Nic nie biegnie: sesji podrzędnych brak, workflowów w toku brak, subagenci zakończeni. Przypomnienia koordynatora `…BvsaNByxks7DxtBjJf` wyłączone (`enabled=false`, nie usunięte): `trig_01MhbsjAdHUTM6JuoCoQVeuS` linia 14:00 14.11, `trig_01R7LzLJSLnGcEz8EZ9fZ8vT` linia 05:00 15.11 (kontrole 07:05, 08:30, 08:50 wykonane). Wznowienie tylko na słowo właściciela.
   - Do wznowienia (kolejność): (1) pytanie o P1 `id/iphone-6.3/04-doktor.png` (urwany wiersz „…saat volumeny” — błąd aplikacji) z opcjami: najpierw naprawa (rekom.: sesja 08 + test + sprawdzenie 04 6,3″ w innych językach → E2E → zgoda master → nowy build i pełne zrzuty), naprawa + P2 aplikacji naraz, wyślij obecne (asc-zrzuty z #13, dry-run najpierw); (2) en-US 02 „Grams for Every Ingredient” vs uncje: rekom. zmiana podpisu en-US w metadanych; (3) archiwizacja poprzednika `session_01T66VBykptcTHHjD4xZ9HCQ` (filtr auto odrzucił) — krok właściciela; (4) przy wznowieniu włączyć/odtworzyć linie 05:00/14:00.
   - Terminy: artefakt aplikacji 43218573090 wygasa **15.11 12:56 UTC** (po nim zrzuty tylko z nowym buildem); `sklep-zrzuty` 14105289287 i `sklep-ramki` 14105634649 z #13 — retencja 14 dni (~28.11). Raport przeglądu: `docs/koordynacja/przeglady/L004-zrzuty-13.md`; pokaz 9 ramek wysłany właścicielowi 09:00.
@@ -206,7 +207,7 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 - Cudze przypomnienia na koncie (innych aplikacji, nie ruszać): „Dyżur nocny 1”, „Raport nocy D-359”, „Wynik E2E 4e1c00d”, „Koordynacja: pytanie o tryb nocny”, „Pogoda”.
 
 ## Pule numerów decyzji
-- **13.11:** W (hr): D-400…D-405 · X (ASC v2): D-406…D-411 · Y (E2E 06): D-412…D-417 · KO następny: KO-067 (V: D-394…D-399, zajęte D-394).
+- **13.11:** W (hr): D-400…D-405 · X (ASC v2): D-406…D-411 · Y (E2E 06): D-412…D-417 · KO następny: KO-068 (V: D-394…D-399, zajęte D-394).
 - Koordynator (M3/M9): D-292…D-299 wolne (do wpisów w `docs/decyzje.md` przez sesje wdrażające); KO-005…KO-009 zajęte; KO-010 zajęte; KO następny: KO-011.
 - M2 (sesja A i następczynie): od D-300; zajęte do D-316; pula D-317…D-319; następny wolny: **D-317**.
 - B (reaudyt M1): D-320…D-329.
@@ -464,3 +465,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 14.11 08:52 | M9 | #13 attempt 2 **zielone** (run success 08:34; log `podpisy i ramki` 132388739960: „sklep-ramki … Artifact ID 14105634649”). Przegląd L-004 ramek: subagent (10-wydanie audit, opus) w tle. | wynik przeglądu → pokaz → pytanie |
 | 14.11 09:05 | M9 | Przegląd L-004 ramek #13 (subagent 10-wydanie audit, opus; 7,3 min): 476 mechanicznie OK, 1 P1 (id 6,3″ 04 urwany wiersz — sprawdzone obrazem), 13 P2, 2 P3. Pokaz 9 ramek właścicielowi; pytanie: naprawa P1 przed wysyłką vs inne. | odpowiedź właściciela |
 | 14.11 09:02 | M9 | Pokaz 9 ramek wysłany (SendUserFile). Właściciel: „Zapisz stan i wstrzymaj pracę. Wznowie jak będę chciał” (en-US 02: „Jak q1”). **WSTRZYMANE**; linie 14:00 14.11 i 05:00 15.11 wyłączone (`enabled=false`). Kontekst koordynatora ~15%. | wznowienie na słowo właściciela |
+| 17.11 06:25 | M9 | Wznowione („Kontynuuj”). KO-067 „Naprawa + P2 aplikacji”. Gałąź AA utworzona @ `98efd38b`, polecenie `polecenia/AA.md`. Kontekst koordynatora 23,5%. | start AA, linie 14:00/05:00 |

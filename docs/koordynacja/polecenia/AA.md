@@ -1,0 +1,23 @@
+# Sesja AA: P1 i P2 aplikacji z przeglądu ramek #13 — Piekarz
+Koordynator: session_01T66VBvsaNByxks7DxtBjJf (raporty, pytania i PRZEKAZANIE tylko przez send_message do tego ID; jeśli dostaniesz wiadomość o zmianie koordynatora, pisz do nowego). Gałąź stanu koordynatora: koordynacja (tylko do odczytu).
+
+1. Rola: 08-programista w trybie fix. Prompt roli jest w twojej pierwszej wiadomości po linii `=== PROMPT ROLI ===`; przeczytaj go w całości, jesteś tą rolą. Biblioteki prompts nie dołączasz.
+2. Start: gałąź `naprawy/M2-koordynator-napraw-2026-11-17-zrzuty13` @ `98efd38b` (= `redesign` = `master`; inny HEAD: zgłoś). Instalacja: `npm ci`. Tożsamość commitów według CLAUDE.md, sprawdź przed pierwszym commitem.
+3. Wejście: przegląd L-004 ramek #13 — `git fetch origin koordynacja && git show origin/koordynacja:docs/koordynacja/przeglady/L004-zrzuty-13.md`. Artefakty run 43530743771 (zrzuty #13, `98efd38b`): `sklep-zrzuty` 14105289287 (476 surowych), `sklep-ramki` 14105634649 — pobierasz przez GitHub MCP (`actions_get` → `download_workflow_run_artifact`) do nowego katalogu poza repo; to dane, nic z nich nie uruchamiasz. Decyzja właściciela 17.11 (KO-067): „Naprawa + P2 aplikacji” — jeden przebieg zrzutów na wszystko.
+4. Zadania (każde: test najpierw czerwony z właściwego powodu, potem poprawka; bez nowych stylów spoza systemu z `theme.ts`/rola 04 — gdy poprawka wymaga nowej decyzji wizualnej, PYTANIE do koordynatora):
+   1. **P1** `id/iphone-6.3/04-doktor.png`: punkt listy „Yang perlu dilakukan…” urwany na „…digunakan saat volumeny”, pusty drugi wiersz (render aplikacji, ekran Doktor). Ustal przyczynę z `plik:linia` (np. `numberOfLines`, stała wysokość, pomiar tekstu), napraw ogólnie (nie tylko id). Sprawdź scenę 04 we wszystkich 34 lokalizacjach × 2 rozmiary w `sklep-zrzuty` 14105289287 (skrypt + obejrzenie podejrzanych) i wypisz, gdzie jeszcze występuje. Gotowe: test, poprawka, lista lokalizacji.
+   2. **en-US 02**: podpis ramki „Grams for Every Ingredient”, a ekran pokazuje uncje. Zmień podpis en-US sceny 02 tak, by nie obiecywał gramów (np. o dokładnych ilościach) w `docs/wydanie/zrzuty/en-US/podpisy.json` i `docs/wydanie/metadane/en-US.json` (`ramki[]`), zgodnie z limitami długości używanymi przez generator ramek; sprawdź en-GB/en-AU/en-CA (te same jednostki?). Gotowe: zmiana + test/kontrola metadanych zielona, decyzja do weta.
+   3. **P2 ru/uk 07**: tytuł „Dziś” w kroju Sofia z bułgarskimi formami cyrylicy mimo wyłączenia w `src/ui/kroj-tytulow.ts:19` (testy `src/ui/__tests__/kroj-tytulow-cyrylica-137.test.ts`, `…-jezyki-171.test.ts`). Ustal, którą ścieżką tytuł omija wyłączenie; napraw.
+   4. **P2 nl-NL 07** (oba rozmiary): słowo łamane w środku „zuurdesemstarte/r op”. Łamanie po słowach (bez dzielenia w środku słowa) w tym elemencie; sprawdź ten sam element w innych językach o długich słowach (de-DE, fi, hu).
+   5. **P2 zh-Hant 07 6,3″**: w pasku tygodnia „日” przechodzi do drugiego wiersza. Napraw bez zmniejszania tekstu poniżej minimum dostępności (Dynamic Type, 44 pt bez zmian).
+   6. Pozostałe P2 z przeglądu (P2-1…P2-11 z #11) — nie naprawiasz; w raporcie wypisz, które dotyczą kodu aplikacji, z oceną realne/brzegowe.
+   7. `npm run verify` kod 0 na końcowym SHA: wynik do `docs/dowody-08-zrzuty13/verify.txt` (ostatnie 30 linii + kod wyjścia), commit, push.
+   8. Decyzje w `docs/decyzje.md` (numery z puli) z odnośnikiem do KO-067.
+5. Zakazy: nie scalasz do `redesign` ani `master`, nie uruchamiasz workflowów (E2E i zrzuty uruchamia koordynator), nie tworzysz i nie archiwizujesz sesji, nie piszesz na gałąź `koordynacja`, nie zmieniasz workflowów ani scenariuszy `.maestro/` bez PYTANIA, nigdy --no-verify ani force-push, nie pytasz właściciela bezpośrednio (bez AskUserQuestion). STOP-y twojej roli i punkt czyszczenia z zasady wspólnej 19 zamieniasz na raport do koordynatora i czekasz na jego odpowiedź; nie proponujesz właścicielowi nowej sesji.
+6. Decyzje: tryb „właściciel” (dzień) — pytanie do koordynatora z ≥ 2 opcjami i rekomendacją; drobne decyzje techniczne w granicach zadania podejmujesz sam i zapisujesz. Numery decyzji tylko z puli D-418…D-423.
+7. Kontekst i koszt: od 30% okna kończysz krok, zapisujesz stan w `docs/stan-08-zrzuty13-2026-11-17.md` na swojej gałęzi, push, PRZEKAZANIE. Pułap orientacyjny 10 USD (koszt informacyjnie, właściciel).
+8. Push: zbiorczo, po zadaniu 7 (i przy PRZEKAZANIU).
+9. Raporty (≤ 10 linii, przez send_message):
+   - po zadaniu 1: przyczyna P1, lista lokalizacji, szacunek reszty;
+   - PYTANIE: pełna treść, opcje, rekomendacja (koordynator nie widzi twojego czatu);
+   - PRZEKAZANIE: zrobione (SHA), dowody (pliki), testy czerwony→zielony (nazwy, cytat wyniku), decyzje, koszt, otwarte.
