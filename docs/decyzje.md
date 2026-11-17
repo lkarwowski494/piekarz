@@ -2284,7 +2284,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 
 ### [D-420] 2026-11-17 — nl-NL: kafel „Zakładam zakwas” bez słowa dzielonego w środku (M2, sesja AA, rola 08 fix; KO-067, L004-13-P2-nl07)
 - **Powód:** zrzuty #13 (`nl-NL/iphone-6.{3,9}/07-offline.png`): „zuurdesemstart / er op”. Słowo 16 liter nie mieści się w kaflu na 6,3″ (ok. 117 pt, 15 pt); iOS dzieli wtedy słowo (D-142: słowo dłuższe niż wiersz łamie się jak UILabel).
-- **Pomiar:** zrzuty 6,3″ 07 wszystkich 34 lokalizacji obejrzane (montaż 2×17, `AA-dane/out/g1.png`, `g2.png`): tylko nl-NL łamie słowo; de-DE, fi, hu mieszczą się („Sauerteig”, „hapanjuuren”, „Kovászt”); no „surdeigsstarter” (15 liter) mieści się. Jedna rozmiar-6,9″ ma ten sam tekst.
+- **Pomiar:** zrzuty 6,3″ 07 wszystkich 34 lokalizacji obejrzane (montaż 2×17, `AA-dane/out/g1.png`, `g2.png`): tylko nl-NL łamie słowo; de-DE, fi, hu mieszczą się („Sauerteig”, „hapanjuuren”, „Kovászt”); no „surdeigsstarter” (15 liter) mieści się. 6,9″ ma ten sam tekst w nl-NL.
 - **Decyzja:** „Ik zet een zuurdesem op” (jak „Ik bak met zuurdesem” w sąsiednim kaflu; „zuurdesem” to w nl zakwas). Test `src/lib/__tests__/kafle-start-dlugie-slowa-d420.test.ts`: najdłuższe słowo trzech nazw kafli ≤ 15 liter w 33 językach (ja i zh-Hant bez spacji pominięte).
 - **Odrzucone:** mniejszy tekst kafla (zakaz zejścia poniżej rozmiaru z tokenów), kafle pod sobą zależnie od pomiaru (nowa decyzja wizualna, pomiar niedeterministyczny), dywiz (D-142: bez łączników).
 - **Status:** tekst dostarczony przez rolę 08 w granicach zatwierdzonego ID; do weta i przeglądu native (rola 09). Granica 15 liter to pomiar dla 6,3″, nie gwarancja dla 320 pt.
