@@ -124,7 +124,7 @@ export const CZESC: Record<string, string> = {
   'Zaimportowano recepturę': 'Recept geïmporteerd',
   'Zaimportowano. Pominięto uszkodzone wpisy: {count}.': 'Geïmporteerd. Overgeslagen beschadigde items: {count}.',
   'Zaimportuj przepis': 'Recept importeren',
-  'Zakładam zakwas': 'Ik zet een zuurdesemstarter op',
+  'Zakładam zakwas': 'Ik zet een zuurdesem op',
   'Zakładanie zakwasu od zera, temperatura i codzienna opieka.': 'Een zuurdesemstarter vanaf nul opzetten, temperatuur en dagelijkse verzorging.',
   'Zakładanie zakwasu: dzień {n} zapisany': 'Zuurdesemstarter opzetten: dag {n} opgeslagen',
   'Zakładanie zakwasu: dzień {n}, do zrobienia': 'Zuurdesemstarter opzetten: dag {n}, te doen',
