@@ -12,6 +12,7 @@ import { beginStartup, markStartupSucceeded } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
 import { initLanguage, t, useLang, ustawJezykSystemu } from '../src/lib/i18n';
+import { JEZYK_START_LIMIT_MS, jezykNaStart } from '../src/lib/start-jezyka';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
@@ -28,25 +29,30 @@ async function retryDatabase(): Promise<void> {
 }
 
 /**
- * Start aplikacji wspólny dla zwykłego startu i „Spróbuj ponownie” w trybie awaryjnym [M1-audytor-generalny-140].
- * Zwraca zatrzymanie nasłuchu płatności.
+ * Część startu po otwarciu bazy: język, jednostki, płatności, powiadomienia. Zwraca zatrzymanie nasłuchu płatności.
+ * Język z limitem czasu: błąd albo zawieszenie odczytu daje język systemu, a ekrany i tak się rysują [KO-071, AB-06/07].
  */
-async function startAplikacji(poJezyku: () => void): Promise<() => void> {
-  await initDatabase();
+async function poOtwarciuBazy(poJezyku: () => void): Promise<() => void> {
   // Język z zapisu albo z systemu, po bazie (zapis w app_settings) [M1-audytor-generalny-048]
-  try {
-    await initLanguage();
-  } finally {
-    // Ekrany rysują się dopiero teraz: pierwszy render w języku źródłowym zostawiał ru/uk przy kroju z bułgarskimi
-    // formami, a vi/CJK przy kroju bez glifów [KO-070, D-423]
-    poJezyku();
-  }
+  await jezykNaStart(initLanguage, ustawJezykSystemu, JEZYK_START_LIMIT_MS);
+  // Ekrany rysują się dopiero teraz: pierwszy render w języku źródłowym zostawiał ru/uk przy kroju z bułgarskimi
+  // formami, a vi/CJK przy kroju bez glifów [KO-070, D-423]
+  poJezyku();
   // Jednostki z zapisu albo według regionu urządzenia (D-044); rejestruje przeliczanie tekstów t() [M1-audytor-generalny-096]
   await initUnitSystem();
   // Nasłuch transakcji StoreKit od startu, zanim użytkownik otworzy ekran zakupu (MON-04) [M1-audytor-generalny-008]
   const stop = uruchomPlatnosci();
   void resyncNotifications();
   return stop;
+}
+
+/**
+ * Start aplikacji wspólny dla zwykłego startu i „Spróbuj ponownie” w trybie awaryjnym [M1-audytor-generalny-140].
+ * `poBazie` jest jednokrotne (patrz RootLayout), więc ponowienie po błędzie bazy też doprowadza start do końca.
+ */
+async function startAplikacji(poBazie: () => Promise<void>): Promise<void> {
+  await initDatabase();
+  await poBazie();
 }
 
 /** Wyjątek renderu: ekran awaryjny z eksportem zamiast pętli awarii [M1-audytor-generalny-018]. */
@@ -67,6 +73,21 @@ export default function RootLayout() {
 
   const stopPlatnosci = useRef<(() => void) | undefined>(undefined);
   const kamien = useRef(false);
+  // Reszta startu po otwarciu bazy wykonuje się raz: pierwszy start, a gdy `initDatabase` rzucił, dopiero udane „Spróbuj ponownie”
+  // z ekranu błędu bazy (bez tego bramka języka zostawała na ekranie ładowania) [KO-071, AB-01]
+  const poBazie = useRef<Promise<void> | null>(null);
+  const uruchomPoBazie = (): Promise<void> => {
+    poBazie.current ??= poOtwarciuBazy(poJezyku).then(
+      (stop) => {
+        stopPlatnosci.current = stop;
+      },
+      (e: unknown) => {
+        poBazie.current = null;
+        throw e;
+      },
+    );
+    return poBazie.current;
+  };
 
   useEffect(() => {
     void (async () => {
@@ -78,7 +99,11 @@ export default function RootLayout() {
         return;
       }
       setRescue(false);
-      stopPlatnosci.current = await startAplikacji(poJezyku);
+      try {
+        await startAplikacji(uruchomPoBazie);
+      } catch {
+        // Stan bazy (ekran błędu z „Spróbuj ponownie”) pokazuje StorageGate; wyjątek nie ma innego odbiorcy [KO-071, AB-01]
+      }
     })();
     return () => stopPlatnosci.current?.();
   }, []);
@@ -131,7 +156,7 @@ export default function RootLayout() {
         onRetry={async () => {
           // Pełny start bez zerowania licznika: zeruje go dopiero kamień milowy [M1-audytor-generalny-140]
           setRescue(false);
-          stopPlatnosci.current = await startAplikacji(poJezyku);
+          await startAplikacji(uruchomPoBazie);
         }}
       />
     );
@@ -141,7 +166,12 @@ export default function RootLayout() {
     <>
       {/* default: iOS sam dobiera kolor paska do jasnego albo ciemnego wyglądu (D-045) */}
       <StatusBar barStyle="default" />
-      <StorageGate onRetry={retryDatabase}>
+      <StorageGate
+        onRetry={async () => {
+          await retryDatabase();
+          await uruchomPoBazie();
+        }}
+      >
         {/* onLayout = kamień milowy strażnika startu (pierwszy ekran po bazie) [M1-audytor-generalny-140] */}
         {!jezykGotowy ? (
           <View style={styles.ladowanie} testID="start-jezyk-ladowanie" accessibilityRole="progressbar">

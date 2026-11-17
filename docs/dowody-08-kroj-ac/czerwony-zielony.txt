@@ -1,0 +1,16 @@
+=== AB-01/AB-06/AB-07 CZERWONY na 52c755c6 (kod bez poprawki) ===
+$ npx jest src/__tests__/start-bledy-bazy-i-jezyka-ac.test.tsx --ci
+    ✕ po udanym ponowieniu ekrany się rysują (nie zostaje ekran ładowania), a reszta startu się wykonuje (748 ms)
+    ✓ ponowienie po zwykłym starcie nie uruchamia języka, jednostek i płatności drugi raz (120 ms)
+    ✕ initLanguage rzuca: ekrany się rysują z językiem systemu, reszta startu idzie dalej, bez nieobsłużonego odrzucenia (88 ms)
+    ✕ initLanguage wisi: po limicie czasu ekrany się rysują z językiem systemu (102 ms)
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 1 passed, 4 total
+exit=1
+
+=== AB-01/AB-06/AB-07 ZIELONY po poprawce ===
+$ npx jest src/__tests__/start-bledy-bazy-i-jezyka-ac.test.tsx src/lib/__tests__/start-jezyka.test.ts --ci
+Test Suites: 2 passed, 2 total
+Tests:       8 passed, 8 total
+exit=0
+
