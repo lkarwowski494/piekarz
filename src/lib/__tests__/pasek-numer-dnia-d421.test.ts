@@ -5,6 +5,7 @@
  */
 import { setLang, type Lang } from '../i18n';
 import { dniPaska } from '../kalendarz-pasek';
+import { formatNumerDnia } from '../format';
 import { wStrefie } from '../../core/__tests__/helpers/strefa';
 
 const lok = (y: number, m: number, d: number, h = 0) => new Date(y, m - 1, d, h).getTime();
@@ -16,5 +17,11 @@ describe('numer dnia = sama liczba we wszystkich językach (D-421)', () => {
   it.each<Lang>(['zh-Hant', 'ja', 'ko', 'pl', 'en', 'hu', 'vi'])('%s: numery 15–21, bez znaku dnia („日”, „일”)', (l) => {
     setLang(l);
     expect(dniPaska(lok(2026, 11, 17, 10), 0).map((d) => d.numer)).toEqual(['15', '16', '17', '18', '19', '20', '21']);
+  });
+
+  it('formatNumerDnia: sama liczba dnia z Intl; bez zera wiodącego', () => {
+    expect(formatNumerDnia(lok(2026, 11, 5), 'zh-Hant')).toBe('5');
+    expect(formatNumerDnia(new Date(2026, 10, 15), 'ko')).toBe('15');
+    expect(formatNumerDnia(lok(2026, 11, 22), 'pl')).toBe('22');
   });
 });

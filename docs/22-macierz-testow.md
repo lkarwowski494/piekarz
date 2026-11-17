@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 667 | 667 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 682 | 682 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 683 | 683 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 266 | 266 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1686** | Pokrytych: **1686** | Brakujących: **0**
+Łącznie elementów: **1687** | Pokrytych: **1687** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -28,7 +28,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/architektura-dokumenty-024.test.ts |
 | `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/asc-zrzuty.test.ts, tests/instrukcja-ustawien.test.ts |
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/interaction-guards.test.ts |
-| `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/dzis-d4b.test.tsx |
+| `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/ui/__tests__/kroj-tytulow-zmiana-jezyka-d419.test.tsx |
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/helpers/plan-godzina.ts |
 | `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Dziennik` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1386 kolejnych elementów w pełnym wykazie)*
+*(... i 1387 kolejnych elementów w pełnym wykazie)*
