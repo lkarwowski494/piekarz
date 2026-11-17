@@ -17,4 +17,4 @@ npm run verify -> 686 suites, 7586 tests passed, exit 0 (docs/dowody-08-kroj/ver
 681/682 suites; jedyny czerwony: tests/matrix-kolejnosc-plikow (docs/22 nieaktualny przez nowe pliki testów, naprawione matrix:update)
 
 ## Grep po poprawce
-grep -rn 'get fontFamily' app src -> 5 trafień poza komentarzem
+grep -rn 'get fontFamily' app src -> 6 trafień, wszystkie w komentarzach (zero deklaracji gettera; strażnik AST w tests/kroj-tytulow-straznik-d423.test.ts to potwierdza)
