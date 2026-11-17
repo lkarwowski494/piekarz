@@ -477,3 +477,4 @@ Przekazanie sesji A: przy ≥30% wysyła prompt przekazania (plik na `audit-m1/p
 | 17.11 07:35 | M9 | Recenzja AA cz. 2: bez P0/P1 (7 testów czerwonych na `cadaf28e`, 20/20 zielonych na `6283850c`). | kontrola 08:40 |
 | 17.11 08:50 | M9 | #14 zielone (2 ramki obejrzane, P1 usunięty), E2E #128 zielone na `9f523b96`. FF redesign odrzucony przez filtr auto. Pytanie do właściciela: master + pełne zrzuty. | odpowiedź właściciela |
 | 17.11 09:15 | M9 | Właściciel: „Tak, master + pełne (Recommended)” (KO-069). FF redesign+master ← `9f523b96`. Dispatch zrzuty #15 run 44053819225. | kontrola 12:30 |
+| 17.11 12:31 | M9 | Kontrola #15: status „queued” (oczekiwane, max-parallel 4). Następna kontrola 16:15. | kontrola 16:15 |
