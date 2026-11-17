@@ -79,6 +79,15 @@ describe('ramki sklepu: podpisy z metadanych, oznaczenie Pro, kolory i kroje (KO
     expect(new Set(naglowki).size).toBe(cfg.ekrany.length);
   });
 
+  // D-418 (KO-067, L004-13-P2-enUS02): zrzuty en-US pokazują uncje (domyślny układ regionu US, D-044: unit-converter.ts:33),
+  // więc podpis ramki nie obiecuje gramów; wspólny podpis EN (źródło §5.1 dokumentu) jest neutralny dla wszystkich czterech lokalizacji angielskich.
+  test('en-US: podpis ramki 02 nie obiecuje gramów, a ekran pokazuje uncje (D-044, D-418)', () => {
+    const { naglowki } = meta('en-US');
+    expect(naglowki.filter((v) => typeof v === 'string' && /\bgrams?\b/i.test(v))).toEqual([]);
+    const podpisy: { ramki: Array<{ plik: string; naglowek: string }> } = JSON.parse(read('docs/wydanie/zrzuty/en-US/podpisy.json'));
+    expect(podpisy.ramki.map((r) => r.naglowek)).toEqual(naglowki);
+  });
+
   test('oznaczenie Pro: każda lokalizacja sklepu, równe t("wymaga Piekarz Pro") w jej języku', () => {
     expect(Object.keys(cfg.oznaczenie).sort()).toEqual(kody);
     for (const kod of kody) {

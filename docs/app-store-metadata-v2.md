@@ -133,7 +133,7 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 ### Ramka 2: Receptura i ilości z procentem piekarskim
 - **Główny nagłówek (PL):** *Gramy każdego składnika od razu*
 - **Podtytuł (PL):** *Mąka i woda z zakwasu wliczone w procent piekarski*
-- **Main Headline (EN):** *Grams for Every Ingredient*
+- **Main Headline (EN):** *Exact Amounts for Every Ingredient*
 - **Sub-headline (EN):** *Flour and water from your starter counted in the baker's percentage*
 - **Widok w ramce:** ekran receptury (`app/(tabs)/receptury/receptura.tsx`) z ilościami „Do miski” i przyciskiem „Ułóż plan”.
 
