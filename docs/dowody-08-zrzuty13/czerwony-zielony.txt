@@ -5,3 +5,9 @@ D-420 src/lib/__tests__/kafle-start-dlugie-slowa-d420.test.ts nl: Received ["zuu
 D-421 src/lib/__tests__/pasek-numer-dnia-d421.test.ts zh-Hant, ja, ko: Received "15日"/"15일" zamiast "15" -> 8 passed
 P1 (D-422): brak testu i poprawki, przyczyna niepotwierdzona.
 Zrzuty przed/po: przed w artefakcie sklep-zrzuty 14105289287; "po" po przebiegu zrzutów (koordynator).
+
+Część 2 (kod z cadaf28e przed poprawką):
+D-421 dopisek src/lib/__tests__/pasek-numer-dnia-d421.test.ts (atrapa formatToParts: jedna część „15日” jak Hermes iOS): Received "15日" (3 testy: zh-Hant, ja, ko) -> 11 passed
+D-419 dopisek src/ui/__tests__/kroj-tytulow-dzis-d419.test.tsx (PlanyWypiekow, WypiekiNaSpirali, UprzedzenieKoncaPro): Expected "Sofia Sans Semi Condensed", Received undefined -> 3 passed
+D-422 src/components/doktor/__tests__/punkt-listy-doktor-d422.test.tsx (kontrola zastępcza stylu, nie dowód zachowania): expect(s.flex).toBeUndefined() Received 1 -> 1 passed
+verify końcowy: docs/dowody-08-zrzuty13/verify-2.txt (kod 0, 7548 testów)
