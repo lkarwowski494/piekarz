@@ -58,3 +58,28 @@ exit=1
 Tests:       8 passed, 8 total
 exit=0
 
+=== AB-05 CZERWONY: mutacja useNaglowek bez 'jezyk' w zależnościach useMemo ([kolory, jezyk] -> [kolory]) ===
+$ npx jest src/ui/__tests__/naglowek-jezyk-ac.test.tsx --ci
+    ✕ pl → ru: tytuł zwykły i duży przechodzą na krój systemowy (83 ms)
+    ✕ pl → uk: tytuł zwykły i duży przechodzą na krój systemowy (3 ms)
+    ✕ pl → vi: tytuł zwykły i duży przechodzą na krój systemowy (3 ms)
+    ✕ pl → ja: tytuł zwykły i duży przechodzą na krój systemowy (1 ms)
+    ✕ pl → ko: tytuł zwykły i duży przechodzą na krój systemowy (2 ms)
+    ✕ pl → zh-Hant: tytuł zwykły i duży przechodzą na krój systemowy (1 ms)
+    ✕ ru → pl: wraca Sofia (2 ms)
+    ✓ ta sama grupa krojów (pl → en): opcje bez zmiany kroju (1 ms)
+Tests:       7 failed, 1 passed, 8 total
+exit=1
+
+=== AB-05 ZIELONY (kod bez mutacji) ===
+    ✓ pl → ru: tytuł zwykły i duży przechodzą na krój systemowy (96 ms)
+    ✓ pl → uk: tytuł zwykły i duży przechodzą na krój systemowy (4 ms)
+    ✓ pl → vi: tytuł zwykły i duży przechodzą na krój systemowy (3 ms)
+    ✓ pl → ja: tytuł zwykły i duży przechodzą na krój systemowy (2 ms)
+    ✓ pl → ko: tytuł zwykły i duży przechodzą na krój systemowy (3 ms)
+    ✓ pl → zh-Hant: tytuł zwykły i duży przechodzą na krój systemowy (3 ms)
+    ✓ ru → pl: wraca Sofia (2 ms)
+    ✓ ta sama grupa krojów (pl → en): opcje bez zmiany kroju (2 ms)
+Tests:       8 passed, 8 total
+exit=0
+
