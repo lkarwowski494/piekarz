@@ -88,7 +88,8 @@ describe('199: kopia receptury bez straty piecowej, gdy F-48 PÓŹNIEJ', () => {
   });
 
   it('EN: to samo po angielsku', async () => {
-    setLang('en');
+    // Ekran subskrybuje język (KO-071, D-424), więc zmiana przy zamontowanym ekranie idzie w act
+    act(() => setLang('en'));
     const s = await skopiuj();
     for (const brak of ['Bake loss', 'crumb moisture', 'after baking', 'Baked loaf', 'Strata', 'po upieczeniu']) {
       expect({ brak, jest: s.toLowerCase().includes(brak.toLowerCase()) }).toEqual({ brak, jest: false });

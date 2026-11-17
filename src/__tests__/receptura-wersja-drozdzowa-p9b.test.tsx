@@ -98,7 +98,8 @@ describe('D-154 przełącznik wersji na recepturze', () => {
     expect(host(root, 'recipe-version')[0].props.accessibilityLabel).toBe(t('Wersja receptury'));
     expect(tekst(host(root, 'recipe-version')[0])).toBe('na zakwasie na drożdżach');
     expect([t('na zakwasie|wersja receptury'), t('na drożdżach|wersja receptury')]).toEqual(['na zakwasie', 'na drożdżach']);
-    setLang('en');
+    // Ekran subskrybuje język (KO-071, D-424), więc zmiana przy zamontowanym ekranie idzie w act
+    act(() => setLang('en'));
     expect([t('Wersja receptury'), t('na zakwasie|wersja receptury'), t('na drożdżach|wersja receptury')]).toEqual(['Recipe version', 'sourdough', 'with yeast']);
   });
 
