@@ -28,24 +28,34 @@ jest.mock('expo-router', () => {
   };
   return { Tabs, Stack, router: { push: jest.fn() }, useRouter: () => ({ push: jest.fn() }) };
 });
-// Układ korzenia bez startu aplikacji (baza, płatności, znacznik startu): test czyta tylko opcje ekranów
+// Start bez prawdziwej bazy, płatności i powiadomień: układ korzenia rysuje ekrany po initLanguage() (D-423), więc
+// start musi się zakończyć; test czyta tylko opcje ekranów
 jest.mock('../src/lib/startup-guard', () => ({
-  beginStartup: () => new Promise(() => undefined),
+  beginStartup: async () => ({ rescue: false }),
   markStartupSucceeded: jest.fn(),
   STARTUP_MILESTONE_MS: 1,
 }));
+jest.mock('../src/data/sqlite-store', () => ({ ...jest.requireActual('../src/data/sqlite-store'), initDatabase: async () => undefined }));
+jest.mock('../src/lib/i18n', () => ({ ...jest.requireActual('../src/lib/i18n'), initLanguage: async () => undefined }));
+jest.mock('../src/lib/unit-converter', () => ({ ...jest.requireActual('../src/lib/unit-converter'), initUnitSystem: async () => 'metric' }));
+jest.mock('../src/lib/platnosci/stan', () => ({ ...jest.requireActual('../src/lib/platnosci/stan'), uruchomPlatnosci: () => () => undefined }));
+jest.mock('../src/lib/notifications', () => ({ ...jest.requireActual('../src/lib/notifications'), resyncNotifications: async () => undefined }));
 jest.mock('../src/components/StorageGate', () => ({
   StorageGate: ({ children }: { children: React.ReactNode }) => children,
 }));
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const uklad = (plik: string) => {
+const odczekaj = async () => {
+  for (let i = 0; i < 20; i++) await new Promise((r) => setImmediate(r));
+};
+const uklad = async (plik: string) => {
   mockStos.screenOptions = undefined;
   mockStos.ekrany = [];
   const Komponent = require(plik).default;
   let t!: renderer.ReactTestRenderer;
-  act(() => {
+  await act(async () => {
     t = renderer.create(<Komponent />);
+    await odczekaj();
   });
   act(() => t.unmount());
   const screenOptions: Opcje = mockStos.screenOptions ?? {};
@@ -71,8 +81,8 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     ['../app/(tabs)/receptury/_layout', 'Receptury'],
     ['../app/(tabs)/zakwasy/_layout', 'Zakwasy'],
     ['../app/(tabs)/dziennik/_layout', 'Dziennik'],
-  ])('%s: stos z dużym tytułem „%s”', (plik, tytul) => {
-    const { screenOptions, ekrany } = uklad(plik);
+  ])('%s: stos z dużym tytułem „%s”', async (plik, tytul) => {
+    const { screenOptions, ekrany } = await uklad(plik);
     expect(screenOptions.headerLargeTitleEnabled).toBe(true);
     expect(screenOptions.headerShown).toBe(true);
     expect(ekrany.find((e) => e.name === 'index')?.options.title).toBe(tytul);
@@ -83,8 +93,8 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
   // natywnego nagłówka; „Więcej” z menu działań jest na pasie ekranu (etykieta i menu: src/__tests__/pas-zakladek-d10).
   // M3 p4b (D-194, O3a): plan też z pasem (nagłówek stosu ukryty); tytuł „Plan wypieku” i powrót „Receptura” na pasie
   // ekranu (src/__tests__/pas-plan-prowadzenie-p4b.test.tsx).
-  it('Receptury: plan wypieku w tym samym stosie, tytuł „Plan wypieku”; lista, receptura i plan z pasem (nagłówek ukryty)', () => {
-    const { ekrany } = uklad('../app/(tabs)/receptury/_layout');
+  it('Receptury: plan wypieku w tym samym stosie, tytuł „Plan wypieku”; lista, receptura i plan z pasem (nagłówek ukryty)', async () => {
+    const { ekrany } = await uklad('../app/(tabs)/receptury/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['index', 'receptura', 'harmonogram']);
     const plan = ekrany.find((e) => e.name === 'harmonogram');
     expect(plan?.options).toMatchObject({ title: 'Plan wypieku', headerLargeTitleEnabled: false });
@@ -99,8 +109,8 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     expect(opcje.headerRight).toBeUndefined();
   });
 
-  it('Zakwasy: karta zakwasu z pasem (nagłówek ukryty, „Doktor” na pasie, M3 D10); Doktor zakwasu z nagłówkiem', () => {
-    const { ekrany } = uklad('../app/(tabs)/zakwasy/_layout');
+  it('Zakwasy: karta zakwasu z pasem (nagłówek ukryty, „Doktor” na pasie, M3 D10); Doktor zakwasu z nagłówkiem', async () => {
+    const { ekrany } = await uklad('../app/(tabs)/zakwasy/_layout');
     expect(ekrany.find((e) => e.name === 'index')!.options).toMatchObject({ title: 'Zakwasy', headerShown: false });
     expect(ekrany.find((e) => e.name === 'index')!.options.headerRight).toBeUndefined();
     expect(ekrany.find((e) => e.name === 'doktor-zakwasu')!.options).toMatchObject({ title: 'Doktor zakwasu' });
@@ -109,8 +119,8 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
   // M3 p4b (D-194, O3a): Stolnica z pasem zamiast nagłówka systemowego; powrót, krok (nagłówek VoiceOver), „Doktor”
   // i „Plan wypieku” na pasie ekranu (tests/stolnica-naglowek-prz07.test.tsx). M3 p5 (D-197, O3a): Doktor Chleba też
   // z pasem; powrót, tytuł „Doktor Chleba” (nagłówek VoiceOver) i nawigacja: src/__tests__/doktor-pas-p5.test.tsx.
-  it('prowadzenie (Stolnica) i Doktor Chleba z pasem (nagłówek stosu ukryty); oba nad zakładkami', () => {
-    const { ekrany } = uklad('../app/_layout');
+  it('prowadzenie (Stolnica) i Doktor Chleba z pasem (nagłówek stosu ukryty); oba nad zakładkami', async () => {
+    const { ekrany } = await uklad('../app/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['(tabs)', 'stolnica', 'doktor']);
     const stolnica = ekrany.find((e) => e.name === 'stolnica')!.options;
     expect(stolnica).toMatchObject({ headerShown: false, title: 'Stolnica', headerLargeTitleEnabled: false });

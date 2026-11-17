@@ -39,11 +39,18 @@ jest.mock('expo-router', () => {
     useFocusEffect: (cb: () => void) => ReactMod.useEffect(cb, []),
   };
 });
+// Start bez prawdziwej bazy, płatności i powiadomień: układ korzenia rysuje ekrany po initLanguage() (D-423), więc
+// start musi się zakończyć; test czyta tylko opcje ekranów
 jest.mock('../src/lib/startup-guard', () => ({
-  beginStartup: () => new Promise(() => undefined),
+  beginStartup: async () => ({ rescue: false }),
   markStartupSucceeded: jest.fn(),
   STARTUP_MILESTONE_MS: 1,
 }));
+
+jest.mock('../src/lib/i18n', () => ({ ...jest.requireActual('../src/lib/i18n'), initLanguage: async () => undefined }));
+jest.mock('../src/lib/unit-converter', () => ({ ...jest.requireActual('../src/lib/unit-converter'), initUnitSystem: async () => 'metric' }));
+jest.mock('../src/lib/platnosci/stan', () => ({ ...jest.requireActual('../src/lib/platnosci/stan'), uruchomPlatnosci: () => () => undefined }));
+jest.mock('../src/lib/notifications', () => ({ ...jest.requireActual('../src/lib/notifications'), resyncNotifications: async () => undefined }));
 jest.mock('../src/components/StorageGate', () => ({
   StorageGate: ({ children }: { children: React.ReactNode }) => children,
 }));
@@ -61,13 +68,17 @@ jest.setTimeout(30000);
 type Wezel = renderer.ReactTestInstance;
 const tekst = (n: Wezel): string => n.children.map((c) => (typeof c === 'string' ? c : tekst(c))).join('');
 
-function opcjeStolnicy(szerokosc: number): Opcje | undefined {
+const odczekaj = async () => {
+  for (let i = 0; i < 20; i++) await new Promise((r) => setImmediate(r));
+};
+async function opcjeStolnicy(szerokosc: number): Promise<Opcje | undefined> {
   mockStos.ekrany = [];
   mockOkno.width = szerokosc;
   const Layout = require('../app/_layout').default as React.ComponentType;
   let t!: renderer.ReactTestRenderer;
-  act(() => {
+  await act(async () => {
     t = renderer.create(<Layout />);
+    await odczekaj();
   });
   const stolnica = mockStos.ekrany.filter((e) => e.name === 'stolnica').pop();
   act(() => t.unmount());
@@ -105,8 +116,8 @@ describe('PRZ-07 / D-194: nawigacja Stolnicy na pasie', () => {
     jest.clearAllMocks();
   });
 
-  it.each([320, 336, 375, 390, 430])('szerokość %i pt: nagłówek stosu ukryty, tytuł trasy „Stolnica” bez przycisków systemowych', (w) => {
-    const o = opcjeStolnicy(w);
+  it.each([320, 336, 375, 390, 430])('szerokość %i pt: nagłówek stosu ukryty, tytuł trasy „Stolnica” bez przycisków systemowych', async (w) => {
+    const o = await opcjeStolnicy(w);
     expect(o).toMatchObject({ headerShown: false, title: 'Stolnica' });
     expect(o?.headerRight).toBeUndefined();
   });

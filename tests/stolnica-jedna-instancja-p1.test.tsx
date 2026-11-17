@@ -19,12 +19,18 @@ jest.mock('expo-router', () => {
   };
   return { Stack, router: { push: (...a: unknown[]) => mockPush(...a) }, useRouter: () => ({ push: mockPush }) };
 });
-// Układ korzenia bez startu aplikacji (baza, płatności, znacznik startu): listener dotknięcia działa od pierwszego renderu
+// Start bez prawdziwej bazy, płatności i powiadomień: układ korzenia rysuje ekrany po initLanguage() (D-423), więc
+// start musi się zakończyć; test czyta tylko opcje ekranów
 jest.mock('../src/lib/startup-guard', () => ({
-  beginStartup: () => new Promise(() => undefined),
+  beginStartup: async () => ({ rescue: false }),
   markStartupSucceeded: jest.fn(),
   STARTUP_MILESTONE_MS: 1,
 }));
+jest.mock('../src/data/sqlite-store', () => ({ ...jest.requireActual('../src/data/sqlite-store'), initDatabase: async () => undefined }));
+jest.mock('../src/lib/i18n', () => ({ ...jest.requireActual('../src/lib/i18n'), initLanguage: async () => undefined }));
+jest.mock('../src/lib/unit-converter', () => ({ ...jest.requireActual('../src/lib/unit-converter'), initUnitSystem: async () => 'metric' }));
+jest.mock('../src/lib/platnosci/stan', () => ({ ...jest.requireActual('../src/lib/platnosci/stan'), uruchomPlatnosci: () => () => undefined }));
+jest.mock('../src/lib/notifications', () => ({ ...jest.requireActual('../src/lib/notifications'), resyncNotifications: async () => undefined }));
 jest.mock('../src/components/StorageGate', () => ({
   StorageGate: ({ children }: { children: React.ReactNode }) => children,
 }));
@@ -35,14 +41,18 @@ type Stan = { key: string; type: 'stack'; index: number; routeNames: string[]; r
 type GetId = (o: { params?: Opcje }) => string | undefined;
 
 /** Układ korzenia: opcje ekranów stosu i funkcja dotknięcia powiadomienia zarejestrowana w expo-notifications. */
-function ukladKorzenia() {
+const odczekaj = async () => {
+  for (let i = 0; i < 20; i++) await new Promise((r) => setImmediate(r));
+};
+async function ukladKorzenia() {
   mockStos.ekrany = [];
   const Notifications = require('expo-notifications') as { addNotificationResponseReceivedListener: jest.Mock };
   Notifications.addNotificationResponseReceivedListener.mockClear();
   const Layout = require('../app/_layout').default as React.ComponentType;
   let t!: renderer.ReactTestRenderer;
-  act(() => {
+  await act(async () => {
     t = renderer.create(<Layout />);
+    await odczekaj();
   });
   const [[dotkniecie]] = Notifications.addNotificationResponseReceivedListener.mock.calls as [[(r: unknown) => void]];
   return { ekrany: [...mockStos.ekrany], dotkniecie, zamknij: () => act(() => t.unmount()) };
@@ -85,8 +95,8 @@ describe('M3 P1-1: powiadomienie przy otwartej Stolnicy nie kładzie drugiej ins
   it.each([
     ['Stolnica na wierzchu', [{ key: 'tabs-1', name: '(tabs)' }, { key: 'stolnica-1', name: 'stolnica', params: {} }]],
     ['Doktor otwarty ze Stolnicy', [{ key: 'tabs-1', name: '(tabs)' }, { key: 'stolnica-1', name: 'stolnica', params: {} }, { key: 'doktor-1', name: 'doktor', params: {} }]],
-  ])('%s: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz)', (_opis, routes) => {
-    const { ekrany, dotkniecie, zamknij } = ukladKorzenia();
+  ])('%s: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz)', async (_opis, routes) => {
+    const { ekrany, dotkniecie, zamknij } = await ukladKorzenia();
     act(() => dotkniecie(powiadomienieKroku));
     zamknij();
     expect(mockPush).toHaveBeenCalledTimes(1);
@@ -98,8 +108,8 @@ describe('M3 P1-1: powiadomienie przy otwartej Stolnicy nie kładzie drugiej ins
 
   // D3a: powiadomienie kroku wypieku B przy Stolnicy prowadzącej A: ta sama instancja dostaje parametr wypiek=B
   // (useLocalSearchParams w app/stolnica.tsx przełącza wypiek w tej samej instancji)
-  it('D3a: dotknięcie powiadomienia innego wypieku przy otwartej Stolnicy: ta sama instancja z nowym id wypieku w parametrach', () => {
-    const { ekrany, dotkniecie, zamknij } = ukladKorzenia();
+  it('D3a: dotknięcie powiadomienia innego wypieku przy otwartej Stolnicy: ta sama instancja z nowym id wypieku w parametrach', async () => {
+    const { ekrany, dotkniecie, zamknij } = await ukladKorzenia();
     act(() => dotkniecie({ notification: { request: { identifier: 'piekarz.wypiek.bake_b.krok', content: { data: { route: '/stolnica', wypiek: 'bake_b' } } } } }));
     zamknij();
     expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_b' } });
@@ -109,8 +119,8 @@ describe('M3 P1-1: powiadomienie przy otwartej Stolnicy nie kładzie drugiej ins
     expect(stolnice.map((r) => [r.key, r.params])).toEqual([['stolnica-1', { wypiek: 'bake_b' }]]);
   });
 
-  it('bez otwartej Stolnicy (zakładki): dotknięcie otwiera Stolnicę nad zakładkami', () => {
-    const { ekrany, dotkniecie, zamknij } = ukladKorzenia();
+  it('bez otwartej Stolnicy (zakładki): dotknięcie otwiera Stolnicę nad zakładkami', async () => {
+    const { ekrany, dotkniecie, zamknij } = await ukladKorzenia();
     act(() => dotkniecie(powiadomienieKroku));
     zamknij();
     const po = poPush(stan([{ key: 'tabs-1', name: '(tabs)' }]), mockPush.mock.calls[0][0], getIdZEkranow(ekrany));
