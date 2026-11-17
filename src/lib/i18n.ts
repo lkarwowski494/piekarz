@@ -75,6 +75,8 @@ export function lang(): Lang {
 export function useLang(): Lang {
   const [l, setL] = useState<Lang>(currentLang);
   useEffect(() => {
+    // setLang między renderem a tym efektem nie miał jeszcze słuchacza [KO-072, AC-05, D-427]
+    setL(currentLang);
     listeners.add(setL);
     return () => {
       listeners.delete(setL);
