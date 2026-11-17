@@ -1,5 +1,5 @@
 /**
- * Start aplikacji po błędach (KO-071, recenzja AB-01/AB-06/AB-07, D-424): (1) `initDatabase` rzuca, „Spróbuj ponownie”
+ * Start aplikacji po błędach (KO-071, recenzja AB-01/AB-06/AB-07, D-425): (1) `initDatabase` rzuca, „Spróbuj ponownie”
  * się udaje: drzewo ekranów musi się narysować, a nie zostać w `start-jezyk-ladowanie` (bramka języka z D-423);
  * (2) `initLanguage` rzuca albo wisi: ekrany rysują się z językiem systemu, bez nieobsłużonego odrzucenia.
  */

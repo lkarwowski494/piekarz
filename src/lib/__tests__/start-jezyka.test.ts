@@ -1,4 +1,4 @@
-/** Język na starcie z limitem czasu (KO-071, AB-06/AB-07, D-424): błąd albo zawieszenie odczytu daje język systemu, bez rzucania. */
+/** Język na starcie z limitem czasu (KO-071, AB-06/AB-07, D-425): błąd albo zawieszenie odczytu daje język systemu, bez rzucania. */
 import { JEZYK_START_LIMIT_MS, jezykNaStart } from '../start-jezyka';
 
 afterEach(() => jest.useRealTimers());
