@@ -9,6 +9,8 @@ import renderer, { act } from 'react-test-renderer';
 type Opcje = Record<string, unknown>;
 const mockStos: { ekrany: Array<{ name: string; props: Opcje }> } = { ekrany: [] };
 const mockPush = jest.fn();
+// Wynik beginStartup: domyślnie start zwykły; test „start w toku” podstawia obietnicę, która się nie kończy (KO-071, AB-02)
+const mockStart: { beginStartup: () => Promise<{ rescue: boolean }> } = { beginStartup: async () => ({ rescue: false }) };
 
 jest.mock('expo-router', () => {
   const ReactMod = jest.requireActual('react');
@@ -22,7 +24,7 @@ jest.mock('expo-router', () => {
 // Start bez prawdziwej bazy, płatności i powiadomień: układ korzenia rysuje ekrany po initLanguage() (D-423), więc
 // start musi się zakończyć; test czyta tylko opcje ekranów
 jest.mock('../src/lib/startup-guard', () => ({
-  beginStartup: async () => ({ rescue: false }),
+  beginStartup: () => mockStart.beginStartup(),
   markStartupSucceeded: jest.fn(),
   STARTUP_MILESTONE_MS: 1,
 }));
@@ -90,7 +92,21 @@ const stan = (routes: Trasa[]): Stan => ({
 const powiadomienieKroku = { notification: { request: { content: { data: { route: '/stolnica' } } } } };
 
 describe('M3 P1-1: powiadomienie przy otwartej Stolnicy nie kładzie drugiej instancji', () => {
-  beforeEach(() => mockPush.mockClear());
+  beforeEach(() => {
+    mockPush.mockClear();
+    mockStart.beginStartup = async () => ({ rescue: false });
+  });
+
+  // Powiadomienie kroku przy zimnym starcie (Sleep Guard) nie może zginąć w oknie startu: listener działa od pierwszego
+  // renderu, także zanim beginStartup się skończy. Przeniesienie rejestracji za koniec startu = czerwone [KO-071, AB-02]
+  it('listener dotknięcia powiadomienia jest zarejestrowany, zanim start się skończy (beginStartup w toku)', async () => {
+    mockStart.beginStartup = () => new Promise(() => undefined);
+    const { dotkniecie, zamknij } = await ukladKorzenia();
+    act(() => dotkniecie(powiadomienieKroku));
+    zamknij();
+    expect(mockPush).toHaveBeenCalledTimes(1);
+    expect(mockPush).toHaveBeenCalledWith('/stolnica');
+  });
 
   it.each([
     ['Stolnica na wierzchu', [{ key: 'tabs-1', name: '(tabs)' }, { key: 'stolnica-1', name: 'stolnica', params: {} }]],

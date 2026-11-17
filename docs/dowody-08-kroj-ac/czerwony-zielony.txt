@@ -14,3 +14,22 @@ Test Suites: 2 passed, 2 total
 Tests:       8 passed, 8 total
 exit=0
 
+=== AB-02 KONTROLA NEGATYWNA: rejestracja listenera dotknięcia za końcem startu (if (rescue !== false) return) ===
+$ npx jest tests/stolnica-jedna-instancja-p1.test.tsx --ci
+    ✕ listener dotknięcia powiadomienia jest zarejestrowany, zanim start się skończy (beginStartup w toku) (1409 ms)
+    ✓ Stolnica na wierzchu: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz) (841 ms)
+    ✓ Doktor otwarty ze Stolnicy: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz) (5 ms)
+    ✓ D3a: dotknięcie powiadomienia innego wypieku przy otwartej Stolnicy: ta sama instancja z nowym id wypieku w parametrach (5 ms)
+    ✓ bez otwartej Stolnicy (zakładki): dotknięcie otwiera Stolnicę nad zakładkami (3 ms)
+Tests:       1 failed, 4 passed, 5 total
+exit=1
+
+=== AB-02 ZIELONY (kod bez mutacji) ===
+    ✓ listener dotknięcia powiadomienia jest zarejestrowany, zanim start się skończy (beginStartup w toku) (766 ms)
+    ✓ Stolnica na wierzchu: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz) (745 ms)
+    ✓ Doktor otwarty ze Stolnicy: po dotknięciu jedna Stolnica w stosie, ta sama instancja (klucz) (6 ms)
+    ✓ D3a: dotknięcie powiadomienia innego wypieku przy otwartej Stolnicy: ta sama instancja z nowym id wypieku w parametrach (4 ms)
+    ✓ bez otwartej Stolnicy (zakładki): dotknięcie otwiera Stolnicę nad zakładkami (3 ms)
+Tests:       5 passed, 5 total
+exit=0
+
