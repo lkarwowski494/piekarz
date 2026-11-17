@@ -25,3 +25,21 @@ describe('numer dnia = sama liczba we wszystkich językach (D-421)', () => {
     expect(formatNumerDnia(lok(2026, 11, 22), 'pl')).toBe('22');
   });
 });
+
+describe('formatNumerDnia niezależnie od silnika Intl (D-421, dopisek 2026-11-17)', () => {
+  // Hermes na iOS (PlatformIntlApple, formatToParts) tnie napis po znakach alfanumerycznych: „15日” to jedna część
+  // { type: 'day', value: '15日' }. Atrapa odtwarza to zachowanie.
+  const oryg = Intl.DateTimeFormat.prototype.formatToParts;
+  beforeEach(() => {
+    Intl.DateTimeFormat.prototype.formatToParts = function (this: Intl.DateTimeFormat, d?: Date | number) {
+      const dzien = new Date(d ?? 0).getDate();
+      return [{ type: 'day', value: `${dzien}日` }] as Intl.DateTimeFormatPart[];
+    };
+  });
+  afterEach(() => { Intl.DateTimeFormat.prototype.formatToParts = oryg; });
+
+  it.each(['zh-Hant', 'ja', 'ko'])('%s: jedna część „15日” z formatToParts nadal daje samą liczbę', (l) => {
+    expect(formatNumerDnia(new Date(2026, 10, 15), l)).toBe('15');
+    expect(formatNumerDnia(new Date(2026, 10, 5), l)).toBe('5');
+  });
+});

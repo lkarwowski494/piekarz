@@ -16,6 +16,7 @@ import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { dzienSlownie, etykietaPlanuPrzedStartem, gotoweNazwa, startKiedy } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
+import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Spirala } from '../Spirala';
 import { GlifZdarzenia } from '../kalendarz/GlifZdarzenia';
@@ -43,7 +44,7 @@ function NaSpirali({ p, teraz, duzyTekst, onZobacz }: { p: PlannedBake; teraz: n
   return (
     <View style={styles.jeden} testID="start-plan-spirala">
       <Spirala kroki={kroki} wariant="plan" etykieta={etykieta} rozmiar={duzyTekst ? 150 : 220} />
-      <Text style={styles.tytul}>{tytulPlanu(p, teraz)}</Text>
+      <Text style={[styles.tytul, krojTytulowStyl()]}>{tytulPlanu(p, teraz)}</Text>
       <Text style={styles.objasnienie}>{startPlanuTekst(p, teraz)}</Text>
       <Pressable testID={`plan-zobacz-${p.id}`} accessibilityRole="button" accessibilityLabel={t('Zobacz plan')} style={styles.drugi} onPress={() => onZobacz(p.id)}>
         <Text style={styles.drugiTekst}>{t('Zobacz plan')}</Text>

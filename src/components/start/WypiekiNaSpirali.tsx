@@ -19,6 +19,7 @@ import { gotoweMs } from '../../lib/gotowe';
 import { czasSlownie, etykietaPlanuWypieku, gotoweKiedy, gotoweNazwa } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
+import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { wygladKarty } from '../../ui/karty/Karta';
 import { Spirala } from '../Spirala';
@@ -63,7 +64,7 @@ function Jeden({ w, teraz, duzyTekst, onWroc }: { w: TrwajacyNaStarcie; teraz: n
       <Pressable testID="spirala-otworz" accessibilityRole="button" accessibilityLabel={t('{wypiek}: {krok}. Otwórz prowadzenie wypieku', { wypiek: o.nazwa, krok: o.nazwaKroku })} style={styles.dotyk} onPress={() => onWroc(w.id)}>
         <Spirala kroki={kroki} wariant="pelna" biezacy={w.sesja.stepIdx} postepKroku={o.postep} etykieta={o.etykieta} rozmiar={duzyTekst ? 150 : 220} />
       </Pressable>
-      <Text style={styles.krok}>{o.nazwaKroku}</Text>
+      <Text style={[styles.krok, krojTytulowStyl()]}>{o.nazwaKroku}</Text>
       {o.czas !== null && <Text style={styles.tresc}>{o.czas}</Text>}
       <Text style={styles.objasnienie}>
         {o.gotowe === null ? o.nazwa : gotoweNazwa(o.nazwa, o.gotowe, new Date(teraz))}

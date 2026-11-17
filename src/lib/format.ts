@@ -108,13 +108,13 @@ export function formatDate(
 }
 
 /**
- * Sama liczba dnia miesiąca w języku (część „day” z Intl): w zh-Hant i ja Intl daje „15日”, w ko „15일”, a napis szerszy
- * niż kolumna dnia łamał się w środku [L004-13-P2-zh07, D-421]. Bez części „day” (nie zdarza się) pełny napis.
+ * Sama liczba dnia miesiąca w języku: w zh-Hant i ja Intl daje „15日”, w ko „15일”, a napis szerszy niż kolumna dnia
+ * łamał się w środku [L004-13-P2-zh07, D-421]. Liczba z `Intl.NumberFormat` (cyfry lokalne, bez grupowania), nie z
+ * części „day” z `formatToParts`: Hermes na iOS zwraca „15日” jako jedną część „day” [D-421, dopisek 2026-11-17].
  */
 export function formatNumerDnia(value: number | Date, locale: string = appLocale()): string {
-  const f = dateFormatter(locale, { day: 'numeric' });
   const d = typeof value === 'number' ? new Date(value) : value;
-  return f.formatToParts(d).find((p) => p.type === 'day')?.value ?? f.format(d);
+  return new Intl.NumberFormat(locale, { useGrouping: false }).format(d.getDate());
 }
 
 const DZIEN_DATA: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'short' };

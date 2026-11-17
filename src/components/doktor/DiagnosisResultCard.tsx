@@ -260,8 +260,10 @@ const styles = StyleSheet.create({
   checklistText: {
     fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
-    lineHeight: 18,
-    flex: 1,
+    // D-422 (hipoteza do sprawdzenia zrzutem): flexShrink + minWidth zamiast flex 1, bez stałego lineHeight (naturalny
+    // rośnie z Dynamic Type do AX5); iOS niedoszacowywał wysokości tekstu w wierszu flex (id, ms 6,3″)
+    flexShrink: 1,
+    minWidth: 0,
   },
   navActionBtn: {
     minHeight: theme.cele.pozostale,
