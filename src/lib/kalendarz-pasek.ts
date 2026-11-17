@@ -7,7 +7,7 @@
 import { daysOfWeek, localDateKey, type FirstWeekday } from '../core/dzien-lokalny';
 import type { ZdarzenieKalendarza } from '../core/kalendarz-zdarzenia';
 import type { ZnacznikDnia } from '../core/kalendarz-nastepne';
-import { appLocale, formatDate } from './format';
+import { appLocale, formatDate, formatNumerDnia } from './format';
 
 export interface DzienPaska {
   /** Dzień lokalny „RRRR-MM-DD” (RD-29). */
@@ -29,7 +29,7 @@ export function dzienPaska(ms: number, now: number): DzienPaska {
     ms,
     dzis: localDateKey(ms) === localDateKey(now),
     skrot: formatDate(ms, jezyk, { weekday: 'short' }),
-    numer: formatDate(ms, jezyk, { day: 'numeric' }),
+    numer: formatNumerDnia(ms, jezyk),
   };
 }
 

@@ -107,6 +107,16 @@ export function formatDate(
   return dateFormatter(locale, options).format(typeof value === 'number' ? new Date(value) : value);
 }
 
+/**
+ * Sama liczba dnia miesiąca w języku (część „day” z Intl): w zh-Hant i ja Intl daje „15日”, w ko „15일”, a napis szerszy
+ * niż kolumna dnia łamał się w środku [L004-13-P2-zh07, D-421]. Bez części „day” (nie zdarza się) pełny napis.
+ */
+export function formatNumerDnia(value: number | Date, locale: string = appLocale()): string {
+  const f = dateFormatter(locale, { day: 'numeric' });
+  const d = typeof value === 'number' ? new Date(value) : value;
+  return f.formatToParts(d).find((p) => p.type === 'day')?.value ?? f.format(d);
+}
+
 const DZIEN_DATA: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'short' };
 
 /**
