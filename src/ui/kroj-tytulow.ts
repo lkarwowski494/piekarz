@@ -31,8 +31,13 @@ export function krojTytulowDlaJezyka(): string | undefined {
  * zmianie języka dawał już nowy krój i natywny diff nie widział zmiany (ru/uk zostawały przy Sofii z bułgarskimi formami).
  * Tu `fabryka` (`() => StyleSheet.create({... fontFamily: theme.typography.krojTytulow ...})`) wykonuje się raz na krój;
  * obiekty stylów mają wartość statyczną, a zmiana języka daje inny obiekt (nowy krój) albo ten sam (ten sam krój).
- * Komponent dostaje nową wartość przy renderze, który i tak wywołuje zmiana języka (`t()`, `useLang()`); stan ekranu
- * i nawigacja zostają, bez `key` na korzeniu. Odczyt kroju poza funkcją pilnuje tests/kroj-tytulow-straznik-d423.test.ts.
+ * `t()` ani `stylePoKroju` same nie renderują komponentu: nowy krój i nowe teksty dostaje komponent, który po zmianie
+ * języka renderuje się z innego powodu. Układy i `useNaglowek` wołają `useLang()`, a ekrany tras (za `StaticContainer`,
+ * który nie przerysowuje ich przy renderze układu) subskrybują język przez `useEkranZPasem()` albo `useLang()`; pilnuje
+ * tego tests/jezyk-ekrany-straznik-ac.test.ts [KO-071, D-424]. Komponent z `React.memo` albo `useMemo` bez języka w zależnościach
+ * zostaje przy starym kroju i tekstach do własnego renderu (kandydaci: D-424). Stan ekranu i nawigacja
+ * zostają, bez `key` na korzeniu. Miejsca odczytu kroju pilnuje tests/kroj-tytulow-straznik-d423.test.ts (fabryka
+ * `stylePoKroju` albo funkcja z listy WYJATKI).
  */
 export function stylePoKroju<T extends object>(fabryka: () => T): T {
   const arkusze = new Map<string, T>();

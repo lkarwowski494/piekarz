@@ -10,7 +10,19 @@
 import React, { useState } from 'react';
 import { ScrollView, type StyleProp, type ViewStyle } from 'react-native';
 import { CzapkaPaska } from '../../ui/karty/CzapkaPaska';
-import { NadPasem } from './PasZakladki';
+import { useLang } from '../../lib/i18n';
+import { NadPasem, usePasekStanuJasny } from './PasZakladki';
+
+/**
+ * Hook trasy z pasem: jasny pasek stanu przy focusie (`usePasekStanuJasny`) i subskrypcja języka (`useLang`). Ekrany
+ * nawigatora są za `StaticContainer`, który nie przerysowuje ich przy renderze układu, a `t()` nie subskrybuje zmian, więc
+ * bez `useLang()` ekran innej zakładki zostawał po zmianie języka przy starych tekstach i kroju tytułu [KO-071, AB-04, D-424].
+ * Przerysowanie bez `key` i bez remontowania: stan formularzy i nawigacji zostaje.
+ */
+export function useEkranZPasem(): void {
+  useLang();
+  usePasekStanuJasny();
+}
 
 /** Przewijanie ekranu z pasem (ref do `scrollTo`, np. wpis z kalendarza w Dzienniku). */
 export type PrzewijanieEkranu = ScrollView;

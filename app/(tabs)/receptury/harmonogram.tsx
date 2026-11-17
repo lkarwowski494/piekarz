@@ -2,8 +2,8 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { t } from '../../../src/lib/i18n';
 import {
@@ -52,7 +52,7 @@ export default function HarmonogramScreen() {
   // Pas marki zamiast nagłówka stosu (O3a, D-194; makieta wypiek.html#plan): powrót „Receptura”, tytuł, nazwa receptury
   const router = useRouter();
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
   const unitSystem = useUnitSystem();
 
   // Dzień „gotowe”: 0 = dziś … ZASIEG_DNI_PLANU (D-108); ze skrótu arkusza dnia dzień z kalendarza (BR-KAL-015),

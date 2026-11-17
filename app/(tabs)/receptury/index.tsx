@@ -21,8 +21,8 @@ import {
 } from '../../../src/lib/recipe-navigation';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
 import { ListaReceptur, FILTRY_RECEPTUR, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
-import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { ekranRecepturyOtwarty, subskrybujZmianyReceptur } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
@@ -40,7 +40,7 @@ export default function RecepturyLista() {
   const [filtr, setFiltr] = useState<CategoryFilterType>('all');
   // Pas nocy zamiast natywnego nagłówka (D10 opcja A): tytuł i filtr rodzaju na pasie, pasek stanu jasny [M3 D10]
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
   const [moje, setMoje] = useState<StoredRecipe[]>([]);
   const { chron, moze } = useAppAccess();
   // Wejścia PÓŹNIEJ z dawnego nagłówka receptur: skan QR (F-08) i przelicznik objętości (F-45), dziś ukryte

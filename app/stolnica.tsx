@@ -14,6 +14,7 @@ import { loadActiveBakeSessionsZWersja } from '../src/data/bake-sessions-store';
 import { ProwadzenieWypieku } from '../src/components/stolnica/ProwadzenieWypieku';
 import { PrzelacznikWypiekow } from '../src/components/stolnica/PrzelacznikWypiekow';
 import type { OdrzuconyZapis } from '../src/hooks/useBakeSession';
+import { useLang } from '../src/lib/i18n';
 
 /**
  * Wypiek do pokazania: z trasy, gdy trwa; bez niego nowy wypiek z planu (jeszcze bez zapisu) albo jedyny trwający;
@@ -33,6 +34,8 @@ async function wczytaj(): Promise<SesjaDoPokazania[]> {
 }
 
 export default function StolnicaScreen() {
+  // Subskrypcja języka: ekran za StaticContainer, `t()` sam się nie odświeża [KO-071, AB-04]
+  useLang();
   const router = useRouter();
   // Duży tekst (fontScale ≥ 2, jak PasZakladki): stały rząd zająłby za dużo ekranu, przełącznik zostaje w treści [E2E-90]
   const duzyTekst = useWindowDimensions().fontScale >= 2;

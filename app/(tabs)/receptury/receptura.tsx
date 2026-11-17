@@ -29,8 +29,8 @@ import {
 import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
-import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
 import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
 import { podtytulReceptury } from '../../../src/components/receptury/nazwy-receptur';
@@ -59,7 +59,7 @@ export default function EkranReceptury() {
   const router = useRouter();
   // Pas nocy zamiast natywnego nagłówka (D10 opcja A): nazwa, powrót „Receptury” i „Więcej” na pasie [M3 D10]
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
 
   // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
   const { chron, blokada, dodaj, moze } = useAppAccess();

@@ -29,8 +29,8 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
-import { PasZakladki, usePasekStanuJasny } from '../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem } from '../src/components/nawigacja/EkranZPasem';
 
 import { typografia, promienie } from '../src/ui/tokeny';
 import { stylePoKroju } from '../src/ui/kroj-tytulow';
@@ -39,7 +39,7 @@ export default function DoctorScreen() {
   const unitSystem = useUnitSystem();
   // Pas O3a zamiast nagłówka systemowego (D-197, D-141): jasny pasek stanu nad pasem
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
   // Doktor i protokoły w Basic (BR-DIAG-001, -003…005), zawsze — także bez trwającego wypieku (D-112, D-113; wykładnia
   // D-104 „Doktor przy wypieku z dostępem” zastąpiona, D-116); Akademia: pierwszy poziom w Basic [M1-audytor-generalny-027]
   const { blokada, chron } = useAppAccess();

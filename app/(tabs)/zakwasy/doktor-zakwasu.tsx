@@ -11,8 +11,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
-import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../../../src/components/nawigacja/PasZakladki';
 import { t } from '../../../src/lib/i18n';
 import { getStarters } from '../../../src/data/sqlite-store';
 import { setupDay } from '../../../src/core/starter-log';
@@ -47,7 +47,7 @@ export default function DoktorZakwasuScreen() {
   // Pas O3a zamiast nagłówka stosu (04-005, D-219; jak Doktor Chleba, D-197): jasny pasek stanu nad pasem
   const router = useRouter();
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
 
   useEffect(() => {
     void getStarters().then((lista) => {

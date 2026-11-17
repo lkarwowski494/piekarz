@@ -83,3 +83,38 @@ exit=1
 Tests:       8 passed, 8 total
 exit=0
 
+=== AB-04 CZERWONY na kodzie bez poprawki (ekrany tras bez useLang) ===
+$ npx jest src/__tests__/jezyk-zamontowane-ekrany-ac.test.tsx tests/jezyk-ekrany-straznik-ac.test.ts --ci --verbose
+    ✓ jest co sprawdzać (4 ms)
+    ✕ każda trasa (ekran i układ) woła useLang() w komponencie domyślnym (92 ms)
+    ✓ strażnik widzi trasę bez useLang() (kontrola negatywna) (2 ms)
+    ✓ strażnik przyjmuje trasę z useLang() (2 ms)
+    ✕ pl → ru: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (402 ms)
+    ✕ pl → uk: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (66 ms)
+    ✕ pl → vi: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (66 ms)
+    ✕ pl → ja: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (68 ms)
+    ✕ pl → ru: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (130 ms)
+    ✕ pl → uk: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (98 ms)
+    ✕ pl → vi: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (90 ms)
+    ✕ pl → ja: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (66 ms)
+Tests:       9 failed, 3 passed, 12 total
+exit=1
+
+=== AB-04 ZIELONY po poprawce (useEkranZPasem/useLang w trasach) ===
+$ npx jest src/__tests__/jezyk-zamontowane-ekrany-ac.test.tsx tests/jezyk-ekrany-straznik-ac.test.ts --ci --verbose
+    ✓ jest co sprawdzać (3 ms)
+    ✓ każda trasa (ekran i układ) woła useLang() w komponencie domyślnym (89 ms)
+    ✓ useEkranZPasem woła useLang() i usePasekStanuJasny()
+    ✓ strażnik widzi trasę bez useLang() (kontrola negatywna) (1 ms)
+    ✓ strażnik przyjmuje trasę z useLang() (1 ms)
+    ✓ pl → ru: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (317 ms)
+    ✓ pl → uk: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (65 ms)
+    ✓ pl → vi: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (58 ms)
+    ✓ pl → ja: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (70 ms)
+    ✓ pl → ru: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (164 ms)
+    ✓ pl → uk: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (142 ms)
+    ✓ pl → vi: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (118 ms)
+    ✓ pl → ja: tytuł pasa w nowym języku i kroju systemowym bez ręcznego przejścia (54 ms)
+Tests:       13 passed, 13 total
+exit=0
+

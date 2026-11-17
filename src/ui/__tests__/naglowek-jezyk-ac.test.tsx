@@ -4,7 +4,7 @@
  * przeliczenie; bez niego nagłówki zostawały przy starym kroju po zmianie języka w Ustawieniach.
  */
 import React from 'react';
-import { AccessibilityInfo, StyleSheet, Text } from 'react-native';
+import { AccessibilityInfo, StyleSheet, Text, type StyleProp, type TextStyle } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import { useNaglowek } from '../naglowek';
 import { typografia } from '../tokeny';
@@ -12,7 +12,7 @@ import { setLang } from '../../lib/i18n';
 
 jest.mock('react-native/Libraries/Utilities/useColorScheme', () => ({ __esModule: true, default: () => 'light' }));
 
-const krojZ = (styl: unknown) => StyleSheet.flatten(styl as Parameters<typeof StyleSheet.flatten>[0]).fontFamily;
+const krojZ = (styl: StyleProp<TextStyle>) => StyleSheet.flatten(styl).fontFamily;
 
 const drzewa: renderer.ReactTestRenderer[] = [];
 

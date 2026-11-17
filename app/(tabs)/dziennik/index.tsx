@@ -9,8 +9,8 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem, type PrzewijanieEkranu } from '../../../src/components/nawigacja/EkranZPasem';
+import { PasZakladki } from '../../../src/components/nawigacja/PasZakladki';
+import { EkranZPasem, useEkranZPasem, type PrzewijanieEkranu } from '../../../src/components/nawigacja/EkranZPasem';
 import { FILTRY_SMAKU } from '../../../src/components/stolnica/BakeHistorySection';
 import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../../../src/lib/ostatni-wypiek';
 import { t } from '../../../src/lib/i18n';
@@ -33,7 +33,7 @@ export default function DziennikScreen() {
   const { wpis } = useLocalSearchParams<{ wpis?: string }>();
   const przewijane = React.useRef<PrzewijanieEkranu>(null);
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
 
   // Wpis z zakończonego wypieku pojawia się po powrocie na zakładkę
   useFocusEffect(

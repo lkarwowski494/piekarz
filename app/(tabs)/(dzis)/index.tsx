@@ -24,8 +24,7 @@ import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
 import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
-import { usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/ArkuszDnia';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { SettingsModal } from '../../../src/components/SettingsModal';
@@ -65,7 +64,7 @@ export default function StartScreen() {
   };
 
   // Pasek stanu jasny na ciemnym pasie (wspólny z zakładkami D10); po wyjściu domyślny (app/_layout.tsx)
-  usePasekStanuJasny();
+  useEkranZPasem();
 
   const odswiez = useCallback(() => {
     kal.odswiez();

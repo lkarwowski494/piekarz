@@ -1,5 +1,5 @@
 import '../src/lib/intl-polyfills';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar, AppState, View, StyleSheet, ActivityIndicator } from 'react-native';
 import * as Notifications from 'expo-notifications';
@@ -65,7 +65,7 @@ export default function RootLayout() {
   const [rescue, setRescue] = useState<boolean | null>(null);
   // Drzewo ekranów dopiero po initLanguage() (D-423); zmianę języka w Ustawieniach obsługują style przeliczane przy renderze
   const [jezykGotowy, setJezykGotowy] = useState(false);
-  const poJezyku = () => setJezykGotowy(true);
+  const poJezyku = useCallback(() => setJezykGotowy(true), []);
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
   useLang();
   // Kolory nagłówka bieżącego wariantu (jasny/ciemny/kontrast), nie DynamicColorIOS [M3 p1 a1]
@@ -76,7 +76,7 @@ export default function RootLayout() {
   // Reszta startu po otwarciu bazy wykonuje się raz: pierwszy start, a gdy `initDatabase` rzucił, dopiero udane „Spróbuj ponownie”
   // z ekranu błędu bazy (bez tego bramka języka zostawała na ekranie ładowania) [KO-071, AB-01]
   const poBazie = useRef<Promise<void> | null>(null);
-  const uruchomPoBazie = (): Promise<void> => {
+  const uruchomPoBazie = useCallback((): Promise<void> => {
     poBazie.current ??= poOtwarciuBazy(poJezyku).then(
       (stop) => {
         stopPlatnosci.current = stop;
@@ -87,7 +87,7 @@ export default function RootLayout() {
       },
     );
     return poBazie.current;
-  };
+  }, [poJezyku]);
 
   useEffect(() => {
     void (async () => {
@@ -106,7 +106,7 @@ export default function RootLayout() {
       }
     })();
     return () => stopPlatnosci.current?.();
-  }, []);
+  }, [uruchomPoBazie]);
 
   // Kamień milowy: pierwszy ekran narysowany za StorageGate (baza otwarta, migracje zakończone), raz na start
   // [M1-audytor-generalny-140; 12-niezawodnosc-504]

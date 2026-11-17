@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { StyleSheet, Alert, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
-import { EkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
+import { EkranZPasem, useEkranZPasem } from '../../../src/components/nawigacja/EkranZPasem';
 import { PasZakwasu } from '../../../src/components/zakwas/PasZakwasu';
 import { IkonaKarty } from '../../../src/ui/karty/IkonaKarty';
 import { odstepy } from '../../../src/ui/tokeny';
@@ -62,7 +61,7 @@ export default function ZakwasScreen() {
   const maZakwas = startersList.length > 0;
   // Pas nocy (D10 opcja A): nazwa, spirala cyklu i czas od dokarmienia z tych samych wpisów co karta [M3 D10]
   const gora = useSafeAreaInsets().top;
-  usePasekStanuJasny();
+  useEkranZPasem();
   const log = useStarterLog(starter.id);
 
   const [targetYield, setTargetYield] = useState<number>(150);
