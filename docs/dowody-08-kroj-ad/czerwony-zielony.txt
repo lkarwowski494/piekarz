@@ -1,0 +1,63 @@
+## AC-01 CZERWONY na 446c3860 (kod bez poprawki)
+    ✕ zamontowany ekran Zakwasy: „7 h temu” → po setLang(en) etykieta po angielsku (1437 ms)
+    Expected substring: "7 h ago"
+    Received string:    "Last feeding 7 h temu"
+Tests:       1 failed, 1 total
+## AC-01 ZIELONY po poprawce
+    ✓ zamontowany ekran Zakwasy: „7 h temu” → po setLang(en) etykieta po angielsku (1149 ms)
+Tests:       1 passed, 1 total
+
+## brzegowe (paski Cofnij) CZERWONY na kodzie bez poprawki
+    ✕ useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku (13 ms)
+    ✕ usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku (3 ms)
+    Expected substring: not "Zapisano"
+    Received string:        "Zapisano dokarmienie zakwasu Rysia."
+    Expected: not "Usunięto plan wypieku"
+Tests:       2 failed, 2 total
+## brzegowe ZIELONY po poprawce
+    ✓ useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku (11 ms)
+    ✓ usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku (3 ms)
+Tests:       2 passed, 2 total
+
+## strażnik useMemo CZERWONY na kodzie 446c3860 (3 pliki sprzed poprawki)
+    ✕ żaden useMemo z t() nie pomija języka w zależnościach (683 ms)
+    +   "app/(tabs)/zakwasy/index.tsx:143",
+    +   "src/hooks/useCofnijDokarmienie.ts:43",
+    +   "src/hooks/usePlanyDzis.ts:89",
+Tests:       1 failed, 9 passed, 10 total
+## strażnik ZIELONY po poprawkach
+Tests:       10 passed, 10 total
+
+## AC-03 CZERWONY na kodzie bez poprawki
+    ✕ wybór z Ustawień w czasie odczytu nie jest nadpisany zapisanym językiem (4 ms)
+    ✓ bez wyboru w międzyczasie odczyt ustawia zapisany język (D-425) (1 ms)
+    ✓ wybór przed startem odczytu nie blokuje odczytu
+    Expected: "en"
+    Received: "pl"
+Tests:       1 failed, 2 passed, 3 total
+## AC-03 ZIELONY po poprawce
+Tests:       7 passed, 7 total
+
+## AC-05 CZERWONY na kodzie bez poprawki
+  ✕ setLang w oknie między renderem a efektem: komponent kończy w aktualnym języku (11 ms)
+    Expected: "en"
+    Received: "pl"
+Tests:       1 failed, 1 total
+## AC-05 ZIELONY po poprawce
+  ✓ setLang w oknie między renderem a efektem: komponent kończy w aktualnym języku (12 ms)
+Tests:       1 passed, 1 total
+
+## AC-04 CZERWONY na kodzie bez poprawki
+    ✓ po udanym ponowieniu ekrany się rysują (nie zostaje ekran ładowania), a reszta startu się wykonuje (2213 ms)
+    ✓ ponowienie po zwykłym starcie nie uruchamia języka, jednostek i płatności drugi raz (112 ms)
+    ✓ initLanguage rzuca: ekrany się rysują z językiem systemu, reszta startu idzie dalej, bez nieobsłużonego odrzucenia (67 ms)
+    ✓ initLanguage wisi: po limicie czasu ekrany się rysują z językiem systemu (75 ms)
+    ✕ StorageGate: retryDatabase rzuca (initDatabase) — przycisk kończy się bez odrzucenia, ekran błędu zostaje (87 ms)
+    ✕ RescueScreen: „Spróbuj ponownie” w trybie awaryjnym, gdy initDatabase rzuca — bez odrzucenia (86 ms)
+    Expected: "ok"
+    Received: [Error: ratunek padł]
+    Expected: "ok"
+    Received: [Error: baza nadal niedostępna]
+Tests:       2 failed, 4 passed, 6 total
+## AC-04 ZIELONY po poprawce
+Tests:       6 passed, 6 total
