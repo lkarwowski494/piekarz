@@ -11,6 +11,7 @@ import React, { useCallback } from 'react';
 import { Pressable, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { theme } from '../../ui/theme';
+import { krojTytulowStyl } from '../../ui/kroj-tytulow';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { PrzyciskNaglowka } from './PrzyciskNaglowka';
 import { IkonaStartu } from '../start/IkonaStartu';
@@ -74,7 +75,7 @@ export function PasZakladki<T extends string = string>({ gora, tytul, tytulTestI
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      <Text testID={tytulTestID} style={[styles.tytul, zwarty && styles.tytulZwarty, waga, krojTytulowStyl()]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul && !duzy ? <Text testID={podtytulTestID} style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
       {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}

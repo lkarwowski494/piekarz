@@ -24,3 +24,13 @@ export function krojTytulowDlaJezyka(): string | undefined {
   const l = lang();
   return JEZYKI_POZA_KROJEM_TYTULOW.includes(l) || JEZYKI_CYRYLICY_BEZ_FORM_KROJU.includes(l) ? undefined : typografia.krojTytulow;
 }
+
+/**
+ * Krój tytułu zapisany w stylu przy KAŻDYM renderze (D-419, L004-13-P2-ru/uk07). `get fontFamily()` w `StyleSheet.create`
+ * liczy się leniwie: po zmianie języka przy zamontowanym ekranie stary i nowy `style` dają ten sam, bieżący krój, więc
+ * natywny widok nie dostaje zmiany (ru/uk zostawały przy Sofii z bułgarskimi formami). Dopisany na końcu tablicy stylu
+ * obiekt ma wartość z chwili renderu; getter w arkuszu zostaje (pilnuje go tests/duzy-tekst-kroj.test.ts).
+ */
+export function krojTytulowStyl(): { fontFamily: string | undefined } {
+  return { fontFamily: krojTytulowDlaJezyka() };
+}

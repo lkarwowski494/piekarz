@@ -11,6 +11,7 @@ import { StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-na
 import { theme } from '../theme';
 import { odstepy, promienie, typografia } from '../tokeny';
 import { usePogrubionyTekst, wagaTytulu } from '../pogrubiony-tekst';
+import { krojTytulowStyl } from '../kroj-tytulow';
 import { useDuzyTekst } from './duzy-tekst';
 
 /** Rozmiar ikony w nagłówku karty (README §2). */
@@ -41,7 +42,7 @@ export function NaglowekKarty({ testID, tytul, ikona, znacznik, style }: {
   ) : null;
   const zn = znacznik ? <View testID={`${testID}-znacznik`} style={styles.znacznik}>{znacznik}</View> : null;
   const tyt = (
-    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && (zn ? styles.tytulZeZnacznikiem : styles.tytulWiersz), waga]}>{tytul}</Text>
+    <Text testID={`${testID}-tytul`} accessibilityRole="header" style={[styles.tytul, !duzy && (zn ? styles.tytulZeZnacznikiem : styles.tytulWiersz), waga, krojTytulowStyl()]}>{tytul}</Text>
   );
   return (
     <View testID={`${testID}-naglowek`} style={[styles.naglowek, duzy ? styles.naglowekStos : styles.naglowekRzad, style]}>
