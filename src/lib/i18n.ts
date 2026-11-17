@@ -108,8 +108,13 @@ function deviceLanguageTags(): string[] {
   }
 }
 
+/** Liczba wyborów języka w Ustawieniach w tej sesji (odróżnia wybór użytkownika od `setLang` ze startu). */
+let wyboryRecznie = 0;
+
 /** Start aplikacji: język z zapisu albo z systemu. Błąd odczytu zapisu nie blokuje startu. */
 export async function initLanguage(): Promise<void> {
+  // Wybór z Ustawień w trakcie odczytu (spóźniony odczyt po limicie startu, D-425) wygrywa z zapisem [KO-072, AC-03, D-427]
+  const wyboryPrzed = wyboryRecznie;
   let saved: string | undefined;
   try {
     const { getAppSetting } = settingsStore();
@@ -117,6 +122,7 @@ export async function initLanguage(): Promise<void> {
   } catch {
     saved = undefined;
   }
+  if (wyboryRecznie !== wyboryPrzed) return;
   setLang(resolveLanguage(saved, deviceLanguageTags()));
 }
 
@@ -130,6 +136,7 @@ export function ustawJezykSystemu(): void {
 
 /** Wybór użytkownika w Ustawieniach: zmiana od razu i zapis na kolejne uruchomienia. */
 export async function chooseLanguage(l: Lang): Promise<void> {
+  wyboryRecznie += 1;
   setLang(l);
   const { setAppSetting } = settingsStore();
   await setAppSetting(SETTING_KEY, l);
