@@ -14,13 +14,19 @@ import { useCofnijDokarmienie } from '../hooks/useCofnijDokarmienie';
 import { usePlanyDzis } from '../hooks/usePlanyDzis';
 import type { PlannedBake } from '../data/bake-sessions-store';
 import type { StoredStarter } from '../data/db';
-import { setLang } from '../lib/i18n';
+import { setLang, useLang } from '../lib/i18n';
 
 afterEach(() => setLang('pl'));
+
+// Stałe wywołania zwrotne (KO-073, AD-01): strzałki inline zmieniałyby tożsamość `przywroc` w każdym renderze i `useMemo` paska
+// przeliczałby się niezależnie od `jezyk`, więc test nie odróżniałby poprawki od jej braku. Ekran w aplikacji ma stałe wywołania.
+const NIC = () => undefined;
+const DOSTEP = (_f: unknown, fn: () => void) => fn();
 
 function zamontuj<T>(uzyj: () => T) {
   const wynik: { biezacy: T | null } = { biezacy: null };
   function Probka() {
+    useLang(); // komponent subskrybuje język jak ekran z `useEkranZPasem`; sam hook nie jest jedynym powodem przerysowania
     wynik.biezacy = uzyj();
     return null;
   }
@@ -34,7 +40,7 @@ function zamontuj<T>(uzyj: () => T) {
 describe('pasek „Cofnij” przelicza tekst po zmianie języka (AC-01, brzegowe)', () => {
   it('useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku', () => {
     setLang('pl');
-    const h = zamontuj(() => useCofnijDokarmienie(() => undefined));
+    const h = zamontuj(() => useCofnijDokarmienie(NIC));
     act(() => h.wynik().zapamietaj({ id: 'z1', name: 'Rysia' } as StoredStarter, 1000));
     expect(h.wynik().pasek?.tekst).toBe('Zapisano dokarmienie zakwasu Rysia.');
     act(() => setLang('en'));
@@ -45,7 +51,7 @@ describe('pasek „Cofnij” przelicza tekst po zmianie języka (AC-01, brzegowe
 
   it('usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku', async () => {
     setLang('pl');
-    const h = zamontuj(() => usePlanyDzis({ onZmiana: () => undefined, otworzWypiek: () => undefined, requireActionAccess: (_f, fn) => fn() }));
+    const h = zamontuj(() => usePlanyDzis({ onZmiana: NIC, otworzWypiek: NIC, requireActionAccess: DOSTEP }));
     await act(async () => {
       h.wynik().usun({ id: 'p1' } as PlannedBake);
       for (let i = 0; i < 10; i++) await Promise.resolve();

@@ -1,0 +1,21 @@
+# KO-073 AD-01: kontrola negatywna testu pasków Cofnij (stałe wywołania zwrotne + useLang w komponencie)
+# baza 7cca129e; każda mutacja cofnięta git checkout
+## zielony: kod bez mutacji
+    ✓ useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku (9 ms)
+    ✓ usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku (3 ms)
+Tests:       2 passed, 2 total
+## mutacja M1: useCofnijDokarmienie bez jezyk w zależnościach useMemo (filtr: useCofnijDokarmienie)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku (48 ms)
+Tests:       1 failed, 1 skipped, 2 total
+Updated 1 path from the index
+## mutacja M2: usePlanyDzis bez jezyk w zależnościach useMemo (filtr: usePlanyDzis)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+    ✕ usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku (55 ms)
+Tests:       1 failed, 1 skipped, 2 total
+Updated 1 path from the index
+## po cofnięciu
+    ✓ useCofnijDokarmienie: „Zapisano dokarmienie…” pl → en na widocznym pasku (9 ms)
+    ✓ usePlanyDzis: „Usunięto plan wypieku” pl → en na widocznym pasku (2 ms)
+Tests:       2 passed, 2 total
+## uwaga: pominięcie useLang() w Probka nie jest mierzone; hooki same wołają useLang(), więc przerysowanie zapewniają one, a test zależy od stałych wywołań
