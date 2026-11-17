@@ -33,3 +33,28 @@ exit=1
 Tests:       5 passed, 5 total
 exit=0
 
+=== AB-03 CZERWONY: nowe kontrole negatywne na starej regule strażnika (dowolna funkcja, brak zakazu typografia.krojTytulow) ===
+$ npx jest tests/kroj-tytulow-straznik-d423.test.ts --ci
+    ✓ brak `get fontFamily()` w app/ i src/ (2 ms)
+    ✓ krój tytułów czytany tylko w fabryce stylePoKroju (albo w funkcji z listy WYJATKI), nie przy ładowaniu modułu (1 ms)
+    ✓ statyczna stała `typografia.krojTytulow` tylko w src/ui/kroj-tytulow.ts
+      ✓ getter fontFamily (2 ms)
+      ✓ odczyt na poziomie modułu
+      ✕ arkusz z fabryki wywołany raz przy imporcie (AB-03 a) (1 ms)
+      ✕ statyczne typografia.krojTytulow w fabryce stylePoKroju (AB-03 b) (1 ms)
+      ✓ poprawna fabryka stylePoKroju nie jest błędem
+Tests:       2 failed, 6 passed, 8 total
+exit=1
+
+=== AB-03 ZIELONY: nowa reguła ===
+    ✓ brak `get fontFamily()` w app/ i src/ (3 ms)
+    ✓ krój tytułów czytany tylko w fabryce stylePoKroju (albo w funkcji z listy WYJATKI), nie przy ładowaniu modułu (1 ms)
+    ✓ statyczna stała `typografia.krojTytulow` tylko w src/ui/kroj-tytulow.ts (1 ms)
+      ✓ getter fontFamily (1 ms)
+      ✓ odczyt na poziomie modułu
+      ✓ arkusz z fabryki wywołany raz przy imporcie (AB-03 a)
+      ✓ statyczne typografia.krojTytulow w fabryce stylePoKroju (AB-03 b)
+      ✓ poprawna fabryka stylePoKroju nie jest błędem
+Tests:       8 passed, 8 total
+exit=0
+
