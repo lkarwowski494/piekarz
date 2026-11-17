@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 62 | 62 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 667 | 667 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 683 | 683 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 266 | 266 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 684 | 684 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 267 | 267 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1687** | Pokrytych: **1687** | Brakujących: **0**
+Łącznie elementów: **1689** | Pokrytych: **1689** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolejność wkładania` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/lib/__tests__/plan-maszyny-p9b2.test.ts, src/__tests__/maszyna-teksty-p9b2.test.ts |
 | `TEKST` | `płyny najpierw` | `src/components/receptury/DaneMaszynyKarta.tsx` | ✅ | src/__tests__/maszyna-teksty-p9b2.test.ts |
 
-*(... i 1387 kolejnych elementów w pełnym wykazie)*
+*(... i 1389 kolejnych elementów w pełnym wykazie)*
