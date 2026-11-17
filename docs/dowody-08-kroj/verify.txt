@@ -1,0 +1,33 @@
+# npm run verify, kod 0. SHA kodu: 3b589da3 (następny commit zmienia tylko docs/), 2026-11-17, Node v22.23.4
+# Ostatnie 30 linii wyniku:
+PASS tests/strona-jedno-zrodlo-174.test.ts
+PASS tests/opis-sklepu-631.test.ts
+PASS src/core/__tests__/priorytet-powiadomien-030.test.ts
+PASS src/core/__tests__/etap-zakladania.test.ts
+PASS src/core/__tests__/cel-powiadomienia-d3a.test.ts
+PASS src/lib/__tests__/recipe-navigation.test.ts
+PASS tests/kontrakt-ranking-064.test.ts
+PASS src/__tests__/nauka-bez-zrodla-146.test.ts
+PASS src/data/__tests__/starter-entry-row.test.ts
+PASS tests/strona-bez-protokolow-198.test.ts
+PASS src/lib/__tests__/plan-dzien-zalozony-tz.test.ts
+PASS tests/makiety-204.test.ts
+PASS src/lib/__tests__/db-path.test.ts
+PASS tests/workflow-pages-077.test.ts
+PASS tests/kontrakt-odlozone-065.test.ts
+PASS tests/kontrakt-zm.test.ts
+PASS src/core/__tests__/rytm-staly-dzien-d7.test.ts
+PASS tests/kontrakt-lista-odciec.test.ts
+PASS src/core/__tests__/lesson-no-health-claims.test.ts
+PASS tests/brioszka-tylko-brioszka-m2-012.test.ts
+PASS src/core/__tests__/sol-br-kalk-011.test.ts
+PASS tests/brd-opin-001-d067.test.ts
+PASS src/lib/__tests__/prosba-o-ocene-odlozona.test.ts
+PASS src/lib/__tests__/basic-tylko-rosnie-pa.test.ts
+
+Test Suites: 686 passed, 686 total
+Tests:       7586 passed, 7586 total
+Snapshots:   0 total
+Time:        237.508 s, estimated 254 s
+Ran all test suites.
+exit=0

@@ -1,0 +1,20 @@
+# Czerwony -> zielony, KO-070 / D-423 (SHA bazowy 9f523b96 -> kod 3b589da3), 2026-11-17
+
+## Czerwony na 9f523b96 (testy dopisane, kod bez poprawki); komenda: npx jest --ci <3 pliki>
+Wynik 1. przebiegu (wszystkie 3 pliki FAIL): Tests:       31 failed, 3 passed, 34 total
+Po poprawce selektora testu (pierwszy Text zamiast tekstu, bo t() zmienia napis): Tests:       23 failed, 1 passed, 24 total dla kroj-tytulow-system-d423
+
+Powody czerwieni (asercje, nie importy):
+- src/__tests__/start-jezyk-przed-ekranami-d423.test.tsx (6 jezykow ru/uk/vi/ja/ko/zh-Hant): expect(rendery).toBe(0), Received 1 -> ekrany rysowane przed initLanguage()
+- src/ui/__tests__/kroj-tytulow-system-d423.test.tsx (23 z 24): expect(flatten(stare).fontFamily).toBe('Sofia Sans Semi Condensed'), Received undefined -> getter daje nowy krój także starym stylom, natywny diff nie widzi zmiany
+- tests/kroj-tytulow-straznik-d423.test.ts: 'brak get fontFamily()' i 'krój tylko w funkcji' czerwone (73 getterów); kontrola negatywna zielona (strażnik rozpoznaje wzorzec)
+
+## Zielony na 3b589da3
+npx jest --ci src/ui src/__tests__/start tests/kroj-tytulow-straznik-d423.test.ts tests/duzy-tekst-kroj.test.ts -> 21 suites, 557 passed
+npm run verify -> 686 suites, 7586 tests passed, exit 0 (docs/dowody-08-kroj/verify.txt)
+
+## Stan wyjściowy (przed zmianami, npm test na 9f523b96 z moimi dopisanymi plikami testów w trakcie)
+681/682 suites; jedyny czerwony: tests/matrix-kolejnosc-plikow (docs/22 nieaktualny przez nowe pliki testów, naprawione matrix:update)
+
+## Grep po poprawce
+grep -rn 'get fontFamily' app src -> 5 trafień poza komentarzem
