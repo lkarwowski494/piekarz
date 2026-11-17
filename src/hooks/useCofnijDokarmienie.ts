@@ -10,7 +10,7 @@ import type { StoredStarter } from '../data/db';
 import { deleteStarterEntry } from '../data/starter-entries-store';
 import { resyncNotifications } from '../lib/notifications';
 import { guardSave } from '../lib/save-guard';
-import { t } from '../lib/i18n';
+import { t, useLang } from '../lib/i18n';
 
 interface DoCofniecia {
   starterId: string;
@@ -40,9 +40,11 @@ export function useCofnijDokarmienie(onPrzywrocono: (starterId: string) => Promi
       await onPrzywrocono(c.starterId);
     })();
   }, [cofnij, onPrzywrocono]);
+  // Język w zależnościach: tekst paska liczy t() [KO-072, AC-01, D-427]
+  const jezyk = useLang();
   const pasek = useMemo(
     () => (cofnij ? { tekst: t('Zapisano dokarmienie zakwasu {zakwas}.', { zakwas: cofnij.nazwa }), onPrzywroc: przywroc, onUkryj: ukryj } : null),
-    [cofnij, przywroc, ukryj]
+    [cofnij, przywroc, ukryj, jezyk]
   );
   return { zapamietaj, pasek };
 }

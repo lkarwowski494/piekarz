@@ -15,7 +15,7 @@ import { confirmLimitPlanow, confirmLimitWypiekow, confirmStartPrzyTrwajacym } f
 import { trwajaceWypieki, utrwalWypiekZPamieci } from '../lib/przerwij-wypiek';
 import { przywrocPlan, usunPlan, zacznijPlan } from '../lib/plany-akcje';
 import { guardSave } from '../lib/save-guard';
-import { t } from '../lib/i18n';
+import { t, useLang } from '../lib/i18n';
 import { etykietaPro } from '../lib/platnosci/nazwy-pro';
 import { useProPoArkuszu } from './useProPoArkuszu';
 
@@ -86,6 +86,8 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
     })();
   }, [usuniety, onZmiana]);
 
-  const cofnij = useMemo(() => (usuniety ? { tekst: t('Usunięto plan wypieku'), przywroc, ukryj } : null), [usuniety, przywroc, ukryj]);
+  // Język w zależnościach: tekst paska liczy t() [KO-072, AC-01, D-427]
+  const jezyk = useLang();
+  const cofnij = useMemo(() => (usuniety ? { tekst: t('Usunięto plan wypieku'), przywroc, ukryj } : null), [usuniety, przywroc, ukryj, jezyk]);
   return { otwarty, otworz: ustawOtwarty, zamknij, zacznij, usun, cofnij, pro, poZamknieciu };
 }
