@@ -1,0 +1,41 @@
+SHA kodu: 742d680105be7661f1f9eefd898d8b01d01530e0
+/tmp/claude-0/-home-user-piekarz/8560774d-282d-5ec1-9c83-85538678458f/scratchpad/ae/src/hooks/usePlanyDzis.ts
+  91:108  warning  React Hook useMemo has an unnecessary dependency: 'jezyk'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 5 problems (0 errors, 5 warnings)
+
+
+> piekarz@1.0.0 verify:native
+> node scripts/verify-native.mjs
+
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+
+> piekarz@1.0.0 verify:matrix
+> node scripts/test-matrix.mjs --check
+
+[test-matrix] Wyniki: 1689/1689 elementów (100%)
+
+> piekarz@1.0.0 test
+> jest
+
+(node:17960) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17953) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17954) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ● Console
+
+    console.log
+      005: 34 przypadków
+
+      at Object.log (src/__tests__/ostrzezenie-nad-karta-005.test.tsx:175:13)
+
+
+Test Suites: 696 passed, 696 total
+Tests:       7640 passed, 7640 total
+Snapshots:   0 total
+Time:        245.381 s
+Ran all test suites.
+VERIFY_EXIT=0
