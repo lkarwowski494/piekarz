@@ -1,0 +1,31 @@
+npm run verify na SHA fff5460c (kod wyjscia w ostatniej linii); ostatnie 30 linii:
+PASS src/lib/__tests__/corrupt-rescue.test.tsx
+PASS src/lib/__tests__/platnosci-hook.test.tsx
+PASS src/lib/__tests__/platnosci-stan.test.ts
+PASS tests/metadane-sklepu.test.ts
+PASS src/lib/__tests__/platnosci-start-c3-c6-c7.test.ts
+PASS src/lib/__tests__/miary-parametry-213.test.ts
+PASS src/lib/__tests__/kalendarz-akcje-d4b.test.ts
+PASS src/ui/__tests__/kontrast-motywu.test.ts
+PASS src/lib/__tests__/platnosci-dostep.test.ts
+PASS src/lib/__tests__/menu-receptury.test.ts
+PASS src/lib/__tests__/kalendarz-pasek-d4b.test.ts
+PASS src/ui/__tests__/naglowek-wariant-a1.test.tsx
+PASS src/lib/__tests__/kalendarz-widok-d7.test.ts
+PASS src/ui/__tests__/theme-contrast.test.ts
+PASS src/ui/__tests__/kroj-tytulow-cyrylica-137.test.ts
+PASS src/lib/__tests__/kalendarz-telefonu-d8.test.ts
+PASS src/ui/__tests__/tokeny-zgodnosc.test.ts
+PASS src/ui/__tests__/tokeny-karty-p1.test.ts
+PASS src/__tests__/pas-tytul-skala-w003.test.tsx
+PASS src/ui/__tests__/kroj-tytulow-zmiana-jezyka-d419.test.tsx
+PASS src/ui/__tests__/motyw.test.tsx
+PASS src/lib/__tests__/kalendarz-teksty-d4a.test.ts
+PASS src/lib/__tests__/db-path.test.ts
+
+Test Suites: 680 passed, 680 total
+Tests:       7541 passed, 7541 total
+Snapshots:   0 total
+Time:        227.215 s
+Ran all test suites.
+EXIT 0

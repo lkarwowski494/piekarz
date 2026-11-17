@@ -1,0 +1,7 @@
+Testy czerwony -> zielony (jest, kod z 98efd38b przed poprawką):
+D-418 tests/ramki-sklepu-podpisy.test.ts "en-US: podpis ramki 02 nie obiecuje gramów...": Received ["Grams for Every Ingredient"] -> PASS
+D-419 src/ui/__tests__/kroj-tytulow-zmiana-jezyka-d419.test.tsx (2 testy, PasZakladki i Karta): Expected "Sofia Sans Semi Condensed", Received undefined -> 2 passed
+D-420 src/lib/__tests__/kafle-start-dlugie-slowa-d420.test.ts nl: Received ["zuurdesemstarter"] -> 33 passed
+D-421 src/lib/__tests__/pasek-numer-dnia-d421.test.ts zh-Hant, ja, ko: Received "15日"/"15일" zamiast "15" -> 8 passed
+P1 (D-422): brak testu i poprawki, przyczyna niepotwierdzona.
+Zrzuty przed/po: przed w artefakcie sklep-zrzuty 14105289287; "po" po przebiegu zrzutów (koordynator).
