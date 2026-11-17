@@ -1,0 +1,27 @@
+npm run verify na SHA kodu c0efdb13e1d385c09cea128b9c805c9e34e365ec (gałąź naprawy/M2-koordynator-napraw-2026-11-17-kroj-ac), 2026-11-17
+Środowisko: Linux 6.18.44-fc-v553, node v22.23.4
+Kod wyjścia: 0
+
+> piekarz@1.0.0 verify
+> piekarz@1.0.0 typecheck
+> piekarz@1.0.0 check:i18n
+> piekarz@1.0.0 check:licenses
+[check:licenses] ✅ Wszystkie 30 zależności posiadają dozwolone licencje.
+> piekarz@1.0.0 check:licencje
+licencje: OK (559 pakietów, 7 bibliotek natywnych, 1 czcionek, 13 treści licencji)
+> piekarz@1.0.0 check:size
+check:size: 1500 plików, przekroczeń: 0
+> piekarz@1.0.0 lint
+✖ 2 problems (0 errors, 2 warnings)
+> piekarz@1.0.0 verify:native
+[verify-native] Sprawdzanie 20 niezmienników natywnego projektu iOS...
+[verify-native] ✅ Wszystkie 20 niezmienników natywnego projektu iOS spełnione!
+> piekarz@1.0.0 verify:matrix
+[test-matrix] Wyniki: 1689/1689 elementów (100%)
+> piekarz@1.0.0 test
+Test Suites: 691 passed, 691 total
+Tests:       7621 passed, 7621 total
+Snapshots:   0 total
+
+Ostrzeżenia lint (2, istniejące na 52c755c6): src/hooks/usePendingRecipeLoader.ts:34 (react-hooks/exhaustive-deps, 2x); 0 błędów.
+VERIFY_EXIT=0
